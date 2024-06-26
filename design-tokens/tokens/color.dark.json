@@ -48,7 +48,7 @@
       },
       "disabled": {
         "$type": "color",
-        "$value": "{TBD}",
+        "$value": "{base.color.white.opacity12}",
         "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
         "$extensions": {
           "com.figma": {
@@ -137,9 +137,54 @@
         }
       },
       "validation": {
+        "critical": {
+          "$type": "color",
+          "$value": "{base.color.red.800-Opacity30}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "info": {
           "$type": "color",
           "$value": "{base.color.blue.400-Opacity12}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "unknown": {
+          "$type": "color",
+          "$value": "{base.color.grey.1200}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "ok": {
+          "$type": "color",
+          "$value": "{base.color.green.500-Opacity30}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -166,11 +211,13 @@
               "codeSyntax": {}
             }
           }
-        },
-        "unknown": {
+        }
+      },
+      "primary": {
+        "hover": {
           "$type": "color",
           "$value": "{TBD}",
-          "$description": "",
+          "$description": "Hover color variant of the primary color.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -182,25 +229,10 @@
             }
           }
         },
-        "critical": {
+        "default": {
           "$type": "color",
-          "$value": "{base.color.red.800-Opacity30}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "ok": {
-          "$type": "color",
-          "$value": "{base.color.green.500-Opacity30}",
-          "$description": "",
+          "$value": "{base.color.green.600}",
+          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -233,38 +265,6 @@
           "$type": "color",
           "$value": "{base.color.green.1000}",
           "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        }
-      },
-      "primary": {
-        "default": {
-          "$type": "color",
-          "$value": "{base.color.green.600}",
-          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{TBD}",
-          "$description": "Hover color variant of the primary color.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -421,76 +421,6 @@
           }
         }
       },
-      "critical": {
-        "$type": "color",
-        "$value": "{TBD}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "TEXT_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "info": {
-        "$type": "color",
-        "$value": "{TBD}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "TEXT_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "ok": {
-        "$type": "color",
-        "$value": "{TBD}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "TEXT_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "warning": {
-        "$type": "color",
-        "$value": "{TBD}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "TEXT_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "unknown": {
-        "$type": "color",
-        "$value": "{TBD}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "TEXT_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
       "onPrimary": {
         "$type": "color",
         "$value": "{base.color.white.100}",
@@ -587,7 +517,7 @@
       },
       "disabled": {
         "$type": "color",
-        "$value": "{base.color.white.opacity12}",
+        "$value": "{base.color.white.opacity36}",
         "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
         "$extensions": {
           "com.figma": {

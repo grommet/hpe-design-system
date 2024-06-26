@@ -319,6 +319,12 @@ dimensionFiles.forEach(file => {
   esm += `export { default as ${mode} } from './dimension.${mode}';\n`;
 });
 
+fs.appendFile(`./${ESM_DIR}index.js`, esm, err => {
+  if (err) {
+    console.log(err);
+  }
+});
+
 // TO DO make dynamic
 const exclude = [
   'static',
@@ -340,30 +346,6 @@ StyleDictionary.extend({
     'dist/component.default.json',
   ],
   platforms: {
-    js: {
-      transformGroup: 'js/w3c',
-      buildPath: ESM_DIR,
-      prefix: PREFIX,
-      files: [
-        {
-          destination: 'components.js',
-          format: 'javascript/esm',
-          filter: token => !exclude.includes(token.attributes.category),
-        },
-      ],
-    },
-    json: {
-      transformGroup: 'js/w3c',
-      buildPath: JSON_DIR,
-      prefix: PREFIX,
-      files: [
-        {
-          destination: 'components.json',
-          format: 'json/nested',
-          filter: token => !exclude.includes(token.attributes.category),
-        },
-      ],
-    },
     css: {
       transformGroup: 'css/w3c',
       buildPath: CSS_DIR,
@@ -381,9 +363,5 @@ StyleDictionary.extend({
     },
   },
 }).buildAllPlatforms();
-
-esm += "export { default as components } from './components';\n";
-
-fs.writeFileSync(`./${ESM_DIR}index.js`, esm);
 
 console.log('✅ CSS, Javascript, and JSON files have been generated.');

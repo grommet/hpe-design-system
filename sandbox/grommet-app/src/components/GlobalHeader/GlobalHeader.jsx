@@ -14,15 +14,11 @@ import {
   DropButton,
 } from 'grommet';
 import { Down, User } from 'grommet-icons';
-import { base } from 'design-tokens';
+// import { base } from 'design-tokens';
 import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
 
-const StyledDown = styled(Down)`
-  transition: all ${base.motion.duration.short[3]}
-    ${base.motion.easing.simple.decelerate};
-  transform: ${props => (props.open ? 'rotate(180deg)' : 'rotate(0deg)')};
-  transform-origin: center;
-`;
+// TO DO fix animation once motion tokens are added
+const StyledDown = styled(Down)``;
 
 export const GlobalHeader = ({
   darkMode,

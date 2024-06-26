@@ -1,141 +1,136 @@
 import { hpe } from 'grommet-theme-hpe';
-import { css, keyframes } from 'styled-components';
-import { deepMerge } from 'grommet/utils';
 import {
-  dark,
-  light,
-  large,
-  small,
-  warmLight,
-  warmDark,
-  base,
-} from 'design-tokens';
+  css,
+  // keyframes
+} from 'styled-components';
+import { deepMerge } from 'grommet/utils';
+import { dark, light, large, small, components, base } from 'design-tokens';
 
 const dimensions = {
   borderSize: {
-    xsmall: large.border.xsmall,
-    small: large.border.small,
-    medium: large.border.medium,
-    large: large.border.large,
-    xlarge: large.border.xlarge,
+    xsmall: large.hpe.border.xsmall,
+    small: large.hpe.border.small,
+    medium: large.hpe.border.medium,
+    large: large.hpe.border.large,
+    xlarge: large.hpe.border.xlarge,
   },
   edgeSize: {
-    none: large.spacing.none,
-    hair: large.spacing.hair,
-    xxsmall: large.spacing.xxsmall,
-    xsmall: large.spacing.xsmall,
-    small: large.spacing.small,
-    medium: large.spacing.medium,
-    large: large.spacing.large,
-    xlarge: large.spacing.xlarge,
+    none: large.hpe.spacing.none,
+    hair: large.hpe.spacing.hair,
+    xxsmall: large.hpe.spacing.xxsmall,
+    xsmall: large.hpe.spacing.xsmall,
+    small: large.hpe.spacing.small,
+    medium: large.hpe.spacing.medium,
+    large: large.hpe.spacing.large,
+    xlarge: large.hpe.spacing.xlarge,
     responsiveBreakpoint: 'small',
   },
   size: {
-    xxsmall: large.content.xxsmall,
-    xsmall: large.content.xsmall,
-    small: large.content.small,
-    medium: large.content.medium,
-    large: large.content.large,
-    xlarge: large.content.xlarge,
-    xxlarge: large.content.xxlarge,
+    xxsmall: large.hpe.content.xxsmall,
+    xsmall: large.hpe.content.xsmall,
+    small: large.hpe.content.small,
+    medium: large.hpe.content.medium,
+    large: large.hpe.content.large,
+    xlarge: large.hpe.content.xlarge,
+    xxlarge: large.hpe.content.xxlarge,
     full: '100%',
   },
   breakpoints: {
     xsmall: {
       borderSize: {
-        xsmall: small.border.xsmall,
-        small: small.border.small,
-        medium: small.border.medium,
-        large: small.border.large,
-        xlarge: small.border.xlarge,
+        xsmall: small.hpe.border.xsmall,
+        small: small.hpe.border.small,
+        medium: small.hpe.border.medium,
+        large: small.hpe.border.large,
+        xlarge: small.hpe.border.xlarge,
       },
       edgeSize: {
-        none: small.spacing.none,
-        hair: small.spacing.hair,
-        xxsmall: small.spacing.xxsmall,
-        xsmall: small.spacing.xsmall,
-        small: small.spacing.small,
-        medium: small.spacing.medium,
-        large: small.spacing.large,
-        xlarge: small.spacing.xlarge,
+        none: small.hpe.spacing.none,
+        hair: small.hpe.spacing.hair,
+        xxsmall: small.hpe.spacing.xxsmall,
+        xsmall: small.hpe.spacing.xsmall,
+        small: small.hpe.spacing.small,
+        medium: small.hpe.spacing.medium,
+        large: small.hpe.spacing.large,
+        xlarge: small.hpe.spacing.xlarge,
         responsiveBreakpoint: 'small',
       },
       size: {
-        xxsmall: small.content.xxsmall,
-        xsmall: small.content.xsmall,
-        small: small.content.small,
-        medium: small.content.medium,
-        large: small.content.large,
-        xlarge: small.content.xlarge,
-        xxlarge: small.content.xxlarge,
+        xxsmall: small.hpe.content.xxsmall,
+        xsmall: small.hpe.content.xsmall,
+        small: small.hpe.content.small,
+        medium: small.hpe.content.medium,
+        large: small.hpe.content.large,
+        xlarge: small.hpe.content.xlarge,
+        xxlarge: small.hpe.content.xxlarge,
         full: '100%',
       },
     },
     small: {
       borderSize: {
-        xsmall: small.border.xsmall,
-        small: small.border.small,
-        medium: small.border.medium,
-        large: small.border.large,
-        xlarge: small.border.xlarge,
+        xsmall: small.hpe.border.xsmall,
+        small: small.hpe.border.small,
+        medium: small.hpe.border.medium,
+        large: small.hpe.border.large,
+        xlarge: small.hpe.border.xlarge,
       },
       edgeSize: {
-        none: small.spacing.none,
-        hair: small.spacing.hair,
-        xxsmall: small.spacing.xxsmall,
-        xsmall: small.spacing.xsmall,
-        small: small.spacing.small,
-        medium: small.spacing.medium,
-        large: small.spacing.large,
-        xlarge: small.spacing.xlarge,
+        none: small.hpe.spacing.none,
+        hair: small.hpe.spacing.hair,
+        xxsmall: small.hpe.spacing.xxsmall,
+        xsmall: small.hpe.spacing.xsmall,
+        small: small.hpe.spacing.small,
+        medium: small.hpe.spacing.medium,
+        large: small.hpe.spacing.large,
+        xlarge: small.hpe.spacing.xlarge,
         responsiveBreakpoint: 'small',
       },
       size: {
-        xxsmall: small.content.xxsmall,
-        xsmall: small.content.xsmall,
-        small: small.content.small,
-        medium: small.content.medium,
-        large: small.content.large,
-        xlarge: small.content.xlarge,
-        xxlarge: small.content.xxlarge,
+        xxsmall: small.hpe.content.xxsmall,
+        xsmall: small.hpe.content.xsmall,
+        small: small.hpe.content.small,
+        medium: small.hpe.content.medium,
+        large: small.hpe.content.large,
+        xlarge: small.hpe.content.xlarge,
+        xxlarge: small.hpe.content.xxlarge,
         full: '100%',
       },
     },
   },
 };
 
-const dropKeyFrames = keyframes`
-  0% {
-    opacity: 0;
-    transform: scale(1, 0.1);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1, 1);
-  }
-`;
+// const dropKeyFrames = keyframes`
+//   0% {
+//     opacity: 0;
+//     transform: scale(1, 0.1);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: scale(1, 1);
+//   }
+// `;
 
-const standardDrop = keyframes`
-  0% {
-    opacity: 0.5;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-`;
+// const standardDrop = keyframes`
+//   0% {
+//     opacity: 0.5;
+//     transform: scale(0.5);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+// `;
 
-const skeletonAnimation = keyframes`
-0% {
-  transform: translateX(-100%);
-}
-100% {
-  transform: translateX(100%);
-}
-`;
+// const skeletonAnimation = keyframes`
+// 0% {
+//   transform: translateX(-100%);
+// }
+// 100% {
+//   transform: translateX(100%);
+// }
+// `;
 
-const themeModeTransition = `background ${base.motion.duration[375]} ${base.motion.easing.simple.inOut}`;
+// const themeModeTransition = `background ${base.motion.duration[375]} ${base.motion.easing.simple.inOut}`;
 
 const buildTheme = tokens => {
   const [light, dark] = tokens;
@@ -144,201 +139,148 @@ const buildTheme = tokens => {
       ...dimensions,
       colors: {
         brand: {
-          dark: dark.color.brand,
-          light: light.color.brand,
+          dark: dark.hpe.color.brand,
+          light: light.hpe.color.brand,
         },
         primary: {
-          dark: dark.color.primary,
-          light: light.color.primary,
+          dark: dark.hpe.color.primary,
+          light: light.hpe.color.primary,
         },
         background: {
-          dark: dark.color.background.default,
-          light: light.color.background.default,
+          dark: dark.hpe.color.background.default,
+          light: light.hpe.color.background.default,
         },
         'background-back': {
-          dark: dark.color.background.back,
-          light: light.color.background.back,
+          dark: dark.hpe.color.background.back,
+          light: light.hpe.color.background.back,
         },
         'background-front': {
-          dark: dark.color.background.front,
-          light: light.color.background.front,
+          dark: dark.hpe.color.background.front,
+          light: light.hpe.color.background.front,
         },
         'background-contrast': {
-          dark: dark.color.background.contrast, // 6%
-          light: light.color.background.contrast,
+          dark: dark.hpe.color.background.contrast, // 6%
+          light: light.hpe.color.background.contrast,
         },
         'background-status-critical': {
-          dark: dark.color.background.status.critical, // 6%
-          light: light.color.background.status.critical,
+          dark: dark.hpe.color.background.validation.critical, // 6%
+          light: light.hpe.color.background.validation.critical,
         },
         'background-status-warning': {
-          dark: dark.color.background.status.warning, // 6%
-          light: light.color.background.status.warning,
+          dark: dark.hpe.color.background.validation.warning, // 6%
+          light: light.hpe.color.background.validation.warning,
         },
         'background-status-ok': {
-          dark: dark.color.background.status.ok, // 6%
-          light: light.color.background.status.ok,
+          dark: dark.hpe.color.background.validation.ok, // 6%
+          light: light.hpe.color.background.validation.ok,
         },
         'background-status-info': {
-          dark: dark.color.background.status.info, // 6%
-          light: light.color.background.status.info,
+          dark: dark.hpe.color.background.validation.info, // 6%
+          light: light.hpe.color.background.validation.info,
+        },
+        'background-primary-default': {
+          dark: dark.hpe.color.background.primary.default,
+          light: light.hpe.color.background.primary.default,
         },
         'active-background': {
-          dark: dark.color.background.active,
-          light: light.color.background.active,
+          dark: dark.hpe.color.background.active,
+          light: light.hpe.color.background.active,
         },
         text: {
-          dark: dark.color.text.default,
-          light: light.color.text.default,
+          dark: dark.hpe.color.text.default,
+          light: light.hpe.color.text.default,
         },
         'text-strong': {
-          dark: dark.color.text.strong,
-          light: light.color.text.strong,
+          dark: dark.hpe.color.text.strong,
+          light: light.hpe.color.text.strong,
         },
         'text-weak': {
-          dark: dark.color.text.weak,
-          light: light.color.text.weak,
+          dark: dark.hpe.color.text.weak,
+          light: light.hpe.color.text.weak,
         },
         'text-xweak': {
-          dark: dark.color.text.xweak,
-          light: light.color.text.xweak,
+          dark: dark.hpe.color.text.xweak,
+          light: light.hpe.color.text.xweak,
         },
         border: {
-          dark: dark.color.border.default,
-          light: light.color.border.default,
+          dark: dark.hpe.color.border.default,
+          light: light.hpe.color.border.default,
         },
         'border-strong': {
-          dark: dark.color.border.strong,
-          light: light.color.border.strong,
+          dark: dark.hpe.color.border.strong,
+          light: light.hpe.color.border.strong,
         },
         'border-weak': {
-          dark: dark.color.border.weak,
-          light: light.color.border.weak,
+          dark: dark.hpe.color.border.weak,
+          light: light.hpe.color.border.weak,
         },
         'selected-text': {
-          dark: dark.color.foreground.selected,
-          light: light.color.foreground.selected,
+          dark: dark.hpe.color.text.onPrimary,
+          light: light.hpe.color.text.onPrimary,
         },
         'status-critical': {
-          dark: dark.color.foreground.status.critical,
-          light: light.color.foreground.status.critical,
+          dark: dark.hpe.color.icon.critical,
+          light: light.hpe.color.icon.critical,
         },
         'status-warning': {
-          dark: dark.color.foreground.status.warning,
-          light: light.color.foreground.status.warning,
+          dark: dark.hpe.color.icon.warning,
+          light: light.hpe.color.icon.warning,
         },
         'status-ok': {
-          dark: dark.color.foreground.status.ok,
-          light: light.color.foreground.status.ok,
+          dark: dark.hpe.color.icon.ok,
+          light: light.hpe.color.icon.ok,
         },
         'status-unknown': {
-          dark: dark.color.foreground.status.unknown,
-          light: light.color.foreground.status.unknown,
+          dark: dark.hpe.color.icon.unknown,
+          light: light.hpe.color.icon.unknown,
         },
         'validation-critical': {
-          light: light.color.background.validation.critical,
-          dark: dark.color.background.validation.critical,
+          light: light.hpe.color.background.validation.critical,
+          dark: dark.hpe.color.background.validation.critical,
         },
         'validation-ok': {
-          light: light.color.background.validation.ok,
-          dark: dark.color.background.validation.ok,
+          light: light.hpe.color.background.validation.ok,
+          dark: dark.hpe.color.background.validation.ok,
         },
         'validation-warning': {
-          light: light.color.background.validation.warning,
-          dark: dark.color.background.validation.critical,
-        },
-        'chart-qualitative-10': {
-          light: light.color.chart.qualitative[10],
-          dark: dark.color.chart.qualitative[10],
-        },
-        'chart-qualitative-10-weak': {
-          light: light.color.chart.qualitative['10-secondary'],
-          dark: dark.color.chart.qualitative['10-secondary'],
-        },
-        'chart-qualitative-20': {
-          light: light.color.chart.qualitative[20],
-          dark: dark.color.chart.qualitative[20],
-        },
-        'chart-qualitative-20-weak': {
-          light: light.color.chart.qualitative['20-secondary'],
-          dark: dark.color.chart.qualitative['20-secondary'],
-        },
-        'chart-qualitative-30': {
-          light: light.color.chart.qualitative[30],
-          dark: dark.color.chart.qualitative[30],
-        },
-        'chart-qualitative-30-weak': {
-          light: light.color.chart.qualitative['30-secondary'],
-          dark: dark.color.chart.qualitative['30-secondary'],
-        },
-        'chart-qualitative-40': {
-          light: light.color.chart.qualitative[40],
-          dark: dark.color.chart.qualitative[40],
-        },
-        'chart-qualitative-40-weak': {
-          light: light.color.chart.qualitative['40-secondary'],
-          dark: dark.color.chart.qualitative['40-secondary'],
-        },
-        'chart-qualitative-50': {
-          light: light.color.chart.qualitative[50],
-          dark: dark.color.chart.qualitative[50],
-        },
-        'chart-qualitative-50-weak': {
-          light: light.color.chart.qualitative['50-secondary'],
-          dark: dark.color.chart.qualitative['50-secondary'],
-        },
-        'chart-qualitative-60': {
-          light: light.color.chart.qualitative[60],
-          dark: dark.color.chart.qualitative[60],
-        },
-        'chart-qualitative-60-weak': {
-          light: light.color.chart.qualitative['60-secondary'],
-          dark: dark.color.chart.qualitative['60-secondary'],
-        },
-        'chart-qualitative-70': {
-          light: light.color.chart.qualitative[70],
-          dark: dark.color.chart.qualitative[70],
-        },
-        'chart-qualitative-70-weak': {
-          light: light.color.chart.qualitative['70-secondary'],
-          dark: dark.color.chart.qualitative['70-secondary'],
+          light: light.hpe.color.background.validation.warning,
+          dark: dark.hpe.color.background.validation.critical,
         },
         'background-brand-default': {
-          light: light.color.background.brand.default,
-          dark: dark.color.background.brand.default,
+          light: light.hpe.color.background.primary.default,
+          dark: dark.hpe.color.background.primary.default,
         },
         'background-brand-weak': {
-          light: light.color.background.brand.weak,
-          dark: dark.color.background.brand.weak,
+          light: base.hpe.base.TBD,
+          dark: base.hpe.base.TBD,
         },
         'foreground-brand-default': {
-          light: light.color.foreground.brand.default,
-          dark: dark.color.foreground.brand.default,
+          light: base.hpe.base.TBD,
+          dark: base.hpe.base.TBD,
         },
         'foreground-status-critical': {
-          light: light.color.foreground.status.critical,
-          dark: dark.color.foreground.status.critical,
+          light: light.hpe.color.icon.critical,
+          dark: dark.hpe.color.icon.critical,
         },
         'foreground-status-warning': {
-          light: light.color.foreground.status.warning,
-          dark: dark.color.foreground.status.warning,
+          light: light.hpe.color.icon.warning,
+          dark: dark.hpe.color.icon.warning,
         },
         'foreground-status-ok': {
-          light: light.color.foreground.status.ok,
-          dark: dark.color.foreground.status.ok,
+          light: light.hpe.color.icon.ok,
+          dark: dark.hpe.color.icon.ok,
         },
         'foreground-status-info': {
-          light: light.color.foreground.status.info,
-          dark: dark.color.foreground.status.info,
+          light: light.hpe.color.icon.info,
+          dark: dark.hpe.color.icon.info,
         },
-
         'foreground-onBrand': {
-          light: light.color.foreground.onBrand,
-          dark: dark.color.foreground.onBrand,
+          light: base.hpe.base.TBD,
+          dark: base.hpe.base.TBD,
         },
         'button-secondary-border-default': {
-          light: light.color.button.secondary.border.default,
-          dark: dark.color.button.secondary.border.default,
+          light: base.hpe.base.TBD,
+          dark: base.hpe.base.TBD,
         },
         // TO DO do we want these as tokens?
         'background-layer-overlay': '#00000080',
@@ -352,44 +294,44 @@ const buildTheme = tokens => {
         'graph-2': 'purple!',
         'graph-3': 'yellow!',
         'graph-4': 'teal!',
-        // deprecated, does not support light and dark. use text-weak instead
+        // deprecated, does not support light and dark.hpe. use text-weak instead
         'status-disabled': '#CCCCCC',
         focus: 'teal!',
         placeholder: 'text-weak',
         'text-primary-button': '#FFFFFF',
         'background-cta-alternate': '#F2F2F2',
       },
-      elevation: {
-        light: {
-          small: `${light.elevation.small.offsetX} ${light.elevation.small.offsetY} ${light.elevation.small.blur} ${light.elevation.small.color}`,
-          medium: `${light.elevation.medium.offsetX} ${light.elevation.medium.offsetY} ${light.elevation.medium.blur} ${light.elevation.medium.color}`,
-          large: `${light.elevation.large.offsetX} ${light.elevation.large.offsetY} ${light.elevation.large.blur} ${light.elevation.large.color}`,
-        },
-      },
+      // elevation: {
+      //   light: {
+      //     small: `${light.elevation.small.offsetX} ${light.elevation.small.offsetY} ${light.elevation.small.blur} ${light.elevation.small.color}`,
+      //     medium: `${light.elevation.medium.offsetX} ${light.elevation.medium.offsetY} ${light.elevation.medium.blur} ${light.elevation.medium.color}`,
+      //     large: `${light.elevation.large.offsetX} ${light.elevation.large.offsetY} ${light.elevation.large.blur} ${light.elevation.large.color}`,
+      //   },
+      // },
       drop: {
-        extend: ({ animate }) =>
-          animate === 'select'
-            ? css`
-                animation: ${dropKeyFrames} ${base.motion.duration.short[3]}
-                  cubic-bezier(0, 0, 0.58, 1) forwards;
-                animation-delay: 0.01s;
-              `
-            : css`
-                animation: ${standardDrop} ${base.motion.duration.medium[1]}
-                  ${base.motion.easing.emphasized.decelerate} forwards;
-                animation-delay: 0.01s;
-              `,
+        // extend: ({ animate }) =>
+        //   animate === 'select'
+        //     ? css`
+        //         animation: ${dropKeyFrames} ${base.motion.duration.short[3]}
+        //           cubic-bezier(0, 0, 0.58, 1) forwards;
+        //         animation-delay: 0.01s;
+        //       `
+        //     : css`
+        //         animation: ${standardDrop} ${base.motion.duration.medium[1]}
+        //           ${base.motion.easing.emphasized.decelerate} forwards;
+        //         animation-delay: 0.01s;
+        //       `,
       },
     },
     box: {
-      extend: css`
-        transition: ${themeModeTransition};
-      `,
+      // extend: css`
+      //   transition: ${themeModeTransition};
+      // `,
     },
     grommet: {
-      extend: css`
-        transition: ${themeModeTransition};
-      `,
+      // extend: css`
+      //   transition: ${themeModeTransition};
+      // `,
     },
     anchor: {
       // extend: css`
@@ -403,10 +345,26 @@ const buildTheme = tokens => {
     },
     button: {
       secondary: {
+        background: components.hpe.button.secondary.enabled.background,
         border: {
-          color: 'button-secondary-border-default',
+          color: components.hpe.button.secondary.enabled.borderColor,
+        },
+        color: components.hpe.button.secondary.enabled.textColor,
+      },
+      size: {
+        medium: {
+          secondary: {
+            border: {
+              radius: components.hpe.button.medium.secondary.borderRadius,
+            },
+            pad: {
+              vertical: components.hpe.button.medium.secondary.paddingY,
+              horizontal: components.hpe.button.medium.secondary.paddingX,
+            },
+          },
         },
       },
+
       subtle: {
         background: 'background-contrast',
         color: 'text-strong',
@@ -426,31 +384,31 @@ const buildTheme = tokens => {
           background: 'background-front',
         },
       },
-      extend: `transition: background-color ${base.motion.duration.medium[2]} ${base.motion.easing.simple.default};`,
+      // extend: `transition: background-color ${base.motion.duration.medium[2]} ${base.motion.easing.simple.default};`,
     },
     card: {
       container: {
-        extend: css`
-          transition: border ${base.motion.duration.short[3]}
-              ${base.motion.easing.simple.decelerate},
-            box-shadow ${base.motion.duration.short[3]}
-              ${base.motion.easing.simple.default},
-            ${themeModeTransition};
+        // extend: css`
+        //   transition: border ${base.motion.duration.short[3]}
+        //       ${base.motion.easing.simple.decelerate},
+        //     box-shadow ${base.motion.duration.short[3]}
+        //       ${base.motion.easing.simple.default},
+        //     ${themeModeTransition};
 
-          svg[data-icon='dashboard'] {
-            transform: translateX(-100%);
-            opacity: 0;
-            transition: opacity ${base.motion.duration[240]}
-                ${base.motion.easing.simple.in},
-              transform ${base.motion.duration[240]}
-                ${base.motion.easing.simple.in};
-          }
+        //   svg[data-icon='dashboard'] {
+        //     transform: translateX(-100%);
+        //     opacity: 0;
+        //     transition: opacity ${base.motion.duration[240]}
+        //         ${base.motion.easing.simple.in},
+        //       transform ${base.motion.duration[240]}
+        //         ${base.motion.easing.simple.in};
+        //   }
 
-          &:hover svg[data-icon='dashboard'] {
-            transform: translateX(0%);
-            opacity: 1;
-          }
-        `,
+        //   &:hover svg[data-icon='dashboard'] {
+        //     transform: translateX(0%);
+        //     opacity: 1;
+        //   }
+        // `,
         elevation: 'small',
       },
       hover: {
@@ -472,17 +430,17 @@ const buildTheme = tokens => {
       },
       toggle: {
         knob: {
-          extend: ({ theme }) => `
-          box-shadow: ${
-            theme.global.elevation[theme.dark ? 'dark' : 'light'].small
-          };
-          border: 1px solid ${
-            theme.global.colors.border[theme.dark ? 'dark' : 'light']
-          };
-          transition: all ${base.motion.duration.short[3]} ${
-            base.motion.easing.simple.decelerate
-          };
-       `,
+          //     extend: ({ theme }) => `
+          //     box-shadow: ${
+          //       theme.global.elevation[theme.dark ? 'dark' : 'light'].small
+          //     };
+          //     border: 1px solid ${
+          //       theme.global.colors.border[theme.dark ? 'dark' : 'light']
+          //     };
+          //     transition: all ${base.motion.duration.short[3]} ${
+          //       base.motion.easing.simple.decelerate
+          //     };
+          //  `,
         },
       },
     },
@@ -505,67 +463,66 @@ const buildTheme = tokens => {
       },
     },
     skeleton: {
-      extend: css`
-        position: relative;
-        overflow: hidden;
-        border-radius: 2em;
-        background: ${props =>
-          props.theme.dark
-            ? dark.color?.skeleton?.background
-            : light.color?.skeleton?.background};
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-          background-image: linear-gradient(
-            120deg,
-            ${props =>
-              props.theme.dark
-                ? dark.gradient.skeleton
-                : light.gradient.skeleton}
-          );
-          transform: translateX(-100%);
-          animation-name: ${skeletonAnimation};
-          animation-duration: ${base.motion.duration[1750]};
-          animation-timing-function: ${base.motion.easing.simple.default};
-          animation-direction: normal;
-          animation-iteration-count: infinite;
-        }
-      `,
+      // extend: css`
+      //   position: relative;
+      //   overflow: hidden;
+      //   border-radius: 2em;
+      //   background: ${props =>
+      //     props.theme.dark
+      //       ? dark.hpe.color?.skeleton?.background
+      //       : light.hpe.color?.skeleton?.background};
+      //   &::before {
+      //     content: '';
+      //     position: absolute;
+      //     top: 0;
+      //     left: 0;
+      //     bottom: 0;
+      //     right: 0;
+      //     background-image: linear-gradient(
+      //       120deg,
+      //       ${props =>
+      //         props.theme.dark
+      //           ? dark.hpe.gradient.skeleton
+      //           : light.hpe.gradient.skeleton}
+      //     );
+      //     transform: translateX(-100%);
+      //     animation-name: ${skeletonAnimation};
+      //     animation-duration: ${base.motion.duration[1750]};
+      //     animation-timing-function: ${base.motion.easing.simple.default};
+      //     animation-direction: normal;
+      //     animation-iteration-count: infinite;
+      //   }
+      // `,
     },
     table: {
-      extend: css`
-        tbody th,
-        tbody td {
-          transition: padding-block ${base.motion.duration.medium[2]}
-            ${base.motion.easing.simple.decelerate};
-        }
-
-        &.compact tbody th,
-        &.compact tbody td {
-          padding-block: ${props => props.theme.global.edgeSize.xxsmall};
-        }
-
-        &.spacious tbody th,
-        &.spacious tbody td {
-          padding-block: ${props => props.theme.global.edgeSize.medium};
-        }
-      `,
+      // extend: css`
+      //   tbody th,
+      //   tbody td {
+      //     transition: padding-block ${base.motion.duration.medium[2]}
+      //       ${base.motion.easing.simple.decelerate};
+      //   }
+      //   &.compact tbody th,
+      //   &.compact tbody td {
+      //     padding-block: ${props => props.theme.global.edgeSize.xxsmall};
+      //   }
+      //   &.spacious tbody th,
+      //   &.spacious tbody td {
+      //     padding-block: ${props => props.theme.global.edgeSize.medium};
+      //   }
+      // `,
     },
     text: {
       // allow weight on large text to come through
       extend: ``,
     },
     tab: {
-      extend: `
-        transition: border ${base.motion.duration.short[1]} ${base.motion.easing.simple.default};
-      `,
+      // extend: `
+      //   transition: border ${base.motion.duration.short[1]} ${base.motion.easing.simple.default};
+      // `,
     },
   });
 };
 
 export const current = buildTheme([light, dark]);
-export const warm = buildTheme([warmLight, warmDark]);
+// TO DO add back "warm theme" once tokens
+export const warm = buildTheme([light, dark]);
