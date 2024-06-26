@@ -84,7 +84,7 @@ export const Layout = ({
     value => {
       const data = {
         values: {
-          QID1: parseInt(value.value['like-rating'], 10),
+          QID1: value.value['like-rating'] === 'like' ? 1 : 2,
           QID2_TEXT: value.value['text-area'],
           Q_URL: `https://design-system.hpe.design${router.route}`,
         },
