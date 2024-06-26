@@ -106,7 +106,7 @@ const components = JSON.parse(rawComponents);
 const dimensionComponents = numberToDimension(components, true);
 
 // currently used by style-dictionary. Figma Variables doesn't want units,
-// but code needs
+// but code needs them
 writeFileSync(
   './dist/primitives.base.json',
   `${JSON.stringify(dimensionPrimitives, null, 2)}`,
