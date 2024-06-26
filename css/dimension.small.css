@@ -1,0 +1,72 @@
+/**
+ * Do not edit directly
+ * Generated on Wed, 26 Jun 2024 22:36:33 GMT
+ */
+
+@media (max-width: 768px) {
+:root {
+  --hpe-heading-medium-h6-line-height: 0.75rem;
+  --hpe-heading-medium-h6-font-size: 0.75rem;
+  --hpe-heading-medium-h5-line-height: 0.75rem;
+  --hpe-heading-medium-h5-font-size: 0.75rem;
+  --hpe-heading-medium-h4-line-height: 0.75rem;
+  --hpe-heading-medium-h4-font-size: 0.75rem;
+  --hpe-heading-medium-h3-line-height: 1rem;
+  --hpe-heading-medium-h3-font-size: 1rem;
+  --hpe-heading-medium-h2-line-height: 1.25rem;
+  --hpe-heading-medium-h2-font-size: 1.25rem;
+  --hpe-heading-medium-h1-line-height: 1.5rem;
+  --hpe-heading-medium-h1-font-size: 1.5rem;
+  --hpe-radius-full: var(--hpe-base-dimension-76800);
+  --hpe-text-6xl-line-height: var(--hpe-static-font-height-6xl);
+  --hpe-text-6xl-font-size: var(--hpe-static-font-size-6xl);
+  --hpe-text-5xl-line-height: var(--hpe-static-font-height-5xl);
+  --hpe-text-5xl-font-size: var(--hpe-static-font-size-5xl);
+  --hpe-text-4xl-line-height: var(--hpe-static-font-height-4xl);
+  --hpe-text-4xl-font-size: var(--hpe-static-font-size-4xl);
+  --hpe-text-3xl-line-height: var(--hpe-static-font-height-3xl);
+  --hpe-text-3xl-font-size: var(--hpe-static-font-size-3xl);
+  --hpe-text-xxlarge-line-height: var(--hpe-static-font-height-xxlarge);
+  --hpe-text-xxlarge-font-size: var(--hpe-static-font-size-xxlarge);
+  --hpe-text-xlarge-line-height: var(--hpe-static-font-height-xlarge);
+  --hpe-text-xlarge-font-size: var(--hpe-static-font-size-xlarge);
+  --hpe-text-large-line-height: var(--hpe-static-font-height-large);
+  --hpe-text-large-font-size: var(--hpe-static-font-size-large);
+  --hpe-text-medium-line-height: var(--hpe-static-font-height-medium);
+  --hpe-text-medium-font-size: var(--hpe-static-font-size-medium);
+  --hpe-text-small-line-height: var(--hpe-static-font-height-small);
+  --hpe-text-small-font-size: var(--hpe-static-font-size-small);
+  --hpe-text-xsmall-line-height: var(--hpe-static-font-height-xsmall);
+  --hpe-text-xsmall-font-size: var(--hpe-static-font-size-xsmall);
+  --hpe-content-xxlarge: var(--hpe-static-content-xlarge);
+  --hpe-content-xlarge: var(--hpe-static-content-large);
+  --hpe-content-large: var(--hpe-static-content-medium);
+  --hpe-content-medium: var(--hpe-static-content-small);
+  --hpe-content-small: var(--hpe-static-content-xsmall);
+  --hpe-content-xsmall: var(--hpe-static-content-xxsmall);
+  --hpe-content-xxsmall: var(--hpe-static-content-xxsmall);
+  --hpe-border-default: var(--hpe-static-border-xsmall);
+  --hpe-border-xlarge: var(--hpe-static-border-large);
+  --hpe-border-large: var(--hpe-static-border-medium);
+  --hpe-border-medium: var(--hpe-static-border-small);
+  --hpe-border-small: var(--hpe-static-border-xsmall);
+  --hpe-border-xsmall: var(--hpe-static-border-xsmall);
+  --hpe-border-none: var(--hpe-static-border-none);
+  --hpe-radius-xlarge: var(--hpe-static-radius-large);
+  --hpe-radius-large: var(--hpe-static-radius-medium);
+  --hpe-radius-medium: var(--hpe-static-radius-small);
+  --hpe-radius-small: var(--hpe-static-radius-xsmall);
+  --hpe-radius-xsmall: var(--hpe-static-radius-xxsmall);
+  --hpe-radius-xxsmall: var(--hpe-static-radius-hair);
+  --hpe-radius-hair: var(--hpe-static-radius-hair);
+  --hpe-radius-none: var(--hpe-static-radius-none);
+  --hpe-spacing-xlarge: var(--hpe-static-spacing-large);
+  --hpe-spacing-large: var(--hpe-static-spacing-medium);
+  --hpe-spacing-medium: var(--hpe-static-spacing-small);
+  --hpe-spacing-small: var(--hpe-static-spacing-xsmall);
+  --hpe-spacing-xsmall: var(--hpe-static-spacing-xxsmall);
+  --hpe-spacing-xxsmall: var(--hpe-static-spacing-xxsmall);
+  --hpe-spacing-hair: var(--hpe-static-spacing-hair);
+  --hpe-spacing-none: var(--hpe-static-spacing-none);
+}
+}

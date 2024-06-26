@@ -1,0 +1,94 @@
+/**
+ * Do not edit directly
+ * Generated on Wed, 26 Jun 2024 22:36:32 GMT
+ */
+
+export default {
+  hpe: {
+    color: {
+      background: {
+        default: "#1c1c1c",
+        hover: "#ffffff0f",
+        active: "#ffffff0f",
+        disabled: "#ffffff1f",
+        back: "#1c1c1c",
+        front: "#222222",
+        raised: "#00ff0a00",
+        floating: "#00ff0a00",
+        contrast: "#ffffff0f",
+        validation: {
+          critical: "#cc1f1a4d",
+          info: "#00c8ff1f",
+          unknown: "#222222",
+          ok: "#17d0a64d",
+          warning: "#fec9011f",
+        },
+        primary: {
+          hover: "#00ff0a00",
+          default: "#01a982",
+        },
+        selected: {
+          strong: "#01a982",
+          weak: "#093a2f",
+        },
+      },
+      border: {
+        strong: "#ffffffb8",
+        default: "#ffffff5c",
+        weak: "#ffffff1f",
+        disabled: "#ffffff33",
+        selected: "#01a982",
+      },
+      text: {
+        default: "#ffffff",
+        strong: "#ffffff",
+        weak: "#ffffff80",
+        xweak: "#ffffff33",
+        disabled: "#00ff0a00",
+        onPrimary: "#ffffff",
+        brand: "#01a982",
+      },
+      icon: {
+        default: "#ffffff",
+        strong: "#ffffff",
+        weak: "#ffffff80",
+        xweak: "#ffffff33",
+        disabled: "#ffffff5c",
+        critical: "#d04f4e",
+        info: "#00739d",
+        ok: "#008567",
+        warning: "#9b6310",
+        unknown: "#555555",
+        onPrimary: "#ffffff",
+        brand: "#01a982",
+      },
+      decorative: {
+        green: "#008567",
+        purple: "#6633bc",
+        turquoise: "#117b82",
+        blue: "#00739d",
+        red: "#a2423d",
+        orange: "#9b6310",
+        yellow: "#8d741c",
+      },
+      dataVis: {
+        categorical: {
+          "10": "#00ff0a00",
+          "20": "#00ff0a00",
+          "30": "#00ff0a00",
+          "40": "#00ff0a00",
+          "50": "#00ff0a00",
+          "60": "#00ff0a00",
+          "70": "#00ff0a00",
+          "10Weak": "#00ff0a00",
+          "20Weak": "#00ff0a00",
+          "30weak": "#00ff0a00",
+          "40Weak": "#00ff0a00",
+          "50Weak": "#00ff0a00",
+          "60Weak": "#00ff0a00",
+          "70Weak": "#00ff0a00",
+        },
+      },
+    },
+  },
+};

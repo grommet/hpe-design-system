@@ -1,43 +1,44 @@
 {
-  "name": "aries",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/grommet/hpe-design-system.git"
-  },
-  "bugs": {
-    "url": "https://github.com/grommet/hpe-design-system/issues"
-  },
-  "devDependencies": {
-    "@babel/eslint-parser": "^7.19.1",
-    "@babel/preset-react": "^7.18.6",
-    "eslint": "^8.30.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-grommet": "https://github.com/grommet/eslint-plugin-grommet/tarball/stable",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx": "^0.1.0",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.11",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "jest": "^27.5.1",
-    "prettier": "^2.8.8",
-    "husky": "^8.0.0"
-  },
-  "workspaces": [
-    "aries-core",
-    "aries-site"
-  ],
-  "dependencies": {
-    "grommet": "https://github.com/grommet/grommet/tarball/stable",
-    "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
-    "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "styled-components": "^5.3.11"
+  "name": "design-tokens",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/esm/index.js",
+  "exports": {
+    ".": "./esm/index.js",
+    "./esm-unresolved": "./esm-unresolved/index.js",
+    "./css/*.css": {
+      "import": "./css/*.css",
+      "require": "./css/*.css"
+    },
+    "./tailwind/*.js": {
+      "import": "./tailwind/*.js",
+      "require": "./tailwind/*.js"
+    },
+    "./tree": "./tree/index.js"
   },
   "scripts": {
-    "prepare": "husky install"
+    "prettier:check": "prettier --check src/",
+    "sync-tokens-to-figma": "ts-node-esm -P tsconfig.json src/sync_tokens_to_figma.ts",
+    "sync-figma-to-tokens": "ts-node-esm -P tsconfig.json src/sync_figma_to_tokens.ts",
+    "build-style-dictionary": "node src/build-style-dictionary.js",
+    "build-token-tree": "node src/build-token-tree.js",
+    "build": "rm -rf ./dist && node src/build.js && yarn build-style-dictionary && yarn build-token-tree",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "sd-tailwindcss-transformer": "^1.4.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.5",
+    "jest": "^29.6.2",
+    "prettier": "3.0.0",
+    "style-dictionary": "^3.9.2",
+    "style-dictionary-utils": "^2.0.7",
+    "ts-jest": "^29.1.1"
   }
 }
