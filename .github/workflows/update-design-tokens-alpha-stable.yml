@@ -28,7 +28,10 @@ jobs:
         working-directory: design-tokens
         
       - name: Update design-tokens-alpha-stable
-        run: yarn release-stable
+        run: |
+          git config --global user.name "Grommet Community Bot"
+          git config --global user.email "grommet@hpe.com"
+          yarn release-stable
         working-directory: design-tokens
         env:
           GH_TOKEN: ${{ secrets.GH_ACTION_ACCESS_TOKEN }}
