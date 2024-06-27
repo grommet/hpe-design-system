@@ -2414,7 +2414,7 @@ export default {
   "default": {
     "archived.button.medium.default.paddingX": {
       "$type": "number",
-      "$value": 18,
+      "$value": 16,
       "$description": "",
       "$extensions": {
         "com.figma": {

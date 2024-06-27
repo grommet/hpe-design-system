@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 27 Jun 2024 00:11:21 GMT
+ * Generated on Thu, 27 Jun 2024 21:26:03 GMT
  */
 
 :root {
@@ -62,7 +62,7 @@
   --hpe-archived-button-medium-default-enabled-padding-x: 18px;
   --hpe-archived-button-medium-default-font-size: 1.1875rem;
   --hpe-archived-button-medium-default-border-radius: 1000px;
-  --hpe-archived-button-medium-default-padding-x: 18px;
+  --hpe-archived-button-medium-default-padding-x: 16px;
   --hpe-test-switch-hover-knob-background: var(--hpe-test-checkbox-enabled-check-background);
   --hpe-test-switch-hover-background: var(--hpe-test-checkbox-enabled-background);
   --hpe-test-switch-medium-knob-width: var(--hpe-base-dimension-600);

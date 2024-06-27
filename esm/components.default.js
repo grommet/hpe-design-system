@@ -4,7 +4,7 @@ export default {
       "button": {
         "medium": {
           "default": {
-            "paddingX": "18px",
+            "paddingX": "16px",
             "paddingY": "4px",
             "borderRadius": "1000px",
             "borderWidth": "2px",
@@ -54,7 +54,7 @@ export default {
             }
           },
           "primary": {
-            "paddingX": "18px",
+            "paddingX": "16px",
             "paddingY": "4px",
             "borderRadius": "1000px",
             "borderWidth": "2px",
@@ -104,7 +104,7 @@ export default {
             }
           },
           "secondary": {
-            "paddingX": "18px",
+            "paddingX": "16px",
             "paddingY": "4px",
             "borderRadius": "1000px",
             "borderWidth": "2px",

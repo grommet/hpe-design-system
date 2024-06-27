@@ -5,7 +5,7 @@
         "default": {
           "paddingX": {
             "$type": "dimension",
-            "$value": "18px",
+            "$value": "16px",
             "$description": "",
             "$extensions": {
               "com.figma": {
