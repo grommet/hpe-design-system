@@ -28,7 +28,7 @@ jobs:
         working-directory: design-tokens
         
       - name: Update design-tokens-alpha-stable
-        run: yarn sync-tokens-to-figma
+        run: yarn release-stable
         working-directory: design-tokens
         env:
           GH_TOKEN: ${{ secrets.GH_ACTION_ACCESS_TOKEN }}
