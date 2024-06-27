@@ -21,10 +21,10 @@ import {
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
+  ToggleGroupPreview,
   DataHowTo,
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
-import { StackExample } from '../../examples/components/layouts';
 import { TagPreview } from '../../examples/cardPreviews/tag';
 
 export const components = [
@@ -1285,14 +1285,13 @@ export const components = [
       'State v.s. Status',
       'Notification Systems',
       'Toast Notification',
-      'Global Banner Notification',
+      'Global notifications',
     ],
     relatedContent: [
       'Status indicator',
       'Toast notifications',
-      'Global banner notifications',
+      'Global notifications',
       'Inline notifications',
-      'Stack',
     ],
     tags: [
       'banner',
@@ -1395,20 +1394,6 @@ export const components = [
     ],
   },
   {
-    name: 'Stack',
-    category: 'Layouts',
-    description:
-      'A Stack component is a container that stacks content on top of each other.',
-    preview: {
-      component: () => <StackExample />,
-      background: 'background-front',
-    },
-    seoDescription:
-      'A Stack component is a container that stacks content on top of each other. See HPE styling and example code.',
-    sections: [],
-    tags: ['containers', 'layers', 'z-index'],
-  },
-  {
     name: 'Spinner',
     category: 'Visualizations',
     description:
@@ -1466,7 +1451,7 @@ export const components = [
     name: 'Skeleton',
     category: 'Visualizations',
     description:
-      'Skeletons act as placeholder previews for UI elements so that users are provided with a structure of a loading page. This helps users to anticipate where and what types of content are loading.',
+      'Skeletons are simplified placeholders mimicking the layout of content to be loaded, providing users with a visual preview while reducing perceived loading time.',
     preview: {
       component: () => <SkeletonPreview />,
       background: 'background-front',
@@ -1758,6 +1743,20 @@ export const components = [
     },
     seoDescription:
       'A wrapper component to enable turn-key presentation and management of data collections.',
+    sections: [],
+    relatedContent: [],
+  },
+  {
+    name: 'ToggleGroup',
+    available: true,
+    category: 'Controls',
+    description:
+      'A group of related buttons that enable the user to toggle one or more options on or off.',
+    preview: {
+      component: () => <ToggleGroupPreview />,
+    },
+    seoDescription:
+      'A group of related buttons that enable the user to toggle one or more options on or off.',
     sections: [],
     relatedContent: [],
   },
