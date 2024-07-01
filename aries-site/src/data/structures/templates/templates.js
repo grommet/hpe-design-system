@@ -227,14 +227,16 @@ export const templates = [
     name: 'Selector',
     available: true,
     cardOrder: 4,
-    description: `A selection control for use cases where the options should
-       have high visual prominence.`,
+    description: `A selection control that allows users to choose one or
+    more related options to access information, filter, make selections
+    or take actions.`,
     preview: {
       component: () => <SelectorPreview />,
       background: 'background-front',
     },
-    seoDescription: `A selection control for use cases where the option should
-    have high visual prominence.`,
+    seoDescription: `A selection control that allows users to choose one or
+    more related options to access information, filter, make selections or
+    take actions.`,
     relatedContent: [
       'RadioButtonGroup',
       'CheckBoxGroup',
