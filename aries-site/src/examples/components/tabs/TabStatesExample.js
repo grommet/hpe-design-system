@@ -17,9 +17,6 @@ export const TabStatesExample = () => {
       <Tab title={index === 2 ? 'Active' : 'Enabled'}>
         <TabContent>The third tab is active.</TabContent>
       </Tab>
-      <Tab title="Disabled" disabled>
-        <TabContent>This tab is disabled.</TabContent>
-      </Tab>
     </Tabs>
   );
 };
