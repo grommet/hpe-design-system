@@ -21,9 +21,11 @@ import {
   <SimpleSelector />
 </Example>
 
-## Use case examples
+## Use cases
 
-### Quick filter
+### Quick Filtering
+
+Enables users to filter data based on high-level visual options to narrow down datasets within tables and list. Making it quickly recognizable, based on specific criteria, enhancing efficiency and usability.
 
 <Example
   figma="TBD"
@@ -38,7 +40,9 @@ import {
   <QuickFilter />
 </Example>
 
-### Support
+### Quick option selection
+
+Helps users quickly navigate through choices, ensuring they find the relevant options with ease.
 
 <Example
   code=""
@@ -51,6 +55,34 @@ import {
 >
   <SupportSelector />
 </Example>
+
+## Anatomy
+
+
+| Label | Region                  | Purpose                                                      | Required | Notes                                                   |
+| :---: | --------------------    | ------------------------------------------------------------ | :------: | ------------------------------------------------------- |
+| **1** | **Title**               | Heading providing context to the options available.          | Optional | Titles should use a Heading of the correct semantic heading level based on where the selector is in the document. |
+| **2** | **Description**         | Brief explanation or additional information about the choices.| Optional |    --                                                  |
+| **3** | **Counter of Items**    | Displays number of items available for selection.            | Optional | -- |
+| **4** | **Icon**                | Visual aid to represent the category or type of selection.   | Optional | a11yTitle required. |
+| **5** | **Selector Indicator**  | Visual cue (such as a checkmark or highlight) to denote selected items. | Optional | aria-label required. |
+
+## Types
+
+### Single select
+
+Users can select only one option at a time. Ideal for scenarios where only one choice is allowed.
+
+### Multiple select
+
+Users can select multiple options simultaneously. Useful for filtering or multi-choice settings.
+
+## Accessibility
+
+| Key                   | Interaction                                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Tab**               | Used to navigate to the Selector group, and elements within the container. |                                                                                       |
+| **Space/Enter**       | Selects button with focus.  
 
 ### TEMP Kitchen Sink
 
