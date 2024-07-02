@@ -228,15 +228,13 @@ export const templates = [
     available: true,
     cardOrder: 4,
     description: `A selection control that allows users to choose one or
-    more related options to access information, filter, make selections
-    or take actions.`,
+    more related options to access information, filter, and make selections.`,
     preview: {
       component: () => <SelectorPreview />,
       background: 'background-front',
     },
     seoDescription: `A selection control that allows users to choose one or
-    more related options to access information, filter, make selections or
-    take actions.`,
+    more related options to access information, filter, and make selections`,
     relatedContent: [
       'RadioButtonGroup',
       'CheckBoxGroup',
