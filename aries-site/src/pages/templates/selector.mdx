@@ -1,0 +1,93 @@
+import { Notification } from 'grommet';
+import { ShareRounded } from 'grommet-icons';
+import { Example } from '../../layouts';
+import {
+  SimpleSelector,
+  QuickFilter,
+  SupportSelector,
+  TEMP,
+} from '../../examples';
+
+<Example
+  figma="TBD"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/selector/SimpleSelector.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/core/Selector/Selector.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/core/Selector/SelectorGroup.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-core/src/js/components/core/Selector"
+  width="100%"
+>
+  <SimpleSelector />
+</Example>
+
+## Use cases
+
+### Quick Filtering
+
+Enables users to filter data based on high-level visual options to narrow down datasets within tables and lists.
+
+<Example
+  figma="TBD"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/selector/QuickFilter.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/core/Selector/Selector.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/core/Selector/SelectorGroup.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-core/src/js/components/core/Selector"
+  width="100%"
+>
+  <QuickFilter />
+</Example>
+
+### Quick option selection
+
+Enables users to quickly navigate through choices, ensuring they find the relevant options with ease.
+
+<Example
+  code=""
+  height={{ min: 'small' }}
+  width="100%"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/selector/SupportSelector.js',
+  ]}
+  github="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/selector/SupportSelector.js"
+>
+  <SupportSelector />
+</Example>
+
+## Anatomy
+
+
+| Label | Region                  | Purpose                                                      | Required | Notes                                                   |
+| :---: | --------------------    | ------------------------------------------------------------ | :------: | ------------------------------------------------------- |
+| **1** | **Title**               | Heading providing context to the options available.          | Optional | Titles should use a Heading of the correct semantic heading level based on where the selector is in the document. |
+| **2** | **Description**         | Brief explanation or additional information about the choices.| Optional |    --                                                  |
+| **3** | **Counter of Items**    | Displays number of items available for selection.            | Optional | -- |
+| **4** | **Icon**                | Visual aid to represent the category or type of selection.   | Optional | a11yTitle required. |
+| **5** | **Selector Indicator**  | Visual cue (such as a checkmark or highlight) to denote selected items. | Optional | aria-label required. |
+
+## Types
+
+### Single select
+
+Users can select only one option at a time. Ideal for scenarios where only one choice is allowed.
+
+### Multiple select
+
+Users can select multiple options simultaneously. Useful for filtering or multi-choice settings.
+
+## Accessibility
+
+| Key                   | Interaction                                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Tab**               | Used to navigate to the Selector group, and elements within the container. |                                                                                       |
+| **Space/Enter**       | Selects button with focus.  
+
+### TEMP Kitchen Sink
+
+This is just for testing/review.
+
+<Example code="" height={{ min: 'small' }} width="100%">
+  <TEMP />
+</Example>

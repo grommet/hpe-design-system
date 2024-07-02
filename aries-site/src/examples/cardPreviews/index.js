@@ -22,6 +22,7 @@ export * from './page-layouts';
 export * from './radiobuttonGroup';
 export * from './rangeinput';
 export * from './SearchPreview';
+export * from './selector';
 export * from './skeleton';
 export * from './status-indicator';
 export * from './tabs';
