@@ -466,6 +466,10 @@ export default {
       },
       "usedBy": [
         {
+          "name": "button.secondary.disabled.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "button.toolbar.disabled.borderColor",
           "mode": "default"
         },
@@ -1688,6 +1692,10 @@ export default {
         }
       },
       "usedBy": [
+        {
+          "name": "button.secondary.disabled.borderColor",
+          "mode": "default"
+        },
         {
           "name": "button.toolbar.disabled.borderColor",
           "mode": "default"
@@ -4932,7 +4940,7 @@ export default {
     },
     "button.secondary.disabled.borderColor": {
       "$type": "color",
-      "$value": "{button.default.enabled.borderColor}",
+      "$value": "{color.border.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5184,7 +5192,7 @@ export default {
     },
     "button.primary.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{base.font.weight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {

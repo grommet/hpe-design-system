@@ -239,7 +239,7 @@ export default {
         },
         "disabled": {
           "background": "#00000000",
-          "borderColor": "#00000000",
+          "borderColor": "border-disabled",
           "textColor": "text-disabled",
           "iconColor": "icon-disabled",
           "fontWeight": 600
@@ -265,7 +265,7 @@ export default {
           "borderColor": "#00000000",
           "textColor": "text-onPrimary",
           "iconColor": "icon-onPrimary",
-          "fontWeight": 600
+          "fontWeight": 700
         },
         "disabled": {
           "background": "background-disabled",

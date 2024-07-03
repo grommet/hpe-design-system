@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Jul 2024 22:49:05 GMT
+ * Generated on Wed, 03 Jul 2024 23:02:03 GMT
  */
 
 :root {
@@ -188,12 +188,12 @@
   --hpe-button-primary-selected-border-color: var(--hpe-button-default-enabled-border-color);
   --hpe-button-primary-selected-background: var(--hpe-button-default-enabled-background);
   --hpe-button-primary-disabled-border-color: var(--hpe-button-default-enabled-border-color);
+  --hpe-button-primary-enabled-font-weight: var(--hpe-base-font-weight-bold);
   --hpe-button-primary-enabled-border-color: var(--hpe-button-default-enabled-border-color);
   --hpe-button-secondary-selected-border-color: var(--hpe-button-default-enabled-border-color);
   --hpe-button-secondary-selected-background: var(--hpe-button-default-enabled-background);
   --hpe-button-secondary-hover-border-color: var(--hpe-base-color-green-700);
   --hpe-button-secondary-hover-background: var(--hpe-button-default-enabled-background);
-  --hpe-button-secondary-disabled-border-color: var(--hpe-button-default-enabled-border-color);
   --hpe-button-secondary-enabled-background: var(--hpe-button-default-enabled-background);
   --hpe-button-default-hover-border-color: var(--hpe-button-default-enabled-border-color);
   --hpe-button-default-disabled-border-color: var(--hpe-button-default-enabled-border-color);
@@ -372,7 +372,6 @@
   --hpe-button-primary-disabled-icon-color: var(--hpe-color-icon-disabled);
   --hpe-button-primary-disabled-text-color: var(--hpe-color-text-disabled);
   --hpe-button-primary-disabled-background: var(--hpe-color-background-disabled);
-  --hpe-button-primary-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-primary-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-button-primary-enabled-text-color: var(--hpe-color-text-on-primary);
   --hpe-button-primary-enabled-background: var(--hpe-color-background-primary-default);
@@ -381,6 +380,7 @@
   --hpe-button-secondary-disabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-secondary-disabled-icon-color: var(--hpe-color-icon-disabled);
   --hpe-button-secondary-disabled-text-color: var(--hpe-color-text-disabled);
+  --hpe-button-secondary-disabled-border-color: var(--hpe-color-border-disabled);
   --hpe-button-secondary-disabled-background: var(--hpe-button-secondary-enabled-background);
   --hpe-button-secondary-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-secondary-enabled-border-color: var(--hpe-color-background-primary-default);
