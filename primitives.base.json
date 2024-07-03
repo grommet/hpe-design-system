@@ -1442,6 +1442,38 @@
             }
           }
         }
+      },
+      "height": {
+        "100": {
+          "$type": "dimension",
+          "$value": "0rem",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "size": {
+        "100": {
+          "$type": "dimension",
+          "$value": "0rem",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        }
       }
     },
     "breakpoint": {

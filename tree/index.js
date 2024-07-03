@@ -466,6 +466,10 @@ export default {
       },
       "usedBy": [
         {
+          "name": "button.toolbar.disabled.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "test.input.fieldContainer.disabled.borderColor",
           "mode": "default"
         }
@@ -622,7 +626,19 @@ export default {
       },
       "usedBy": [
         {
+          "name": "button.default.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.disabled.textColor",
+          "mode": "default"
+        },
+        {
           "name": "button.primary.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.textColor",
           "mode": "default"
         },
         {
@@ -764,7 +780,19 @@ export default {
       },
       "usedBy": [
         {
+          "name": "button.default.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.disabled.iconColor",
+          "mode": "default"
+        },
+        {
           "name": "button.primary.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.iconColor",
           "mode": "default"
         }
       ]
@@ -1661,6 +1689,10 @@ export default {
       },
       "usedBy": [
         {
+          "name": "button.toolbar.disabled.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "test.input.fieldContainer.disabled.borderColor",
           "mode": "default"
         }
@@ -1817,7 +1849,19 @@ export default {
       },
       "usedBy": [
         {
+          "name": "button.default.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.disabled.textColor",
+          "mode": "default"
+        },
+        {
           "name": "button.primary.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.textColor",
           "mode": "default"
         },
         {
@@ -1959,7 +2003,19 @@ export default {
       },
       "usedBy": [
         {
+          "name": "button.default.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.disabled.iconColor",
+          "mode": "default"
+        },
+        {
           "name": "button.primary.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.iconColor",
           "mode": "default"
         }
       ]
@@ -4610,7 +4666,7 @@ export default {
     },
     "button.default.disabled.textColor": {
       "$type": "color",
-      "$value": "{button.default.enabled.textColor}",
+      "$value": "{color.text.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4624,7 +4680,7 @@ export default {
     },
     "button.default.disabled.iconColor": {
       "$type": "color",
-      "$value": "{button.default.enabled.iconColor}",
+      "$value": "{color.icon.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4862,7 +4918,7 @@ export default {
     },
     "button.secondary.disabled.background": {
       "$type": "color",
-      "$value": "{button.default.enabled.background}",
+      "$value": "{button.secondary.enabled.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4890,7 +4946,7 @@ export default {
     },
     "button.secondary.disabled.textColor": {
       "$type": "color",
-      "$value": "{button.default.enabled.textColor}",
+      "$value": "{color.text.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4904,7 +4960,7 @@ export default {
     },
     "button.secondary.disabled.iconColor": {
       "$type": "color",
-      "$value": "{button.default.enabled.iconColor}",
+      "$value": "{color.icon.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5436,7 +5492,7 @@ export default {
     },
     "button.toolbar.disabled.borderColor": {
       "$type": "color",
-      "$value": "{button.toolbar.enabled.borderColor}",
+      "$value": "{color.border.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5450,7 +5506,7 @@ export default {
     },
     "button.toolbar.disabled.textColor": {
       "$type": "color",
-      "$value": "{button.toolbar.enabled.textColor}",
+      "$value": "{color.text.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5464,7 +5520,7 @@ export default {
     },
     "button.toolbar.disabled.iconColor": {
       "$type": "color",
-      "$value": "{button.toolbar.enabled.iconColor}",
+      "$value": "{color.icon.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10662,7 +10718,7 @@ export default {
         }
       }
     },
-    "size.element.xsmall": {
+    "size.element.xSmall": {
       "$type": "number",
       "$value": "{base.dimension.400}",
       "$description": "",
@@ -10718,7 +10774,7 @@ export default {
         }
       }
     },
-    "size.element.xlarge": {
+    "size.element.xLarge": {
       "$type": "number",
       "$value": "{base.dimension.600}",
       "$description": "",
@@ -11040,7 +11096,7 @@ export default {
         }
       }
     },
-    "heading.xlarge.fontWeight": {
+    "heading.xlarge.fontWeight?": {
       "$type": "number",
       "$value": 0,
       "$description": "",
@@ -11858,7 +11914,7 @@ export default {
         }
       }
     },
-    "size.element.xsmall": {
+    "size.element.xSmall": {
       "$type": "number",
       "$value": "{base.dimension.400}",
       "$description": "",
@@ -11914,7 +11970,7 @@ export default {
         }
       }
     },
-    "size.element.xlarge": {
+    "size.element.xLarge": {
       "$type": "number",
       "$value": "{base.dimension.600}",
       "$description": "",
@@ -12236,7 +12292,7 @@ export default {
         }
       }
     },
-    "heading.xlarge.fontWeight": {
+    "heading.xlarge.fontWeight?": {
       "$type": "number",
       "$value": 0,
       "$description": "",
@@ -12733,7 +12789,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "size.element.xsmall",
+          "name": "size.element.xSmall",
           "mode": "large"
         },
         {
@@ -12741,7 +12797,7 @@ export default {
           "mode": "large"
         },
         {
-          "name": "size.element.xsmall",
+          "name": "size.element.xSmall",
           "mode": "small"
         },
         {
@@ -12803,11 +12859,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "size.element.xlarge",
+          "name": "size.element.xLarge",
           "mode": "large"
         },
         {
-          "name": "size.element.xlarge",
+          "name": "size.element.xLarge",
           "mode": "small"
         },
         {
@@ -14659,6 +14715,34 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "base.font.height.100": {
+      "$type": "number",
+      "$value": 0,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "base.font.size.100": {
+      "$type": "number",
+      "$value": 0,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }

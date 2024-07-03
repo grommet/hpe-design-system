@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Jul 2024 22:26:31 GMT
+ * Generated on Wed, 03 Jul 2024 22:49:05 GMT
  */
 
 :root {
@@ -194,7 +194,6 @@
   --hpe-button-secondary-hover-border-color: var(--hpe-base-color-green-700);
   --hpe-button-secondary-hover-background: var(--hpe-button-default-enabled-background);
   --hpe-button-secondary-disabled-border-color: var(--hpe-button-default-enabled-border-color);
-  --hpe-button-secondary-disabled-background: var(--hpe-button-default-enabled-background);
   --hpe-button-secondary-enabled-background: var(--hpe-button-default-enabled-background);
   --hpe-button-default-hover-border-color: var(--hpe-button-default-enabled-border-color);
   --hpe-button-default-disabled-border-color: var(--hpe-button-default-enabled-border-color);
@@ -258,10 +257,10 @@
   --hpe-archived-button-medium-default-line-height: var(--hpe-static-font-height-medium);
   --hpe-archived-button-medium-default-min-height: var(--hpe-base-dimension-900);
   --hpe-archived-button-medium-default-padding-y: var(--hpe-base-dimension-100);
-  --hpe-size-element-xlarge: var(--hpe-base-dimension-600);
+  --hpe-size-element-x-large: var(--hpe-base-dimension-600);
   --hpe-size-element-medium: var(--hpe-base-dimension-450);
   --hpe-size-element-small: var(--hpe-base-dimension-400);
-  --hpe-size-element-xsmall: var(--hpe-base-dimension-400);
+  --hpe-size-element-x-small: var(--hpe-base-dimension-400);
   --hpe-test-form-field-medium-input-container-min-height: var(--hpe-test-component-medium-min-height);
   --hpe-test-form-field-medium-input-container-border-radius: var(--hpe-static-radius-xsmall);
   --hpe-test-form-field-medium-input-group-container-padding-y: var(--hpe-static-spacing-xsmall);
@@ -356,6 +355,9 @@
   --hpe-button-toolbar-selected-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-toolbar-hover-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-toolbar-disabled-font-weight: var(--hpe-button-default-enabled-font-weight);
+  --hpe-button-toolbar-disabled-icon-color: var(--hpe-color-icon-disabled);
+  --hpe-button-toolbar-disabled-text-color: var(--hpe-color-text-disabled);
+  --hpe-button-toolbar-disabled-border-color: var(--hpe-color-border-disabled);
   --hpe-button-toolbar-disabled-background: var(--hpe-button-toolbar-enabled-background);
   --hpe-button-toolbar-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-toolbar-enabled-border-color: var(--hpe-color-border-default);
@@ -377,12 +379,17 @@
   --hpe-button-secondary-selected-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-secondary-hover-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-secondary-disabled-font-weight: var(--hpe-button-default-enabled-font-weight);
+  --hpe-button-secondary-disabled-icon-color: var(--hpe-color-icon-disabled);
+  --hpe-button-secondary-disabled-text-color: var(--hpe-color-text-disabled);
+  --hpe-button-secondary-disabled-background: var(--hpe-button-secondary-enabled-background);
   --hpe-button-secondary-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-secondary-enabled-border-color: var(--hpe-color-background-primary-default);
   --hpe-button-default-selected-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-default-selected-background: var(--hpe-color-background-contrast);
   --hpe-button-default-hover-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-default-disabled-font-weight: var(--hpe-button-default-enabled-font-weight);
+  --hpe-button-default-disabled-icon-color: var(--hpe-color-icon-disabled);
+  --hpe-button-default-disabled-text-color: var(--hpe-color-text-disabled);
   --hpe-button-default-enabled-icon-color: var(--hpe-color-icon-strong);
   --hpe-button-default-enabled-text-color: var(--hpe-color-text-strong);
   --hpe-archived-button-medium-toolbar-selected-line-height: var(--hpe-archived-button-medium-default-enabled-line-height);
@@ -467,6 +474,8 @@
   --hpe-test-menu-medium-item-min-height: var(--hpe-button-medium-default-min-height);
   --hpe-test-menu-medium-item-border-width: var(--hpe-button-medium-default-border-width);
   --hpe-test-menu-medium-item-border-radius: var(--hpe-radius-none);
+  --hpe-test-menu-item-disabled-icon-color: var(--hpe-button-default-disabled-icon-color);
+  --hpe-test-menu-item-disabled-text-color: var(--hpe-button-default-disabled-text-color);
   --hpe-test-menu-item-enabled-icon-color: var(--hpe-button-default-enabled-icon-color);
   --hpe-test-menu-item-enabled-text-color: var(--hpe-button-default-enabled-text-color);
   --hpe-test-menu-drop-background: var(--hpe-test-drop-background);
@@ -502,7 +511,6 @@
   --hpe-button-medium-primary-border-radius: var(--hpe-button-medium-default-border-radius);
   --hpe-button-medium-default-gap-x: var(--hpe-test-component-medium-gap-x);
   --hpe-button-toolbar-hover-border-color: var(--hpe-button-toolbar-enabled-border-color);
-  --hpe-button-toolbar-disabled-border-color: var(--hpe-button-toolbar-enabled-border-color);
   --hpe-button-toolbar-enabled-icon-color: var(--hpe-button-default-enabled-icon-color);
   --hpe-button-toolbar-enabled-text-color: var(--hpe-button-default-enabled-text-color);
   --hpe-button-primary-hover-background: var(--hpe-button-primary-enabled-background);
@@ -510,8 +518,6 @@
   --hpe-button-secondary-selected-text-color: var(--hpe-button-default-enabled-text-color);
   --hpe-button-secondary-hover-icon-color: var(--hpe-button-default-enabled-icon-color);
   --hpe-button-secondary-hover-text-color: var(--hpe-button-default-enabled-text-color);
-  --hpe-button-secondary-disabled-icon-color: var(--hpe-button-default-enabled-icon-color);
-  --hpe-button-secondary-disabled-text-color: var(--hpe-button-default-enabled-text-color);
   --hpe-button-secondary-enabled-icon-color: var(--hpe-button-default-enabled-icon-color);
   --hpe-button-secondary-enabled-text-color: var(--hpe-button-default-enabled-text-color);
   --hpe-button-default-selected-icon-color: var(--hpe-button-default-enabled-icon-color);
@@ -519,8 +525,6 @@
   --hpe-button-default-hover-icon-color: var(--hpe-button-default-enabled-icon-color);
   --hpe-button-default-hover-text-color: var(--hpe-button-default-enabled-text-color);
   --hpe-button-default-hover-background: var(--hpe-color-background-hover);
-  --hpe-button-default-disabled-icon-color: var(--hpe-button-default-enabled-icon-color);
-  --hpe-button-default-disabled-text-color: var(--hpe-button-default-enabled-text-color);
   --hpe-archived-button-medium-toolbar-gap-x: var(--hpe-archived-button-medium-default-gap-x);
   --hpe-archived-button-medium-secondary-selected-border-width: var(--hpe-archived-button-medium-default-enabled-border-width);
   --hpe-archived-button-medium-secondary-disabled-border-width: var(--hpe-archived-button-medium-default-enabled-border-width);
@@ -547,8 +551,6 @@
   --hpe-test-header-cell-hover-color: var(--hpe-test-data-cell-hover-color);
   --hpe-test-input-field-container-medium-border-width: var(--hpe-test-component-medium-border-width);
   --hpe-test-menu-medium-drop-border-radius: var(--hpe-test-drop-border-radius);
-  --hpe-test-menu-item-disabled-icon-color: var(--hpe-button-default-disabled-icon-color);
-  --hpe-test-menu-item-disabled-text-color: var(--hpe-button-default-disabled-text-color);
   --hpe-test-menu-item-hover-icon-color: var(--hpe-button-default-hover-icon-color);
   --hpe-test-menu-item-hover-text-color: var(--hpe-button-default-hover-text-color);
   --hpe-button-small-toolbar-border-width: var(--hpe-test-component-small-border-width);
@@ -560,7 +562,5 @@
   --hpe-button-toolbar-hover-icon-color: var(--hpe-button-toolbar-enabled-icon-color);
   --hpe-button-toolbar-hover-text-color: var(--hpe-button-toolbar-enabled-text-color);
   --hpe-button-toolbar-hover-background: var(--hpe-button-default-hover-background);
-  --hpe-button-toolbar-disabled-icon-color: var(--hpe-button-toolbar-enabled-icon-color);
-  --hpe-button-toolbar-disabled-text-color: var(--hpe-button-toolbar-enabled-text-color);
   --hpe-test-select-medium-option-border-width: var(--hpe-test-input-field-container-medium-border-width);
 }

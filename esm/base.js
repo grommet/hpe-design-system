@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Jul 2024 22:26:30 GMT
+ * Generated on Wed, 03 Jul 2024 22:49:04 GMT
  */
 
 export default {
@@ -135,6 +135,12 @@ export default {
           semibold: 600,
           bold: 700,
           black: 900,
+        },
+        height: {
+          "100": "0rem",
+        },
+        size: {
+          "100": "0rem",
         },
       },
       breakpoint: {

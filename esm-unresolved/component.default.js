@@ -2278,7 +2278,7 @@ export default {
         },
         "textColor": {
           "$type": "color",
-          "$value": "{button.default.enabled.textColor}",
+          "$value": "{color.text.disabled}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2292,7 +2292,7 @@ export default {
         },
         "iconColor": {
           "$type": "color",
-          "$value": "{button.default.enabled.iconColor}",
+          "$value": "{color.icon.disabled}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2540,7 +2540,7 @@ export default {
       "disabled": {
         "background": {
           "$type": "color",
-          "$value": "{button.default.enabled.background}",
+          "$value": "{button.secondary.enabled.background}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2568,7 +2568,7 @@ export default {
         },
         "textColor": {
           "$type": "color",
-          "$value": "{button.default.enabled.textColor}",
+          "$value": "{color.text.disabled}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2582,7 +2582,7 @@ export default {
         },
         "iconColor": {
           "$type": "color",
-          "$value": "{button.default.enabled.iconColor}",
+          "$value": "{color.icon.disabled}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3134,7 +3134,7 @@ export default {
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{button.toolbar.enabled.borderColor}",
+          "$value": "{color.border.disabled}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3148,7 +3148,7 @@ export default {
         },
         "textColor": {
           "$type": "color",
-          "$value": "{button.toolbar.enabled.textColor}",
+          "$value": "{color.text.disabled}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3162,7 +3162,7 @@ export default {
         },
         "iconColor": {
           "$type": "color",
-          "$value": "{button.toolbar.enabled.iconColor}",
+          "$value": "{color.icon.disabled}",
           "$description": "",
           "$extensions": {
             "com.figma": {

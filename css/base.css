@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Jul 2024 22:26:31 GMT
+ * Generated on Wed, 03 Jul 2024 22:49:05 GMT
  */
 
 :root {
@@ -29,6 +29,8 @@
   --hpe-base-breakpoint-medium: 1080px;
   --hpe-base-breakpoint-small: 768px;
   --hpe-base-breakpoint-xsmall: 576px;
+  --hpe-base-font-size-100: 0rem;
+  --hpe-base-font-height-100: 0rem;
   --hpe-base-font-weight-black: 900;
   --hpe-base-font-weight-bold: 700;
   --hpe-base-font-weight-semibold: 600;

@@ -331,7 +331,7 @@
           }
         }
       },
-      "fontWeight": {
+      "fontWeight?": {
         "$type": "number",
         "$value": 0,
         "$description": "",

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Jul 2024 22:26:31 GMT
+ * Generated on Wed, 03 Jul 2024 22:49:05 GMT
  */
 
 export default {
@@ -51,7 +51,7 @@ export default {
       xlarge: {
         fontSize: "0rem",
         lineHeight: "0rem",
-        fontWeight: 0,
+        "fontWeight?": 0,
       },
       medium: {
         h1: {

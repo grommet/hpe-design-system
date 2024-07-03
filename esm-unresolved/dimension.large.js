@@ -443,7 +443,7 @@ export default {
   },
   "size": {
     "element": {
-      "xsmall": {
+      "xSmall": {
         "$type": "number",
         "$value": "{base.dimension.400}",
         "$description": "",
@@ -499,7 +499,7 @@ export default {
           }
         }
       },
-      "xlarge": {
+      "xLarge": {
         "$type": "number",
         "$value": "{base.dimension.600}",
         "$description": "",
@@ -847,7 +847,7 @@ export default {
           }
         }
       },
-      "fontWeight": {
+      "fontWeight?": {
         "$type": "number",
         "$value": 0,
         "$description": "",

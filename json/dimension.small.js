@@ -45,7 +45,7 @@
     "xlarge": {
       "fontSize": "0rem",
       "lineHeight": "0rem",
-      "fontWeight": 0
+      "fontWeight?": 0
     },
     "medium": {
       "h1": {

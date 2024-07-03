@@ -210,8 +210,8 @@ export default {
         "disabled": {
           "background": "#00000000",
           "borderColor": "#00000000",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
+          "textColor": "text-disabled",
+          "iconColor": "icon-disabled",
           "fontWeight": 600
         },
         "hover": {
@@ -240,8 +240,8 @@ export default {
         "disabled": {
           "background": "#00000000",
           "borderColor": "#00000000",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
+          "textColor": "text-disabled",
+          "iconColor": "icon-disabled",
           "fontWeight": 600
         },
         "hover": {
@@ -299,9 +299,9 @@ export default {
         },
         "disabled": {
           "background": "#00000000",
-          "borderColor": "border-default",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
+          "borderColor": "border-disabled",
+          "textColor": "text-disabled",
+          "iconColor": "icon-disabled",
           "fontWeight": 600
         },
         "hover": {
@@ -509,8 +509,8 @@ export default {
           "disabled": {
             "background": "#00000000",
             "borderColor": "#00000000",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong"
+            "textColor": "text-disabled",
+            "iconColor": "icon-disabled"
           }
         },
         "group": {
@@ -904,11 +904,11 @@ export default {
     },
     "size": {
       "element": {
-        "xsmall": "16px",
+        "xSmall": "16px",
         "small": "16px",
         "medium": "18px",
         "large": "22px",
-        "xlarge": "24px"
+        "xLarge": "24px"
       }
     },
     "text": {
@@ -957,7 +957,7 @@ export default {
       "xlarge": {
         "fontSize": "0rem",
         "lineHeight": "0rem",
-        "fontWeight": 0
+        "fontWeight?": "0px"
       },
       "medium": {
         "h1": {
