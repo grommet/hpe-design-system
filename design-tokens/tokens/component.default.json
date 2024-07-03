@@ -2554,7 +2554,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{button.default.enabled.borderColor}",
+          "$value": "{color.border.disabled}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2814,7 +2814,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{button.default.enabled.fontWeight}",
+          "$value": "{base.font.weight.bold}",
           "$description": "",
           "$extensions": {
             "com.figma": {
