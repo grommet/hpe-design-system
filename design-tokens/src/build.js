@@ -245,3 +245,5 @@ writeFileSync(
   './dist/esm/index.js',
   "export { default as components } from './components.default';\n",
 );
+
+console.log('✅ components.default.js has been generated.');
