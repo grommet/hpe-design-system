@@ -7,14 +7,13 @@
       "disabled": "#0000000a",
       "back": "#f7f7f7",
       "front": "#ffffff",
-      "raised": "#ffffff",
       "floating": "#ffffff",
       "contrast": "#0000000a",
       "validation": {
-        "critical": "#fc61613d",
-        "info": "#00c8ff3d",
         "unknown": "#f7f7f7",
+        "critical": "#fc61613d",
         "ok": "#17eba03d",
+        "info": "#00c8ff3d",
         "warning": "#ffbc443d"
       },
       "primary": {

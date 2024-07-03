@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 27 Jun 2024 21:26:03 GMT
+ * Generated on Wed, 03 Jul 2024 22:26:31 GMT
  */
 
 export default {
@@ -48,6 +48,11 @@ export default {
       },
     },
     heading: {
+      xlarge: {
+        fontSize: "0rem",
+        lineHeight: "0rem",
+        fontWeight: 0,
+      },
       medium: {
         h1: {
           fontSize: "1.5rem",
@@ -94,7 +99,7 @@ export default {
       medium: "12px",
       large: "24px",
       xlarge: "48px",
-      full: "1536px",
+      full: "384px",
     },
     border: {
       none: "0px",

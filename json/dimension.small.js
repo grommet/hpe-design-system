@@ -42,6 +42,11 @@
     }
   },
   "heading": {
+    "xlarge": {
+      "fontSize": "0rem",
+      "lineHeight": "0rem",
+      "fontWeight": 0
+    },
     "medium": {
       "h1": {
         "fontSize": "1.5rem",
@@ -88,7 +93,7 @@
     "medium": "12px",
     "large": "24px",
     "xlarge": "48px",
-    "full": "1536px"
+    "full": "384px"
   },
   "border": {
     "none": "0px",

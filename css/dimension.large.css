@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 27 Jun 2024 21:26:03 GMT
+ * Generated on Wed, 03 Jul 2024 22:26:31 GMT
  */
 
 :root {
@@ -16,7 +16,10 @@
   --hpe-heading-medium-h2-font-size: 1.5rem;
   --hpe-heading-medium-h1-line-height: 2.25rem;
   --hpe-heading-medium-h1-font-size: 2.25rem;
-  --hpe-radius-full: var(--hpe-base-dimension-76800);
+  --hpe-heading-xlarge-font-weight: 0;
+  --hpe-heading-xlarge-line-height: 0rem;
+  --hpe-heading-xlarge-font-size: 0rem;
+  --hpe-radius-full: var(--hpe-base-dimension-9600);
   --hpe-text-6xl-line-height: var(--hpe-static-font-height-6xl);
   --hpe-text-6xl-font-size: var(--hpe-static-font-size-6xl);
   --hpe-text-5xl-line-height: var(--hpe-static-font-height-5xl);

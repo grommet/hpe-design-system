@@ -169,6 +169,20 @@ export default {
           }
         }
       },
+      "700": {
+        "$type": "number",
+        "$value": 28,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
       "900": {
         "$type": "number",
         "$value": 36,
@@ -186,6 +200,20 @@ export default {
       "1200": {
         "$type": "number",
         "$value": 48,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "1800": {
+        "$type": "number",
+        "$value": 72,
         "$description": "",
         "$extensions": {
           "com.figma": {

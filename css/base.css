@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 27 Jun 2024 21:26:02 GMT
+ * Generated on Wed, 03 Jul 2024 22:26:31 GMT
  */
 
 :root {
@@ -114,8 +114,10 @@
   --hpe-base-dimension-9600: 384px;
   --hpe-base-dimension-4800: 192px;
   --hpe-base-dimension-2400: 96px;
+  --hpe-base-dimension-1800: 72px;
   --hpe-base-dimension-1200: 48px;
   --hpe-base-dimension-900: 36px;
+  --hpe-base-dimension-700: 28px;
   --hpe-base-dimension-600: 24px;
   --hpe-base-dimension-500: 20px;
   --hpe-base-dimension-450: 18px;

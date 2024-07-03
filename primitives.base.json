@@ -169,6 +169,20 @@
           }
         }
       },
+      "700": {
+        "$type": "dimension",
+        "$value": "28px",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
       "900": {
         "$type": "dimension",
         "$value": "36px",
@@ -186,6 +200,20 @@
       "1200": {
         "$type": "dimension",
         "$value": "48px",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "1800": {
+        "$type": "dimension",
+        "$value": "72px",
         "$description": "",
         "$extensions": {
           "com.figma": {
