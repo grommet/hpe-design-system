@@ -2221,17 +2221,12 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*":
+"@types/node@*", "@types/node@^20.14.5":
   version "20.14.9"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.14.9.tgz#12e8e765ab27f8c421a1820c99f5f313a933b420"
   integrity sha512-06OCtnTXtWOZBJlRApleWndH4JsRVs1pDCc8dLSQp+7PpUpX3ePdHyeNSFTeSe7FtKyQkrlPvHwJOW3SLd8Oyg==
   dependencies:
     undici-types "~5.26.4"
-
-"@types/node@^12.20.10":
-  version "12.20.55"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.20.55.tgz#c329cbd434c42164f846b909bd6f85b5537f6240"
-  integrity sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==
 
 "@types/prettier@^2.1.5":
   version "2.7.3"
@@ -2532,9 +2527,14 @@ acorn@^7.1.1:
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
 
 acorn@^8.0.0, acorn@^8.11.0, acorn@^8.2.4, acorn@^8.5.0, acorn@^8.7.0, acorn@^8.7.1, acorn@^8.8.2, acorn@^8.9.0:
-  version "8.12.0"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.12.0.tgz#1627bfa2e058148036133b8d9b51a700663c294c"
-  integrity sha512-RTvkC4w+KNXrM39/lWCUaG0IbRkWdCv7W/IOW9oU6SawyxulvkQy5HQPVTKxEjczcUvapcrw3cFx/60VN/NRNw==
+  version "8.12.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.12.1.tgz#71616bdccbe25e27a54439e0046e89ca76df2248"
+  integrity sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==
+
+address@^2.0.2:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/address/-/address-2.0.3.tgz#e910900615db3d8a20c040d4c710631062fc4ba8"
+  integrity sha512-XNAb/a6TCqou+TufU8/u11HCu9x1gYvOoxLwtlXgIqmkrYQADVv6ljyW2zwiPhHz9R1gItAWpuDrdJMmrOBFEA==
 
 agent-base@6, agent-base@^6.0.0, agent-base@^6.0.2:
   version "6.0.2"
@@ -3194,9 +3194,9 @@ camelize@^1.0.0:
   integrity sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==
 
 caniuse-lite@^1.0.30001579, caniuse-lite@^1.0.30001629:
-  version "1.0.30001639"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001639.tgz#972b3a6adeacdd8f46af5fc7f771e9639f6c1521"
-  integrity sha512-eFHflNTBIlFwP2AIKaYuBQN/apnUoKNhBdza8ZnW/h2di4LCZ4xFqYlxUxo+LQ76KFI1PGcC1QDxMbxTZpSCAg==
+  version "1.0.30001640"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001640.tgz#32c467d4bf1f1a0faa63fc793c2ba81169e7652f"
+  integrity sha512-lA4VMpW0PSUrFnkmVuEKBUovSWKhj7puyCg8StBChgu298N1AtuF1sKWEvfDuimSEDbhlb/KqPKC3fs1HbuQUA==
 
 ccount@^2.0.0:
   version "2.0.1"
@@ -4015,14 +4015,6 @@ end-of-stream@^1.1.0:
   integrity sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==
   dependencies:
     once "^1.4.0"
-
-endpoint-utils@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/endpoint-utils/-/endpoint-utils-1.0.2.tgz#0808c3369a727cd7967a39ff34ebc926b88146a8"
-  integrity sha512-s5IrlLvx7qVXPOjcxjF00CRBlybiQWOoGCNiIZ/Vin2WeJ3SHtfkWHRsyu7C1+6QAwYXf0ULoweylxUa19Khjg==
-  dependencies:
-    ip "^1.1.3"
-    pinkie-promise "^1.0.0"
 
 enhanced-resolve@^5.10.0, enhanced-resolve@^5.17.0:
   version "5.17.0"
@@ -5205,8 +5197,8 @@ grommet-icons@^4.12.1:
   resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#7c55fbd8e9226fb6b9893760c313b526e61d6f9a"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
-  version "2.38.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#2bd7ef76e92f8328928995ea21f2d7ae2e6bfe48"
+  version "2.39.0"
+  resolved "https://github.com/grommet/grommet/tarball/stable#1d24c35757d0bfd7926b5761f41c01072cff9a14"
   dependencies:
     "@emotion/is-prop-valid" "^1.2.1"
     grommet-icons "^4.12.1"
@@ -5643,7 +5635,7 @@ ip-address@^9.0.5:
     jsbn "1.1.0"
     sprintf-js "^1.1.3"
 
-ip@^1.1.3, ip@^1.1.5:
+ip@^1.1.5:
   version "1.1.9"
   resolved "https://registry.yarnpkg.com/ip/-/ip-1.1.9.tgz#8dfbcc99a754d07f425310b86a99546b1151e396"
   integrity sha512-cyRxvOEpNHNtchU3Ln9KC/auJgup87llfQpQ+t5ghoC/UhL16SWzbueiCsdTnWmqAWl7LadfuwhlqmtOaqMHdQ==
@@ -9578,9 +9570,9 @@ testcafe-selector-generator@^0.1.0:
   integrity sha512-MTw+RigHsEYmFgzUFNErDxui1nTYUk6nm2bmfacQiKPdhJ9AHW/wue4J/l44mhN8x3E8NgOUkHHOI+1TDFXiLQ==
 
 testcafe@^3.5.0:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/testcafe/-/testcafe-3.6.1.tgz#a5f1f4295c21b50a2183405aa0c90f3ddb586fb2"
-  integrity sha512-0JceANlWp6wvKfOCsRuzctrPgiQuzs2pC/JWl/1iwlcnsrhAHpx2VZh2pNQ0gEquOcBB9pqc255C2amKS0wPTg==
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/testcafe/-/testcafe-3.6.2.tgz#53d5391d65a7b64a2eb14ec053266dc00d69bce2"
+  integrity sha512-y7PGzuSQt82iSJNYkN7/78PsviyFZOSQDYkHXb8UFj7BKCgrLONxZ+WZ5uk5tb1tHU/sKTHkWTwVJHkGXIamVg==
   dependencies:
     "@babel/core" "^7.23.2"
     "@babel/plugin-proposal-async-generator-functions" "^7.20.7"
@@ -9600,7 +9592,8 @@ testcafe@^3.5.0:
     "@babel/runtime" "^7.23.2"
     "@devexpress/bin-v8-flags-filter" "^1.3.0"
     "@devexpress/callsite-record" "^4.1.6"
-    "@types/node" "^12.20.10"
+    "@types/node" "^20.14.5"
+    address "^2.0.2"
     async-exit-hook "^1.1.2"
     babel-plugin-module-resolver "5.0.0"
     babel-plugin-syntax-trailing-function-commas "^6.22.0"
@@ -9619,7 +9612,6 @@ testcafe@^3.5.0:
     elegant-spinner "^1.0.1"
     email-validator "^2.0.4"
     emittery "^0.4.1"
-    endpoint-utils "^1.0.2"
     error-stack-parser "^2.1.4"
     execa "^4.0.3"
     get-os-info "^1.0.2"
@@ -10054,9 +10046,9 @@ unquote@^1.1.1:
   integrity sha512-vRCqFv6UhXpWxZPyGDh/F3ZpNv8/qo7w6iufLpQg9aKnQ71qM4B5KiI7Mia9COcjEhrO9LueHpMYjYzsWH3OIg==
 
 update-browserslist-db@^1.0.16:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/update-browserslist-db/-/update-browserslist-db-1.0.16.tgz#f6d489ed90fb2f07d67784eb3f53d7891f736356"
-  integrity sha512-KVbTxlBYlckhF5wgfyZXTWnMn7MMZjMu9XG8bPlliUOP9ThaF4QnhP8qrjrH7DRzHfSk0oQv1wToW+iA5GajEQ==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/update-browserslist-db/-/update-browserslist-db-1.1.0.tgz#7ca61c0d8650766090728046e416a8cde682859e"
+  integrity sha512-EdRAaAyk2cUE1wOf2DkEhzxqOQvFOoRJFNS6NeyJ01Gp2beMRpBAINjM2iDXE3KCuKhwnvHIQCJm6ThL2Z+HzQ==
   dependencies:
     escalade "^3.1.2"
     picocolors "^1.0.1"
@@ -10527,9 +10519,9 @@ ws@^7.2.0, ws@^7.4.6:
   integrity sha512-+dbF1tHwZpXcbOJdVOkzLDxZP1ailvSxM6ZweXTegylPny803bFhA+vqBYw4s31NSAk4S2Qz+AKXK9a4wkdjcQ==
 
 ws@^8.13.0, ws@^8.2.3:
-  version "8.17.1"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-8.17.1.tgz#9293da530bb548febc95371d90f9c878727d919b"
-  integrity sha512-6XQFvXTkbfUOZOKKILFG1PDK2NDQs4azKQl26T0YS5CxqWLgXajbPZ+h4gZekJyRqFU8pvnbAbbs/3TgRPy+GQ==
+  version "8.18.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.18.0.tgz#0d7505a6eafe2b0e712d232b42279f53bc289bbc"
+  integrity sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==
 
 xml-name-validator@^3.0.0:
   version "3.0.0"
