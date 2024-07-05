@@ -1,0 +1,107 @@
+import React from 'react';
+import {
+  Box,
+  Data,
+  DataContext,
+  DataSearch,
+  DataSummary,
+  Heading,
+  Grid,
+  PageContent,
+  Paragraph,
+  Notification,
+} from 'grommet';
+import { Meta, ContentCard } from '../../components';
+import { getCards, getPageDetails, nameToPath } from '../../utils';
+
+const title = 'Tokens';
+const pageDetails = getPageDetails(title);
+const cards = getCards(title);
+
+const Tokens = () => (
+  <>
+    <Meta
+      title={title}
+      description={pageDetails.seoDescription}
+      canonicalUrl="https://design-system.hpe.design/tokens"
+    />
+    <PageContent>
+      <Box pad={{ vertical: 'medium' }} justify="center" width="large">
+        <Heading margin="none">{title}</Heading>
+        <Paragraph size="large">{pageDetails.description}</Paragraph>
+      </Box>
+      <Notification
+        message={`Design tokens are in an alpha phase. This documentation is in 
+            progress and subject to change.`}
+        width="large"
+        margin={{ bottom: 'large' }}
+      />
+      <Data data={cards} pad={{ bottom: 'large' }}>
+        <DataSearch width={{ max: 'medium', width: '100%' }} />
+        <DataSummary />
+        <DataContext.Consumer>
+          {({ data }) => {
+            const gettingStarted = data.filter(
+              datum => datum.type === 'Getting started',
+            );
+            const building = data.filter(
+              datum => datum.type === 'Building with tokens',
+            );
+            const explanations = data.filter(
+              datum => datum.type === 'Explanations',
+            );
+            const references = data.filter(
+              datum => datum.type === 'References',
+            );
+
+            const results = [
+              {
+                heading: 'Getting started',
+                data: gettingStarted,
+              },
+              {
+                heading: 'Building with tokens',
+                data: building,
+              },
+              {
+                heading: 'Explanations',
+                data: explanations,
+              },
+              {
+                heading: 'References',
+                data: references,
+              },
+            ];
+
+            return (
+              <Box gap="large" pad={{ top: 'medium' }}>
+                {results.map((type, index) =>
+                  type.data?.length ? (
+                    <Box gap="medium" key={index}>
+                      <Heading level={2} margin="none">
+                        {type.heading}
+                      </Heading>
+                      <Grid columns="medium" gap="medium">
+                        {type.data.map(item => (
+                          <ContentCard
+                            key={item.name}
+                            pad="small"
+                            topic={item}
+                            href={item.href || nameToPath(item.name)}
+                            level={3}
+                          />
+                        ))}
+                      </Grid>
+                    </Box>
+                  ) : null,
+                )}
+              </Box>
+            );
+          }}
+        </DataContext.Consumer>
+      </Data>
+    </PageContent>
+  </>
+);
+
+export default Tokens;

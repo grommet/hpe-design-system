@@ -1,10 +1,12 @@
 /* eslint-disable max-len */
 import { Grow } from 'grommet-icons/icons/Grow';
+import { Cube } from 'grommet-icons/icons/Cube';
 import { IconCircle, IconDiamond, IconSquare } from '../components';
 import {
   components as componentsArr,
   foundation as foundationArr,
   learn as learnArr,
+  tokens as tokensArr,
   templates as templatesArr,
   Structure,
 } from './structures';
@@ -12,6 +14,7 @@ import {
 const components = Structure.from(componentsArr);
 const foundation = Structure.from(foundationArr);
 const learn = Structure.from(learnArr);
+const tokens = Structure.from(tokensArr);
 const templates = Structure.from(templatesArr);
 
 export const structure = [
@@ -19,7 +22,7 @@ export const structure = [
     name: 'Home',
     seoDescription:
       "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and it's partners share a single language for application, web, and digital experiences.",
-    pages: ['Foundation', 'Components', 'Templates', 'Learn'],
+    pages: ['Foundation', 'Tokens', 'Components', 'Templates', 'Learn'],
   },
   {
     name: 'Feedback',
@@ -115,8 +118,29 @@ export const structure = [
     pages: [],
     pageLayout: 'plain',
   },
+  {
+    name: 'Tokens',
+    render: 'Design tokens',
+    color: 'purple',
+    description:
+      'Design tokens represent design decisions such as color, typography, spacing, and motion in a consistent, reusable, and tech-agnostic format.',
+    icon: (_, color) => <Cube color={color} />,
+    preview: {
+      image: {
+        src: {
+          light: '/components-light.svg',
+          dark: '/components-dark.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
+    seoDescription:
+      'Design tokens represent design decisions such as color, typography, spacing, and motion in a consistent, reusable, and tech-agnostic format.',
+    pages: tokens.map(page => page.name),
+  },
   components,
   foundation,
   learn,
   templates,
+  tokens,
 ].flat();
