@@ -59,13 +59,15 @@ Helps users quickly navigate through choices, ensuring they find the relevant op
 ## Anatomy
 
 
-| Label | Region                  | Purpose                                                      | Required | Notes                                                   |
-| :---: | --------------------    | ------------------------------------------------------------ | :------: | ------------------------------------------------------- |
-| **1** | **Title**               | Heading providing context to the options available.          | Optional | Titles should use a Heading of the correct semantic heading level based on where the selector is in the document. |
-| **2** | **Description**         | Brief explanation or additional information about the choices.| Optional |    --                                                  |
-| **3** | **Counter of Items**    | Displays number of items available for selection.            | Optional | -- |
-| **4** | **Icon**                | Visual aid to represent the category or type of selection.   | Optional | a11yTitle required. |
-| **5** | **Selector Indicator**  | Visual cue (such as a checkmark or highlight) to denote selected items. | Optional | aria-label required. |
+| Label | Region                       | Purpose                                                                                       | Required | Notes                                                   |
+| :---: | --------------------         | ----------------------------------------------------------------------------------------------| :------: | ------------------------------------------------------- |
+| **1**  | **Container**               | Provides distinct boundary representing the option as a distinct choice.                      | Required |  --  |
+| **2**  | **Selection Indicator**     | Provides additional visual prominence and distinction between selected and unselected state.  | Optional | For single it will be rounded for multiple sqaured off  |                                                 
+| **3**  | **Identifier**              | Clearly labels what is being selected.                                                        | Required | -- |
+| **3a** | **Title**                   | Clear succinct label.                                                                         | Optional | -- |
+| **3b** | **Description**             | Provides additional detail if the title is insufficient on its own.                           | Optional | -- |
+| **3c** | **Icon**                    | A unique icon that assists the user in identifying their desired selection.                   | Optional | Consider only using if the icon is well-known, recognizable, and understood, with correct a11yTitle. |
+| **4**  | **Body**                    | Flexible content section which can be tailored to the use case.                               | Optional | May be used in addition to or in place of the Identifier. If used in place of the Identifier, it should satisfy the criteria of clearly labeling what is being selected. |
 
 ## Types
 
