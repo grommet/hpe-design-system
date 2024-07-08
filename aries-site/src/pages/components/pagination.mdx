@@ -1,42 +1,51 @@
 import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
-import { PaginationCardsExample, PaginationExample } from '../../examples';
+import { 
+PaginationCardsExample,
+PaginationExample,
+ToggleGroupViews,
+} from '../../examples';
 
 <Example
   componentName="Pagination"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/pagination/PaginationTableExample.js"
   docs="https://v2.grommet.io/pagination?theme=hpe#props"
-  figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?type=design&node-id=26125-326&mode=design"
+  figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?node-id=26125-326"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Pagination/Pagination.js"
 >
   <PaginationExample />
 </Example>
 
-## When to use pagination
+## Use cases
+### Managing datasets 
+Common ways to display datasets include, [DataTable], [List] & [Cards]. Pagination can be attached to  any of these options, allowing the user to browse the returned data in smaller segmented views.  
 
-Use pagination when a user’s goal is to find a specific item rather than to peruse the full set of data. By breaking the data up into smaller, consistently sized groups, the user is more easily able to jump to specific sections of the data.
+<Example
+  width="100%"
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/togglegroup/ToggleGroupViews.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/togglegroup/CardView.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/togglegroup/ListView.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/togglegroup/utils.js',
+  ]}
+>
+  <ToggleGroupViews />
 
-If you expect the user will be scrolling and perusing large amounts of the data set, consider using [Infinite Scroll](https://v2.grommet.io/infinitescroll).
+## Anatomy
 
-Pagination is particularly effective for displaying large sets of results in components such as [Table](#paginated-table), [List](#paginated-list), and [Cards](#paginated-cards).
+### Diagram illustrating the parts composing Pagination.
 
-## Guidelines
 
-### Number of results per page
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FnxI308Yvt4HKJ1rjgrEXCk%2F%25233651---Pagination-Component%3Fpage-id%3D500%253A2056%26node-id%3D500-2057%26viewport%3D867%252C584%252C0.4%26t%3DKWm2nct6mBhEAHPv-1%26scaling%3Dmin-zoom%26content-scaling%3Dfixed" allowfullscreen></iframe>
 
-A reasonable starting point for page size is 20 records. This is the default "step" (page size) on Grommet DataTable, List, and Pagination. This size strikes a balance between providing a user enough information to consume or find records of interest without being too much information leading to cognitive overload.That said, the default number of records per page should be tailored to the data set and determined by the UX designer. For example, a data collection displaying log files or notifications may choose a large page size as it allows a user to scan and understand activity in a efficient manner. Whereas as data collection presenting items in a news feed may only need to present a handful of records at a time.
 
-If there is only one page of items, it is optional to display the pagination component and summary of results.
+### Diagram illustrating the parts composing Pagination Navigation.
 
-### Placement of pagination component
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FnxI308Yvt4HKJ1rjgrEXCk%2F%25233651---Pagination-Component%3Fpage-id%3D500%253A2056%26node-id%3D500-2070%26viewport%3D867%252C584%252C0.4%26t%3DKWm2nct6mBhEAHPv-1%26scaling%3Dmin-zoom%26content-scaling%3Dfixed" allowfullscreen></iframe>
 
-The pagination component should be placed underneath and justified to the end of the content it is paginating.
+## Alternatives to pagination
 
-### Showing summary of results
-
-It may be beneficial to provide users with a summary of what range of results they are viewing. This should take the format of "Showing x-y of z" where x is the start of the page, y is the end of the page, and z is the total number of records. This should be left-aligned in a row with the pagination component.
-
-The results summary should be justified to the start of the row and the pagination component should remain justified to the end of the row.
+As an alternative to grouping data in page views,  [InfiniteScroll] provides a  container that renders items continuously as the user scrolls down.
 
 ## Accessibility
 
@@ -52,39 +61,11 @@ If your team is developing with Grommet, these considerations are already handle
 
 For more detailed documentation on these requirements, you can read more about [accessible pagination](https://www.a11ymatters.com/pattern/pagination/).
 
-## Variants
+## Responsive behaviour
 
-In addition to [DataTable](/components/datatable#paginated) and [List](/templates/lists#paginated), here is another way pagination can be implemented.
+The pagination contain should fill & match the width of the data view it is attached to.  However since pagination content can vary based on summary length, the number of pagination buttons visible it will wrap & stack according to what elements are visible, and how much horizontal with is available.
 
-### Paginated table
+Expand the following example and change browser size to see the component adapt
 
-Tables often contain large amounts of data. To improve the efficiency that a user can navigate to a specific item or range of items, use pagination.
 
-<ExampleImagePreview
-  label="See Paginated Table"
-  href="/components/datatable#paginated"
-  src="/pagination-table-preview.png"
-  alt="HPE Design System Paginated Table Example"
-/>
-
-### Paginated list
-
-Lists often contain large amounts of data. To improve the efficiency that a user can navigate to a specific item or range of items, use pagination.
-
-<ExampleImagePreview
-  label="See Paginated List"
-  href="/templates/lists#paginated"
-  src="/pagination-list-preview.png"
-  alt="HPE Design System Paginated List Example"
-/>
-
-### Paginated cards
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/pagination/PaginationCardsExample.js"
-  docs="https://v2.grommet.io/pagination?theme=hpe#props"
-  showResponsiveControls={['laptop', 'mobile']}
-  template
->
-  <PaginationCardsExample />
-</Example>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FnxI308Yvt4HKJ1rjgrEXCk%2F%25233651---Pagination-Component%3Fpage-id%3D500%253A2056%26node-id%3D500-2103%26viewport%3D867%252C584%252C0.4%26t%3DKWm2nct6mBhEAHPv-1%26scaling%3Dmin-zoom%26content-scaling%3Dfixed" allowfullscreen></iframe>
