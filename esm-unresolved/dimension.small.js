@@ -442,7 +442,7 @@ export default {
     }
   },
   "size": {
-    "element": {
+    "icon": {
       "xSmall": {
         "$type": "number",
         "$value": "{base.dimension.400}",

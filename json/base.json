@@ -103,14 +103,17 @@
         "700": "#757575",
         "800": "#555555",
         "1000": "#333333",
+        "1100": "#292929",
         "1200": "#222222",
         "1300": "#1c1c1c"
       },
       "white": {
         "100": "#ffffff",
         "opacity6": "#ffffff0f",
+        "opacity7": "#ffffff12",
         "opacity12": "#ffffff1f",
         "opacity20": "#ffffff33",
+        "opacity24": "#ffffff3d",
         "opacity36": "#ffffff5c",
         "opacity50": "#ffffff80",
         "opacity72": "#ffffffb8"

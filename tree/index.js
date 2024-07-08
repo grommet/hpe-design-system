@@ -16,15 +16,15 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.fieldContainer.default.backgroundColor",
+          "name": "archived.input.fieldContainer.default.backgroundColor",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.hover.backgroundColor",
+          "name": "archived.input.fieldContainer.hover.backgroundColor",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.focus.backgroundColor",
+          "name": "archived.input.fieldContainer.focus.backgroundColor",
           "mode": "default"
         }
       ]
@@ -49,7 +49,7 @@ export default {
           "mode": "default"
         },
         {
-          "name": "test.select.option.hover.background",
+          "name": "select.option.hover.background",
           "mode": "default"
         }
       ]
@@ -71,7 +71,7 @@ export default {
     },
     "color.background.disabled": {
       "$type": "color",
-      "$value": "{base.color.white.opacity12}",
+      "$value": "{base.color.white.opacity7}",
       "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
@@ -85,15 +85,15 @@ export default {
       },
       "usedBy": [
         {
+          "name": "archived.input.fieldContainer.disabled.backgroundColor",
+          "mode": "default"
+        },
+        {
           "name": "button.primary.disabled.background",
           "mode": "default"
         },
         {
-          "name": "test.select.option.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "test.input.fieldContainer.disabled.backgroundColor",
+          "name": "select.option.disabled.background",
           "mode": "default"
         }
       ]
@@ -114,7 +114,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.fieldContainer.readOnly.backgroundColor",
+          "name": "archived.input.fieldContainer.readOnly.backgroundColor",
           "mode": "default"
         }
       ]
@@ -132,17 +132,11 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "test.switch.selected.knob.background",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "color.background.floating": {
       "$type": "color",
-      "$value": "{TBD}",
+      "$value": "{base.color.grey.1100}",
       "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
       "$extensions": {
         "com.figma": {
@@ -156,7 +150,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.drop.background",
+          "name": "drop.background",
           "mode": "default"
         }
       ]
@@ -213,7 +207,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.fieldContainer.validation.backgroundColor",
+          "name": "archived.input.fieldContainer.validation.backgroundColor",
           "mode": "default"
         }
       ]
@@ -316,13 +310,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "test.switch.selected.background",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "color.background.selected.weak": {
       "$type": "color",
@@ -340,7 +328,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.select.option.selected.background",
+          "name": "select.option.selected.background",
           "mode": "default"
         }
       ]
@@ -360,31 +348,23 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.fieldContainer.hover.borderColor",
+          "name": "archived.input.fieldContainer.hover.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.focus.borderColor",
+          "name": "archived.input.fieldContainer.focus.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.validation.borderColor",
+          "name": "archived.input.fieldContainer.validation.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.readOnly.borderColor",
+          "name": "archived.input.fieldContainer.readOnly.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.checkbox.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.switch.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.switch.hover.knob.borderColor",
+          "name": "checkbox.control.hover.borderColor",
           "mode": "default"
         }
       ]
@@ -404,35 +384,23 @@ export default {
       },
       "usedBy": [
         {
+          "name": "archived.input.fieldContainer.default.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "button.toolbar.enabled.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.menu.group.separator.background",
+          "name": "menu.group.separator.background",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.default.borderColor",
+          "name": "checkbox.control.enabled.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.checkbox.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.checkbox.enabled.check.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.switch.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.switch.enabled.knob.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.headerCell.enabled.borderColor",
+          "name": "headerCell.enabled.borderColor",
           "mode": "default"
         }
       ]
@@ -453,7 +421,7 @@ export default {
     },
     "color.border.disabled": {
       "$type": "color",
-      "$value": "{base.color.white.opacity20}",
+      "$value": "{base.color.white.opacity12}",
       "$description": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
@@ -466,15 +434,15 @@ export default {
       },
       "usedBy": [
         {
+          "name": "archived.input.fieldContainer.disabled.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "button.secondary.disabled.borderColor",
           "mode": "default"
         },
         {
           "name": "button.toolbar.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.input.fieldContainer.disabled.borderColor",
           "mode": "default"
         }
       ]
@@ -508,19 +476,19 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.text.error.color",
+          "name": "archived.input.text.description.color",
           "mode": "default"
         },
         {
-          "name": "test.input.text.description.color",
+          "name": "archived.input.text.info.color",
           "mode": "default"
         },
         {
-          "name": "test.input.text.info.color",
+          "name": "archived.input.text.error.color",
           "mode": "default"
         },
         {
-          "name": "test.input.text.valueText.color",
+          "name": "archived.input.text.valueText.color",
           "mode": "default"
         }
       ]
@@ -540,6 +508,14 @@ export default {
       },
       "usedBy": [
         {
+          "name": "archived.input.text.label.color",
+          "mode": "default"
+        },
+        {
+          "name": "archived.input.text.helpText.color",
+          "mode": "default"
+        },
+        {
           "name": "button.default.enabled.textColor",
           "mode": "default"
         },
@@ -552,31 +528,19 @@ export default {
           "mode": "default"
         },
         {
-          "name": "button.badge.enabled.background",
+          "name": "select.option.enabled.textColor",
           "mode": "default"
         },
         {
-          "name": "test.select.option.enabled.textColor",
+          "name": "select.option.hover.textColor",
           "mode": "default"
         },
         {
-          "name": "test.select.option.hover.textColor",
+          "name": "select.option.selected.textColor",
           "mode": "default"
         },
         {
-          "name": "test.select.option.selected.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.input.text.label.color",
-          "mode": "default"
-        },
-        {
-          "name": "test.input.text.helpText.color",
-          "mode": "default"
-        },
-        {
-          "name": "test.dataCell.enabled.color",
+          "name": "dataCell.enabled.color",
           "mode": "default"
         }
       ]
@@ -596,7 +560,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.text.placeholder.color",
+          "name": "archived.input.text.placeholder.color",
           "mode": "default"
         }
       ]
@@ -617,7 +581,7 @@ export default {
     },
     "color.text.disabled": {
       "$type": "color",
-      "$value": "{TBD}",
+      "$value": "{base.color.white.opacity24}",
       "$description": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
@@ -629,6 +593,10 @@ export default {
         }
       },
       "usedBy": [
+        {
+          "name": "archived.input.text.disabled.color",
+          "mode": "default"
+        },
         {
           "name": "button.default.disabled.textColor",
           "mode": "default"
@@ -646,11 +614,7 @@ export default {
           "mode": "default"
         },
         {
-          "name": "test.select.option.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.input.text.disabled.color",
+          "name": "select.option.disabled.textColor",
           "mode": "default"
         }
       ]
@@ -675,10 +639,6 @@ export default {
         },
         {
           "name": "button.primary.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.badge.enabled.textColor",
           "mode": "default"
         }
       ]
@@ -769,7 +729,7 @@ export default {
     },
     "color.icon.disabled": {
       "$type": "color",
-      "$value": "{base.color.white.opacity36}",
+      "$value": "{base.color.white.opacity24}",
       "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
@@ -1235,15 +1195,15 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.fieldContainer.default.backgroundColor",
+          "name": "archived.input.fieldContainer.default.backgroundColor",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.hover.backgroundColor",
+          "name": "archived.input.fieldContainer.hover.backgroundColor",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.focus.backgroundColor",
+          "name": "archived.input.fieldContainer.focus.backgroundColor",
           "mode": "default"
         }
       ]
@@ -1272,7 +1232,7 @@ export default {
           "mode": "default"
         },
         {
-          "name": "test.select.option.hover.background",
+          "name": "select.option.hover.background",
           "mode": "default"
         }
       ]
@@ -1308,15 +1268,15 @@ export default {
       },
       "usedBy": [
         {
+          "name": "archived.input.fieldContainer.disabled.backgroundColor",
+          "mode": "default"
+        },
+        {
           "name": "button.primary.disabled.background",
           "mode": "default"
         },
         {
-          "name": "test.select.option.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "test.input.fieldContainer.disabled.backgroundColor",
+          "name": "select.option.disabled.background",
           "mode": "default"
         }
       ]
@@ -1337,7 +1297,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.fieldContainer.readOnly.backgroundColor",
+          "name": "archived.input.fieldContainer.readOnly.backgroundColor",
           "mode": "default"
         }
       ]
@@ -1355,13 +1315,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "test.switch.selected.knob.background",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "color.background.floating": {
       "$type": "color",
@@ -1379,7 +1333,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.drop.background",
+          "name": "drop.background",
           "mode": "default"
         }
       ]
@@ -1440,7 +1394,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.fieldContainer.validation.backgroundColor",
+          "name": "archived.input.fieldContainer.validation.backgroundColor",
           "mode": "default"
         }
       ]
@@ -1543,13 +1497,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "test.switch.selected.background",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "color.background.selected.weak": {
       "$type": "color",
@@ -1567,7 +1515,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.select.option.selected.background",
+          "name": "select.option.selected.background",
           "mode": "default"
         }
       ]
@@ -1587,31 +1535,23 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.fieldContainer.hover.borderColor",
+          "name": "archived.input.fieldContainer.hover.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.focus.borderColor",
+          "name": "archived.input.fieldContainer.focus.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.validation.borderColor",
+          "name": "archived.input.fieldContainer.validation.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.readOnly.borderColor",
+          "name": "archived.input.fieldContainer.readOnly.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.checkbox.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.switch.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.switch.hover.knob.borderColor",
+          "name": "checkbox.control.hover.borderColor",
           "mode": "default"
         }
       ]
@@ -1631,35 +1571,23 @@ export default {
       },
       "usedBy": [
         {
+          "name": "archived.input.fieldContainer.default.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "button.toolbar.enabled.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.menu.group.separator.background",
+          "name": "menu.group.separator.background",
           "mode": "default"
         },
         {
-          "name": "test.input.fieldContainer.default.borderColor",
+          "name": "checkbox.control.enabled.borderColor",
           "mode": "default"
         },
         {
-          "name": "test.checkbox.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.checkbox.enabled.check.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.switch.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.switch.enabled.knob.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.headerCell.enabled.borderColor",
+          "name": "headerCell.enabled.borderColor",
           "mode": "default"
         }
       ]
@@ -1693,15 +1621,15 @@ export default {
       },
       "usedBy": [
         {
+          "name": "archived.input.fieldContainer.disabled.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "button.secondary.disabled.borderColor",
           "mode": "default"
         },
         {
           "name": "button.toolbar.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.input.fieldContainer.disabled.borderColor",
           "mode": "default"
         }
       ]
@@ -1735,19 +1663,19 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.text.error.color",
+          "name": "archived.input.text.description.color",
           "mode": "default"
         },
         {
-          "name": "test.input.text.description.color",
+          "name": "archived.input.text.info.color",
           "mode": "default"
         },
         {
-          "name": "test.input.text.info.color",
+          "name": "archived.input.text.error.color",
           "mode": "default"
         },
         {
-          "name": "test.input.text.valueText.color",
+          "name": "archived.input.text.valueText.color",
           "mode": "default"
         }
       ]
@@ -1767,6 +1695,14 @@ export default {
       },
       "usedBy": [
         {
+          "name": "archived.input.text.label.color",
+          "mode": "default"
+        },
+        {
+          "name": "archived.input.text.helpText.color",
+          "mode": "default"
+        },
+        {
           "name": "button.default.enabled.textColor",
           "mode": "default"
         },
@@ -1779,31 +1715,19 @@ export default {
           "mode": "default"
         },
         {
-          "name": "button.badge.enabled.background",
+          "name": "select.option.enabled.textColor",
           "mode": "default"
         },
         {
-          "name": "test.select.option.enabled.textColor",
+          "name": "select.option.hover.textColor",
           "mode": "default"
         },
         {
-          "name": "test.select.option.hover.textColor",
+          "name": "select.option.selected.textColor",
           "mode": "default"
         },
         {
-          "name": "test.select.option.selected.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.input.text.label.color",
-          "mode": "default"
-        },
-        {
-          "name": "test.input.text.helpText.color",
-          "mode": "default"
-        },
-        {
-          "name": "test.dataCell.enabled.color",
+          "name": "dataCell.enabled.color",
           "mode": "default"
         }
       ]
@@ -1823,7 +1747,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.input.text.placeholder.color",
+          "name": "archived.input.text.placeholder.color",
           "mode": "default"
         }
       ]
@@ -1857,6 +1781,10 @@ export default {
       },
       "usedBy": [
         {
+          "name": "archived.input.text.disabled.color",
+          "mode": "default"
+        },
+        {
           "name": "button.default.disabled.textColor",
           "mode": "default"
         },
@@ -1873,11 +1801,7 @@ export default {
           "mode": "default"
         },
         {
-          "name": "test.select.option.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "test.input.text.disabled.color",
+          "name": "select.option.disabled.textColor",
           "mode": "default"
         }
       ]
@@ -1902,10 +1826,6 @@ export default {
         },
         {
           "name": "button.primary.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.badge.enabled.textColor",
           "mode": "default"
         }
       ]
@@ -2446,6 +2366,552 @@ export default {
     }
   },
   "default": {
+    "archived.input.fieldContainer.default.backgroundColor": {
+      "$type": "color",
+      "$value": "{color.background.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.default.borderColor": {
+      "$type": "color",
+      "$value": "{color.border.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.hover.backgroundColor": {
+      "$type": "color",
+      "$value": "{color.background.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.hover.borderColor": {
+      "$type": "color",
+      "$value": "{color.border.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.focus.backgroundColor": {
+      "$type": "color",
+      "$value": "{color.background.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.focus.borderColor": {
+      "$type": "color",
+      "$value": "{color.border.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.validation.backgroundColor": {
+      "$type": "color",
+      "$value": "{color.background.validation.critical}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.validation.borderColor": {
+      "$type": "color",
+      "$value": "{color.border.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.disabled.backgroundColor": {
+      "$type": "color",
+      "$value": "{color.background.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.disabled.borderColor": {
+      "$type": "color",
+      "$value": "{color.border.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.readOnly.backgroundColor": {
+      "$type": "color",
+      "$value": "{color.background.back}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.readOnly.borderColor": {
+      "$type": "color",
+      "$value": "{color.border.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.borderRadius": {
+      "$type": "number",
+      "$value": "{static.radius.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.borderWidth": {
+      "$type": "number",
+      "$value": "{component.medium.borderWidth}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.paddingX": {
+      "$type": "number",
+      "$value": "{component.medium.edgeToTextX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.paddingY": {
+      "$type": "number",
+      "$value": "{component.medium.edgetoTextY}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.gapX": {
+      "$type": "number",
+      "$value": "{component.medium.gapX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.minHeight": {
+      "$type": "number",
+      "$value": "{component.medium.minHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.iconSize": {
+      "$type": "number",
+      "$value": "{base.dimension.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.label.fontSize": {
+      "$type": "number",
+      "$value": "{static.font.size.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.label.lineHeight": {
+      "$type": "number",
+      "$value": "{static.font.height.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.label.fontWeight": {
+      "$type": "number",
+      "$value": "{base.font.weight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.helpText.fontSize": {
+      "$type": "number",
+      "$value": "{static.font.size.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.helpText.lineHeight": {
+      "$type": "number",
+      "$value": "{static.font.height.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.helpText.fontWeight": {
+      "$type": "number",
+      "$value": "{base.font.weight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.placeholder.fontSize": {
+      "$type": "number",
+      "$value": "{static.font.size.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.placeholder.lineHeight": {
+      "$type": "number",
+      "$value": "{static.font.height.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.placeholder.fontWeight": {
+      "$type": "number",
+      "$value": "{base.font.weight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.valueText.fontSize": {
+      "$type": "number",
+      "$value": "{static.font.size.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.valueText.lineHeight": {
+      "$type": "number",
+      "$value": "{static.font.height.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.fieldContainer.medium.valueText.fontWeight": {
+      "$type": "number",
+      "$value": "{base.font.weight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.text.disabled.color": {
+      "$type": "color",
+      "$value": "{color.text.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.text.description.color": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.text.label.color": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.text.info.color": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.text.error.color": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.text.placeholder.color": {
+      "$type": "color",
+      "$value": "{color.text.weak}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.text.valueText.color": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "archived.input.text.helpText.color": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "archived.button.medium.default.paddingX": {
       "$type": "number",
       "$value": 18,
@@ -5694,90 +6160,6 @@ export default {
         }
       }
     },
-    "button.badge.enabled.textColor": {
-      "$type": "color",
-      "$value": "{color.text.onPrimary}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.badge.enabled.background": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.medium.badge.height": {
-      "$type": "number",
-      "$value": "{base.dimension.450}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.medium.badge.width": {
-      "$type": "number",
-      "$value": "{base.dimension.450}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.medium.badge.fontSize": {
-      "$type": "number",
-      "$value": "{static.font.size.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.medium.badge.borderRadius": {
-      "$type": "number",
-      "$value": "{radius.full}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.medium.default.paddingX": {
       "$type": "number",
       "$value": 16,
@@ -5836,7 +6218,7 @@ export default {
     },
     "button.medium.default.minHeight": {
       "$type": "number",
-      "$value": "{test.component.medium.minHeight}",
+      "$value": "{component.medium.minHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5864,7 +6246,7 @@ export default {
     },
     "button.medium.default.lineHeight": {
       "$type": "number",
-      "$value": "{test.component.medium.lineHeight}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5878,7 +6260,7 @@ export default {
     },
     "button.medium.default.gapX": {
       "$type": "number",
-      "$value": "{test.component.medium.gapX}",
+      "$value": "{component.medium.gapX}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6226,62 +6608,6 @@ export default {
         }
       }
     },
-    "button.small.badge.height": {
-      "$type": "number",
-      "$value": "{base.dimension.450}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.small.badge.width": {
-      "$type": "number",
-      "$value": "{base.dimension.450}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.small.badge.fontSize": {
-      "$type": "number",
-      "$value": "{static.font.size.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.small.badge.borderRadius": {
-      "$type": "number",
-      "$value": "{radius.full}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.small.default.paddingX": {
       "$type": "number",
       "$value": 16,
@@ -6340,7 +6666,7 @@ export default {
     },
     "button.small.default.minHeight": {
       "$type": "number",
-      "$value": "{test.component.small.minHeight}",
+      "$value": "{component.small.minHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6354,7 +6680,7 @@ export default {
     },
     "button.small.default.fontSize": {
       "$type": "number",
-      "$value": "{test.component.small.fontSize}",
+      "$value": "{component.small.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6368,7 +6694,7 @@ export default {
     },
     "button.small.default.lineHeight": {
       "$type": "number",
-      "$value": "{test.component.small.lineHeight}",
+      "$value": "{component.small.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6382,7 +6708,7 @@ export default {
     },
     "button.small.default.gapX": {
       "$type": "number",
-      "$value": "{test.component.small.gapX}",
+      "$value": "{component.small.gapX}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6620,7 +6946,7 @@ export default {
     },
     "button.small.toolbar.paddingX": {
       "$type": "number",
-      "$value": "{test.component.small.edgeToTextY}",
+      "$value": "{component.small.edgeToTextY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6634,7 +6960,7 @@ export default {
     },
     "button.small.toolbar.paddingY": {
       "$type": "number",
-      "$value": "{test.component.small.edgeToTextY}",
+      "$value": "{component.small.edgeToTextY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6662,7 +6988,7 @@ export default {
     },
     "button.small.toolbar.borderWidth": {
       "$type": "number",
-      "$value": "{test.component.small.borderWidth}",
+      "$value": "{component.small.borderWidth}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6676,7 +7002,7 @@ export default {
     },
     "button.small.toolbar.minHeight": {
       "$type": "number",
-      "$value": "{test.component.small.minHeight}",
+      "$value": "{component.small.minHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6690,7 +7016,7 @@ export default {
     },
     "button.small.toolbar.fontSize": {
       "$type": "number",
-      "$value": "{test.component.small.fontSize}",
+      "$value": "{component.small.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6704,7 +7030,7 @@ export default {
     },
     "button.small.toolbar.lineHeight": {
       "$type": "number",
-      "$value": "{test.component.small.lineHeight}",
+      "$value": "{component.small.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6718,7 +7044,7 @@ export default {
     },
     "button.small.toolbar.gapX": {
       "$type": "number",
-      "$value": "{test.component.small.gapX}",
+      "$value": "{component.small.gapX}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6744,7 +7070,7 @@ export default {
         }
       }
     },
-    "test.component.xlarge.minHeight": {
+    "component.xlarge.minHeight": {
       "$type": "number",
       "$value": "{base.dimension.1800}",
       "$description": "",
@@ -6758,7 +7084,7 @@ export default {
         }
       }
     },
-    "test.component.xlarge.borderWidth": {
+    "component.xlarge.borderWidth": {
       "$type": "number",
       "$value": "{border.default}",
       "$description": "",
@@ -6772,7 +7098,7 @@ export default {
         }
       }
     },
-    "test.component.xlarge.fontSize": {
+    "component.xlarge.fontSize": {
       "$type": "number",
       "$value": "{static.font.size.xlarge}",
       "$description": "",
@@ -6786,7 +7112,7 @@ export default {
         }
       }
     },
-    "test.component.xlarge.lineHeight": {
+    "component.xlarge.lineHeight": {
       "$type": "number",
       "$value": "{static.font.height.xlarge}",
       "$description": "",
@@ -6800,7 +7126,7 @@ export default {
         }
       }
     },
-    "test.component.xlarge.edgeToTextY": {
+    "component.xlarge.edgeToTextY": {
       "$type": "number",
       "$value": 20,
       "$description": "",
@@ -6814,7 +7140,7 @@ export default {
         }
       }
     },
-    "test.component.xlarge.edgeToTextX": {
+    "component.xlarge.edgeToTextX": {
       "$type": "number",
       "$value": 41,
       "$description": "",
@@ -6828,7 +7154,7 @@ export default {
         }
       }
     },
-    "test.component.xlarge.edgeToElementX": {
+    "component.xlarge.edgeToElementX": {
       "$type": "number",
       "$value": 12,
       "$description": "",
@@ -6842,7 +7168,7 @@ export default {
         }
       }
     },
-    "test.component.xlarge.textToElementY": {
+    "component.xlarge.textToElementY": {
       "$type": "number",
       "$value": 41,
       "$description": "",
@@ -6856,7 +7182,7 @@ export default {
         }
       }
     },
-    "test.component.xlarge.gapX": {
+    "component.xlarge.gapX": {
       "$type": "number",
       "$value": "{static.spacing.medium}",
       "$description": "",
@@ -6870,7 +7196,7 @@ export default {
         }
       }
     },
-    "test.component.large.minHeight": {
+    "component.large.minHeight": {
       "$type": "number",
       "$value": "{base.dimension.1200}",
       "$description": "",
@@ -6884,7 +7210,7 @@ export default {
         }
       }
     },
-    "test.component.large.borderWidth": {
+    "component.large.borderWidth": {
       "$type": "number",
       "$value": "{border.default}",
       "$description": "",
@@ -6898,7 +7224,7 @@ export default {
         }
       }
     },
-    "test.component.large.fontSize": {
+    "component.large.fontSize": {
       "$type": "number",
       "$value": "{static.font.size.large}",
       "$description": "",
@@ -6912,7 +7238,7 @@ export default {
         }
       }
     },
-    "test.component.large.lineHeight": {
+    "component.large.lineHeight": {
       "$type": "number",
       "$value": "{static.font.height.large}",
       "$description": "",
@@ -6926,7 +7252,7 @@ export default {
         }
       }
     },
-    "test.component.large.edgeToTextY": {
+    "component.large.edgeToTextY": {
       "$type": "number",
       "$value": 9,
       "$description": "",
@@ -6940,7 +7266,7 @@ export default {
         }
       }
     },
-    "test.component.large.edgeToTextX": {
+    "component.large.edgeToTextX": {
       "$type": "number",
       "$value": 19,
       "$description": "",
@@ -6954,7 +7280,7 @@ export default {
         }
       }
     },
-    "test.component.large.edgeToElementX": {
+    "component.large.edgeToElementX": {
       "$type": "number",
       "$value": 6,
       "$description": "",
@@ -6968,7 +7294,7 @@ export default {
         }
       }
     },
-    "test.component.large.textToElementX": {
+    "component.large.textToElementX": {
       "$type": "number",
       "$value": 19,
       "$description": "",
@@ -6982,7 +7308,7 @@ export default {
         }
       }
     },
-    "test.component.large.gapX": {
+    "component.large.gapX": {
       "$type": "number",
       "$value": "{static.spacing.medium}",
       "$description": "",
@@ -6996,7 +7322,7 @@ export default {
         }
       }
     },
-    "test.component.medium.minHeight": {
+    "component.medium.minHeight": {
       "$type": "number",
       "$value": "{base.dimension.900}",
       "$description": "",
@@ -7010,7 +7336,7 @@ export default {
         }
       }
     },
-    "test.component.medium.borderWidth": {
+    "component.medium.borderWidth": {
       "$type": "number",
       "$value": "{border.default}",
       "$description": "",
@@ -7024,7 +7350,7 @@ export default {
         }
       }
     },
-    "test.component.medium.fontSize": {
+    "component.medium.fontSize": {
       "$type": "number",
       "$value": "{static.font.size.medium}",
       "$description": "",
@@ -7038,7 +7364,7 @@ export default {
         }
       }
     },
-    "test.component.medium.lineHeight": {
+    "component.medium.lineHeight": {
       "$type": "number",
       "$value": "{static.font.height.medium}",
       "$description": "",
@@ -7052,7 +7378,7 @@ export default {
         }
       }
     },
-    "test.component.medium.edgetoTextY": {
+    "component.medium.edgetoTextY": {
       "$type": "number",
       "$value": 5,
       "$description": "",
@@ -7066,7 +7392,7 @@ export default {
         }
       }
     },
-    "test.component.medium.edgeToTextX": {
+    "component.medium.edgeToTextX": {
       "$type": "number",
       "$value": 11,
       "$description": "",
@@ -7080,7 +7406,7 @@ export default {
         }
       }
     },
-    "test.component.medium.edgeToElementX": {
+    "component.medium.edgeToElementX": {
       "$type": "number",
       "$value": 6,
       "$description": "",
@@ -7094,7 +7420,7 @@ export default {
         }
       }
     },
-    "test.component.medium.textToElementX": {
+    "component.medium.textToElementX": {
       "$type": "number",
       "$value": 11,
       "$description": "",
@@ -7108,7 +7434,7 @@ export default {
         }
       }
     },
-    "test.component.medium.gapX": {
+    "component.medium.gapX": {
       "$type": "number",
       "$value": "{static.spacing.small}",
       "$description": "",
@@ -7122,7 +7448,7 @@ export default {
         }
       }
     },
-    "test.component.small.minHeight": {
+    "component.small.minHeight": {
       "$type": "number",
       "$value": "{base.dimension.700}",
       "$description": "",
@@ -7136,7 +7462,7 @@ export default {
         }
       }
     },
-    "test.component.small.borderWidth": {
+    "component.small.borderWidth": {
       "$type": "number",
       "$value": "{border.default}",
       "$description": "",
@@ -7150,7 +7476,7 @@ export default {
         }
       }
     },
-    "test.component.small.fontSize": {
+    "component.small.fontSize": {
       "$type": "number",
       "$value": "{static.font.size.small}",
       "$description": "",
@@ -7164,7 +7490,7 @@ export default {
         }
       }
     },
-    "test.component.small.lineHeight": {
+    "component.small.lineHeight": {
       "$type": "number",
       "$value": "{static.font.height.small}",
       "$description": "",
@@ -7178,7 +7504,7 @@ export default {
         }
       }
     },
-    "test.component.small.edgeToTextY": {
+    "component.small.edgeToTextY": {
       "$type": "number",
       "$value": 3,
       "$description": "",
@@ -7192,7 +7518,7 @@ export default {
         }
       }
     },
-    "test.component.small.edgeToTextX": {
+    "component.small.edgeToTextX": {
       "$type": "number",
       "$value": 9.600000381469727,
       "$description": "",
@@ -7206,7 +7532,7 @@ export default {
         }
       }
     },
-    "test.component.small.edgeToElementX": {
+    "component.small.edgeToElementX": {
       "$type": "number",
       "$value": 6,
       "$description": "",
@@ -7220,7 +7546,7 @@ export default {
         }
       }
     },
-    "test.component.small.textToElementX": {
+    "component.small.textToElementX": {
       "$type": "number",
       "$value": 9.600000381469727,
       "$description": "",
@@ -7234,7 +7560,7 @@ export default {
         }
       }
     },
-    "test.component.small.gapX": {
+    "component.small.gapX": {
       "$type": "number",
       "$value": "{static.spacing.xsmall}",
       "$description": "",
@@ -7248,7 +7574,7 @@ export default {
         }
       }
     },
-    "test.component.xsmall.minHeight": {
+    "component.xsmall.minHeight": {
       "$type": "number",
       "$value": "{base.dimension.600}",
       "$description": "",
@@ -7262,7 +7588,7 @@ export default {
         }
       }
     },
-    "test.component.xsmall.borderWidth": {
+    "component.xsmall.borderWidth": {
       "$type": "number",
       "$value": "{border.default}",
       "$description": "",
@@ -7276,7 +7602,7 @@ export default {
         }
       }
     },
-    "test.component.xsmall.fontSize": {
+    "component.xsmall.fontSize": {
       "$type": "number",
       "$value": "{static.font.size.xsmall}",
       "$description": "",
@@ -7290,7 +7616,7 @@ export default {
         }
       }
     },
-    "test.component.xsmall.lineHeight": {
+    "component.xsmall.lineHeight": {
       "$type": "number",
       "$value": "{static.font.height.xsmall}",
       "$description": "",
@@ -7304,7 +7630,7 @@ export default {
         }
       }
     },
-    "test.component.xsmall.edgeToTextY": {
+    "component.xsmall.edgeToTextY": {
       "$type": "number",
       "$value": 2,
       "$description": "",
@@ -7318,7 +7644,7 @@ export default {
         }
       }
     },
-    "test.component.xsmall.edgeToTextX": {
+    "component.xsmall.edgeToTextX": {
       "$type": "number",
       "$value": 8,
       "$description": "",
@@ -7332,7 +7658,7 @@ export default {
         }
       }
     },
-    "test.component.xsmall.edgeToElementX": {
+    "component.xsmall.edgeToElementX": {
       "$type": "number",
       "$value": 6,
       "$description": "",
@@ -7346,7 +7672,7 @@ export default {
         }
       }
     },
-    "test.component.xsmall.textToElementX": {
+    "component.xsmall.textToElementX": {
       "$type": "number",
       "$value": 8,
       "$description": "",
@@ -7360,7 +7686,7 @@ export default {
         }
       }
     },
-    "test.component.xsmall.gapX": {
+    "component.xsmall.gapX": {
       "$type": "number",
       "$value": "{static.spacing.xsmall}",
       "$description": "",
@@ -7374,7 +7700,7 @@ export default {
         }
       }
     },
-    "test.drop.background": {
+    "drop.background": {
       "$type": "color",
       "$value": "{color.background.floating}",
       "$description": "",
@@ -7388,7 +7714,7 @@ export default {
         }
       }
     },
-    "test.drop.borderRadius": {
+    "drop.borderRadius": {
       "$type": "number",
       "$value": "{radius.xsmall}",
       "$description": "",
@@ -7402,7 +7728,7 @@ export default {
         }
       }
     },
-    "test.drop.margin": {
+    "drop.margin": {
       "$type": "number",
       "$value": "{spacing.xsmall}",
       "$description": "",
@@ -7416,7 +7742,7 @@ export default {
         }
       }
     },
-    "test.drop.zIndex": {
+    "drop.zIndex": {
       "$type": "number",
       "$value": 110,
       "$description": "",
@@ -7430,9 +7756,9 @@ export default {
         }
       }
     },
-    "test.menu.drop.background": {
+    "menu.drop.background": {
       "$type": "color",
-      "$value": "{test.drop.background}",
+      "$value": "{drop.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7444,21 +7770,7 @@ export default {
         }
       }
     },
-    "test.menu.item.enabled.background": {
-      "$type": "color",
-      "$value": "#00000000",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.menu.item.enabled.borderColor": {
+    "menu.item.enabled.background": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -7472,7 +7784,21 @@ export default {
         }
       }
     },
-    "test.menu.item.enabled.textColor": {
+    "menu.item.enabled.borderColor": {
+      "$type": "color",
+      "$value": "#00000000",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "menu.item.enabled.textColor": {
       "$type": "color",
       "$value": "{button.default.enabled.textColor}",
       "$description": "",
@@ -7486,7 +7812,7 @@ export default {
         }
       }
     },
-    "test.menu.item.enabled.iconColor": {
+    "menu.item.enabled.iconColor": {
       "$type": "color",
       "$value": "{button.default.enabled.iconColor}",
       "$description": "",
@@ -7500,7 +7826,7 @@ export default {
         }
       }
     },
-    "test.menu.item.hover.background": {
+    "menu.item.hover.background": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -7514,7 +7840,7 @@ export default {
         }
       }
     },
-    "test.menu.item.hover.borderColor": {
+    "menu.item.hover.borderColor": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -7528,7 +7854,7 @@ export default {
         }
       }
     },
-    "test.menu.item.hover.textColor": {
+    "menu.item.hover.textColor": {
       "$type": "color",
       "$value": "{button.default.hover.textColor}",
       "$description": "",
@@ -7542,7 +7868,7 @@ export default {
         }
       }
     },
-    "test.menu.item.hover.iconColor": {
+    "menu.item.hover.iconColor": {
       "$type": "color",
       "$value": "{button.default.hover.iconColor}",
       "$description": "",
@@ -7556,7 +7882,7 @@ export default {
         }
       }
     },
-    "test.menu.item.disabled.background": {
+    "menu.item.disabled.background": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -7570,7 +7896,7 @@ export default {
         }
       }
     },
-    "test.menu.item.disabled.borderColor": {
+    "menu.item.disabled.borderColor": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -7584,7 +7910,7 @@ export default {
         }
       }
     },
-    "test.menu.item.disabled.textColor": {
+    "menu.item.disabled.textColor": {
       "$type": "color",
       "$value": "{button.default.disabled.textColor}",
       "$description": "",
@@ -7598,7 +7924,7 @@ export default {
         }
       }
     },
-    "test.menu.item.disabled.iconColor": {
+    "menu.item.disabled.iconColor": {
       "$type": "color",
       "$value": "{button.default.disabled.iconColor}",
       "$description": "",
@@ -7612,7 +7938,7 @@ export default {
         }
       }
     },
-    "test.menu.group.separator.background": {
+    "menu.group.separator.background": {
       "$type": "color",
       "$value": "{color.border.default}",
       "$description": "",
@@ -7626,9 +7952,9 @@ export default {
         }
       }
     },
-    "test.menu.medium.drop.borderRadius": {
+    "menu.medium.drop.borderRadius": {
       "$type": "number",
-      "$value": "{test.drop.borderRadius}",
+      "$value": "{drop.borderRadius}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7640,7 +7966,7 @@ export default {
         }
       }
     },
-    "test.menu.medium.item.paddingX": {
+    "menu.medium.item.paddingX": {
       "$type": "number",
       "$value": "{button.medium.default.paddingX}",
       "$description": "",
@@ -7654,7 +7980,7 @@ export default {
         }
       }
     },
-    "test.menu.medium.item.paddingY": {
+    "menu.medium.item.paddingY": {
       "$type": "number",
       "$value": "{button.medium.default.paddingY}",
       "$description": "",
@@ -7668,7 +7994,7 @@ export default {
         }
       }
     },
-    "test.menu.medium.item.borderRadius": {
+    "menu.medium.item.borderRadius": {
       "$type": "number",
       "$value": "{radius.none}",
       "$description": "",
@@ -7682,7 +8008,7 @@ export default {
         }
       }
     },
-    "test.menu.medium.item.borderWidth": {
+    "menu.medium.item.borderWidth": {
       "$type": "number",
       "$value": "{button.medium.default.borderWidth}",
       "$description": "",
@@ -7696,7 +8022,7 @@ export default {
         }
       }
     },
-    "test.menu.medium.item.minHeight": {
+    "menu.medium.item.minHeight": {
       "$type": "number",
       "$value": "{button.medium.default.minHeight}",
       "$description": "",
@@ -7710,7 +8036,7 @@ export default {
         }
       }
     },
-    "test.menu.medium.group.container.paddingY": {
+    "menu.medium.group.container.paddingY": {
       "$type": "number",
       "$value": "{static.spacing.xsmall}",
       "$description": "",
@@ -7724,7 +8050,7 @@ export default {
         }
       }
     },
-    "test.menu.medium.group.separator.height": {
+    "menu.medium.group.separator.height": {
       "$type": "number",
       "$value": "{static.border.xsmall}",
       "$description": "",
@@ -7738,9 +8064,9 @@ export default {
         }
       }
     },
-    "test.select.medium.option.paddingX": {
+    "select.medium.option.paddingX": {
       "$type": "number",
-      "$value": "{test.input.fieldContainer.medium.paddingX}",
+      "$value": "{archived.input.fieldContainer.medium.paddingX}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7752,9 +8078,9 @@ export default {
         }
       }
     },
-    "test.select.medium.option.paddingY": {
+    "select.medium.option.paddingY": {
       "$type": "number",
-      "$value": "{test.input.fieldContainer.medium.paddingY}",
+      "$value": "{archived.input.fieldContainer.medium.paddingY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7766,9 +8092,9 @@ export default {
         }
       }
     },
-    "test.select.medium.option.minHeight": {
+    "select.medium.option.minHeight": {
       "$type": "number",
-      "$value": "{test.input.fieldContainer.medium.minHeight}",
+      "$value": "{archived.input.fieldContainer.medium.minHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7780,7 +8106,7 @@ export default {
         }
       }
     },
-    "test.select.medium.option.borderRadius": {
+    "select.medium.option.borderRadius": {
       "$type": "number",
       "$value": "{radius.none}",
       "$description": "",
@@ -7794,9 +8120,9 @@ export default {
         }
       }
     },
-    "test.select.medium.option.borderWidth": {
+    "select.medium.option.borderWidth": {
       "$type": "number",
-      "$value": "{test.input.fieldContainer.medium.borderWidth}",
+      "$value": "{archived.input.fieldContainer.medium.borderWidth}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7808,7 +8134,7 @@ export default {
         }
       }
     },
-    "test.select.medium.option.fontSize": {
+    "select.medium.option.fontSize": {
       "$type": "number",
       "$value": "{static.font.size.medium}",
       "$description": "",
@@ -7822,7 +8148,7 @@ export default {
         }
       }
     },
-    "test.select.medium.option.lineHeight": {
+    "select.medium.option.lineHeight": {
       "$type": "number",
       "$value": "{static.font.height.medium}",
       "$description": "",
@@ -7836,7 +8162,7 @@ export default {
         }
       }
     },
-    "test.select.option.enabled.background": {
+    "select.option.enabled.background": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -7850,7 +8176,7 @@ export default {
         }
       }
     },
-    "test.select.option.enabled.borderColor": {
+    "select.option.enabled.borderColor": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -7864,7 +8190,7 @@ export default {
         }
       }
     },
-    "test.select.option.enabled.textColor": {
+    "select.option.enabled.textColor": {
       "$type": "color",
       "$value": "{color.text.strong}",
       "$description": "",
@@ -7878,7 +8204,7 @@ export default {
         }
       }
     },
-    "test.select.option.enabled.fontWeight": {
+    "select.option.enabled.fontWeight": {
       "$type": "number",
       "$value": "{base.font.weight.medium}",
       "$description": "",
@@ -7892,7 +8218,7 @@ export default {
         }
       }
     },
-    "test.select.option.hover.background": {
+    "select.option.hover.background": {
       "$type": "color",
       "$value": "{color.background.hover}",
       "$description": "",
@@ -7906,7 +8232,7 @@ export default {
         }
       }
     },
-    "test.select.option.hover.borderColor": {
+    "select.option.hover.borderColor": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -7920,7 +8246,7 @@ export default {
         }
       }
     },
-    "test.select.option.hover.textColor": {
+    "select.option.hover.textColor": {
       "$type": "color",
       "$value": "{color.text.strong}",
       "$description": "",
@@ -7934,9 +8260,9 @@ export default {
         }
       }
     },
-    "test.select.option.hover.fontWeight": {
+    "select.option.hover.fontWeight": {
       "$type": "number",
-      "$value": "{test.select.option.enabled.fontWeight}",
+      "$value": "{select.option.enabled.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7948,7 +8274,7 @@ export default {
         }
       }
     },
-    "test.select.option.disabled.background": {
+    "select.option.disabled.background": {
       "$type": "color",
       "$value": "{color.background.disabled}",
       "$description": "",
@@ -7962,7 +8288,7 @@ export default {
         }
       }
     },
-    "test.select.option.disabled.borderColor": {
+    "select.option.disabled.borderColor": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -7976,7 +8302,7 @@ export default {
         }
       }
     },
-    "test.select.option.disabled.textColor": {
+    "select.option.disabled.textColor": {
       "$type": "color",
       "$value": "{color.text.disabled}",
       "$description": "",
@@ -7990,9 +8316,9 @@ export default {
         }
       }
     },
-    "test.select.option.disabled.fontWeight": {
+    "select.option.disabled.fontWeight": {
       "$type": "number",
-      "$value": "{test.select.option.enabled.fontWeight}",
+      "$value": "{select.option.enabled.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8004,7 +8330,7 @@ export default {
         }
       }
     },
-    "test.select.option.selected.background": {
+    "select.option.selected.background": {
       "$type": "color",
       "$value": "{color.background.selected.weak}",
       "$description": "",
@@ -8018,7 +8344,7 @@ export default {
         }
       }
     },
-    "test.select.option.selected.borderColor": {
+    "select.option.selected.borderColor": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -8032,7 +8358,7 @@ export default {
         }
       }
     },
-    "test.select.option.selected.textColor": {
+    "select.option.selected.textColor": {
       "$type": "color",
       "$value": "{color.text.strong}",
       "$description": "",
@@ -8046,7 +8372,7 @@ export default {
         }
       }
     },
-    "test.select.option.selected.fontWeight": {
+    "select.option.selected.fontWeight": {
       "$type": "number",
       "$value": "{base.font.weight.bold}",
       "$description": "",
@@ -8060,9 +8386,9 @@ export default {
         }
       }
     },
-    "test.input.fieldContainer.default.backgroundColor": {
+    "checkbox.control.enabled.background": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "#00000000",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8074,7 +8400,7 @@ export default {
         }
       }
     },
-    "test.input.fieldContainer.default.borderColor": {
+    "checkbox.control.enabled.borderColor": {
       "$type": "color",
       "$value": "{color.border.default}",
       "$description": "",
@@ -8088,9 +8414,9 @@ export default {
         }
       }
     },
-    "test.input.fieldContainer.hover.backgroundColor": {
+    "checkbox.control.hover.background": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "#00000000",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8102,35 +8428,7 @@ export default {
         }
       }
     },
-    "test.input.fieldContainer.hover.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.focus.backgroundColor": {
-      "$type": "color",
-      "$value": "{color.background.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.focus.borderColor": {
+    "checkbox.control.hover.borderColor": {
       "$type": "color",
       "$value": "{color.border.strong}",
       "$description": "",
@@ -8144,483 +8442,7 @@ export default {
         }
       }
     },
-    "test.input.fieldContainer.validation.backgroundColor": {
-      "$type": "color",
-      "$value": "{color.background.validation.critical}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.validation.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.disabled.backgroundColor": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.disabled.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.readOnly.backgroundColor": {
-      "$type": "color",
-      "$value": "{color.background.back}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.readOnly.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.borderRadius": {
-      "$type": "number",
-      "$value": "{static.radius.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.borderWidth": {
-      "$type": "number",
-      "$value": "{test.component.medium.borderWidth}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.paddingX": {
-      "$type": "number",
-      "$value": "{test.component.medium.edgeToTextX}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.paddingY": {
-      "$type": "number",
-      "$value": "{test.component.medium.edgetoTextY}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.gapX": {
-      "$type": "number",
-      "$value": "{test.component.medium.gapX}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.minHeight": {
-      "$type": "number",
-      "$value": "{test.component.medium.minHeight}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.iconSize": {
-      "$type": "number",
-      "$value": "{base.dimension.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.label.fontSize": {
-      "$type": "number",
-      "$value": "{static.font.size.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.label.lineHeight": {
-      "$type": "number",
-      "$value": "{static.font.height.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.label.fontWeight": {
-      "$type": "number",
-      "$value": "{base.font.weight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.helpText.fontSize": {
-      "$type": "number",
-      "$value": "{static.font.size.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.helpText.lineHeight": {
-      "$type": "number",
-      "$value": "{static.font.height.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.helpText.fontWeight": {
-      "$type": "number",
-      "$value": "{base.font.weight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.placeholder.fontSize": {
-      "$type": "number",
-      "$value": "{static.font.size.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.placeholder.lineHeight": {
-      "$type": "number",
-      "$value": "{static.font.height.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.placeholder.fontWeight": {
-      "$type": "number",
-      "$value": "{base.font.weight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.valueText.fontSize": {
-      "$type": "number",
-      "$value": "{static.font.size.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.valueText.lineHeight": {
-      "$type": "number",
-      "$value": "{static.font.height.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.fieldContainer.medium.valueText.fontWeight": {
-      "$type": "number",
-      "$value": "{base.font.weight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.text.disabled.color": {
-      "$type": "color",
-      "$value": "{color.text.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.text.error.color": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.text.description.color": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.text.info.color": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.text.label.color": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.text.placeholder.color": {
-      "$type": "color",
-      "$value": "{color.text.weak}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.text.valueText.color": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.input.text.helpText.color": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.checkbox.check.enabled.background": {
-      "$type": "color",
-      "$value": "#ffffff",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.checkbox.medium.gapX": {
+    "checkbox.medium.gapX": {
       "$type": "number",
       "$value": "{static.spacing.small}",
       "$description": "",
@@ -8634,7 +8456,7 @@ export default {
         }
       }
     },
-    "test.checkbox.medium.check.height": {
+    "checkbox.medium.control.height": {
       "$type": "number",
       "$value": "{base.dimension.600}",
       "$description": "",
@@ -8648,7 +8470,7 @@ export default {
         }
       }
     },
-    "test.checkbox.medium.check.width": {
+    "checkbox.medium.control.width": {
       "$type": "number",
       "$value": "{base.dimension.600}",
       "$description": "",
@@ -8662,7 +8484,7 @@ export default {
         }
       }
     },
-    "test.checkbox.medium.check.borderWidth": {
+    "checkbox.medium.control.borderWidth": {
       "$type": "number",
       "$value": "{border.default}",
       "$description": "",
@@ -8676,7 +8498,7 @@ export default {
         }
       }
     },
-    "test.checkbox.medium.check.borderRadius": {
+    "checkbox.medium.control.borderRadius": {
       "$type": "number",
       "$value": "{static.radius.xxsmall}",
       "$description": "",
@@ -8690,9 +8512,9 @@ export default {
         }
       }
     },
-    "test.checkbox.enabled.background": {
+    "switch.control.knob.enabled.background": {
       "$type": "color",
-      "$value": "#00000000",
+      "$value": "#ffffff",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8704,9 +8526,9 @@ export default {
         }
       }
     },
-    "test.checkbox.enabled.borderColor": {
+    "switch.control.knob.enabled.borderColor": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "#ffffff",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8718,9 +8540,9 @@ export default {
         }
       }
     },
-    "test.checkbox.enabled.check.background": {
+    "switch.control.knob.disabled.background": {
       "$type": "color",
-      "$value": "#00000000",
+      "$value": "#ffffff",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8732,9 +8554,9 @@ export default {
         }
       }
     },
-    "test.checkbox.enabled.check.borderColor": {
+    "switch.control.knob.disabled.borderColor": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "#ffffff",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8746,9 +8568,9 @@ export default {
         }
       }
     },
-    "test.checkbox.hover.background": {
+    "switch.control.knob.hover.background": {
       "$type": "color",
-      "$value": "{test.checkbox.enabled.background}",
+      "$value": "#ffffff",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8760,9 +8582,9 @@ export default {
         }
       }
     },
-    "test.checkbox.hover.borderColor": {
+    "switch.control.knob.hover.borderColor": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "#ffffff",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8774,7 +8596,7 @@ export default {
         }
       }
     },
-    "test.switch.medium.gapX": {
+    "switch.medium.gapX": {
       "$type": "number",
       "$value": "{static.spacing.small}",
       "$description": "",
@@ -8788,7 +8610,7 @@ export default {
         }
       }
     },
-    "test.switch.medium.width": {
+    "switch.medium.width": {
       "$type": "number",
       "$value": 48,
       "$description": "",
@@ -8802,7 +8624,7 @@ export default {
         }
       }
     },
-    "test.switch.medium.height": {
+    "switch.medium.height": {
       "$type": "number",
       "$value": 24,
       "$description": "",
@@ -8816,7 +8638,7 @@ export default {
         }
       }
     },
-    "test.switch.medium.borderRadius": {
+    "switch.medium.borderRadius": {
       "$type": "number",
       "$value": 9999,
       "$description": "",
@@ -8830,7 +8652,7 @@ export default {
         }
       }
     },
-    "test.switch.medium.borderWidth": {
+    "switch.medium.borderWidth": {
       "$type": "number",
       "$value": "{border.default}",
       "$description": "",
@@ -8844,7 +8666,7 @@ export default {
         }
       }
     },
-    "test.switch.medium.knob.height": {
+    "switch.medium.control.knob.height": {
       "$type": "number",
       "$value": "{base.dimension.600}",
       "$description": "",
@@ -8858,7 +8680,7 @@ export default {
         }
       }
     },
-    "test.switch.medium.knob.width": {
+    "switch.medium.control.knob.width": {
       "$type": "number",
       "$value": "{base.dimension.600}",
       "$description": "",
@@ -8872,7 +8694,7 @@ export default {
         }
       }
     },
-    "test.switch.medium.knob.borderWidth": {
+    "switch.medium.control.knob.borderWidth": {
       "$type": "number",
       "$value": "{border.default}",
       "$description": "",
@@ -8886,7 +8708,7 @@ export default {
         }
       }
     },
-    "test.switch.medium.knob.borderRadius": {
+    "switch.medium.control.knob.borderRadius": {
       "$type": "number",
       "$value": "{static.radius.xxsmall}",
       "$description": "",
@@ -8900,175 +8722,7 @@ export default {
         }
       }
     },
-    "test.switch.enabled.background": {
-      "$type": "color",
-      "$value": "#00000000",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.switch.enabled.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.switch.enabled.knob.background": {
-      "$type": "color",
-      "$value": "#00000000",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.switch.enabled.knob.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.switch.hover.background": {
-      "$type": "color",
-      "$value": "{test.checkbox.enabled.background}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.switch.hover.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.switch.hover.knob.background": {
-      "$type": "color",
-      "$value": "{test.checkbox.enabled.check.background}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.switch.hover.knob.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.switch.selected.background": {
-      "$type": "color",
-      "$value": "{color.background.selected.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.switch.selected.borderColor": {
-      "$type": "color",
-      "$value": "{test.switch.enabled.borderColor}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.switch.selected.knob.borderColor": {
-      "$type": "color",
-      "$value": "{test.checkbox.enabled.check.borderColor}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.switch.selected.knob.background": {
-      "$type": "color",
-      "$value": "{color.background.front}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.dataCell.paddingX": {
+    "dataCell.paddingX": {
       "$type": "number",
       "$value": "{static.spacing.small}",
       "$description": "",
@@ -9082,7 +8736,7 @@ export default {
         }
       }
     },
-    "test.dataCell.fontSize": {
+    "dataCell.fontSize": {
       "$type": "number",
       "$value": "{static.font.size.medium}",
       "$description": "",
@@ -9096,7 +8750,7 @@ export default {
         }
       }
     },
-    "test.dataCell.lineHeight": {
+    "dataCell.lineHeight": {
       "$type": "number",
       "$value": "{static.font.height.medium}",
       "$description": "",
@@ -9110,7 +8764,7 @@ export default {
         }
       }
     },
-    "test.dataCell.borderBottomWidth": {
+    "dataCell.borderBottomWidth": {
       "$type": "number",
       "$value": "{static.border.xsmall}",
       "$description": "",
@@ -9124,7 +8778,7 @@ export default {
         }
       }
     },
-    "test.dataCell.paddingTop": {
+    "dataCell.paddingTop": {
       "$type": "number",
       "$value": "{static.spacing.xsmall}",
       "$description": "",
@@ -9138,7 +8792,7 @@ export default {
         }
       }
     },
-    "test.dataCell.paddingBottom": {
+    "dataCell.paddingBottom": {
       "$type": "number",
       "$value": 5,
       "$description": "",
@@ -9152,7 +8806,7 @@ export default {
         }
       }
     },
-    "test.dataCell.enabled.color": {
+    "dataCell.enabled.color": {
       "$type": "color",
       "$value": "{color.text.strong}",
       "$description": "",
@@ -9166,7 +8820,7 @@ export default {
         }
       }
     },
-    "test.dataCell.enabled.borderColor": {
+    "dataCell.enabled.borderColor": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -9180,7 +8834,7 @@ export default {
         }
       }
     },
-    "test.dataCell.enabled.background": {
+    "dataCell.enabled.background": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -9194,9 +8848,9 @@ export default {
         }
       }
     },
-    "test.dataCell.hover.color": {
+    "dataCell.hover.color": {
       "$type": "color",
-      "$value": "{test.dataCell.enabled.color}",
+      "$value": "{dataCell.enabled.color}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9208,9 +8862,9 @@ export default {
         }
       }
     },
-    "test.dataCell.hover.borderColor": {
+    "dataCell.hover.borderColor": {
       "$type": "color",
-      "$value": "{test.dataCell.enabled.borderColor}",
+      "$value": "{dataCell.enabled.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9222,7 +8876,7 @@ export default {
         }
       }
     },
-    "test.dataCell.hover.background": {
+    "dataCell.hover.background": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -9236,9 +8890,9 @@ export default {
         }
       }
     },
-    "test.dataCell.disabled.color": {
+    "dataCell.disabled.color": {
       "$type": "color",
-      "$value": "{test.dataCell.enabled.color}",
+      "$value": "{dataCell.enabled.color}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9250,9 +8904,9 @@ export default {
         }
       }
     },
-    "test.dataCell.disabled.borderColor": {
+    "dataCell.disabled.borderColor": {
       "$type": "color",
-      "$value": "{test.dataCell.enabled.borderColor}",
+      "$value": "{dataCell.enabled.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9264,9 +8918,9 @@ export default {
         }
       }
     },
-    "test.dataCell.pinned.color": {
+    "dataCell.pinned.color": {
       "$type": "color",
-      "$value": "{test.dataCell.enabled.color}",
+      "$value": "{dataCell.enabled.color}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9278,9 +8932,9 @@ export default {
         }
       }
     },
-    "test.dataCell.pinned.borderColor": {
+    "dataCell.pinned.borderColor": {
       "$type": "color",
-      "$value": "{test.dataCell.enabled.borderColor}",
+      "$value": "{dataCell.enabled.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9292,9 +8946,9 @@ export default {
         }
       }
     },
-    "test.headerCell.paddingX": {
+    "headerCell.paddingX": {
       "$type": "number",
-      "$value": "{test.dataCell.paddingX}",
+      "$value": "{dataCell.paddingX}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9306,9 +8960,9 @@ export default {
         }
       }
     },
-    "test.headerCell.fontSize": {
+    "headerCell.fontSize": {
       "$type": "number",
-      "$value": "{test.dataCell.fontSize}",
+      "$value": "{dataCell.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9320,9 +8974,9 @@ export default {
         }
       }
     },
-    "test.headerCell.lineHeight": {
+    "headerCell.lineHeight": {
       "$type": "number",
-      "$value": "{test.dataCell.lineHeight}",
+      "$value": "{dataCell.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9334,7 +8988,7 @@ export default {
         }
       }
     },
-    "test.headerCell.fontWeight": {
+    "headerCell.fontWeight": {
       "$type": "number",
       "$value": "{base.font.weight.medium}",
       "$description": "",
@@ -9348,9 +9002,9 @@ export default {
         }
       }
     },
-    "test.headerCell.borderBottomWidth": {
+    "headerCell.borderBottomWidth": {
       "$type": "number",
-      "$value": "{test.dataCell.borderBottomWidth}",
+      "$value": "{dataCell.borderBottomWidth}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9362,9 +9016,9 @@ export default {
         }
       }
     },
-    "test.headerCell.paddingTop": {
+    "headerCell.paddingTop": {
       "$type": "number",
-      "$value": "{test.dataCell.paddingTop}",
+      "$value": "{dataCell.paddingTop}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9376,9 +9030,9 @@ export default {
         }
       }
     },
-    "test.headerCell.paddingBottom": {
+    "headerCell.paddingBottom": {
       "$type": "number",
-      "$value": "{test.dataCell.paddingBottom}",
+      "$value": "{dataCell.paddingBottom}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9390,9 +9044,9 @@ export default {
         }
       }
     },
-    "test.headerCell.enabled.color": {
+    "headerCell.enabled.color": {
       "$type": "color",
-      "$value": "{test.dataCell.enabled.color}",
+      "$value": "{dataCell.enabled.color}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9404,7 +9058,7 @@ export default {
         }
       }
     },
-    "test.headerCell.enabled.borderColor": {
+    "headerCell.enabled.borderColor": {
       "$type": "color",
       "$value": "{color.border.default}",
       "$description": "",
@@ -9418,7 +9072,7 @@ export default {
         }
       }
     },
-    "test.headerCell.enabled.background": {
+    "headerCell.enabled.background": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -9432,9 +9086,9 @@ export default {
         }
       }
     },
-    "test.headerCell.hover.color": {
+    "headerCell.hover.color": {
       "$type": "color",
-      "$value": "{test.dataCell.hover.color}",
+      "$value": "{dataCell.hover.color}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9446,9 +9100,9 @@ export default {
         }
       }
     },
-    "test.headerCell.hover.borderColor": {
+    "headerCell.hover.borderColor": {
       "$type": "color",
-      "$value": "{test.dataCell.hover.borderColor}",
+      "$value": "{dataCell.hover.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9460,49 +9114,7 @@ export default {
         }
       }
     },
-    "test.headerCell.hover.background": {
-      "$type": "color",
-      "$value": "#00000000",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.headerCell.pinned.color": {
-      "$type": "color",
-      "$value": "{test.dataCell.hover.color}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.headerCell.pinned.borderColor": {
-      "$type": "color",
-      "$value": "{test.dataCell.hover.borderColor}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "test.headerCell.pinned.background": {
+    "headerCell.hover.background": {
       "$type": "color",
       "$value": "#00000000",
       "$description": "",
@@ -9516,9 +9128,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.group.item.paddingX": {
-      "$type": "number",
-      "$value": "{test.component.medium.edgeToTextX}",
+    "headerCell.pinned.color": {
+      "$type": "color",
+      "$value": "{dataCell.hover.color}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9530,9 +9142,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.group.item.paddingY": {
-      "$type": "number",
-      "$value": "{test.component.medium.edgetoTextY}",
+    "headerCell.pinned.borderColor": {
+      "$type": "color",
+      "$value": "{dataCell.hover.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9544,9 +9156,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.group.item.borderWidth": {
-      "$type": "number",
-      "$value": "{test.component.medium.borderWidth}",
+    "headerCell.pinned.background": {
+      "$type": "color",
+      "$value": "#00000000",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9558,9 +9170,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.group.item.minHeight": {
+    "formField.medium.input.group.item.paddingX": {
       "$type": "number",
-      "$value": "{test.component.medium.minHeight}",
+      "$value": "{component.medium.edgeToTextX}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9572,7 +9184,49 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.group.item.borderRadius": {
+    "formField.medium.input.group.item.paddingY": {
+      "$type": "number",
+      "$value": "{component.medium.edgetoTextY}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.medium.input.group.item.borderWidth": {
+      "$type": "number",
+      "$value": "{component.medium.borderWidth}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.medium.input.group.item.minHeight": {
+      "$type": "number",
+      "$value": "{component.medium.minHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.medium.input.group.item.borderRadius": {
       "$type": "number",
       "$value": "{radius.none}",
       "$description": "",
@@ -9586,7 +9240,7 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.group.container.paddingX": {
+    "formField.medium.input.group.container.paddingX": {
       "$type": "number",
       "$value": "{spacing.none}",
       "$description": "",
@@ -9600,7 +9254,7 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.group.container.paddingY": {
+    "formField.medium.input.group.container.paddingY": {
       "$type": "number",
       "$value": "{static.spacing.xsmall}",
       "$description": "",
@@ -9614,9 +9268,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.group.container.borderWidth": {
+    "formField.medium.input.group.container.borderWidth": {
       "$type": "number",
-      "$value": "{test.component.medium.borderWidth}",
+      "$value": "{component.medium.borderWidth}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9628,9 +9282,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.group.container.borderRadius": {
+    "formField.medium.input.group.container.borderRadius": {
       "$type": "number",
-      "$value": "{test.formField.medium.input.container.borderRadius}",
+      "$value": "{formField.medium.input.container.borderRadius}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9642,9 +9296,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.container.paddingX": {
+    "formField.medium.input.container.paddingX": {
       "$type": "number",
-      "$value": "{test.component.medium.edgeToTextX}",
+      "$value": "{component.medium.edgeToTextX}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9656,9 +9310,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.container.paddingY": {
+    "formField.medium.input.container.paddingY": {
       "$type": "number",
-      "$value": "{test.component.medium.edgetoTextY}",
+      "$value": "{component.medium.edgetoTextY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9670,9 +9324,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.container.borderWidth": {
+    "formField.medium.input.container.borderWidth": {
       "$type": "number",
-      "$value": "{test.component.medium.borderWidth}",
+      "$value": "{component.medium.borderWidth}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9684,7 +9338,7 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.container.borderRadius": {
+    "formField.medium.input.container.borderRadius": {
       "$type": "number",
       "$value": "{static.radius.xsmall}",
       "$description": "",
@@ -9698,9 +9352,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.input.container.minHeight": {
+    "formField.medium.input.container.minHeight": {
       "$type": "number",
-      "$value": "{test.component.medium.minHeight}",
+      "$value": "{component.medium.minHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9712,9 +9366,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.labelText.fontSize": {
+    "formField.medium.labelText.fontSize": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{static.font.size.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9726,9 +9380,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.labelText.lineHeight": {
+    "formField.medium.labelText.lineHeight": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{static.font.height.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9740,9 +9394,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.placeholderText.fontSize": {
+    "formField.medium.labelText.fontWeight": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{base.font.weight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9754,9 +9408,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.placeholderText.lineHeight": {
+    "formField.medium.placeholderText.fontSize": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{static.font.size.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9768,9 +9422,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.helpText.fontSize": {
+    "formField.medium.placeholderText.lineHeight": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{static.font.height.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9782,9 +9436,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.helpText.lineHeight": {
+    "formField.medium.placeholderText.fontWeight": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{base.font.weight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9796,9 +9450,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.infoText.fontSize": {
+    "formField.medium.helpText.fontSize": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{static.font.size.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9810,9 +9464,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.infoText.lineHeight": {
+    "formField.medium.helpText.lineHeight": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{static.font.height.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9824,9 +9478,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.errorText.fontSize": {
+    "formField.medium.helpText.fontWeight": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{base.font.weight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9838,9 +9492,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.errorText.lineHeight": {
+    "formField.medium.infoText.fontSize": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{static.font.size.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9852,9 +9506,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.valueText.fontSize": {
+    "formField.medium.infoText.lineHeight": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{static.font.height.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9866,9 +9520,9 @@ export default {
         }
       }
     },
-    "test.formField.medium.valueText.lineHeight": {
+    "formField.medium.infoText.fontWeight": {
       "$type": "number",
-      "$value": 0,
+      "$value": "{base.font.weight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9880,7 +9534,91 @@ export default {
         }
       }
     },
-    "test.formField.input.group.container.enabled.background": {
+    "formField.medium.errorText.fontSize": {
+      "$type": "number",
+      "$value": "{static.font.size.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.medium.errorText.lineHeight": {
+      "$type": "number",
+      "$value": "{static.font.height.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.medium.errorText.fontWeight": {
+      "$type": "number",
+      "$value": "{base.font.weight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.medium.valueText.fontSize": {
+      "$type": "number",
+      "$value": "{static.font.size.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.medium.valueText.lineHeight": {
+      "$type": "number",
+      "$value": "{static.font.height.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.medium.valueText.fontWeight": {
+      "$type": "number",
+      "$value": "{base.font.weight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.input.group.container.enabled.background": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -9894,7 +9632,7 @@ export default {
         }
       }
     },
-    "test.formField.input.group.container.enabled.borderColor": {
+    "formField.input.group.container.enabled.borderColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -9908,7 +9646,7 @@ export default {
         }
       }
     },
-    "test.formField.input.group.container.hover.background": {
+    "formField.input.group.container.hover.background": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -9922,7 +9660,7 @@ export default {
         }
       }
     },
-    "test.formField.input.group.container.hover.borderColor": {
+    "formField.input.group.container.hover.borderColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -9936,7 +9674,7 @@ export default {
         }
       }
     },
-    "test.formField.input.group.container.readOnly.background": {
+    "formField.input.group.container.readOnly.background": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -9950,7 +9688,7 @@ export default {
         }
       }
     },
-    "test.formField.input.group.container.readOnly.borderColor": {
+    "formField.input.group.container.readOnly.borderColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -9964,7 +9702,7 @@ export default {
         }
       }
     },
-    "test.formField.input.group.item.enabled.background": {
+    "formField.input.group.item.enabled.background": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -9978,7 +9716,7 @@ export default {
         }
       }
     },
-    "test.formField.input.group.item.enabled.borderColor": {
+    "formField.input.group.item.enabled.borderColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -9992,7 +9730,7 @@ export default {
         }
       }
     },
-    "test.formField.input.group.item.hover.background": {
+    "formField.input.group.item.hover.background": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10006,7 +9744,7 @@ export default {
         }
       }
     },
-    "test.formField.input.group.item.hover.borderColor": {
+    "formField.input.group.item.hover.borderColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10020,7 +9758,7 @@ export default {
         }
       }
     },
-    "test.formField.input.group.item.readOnly.background": {
+    "formField.input.group.item.readOnly.background": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10034,7 +9772,7 @@ export default {
         }
       }
     },
-    "test.formField.input.group.item.readOnly.borderColor": {
+    "formField.input.group.item.readOnly.borderColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10048,7 +9786,7 @@ export default {
         }
       }
     },
-    "test.formField.input.container.enabled.background": {
+    "formField.input.container.enabled.background": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10062,7 +9800,7 @@ export default {
         }
       }
     },
-    "test.formField.input.container.enabled.borderColor": {
+    "formField.input.container.enabled.borderColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10076,7 +9814,7 @@ export default {
         }
       }
     },
-    "test.formField.input.container.hover.background": {
+    "formField.input.container.hover.background": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10090,7 +9828,7 @@ export default {
         }
       }
     },
-    "test.formField.input.container.hover.borderColor": {
+    "formField.input.container.hover.borderColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10104,7 +9842,7 @@ export default {
         }
       }
     },
-    "test.formField.input.container.readOnly.background": {
+    "formField.input.container.readOnly.background": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10118,7 +9856,7 @@ export default {
         }
       }
     },
-    "test.formField.input.container.readOnly.borderColor": {
+    "formField.input.container.readOnly.borderColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10132,7 +9870,7 @@ export default {
         }
       }
     },
-    "test.formField.labelText.enabled.textColor": {
+    "formField.labelText.enabled.textColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10146,7 +9884,7 @@ export default {
         }
       }
     },
-    "test.formField.placeholderText.enabled.textColor": {
+    "formField.placeholderText.enabled.textColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10160,7 +9898,7 @@ export default {
         }
       }
     },
-    "test.formField.infoText.enabled.textColor": {
+    "formField.infoText.enabled.textColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10174,7 +9912,7 @@ export default {
         }
       }
     },
-    "test.formField.errorText.enabled.textColor": {
+    "formField.errorText.enabled.textColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10188,7 +9926,7 @@ export default {
         }
       }
     },
-    "test.formField.valueText.enabled.textColor": {
+    "formField.valueText.enabled.textColor": {
       "$type": "color",
       "$value": "#ffffff",
       "$description": "",
@@ -10219,7 +9957,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.formField.medium.input.group.container.paddingX",
+          "name": "formField.medium.input.group.container.paddingX",
           "mode": "default"
         }
       ]
@@ -10267,7 +10005,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.drop.margin",
+          "name": "drop.margin",
           "mode": "default"
         }
       ]
@@ -10343,15 +10081,15 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.menu.medium.item.borderRadius",
+          "name": "menu.medium.item.borderRadius",
           "mode": "default"
         },
         {
-          "name": "test.select.medium.option.borderRadius",
+          "name": "select.medium.option.borderRadius",
           "mode": "default"
         },
         {
-          "name": "test.formField.medium.input.group.item.borderRadius",
+          "name": "formField.medium.input.group.item.borderRadius",
           "mode": "default"
         }
       ]
@@ -10399,7 +10137,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.drop.borderRadius",
+          "name": "drop.borderRadius",
           "mode": "default"
         }
       ]
@@ -10475,15 +10213,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.medium.badge.borderRadius",
-          "mode": "default"
-        },
-        {
           "name": "button.medium.default.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "button.small.badge.borderRadius",
           "mode": "default"
         },
         {
@@ -10595,35 +10325,35 @@ export default {
           "mode": "default"
         },
         {
-          "name": "test.component.xlarge.borderWidth",
+          "name": "component.xlarge.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.component.large.borderWidth",
+          "name": "component.large.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.component.medium.borderWidth",
+          "name": "component.medium.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.component.small.borderWidth",
+          "name": "component.small.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.component.xsmall.borderWidth",
+          "name": "component.xsmall.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.checkbox.medium.check.borderWidth",
+          "name": "checkbox.medium.control.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.switch.medium.borderWidth",
+          "name": "switch.medium.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.switch.medium.knob.borderWidth",
+          "name": "switch.medium.control.knob.borderWidth",
           "mode": "default"
         }
       ]
@@ -10726,7 +10456,7 @@ export default {
         }
       }
     },
-    "size.element.xSmall": {
+    "size.icon.xSmall": {
       "$type": "number",
       "$value": "{base.dimension.400}",
       "$description": "",
@@ -10740,7 +10470,7 @@ export default {
         }
       }
     },
-    "size.element.small": {
+    "size.icon.small": {
       "$type": "number",
       "$value": "{base.dimension.400}",
       "$description": "",
@@ -10754,7 +10484,7 @@ export default {
         }
       }
     },
-    "size.element.medium": {
+    "size.icon.medium": {
       "$type": "number",
       "$value": "{base.dimension.450}",
       "$description": "",
@@ -10768,7 +10498,7 @@ export default {
         }
       }
     },
-    "size.element.large": {
+    "size.icon.large": {
       "$type": "number",
       "$value": 22,
       "$description": "",
@@ -10782,7 +10512,7 @@ export default {
         }
       }
     },
-    "size.element.xLarge": {
+    "size.icon.xLarge": {
       "$type": "number",
       "$value": "{base.dimension.600}",
       "$description": "",
@@ -11415,7 +11145,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.formField.medium.input.group.container.paddingX",
+          "name": "formField.medium.input.group.container.paddingX",
           "mode": "default"
         }
       ]
@@ -11463,7 +11193,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.drop.margin",
+          "name": "drop.margin",
           "mode": "default"
         }
       ]
@@ -11539,15 +11269,15 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.menu.medium.item.borderRadius",
+          "name": "menu.medium.item.borderRadius",
           "mode": "default"
         },
         {
-          "name": "test.select.medium.option.borderRadius",
+          "name": "select.medium.option.borderRadius",
           "mode": "default"
         },
         {
-          "name": "test.formField.medium.input.group.item.borderRadius",
+          "name": "formField.medium.input.group.item.borderRadius",
           "mode": "default"
         }
       ]
@@ -11595,7 +11325,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "test.drop.borderRadius",
+          "name": "drop.borderRadius",
           "mode": "default"
         }
       ]
@@ -11671,15 +11401,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.medium.badge.borderRadius",
-          "mode": "default"
-        },
-        {
           "name": "button.medium.default.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "button.small.badge.borderRadius",
           "mode": "default"
         },
         {
@@ -11791,35 +11513,35 @@ export default {
           "mode": "default"
         },
         {
-          "name": "test.component.xlarge.borderWidth",
+          "name": "component.xlarge.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.component.large.borderWidth",
+          "name": "component.large.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.component.medium.borderWidth",
+          "name": "component.medium.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.component.small.borderWidth",
+          "name": "component.small.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.component.xsmall.borderWidth",
+          "name": "component.xsmall.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.checkbox.medium.check.borderWidth",
+          "name": "checkbox.medium.control.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.switch.medium.borderWidth",
+          "name": "switch.medium.borderWidth",
           "mode": "default"
         },
         {
-          "name": "test.switch.medium.knob.borderWidth",
+          "name": "switch.medium.control.knob.borderWidth",
           "mode": "default"
         }
       ]
@@ -11922,7 +11644,7 @@ export default {
         }
       }
     },
-    "size.element.xSmall": {
+    "size.icon.xSmall": {
       "$type": "number",
       "$value": "{base.dimension.400}",
       "$description": "",
@@ -11936,7 +11658,7 @@ export default {
         }
       }
     },
-    "size.element.small": {
+    "size.icon.small": {
       "$type": "number",
       "$value": "{base.dimension.400}",
       "$description": "",
@@ -11950,7 +11672,7 @@ export default {
         }
       }
     },
-    "size.element.medium": {
+    "size.icon.medium": {
       "$type": "number",
       "$value": "{base.dimension.450}",
       "$description": "",
@@ -11964,7 +11686,7 @@ export default {
         }
       }
     },
-    "size.element.large": {
+    "size.icon.large": {
       "$type": "number",
       "$value": 22,
       "$description": "",
@@ -11978,7 +11700,7 @@ export default {
         }
       }
     },
-    "size.element.xLarge": {
+    "size.icon.xLarge": {
       "$type": "number",
       "$value": "{base.dimension.600}",
       "$description": "",
@@ -12797,19 +12519,19 @@ export default {
       },
       "usedBy": [
         {
-          "name": "size.element.xSmall",
+          "name": "size.icon.xSmall",
           "mode": "large"
         },
         {
-          "name": "size.element.small",
+          "name": "size.icon.small",
           "mode": "large"
         },
         {
-          "name": "size.element.xSmall",
+          "name": "size.icon.xSmall",
           "mode": "small"
         },
         {
-          "name": "size.element.small",
+          "name": "size.icon.small",
           "mode": "small"
         }
       ]
@@ -12829,11 +12551,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "size.element.medium",
+          "name": "size.icon.medium",
           "mode": "large"
         },
         {
-          "name": "size.element.medium",
+          "name": "size.icon.medium",
           "mode": "small"
         }
       ]
@@ -12867,11 +12589,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "size.element.xLarge",
+          "name": "size.icon.xLarge",
           "mode": "large"
         },
         {
-          "name": "size.element.xLarge",
+          "name": "size.icon.xLarge",
           "mode": "small"
         },
         {
@@ -14346,6 +14068,26 @@ export default {
         }
       ]
     },
+    "base.color.grey.1100": {
+      "$type": "color",
+      "$value": "#292929",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "color.background.floating",
+          "mode": "dark"
+        }
+      ]
+    },
     "base.color.grey.1200": {
       "$type": "color",
       "$value": "#222222",
@@ -14482,6 +14224,26 @@ export default {
         }
       ]
     },
+    "base.color.white.opacity7": {
+      "$type": "color",
+      "$value": "#ffffff12",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "color.background.disabled",
+          "mode": "dark"
+        }
+      ]
+    },
     "base.color.white.opacity12": {
       "$type": "color",
       "$value": "#ffffff1f",
@@ -14497,11 +14259,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "color.background.disabled",
+          "name": "color.border.weak",
           "mode": "dark"
         },
         {
-          "name": "color.border.weak",
+          "name": "color.border.disabled",
           "mode": "dark"
         }
       ]
@@ -14521,15 +14283,35 @@ export default {
       },
       "usedBy": [
         {
-          "name": "color.border.disabled",
-          "mode": "dark"
-        },
-        {
           "name": "color.text.xweak",
           "mode": "dark"
         },
         {
           "name": "color.icon.xweak",
+          "mode": "dark"
+        }
+      ]
+    },
+    "base.color.white.opacity24": {
+      "$type": "color",
+      "$value": "#ffffff3d",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "color.text.disabled",
+          "mode": "dark"
+        },
+        {
+          "name": "color.icon.disabled",
           "mode": "dark"
         }
       ]
@@ -14550,10 +14332,6 @@ export default {
       "usedBy": [
         {
           "name": "color.border.default",
-          "mode": "dark"
-        },
-        {
-          "name": "color.icon.disabled",
           "mode": "dark"
         }
       ]
@@ -14827,15 +14605,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "color.background.floating",
-          "mode": "dark"
-        },
-        {
           "name": "color.background.primary.hover",
-          "mode": "dark"
-        },
-        {
-          "name": "color.text.disabled",
           "mode": "dark"
         },
         {

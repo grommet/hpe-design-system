@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Jul 2024 23:02:02 GMT
+ * Generated on Mon, 08 Jul 2024 21:38:02 GMT
  */
 
 :root {
@@ -43,12 +43,15 @@
   --hpe-base-color-white-opacity72: #ffffffb8;
   --hpe-base-color-white-opacity50: #ffffff80;
   --hpe-base-color-white-opacity36: #ffffff5c;
+  --hpe-base-color-white-opacity24: #ffffff3d;
   --hpe-base-color-white-opacity20: #ffffff33;
   --hpe-base-color-white-opacity12: #ffffff1f;
+  --hpe-base-color-white-opacity7: #ffffff12;
   --hpe-base-color-white-opacity6: #ffffff0f;
   --hpe-base-color-white-100: #ffffff;
   --hpe-base-color-grey-1300: #1c1c1c;
   --hpe-base-color-grey-1200: #222222;
+  --hpe-base-color-grey-1100: #292929;
   --hpe-base-color-grey-1000: #333333;
   --hpe-base-color-grey-800: #555555;
   --hpe-base-color-grey-700: #757575;

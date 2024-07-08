@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Jul 2024 23:02:02 GMT
+ * Generated on Mon, 08 Jul 2024 21:38:02 GMT
  */
 
 export default {
@@ -10,10 +10,10 @@ export default {
         default: "#1c1c1c",
         hover: "#ffffff0f",
         active: "#ffffff0f",
-        disabled: "#ffffff1f",
+        disabled: "#ffffff12",
         back: "#1c1c1c",
         front: "#222222",
-        floating: "#00ff0a00",
+        floating: "#292929",
         contrast: "#ffffff0f",
         validation: {
           unknown: "#222222",
@@ -35,7 +35,7 @@ export default {
         strong: "#ffffffb8",
         default: "#ffffff5c",
         weak: "#ffffff1f",
-        disabled: "#ffffff33",
+        disabled: "#ffffff1f",
         selected: "#01a982",
       },
       text: {
@@ -43,7 +43,7 @@ export default {
         strong: "#ffffff",
         weak: "#ffffff80",
         xweak: "#ffffff33",
-        disabled: "#00ff0a00",
+        disabled: "#ffffff3d",
         onPrimary: "#ffffff",
         brand: "#01a982",
       },
@@ -52,7 +52,7 @@ export default {
         strong: "#ffffff",
         weak: "#ffffff80",
         xweak: "#ffffff33",
-        disabled: "#ffffff5c",
+        disabled: "#ffffff3d",
         critical: "#d04f4e",
         info: "#00739d",
         ok: "#008567",
