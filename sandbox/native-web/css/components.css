@@ -223,16 +223,16 @@ button.active {
   flex-direction: row;
   align-items: start;
   position: relative;
-  gap: var(--hpe-test-checkbox-medium-gap-x);
+  gap: var(--hpe-checkbox-medium-gap-x);
 }
 
 button[role='checkbox'] {
-  --width: var(--hpe-test-checkbox-medium-check-width);
-  --height: var(--hpe-test-checkbox-medium-check-height);
-  --checkbox-borderRadius: var(--hpe-test-checkbox-medium-check-border-radius);
-  --checkbox-background: var(--hpe-test-checkbox-enabled-check-background);
-  --checkbox-borderColor: var(--hpe-test-checkbox-enabled-check-border-color);
-  --checkbox--borderWidth: var(--hpe-test-checkbox-medium-check-border-width);
+  --width: var(--hpe-checkbox-medium-control-width);
+  --height: var(--hpe-checkbox-medium-control-height);
+  --checkbox-borderRadius: var(--hpe-checkbox-medium-control-border-radius);
+  --checkbox-background: var(--hpe-checkbox-control-enabled-background);
+  --checkbox-borderColor: var(--hpe-checkbox-control-enabled-border-color);
+  --checkbox--borderWidth: var(--hpe-checkbox-medium-control-border-width);
 
   align-items: center;
   justify-content: center;
@@ -245,13 +245,13 @@ button[role='checkbox'] {
 }
 
 button[role='checkbox'][aria-checked='true'] {
-  --checkbox-background: var(--hpe-test-checkbox-selected-check-background);
-  --checkbox-borderColor: var(--hpe-test-checkbox-selected-check-border-color);
+  --checkbox-background: var(--hpe-checkbox-selected-control-background);
+  --checkbox-borderColor: var(--hpe-checkbox-selected-control-border-color);
 }
 
 button[role='checkbox'][aria-checked='false']:hover {
-  --checkbox-background: var(--hpe-test-checkbox-hover-check-background);
-  --checkbox-borderColor: var(--hpe-test-checkbox-hover-check-border-color);
+  --checkbox-background: var(--hpe-checkbox-control-hover-background);
+  --checkbox-borderColor: var(--hpe-checkbox-control-hover-border-color);
 }
 
 button[role='checkbox'] svg {
@@ -440,54 +440,42 @@ h3 {
 
 /* FormField */
 label {
-  font-weight: var(--hpe-test-input-field-container-medium-label-font-weight);
-  color: var(--hpe-test-input-text-label-color);
-  font-size: var(--hpe-test-input-field-container-medium-label-font-size);
-  line-height: var(--hpe-test-input-field-container-medium-label-line-height);
+  font-weight: var(--hpe-form-field-medium-input-container-label-font-weight);
+  color: var(--hpe-input-text-label-color);
+  font-size: var(--hpe-form-field-medium-input-container-label-font-size);
+  line-height: var(--hpe-form-field-medium-input-container-label-line-height);
 }
 
 span.help {
-  font-weight: var(
-    --hpe-test-input-field-container-medium-help-text-font-weight
-  );
-  color: var(--hpe-test-input-text-help-text-color);
-  font-size: var(--hpe-test-input-field-container-medium-help-text-font-size);
-  line-height: var(
-    --hpe-test-input-field-container-medium-help-text-line-height
-  );
+  font-weight: var(--hpe-form-field-medium-help-text-font-weight);
+  color: var(--hpe-input-text-help-text-color);
+  font-size: var(--hpe-form-field-medium-help-text-font-size);
+  line-height: var(--hpe-form-field-medium-help-text-line-height);
 }
 
 .field-container {
-  padding-block: var(--hpe-test-input-field-container-medium-padding-y);
-  padding-inline: var(--hpe-test-input-field-container-medium-padding-x);
-  border-radius: var(--hpe-test-input-field-container-medium-border-radius);
+  padding-block: var(--hpe-form-field-medium-input-container-padding-y);
+  padding-inline: var(--hpe-form-field-medium-input-container-padding-x);
+  border-radius: var(--hpe-form-field-medium-input-container-border-radius);
   border: var(--hpe-border-xsmall) solid var(--hpe-color-border-default);
   font-family: inherit;
-  color: var(--hpe-test-input-text-value-text-color);
-  font-weight: var(
-    --hpe-test-input-field-container-medium-value-text-font-weight
-  );
-  font-size: var(--hpe-test-input-field-container-medium-value-text-font-size);
-  line-height: var(
-    --hpe-test-input-field-container-medium-value-text-line-height
-  );
+  color: var(--hpe-input-text-value-text-color);
+  font-weight: var(--hpe-form-field-medium-value-text-font-weight);
+  font-size: var(--hpe-form-field-medium-value-text-font-size);
+  line-height: var(--hpe-form-field-medium-value-text-line-height);
   background: transparent;
 }
 
 input {
-  padding-block: var(--hpe-test-input-field-container-medium-padding-y);
-  padding-inline: var(--hpe-test-input-field-container-medium-padding-x);
-  border-radius: var(--hpe-test-input-field-container-medium-border-radius);
+  padding-block: var(--hpe-form-field-medium-input-container-padding-y);
+  padding-inline: var(--hpe-form-field-medium-input-container-padding-x);
+  border-radius: var(--hpe-form-field-medium-input-container-border-radius);
   border: var(--hpe-border-xsmall) solid var(--hpe-color-border-default);
   font-family: inherit;
-  color: var(--hpe-test-input-text-value-text-color);
-  font-weight: var(
-    --hpe-test-input-field-container-medium-value-text-font-weight
-  );
-  font-size: var(--hpe-test-input-field-container-medium-value-text-font-size);
-  line-height: var(
-    --hpe-test-input-field-container-medium-value-text-line-height
-  );
+  color: var(--hpe-input-text-value-text-color);
+  font-weight: var(--hpe-form-field-medium-value-text-font-weight);
+  font-size: var(--hpe-form-field-medium-value-text-font-size);
+  line-height: var(--hpe-form-field-medium-value-text-line-height);
   background: transparent;
 }
 input.margin-top,
@@ -495,14 +483,10 @@ input.margin-top,
   margin-top: var(--hpe-spacing-xsmall);
 }
 input::placeholder {
-  font-weight: var(
-    --hpe-test-input-field-container-medium-placeholder-font-weight
-  );
-  font-size: var(--hpe-test-input-field-container-medium-placeholder-font-size);
-  line-height: var(
-    --hpe-test-input-field-container-medium-placeholder-line-height
-  );
-  color: var(--hpe-test-input-text-placeholder-color);
+  font-weight: var(--hpe-form-field-medium-placeholder-text-font-weight);
+  font-size: var(--hpe-form-field-medium-placeholder-text-font-size);
+  line-height: var(--hpe-form-field-medium-placeholder-text-line-height);
+  color: var(--hpe-input-text-placeholder-color);
 }
 
 table {
@@ -511,26 +495,26 @@ table {
 
 /* Table */
 td {
-  padding-inline: var(--hpe-test-data-cell-padding-x);
-  padding-top: var(--hpe-test-data-cell-padding-top);
-  padding-bottom: var(--hpe-test-data-cell-padding-bottom);
+  padding-inline: var(--hpe-data-cell-padding-x);
+  padding-top: var(--hpe-data-cell-padding-top);
+  padding-bottom: var(--hpe-data-cell-padding-bottom);
   border-bottom-style: solid;
-  border-bottom-width: var(--hpe-test-data-cell-border-bottom-width);
-  border-color: var(--hpe-test-data-cell-enabled-border-color);
-  font-size: var(--hpe-test-data-cell-font-size);
-  line-height: var(--hpe-test-data-cell-line-height);
+  border-bottom-width: var(--hpe-data-cell-border-bottom-width);
+  border-color: var(--hpe-data-cell-enabled-border-color);
+  font-size: var(--hpe-data-cell-font-size);
+  line-height: var(--hpe-data-cell-line-height);
 }
 
 th {
-  padding-inline: var(--hpe-test-header-cell-padding-x);
-  padding-top: var(--hpe-test-header-cell-padding-top);
-  padding-bottom: var(--hpe-test-header-cell-padding-bottom);
+  padding-inline: var(--hpe-header-cell-padding-x);
+  padding-top: var(--hpe-header-cell-padding-top);
+  padding-bottom: var(--hpe-header-cell-padding-bottom);
   border-bottom-style: solid;
-  border-bottom-width: var(--hpe-test-header-cell-border-bottom-width);
-  border-color: var(--hpe-test-header-cell-enabled-border-color);
-  line-height: var(--hpe-test-header-cell-line-height);
-  font-size: var(--hpe-test-header-cell-font-size);
-  font-weight: var(--hpe-test-header-cell-font-weight);
+  border-bottom-width: var(--hpe-header-cell-border-bottom-width);
+  border-color: var(--hpe-header-cell-enabled-border-color);
+  line-height: var(--hpe-header-cell-line-height);
+  font-size: var(--hpe-header-cell-font-size);
+  font-weight: var(--hpe-header-cell-font-weight);
 }
 
 /* Notification */
