@@ -4,7 +4,8 @@ import {
   Controls,
   Map,
   Marker,
-  MarkerCluster
+  MarkerCluster,
+  Pin,
 } from 'grommet-leaflet';
 import { hpeMap } from '../../../themes/hpeMap';
 import '../../../themes/grommet-leaflet-reset.css';
@@ -12,8 +13,16 @@ import '../../../themes/grommet-leaflet-reset.css';
 export const MapView = () => {
   const containerRef = useRef();
   const mapContainerRef = useRef();
-  const { data } = useContext(DataContext);
-  console.log(data);
+  const { data }: {
+    data: {
+      geo: {
+        location: {
+          coordinates: [number, number]
+        }
+      },
+      serial_number: string
+    }[]
+  } = useContext(DataContext);
 
   const devicesWithLocation = data.filter(
     device => device.geo.location.coordinates[0] !== null,
@@ -36,15 +45,25 @@ export const MapView = () => {
       <Map
         id="map"
         ref={mapContainerRef}
-        theme={hpeMap}
+        // theme={hpeMap}
+        tileLayer={{
+          format: 'pmtiles',
+          url: import.meta.env.VITE_TILE_LAYER_URL,
+          attribution: `&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors`,
+        }}
       >
         <Controls locations={locations} />
         <MarkerCluster>
-          {devicesWithLocation.map((device) => (
-            <Marker key={device.serial_number} position={device.geo.location.coordinates} />
-          ))}
+          {devicesWithLocation.map((device) => {
+            return (
+              <Marker
+                key={device.serial_number}
+                position={device.geo.location.coordinates}
+              />
+            );
+          })}
         </MarkerCluster>
       </Map>
-    </Box>
+    </Box >
   );
 };

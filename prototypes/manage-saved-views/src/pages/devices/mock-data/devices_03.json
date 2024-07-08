@@ -1,0 +1,4214 @@
+[
+  {
+    "serial_number": "EINW0BD0TYNAOO4P",
+    "part_number": "GZPAMH",
+    "device_type": "Gateway",
+    "mac": "c0:7d:72:0c:91:3d",
+    "ip_address": "187.202.113.216",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          49.1108,
+          -113.3126
+        ]
+      },
+      "name": "99478 Jabari Mount",
+      "city": "South Gabrielfield",
+      "country": "Paraguay",
+      "countryCode": "CI",
+      "region": "Massachusetts",
+      "postalCode": "42537"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-08-05T22:02:03.448Z"
+    },
+    "account": "Stark Industries",
+    "tags": []
+  },
+  {
+    "serial_number": "WGDK7EIK6ZVILEWO",
+    "part_number": "YOSI8R",
+    "device_type": "Gateway",
+    "mac": "e9:63:72:4e:09:39",
+    "ip_address": "114.135.191.225",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          38.9687,
+          -104.9431
+        ]
+      },
+      "name": "63379 E South Street",
+      "city": "North Edwina",
+      "country": "Iceland",
+      "countryCode": "BH",
+      "region": "New Jersey",
+      "postalCode": "98165-0078"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-04-22T21:29:12.271Z"
+    },
+    "account": "Initech",
+    "tags": []
+  },
+  {
+    "serial_number": "LIYOTYSNKU7INQ41",
+    "part_number": "CTPOWU",
+    "device_type": "Switch",
+    "mac": "c2:38:c3:67:e1:3a",
+    "ip_address": "181.36.90.88",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          33.6013,
+          -93.7476
+        ]
+      },
+      "name": "302 Cedar Grove",
+      "city": "Streichstad",
+      "country": "Nauru",
+      "countryCode": "KG",
+      "region": "Hawaii",
+      "postalCode": "02814-2570"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2025-02-22T03:59:11.996Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "VIW7TYZOVNAHKIRY",
+    "part_number": "U9SQFX",
+    "device_type": "Access Point",
+    "mac": "63:60:c0:f6:be:b9",
+    "ip_address": "238.59.105.229",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.1591,
+          -102.091
+        ]
+      },
+      "name": "766 Wuckert Plain",
+      "city": "Minnetonka",
+      "country": "China",
+      "countryCode": "KE",
+      "region": "Massachusetts",
+      "postalCode": "08207"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-03-12T17:49:04.017Z"
+    },
+    "account": "Virtucon",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "GCQAS7WSFQSQ3UMO",
+    "part_number": "6EZPHT",
+    "device_type": "Access Point",
+    "mac": "1d:68:f0:e7:45:d2",
+    "ip_address": "234.172.76.246",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          34.8718,
+          -104.8541
+        ]
+      },
+      "name": "72876 Heather Close",
+      "city": "Port Deondre",
+      "country": "Hungary",
+      "countryCode": "BO",
+      "region": "Nebraska",
+      "postalCode": "45546-5065"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2024-09-21T21:38:49.167Z"
+    },
+    "account": "Stark Industries",
+    "tags": []
+  },
+  {
+    "serial_number": "ITYBRYPUI4XNFJKL",
+    "part_number": "FCUFVC",
+    "device_type": "Access Point",
+    "mac": "cf:82:6a:14:86:18",
+    "ip_address": "210.148.217.80",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          33.9022,
+          -109.2969
+        ]
+      },
+      "name": "5124 Vada Mill",
+      "city": "New Marjolaine",
+      "country": "Luxembourg",
+      "countryCode": "BD",
+      "region": "Wyoming",
+      "postalCode": "03291-7507"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2024-09-08T18:55:55.436Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": []
+  },
+  {
+    "serial_number": "TLE3FP88SPCZCBSS",
+    "part_number": "RLARMN",
+    "device_type": "Access Point",
+    "mac": "0c:89:fa:8f:7f:e6",
+    "ip_address": "145.139.97.183",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          46.9438,
+          -104.1816
+        ]
+      },
+      "name": "800 Bechtelar Trace",
+      "city": "Pembroke Pines",
+      "country": "Ghana",
+      "countryCode": "SK",
+      "region": "North Carolina",
+      "postalCode": "52433-3108"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-11-28T02:43:09.604Z"
+    },
+    "account": "Virtucon",
+    "tags": []
+  },
+  {
+    "serial_number": "DFG2YVA1BOUJHSN9",
+    "part_number": "RICPPZ",
+    "device_type": "Server",
+    "mac": "fb:47:c0:5b:46:50",
+    "ip_address": "110.234.136.113",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          37.1379,
+          -109.2737
+        ]
+      },
+      "name": "866 E Broad Street",
+      "city": "West Marquisland",
+      "country": "Iran",
+      "countryCode": "GP",
+      "region": "West Virginia",
+      "postalCode": "05441"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-04-02T01:29:45.276Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": [
+      {
+        "name": "env",
+        "value": "dev"
+      }
+    ]
+  },
+  {
+    "serial_number": "YOFV5JYCTCSOTDOZ",
+    "part_number": "ARCXY6",
+    "device_type": "Server",
+    "mac": "ef:29:13:0b:30:42",
+    "ip_address": "224.126.39.144",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.8595,
+          -116.983
+        ]
+      },
+      "name": "7227 Cummerata Meadows",
+      "city": "North Santiagoville",
+      "country": "Monaco",
+      "countryCode": "WS",
+      "region": "Vermont",
+      "postalCode": "65597-0478"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-11-28T15:42:48.838Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "KMXOL4JY6OMKH2MX",
+    "part_number": "HUZADQ",
+    "device_type": "Switch",
+    "mac": "07:be:95:99:ed:b7",
+    "ip_address": "131.15.183.142",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.2756,
+          -102.4833
+        ]
+      },
+      "name": "8841 Dickinson Run",
+      "city": "Yonkers",
+      "country": "Thailand",
+      "countryCode": "CR",
+      "region": "Louisiana",
+      "postalCode": "81743-4838"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-09-10T21:27:30.950Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": [
+      {
+        "name": "env",
+        "value": "dev"
+      }
+    ]
+  },
+  {
+    "serial_number": "YFNGMZR0DRXNMBNX",
+    "part_number": "CDDYJD",
+    "device_type": "Switch",
+    "mac": "50:2b:7b:54:ff:29",
+    "ip_address": "57.96.41.76",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          38.8345,
+          -113.5718
+        ]
+      },
+      "name": "59907 Brannon Plaza",
+      "city": "West Carlie",
+      "country": "Vanuatu",
+      "countryCode": "PL",
+      "region": "Kansas",
+      "postalCode": "76584"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2025-03-30T11:57:02.440Z"
+    },
+    "account": "Stark Industries",
+    "tags": []
+  },
+  {
+    "serial_number": "VRPIUMCAASJRRTBY",
+    "part_number": "CFHDTH",
+    "device_type": "Server",
+    "mac": "e0:4b:5f:91:03:35",
+    "ip_address": "57.158.13.177",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          44.23,
+          -91.4895
+        ]
+      },
+      "name": "159 Maxie Shores",
+      "city": "New Heberland",
+      "country": "Equatorial Guinea",
+      "countryCode": "KY",
+      "region": "Iowa",
+      "postalCode": "18232"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-04-01T07:18:39.092Z"
+    },
+    "account": "Globex",
+    "tags": []
+  },
+  {
+    "serial_number": "FJQWWLA8F1EH6DNE",
+    "part_number": "CPIDGM",
+    "device_type": "Server",
+    "mac": "0f:de:d6:83:04:8a",
+    "ip_address": "110.33.114.150",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          47.7555,
+          -108.6537
+        ]
+      },
+      "name": "317 Bert Mission",
+      "city": "Fort Kevin",
+      "country": "Mali",
+      "countryCode": "IT",
+      "region": "Kansas",
+      "postalCode": "00257-0942"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2025-01-13T03:35:57.850Z"
+    },
+    "account": "Stark Industries",
+    "tags": []
+  },
+  {
+    "serial_number": "WRYWD1NAIKFKEPNB",
+    "part_number": "Y6JM9C",
+    "device_type": "Switch",
+    "mac": "d2:cc:e0:2d:c3:dd",
+    "ip_address": "18.78.72.235",
+    "name": "",
+    "location_name": "",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          46.4441,
+          -106.5856
+        ]
+      },
+      "name": "768 Third Avenue",
+      "city": "Schneiderville",
+      "country": "Moldova",
+      "countryCode": "AZ",
+      "region": "West Virginia",
+      "postalCode": "98880"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2025-06-24T00:42:40.247Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "CZZS5HRALXYGOWXW",
+    "part_number": "9RU5RN",
+    "device_type": "Switch",
+    "mac": "ee:c7:d7:ca:e5:eb",
+    "ip_address": "131.168.29.76",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          44.2729,
+          -99.9542
+        ]
+      },
+      "name": "321 Stewart Causeway",
+      "city": "Malden",
+      "country": "Nepal",
+      "countryCode": "AO",
+      "region": "Pennsylvania",
+      "postalCode": "99514"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-09-17T15:15:51.499Z"
+    },
+    "account": "Stark Industries",
+    "tags": [
+      {
+        "name": "app",
+        "value": "analytics"
+      }
+    ]
+  },
+  {
+    "serial_number": "ZD08USLSEHR6GE3H",
+    "part_number": "CEUZA4",
+    "device_type": "Access Point",
+    "mac": "1a:1c:54:39:b7:89",
+    "ip_address": "246.158.13.109",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          34.4313,
+          -98.836
+        ]
+      },
+      "name": "4162 Predovic Ford",
+      "city": "Mallorytown",
+      "country": "Papua New Guinea",
+      "countryCode": "BL",
+      "region": "Maryland",
+      "postalCode": "46259-4484"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2025-06-03T16:02:31.649Z"
+    },
+    "account": "Initech",
+    "tags": []
+  },
+  {
+    "serial_number": "0YDZWOXP34SRLP9J",
+    "part_number": "VNXYDQ",
+    "device_type": "Gateway",
+    "mac": "db:95:61:51:5c:64",
+    "ip_address": "12.181.46.89",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          34.4142,
+          -92.7156
+        ]
+      },
+      "name": "38419 Wyman Rapid",
+      "city": "Fishers",
+      "country": "Spain",
+      "countryCode": "NZ",
+      "region": "North Dakota",
+      "postalCode": "35994"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-06-19T10:16:05.149Z"
+    },
+    "account": "Globex",
+    "tags": []
+  },
+  {
+    "serial_number": "SDRXPIYZL8IO4JF4",
+    "part_number": "70NRW3",
+    "device_type": "Server",
+    "mac": "1b:16:b3:53:fd:66",
+    "ip_address": "191.107.2.218",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          36.3291,
+          -106.8655
+        ]
+      },
+      "name": "572 Mack Flat",
+      "city": "Cleveland Heights",
+      "country": "Ecuador",
+      "countryCode": "MR",
+      "region": "Mississippi",
+      "postalCode": "41331"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2025-02-16T18:51:52.945Z"
+    },
+    "account": "Cyberdyne Systems",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "JEVPQJVAGZ1T28GB",
+    "part_number": "A1MA5S",
+    "device_type": "Access Point",
+    "mac": "15:16:f8:78:36:a5",
+    "ip_address": "245.160.85.156",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          32.5003,
+          -93.1199
+        ]
+      },
+      "name": "90749 Smith Street",
+      "city": "Valeriefield",
+      "country": "Bonaire, Sint Eustatius and Saba",
+      "countryCode": "AU",
+      "region": "Vermont",
+      "postalCode": "18107"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-06-04T12:46:44.572Z"
+    },
+    "account": "Virtucon",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "THLBFQRYRYIFWPFF",
+    "part_number": "SMBQNE",
+    "device_type": "Access Point",
+    "mac": "b5:d7:0c:dc:f6:70",
+    "ip_address": "94.72.70.24",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          37.4136,
+          -89.2448
+        ]
+      },
+      "name": "33132 Wendell Greens",
+      "city": "Las Vegas",
+      "country": "Angola",
+      "countryCode": "GA",
+      "region": "Georgia",
+      "postalCode": "32297-8833"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2025-03-11T22:16:10.832Z"
+    },
+    "account": "Stark Industries",
+    "tags": [
+      {
+        "name": "env",
+        "value": "staging"
+      }
+    ]
+  },
+  {
+    "serial_number": "9C6N4MEEYVVU00CB",
+    "part_number": "HXR1WA",
+    "device_type": "Access Point",
+    "mac": "61:f3:dc:9d:89:82",
+    "ip_address": "160.196.208.77",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          43.0081,
+          -95.3319
+        ]
+      },
+      "name": "95061 S Elm Street",
+      "city": "Goodyear",
+      "country": "Slovenia",
+      "countryCode": "HK",
+      "region": "Indiana",
+      "postalCode": "24249-6926"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2025-02-10T07:38:27.543Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "JFYLIZ89GILBNBF8",
+    "part_number": "0YRXUJ",
+    "device_type": "Access Point",
+    "mac": "34:a1:21:0c:83:44",
+    "ip_address": "116.83.42.24",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          30.8987,
+          -106.436
+        ]
+      },
+      "name": "42313 Rowan Close",
+      "city": "Breitenbergborough",
+      "country": "Lao People's Democratic Republic",
+      "countryCode": "GN",
+      "region": "Arizona",
+      "postalCode": "53530-6541"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-11-30T04:39:17.234Z"
+    },
+    "account": "Virtucon",
+    "tags": []
+  },
+  {
+    "serial_number": "4ZDPM4QGN7YBIPMV",
+    "part_number": "QNJQUL",
+    "device_type": "Access Point",
+    "mac": "01:78:2e:a9:ad:7a",
+    "ip_address": "56.137.73.162",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          41.9913,
+          -113.1907
+        ]
+      },
+      "name": "5292 Eleanore Field",
+      "city": "East Deionchester",
+      "country": "Gabon",
+      "countryCode": "ES",
+      "region": "Virginia",
+      "postalCode": "22728"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2025-06-27T02:53:47.455Z"
+    },
+    "account": "Initech",
+    "tags": [
+      {
+        "name": "env",
+        "value": "QA"
+      }
+    ]
+  },
+  {
+    "serial_number": "FO3EYZHRNVKEPVKJ",
+    "part_number": "YKY2DV",
+    "device_type": "Switch",
+    "mac": "0d:a5:bc:14:70:29",
+    "ip_address": "27.24.188.10",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          42.5927,
+          -97.5157
+        ]
+      },
+      "name": "3443 Runte Views",
+      "city": "Antioch",
+      "country": "Croatia",
+      "countryCode": "SL",
+      "region": "Kentucky",
+      "postalCode": "81360"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2025-04-13T00:35:38.795Z"
+    },
+    "account": "Virtucon",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "KJCEPWEFOYRZX1UU",
+    "part_number": "A2UIZB",
+    "device_type": "Access Point",
+    "mac": "3f:5e:be:90:bb:d5",
+    "ip_address": "3.66.223.132",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          41.3204,
+          -103.0324
+        ]
+      },
+      "name": "986 Willard Views",
+      "city": "Johnstontown",
+      "country": "Bermuda",
+      "countryCode": "GA",
+      "region": "North Carolina",
+      "postalCode": "57565"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2025-06-10T10:16:55.023Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "LLP5OPWNUTV4HMTM",
+    "part_number": "C07OQV",
+    "device_type": "Gateway",
+    "mac": "37:0a:8a:34:73:87",
+    "ip_address": "246.184.24.114",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          40.9085,
+          -84.3238
+        ]
+      },
+      "name": "144 Meadow Drive",
+      "city": "East Tyson",
+      "country": "Guinea-Bissau",
+      "countryCode": "BZ",
+      "region": "West Virginia",
+      "postalCode": "21000-5320"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2024-09-10T11:01:23.323Z"
+    },
+    "account": "Stark Industries",
+    "tags": [
+      {
+        "name": "app",
+        "value": "analytics"
+      }
+    ]
+  },
+  {
+    "serial_number": "C2ZXRVB69YZYHWSP",
+    "part_number": "ASVMHH",
+    "device_type": "Switch",
+    "mac": "d2:2d:5d:ac:47:48",
+    "ip_address": "54.179.101.197",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          43.8355,
+          -113.2826
+        ]
+      },
+      "name": "9498 W Main",
+      "city": "West Manuelstead",
+      "country": "Falkland Islands (Malvinas)",
+      "countryCode": "AT",
+      "region": "South Carolina",
+      "postalCode": "98054"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-11-11T06:23:39.467Z"
+    },
+    "account": "Globex",
+    "tags": []
+  },
+  {
+    "serial_number": "BFYJKY9MITPJ96OW",
+    "part_number": "T96IND",
+    "device_type": "Access Point",
+    "mac": "0d:77:17:62:39:d9",
+    "ip_address": "28.23.167.135",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          40.5617,
+          -103.645
+        ]
+      },
+      "name": "5547 Boundary Road",
+      "city": "Warner Robins",
+      "country": "Cayman Islands",
+      "countryCode": "GR",
+      "region": "Washington",
+      "postalCode": "59807-8482"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2025-06-15T06:02:07.538Z"
+    },
+    "account": "Initech",
+    "tags": []
+  },
+  {
+    "serial_number": "RMALB5YI3N1TAG89",
+    "part_number": "4V6LXM",
+    "device_type": "Access Point",
+    "mac": "bb:85:a7:d3:89:ac",
+    "ip_address": "168.135.139.167",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.6154,
+          -94.1495
+        ]
+      },
+      "name": "9810 Wisozk Plaza",
+      "city": "Peabody",
+      "country": "Pitcairn Islands",
+      "countryCode": "BJ",
+      "region": "New Jersey",
+      "postalCode": "92287"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2024-12-18T04:47:51.345Z"
+    },
+    "account": "Cyberdyne Systems",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "AXUJEKXWSZLO2ILT",
+    "part_number": "UHLT65",
+    "device_type": "Server",
+    "mac": "cc:24:f4:ba:16:81",
+    "ip_address": "11.192.58.5",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          48.4352,
+          -109.5801
+        ]
+      },
+      "name": "538 Bayer Harbor",
+      "city": "Pearl City",
+      "country": "Palestine",
+      "countryCode": "GW",
+      "region": "Massachusetts",
+      "postalCode": "46646-8126"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2025-04-30T18:41:27.578Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": []
+  },
+  {
+    "serial_number": "EKMASLIQGJPPIA2C",
+    "part_number": "TTWRDX",
+    "device_type": "Server",
+    "mac": "d3:cb:7f:27:31:05",
+    "ip_address": "44.118.237.250",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          43.4799,
+          -101.9496
+        ]
+      },
+      "name": "18911 N Broad Street",
+      "city": "Kristinview",
+      "country": "Guyana",
+      "countryCode": "AQ",
+      "region": "South Dakota",
+      "postalCode": "47246"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-04-28T08:15:05.707Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": [
+      {
+        "name": "env",
+        "value": "QA"
+      }
+    ]
+  },
+  {
+    "serial_number": "X7VVJWOCU5N4NJWU",
+    "part_number": "DB53WH",
+    "device_type": "Gateway",
+    "mac": "21:cc:d7:80:c6:6c",
+    "ip_address": "217.98.56.190",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          30.1813,
+          -109.833
+        ]
+      },
+      "name": "24051 E Washington Street",
+      "city": "Soniaside",
+      "country": "Cocos (Keeling) Islands",
+      "countryCode": "HR",
+      "region": "Texas",
+      "postalCode": "74819"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2025-01-25T14:20:35.711Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": [
+      {
+        "name": "app",
+        "value": "analytics"
+      }
+    ]
+  },
+  {
+    "serial_number": "7QD7MCB8WICGVNKP",
+    "part_number": "GGIQZM",
+    "device_type": "Server",
+    "mac": "19:2f:5a:cc:c9:a7",
+    "ip_address": "114.227.20.0",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          44.2177,
+          -84.2701
+        ]
+      },
+      "name": "386 Keon Groves",
+      "city": "Port Julien",
+      "country": "Jersey",
+      "countryCode": "RS",
+      "region": "Oregon",
+      "postalCode": "70126"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-08-15T07:12:59.830Z"
+    },
+    "account": "Virtucon",
+    "tags": [
+      {
+        "name": "app",
+        "value": "analytics"
+      }
+    ]
+  },
+  {
+    "serial_number": "FYIKXPTLHZUCACQZ",
+    "part_number": "QPUPIU",
+    "device_type": "Server",
+    "mac": "f0:8a:7b:f9:0a:bc",
+    "ip_address": "193.135.45.100",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          37.5058,
+          -114.6326
+        ]
+      },
+      "name": "3204 S Monroe Street",
+      "city": "North Lyric",
+      "country": "United States Minor Outlying Islands",
+      "countryCode": "ET",
+      "region": "Maryland",
+      "postalCode": "77956"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2024-09-07T23:09:43.191Z"
+    },
+    "account": "Virtucon",
+    "tags": []
+  },
+  {
+    "serial_number": "METYSPQ1B1PCYRHV",
+    "part_number": "UFZS1F",
+    "device_type": "Access Point",
+    "mac": "77:13:f1:5e:2c:fc",
+    "ip_address": "253.55.2.26",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          38.7579,
+          -89.1214
+        ]
+      },
+      "name": "6379 Name Dam",
+      "city": "Port Brandonbury",
+      "country": "Botswana",
+      "countryCode": "VI",
+      "region": "Rhode Island",
+      "postalCode": "87541"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-01-02T04:02:46.190Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": [
+      {
+        "name": "app",
+        "value": "analytics"
+      }
+    ]
+  },
+  {
+    "serial_number": "FLSDNQFWKNERENZ8",
+    "part_number": "D4MH02",
+    "device_type": "Access Point",
+    "mac": "7e:1d:55:7a:c7:a9",
+    "ip_address": "2.171.150.55",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          44.9425,
+          -108.2129
+        ]
+      },
+      "name": "9862 Marguerite Courts",
+      "city": "Port Annabel",
+      "country": "Antigua and Barbuda",
+      "countryCode": "VG",
+      "region": "Ohio",
+      "postalCode": "25257-4492"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2025-04-06T23:28:01.498Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "WW4OUNVTSNQW1TX1",
+    "part_number": "4ZW3W9",
+    "device_type": "Access Point",
+    "mac": "d9:6f:80:a1:53:6a",
+    "ip_address": "15.54.114.43",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          38.2326,
+          -92.8677
+        ]
+      },
+      "name": "1113 State Street",
+      "city": "Stehrstead",
+      "country": "Jersey",
+      "countryCode": "GB",
+      "region": "Rhode Island",
+      "postalCode": "36348"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-02-25T03:58:30.683Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": []
+  },
+  {
+    "serial_number": "XTQXAXVVQPCKH0TC",
+    "part_number": "8ITNHS",
+    "device_type": "Access Point",
+    "mac": "96:aa:4b:01:5b:f9",
+    "ip_address": "39.19.245.242",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          31.7829,
+          -92.2829
+        ]
+      },
+      "name": "3940 Stoltenberg Views",
+      "city": "Minot",
+      "country": "Georgia",
+      "countryCode": "ID",
+      "region": "Connecticut",
+      "postalCode": "41434"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-10-11T15:21:04.358Z"
+    },
+    "account": "Globex",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "5WX61U0MF7FQENUX",
+    "part_number": "9HDX6Y",
+    "device_type": "Server",
+    "mac": "96:66:d2:f6:76:d4",
+    "ip_address": "25.143.30.142",
+    "name": "",
+    "location_name": "",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          47.1147,
+          -98.9542
+        ]
+      },
+      "name": "333 Rowe Fork",
+      "city": "Manhattan",
+      "country": "Dominican Republic",
+      "countryCode": "CI",
+      "region": "Florida",
+      "postalCode": "14967"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-08-16T00:12:46.912Z"
+    },
+    "account": "Buy-N-Large",
+    "tags": [
+      {
+        "name": "env",
+        "value": "dev"
+      }
+    ]
+  },
+  {
+    "serial_number": "4CAIVIDAXPROIMEH",
+    "part_number": "0KVNDT",
+    "device_type": "Access Point",
+    "mac": "45:c9:54:13:aa:f1",
+    "ip_address": "140.189.190.174",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          34.4904,
+          -109.6806
+        ]
+      },
+      "name": "827 N Front Street",
+      "city": "Berylview",
+      "country": "Virgin Islands, U.S.",
+      "countryCode": "TO",
+      "region": "Minnesota",
+      "postalCode": "60725"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2025-04-17T00:50:52.252Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "NTJRFRY2H5TOAOBL",
+    "part_number": "SUW8R1",
+    "device_type": "Access Point",
+    "mac": "dc:9f:7d:bc:43:1a",
+    "ip_address": "211.157.113.223",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          43.0965,
+          -89.045
+        ]
+      },
+      "name": "336 Deanna Grove",
+      "city": "Enid",
+      "country": "Micronesia",
+      "countryCode": "US",
+      "region": "Nevada",
+      "postalCode": "41108-2540"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2025-04-17T18:12:21.255Z"
+    },
+    "account": "Cyberdyne Systems",
+    "tags": [
+      {
+        "name": "app",
+        "value": "analytics"
+      }
+    ]
+  },
+  {
+    "serial_number": "QZTFWZOSP2WSYACG",
+    "part_number": "ETQAX1",
+    "device_type": "Server",
+    "mac": "4b:ef:e3:e1:14:b2",
+    "ip_address": "202.173.29.77",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          33.1443,
+          -88.3842
+        ]
+      },
+      "name": "33008 Towne Walk",
+      "city": "Fritzfort",
+      "country": "Armenia",
+      "countryCode": "KY",
+      "region": "Virginia",
+      "postalCode": "63434"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-12-03T23:48:20.461Z"
+    },
+    "account": "Initech",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "IFN1EFZNMS7GICP9",
+    "part_number": "TH93BG",
+    "device_type": "Server",
+    "mac": "dd:85:10:a8:f1:bc",
+    "ip_address": "92.9.174.70",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          47.2222,
+          -83.6116
+        ]
+      },
+      "name": "1679 Glover Extension",
+      "city": "East Los Angeles",
+      "country": "Barbados",
+      "countryCode": "LT",
+      "region": "Florida",
+      "postalCode": "49816"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2024-07-10T08:18:38.889Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": [
+      {
+        "name": "env",
+        "value": "QA"
+      }
+    ]
+  },
+  {
+    "serial_number": "YIGR7G811XITI5AT",
+    "part_number": "TH4NNK",
+    "device_type": "Switch",
+    "mac": "52:65:15:e0:4c:c2",
+    "ip_address": "229.56.18.128",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          42.4324,
+          -87.5438
+        ]
+      },
+      "name": "9357 W Grand Avenue",
+      "city": "South Erick",
+      "country": "China",
+      "countryCode": "ES",
+      "region": "Minnesota",
+      "postalCode": "52893"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-03-29T01:39:18.294Z"
+    },
+    "account": "Stark Industries",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "YQWKVMVDJQLHXFRL",
+    "part_number": "58GJXV",
+    "device_type": "Gateway",
+    "mac": "d8:9b:7f:d2:3c:b2",
+    "ip_address": "30.96.57.169",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          38.4396,
+          -113.7807
+        ]
+      },
+      "name": "7396 Florian Junctions",
+      "city": "Paterson",
+      "country": "Luxembourg",
+      "countryCode": "PE",
+      "region": "Oregon",
+      "postalCode": "80004-1662"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-11-03T18:47:24.249Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": [
+      {
+        "name": "app",
+        "value": "analytics"
+      }
+    ]
+  },
+  {
+    "serial_number": "E970YXUZK8ZVYB3S",
+    "part_number": "XY9GN5",
+    "device_type": "Server",
+    "mac": "dc:07:1d:ba:56:75",
+    "ip_address": "189.247.83.6",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          49.6866,
+          -97.8466
+        ]
+      },
+      "name": "801 Spinka Parks",
+      "city": "Manteworth",
+      "country": "Montserrat",
+      "countryCode": "IE",
+      "region": "Kansas",
+      "postalCode": "51821"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2025-05-28T13:08:02.548Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "XWZFWWZZRMP2BZPT",
+    "part_number": "2DUWDR",
+    "device_type": "Gateway",
+    "mac": "3b:dd:e7:18:2f:01",
+    "ip_address": "21.185.25.97",
+    "name": "",
+    "location_name": "",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          40.1552,
+          -107.6704
+        ]
+      },
+      "name": "3161 School Road",
+      "city": "Marksmouth",
+      "country": "Bolivia",
+      "countryCode": "ME",
+      "region": "Florida",
+      "postalCode": "07595"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-04-03T13:39:42.933Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "MJ3KJKLKKHS8AACJ",
+    "part_number": "TCZXWC",
+    "device_type": "Server",
+    "mac": "f3:da:29:51:2f:e4",
+    "ip_address": "127.39.53.4",
+    "name": "",
+    "location_name": "",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          44.5476,
+          -98.4315
+        ]
+      },
+      "name": "5188 Sanford Ridge",
+      "city": "Tomascester",
+      "country": "Myanmar",
+      "countryCode": "MY",
+      "region": "Wyoming",
+      "postalCode": "80737-6624"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2024-10-05T11:22:21.130Z"
+    },
+    "account": "Buy-N-Large",
+    "tags": []
+  },
+  {
+    "serial_number": "UMOW79FA7DHE3U4C",
+    "part_number": "VBJPD3",
+    "device_type": "Access Point",
+    "mac": "b7:24:07:32:e9:06",
+    "ip_address": "1.139.80.222",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.2093,
+          -100.5076
+        ]
+      },
+      "name": "68037 Sawayn Island",
+      "city": "East Gastonland",
+      "country": "Singapore",
+      "countryCode": "FI",
+      "region": "New York",
+      "postalCode": "24077"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-01-25T18:05:01.107Z"
+    },
+    "account": "Initech",
+    "tags": []
+  },
+  {
+    "serial_number": "A5ZCSQZQQUDBMXVQ",
+    "part_number": "QLGXAK",
+    "device_type": "Switch",
+    "mac": "0d:09:c2:ea:82:b1",
+    "ip_address": "216.62.192.65",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          37.5542,
+          -104.4617
+        ]
+      },
+      "name": "221 Muller Fort",
+      "city": "Guadalupeton",
+      "country": "Israel",
+      "countryCode": "FK",
+      "region": "Georgia",
+      "postalCode": "74631-1344"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2025-06-20T02:20:41.390Z"
+    },
+    "account": "Stark Industries",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "Y3ZPA8HVPPQJT7VX",
+    "part_number": "UEAKCY",
+    "device_type": "Access Point",
+    "mac": "14:6f:a9:71:d3:f2",
+    "ip_address": "170.170.161.190",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          30.1486,
+          -82.1311
+        ]
+      },
+      "name": "21839 Tyrell Ridges",
+      "city": "Aldafort",
+      "country": "North Macedonia",
+      "countryCode": "ZW",
+      "region": "Montana",
+      "postalCode": "53520"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-07-03T06:39:42.531Z"
+    },
+    "account": "Globex",
+    "tags": []
+  },
+  {
+    "serial_number": "W7EJURSL8S1WLQ22",
+    "part_number": "GIT2OJ",
+    "device_type": "Switch",
+    "mac": "d2:d7:d7:25:00:af",
+    "ip_address": "166.20.181.109",
+    "name": "",
+    "location_name": "",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          31.4877,
+          -111.4068
+        ]
+      },
+      "name": "10144 Willow Drive",
+      "city": "Fort Arnaldofort",
+      "country": "Antigua and Barbuda",
+      "countryCode": "VE",
+      "region": "Indiana",
+      "postalCode": "65914-3359"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-02-18T01:43:12.033Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": []
+  },
+  {
+    "serial_number": "QVSZINXSLE2EJFUN",
+    "part_number": "THILC2",
+    "device_type": "Access Point",
+    "mac": "03:f5:c8:92:24:13",
+    "ip_address": "93.158.151.106",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          37.3805,
+          -93.5856
+        ]
+      },
+      "name": "6077 Walnut Street",
+      "city": "Port Felicia",
+      "country": "Suriname",
+      "countryCode": "CK",
+      "region": "Mississippi",
+      "postalCode": "72180-8261"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-02-25T06:02:40.910Z"
+    },
+    "account": "Virtucon",
+    "tags": [
+      {
+        "name": "env",
+        "value": "staging"
+      }
+    ]
+  },
+  {
+    "serial_number": "GBCKQZ6HU9RFRMSL",
+    "part_number": "IVGXE5",
+    "device_type": "Switch",
+    "mac": "3b:67:bc:14:7a:3a",
+    "ip_address": "231.41.72.196",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          40.9651,
+          -99.8999
+        ]
+      },
+      "name": "236 Juniper Close",
+      "city": "Joliet",
+      "country": "Western Sahara",
+      "countryCode": "MS",
+      "region": "Alaska",
+      "postalCode": "16711"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2025-02-22T00:08:37.131Z"
+    },
+    "account": "Initech",
+    "tags": []
+  },
+  {
+    "serial_number": "NVO2PMOX90YGQ8L7",
+    "part_number": "XHHPOD",
+    "device_type": "Access Point",
+    "mac": "cd:c5:88:37:cc:8b",
+    "ip_address": "111.227.101.32",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          48.739,
+          -109.9094
+        ]
+      },
+      "name": "25766 Antoinette Underpass",
+      "city": "Mentor",
+      "country": "Eritrea",
+      "countryCode": "AL",
+      "region": "Maryland",
+      "postalCode": "00854-5114"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2025-04-29T05:56:35.406Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "CLKWKPMOMFUL28V3",
+    "part_number": "EMV4DA",
+    "device_type": "Switch",
+    "mac": "a7:f0:9b:cc:05:50",
+    "ip_address": "238.74.101.64",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          32.837,
+          -98.4583
+        ]
+      },
+      "name": "297 Main Street",
+      "city": "Port Deloresfort",
+      "country": "Bermuda",
+      "countryCode": "BS",
+      "region": "Alabama",
+      "postalCode": "39840"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2025-05-23T23:43:38.998Z"
+    },
+    "account": "Globex",
+    "tags": []
+  },
+  {
+    "serial_number": "MTVIPSDYKURIQTAM",
+    "part_number": "0LGLMR",
+    "device_type": "Server",
+    "mac": "35:ea:ff:aa:d3:5b",
+    "ip_address": "138.176.161.24",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.9919,
+          -85.8996
+        ]
+      },
+      "name": "6939 Bode Village",
+      "city": "Cormierfort",
+      "country": "Guyana",
+      "countryCode": "TO",
+      "region": "Vermont",
+      "postalCode": "65516"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-07-01T22:18:36.748Z"
+    },
+    "account": "Buy-N-Large",
+    "tags": []
+  },
+  {
+    "serial_number": "BLVQGYOZGX3XD7U3",
+    "part_number": "NUQCEN",
+    "device_type": "Gateway",
+    "mac": "5d:0b:e7:5c:27:8d",
+    "ip_address": "15.33.40.41",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          30.1503,
+          -89.8189
+        ]
+      },
+      "name": "2483 Ernestina Ridge",
+      "city": "Litzyburgh",
+      "country": "Brazil",
+      "countryCode": "VC",
+      "region": "Alabama",
+      "postalCode": "22942-8069"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-01-29T12:35:14.747Z"
+    },
+    "account": "Globex",
+    "tags": []
+  },
+  {
+    "serial_number": "VOP7YXT9OSQRLZJO",
+    "part_number": "YCLE2Q",
+    "device_type": "Switch",
+    "mac": "fd:f2:16:30:5d:21",
+    "ip_address": "241.230.18.76",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          47.3215,
+          -103.4199
+        ]
+      },
+      "name": "616 Bert Circles",
+      "city": "St. Peters",
+      "country": "Lebanon",
+      "countryCode": "MO",
+      "region": "Iowa",
+      "postalCode": "38407"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2024-09-06T22:32:12.564Z"
+    },
+    "account": "Initech",
+    "tags": [
+      {
+        "name": "env",
+        "value": "staging"
+      }
+    ]
+  },
+  {
+    "serial_number": "86ZWYBRA7XC0JG3O",
+    "part_number": "DMAHFU",
+    "device_type": "Access Point",
+    "mac": "b7:c0:bd:f5:58:25",
+    "ip_address": "100.146.92.226",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          38.2595,
+          -82.9334
+        ]
+      },
+      "name": "695 Edythe Mountains",
+      "city": "Altadena",
+      "country": "Montserrat",
+      "countryCode": "PR",
+      "region": "Tennessee",
+      "postalCode": "16881-1928"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2024-09-11T20:38:33.722Z"
+    },
+    "account": "Virtucon",
+    "tags": []
+  },
+  {
+    "serial_number": "UYOBYIVJTX5ICJJA",
+    "part_number": "WYOKS8",
+    "device_type": "Server",
+    "mac": "68:b7:fb:f1:6a:36",
+    "ip_address": "10.84.5.130",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          36.619,
+          -103.7691
+        ]
+      },
+      "name": "4101 Wisozk Port",
+      "city": "Fort Abrahambury",
+      "country": "Holy See (Vatican City State)",
+      "countryCode": "SI",
+      "region": "New Mexico",
+      "postalCode": "16150"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2025-01-11T11:11:35.986Z"
+    },
+    "account": "Virtucon",
+    "tags": []
+  },
+  {
+    "serial_number": "AVYOOHYPSGLTDJNU",
+    "part_number": "AHVV6A",
+    "device_type": "Access Point",
+    "mac": "7c:71:70:56:74:2e",
+    "ip_address": "125.76.207.200",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          30.502,
+          -112.9956
+        ]
+      },
+      "name": "3052 Western Avenue",
+      "city": "Fort Dorris",
+      "country": "Turkey",
+      "countryCode": "BB",
+      "region": "North Dakota",
+      "postalCode": "26487-2721"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-03-02T22:54:52.333Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "LMFHW70HORTINUYC",
+    "part_number": "DCXHRF",
+    "device_type": "Switch",
+    "mac": "52:b2:c3:e9:5f:57",
+    "ip_address": "65.173.227.141",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          39.2232,
+          -85.6875
+        ]
+      },
+      "name": "60418 Marcelina Trace",
+      "city": "Rueckerboro",
+      "country": "Aruba",
+      "countryCode": "SK",
+      "region": "Indiana",
+      "postalCode": "23894"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2024-07-15T07:41:23.413Z"
+    },
+    "account": "Buy-N-Large",
+    "tags": []
+  },
+  {
+    "serial_number": "NRJAK0QNJEFKAQHD",
+    "part_number": "OWR2I6",
+    "device_type": "Gateway",
+    "mac": "52:aa:34:ea:fe:c5",
+    "ip_address": "17.93.117.28",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          37.0762,
+          -110.9372
+        ]
+      },
+      "name": "9016 Forest Avenue",
+      "city": "Marquardtbury",
+      "country": "Liberia",
+      "countryCode": "GM",
+      "region": "Oklahoma",
+      "postalCode": "87710-1846"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2024-12-09T08:46:23.107Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": []
+  },
+  {
+    "serial_number": "7ZRM6HRSJGJRWVZU",
+    "part_number": "JUEMWR",
+    "device_type": "Access Point",
+    "mac": "b3:e5:28:98:92:25",
+    "ip_address": "228.68.32.10",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          32.4048,
+          -84.4917
+        ]
+      },
+      "name": "105 Dudley Knoll",
+      "city": "Lake Bette",
+      "country": "Tonga",
+      "countryCode": "KE",
+      "region": "Montana",
+      "postalCode": "91903-8250"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-03-27T19:03:41.994Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "ZGQFY9YOVZDH15AV",
+    "part_number": "ICLMPO",
+    "device_type": "Gateway",
+    "mac": "58:41:9e:e4:9c:20",
+    "ip_address": "87.31.213.11",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          41.9458,
+          -100.6585
+        ]
+      },
+      "name": "5206 Juwan Pines",
+      "city": "Leoniecester",
+      "country": "Vietnam",
+      "countryCode": "VA",
+      "region": "Oklahoma",
+      "postalCode": "26590"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-02-12T07:11:58.024Z"
+    },
+    "account": "Globex",
+    "tags": [
+      {
+        "name": "env",
+        "value": "staging"
+      }
+    ]
+  },
+  {
+    "serial_number": "HAFJ5QCR2J9OHFR5",
+    "part_number": "VFDCQW",
+    "device_type": "Server",
+    "mac": "72:96:14:a8:5e:6c",
+    "ip_address": "173.63.185.136",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          32.2339,
+          -95.4746
+        ]
+      },
+      "name": "16651 Reilly Ramp",
+      "city": "Demarcusview",
+      "country": "Angola",
+      "countryCode": "VU",
+      "region": "Maine",
+      "postalCode": "41637"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-12-25T16:22:46.607Z"
+    },
+    "account": "Stark Industries",
+    "tags": []
+  },
+  {
+    "serial_number": "YZHJUBADY48IFCGJ",
+    "part_number": "NRW5QJ",
+    "device_type": "Gateway",
+    "mac": "34:85:ed:e1:46:ad",
+    "ip_address": "208.16.185.230",
+    "name": "",
+    "location_name": "",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          39.3883,
+          -93.7037
+        ]
+      },
+      "name": "17447 Witting Land",
+      "city": "Beattyworth",
+      "country": "China",
+      "countryCode": "TD",
+      "region": "Louisiana",
+      "postalCode": "89716-2588"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2024-12-12T07:53:59.666Z"
+    },
+    "account": "Cyberdyne Systems",
+    "tags": []
+  },
+  {
+    "serial_number": "2WKL2Q3BIHNKUMXO",
+    "part_number": "IX3VCK",
+    "device_type": "Server",
+    "mac": "42:b3:28:6b:40:cb",
+    "ip_address": "248.196.252.57",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          32.3044,
+          -94.1021
+        ]
+      },
+      "name": "62472 Schiller Inlet",
+      "city": "Clemensfort",
+      "country": "Gibraltar",
+      "countryCode": "ZA",
+      "region": "Wisconsin",
+      "postalCode": "48111-6885"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2024-08-09T12:05:10.512Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "VYYA6WSQBYQID3VW",
+    "part_number": "ZVM23Q",
+    "device_type": "Switch",
+    "mac": "41:b6:89:48:bf:cb",
+    "ip_address": "208.241.182.178",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          45.7147,
+          -98.197
+        ]
+      },
+      "name": "5130 Spencer Overpass",
+      "city": "Runolfsdottirshire",
+      "country": "Palestine",
+      "countryCode": "TG",
+      "region": "West Virginia",
+      "postalCode": "28809-9017"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2025-05-08T23:19:47.297Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": [
+      {
+        "name": "env",
+        "value": "dev"
+      }
+    ]
+  },
+  {
+    "serial_number": "B59FCSE772N20TVM",
+    "part_number": "EJJFKP",
+    "device_type": "Server",
+    "mac": "52:ab:96:d0:f0:76",
+    "ip_address": "75.243.90.214",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          40.6257,
+          -93.3321
+        ]
+      },
+      "name": "458 Rodriguez Common",
+      "city": "Walshshire",
+      "country": "Timor-Leste",
+      "countryCode": "VN",
+      "region": "Ohio",
+      "postalCode": "46122"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2024-07-17T02:50:46.347Z"
+    },
+    "account": "Initech",
+    "tags": []
+  },
+  {
+    "serial_number": "N2H9JSTIEQNGYFNL",
+    "part_number": "UBJE3A",
+    "device_type": "Switch",
+    "mac": "37:a3:ab:c2:e3:69",
+    "ip_address": "244.152.82.99",
+    "name": "",
+    "location_name": "",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          45.5312,
+          -119.4188
+        ]
+      },
+      "name": "337 Angie Roads",
+      "city": "Laguna Niguel",
+      "country": "Guatemala",
+      "countryCode": "LS",
+      "region": "Minnesota",
+      "postalCode": "51619"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-11-09T05:09:05.745Z"
+    },
+    "account": "Cyberdyne Systems",
+    "tags": []
+  },
+  {
+    "serial_number": "G7MRGQBXOSR7SZP7",
+    "part_number": "R4WV6J",
+    "device_type": "Access Point",
+    "mac": "81:92:a6:75:60:d3",
+    "ip_address": "82.180.63.12",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          38.3322,
+          -118.9642
+        ]
+      },
+      "name": "4629 W 9th Street",
+      "city": "Connview",
+      "country": "Tanzania",
+      "countryCode": "LU",
+      "region": "Massachusetts",
+      "postalCode": "95684"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-12-23T22:52:46.822Z"
+    },
+    "account": "Buy-N-Large",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "6ZELXSEJ2BXMPZVE",
+    "part_number": "WC8QM7",
+    "device_type": "Gateway",
+    "mac": "6f:24:b9:0a:bc:29",
+    "ip_address": "105.54.207.65",
+    "name": "",
+    "location_name": "",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          40.7829,
+          -94.7332
+        ]
+      },
+      "name": "8416 Jalen Harbor",
+      "city": "Providence",
+      "country": "North Macedonia",
+      "countryCode": "GN",
+      "region": "Wyoming",
+      "postalCode": "69904-8543"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-09-05T05:49:55.851Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "OVTPBTT0OVERSWTQ",
+    "part_number": "FCPJD8",
+    "device_type": "Gateway",
+    "mac": "09:34:69:47:b9:79",
+    "ip_address": "245.219.235.183",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          40.8646,
+          -91.2416
+        ]
+      },
+      "name": "5049 Huel Circle",
+      "city": "Norwalk",
+      "country": "Timor-Leste",
+      "countryCode": "SX",
+      "region": "Indiana",
+      "postalCode": "85527"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2025-04-01T17:15:22.561Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": [
+      {
+        "name": "env",
+        "value": "QA"
+      }
+    ]
+  },
+  {
+    "serial_number": "CATDYBH1ME6LHMGX",
+    "part_number": "S06OPD",
+    "device_type": "Access Point",
+    "mac": "8a:3b:3d:74:1c:66",
+    "ip_address": "174.57.108.37",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          39.1804,
+          -108.8677
+        ]
+      },
+      "name": "5398 W 9th Street",
+      "city": "South Patsystead",
+      "country": "Western Sahara",
+      "countryCode": "MX",
+      "region": "Maine",
+      "postalCode": "18432"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-08-28T17:19:08.499Z"
+    },
+    "account": "Initech",
+    "tags": []
+  },
+  {
+    "serial_number": "2LAOTDA40DOQLXY4",
+    "part_number": "4GUSTS",
+    "device_type": "Server",
+    "mac": "f8:a1:09:9e:13:8a",
+    "ip_address": "92.215.3.168",
+    "name": "",
+    "location_name": "",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          33.4763,
+          -97.9294
+        ]
+      },
+      "name": "4899 Delphia Dam",
+      "city": "New Gabriellestad",
+      "country": "New Zealand",
+      "countryCode": "GM",
+      "region": "Rhode Island",
+      "postalCode": "70410"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-03-23T12:57:47.025Z"
+    },
+    "account": "Stark Industries",
+    "tags": []
+  },
+  {
+    "serial_number": "ARUHQPHFOQCM1LCX",
+    "part_number": "QQNUYL",
+    "device_type": "Server",
+    "mac": "16:84:22:7e:b2:3d",
+    "ip_address": "250.153.96.194",
+    "name": "",
+    "location_name": "",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          32.2402,
+          -91.63
+        ]
+      },
+      "name": "993 Purdy Hill",
+      "city": "North Hallieberg",
+      "country": "Morocco",
+      "countryCode": "PM",
+      "region": "Nevada",
+      "postalCode": "94948-6858"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2024-07-24T11:15:15.495Z"
+    },
+    "account": "Globex",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "QHNTBPW5MSOQIKL4",
+    "part_number": "M67CW1",
+    "device_type": "Gateway",
+    "mac": "2e:cc:09:eb:d1:54",
+    "ip_address": "103.6.152.234",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.205,
+          -103.7402
+        ]
+      },
+      "name": "968 Altenwerth Ridge",
+      "city": "Fort Justicetown",
+      "country": "Republic of Korea",
+      "countryCode": "GM",
+      "region": "Minnesota",
+      "postalCode": "24050-0508"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-01-07T13:44:26.456Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "24EXWZHOWK2OTK8O",
+    "part_number": "FG69E6",
+    "device_type": "Access Point",
+    "mac": "48:6d:0d:fb:38:35",
+    "ip_address": "83.64.14.6",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.0237,
+          -111.1376
+        ]
+      },
+      "name": "3428 Keeling Bridge",
+      "city": "Janieview",
+      "country": "Reunion",
+      "countryCode": "FI",
+      "region": "North Dakota",
+      "postalCode": "63901"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-02-10T16:36:07.858Z"
+    },
+    "account": "Globex",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "8LUSPXLJX1NJ8XWX",
+    "part_number": "RBUOAX",
+    "device_type": "Gateway",
+    "mac": "22:5d:ae:6b:b6:23",
+    "ip_address": "238.43.125.97",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.9773,
+          -83.1461
+        ]
+      },
+      "name": "66849 Willms Center",
+      "city": "Eulahfort",
+      "country": "Brazil",
+      "countryCode": "FI",
+      "region": "Maine",
+      "postalCode": "24683-4139"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-11-27T02:52:27.337Z"
+    },
+    "account": "Virtucon",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "HPZY92DVGFYZDCUT",
+    "part_number": "VTGTHZ",
+    "device_type": "Access Point",
+    "mac": "7e:21:49:38:e1:d0",
+    "ip_address": "196.188.105.22",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.3961,
+          -98.4403
+        ]
+      },
+      "name": "62691 Neha Stream",
+      "city": "Lafayette",
+      "country": "Costa Rica",
+      "countryCode": "LS",
+      "region": "New Mexico",
+      "postalCode": "62332"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2024-12-01T18:20:56.964Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "HKZIGLXZ4C8RS2Q7",
+    "part_number": "ZGPLYO",
+    "device_type": "Server",
+    "mac": "9f:5b:75:22:2b:ea",
+    "ip_address": "192.15.150.230",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          49.5035,
+          -88.6703
+        ]
+      },
+      "name": "589 Keyon Landing",
+      "city": "Brockton",
+      "country": "British Indian Ocean Territory (Chagos Archipelago)",
+      "countryCode": "UY",
+      "region": "Michigan",
+      "postalCode": "11832"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-03-11T21:34:26.412Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "RO7M60JPFVK4VAMZ",
+    "part_number": "T47PNA",
+    "device_type": "Server",
+    "mac": "80:65:f3:94:b0:6c",
+    "ip_address": "183.237.177.212",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          30.2229,
+          -94.8077
+        ]
+      },
+      "name": "43202 Haley Common",
+      "city": "Lake Lennieland",
+      "country": "Fiji",
+      "countryCode": "TR",
+      "region": "California",
+      "postalCode": "66792"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-11-28T15:30:43.197Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": []
+  },
+  {
+    "serial_number": "HRIXUMN12YZYPVBJ",
+    "part_number": "OZB1G6",
+    "device_type": "Switch",
+    "mac": "b4:7e:c8:23:5c:be",
+    "ip_address": "123.29.34.23",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          31.7427,
+          -92.4427
+        ]
+      },
+      "name": "848 Ross Mountain",
+      "city": "South Maxie",
+      "country": "Anguilla",
+      "countryCode": "DK",
+      "region": "Nevada",
+      "postalCode": "11971"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-04-19T04:31:36.933Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": [
+      {
+        "name": "env",
+        "value": "QA"
+      }
+    ]
+  },
+  {
+    "serial_number": "ZOZK0EYP72UYMNAE",
+    "part_number": "ISNIQN",
+    "device_type": "Switch",
+    "mac": "df:5e:61:0a:e4:2e",
+    "ip_address": "117.97.250.144",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          39.1758,
+          -101.0212
+        ]
+      },
+      "name": "4620 Russ Ports",
+      "city": "Hempstead",
+      "country": "Greenland",
+      "countryCode": "SV",
+      "region": "Alaska",
+      "postalCode": "58259-6888"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2025-06-07T22:09:11.973Z"
+    },
+    "account": "Virtucon",
+    "tags": [
+      {
+        "name": "env",
+        "value": "dev"
+      }
+    ]
+  },
+  {
+    "serial_number": "ZSV9TZ9T8CHG2MAI",
+    "part_number": "NY7SAG",
+    "device_type": "Gateway",
+    "mac": "46:e9:ee:9c:d9:36",
+    "ip_address": "208.196.206.158",
+    "name": "",
+    "location_name": "",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.3211,
+          -105.3947
+        ]
+      },
+      "name": "797 Dina Shores",
+      "city": "Avondale",
+      "country": "New Zealand",
+      "countryCode": "TM",
+      "region": "Iowa",
+      "postalCode": "14916"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-12-12T23:58:41.149Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "ZKNILCBVRNUD4UHQ",
+    "part_number": "K5S4X1",
+    "device_type": "Gateway",
+    "mac": "cc:8b:86:7c:0b:84",
+    "ip_address": "6.58.120.153",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          39.3855,
+          -102.2381
+        ]
+      },
+      "name": "7246 Soledad Prairie",
+      "city": "Twin Falls",
+      "country": "French Guiana",
+      "countryCode": "GM",
+      "region": "Nevada",
+      "postalCode": "22477"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2024-08-12T13:38:53.266Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "FJF0QUGLPWBOFHKD",
+    "part_number": "G8EAJW",
+    "device_type": "Switch",
+    "mac": "3a:75:92:e8:0f:08",
+    "ip_address": "203.235.148.18",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          39.8038,
+          -97.7339
+        ]
+      },
+      "name": "39450 Beech Grove",
+      "city": "Ellsworthboro",
+      "country": "Sint Maarten",
+      "countryCode": "BD",
+      "region": "Virginia",
+      "postalCode": "92833"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-07-01T19:00:47.208Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": [
+      {
+        "name": "app",
+        "value": "analytics"
+      }
+    ]
+  },
+  {
+    "serial_number": "8QQYGGJDPKA9XG3J",
+    "part_number": "EC14EM",
+    "device_type": "Access Point",
+    "mac": "eb:20:34:e2:87:a8",
+    "ip_address": "222.130.253.242",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          34.7433,
+          -81.9369
+        ]
+      },
+      "name": "670 Collin Center",
+      "city": "Littleton",
+      "country": "Costa Rica",
+      "countryCode": "MP",
+      "region": "Louisiana",
+      "postalCode": "28637-1398"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2024-10-16T05:26:21.028Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "GT3KYAFBKIV80RYG",
+    "part_number": "6S0IBJ",
+    "device_type": "Switch",
+    "mac": "ba:4c:33:17:3e:71",
+    "ip_address": "34.186.2.82",
+    "name": "",
+    "location_name": "",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          39.0261,
+          -92.7509
+        ]
+      },
+      "name": "2944 N Washington Avenue",
+      "city": "Veumworth",
+      "country": "Cuba",
+      "countryCode": "TH",
+      "region": "Montana",
+      "postalCode": "63985-8635"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-02-04T18:15:34.327Z"
+    },
+    "account": "Stark Industries",
+    "tags": []
+  },
+  {
+    "serial_number": "UZU1ARAYUQRPO1CT",
+    "part_number": "3V1FFZ",
+    "device_type": "Switch",
+    "mac": "57:db:e9:c8:2f:09",
+    "ip_address": "61.208.159.154",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          44.9492,
+          -83.5263
+        ]
+      },
+      "name": "9244 Oxford Street",
+      "city": "Hoboken",
+      "country": "Sudan",
+      "countryCode": "NG",
+      "region": "New Mexico",
+      "postalCode": "15923"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-08-04T13:18:43.563Z"
+    },
+    "account": "Virtucon",
+    "tags": []
+  },
+  {
+    "serial_number": "PMNQ3J2WXQHFIH04",
+    "part_number": "TMQJFE",
+    "device_type": "Gateway",
+    "mac": "32:a8:fc:69:94:f5",
+    "ip_address": "40.207.238.62",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          47.5028,
+          -115.6738
+        ]
+      },
+      "name": "96123 Padberg Plains",
+      "city": "New Noe",
+      "country": "Bosnia and Herzegovina",
+      "countryCode": "AG",
+      "region": "Virginia",
+      "postalCode": "79853-0664"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2024-11-11T07:15:27.367Z"
+    },
+    "account": "Initech",
+    "tags": []
+  },
+  {
+    "serial_number": "IA4NPIGHDX9NKF5R",
+    "part_number": "BOOD0F",
+    "device_type": "Server",
+    "mac": "ce:c8:43:76:04:c1",
+    "ip_address": "95.208.99.72",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          32.8792,
+          -112.5663
+        ]
+      },
+      "name": "8342 Carolina Light",
+      "city": "Lake Lauriane",
+      "country": "Dominican Republic",
+      "countryCode": "AL",
+      "region": "Illinois",
+      "postalCode": "49480"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2024-10-29T11:06:30.593Z"
+    },
+    "account": "Virtucon",
+    "tags": []
+  },
+  {
+    "serial_number": "5TXH9TDDG3RHBK7L",
+    "part_number": "RZLQ6Q",
+    "device_type": "Switch",
+    "mac": "41:38:e2:ed:b7:2e",
+    "ip_address": "115.14.3.193",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          44.6956,
+          -98.6105
+        ]
+      },
+      "name": "66544 Casper Vista",
+      "city": "West Simeon",
+      "country": "Equatorial Guinea",
+      "countryCode": "EC",
+      "region": "Rhode Island",
+      "postalCode": "49375-9515"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2024-12-22T13:44:49.218Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": []
+  },
+  {
+    "serial_number": "GW3GGZS1QWIAS1IE",
+    "part_number": "4EZ709",
+    "device_type": "Access Point",
+    "mac": "fc:6f:cd:03:a4:d6",
+    "ip_address": "238.204.93.234",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          49.483,
+          -116.006
+        ]
+      },
+      "name": "95309 Main",
+      "city": "Mesquite",
+      "country": "Pitcairn Islands",
+      "countryCode": "MP",
+      "region": "California",
+      "postalCode": "98617"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2024-12-05T20:16:41.713Z"
+    },
+    "account": "Virtucon",
+    "tags": []
+  },
+  {
+    "serial_number": "PKDJVCNMTCJUM5FE",
+    "part_number": "YM15MI",
+    "device_type": "Switch",
+    "mac": "fd:46:04:29:38:a4",
+    "ip_address": "20.28.72.107",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          42.189,
+          -83.5379
+        ]
+      },
+      "name": "9709 Manor Gardens",
+      "city": "East Loma",
+      "country": "Eritrea",
+      "countryCode": "AX",
+      "region": "Alaska",
+      "postalCode": "61374-7669"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-10-17T20:33:27.664Z"
+    },
+    "account": "Buy-N-Large",
+    "tags": []
+  },
+  {
+    "serial_number": "MUCI7U9L4NVXDLWJ",
+    "part_number": "0WCHEA",
+    "device_type": "Access Point",
+    "mac": "92:81:65:d6:63:96",
+    "ip_address": "79.58.89.151",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          41.3972,
+          -103.0623
+        ]
+      },
+      "name": "648 Donna Cliff",
+      "city": "Fort Cory",
+      "country": "Azerbaijan",
+      "countryCode": "IM",
+      "region": "Vermont",
+      "postalCode": "80050-6664"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2025-04-29T23:11:49.024Z"
+    },
+    "account": "Virtucon",
+    "tags": []
+  },
+  {
+    "serial_number": "3PN4LCQH8IG9P7H6",
+    "part_number": "3ZWDGK",
+    "device_type": "Switch",
+    "mac": "7c:50:43:75:78:cf",
+    "ip_address": "109.110.224.141",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          36.6905,
+          -98.8967
+        ]
+      },
+      "name": "30922 Clovis Fords",
+      "city": "Kohlerfurt",
+      "country": "Portugal",
+      "countryCode": "BT",
+      "region": "Pennsylvania",
+      "postalCode": "84122-0330"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2025-06-20T20:16:40.627Z"
+    },
+    "account": "Buy-N-Large",
+    "tags": [
+      {
+        "name": "app",
+        "value": "analytics"
+      }
+    ]
+  },
+  {
+    "serial_number": "CNWSUSP5HAF7UL9H",
+    "part_number": "LHUG7F",
+    "device_type": "Access Point",
+    "mac": "60:d6:8a:9c:e2:aa",
+    "ip_address": "232.73.74.174",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          43.7556,
+          -88.6189
+        ]
+      },
+      "name": "948 Priory Road",
+      "city": "Foreststad",
+      "country": "Haiti",
+      "countryCode": "AW",
+      "region": "Louisiana",
+      "postalCode": "46652-1077"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-09-07T07:08:59.960Z"
+    },
+    "account": "Virtucon",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "NTIFDEFSUKSEKUYF",
+    "part_number": "JWZ8Y9",
+    "device_type": "Switch",
+    "mac": "83:86:88:e7:dc:62",
+    "ip_address": "126.80.130.133",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          47.3861,
+          -87.6178
+        ]
+      },
+      "name": "391 Tremayne Ville",
+      "city": "Rafaelaberg",
+      "country": "Indonesia",
+      "countryCode": "NC",
+      "region": "Hawaii",
+      "postalCode": "36513-4758"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-08-26T23:01:06.970Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": []
+  },
+  {
+    "serial_number": "FR7WXVUZVTLRIPV0",
+    "part_number": "PSTR42",
+    "device_type": "Gateway",
+    "mac": "fe:d0:34:db:0a:1c",
+    "ip_address": "52.86.142.3",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          37.7584,
+          -92.0884
+        ]
+      },
+      "name": "39954 Jorge Locks",
+      "city": "Fort Taylor",
+      "country": "Isle of Man",
+      "countryCode": "MG",
+      "region": "Oklahoma",
+      "postalCode": "05982"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2024-10-24T15:17:52.584Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": []
+  },
+  {
+    "serial_number": "ZQ866RZ4JD1E74VL",
+    "part_number": "ANMBMC",
+    "device_type": "Server",
+    "mac": "77:f1:f1:fe:44:7f",
+    "ip_address": "62.71.101.229",
+    "name": "",
+    "location_name": "",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          38.4809,
+          -103.7973
+        ]
+      },
+      "name": "97590 Effertz Fort",
+      "city": "Whiteburgh",
+      "country": "Qatar",
+      "countryCode": "PM",
+      "region": "Rhode Island",
+      "postalCode": "97325-8056"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2024-08-03T22:52:10.592Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "2QTY9SDLE3VIFABQ",
+    "part_number": "OTTFQL",
+    "device_type": "Switch",
+    "mac": "9c:24:c9:75:d4:68",
+    "ip_address": "45.128.117.164",
+    "name": "",
+    "location_name": "",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          49.5545,
+          -117.309
+        ]
+      },
+      "name": "3737 Whitney Mount",
+      "city": "New Otilia",
+      "country": "French Guiana",
+      "countryCode": "DJ",
+      "region": "Louisiana",
+      "postalCode": "04547"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2024-12-27T04:27:56.796Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "LFQLZ6NQOUXXOZKB",
+    "part_number": "9MZAYR",
+    "device_type": "Access Point",
+    "mac": "0a:ec:37:54:61:05",
+    "ip_address": "120.244.112.138",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          34.6598,
+          -90.37
+        ]
+      },
+      "name": "607 Rahul Shores",
+      "city": "Beattyfield",
+      "country": "Morocco",
+      "countryCode": "AT",
+      "region": "Idaho",
+      "postalCode": "80409-8119"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2024-08-17T00:47:20.738Z"
+    },
+    "account": "Cyberdyne Systems",
+    "tags": []
+  },
+  {
+    "serial_number": "SZH36U2X7V52Y6AE",
+    "part_number": "ODAT8O",
+    "device_type": "Access Point",
+    "mac": "84:6c:64:db:f1:ab",
+    "ip_address": "77.7.31.109",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          37.6762,
+          -102.1829
+        ]
+      },
+      "name": "9170 Chapel Hill",
+      "city": "Lake Stephaniafort",
+      "country": "South Sudan",
+      "countryCode": "UA",
+      "region": "Connecticut",
+      "postalCode": "40334"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2024-12-11T20:51:07.074Z"
+    },
+    "account": "Initech",
+    "tags": []
+  },
+  {
+    "serial_number": "27BHLLLDVNNDZ44B",
+    "part_number": "VQYMTR",
+    "device_type": "Gateway",
+    "mac": "12:0b:2f:39:4e:d9",
+    "ip_address": "236.113.89.227",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          48.2207,
+          -114.2073
+        ]
+      },
+      "name": "9004 Alec Summit",
+      "city": "Sipesfield",
+      "country": "San Marino",
+      "countryCode": "SS",
+      "region": "Michigan",
+      "postalCode": "63084-3337"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2024-08-12T01:02:17.750Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "1VEYAFIYUKPDGUPO",
+    "part_number": "QILJBK",
+    "device_type": "Server",
+    "mac": "85:1e:1d:93:2f:83",
+    "ip_address": "7.107.176.181",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          42.4883,
+          -103.3292
+        ]
+      },
+      "name": "2961 Grimes Club",
+      "city": "Daly City",
+      "country": "Bouvet Island",
+      "countryCode": "IO",
+      "region": "Missouri",
+      "postalCode": "36175"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2025-02-16T12:16:39.631Z"
+    },
+    "account": "Buy-N-Large",
+    "tags": []
+  },
+  {
+    "serial_number": "PMX6SUNOZZWRE0CZ",
+    "part_number": "R6S3YO",
+    "device_type": "Server",
+    "mac": "be:af:e9:0c:41:fe",
+    "ip_address": "255.143.206.130",
+    "name": "",
+    "location_name": "",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          47.4756,
+          -116.1441
+        ]
+      },
+      "name": "2330 Chapel Hill",
+      "city": "Eau Claire",
+      "country": "Zimbabwe",
+      "countryCode": "BR",
+      "region": "South Dakota",
+      "postalCode": "59816"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2025-01-18T10:50:45.066Z"
+    },
+    "account": "Stark Industries",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "FPHY9F6O9T9UGRRZ",
+    "part_number": "T0NDGK",
+    "device_type": "Server",
+    "mac": "13:9a:2c:37:21:7a",
+    "ip_address": "138.239.85.110",
+    "name": "",
+    "location_name": "",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          37.6927,
+          -119.4891
+        ]
+      },
+      "name": "3458 Wunsch Key",
+      "city": "Lockmanmouth",
+      "country": "Ethiopia",
+      "countryCode": "TV",
+      "region": "New Mexico",
+      "postalCode": "98576-0575"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2025-02-10T09:43:22.543Z"
+    },
+    "account": "Initech",
+    "tags": []
+  },
+  {
+    "serial_number": "WWRRX5NP2RRPKZZN",
+    "part_number": "FCWFZT",
+    "device_type": "Switch",
+    "mac": "ae:c9:45:2b:1d:77",
+    "ip_address": "142.155.28.178",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          32.3174,
+          -90.7713
+        ]
+      },
+      "name": "4772 Highfield Avenue",
+      "city": "South Jasper",
+      "country": "American Samoa",
+      "countryCode": "BM",
+      "region": "Connecticut",
+      "postalCode": "80538-3962"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2025-07-03T10:36:59.337Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "HG0PZMLRQE0VUFDZ",
+    "part_number": "EV2KZJ",
+    "device_type": "Server",
+    "mac": "e6:af:f4:cc:bf:13",
+    "ip_address": "73.184.31.65",
+    "name": "",
+    "location_name": "",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          30.3379,
+          -82.4546
+        ]
+      },
+      "name": "7869 Manor Road",
+      "city": "South Caitlyn",
+      "country": "Switzerland",
+      "countryCode": "CV",
+      "region": "Louisiana",
+      "postalCode": "91081-4518"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2025-03-04T11:30:26.395Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "ZITVNCKIUQNNNGJF",
+    "part_number": "BARBMC",
+    "device_type": "Server",
+    "mac": "90:8a:df:b0:5a:fc",
+    "ip_address": "94.63.37.176",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          30.8136,
+          -95.5622
+        ]
+      },
+      "name": "87627 Thea Knoll",
+      "city": "West Antone",
+      "country": "Sudan",
+      "countryCode": "MD",
+      "region": "New Mexico",
+      "postalCode": "21173"
+    },
+    "subscription": {
+      "tier": "Mission Critical",
+      "expiration_date": "2024-08-31T06:20:20.397Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": []
+  },
+  {
+    "serial_number": "BCOUWO6DT4R5Q0JL",
+    "part_number": "OFS97H",
+    "device_type": "Access Point",
+    "mac": "33:1d:9a:db:8c:9a",
+    "ip_address": "41.77.100.74",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          36.631,
+          -83.2123
+        ]
+      },
+      "name": "362 Helmer Islands",
+      "city": "Port Kierahaven",
+      "country": "Colombia",
+      "countryCode": "MZ",
+      "region": "North Carolina",
+      "postalCode": "42764-7977"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2024-08-03T00:29:04.642Z"
+    },
+    "account": "Umbrella Corp",
+    "tags": [
+      {
+        "name": "env",
+        "value": "production"
+      }
+    ]
+  },
+  {
+    "serial_number": "VBZKGY8AYPS4YD2W",
+    "part_number": "DZPAQI",
+    "device_type": "Switch",
+    "mac": "7d:99:e3:86:cc:e1",
+    "ip_address": "181.50.205.71",
+    "name": "",
+    "location_name": "Colo",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          31.3465,
+          -119.2438
+        ]
+      },
+      "name": "62333 Verda Field",
+      "city": "Predovicfield",
+      "country": "Martinique",
+      "countryCode": "UZ",
+      "region": "Kansas",
+      "postalCode": "75858"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2025-04-15T22:40:50.684Z"
+    },
+    "account": "Stark Industries",
+    "tags": []
+  },
+  {
+    "serial_number": "KFJZWM2DVQ1YNPED",
+    "part_number": "WXUA8I",
+    "device_type": "Switch",
+    "mac": "29:d9:30:53:f3:d5",
+    "ip_address": "91.140.163.184",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          41.835,
+          -92.6641
+        ]
+      },
+      "name": "7678 Johns Knoll",
+      "city": "New Lexieview",
+      "country": "Zimbabwe",
+      "countryCode": "WF",
+      "region": "Kentucky",
+      "postalCode": "17685-5932"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2025-06-24T07:35:16.562Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "TZY94IVEAZNYIB9E",
+    "part_number": "KYH89F",
+    "device_type": "Gateway",
+    "mac": "a5:b1:42:67:29:26",
+    "ip_address": "241.109.179.239",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          33.2839,
+          -117.8985
+        ]
+      },
+      "name": "69316 Walter Common",
+      "city": "Leorashire",
+      "country": "Bonaire, Sint Eustatius and Saba",
+      "countryCode": "BA",
+      "region": "Indiana",
+      "postalCode": "63302"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2024-11-27T19:38:40.051Z"
+    },
+    "account": "Stark Industries",
+    "tags": []
+  },
+  {
+    "serial_number": "QA1AFLGHPGYEAZQP",
+    "part_number": "UEOHPT",
+    "device_type": "Server",
+    "mac": "8b:a5:9a:cc:0c:60",
+    "ip_address": "236.91.80.137",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          36.1525,
+          -117.8374
+        ]
+      },
+      "name": "34916 Monahan Views",
+      "city": "New Wallace",
+      "country": "Jersey",
+      "countryCode": "JE",
+      "region": "Washington",
+      "postalCode": "98191"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-10-02T07:21:29.638Z"
+    },
+    "account": "Initech",
+    "tags": [
+      {
+        "name": "env",
+        "value": "QA"
+      }
+    ]
+  },
+  {
+    "serial_number": "N4G1RAHY1DEA7P6K",
+    "part_number": "OFNZYW",
+    "device_type": "Server",
+    "mac": "bd:76:af:8b:04:ce",
+    "ip_address": "218.63.223.195",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          40.3581,
+          -112.9798
+        ]
+      },
+      "name": "4396 Kuhic Cove",
+      "city": "Garland",
+      "country": "Haiti",
+      "countryCode": "CL",
+      "region": "Rhode Island",
+      "postalCode": "59720-1812"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-08-08T10:56:38.147Z"
+    },
+    "account": "Stark Industries",
+    "tags": []
+  },
+  {
+    "serial_number": "QL4WHB2DKHS7MBGO",
+    "part_number": "9YKOHU",
+    "device_type": "Gateway",
+    "mac": "6d:1a:da:c3:4c:8b",
+    "ip_address": "251.176.101.205",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "US-West",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          35.0705,
+          -83.234
+        ]
+      },
+      "name": "444 Baumbach Oval",
+      "city": "Batzburgh",
+      "country": "Sri Lanka",
+      "countryCode": "MK",
+      "region": "Mississippi",
+      "postalCode": "20192"
+    },
+    "subscription": {
+      "tier": "Security",
+      "expiration_date": "2024-10-02T09:18:51.119Z"
+    },
+    "account": "Buy-N-Large",
+    "tags": []
+  },
+  {
+    "serial_number": "R685DRXWLSMWWLKE",
+    "part_number": "O1RTKE",
+    "device_type": "Gateway",
+    "mac": "08:84:04:a5:18:cd",
+    "ip_address": "44.54.89.157",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          30.394,
+          -115.6674
+        ]
+      },
+      "name": "5639 Wunsch Creek",
+      "city": "Southfield",
+      "country": "Democratic People's Republic of Korea",
+      "countryCode": "AX",
+      "region": "Arizona",
+      "postalCode": "65933"
+    },
+    "subscription": {
+      "tier": "Value",
+      "expiration_date": "2024-11-26T07:46:58.420Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "U91I8JNCE0GBCFTU",
+    "part_number": "SVRZFA",
+    "device_type": "Switch",
+    "mac": "73:ac:ac:34:36:eb",
+    "ip_address": "202.241.9.96",
+    "name": "",
+    "location_name": "Branch",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          40.2404,
+          -99.0474
+        ]
+      },
+      "name": "12104 Central Street",
+      "city": "Port Ilianaville",
+      "country": "Greenland",
+      "countryCode": "MP",
+      "region": "Oregon",
+      "postalCode": "53985-1859"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2025-02-22T22:23:55.616Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": [
+      {
+        "name": "app",
+        "value": "inventory"
+      }
+    ]
+  },
+  {
+    "serial_number": "WKLUDWR4ED2JLK1O",
+    "part_number": "UDBK25",
+    "device_type": "Switch",
+    "mac": "51:2c:91:ef:14:3f",
+    "ip_address": "229.41.133.210",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "EU",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          38.212,
+          -118.6826
+        ]
+      },
+      "name": "6893 Fore Street",
+      "city": "South Tevin",
+      "country": "Jersey",
+      "countryCode": "KE",
+      "region": "South Carolina",
+      "postalCode": "31390-1450"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2025-01-12T01:35:27.455Z"
+    },
+    "account": "Acme, Inc.",
+    "tags": [
+      {
+        "name": "env",
+        "value": "staging"
+      }
+    ]
+  },
+  {
+    "serial_number": "TOYQTNJU2FTXZP1Y",
+    "part_number": "17VCEM",
+    "device_type": "Switch",
+    "mac": "d4:8f:86:aa:ec:85",
+    "ip_address": "33.37.166.22",
+    "name": "",
+    "location_name": "Datacenter",
+    "service_region": "APAC",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          40.9847,
+          -110.3865
+        ]
+      },
+      "name": "4498 Jakubowski Via",
+      "city": "Port Amyafurt",
+      "country": "Papua New Guinea",
+      "countryCode": "CW",
+      "region": "Massachusetts",
+      "postalCode": "34947"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2024-08-27T07:45:25.739Z"
+    },
+    "account": "Tyrell Corp",
+    "tags": []
+  },
+  {
+    "serial_number": "FPBCAG3502TBE5BP",
+    "part_number": "MXBWGX",
+    "device_type": "Server",
+    "mac": "ed:ea:58:25:08:b6",
+    "ip_address": "144.122.0.144",
+    "name": "",
+    "location_name": "HQ",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          34.994,
+          -117.2383
+        ]
+      },
+      "name": "255 Reba Gardens",
+      "city": "Kassandrafort",
+      "country": "Guernsey",
+      "countryCode": "BD",
+      "region": "Kentucky",
+      "postalCode": "83796"
+    },
+    "subscription": {
+      "tier": "Foundation",
+      "expiration_date": "2025-03-15T06:59:41.388Z"
+    },
+    "account": "Wayne Enterprises",
+    "tags": []
+  },
+  {
+    "serial_number": "MKA080PFLGPYPHUO",
+    "part_number": "IPGZAK",
+    "device_type": "Access Point",
+    "mac": "02:8c:35:20:67:e4",
+    "ip_address": "231.4.162.126",
+    "name": "",
+    "location_name": "",
+    "service_region": "US-East",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          33.7722,
+          -105.5799
+        ]
+      },
+      "name": "4683 Zieme Rest",
+      "city": "Mount Vernon",
+      "country": "Latvia",
+      "countryCode": "SZ",
+      "region": "California",
+      "postalCode": "35354-1857"
+    },
+    "subscription": {
+      "tier": "Advanced",
+      "expiration_date": "2025-02-04T10:27:20.914Z"
+    },
+    "account": "Buy-N-Large",
+    "tags": [
+      {
+        "name": "env",
+        "value": "staging"
+      }
+    ]
+  },
+  {
+    "serial_number": "U3DES66KP2BZ7WLB",
+    "part_number": "6HEWJV",
+    "device_type": "Switch",
+    "mac": "8d:44:29:00:33:55",
+    "ip_address": "29.2.62.134",
+    "name": "",
+    "location_name": "Corporate",
+    "service_region": "LATAM",
+    "geo": {
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          43.6078,
+          -89.2959
+        ]
+      },
+      "name": "31723 The Maltings",
+      "city": "Destineetown",
+      "country": "Mauritania",
+      "countryCode": "CU",
+      "region": "Utah",
+      "postalCode": "91692"
+    },
+    "subscription": {
+      "tier": "Basic",
+      "expiration_date": "2024-12-16T01:58:26.382Z"
+    },
+    "account": "Stark Industries",
+    "tags": [
+      {
+        "name": "env",
+        "value": "staging"
+      }
+    ]
+  }
+]

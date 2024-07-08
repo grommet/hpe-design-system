@@ -1,6 +1,6 @@
 import { MapLocation, Table } from 'grommet-icons';
 
-import rawData from './mock-data/devices_02.json';
+import rawData from './mock-data/devices_03.json';
 
 const defaultData = rawData.map((datum) => {
   const tier = datum.subscription.tier;
@@ -39,7 +39,7 @@ const visualizationOptions = [
   },
 ];
 
-const defaultVisualization = 'map';
+const defaultVisualization = 'table';
 
 const defaultProperties = {
   serial_number: { label: 'Serial number', filter: false },

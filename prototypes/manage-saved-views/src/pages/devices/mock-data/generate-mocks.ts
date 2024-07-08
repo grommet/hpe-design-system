@@ -53,7 +53,7 @@ function generateDevice(): Device {
     geo: {
       location: {
         type: 'Point',
-        coordinates: [faker.location.longitude(), faker.location.latitude()]
+        coordinates: [faker.location.latitude({ max: 50, min: 30 }), faker.location.longitude({ max: -80, min: -120 })]
       },
       name: faker.location.streetAddress(),
       city: faker.location.city(),
