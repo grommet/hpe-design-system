@@ -268,7 +268,7 @@ dimensionFiles.forEach(file => {
     source: [
       'dist/primitives.base.json',
       `dist/typography.${mode}.json`, // dist folder has "rem"
-      `${TOKENS_DIR}/dimension.${mode}.json`,
+      file,
     ],
     platforms: {
       js: {
@@ -341,8 +341,8 @@ StyleDictionary.extend({
   source: [
     // from dist because it contains the "px"/"rem" version
     'dist/primitives.base.json',
-    `${TOKENS_DIR}/color.light.json`, // TO DO if we want component to just have a single "mode" how do we handle that for ESM which resolves values?
-    `${TOKENS_DIR}/dimension.large.json`, // TO DO if we want component to just have a single "mode" how do we handle that for ESM which resolves values?
+    `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
+    `${TOKENS_DIR}/dimension - semantic.large.json`, // using large mode to have a reference name available
     'dist/component.default.json',
   ],
   platforms: {
