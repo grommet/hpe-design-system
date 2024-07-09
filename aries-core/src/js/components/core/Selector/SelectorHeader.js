@@ -25,17 +25,23 @@ const SelectorIndicator = ({ selected, indicator, ...rest }) => {
       flex={false}
       {...rest}
     >
-      {selected && (
-        <Checkmark aria-label="selected" size="small" />
-      )}
+      {selected && <Checkmark aria-label="selected" size="small" />}
     </Box>
   );
 };
 
-const SelectorHeader = ({ icon, indicator, description, title, selected }) => (
+const SelectorHeader = ({
+  direction = 'column',
+  icon,
+  indicator,
+  description,
+  title,
+  selected,
+}) => (
   <Box direction="row" gap="small" flex={false}>
-    {icon}
+    {direction === 'row' && icon}
     <Box flex>
+      {direction === 'column' && icon}
       {typeof title === 'string' ? (
         <Text weight={500} wordBreak="break-word">
           {title}
@@ -65,6 +71,7 @@ SelectorHeader.propTypes = {
   indicator: PropTypes.bool,
   title: PropTypes.string,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  direction: PropTypes.oneOfType([PropTypes.oneOf(['row', 'column'])]),
   selected: PropTypes.bool,
 };
 

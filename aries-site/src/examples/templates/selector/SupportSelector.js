@@ -21,14 +21,6 @@ const services = [
     value: 'green lake portal',
     title: 'HPE GreenLake Portal',
   },
-  // {
-  //   value: 'block storage',
-  //   title: 'Block Storage',
-  // },
-  // {
-  //   value: 'complete care',
-  //   title: 'HPE Complete Care',
-  // },
 ];
 
 const devices = [
@@ -106,6 +98,7 @@ export const SupportSelector = () => {
                 {devices.map(datum => (
                   <Selector
                     key={datum.value}
+                    direction='row'
                     value={datum.value}
                     icon={datum.icon}
                     title={datum.title}
