@@ -24,6 +24,7 @@ const Selector = ({
   title,
   icon,
   indicator,
+  direction,
   description,
   round = 'xsmall',
   pad = 'small',
@@ -54,6 +55,7 @@ const Selector = ({
       >
         {(indicator !== false || title || description || icon) && (
           <SelectorHeader
+            direction={direction}
             indicator={indicator}
             title={title}
             icon={icon}
@@ -76,6 +78,7 @@ Selector.propTypes = {
   ]),
   icon: PropTypes.element,
   indicator: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  direction: PropTypes.oneOfType([PropTypes.oneOf(['row', 'column'])]),
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   title: PropTypes.string,
   round: PropTypes.string,
