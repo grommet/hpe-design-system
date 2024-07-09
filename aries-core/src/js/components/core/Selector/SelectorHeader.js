@@ -38,17 +38,19 @@ const SelectorHeader = ({
   title,
   selected,
 }) => (
-  <Box direction="row" gap="small" flex={false}>
+  <Box direction="row" gap="xsmall" flex={false}>
     {direction === 'row' && icon}
     <Box flex>
-      {direction === 'column' && icon}
-      {typeof title === 'string' ? (
-        <Text weight={500} wordBreak="break-word">
-          {title}
-        </Text>
-      ) : (
-        title
-      )}
+      <Box gap="xxsmall" flex>
+        {direction === 'column' && icon}
+        {typeof title === 'string' ? (
+          <Text weight={500} wordBreak="break-word">
+            {title}
+          </Text>
+        ) : (
+          title
+        )}
+      </Box>
       {typeof description === 'string' ? (
         <Text>{description}</Text>
       ) : (
