@@ -49,6 +49,7 @@ const Selector = ({
         pad={pad}
         round={round}
         selected={selected}
+        gap="xsmall"
         border={{
           color: selected ? 'brand' : 'border',
         }}

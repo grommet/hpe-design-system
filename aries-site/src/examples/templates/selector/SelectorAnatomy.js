@@ -38,7 +38,7 @@ export const SelectorAnatomy = () => (
     <Grid
       align="start"
       columns={['xxsmall', 'medium', 'xxsmall']}
-      rows={['36px', '24px', '24px', '80px']}
+      rows={['40px', '24px', '16px', '80px']}
       areas={[
         ['cta-annotation-3a', 'card-example', 'cta-annotation-2'],
         ['cta-annotation-3b', 'card-example', 'cta-empty'],
@@ -52,7 +52,7 @@ export const SelectorAnatomy = () => (
         alignSelf="center"
         target="3a"
         gridArea="cta-annotation-3a"
-        margin={{ top: '12px' }}
+        margin={{ top: '6px' }}
       />
       <Annotation id="s-3b" target="3b" gridArea="cta-annotation-3b" />
       <Annotation id="s-3c" target="3c" gridArea="cta-annotation-3c" />
@@ -61,6 +61,7 @@ export const SelectorAnatomy = () => (
         id="s-4"
         target="4"
         gridArea="cta-annotation-4"
+        margin={{ top: '-4px' }}
       />
       <SelectorExample gridArea="card-example" />
       <Annotation
@@ -75,7 +76,7 @@ export const SelectorAnatomy = () => (
         id="s-1"
         target="1"
         gridArea="cta-annotation-1"
-        margin={{ top: '-20px' }}
+        margin={{ top: '-10px' }}
       />
       <Box gridArea="cta-empty" />
       <Box gridArea="cta-empty" />
@@ -106,14 +107,17 @@ const SelectorExample = () => (
         color: 'brand',
       }}
       id="s-container"
+      gap="xsmall"
     >
       <Box gap="xsmall">
         <Box direction="row" gap="xsmall" flex={false}>
           <Box flex>
+            <Box gap="xxsmall">
             <Iteration id="s-icon" height="medium" />
             <Text id="s-title" weight={500} wordBreak="break-word">
               Aruba AP-635 Wifi 6E Access Point
             </Text>
+            </Box>
             <Text id="s-desc">36 devices</Text>
           </Box>
           <Box
