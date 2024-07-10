@@ -1544,8 +1544,8 @@ export const components = [
     name: 'Pagination',
     available: true,
     category: 'Controls',
-    description: `Pagination divides content into separate pages in order to 
-    enhance navigation to specific items.`,
+    description: `Pagination enables the user to  navigate between pages
+     of data and control the number of results per pages.`,
     preview: {
       image: {
         src: {
@@ -1556,8 +1556,8 @@ export const components = [
         fit: 'contain',
       },
     },
-    seoDescription: `Pagination divides content into separate pages in order to 
-    enhance navigation to specific items.`,
+    seoDescription: `Pagination enables the user to  navigate between
+     pages of data and control the number of results per pages.`,
     sections: [
       'When to use Pagination',
       'Number of results per page',
