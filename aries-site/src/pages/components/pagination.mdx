@@ -1,9 +1,9 @@
 import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
-import { 
-PaginationCardsExample,
-PaginationExample,
-ToggleGroupViews,
+import {
+  PaginationCardsExample,
+  PaginationExample,
+  ToggleGroupViews,
 } from '../../examples';
 
 <Example
@@ -17,8 +17,10 @@ ToggleGroupViews,
 </Example>
 
 ## Use cases
-### Managing datasets 
-Common ways to display datasets include, [DataTable], [List] & [Cards]. Pagination can be attached to  any of these options, allowing the user to browse the returned data in smaller segmented views.  
+
+### Managing datasets
+
+Common ways to display datasets include, DataTable, List & Cards. Pagination can be attached to any of these options, allowing the user to browse the returned data in smaller segmented views.
 
 <Example
   width="100%"
@@ -30,42 +32,33 @@ Common ways to display datasets include, [DataTable], [List] & [Cards]. Paginati
   ]}
 >
   <ToggleGroupViews />
+</Example>
 
 ## Anatomy
 
-### Diagram illustrating the parts composing Pagination.
+| Label | Region          | Purpose                                                                            | Required | Notes                                                                                                                                      |
+| :---: | --------------- | ---------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **1** | **Container**   | Container, organizes its children, where they appear, how they adapt responsively. | Required | --                                                                                                                                         |
+| **2** | **Summary**     | Provide clarity on what range of items are in view.                                | Optional | If no label is shown, icon is required.                                                                                                    |
+| **3** | **StepOptions** | Displays the current number of items within a page and allows the user to modify.  | Optional | Step defaults to 10. Dropdown options default to 10, 25, 50, 100. The default step and step options can be customized to fit the use case. |
+| **4** | **Navigation**  | Allow user to jump to a specific page.                                             | Required | a11yTitle required. If no icon is shown, label is required.                                                                                |
 
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FnxI308Yvt4HKJ1rjgrEXCk%2F%25233651---Pagination-Component%3Fpage-id%3D500%253A2056%26node-id%3D500-2057%26viewport%3D867%252C584%252C0.4%26t%3DKWm2nct6mBhEAHPv-1%26scaling%3Dmin-zoom%26content-scaling%3Dfixed" allowfullscreen></iframe>
 
-
-### Diagram illustrating the parts composing Pagination Navigation.
-
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FnxI308Yvt4HKJ1rjgrEXCk%2F%25233651---Pagination-Component%3Fpage-id%3D500%253A2056%26node-id%3D500-2070%26viewport%3D867%252C584%252C0.4%26t%3DKWm2nct6mBhEAHPv-1%26scaling%3Dmin-zoom%26content-scaling%3Dfixed" allowfullscreen></iframe>
+| Label | Region           | Purpose                                                                               | Required | Notes                                                       |
+| :---: | ---------------- | ------------------------------------------------------------------------------------  | :------: | ----------------------------------------------------------- |
+| **1** | **Navigation**   | Group all controls.                                                                   | --       | --                                                          |
+| **2** | **Previous**     | Moves back one page of results. Disabled when on page 1.                              | --       | If no label is shown, icon is required.                     |
+| **3** | **Next**         | Moves forward one page of results. Disabled when on last page.                        | --       | a11yTitle required. If no icon is shown, label is required. |
+| **4** | **Current page** | `active’ state button indicates the currently displayed page.                         | --       | a11yTitle required. If no icon is shown, label is required. |
+| **5** | **More**         | Decorative ellipsis indicating that more pages exist outside current visible range.   | --       | a11yTitle required. If no icon is shown, label is required. |
+| **6** | **Edge pages**   | Navigate to first or last page in the dataset.                                        | --       | Edge pages dynamically appear if the dataset is large & are conditional on which page is selected. By default 1 “edge page” displays, this value can be increased with the numberEdgePages prop. |
+| **7** | **Middle pages** | Number of pages displayed between the More indicators.                                | --       | The number of navigation buttons is dynamic & related to the returned data set the ‘step’ number. To control the number of buttons displayed for large sets, use grommet’s prop numberMiddlePages - the default is set to 3 middle pages. Number of middle pages may be increased or reduced when according to if the design concerns are driven by horizontal real-estate or ease of navigation to large datasets. |
 
 ## Alternatives to pagination
 
-As an alternative to grouping data in page views,  [InfiniteScroll] provides a  container that renders items continuously as the user scrolls down.
-
-## Accessibility
-
-Below are some accessibility requirements that ensure pagination is accessible for screen readers and keyboard navigation.
-
-If your team is developing with Grommet, these considerations are already handled, so no further action is required from your team.
-
-1. Wrap pagination links in a `<nav>` element.
-1. Provide an `aria-label="pagination navigaton"` and `role="navigation"`.
-1. Individual page buttons should have an `aria-label` that reads "Go to page X", where X is the page that will be navigated to upon selection.
-1. The active page button should have `aria-current="true"`.
-1. The next/previous arrow buttons should have `aria-label` that reads "Go to next page" and "Go to previous page", respectively.
-
-For more detailed documentation on these requirements, you can read more about [accessible pagination](https://www.a11ymatters.com/pattern/pagination/).
+### Infinite scroll
+As an alternative to grouping data in page views,  InfiniteScroll provides a  container that renders items continuously as the user scrolls down. https://v2.grommet.io/infinitescroll
 
 ## Responsive behaviour
-
-The pagination contain should fill & match the width of the data view it is attached to.  However since pagination content can vary based on summary length, the number of pagination buttons visible it will wrap & stack according to what elements are visible, and how much horizontal with is available.
-
-Expand the following example and change browser size to see the component adapt
-
-
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FnxI308Yvt4HKJ1rjgrEXCk%2F%25233651---Pagination-Component%3Fpage-id%3D500%253A2056%26node-id%3D500-2103%26viewport%3D867%252C584%252C0.4%26t%3DKWm2nct6mBhEAHPv-1%26scaling%3Dmin-zoom%26content-scaling%3Dfixed" allowfullscreen></iframe>
+The pagination contain should fill & match the width of the data view it is attached to.  However since pagination content can vary based on summary length, the number of pagination buttons visible it will wrap & stack according to what elements are visible, and how much horizontal with is available 
