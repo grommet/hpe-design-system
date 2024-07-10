@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { cloneElement, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text, ThemeContext } from 'grommet';
 import { Checkmark } from 'grommet-icons';
@@ -32,36 +32,45 @@ const SelectorIndicator = ({ selected, indicator, ...rest }) => {
 
 const SelectorHeader = ({
   direction = 'column',
-  icon,
+  icon: iconProp,
   indicator,
   description,
   title,
   selected,
-}) => (
-  <Box direction="row" gap="xsmall" flex={false}>
-    {direction === 'row' && icon}
-    <Box flex>
-      <Box gap="xxsmall" flex>
-        {direction === 'column' && icon}
-        {typeof title === 'string' ? (
-          <Text weight={500} wordBreak="break-word">
-            {title}
-          </Text>
+}) => {
+  let icon = iconProp;
+  if (iconProp && direction === 'column')
+    icon = cloneElement(iconProp, {
+      height: undefined,
+    });
+  return (
+    <Box direction="row" gap="xsmall" flex={false}>
+      {direction === 'row' && icon}
+      <Box flex>
+        <Box gap="xsmall" flex>
+          {/* if we use columnn, we dont need any padding on icon, 
+        if we use row we do need the pad on icon. */}
+          {direction === 'column' && icon}
+          {typeof title === 'string' ? (
+            <Text weight={500} wordBreak="break-word">
+              {title}
+            </Text>
+          ) : (
+            title
+          )}
+        </Box>
+        {typeof description === 'string' ? (
+          <Text>{description}</Text>
         ) : (
-          title
+          description
         )}
       </Box>
-      {typeof description === 'string' ? (
-        <Text>{description}</Text>
-      ) : (
-        description
+      {indicator && (
+        <SelectorIndicator selected={selected} indicator={indicator} />
       )}
     </Box>
-    {indicator && (
-      <SelectorIndicator selected={selected} indicator={indicator} />
-    )}
-  </Box>
-);
+  );
+};
 
 SelectorIndicator.propTypes = {
   selected: PropTypes.bool,
