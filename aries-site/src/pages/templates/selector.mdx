@@ -6,6 +6,8 @@ import {
   QuickFilter,
   SupportSelector,
   SelectorAnatomy,
+  SelectorSingle,
+  SelectorMutli,
 } from '../../examples';
 
 <Example
@@ -56,23 +58,19 @@ Helps users quickly navigate through choices, ensuring they find the relevant op
 
 ## Anatomy
 
-<Example
-  caption="Diagram illustrating the 4 parts of a Selector."
-  plain
->
+<Example caption="Diagram illustrating the 4 parts of a Selector." plain>
   <SelectorAnatomy />
 </Example>
 
-
-| Label | Region                       | Purpose                                                                                       | Required | Notes                                                   |
-| :---: | --------------------         | ----------------------------------------------------------------------------------------------| :------: | ------------------------------------------------------- |
-| **1**  | **Container**               | Provides distinct boundary representing the option as a distinct choice.                      | Required |  --  |
-| **2**  | **Selection Indicator**     | Provides additional visual prominence and distinction between selected and unselected state.  | Optional | For single it will be rounded for multiple sqaured off  |                                                 
-| **3**  | **Identifier**              | Clearly labels what is being selected.                                                        | --       | -- |
-| **3a** | **Icon**                    | A unique icon that assists the user in identifying their desired selection.                   | Optional | Consider only using if the icon is well-known, recognizable, and understood, with correct a11yTitle. |
-| **3b** | **Title**                   | Clear succinct label.                                                                         | Required | -- |
-| **3c** | **Description**             | Provides additional detail if the title is insufficient on its own.                           | Optional | -- |
-| **4**  | **Body**                    | Flexible content section which can be tailored to the use case.                               | Optional | May be used in addition to or in place of the Identifier. If used in place of the Identifier, it should satisfy the criteria of clearly labeling what is being selected. |
+| Label  | Region                  | Purpose                                                                                      | Required | Notes                                                                                                                                                                    |
+| :----: | ----------------------- | -------------------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **1**  | **Container**           | Provides distinct boundary representing the option as a distinct choice.                     | Required | --                                                                                                                                                                       |
+| **2**  | **Selection Indicator** | Provides additional visual prominence and distinction between selected and unselected state. | Optional | For single it will be rounded for multiple sqaured off                                                                                                                   |
+| **3**  | **Identifier**          | Clearly labels what is being selected.                                                       |    --    | --                                                                                                                                                                       |
+| **3a** | **Icon**                | A unique icon that assists the user in identifying their desired selection.                  | Optional | Consider only using if the icon is well-known, recognizable, and understood, with correct a11yTitle.                                                                     |
+| **3b** | **Title**               | Clear succinct label.                                                                        | Required | --                                                                                                                                                                       |
+| **3c** | **Description**         | Provides additional detail if the title is insufficient on its own.                          | Optional | --                                                                                                                                                                       |
+| **4**  | **Body**                | Flexible content section which can be tailored to the use case.                              | Optional | May be used in addition to or in place of the Identifier. If used in place of the Identifier, it should satisfy the criteria of clearly labeling what is being selected. |
 
 ## Types
 
@@ -80,15 +78,21 @@ Helps users quickly navigate through choices, ensuring they find the relevant op
 
 With single selection, only one option can be selected at a time. This is the default behavior.
 
+<Example sheight={{ min: 'small' }}>
+  <SelectorSingle />
+</Example>
 
 ### Multiple select
 
 With multiple selection, multiple options can be selected on at the same time.
 
+<Example height={{ min: 'small' }}>
+  <SelectorMutli />
+</Example>
+
 ## Accessibility
 
-| Key                   | Interaction                                                                                                                    |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| **Tab**               | Used to navigate to the Selector group, and elements within the container. |                                                                                       |
-| **Space/Enter**       | Selects button with focus.  
-
+| Key             | Interaction                                                                |     |
+| --------------- | -------------------------------------------------------------------------- | --- |
+| **Tab**         | Used to navigate to the Selector group, and elements within the container. |     |
+| **Space/Enter** | Selects button with focus.                                                 |     |
