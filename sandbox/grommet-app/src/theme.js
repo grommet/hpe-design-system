@@ -506,46 +506,46 @@ const buildTheme = tokens => {
     },
     anchor: {
       color: 'text-strong',
-      textDecoration: 'underline',
-      fontWeight: 500,
-      gap: 'xsmall',
+      textDecoration: 'underline', // this will have a token
+      fontWeight: base.hpe.base.font.weight.medium, // Q: is it okay to use base values? ideal not to use base
+      gap: 'xsmall', // Q: should this point to a token? use component specific token other wise fine to leave as t-shirt size
       hover: {
         textDecoration: 'underline',
       },
       size: {
         large: {
           color: 'brand',
-          fontWeight: 700,
+          fontWeight: base.hpe.base.font.weight.bold,
           textDecoration: 'none',
         },
         xlarge: {
           color: 'brand',
-          fontWeight: 700,
+          fontWeight: base.hpe.base.font.weight.bold,
           textDecoration: 'none',
         },
         xxlarge: {
           color: 'brand',
-          fontWeight: 700,
+          fontWeight: base.hpe.base.font.weight.bold,
           textDecoration: 'none',
         },
         '3xl': {
           color: 'brand',
-          fontWeight: 700,
+          fontWeight: base.hpe.base.font.weight.bold,
           textDecoration: 'none',
         },
         '4xl': {
           color: 'brand',
-          fontWeight: 700,
+          fontWeight: base.hpe.base.font.weight.bold,
           textDecoration: 'none',
         },
         '5xl': {
           color: 'brand',
-          fontWeight: 700,
+          fontWeight: base.hpe.base.font.weight.bold,
           textDecoration: 'none',
         },
         '6xl': {
           color: 'brand',
-          fontWeight: 700,
+          fontWeight: base.hpe.base.font.weight.bold,
           textDecoration: 'none',
         },
       },
@@ -568,7 +568,7 @@ const buildTheme = tokens => {
           background: 'text-strong',
         },
         size: {
-          medium: '18px',
+          medium: '18px', // Q: what token should be used here? no token for this at the moments
         },
         text: {
           size: {
@@ -580,7 +580,7 @@ const buildTheme = tokens => {
       'cta-primary': {
         background: { color: 'brand' },
         color: 'text-primary-button',
-        font: { weight: 'bold' },
+        font: { weight: 'bold' }, // Q: missing token?
         // icon: <Hpe />,
         reverse: true,
         // extend: props => primaryBackground(props),
@@ -590,7 +590,7 @@ const buildTheme = tokens => {
         background: 'background-cta-alternate',
         color: 'text-strong',
         font: {
-          weight: 'bold',
+          weight: 'bold', // Q: missing token?
         },
         // icon: <Hpe color="brand" />,
         reverse: true,
@@ -715,32 +715,36 @@ const buildTheme = tokens => {
       size: {
         small: {
           border: {
-            radius: '2em',
+            // Q: is this token correct? token value is 'full' but theme value is '2em'
+            radius: components.hpe.button.small.default.borderRadius,
           },
           pad: {
-            vertical: '5px',
-            horizontal: '12px',
+            // Q: is this value correct? token is 4px and theme value is 5px
+            vertical: components.hpe.button.small.default.paddingY,
+            // Q: is this value correct? token is 16px and theme value is 12px
+            horizontal: components.hpe.button.small.default.paddingX,
           },
           iconOnly: {
-            pad: '7px',
+            pad: '7px', // Q: missing token
           },
           toolbar: {
             border: {
-              radius: '6px',
+              radius: components.hpe.button.small.toolbar.borderRadius,
             },
           },
         },
         medium: {
           border: {
             // TO DO need way to map to global radius of full,
-            radius: '2em',
+            // Q: is this token correct? token value is 'full' but theme value is '2em'
+            radius: components.hpe.button.medium.default.borderRadius,
           },
           pad: {
             vertical: components.hpe.button.medium.default.paddingY,
             horizontal: components.hpe.button.medium.default.paddingX,
           },
           iconOnly: {
-            pad: mediumIconOnlyPad,
+            pad: mediumIconOnlyPad, // Q: confused about this value
           },
           toolbar: {
             border: {
@@ -752,7 +756,7 @@ const buildTheme = tokens => {
             },
           },
         },
-        large: {
+        large: { // Q: missing tokens for large?
           border: {
             radius: '2em',
           },
@@ -773,7 +777,7 @@ const buildTheme = tokens => {
             },
           },
         },
-        xlarge: {
+        xlarge: { // Q: missing tokens for xlarge?
           border: {
             radius: '2em',
           },
@@ -789,7 +793,7 @@ const buildTheme = tokens => {
       extend: ({ hasIcon, hasLabel, sizeProp }) => {
         // necessary so primary label is accessible on HPE green background
         const fontSize = components.hpe.button.medium.default.fontSize;
-        const lineHeight = '24px';
+        const lineHeight = components.hpe.button.medium.default.lineHeight;
         let style = '';
         const iconOnly = hasIcon && !hasLabel;
         if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
@@ -809,7 +813,7 @@ const buildTheme = tokens => {
         // next: Next,
         // previous: Previous,
       },
-      small: {
+      small: { // Q: missing tokens
         fontSize: '13.6px',
         lineHeight: 1.375,
         daySize: '27.43px',
@@ -878,13 +882,13 @@ const buildTheme = tokens => {
           !toggle &&
           `border: 2px solid ${
             theme.global.colors['border-strong'][theme.dark ? 'dark' : 'light']
-          };`}
-        `,
+          };`} 
+        `,// Q: missing token
       },
-      color: 'background',
+      color: 'background', // Q: missing token
       border: {
-        color: 'border',
-        width: '1px',
+        color: components.hpe.checkbox.control.enabled.borderColor,
+        width: components.hpe.checkbox.medium.control.borderWidth,
       },
       check: {
         radius: '4px',
