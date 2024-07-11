@@ -756,7 +756,8 @@ const buildTheme = tokens => {
             },
           },
         },
-        large: { // Q: missing tokens for large?
+        large: {
+          // Q: missing tokens for large?
           border: {
             radius: '2em',
           },
@@ -777,7 +778,8 @@ const buildTheme = tokens => {
             },
           },
         },
-        xlarge: { // Q: missing tokens for xlarge?
+        xlarge: {
+          // Q: missing tokens for xlarge?
           border: {
             radius: '2em',
           },
@@ -813,7 +815,8 @@ const buildTheme = tokens => {
         // next: Next,
         // previous: Previous,
       },
-      small: { // Q: missing tokens
+      small: {
+        // Q: missing tokens
         fontSize: '13.6px',
         lineHeight: 1.375,
         daySize: '27.43px',
@@ -882,8 +885,8 @@ const buildTheme = tokens => {
           !toggle &&
           `border: 2px solid ${
             theme.global.colors['border-strong'][theme.dark ? 'dark' : 'light']
-          };`} 
-        `,// Q: missing token
+          };`}
+        `, // Q: missing token
       },
       color: 'background', // Q: missing token
       border: {
@@ -969,7 +972,7 @@ const buildTheme = tokens => {
       },
       header: {
         border: { side: 'bottom' },
-        color: 'text-strong',
+        color: components.hpe.headerCell.enabled.color,
         extend: ({ column, sort, sortable, theme }) =>
           `
             ${
@@ -981,7 +984,7 @@ const buildTheme = tokens => {
                   theme.dark ? 'dark' : 'light'
                 ]
               }
-            `
+            ` // Q: missing token
             };
             ${
               sortable &&
@@ -1000,16 +1003,16 @@ const buildTheme = tokens => {
             };
           `,
         font: {
-          weight: 500,
+          weight: components.hpe.headerCell.fontWeight,
         },
         gap: 'none',
         hover: {
           background: {
-            color: 'background-contrast',
+            color: components.hpe.headerCell.hover.background,
           },
         },
         units: {
-          color: 'text-weak',
+          color: 'text-weak', // Q: missing token
         },
       },
       // icons: {
@@ -1030,11 +1033,11 @@ const buildTheme = tokens => {
           extend: 'backdrop-filter: blur(12px);',
         },
       },
-      primary: {
+      primary: { // Q: missing tokens
         weight: 500,
         color: 'text-strong',
       },
-      resize: {
+      resize: { // Q: missing tokens
         hover: {
           border: {
             color: 'border-strong',
@@ -1045,7 +1048,9 @@ const buildTheme = tokens => {
     },
     dateformField: {
       container: {
-        round: 'xsmall',
+        // Q: is this the right token?
+        round: components.hpe.formField.medium.input.group.container.borderRadius
+        // round: 'xsmall',
       },
       icon: {
         size: 'small',
@@ -1053,7 +1058,7 @@ const buildTheme = tokens => {
     },
     fileformField: {
       border: {
-        size: 'xsmall',
+        size: 'xsmall', // Q: confused on which token to use here
       },
       button: {
         border: {
