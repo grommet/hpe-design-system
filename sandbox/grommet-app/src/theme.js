@@ -597,10 +597,11 @@ const buildTheme = tokens => {
       },
       default: {
         color: components.hpe.button.default.enabled.textColor,
-        border: {
-          width: components.hpe.button.medium.default.borderWidth, // TO DO don't want pad to subtract borderWidth
-          color: components.hpe.button.default.enabled.borderColor,
-        },
+        border: undefined, // Q: should this be undefined (like in the current hpe theme) or should we map to tokens?
+        // border: {
+        //   width: components.hpe.button.medium.default.borderWidth, // TO DO don't want pad to subtract borderWidth
+        //   color: components.hpe.button.default.enabled.borderColor,
+        // },
         font: {
           weight: components.hpe.button.default.enabled.fontWeight,
         },
@@ -737,7 +738,9 @@ const buildTheme = tokens => {
           border: {
             // TO DO need way to map to global radius of full,
             // Q: is this token correct? token value is 'full' but theme value is '2em'
+            // This change causes the button to loose its rounding
             radius: components.hpe.button.medium.default.borderRadius,
+            // radius: '2em',
           },
           pad: {
             vertical: components.hpe.button.medium.default.paddingY,
@@ -1033,11 +1036,13 @@ const buildTheme = tokens => {
           extend: 'backdrop-filter: blur(12px);',
         },
       },
-      primary: { // Q: missing tokens
+      primary: {
+        // Q: missing tokens
         weight: 500,
         color: 'text-strong',
       },
-      resize: { // Q: missing tokens
+      resize: {
+        // Q: missing tokens
         hover: {
           border: {
             color: 'border-strong',
@@ -1047,9 +1052,11 @@ const buildTheme = tokens => {
       },
     },
     dateformField: {
+      // Q: why is this called dateformField instead of dateInput?
       container: {
         // Q: is this the right token?
-        round: components.hpe.formField.medium.input.group.container.borderRadius
+        round:
+          components.hpe.formField.medium.input.group.container.borderRadius,
         // round: 'xsmall',
       },
       icon: {
@@ -1057,12 +1064,15 @@ const buildTheme = tokens => {
       },
     },
     fileformField: {
+      // Q: why is this called fileformField instead of fileInput?
       border: {
-        size: 'xsmall', // Q: confused on which token to use here
+        // Q: confused on which token to use here formfield.medium.input.group.item.borderWidth?
+        size: 'xsmall',
       },
-      button: {
+      button: { // Q: should we point to button tokens here?
         border: {
-          radius: '2em',
+          // Q: is this the correct value?
+          radius: components.hpe.button.medium.default.borderRadius,
         },
         pad: {
           vertical: '6px',
