@@ -1069,7 +1069,8 @@ const buildTheme = tokens => {
         // Q: confused on which token to use here formfield.medium.input.group.item.borderWidth?
         size: 'xsmall',
       },
-      button: { // Q: should we point to button tokens here?
+      button: {
+        // Q: should we point to button tokens here?
         border: {
           // Q: is this the correct value?
           radius: components.hpe.button.medium.default.borderRadius,
@@ -1107,38 +1108,48 @@ const buildTheme = tokens => {
     },
     formField: {
       content: {
+        // Q: missing tokens
         margin: { vertical: 'xsmall' },
         pad: undefined,
       },
       border: {
         error: {
-          color: 'border-strong',
+          color:
+            components.hpe.formField.input.container.validation.critical
+              .borderColor,
         },
-        color: 'border',
+        color: components.hpe.formField.input.container.enabled.borderColor,
         side: 'all',
       },
       disabled: {
         background: {
-          color: undefined,
+          color:
+            components.hpe.formField.input.group.container.disabled.background,
         },
         border: {
-          color: 'border-weak',
+          color: components.hpe.formField.input.group.item.disabled.borderColor,
         },
         label: {
-          color: 'text-xweak',
+          // Q: this should be text-weak instead of text-strong
+          color: components.hpe.formField.labelText.disabled.textColor,
         },
       },
       error: {
         background: {
-          color: 'validation-critical',
+          color:
+            components.hpe.formField.input.container.validation.critical
+              .background,
         },
         container: {
-          gap: 'xsmall',
+          gap: 'xsmall', // Q: missing token
         },
         // icon: <CircleAlert size="small" />,
-        size: 'xsmall',
-        color: 'text',
+        size: 'xsmall', // Q: missing token
+        // Q: confused why we have both hpe.formField.errorText.enabled.textColor
+        // and hpe.formField.errorText.disabled.color
+        color: components.hpe.formField.errorText.enabled.textColor,
         margin: {
+          // Q: missing token
           bottom: 'xsmall',
           top: 'none',
           horizontal: 'none',
@@ -1146,38 +1157,42 @@ const buildTheme = tokens => {
       },
       focus: {
         border: {
-          color: 'border-strong',
+          color: 'border-strong', // Q: missing token
         },
       },
       help: {
-        size: 'xsmall',
-        color: 'text',
+        size: components.hpe.formField.medium.helpText.fontSize,
+        color: components.hpe.formField.helpText.enabled.color,
         margin: 'none',
       },
       info: {
-        size: 'xsmall',
-        color: 'text',
+        size: components.hpe.formField.medium.infoText.fontSize,
+        color: components.hpe.formField.infoText.enabled.color,
         margin: {
+          // Q: missing token
           bottom: 'xsmall',
           top: 'none',
           horizontal: 'none',
         },
       },
       label: {
-        size: 'xsmall',
-        color: 'text',
+        size: components.hpe.formField.medium.labelText.fontSize,
+        color: components.hpe.formField.labelText.enabled.color,
         margin: {
+          // Q: missing token
           bottom: 'none',
           top: 'xsmall',
           horizontal: 'none',
         },
         requiredIndicator: true,
-        weight: 500,
+        weight: components.hpe.formField.medium.labelText.fontWeight,
       },
       margin: {
         bottom: 'none',
       },
-      round: '6px',
+      // Q: confused if I should use hpe.formField.medium.input.container.borderRadius
+      // or hpe.formField.medium.input.group.container.borderRadius
+      round: components.hpe.formField.medium.input.container.borderRadius,
       survey: {
         label: {
           margin: { bottom: 'none' },
@@ -1185,26 +1200,27 @@ const buildTheme = tokens => {
       },
     },
     heading: {
-      color: 'text-strong',
-      weight: 500,
+      color: 'text-strong', // Q: missing token
+      weight: 500, // Q: missing token
       level: {
         1: {
           font: {
-            weight: 500,
+            weight: 500, // Q: missing token
           },
           small: {
-            size: '24px',
-            height: '24px',
+            // Q: are these the correct tokens to use? the value is correct but the name seems off
+            size: components.hpe.heading.medium.h1.fontSize,
+            height: components.hpe.heading.medium.h1.lineWeight,
           },
-          medium: {
+          medium: { // Q: missing tokens
             size: '36px',
             height: '36px',
           },
-          large: {
+          large: { // Q: missing tokens
             size: '48px',
             height: '48px',
           },
-          xlarge: {
+          xlarge: { // Q: missing tokens
             size: '60px',
             height: '60px',
           },
