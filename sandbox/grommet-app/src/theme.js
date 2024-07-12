@@ -7,12 +7,12 @@ import { dark, light, large, small, components, base } from 'design-tokens';
 
 const dimensions = {
   borderSize: {
-    xsmall: large.hpe.border.xsmall,
-    small: large.hpe.border.small,
-    medium: large.hpe.border.medium,
-    default: large.hpe.border.default,
-    large: large.hpe.border.large,
-    xlarge: large.hpe.border.xlarge,
+    xsmall: large.hpe.borderWidth.xsmall,
+    small: large.hpe.borderWidth.small,
+    medium: large.hpe.borderWidth.medium,
+    default: large.hpe.borderWidth.default,
+    large: large.hpe.borderWidth.large,
+    xlarge: large.hpe.borderWidth.xlarge,
   },
   edgeSize: {
     none: large.hpe.spacing.none,
@@ -38,12 +38,12 @@ const dimensions = {
   breakpoints: {
     xsmall: {
       borderSize: {
-        xsmall: small.hpe.border.xsmall,
-        small: small.hpe.border.small,
-        medium: small.hpe.border.medium,
-        default: small.hpe.border.default,
-        large: small.hpe.border.large,
-        xlarge: small.hpe.border.xlarge,
+        xsmall: small.hpe.borderWidth.xsmall,
+        small: small.hpe.borderWidth.small,
+        medium: small.hpe.borderWidth.medium,
+        default: small.hpe.borderWidth.default,
+        large: small.hpe.borderWidth.large,
+        xlarge: small.hpe.borderWidth.xlarge,
       },
       edgeSize: {
         none: small.hpe.spacing.none,
@@ -69,12 +69,12 @@ const dimensions = {
     },
     small: {
       borderSize: {
-        xsmall: small.hpe.border.xsmall,
-        small: small.hpe.border.small,
-        medium: small.hpe.border.medium,
-        default: small.hpe.border.default,
-        large: small.hpe.border.large,
-        xlarge: small.hpe.border.xlarge,
+        xsmall: small.hpe.borderWidth.xsmall,
+        small: small.hpe.borderWidth.small,
+        medium: small.hpe.borderWidth.medium,
+        default: small.hpe.borderWidth.default,
+        large: small.hpe.borderWidth.large,
+        xlarge: small.hpe.borderWidth.xlarge,
       },
       edgeSize: {
         none: small.hpe.spacing.none,
@@ -162,203 +162,204 @@ const baseSpacing = 24;
 
 const buildTheme = tokens => {
   const [light, dark] = tokens;
+  const colors = {
+    brand: {
+      dark: dark.hpe.color.brand,
+      light: light.hpe.color.brand,
+    },
+    primary: {
+      dark: dark.hpe.color.primary,
+      light: light.hpe.color.primary,
+    },
+    background: {
+      dark: dark.hpe.color.background.default,
+      light: light.hpe.color.background.default,
+    },
+    'background-back': {
+      dark: dark.hpe.color.background.back,
+      light: light.hpe.color.background.back,
+    },
+    'background-front': {
+      dark: dark.hpe.color.background.front,
+      light: light.hpe.color.background.front,
+    },
+    'background-contrast': {
+      dark: dark.hpe.color.background.contrast, // 6%
+      light: light.hpe.color.background.contrast,
+    },
+    'background-active': {
+      dark: dark.hpe.color.background.active, // 6%
+      light: light.hpe.color.background.active,
+    },
+    'background-hover': {
+      dark: dark.hpe.color.background.hover, // 6%
+      light: light.hpe.color.background.hover,
+    },
+    'background-floating': {
+      dark: dark.hpe.color.background.floating, // 6%
+      light: light.hpe.color.background.floating,
+    },
+    'background-selected-weak': {
+      dark: dark.hpe.color.background.selected.weak, // 6%
+      light: light.hpe.color.background.selected.weak,
+    },
+    'background-status-critical': {
+      dark: dark.hpe.color.background.validation.critical, // 6%
+      light: light.hpe.color.background.validation.critical,
+    },
+    'background-status-warning': {
+      dark: dark.hpe.color.background.validation.warning, // 6%
+      light: light.hpe.color.background.validation.warning,
+    },
+    'background-status-ok': {
+      dark: dark.hpe.color.background.validation.ok, // 6%
+      light: light.hpe.color.background.validation.ok,
+    },
+    'background-status-info': {
+      dark: dark.hpe.color.background.validation.info, // 6%
+      light: light.hpe.color.background.validation.info,
+    },
+    'background-primary-default': {
+      dark: dark.hpe.color.background.primary.default,
+      light: light.hpe.color.background.primary.default,
+    },
+    'active-background': {
+      dark: dark.hpe.color.background.active,
+      light: light.hpe.color.background.active,
+    },
+    text: {
+      dark: dark.hpe.color.text.default,
+      light: light.hpe.color.text.default,
+    },
+    'text-strong': {
+      dark: dark.hpe.color.text.strong,
+      light: light.hpe.color.text.strong,
+    },
+    'text-weak': {
+      dark: dark.hpe.color.text.weak,
+      light: light.hpe.color.text.weak,
+    },
+    'text-xweak': {
+      dark: dark.hpe.color.text.xweak,
+      light: light.hpe.color.text.xweak,
+    },
+    'text-onPrimary': {
+      dark: dark.hpe.color.text.onPrimary,
+      light: light.hpe.color.text.onPrimary,
+    },
+    border: {
+      dark: dark.hpe.color.border.default,
+      light: light.hpe.color.border.default,
+    },
+    'border-default': {
+      dark: dark.hpe.color.border.default,
+      light: light.hpe.color.border.default,
+    },
+    'border-strong': {
+      dark: dark.hpe.color.border.strong,
+      light: light.hpe.color.border.strong,
+    },
+    'border-weak': {
+      dark: dark.hpe.color.border.weak,
+      light: light.hpe.color.border.weak,
+    },
+    'border-selected': {
+      dark: dark.hpe.color.border.selected,
+      light: light.hpe.color.border.selected,
+    },
+    'selected-text': {
+      dark: dark.hpe.color.text.onPrimary,
+      light: light.hpe.color.text.onPrimary,
+    },
+    'status-critical': {
+      dark: dark.hpe.color.icon.critical,
+      light: light.hpe.color.icon.critical,
+    },
+    'status-warning': {
+      dark: dark.hpe.color.icon.warning,
+      light: light.hpe.color.icon.warning,
+    },
+    'status-ok': {
+      dark: dark.hpe.color.icon.ok,
+      light: light.hpe.color.icon.ok,
+    },
+    'status-unknown': {
+      dark: dark.hpe.color.icon.unknown,
+      light: light.hpe.color.icon.unknown,
+    },
+    'validation-critical': {
+      light: light.hpe.color.background.validation.critical,
+      dark: dark.hpe.color.background.validation.critical,
+    },
+    'validation-ok': {
+      light: light.hpe.color.background.validation.ok,
+      dark: dark.hpe.color.background.validation.ok,
+    },
+    'validation-warning': {
+      light: light.hpe.color.background.validation.warning,
+      dark: dark.hpe.color.background.validation.critical,
+    },
+    'background-brand-default': {
+      light: light.hpe.color.background.primary.default,
+      dark: dark.hpe.color.background.primary.default,
+    },
+    'background-brand-weak': {
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
+    },
+    'foreground-brand-default': {
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
+    },
+    'foreground-status-critical': {
+      light: light.hpe.color.icon.critical,
+      dark: dark.hpe.color.icon.critical,
+    },
+    'foreground-status-warning': {
+      light: light.hpe.color.icon.warning,
+      dark: dark.hpe.color.icon.warning,
+    },
+    'foreground-status-ok': {
+      light: light.hpe.color.icon.ok,
+      dark: dark.hpe.color.icon.ok,
+    },
+    'foreground-status-info': {
+      light: light.hpe.color.icon.info,
+      dark: dark.hpe.color.icon.info,
+    },
+    'foreground-onBrand': {
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
+    },
+    'button-secondary-border-default': {
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
+    },
+    // TO DO do we want these as tokens?
+    'background-layer-overlay': '#00000080',
+    control: 'brand',
+    'active-text': 'text',
+    'disabled-text': 'text-weak', // deprecated, use text-weak instead
+    'selected-background': 'green!',
+    icon: 'text',
+    'graph-0': 'orange!',
+    'graph-1': 'blue!',
+    'graph-2': 'purple!',
+    'graph-3': 'yellow!',
+    'graph-4': 'teal!',
+    // deprecated, does not support light and dark.hpe. use text-weak instead
+    'status-disabled': '#CCCCCC',
+    focus: components.hpe.focusRing,
+    placeholder: 'text-weak',
+    'text-primary-button': '#FFFFFF',
+    'background-cta-alternate': '#F2F2F2',
+  };
   return deepFreeze({
     defaultMode: 'light',
     global: {
       // backgrounds, // TO DO backgrounds
       ...dimensions,
-      colors: {
-        brand: {
-          dark: dark.hpe.color.brand,
-          light: light.hpe.color.brand,
-        },
-        primary: {
-          dark: dark.hpe.color.primary,
-          light: light.hpe.color.primary,
-        },
-        background: {
-          dark: dark.hpe.color.background.default,
-          light: light.hpe.color.background.default,
-        },
-        'background-back': {
-          dark: dark.hpe.color.background.back,
-          light: light.hpe.color.background.back,
-        },
-        'background-front': {
-          dark: dark.hpe.color.background.front,
-          light: light.hpe.color.background.front,
-        },
-        'background-contrast': {
-          dark: dark.hpe.color.background.contrast, // 6%
-          light: light.hpe.color.background.contrast,
-        },
-        'background-active': {
-          dark: dark.hpe.color.background.active, // 6%
-          light: light.hpe.color.background.active,
-        },
-        'background-hover': {
-          dark: dark.hpe.color.background.hover, // 6%
-          light: light.hpe.color.background.hover,
-        },
-        'background-floating': {
-          dark: dark.hpe.color.background.floating, // 6%
-          light: light.hpe.color.background.floating,
-        },
-        'background-selected-weak': {
-          dark: dark.hpe.color.background.selected.weak, // 6%
-          light: light.hpe.color.background.selected.weak,
-        },
-        'background-status-critical': {
-          dark: dark.hpe.color.background.validation.critical, // 6%
-          light: light.hpe.color.background.validation.critical,
-        },
-        'background-status-warning': {
-          dark: dark.hpe.color.background.validation.warning, // 6%
-          light: light.hpe.color.background.validation.warning,
-        },
-        'background-status-ok': {
-          dark: dark.hpe.color.background.validation.ok, // 6%
-          light: light.hpe.color.background.validation.ok,
-        },
-        'background-status-info': {
-          dark: dark.hpe.color.background.validation.info, // 6%
-          light: light.hpe.color.background.validation.info,
-        },
-        'background-primary-default': {
-          dark: dark.hpe.color.background.primary.default,
-          light: light.hpe.color.background.primary.default,
-        },
-        'active-background': {
-          dark: dark.hpe.color.background.active,
-          light: light.hpe.color.background.active,
-        },
-        text: {
-          dark: dark.hpe.color.text.default,
-          light: light.hpe.color.text.default,
-        },
-        'text-strong': {
-          dark: dark.hpe.color.text.strong,
-          light: light.hpe.color.text.strong,
-        },
-        'text-weak': {
-          dark: dark.hpe.color.text.weak,
-          light: light.hpe.color.text.weak,
-        },
-        'text-xweak': {
-          dark: dark.hpe.color.text.xweak,
-          light: light.hpe.color.text.xweak,
-        },
-        'text-onPrimary': {
-          dark: dark.hpe.color.text.onPrimary,
-          light: light.hpe.color.text.onPrimary,
-        },
-        border: {
-          dark: dark.hpe.color.border.default,
-          light: light.hpe.color.border.default,
-        },
-        'border-default': {
-          dark: dark.hpe.color.border.default,
-          light: light.hpe.color.border.default,
-        },
-        'border-strong': {
-          dark: dark.hpe.color.border.strong,
-          light: light.hpe.color.border.strong,
-        },
-        'border-weak': {
-          dark: dark.hpe.color.border.weak,
-          light: light.hpe.color.border.weak,
-        },
-        'border-selected': {
-          dark: dark.hpe.color.border.selected,
-          light: light.hpe.color.border.selected,
-        },
-        'selected-text': {
-          dark: dark.hpe.color.text.onPrimary,
-          light: light.hpe.color.text.onPrimary,
-        },
-        'status-critical': {
-          dark: dark.hpe.color.icon.critical,
-          light: light.hpe.color.icon.critical,
-        },
-        'status-warning': {
-          dark: dark.hpe.color.icon.warning,
-          light: light.hpe.color.icon.warning,
-        },
-        'status-ok': {
-          dark: dark.hpe.color.icon.ok,
-          light: light.hpe.color.icon.ok,
-        },
-        'status-unknown': {
-          dark: dark.hpe.color.icon.unknown,
-          light: light.hpe.color.icon.unknown,
-        },
-        'validation-critical': {
-          light: light.hpe.color.background.validation.critical,
-          dark: dark.hpe.color.background.validation.critical,
-        },
-        'validation-ok': {
-          light: light.hpe.color.background.validation.ok,
-          dark: dark.hpe.color.background.validation.ok,
-        },
-        'validation-warning': {
-          light: light.hpe.color.background.validation.warning,
-          dark: dark.hpe.color.background.validation.critical,
-        },
-        'background-brand-default': {
-          light: light.hpe.color.background.primary.default,
-          dark: dark.hpe.color.background.primary.default,
-        },
-        'background-brand-weak': {
-          light: base.hpe.base.TBD,
-          dark: base.hpe.base.TBD,
-        },
-        'foreground-brand-default': {
-          light: base.hpe.base.TBD,
-          dark: base.hpe.base.TBD,
-        },
-        'foreground-status-critical': {
-          light: light.hpe.color.icon.critical,
-          dark: dark.hpe.color.icon.critical,
-        },
-        'foreground-status-warning': {
-          light: light.hpe.color.icon.warning,
-          dark: dark.hpe.color.icon.warning,
-        },
-        'foreground-status-ok': {
-          light: light.hpe.color.icon.ok,
-          dark: dark.hpe.color.icon.ok,
-        },
-        'foreground-status-info': {
-          light: light.hpe.color.icon.info,
-          dark: dark.hpe.color.icon.info,
-        },
-        'foreground-onBrand': {
-          light: base.hpe.base.TBD,
-          dark: base.hpe.base.TBD,
-        },
-        'button-secondary-border-default': {
-          light: base.hpe.base.TBD,
-          dark: base.hpe.base.TBD,
-        },
-        // TO DO do we want these as tokens?
-        'background-layer-overlay': '#00000080',
-        control: 'brand',
-        'active-text': 'text',
-        'disabled-text': 'text-weak', // deprecated, use text-weak instead
-        'selected-background': 'green!',
-        icon: 'text',
-        'graph-0': 'orange!',
-        'graph-1': 'blue!',
-        'graph-2': 'purple!',
-        'graph-3': 'yellow!',
-        'graph-4': 'teal!',
-        // deprecated, does not support light and dark.hpe. use text-weak instead
-        'status-disabled': '#CCCCCC',
-        focus: components.hpe.focusRing,
-        placeholder: 'text-weak',
-        'text-primary-button': '#FFFFFF',
-        'background-cta-alternate': '#F2F2F2',
-      },
+      ...colors,
       control: {
         border: {
           radius: '6px',
@@ -507,7 +508,7 @@ const buildTheme = tokens => {
     anchor: {
       color: 'text-strong',
       textDecoration: 'underline', // this will have a token
-      fontWeight: base.hpe.base.font.weight.medium, // Q: is it okay to use base values? ideal not to use base
+      fontWeight: base.hpe.base.fontWeight.medium, // Q: is it okay to use base values? ideal not to use base
       gap: 'xsmall', // Q: should this point to a token? use component specific token other wise fine to leave as t-shirt size
       hover: {
         textDecoration: 'underline',
@@ -515,37 +516,37 @@ const buildTheme = tokens => {
       size: {
         large: {
           color: 'brand',
-          fontWeight: base.hpe.base.font.weight.bold,
+          fontWeight: base.hpe.base.fontWeight.bold,
           textDecoration: 'none',
         },
         xlarge: {
           color: 'brand',
-          fontWeight: base.hpe.base.font.weight.bold,
+          fontWeight: base.hpe.base.fontWeight.bold,
           textDecoration: 'none',
         },
         xxlarge: {
           color: 'brand',
-          fontWeight: base.hpe.base.font.weight.bold,
+          fontWeight: base.hpe.base.fontWeight.bold,
           textDecoration: 'none',
         },
         '3xl': {
           color: 'brand',
-          fontWeight: base.hpe.base.font.weight.bold,
+          fontWeight: base.hpe.base.fontWeight.bold,
           textDecoration: 'none',
         },
         '4xl': {
           color: 'brand',
-          fontWeight: base.hpe.base.font.weight.bold,
+          fontWeight: base.hpe.base.fontWeight.bold,
           textDecoration: 'none',
         },
         '5xl': {
           color: 'brand',
-          fontWeight: base.hpe.base.font.weight.bold,
+          fontWeight: base.hpe.base.fontWeight.bold,
           textDecoration: 'none',
         },
         '6xl': {
           color: 'brand',
-          fontWeight: base.hpe.base.font.weight.bold,
+          fontWeight: base.hpe.base.fontWeight.bold,
           textDecoration: 'none',
         },
       },
@@ -619,8 +620,9 @@ const buildTheme = tokens => {
       },
       secondary: {
         border: {
-          color: components.hpe.button.secondary.enabled.borderColor,
-          width: components.hpe.button.medium.secondary.borderWidth,
+          color: 'transparent',
+          width: '0px',
+          radius: components.hpe.button.medium.secondary.borderRadius,
         },
         color: components.hpe.button.secondary.enabled.textColor,
         font: {
@@ -630,8 +632,8 @@ const buildTheme = tokens => {
       toolbar: {
         border: {
           radius: components.hpe.button.medium.toolbar.borderRadius,
-          width: components.hpe.button.medium.toolbar.borderWidth, // TO DO not coming through
-          color: components.hpe.button.toolbar.enabled.borderColor,
+          width: '0px', // TO DO not coming through
+          // color: components.hpe.button.toolbar.enabled.borderColor,
         },
         color: components.hpe.button.toolbar.enabled.textColor,
         font: {
@@ -795,7 +797,7 @@ const buildTheme = tokens => {
           },
         },
       },
-      extend: ({ hasIcon, hasLabel, sizeProp }) => {
+      extend: ({ hasIcon, hasLabel, sizeProp, kind, theme }) => {
         // necessary so primary label is accessible on HPE green background
         const fontSize = components.hpe.button.medium.default.fontSize;
         const lineHeight = components.hpe.button.medium.default.lineHeight;
@@ -805,6 +807,24 @@ const buildTheme = tokens => {
           style += `font-size: ${fontSize};
           line-height: ${lineHeight};`;
         }
+        let boxShadow;
+
+        const shadowSpread =
+          dimensions.borderSize[
+            components.hpe.button?.[sizeProp]?.[kind]?.borderWidth
+          ];
+        const shadowColor =
+          colors[components.hpe.button?.[kind]?.enabled?.borderColor]?.[
+            theme.dark ? 'dark' : 'light'
+          ];
+
+        if (shadowSpread && shadowColor) {
+          style += `box-shadow: 0 0 0 ${shadowSpread} ${shadowColor};`;
+          // FUTURE LOOKING ONCE WE HAVE SHADOW TOKENS
+          // style += `box-shadow: ${components.hpe.button.secondary.enabled.boxShadow};`;
+        }
+
+        style += boxShadow;
         return style;
       },
     },
@@ -1069,7 +1089,8 @@ const buildTheme = tokens => {
         // Q: confused on which token to use here formfield.medium.input.group.item.borderWidth?
         size: 'xsmall',
       },
-      button: { // Q: should we point to button tokens here?
+      button: {
+        // Q: should we point to button tokens here?
         border: {
           // Q: is this the correct value?
           radius: components.hpe.button.medium.default.borderRadius,
@@ -1745,13 +1766,13 @@ const buildTheme = tokens => {
         color: 'transparent',
         size: 'medium',
         active: {
-          color: 'border-selected',
+          color: 'background-back',
         },
         disabled: {
           color: undefined,
         },
         hover: {
-          color: 'border-weak',
+          color: 'border-front',
         },
       },
       disabled: {
