@@ -6,7 +6,7 @@
     },
     "small": {
       "fontSize": "1rem",
-      "lineHeight": "1.25rem"
+      "lineHeight": "1.5rem"
     },
     "medium": {
       "fontSize": "1.125rem",
@@ -43,35 +43,34 @@
   },
   "heading": {
     "xlarge": {
-      "fontSize": "0rem",
-      "lineHeight": "0rem",
-      "fontWeight?": 0
+      "fontWeight": 500,
+      "fontSize": "1.5rem",
+      "lineHeight": "1.5rem"
+    },
+    "large": {
+      "fontWeight": 500,
+      "fontSize": "1.25rem",
+      "lineHeight": "1.25rem"
     },
     "medium": {
-      "h1": {
-        "fontSize": "1.5rem",
-        "lineHeight": "1.5rem"
-      },
-      "h2": {
-        "fontSize": "1.25rem",
-        "lineHeight": "1.25rem"
-      },
-      "h3": {
-        "fontSize": "1rem",
-        "lineHeight": "1rem"
-      },
-      "h4": {
-        "fontSize": "0.75rem",
-        "lineHeight": "0.75rem"
-      },
-      "h5": {
-        "fontSize": "0.75rem",
-        "lineHeight": "0.75rem"
-      },
-      "h6": {
-        "fontSize": "0.75rem",
-        "lineHeight": "0.75rem"
-      }
+      "fontSize": "1rem",
+      "lineHeight": "1rem",
+      "fontWeight": 500
+    },
+    "small": {
+      "fontSize": "0.75rem",
+      "lineHeight": "0.75rem",
+      "fontWeight": 500
+    },
+    "xsmall": {
+      "fontSize": "0.75rem",
+      "lineHeight": "0.75rem",
+      "fontWeight": 600
+    },
+    "xxsmall": {
+      "fontSize": "0.75rem",
+      "lineHeight": "0.75rem",
+      "fontWeight": 600
     }
   },
   "spacing": {
@@ -95,7 +94,7 @@
     "xlarge": "48px",
     "full": "384px"
   },
-  "border": {
+  "borderWidth": {
     "none": "0px",
     "xsmall": "1px",
     "small": "1px",

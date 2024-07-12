@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 12 Jul 2024 15:42:41 GMT
+ * Generated on Fri, 12 Jul 2024 18:02:54 GMT
  */
 
 export default {
@@ -16,15 +16,15 @@ export default {
         floating: "#292929",
         contrast: "#ffffff0f",
         validation: {
-          unknown: "#222222",
           critical: "#cc1f1a4d",
-          ok: "#17d0a64d",
           info: "#00c8ff1f",
+          unknown: "#222222",
+          ok: "#17d0a64d",
           warning: "#fec9011f",
         },
         primary: {
-          hover: "#00ff0a00",
           default: "#01a982",
+          hover: "#00ff0a00",
         },
         selected: {
           strong: "#01a982",
@@ -46,6 +46,9 @@ export default {
         disabled: "#ffffff3d",
         onPrimary: "#ffffff",
         brand: "#01a982",
+        inverse: {
+          default: "#222222",
+        },
       },
       icon: {
         default: "#ffffff",
@@ -88,6 +91,7 @@ export default {
           "70Weak": "#00ff0a00",
         },
       },
+      transparent: "#00000000",
     },
   },
 };

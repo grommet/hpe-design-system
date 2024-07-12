@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 12 Jul 2024 15:42:41 GMT
+ * Generated on Fri, 12 Jul 2024 18:02:54 GMT
  */
 
 export default {
@@ -12,7 +12,7 @@ export default {
       },
       small: {
         fontSize: "1rem",
-        lineHeight: "1.25rem",
+        lineHeight: "1.125rem",
       },
       medium: {
         fontSize: "1.125rem",
@@ -49,35 +49,34 @@ export default {
     },
     heading: {
       xlarge: {
-        fontSize: "0rem",
-        lineHeight: "0rem",
-        "fontWeight?": 0,
+        fontWeight: 500,
+        fontSize: "2.25rem",
+        lineHeight: "2.25rem",
+      },
+      large: {
+        fontWeight: 500,
+        fontSize: "1.5rem",
+        lineHeight: "1.5rem",
       },
       medium: {
-        h1: {
-          fontSize: "2.25rem",
-          lineHeight: "2.25rem",
-        },
-        h2: {
-          fontSize: "1.5rem",
-          lineHeight: "1.5rem",
-        },
-        h3: {
-          fontSize: "1.25rem",
-          lineHeight: "1.25rem",
-        },
-        h4: {
-          fontSize: "1rem",
-          lineHeight: "1rem",
-        },
-        h5: {
-          fontSize: "0.75rem",
-          lineHeight: "0.75rem",
-        },
-        h6: {
-          fontSize: "0.75rem",
-          lineHeight: "0.75rem",
-        },
+        fontSize: "1rem",
+        lineHeight: "1.25rem",
+        fontWeight: 500,
+      },
+      small: {
+        fontSize: "1rem",
+        lineHeight: "1rem",
+        fontWeight: 500,
+      },
+      xsmall: {
+        fontSize: "0.75rem",
+        lineHeight: "0.75rem",
+        fontWeight: 600,
+      },
+      xxsmall: {
+        fontSize: "0.75rem",
+        lineHeight: "0.75rem",
+        fontWeight: 600,
       },
     },
     spacing: {
@@ -101,7 +100,7 @@ export default {
       xlarge: "96px",
       full: "384px",
     },
-    border: {
+    borderWidth: {
       none: "0px",
       xsmall: "1px",
       small: "2px",

@@ -1,9 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Fri, 12 Jul 2024 15:42:41 GMT
+ * Generated on Fri, 12 Jul 2024 18:02:54 GMT
  */
 
 :root {
+  --hpe-color-transparent: #00000000;
   --hpe-color-data-vis-categorical-70-weak: var(--hpe-base-color-blue-400-opacity12);
   --hpe-color-data-vis-categorical-60-weak: var(--hpe-base-color-purple-500-opacity12);
   --hpe-color-data-vis-categorical-50-weak: var(--hpe-base-color-yellow-300-opacity12);
@@ -37,6 +38,7 @@
   --hpe-color-icon-weak: var(--hpe-base-color-grey-700); /* Weaker icon color for reduced emphasis */
   --hpe-color-icon-strong: var(--hpe-base-color-grey-1000); /* Stronger icon color for added prominence */
   --hpe-color-icon-default: var(--hpe-base-color-grey-800); /* Default icon colour that is accessible on standard background colours */
+  --hpe-color-text-inverse-default: var(--hpe-base-color-white-100);
   --hpe-color-text-brand: var(--hpe-base-color-green-600); /* Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px. */
   --hpe-color-text-on-primary: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour. */
   --hpe-color-text-disabled: var(--hpe-base-color-black-opacity24); /* Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level. */
@@ -51,13 +53,13 @@
   --hpe-color-border-strong: var(--hpe-base-color-black-opacity72); /* Stronger border color for added emphasis */
   --hpe-color-background-selected-weak: var(--hpe-base-color-green-100); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-selected-strong: var(--hpe-base-color-green-600); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
-  --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
   --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
+  --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
   --hpe-color-background-validation-warning: var(--hpe-base-color-orange-400-opacity24);
-  --hpe-color-background-validation-info: var(--hpe-base-color-blue-400-opacity24);
   --hpe-color-background-validation-ok: var(--hpe-base-color-green-400-opacity24);
-  --hpe-color-background-validation-critical: var(--hpe-base-color-red-500-opacity24);
   --hpe-color-background-validation-unknown: var(--hpe-base-color-grey-50);
+  --hpe-color-background-validation-info: var(--hpe-base-color-blue-400-opacity24);
+  --hpe-color-background-validation-critical: var(--hpe-base-color-red-500-opacity24);
   --hpe-color-background-contrast: var(--hpe-base-color-black-opacity4);
   --hpe-color-background-floating: var(--hpe-base-color-white-100); /* Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons. */
   --hpe-color-background-front: var(--hpe-base-color-white-100); /* Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table. */
