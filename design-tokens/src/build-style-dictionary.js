@@ -248,7 +248,7 @@ colorModeFiles.forEach(file => {
 const dimensions = [
   'content',
   'spacing',
-  'border',
+  'borderWidth',
   'radius',
   'text',
   'heading',
@@ -333,7 +333,7 @@ const exclude = [
   'TBD',
   'spacing',
   'radius',
-  'border',
+  'borderWidth',
   'content',
 ];
 
@@ -343,6 +343,7 @@ StyleDictionary.extend({
     'dist/primitives.base.json',
     `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
     `${TOKENS_DIR}/dimension - semantic.large.json`, // using large mode to have a reference name available
+    'dist/typography.large.json', // using large mode to have a reference name available
     'dist/component.default.json',
   ],
   platforms: {
