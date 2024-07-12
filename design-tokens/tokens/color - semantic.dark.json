@@ -122,21 +122,6 @@
         }
       },
       "validation": {
-        "unknown": {
-          "$type": "color",
-          "$value": "{base.color.grey.1200}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "critical": {
           "$type": "color",
           "$value": "{base.color.red.800-Opacity30}",
@@ -152,9 +137,9 @@
             }
           }
         },
-        "ok": {
+        "info": {
           "$type": "color",
-          "$value": "{base.color.green.500-Opacity30}",
+          "$value": "{base.color.blue.400-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -167,9 +152,24 @@
             }
           }
         },
-        "info": {
+        "unknown": {
           "$type": "color",
-          "$value": "{base.color.blue.400-Opacity12}",
+          "$value": "{base.color.grey.1200}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "ok": {
+          "$type": "color",
+          "$value": "{base.color.green.500-Opacity30}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -199,10 +199,10 @@
         }
       },
       "primary": {
-        "hover": {
+        "default": {
           "$type": "color",
-          "$value": "{TBD}",
-          "$description": "Hover color variant of the primary color.",
+          "$value": "{base.color.green.600}",
+          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -214,10 +214,10 @@
             }
           }
         },
-        "default": {
+        "hover": {
           "$type": "color",
-          "$value": "{base.color.green.600}",
-          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+          "$value": "{TBD}",
+          "$description": "Hover color variant of the primary color.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -272,7 +272,7 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -286,7 +286,7 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -300,7 +300,7 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -314,7 +314,7 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -328,7 +328,7 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -431,6 +431,22 @@
               "TEXT_FILL"
             ],
             "codeSyntax": {}
+          }
+        }
+      },
+      "inverse": {
+        "default": {
+          "$type": "color",
+          "$value": "{base.color.grey.1200}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {}
+            }
           }
         }
       }
@@ -926,6 +942,20 @@
               "codeSyntax": {}
             }
           }
+        }
+      }
+    },
+    "transparent": {
+      "$type": "color",
+      "$value": "#00000000",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
         }
       }
     }
