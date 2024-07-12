@@ -1221,63 +1221,69 @@ const buildTheme = tokens => {
     },
     heading: {
       color: 'text-strong', // Q: missing token
-      weight: 500, // Q: missing token
+      weight: 500, // Q: not sure what token to point to here
       level: {
         1: {
           font: {
-            weight: 500, // Q: missing token
+            weight: 500, // Q: not sure what token to point to here
           },
           small: {
             // Q: are these the correct tokens to use? the value is correct but the name seems off
-            size: components.hpe.heading.medium.h1.fontSize,
-            height: components.hpe.heading.medium.h1.lineWeight,
+            size: components.hpe.heading.xlarge.fontSize,
+            height: components.hpe.heading.xlarge.lineHeight,
           },
-          medium: { // Q: missing tokens
+          medium: {
+            // Q: missing tokens
             size: '36px',
             height: '36px',
           },
-          large: { // Q: missing tokens
+          large: {
+            // Q: missing tokens
             size: '48px',
             height: '48px',
           },
-          xlarge: { // Q: missing tokens
+          xlarge: {
+            // Q: missing tokens
             size: '60px',
             height: '60px',
           },
         },
         2: {
           small: {
-            size: '20px',
-            height: '20px',
+            size: components.hpe.heading.large.fontSize,
+            height: components.hpe.heading.large.lineHeight,
           },
           medium: {
-            size: '24px',
-            height: '24px',
+            size: components.hpe.heading.xlarge.fontSize,
+            height: components.hpe.heading.xlarge.lineHeight,
           },
           large: {
+            // Q: missing tokens
             size: '36px',
             height: '36px',
           },
           xlarge: {
+            // Q: missing tokens
             size: '48px',
             height: '48px',
           },
         },
         3: {
           font: {
+            // Q: not sure what token to point to here
             weight: 500,
           },
           small: {
-            size: '16px',
-            height: '16px',
+            size: components.hpe.heading.medium.fontSize,
+            height: components.hpe.heading.medium.lineHeight,
           },
           medium: {
-            size: '20px',
-            height: '20px',
+            size: components.hpe.heading.large.fontSize,
+            height: components.hpe.heading.large.lineHeight,
           },
           large: {
-            size: '24px',
-            height: '24px',
+            size: components.hpe.heading.xlarge.fontSize,
+            height: components.hpe.heading.xlarge.lineHeight,
           },
           xlarge: {
             size: '36px',
@@ -1286,65 +1292,68 @@ const buildTheme = tokens => {
         },
         4: {
           font: {
+            // Q: not sure what token to point to here
             weight: 500,
           },
           small: {
-            size: '12px',
-            height: '12px',
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           medium: {
-            size: '16px',
-            height: '16px',
+            size: components.hpe.heading.medium.fontSize,
+            height: components.hpe.heading.medium.lineHeight,
           },
           large: {
-            size: '20px',
-            height: '20px',
+            size: components.hpe.heading.large.fontSize,
+            height: components.hpe.heading.large.lineHeight,
           },
           xlarge: {
-            size: '24px',
-            height: '24px',
+            size: components.hpe.heading.xlarge.fontSize,
+            height: components.hpe.heading.xlarge.lineHeight,
           },
         },
         5: {
           font: {
+            // Q: not sure what token to point to here
             weight: 600,
           },
           small: {
-            size: '12px',
-            height: '12px',
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           medium: {
-            size: '12px',
-            height: '12px',
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           large: {
-            size: '16px',
-            height: '16px',
+            size: components.hpe.heading.medium.fontSize,
+            height: components.hpe.heading.medium.lineHeight,
           },
           xlarge: {
-            size: '20px',
-            height: '20px',
+            size: components.hpe.heading.large.fontSize,
+            height: components.hpe.heading.large.lineHeight,
           },
         },
         6: {
           font: {
+            // Q: not sure what token to point to here
             weight: 600,
           },
           small: {
-            size: '12px',
-            height: '12px',
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           medium: {
-            size: '12px',
-            height: '12px',
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           large: {
-            size: '12px',
-            height: '12px',
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           xlarge: {
-            size: '16px',
-            height: '16px',
+            size: components.hpe.heading.medium.fontSize,
+            height: components.hpe.heading.medium.lineHeight,
           },
         },
       },
@@ -1356,16 +1365,16 @@ const buildTheme = tokens => {
       extend: ({ level, size }) => {
         let fontWeight = '';
         if (level === 3 && size === 'small') {
-          fontWeight = 'font-weight: 600;';
+          fontWeight = 'font-weight: 600;'; // Q: missing token
           // undefined necessary so an h4 without size prop explicitly defined
           // still renders as weight 600
         } else if (
           level === 4 &&
           ['small', 'medium', undefined].includes(size)
         ) {
-          fontWeight = 'font-weight: 600;';
+          fontWeight = 'font-weight: 600;'; // Q: missing token
         } else if (level === 5 && size === 'xlarge') {
-          fontWeight = 'font-weight: 500;';
+          fontWeight = 'font-weight: 500;'; // Q: missing token
         }
         return fontWeight;
       },
@@ -1374,11 +1383,11 @@ const buildTheme = tokens => {
       disableScaleDown: true,
       matchSize: true,
       size: {
-        small: '16px',
-        medium: '18px',
-        large: '22px',
-        xlarge: '24px',
-        xxlarge: '36px',
+        small: components.hpe.size.icon.small,
+        medium: components.hpe.size.icon.medium,
+        large: components.hpe.size.icon.large,
+        xlarge: components.hpe.size.icon.xlarge,
+        xxlarge: components.hpe.size.icon.xxlarge,
       },
     },
     layer: {
@@ -1599,7 +1608,7 @@ const buildTheme = tokens => {
       },
     },
     pagination: {
-      button: {
+      button: { // Q: should we reference button tokens here?
         border: {
           radius: '2em',
         },
@@ -1621,7 +1630,7 @@ const buildTheme = tokens => {
       },
     },
     paragraph: {
-      xsmall: {
+      xsmall: { // Should we use paragraph component tokens instead of large.hpe?
         size: large.hpe.text.xsmall.fontSize,
         height: large.hpe.text.xsmall.lineHeight,
         maxWidth: '25em', // TO DO
