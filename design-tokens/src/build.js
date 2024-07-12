@@ -127,7 +127,7 @@ typographyFiles.forEach(file => {
   const parsed = JSON.parse(raw);
   const formatted = numberToDimension(parsed, 'rem');
   writeFileSync(
-    `./dist/${file.replace(TOKENS_DIR, '')}`,
+    `./dist/${file.replace(TOKENS_DIR, '').replace(' - semantic', '')}`,
     `${JSON.stringify(formatted, null, 2)}`,
   );
 });
@@ -173,13 +173,15 @@ const getValue = valueArg => {
     (value.split('.')[0].includes('spacing') ||
       value.split('.')[0].includes('radius') ||
       value.split('.')[0].includes('content') ||
-      value.split('.')[0].includes('border') ||
+      value.split('.')[0].includes('borderWidth') ||
       value.split('.')[0].includes('color'))
   ) {
     value = value.slice(1, -1);
     value = value.split('.');
     value.shift();
     value = value.join('-');
+    // TO DO improve, but this is because Figma doesn't have concept of 'em'
+    if (value === 'full') value = '2em';
   }
   // when referencing another component token, resolve
   // down to the nearest semantic or primitive token
@@ -191,6 +193,7 @@ const getValue = valueArg => {
     value = value.slice(1, -1);
     const a = access(value, allTokens).$value;
     value = getValue(a);
+    if (value === 'full') value = '2em';
   }
 
   return value;
@@ -225,7 +228,7 @@ const exclude = [
   'TBD',
   'spacing',
   'radius',
-  'border',
+  'borderWidth',
   'content',
 ];
 
