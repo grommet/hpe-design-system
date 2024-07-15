@@ -874,6 +874,7 @@ const buildTheme = tokens => {
       container: {
         background: 'background-front',
         elevation: 'medium',
+        // Q should this have a token?
         extend: 'transition: all 0.3s ease-in-out;',
       },
       body: {
@@ -917,7 +918,8 @@ const buildTheme = tokens => {
         width: components.hpe.checkbox.medium.control.borderWidth,
       },
       check: {
-        radius: '4px',
+        // Q should this be 4px and not 3px as it is in theme?
+        radius: components.hpe.checkbox.medium.control.borderRadius,
         extend: ({ theme, checked, indeterminate }) => `
         background-color: ${
           checked || indeterminate
@@ -931,14 +933,18 @@ const buildTheme = tokens => {
         extend: ({ theme }) => `stroke-width: 2px;
         stroke: ${theme.global.colors['text-primary-button']}`,
       },
-      gap: 'small',
+      // Q make sure this is 12px is small
+      gap: components.hpe.checkbox.medium.gapX,
+      // Q do we need a token here?
       label: {
         align: 'start',
       },
+      // Q do we wan to token here?
       pad: {
         vertical: 'xsmall',
         horizontal: 'small',
       },
+      // Q is toggle and switch the same thing?
       toggle: {
         background: 'background',
         color: 'background',
@@ -1409,6 +1415,7 @@ const buildTheme = tokens => {
     },
     menu: {
       drop: {
+        // Q should be tokenized
         align: {
           top: 'bottom',
           left: 'left',
@@ -1645,11 +1652,14 @@ const buildTheme = tokens => {
       `,
     },
     radioButton: {
+      // extend for border to use box shadow
       border: {
-        color: 'border',
-        width: 'xsmall',
+        color: components.hpe.radioButton.control.enabled.borderColor,
+        // this is set as default check what that is value should be xsmall
+        width: components.hpe.radioButton.medium.control.borderWidth,
       },
       check: {
+        // token ??
         color: 'selected-background',
         background: {
           color: 'background-front',
@@ -1657,15 +1667,18 @@ const buildTheme = tokens => {
       },
       color: 'selected-background',
       container: {
+        // should pad be token?
         extend: ({ theme }) => `
-        font-weight: 500;
+        font-weight: ${components.hpe.radioButton.medium.label.fontWeight}
         width: auto;
         padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
       `,
       },
+      // should pad be token?
       extend: ({ theme }) => `
         padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
       `,
+      // should gap be token?
       gap: 'xsmall',
       hover: {
         background: {
@@ -1686,6 +1699,7 @@ const buildTheme = tokens => {
     radioButtonGroup: {
       container: {
         gap: 'none',
+        // should be token?
         margin: {
           vertical: 'xsmall',
         },
@@ -1723,6 +1737,7 @@ const buildTheme = tokens => {
       icons: {
         color: 'text',
         // down: Down,
+        // this was not in token
         margin: {
           left: 'small',
           // setting right margin to 12px because on small
@@ -1737,8 +1752,10 @@ const buildTheme = tokens => {
     },
     spinner: {
       container: {
+        // universal token here for none?
         pad: 'none',
         color: 'brand',
+        // should be token?
         border: [
           { color: 'border-weak', side: 'all', size: 'medium' },
           { color: 'border-weak', side: 'right', size: 'medium' },
@@ -1762,6 +1779,7 @@ const buildTheme = tokens => {
         color: 'text',
       },
       border: {
+        // extend for border to use box shadow
         side: 'bottom',
         color: 'transparent',
         size: 'medium',
@@ -1781,9 +1799,11 @@ const buildTheme = tokens => {
       pad: {
         // top and bottom pad need to be defined individually, specifying
         // "vertical" only applies to top
+        // should be tokens? or t-shirt size
         bottom: '9px',
         top: '9px',
         // align horizontal pad with button
+        // token?
         horizontal: '18px',
       },
       margin: {
@@ -1794,12 +1814,14 @@ const buildTheme = tokens => {
     },
     tabs: {
       header: {
+        // change to extend for border to use box shadow
         border: {
           side: 'bottom',
           size: 'xsmall',
           color: 'border-weak',
         },
       },
+      // should this be tokens?
       step: {
         xsmall: 1,
         xlarge: 3,
@@ -1807,6 +1829,7 @@ const buildTheme = tokens => {
     },
     table: {
       header: {
+        // alot in extend here
         extend: `
           > div { 
             height: 100%;
@@ -1843,12 +1866,16 @@ const buildTheme = tokens => {
         `,
       },
     },
+    // use extend for border to use box shadow
     tag: {
       pad: {
+        // should we be using t-shirt sizes from tokens
         horizontal: 'small',
+        // should this be a token?
         vertical: '5px', // 5px pad + 1px border = 6px 'xsmall'
       },
       value: {
+        // Q should this be a token?
         weight: 500,
       },
     },
@@ -1945,10 +1972,12 @@ const buildTheme = tokens => {
     toggleGroup: {
       button: {
         pad: {
+          // these are fine since it is built with buttons
           vertical: 'xsmall',
           horizontal: 'small',
         },
         iconOnly: {
+          // Q this will be a token?
           pad: {
             vertical: '9px',
             horizontal: '9px',
