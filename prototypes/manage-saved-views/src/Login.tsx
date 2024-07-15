@@ -7,8 +7,11 @@ import {
   PageContent,
   PageHeader,
 } from 'grommet';
+import { config } from './config';
 
-export const Login = ({ setAuthenticated }) => {
+const { loginKey, loginCredential } = config;
+
+export const Login = ({ setAuthenticated }: { setAuthenticated: (authenticated: boolean) => void }) => {
   return (
     <Page>
       <PageContent>
@@ -18,8 +21,8 @@ export const Login = ({ setAuthenticated }) => {
         />
         <Form
           onSubmit={({ value }: { value: { password: string } }) => {
-            if (value.password === import.meta.env.VITE_LOGIN_CREDENTIAL) {
-              localStorage.setItem(import.meta.env.VITE_LOGIN_KEY, 'true');
+            if (value.password === loginCredential) {
+              localStorage.setItem(loginKey, 'true');
               setAuthenticated(true);
             }
           }}

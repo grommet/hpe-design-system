@@ -4,17 +4,20 @@ import { Grommet, GrommetProps, Box, SkipLink, SkipLinks } from "grommet";
 import { hpe } from "grommet-theme-hpe";
 import { Login } from "./Login";
 import { AppHeader } from "./components";
+import { config } from './config';
 import { router } from "./router";
 import { modeTransition } from "./utils";
 
+const { loginKey } = config;
+
 function App() {
   const [authenticated, setAuthenticated] = useState<boolean>(
-    localStorage.getItem(import.meta.env.VITE_LOGIN_KEY) === 'true' || false);
+    localStorage.getItem(loginKey) === 'true' || false);
   const [themeMode, setThemeMode] = useState<GrommetProps["themeMode"]>("auto");
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem(import.meta.env.VITE_LOGIN_KEY)) setAuthenticated(true);
+    if (localStorage.getItem(loginKey)) setAuthenticated(true);
   }, []);
 
   useEffect(() => {

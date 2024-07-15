@@ -1,4 +1,4 @@
-import { AnimationType } from "grommet/utils"
+import { AnimationType, SkeletonType } from "grommet/utils"
 
 const cardAnimation = (index: number) => {
   return {
@@ -34,7 +34,7 @@ const skeleton = {
   },
   depth: 3,
   message: { start: 'Loading...', end: 'Ready' }
-}
+} as unknown as SkeletonType;
 
 const tableAnimation = 'fadeIn'
 
