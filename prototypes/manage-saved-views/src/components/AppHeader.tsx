@@ -1,11 +1,12 @@
 import React from "react";
-import { Avatar, Box, Button, Header, Nav, Text, GrommetProps, Image } from "grommet";
-import { Moon, Sun, User, Blank } from "grommet-icons";
+import { Avatar, Box, Button, Header, Nav, Text, GrommetProps, BoxProps, Image } from "grommet";
+import { Moon, Sun, User } from "grommet-icons";
 import { ButtonGroup } from "../components";
 
 export const AppHeader = ({
   name,
   themeMode: themeModeProp,
+  animation,
   ...rest
 }: {
   name: string;
@@ -15,6 +16,7 @@ export const AppHeader = ({
       React.SetStateAction<GrommetProps["themeMode"]>
     >;
   };
+  animation: BoxProps["animation"];
 }) => {
   const { themeMode, setThemeMode } = themeModeProp;
 
@@ -23,6 +25,7 @@ export const AppHeader = ({
       background="background-front"
       pad={{ horizontal: "large", vertical: "small" }}
       sticky="scrollup"
+      animation={animation}
       {...rest}
     >
       <Box direction="row" gap="xsmall">

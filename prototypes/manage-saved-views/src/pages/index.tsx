@@ -8,29 +8,37 @@ export const experiences = {
   b: { name: 'PWK' }
 };
 
+interface RoutedButtonProps extends React.ComponentProps<typeof Button> {
+  to: string;
+}
+
+const RoutedButton = ({ ...rest }: RoutedButtonProps) => (
+  <Button {...rest} />
+);
+
 const Home = () => {
   return (
     <Page>
       <PageContent>
         <PageHeader title="Experiences" />
-        <ContentPane>
+        <ContentPane contain={false}>
           <Grid gap="medium" columns={{ size: ['auto', 'medium'], count: 'fit' }}>
-            <Button as={Link} to={`/devices?exp=${experiences.a.name}`} >
+            <RoutedButton as={Link} to={`/devices?exp=${experiences.a.name}`} >
               <Card pad={{ horizontal: 'medium', vertical: 'medium' }}>
                 <Box direction='row' gap="medium" justify='between'>
                   <Heading level={2} margin="none" size='small'>Experience {experiences.a.name}</Heading>
                   <LinkNext color='#f66162' />
                 </Box>
               </Card>
-            </Button>
-            <Button as={Link} to={`/devices?exp=${experiences.b.name}`}>
+            </RoutedButton>
+            <RoutedButton as={Link} to={`/devices?exp=${experiences.b.name}`}>
               <Card pad={{ horizontal: 'medium', vertical: 'medium' }}>
                 <Box direction='row' gap="medium" justify='between'>
                   <Heading level={2} margin="none" size="small">Experience {experiences.b.name}</Heading>
                   <LinkNext color='#f66162' />
                 </Box>
               </Card>
-            </Button>
+            </RoutedButton>
           </Grid>
         </ContentPane>
       </PageContent>

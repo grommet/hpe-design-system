@@ -38,12 +38,12 @@ function App() {
       <AppHeader
         name="ACME Cloud"
         themeMode={{ themeMode, setThemeMode }}
-        animation={animate && modeTransition.animation({ delay: 0 })}
+        animation={animate ? modeTransition.animation({ delay: 0 }) : undefined}
       />
-      <Box id="main" as="main" animation={animate && modeTransition.animation({ delay: 300 })}>
+      <Box id="main" as="main" animation={animate ? modeTransition.animation({ delay: 300 }) : undefined}>
         {authenticated ? (
           <Routes>
-            {router.map((route) => <Route {...route} key={route.path} index={true} />)}
+            {router.map((route) => <Route key={route.path} path={route.path} element={route.element} />)}
           </Routes>) : (
           <Login setAuthenticated={setAuthenticated} />
         )}

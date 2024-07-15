@@ -1,3 +1,4 @@
+import { View } from 'grommet';
 import { MapLocation, Table } from 'grommet-icons';
 
 import rawData from './mock-data/devices_03.json';
@@ -74,7 +75,7 @@ const defaultView = {
   page: 1,
   step: 10,
   sort: { property: 'serial_number', direction: 'asc' },
-};
+} as View;
 
 export {
   defaultData,

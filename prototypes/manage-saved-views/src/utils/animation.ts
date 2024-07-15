@@ -1,3 +1,5 @@
+import { AnimationType } from "grommet/utils"
+
 const cardAnimation = (index: number) => {
   return {
     type: 'fadeIn',
@@ -9,7 +11,7 @@ const cardAnimation = (index: number) => {
 const modeTransition = {
   animation: ({ delay }: { delay: number }) => [
     { type: 'fadeIn', delay: delay, duration: 700 },
-  ],
+  ] as AnimationType,
   duration: 700
 };
 
