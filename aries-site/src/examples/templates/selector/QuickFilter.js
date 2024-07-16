@@ -205,6 +205,7 @@ const QuickFilters = ({ value: selectedValue, setValue, counts }) => {
           search: '',
           page: 1,
           properties: nextProperties,
+          value: undefined,
         };
 
         onView(nextView);
@@ -256,6 +257,12 @@ export const QuickFilter = () => {
 
   useEffect(() => {
     if (!('properties' in view)) {
+      setQuickFilter('');
+    }
+    if (view.properties?.rocket?.length > 0) {
+      setQuickFilter('');
+    }
+    if (view.properties?.success?.length > 1) {
       setQuickFilter('');
     }
     fetchLaunches(view).then(response => {
