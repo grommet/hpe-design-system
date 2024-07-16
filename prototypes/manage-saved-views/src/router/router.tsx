@@ -11,10 +11,7 @@ interface ModuleImportInterface {
   };
 }
 
-console.log('routerPages', routerPages);
-
 const pages: ModuleImportInterface = routerPages;
-console.log('pages', pages);
 
 const routes = [];
 

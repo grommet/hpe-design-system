@@ -46,8 +46,11 @@ function App() {
       <Box id="main" as="main" animation={animate ? modeTransition.animation({ delay: 300 }) : undefined}>
         {authenticated ? (
           <Routes>
-            {router.map((route) => <Route key={route.path} path={route.path} element={route.element} />)}
-          </Routes>) : (
+            {router.map((route) =>
+              <Route key={route.path} path={route.path} element={route.element} />
+            )}
+          </Routes>
+        ) : (
           <Login setAuthenticated={setAuthenticated} />
         )}
       </Box>
