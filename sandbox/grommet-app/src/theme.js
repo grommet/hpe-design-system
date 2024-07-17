@@ -1176,7 +1176,19 @@ const buildTheme = tokens => {
         },
       },
     },
-    dateformField: {
+    // dateformField: {
+    //   // Q: why is this called dateformField instead of dateInput?
+    //   container: {
+    //     // Q: is this the right token?
+    //     round:
+    //       components.hpe.formField.medium.input.group.container.borderRadius,
+    //     // round: 'xsmall',
+    //   },
+    //   icon: {
+    //     size: 'small',
+    //   },
+    // },
+    dateInput: {
       // Q: why is this called dateformField instead of dateInput?
       container: {
         // Q: is this the right token?
@@ -1188,7 +1200,50 @@ const buildTheme = tokens => {
         size: 'small',
       },
     },
-    fileformField: {
+    // fileformField: {
+    //   // Q: why is this called fileformField instead of fileInput?
+    //   border: {
+    //     // Q: confused on which token to use here formfield.medium.input.group.item.borderWidth?
+    //     size: 'xsmall',
+    //   },
+    //   button: {
+    //     // Q: should we point to button tokens here?
+    //     border: {
+    //       // Q: is this the correct value?
+    //       radius: components.hpe.button.medium.default.borderRadius,
+    //     },
+    //     pad: {
+    //       vertical: '6px',
+    //       horizontal: '12px',
+    //     },
+    //     color: 'text-strong',
+    //     font: {
+    //       weight: 'bold',
+    //     },
+    //     hover: {
+    //       background: 'background-contrast',
+    //       color: 'text-strong',
+    //     },
+    //   },
+    //   dragOver: {
+    //     background: 'background-contrast',
+    //     border: 'none',
+    //   },
+    //   hover: {
+    //     border: {
+    //       color: 'border',
+    //     },
+    //   },
+    //   icons: {
+    //     // remove: Close,
+    //   },
+    //   message: {
+    //     color: 'placeholder',
+    //   },
+    //   pad: { horizontal: 'xsmall' },
+    //   extend: 'border-radius: 4px;',
+    // },
+    fileInput: {
       // Q: why is this called fileformField instead of fileInput?
       border: {
         // Q: confused on which token to use here formfield.medium.input.group.item.borderWidth?
@@ -1798,8 +1853,10 @@ const buildTheme = tokens => {
       color: 'selected-background',
       container: {
         // should pad be token?
+        // Q: this token is the wrong value
+        // font-weight: ${components.hpe.radioButton.medium.label.fontWeight}
         extend: ({ theme }) => `
-        font-weight: ${components.hpe.radioButton.medium.label.fontWeight}
+        font-weight: 500;
         width: auto;
         padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
       `,
@@ -1835,7 +1892,20 @@ const buildTheme = tokens => {
         },
       },
     },
-    rangeformField: {
+    // rangeformField: { // Q: why is this called rangeformField
+    //   thumb: {
+    //     color: 'brand',
+    //   },
+    //   track: {
+    //     lower: {
+    //       color: 'brand',
+    //     },
+    //     upper: {
+    //       color: 'border',
+    //     },
+    //   },
+    // },
+    rangeInput: {
       thumb: {
         color: 'brand',
       },
