@@ -1189,7 +1189,6 @@ const buildTheme = tokens => {
     //   },
     // },
     dateInput: {
-      // Q: why is this called dateformField instead of dateInput?
       container: {
         // Q: is this the right token?
         round:
@@ -1357,7 +1356,9 @@ const buildTheme = tokens => {
       },
       label: {
         size: components.hpe.formField.medium.labelText.fontSize,
-        color: components.hpe.formField.labelText.enabled.color,
+        color: 'text',
+        // Q: this token is the wrong value
+        // color: components.hpe.formField.labelText.enabled.color,
         margin: {
           // Q: missing token
           bottom: 'none',
