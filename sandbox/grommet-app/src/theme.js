@@ -4,6 +4,7 @@ import {
 } from 'styled-components';
 import { deepFreeze } from 'grommet/utils';
 import { dark, light, large, small, components, base } from 'design-tokens';
+import { Down, Hpe } from 'grommet-icons';
 
 const dimensions = {
   borderSize: {
@@ -163,14 +164,22 @@ const baseSpacing = 24;
 const buildTheme = tokens => {
   const [light, dark] = tokens;
   const colors = {
-    brand: {
-      dark: dark.hpe.color.brand,
-      light: light.hpe.color.brand,
-    },
-    primary: {
-      dark: dark.hpe.color.primary,
-      light: light.hpe.color.primary,
-    },
+    'accent-1': undefined,
+    'accent-2': undefined,
+    'accent-3': undefined,
+    'accent-4': undefined,
+    'neutral-1': undefined,
+    'neutral-2': undefined,
+    'neutral-3': undefined,
+    'neutral-4': undefined,
+    'neutral-5': undefined,
+    'status-error': undefined,
+    // Q: brand color is not defined in the dark and light files
+    // brand: {
+    //   dark: dark.hpe.color.brand,
+    //   light: light.hpe.color.brand,
+    // },
+    brand: 'green!',
     background: {
       dark: dark.hpe.color.background.default,
       light: light.hpe.color.background.default,
@@ -187,46 +196,9 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.background.contrast, // 6%
       light: light.hpe.color.background.contrast,
     },
-    'background-active': {
-      dark: dark.hpe.color.background.active, // 6%
-      light: light.hpe.color.background.active,
-    },
-    'background-hover': {
-      dark: dark.hpe.color.background.hover, // 6%
-      light: light.hpe.color.background.hover,
-    },
-    'background-floating': {
-      dark: dark.hpe.color.background.floating, // 6%
-      light: light.hpe.color.background.floating,
-    },
-    'background-selected-weak': {
-      dark: dark.hpe.color.background.selected.weak, // 6%
-      light: light.hpe.color.background.selected.weak,
-    },
-    'background-status-critical': {
-      dark: dark.hpe.color.background.validation.critical, // 6%
-      light: light.hpe.color.background.validation.critical,
-    },
-    'background-status-warning': {
-      dark: dark.hpe.color.background.validation.warning, // 6%
-      light: light.hpe.color.background.validation.warning,
-    },
-    'background-status-ok': {
-      dark: dark.hpe.color.background.validation.ok, // 6%
-      light: light.hpe.color.background.validation.ok,
-    },
-    'background-status-info': {
-      dark: dark.hpe.color.background.validation.info, // 6%
-      light: light.hpe.color.background.validation.info,
-    },
-    'background-primary-default': {
-      dark: dark.hpe.color.background.primary.default,
-      light: light.hpe.color.background.primary.default,
-    },
-    'active-background': {
-      dark: dark.hpe.color.background.active,
-      light: light.hpe.color.background.active,
-    },
+    // TO DO do we want these as tokens?
+    'background-layer-overlay': '#00000080',
+    icon: 'text',
     text: {
       dark: dark.hpe.color.text.default,
       light: light.hpe.color.text.default,
@@ -243,15 +215,7 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.text.xweak,
       light: light.hpe.color.text.xweak,
     },
-    'text-onPrimary': {
-      dark: dark.hpe.color.text.onPrimary,
-      light: light.hpe.color.text.onPrimary,
-    },
     border: {
-      dark: dark.hpe.color.border.default,
-      light: light.hpe.color.border.default,
-    },
-    'border-default': {
       dark: dark.hpe.color.border.default,
       light: light.hpe.color.border.default,
     },
@@ -263,10 +227,14 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.border.weak,
       light: light.hpe.color.border.weak,
     },
-    'border-selected': {
-      dark: dark.hpe.color.border.selected,
-      light: light.hpe.color.border.selected,
+    control: 'brand',
+    'active-background': {
+      dark: dark.hpe.color.background.active,
+      light: light.hpe.color.background.active,
     },
+    'active-text': 'text',
+    'disabled-text': 'text-weak', // deprecated, use text-weak instead
+    'selected-background': 'green!',
     'selected-text': {
       dark: dark.hpe.color.text.onPrimary,
       light: light.hpe.color.text.onPrimary,
@@ -287,6 +255,44 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.icon.unknown,
       light: light.hpe.color.icon.unknown,
     },
+    'status-disabled': '#CCCCCC', // deprecated, does not support light and dark.hpe. use text-weak instead
+    // Q: these tokens are missing (blue - yellow!)
+    blue: {
+      dark: dark.hpe.color.decorative.blue,
+      light: light.hpe.color.decorative.blue,
+    },
+    'blue!': light.hpe.color.dataVis.categorical[10],
+    green: {
+      dark: dark.hpe.color.decorative.green,
+      light: light.hpe.color.decorative.green,
+    },
+    'green!': '#01A982', // Q: missing token
+    teal: {
+      // Q; should this token be called teal instead of turquoise?
+      dark: dark.hpe.color.decorative.turquoise,
+      light: light.hpe.color.decorative.turquoise,
+    },
+    'teal!': '#00E8CF', // Q: missing token
+    purple: {
+      dark: dark.hpe.color.decorative.purple,
+      light: light.hpe.color.decorative.purple,
+    },
+    'purple!': light.hpe.color.dataVis.categorical[30],
+    red: {
+      dark: dark.hpe.color.decorative.red,
+      light: light.hpe.color.decorative.red,
+    },
+    'red!': '#C54E4B', // Q: missing token
+    orange: {
+      dark: dark.hpe.color.decorative.orange,
+      light: light.hpe.color.decorative.orange,
+    },
+    'orange!': light.hpe.color.dataVis.categorical[20],
+    yellow: {
+      dark: dark.hpe.color.decorative.yellow,
+      light: light.hpe.color.decorative.yellow,
+    },
+    'yellow!': '#FEC901', // Q: missing
     'validation-critical': {
       light: light.hpe.color.background.validation.critical,
       dark: dark.hpe.color.background.validation.critical,
@@ -299,67 +305,139 @@ const buildTheme = tokens => {
       light: light.hpe.color.background.validation.warning,
       dark: dark.hpe.color.background.validation.critical,
     },
-    'background-brand-default': {
-      light: light.hpe.color.background.primary.default,
-      dark: dark.hpe.color.background.primary.default,
-    },
-    'background-brand-weak': {
-      light: base.hpe.base.TBD,
-      dark: base.hpe.base.TBD,
-    },
-    'foreground-brand-default': {
-      light: base.hpe.base.TBD,
-      dark: base.hpe.base.TBD,
-    },
-    'foreground-status-critical': {
-      light: light.hpe.color.icon.critical,
-      dark: dark.hpe.color.icon.critical,
-    },
-    'foreground-status-warning': {
-      light: light.hpe.color.icon.warning,
-      dark: dark.hpe.color.icon.warning,
-    },
-    'foreground-status-ok': {
-      light: light.hpe.color.icon.ok,
-      dark: dark.hpe.color.icon.ok,
-    },
-    'foreground-status-info': {
-      light: light.hpe.color.icon.info,
-      dark: dark.hpe.color.icon.info,
-    },
-    'foreground-onBrand': {
-      light: base.hpe.base.TBD,
-      dark: base.hpe.base.TBD,
-    },
-    'button-secondary-border-default': {
-      light: base.hpe.base.TBD,
-      dark: base.hpe.base.TBD,
-    },
-    // TO DO do we want these as tokens?
-    'background-layer-overlay': '#00000080',
-    control: 'brand',
-    'active-text': 'text',
-    'disabled-text': 'text-weak', // deprecated, use text-weak instead
-    'selected-background': 'green!',
-    icon: 'text',
     'graph-0': 'orange!',
     'graph-1': 'blue!',
     'graph-2': 'purple!',
     'graph-3': 'yellow!',
     'graph-4': 'teal!',
-    // deprecated, does not support light and dark.hpe. use text-weak instead
-    'status-disabled': '#CCCCCC',
     focus: components.hpe.focusRing,
     placeholder: 'text-weak',
     'text-primary-button': '#FFFFFF',
     'background-cta-alternate': '#F2F2F2',
+
+    'background-hover': {
+      dark: dark.hpe.color.background.hover, // 6%
+      light: light.hpe.color.background.hover,
+    },
+
+    'background-floating': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.floating, // 6%
+      light: light.hpe.color.background.floating,
+    },
+    'background-selected-weak': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.selected.weak, // 6%
+      light: light.hpe.color.background.selected.weak,
+    },
+    'background-status-critical': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.validation.critical, // 6%
+      light: light.hpe.color.background.validation.critical,
+    },
+    'background-status-warning': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.validation.warning, // 6%
+      light: light.hpe.color.background.validation.warning,
+    },
+    'background-status-ok': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.validation.ok, // 6%
+      light: light.hpe.color.background.validation.ok,
+    },
+    'background-status-info': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.validation.info, // 6%
+      light: light.hpe.color.background.validation.info,
+    },
+    'background-primary-default': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.primary.default,
+      light: light.hpe.color.background.primary.default,
+    },
+    'text-onPrimary': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.text.onPrimary,
+      light: light.hpe.color.text.onPrimary,
+    },
+    'border-default': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.border.default,
+      light: light.hpe.color.border.default,
+    },
+    'border-selected': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.border.selected,
+      light: light.hpe.color.border.selected,
+    },
+    'background-brand-default': {
+      // Q: looks like we are not using this
+      light: light.hpe.color.background.primary.default,
+      dark: dark.hpe.color.background.primary.default,
+    },
+    'background-brand-weak': {
+      // Q: looks like we are not using this
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
+    },
+    'foreground-brand-default': {
+      // Q: looks like we are not using this
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
+    },
+    'foreground-status-critical': {
+      // Q: looks like we are not using this
+      light: light.hpe.color.icon.critical,
+      dark: dark.hpe.color.icon.critical,
+    },
+    'foreground-status-warning': {
+      // Q: looks like we are not using this
+      light: light.hpe.color.icon.warning,
+      dark: dark.hpe.color.icon.warning,
+    },
+    'foreground-status-ok': {
+      // Q: looks like we are not using this
+      light: light.hpe.color.icon.ok,
+      dark: dark.hpe.color.icon.ok,
+    },
+    'foreground-status-info': {
+      // Q: looks like we are not using this
+      light: light.hpe.color.icon.info,
+      dark: dark.hpe.color.icon.info,
+    },
+    'foreground-onBrand': {
+      // Q: looks like we are not using this
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
+    },
+    'button-secondary-border-default': {
+      // Q: looks like we are not using this
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
+    },
+  };
+
+  // option button kind styles. abstracted so select.emptySearchMessage
+  // can reference pad value
+  const option = {
+    color: 'text',
+    border: {
+      radius: '0px',
+    },
+    pad: {
+      horizontal: '12px',
+      vertical: '6px',
+    },
+    font: {
+      weight: 500,
+    },
   };
   return deepFreeze({
     defaultMode: 'light',
     global: {
       // backgrounds, // TO DO backgrounds
       ...dimensions,
-      ...colors,
+      colors,
       control: {
         border: {
           radius: '6px',
@@ -371,8 +449,11 @@ const buildTheme = tokens => {
           weight: 500,
         },
         padding: {
-          horizontal: components.hpe.formField.medium.input.container.paddingX, // equivalent to 'small' when combined with 1px border
-          vertical: components.hpe.formField.medium.input.container.paddingY, // equivalent to 'xsmall' when combined with 1px border
+          // Q: these token values don't match
+          // horizontal: components.hpe.formField.medium.input.container.paddingX,
+          // vertical: components.hpe.formField.medium.input.container.paddingY,
+          horizontal: '11px', // equivalent to 'small' when combined with 1px border
+          vertical: '5px', // equivalent to 'xsmall' when combined with 1px border
         },
         readOnly: {
           background:
@@ -383,17 +464,17 @@ const buildTheme = tokens => {
           },
         },
         extend: `
-          &::-webkit-formField-placeholder {
-            font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
-          }
-        
-          &::-moz-placeholder {
-            font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
-          }
-        
-          &:-ms-formField-placeholder {
-            font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
-          }
+          &::-webkit-input-placeholder {
+          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+        }
+      
+        &::-moz-placeholder {
+          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+        }
+      
+        &:-ms-input-placeholder {
+          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+        }
         `,
       },
       font: {
@@ -446,7 +527,9 @@ const buildTheme = tokens => {
         background: components.hpe.drop.background,
         border: {
           // TO DO don't have global concept of radius?
-          radius: components.hpe.drop.borderRadius,
+          // Q: this token isn't the correct
+          // radius: components.hpe.drop.borderRadius,
+          radius: '4px',
         },
         margin: 'xsmall',
         intelligentMargin: true,
@@ -506,47 +589,48 @@ const buildTheme = tokens => {
       },
     },
     anchor: {
-      color: 'text-strong',
-      textDecoration: 'underline', // this will have a token
-      fontWeight: base.hpe.base.fontWeight.medium, // Q: is it okay to use base values? ideal not to use base
-      gap: 'xsmall', // Q: should this point to a token? use component specific token other wise fine to leave as t-shirt size
+      color: components.hpe.anchor.default.hover.textColor,
+      textDecoration: components.hpe.anchor.default.enabled.textDecoration,
+      fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+      gap: 'xsmall',
       hover: {
-        textDecoration: 'underline',
+        textDecoration: components.hpe.anchor.default.hover.textDecoration,
       },
       size: {
+        // Q: missing tokens
         large: {
           color: 'brand',
-          fontWeight: base.hpe.base.fontWeight.bold,
+          fontWeight: 700,
           textDecoration: 'none',
         },
         xlarge: {
           color: 'brand',
-          fontWeight: base.hpe.base.fontWeight.bold,
+          fontWeight: 700,
           textDecoration: 'none',
         },
         xxlarge: {
           color: 'brand',
-          fontWeight: base.hpe.base.fontWeight.bold,
+          fontWeight: 700,
           textDecoration: 'none',
         },
         '3xl': {
           color: 'brand',
-          fontWeight: base.hpe.base.fontWeight.bold,
+          fontWeight: 700,
           textDecoration: 'none',
         },
         '4xl': {
           color: 'brand',
-          fontWeight: base.hpe.base.fontWeight.bold,
+          fontWeight: 700,
           textDecoration: 'none',
         },
         '5xl': {
           color: 'brand',
-          fontWeight: base.hpe.base.fontWeight.bold,
+          fontWeight: 700,
           textDecoration: 'none',
         },
         '6xl': {
           color: 'brand',
-          fontWeight: base.hpe.base.fontWeight.bold,
+          fontWeight: 700,
           textDecoration: 'none',
         },
       },
@@ -620,9 +704,10 @@ const buildTheme = tokens => {
       },
       secondary: {
         border: {
-          color: 'transparent',
-          width: '0px',
-          radius: components.hpe.button.medium.secondary.borderRadius,
+          color: 'brand',
+          width: '2px',
+          // Q: we don't define a radius here in the hpe theme
+          // radius: components.hpe.button.medium.secondary.borderRadius,
         },
         color: components.hpe.button.secondary.enabled.textColor,
         font: {
@@ -632,8 +717,9 @@ const buildTheme = tokens => {
       toolbar: {
         border: {
           radius: components.hpe.button.medium.toolbar.borderRadius,
-          width: '0px', // TO DO not coming through
-          // color: components.hpe.button.toolbar.enabled.borderColor,
+          width: '1px',
+          // width: '0px', // TO DO not coming through
+          color: components.hpe.button.toolbar.enabled.borderColor,
         },
         color: components.hpe.button.toolbar.enabled.textColor,
         font: {
@@ -660,7 +746,9 @@ const buildTheme = tokens => {
       },
       selected: {
         option: {
-          background: components.hpe.select.option.selected.background,
+          background: 'brand',
+          // Q: this token is the wrong color
+          // background: components.hpe.select.option.selected.background,
           color: components.hpe.select.option.selected.textColor,
           font: {
             weight: components.hpe.select.option.selected.fontWeight,
@@ -799,32 +887,43 @@ const buildTheme = tokens => {
       },
       extend: ({ hasIcon, hasLabel, sizeProp, kind, theme }) => {
         // necessary so primary label is accessible on HPE green background
-        const fontSize = components.hpe.button.medium.default.fontSize;
-        const lineHeight = components.hpe.button.medium.default.lineHeight;
+        // const { fontSize } = components.hpe.button.medium.default;
+        // const { lineHeight } = components.hpe.button.medium.default;
+        // let style = '';
+        // const iconOnly = hasIcon && !hasLabel;
+        // if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
+        //   style += `font-size: ${fontSize};
+        //   line-height: ${lineHeight};`;
+        // }
+        // let boxShadow;
+
+        // const shadowSpread =
+        //   dimensions.borderSize[
+        //     components.hpe.button?.[sizeProp]?.[kind]?.borderWidth
+        //   ];
+        // const shadowColor =
+        //   colors[components.hpe.button?.[kind]?.enabled?.borderColor]?.[
+        //     theme.dark ? 'dark' : 'light'
+        //   ];
+
+        // if (shadowSpread && shadowColor) {
+        //   style += `box-shadow: 0 0 0 ${shadowSpread} ${shadowColor};`;
+        //   // FUTURE LOOKING ONCE WE HAVE SHADOW TOKENS
+        //   // style += `box-shadow: ${components.hpe.button.secondary.enabled.boxShadow};`;
+        // }
+
+        // style += boxShadow;
+        // return style;
+
+        // necessary so primary label is accessible on HPE green background
+        const fontSize = '19px';
+        const lineHeight = '24px';
         let style = '';
         const iconOnly = hasIcon && !hasLabel;
         if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
           style += `font-size: ${fontSize};
-          line-height: ${lineHeight};`;
+        line-height: ${lineHeight};`;
         }
-        let boxShadow;
-
-        const shadowSpread =
-          dimensions.borderSize[
-            components.hpe.button?.[sizeProp]?.[kind]?.borderWidth
-          ];
-        const shadowColor =
-          colors[components.hpe.button?.[kind]?.enabled?.borderColor]?.[
-            theme.dark ? 'dark' : 'light'
-          ];
-
-        if (shadowSpread && shadowColor) {
-          style += `box-shadow: 0 0 0 ${shadowSpread} ${shadowColor};`;
-          // FUTURE LOOKING ONCE WE HAVE SHADOW TOKENS
-          // style += `box-shadow: ${components.hpe.button.secondary.enabled.boxShadow};`;
-        }
-
-        style += boxShadow;
         return style;
       },
     },
@@ -1439,29 +1538,34 @@ const buildTheme = tokens => {
     },
     menu: {
       drop: {
-        // Q should be tokenized
+        // Q should be tokenized?
         align: {
           top: 'bottom',
           left: 'left',
         },
       },
       group: {
-        // container: {
-        //   pad: components.hpe.menu.medium.group.container.paddingY,
-        // },
+        container: {
+          // pad: components.hpe.menu.medium.group.container.paddingY,
+          pad: 'none',
+        },
         separator: {
           color: components.hpe.menu.group.separator.background,
           pad: 'none',
         },
       },
       icons: {
+        // Q: this token doesn't have the correct value
+        // color: components.hpe.menu.item.enabled.iconColor,
         color: 'text-strong',
-        // down: Down,
+        down: Down,
       },
       item: {
         pad: {
-          horizontal: components.hpe.menu.medium.item.paddingX,
-          vertical: components.hpe.menu.medium.item.paddingY,
+          horizontal: '18px',
+          vertical: '6px',
+          // horizontal: components.hpe.menu.medium.item.paddingX,
+          // vertical: components.hpe.menu.medium.item.paddingY,
         },
       },
     },
@@ -1615,7 +1719,8 @@ const buildTheme = tokens => {
       },
     },
     pagination: {
-      button: { // Q: should we reference button tokens here?
+      button: {
+        // Q: should we reference button tokens here?
         border: {
           radius: '2em',
         },
@@ -1637,7 +1742,8 @@ const buildTheme = tokens => {
       },
     },
     paragraph: {
-      xsmall: { // Should we use paragraph component tokens instead of large.hpe?
+      xsmall: {
+        // Should we use paragraph component tokens instead of large.hpe?
         size: large.hpe.text.xsmall.fontSize,
         height: large.hpe.text.xsmall.lineHeight,
         maxWidth: '25em', // TO DO
@@ -1808,13 +1914,13 @@ const buildTheme = tokens => {
         color: 'transparent',
         size: 'medium',
         active: {
-          color: 'background-back',
+          color: 'brand',
         },
         disabled: {
           color: undefined,
         },
         hover: {
-          color: 'border-front',
+          color: 'border-weak',
         },
       },
       disabled: {
@@ -1956,7 +2062,22 @@ const buildTheme = tokens => {
         };
       `,
     },
-    textformField: {
+    // Q: why do we have textformField?
+    // textformField: {
+    //   container: {
+    //     extend: ({ theme }) => `
+    //       svg {
+    //         fill: ${
+    //           theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+    //         };
+    //         stroke: ${
+    //           theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+    //         };
+    //       }
+    //     `,
+    //   },
+    // },
+    textInput: {
       container: {
         extend: ({ theme }) => `
           svg {
