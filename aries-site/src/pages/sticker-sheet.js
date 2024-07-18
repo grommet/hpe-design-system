@@ -27,7 +27,7 @@ import {
 import { hpe as hpeCurrent } from 'grommet-theme-hpe-current';
 import { User } from 'grommet-icons';
 import { Meta } from '../components';
-import { aries } from '../themes/aries';
+import { current } from '../themes/testTheme'
 import {
   BannerNotificationInfo,
   CheckBoxGroupSimpleExample,
@@ -112,7 +112,7 @@ const StickerSheet = () => {
     };
   }, [mode]);
   return (
-    <ThemeContext.Extend value={aries}>
+    <ThemeContext.Extend value={current}>
       <Meta
         title={title}
         canonicalUrl="https://design-system.hpe.design/theme-test"

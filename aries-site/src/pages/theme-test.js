@@ -16,7 +16,7 @@ import {
 import { hpe as hpeCurrent } from 'grommet-theme-hpe-current';
 import { ButtonGroup } from 'aries-core';
 import { Meta } from '../components';
-import { aries } from '../themes/aries';
+import { current } from '../themes/testTheme'
 import { FilterServers, ReverseAnchor } from '../examples';
 import servers from '../data/mockData/servers.json';
 
@@ -119,7 +119,7 @@ const MockDetailPage = () => {
 };
 
 const ThemeTest = () => (
-  <ThemeContext.Extend value={aries}>
+  <ThemeContext.Extend value={current}>
     <Meta
       title={title}
       canonicalUrl="https://design-system.hpe.design/theme-test"
