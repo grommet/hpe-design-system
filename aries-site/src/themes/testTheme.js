@@ -7,7 +7,7 @@ import {
     Down,
     Close,
   } from 'grommet-icons';
-  import { dark, light, large, small, components, base } from '../../../design-tokens/dist-test/esm';
+  import { dark, light, large, small, components, base } from 'design-tokens/dist-test/esm/esm';
   
   const dimensions = {
     borderSize: {
