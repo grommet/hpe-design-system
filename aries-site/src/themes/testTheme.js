@@ -3,11 +3,11 @@ import {
     // keyframes
   } from 'styled-components';
   import { deepFreeze } from 'grommet/utils';
-  import { dark, light, large, small, components, base } from '../../../design-tokens/dist-test/esm';
   import {
     Down,
     Close,
   } from 'grommet-icons';
+  import { dark, light, large, small, components, base } from '../../../design-tokens/dist-test/esm';
   
   const dimensions = {
     borderSize: {
@@ -1376,7 +1376,7 @@ import {
           // remove: Close,
         },
         message: {
-          color: 'placeholder', //Q: do we need a token here?
+          color: 'placeholder', // Q: do we need a token here?
         },
         pad: { horizontal: 'xsmall' },
         extend: 'border-radius: 4px;',

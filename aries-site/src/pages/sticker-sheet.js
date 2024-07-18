@@ -24,10 +24,10 @@ import {
   Select,
   FormField,
 } from 'grommet';
-import { current as hpeCurrent } from '../themes/testTheme';
 import { User } from 'grommet-icons';
-import { Meta } from '../components';
 import { hpe } from 'grommet-theme-hpe';
+import { current as hpeCurrent } from '../themes/testTheme';
+import { Meta } from '../components';
 import {
   BannerNotificationInfo,
   CheckBoxGroupSimpleExample,
