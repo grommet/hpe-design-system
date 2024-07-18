@@ -1,26 +1,21 @@
-/**
- * Do not edit directly
- * Generated on Fri, 12 Jul 2024 21:18:39 GMT
- */
-
 export default {
   hpe: {
     color: {
       background: {
-        default: "#1c1c1c",
+        default: "#263040",
         hover: "#ffffff0f",
         active: "#ffffff0f",
         disabled: "#ffffff12",
-        back: "#1c1c1c",
-        front: "#222222",
+        back: "#263040",
+        front: "#404B5C",
         floating: "#292929",
-        contrast: "#ffffff0f",
+        contrast: "#FFFFFF14",
         validation: {
-          critical: "#cc1f1a4d",
+          critical: "#C54E4B5C",
           info: "#00c8ff1f",
-          unknown: "#222222",
-          ok: "#17d0a64d",
-          warning: "#fec9011f",
+          unknown: "#4F5F76",
+          ok: "#00856759",
+          warning: "#9B63105C",
         },
         primary: {
           default: "#01a982",
@@ -32,19 +27,19 @@ export default {
         },
       },
       border: {
-        strong: "#ffffffb8",
-        default: "#ffffff5c",
-        weak: "#ffffff1f",
+        strong: "#AFBCD2",
+        default: "#7887A1",
+        weak: "#606B7D",
         disabled: "#ffffff1f",
         selected: "#01a982",
       },
       text: {
-        default: "#ffffff",
+        default: "#C0CADC",
         strong: "#ffffff",
-        weak: "#ffffff80",
-        xweak: "#ffffff33",
+        weak: "#8C98AA",
+        xweak: "#606B7D",
         disabled: "#ffffff3d",
-        onPrimary: "#ffffff",
+        // onPrimary: "#ffffff",
         brand: "#01a982",
         inverse: {
           default: "#222222",

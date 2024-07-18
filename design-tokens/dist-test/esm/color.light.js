@@ -1,8 +1,3 @@
-/**
- * Do not edit directly
- * Generated on Fri, 12 Jul 2024 21:18:39 GMT
- */
-
 export default {
   hpe: {
     color: {
@@ -11,7 +6,7 @@ export default {
         hover: "#0000000a",
         active: "#0000000a",
         disabled: "#0000000a",
-        back: "#f7f7f7",
+        back: "#EFEFEF",
         front: "#ffffff",
         floating: "#ffffff",
         contrast: "#0000000a",
@@ -32,15 +27,15 @@ export default {
         },
       },
       border: {
-        strong: "#000000b8",
-        default: "#0000005c",
-        weak: "#0000001f",
+        strong: "#666666",
+        default: "#999999",
+        weak: "#BBBBBB",
         disabled: "#0000001f",
         selected: "#01a982",
       },
       text: {
-        default: "#555555",
-        strong: "#333333",
+        default: "#444444",
+        strong: "#000000",
         weak: "#757575",
         xweak: "#bbbbbb",
         disabled: "#0000003d",
