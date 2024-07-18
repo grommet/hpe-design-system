@@ -103,7 +103,7 @@ export default {
           opacity12: "#0000001f",
           opacity24: "#0000003d",
           opacity36: "#0000005c",
-          opacity50: "#00000080",
+          // opacity50: "#00000080",
           opacity72: "#000000b8",
           opacity100: "#000000",
         },
