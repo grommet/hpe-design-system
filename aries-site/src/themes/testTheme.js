@@ -3,7 +3,7 @@ import {
     // keyframes
   } from 'styled-components';
   import { deepFreeze } from 'grommet/utils';
-  import { dark, light, large, small, components, base } from 'design-tokens';
+  import { dark, light, large, small, components, base } from '../../../design-tokens/dist-test/esm';
   import {
     Down,
     Close,
@@ -1376,7 +1376,7 @@ import {
           // remove: Close,
         },
         message: {
-          color: 'placeholder',
+          color: 'placeholder', //Q: do we need a token here?
         },
         pad: { horizontal: 'xsmall' },
         extend: 'border-radius: 4px;',

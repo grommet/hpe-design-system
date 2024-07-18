@@ -24,10 +24,10 @@ import {
   Select,
   FormField,
 } from 'grommet';
-import { hpe as hpeCurrent } from 'grommet-theme-hpe-current';
+import { current as hpeCurrent } from '../themes/testTheme';
 import { User } from 'grommet-icons';
 import { Meta } from '../components';
-import { current } from '../themes/testTheme'
+import { hpe } from 'grommet-theme-hpe';
 import {
   BannerNotificationInfo,
   CheckBoxGroupSimpleExample,
@@ -69,14 +69,14 @@ const Compare = ({ children, ...rest }) => {
   const { mode } = React.useContext(ModeContext);
   return (
     <Stack {...rest}>
-      <ThemeContext.Extend value={hpeCurrent}>
+      <ThemeContext.Extend value={hpe}>
         <Box
           align="start"
           style={
             // eslint-disable-next-line no-nested-ternary
             mode === 'Compare diffs'
               ? { opacity: 0.5, filter: 'invert(1)', color: 'green' }
-              : mode === 'v5.1'
+              : mode === 'tokens'
               ? { visibility: 'hidden' }
               : {}
           }
@@ -85,12 +85,14 @@ const Compare = ({ children, ...rest }) => {
         </Box>
       </ThemeContext.Extend>
 
-      <Box
-        align="start"
-        style={mode === 'v5.0' ? { visibility: 'hidden' } : {}}
-      >
-        {children}
-      </Box>
+      <ThemeContext.Extend value={hpeCurrent}>
+        <Box
+          align="start"
+          style={mode === 'v3' ? { visibility: 'hidden' } : {}}
+        >
+          {children}
+        </Box>
+      </ThemeContext.Extend>
     </Stack>
   );
 };
@@ -112,7 +114,7 @@ const StickerSheet = () => {
     };
   }, [mode]);
   return (
-    <ThemeContext.Extend value={current}>
+    <ThemeContext.Extend value={hpeCurrent}>
       <Meta
         title={title}
         canonicalUrl="https://design-system.hpe.design/theme-test"
@@ -129,7 +131,7 @@ const StickerSheet = () => {
                 // eslint-disable-next-line grommet/formfield-htmlfor-id, grommet/formfield-name
                 <FormField label="View mode">
                   <Select
-                    options={['v5.0', 'v5.1', 'Compare diffs']}
+                    options={['v3', 'tokens', 'Compare diffs']}
                     value={mode}
                     onChange={({ option }) => setMode(option)}
                   />
