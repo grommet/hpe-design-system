@@ -953,17 +953,17 @@ export default {
           textDecoration: 'underline',
         },
         hover: {
-          textColor: 'text-strong',
+          textColor: 'text',
           fontWeight: 400,
           textDecoration: 'underline',
         },
         focus: {
-          textColor: 'text-strong',
+          textColor: 'text',
           fontWeight: 400,
           textDecoration: 'underline',
         },
         disabled: {
-          textColor: 'text-strong',
+          textColor: 'text',
           fontWeight: 400,
           textDecoration: 'underline',
         },
