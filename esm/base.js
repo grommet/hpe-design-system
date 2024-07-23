@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 18 Jul 2024 14:51:45 GMT
+ * Generated on Tue, 23 Jul 2024 15:35:50 GMT
  */
 
 export default {
