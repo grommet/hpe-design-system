@@ -280,11 +280,11 @@ const buildTheme = tokens => {
     'neutral-5': undefined,
     'status-error': undefined,
     // Q: brand color is not defined in the dark and light files
-    // brand: {
-    //   dark: dark.hpe.color.brand,
-    //   light: light.hpe.color.brand,
-    // },
-    brand: 'green!',
+    brand: {
+      dark: dark.hpe.color.brand,
+      light: light.hpe.color.brand,
+    },
+    // brand: 'green!',
     background: {
       dark: dark.hpe.color.background.default,
       light: light.hpe.color.background.default,
@@ -361,7 +361,6 @@ const buildTheme = tokens => {
       light: light.hpe.color.icon.unknown,
     },
     'status-disabled': '#CCCCCC', // deprecated, does not support light and dark.hpe. use text-weak instead
-    // Q: these tokens are missing (blue - yellow!)
     blue: {
       dark: dark.hpe.color.decorative.blue,
       light: light.hpe.color.decorative.blue,
@@ -433,11 +432,11 @@ const buildTheme = tokens => {
     },
     // Q: this token causes light green color to be applied
     // to select options after mouse in and then mouse out
-    // 'background-selected-weak': {
-    //   // Q: looks like we are not using this
-    //   dark: dark.hpe.color.background.selected.weak, // 6%
-    //   light: light.hpe.color.background.selected.weak,
-    // },
+    'background-selected-weak': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.selected.weak, // 6%
+      light: light.hpe.color.background.selected.weak,
+    },
     'background-status-critical': {
       // Q: looks like we are not using this
       dark: dark.hpe.color.background.validation.critical, // 6%
@@ -558,10 +557,10 @@ const buildTheme = tokens => {
         },
         padding: {
           // Q: these token values don't match
-          // horizontal: components.hpe.formField.medium.input.container.paddingX,
-          // vertical: components.hpe.formField.medium.input.container.paddingY,
-          horizontal: '11px', // equivalent to 'small' when combined with 1px border
-          vertical: '5px', // equivalent to 'xsmall' when combined with 1px border
+          horizontal: components.hpe.formField.medium.input.container.paddingX,
+          vertical: components.hpe.formField.medium.input.container.paddingY,
+          // horizontal: '11px', // equivalent to 'small' when combined with 1px border
+          // vertical: '5px', // equivalent to 'xsmall' when combined with 1px border
         },
         readOnly: {
           background:
@@ -636,8 +635,8 @@ const buildTheme = tokens => {
         border: {
           // TO DO don't have global concept of radius?
           // Q: this token isn't the correct
-          // radius: components.hpe.drop.borderRadius,
-          radius: '4px',
+          radius: components.hpe.drop.borderRadius,
+          // radius: '4px',
         },
         margin: 'xsmall',
         intelligentMargin: true,
@@ -815,9 +814,11 @@ const buildTheme = tokens => {
         color: 'text-strong',
         border: {
           color: 'brand',
-          width: '2px', // Q: token value is wrong
+          // width: '2px',
+          // Q: token value is wrong
+          width: components.hpe.button.medium.secondary.borderWidth,
           // Q: we don't define a radius here in the hpe theme
-          // radius: components.hpe.button.medium.secondary.borderRadius,
+          radius: components.hpe.button.medium.secondary.borderRadius,
         },
         color: components.hpe.button.secondary.enabled.textColor,
         font: {
@@ -839,16 +840,16 @@ const buildTheme = tokens => {
       option,
       active: {
         background: {
-          color: 'background-contrast',
+          // color: 'background-contrast',
           // Q: this token isn't correct
-          // color: components.hpe.button.default.enabled.background,
+          color: components.hpe.button.default.enabled.background,
         },
         color: components.hpe.button.default.enabled.textColor,
         secondary: {
           border: {
-            color: 'transparent',
+            // color: 'transparent',
             // Q: this token isn't correct
-            // color: components.hpe.button.secondary.selected.borderColor,
+            color: components.hpe.button.secondary.selected.borderColor,
           },
         },
         option: {
@@ -860,9 +861,9 @@ const buildTheme = tokens => {
       },
       selected: {
         option: {
-          background: 'brand',
+          // background: 'brand',
           // Q: this token is the wrong color
-          // background: components.hpe.select.option.selected.background,
+          background: components.hpe.select.option.selected.background,
           color: components.hpe.select.option.selected.textColor,
           font: {
             weight: components.hpe.select.option.selected.fontWeight,
@@ -1391,23 +1392,23 @@ const buildTheme = tokens => {
             components.hpe.formField.input.group.container.disabled.background,
         },
         border: {
-          color: 'border-weak',
+          // color: 'border-weak',
           // Q: this token isn't the correct value
-          // color: components.hpe.formField.input.group.item.disabled.borderColor,
+          color: components.hpe.formField.input.group.item.disabled.borderColor,
         },
         label: {
-          color: 'text-xweak',
+          // color: 'text-xweak',
           // Q: this token should be text-weak instead of text-strong
-          // color: components.hpe.formField.labelText.disabled.textColor,
+          color: components.hpe.formField.labelText.disabled.textColor,
         },
       },
       error: {
         background: {
-          color: 'validation-critical',
+          // color: 'validation-critical',
           // Q: this token isn't working
-          // color:
-          //   components.hpe.formField.input.container.validation.critical
-          //     .background,
+          color:
+            components.hpe.formField.input.container.validation.critical
+              .background,
         },
         container: {
           gap: 'xsmall', // Q: missing token
@@ -1445,12 +1446,12 @@ const buildTheme = tokens => {
         },
       },
       label: {
-        size: 'xsmall',
+        // size: 'xsmall',
         // Q: token is incorrect value
-        // size: components.hpe.formField.medium.labelText.fontSize,
-        color: 'text',
+        size: components.hpe.formField.medium.labelText.fontSize,
+        // color: 'text',
         // Q: this token is the wrong value
-        // color: components.hpe.formField.labelText.enabled.color,
+        color: components.hpe.formField.labelText.enabled.color,
         margin: {
           // Q: missing token
           bottom: 'none',
@@ -1718,8 +1719,8 @@ const buildTheme = tokens => {
       },
       icons: {
         // Q: this token doesn't have the correct value
-        // color: components.hpe.menu.item.enabled.iconColor,
-        color: 'text-strong',
+        color: components.hpe.menu.item.enabled.iconColor,
+        // color: 'text-strong',
         down: Down,
       },
       item: {
@@ -1961,9 +1962,9 @@ const buildTheme = tokens => {
       container: {
         // should pad be token?
         // Q: this token is the wrong value
-        // font-weight: ${components.hpe.radioButton.medium.label.fontWeight}
+        // font-weight: 500;
         extend: ({ theme }) => `
-        font-weight: 500;
+        font-weight: ${components.hpe.radioButton.medium.label.fontWeight}
         width: auto;
         padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
       `,
