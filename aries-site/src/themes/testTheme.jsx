@@ -426,17 +426,18 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.background.hover, // 6%
       light: light.hpe.color.background.hover,
     },
-
     'background-floating': {
       // Q: looks like we are not using this
       dark: dark.hpe.color.background.floating, // 6%
       light: light.hpe.color.background.floating,
     },
-    'background-selected-weak': {
-      // Q: looks like we are not using this
-      dark: dark.hpe.color.background.selected.weak, // 6%
-      light: light.hpe.color.background.selected.weak,
-    },
+    // Q: this token causes light green color to be applied
+    // to select options after mouse in and then mouse out
+    // 'background-selected-weak': {
+    //   // Q: looks like we are not using this
+    //   dark: dark.hpe.color.background.selected.weak, // 6%
+    //   light: light.hpe.color.background.selected.weak,
+    // },
     'background-status-critical': {
       // Q: looks like we are not using this
       dark: dark.hpe.color.background.validation.critical, // 6%
