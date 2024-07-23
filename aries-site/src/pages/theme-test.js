@@ -13,7 +13,7 @@ import {
   ThemeContext,
   Paragraph,
 } from 'grommet';
-import { hpe as hpeCurrent } from 'grommet-theme-hpe-current';
+import { current as hpeCurrent } from '../themes/testTheme';
 import { ButtonGroup } from 'aries-core';
 import { Meta } from '../components';
 import { current } from '../themes/testTheme';
