@@ -426,17 +426,18 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.background.hover, // 6%
       light: light.hpe.color.background.hover,
     },
-
     'background-floating': {
       // Q: looks like we are not using this
       dark: dark.hpe.color.background.floating, // 6%
       light: light.hpe.color.background.floating,
     },
-    'background-selected-weak': {
-      // Q: looks like we are not using this
-      dark: dark.hpe.color.background.selected.weak, // 6%
-      light: light.hpe.color.background.selected.weak,
-    },
+    // Q: this token causes light green color to be applied
+    // to select options after mouse in and then mouse out
+    // 'background-selected-weak': {
+    //   // Q: looks like we are not using this
+    //   dark: dark.hpe.color.background.selected.weak, // 6%
+    //   light: light.hpe.color.background.selected.weak,
+    // },
     'background-status-critical': {
       // Q: looks like we are not using this
       dark: dark.hpe.color.background.validation.critical, // 6%
@@ -571,57 +572,57 @@ const buildTheme = tokens => {
           },
         },
         extend: `
-            &::-webkit-input-placeholder {
-            font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
-          }
-        
-          &::-moz-placeholder {
-            font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
-          }
-        
-          &:-ms-input-placeholder {
-            font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
-          }
-          `,
+          &::-webkit-input-placeholder {
+          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+        }
+      
+        &::-moz-placeholder {
+          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+        }
+      
+        &:-ms-input-placeholder {
+          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+        }
+        `,
       },
       font: {
         family: "'Metric', Arial, sans-serif",
         face: `
-            @font-face {
-              font-family: "Metric";
-              src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
-                   url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
-            }
-            @font-face {
-              font-family: "Metric";
-              src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
-                   url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
-              font-weight: 400;
-            }
-            @font-face {
-              font-family: "Metric";
-              src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff2") format('woff2'),
-                   url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff") format('woff');
-              font-weight: 700;
-            }
-            @font-face {
-              font-family: "Metric";
-              src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff2") format('woff2'),
-                   url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff") format('woff');
-              font-weight: 600;
-            }
-            @font-face {
-              font-family: "Metric";
-              src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff2") format('woff2'),
-                   url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff") format('woff');
-              font-weight: 500;
-            }
-            @font-face {
-              font-family: "Metric";
-              src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Light.woff2") format('woff2'),
-                   url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Light.woff") format('woff');
-              font-weight: 100;
-            }`,
+          @font-face {
+            font-family: "Metric";
+            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
+                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
+          }
+          @font-face {
+            font-family: "Metric";
+            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
+                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
+            font-weight: 400;
+          }
+          @font-face {
+            font-family: "Metric";
+            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff2") format('woff2'),
+                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff") format('woff');
+            font-weight: 700;
+          }
+          @font-face {
+            font-family: "Metric";
+            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff2") format('woff2'),
+                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff") format('woff');
+            font-weight: 600;
+          }
+          @font-face {
+            font-family: "Metric";
+            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff2") format('woff2'),
+                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff") format('woff');
+            font-weight: 500;
+          }
+          @font-face {
+            font-family: "Metric";
+            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Light.woff2") format('woff2'),
+                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Light.woff") format('woff');
+            font-weight: 100;
+          }`,
       },
       focus: {
         border: undefined,
@@ -814,7 +815,7 @@ const buildTheme = tokens => {
         color: 'text-strong',
         border: {
           color: 'brand',
-          width: '2px',
+          width: '2px', // Q: token value is wrong
           // Q: we don't define a radius here in the hpe theme
           // radius: components.hpe.button.medium.secondary.borderRadius,
         },
@@ -838,12 +839,16 @@ const buildTheme = tokens => {
       option,
       active: {
         background: {
-          color: components.hpe.button.default.enabled.background,
+          color: 'background-contrast',
+          // Q: this token isn't correct
+          // color: components.hpe.button.default.enabled.background,
         },
         color: components.hpe.button.default.enabled.textColor,
         secondary: {
           border: {
-            color: components.hpe.button.secondary.selected.borderColor,
+            color: 'transparent',
+            // Q: this token isn't correct
+            // color: components.hpe.button.secondary.selected.borderColor,
           },
         },
         option: {
@@ -879,8 +884,8 @@ const buildTheme = tokens => {
 
             const style = `inset 0 0 100px 100px ${color}`;
             return `-moz-box-shadow: ${style};
-                -webkit-box-shadow: ${style};
-                box-shadow: ${style};`;
+              -webkit-box-shadow: ${style};
+              box-shadow: ${style};`;
           },
         },
         default: {
@@ -994,36 +999,7 @@ const buildTheme = tokens => {
           },
         },
       },
-      extend: ({ hasIcon, hasLabel, sizeProp, kind, theme }) => {
-        // necessary so primary label is accessible on HPE green background
-        // const { fontSize } = components.hpe.button.medium.default;
-        // const { lineHeight } = components.hpe.button.medium.default;
-        // let style = '';
-        // const iconOnly = hasIcon && !hasLabel;
-        // if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
-        //   style += `font-size: ${fontSize};
-        //   line-height: ${lineHeight};`;
-        // }
-        // let boxShadow;
-
-        // const shadowSpread =
-        //   dimensions.borderSize[
-        //     components.hpe.button?.[sizeProp]?.[kind]?.borderWidth
-        //   ];
-        // const shadowColor =
-        //   colors[components.hpe.button?.[kind]?.enabled?.borderColor]?.[
-        //     theme.dark ? 'dark' : 'light'
-        //   ];
-
-        // if (shadowSpread && shadowColor) {
-        //   style += `box-shadow: 0 0 0 ${shadowSpread} ${shadowColor};`;
-        //   // FUTURE LOOKING ONCE WE HAVE SHADOW TOKENS
-        //   // style += `box-shadow: ${components.hpe.button.secondary.enabled.boxShadow};`;
-        // }
-
-        // style += boxShadow;
-        // return style;
-
+      extend: ({ hasIcon, hasLabel, sizeProp }) => {
         // necessary so primary label is accessible on HPE green background
         const fontSize = '19px';
         const lineHeight = '24px';
@@ -1129,17 +1105,17 @@ const buildTheme = tokens => {
         // Q should this be 4px and not 3px as it is in theme?
         radius: components.hpe.checkbox.medium.control.borderRadius,
         extend: ({ theme, checked, indeterminate }) => `
-          background-color: ${
-            checked || indeterminate
-              ? theme.global.colors['green!']
-              : theme.global.colors.background[theme.dark ? 'dark' : 'light']
-          };
-          ${(checked || indeterminate) && 'border: none;'}
-            `,
+        background-color: ${
+          checked || indeterminate
+            ? theme.global.colors['green!']
+            : theme.global.colors.background[theme.dark ? 'dark' : 'light']
+        };
+        ${(checked || indeterminate) && 'border: none;'}
+          `,
       },
       icon: {
         extend: ({ theme }) => `stroke-width: 2px;
-          stroke: ${theme.global.colors['text-primary-button']}`,
+        stroke: ${theme.global.colors['text-primary-button']}`,
       },
       // Q make sure this is 12px is small
       gap: components.hpe.checkbox.medium.gapX,
@@ -1158,33 +1134,33 @@ const buildTheme = tokens => {
         color: 'background',
         knob: {
           extend: ({ theme }) => `
-               box-shadow: ${
-                 theme.global.elevation[theme.dark ? 'dark' : 'light'].small
-               };
-               border: 1px solid ${
-                 theme.global.colors.border[theme.dark ? 'dark' : 'light']
-               }
-            `,
+             box-shadow: ${
+               theme.global.elevation[theme.dark ? 'dark' : 'light'].small
+             };
+             border: 1px solid ${
+               theme.global.colors.border[theme.dark ? 'dark' : 'light']
+             }
+          `,
         },
         extend: ({ checked, theme }) => `
-            ${checked && `background-color: ${theme.global.colors['green!']};`}
-          `,
+          ${checked && `background-color: ${theme.global.colors['green!']};`}
+        `,
       },
       // HPE Design System guidance states that pad="none" should be applied on CheckBox
       // when its used outside of a FormField. We will apply this hover treatment in
       // those instances.
       extend: ({ disabled, pad }) => css`
-        ${
-          !disabled &&
-          pad === 'none' &&
-          `&:hover {
-          background-color: unset;
-        }`
-        }
-        font-weight: 500;
-        width: auto;
-      };
-      `,
+      ${
+        !disabled &&
+        pad === 'none' &&
+        `&:hover {
+        background-color: unset;
+      }`
+      }
+      font-weight: 500;
+      width: auto;
+    };
+    `,
     },
     checkBoxGroup: {
       container: {
@@ -1202,43 +1178,43 @@ const buildTheme = tokens => {
     dataTable: {
       body: {
         extend: ({ theme }) => `
-            /* Margin and padding allow room for focus on table body */
-            margin: ${theme.global.edgeSize.xxsmall} 0px;
-            padding: 0px ${theme.global.edgeSize.xxsmall};
-          `,
+          /* Margin and padding allow room for focus on table body */
+          margin: ${theme.global.edgeSize.xxsmall} 0px;
+          padding: 0px ${theme.global.edgeSize.xxsmall};
+        `,
       },
       header: {
         border: { side: 'bottom' },
         color: components.hpe.headerCell.enabled.color,
         extend: ({ column, sort, sortable, theme }) =>
           `
-              ${
-                sort &&
-                sort.property === column &&
-                `
-                background: ${
-                  theme.global.colors['background-contrast'][
-                    theme.dark ? 'dark' : 'light'
-                  ]
+            ${
+              sort &&
+              sort.property === column &&
+              `
+              background: ${
+                theme.global.colors['background-contrast'][
+                  theme.dark ? 'dark' : 'light'
+                ]
+              }
+            ` // Q: missing token
+            };
+            ${
+              sortable &&
+              sort &&
+              sort.property !== column &&
+              `
+                svg {
+                  opacity: 0;
                 }
-              ` // Q: missing token
-              };
-              ${
-                sortable &&
-                sort &&
-                sort.property !== column &&
-                `
+                &:hover {
                   svg {
-                    opacity: 0;
+                    opacity: 1;
                   }
-                  &:hover {
-                    svg {
-                      opacity: 1;
-                    }
-                  }
-                `
-              };
-            `,
+                }
+              `
+            };
+          `,
         font: {
           weight: components.hpe.headerCell.fontWeight,
         },
@@ -1389,7 +1365,7 @@ const buildTheme = tokens => {
         // remove: Close,
       },
       message: {
-        color: 'placeholder', // Q: do we need a token here?
+        color: 'placeholder',
       },
       pad: { horizontal: 'xsmall' },
       extend: 'border-radius: 4px;',
@@ -1415,18 +1391,23 @@ const buildTheme = tokens => {
             components.hpe.formField.input.group.container.disabled.background,
         },
         border: {
-          color: components.hpe.formField.input.group.item.disabled.borderColor,
+          color: 'border-weak',
+          // Q: this token isn't the correct value
+          // color: components.hpe.formField.input.group.item.disabled.borderColor,
         },
         label: {
-          // Q: this should be text-weak instead of text-strong
-          color: components.hpe.formField.labelText.disabled.textColor,
+          color: 'text-xweak',
+          // Q: this token should be text-weak instead of text-strong
+          // color: components.hpe.formField.labelText.disabled.textColor,
         },
       },
       error: {
         background: {
-          color:
-            components.hpe.formField.input.container.validation.critical
-              .background,
+          color: 'validation-critical',
+          // Q: this token isn't working
+          // color:
+          //   components.hpe.formField.input.container.validation.critical
+          //     .background,
         },
         container: {
           gap: 'xsmall', // Q: missing token
@@ -1464,7 +1445,9 @@ const buildTheme = tokens => {
         },
       },
       label: {
-        size: components.hpe.formField.medium.labelText.fontSize,
+        size: 'xsmall',
+        // Q: token is incorrect value
+        // size: components.hpe.formField.medium.labelText.fontSize,
         color: 'text',
         // Q: this token is the wrong value
         // color: components.hpe.formField.labelText.enabled.color,
@@ -1687,22 +1670,32 @@ const buildTheme = tokens => {
         },
       },
     },
-    maskedformField: {
+    // maskedformField: { // Q: why do we have this?
+    //   container: {
+    //     extend: ({ theme }) => `
+    //       svg {
+    //         fill: ${
+    //           theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+    //         };
+    //         stroke: ${
+    //           theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+    //         };
+    //       }
+    //     `,
+    //   },
+    // },
+    maskedInput: {
       container: {
         extend: ({ theme }) => `
-            svg {
-              fill: ${
-                theme.global.colors['text-strong'][
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-              stroke: ${
-                theme.global.colors['text-strong'][
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-            }
-          `,
+          svg {
+            fill: ${
+              theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+            };
+            stroke: ${
+              theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+            };
+          }
+        `,
       },
     },
     menu: {
@@ -1947,8 +1940,8 @@ const buildTheme = tokens => {
       // This block can be removed once grommet theme structure is enhanced
       // to support size-specific weights.
       extend: ({ size }) => `
-          ${['xxlarge'].includes(size) ? 'font-weight: 300;' : ''};
-        `,
+        ${['xxlarge'].includes(size) ? 'font-weight: 300;' : ''};
+      `,
     },
     radioButton: {
       // extend for border to use box shadow
@@ -1970,15 +1963,15 @@ const buildTheme = tokens => {
         // Q: this token is the wrong value
         // font-weight: ${components.hpe.radioButton.medium.label.fontWeight}
         extend: ({ theme }) => `
-          font-weight: 500;
-          width: auto;
-          padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
-        `,
+        font-weight: 500;
+        width: auto;
+        padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
+      `,
       },
       // should pad be token?
       extend: ({ theme }) => `
-          padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
-        `,
+        padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
+      `,
       // should gap be token?
       gap: 'xsmall',
       hover: {
@@ -2037,10 +2030,10 @@ const buildTheme = tokens => {
         extend: ({ disabled }) => css`
           ${disabled &&
           `
-            opacity: 0.3;
-            formField {
-              cursor: default;
-            }`}
+          opacity: 0.3;
+          formField {
+            cursor: default;
+          }`}
         `,
       },
       emptySearchMessage: {
@@ -2145,29 +2138,29 @@ const buildTheme = tokens => {
       header: {
         // alot in extend here
         extend: `
-            > div { 
-              height: 100%;
-              justify-content: center;
-            }
-            // align onSelect checkbox to center of header cell
-            label { 
-              justify-content: center;
-            }
-          `,
+          > div { 
+            height: 100%;
+            justify-content: center;
+          }
+          // align onSelect checkbox to center of header cell
+          label { 
+            justify-content: center;
+          }
+        `,
       },
       body: {
         extend: ({ theme }) =>
           `
-              &:hover {
-                button {
-                  background: ${
-                    theme.global.colors['background-contrast'][
-                      theme.dark ? 'dark' : 'light'
-                    ]
-                  }
+            &:hover {
+              button {
+                background: ${
+                  theme.global.colors['background-contrast'][
+                    theme.dark ? 'dark' : 'light'
+                  ]
                 }
               }
-            `,
+            }
+          `,
       },
       row: {
         hover: {
@@ -2176,8 +2169,8 @@ const buildTheme = tokens => {
       },
       footer: {
         extend: `
-            font-weight: 500;
-          `,
+          font-weight: 500;
+        `,
       },
     },
     // use extend for border to use box shadow
@@ -2239,12 +2232,12 @@ const buildTheme = tokens => {
       // This block can be removed once grommet theme structure is enhanced
       // to support size-specific weights.
       extend: ({ size }) => `
-          ${
-            ['xxlarge', '3xl', '4xl', '5xl', '6xl'].includes(size)
-              ? 'font-weight: 300;'
-              : ''
-          };
-        `,
+        ${
+          ['xxlarge', '3xl', '4xl', '5xl', '6xl'].includes(size)
+            ? 'font-weight: 300;'
+            : ''
+        };
+      `,
     },
     // Q: why do we have textformField?
     // textformField: {
@@ -2264,19 +2257,15 @@ const buildTheme = tokens => {
     textInput: {
       container: {
         extend: ({ theme }) => `
-            svg {
-              fill: ${
-                theme.global.colors['text-strong'][
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-              stroke: ${
-                theme.global.colors['text-strong'][
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-            }
-          `,
+          svg {
+            fill: ${
+              theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+            };
+            stroke: ${
+              theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+            };
+          }
+        `,
       },
     },
     tip: {
