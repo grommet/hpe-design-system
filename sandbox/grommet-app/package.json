@@ -11,9 +11,6 @@
   },
   "dependencies": {
     "design-tokens": "*",
-    "grommet": "^2.35.0",
-    "grommet-icons": "^4.12.0",
-    "grommet-theme-hpe": "^5.2.0",
     "gsap": "^3.12.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

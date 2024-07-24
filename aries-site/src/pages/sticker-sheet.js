@@ -7,6 +7,7 @@ import {
   Box,
   Button,
   Menu,
+  Grommet,
   Page,
   Heading,
   PageContent,
@@ -114,134 +115,140 @@ const StickerSheet = () => {
     };
   }, [mode]);
   return (
-    <ThemeContext.Extend value={hpeCurrent}>
-      <Meta
-        title={title}
-        canonicalUrl="https://design-system.hpe.design/theme-test"
-      />
-      <ModeContext.Provider value={contextValue}>
-        <Page kind="full" pad={{ bottom: 'xlarge' }}>
-          <PageContent align="start" gap="medium">
-            <PageHeader
-              title="Theme upgrade testing"
-              subtitle={`To be used for visual regression comparisons from 
+    <Grommet>
+      <ThemeContext.Extend value={hpeCurrent}>
+        <Meta
+          title={title}
+          canonicalUrl="https://design-system.hpe.design/theme-test"
+        />
+        <ModeContext.Provider value={contextValue}>
+          <Page kind="full" pad={{ bottom: 'xlarge' }}>
+            <PageContent align="start" gap="medium">
+              <PageHeader
+                title="Theme upgrade testing"
+                subtitle={`To be used for visual regression comparisons from 
             current theme to the next.`}
-              actions={
-                // eslint-disable-next-line max-len
-                // eslint-disable-next-line grommet/formfield-htmlfor-id, grommet/formfield-name
-                <FormField label="View mode">
-                  <Select
-                    options={['v3', 'tokens', 'Compare diffs']}
-                    value={mode}
-                    onChange={({ option }) => setMode(option)}
-                  />
-                </FormField>
-              }
-              width="100%"
-            />
-            <Box gap="small">
-              {textSizes.map(size => (
-                <Compare>
-                  <Anchor size={size} key={size}>
-                    Anchor {size}
-                  </Anchor>
-                </Compare>
-              ))}
-            </Box>
-            <Box gap="small">
-              {textSizes.map(size => (
-                <Compare guidingChild="last">
-                  <Text size={size} key={size}>
-                    Text {size}
-                  </Text>
-                </Compare>
-              ))}
-            </Box>
-            <Box gap="small">
-              {['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge'].map(
-                size => (
+                actions={
+                  // eslint-disable-next-line max-len
+                  // eslint-disable-next-line grommet/formfield-htmlfor-id, grommet/formfield-name
+                  <FormField label="View mode">
+                    <Select
+                      options={['v3', 'tokens', 'Compare diffs']}
+                      value={mode}
+                      onChange={({ option }) => setMode(option)}
+                    />
+                  </FormField>
+                }
+                width="100%"
+              />
+              <Box gap="small">
+                {textSizes.map(size => (
+                  <Compare>
+                    <Anchor size={size} key={size}>
+                      Anchor {size}
+                    </Anchor>
+                  </Compare>
+                ))}
+              </Box>
+              <Box gap="small">
+                {textSizes.map(size => (
+                  <Compare guidingChild="last">
+                    <Text size={size} key={size}>
+                      Text {size}
+                    </Text>
+                  </Compare>
+                ))}
+              </Box>
+              <Box gap="small">
+                {[
+                  'xsmall',
+                  'small',
+                  'medium',
+                  'large',
+                  'xlarge',
+                  'xxlarge',
+                ].map(size => (
                   <Compare>
                     <Paragraph size={size} key={size} margin="none">
                       Paragraph {size} with some extra text so we can see how it
                       is when it wraps
                     </Paragraph>
                   </Compare>
-                ),
-              )}
-            </Box>
-            <Box gap="medium">
-              {[1, 2, 3, 4, 5, 6].map(level => (
-                <Box gap="small">
-                  {['small', 'medium', 'large', 'xlarge'].map(size => (
-                    <Compare guidingChild="last">
-                      <Heading
-                        size={size}
-                        key={`${level} ${size}`}
-                        level={level}
-                        margin="none"
-                      >
-                        Heading {level} {size}
-                      </Heading>
-                    </Compare>
-                  ))}
-                </Box>
-              ))}
-            </Box>
-            <Box gap="small">
-              {kinds.map(kind =>
-                sizes.map(size =>
-                  states.map(state => (
-                    <Compare>
-                      <Button
-                        key={`${kind} ${size} ${state}`}
-                        label={`${kind} ${size} ${state}`}
-                        size={size}
-                        kind={kind}
-                        active={state === 'active'}
-                        disabled={state === 'disabled'}
-                      />
-                    </Compare>
-                  )),
-                ),
-              )}
-            </Box>
-            <Box gap="small">
-              <Compare>
-                <Button secondary icon={<User />} size="small" />
-              </Compare>
-              <Compare>
-                <Button secondary icon={<User />} />
-              </Compare>
-              <Compare>
-                <Button secondary icon={<User />} size="large" />
-              </Compare>
-              <Compare>
-                <Button secondary icon={<User />} size="xlarge" />
-              </Compare>
-            </Box>
-            <Box gap="small">
-              <Compare>
-                <User size="small" />
-              </Compare>
-              <Compare>
-                <User />
-              </Compare>
-              <Compare>
-                <User size="large" />
-              </Compare>
-              <Compare>
-                <User size="xlarge" />
-              </Compare>
-            </Box>
-            <Box>
-              <Compare>
-                <Accordion>
-                  <AccordionPanel label="Panel 1">hi</AccordionPanel>
-                  <AccordionPanel label="Panel 2">hi</AccordionPanel>
-                </Accordion>
-              </Compare>
-            </Box>
-            {/* <Box>
+                ))}
+              </Box>
+              <Box gap="medium">
+                {[1, 2, 3, 4, 5, 6].map(level => (
+                  <Box gap="small">
+                    {['small', 'medium', 'large', 'xlarge'].map(size => (
+                      <Compare guidingChild="last">
+                        <Heading
+                          size={size}
+                          key={`${level} ${size}`}
+                          level={level}
+                          margin="none"
+                        >
+                          Heading {level} {size}
+                        </Heading>
+                      </Compare>
+                    ))}
+                  </Box>
+                ))}
+              </Box>
+              <Box gap="small">
+                {kinds.map(kind =>
+                  sizes.map(size =>
+                    states.map(state => (
+                      <Compare>
+                        <Button
+                          key={`${kind} ${size} ${state}`}
+                          label={`${kind} ${size} ${state}`}
+                          size={size}
+                          kind={kind}
+                          active={state === 'active'}
+                          disabled={state === 'disabled'}
+                        />
+                      </Compare>
+                    )),
+                  ),
+                )}
+              </Box>
+              <Box gap="small">
+                <Compare>
+                  <Button secondary icon={<User />} size="small" />
+                </Compare>
+                <Compare>
+                  <Button secondary icon={<User />} />
+                </Compare>
+                <Compare>
+                  <Button secondary icon={<User />} size="large" />
+                </Compare>
+                <Compare>
+                  <Button secondary icon={<User />} size="xlarge" />
+                </Compare>
+              </Box>
+              <Box gap="small">
+                <Compare>
+                  <User size="small" />
+                </Compare>
+                <Compare>
+                  <User />
+                </Compare>
+                <Compare>
+                  <User size="large" />
+                </Compare>
+                <Compare>
+                  <User size="xlarge" />
+                </Compare>
+              </Box>
+              <Box>
+                <Compare>
+                  <Accordion>
+                    <AccordionPanel label="Panel 1">hi</AccordionPanel>
+                    <AccordionPanel label="Panel 2">hi</AccordionPanel>
+                  </Accordion>
+                </Compare>
+              </Box>
+              {/* <Box>
           <Avatar background="blue!" size="small">
             <Text weight={500}>TS</Text>
           </Avatar>
@@ -253,86 +260,87 @@ const StickerSheet = () => {
           </Avatar>
         </Box> */}
 
-            <Compare>
-              <CheckBoxSimpleExample />
-            </Compare>
-            <Compare>
-              <CheckBoxGroupSimpleExample />
-            </Compare>
-            <Compare>
-              <DateInput format="mm/dd/yyyy" inline />
-            </Compare>
-            <Compare>
-              <MaskedPhoneExample />
-            </Compare>
-            <Compare>
-              <Menu
-                label="Menu"
-                items={[{ label: 'Item 1' }, { label: 'Item 2' }]}
-              />
-            </Compare>
-            <Compare>
-              <Menu
-                label="Menu"
-                kind="toolbar"
-                items={[{ label: 'Item 1' }, { label: 'Item 2' }]}
-              />
-            </Compare>
-            <Compare>
-              <NameValueListSimpleExample />
-            </Compare>
-            <Compare>
-              <BannerNotificationInfo />
-            </Compare>
-            <Compare>
-              <PageHeader
-                title="Page title"
-                subtitle="Here is a subtitle for the page."
-              />
-            </Compare>
-            <Compare>
-              <Pagination numberItems={100} />
-            </Compare>
-            <Compare>
-              <RadioButtonGroupExample />
-            </Compare>
-            <Compare>
-              <RangeInputExample />
-            </Compare>
-            <Compare>
-              <SearchExample />
-            </Compare>
-            <Compare>
-              <SelectExample />
-            </Compare>
-            <Compare>
-              <SelectMultipleSimpleExample />
-            </Compare>
-            <Compare>
-              <Spinner />
-            </Compare>
-            <Compare>
-              <Spinner size="medium" />
-            </Compare>
-            <Compare>
-              <Spinner size="large" />
-            </Compare>
-            <Compare>
-              <TabsExample />
-            </Compare>
-            <Compare>
-              <Tag value="Value" name="Name" />
-            </Compare>
-            <Compare>
-              <TextAreaExample />
-            </Compare>
-            <Compare>
-              <TextInputExample />
-            </Compare>
-          </PageContent>
-        </Page>
-      </ModeContext.Provider>
-    </ThemeContext.Extend>
+              <Compare>
+                <CheckBoxSimpleExample />
+              </Compare>
+              <Compare>
+                <CheckBoxGroupSimpleExample />
+              </Compare>
+              <Compare>
+                <DateInput format="mm/dd/yyyy" inline />
+              </Compare>
+              <Compare>
+                <MaskedPhoneExample />
+              </Compare>
+              <Compare>
+                <Menu
+                  label="Menu"
+                  items={[{ label: 'Item 1' }, { label: 'Item 2' }]}
+                />
+              </Compare>
+              <Compare>
+                <Menu
+                  label="Menu"
+                  kind="toolbar"
+                  items={[{ label: 'Item 1' }, { label: 'Item 2' }]}
+                />
+              </Compare>
+              <Compare>
+                <NameValueListSimpleExample />
+              </Compare>
+              <Compare>
+                <BannerNotificationInfo />
+              </Compare>
+              <Compare>
+                <PageHeader
+                  title="Page title"
+                  subtitle="Here is a subtitle for the page."
+                />
+              </Compare>
+              <Compare>
+                <Pagination numberItems={100} />
+              </Compare>
+              <Compare>
+                <RadioButtonGroupExample />
+              </Compare>
+              <Compare>
+                <RangeInputExample />
+              </Compare>
+              <Compare>
+                <SearchExample />
+              </Compare>
+              <Compare>
+                <SelectExample />
+              </Compare>
+              <Compare>
+                <SelectMultipleSimpleExample />
+              </Compare>
+              <Compare>
+                <Spinner />
+              </Compare>
+              <Compare>
+                <Spinner size="medium" />
+              </Compare>
+              <Compare>
+                <Spinner size="large" />
+              </Compare>
+              <Compare>
+                <TabsExample />
+              </Compare>
+              <Compare>
+                <Tag value="Value" name="Name" />
+              </Compare>
+              <Compare>
+                <TextAreaExample />
+              </Compare>
+              <Compare>
+                <TextInputExample />
+              </Compare>
+            </PageContent>
+          </Page>
+        </ModeContext.Provider>
+      </ThemeContext.Extend>
+    </Grommet>
   );
 };
 

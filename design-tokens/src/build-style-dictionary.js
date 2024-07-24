@@ -103,17 +103,18 @@ StyleDictionary.registerFormat({
   },
 });
 
+const BUILD_DIR = 'dist';
 const TOKENS_DIR = 'tokens';
-const ESM_DIR = 'dist/esm/';
-const JSON_DIR = 'dist/json/';
-const CSS_DIR = 'dist/css/';
+const ESM_DIR = `${BUILD_DIR}/esm/`;
+const JSON_DIR = `${BUILD_DIR}/json/`;
+const CSS_DIR = `${BUILD_DIR}/css/`;
 const PREFIX = 'hpe';
 
 let esm = '';
 
 StyleDictionary.extend({
   // from dist because it contains the "px" version
-  source: ['dist/primitives.base.json'],
+  source: [`${BUILD_DIR}/primitives.base.json`],
   platforms: {
     js: {
       transformGroup: 'js/w3c',
@@ -161,7 +162,7 @@ const colorModeFiles = fs
   .map(file => (file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined))
   .filter(file => file);
 
-const primitives = fs.readFileSync('dist/primitives.base.json');
+const primitives = fs.readFileSync(`${BUILD_DIR}/primitives.base.json`);
 const rawPrimitives = JSON.parse(primitives);
 const primitiveColorNames = Object.keys(rawPrimitives.base.color);
 
@@ -171,7 +172,7 @@ colorModeFiles.forEach(file => {
   const [theme, mode] = getThemeAndMode(file);
   StyleDictionary.extend({
     source: [
-      'dist/primitives.base.json',
+      `${BUILD_DIR}/primitives.base.json`,
       file,
       `${TOKENS_DIR}/elevation.${mode}.json`,
       `${TOKENS_DIR}/gradient.${mode}.json`,
@@ -266,8 +267,8 @@ dimensionFiles.forEach(file => {
   const mode = res[1];
   StyleDictionary.extend({
     source: [
-      'dist/primitives.base.json',
-      `dist/typography.${mode}.json`, // dist folder has "rem"
+      `${BUILD_DIR}/primitives.base.json`,
+      `${BUILD_DIR}/typography.${mode}.json`, // dist folder has "rem"
       file,
     ],
     platforms: {
@@ -340,11 +341,11 @@ const exclude = [
 StyleDictionary.extend({
   source: [
     // from dist because it contains the "px"/"rem" version
-    'dist/primitives.base.json',
+    `${BUILD_DIR}/primitives.base.json`,
     `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
     `${TOKENS_DIR}/dimension - semantic.large.json`, // using large mode to have a reference name available
-    'dist/typography.large.json', // using large mode to have a reference name available
-    'dist/component.default.json',
+    `${BUILD_DIR}/typography.large.json`, // using large mode to have a reference name available
+    `${BUILD_DIR}/component.default.json`,
   ],
   platforms: {
     css: {

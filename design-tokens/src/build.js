@@ -48,10 +48,11 @@ const numberToDimension = (primitives, component, unit = 'px') => {
 };
 
 const TOKENS_DIR = 'tokens';
+const BUILD_DIR = 'dist';
 
-mkdirSync('./dist');
+mkdirSync(`./${BUILD_DIR}`);
 
-mkdirSync('./dist/esm-unresolved');
+mkdirSync(`./${BUILD_DIR}/esm-unresolved`);
 let esm = '';
 
 const dimensionFiles = readdirSync(TOKENS_DIR)
@@ -73,7 +74,7 @@ dimensionFiles.forEach(file => {
 
 Object.keys(dimensionTokens).forEach(key => {
   writeFileSync(
-    `./dist/esm-unresolved/dimension.${key}.js`,
+    `./${BUILD_DIR}/esm-unresolved/dimension.${key}.js`,
     `export default ${JSON.stringify(dimensionTokens[key], null, 2)}`,
   );
   esm += `export { default as ${key} } from './dimension.${key}';\n`;
@@ -88,9 +89,9 @@ readdirSync(TOKENS_DIR).forEach(file => {
       '.json',
       '',
     )}';\n`;
-    writeFileSync('./dist/esm-unresolved/index.js', esm);
+    writeFileSync(`./${BUILD_DIR}/esm-unresolved/index.js`, esm);
     writeFileSync(
-      `./dist/esm-unresolved/${file.replace('json', 'js')}`,
+      `./${BUILD_DIR}/esm-unresolved/${file.replace('json', 'js')}`,
       `export default ${JSON.stringify(parsed, null, 2)}`,
     );
   }
@@ -108,11 +109,11 @@ const dimensionComponents = numberToDimension(components, true);
 // currently used by style-dictionary. Figma Variables doesn't want units,
 // but code needs them
 writeFileSync(
-  './dist/primitives.base.json',
+  `./${BUILD_DIR}/primitives.base.json`,
   `${JSON.stringify(dimensionPrimitives, null, 2)}`,
 );
 writeFileSync(
-  './dist/component.default.json',
+  `./${BUILD_DIR}/component.default.json`,
   `${JSON.stringify(dimensionComponents, null, 2)}`,
 );
 
@@ -125,9 +126,9 @@ const typographyFiles = readdirSync(TOKENS_DIR)
 typographyFiles.forEach(file => {
   const raw = readFileSync(file);
   const parsed = JSON.parse(raw);
-  const formatted = numberToDimension(parsed, 'rem');
+  const formatted = numberToDimension(parsed, undefined, 'rem');
   writeFileSync(
-    `./dist/${file.replace(TOKENS_DIR, '').replace(' - semantic', '')}`,
+    `./${BUILD_DIR}/${file.replace(TOKENS_DIR, '').replace(' - semantic', '')}`,
     `${JSON.stringify(formatted, null, 2)}`,
   );
 });
@@ -239,13 +240,13 @@ exclude.forEach(category => delete res[category]);
 
 // TO DO make prefix dynamic
 res = { hpe: { ...res } };
-mkdirSync('./dist/esm/');
+mkdirSync(`./${BUILD_DIR}/esm/`);
 writeFileSync(
-  './dist/esm/components.default.js',
+  `./${BUILD_DIR}/esm/components.default.js`,
   `export default ${JSON.stringify(res, null, 2)}`,
 );
 writeFileSync(
-  './dist/esm/index.js',
+  `./${BUILD_DIR}/esm/index.js`,
   "export { default as components } from './components.default';\n",
 );
 

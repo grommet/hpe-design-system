@@ -5,11 +5,12 @@ import { current, warm } from './theme';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import NextDashboard from './pages/next/index';
+import StickerSheet from './pages/sticker-sheet/index';
 import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
 import { FloatingActionButton } from './components';
 import { HPEGreenLakeBadge } from './components/HPEGreenLakeBadge';
-import { useLoading } from './utils/skeleton';
+// import { useLoading } from './utils/skeleton';
 import './app.css';
 
 export const BackgroundContext = createContext({});
@@ -49,7 +50,8 @@ const App = () => {
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
 
-  const loading = useLoading(6000);
+  // const loading = useLoading(6000);
+  const loading = false; // Temp disabling for sticker sheet
 
   return (
     <Grommet
@@ -102,6 +104,7 @@ const App = () => {
                     }
                   />
                   <Route path="/sustainability" element={<Sustainability />} />
+                  <Route path="/sticker-sheet" element={<StickerSheet />} />
                 </Routes>
               </BrowserRouter>
               {window.location.pathname === '/next' ? (
