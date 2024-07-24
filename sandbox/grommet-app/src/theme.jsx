@@ -3,11 +3,25 @@ import {
   // keyframes
 } from 'styled-components';
 import { deepFreeze } from 'grommet/utils';
-import { dark, light, large, small, components, base } from 'design-tokens';
 import {
+  Ascending,
+  Descending,
+  Up,
   Down,
+  Unsorted,
+  Blank,
+  CircleAlert,
   Close,
+  Hpe,
 } from 'grommet-icons';
+import {
+  dark,
+  light,
+  large,
+  small,
+  components,
+  base,
+} from '../../../design-tokens/';
 
 const dimensions = {
   borderSize: {
@@ -139,31 +153,31 @@ const backgrounds = {
   'light-shadow-4':
     'url(https://d3hq6blov2iije.cloudfront.net/images/textures/GettyImages-1190757657_800_0_72_RGB+19855.jpg)',
   'orange-yellow': `linear-gradient(
-      45deg,
-      hsl(22deg 100% 50%) 0%,
-      hsl(34deg 100% 50%) 50%,
-      hsl(46deg 100% 50%) 100%
-    );`,
+        45deg,
+        hsl(22deg 100% 50%) 0%,
+        hsl(34deg 100% 50%) 50%,
+        hsl(46deg 100% 50%) 100%
+      );`,
   'purple-blue': `linear-gradient(
-      45deg,
-      hsl(281deg 100% 63%) 1%,
-      hsl(227deg 83% 58%) 50%,
-      hsl(174deg 69% 53%) 99%
-    );`,
+        45deg,
+        hsl(281deg 100% 63%) 1%,
+        hsl(227deg 83% 58%) 50%,
+        hsl(174deg 69% 53%) 99%
+      );`,
   'purple-blue-yellow': `linear-gradient(
-      225deg,
-      hsl(263deg 82% 55%) 0%,
-      hsl(196deg 72% 53%) 25%,
-      hsl(171deg 80% 63%) 50%,
-      hsl(138deg 93% 68%) 75%,
-      hsl(47deg 99% 50%) 100%
-    );`,
+        225deg,
+        hsl(263deg 82% 55%) 0%,
+        hsl(196deg 72% 53%) 25%,
+        hsl(171deg 80% 63%) 50%,
+        hsl(138deg 93% 68%) 75%,
+        hsl(47deg 99% 50%) 100%
+      );`,
   'purple-magenta-yellow': `linear-gradient(
-      45deg,
-      hsl(274deg 100% 50%) 0%,
-      hsl(340deg 100% 50%) 50%,
-      hsl(46deg 100% 50%) 100%
-  );`,
+        45deg,
+        hsl(274deg 100% 50%) 0%,
+        hsl(340deg 100% 50%) 50%,
+        hsl(46deg 100% 50%) 100%
+    );`,
 };
 
 // const dropKeyFrames = keyframes`
@@ -205,16 +219,16 @@ const primaryBackground = props => {
   if (!props.active) {
     style += !props.colorValue
       ? `background:
-linear-gradient(70deg, transparent,
-  ${props.theme.global.colors['green!']} 35%, transparent 70%)
-  ${props.theme.global.colors['green!']};`
+  linear-gradient(70deg, transparent,
+    ${props.theme.global.colors['green!']} 35%, transparent 70%)
+    ${props.theme.global.colors['green!']};`
       : `
-      color: ${
-        props.theme.global.colors['text-strong'][
-          props.theme.dark ? 'dark' : 'light'
-        ]
-      };
-    `;
+        color: ${
+          props.theme.global.colors['text-strong'][
+            props.theme.dark ? 'dark' : 'light'
+          ]
+        };
+      `;
   }
   return style;
 };
@@ -412,17 +426,18 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.background.hover, // 6%
       light: light.hpe.color.background.hover,
     },
-
     'background-floating': {
       // Q: looks like we are not using this
       dark: dark.hpe.color.background.floating, // 6%
       light: light.hpe.color.background.floating,
     },
-    'background-selected-weak': {
-      // Q: looks like we are not using this
-      dark: dark.hpe.color.background.selected.weak, // 6%
-      light: light.hpe.color.background.selected.weak,
-    },
+    // Q: this token causes light green color to be applied
+    // to select options after mouse in and then mouse out
+    // 'background-selected-weak': {
+    //   // Q: looks like we are not using this
+    //   dark: dark.hpe.color.background.selected.weak, // 6%
+    //   light: light.hpe.color.background.selected.weak,
+    // },
     'background-status-critical': {
       // Q: looks like we are not using this
       dark: dark.hpe.color.background.validation.critical, // 6%
@@ -676,8 +691,8 @@ const buildTheme = tokens => {
       },
       border: undefined,
       icons: {
-        // collapse: Up,
-        // expand: Down,
+        collapse: Up,
+        expand: Down,
         color: 'text',
       },
     },
@@ -759,9 +774,9 @@ const buildTheme = tokens => {
         background: { color: 'brand' },
         color: 'text-primary-button',
         font: { weight: 'bold' }, // Q: missing token?
-        // icon: <Hpe />,
+        icon: <Hpe />,
         reverse: true,
-        extend: (props) => primaryBackground(props),
+        extend: props => primaryBackground(props),
       },
       // TO DO add cta-alternate variant
       'cta-alternate': {
@@ -770,7 +785,7 @@ const buildTheme = tokens => {
         font: {
           weight: 'bold', // Q: missing token?
         },
-        // icon: <Hpe color="brand" />,
+        icon: <Hpe color="brand" />,
         reverse: true,
       },
       default: {
@@ -800,7 +815,7 @@ const buildTheme = tokens => {
         color: 'text-strong',
         border: {
           color: 'brand',
-          width: '2px',
+          width: '2px', // Q: token value is wrong
           // Q: we don't define a radius here in the hpe theme
           // radius: components.hpe.button.medium.secondary.borderRadius,
         },
@@ -824,12 +839,16 @@ const buildTheme = tokens => {
       option,
       active: {
         background: {
-          color: components.hpe.button.default.enabled.background,
+          color: 'background-contrast',
+          // Q: this token isn't correct
+          // color: components.hpe.button.default.enabled.background,
         },
         color: components.hpe.button.default.enabled.textColor,
         secondary: {
           border: {
-            color: components.hpe.button.secondary.selected.borderColor,
+            color: 'transparent',
+            // Q: this token isn't correct
+            // color: components.hpe.button.secondary.selected.borderColor,
           },
         },
         option: {
@@ -980,36 +999,7 @@ const buildTheme = tokens => {
           },
         },
       },
-      extend: ({ hasIcon, hasLabel, sizeProp, kind, theme }) => {
-        // necessary so primary label is accessible on HPE green background
-        // const { fontSize } = components.hpe.button.medium.default;
-        // const { lineHeight } = components.hpe.button.medium.default;
-        // let style = '';
-        // const iconOnly = hasIcon && !hasLabel;
-        // if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
-        //   style += `font-size: ${fontSize};
-        //   line-height: ${lineHeight};`;
-        // }
-        // let boxShadow;
-
-        // const shadowSpread =
-        //   dimensions.borderSize[
-        //     components.hpe.button?.[sizeProp]?.[kind]?.borderWidth
-        //   ];
-        // const shadowColor =
-        //   colors[components.hpe.button?.[kind]?.enabled?.borderColor]?.[
-        //     theme.dark ? 'dark' : 'light'
-        //   ];
-
-        // if (shadowSpread && shadowColor) {
-        //   style += `box-shadow: 0 0 0 ${shadowSpread} ${shadowColor};`;
-        //   // FUTURE LOOKING ONCE WE HAVE SHADOW TOKENS
-        //   // style += `box-shadow: ${components.hpe.button.secondary.enabled.boxShadow};`;
-        // }
-
-        // style += boxShadow;
-        // return style;
-
+      extend: ({ hasIcon, hasLabel, sizeProp }) => {
         // necessary so primary label is accessible on HPE green background
         const fontSize = '19px';
         const lineHeight = '24px';
@@ -1017,7 +1007,7 @@ const buildTheme = tokens => {
         const iconOnly = hasIcon && !hasLabel;
         if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
           style += `font-size: ${fontSize};
-        line-height: ${lineHeight};`;
+          line-height: ${lineHeight};`;
         }
         return style;
       },
@@ -1239,12 +1229,11 @@ const buildTheme = tokens => {
         },
       },
       icons: {
-        // Q do icons not work?
-        // ascending: () => <Ascending size="large" />,
-        // descending: () => <Descending size="large" />,
-        // contract: () => <Up height="medium" />,
-        // expand: () => <Down height="medium" />,
-        // sortable: () => <Unsorted size="large" />,
+        ascending: () => <Ascending size="large" />,
+        descending: () => <Descending size="large" />,
+        contract: () => <Up height="medium" />,
+        expand: () => <Down height="medium" />,
+        sortable: () => <Unsorted size="large" />,
       },
       pinned: {
         header: {
@@ -1402,23 +1391,28 @@ const buildTheme = tokens => {
             components.hpe.formField.input.group.container.disabled.background,
         },
         border: {
-          color: components.hpe.formField.input.group.item.disabled.borderColor,
+          color: 'border-weak',
+          // Q: this token isn't the correct value
+          // color: components.hpe.formField.input.group.item.disabled.borderColor,
         },
         label: {
-          // Q: this should be text-weak instead of text-strong
-          color: components.hpe.formField.labelText.disabled.textColor,
+          color: 'text-xweak',
+          // Q: this token should be text-weak instead of text-strong
+          // color: components.hpe.formField.labelText.disabled.textColor,
         },
       },
       error: {
         background: {
-          color:
-            components.hpe.formField.input.container.validation.critical
-              .background,
+          color: 'validation-critical',
+          // Q: this token isn't working
+          // color:
+          //   components.hpe.formField.input.container.validation.critical
+          //     .background,
         },
         container: {
           gap: 'xsmall', // Q: missing token
         },
-        // icon: <CircleAlert size="small" />,
+        icon: <CircleAlert size="small" />,
         size: 'xsmall', // Q: missing token
         // Q: confused why we have both hpe.formField.errorText.enabled.textColor
         // and hpe.formField.errorText.disabled.color
@@ -1451,7 +1445,9 @@ const buildTheme = tokens => {
         },
       },
       label: {
-        size: components.hpe.formField.medium.labelText.fontSize,
+        size: 'xsmall',
+        // Q: token is incorrect value
+        // size: components.hpe.formField.medium.labelText.fontSize,
         color: 'text',
         // Q: this token is the wrong value
         // color: components.hpe.formField.labelText.enabled.color,
@@ -1674,7 +1670,21 @@ const buildTheme = tokens => {
         },
       },
     },
-    maskedformField: {
+    // maskedformField: { // Q: why do we have this?
+    //   container: {
+    //     extend: ({ theme }) => `
+    //       svg {
+    //         fill: ${
+    //           theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+    //         };
+    //         stroke: ${
+    //           theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+    //         };
+    //       }
+    //     `,
+    //   },
+    // },
+    maskedInput: {
       container: {
         extend: ({ theme }) => `
           svg {
@@ -1972,13 +1982,13 @@ const buildTheme = tokens => {
           color: undefined,
         },
       },
-      // icons: {
-      //   circle: () => (
-      //     <Blank color="selected-background">
-      //       <circle cx="12" cy="12" r="8" />
-      //     </Blank>
-      //   ),
-      // },
+      icons: {
+        circle: () => (
+          <Blank color="selected-background">
+            <circle cx="12" cy="12" r="8" />
+          </Blank>
+        ),
+      },
     },
     radioButtonGroup: {
       container: {
@@ -2033,7 +2043,7 @@ const buildTheme = tokens => {
       },
       icons: {
         color: 'text',
-        // down: Down,
+        down: Down,
         // this was not in token
         margin: {
           left: 'small',
@@ -2043,7 +2053,7 @@ const buildTheme = tokens => {
           // control.
           right: '12px',
         },
-        // up: Up,
+        up: Up,
       },
       options: undefined,
     },
