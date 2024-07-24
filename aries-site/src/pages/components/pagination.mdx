@@ -1,6 +1,7 @@
 import { Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
+  PaginationAnatomy,
   PaginationCardsExample,
   PaginationExample,
   ToggleGroupViews,
@@ -12,6 +13,8 @@ import {
   docs="https://v2.grommet.io/pagination?theme=hpe#props"
   figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?node-id=26125-326"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Pagination/Pagination.js"
+  showResponsiveControls={['laptop', 'mobile']}
+  height={{ max: 'small' }}
 >
   <PaginationExample />
 </Example>
@@ -36,6 +39,13 @@ Common ways to display datasets include, DataTable, List & Cards. Pagination can
 
 ## Anatomy
 
+<Example
+  caption="Diagram illustrating the parts composing Pagination."
+  plain
+>
+  <PaginationAnatomy />
+</Example>
+
 | Label | Region          | Purpose                                                                            | Required | Notes                                                                                                                                      |
 | :---: | --------------- | ---------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | **1** | **Container**   | Container, organizes its children, where they appear, how they adapt responsively. | Required | --                                                                                                                                         |
@@ -43,22 +53,13 @@ Common ways to display datasets include, DataTable, List & Cards. Pagination can
 | **3** | **StepOptions** | Displays the current number of items within a page and allows the user to modify.  | Optional | Step defaults to 10. Dropdown options default to 10, 25, 50, 100. The default step and step options can be customized to fit the use case. |
 | **4** | **Navigation**  | Allow user to jump to a specific page.                                             | Required | a11yTitle required. If no icon is shown, label is required.                                                                                |
 
+## Types
 
+### Pagination with Standard Navigation
 
-| Label | Region           | Purpose                                                                               | Required | Notes                                                       |
-| :---: | ---------------- | ------------------------------------------------------------------------------------  | :------: | ----------------------------------------------------------- |
-| **1** | **Navigation**   | Group all controls.                                                                   | --       | --                                                          |
-| **2** | **Previous**     | Moves back one page of results. Disabled when on page 1.                              | --       | If no label is shown, icon is required.                     |
-| **3** | **Next**         | Moves forward one page of results. Disabled when on last page.                        | --       | a11yTitle required. If no icon is shown, label is required. |
-| **4** | **Current page** | `active’ state button indicates the currently displayed page.                         | --       | a11yTitle required. If no icon is shown, label is required. |
-| **5** | **More**         | Decorative ellipsis indicating that more pages exist outside current visible range.   | --       | a11yTitle required. If no icon is shown, label is required. |
-| **6** | **Edge pages**   | Navigate to first or last page in the dataset.                                        | --       | Edge pages dynamically appear if the dataset is large & are conditional on which page is selected. By default 1 “edge page” displays, this value can be increased with the numberEdgePages prop. |
-| **7** | **Middle pages** | Number of pages displayed between the More indicators.                                | --       | The number of navigation buttons is dynamic & related to the returned data set the ‘step’ number. To control the number of buttons displayed for large sets, use grommet’s prop numberMiddlePages - the default is set to 3 middle pages. Number of middle pages may be increased or reduced when according to if the design concerns are driven by horizontal real-estate or ease of navigation to large datasets. |
+The standard navigation in the Pagination component displays up to 7 buttons, including Edge Pages (first and last), Middle Pages (maximum of 3 pages) and Arrow Buttons (previous and next).
 
-## Alternatives to pagination
+### Pagination with Custom Navigation
 
-### Infinite scroll
-As an alternative to grouping data in page views,  InfiniteScroll provides a  container that renders items continuously as the user scrolls down. https://v2.grommet.io/infinitescroll
-
-## Responsive behaviour
-The pagination contain should fill & match the width of the data view it is attached to.  However since pagination content can vary based on summary length, the number of pagination buttons visible it will wrap & stack according to what elements are visible, and how much horizontal with is available 
+The navigation in the Pagination component can be customized to better fit different use cases. The following settings can be adjusted:
+Middle pages: adjusts the number of visible pages between the edge pages. Edge pages: adjusts the number of visible edge pages.
