@@ -89,7 +89,7 @@ export const PaginationAnatomy = () => (
           id="border"
           border={{ side: 'top' }}
           width="12px"
-        ></Box>
+        />
         <Box
           background="background-front"
           fill
