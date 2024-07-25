@@ -713,7 +713,7 @@ const buildTheme = tokens => {
         font: {
           weight: components.hpe.button.primary.enabled.fontWeight,
         },
-        extend: props => primaryBackground(props),
+        // extend: props => primaryBackground(props),
       },
       secondary: {
         border: {
@@ -1113,7 +1113,7 @@ const buildTheme = tokens => {
       },
       icon: {
         extend: ({ theme }) => `stroke-width: 2px;
-        stroke: ${theme.global.colors['text-primary-button']}`,
+        stroke: ${theme.global.colors['text-primary-button']}`, // TO DO need a sematic token for onSelected
       },
       // Q make sure this is 12px is small
       gap: components.hpe.checkbox.medium.gapX,
