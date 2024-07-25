@@ -4,7 +4,16 @@ import {
 } from 'styled-components';
 import { deepFreeze } from 'grommet/utils';
 import { dark, light, large, small, components } from 'design-tokens';
-import { Down, Close, Up, Hpe, CircleAlert } from 'grommet-icons';
+import {
+  Down,
+  Close,
+  Up,
+  Hpe,
+  CircleAlert,
+  Ascending,
+  Descending,
+  Unsorted,
+} from 'grommet-icons';
 
 const dimensions = {
   borderSize: {
