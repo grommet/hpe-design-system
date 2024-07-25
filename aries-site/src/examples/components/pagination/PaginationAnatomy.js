@@ -54,7 +54,7 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['24px', 'small', ['small', 'medium'], ['small', 'medium']]}
+    columns={['24px', 'small', 'medium', '300px']}
     justify="center"
     gap={{ column: 'none', row: 'small' }}
     {...rest}
@@ -132,7 +132,7 @@ export const PaginationAnatomy = () => (
         <Box />
         <Annotation id={2} target="2" />
         <Annotation id={3} target="3" />
-        <Annotation margin={{ left: '115px' }} id={4} target="4" />
+        <Annotation margin={{ left: '30px' }} id={4} target="4" />
       </AnatomyGrid>
     </Box>
     <Diagram connections={connections} />
