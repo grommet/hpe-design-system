@@ -4,7 +4,7 @@ import {
 } from 'styled-components';
 import { deepFreeze } from 'grommet/utils';
 import { dark, light, large, small, components } from 'design-tokens';
-import { Down, Close } from 'grommet-icons';
+import { Down, Close, Up, Hpe, CircleAlert } from 'grommet-icons';
 
 const dimensions = {
   borderSize: {
@@ -137,31 +137,31 @@ const backgrounds = {
   'light-shadow-4':
     'url(https://d3hq6blov2iije.cloudfront.net/images/textures/GettyImages-1190757657_800_0_72_RGB+19855.jpg)',
   'orange-yellow': `linear-gradient(
-      45deg,
-      hsl(22deg 100% 50%) 0%,
-      hsl(34deg 100% 50%) 50%,
-      hsl(46deg 100% 50%) 100%
-    );`,
+        45deg,
+        hsl(22deg 100% 50%) 0%,
+        hsl(34deg 100% 50%) 50%,
+        hsl(46deg 100% 50%) 100%
+      );`,
   'purple-blue': `linear-gradient(
-      45deg,
-      hsl(281deg 100% 63%) 1%,
-      hsl(227deg 83% 58%) 50%,
-      hsl(174deg 69% 53%) 99%
-    );`,
+        45deg,
+        hsl(281deg 100% 63%) 1%,
+        hsl(227deg 83% 58%) 50%,
+        hsl(174deg 69% 53%) 99%
+      );`,
   'purple-blue-yellow': `linear-gradient(
-      225deg,
-      hsl(263deg 82% 55%) 0%,
-      hsl(196deg 72% 53%) 25%,
-      hsl(171deg 80% 63%) 50%,
-      hsl(138deg 93% 68%) 75%,
-      hsl(47deg 99% 50%) 100%
-    );`,
+        225deg,
+        hsl(263deg 82% 55%) 0%,
+        hsl(196deg 72% 53%) 25%,
+        hsl(171deg 80% 63%) 50%,
+        hsl(138deg 93% 68%) 75%,
+        hsl(47deg 99% 50%) 100%
+      );`,
   'purple-magenta-yellow': `linear-gradient(
-      45deg,
-      hsl(274deg 100% 50%) 0%,
-      hsl(340deg 100% 50%) 50%,
-      hsl(46deg 100% 50%) 100%
-  );`,
+        45deg,
+        hsl(274deg 100% 50%) 0%,
+        hsl(340deg 100% 50%) 50%,
+        hsl(46deg 100% 50%) 100%
+    );`,
 };
 
 // const dropKeyFrames = keyframes`
@@ -203,16 +203,16 @@ const primaryBackground = props => {
   if (!props.active && !props.disabled) {
     style += !props.colorValue
       ? `background:
-linear-gradient(70deg, transparent,
-  ${props.theme.global.colors['green!']} 35%, transparent 70%)
-  ${props.theme.global.colors['green!']};`
+  linear-gradient(70deg, transparent,
+    ${props.theme.global.colors['green!']} 35%, transparent 70%)
+    ${props.theme.global.colors['green!']};`
       : `
-      color: ${
-        props.theme.global.colors['text-strong'][
-          props.theme.dark ? 'dark' : 'light'
-        ]
-      };
-    `;
+        color: ${
+          props.theme.global.colors['text-strong'][
+            props.theme.dark ? 'dark' : 'light'
+          ]
+        };
+      `;
   }
   return style;
 };
@@ -565,8 +565,8 @@ const buildTheme = tokens => {
       },
       border: undefined,
       icons: {
-        // collapse: Up,
-        // expand: Down,
+        collapse: Up,
+        expand: Down,
         color: 'text',
       },
     },
@@ -670,7 +670,7 @@ const buildTheme = tokens => {
         background: { color: 'brand' },
         color: 'text-primary-button',
         font: { weight: 'bold' }, // Q: missing token?
-        // icon: <Hpe />,
+        icon: <Hpe />,
         reverse: true,
         extend: props => primaryBackground(props),
       },
@@ -681,7 +681,7 @@ const buildTheme = tokens => {
         font: {
           weight: 'bold', // Q: missing token?
         },
-        // icon: <Hpe color="brand" />,
+        icon: <Hpe color="brand" />,
         reverse: true,
       },
       default: {
@@ -740,7 +740,9 @@ const buildTheme = tokens => {
             color: components.hpe.button.secondary.selected.background,
           },
           border: {
-            color: components.hpe.button.secondary.selected.borderColor,
+            color: 'transparent',
+            // Q: this token isn't correct
+            // color: components.hpe.button.secondary.selected.borderColor,
           },
           color: components.hpe.button.secondary.selected.textColor,
         },
@@ -983,36 +985,7 @@ const buildTheme = tokens => {
         //   },
         // },
       },
-      extend: ({ hasIcon, hasLabel, sizeProp, kind, theme }) => {
-        // necessary so primary label is accessible on HPE green background
-        // const { fontSize } = components.hpe.button.medium.default;
-        // const { lineHeight } = components.hpe.button.medium.default;
-        // let style = '';
-        // const iconOnly = hasIcon && !hasLabel;
-        // if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
-        //   style += `font-size: ${fontSize};
-        //   line-height: ${lineHeight};`;
-        // }
-        // let boxShadow;
-
-        // const shadowSpread =
-        //   dimensions.borderSize[
-        //     components.hpe.button?.[sizeProp]?.[kind]?.borderWidth
-        //   ];
-        // const shadowColor =
-        //   colors[components.hpe.button?.[kind]?.enabled?.borderColor]?.[
-        //     theme.dark ? 'dark' : 'light'
-        //   ];
-
-        // if (shadowSpread && shadowColor) {
-        //   style += `box-shadow: 0 0 0 ${shadowSpread} ${shadowColor};`;
-        //   // FUTURE LOOKING ONCE WE HAVE SHADOW TOKENS
-        //   // style += `box-shadow: ${components.hpe.button.secondary.enabled.boxShadow};`;
-        // }
-
-        // style += boxShadow;
-        // return style;
-
+      extend: ({ hasIcon, hasLabel, kind, sizeProp }) => {
         // necessary so primary label is accessible on HPE green background
         const fontSize = components.hpe.button?.[sizeProp]?.[kind]?.fontSize;
         const lineHeight =
@@ -1021,7 +994,7 @@ const buildTheme = tokens => {
         const iconOnly = hasIcon && !hasLabel;
         if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
           style += `font-size: ${fontSize};
-        line-height: ${lineHeight};`;
+          line-height: ${lineHeight};`;
         }
         return style;
       },
@@ -1272,12 +1245,11 @@ const buildTheme = tokens => {
         },
       },
       icons: {
-        // Q do icons not work?
-        // ascending: () => <Ascending size="large" />,
-        // descending: () => <Descending size="large" />,
-        // contract: () => <Up height="medium" />,
-        // expand: () => <Down height="medium" />,
-        // sortable: () => <Unsorted size="large" />,
+        ascending: () => <Ascending size="large" />,
+        descending: () => <Descending size="large" />,
+        contract: () => <Up height="medium" />,
+        expand: () => <Down height="medium" />,
+        sortable: () => <Unsorted size="large" />,
       },
       pinned: {
         header: {
@@ -1389,7 +1361,9 @@ const buildTheme = tokens => {
         background:
           components.hpe.formField.input.group.container.disabled.background,
         border: {
-          color: components.hpe.formField.input.group.item.disabled.borderColor,
+          color: 'border-weak',
+          // Q: this token isn't the correct value
+          // color: components.hpe.formField.input.group.item.disabled.borderColor,
         },
         label: {
           color: components.hpe.formField.labelText.disabled.textColor,
@@ -1397,14 +1371,16 @@ const buildTheme = tokens => {
       },
       error: {
         background: {
-          color:
-            components.hpe.formField.input.container.validation.critical
-              .background,
+          color: 'validation-critical',
+          // Q: this token isn't working
+          // color:
+          //   components.hpe.formField.input.container.validation.critical
+          //     .background,
         },
         container: {
           gap: 'xsmall', // Q: missing token
         },
-        // icon: <CircleAlert size="small" />,
+        icon: <CircleAlert size="small" />,
         size: 'xsmall', // Q: missing token
         // Q: confused why we have both hpe.formField.errorText.enabled.textColor
         // and hpe.formField.errorText.disabled.color
@@ -2100,7 +2076,7 @@ const buildTheme = tokens => {
       },
       icons: {
         color: 'text',
-        // down: Down,
+        down: Down,
         // this was not in token
         margin: {
           left: 'small',
@@ -2110,7 +2086,7 @@ const buildTheme = tokens => {
           // control.
           right: '12px',
         },
-        // up: Up,
+        up: Up,
       },
       options: undefined,
     },
