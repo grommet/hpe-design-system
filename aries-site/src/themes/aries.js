@@ -7,9 +7,51 @@ export const aries = deepMerge(hpe, {
   // To be stripped out once theme changes are made in grommet-theme-hpe.
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
+  global: {
+    colors: {
+      'background-selected-weak': {
+        light: '#CBFAEB',
+        dark: '#093A2F',
+      },
+      'background-selected-weak-hover': {
+        light: '#AEF6DF',
+        dark: '#074B3B',
+      },
+    },
+  },
   buttonGroup: {
     // any Box props
     gap: 'small',
+  },
+  button: {
+    selected: {
+      option: {
+        background: 'background-selected-weak',
+        color: 'text-strong',
+        font: {
+          weight: 500,
+        },
+      },
+    },
+    extend: ({ kind, theme, selected }) => {
+      let style = '';
+      if (kind === 'option' && selected) {
+        style += `box-shadow: inset 2px 0 ${
+          theme.global.colors['green!']
+        }; &:hover, &:focus:not(:focus-visible) {
+          background: ${
+            theme.global.colors['background-selected-weak-hover'][
+              theme.dark ? 'dark' : 'light'
+            ]
+          };
+          box-shadow: inset 2px 0 ${theme.global.colors['green!']};
+          color: ${
+            theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+          };
+        }`;
+      }
+      return style;
+    },
   },
   feedback: {
     closeButton: {
