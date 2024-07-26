@@ -656,7 +656,7 @@
         },
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.onPrimary}",
+          "$value": "{color.text.strong}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -959,7 +959,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{button.default.selected.enabled.borderColor}",
+            "$value": "{button.toolbar.enabled.borderColor}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1710,7 +1710,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.medium.default.borderWidth}",
+          "$value": "{base.static.borderWidth.small}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3946,7 +3946,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{color.border.strong}",
+          "$value": "{checkbox.control.enabled.borderColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5390,7 +5390,7 @@
     },
     "fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{base.fontWeight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5501,7 +5501,7 @@
       },
       "background": {
         "$type": "color",
-        "$value": "#00000000",
+        "$value": "{color.background.hover}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -6233,7 +6233,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.default}",
+            "$value": "{color.background.hover}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6663,7 +6663,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.brand}",
+            "$value": "{color.background.selected.strong}",
             "$description": "",
             "$extensions": {
               "com.figma": {

@@ -38,6 +38,8 @@ import {
   FileInput,
   StarRating,
   ThumbsRating,
+  DataTable,
+  Meter,
 } from 'grommet';
 import { User } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
@@ -139,7 +141,7 @@ Compare.propTypes = {
 
 const StickerSheet = () => {
   const [mode, setMode] = React.useState('Compare diffs');
-  const [direction, setDirection] = React.useState('');
+  const [direction, setDirection] = React.useState('row');
 
   const contextValue = useMemo(() => {
     return {
@@ -302,7 +304,16 @@ const StickerSheet = () => {
               </FormField>
             </Compare>
             <Compare guidingChild="last">
-              <FormField label="Label">
+              <FormField label="Label" error="There is an error.">
+                <CheckBox label="Checkbox label" />
+              </FormField>
+            </Compare>
+            <Compare guidingChild="last">
+              <FormField
+                label="Label"
+                help="Here is help text"
+                info="Here is info text"
+              >
                 <TextInput />
               </FormField>
             </Compare>
@@ -329,7 +340,11 @@ const StickerSheet = () => {
               </FormField>
             </Compare>
             <Compare>
-              <DateInput format="mm/dd/yyyy" inline />
+              <DateInput
+                format="mm/dd/yyyy"
+                inline
+                value={new Date().toISOString()}
+              />
             </Compare>
             <Compare>
               <FileInput />
@@ -435,6 +450,71 @@ const StickerSheet = () => {
             </Compare>
             <Compare>
               <ThumbsRating value="like" />
+            </Compare>
+            <Compare>
+              <DataTable
+                columns={[
+                  {
+                    property: 'id',
+                    header: 'ID',
+                  },
+                  {
+                    property: 'firstName',
+                    header: 'First name',
+                  },
+                  {
+                    property: 'lastName',
+                    header: 'Last name',
+                    units: 'GB',
+                  },
+                ]}
+                data={[
+                  {
+                    id: '2341234',
+                    firstName: 'Taylor',
+                    lastName: 'Seamans',
+                  },
+                  {
+                    id: '4352351',
+                    firstName: 'Oliver',
+                    lastName: 'Plunkett',
+                  },
+                  {
+                    id: '6439201',
+                    firstName: 'Joelle',
+                    lastName: 'Gregory',
+                  },
+                ]}
+                sort={{
+                  property: 'firstName',
+                  direction: 'asc',
+                }}
+              />
+            </Compare>
+            <Compare>
+              <Meter
+                type="circle"
+                values={[
+                  {
+                    value: 40,
+                  },
+                  {
+                    value: 30,
+                  },
+                  {
+                    value: 10,
+                  },
+                  {
+                    value: 10,
+                  },
+                  {
+                    value: 10,
+                  },
+                ]}
+                max={100}
+                size="small"
+                thickness="medium"
+              />
             </Compare>
           </PageContent>
         </Page>
