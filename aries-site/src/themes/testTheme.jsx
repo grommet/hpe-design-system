@@ -3,23 +3,25 @@ import {
   // keyframes
 } from 'styled-components';
 import { deepFreeze } from 'grommet/utils';
-import { dark, light, large, small, components } from 'design-tokens';
 import {
-  Down,
-  Blank,
-  Close,
-  Up,
-  Hpe,
-  CircleAlert,
   Ascending,
   Descending,
+  Up,
+  Down,
   Unsorted,
+  Blank,
+  CircleAlert,
+  Close,
+  Hpe,
 } from 'grommet-icons';
-
-const MISSING = {
-  color: 'red',
-  weight: 700,
-};
+import {
+  dark,
+  light,
+  large,
+  small,
+  components,
+  base,
+} from '../../../design-tokens/dist-test/esm';
 
 const dimensions = {
   borderSize: {
@@ -117,7 +119,6 @@ const dimensions = {
   },
 };
 
-// TO DO should these be added as tokens?
 const backgrounds = {
   'datawave-green-1':
     'url(https://d3hq6blov2iije.cloudfront.net/images/textures/AdobeStock-57301038_800_0_72_RGB+19849.jpg)',
@@ -215,7 +216,7 @@ const backgrounds = {
 // necessary to apply a linear gradient for primary button background
 const primaryBackground = props => {
   let style = '';
-  if (!props.active && !props.disabled) {
+  if (!props.active) {
     style += !props.colorValue
       ? `background:
   linear-gradient(70deg, transparent,
@@ -244,10 +245,8 @@ const primaryHoverBackground = props =>
 const option = {
   color: components.hpe.select.option.enabled.textColor,
   border: {
-    radius: components.hpe.select.medium.option.borderRadius,
-    width:
-      dimensions.borderSize[components.hpe.select.medium.option.borderWidth] ||
-      components.hpe.select.medium.option.borderWidth,
+    radius: '0px',
+    width: components.hpe.select.medium.option.borderWidth,
     color: components.hpe.select.option.enabled.borderColor,
   },
   pad: {
@@ -264,46 +263,12 @@ const mediumIconOnlyPad = '9px';
 
 const baseSpacing = 24;
 
-const flattenObject = (obj, delimiter = '.', prefix = '') =>
-  Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}${delimiter}` : '';
-    if (
-      typeof obj[k] === 'object' &&
-      obj[k] !== null &&
-      Object.keys(obj[k]).length > 0 &&
-      !('$value' in obj[k])
-    )
-      Object.assign(
-        acc,
-        flattenObject(
-          obj[k],
-          delimiter,
-          !['hpe', 'color'].includes(k) ? pre + k : '',
-        ),
-      );
-    else acc[pre + k] = obj[k];
-    return acc;
-  }, {});
-
-const access = (path, object) => {
-  return path.split('.').reduce((o, i) => o[i], object);
-};
+// TO DO notes:
+// - felt weird not just having a straight "brand" color
 
 const buildTheme = tokens => {
   const [light, dark] = tokens;
-  const flatColors = flattenObject(light, '-');
-  const tokenColors = {};
-  Object.keys(flatColors).forEach(color => {
-    const adjustedColor = color.split('-').join('.');
-    tokenColors[color] = {
-      light: access(`hpe.color.${adjustedColor}`, light),
-      dark: access(`hpe.color.${adjustedColor}`, dark),
-    };
-  });
   const colors = {
-    // Here we're passing through all the colors from hpe-design-tokens
-    ...tokenColors,
-    // ---- DEPRECATED ---- //
     'accent-1': undefined,
     'accent-2': undefined,
     'accent-3': undefined,
@@ -314,96 +279,70 @@ const buildTheme = tokens => {
     'neutral-4': undefined,
     'neutral-5': undefined,
     'status-error': undefined,
-
-    // ---- TO DO: Tokens do not exist, should they? ---- //
-    brand: MISSING.color,
-    'background-layer-overlay': MISSING.color,
-    control: MISSING.color,
-    'active-text': MISSING.color,
-    'disabled-text': MISSING.color, // deprecated, use text-weak instead
-    'selected-background': MISSING.color,
-    'selected-text': {
-      dark: MISSING.color,
-      light: MISSING.color,
+    // Q: brand color is not defined in the dark and light files
+    brand: {
+      dark: dark.hpe.color.brand,
+      light: light.hpe.color.brand,
     },
-    placeholder: MISSING.color,
-    'text-primary-button': MISSING.color,
-    'background-cta-alternate': MISSING.color,
-
-    // ----------- These ones we need to map manually for backwards compatibility -----------
-    // ----------- with current color namespace ---------------
-    'active-background': {
-      dark: dark.hpe.color.background.active,
-      light: light.hpe.color.background.active,
-    },
+    // brand: 'green!',
     background: {
       dark: dark.hpe.color.background.default,
       light: light.hpe.color.background.default,
     },
-    focus: components.hpe.focusRing.color, // TO DO something seems off here that this isn't part of "colors"
+    'background-back': {
+      dark: dark.hpe.color.background.back,
+      light: light.hpe.color.background.back,
+    },
+    'background-front': {
+      dark: dark.hpe.color.background.front,
+      light: light.hpe.color.background.front,
+    },
+    'background-contrast': {
+      dark: dark.hpe.color.background.contrast, // 6%
+      light: light.hpe.color.background.contrast,
+    },
+    // TO DO do we want these as tokens?
+    'background-layer-overlay': '#00000080',
+    icon: 'text',
     text: {
       dark: dark.hpe.color.text.default,
       light: light.hpe.color.text.default,
+    },
+    'text-strong': {
+      dark: dark.hpe.color.text.strong,
+      light: light.hpe.color.text.strong,
+    },
+    'text-weak': {
+      dark: dark.hpe.color.text.weak,
+      light: light.hpe.color.text.weak,
+    },
+    'text-xweak': {
+      dark: dark.hpe.color.text.xweak,
+      light: light.hpe.color.text.xweak,
     },
     border: {
       dark: dark.hpe.color.border.default,
       light: light.hpe.color.border.default,
     },
-    blue: {
-      dark: dark.hpe.color.decorative.blue,
-      light: light.hpe.color.decorative.blue,
+    'border-strong': {
+      dark: dark.hpe.color.border.strong,
+      light: light.hpe.color.border.strong,
     },
-    'blue!': MISSING.color,
-    green: {
-      dark: dark.hpe.color.decorative.green,
-      light: light.hpe.color.decorative.green,
+    'border-weak': {
+      dark: dark.hpe.color.border.weak,
+      light: light.hpe.color.border.weak,
     },
-    'green!': MISSING.color, // Q: missing token
-    teal: {
-      // Q; should this token be called teal instead of turquoise?
-      dark: dark.hpe.color.decorative.turquoise,
-      light: light.hpe.color.decorative.turquoise,
+    control: 'brand',
+    'active-background': {
+      dark: dark.hpe.color.background.active,
+      light: light.hpe.color.background.active,
     },
-    'teal!': MISSING.color, // Q: missing token
-    purple: {
-      dark: dark.hpe.color.decorative.purple,
-      light: light.hpe.color.decorative.purple,
-    },
-    'purple!': light.hpe.color.dataVis.categorical[30],
-    red: {
-      dark: dark.hpe.color.decorative.red,
-      light: light.hpe.color.decorative.red,
-    },
-    'red!': MISSING.color, // Q: missing token
-    orange: {
-      dark: dark.hpe.color.decorative.orange,
-      light: light.hpe.color.decorative.orange,
-    },
-    'orange!': MISSING.color, // Q: missing token
-    yellow: {
-      dark: dark.hpe.color.decorative.yellow,
-      light: light.hpe.color.decorative.yellow,
-    },
-    'yellow!': MISSING.color, // Q: missing
-    'graph-0': {
-      light: light.hpe.color.dataVis.categorical[10],
-      dark: dark.hpe.color.dataVis.categorical[10],
-    },
-    'graph-1': {
-      light: light.hpe.color.dataVis.categorical[20],
-      dark: dark.hpe.color.dataVis.categorical[20],
-    },
-    'graph-2': {
-      light: light.hpe.color.dataVis.categorical[30],
-      dark: dark.hpe.color.dataVis.categorical[30],
-    },
-    'graph-3': {
-      light: light.hpe.color.dataVis.categorical[40],
-      dark: dark.hpe.color.dataVis.categorical[40],
-    },
-    'graph-4': {
-      light: light.hpe.color.dataVis.categorical[50],
-      dark: dark.hpe.color.dataVis.categorical[50],
+    'active-text': 'text',
+    'disabled-text': 'text-weak', // deprecated, use text-weak instead
+    'selected-background': 'green!',
+    'selected-text': {
+      dark: dark.hpe.color.text.onPrimary,
+      light: light.hpe.color.text.onPrimary,
     },
     'status-critical': {
       dark: dark.hpe.color.icon.critical,
@@ -422,24 +361,184 @@ const buildTheme = tokens => {
       light: light.hpe.color.icon.unknown,
     },
     'status-disabled': '#CCCCCC', // deprecated, does not support light and dark.hpe. use text-weak instead
+    blue: {
+      dark: dark.hpe.color.decorative.blue,
+      light: light.hpe.color.decorative.blue,
+    },
+    'blue!': light.hpe.color.dataVis.categorical[10],
+    green: {
+      dark: dark.hpe.color.decorative.green,
+      light: light.hpe.color.decorative.green,
+    },
+    'green!': '#01A982', // Q: missing token
+    teal: {
+      // Q; should this token be called teal instead of turquoise?
+      dark: dark.hpe.color.decorative.turquoise,
+      light: light.hpe.color.decorative.turquoise,
+    },
+    'teal!': '#00E8CF', // Q: missing token
+    purple: {
+      dark: dark.hpe.color.decorative.purple,
+      light: light.hpe.color.decorative.purple,
+    },
+    'purple!': light.hpe.color.dataVis.categorical[30],
+    red: {
+      dark: dark.hpe.color.decorative.red,
+      light: light.hpe.color.decorative.red,
+    },
+    'red!': '#C54E4B', // Q: missing token
+    orange: {
+      dark: dark.hpe.color.decorative.orange,
+      light: light.hpe.color.decorative.orange,
+    },
+    'orange!': light.hpe.color.dataVis.categorical[20],
+    yellow: {
+      dark: dark.hpe.color.decorative.yellow,
+      light: light.hpe.color.decorative.yellow,
+    },
+    'yellow!': '#FEC901', // Q: missing
     'validation-critical': {
-      light: light.hpe.color.background.status.critical,
-      dark: dark.hpe.color.background.status.critical,
+      light: light.hpe.color.background.validation.critical,
+      dark: dark.hpe.color.background.validation.critical,
     },
     'validation-ok': {
-      light: light.hpe.color.background.status.ok,
-      dark: dark.hpe.color.background.status.ok,
+      light: light.hpe.color.background.validation.ok,
+      dark: dark.hpe.color.background.validation.ok,
     },
     'validation-warning': {
-      light: light.hpe.color.background.status.warning,
-      dark: dark.hpe.color.background.status.critical,
+      light: light.hpe.color.background.validation.warning,
+      dark: dark.hpe.color.background.validation.critical,
     },
-    icon: {
-      light: light.hpe.color.icon.default,
-      dark: dark.hpe.color.icon.default,
+    'graph-0': 'orange!',
+    'graph-1': 'blue!',
+    'graph-2': 'purple!',
+    'graph-3': 'yellow!',
+    'graph-4': 'teal!',
+    // Q token not coming through
+    // components.hpe.focusRing
+    focus: 'teal!',
+    placeholder: 'text-weak',
+    'text-primary-button': '#FFFFFF',
+    'background-cta-alternate': '#F2F2F2',
+
+    'background-hover': {
+      dark: dark.hpe.color.background.hover, // 6%
+      light: light.hpe.color.background.hover,
+    },
+    'background-floating': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.floating, // 6%
+      light: light.hpe.color.background.floating,
+    },
+    // Q: this token causes light green color to be applied
+    // to select options after mouse in and then mouse out
+    'background-selected-weak': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.selected.weak, // 6%
+      light: light.hpe.color.background.selected.weak,
+    },
+    'background-status-critical': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.validation.critical, // 6%
+      light: light.hpe.color.background.validation.critical,
+    },
+    'background-status-warning': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.validation.warning, // 6%
+      light: light.hpe.color.background.validation.warning,
+    },
+    'background-status-ok': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.validation.ok, // 6%
+      light: light.hpe.color.background.validation.ok,
+    },
+    'background-status-info': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.validation.info, // 6%
+      light: light.hpe.color.background.validation.info,
+    },
+    'background-primary-default': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.background.primary.default,
+      light: light.hpe.color.background.primary.default,
+    },
+    'text-onPrimary': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.text.onPrimary,
+      light: light.hpe.color.text.onPrimary,
+    },
+    'border-default': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.border.default,
+      light: light.hpe.color.border.default,
+    },
+    'border-selected': {
+      // Q: looks like we are not using this
+      dark: dark.hpe.color.border.selected,
+      light: light.hpe.color.border.selected,
+    },
+    'background-brand-default': {
+      // Q: looks like we are not using this
+      light: light.hpe.color.background.primary.default,
+      dark: dark.hpe.color.background.primary.default,
+    },
+    'background-brand-weak': {
+      // Q: looks like we are not using this
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
+    },
+    'foreground-brand-default': {
+      // Q: looks like we are not using this
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
+    },
+    'foreground-status-critical': {
+      // Q: looks like we are not using this
+      light: light.hpe.color.icon.critical,
+      dark: dark.hpe.color.icon.critical,
+    },
+    'foreground-status-warning': {
+      // Q: looks like we are not using this
+      light: light.hpe.color.icon.warning,
+      dark: dark.hpe.color.icon.warning,
+    },
+    'foreground-status-ok': {
+      // Q: looks like we are not using this
+      light: light.hpe.color.icon.ok,
+      dark: dark.hpe.color.icon.ok,
+    },
+    'foreground-status-info': {
+      // Q: looks like we are not using this
+      light: light.hpe.color.icon.info,
+      dark: dark.hpe.color.icon.info,
+    },
+    'foreground-onBrand': {
+      // Q: looks like we are not using this
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
+    },
+    'button-secondary-border-default': {
+      // Q: looks like we are not using this
+      light: base.hpe.base.TBD,
+      dark: base.hpe.base.TBD,
     },
   };
 
+  // option button kind styles. abstracted so select.emptySearchMessage
+  // can reference pad value
+  const option = {
+    color: 'text',
+    border: {
+      radius: '0px',
+    },
+    pad: {
+      horizontal: '12px',
+      vertical: '6px',
+    },
+    font: {
+      weight: 500,
+    },
+  };
   return deepFreeze({
     defaultMode: 'light',
     global: {
@@ -448,17 +547,20 @@ const buildTheme = tokens => {
       colors,
       control: {
         border: {
-          radius: components.hpe.formField.medium.input.container.borderRadius, // TO DO is this the correct token?
+          radius: '6px',
         },
       },
       input: {
         font: {
           height: 'inherit',
-          weight: components.hpe.formField.medium.valueText.fontWeight,
+          weight: 500,
         },
         padding: {
+          // Q: these token values don't match
           horizontal: components.hpe.formField.medium.input.container.paddingX,
           vertical: components.hpe.formField.medium.input.container.paddingY,
+          // horizontal: '11px', // equivalent to 'small' when combined with 1px border
+          // vertical: '5px', // equivalent to 'xsmall' when combined with 1px border
         },
         readOnly: {
           background:
@@ -483,7 +585,7 @@ const buildTheme = tokens => {
         `,
       },
       font: {
-        family: "'Metric', Arial, sans-serif", // TO DO need fontStack token
+        family: "'Metric', Arial, sans-serif",
         face: `
           @font-face {
             font-family: "Metric";
@@ -531,9 +633,12 @@ const buildTheme = tokens => {
       drop: {
         background: components.hpe.drop.background,
         border: {
+          // TO DO don't have global concept of radius?
+          // Q: this token isn't the correct
           radius: components.hpe.drop.borderRadius,
+          // radius: '4px',
         },
-        margin: components.hpe.drop.margin,
+        margin: 'xsmall',
         intelligentMargin: true,
         shadowSize: 'medium',
         /* HPE Global Header/Footer Service a.k.a. HPE Common HFWS sets the header
@@ -547,23 +652,23 @@ const buildTheme = tokens => {
         // Naming in Figma file is strong/default/weak vs. Grommet t-shirt sizing.
         // As defined here, default is currently mapping to medium.
         light: {
-          small: `0px 2px 4px ${MISSING.color};`,
-          medium: `0px 6px 12px ${MISSING.color};`,
-          large: `0px 12px 24px ${MISSING.color};`,
+          small: '0px 2px 4px #0000001F;',
+          medium: '0px 6px 12px #0000001F;',
+          large: '0px 12px 24px #0000003D;',
         },
         dark: {
-          small: `0px 2px 4px ${MISSING.color};`,
-          medium: `0px 6px 12px ${MISSING.color};`,
-          large: `0px 12px 24px ${MISSING.color};`,
+          small: '0px 2px 4px #0000003D;',
+          medium: '0px 6px 12px #0000005C;',
+          large: '0px 12px 24px #0000007A;',
         },
       },
       hover: {
         background: 'background-hover',
-        color: MISSING.color, // TO DO
+        color: 'active-text', // TO DO
       },
       selected: {
         background: 'background-selected',
-        color: 'selected-text',
+        color: 'selected-text', // TO DO?
       },
     },
     accordion: {
@@ -574,11 +679,11 @@ const buildTheme = tokens => {
         },
       },
       heading: {
-        level: 4, // NOTE: in v3 all accordions were h4
+        level: 3,
         margin: { vertical: 'medium', horizontal: 'xsmall' },
       },
       hover: {
-        background: 'background-hover',
+        background: 'background-contrast',
         heading: {
           color: undefined,
         },
@@ -591,81 +696,59 @@ const buildTheme = tokens => {
       },
     },
     anchor: {
-      color: components.hpe.anchor.default.enabled.textColor,
+      color: components.hpe.anchor.default.hover.textColor,
       textDecoration: components.hpe.anchor.default.enabled.textDecoration,
       fontWeight: components.hpe.anchor.default.enabled.fontWeight,
-      gap: 'xsmall', // TO DO missing token
+      gap: 'xsmall',
       hover: {
         textDecoration: components.hpe.anchor.default.hover.textDecoration,
       },
       size: {
         // Q: missing tokens
-        // A: Our approach to anchor styling makes it difficult to automate
-        // because we've blended "size" and "kind into single variables"
         large: {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: 'brand',
+          fontWeight: 700,
+          textDecoration: 'none',
         },
         xlarge: {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: 'brand',
+          fontWeight: 700,
+          textDecoration: 'none',
         },
         xxlarge: {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: 'brand',
+          fontWeight: 700,
+          textDecoration: 'none',
         },
         '3xl': {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: 'brand',
+          fontWeight: 700,
+          textDecoration: 'none',
         },
         '4xl': {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: 'brand',
+          fontWeight: 700,
+          textDecoration: 'none',
         },
         '5xl': {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: 'brand',
+          fontWeight: 700,
+          textDecoration: 'none',
         },
         '6xl': {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: 'brand',
+          fontWeight: 700,
+          textDecoration: 'none',
         },
       },
     },
     avatar: {
       size: {
-        // At this point in time we hadn't standardized on component sizes, so the sizing is off
-        // but these feel like the right tokens
-        xsmall: `${baseSpacing * 0.75}px`, // TO DO no component size, is this a one off?
-        small: components.hpe.component.small.minHeight, // 24px
-        medium: components.hpe.component.medium.minHeight, // default 48px
-        large: components.hpe.component.large.minHeight, // 72px
-        xlarge: components.hpe.component.xlarge.minHeight, // 96px
-        '2xl': `${baseSpacing * 5}px`, // TO DO no component size, is this a one off?
-        '3xl': `${baseSpacing * 6}px`, // TO DO no component size, is this a one off?
-        '4xl': `${baseSpacing * 7}px`, // TO DO no component size, is this a one off?
-        '5xl': `${baseSpacing * 8}px`, // TO DO no component size, is this a one off?
+        large: `${baseSpacing * 4}px`, // 96px
       },
       text: {
         size: {
-          xsmall: 'small', // TO DO no component size, is this a one off?
-          // At this point in time we hadn't standardized on component sizes, so the sizing is off
-          // TO DO this feels like it should be able to point to components.hpe.component.medium.fontSize, etc.
-          small: 'small',
-          medium: 'medium',
-          large: 'large',
-          xlarge: 'xlarge',
-          '2xl': '3xl', // TO DO no component size, is this a one off?
-          '3xl': '4xl', // TO DO no component size, is this a one off?
-          '4xl': '5xl', // TO DO no component size, is this a one off?
-          '5xl': '6xl', // TO DO no component size, is this a one off?
+          large: 'xxlarge', // 36px
         },
       },
     },
@@ -706,13 +789,11 @@ const buildTheme = tokens => {
       },
       default: {
         color: components.hpe.button.default.enabled.textColor,
-        border: {
-          width:
-            dimensions.borderSize[
-              components.hpe.button.medium.default.borderWidth
-            ] || components.hpe.button.medium.default.borderWidth,
-          color: components.hpe.button.default.enabled.borderColor,
-        },
+        border: undefined, // Q: should this be undefined (like in the current hpe theme) or should we map to tokens?
+        // border: {
+        //   width: components.hpe.button.medium.default.borderWidth, // TO DO don't want pad to subtract borderWidth
+        //   color: components.hpe.button.default.enabled.borderColor,
+        // },
         font: {
           weight: components.hpe.button.default.enabled.fontWeight,
         },
@@ -722,26 +803,22 @@ const buildTheme = tokens => {
         background: {
           color: components.hpe.button.primary.enabled.background,
         },
-        border: {
-          width:
-            dimensions.borderSize[
-              components.hpe.button.medium.primary.borderWidth
-            ] || components.hpe.button.medium.primary.borderWidth,
-          color: components.hpe.button.primary.enabled.borderColor,
-        },
         color: components.hpe.button.primary.enabled.textColor,
         font: {
           weight: components.hpe.button.primary.enabled.fontWeight,
         },
-        extend: ``,
+        extend: props => primaryBackground(props),
       },
       secondary: {
+        // Q had to add this
+        color: 'text-strong',
         border: {
-          width:
-            dimensions.borderSize[
-              components.hpe.button.medium.secondary.borderWidth
-            ] || components.hpe.button.medium.secondary.borderWidth,
-          color: components.hpe.button.secondary.enabled.borderColor,
+          color: 'brand',
+          // width: '2px',
+          // Q: token value is wrong
+          width: components.hpe.button.medium.secondary.borderWidth,
+          // Q: we don't define a radius here in the hpe theme
+          radius: components.hpe.button.medium.secondary.borderRadius,
         },
         color: components.hpe.button.secondary.enabled.textColor,
         font: {
@@ -750,10 +827,9 @@ const buildTheme = tokens => {
       },
       toolbar: {
         border: {
-          width:
-            dimensions.borderSize[
-              components.hpe.button.medium.toolbar.borderWidth
-            ] || components.hpe.button.medium.toolbar.borderWidth,
+          radius: components.hpe.button.medium.toolbar.borderRadius,
+          width: '1px',
+          // width: '0px', // TO DO not coming through
           color: components.hpe.button.toolbar.enabled.borderColor,
         },
         color: components.hpe.button.toolbar.enabled.textColor,
@@ -764,52 +840,30 @@ const buildTheme = tokens => {
       option,
       active: {
         background: {
-          color: components.hpe.button.default.selected.enabled.background,
+          // color: 'background-contrast',
+          // Q: this token isn't correct
+          color: components.hpe.button.default.enabled.background,
         },
-        color: components.hpe.button.default.selected.enabled.textColor,
+        color: components.hpe.button.default.enabled.textColor,
         secondary: {
-          background: {
-            color: components.hpe.button.secondary.selected.enabled.background,
-          },
           border: {
+            // color: 'transparent',
             // Q: this token isn't correct
-            color: components.hpe.button.secondary.selected.enabled.borderColor,
+            color: components.hpe.button.secondary.selected.borderColor,
           },
-          color: components.hpe.button.secondary.selected.enabled.textColor,
-        },
-        primary: {
-          background: {
-            color: components.hpe.button.primary.selected.enabled.background,
-          },
-          border: {
-            color: components.hpe.button.primary.selected.enabled.borderColor,
-          },
-          color: components.hpe.button.primary.selected.enabled.textColor,
-        },
-        toolbar: {
-          background: {
-            color: components.hpe.button.toolbar.selected.enabled.background,
-          },
-          border: {
-            color: components.hpe.button.toolbar.selected.enabled.borderColor,
-          },
-          color: components.hpe.button.toolbar.selected.enabled.textColor,
         },
         option: {
           background: {
+            // TO DO working?
             color: components.hpe.select.option.selected.background,
           },
-          border: {
-            color: components.hpe.select.option.selected.borderColor,
-          },
-          color: components.hpe.select.option.selected.textColor,
         },
       },
       selected: {
         option: {
-          background: 'brand',
+          // background: 'brand',
           // Q: this token is the wrong color
-          // background: components.hpe.select.option.selected.background,
+          background: components.hpe.select.option.selected.background,
           color: components.hpe.select.option.selected.textColor,
           font: {
             weight: components.hpe.select.option.selected.fontWeight,
@@ -836,7 +890,9 @@ const buildTheme = tokens => {
           },
         },
         default: {
-          background: components.hpe.button.default.hover.background,
+          background: {
+            color: components.hpe.button.default.hover.background,
+          },
           border: {
             color: components.hpe.button.default.hover.borderColor,
           },
@@ -844,76 +900,42 @@ const buildTheme = tokens => {
         },
         option: {
           background: components.hpe.select.option.hover.background,
-          border: {
-            color: components.hpe.select.option.hover.borderColor,
-          },
           color: components.hpe.select.option.hover.textColor,
         },
         primary: {
-          background: components.hpe.button.primary.hover.background,
-          border: {
-            color: components.hpe.button.primary.hover.borderColor,
-          },
-          color: components.hpe.button.primary.hover.textColor,
-          extend: ``,
+          extend: props => primaryHoverBackground(props),
         },
         secondary: {
-          background: components.hpe.button.secondary.hover.background,
           border: {
-            color: components.hpe.button.secondary.hover.borderColor,
             width: '3px', // TO DO
           },
-          color: components.hpe.button.secondary.hover.textColor,
         },
         toolbar: {
-          background: components.hpe.button.toolbar.hover.background,
-          border: {
-            color: components.hpe.button.toolbar.hover.borderColor,
+          background: {
+            color: components.hpe.button.toolbar.hover.background,
           },
           color: components.hpe.button.toolbar.hover.textColor,
         },
       },
-      color: components.hpe.button.default.enabled.textColor,
+      color: components.hpe.button.default.enabled.textDecoration,
       size: {
         small: {
           border: {
-            // TO DO need way to map to global radius of full,
             // Q: is this token correct? token value is 'full' but theme value is '2em'
-            // This change causes the button to loose its rounding
             radius: components.hpe.button.small.default.borderRadius,
           },
           pad: {
+            // Q: is this value correct? token is 4px and theme value is 5px
             vertical: components.hpe.button.small.default.paddingY,
+            // Q: is this value correct? token is 16px and theme value is 12px
             horizontal: components.hpe.button.small.default.paddingX,
           },
           iconOnly: {
-            pad: '7px', // Q: confused about this value
-          },
-          secondary: {
-            border: {
-              radius: components.hpe.button.small.secondary.borderRadius,
-            },
-            pad: {
-              vertical: components.hpe.button.small.secondary.paddingY,
-              horizontal: components.hpe.button.small.default.paddingX,
-            },
-          },
-          primary: {
-            border: {
-              radius: components.hpe.button.small.primary.borderRadius,
-            },
-            pad: {
-              vertical: components.hpe.button.small.primary.paddingY,
-              horizontal: components.hpe.button.small.default.paddingX,
-            },
+            pad: '7px', // Q: missing token
           },
           toolbar: {
             border: {
               radius: components.hpe.button.small.toolbar.borderRadius,
-            },
-            pad: {
-              vertical: components.hpe.button.small.toolbar.paddingY,
-              horizontal: components.hpe.button.small.toolbar.paddingX,
             },
           },
         },
@@ -923,6 +945,7 @@ const buildTheme = tokens => {
             // Q: is this token correct? token value is 'full' but theme value is '2em'
             // This change causes the button to loose its rounding
             radius: components.hpe.button.medium.default.borderRadius,
+            // radius: '2em',
           },
           pad: {
             vertical: components.hpe.button.medium.default.paddingY,
@@ -931,96 +954,56 @@ const buildTheme = tokens => {
           iconOnly: {
             pad: mediumIconOnlyPad, // Q: confused about this value
           },
-          secondary: {
-            border: {
-              radius: components.hpe.button.medium.secondary.borderRadius,
-            },
-            pad: {
-              vertical: components.hpe.button.medium.secondary.paddingY,
-              horizontal: components.hpe.button.medium.default.paddingX,
-            },
-          },
-          primary: {
-            border: {
-              radius: components.hpe.button.medium.primary.borderRadius,
-            },
-            pad: {
-              vertical: components.hpe.button.medium.primary.paddingY,
-              horizontal: components.hpe.button.medium.default.paddingX,
-            },
-          },
           toolbar: {
             border: {
               radius: components.hpe.button.medium.toolbar.borderRadius,
             },
             pad: {
               vertical: components.hpe.button.medium.toolbar.paddingY,
-              horizontal: components.hpe.button.medium.toolbar.paddingX,
+              horizontal: components.hpe.button.medium.default.paddingX,
             },
           },
         },
         large: {
+          // Q: missing tokens for large?
           border: {
-            // TO DO need way to map to global radius of full,
-            // Q: is this token correct? token value is 'full' but theme value is '2em'
-            // This change causes the button to loose its rounding
-            radius: components.hpe.button.large.default.borderRadius,
+            radius: '2em',
           },
           pad: {
-            vertical: components.hpe.button.large.default.paddingY,
-            horizontal: components.hpe.button.large.default.paddingX,
+            vertical: '10px',
+            horizontal: '24px',
           },
           iconOnly: {
-            pad: '13px', // Q: confused about this value
-          },
-          secondary: {
-            border: {
-              radius: components.hpe.button.large.secondary.borderRadius,
-            },
-            pad: {
-              vertical: components.hpe.button.large.secondary.paddingY,
-              horizontal: components.hpe.button.large.default.paddingX,
-            },
-          },
-          primary: {
-            border: {
-              radius: components.hpe.button.large.primary.borderRadius,
-            },
-            pad: {
-              vertical: components.hpe.button.large.primary.paddingY,
-              horizontal: components.hpe.button.large.default.paddingX,
-            },
+            pad: '13px',
           },
           toolbar: {
             border: {
-              radius: components.hpe.button.large.toolbar.borderRadius,
+              radius: '8px',
             },
             pad: {
-              vertical: components.hpe.button.large.toolbar.paddingY,
-              horizontal: components.hpe.button.large.toolbar.paddingX,
+              vertical: '10px',
+              horizontal: '16px',
             },
           },
         },
-        // xlarge button did not exist in v3
-        // xlarge: {
-        //   // Q: missing tokens for xlarge?
-        //   border: {
-        //     radius: '2em',
-        //   },
-        //   pad: {
-        //     vertical: '21px',
-        //     horizontal: '30px',
-        //   },
-        //   iconOnly: {
-        //     pad: '24px',
-        //   },
-        // },
+        xlarge: {
+          // Q: missing tokens for xlarge?
+          border: {
+            radius: '2em',
+          },
+          pad: {
+            vertical: '21px',
+            horizontal: '30px',
+          },
+          iconOnly: {
+            pad: '24px',
+          },
+        },
       },
-      extend: ({ hasIcon, hasLabel, kind, sizeProp }) => {
+      extend: ({ hasIcon, hasLabel, sizeProp }) => {
         // necessary so primary label is accessible on HPE green background
-        const fontSize = components.hpe.button?.[sizeProp]?.[kind]?.fontSize;
-        const lineHeight =
-          components.hpe.button?.[sizeProp]?.[kind]?.lineHeight;
+        const fontSize = '19px';
+        const lineHeight = '24px';
         let style = '';
         const iconOnly = hasIcon && !hasLabel;
         if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
@@ -1033,7 +1016,8 @@ const buildTheme = tokens => {
     calendar: {
       // ensure color is #FFFFFF to meet color contrast requirement on HPE green
       day: {
-        extend: ({ isSelected }) => isSelected && `color: ${MISSING.color};`, // TO DO feels like we need a textOnSelectedStrong?
+        extend: ({ isSelected, theme }) =>
+          isSelected && `color: ${theme.global.colors['text-primary-button']};`,
       },
       icons: {
         // next: Next,
@@ -1046,8 +1030,8 @@ const buildTheme = tokens => {
         daySize: '27.43px',
         title: {
           size: 'medium',
-          weight: MISSING.weight,
-          color: MISSING.color,
+          weight: 500,
+          color: 'text-strong',
         },
       },
       medium: {
@@ -1056,8 +1040,8 @@ const buildTheme = tokens => {
         daySize: '54.86px',
         title: {
           size: 'large',
-          weight: MISSING.weight,
-          color: MISSING.color,
+          weight: 500,
+          color: 'text-strong',
         },
       },
       large: {
@@ -1066,8 +1050,8 @@ const buildTheme = tokens => {
         daySize: '109.71px',
         title: {
           size: 'xlarge',
-          weight: MISSING.weight,
-          color: MISSING.color,
+          weight: 500,
+          color: 'text-strong',
         },
       },
     },
@@ -1076,7 +1060,6 @@ const buildTheme = tokens => {
         background: 'background-front',
         elevation: 'medium',
         // Q should this have a token?
-        // A yes, but we haven't filled in "motion" tokens yet
         extend: 'transition: all 0.3s ease-in-out;',
       },
       body: {
@@ -1097,11 +1080,10 @@ const buildTheme = tokens => {
     checkBox: {
       hover: {
         border: {
-          color: components.hpe.checkbox.control.hover.borderColor,
-          width: components.hpe.checkbox.control.hover.borderWidth,
+          color: 'border-strong',
         },
         background: {
-          color: components.hpe.formField.input.container.hover.background,
+          color: 'background-contrast',
         },
         // HPE Design System guidance states that pad="none" should be applied on CheckBox
         // when its used outside of a FormField. We will apply this hover treatment in
@@ -1111,29 +1093,22 @@ const buildTheme = tokens => {
           pad === 'none' &&
           !toggle &&
           `border: 2px solid ${
-            theme.global.colors[
-              components.hpe.checkbox.control.hover.borderColor
-            ][theme.dark ? 'dark' : 'light']
+            theme.global.colors['border-strong'][theme.dark ? 'dark' : 'light']
           };`}
-        `, // Q: missing token for hover borderWidth? this falls into similar boat as secondary button
+        `, // Q: missing token
       },
-      color: components.hpe.switch.control.handle.enabled.background,
+      color: 'background', // Q: missing token
       border: {
         color: components.hpe.checkbox.control.enabled.borderColor,
-        width:
-          dimensions.borderSize[
-            components.hpe.checkbox.medium.control.borderWidth
-          ],
+        width: components.hpe.checkbox.medium.control.borderWidth,
       },
       check: {
+        // Q should this be 4px and not 3px as it is in theme?
         radius: components.hpe.checkbox.medium.control.borderRadius,
-        thickness: components.hpe.checkbox.control.hover.borderWidth,
         extend: ({ theme, checked, indeterminate }) => `
         background-color: ${
           checked || indeterminate
-            ? theme.global.colors[
-                components.hpe.checkbox.control.selected.enabled.background
-              ][theme.dark ? 'dark' : 'light']
+            ? theme.global.colors['green!']
             : theme.global.colors.background[theme.dark ? 'dark' : 'light']
         };
         ${(checked || indeterminate) && 'border: none;'}
@@ -1141,50 +1116,35 @@ const buildTheme = tokens => {
       },
       icon: {
         extend: ({ theme }) => `stroke-width: 2px;
-        stroke: ${theme.global.colors['text-primary-button']}`, // TO DO need a sematic token for onSelected
+        stroke: ${theme.global.colors['text-primary-button']}`,
       },
       // Q make sure this is 12px is small
       gap: components.hpe.checkbox.medium.gapX,
       // Q do we need a token here?
-      // A good question, not sure if this a grommet-ism?
       label: {
         align: 'start',
       },
+      // Q do we wan to token here?
       pad: {
-        vertical: components.hpe.component.medium.paddingY,
-        horizontal: components.hpe.formField.medium.input.container.paddingX, // TO DO is this correct usage?
+        vertical: 'xsmall',
+        horizontal: 'small',
       },
-      size: components.hpe.checkbox.medium.control.width, // TO DO should this token be called "size" instead?
       // Q is toggle and switch the same thing?
-      // A: Yes, we can discuss if this name feels right or not.
       toggle: {
-        background: components.hpe.switch.control.track.enabled.background,
-        color: components.hpe.switch.control.handle.enabled.background,
+        background: 'background',
+        color: 'background',
         knob: {
           extend: ({ theme }) => `
              box-shadow: ${
                theme.global.elevation[theme.dark ? 'dark' : 'light'].small
              };
-             border: ${
-               dimensions.borderSize[
-                 components.hpe.switch.medium.control.handle.borderWidth
-               ]
-             } solid ${
-            theme.global.colors[
-              components.hpe.switch.control.handle.enabled.borderColor
-            ][theme.dark ? 'dark' : 'light']
-          }
+             border: 1px solid ${
+               theme.global.colors.border[theme.dark ? 'dark' : 'light']
+             }
           `,
         },
         extend: ({ checked, theme }) => `
-          ${
-            checked &&
-            `background-color: ${
-              theme.global.colors[
-                components.hpe.switch.control.track.selected.enabled.background
-              ][theme.dark ? 'dark' : 'light']
-            };`
-          }
+          ${checked && `background-color: ${theme.global.colors['green!']};`}
         `,
       },
       // HPE Design System guidance states that pad="none" should be applied on CheckBox
@@ -1198,17 +1158,16 @@ const buildTheme = tokens => {
         background-color: unset;
       }`
       }
-      font-weight: ${components.hpe.checkbox.medium.label.fontWeight};
+      font-weight: 500;
       width: auto;
     };
     `,
     },
     checkBoxGroup: {
       container: {
-        gap: 'none', // TO DO missing token
+        gap: 'none',
         margin: {
-          vertical:
-            components.hpe.formField.medium.input.group.container.paddingY,
+          vertical: 'xsmall',
         },
       },
     },
@@ -1217,30 +1176,13 @@ const buildTheme = tokens => {
         kind: 'toolbar',
       },
     },
-    dateInput: {
-      container: {
-        round: components.hpe.formField.medium.input.container.borderRadius,
-      },
-      icon: {
-        size: 'small',
-      },
-    },
     dataTable: {
       body: {
         extend: ({ theme }) => `
           /* Margin and padding allow room for focus on table body */
-          // TO DO missing tokens
           margin: ${theme.global.edgeSize.xxsmall} 0px;
           padding: 0px ${theme.global.edgeSize.xxsmall};
         `,
-      },
-      groupHeader: {
-        // background: undefined,
-        // border: undefined,
-        // pad: undefined,
-      },
-      groupEnd: {
-        border: { side: 'bottom', size: 'xsmall' },
       },
       header: {
         border: { side: 'bottom' },
@@ -1252,11 +1194,11 @@ const buildTheme = tokens => {
               sort.property === column &&
               `
               background: ${
-                theme.global.colors['background-active'][
+                theme.global.colors['background-contrast'][
                   theme.dark ? 'dark' : 'light'
                 ]
               }
-            `
+            ` // Q: missing token
             };
             ${
               sortable &&
@@ -1277,48 +1219,41 @@ const buildTheme = tokens => {
         font: {
           weight: components.hpe.headerCell.fontWeight,
         },
-        gap: 'none', // TO DO missing token
+        gap: 'none',
         hover: {
           background: {
             color: components.hpe.headerCell.hover.background,
           },
         },
         units: {
-          color: MISSING.color, // Q: missing token
+          color: 'text-weak', // Q: missing token
         },
       },
       icons: {
-        ascending: () => <Ascending />,
-        descending: () => <Descending />,
+        ascending: () => <Ascending size="large" />,
+        descending: () => <Descending size="large" />,
         contract: () => <Up height="medium" />,
         expand: () => <Down height="medium" />,
-        sortable: () => <Unsorted />,
+        sortable: () => <Unsorted size="large" />,
       },
       pinned: {
         header: {
-          background: { opacity: 'strong' },
           extend: 'backdrop-filter: blur(12px);',
         },
         body: {
-          background: { opacity: 'strong' },
           extend: 'backdrop-filter: blur(12px);',
         },
         footer: {
-          background: { opacity: 'strong' },
           extend: 'backdrop-filter: blur(12px);',
         },
       },
       primary: {
         // Q: missing tokens
-        weight: MISSING.weight,
-        color: MISSING.color,
+        weight: 500,
+        color: 'text-strong',
       },
       resize: {
         // Q: missing tokens
-        border: {
-          color: 'border',
-          side: 'end',
-        },
         hover: {
           border: {
             color: 'border-strong',
@@ -1327,37 +1262,99 @@ const buildTheme = tokens => {
         },
       },
     },
+    // dateformField: {
+    //   // Q: why is this called dateformField instead of dateInput?
+    //   container: {
+    //     // Q: is this the right token?
+    //     round:
+    //       components.hpe.formField.medium.input.group.container.borderRadius,
+    //     // round: 'xsmall',
+    //   },
+    //   icon: {
+    //     size: 'small',
+    //   },
+    // },
+    dateInput: {
+      container: {
+        // Q: is this the right token?
+        round:
+          components.hpe.formField.medium.input.group.container.borderRadius,
+        // round: 'xsmall',
+      },
+      icon: {
+        size: 'small',
+      },
+    },
+    // fileformField: {
+    //   // Q: why is this called fileformField instead of fileInput?
+    //   border: {
+    //     // Q: confused on which token to use here formfield.medium.input.group.item.borderWidth?
+    //     size: 'xsmall',
+    //   },
+    //   button: {
+    //     // Q: should we point to button tokens here?
+    //     border: {
+    //       // Q: is this the correct value?
+    //       radius: components.hpe.button.medium.default.borderRadius,
+    //     },
+    //     pad: {
+    //       vertical: '6px',
+    //       horizontal: '12px',
+    //     },
+    //     color: 'text-strong',
+    //     font: {
+    //       weight: 'bold',
+    //     },
+    //     hover: {
+    //       background: 'background-contrast',
+    //       color: 'text-strong',
+    //     },
+    //   },
+    //   dragOver: {
+    //     background: 'background-contrast',
+    //     border: 'none',
+    //   },
+    //   hover: {
+    //     border: {
+    //       color: 'border',
+    //     },
+    //   },
+    //   icons: {
+    //     // remove: Close,
+    //   },
+    //   message: {
+    //     color: 'placeholder',
+    //   },
+    //   pad: { horizontal: 'xsmall' },
+    //   extend: 'border-radius: 4px;',
+    // },
     fileInput: {
+      // Q: why is this called fileformField instead of fileInput?
       border: {
         // Q: confused on which token to use here formfield.medium.input.group.item.borderWidth?
-        color: components.hpe.formField.input.container.enabled.borderColor,
-        side: 'all',
-        style: 'dashed',
-        size: components.hpe.formField.medium.input.container.borderWidth,
+        size: 'xsmall',
       },
       button: {
         // Q: should we point to button tokens here?
-        // A: Yes, I think we should unless different values are required
         border: {
           // Q: is this the correct value?
-          // A: yes
           radius: components.hpe.button.medium.default.borderRadius,
         },
         pad: {
-          vertical: components.hpe.button.medium.default.paddingY,
-          horizontal: '12px', // TO DO no tokens
+          vertical: '6px',
+          horizontal: '12px',
         },
-        color: components.hpe.button.default.enabled.textColor,
+        color: 'text-strong',
         font: {
-          weight: components.hpe.button.default.enabled.fontWeight,
+          weight: 'bold',
         },
         hover: {
-          background: components.hpe.button.default.hover.background,
-          color: components.hpe.button.default.hover.textColor,
+          background: 'background-contrast',
+          color: 'text-strong',
         },
       },
       dragOver: {
-        background: MISSING.color,
+        background: 'background-contrast',
         border: 'none',
       },
       hover: {
@@ -1368,47 +1365,50 @@ const buildTheme = tokens => {
       icons: {
         // remove: Close,
       },
-      label: {
-        margin: 'small',
-      },
       message: {
         color: 'placeholder',
-        margin: 'small',
       },
       pad: { horizontal: 'xsmall' },
-      extend: `border-radius: ${components.hpe.formField.medium.input.container.borderRadius};`,
+      extend: 'border-radius: 4px;',
     },
     formField: {
       content: {
         // Q: missing tokens
         margin: { vertical: 'xsmall' },
+        pad: undefined,
       },
       border: {
         error: {
           color:
-            components.hpe.formField.input.container.status.critical
+            components.hpe.formField.input.container.validation.critical
               .borderColor,
         },
         color: components.hpe.formField.input.container.enabled.borderColor,
         side: 'all',
       },
-      // checkBox: {
-      //   pad: 'large',
-      // },
       disabled: {
-        background:
-          components.hpe.formField.input.group.container.disabled.background,
+        background: {
+          color:
+            components.hpe.formField.input.group.container.disabled.background,
+        },
         border: {
-          color: components.hpe.formField.input.container.disabled.borderColor,
+          // color: 'border-weak',
+          // Q: this token isn't the correct value
+          color: components.hpe.formField.input.group.item.disabled.borderColor,
         },
         label: {
+          // color: 'text-xweak',
+          // Q: this token should be text-weak instead of text-strong
           color: components.hpe.formField.labelText.disabled.textColor,
         },
       },
       error: {
         background: {
+          // color: 'validation-critical',
+          // Q: this token isn't working
           color:
-            components.hpe.formField.input.container.status.critical.background,
+            components.hpe.formField.input.container.validation.critical
+              .background,
         },
         container: {
           gap: 'xsmall', // Q: missing token
@@ -1417,7 +1417,6 @@ const buildTheme = tokens => {
         size: 'xsmall', // Q: missing token
         // Q: confused why we have both hpe.formField.errorText.enabled.textColor
         // and hpe.formField.errorText.disabled.color
-        // A: This is to be able to style text differently in different states
         color: components.hpe.formField.errorText.enabled.textColor,
         margin: {
           // Q: missing token
@@ -1427,18 +1426,17 @@ const buildTheme = tokens => {
         },
       },
       focus: {
-        background: undefined, // TO DO missing token
         border: {
           color: 'border-strong', // Q: missing token
         },
       },
       help: {
-        size: 'xsmall',
+        size: components.hpe.formField.medium.helpText.fontSize,
         color: components.hpe.formField.helpText.enabled.color,
-        margin: 'none', // TO DO missing token
+        margin: 'none',
       },
       info: {
-        size: 'xsmall',
+        size: components.hpe.formField.medium.infoText.fontSize,
         color: components.hpe.formField.infoText.enabled.color,
         margin: {
           // Q: missing token
@@ -1448,7 +1446,11 @@ const buildTheme = tokens => {
         },
       },
       label: {
-        size: 'xsmall', // TO DO how to capture this as token, currently we have "fontSize", "lineHeight", "..."
+        // size: 'xsmall',
+        // Q: token is incorrect value
+        size: components.hpe.formField.medium.labelText.fontSize,
+        // color: 'text',
+        // Q: this token is the wrong value
         color: components.hpe.formField.labelText.enabled.color,
         margin: {
           // Q: missing token
@@ -1460,38 +1462,34 @@ const buildTheme = tokens => {
         weight: components.hpe.formField.medium.labelText.fontWeight,
       },
       margin: {
-        bottom: 'none', // TO DO missing token
+        bottom: 'none',
       },
       // Q: confused if I should use hpe.formField.medium.input.container.borderRadius
       // or hpe.formField.medium.input.group.container.borderRadius
       round: components.hpe.formField.medium.input.container.borderRadius,
-      // TO DO no tokens
       survey: {
         label: {
           margin: { bottom: 'none' },
-          size: 'medium',
-          weight: MISSING.weight,
         },
       },
     },
     heading: {
-      color: MISSING.color,
-      // TO DO why is "heading" in component.default.js as well?
-      weight: large.hpe.heading.xlarge.fontWeight, // Q: not sure what token to point to here
+      color: 'text-strong', // Q: missing token
+      weight: 500, // Q: not sure what token to point to here
       level: {
         1: {
           font: {
-            weight: large.hpe.heading.xlarge.fontWeight,
+            weight: 500, // Q: not sure what token to point to here
           },
           small: {
             // Q: are these the correct tokens to use? the value is correct but the name seems off
-            // TO DO this value is off because we didn't have the same typography system before
-            size: large.hpe.heading.large.fontSize,
-            height: large.hpe.heading.large.lineHeight,
+            size: components.hpe.heading.xlarge.fontSize,
+            height: components.hpe.heading.xlarge.lineHeight,
           },
           medium: {
-            size: large.hpe.heading.xlarge.fontSize,
-            height: large.hpe.heading.xlarge.lineHeight,
+            // Q: missing tokens
+            size: '36px',
+            height: '36px',
           },
           large: {
             // Q: missing tokens
@@ -1505,22 +1503,18 @@ const buildTheme = tokens => {
           },
         },
         2: {
-          font: {
-            // Q: not sure what token to point to here
-            // A: "large" is the default size for h2, so we'll point to that
-            weight: large.hpe.heading.large.fontWeight,
-          },
           small: {
-            size: large.hpe.heading.medium.fontSize,
-            height: large.hpe.heading.medium.lineHeight,
+            size: components.hpe.heading.large.fontSize,
+            height: components.hpe.heading.large.lineHeight,
           },
           medium: {
-            size: large.hpe.heading.large.fontSize,
-            height: large.hpe.heading.large.lineHeight,
+            size: components.hpe.heading.xlarge.fontSize,
+            height: components.hpe.heading.xlarge.lineHeight,
           },
           large: {
-            size: large.hpe.heading.xlarge.fontSize,
-            height: large.hpe.heading.xlarge.lineHeight,
+            // Q: missing tokens
+            size: '36px',
+            height: '36px',
           },
           xlarge: {
             // Q: missing tokens
@@ -1531,89 +1525,89 @@ const buildTheme = tokens => {
         3: {
           font: {
             // Q: not sure what token to point to here
-            weight: large.hpe.heading.medium.fontWeight,
+            weight: 500,
           },
           small: {
-            size: large.hpe.heading.small.fontSize,
-            height: large.hpe.heading.small.lineHeight,
+            size: components.hpe.heading.medium.fontSize,
+            height: components.hpe.heading.medium.lineHeight,
           },
           medium: {
-            size: large.hpe.heading.medium.fontSize,
-            height: large.hpe.heading.medium.lineHeight,
+            size: components.hpe.heading.large.fontSize,
+            height: components.hpe.heading.large.lineHeight,
           },
           large: {
-            size: large.hpe.heading.large.fontSize,
-            height: large.hpe.heading.large.lineHeight,
+            size: components.hpe.heading.xlarge.fontSize,
+            height: components.hpe.heading.xlarge.lineHeight,
           },
           xlarge: {
-            size: large.hpe.heading.xlarge.fontSize,
-            height: large.hpe.heading.xlarge.lineHeight,
+            size: '36px',
+            height: '36px',
           },
         },
         4: {
           font: {
             // Q: not sure what token to point to here
-            weight: large.hpe.heading.small.fontWeight,
+            weight: 500,
           },
           small: {
-            size: large.hpe.heading.xsmall.fontSize,
-            height: large.hpe.heading.xsmall.lineHeight,
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           medium: {
-            size: large.hpe.heading.small.fontSize,
-            height: large.hpe.heading.small.lineHeight,
+            size: components.hpe.heading.medium.fontSize,
+            height: components.hpe.heading.medium.lineHeight,
           },
           large: {
-            size: large.hpe.heading.medium.fontSize,
-            height: large.hpe.heading.medium.lineHeight,
+            size: components.hpe.heading.large.fontSize,
+            height: components.hpe.heading.large.lineHeight,
           },
           xlarge: {
-            size: large.hpe.heading.large.fontSize,
-            height: large.hpe.heading.large.lineHeight,
+            size: components.hpe.heading.xlarge.fontSize,
+            height: components.hpe.heading.xlarge.lineHeight,
           },
         },
         5: {
           font: {
             // Q: not sure what token to point to here
-            weight: large.hpe.heading.xsmall.fontWeight,
+            weight: 600,
           },
           small: {
-            size: large.hpe.heading.xxsmall.fontSize,
-            height: large.hpe.heading.xxsmall.lineHeight,
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           medium: {
-            size: large.hpe.heading.xsmall.fontSize,
-            height: large.hpe.heading.xsmall.lineHeight,
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           large: {
-            size: large.hpe.heading.small.fontSize,
-            height: large.hpe.heading.small.lineHeight,
+            size: components.hpe.heading.medium.fontSize,
+            height: components.hpe.heading.medium.lineHeight,
           },
           xlarge: {
-            size: large.hpe.heading.medium.fontSize,
-            height: large.hpe.heading.medium.lineHeight,
+            size: components.hpe.heading.large.fontSize,
+            height: components.hpe.heading.large.lineHeight,
           },
         },
         6: {
           font: {
             // Q: not sure what token to point to here
-            weight: large.hpe.heading.xxsmall.fontWeight,
+            weight: 600,
           },
           small: {
-            size: large.hpe.heading.xxsmall.fontSize,
-            height: large.hpe.heading.xxsmall.lineHeight,
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           medium: {
-            size: large.hpe.heading.xxsmall.fontSize,
-            height: large.hpe.heading.xxsmall.lineHeight,
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           large: {
-            size: large.hpe.heading.small.fontSize,
-            height: large.hpe.heading.small.lineHeight,
+            size: components.hpe.heading.small.fontSize,
+            height: components.hpe.heading.small.lineHeight,
           },
           xlarge: {
-            size: large.hpe.heading.medium.fontSize,
-            height: large.hpe.heading.medium.lineHeight,
+            size: components.hpe.heading.medium.fontSize,
+            height: components.hpe.heading.medium.lineHeight,
           },
         },
       },
@@ -1625,25 +1619,24 @@ const buildTheme = tokens => {
       extend: ({ level, size }) => {
         let fontWeight = '';
         if (level === 3 && size === 'small') {
-          fontWeight = `font-weight: ${large.hpe.heading.small.fontWeight};`;
+          fontWeight = 'font-weight: 600;'; // Q: missing token
           // undefined necessary so an h4 without size prop explicitly defined
           // still renders as weight 600
         } else if (
           level === 4 &&
           ['small', 'medium', undefined].includes(size)
         ) {
-          fontWeight = `font-weight: ${large.hpe.heading.small.fontWeight};`;
+          fontWeight = 'font-weight: 600;'; // Q: missing token
         } else if (level === 5 && size === 'xlarge') {
-          fontWeight = `font-weight: ${large.hpe.heading.small.fontWeight};`;
+          fontWeight = 'font-weight: 500;'; // Q: missing token
         }
         return fontWeight;
       },
     },
     icon: {
       disableScaleDown: true,
-      matchSize: true, // NOTE: Disabled this since concept didn't exist in v3
+      matchSize: true,
       size: {
-        // TO DO this should be coming from "large" not components?
         small: components.hpe.size.icon.small,
         medium: components.hpe.size.icon.medium,
         large: components.hpe.size.icon.large,
@@ -1652,13 +1645,13 @@ const buildTheme = tokens => {
       },
     },
     layer: {
-      background: 'background-floating',
+      background: 'background',
       border: {
-        radius: 'small', // TO DO no specific semantic token
+        radius: 'small',
         intelligentRounding: true,
       },
       container: {
-        elevation: 'large', // TO DO no specific semantic token
+        elevation: 'large',
       },
       overlay: {
         background: 'background-layer-overlay',
@@ -1666,28 +1659,32 @@ const buildTheme = tokens => {
       /* HPE Global Header/Footer Service a.k.a. HPE Common HFWS sets the header
        * at a z-index of 101. This adjustment allows for Layer modals and side-drawers
        * to sit atop the Global header. */
-      zIndex: '110', // TO DO no token
+      zIndex: '110',
     },
     list: {
-      container: {
-        // any box props
-        gap: 'xsmall',
-        // extend: undefined,
-      },
       item: {
         border: undefined,
-        disabled: {
-          color: 'text-disabled',
-          cursor: 'default',
-        },
         pinned: {
-          background: 'background-active', // TO DO need a semantic token for the "light grey" selected state
           icon: {
             pad: mediumIconOnlyPad,
           },
         },
       },
     },
+    // maskedformField: { // Q: why do we have this?
+    //   container: {
+    //     extend: ({ theme }) => `
+    //       svg {
+    //         fill: ${
+    //           theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+    //         };
+    //         stroke: ${
+    //           theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+    //         };
+    //       }
+    //     `,
+    //   },
+    // },
     maskedInput: {
       container: {
         extend: ({ theme }) => `
@@ -1705,7 +1702,6 @@ const buildTheme = tokens => {
     menu: {
       drop: {
         // Q should be tokenized?
-        // A: Not sure, this sort of feels like a grommet-ism
         align: {
           top: 'bottom',
           left: 'left',
@@ -1713,33 +1709,33 @@ const buildTheme = tokens => {
       },
       group: {
         container: {
-          pad: {
-            vertical: components.hpe.menu.medium.group.container.paddingY,
-          },
+          // pad: components.hpe.menu.medium.group.container.paddingY,
+          pad: 'none',
         },
         separator: {
           color: components.hpe.menu.group.separator.background,
-          size: components.hpe.menu.medium.group.separator.height,
-          pad: 'none', // TO DO no token
+          pad: 'none',
         },
       },
       icons: {
+        // Q: this token doesn't have the correct value
         color: components.hpe.menu.item.enabled.iconColor,
+        // color: 'text-strong',
         down: Down,
       },
       item: {
         pad: {
-          horizontal: components.hpe.menu.medium.item.paddingX,
-          vertical: components.hpe.menu.medium.item.paddingY,
+          horizontal: '18px',
+          vertical: '6px',
+          // horizontal: components.hpe.menu.medium.item.paddingX,
+          // vertical: components.hpe.menu.medium.item.paddingY,
         },
       },
     },
     nameValuePair: {
       name: {
-        // TO DO would need to manually adjust, semantic tokens were too generic
-        // should we have a `text-emphasis` and `weight-emphasis` ?
-        color: MISSING.color,
-        weight: MISSING.weight,
+        color: 'text-strong',
+        weight: 500,
       },
     },
     notification: {
@@ -1749,7 +1745,7 @@ const buildTheme = tokens => {
       container: {
         round: 'xsmall',
       },
-      direction: 'row',
+      direction: 'column',
       global: {
         direction: 'row',
         container: {
@@ -1757,12 +1753,12 @@ const buildTheme = tokens => {
         },
       },
       message: {
-        color: { dark: 'text-strong' }, // TO DO why are we doing this exception for dark mode?
+        color: { dark: 'text-strong' },
       },
       title: {
         // any text props
-        color: MISSING.color,
-        weight: MISSING.weight,
+        color: 'text-strong',
+        weight: 500,
       },
       critical: {
         background: 'validation-critical',
@@ -1861,11 +1857,8 @@ const buildTheme = tokens => {
       responsive: {
         breakpoints: ['xsmall', 'small'],
       },
-      title: {
-        size: 'small',
-      },
       subtitle: {
-        size: 'large',
+        size: 'xlarge',
       },
       xsmall: {
         areas: [
@@ -1890,107 +1883,30 @@ const buildTheme = tokens => {
     },
     pagination: {
       button: {
+        // Q: should we reference button tokens here?
         border: {
-          radius: components.hpe.button.medium.default.borderRadius,
+          radius: '2em',
         },
         font: {
-          weight: components.hpe.button.default.enabled.fontWeight,
+          weight: 600,
         },
         active: {
-          background: components.hpe.button.default.selected.enabled.background,
           border: {
-            radius: components.hpe.button.medium.default.borderRadius,
+            radius: '2em',
           },
-          color: components.hpe.button.default.selected.enabled.textColor,
+          color: 'text-strong',
           font: {
-            weight: components.hpe.button.default.selected.enabled.fontWeight,
-          },
-        },
-        hover: {
-          background: components.hpe.button.default.hover.background,
-          border: {
-            radius: components.hpe.button.medium.default.borderRadius,
-          },
-          color: components.hpe.button.default.hover.textColor,
-          font: {
-            weight: components.hpe.button.default.hover.fontWeight,
+            weight: 600,
           },
         },
         disabled: {
-          background: components.hpe.button.default.disabled.background,
-          border: {
-            radius: components.hpe.button.medium.default.borderRadius,
-          },
-          color: components.hpe.button.default.disabled.textColor,
-          font: {
-            weight: components.hpe.button.default.disabled.fontWeight,
-          },
-        },
-        size: {
-          small: {
-            border: {
-              radius: components.hpe.button.small.default.borderRadius,
-              width:
-                dimensions.borderSize[
-                  components.hpe.button.small.default.borderWidth
-                ] || components.hpe.button.small.default.borderWidth,
-            },
-            pad: {
-              vertical: '4px',
-              horizontal: '4px',
-            },
-            font: {
-              size: components.hpe.component.small.fontSize,
-              height: components.hpe.component.small.lineHeight,
-            },
-            height: components.hpe.component.small.minHeight,
-            width: components.hpe.component.small.minHeight,
-          },
-          medium: {
-            border: {
-              radius: components.hpe.button.medium.default.borderRadius,
-              width:
-                dimensions.borderSize[
-                  components.hpe.button.medium.default.borderWidth
-                ] || components.hpe.button.medium.default.borderWidth,
-            },
-            pad: {
-              vertical: `4px`,
-              horizontal: `4px`,
-            },
-            font: {
-              size: components.hpe.component.medium.fontSize,
-              height: components.hpe.component.medium.lineHeight,
-            },
-            height: components.hpe.component.medium.minHeight,
-            width: components.hpe.component.medium.minHeight,
-          },
-          large: {
-            border: {
-              radius: components.hpe.button.large.default.borderRadius,
-              width:
-                dimensions.borderSize[
-                  components.hpe.button.large.default.borderWidth
-                ] || components.hpe.button.large.default.borderWidth,
-            },
-            pad: {
-              vertical: `4px`,
-              horizontal: `4px`,
-            },
-            font: {
-              size: components.hpe.component.large.fontSize,
-              height: components.hpe.component.large.lineHeight,
-            },
-            height: components.hpe.component.large.minHeight,
-            width: components.hpe.component.large.minHeight,
-          },
+          color: 'text-xweak',
         },
       },
     },
     paragraph: {
       xsmall: {
         // Should we use paragraph component tokens instead of large.hpe?
-        // A: No, use "large" I'm not sure why paragraph is showing up in component but it shouldn't
         size: large.hpe.text.xsmall.fontSize,
         height: large.hpe.text.xsmall.lineHeight,
         maxWidth: '25em', // TO DO
@@ -2025,51 +1941,51 @@ const buildTheme = tokens => {
       // This block can be removed once grommet theme structure is enhanced
       // to support size-specific weights.
       extend: ({ size }) => `
-        ${
-          ['xxlarge'].includes(size)
-            ? `font-weight: ${
-                large.hpe.text[size].fontWeight || MISSING.weight
-              };`
-            : ''
-        };
+        ${['xxlarge'].includes(size) ? 'font-weight: 300;' : ''};
       `,
     },
     radioButton: {
       // extend for border to use box shadow
       border: {
         color: components.hpe.radioButton.control.enabled.borderColor,
+        // this is set as default check what that is value should be xsmall
         width: components.hpe.radioButton.medium.control.borderWidth,
       },
-      color: components.hpe.radioButton.control.selected.enabled.borderColor,
+      check: {
+        // token ??
+        color: 'selected-background',
+        background: {
+          color: 'background-front',
+        },
+      },
+      color: 'selected-background',
       container: {
-        extend: () => `
+        // should pad be token?
+        // Q: this token is the wrong value
+        // font-weight: 500;
+        extend: ({ theme }) => `
+        font-weight: ${components.hpe.radioButton.medium.label.fontWeight}
         width: auto;
-        padding-inline: ${components.hpe.formField.medium.input.group.item.paddingX};
+        padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
       `,
       },
-      extend: () => `
-        padding-block: ${components.hpe.formField.medium.input.group.item.paddingY};
+      // should pad be token?
+      extend: ({ theme }) => `
+        padding: ${theme.global.edgeSize.xxsmall} ${theme.global.edgeSize.xsmall};
       `,
-      gap: components.hpe.radioButton.medium.gapX,
+      // should gap be token?
+      gap: 'xsmall',
       hover: {
         background: {
-          color: components.hpe.formField.input.container.hover.background,
+          color: 'background-contrast',
         },
         border: {
-          color: components.hpe.radioButton.control.hover.borderColor,
+          color: undefined,
         },
-      },
-      size: components.hpe.radioButton.medium.control.height,
-      font: {
-        weight: components.hpe.radioButton.medium.label.fontWeight,
       },
       icons: {
         circle: () => (
-          <Blank
-            color={
-              components.hpe.radioButton.control.selected.enabled.iconColor
-            }
-          >
+          <Blank color="selected-background">
             <circle cx="12" cy="12" r="8" />
           </Blank>
         ),
@@ -2077,21 +1993,33 @@ const buildTheme = tokens => {
     },
     radioButtonGroup: {
       container: {
-        gap: 'none', // TO DO should be token?
+        gap: 'none',
+        // should be token?
         margin: {
-          vertical:
-            components.hpe.formField.medium.input.group.container.paddingY,
+          vertical: 'xsmall',
         },
       },
     },
+    // rangeformField: { // Q: why is this called rangeformField
+    //   thumb: {
+    //     color: 'brand',
+    //   },
+    //   track: {
+    //     lower: {
+    //       color: 'brand',
+    //     },
+    //     upper: {
+    //       color: 'border',
+    //     },
+    //   },
+    // },
     rangeInput: {
       thumb: {
-        color: 'background-primary-default', // Should this instead be "control"?
+        color: 'brand',
       },
       track: {
         lower: {
-          // TO DO is this the right token for here?
-          color: 'background-primary-default',
+          color: 'brand',
         },
         upper: {
           color: 'border',
@@ -2100,13 +2028,11 @@ const buildTheme = tokens => {
     },
     select: {
       control: {
-        // TO DO should this use input tokens?
-        // or should we have a select.control tokens?
         extend: ({ disabled }) => css`
           ${disabled &&
           `
           opacity: 0.3;
-          input {
+          formField {
             cursor: default;
           }`}
         `,
@@ -2117,7 +2043,7 @@ const buildTheme = tokens => {
         },
       },
       icons: {
-        color: 'icon',
+        color: 'text',
         down: Down,
         // this was not in token
         margin: {
@@ -2134,9 +2060,10 @@ const buildTheme = tokens => {
     },
     spinner: {
       container: {
-        pad: 'none', // Should we have universal token here for none?
-        color: 'background-primary-default', // Is this the right token for here?
-        // tokens?
+        // universal token here for none?
+        pad: 'none',
+        color: 'brand',
+        // should be token?
         border: [
           { color: 'border-weak', side: 'all', size: 'medium' },
           { color: 'border-weak', side: 'right', size: 'medium' },
@@ -2144,18 +2071,10 @@ const buildTheme = tokens => {
           { color: 'border-weak', side: 'left', size: 'medium' },
         ],
       },
-      size: {
-        xsmall: `${baseSpacing * 0.75}px`, // TO DO no "xsmall" component size
-        small: components.hpe.component.small.minHeight, // TO DO should these align? this was before we standardized on component sizes
-        medium: components.hpe.component.medium.minHeight,
-        large: components.hpe.component.large.minHeight,
-        xlarge: components.hpe.component.xlarge.minHeight,
-      },
     },
     starRating: {
-      color: 'background-selected-strong',
+      color: 'brand',
     },
-    // TO DO all of these would have to be adjusted manually because the semantic color was too generic
     tab: {
       color: 'text',
       active: {
@@ -2236,7 +2155,7 @@ const buildTheme = tokens => {
             &:hover {
               button {
                 background: ${
-                  theme.global.colors['background-hover'][
+                  theme.global.colors['background-contrast'][
                     theme.dark ? 'dark' : 'light'
                   ]
                 }
@@ -2246,31 +2165,26 @@ const buildTheme = tokens => {
       },
       row: {
         hover: {
-          background: 'background-hover',
+          background: 'background-contrast',
         },
       },
       footer: {
         extend: `
-          font-weight: ${MISSING.weight};
+          font-weight: 500;
         `,
       },
     },
     // use extend for border to use box shadow
-    // TO DO NOTE: Tag dimensions are off because there was a bug in Tag in 3.1.0
     tag: {
       pad: {
-        // Q: should we be using t-shirt sizes from tokens
-        // A: No this is correct because this points to "small" which is already built w tokens
-        // but it does highlight a gap of something we couldn't automatically update
+        // should we be using t-shirt sizes from tokens
         horizontal: 'small',
-        // Q: should this be a token?
-        // A: Yes, ideally this could point to "components.hpe.component.medium.paddingY"
+        // should this be a token?
         vertical: '5px', // 5px pad + 1px border = 6px 'xsmall'
       },
       value: {
         // Q should this be a token?
-        // A: Good question..similar to other areas, we might want a weight.emphasis or something
-        weight: MISSING.weight,
+        weight: 500,
       },
     },
     text: {
@@ -2321,22 +2235,35 @@ const buildTheme = tokens => {
       extend: ({ size }) => `
         ${
           ['xxlarge', '3xl', '4xl', '5xl', '6xl'].includes(size)
-            ? `font-weight: ${
-                large.hpe.text[size].fontWeight || MISSING.weight
-              };` // TO DO we don't have font-weight for each t-shirt size as token. Should we?
+            ? 'font-weight: 300;'
             : ''
         };
       `,
     },
+    // Q: why do we have textformField?
+    // textformField: {
+    //   container: {
+    //     extend: ({ theme }) => `
+    //       svg {
+    //         fill: ${
+    //           theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+    //         };
+    //         stroke: ${
+    //           theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
+    //         };
+    //       }
+    //     `,
+    //   },
+    // },
     textInput: {
       container: {
         extend: ({ theme }) => `
           svg {
             fill: ${
-              theme.global.colors['icon-strong'][theme.dark ? 'dark' : 'light']
+              theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
             };
             stroke: ${
-              theme.global.colors['icon-strong'][theme.dark ? 'dark' : 'light']
+              theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
             };
           }
         `,
@@ -2344,25 +2271,25 @@ const buildTheme = tokens => {
     },
     tip: {
       content: {
-        background: 'background-floating',
+        background: 'background',
         border: {
-          color: 'border-weak', // TO DO this isn't specific enough to update automatically in future
+          color: 'border-weak',
         },
         margin: 'xxsmall',
-        elevation: 'small', // TO DO this isn't specific enough to update automatically in future
+        elevation: 'small',
         pad: {
           vertical: 'none',
           horizontal: 'small',
         },
-        round: components.hpe.drop.borderRadius, // TO DO does it make sense to use drop here?
+        round: 'xsmall',
       },
     },
     thumbsRating: {
       like: {
-        color: 'background-selected-strong',
+        color: 'brand',
       },
       dislike: {
-        color: 'background-selected-strong',
+        color: 'brand',
       },
     },
     toggleGroup: {
@@ -2375,8 +2302,8 @@ const buildTheme = tokens => {
         iconOnly: {
           // Q this will be a token?
           pad: {
-            vertical: mediumIconOnlyPad,
-            horizontal: mediumIconOnlyPad,
+            vertical: '9px',
+            horizontal: '9px',
           },
         },
       },
