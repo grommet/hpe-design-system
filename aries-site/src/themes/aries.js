@@ -36,7 +36,7 @@ export const aries = deepMerge(hpe, {
     extend: ({ kind, theme, selected }) => {
       let style = '';
       if (kind === 'option' && selected) {
-        style += `box-shadow: inset 2px 0 ${
+        style += `box-shadow: inset 3px 0 ${
           theme.global.colors['green!']
         }; &:hover, &:focus:not(:focus-visible) {
           background: ${
@@ -44,7 +44,7 @@ export const aries = deepMerge(hpe, {
               theme.dark ? 'dark' : 'light'
             ]
           };
-          box-shadow: inset 2px 0 ${theme.global.colors['green!']};
+          box-shadow: inset 3px 0 ${theme.global.colors['green!']};
           color: ${
             theme.global.colors['text-strong'][theme.dark ? 'dark' : 'light']
           };
