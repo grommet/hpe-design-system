@@ -105,6 +105,7 @@ StyleDictionary.registerFormat({
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
+const CJS_DIR = 'dist/cjs/';
 const JSON_DIR = 'dist/json/';
 const CSS_DIR = 'dist/css/';
 const PREFIX = 'hpe';
@@ -123,6 +124,17 @@ StyleDictionary.extend({
         {
           destination: 'base.js',
           format: 'javascript/esm',
+        },
+      ],
+    },
+    'js/cjs': {
+      transformGroup: 'js/w3c',
+      buildPath: CJS_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'base.js',
+          format: 'javascript/commonJs',
         },
       ],
     },
@@ -187,6 +199,24 @@ colorModeFiles.forEach(file => {
               theme ? `${theme}-${mode}` : `${mode || ''}`
             }.js`,
             format: 'javascript/esm',
+            filter: token =>
+              (token.attributes.category === 'color' &&
+                !primitiveColorNames.includes(token.attributes.type)) ||
+              token.attributes.category === 'elevation' ||
+              token.attributes.category === 'gradient',
+          },
+        ],
+      },
+      'js/cjs': {
+        transformGroup: 'js/w3c',
+        buildPath: CJS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `color.${
+              theme ? `${theme}-${mode}` : `${mode || ''}`
+            }.js`,
+            format: 'javascript/commonJs',
             filter: token =>
               (token.attributes.category === 'color' &&
                 !primitiveColorNames.includes(token.attributes.type)) ||
@@ -283,6 +313,18 @@ dimensionFiles.forEach(file => {
           },
         ],
       },
+      'js/cjs': {
+        transformGroup: 'js/w3c',
+        buildPath: CJS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `dimension.${mode}.js`,
+            format: 'javascript/commonJs',
+            filter: token => dimensions.includes(token.attributes.category),
+          },
+        ],
+      },
       json: {
         transformGroup: 'js/w3c',
         buildPath: JSON_DIR,
@@ -364,5 +406,22 @@ StyleDictionary.extend({
     },
   },
 }).buildAllPlatforms();
+
+// create CommonJS index.js
+const collections = {};
+fs.readdirSync(CJS_DIR)
+  .filter(file => file !== 'index.js')
+  .forEach(file => {
+    if (file.toLowerCase().endsWith('.js')) {
+      const filename = file.replace('.js', '');
+      const parts = filename.split('.');
+      let mode = parts[1];
+      // special case for base.js and components
+      if (mode === 'default' || !mode) [mode] = parts;
+      collections[mode] = `require(./${filename})`;
+    }
+  });
+const output = `module.exports = ${JSON.stringify(collections, null, 2)}`;
+fs.writeFileSync(`${CJS_DIR}index.js`, output);
 
 console.log('✅ CSS, Javascript, and JSON files have been generated.');

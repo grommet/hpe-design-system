@@ -249,4 +249,10 @@ writeFileSync(
   "export { default as components } from './components.default';\n",
 );
 
+mkdirSync('./dist/cjs/');
+writeFileSync(
+  './dist/cjs/components.default.js',
+  `exports.default = ${JSON.stringify(res, null, 2)}`,
+);
+
 console.log('✅ components.default.js has been generated.');
