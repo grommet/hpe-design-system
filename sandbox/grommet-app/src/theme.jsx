@@ -423,16 +423,16 @@ const buildTheme = tokens => {
     },
     'status-disabled': '#CCCCCC', // deprecated, does not support light and dark.hpe. use text-weak instead
     'validation-critical': {
-      light: light.hpe.color.background.validation.critical,
-      dark: dark.hpe.color.background.validation.critical,
+      light: light.hpe.color.background.status.critical,
+      dark: dark.hpe.color.background.status.critical,
     },
     'validation-ok': {
-      light: light.hpe.color.background.validation.ok,
-      dark: dark.hpe.color.background.validation.ok,
+      light: light.hpe.color.background.status.ok,
+      dark: dark.hpe.color.background.status.ok,
     },
     'validation-warning': {
-      light: light.hpe.color.background.validation.warning,
-      dark: dark.hpe.color.background.validation.critical,
+      light: light.hpe.color.background.status.warning,
+      dark: dark.hpe.color.background.status.critical,
     },
     icon: {
       light: light.hpe.color.icon.default,
@@ -1181,7 +1181,7 @@ const buildTheme = tokens => {
             checked &&
             `background-color: ${
               theme.global.colors[
-                components.hpe.switch.control.selected.track.enabled.background
+                components.hpe.switch.control.track.selected.enabled.background
               ][theme.dark ? 'dark' : 'light']
             };`
           }
@@ -1386,7 +1386,7 @@ const buildTheme = tokens => {
       border: {
         error: {
           color:
-            components.hpe.formField.input.container.validation.critical
+            components.hpe.formField.input.container.status.critical
               .borderColor,
         },
         color: components.hpe.formField.input.container.enabled.borderColor,
@@ -1408,8 +1408,7 @@ const buildTheme = tokens => {
       error: {
         background: {
           color:
-            components.hpe.formField.input.container.validation.critical
-              .background,
+            components.hpe.formField.input.container.status.critical.background,
         },
         container: {
           gap: 'xsmall', // Q: missing token
