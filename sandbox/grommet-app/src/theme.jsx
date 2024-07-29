@@ -733,7 +733,7 @@ const buildTheme = tokens => {
         font: {
           weight: components.hpe.button.primary.enabled.fontWeight,
         },
-        // extend: props => primaryBackground(props),
+        extend: ``,
       },
       secondary: {
         border: {
@@ -855,7 +855,7 @@ const buildTheme = tokens => {
             color: components.hpe.button.primary.hover.borderColor,
           },
           color: components.hpe.button.primary.hover.textColor,
-          extend: props => primaryHoverBackground(props),
+          extend: ``,
         },
         secondary: {
           background: components.hpe.button.secondary.hover.background,
@@ -1641,7 +1641,7 @@ const buildTheme = tokens => {
     },
     icon: {
       disableScaleDown: true,
-      // matchSize: true, // NOTE: Disabled this since concept didn't exist in v3
+      matchSize: true, // NOTE: Disabled this since concept didn't exist in v3
       size: {
         // TO DO this should be coming from "large" not components?
         small: components.hpe.size.icon.small,
