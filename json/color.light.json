@@ -9,12 +9,12 @@
       "front": "#ffffff",
       "floating": "#ffffff",
       "contrast": "#0000000a",
-      "validation": {
+      "status": {
         "critical": "#fc61613d",
-        "info": "#00c8ff3d",
-        "unknown": "#f7f7f7",
         "ok": "#17eba03d",
-        "warning": "#ffbc443d"
+        "warning": "#ffbc443d",
+        "info": "#00c8ff3d",
+        "unknown": "#f7f7f7"
       },
       "primary": {
         "default": "#01a982",
@@ -42,6 +42,9 @@
       "brand": "#01a982",
       "inverse": {
         "default": "#ffffff"
+      },
+      "heading": {
+        "default": "#333333"
       }
     },
     "icon": {
@@ -50,11 +53,13 @@
       "weak": "#757575",
       "xweak": "#bbbbbb",
       "disabled": "#0000003d",
-      "critical": "#fc5a5a",
-      "info": "#00c8ff",
-      "ok": "#17eba0",
-      "warning": "#ffbc44",
-      "unknown": "#cccccc",
+      "status": {
+        "critical": "#fc5a5a",
+        "info": "#00c8ff",
+        "ok": "#17eba0",
+        "warning": "#ffbc44",
+        "unknown": "#cccccc"
+      },
       "onPrimary": "#ffffff",
       "brand": "#01a982"
     },
