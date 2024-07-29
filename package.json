@@ -6,7 +6,7 @@
   "exports": {
     ".": {
       "import": "./esm/index.js",
-      "require": "./cjs/index.js"
+      "require": "./cjs/index.cjs"
     },
     "./esm-unresolved": "./esm-unresolved/index.js",
     "./css/*.css": {
