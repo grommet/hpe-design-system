@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 27 Jun 2024 00:11:21 GMT
+ * Generated on Wed, 24 Jul 2024 23:55:05 GMT
  */
 
 export default {
@@ -10,11 +10,10 @@ export default {
         default: "#1c1c1c",
         hover: "#ffffff0f",
         active: "#ffffff0f",
-        disabled: "#ffffff1f",
+        disabled: "#ffffff12",
         back: "#1c1c1c",
         front: "#222222",
-        raised: "#00ff0a00",
-        floating: "#00ff0a00",
+        floating: "#292929",
         contrast: "#ffffff0f",
         validation: {
           critical: "#cc1f1a4d",
@@ -24,8 +23,8 @@ export default {
           warning: "#fec9011f",
         },
         primary: {
-          hover: "#00ff0a00",
           default: "#01a982",
+          hover: "#00ff0a00",
         },
         selected: {
           strong: "#01a982",
@@ -36,7 +35,7 @@ export default {
         strong: "#ffffffb8",
         default: "#ffffff5c",
         weak: "#ffffff1f",
-        disabled: "#ffffff33",
+        disabled: "#ffffff1f",
         selected: "#01a982",
       },
       text: {
@@ -44,16 +43,19 @@ export default {
         strong: "#ffffff",
         weak: "#ffffff80",
         xweak: "#ffffff33",
-        disabled: "#00ff0a00",
+        disabled: "#ffffff3d",
         onPrimary: "#ffffff",
         brand: "#01a982",
+        inverse: {
+          default: "#222222",
+        },
       },
       icon: {
         default: "#ffffff",
         strong: "#ffffff",
         weak: "#ffffff80",
         xweak: "#ffffff33",
-        disabled: "#ffffff5c",
+        disabled: "#ffffff3d",
         critical: "#d04f4e",
         info: "#00739d",
         ok: "#008567",
@@ -89,6 +91,7 @@ export default {
           "70Weak": "#00ff0a00",
         },
       },
+      transparent: "#00000000",
     },
   },
 };

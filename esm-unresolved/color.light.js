@@ -91,21 +91,6 @@ export default {
           }
         }
       },
-      "raised": {
-        "$type": "color",
-        "$value": "{base.color.white.100}",
-        "$description": "Elevation level 2. Used for raised components, that can sit on top of both background.back or background.front. Example: cards.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "SHAPE_FILL",
-              "FRAME_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
       "floating": {
         "$type": "color",
         "$value": "{base.color.white.100}",
@@ -137,36 +122,6 @@ export default {
         }
       },
       "validation": {
-        "critical": {
-          "$type": "color",
-          "$value": "{base.color.red.500-Opacity24}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "info": {
-          "$type": "color",
-          "$value": "{base.color.blue.400-Opacity24}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "unknown": {
           "$type": "color",
           "$value": "{base.color.grey.50}",
@@ -182,9 +137,39 @@ export default {
             }
           }
         },
+        "critical": {
+          "$type": "color",
+          "$value": "{base.color.red.500-Opacity24}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "ok": {
           "$type": "color",
           "$value": "{base.color.green.400-Opacity24}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "info": {
+          "$type": "color",
+          "$value": "{base.color.blue.400-Opacity24}",
           "$description": "",
           "$extensions": {
             "com.figma": {

@@ -3,7 +3,7 @@ export default {
     "background": {
       "default": {
         "$type": "color",
-        "$value": "{base.color.grey.1300}",
+        "$value": "{base.color.white.100}",
         "$description": "Default color for component backgrounds in the default/enabled state. Can also be used for page background.",
         "$extensions": {
           "com.figma": {
@@ -18,7 +18,7 @@ export default {
       },
       "hover": {
         "$type": "color",
-        "$value": "{base.color.white.opacity6}",
+        "$value": "{color.background.contrast}",
         "$description": "Standard hover state color",
         "$extensions": {
           "com.figma": {
@@ -33,7 +33,7 @@ export default {
       },
       "active": {
         "$type": "color",
-        "$value": "{base.color.white.opacity6}",
+        "$value": "{color.background.hover}",
         "$description": "Standard active state color",
         "$extensions": {
           "com.figma": {
@@ -48,7 +48,7 @@ export default {
       },
       "disabled": {
         "$type": "color",
-        "$value": "{base.color.white.opacity12}",
+        "$value": "{base.color.black.opacity4}",
         "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
         "$extensions": {
           "com.figma": {
@@ -63,7 +63,7 @@ export default {
       },
       "back": {
         "$type": "color",
-        "$value": "{base.color.grey.1300}",
+        "$value": "{base.color.grey.50}",
         "$description": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
         "$extensions": {
           "com.figma": {
@@ -78,7 +78,7 @@ export default {
       },
       "front": {
         "$type": "color",
-        "$value": "{base.color.grey.1200}",
+        "$value": "{base.color.white.100}",
         "$description": "Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table.",
         "$extensions": {
           "com.figma": {
@@ -93,7 +93,7 @@ export default {
       },
       "floating": {
         "$type": "color",
-        "$value": "{TBD}",
+        "$value": "{base.color.white.100}",
         "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
         "$extensions": {
           "com.figma": {
@@ -108,7 +108,7 @@ export default {
       },
       "contrast": {
         "$type": "color",
-        "$value": "{base.color.white.opacity6}",
+        "$value": "{base.color.black.opacity4}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -122,39 +122,9 @@ export default {
         }
       },
       "validation": {
-        "unknown": {
-          "$type": "color",
-          "$value": "{base.color.grey.1200}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "critical": {
           "$type": "color",
-          "$value": "{base.color.red.800-Opacity30}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "SHAPE_FILL",
-                "FRAME_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "ok": {
-          "$type": "color",
-          "$value": "{base.color.green.500-Opacity30}",
+          "$value": "{base.color.red.500-Opacity24}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -169,7 +139,37 @@ export default {
         },
         "info": {
           "$type": "color",
-          "$value": "{base.color.blue.400-Opacity12}",
+          "$value": "{base.color.blue.400-Opacity24}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "unknown": {
+          "$type": "color",
+          "$value": "{base.color.grey.50}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "SHAPE_FILL",
+                "FRAME_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "ok": {
+          "$type": "color",
+          "$value": "{base.color.green.400-Opacity24}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -184,7 +184,7 @@ export default {
         },
         "warning": {
           "$type": "color",
-          "$value": "{base.color.yellow.400-Opacity12}",
+          "$value": "{base.color.orange.400-Opacity24}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -199,10 +199,10 @@ export default {
         }
       },
       "primary": {
-        "hover": {
+        "default": {
           "$type": "color",
-          "$value": "{TBD}",
-          "$description": "Hover color variant of the primary color.",
+          "$value": "{base.color.green.600}",
+          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -214,10 +214,10 @@ export default {
             }
           }
         },
-        "default": {
+        "hover": {
           "$type": "color",
-          "$value": "{base.color.green.600}",
-          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+          "$value": "{TBD}",
+          "$description": "Hover color variant of the primary color.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -248,7 +248,7 @@ export default {
         },
         "weak": {
           "$type": "color",
-          "$value": "{base.color.green.1000}",
+          "$value": "{base.color.green.100}",
           "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
           "$extensions": {
             "com.figma": {
@@ -266,13 +266,13 @@ export default {
     "border": {
       "strong": {
         "$type": "color",
-        "$value": "{base.color.white.opacity72}",
+        "$value": "{base.color.black.opacity72}",
         "$description": "Stronger border color for added emphasis",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -280,13 +280,13 @@ export default {
       },
       "default": {
         "$type": "color",
-        "$value": "{base.color.white.opacity36}",
+        "$value": "{base.color.black.opacity36}",
         "$description": "Default border colour",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -294,13 +294,13 @@ export default {
       },
       "weak": {
         "$type": "color",
-        "$value": "{base.color.white.opacity12}",
+        "$value": "{base.color.black.opacity12}",
         "$description": "Weaker border color for reduced emphasis",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -308,13 +308,13 @@ export default {
       },
       "disabled": {
         "$type": "color",
-        "$value": "{base.color.white.opacity20}",
+        "$value": "{base.color.black.opacity12}",
         "$description": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -328,7 +328,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "STROKE_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -338,7 +338,7 @@ export default {
     "text": {
       "default": {
         "$type": "color",
-        "$value": "{base.color.white.100}",
+        "$value": "{base.color.grey.800}",
         "$description": "Default text color that is accessible on standard background colors",
         "$extensions": {
           "com.figma": {
@@ -352,7 +352,7 @@ export default {
       },
       "strong": {
         "$type": "color",
-        "$value": "{base.color.white.100}",
+        "$value": "{base.color.grey.1000}",
         "$description": "Stronger text color for added prominence",
         "$extensions": {
           "com.figma": {
@@ -366,7 +366,7 @@ export default {
       },
       "weak": {
         "$type": "color",
-        "$value": "{base.color.white.opacity50}",
+        "$value": "{base.color.grey.700}",
         "$description": "Weaker text color for reduced emphasis",
         "$extensions": {
           "com.figma": {
@@ -380,7 +380,7 @@ export default {
       },
       "xweak": {
         "$type": "color",
-        "$value": "{base.color.white.opacity20}",
+        "$value": "{base.color.grey.500}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -394,7 +394,7 @@ export default {
       },
       "disabled": {
         "$type": "color",
-        "$value": "{TBD}",
+        "$value": "{base.color.black.opacity24}",
         "$description": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
         "$extensions": {
           "com.figma": {
@@ -433,12 +433,28 @@ export default {
             "codeSyntax": {}
           }
         }
+      },
+      "inverse": {
+        "default": {
+          "$type": "color",
+          "$value": "{base.color.white.100}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        }
       }
     },
     "icon": {
       "default": {
         "$type": "color",
-        "$value": "{base.color.white.100}",
+        "$value": "{base.color.grey.800}",
         "$description": "Default icon colour that is accessible on standard background colours",
         "$extensions": {
           "com.figma": {
@@ -454,7 +470,7 @@ export default {
       },
       "strong": {
         "$type": "color",
-        "$value": "{base.color.white.100}",
+        "$value": "{base.color.grey.1000}",
         "$description": "Stronger icon color for added prominence",
         "$extensions": {
           "com.figma": {
@@ -470,7 +486,7 @@ export default {
       },
       "weak": {
         "$type": "color",
-        "$value": "{base.color.white.opacity50}",
+        "$value": "{base.color.grey.700}",
         "$description": "Weaker icon color for reduced emphasis",
         "$extensions": {
           "com.figma": {
@@ -486,7 +502,7 @@ export default {
       },
       "xweak": {
         "$type": "color",
-        "$value": "{base.color.white.opacity20}",
+        "$value": "{base.color.grey.500}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -502,7 +518,7 @@ export default {
       },
       "disabled": {
         "$type": "color",
-        "$value": "{base.color.white.opacity36}",
+        "$value": "{base.color.black.opacity24}",
         "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
         "$extensions": {
           "com.figma": {
@@ -518,7 +534,7 @@ export default {
       },
       "critical": {
         "$type": "color",
-        "$value": "{base.color.red.700}",
+        "$value": "{base.color.red.550}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -534,7 +550,7 @@ export default {
       },
       "info": {
         "$type": "color",
-        "$value": "{base.color.blue.700}",
+        "$value": "{base.color.blue.400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -550,7 +566,7 @@ export default {
       },
       "ok": {
         "$type": "color",
-        "$value": "{base.color.green.700}",
+        "$value": "{base.color.green.400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -566,7 +582,7 @@ export default {
       },
       "warning": {
         "$type": "color",
-        "$value": "{base.color.orange.700}",
+        "$value": "{base.color.orange.400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -582,7 +598,7 @@ export default {
       },
       "unknown": {
         "$type": "color",
-        "$value": "{base.color.grey.800}",
+        "$value": "{base.color.grey.400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -632,7 +648,7 @@ export default {
     "decorative": {
       "green": {
         "$type": "color",
-        "$value": "{base.color.green.700}",
+        "$value": "{base.color.green.400}",
         "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
@@ -646,7 +662,7 @@ export default {
       },
       "purple": {
         "$type": "color",
-        "$value": "{base.color.purple.900}",
+        "$value": "{base.color.purple.500}",
         "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
@@ -660,7 +676,7 @@ export default {
       },
       "turquoise": {
         "$type": "color",
-        "$value": "{base.color.turquoise.700}",
+        "$value": "{base.color.turquoise.200}",
         "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
@@ -674,7 +690,7 @@ export default {
       },
       "blue": {
         "$type": "color",
-        "$value": "{base.color.blue.700}",
+        "$value": "{base.color.blue.400}",
         "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
@@ -688,7 +704,7 @@ export default {
       },
       "red": {
         "$type": "color",
-        "$value": "{base.color.red.850}",
+        "$value": "{base.color.red.500}",
         "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
@@ -702,7 +718,7 @@ export default {
       },
       "orange": {
         "$type": "color",
-        "$value": "{base.color.orange.700}",
+        "$value": "{base.color.orange.400}",
         "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
@@ -716,7 +732,7 @@ export default {
       },
       "yellow": {
         "$type": "color",
-        "$value": "{base.color.yellow.700}",
+        "$value": "{base.color.yellow.200}",
         "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
@@ -733,7 +749,7 @@ export default {
       "categorical": {
         "10": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.blue.700}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -747,7 +763,7 @@ export default {
         },
         "20": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.orange.500}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -761,7 +777,7 @@ export default {
         },
         "30": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.purple.800}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -775,7 +791,7 @@ export default {
         },
         "40": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.turquoise.200}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -789,7 +805,7 @@ export default {
         },
         "50": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.yellow.300}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -803,7 +819,7 @@ export default {
         },
         "60": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.purple.500}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -817,7 +833,7 @@ export default {
         },
         "70": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.blue.400}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -831,7 +847,7 @@ export default {
         },
         "10Weak": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.blue.700-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -845,7 +861,7 @@ export default {
         },
         "20Weak": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.orange.500-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -859,7 +875,7 @@ export default {
         },
         "30weak": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.purple.800-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -873,7 +889,7 @@ export default {
         },
         "40Weak": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.turquoise.200-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -887,7 +903,7 @@ export default {
         },
         "50Weak": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.yellow.300-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -901,7 +917,7 @@ export default {
         },
         "60Weak": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.purple.500-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -915,7 +931,7 @@ export default {
         },
         "70Weak": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.blue.400-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -926,6 +942,20 @@ export default {
               "codeSyntax": {}
             }
           }
+        }
+      }
+    },
+    "transparent": {
+      "$type": "color",
+      "$value": "#00000000",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
         }
       }
     }

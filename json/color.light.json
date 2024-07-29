@@ -7,7 +7,6 @@
       "disabled": "#0000000a",
       "back": "#f7f7f7",
       "front": "#ffffff",
-      "raised": "#ffffff",
       "floating": "#ffffff",
       "contrast": "#0000000a",
       "validation": {
@@ -18,8 +17,8 @@
         "warning": "#ffbc443d"
       },
       "primary": {
-        "hover": "#00ff0a00",
-        "default": "#01a982"
+        "default": "#01a982",
+        "hover": "#00ff0a00"
       },
       "selected": {
         "strong": "#01a982",
@@ -40,7 +39,10 @@
       "xweak": "#bbbbbb",
       "disabled": "#0000003d",
       "onPrimary": "#ffffff",
-      "brand": "#01a982"
+      "brand": "#01a982",
+      "inverse": {
+        "default": "#ffffff"
+      }
     },
     "icon": {
       "default": "#555555",
@@ -82,6 +84,7 @@
         "60Weak": "#f740ff1f",
         "70Weak": "#00c8ff1f"
       }
-    }
+    },
+    "transparent": "#00000000"
   }
 }
