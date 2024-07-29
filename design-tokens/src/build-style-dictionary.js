@@ -133,7 +133,7 @@ StyleDictionary.extend({
       prefix: PREFIX,
       files: [
         {
-          destination: 'base.js',
+          destination: 'base.cjs',
           format: 'javascript/commonJs',
         },
       ],
@@ -215,7 +215,7 @@ colorModeFiles.forEach(file => {
           {
             destination: `color.${
               theme ? `${theme}-${mode}` : `${mode || ''}`
-            }.js`,
+            }.cjs`,
             format: 'javascript/commonJs',
             filter: token =>
               (token.attributes.category === 'color' &&
@@ -319,7 +319,7 @@ dimensionFiles.forEach(file => {
         prefix: PREFIX,
         files: [
           {
-            destination: `dimension.${mode}.js`,
+            destination: `dimension.${mode}.cjs`,
             format: 'javascript/commonJs',
             filter: token => dimensions.includes(token.attributes.category),
           },
@@ -410,10 +410,10 @@ StyleDictionary.extend({
 // create CommonJS index.js
 const collections = {};
 fs.readdirSync(CJS_DIR)
-  .filter(file => file !== 'index.js')
+  .filter(file => file !== 'index.cjs')
   .forEach(file => {
-    if (file.toLowerCase().endsWith('.js')) {
-      const filename = file.replace('.js', '');
+    if (file.toLowerCase().endsWith('.cjs')) {
+      const filename = file.replace('.cjs', '');
       const parts = filename.split('.');
       let mode = parts[1];
       // special case for base.js and components
@@ -422,6 +422,6 @@ fs.readdirSync(CJS_DIR)
     }
   });
 const output = `module.exports = ${JSON.stringify(collections, null, 2)}`;
-fs.writeFileSync(`${CJS_DIR}index.js`, output);
+fs.writeFileSync(`${CJS_DIR}index.cjs`, output);
 
 console.log('✅ CSS, Javascript, and JSON files have been generated.');
