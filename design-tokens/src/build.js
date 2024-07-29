@@ -251,7 +251,7 @@ writeFileSync(
 
 mkdirSync('./dist/cjs/');
 writeFileSync(
-  './dist/cjs/components.default.js',
+  './dist/cjs/components.default.cjs',
   `exports.default = ${JSON.stringify(res, null, 2)}`,
 );
 
