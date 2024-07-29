@@ -2,9 +2,12 @@
   "name": "hpe-design-tokens",
   "version": "0.1.0",
   "type": "module",
-  "main": "dist/esm/index.js",
+  "module": "./esm/index.js",
   "exports": {
-    ".": "./esm/index.js",
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js"
+    },
     "./esm-unresolved": "./esm-unresolved/index.js",
     "./css/*.css": {
       "import": "./css/*.css",
