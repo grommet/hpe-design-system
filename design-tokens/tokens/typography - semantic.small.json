@@ -311,7 +311,7 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -355,7 +355,7 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -427,7 +427,7 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -471,7 +471,7 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -515,7 +515,7 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -559,7 +559,7 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
