@@ -1,9 +1,9 @@
 /**
  * Do not edit directly
- * Generated on Mon, 29 Jul 2024 23:33:09 GMT
+ * Generated on Mon, 29 Jul 2024 23:33:10 GMT
  */
 
-export default {
+exports.default = {
   hpe: {
     base: {
       dimension: {
