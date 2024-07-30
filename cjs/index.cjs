@@ -1,8 +1,8 @@
-module.exports = {
-  "base": "require(./base.cjs)",
-  "dark": "require(./color.dark.cjs)",
-  "light": "require(./color.light.cjs)",
-  "components": "require(./components.default.cjs)",
-  "large": "require(./dimension.large.cjs)",
-  "small": "require(./dimension.small.cjs)"
-}
+const base = require('./base.cjs');
+const dark = require('./color.dark.cjs');
+const light = require('./color.light.cjs');
+const components = require('./components.default.cjs');
+const large = require('./dimension.large.cjs');
+const small = require('./dimension.small.cjs');
+
+module.exports = { base,dark,light,components,large,small };
