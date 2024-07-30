@@ -418,7 +418,7 @@ fs.readdirSync(CJS_DIR)
       let mode = parts[1];
       // special case for base.js and components
       if (mode === 'default' || !mode) [mode] = parts;
-      collections[mode] = `require(./${filename})`;
+      collections[mode] = `require(./${file})`;
     }
   });
 const output = `module.exports = ${JSON.stringify(collections, null, 2)}`;
