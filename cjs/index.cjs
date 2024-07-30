@@ -1,8 +1,8 @@
 module.exports = {
-  "base": "require(./base)",
-  "dark": "require(./color.dark)",
-  "light": "require(./color.light)",
-  "components": "require(./components.default)",
-  "large": "require(./dimension.large)",
-  "small": "require(./dimension.small)"
+  "base": "require(./base.cjs)",
+  "dark": "require(./color.dark.cjs)",
+  "light": "require(./color.light.cjs)",
+  "components": "require(./components.default.cjs)",
+  "large": "require(./dimension.large.cjs)",
+  "small": "require(./dimension.small.cjs)"
 }
