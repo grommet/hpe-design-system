@@ -1,12 +1,12 @@
 /**
  * Do not edit directly
- * Generated on Tue, 30 Jul 2024 00:24:01 GMT
+ * Generated on Tue, 30 Jul 2024 00:34:22 GMT
  */
 
-exports.default = {
-  hpe: {
-    base: {
-      dimension: {
+module.exports = {
+  "hpe": {
+    "base": {
+      "dimension": {
         "0": "0px",
         "25": "1px",
         "50": "2px",
@@ -33,10 +33,10 @@ exports.default = {
         "9600": "384px",
         "19200": "768px",
         "38400": "1152px",
-        "76800": "1536px",
+        "76800": "1536px"
       },
-      color: {
-        red: {
+      "color": {
+        "red": {
           "500": "#fc6161",
           "550": "#fc5a5a",
           "700": "#d04f4e",
@@ -45,17 +45,17 @@ exports.default = {
           "850": "#a2423d",
           "500-Opacity12": "#fc61611f",
           "500-Opacity24": "#fc61613d",
-          "800-Opacity30": "#cc1f1a4d",
+          "800-Opacity30": "#cc1f1a4d"
         },
-        orange: {
+        "orange": {
           "400": "#ffbc44",
           "500": "#ff8300",
           "700": "#9b6310",
           "400-Opacity12": "#ffbc441f",
           "400-Opacity24": "#ffbc443d",
-          "500-Opacity12": "#ff83001f",
+          "500-Opacity12": "#ff83001f"
         },
-        yellow: {
+        "yellow": {
           "200": "#ffeb59",
           "300": "#ffd829",
           "400": "#fec901",
@@ -64,9 +64,9 @@ exports.default = {
           "200-Opacity12": "#ffeb591f",
           "300-Opacity12": "#ffd8291f",
           "400-Opacity12": "#fec9011f",
-          "500-Opacity30": "#d891284d",
+          "500-Opacity30": "#d891284d"
         },
-        green: {
+        "green": {
           "100": "#cbfaeb",
           "400": "#17eba0",
           "500": "#17d0a6",
@@ -75,39 +75,39 @@ exports.default = {
           "1000": "#093a2f",
           "400-Opacity12": "#17eba01f",
           "400-Opacity24": "#17eba03d",
-          "500-Opacity30": "#17d0a64d",
+          "500-Opacity30": "#17d0a64d"
         },
-        turquoise: {
+        "turquoise": {
           "200": "#82fff2",
           "400": "#00e8cf",
           "700": "#117b82",
-          "200-Opacity12": "#82fff21f",
+          "200-Opacity12": "#82fff21f"
         },
-        blue: {
+        "blue": {
           "400": "#00c8ff",
           "700": "#00739d",
           "900": "#00567a",
           "400-Opacity12": "#00c8ff1f",
           "400-Opacity24": "#00c8ff3d",
-          "700-Opacity12": "#00739d1f",
+          "700-Opacity12": "#00739d1f"
         },
-        purple: {
+        "purple": {
           "500": "#f740ff",
           "800": "#7630ea",
           "900": "#6633bc",
           "500-Opacity12": "#f740ff1f",
-          "800-Opacity12": "#7630ea1f",
+          "800-Opacity12": "#7630ea1f"
         },
-        black: {
-          opacity4: "#0000000a",
-          opacity12: "#0000001f",
-          opacity24: "#0000003d",
-          opacity36: "#0000005c",
-          opacity50: "#00000080",
-          opacity72: "#000000b8",
-          opacity100: "#000000",
+        "black": {
+          "opacity4": "#0000000a",
+          "opacity12": "#0000001f",
+          "opacity24": "#0000003d",
+          "opacity36": "#0000005c",
+          "opacity50": "#00000080",
+          "opacity72": "#000000b8",
+          "opacity100": "#000000"
         },
-        grey: {
+        "grey": {
           "50": "#f7f7f7",
           "400": "#cccccc",
           "500": "#bbbbbb",
@@ -116,25 +116,25 @@ exports.default = {
           "1000": "#333333",
           "1100": "#292929",
           "1200": "#222222",
-          "1300": "#1c1c1c",
+          "1300": "#1c1c1c"
         },
-        white: {
+        "white": {
           "100": "#ffffff",
-          opacity6: "#ffffff0f",
-          opacity7: "#ffffff12",
-          opacity12: "#ffffff1f",
-          opacity20: "#ffffff33",
-          opacity24: "#ffffff3d",
-          opacity36: "#ffffff5c",
-          opacity50: "#ffffff80",
-          opacity72: "#ffffffb8",
-        },
+          "opacity6": "#ffffff0f",
+          "opacity7": "#ffffff12",
+          "opacity12": "#ffffff1f",
+          "opacity20": "#ffffff33",
+          "opacity24": "#ffffff3d",
+          "opacity36": "#ffffff5c",
+          "opacity50": "#ffffff80",
+          "opacity72": "#ffffffb8"
+        }
       },
-      fontFamily: {
-        primary: "MetricHPEXS",
-        code: "Fira Mono",
+      "fontFamily": {
+        "primary": "MetricHPEXS",
+        "code": "Fira Mono"
       },
-      fontSize: {
+      "fontSize": {
         "80": "0.75rem",
         "90": "0.875rem",
         "100": "1rem",
@@ -146,9 +146,9 @@ exports.default = {
         "700": "2.625rem",
         "800": "3rem",
         "900": "4.5rem",
-        "1000": "4.5rem",
+        "1000": "4.5rem"
       },
-      lineHeight: {
+      "lineHeight": {
         "80": "0.75rem",
         "90": "1rem",
         "100": "1.25rem",
@@ -160,64 +160,64 @@ exports.default = {
         "700": "2.875rem",
         "800": "3rem",
         "900": "4.5rem",
-        "1000": "4.5rem",
+        "1000": "4.5rem"
       },
-      fontWeight: {
-        thin: 100,
-        light: 300,
-        regular: 400,
-        medium: 500,
-        semibold: 600,
-        bold: 700,
-        black: 900,
+      "fontWeight": {
+        "thin": 100,
+        "light": 300,
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700,
+        "black": 900
       },
-      breakpoint: {
-        xsmall: "576px",
-        small: "768px",
-        medium: "1080px",
-        large: "1440px",
+      "breakpoint": {
+        "xsmall": "576px",
+        "small": "768px",
+        "medium": "1080px",
+        "large": "1440px"
       },
-      static: {
-        spacing: {
-          none: "0px",
-          hair: "1px",
-          xxsmall: "3px",
-          xsmall: "6px",
-          small: "12px",
-          medium: "24px",
-          large: "48px",
-          xlarge: "96px",
+      "static": {
+        "spacing": {
+          "none": "0px",
+          "hair": "1px",
+          "xxsmall": "3px",
+          "xsmall": "6px",
+          "small": "12px",
+          "medium": "24px",
+          "large": "48px",
+          "xlarge": "96px"
         },
-        radius: {
-          none: "0px",
-          hair: "1px",
-          xxsmall: "3px",
-          xsmall: "6px",
-          small: "12px",
-          medium: "24px",
-          large: "48px",
-          xlarge: "96px",
+        "radius": {
+          "none": "0px",
+          "hair": "1px",
+          "xxsmall": "3px",
+          "xsmall": "6px",
+          "small": "12px",
+          "medium": "24px",
+          "large": "48px",
+          "xlarge": "96px"
         },
-        borderWidth: {
-          none: "0px",
-          xsmall: "1px",
-          small: "2px",
-          medium: "4px",
-          large: "12px",
-          xlarge: "24px",
-          default: "1px",
+        "borderWidth": {
+          "none": "0px",
+          "xsmall": "1px",
+          "small": "2px",
+          "medium": "4px",
+          "large": "12px",
+          "xlarge": "24px",
+          "default": "1px"
         },
-        content: {
-          xxsmall: "48px",
-          xsmall: "96px",
-          small: "192px",
-          medium: "384px",
-          large: "768px",
-          xlarge: "1152px",
-          xxlarge: "1536px",
-        },
-      },
+        "content": {
+          "xxsmall": "48px",
+          "xsmall": "96px",
+          "small": "192px",
+          "medium": "384px",
+          "large": "768px",
+          "xlarge": "1152px",
+          "xxlarge": "1536px"
+        }
+      }
     },
-    TBD: "#00ff0a00",
-  },
-};
+    "TBD": "#00ff0a00"
+  }
+}

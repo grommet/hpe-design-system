@@ -1,85 +1,85 @@
 /**
  * Do not edit directly
- * Generated on Tue, 30 Jul 2024 00:24:01 GMT
+ * Generated on Tue, 30 Jul 2024 00:34:23 GMT
  */
 
-exports.default = {
-  hpe: {
-    color: {
-      background: {
-        default: "#1c1c1c",
-        hover: "#ffffff0f",
-        active: "#ffffff0f",
-        disabled: "#ffffff12",
-        back: "#1c1c1c",
-        front: "#222222",
-        floating: "#292929",
-        contrast: "#ffffff0f",
-        status: {
-          critical: "#cc1f1a4d",
-          ok: "#17d0a64d",
-          warning: "#fec9011f",
-          info: "#00c8ff1f",
-          unknown: "#222222",
+module.exports = {
+  "hpe": {
+    "color": {
+      "background": {
+        "default": "#1c1c1c",
+        "hover": "#ffffff0f",
+        "active": "#ffffff0f",
+        "disabled": "#ffffff12",
+        "back": "#1c1c1c",
+        "front": "#222222",
+        "floating": "#292929",
+        "contrast": "#ffffff0f",
+        "status": {
+          "critical": "#cc1f1a4d",
+          "ok": "#17d0a64d",
+          "warning": "#fec9011f",
+          "info": "#00c8ff1f",
+          "unknown": "#222222"
         },
-        primary: {
-          default: "#01a982",
-          hover: "#00ff0a00",
+        "primary": {
+          "default": "#01a982",
+          "hover": "#00ff0a00"
         },
-        selected: {
-          strong: "#01a982",
-          weak: "#093a2f",
-        },
+        "selected": {
+          "strong": "#01a982",
+          "weak": "#093a2f"
+        }
       },
-      border: {
-        strong: "#ffffffb8",
-        default: "#ffffff5c",
-        weak: "#ffffff1f",
-        disabled: "#ffffff1f",
-        selected: "#01a982",
+      "border": {
+        "strong": "#ffffffb8",
+        "default": "#ffffff5c",
+        "weak": "#ffffff1f",
+        "disabled": "#ffffff1f",
+        "selected": "#01a982"
       },
-      text: {
-        default: "#ffffff",
-        strong: "#ffffff",
-        weak: "#ffffff80",
-        xweak: "#ffffff33",
-        disabled: "#ffffff3d",
-        onPrimary: "#ffffff",
-        brand: "#01a982",
-        inverse: {
-          default: "#222222",
+      "text": {
+        "default": "#ffffff",
+        "strong": "#ffffff",
+        "weak": "#ffffff80",
+        "xweak": "#ffffff33",
+        "disabled": "#ffffff3d",
+        "onPrimary": "#ffffff",
+        "brand": "#01a982",
+        "inverse": {
+          "default": "#222222"
         },
-        heading: {
-          default: "#ffffff",
+        "heading": {
+          "default": "#ffffff"
+        }
+      },
+      "icon": {
+        "default": "#ffffff",
+        "strong": "#ffffff",
+        "weak": "#ffffff80",
+        "xweak": "#ffffff33",
+        "disabled": "#ffffff3d",
+        "status": {
+          "critical": "#d04f4e",
+          "info": "#00739d",
+          "ok": "#008567",
+          "warning": "#9b6310",
+          "unknown": "#555555"
         },
+        "onPrimary": "#ffffff",
+        "brand": "#01a982"
       },
-      icon: {
-        default: "#ffffff",
-        strong: "#ffffff",
-        weak: "#ffffff80",
-        xweak: "#ffffff33",
-        disabled: "#ffffff3d",
-        status: {
-          critical: "#d04f4e",
-          info: "#00739d",
-          ok: "#008567",
-          warning: "#9b6310",
-          unknown: "#555555",
-        },
-        onPrimary: "#ffffff",
-        brand: "#01a982",
+      "decorative": {
+        "green": "#008567",
+        "purple": "#6633bc",
+        "turquoise": "#117b82",
+        "blue": "#00739d",
+        "red": "#a2423d",
+        "orange": "#9b6310",
+        "yellow": "#8d741c"
       },
-      decorative: {
-        green: "#008567",
-        purple: "#6633bc",
-        turquoise: "#117b82",
-        blue: "#00739d",
-        red: "#a2423d",
-        orange: "#9b6310",
-        yellow: "#8d741c",
-      },
-      dataVis: {
-        categorical: {
+      "dataVis": {
+        "categorical": {
           "10": "#00ff0a00",
           "20": "#00ff0a00",
           "30": "#00ff0a00",
@@ -93,10 +93,10 @@ exports.default = {
           "40Weak": "#00ff0a00",
           "50Weak": "#00ff0a00",
           "60Weak": "#00ff0a00",
-          "70Weak": "#00ff0a00",
-        },
+          "70Weak": "#00ff0a00"
+        }
       },
-      transparent: "#00000000",
-    },
-  },
-};
+      "transparent": "#00000000"
+    }
+  }
+}
