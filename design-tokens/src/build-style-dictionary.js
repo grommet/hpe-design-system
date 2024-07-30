@@ -17,6 +17,40 @@ import * as fs from 'fs';
 //   }),
 // ).buildAllPlatforms();
 
+const jsonToNestedValue = token => {
+  // is non-object value
+  if (!token || typeof token !== 'object') return token;
+  // is design token
+  if ('value' in token) return token.value;
+  // is obj
+  const nextObj = {};
+  Object.entries(token).forEach(([prop, value]) => {
+    nextObj[prop] = jsonToNestedValue(value);
+  });
+
+  return nextObj;
+};
+
+const { fileHeader } = StyleDictionary.formatHelpers;
+
+const javascriptCommonJs = ({ dictionary, file, options, platform = {} }) => {
+  const { prefix } = platform;
+  const tokens = prefix ? { [prefix]: dictionary.tokens } : dictionary.tokens;
+  //
+  const output = `${fileHeader({ file })}module.exports = ${JSON.stringify(
+    jsonToNestedValue(tokens),
+    null,
+    2,
+  )}\n`;
+  // return prettified
+  return output;
+};
+
+StyleDictionary.registerFormat({
+  name: 'javascript/commonJs',
+  formatter: javascriptCommonJs,
+});
+
 // js transform group + custom from style-dictionary-utils
 StyleDictionary.registerTransformGroup({
   name: 'js/w3c',
