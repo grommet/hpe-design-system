@@ -408,7 +408,7 @@ StyleDictionary.extend({
 }).buildAllPlatforms();
 
 // create CommonJS index.js
-const collections = {};
+const collections = [];
 fs.readdirSync(CJS_DIR)
   .filter(file => file !== 'index.cjs')
   .forEach(file => {
@@ -418,10 +418,18 @@ fs.readdirSync(CJS_DIR)
       let mode = parts[1];
       // special case for base.js and components
       if (mode === 'default' || !mode) [mode] = parts;
-      collections[mode] = `require(./${file})`;
+      fs.appendFileSync(
+        `${CJS_DIR}index.cjs`,
+        `const ${mode} = require('./${file}');\n`,
+      );
+      collections.push(mode);
     }
   });
-const output = `module.exports = ${JSON.stringify(collections, null, 2)}`;
-fs.writeFileSync(`${CJS_DIR}index.cjs`, output);
+
+const output = `\nmodule.exports = { ${collections.map(
+  collection => collection,
+)} };\n`;
+fs.appendFileSync(`${CJS_DIR}index.cjs`, output);
+// fs.writeFileSync(`${CJS_DIR}index.cjs`, output);
 
 console.log('✅ CSS, Javascript, and JSON files have been generated.');
