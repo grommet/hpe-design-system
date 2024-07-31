@@ -260,7 +260,10 @@ const option = {
 };
 
 // abstracted so button and pinned list icon can reference
-const mediumIconOnlyPad = '9px';
+const mediumIconOnlyPad = {
+  vertical: components.hpe.button.medium.default.iconOnly.paddingY,
+  horizontal: components.hpe.button.medium.default.iconOnly.paddingX,
+};
 
 const baseSpacing = 24;
 
@@ -887,7 +890,10 @@ const buildTheme = tokens => {
             horizontal: components.hpe.button.small.default.paddingX,
           },
           iconOnly: {
-            pad: '7px', // Q: confused about this value
+            pad: {
+              vertical: components.hpe.button.small.default.iconOnly.paddingY,
+              horizontal: components.hpe.button.small.default.iconOnly.paddingX,
+            },
           },
           secondary: {
             border: {
@@ -971,7 +977,10 @@ const buildTheme = tokens => {
             horizontal: components.hpe.button.large.default.paddingX,
           },
           iconOnly: {
-            pad: '13px', // Q: confused about this value
+            pad: {
+              vertical: components.hpe.button.large.default.iconOnly.paddingY,
+              horizontal: components.hpe.button.large.default.iconOnly.paddingX,
+            },
           },
           secondary: {
             border: {
@@ -1002,19 +1011,52 @@ const buildTheme = tokens => {
           },
         },
         // xlarge button did not exist in v3
-        // xlarge: {
-        //   // Q: missing tokens for xlarge?
-        //   border: {
-        //     radius: '2em',
-        //   },
-        //   pad: {
-        //     vertical: '21px',
-        //     horizontal: '30px',
-        //   },
-        //   iconOnly: {
-        //     pad: '24px',
-        //   },
-        // },
+        xlarge: {
+          border: {
+            // TO DO need way to map to global radius of full,
+            // Q: is this token correct? token value is 'full' but theme value is '2em'
+            // This change causes the button to loose its rounding
+            radius: components.hpe.button.xlarge.default.borderRadius,
+          },
+          pad: {
+            vertical: components.hpe.button.xlarge.default.paddingY,
+            horizontal: components.hpe.button.xlarge.default.paddingX,
+          },
+          iconOnly: {
+            pad: {
+              vertical: components.hpe.button.xlarge.default.iconOnly.paddingY,
+              horizontal:
+                components.hpe.button.xlarge.default.iconOnly.paddingX,
+            },
+          },
+          secondary: {
+            border: {
+              radius: components.hpe.button.xlarge.secondary.borderRadius,
+            },
+            pad: {
+              vertical: components.hpe.button.xlarge.secondary.paddingY,
+              horizontal: components.hpe.button.xlarge.default.paddingX,
+            },
+          },
+          primary: {
+            border: {
+              radius: components.hpe.button.xlarge.primary.borderRadius,
+            },
+            pad: {
+              vertical: components.hpe.button.xlarge.primary.paddingY,
+              horizontal: components.hpe.button.xlarge.default.paddingX,
+            },
+          },
+          toolbar: {
+            border: {
+              radius: components.hpe.button.xlarge.toolbar.borderRadius,
+            },
+            pad: {
+              vertical: components.hpe.button.xlarge.toolbar.paddingY,
+              horizontal: components.hpe.button.xlarge.toolbar.paddingX,
+            },
+          },
+        },
       },
       extend: ({ hasIcon, hasLabel, kind, sizeProp }) => {
         // necessary so primary label is accessible on HPE green background
