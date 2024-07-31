@@ -105,6 +105,12 @@ const rawComponents = readFileSync(`./${TOKENS_DIR}/component.default.json`);
 const components = JSON.parse(rawComponents);
 const dimensionComponents = numberToDimension(components, true);
 
+const rawElevation = readFileSync(
+  `./${TOKENS_DIR}/elevation - semantic.default.json`,
+);
+const elevation = JSON.parse(rawElevation);
+const dimensionElevation = numberToDimension(elevation, true);
+
 // currently used by style-dictionary. Figma Variables doesn't want units,
 // but code needs them
 writeFileSync(
@@ -114,6 +120,10 @@ writeFileSync(
 writeFileSync(
   './dist/component.default.json',
   `${JSON.stringify(dimensionComponents, null, 2)}`,
+);
+writeFileSync(
+  './dist/elevation.default.json',
+  `${JSON.stringify(dimensionElevation, null, 2)}`,
 );
 
 const typographyFiles = readdirSync(TOKENS_DIR)
@@ -230,23 +240,41 @@ const exclude = [
   'radius',
   'borderWidth',
   'content',
+  'text',
+  'heading',
+  'paragraph',
+  'elevation',
 ];
 
 allTokens = numberToDimension(allTokens, true);
 let res = jsonToNestedValue(allTokens);
 
-exclude.forEach(category => delete res[category]);
-
 // TO DO make prefix dynamic
-res = { hpe: { ...res } };
+const PREFIX = 'hpe';
+
+const elevationTokens = { [PREFIX]: {} };
+
+exclude.forEach(category => {
+  if (category === 'elevation') {
+    elevationTokens[PREFIX][category] = res[category];
+  }
+  delete res[category];
+});
+
+res = { [PREFIX]: { ...res } };
 mkdirSync('./dist/esm/');
 writeFileSync(
   './dist/esm/components.default.js',
   `export default ${JSON.stringify(res, null, 2)}`,
 );
 writeFileSync(
+  './dist/esm/elevation.default.js',
+  `export default ${JSON.stringify(elevationTokens, null, 2)}`,
+);
+writeFileSync(
   './dist/esm/index.js',
-  "export { default as components } from './components.default';\n",
+  // eslint-disable-next-line max-len
+  "export { default as components } from './components.default';\nexport { default as elevation } from './elevation.default';\n",
 );
 
 mkdirSync('./dist/cjs/');
@@ -254,5 +282,11 @@ writeFileSync(
   './dist/cjs/components.default.cjs',
   `exports.default = ${JSON.stringify(res, null, 2)}`,
 );
+writeFileSync(
+  './dist/cjs/elevation.default.cjs',
+  `exports.default = ${JSON.stringify(elevationTokens, null, 2)}`,
+);
 
-console.log('✅ components.default.js has been generated.');
+console.log(
+  '✅ components.default.js and elevation.default.js have been generated.',
+);

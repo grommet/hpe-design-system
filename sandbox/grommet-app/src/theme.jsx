@@ -3,7 +3,14 @@ import {
   // keyframes
 } from 'styled-components';
 import { deepFreeze } from 'grommet/utils';
-import { dark, light, large, small, components } from 'design-tokens';
+import {
+  dark,
+  light,
+  large,
+  small,
+  components,
+  elevation,
+} from 'design-tokens';
 import {
   Down,
   Blank,
@@ -260,7 +267,10 @@ const option = {
 };
 
 // abstracted so button and pinned list icon can reference
-const mediumIconOnlyPad = '9px';
+const mediumIconOnlyPad = {
+  vertical: components.hpe.button.medium.default.iconOnly.paddingY,
+  horizontal: components.hpe.button.medium.default.iconOnly.paddingX,
+};
 
 const baseSpacing = 24;
 
@@ -547,14 +557,38 @@ const buildTheme = tokens => {
         // Naming in Figma file is strong/default/weak vs. Grommet t-shirt sizing.
         // As defined here, default is currently mapping to medium.
         light: {
-          small: `0px 2px 4px ${MISSING.color};`,
-          medium: `0px 6px 12px ${MISSING.color};`,
-          large: `0px 12px 24px ${MISSING.color};`,
+          small: `${elevation.hpe.elevation.small.offsetX} ${
+            elevation.hpe.elevation.small.offsetY
+          } ${elevation.hpe.elevation.small.blur} ${
+            colors[elevation.hpe.elevation.small.color].light
+          };`,
+          medium: `${elevation.hpe.elevation.medium.offsetX} ${
+            elevation.hpe.elevation.medium.offsetY
+          } ${elevation.hpe.elevation.medium.blur} ${
+            colors[elevation.hpe.elevation.medium.color].light
+          };`,
+          large: `${elevation.hpe.elevation.large.offsetX} ${
+            elevation.hpe.elevation.large.offsetY
+          } ${elevation.hpe.elevation.large.blur} ${
+            colors[elevation.hpe.elevation.large.color].light
+          };`,
         },
         dark: {
-          small: `0px 2px 4px ${MISSING.color};`,
-          medium: `0px 6px 12px ${MISSING.color};`,
-          large: `0px 12px 24px ${MISSING.color};`,
+          small: `${elevation.hpe.elevation.small.offsetX} ${
+            elevation.hpe.elevation.small.offsetY
+          } ${elevation.hpe.elevation.small.blur} ${
+            colors[elevation.hpe.elevation.small.color].dark
+          };`,
+          medium: `${elevation.hpe.elevation.medium.offsetX} ${
+            elevation.hpe.elevation.medium.offsetY
+          } ${elevation.hpe.elevation.medium.blur} ${
+            colors[elevation.hpe.elevation.medium.color].dark
+          };`,
+          large: `${elevation.hpe.elevation.large.offsetX} ${
+            elevation.hpe.elevation.large.offsetY
+          } ${elevation.hpe.elevation.large.blur} ${
+            colors[elevation.hpe.elevation.large.color].dark
+          };`,
         },
       },
       hover: {
@@ -887,7 +921,10 @@ const buildTheme = tokens => {
             horizontal: components.hpe.button.small.default.paddingX,
           },
           iconOnly: {
-            pad: '7px', // Q: confused about this value
+            pad: {
+              vertical: components.hpe.button.small.default.iconOnly.paddingY,
+              horizontal: components.hpe.button.small.default.iconOnly.paddingX,
+            },
           },
           secondary: {
             border: {
@@ -971,7 +1008,10 @@ const buildTheme = tokens => {
             horizontal: components.hpe.button.large.default.paddingX,
           },
           iconOnly: {
-            pad: '13px', // Q: confused about this value
+            pad: {
+              vertical: components.hpe.button.large.default.iconOnly.paddingY,
+              horizontal: components.hpe.button.large.default.iconOnly.paddingX,
+            },
           },
           secondary: {
             border: {
@@ -1002,19 +1042,52 @@ const buildTheme = tokens => {
           },
         },
         // xlarge button did not exist in v3
-        // xlarge: {
-        //   // Q: missing tokens for xlarge?
-        //   border: {
-        //     radius: '2em',
-        //   },
-        //   pad: {
-        //     vertical: '21px',
-        //     horizontal: '30px',
-        //   },
-        //   iconOnly: {
-        //     pad: '24px',
-        //   },
-        // },
+        xlarge: {
+          border: {
+            // TO DO need way to map to global radius of full,
+            // Q: is this token correct? token value is 'full' but theme value is '2em'
+            // This change causes the button to loose its rounding
+            radius: components.hpe.button.xlarge.default.borderRadius,
+          },
+          pad: {
+            vertical: components.hpe.button.xlarge.default.paddingY,
+            horizontal: components.hpe.button.xlarge.default.paddingX,
+          },
+          iconOnly: {
+            pad: {
+              vertical: components.hpe.button.xlarge.default.iconOnly.paddingY,
+              horizontal:
+                components.hpe.button.xlarge.default.iconOnly.paddingX,
+            },
+          },
+          secondary: {
+            border: {
+              radius: components.hpe.button.xlarge.secondary.borderRadius,
+            },
+            pad: {
+              vertical: components.hpe.button.xlarge.secondary.paddingY,
+              horizontal: components.hpe.button.xlarge.default.paddingX,
+            },
+          },
+          primary: {
+            border: {
+              radius: components.hpe.button.xlarge.primary.borderRadius,
+            },
+            pad: {
+              vertical: components.hpe.button.xlarge.primary.paddingY,
+              horizontal: components.hpe.button.xlarge.default.paddingX,
+            },
+          },
+          toolbar: {
+            border: {
+              radius: components.hpe.button.xlarge.toolbar.borderRadius,
+            },
+            pad: {
+              vertical: components.hpe.button.xlarge.toolbar.paddingY,
+              horizontal: components.hpe.button.xlarge.toolbar.paddingX,
+            },
+          },
+        },
       },
       extend: ({ hasIcon, hasLabel, kind, sizeProp }) => {
         // necessary so primary label is accessible on HPE green background
@@ -1476,7 +1549,6 @@ const buildTheme = tokens => {
     },
     heading: {
       color: MISSING.color,
-      // TO DO why is "heading" in component.default.js as well?
       weight: large.hpe.heading.xlarge.fontWeight, // Q: not sure what token to point to here
       level: {
         1: {
@@ -1643,12 +1715,11 @@ const buildTheme = tokens => {
       disableScaleDown: true,
       matchSize: true, // NOTE: Disabled this since concept didn't exist in v3
       size: {
-        // TO DO this should be coming from "large" not components?
-        small: components.hpe.size.icon.small,
-        medium: components.hpe.size.icon.medium,
-        large: components.hpe.size.icon.large,
-        xlarge: components.hpe.size.icon.xlarge,
-        xxlarge: components.hpe.size.icon.xxlarge,
+        small: large.hpe.size.icon.small,
+        medium: large.hpe.size.icon.medium,
+        large: large.hpe.size.icon.large,
+        xlarge: large.hpe.size.icon.xlarge,
+        xxlarge: large.hpe.size.icon.xxlarge,
       },
     },
     layer: {
