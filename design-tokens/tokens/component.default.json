@@ -6625,7 +6625,7 @@
   "headerCell": {
     "gapX": {
       "$type": "number",
-      "$value": "{hpe.component.medium.textToIconX}",
+      "$value": "{component.medium.textToIconX}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6639,7 +6639,7 @@
     },
     "minHeight": {
       "$type": "number",
-      "$value": "{hpe.component.medium.minHeight}",
+      "$value": "{component.medium.minHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
