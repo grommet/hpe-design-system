@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 30 Jul 2024 00:34:23 GMT
+ * Generated on Wed, 31 Jul 2024 19:09:17 GMT
  */
 
 :root {
@@ -45,7 +45,6 @@
   --hpe-menu-item-disabled-border-color: #00000000;
   --hpe-menu-item-disabled-background: #00000000;
   --hpe-menu-item-hover-border-color: #00000000;
-  --hpe-menu-item-hover-background: #00000000;
   --hpe-menu-item-enabled-border-color: #00000000;
   --hpe-menu-item-enabled-background: #00000000;
   --hpe-drop-z-index: 110px;
@@ -268,13 +267,13 @@
   --hpe-form-field-value-text-enabled-text-color: var(--hpe-color-text-default);
   --hpe-form-field-error-text-status-critical-text-color: var(--hpe-color-text-default);
   --hpe-form-field-error-text-read-only-text-color: var(--hpe-color-text-default);
-  --hpe-form-field-error-text-disabled-color: var(--hpe-color-text-default);
+  --hpe-form-field-error-text-disabled-text-color: var(--hpe-color-text-default);
   --hpe-form-field-error-text-focus-text-color: var(--hpe-color-text-default);
   --hpe-form-field-error-text-hover-text-color: var(--hpe-color-text-default);
   --hpe-form-field-error-text-enabled-text-color: var(--hpe-color-text-default);
   --hpe-form-field-info-text-status-critical-text-color: var(--hpe-color-text-default);
   --hpe-form-field-info-text-read-only-text-color: var(--hpe-color-text-default);
-  --hpe-form-field-info-text-disabled-color: var(--hpe-color-text-disabled);
+  --hpe-form-field-info-text-disabled-text-color: var(--hpe-color-text-disabled);
   --hpe-form-field-info-text-focus-text-color: var(--hpe-color-text-default);
   --hpe-form-field-info-text-hover-text-color: var(--hpe-color-text-default);
   --hpe-form-field-info-text-enabled-text-color: var(--hpe-color-text-default);
@@ -385,6 +384,8 @@
   --hpe-checkbox-control-indeterminate-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-checkbox-control-indeterminate-enabled-border-color: var(--hpe-color-border-selected);
   --hpe-checkbox-control-indeterminate-enabled-background: var(--hpe-color-background-selected-strong);
+  --hpe-checkbox-control-disabled-border-color: var(--hpe-color-border-disabled);
+  --hpe-checkbox-control-disabled-background: var(--hpe-color-background-disabled);
   --hpe-checkbox-control-selected-disabled-icon-color: var(--hpe-color-icon-disabled);
   --hpe-checkbox-control-selected-disabled-border-color: var(--hpe-color-border-disabled);
   --hpe-checkbox-control-selected-disabled-background: var(--hpe-color-background-disabled);
@@ -394,8 +395,6 @@
   --hpe-checkbox-control-selected-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-checkbox-control-selected-enabled-border-color: var(--hpe-color-border-selected);
   --hpe-checkbox-control-selected-enabled-background: var(--hpe-color-background-selected-strong);
-  --hpe-checkbox-control-disabled-border-color: var(--hpe-color-border-disabled);
-  --hpe-checkbox-control-disabled-background: var(--hpe-color-background-disabled);
   --hpe-checkbox-control-hover-border-color: var(--hpe-color-border-strong);
   --hpe-checkbox-control-enabled-border-color: var(--hpe-color-border-default);
   --hpe-select-option-selected-enabled-text-color: var(--hpe-color-text-strong);
@@ -436,6 +435,7 @@
   --hpe-menu-medium-item-line-height: var(--hpe-text-medium-line-height);
   --hpe-menu-medium-item-font-size: var(--hpe-text-medium-font-size);
   --hpe-menu-group-separator-background: var(--hpe-color-border-default);
+  --hpe-menu-item-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-drop-background: var(--hpe-color-background-floating);
   --hpe-button-x-large-toolbar-border-radius: var(--hpe-base-static-radius-small);
   --hpe-button-x-large-toolbar-padding-y: var(--hpe-button-x-large-default-padding-y);
@@ -532,7 +532,7 @@
   --hpe-form-field-medium-input-group-item-border-radius: var(--hpe-radius-none);
   --hpe-form-field-medium-input-group-item-border-width: var(--hpe-border-width-default);
   --hpe-form-field-medium-input-group-item-padding-y: var(--hpe-component-medium-padding-y);
-  --hpe-header-cell-enabled-color: var(--hpe-data-cell-enabled-text-color);
+  --hpe-header-cell-enabled-text-color: var(--hpe-data-cell-enabled-text-color);
   --hpe-header-cell-padding-top: var(--hpe-data-cell-padding-top);
   --hpe-header-cell-border-bottom-width: var(--hpe-data-cell-border-bottom-width);
   --hpe-header-cell-line-height: var(--hpe-data-cell-line-height);
@@ -552,12 +552,16 @@
   --hpe-component-medium-border-width: var(--hpe-border-width-default);
   --hpe-component-small-border-width: var(--hpe-border-width-default);
   --hpe-component-xsmall-border-width: var(--hpe-border-width-default);
+  --hpe-menu-medium-item-gap-x: var(--hpe-component-medium-text-to-icon-x);
   --hpe-menu-medium-item-min-height: var(--hpe-button-medium-default-min-height);
   --hpe-menu-medium-item-border-width: var(--hpe-button-medium-default-border-width);
   --hpe-menu-medium-item-border-radius: var(--hpe-radius-none);
   --hpe-menu-medium-item-padding-y: var(--hpe-button-medium-default-padding-y);
+  --hpe-menu-item-disabled-font-weight: var(--hpe-button-default-disabled-font-weight);
   --hpe-menu-item-disabled-icon-color: var(--hpe-button-default-disabled-icon-color);
   --hpe-menu-item-disabled-text-color: var(--hpe-button-default-disabled-text-color);
+  --hpe-menu-item-hover-font-weight: var(--hpe-button-default-hover-font-weight);
+  --hpe-menu-item-hover-background: var(--hpe-color-background-hover);
   --hpe-menu-item-enabled-icon-color: var(--hpe-button-default-enabled-icon-color);
   --hpe-menu-item-enabled-text-color: var(--hpe-button-default-enabled-text-color);
   --hpe-drop-margin: var(--hpe-spacing-xsmall);
@@ -640,8 +644,8 @@
   --hpe-button-primary-hover-background: var(--hpe-button-primary-enabled-background);
   --hpe-form-field-input-group-container-hover-border-color: var(--hpe-form-field-input-group-container-enabled-border-color);
   --hpe-form-field-input-group-container-hover-background: var(--hpe-form-field-input-group-container-enabled-background);
-  --hpe-header-cell-pinned-color: var(--hpe-data-cell-hover-text-color);
-  --hpe-header-cell-hover-color: var(--hpe-data-cell-hover-text-color);
+  --hpe-header-cell-pinned-text-color: var(--hpe-data-cell-hover-text-color);
+  --hpe-header-cell-hover-text-color: var(--hpe-data-cell-hover-text-color);
   --hpe-menu-item-hover-icon-color: var(--hpe-button-default-hover-icon-color);
   --hpe-menu-item-hover-text-color: var(--hpe-button-default-hover-text-color);
   --hpe-button-x-large-toolbar-gap-x: var(--hpe-button-x-large-default-gap-x);

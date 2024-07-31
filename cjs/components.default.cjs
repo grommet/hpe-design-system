@@ -329,19 +329,22 @@ exports.default = {
           "background": "#00000000",
           "borderColor": "#00000000",
           "textColor": "text-strong",
-          "iconColor": "icon-strong"
+          "iconColor": "icon-strong",
+          "fontWeight": 600
         },
         "hover": {
-          "background": "#00000000",
+          "background": "background-hover",
           "borderColor": "#00000000",
           "textColor": "text-strong",
-          "iconColor": "icon-strong"
+          "iconColor": "icon-strong",
+          "fontWeight": 600
         },
         "disabled": {
           "background": "#00000000",
           "borderColor": "#00000000",
           "textColor": "text-disabled",
-          "iconColor": "icon-disabled"
+          "iconColor": "icon-disabled",
+          "fontWeight": 600
         }
       },
       "group": {
@@ -357,7 +360,8 @@ exports.default = {
           "borderWidth": "2px",
           "minHeight": "36px",
           "fontSize": "1.125rem",
-          "lineHeight": "1.5rem"
+          "lineHeight": "1.5rem",
+          "gapX": "6px"
         },
         "group": {
           "container": {
@@ -467,10 +471,6 @@ exports.default = {
           "background": "#00000000",
           "borderColor": "border-strong"
         },
-        "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
-        },
         "selected": {
           "enabled": {
             "background": "background-selected-strong",
@@ -487,6 +487,10 @@ exports.default = {
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
+        },
+        "disabled": {
+          "background": "background-disabled",
+          "borderColor": "border-disabled"
         },
         "indeterminate": {
           "enabled": {
@@ -667,17 +671,17 @@ exports.default = {
       "paddingTop": "6px",
       "paddingBottom": "5px",
       "enabled": {
-        "color": "text-strong",
+        "textColor": "text-strong",
         "borderColor": "border-default",
         "background": "#00000000"
       },
       "hover": {
-        "color": "text-strong",
+        "textColor": "text-strong",
         "borderColor": "#00000000",
         "background": "#00000000"
       },
       "pinned": {
-        "color": "text-strong",
+        "textColor": "text-strong",
         "borderColor": "#00000000",
         "background": "#00000000"
       }
@@ -888,7 +892,7 @@ exports.default = {
           "textColor": "text-default"
         },
         "disabled": {
-          "color": "text-disabled"
+          "textColor": "text-disabled"
         },
         "readOnly": {
           "textColor": "text-default"
@@ -910,7 +914,7 @@ exports.default = {
           "textColor": "text-default"
         },
         "disabled": {
-          "color": "text-default"
+          "textColor": "text-default"
         },
         "readOnly": {
           "textColor": "text-default"
