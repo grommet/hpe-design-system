@@ -6187,7 +6187,7 @@
     },
     "fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{base.fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6245,7 +6245,7 @@
     "enabled": {
       "textColor": {
         "$type": "color",
-        "$value": "{color.text.strong}",
+        "$value": "{color.text.default}",
         "$description": "",
         "$extensions": {
           "com.figma": {
