@@ -316,6 +316,8 @@ const dimensions = [
   'radius',
   'text',
   'heading',
+  'paragraph',
+  'size',
 ];
 
 const dimensionFiles = fs
@@ -411,6 +413,10 @@ const exclude = [
   'radius',
   'borderWidth',
   'content',
+  'paragraph',
+  'heading',
+  'text',
+  'size',
 ];
 
 StyleDictionary.extend({
@@ -430,6 +436,34 @@ StyleDictionary.extend({
       files: [
         {
           destination: 'components.css',
+          format: 'css/variables',
+          filter: token =>
+            ![...exclude, 'elevation'].includes(token.attributes.category),
+          options: {
+            outputReferences: true,
+          },
+        },
+      ],
+    },
+  },
+}).buildAllPlatforms();
+
+StyleDictionary.extend({
+  source: [
+    // from dist because it contains the "px"/"rem" version
+    'dist/primitives.base.json',
+    `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
+    `${TOKENS_DIR}/dimension - semantic.large.json`, // using large mode to have a reference name available
+    'dist/elevation.default.json',
+  ],
+  platforms: {
+    css: {
+      transformGroup: 'css/w3c',
+      buildPath: CSS_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'elevation.css',
           format: 'css/variables',
           filter: token => !exclude.includes(token.attributes.category),
           options: {
@@ -464,6 +498,5 @@ const output = `\nmodule.exports = { ${collections.map(
   collection => collection,
 )} };\n`;
 fs.appendFileSync(`${CJS_DIR}index.cjs`, output);
-// fs.writeFileSync(`${CJS_DIR}index.cjs`, output);
 
 console.log('✅ CSS, Javascript, and JSON files have been generated.');
