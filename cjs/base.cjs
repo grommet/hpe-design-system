@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 31 Jul 2024 19:09:17 GMT
+ * Generated on Wed, 31 Jul 2024 19:56:42 GMT
  */
 
 module.exports = {
@@ -17,6 +17,7 @@ module.exports = {
         "225": "9px",
         "250": "10px",
         "300": "12px",
+        "325": "13px",
         "400": "16px",
         "450": "18px",
         "475": "19px",

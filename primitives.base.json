@@ -121,6 +121,20 @@
           }
         }
       },
+      "325": {
+        "$type": "dimension",
+        "$value": "13px",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": true,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
       "400": {
         "$type": "dimension",
         "$value": "16px",

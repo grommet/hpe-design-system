@@ -121,6 +121,20 @@ export default {
           }
         }
       },
+      "325": {
+        "$type": "number",
+        "$value": 13,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": true,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
       "400": {
         "$type": "number",
         "$value": 16,
