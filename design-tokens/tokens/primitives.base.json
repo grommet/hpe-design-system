@@ -99,8 +99,7 @@
               "GAP",
               "STROKE_FLOAT",
               "EFFECT_FLOAT",
-              "OPACITY",
-              "FONT_VARIATIONS"
+              "OPACITY"
             ],
             "codeSyntax": {}
           }
@@ -137,6 +136,20 @@
       "300": {
         "$type": "number",
         "$value": 12,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": true,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "325": {
+        "$type": "number",
+        "$value": 13,
         "$description": "",
         "$extensions": {
           "com.figma": {
