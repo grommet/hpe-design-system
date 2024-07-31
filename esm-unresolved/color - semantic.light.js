@@ -340,6 +340,50 @@ export default {
         }
       }
     },
+    "shadow": {
+      "weak": {
+        "$type": "color",
+        "$value": "{base.color.black.opacity12}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{base.color.black.opacity12}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{base.color.black.opacity24}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      }
+    },
     "text": {
       "default": {
         "$type": "color",

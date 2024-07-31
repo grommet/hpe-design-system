@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 31 Jul 2024 19:56:42 GMT
+ * Generated on Wed, 31 Jul 2024 21:20:29 GMT
  */
 
 export default {
@@ -79,6 +79,32 @@ export default {
         fontWeight: 600,
       },
     },
+    paragraph: {
+      xsmall: {
+        fontSize: "0.875rem",
+        lineHeight: "1rem",
+      },
+      small: {
+        fontSize: "1rem",
+        lineHeight: "1.25rem",
+      },
+      medium: {
+        fontSize: "1.125rem",
+        lineHeight: "1.5rem",
+      },
+      large: {
+        fontSize: "1.375rem",
+        lineHeight: "1.75rem",
+      },
+      xlarge: {
+        fontSize: "1.5rem",
+        lineHeight: "1.875rem",
+      },
+      xxlarge: {
+        fontSize: "2.25rem",
+        lineHeight: "2.5rem",
+      },
+    },
     spacing: {
       none: "0px",
       hair: "1px",
@@ -117,6 +143,16 @@ export default {
       large: "768px",
       xlarge: "1152px",
       xxlarge: "1536px",
+    },
+    size: {
+      icon: {
+        xsmall: "16px",
+        small: "16px",
+        medium: "18px",
+        large: "22px",
+        xlarge: "24px",
+        xxlarge: "36px",
+      },
     },
   },
 };

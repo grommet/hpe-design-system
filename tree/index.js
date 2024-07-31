@@ -708,6 +708,66 @@ export default {
         }
       ]
     },
+    "color.shadow.weak": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "elevation.small.color",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.shadow.default": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity36}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "elevation.medium.color",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.shadow.strong": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity50}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "elevation.large.color",
+          "mode": "default"
+        }
+      ]
+    },
     "color.text.default": {
       "$type": "color",
       "$value": "{base.color.white.100}",
@@ -2398,6 +2458,66 @@ export default {
         },
         {
           "name": "radioButton.control.selected.focus.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.shadow.weak": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "elevation.small.color",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.shadow.default": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "elevation.medium.color",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.shadow.strong": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity24}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "elevation.large.color",
           "mode": "default"
         }
       ]
@@ -12533,6 +12653,216 @@ export default {
           "codeSyntax": {}
         }
       }
+    },
+    "elevation.small.color": {
+      "$type": "color",
+      "$value": "{color.shadow.weak}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.small.offsetX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.small.offsetY": {
+      "$type": "number",
+      "$value": "{base.dimension.50}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.small.blur": {
+      "$type": "number",
+      "$value": "{base.dimension.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.small.spread": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.medium.color": {
+      "$type": "color",
+      "$value": "{color.shadow.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.medium.offsetX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.medium.offsetY": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.medium.blur": {
+      "$type": "number",
+      "$value": "{base.static.spacing.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.medium.spread": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.large.color": {
+      "$type": "color",
+      "$value": "{color.shadow.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.large.offsetX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.large.offsetY": {
+      "$type": "number",
+      "$value": "{base.static.spacing.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.large.blur": {
+      "$type": "number",
+      "$value": "{base.static.spacing.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.large.spread": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     }
   },
   "large": {
@@ -17461,11 +17791,23 @@ export default {
       },
       "usedBy": [
         {
+          "name": "color.shadow.weak",
+          "mode": "dark"
+        },
+        {
           "name": "color.border.weak",
           "mode": "light"
         },
         {
           "name": "color.border.disabled",
+          "mode": "light"
+        },
+        {
+          "name": "color.shadow.weak",
+          "mode": "light"
+        },
+        {
+          "name": "color.shadow.default",
           "mode": "light"
         }
       ]
@@ -17484,6 +17826,10 @@ export default {
         }
       },
       "usedBy": [
+        {
+          "name": "color.shadow.strong",
+          "mode": "light"
+        },
         {
           "name": "color.text.disabled",
           "mode": "light"
@@ -17509,6 +17855,10 @@ export default {
       },
       "usedBy": [
         {
+          "name": "color.shadow.default",
+          "mode": "dark"
+        },
+        {
           "name": "color.border.default",
           "mode": "light"
         }
@@ -17526,7 +17876,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "color.shadow.strong",
+          "mode": "dark"
+        }
+      ]
     },
     "base.color.black.opacity72": {
       "$type": "color",

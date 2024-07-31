@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 31 Jul 2024 19:56:42 GMT
+ * Generated on Wed, 31 Jul 2024 21:20:29 GMT
  */
 
 :root {
@@ -143,62 +143,6 @@
   --hpe-button-primary-disabled-border-color: var(--hpe-button-default-enabled-border-color);
   --hpe-button-primary-enabled-font-weight: var(--hpe-base-font-weight-bold);
   --hpe-button-primary-enabled-border-color: var(--hpe-button-default-enabled-border-color);
-  --hpe-paragraph-xxlarge-line-height: var(--hpe-base-line-height-600);
-  --hpe-paragraph-xxlarge-font-size: var(--hpe-base-font-size-600);
-  --hpe-paragraph-xlarge-line-height: var(--hpe-base-line-height-400);
-  --hpe-paragraph-xlarge-font-size: var(--hpe-base-font-size-500);
-  --hpe-paragraph-large-line-height: var(--hpe-base-line-height-300);
-  --hpe-paragraph-large-font-size: var(--hpe-base-font-size-400);
-  --hpe-paragraph-medium-line-height: var(--hpe-base-line-height-200);
-  --hpe-paragraph-medium-font-size: var(--hpe-base-font-size-200);
-  --hpe-paragraph-small-line-height: var(--hpe-base-font-size-300);
-  --hpe-paragraph-small-font-size: var(--hpe-base-font-size-100);
-  --hpe-paragraph-xsmall-line-height: var(--hpe-base-line-height-90);
-  --hpe-paragraph-xsmall-font-size: var(--hpe-base-font-size-90);
-  --hpe-heading-xxsmall-font-weight: var(--hpe-base-font-weight-semibold);
-  --hpe-heading-xxsmall-line-height: var(--hpe-base-line-height-80);
-  --hpe-heading-xxsmall-font-size: var(--hpe-base-font-size-80);
-  --hpe-heading-xsmall-font-weight: var(--hpe-base-font-weight-semibold);
-  --hpe-heading-xsmall-line-height: var(--hpe-base-line-height-80);
-  --hpe-heading-xsmall-font-size: var(--hpe-base-font-size-80);
-  --hpe-heading-small-font-weight: var(--hpe-base-font-weight-medium);
-  --hpe-heading-small-line-height: var(--hpe-base-line-height-90);
-  --hpe-heading-small-font-size: var(--hpe-base-font-size-100);
-  --hpe-heading-medium-font-weight: var(--hpe-base-font-weight-medium);
-  --hpe-heading-medium-line-height: var(--hpe-base-line-height-100);
-  --hpe-heading-medium-font-size: var(--hpe-base-font-size-100);
-  --hpe-heading-large-line-height: var(--hpe-base-line-height-200);
-  --hpe-heading-large-font-size: var(--hpe-base-font-size-500);
-  --hpe-heading-large-font-weight: var(--hpe-base-font-weight-medium);
-  --hpe-heading-xlarge-line-height: var(--hpe-base-line-height-500);
-  --hpe-heading-xlarge-font-size: var(--hpe-base-font-size-600);
-  --hpe-heading-xlarge-font-weight: var(--hpe-base-font-weight-medium);
-  --hpe-text-6xl-line-height: var(--hpe-base-line-height-1000);
-  --hpe-text-6xl-font-size: var(--hpe-base-font-size-1000);
-  --hpe-text-5xl-line-height: var(--hpe-base-line-height-900);
-  --hpe-text-5xl-font-size: var(--hpe-base-font-size-900);
-  --hpe-text-4xl-line-height: var(--hpe-base-line-height-800);
-  --hpe-text-4xl-font-size: var(--hpe-base-font-size-800);
-  --hpe-text-3xl-line-height: var(--hpe-base-line-height-700);
-  --hpe-text-3xl-font-size: var(--hpe-base-font-size-700);
-  --hpe-text-xxlarge-line-height: var(--hpe-base-line-height-600);
-  --hpe-text-xxlarge-font-size: var(--hpe-base-font-size-600);
-  --hpe-text-xlarge-line-height: var(--hpe-base-line-height-400);
-  --hpe-text-xlarge-font-size: var(--hpe-base-font-size-500);
-  --hpe-text-large-line-height: var(--hpe-base-line-height-300);
-  --hpe-text-large-font-size: var(--hpe-base-font-size-400);
-  --hpe-text-medium-line-height: var(--hpe-base-line-height-200);
-  --hpe-text-medium-font-size: var(--hpe-base-font-size-200);
-  --hpe-text-small-line-height: var(--hpe-base-font-size-200);
-  --hpe-text-small-font-size: var(--hpe-base-font-size-100);
-  --hpe-text-xsmall-line-height: var(--hpe-base-line-height-90);
-  --hpe-text-xsmall-font-size: var(--hpe-base-font-size-90);
-  --hpe-size-icon-xxlarge: var(--hpe-base-dimension-900);
-  --hpe-size-icon-xlarge: var(--hpe-base-dimension-600);
-  --hpe-size-icon-large: var(--hpe-base-dimension-550);
-  --hpe-size-icon-medium: var(--hpe-base-dimension-450);
-  --hpe-size-icon-small: var(--hpe-base-dimension-400);
-  --hpe-size-icon-xsmall: var(--hpe-base-dimension-400);
   --hpe-anchor-6xlarge-emphasized-line-height: var(--hpe-text-6xl-line-height);
   --hpe-anchor-6xlarge-emphasized-font-size: var(--hpe-text-6xl-font-size);
   --hpe-anchor-6xlarge-default-line-height: var(--hpe-text-6xl-line-height);

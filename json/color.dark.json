@@ -32,6 +32,11 @@
       "disabled": "#ffffff1f",
       "selected": "#01a982"
     },
+    "shadow": {
+      "weak": "#0000001f",
+      "default": "#0000005c",
+      "strong": "#00000080"
+    },
     "text": {
       "default": "#ffffff",
       "strong": "#ffffff",

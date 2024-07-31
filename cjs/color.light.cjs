@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 31 Jul 2024 19:56:42 GMT
+ * Generated on Wed, 31 Jul 2024 21:20:29 GMT
  */
 
 module.exports = {
@@ -37,6 +37,11 @@ module.exports = {
         "weak": "#0000001f",
         "disabled": "#0000001f",
         "selected": "#01a982"
+      },
+      "shadow": {
+        "weak": "#0000001f",
+        "default": "#0000001f",
+        "strong": "#0000003d"
       },
       "text": {
         "default": "#555555",

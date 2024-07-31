@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 31 Jul 2024 19:56:42 GMT
+ * Generated on Wed, 31 Jul 2024 21:20:29 GMT
  */
 
 :root {
@@ -46,6 +46,9 @@
   --hpe-color-text-weak: var(--hpe-base-color-grey-700); /* Weaker text color for reduced emphasis */
   --hpe-color-text-strong: var(--hpe-base-color-grey-1000); /* Stronger text color for added prominence */
   --hpe-color-text-default: var(--hpe-base-color-grey-800); /* Default text color that is accessible on standard background colors */
+  --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity24);
+  --hpe-color-shadow-default: var(--hpe-base-color-black-opacity12);
+  --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
   --hpe-color-border-selected: var(--hpe-base-color-green-600); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs. */
   --hpe-color-border-disabled: var(--hpe-base-color-black-opacity12); /* Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level. */
   --hpe-color-border-weak: var(--hpe-base-color-black-opacity12); /* Weaker border color for reduced emphasis */

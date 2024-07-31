@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 31 Jul 2024 19:56:42 GMT
+ * Generated on Wed, 31 Jul 2024 21:20:29 GMT
  */
 
 export default {
@@ -37,6 +37,11 @@ export default {
         weak: "#ffffff1f",
         disabled: "#ffffff1f",
         selected: "#01a982",
+      },
+      shadow: {
+        weak: "#0000001f",
+        default: "#0000005c",
+        strong: "#00000080",
       },
       text: {
         default: "#ffffff",

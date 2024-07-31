@@ -1,10 +1,28 @@
 /**
  * Do not edit directly
- * Generated on Wed, 31 Jul 2024 19:56:42 GMT
+ * Generated on Wed, 31 Jul 2024 21:20:29 GMT
  */
 
 :root {
+  --hpe-size-icon-xxlarge: var(--hpe-base-dimension-900);
+  --hpe-size-icon-xlarge: var(--hpe-base-dimension-600);
+  --hpe-size-icon-large: var(--hpe-base-dimension-550);
+  --hpe-size-icon-medium: var(--hpe-base-dimension-450);
+  --hpe-size-icon-small: var(--hpe-base-dimension-400);
+  --hpe-size-icon-xsmall: var(--hpe-base-dimension-400);
   --hpe-radius-full: var(--hpe-base-dimension-9600);
+  --hpe-paragraph-xxlarge-line-height: var(--hpe-base-line-height-600);
+  --hpe-paragraph-xxlarge-font-size: var(--hpe-base-font-size-600);
+  --hpe-paragraph-xlarge-line-height: var(--hpe-base-line-height-400);
+  --hpe-paragraph-xlarge-font-size: var(--hpe-base-font-size-500);
+  --hpe-paragraph-large-line-height: var(--hpe-base-line-height-300);
+  --hpe-paragraph-large-font-size: var(--hpe-base-font-size-400);
+  --hpe-paragraph-medium-line-height: var(--hpe-base-line-height-200);
+  --hpe-paragraph-medium-font-size: var(--hpe-base-font-size-200);
+  --hpe-paragraph-small-line-height: var(--hpe-base-font-size-300);
+  --hpe-paragraph-small-font-size: var(--hpe-base-font-size-100);
+  --hpe-paragraph-xsmall-line-height: var(--hpe-base-line-height-90);
+  --hpe-paragraph-xsmall-font-size: var(--hpe-base-font-size-90);
   --hpe-heading-xxsmall-font-weight: var(--hpe-base-font-weight-semibold);
   --hpe-heading-xxsmall-line-height: var(--hpe-base-line-height-80);
   --hpe-heading-xxsmall-font-size: var(--hpe-base-font-size-80);
