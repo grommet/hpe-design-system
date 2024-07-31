@@ -6765,36 +6765,6 @@
               "codeSyntax": {}
             }
           }
-        },
-        "borderColor": {
-          "$type": "color",
-          "$value": "{color.border.default}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "STROKE_COLOR",
-                "EFFECT_COLOR"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "background": {
-          "$type": "color",
-          "$value": "#00000000",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
         }
       },
       "hover": {
@@ -6807,36 +6777,6 @@
               "hiddenFromPublishing": false,
               "scopes": [
                 "TEXT_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "borderColor": {
-          "$type": "color",
-          "$value": "{dataCell.hover.borderColor}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "STROKE_COLOR",
-                "EFFECT_COLOR"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "background": {
-          "$type": "color",
-          "$value": "#00000000",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
               ],
               "codeSyntax": {}
             }
