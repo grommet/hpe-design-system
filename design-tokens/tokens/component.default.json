@@ -5861,7 +5861,7 @@
     "primary": {
       "paddingX": {
         "$type": "number",
-        "$value": "{base.static.spacing.small}",
+        "$value": "{dataCell.paddingX}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -5875,7 +5875,7 @@
       },
       "fontSize": {
         "$type": "number",
-        "$value": "{text.medium.fontSize}",
+        "$value": "{dataCell.fontSize}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -5889,7 +5889,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{text.medium.lineHeight}",
+        "$value": "{dataCell.lineHeight}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -5917,7 +5917,7 @@
       },
       "borderBottomWidth": {
         "$type": "number",
-        "$value": "{base.static.borderWidth.xsmall}",
+        "$value": "{dataCell.borderBottomWidth}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -5932,7 +5932,7 @@
       },
       "paddingTop": {
         "$type": "number",
-        "$value": "{base.static.spacing.xsmall}",
+        "$value": "{dataCell.paddingTop}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -5946,7 +5946,7 @@
       },
       "paddingBottom": {
         "$type": "number",
-        "$value": 5,
+        "$value": "{dataCell.paddingBottom}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -5975,7 +5975,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{dataCell.enabled.borderColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5990,7 +5990,7 @@
         },
         "background": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{dataCell.enabled.background}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6007,7 +6007,7 @@
       "hover": {
         "textColor": {
           "$type": "color",
-          "$value": "{dataCell.primary.enabled.textColor}",
+          "$value": "{dataCell.hover.textColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6021,7 +6021,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{dataCell.primary.enabled.borderColor}",
+          "$value": "{dataCell.hover.borderColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6036,7 +6036,7 @@
         },
         "background": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{dataCell.hover.background}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6053,7 +6053,7 @@
       "disabled": {
         "textColor": {
           "$type": "color",
-          "$value": "{dataCell.primary.enabled.textColor}",
+          "$value": "{dataCell.disabled.textColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6067,7 +6067,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{dataCell.primary.enabled.borderColor}",
+          "$value": "{dataCell.disabled.borderColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6082,7 +6082,7 @@
         },
         "background": {
           "$type": "color",
-          "$value": "{dataCell.primary.enabled.background}",
+          "$value": "{dataCell.disabled.background}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6099,7 +6099,7 @@
       "pinned": {
         "textColor": {
           "$type": "color",
-          "$value": "{dataCell.primary.enabled.textColor}",
+          "$value": "{dataCell.pinned.textColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6113,7 +6113,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{dataCell.primary.enabled.borderColor}",
+          "$value": "{dataCell.pinned.borderColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6128,7 +6128,7 @@
         },
         "backgroundColor": {
           "$type": "color",
-          "$value": "{dataCell.primary.enabled.background}",
+          "$value": "{dataCell.pinned.background}",
           "$description": "",
           "$extensions": {
             "com.figma": {
