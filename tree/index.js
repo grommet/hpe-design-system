@@ -799,6 +799,10 @@ export default {
           "mode": "default"
         },
         {
+          "name": "dataCell.enabled.textColor",
+          "mode": "default"
+        },
+        {
           "name": "formField.helpText.enabled.textColor",
           "mode": "default"
         },
@@ -931,7 +935,7 @@ export default {
           "mode": "default"
         },
         {
-          "name": "dataCell.enabled.textColor",
+          "name": "dataCell.primary.enabled.textColor",
           "mode": "default"
         },
         {
@@ -2561,6 +2565,10 @@ export default {
           "mode": "default"
         },
         {
+          "name": "dataCell.enabled.textColor",
+          "mode": "default"
+        },
+        {
           "name": "formField.helpText.enabled.textColor",
           "mode": "default"
         },
@@ -2693,7 +2701,7 @@ export default {
           "mode": "default"
         },
         {
-          "name": "dataCell.enabled.textColor",
+          "name": "dataCell.primary.enabled.textColor",
           "mode": "default"
         },
         {
@@ -9580,6 +9588,281 @@ export default {
         }
       }
     },
+    "dataCell.primary.paddingX": {
+      "$type": "number",
+      "$value": "{dataCell.paddingX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.fontSize": {
+      "$type": "number",
+      "$value": "{dataCell.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.lineHeight": {
+      "$type": "number",
+      "$value": "{dataCell.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.fontWeight": {
+      "$type": "number",
+      "$value": "{base.fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.borderBottomWidth": {
+      "$type": "number",
+      "$value": "{dataCell.borderBottomWidth}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.paddingTop": {
+      "$type": "number",
+      "$value": "{dataCell.paddingTop}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.paddingBottom": {
+      "$type": "number",
+      "$value": "{dataCell.paddingBottom}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.enabled.textColor": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.enabled.borderColor": {
+      "$type": "color",
+      "$value": "{dataCell.enabled.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.enabled.background": {
+      "$type": "color",
+      "$value": "{dataCell.enabled.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.hover.textColor": {
+      "$type": "color",
+      "$value": "{dataCell.hover.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.hover.borderColor": {
+      "$type": "color",
+      "$value": "{dataCell.hover.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.hover.background": {
+      "$type": "color",
+      "$value": "{dataCell.hover.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.disabled.textColor": {
+      "$type": "color",
+      "$value": "{dataCell.disabled.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.disabled.borderColor": {
+      "$type": "color",
+      "$value": "{dataCell.disabled.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.disabled.background": {
+      "$type": "color",
+      "$value": "{dataCell.disabled.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.pinned.textColor": {
+      "$type": "color",
+      "$value": "{dataCell.pinned.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.pinned.borderColor": {
+      "$type": "color",
+      "$value": "{dataCell.pinned.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "dataCell.primary.pinned.background": {
+      "$type": "color",
+      "$value": "{dataCell.pinned.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "dataCell.paddingX": {
       "$type": "number",
       "$value": "{base.static.spacing.small}",
@@ -9624,7 +9907,7 @@ export default {
     },
     "dataCell.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{base.fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9681,7 +9964,7 @@ export default {
     },
     "dataCell.enabled.textColor": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9840,7 +10123,7 @@ export default {
         }
       }
     },
-    "dataCell.pinned.backgroundColor": {
+    "dataCell.pinned.background": {
       "$type": "color",
       "$value": "{dataCell.enabled.background}",
       "$description": "",

@@ -698,32 +698,61 @@ export default {
       }
     },
     "dataCell": {
+      "primary": {
+        "paddingX": "12px",
+        "fontSize": "1.125rem",
+        "lineHeight": "1.5rem",
+        "fontWeight": 500,
+        "borderBottomWidth": "1px",
+        "paddingTop": "6px",
+        "paddingBottom": "5px",
+        "enabled": {
+          "textColor": "text-strong",
+          "borderColor": "#00000000",
+          "background": "#00000000"
+        },
+        "hover": {
+          "textColor": "text-default",
+          "borderColor": "#00000000",
+          "background": "#00000000"
+        },
+        "disabled": {
+          "textColor": "text-default",
+          "borderColor": "#00000000",
+          "background": "#00000000"
+        },
+        "pinned": {
+          "textColor": "text-default",
+          "borderColor": "#00000000",
+          "background": "#00000000"
+        }
+      },
       "paddingX": "12px",
       "fontSize": "1.125rem",
       "lineHeight": "1.5rem",
-      "fontWeight": 500,
+      "fontWeight": 400,
       "borderBottomWidth": "1px",
       "paddingTop": "6px",
       "paddingBottom": "5px",
       "enabled": {
-        "textColor": "text-strong",
+        "textColor": "text-default",
         "borderColor": "#00000000",
         "background": "#00000000"
       },
       "hover": {
-        "textColor": "text-strong",
+        "textColor": "text-default",
         "borderColor": "#00000000",
         "background": "#00000000"
       },
       "disabled": {
-        "textColor": "text-strong",
+        "textColor": "text-default",
         "borderColor": "#00000000",
         "background": "#00000000"
       },
       "pinned": {
-        "textColor": "text-strong",
+        "textColor": "text-default",
         "borderColor": "#00000000",
-        "backgroundColor": "#00000000"
+        "background": "#00000000"
       }
     },
     "headerCell": {
@@ -745,17 +774,17 @@ export default {
         }
       },
       "enabled": {
-        "textColor": "text-strong",
+        "textColor": "text-default",
         "borderColor": "border-default",
         "background": "#00000000"
       },
       "hover": {
-        "textColor": "text-strong",
+        "textColor": "text-default",
         "borderColor": "#00000000",
         "background": "#00000000"
       },
       "pinned": {
-        "textColor": "text-strong",
+        "textColor": "text-default",
         "borderColor": "#00000000",
         "background": "#00000000"
       }

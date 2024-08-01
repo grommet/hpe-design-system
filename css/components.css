@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 01 Aug 2024 14:26:23 GMT
+ * Generated on Thu, 01 Aug 2024 14:42:13 GMT
  */
 
 :root {
@@ -74,12 +74,17 @@
   --hpe-form-field-medium-label-text-font-weight: var(--hpe-base-font-weight-medium);
   --hpe-header-cell-padding-bottom: var(--hpe-data-cell-padding-bottom);
   --hpe-header-cell-font-weight: var(--hpe-base-font-weight-medium);
-  --hpe-data-cell-pinned-background-color: var(--hpe-data-cell-enabled-background);
+  --hpe-data-cell-pinned-background: var(--hpe-data-cell-enabled-background);
   --hpe-data-cell-pinned-border-color: var(--hpe-data-cell-enabled-border-color);
   --hpe-data-cell-disabled-background: var(--hpe-data-cell-enabled-background);
   --hpe-data-cell-disabled-border-color: var(--hpe-data-cell-enabled-border-color);
   --hpe-data-cell-hover-border-color: var(--hpe-data-cell-enabled-border-color);
-  --hpe-data-cell-font-weight: var(--hpe-base-font-weight-medium);
+  --hpe-data-cell-font-weight: var(--hpe-base-font-weight-regular);
+  --hpe-data-cell-primary-hover-background: var(--hpe-data-cell-hover-background);
+  --hpe-data-cell-primary-enabled-background: var(--hpe-data-cell-enabled-background);
+  --hpe-data-cell-primary-enabled-border-color: var(--hpe-data-cell-enabled-border-color);
+  --hpe-data-cell-primary-padding-bottom: var(--hpe-data-cell-padding-bottom);
+  --hpe-data-cell-primary-font-weight: var(--hpe-base-font-weight-medium);
   --hpe-switch-medium-control-handle-width: var(--hpe-base-dimension-600);
   --hpe-switch-medium-control-handle-height: var(--hpe-base-dimension-600);
   --hpe-switch-medium-control-track-width: var(--hpe-base-dimension-1200);
@@ -283,12 +288,18 @@
   --hpe-header-cell-units-hover-text-color: var(--hpe-color-text-weak);
   --hpe-header-cell-units-enabled-text-color: var(--hpe-color-text-weak);
   --hpe-header-cell-min-height: var(--hpe-component-medium-min-height);
-  --hpe-data-cell-enabled-text-color: var(--hpe-color-text-strong);
+  --hpe-data-cell-enabled-text-color: var(--hpe-color-text-default);
   --hpe-data-cell-padding-top: var(--hpe-base-static-spacing-xsmall);
   --hpe-data-cell-border-bottom-width: var(--hpe-base-static-border-width-xsmall);
   --hpe-data-cell-line-height: var(--hpe-text-medium-line-height);
   --hpe-data-cell-font-size: var(--hpe-text-medium-font-size);
   --hpe-data-cell-padding-x: var(--hpe-base-static-spacing-small);
+  --hpe-data-cell-primary-pinned-background: var(--hpe-data-cell-pinned-background);
+  --hpe-data-cell-primary-pinned-border-color: var(--hpe-data-cell-pinned-border-color);
+  --hpe-data-cell-primary-disabled-background: var(--hpe-data-cell-disabled-background);
+  --hpe-data-cell-primary-disabled-border-color: var(--hpe-data-cell-disabled-border-color);
+  --hpe-data-cell-primary-hover-border-color: var(--hpe-data-cell-hover-border-color);
+  --hpe-data-cell-primary-enabled-text-color: var(--hpe-color-text-strong);
   --hpe-switch-medium-control-handle-border-radius: var(--hpe-base-static-radius-medium);
   --hpe-switch-medium-control-track-border-radius: var(--hpe-base-static-radius-medium);
   --hpe-switch-medium-label-line-height: var(--hpe-text-medium-line-height);
@@ -511,6 +522,11 @@
   --hpe-data-cell-pinned-text-color: var(--hpe-data-cell-enabled-text-color);
   --hpe-data-cell-disabled-text-color: var(--hpe-data-cell-enabled-text-color);
   --hpe-data-cell-hover-text-color: var(--hpe-data-cell-enabled-text-color);
+  --hpe-data-cell-primary-padding-top: var(--hpe-data-cell-padding-top);
+  --hpe-data-cell-primary-border-bottom-width: var(--hpe-data-cell-border-bottom-width);
+  --hpe-data-cell-primary-line-height: var(--hpe-data-cell-line-height);
+  --hpe-data-cell-primary-font-size: var(--hpe-data-cell-font-size);
+  --hpe-data-cell-primary-padding-x: var(--hpe-data-cell-padding-x);
   --hpe-switch-medium-control-handle-border-width: var(--hpe-border-width-default);
   --hpe-switch-medium-control-track-border-width: var(--hpe-border-width-default);
   --hpe-switch-medium-border-width: var(--hpe-border-width-default);
@@ -626,6 +642,9 @@
   --hpe-form-field-input-group-container-hover-background: var(--hpe-form-field-input-group-container-enabled-background);
   --hpe-header-cell-pinned-text-color: var(--hpe-data-cell-hover-text-color);
   --hpe-header-cell-hover-text-color: var(--hpe-data-cell-hover-text-color);
+  --hpe-data-cell-primary-pinned-text-color: var(--hpe-data-cell-pinned-text-color);
+  --hpe-data-cell-primary-disabled-text-color: var(--hpe-data-cell-disabled-text-color);
+  --hpe-data-cell-primary-hover-text-color: var(--hpe-data-cell-hover-text-color);
   --hpe-menu-item-hover-icon-color: var(--hpe-button-default-hover-icon-color);
   --hpe-menu-item-hover-text-color: var(--hpe-button-default-hover-text-color);
   --hpe-button-xlarge-toolbar-gap-x: var(--hpe-button-xlarge-default-gap-x);
