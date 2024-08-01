@@ -33,10 +33,7 @@ RadioButtonGroup is used to lay out a clear list of distinct, mutually exclusive
 
 ### When not to use
 
-Once an option is selected, RadioButtonGroup does not allow for deselection, so it should be avoided in filtering scenarios, where having no option selected is a valid choice. For filtering scenarios consider using the following components:
-
-- Single Selection: Use [Select](/components/select) to enable users to choose one option and then clearing the selection, reflecting no active filters.
-- Multiple Selection: Use [CheckBoxGroup](/components/checkboxgroup) or [SelectMultiple](/components/selectmultiple) to allow users to choose multiple options or none at all.
+Avoid using RadioButtonGroup in filtering scenarios as once an option is selected, it does not allow for deselection. Instead, consider [Select](/components/select) for single selection and [CheckBoxGroup](/components/checkboxgroup) or [SelectMultiple](/components/selectmultiple) for multiple selection.
 
 ## Variants
 
