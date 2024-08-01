@@ -596,6 +596,20 @@
             "codeSyntax": {}
           }
         }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "small": {
@@ -622,6 +636,20 @@
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -656,6 +684,20 @@
             "codeSyntax": {}
           }
         }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "large": {
@@ -682,6 +724,20 @@
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -716,6 +772,20 @@
             "codeSyntax": {}
           }
         }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "xxlarge": {
@@ -742,6 +812,20 @@
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }

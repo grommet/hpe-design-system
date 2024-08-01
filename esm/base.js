@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 01 Aug 2024 14:42:13 GMT
+ * Generated on Thu, 01 Aug 2024 16:25:26 GMT
  */
 
 export default {
@@ -69,10 +69,12 @@ export default {
         },
         green: {
           "100": "#cbfaeb",
+          "125": "#aef6df",
           "400": "#17eba0",
           "500": "#17d0a6",
           "600": "#01a982",
           "700": "#008567",
+          "900": "#074b3b",
           "1000": "#093a2f",
           "400-Opacity12": "#17eba01f",
           "400-Opacity24": "#17eba03d",

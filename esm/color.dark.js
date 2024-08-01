@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 01 Aug 2024 14:42:13 GMT
+ * Generated on Thu, 01 Aug 2024 16:25:26 GMT
  */
 
 export default {
@@ -16,11 +16,11 @@ export default {
         floating: "#292929",
         contrast: "#ffffff0f",
         status: {
-          critical: "#cc1f1a4d",
-          ok: "#17d0a64d",
-          warning: "#fec9011f",
           info: "#00c8ff1f",
+          ok: "#17d0a64d",
           unknown: "#222222",
+          critical: "#cc1f1a4d",
+          warning: "#fec9011f",
         },
         primary: {
           default: "#01a982",
@@ -38,11 +38,6 @@ export default {
         disabled: "#ffffff1f",
         selected: "#01a982",
       },
-      shadow: {
-        weak: "#0000001f",
-        default: "#0000005c",
-        strong: "#00000080",
-      },
       text: {
         default: "#ffffff",
         strong: "#ffffff",
@@ -51,11 +46,11 @@ export default {
         disabled: "#ffffff3d",
         onPrimary: "#ffffff",
         brand: "#01a982",
-        inverse: {
-          default: "#222222",
-        },
         heading: {
           default: "#ffffff",
+        },
+        inverse: {
+          default: "#222222",
         },
       },
       icon: {
@@ -102,6 +97,11 @@ export default {
         },
       },
       transparent: "#00000000",
+      shadow: {
+        weak: "#0000001f",
+        default: "#0000005c",
+        strong: "#00000080",
+      },
     },
   },
 };

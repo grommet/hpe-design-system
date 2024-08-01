@@ -1,9 +1,15 @@
 /**
  * Do not edit directly
- * Generated on Thu, 01 Aug 2024 14:42:13 GMT
+ * Generated on Thu, 01 Aug 2024 16:25:26 GMT
  */
 
 :root {
+  --hpe-paragraph-xxlarge-max-width: 25em;
+  --hpe-paragraph-xlarge-max-width: 25em;
+  --hpe-paragraph-large-max-width: 25em;
+  --hpe-paragraph-medium-max-width: 25em;
+  --hpe-paragraph-small-max-width: 25em;
+  --hpe-paragraph-xsmall-max-width: 25em;
   --hpe-size-icon-xxlarge: var(--hpe-base-dimension-900);
   --hpe-size-icon-xlarge: var(--hpe-base-dimension-600);
   --hpe-size-icon-large: var(--hpe-base-dimension-550);

@@ -1133,6 +1133,20 @@ export default {
             "codeSyntax": {}
           }
         }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "small": {
@@ -1159,6 +1173,20 @@ export default {
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -1193,6 +1221,20 @@ export default {
             "codeSyntax": {}
           }
         }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "large": {
@@ -1219,6 +1261,20 @@ export default {
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -1253,6 +1309,20 @@ export default {
             "codeSyntax": {}
           }
         }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "xxlarge": {
@@ -1279,6 +1349,20 @@ export default {
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "maxWidth": {
+        "$type": "string",
+        "$value": "25em",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }

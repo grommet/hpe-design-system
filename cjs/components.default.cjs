@@ -535,6 +535,10 @@ exports.default = {
           "background": "#00000000",
           "borderColor": "border-strong"
         },
+        "disabled": {
+          "background": "background-disabled",
+          "borderColor": "border-disabled"
+        },
         "selected": {
           "enabled": {
             "background": "background-selected-strong",
@@ -551,10 +555,6 @@ exports.default = {
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
-        },
-        "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
         },
         "indeterminate": {
           "enabled": {
@@ -698,6 +698,34 @@ exports.default = {
       }
     },
     "dataCell": {
+      "paddingX": "12px",
+      "fontSize": "1.125rem",
+      "lineHeight": "1.5rem",
+      "fontWeight": 400,
+      "borderBottomWidth": "1px",
+      "paddingTop": "6px",
+      "paddingBottom": "5px",
+      "enabled": {
+        "textColor": "text-default",
+        "borderColor": "#00000000",
+        "background": "#00000000"
+      },
+      "hover": {
+        "textColor": "text-default",
+        "borderColor": "#00000000",
+        "background": "#00000000"
+      },
+      "disabled": {
+        "textColor": "text-default",
+        "borderColor": "#00000000",
+        "background": "#00000000"
+      },
+      "pinned": {
+        "textColor": "text-default",
+        "borderColor": "#00000000",
+        "backgroundColor": "#00000000",
+        "background": "#00000000"
+      },
       "primary": {
         "paddingX": "12px",
         "fontSize": "1.125rem",
@@ -726,38 +754,9 @@ exports.default = {
           "borderColor": "#00000000",
           "background": "#00000000"
         }
-      },
-      "paddingX": "12px",
-      "fontSize": "1.125rem",
-      "lineHeight": "1.5rem",
-      "fontWeight": 400,
-      "borderBottomWidth": "1px",
-      "paddingTop": "6px",
-      "paddingBottom": "5px",
-      "enabled": {
-        "textColor": "text-default",
-        "borderColor": "#00000000",
-        "background": "#00000000"
-      },
-      "hover": {
-        "textColor": "text-default",
-        "borderColor": "#00000000",
-        "background": "#00000000"
-      },
-      "disabled": {
-        "textColor": "text-default",
-        "borderColor": "#00000000",
-        "background": "#00000000"
-      },
-      "pinned": {
-        "textColor": "text-default",
-        "borderColor": "#00000000",
-        "background": "#00000000"
       }
     },
     "headerCell": {
-      "gapX": "6px",
-      "minHeight": "36px",
       "paddingX": "12px",
       "fontSize": "1.125rem",
       "lineHeight": "1.5rem",
@@ -765,14 +764,6 @@ exports.default = {
       "borderBottomWidth": "1px",
       "paddingTop": "6px",
       "paddingBottom": "5px",
-      "units": {
-        "enabled": {
-          "textColor": "text-weak"
-        },
-        "hover": {
-          "textColor": "text-weak"
-        }
-      },
       "enabled": {
         "textColor": "text-default",
         "borderColor": "border-default",
@@ -787,6 +778,16 @@ exports.default = {
         "textColor": "text-default",
         "borderColor": "#00000000",
         "background": "#00000000"
+      },
+      "gapX": "6px",
+      "minHeight": "36px",
+      "units": {
+        "enabled": {
+          "textColor": "text-weak"
+        },
+        "hover": {
+          "textColor": "text-weak"
+        }
       }
     },
     "formField": {
@@ -908,15 +909,15 @@ exports.default = {
             "background": "background-back",
             "borderColor": "border-weak"
           },
+          "disabled": {
+            "background": "background-disabled",
+            "borderColor": "border-disabled"
+          },
           "status": {
             "critical": {
               "background": "background-status-critical",
               "borderColor": "border-strong"
             }
-          },
-          "disabled": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled"
           }
         }
       },

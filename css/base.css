@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 01 Aug 2024 14:42:13 GMT
+ * Generated on Thu, 01 Aug 2024 16:25:26 GMT
  */
 
 :root {
@@ -86,10 +86,12 @@
   --hpe-base-color-green-400-opacity24: #17eba03d;
   --hpe-base-color-green-400-opacity12: #17eba01f;
   --hpe-base-color-green-1000: #093a2f;
+  --hpe-base-color-green-900: #074b3b;
   --hpe-base-color-green-700: #008567;
   --hpe-base-color-green-600: #01a982; /* HPE Brand */
   --hpe-base-color-green-500: #17d0a6;
   --hpe-base-color-green-400: #17eba0;
+  --hpe-base-color-green-125: #aef6df;
   --hpe-base-color-green-100: #cbfaeb;
   --hpe-base-color-yellow-500-opacity30: #d891284d;
   --hpe-base-color-yellow-400-opacity12: #fec9011f;

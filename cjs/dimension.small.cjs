@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 01 Aug 2024 14:42:13 GMT
+ * Generated on Thu, 01 Aug 2024 16:25:26 GMT
  */
 
 module.exports = {
@@ -82,27 +82,33 @@ module.exports = {
     "paragraph": {
       "xsmall": {
         "fontSize": "0.875rem",
-        "lineHeight": "1rem"
+        "lineHeight": "1rem",
+        "maxWidth": "25em"
       },
       "small": {
         "fontSize": "1rem",
-        "lineHeight": "1.75rem"
+        "lineHeight": "1.75rem",
+        "maxWidth": "25em"
       },
       "medium": {
         "fontSize": "1.125rem",
-        "lineHeight": "1.5rem"
+        "lineHeight": "1.5rem",
+        "maxWidth": "25em"
       },
       "large": {
         "fontSize": "1.375rem",
-        "lineHeight": "1.75rem"
+        "lineHeight": "1.75rem",
+        "maxWidth": "25em"
       },
       "xlarge": {
         "fontSize": "1.5rem",
-        "lineHeight": "1.875rem"
+        "lineHeight": "1.875rem",
+        "maxWidth": "25em"
       },
       "xxlarge": {
         "fontSize": "2.25rem",
-        "lineHeight": "2.5rem"
+        "lineHeight": "2.5rem",
+        "maxWidth": "25em"
       }
     },
     "spacing": {
