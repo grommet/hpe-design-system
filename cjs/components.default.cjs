@@ -727,6 +727,8 @@ exports.default = {
       }
     },
     "headerCell": {
+      "gapX": "6px",
+      "minHeight": "36px",
       "paddingX": "12px",
       "fontSize": "1.125rem",
       "lineHeight": "1.5rem",
@@ -734,6 +736,14 @@ exports.default = {
       "borderBottomWidth": "1px",
       "paddingTop": "6px",
       "paddingBottom": "5px",
+      "units": {
+        "enabled": {
+          "textColor": "text-weak"
+        },
+        "hover": {
+          "textColor": "text-weak"
+        }
+      },
       "enabled": {
         "textColor": "text-strong",
         "borderColor": "border-default",

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 31 Jul 2024 21:20:29 GMT
+ * Generated on Thu, 01 Aug 2024 14:26:23 GMT
  */
 
 :root {
@@ -280,6 +280,9 @@
   --hpe-header-cell-pinned-border-color: var(--hpe-data-cell-hover-border-color);
   --hpe-header-cell-hover-border-color: var(--hpe-data-cell-hover-border-color);
   --hpe-header-cell-enabled-border-color: var(--hpe-color-border-default);
+  --hpe-header-cell-units-hover-text-color: var(--hpe-color-text-weak);
+  --hpe-header-cell-units-enabled-text-color: var(--hpe-color-text-weak);
+  --hpe-header-cell-min-height: var(--hpe-component-medium-min-height);
   --hpe-data-cell-enabled-text-color: var(--hpe-color-text-strong);
   --hpe-data-cell-padding-top: var(--hpe-base-static-spacing-xsmall);
   --hpe-data-cell-border-bottom-width: var(--hpe-base-static-border-width-xsmall);
@@ -504,6 +507,7 @@
   --hpe-header-cell-line-height: var(--hpe-data-cell-line-height);
   --hpe-header-cell-font-size: var(--hpe-data-cell-font-size);
   --hpe-header-cell-padding-x: var(--hpe-data-cell-padding-x);
+  --hpe-header-cell-gap-x: var(--hpe-component-medium-text-to-icon-x);
   --hpe-data-cell-pinned-text-color: var(--hpe-data-cell-enabled-text-color);
   --hpe-data-cell-disabled-text-color: var(--hpe-data-cell-enabled-text-color);
   --hpe-data-cell-hover-text-color: var(--hpe-data-cell-enabled-text-color);

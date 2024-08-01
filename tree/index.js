@@ -987,6 +987,14 @@ export default {
       },
       "usedBy": [
         {
+          "name": "headerCell.units.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.units.hover.textColor",
+          "mode": "default"
+        },
+        {
           "name": "formField.placeholderText.enabled.textColor",
           "mode": "default"
         },
@@ -2740,6 +2748,14 @@ export default {
         }
       },
       "usedBy": [
+        {
+          "name": "headerCell.units.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.units.hover.textColor",
+          "mode": "default"
+        },
         {
           "name": "formField.placeholderText.enabled.textColor",
           "mode": "default"
@@ -9839,6 +9855,34 @@ export default {
         }
       }
     },
+    "headerCell.gapX": {
+      "$type": "number",
+      "$value": "{component.medium.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "headerCell.minHeight": {
+      "$type": "number",
+      "$value": "{component.medium.minHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "headerCell.paddingX": {
       "$type": "number",
       "$value": "{dataCell.paddingX}",
@@ -9933,6 +9977,34 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "headerCell.units.enabled.textColor": {
+      "$type": "color",
+      "$value": "{color.text.weak}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "headerCell.units.hover.textColor": {
+      "$type": "color",
+      "$value": "{color.text.weak}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
           ],
           "codeSyntax": {}
         }
