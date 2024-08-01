@@ -6623,6 +6623,34 @@
     }
   },
   "headerCell": {
+    "gapX": {
+      "$type": "number",
+      "$value": "{component.medium.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "minHeight": {
+      "$type": "number",
+      "$value": "{component.medium.minHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "paddingX": {
       "$type": "number",
       "$value": "{dataCell.paddingX}",
@@ -6719,6 +6747,40 @@
             "GAP"
           ],
           "codeSyntax": {}
+        }
+      }
+    },
+    "units":{
+      "enabled": {
+        "textColor": {
+          "$type": "color",
+          "$value": "{color.text.weak}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "hover": {
+        "textColor": {
+          "$type": "color",
+          "$value": "{color.text.weak}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
         }
       }
     },
