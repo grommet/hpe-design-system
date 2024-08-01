@@ -1932,9 +1932,9 @@ const buildTheme = tokens => {
       responsive: {
         breakpoints: ['xsmall', 'small'],
       },
-      title: {
-        size: 'small',
-      },
+      // title: {
+      //   size: 'small',
+      // },
       subtitle: {
         size: 'large',
       },
@@ -2064,32 +2064,32 @@ const buildTheme = tokens => {
         // A: No, use "large" I'm not sure why paragraph is showing up in component but it shouldn't
         size: large.hpe.text.xsmall.fontSize,
         height: large.hpe.text.xsmall.lineHeight,
-        maxWidth: '25em', // TO DO
+        maxWidth: large.hpe.paragraph.xsmall.maxWidth,
       },
       small: {
         size: large.hpe.text.small.fontSize,
         height: large.hpe.text.small.lineHeight,
-        maxWidth: '25em',
+        maxWidth: large.hpe.paragraph.small.maxWidth,
       },
       medium: {
         size: large.hpe.text.medium.fontSize,
         height: large.hpe.text.medium.lineHeight,
-        maxWidth: '25em',
+        maxWidth: large.hpe.paragraph.medium.maxWidth,
       },
       large: {
         size: large.hpe.text.large.fontSize,
         height: large.hpe.text.large.lineHeight,
-        maxWidth: '25em',
+        maxWidth: large.hpe.paragraph.large.maxWidth,
       },
       xlarge: {
         size: large.hpe.text.xlarge.fontSize,
         height: large.hpe.text.xlarge.lineHeight,
-        maxWidth: '25em',
+        maxWidth: large.hpe.paragraph.xlarge.maxWidth,
       },
       xxlarge: {
         size: large.hpe.text.xxlarge.fontSize,
         height: large.hpe.text.xxlarge.lineHeight,
-        maxWidth: '25em',
+        maxWidth: large.hpe.paragraph.xxlarge.maxWidth,
       },
       // This block applies size-specific weights to paragraph to ensure
       // that as paragraph sizes get larger, the weight decreases.
