@@ -14,10 +14,15 @@ Design tokens codify the design decisions that make up a design system's visual 
 
 Tokens can represent values including but not limited to colors, typography, spacing, and motion.
 
-An HPE Design Token consists of two parts:
+An HPE Design Token consists of two main parts:
 
-1. A self-explanatory name that represents the coded value: “hpe.color.brand".
+1. A self-documenting name that represents the coded value: “hpe.color.brand".
 1. An associated value: #01A982.
+
+Additionally, a design token can have these optional properties:
+
+1. Type: A category for the token's value (e.g., color, dimension, shadow).
+1. Description: Concise text to describe how the token should be used.
 
 TO DO: Add visual.
 
@@ -31,20 +36,20 @@ Design tokens allow us to:
 
 - Codify design decisions
 - Enable teams across various tech stacks to build efficiently and consistenly with the HPE Design System
-- Sychronize style updates across design and development tooling
+- Replaces manual maintenance methods with faster automated processes that keep design and dev sychronized
 - Build a shared language across design and development
 
 ## Types of tokens
 
-Our tokens can be grouped into 3 categories: primitive, semantic, and component. The specificity of design tokens increases from primitive to semantic to component.
+Our tokens can be grouped into 3 categories: primitive, semantic, and component. The specificity of design tokens increases from primitive to semantic to component. This tiered system of tokens exists to enhance token consumption, management, and maintenance.
 
 ### Primitive tokens
 
 Primitive tokens define the most foundational level of the token system, establishing key/value pairs for fundamental attributes like color and dimension.
 
-The value of a primitive token will always be a CSS value such as a hex code, px, or rem value.
+The value of a primitive token will always be a CSS value such as a hex code, px, or rem value. Typically, primitive token names describe the token value and not where it should be applied.
 
-Pimitive design tokens should not be used directly. Instead, they are referenced in semantic and component design tokens.
+Primitive design tokens should not be used directly. They exist to provide the foundational options and be referenced in semantic and component design tokens.
 
 TO DO: Add visual.
 
@@ -54,7 +59,7 @@ Semantic tokens apply a specific meaning to a primitive token to establish how a
 
 The value of a semantic token can either be a reference to a primitive token or another semantic token.
 
-Semantic tokens can have different values in different contexts. For example, the value of `hpe.color.background.back` might differ for light vs dark mode. Similarly, the value of `hpe.spacing.large` might differ for wide vs narrow viewports. By building with tokens, the values can flex based on the context.
+Semantic tokens can have different values in different contexts. For example, the value of `hpe.color.background.back` might differ for light vs dark mode. Similarly, the value of `hpe.spacing.large` might differ for wide vs narrow viewports. By building with semantic tokens, the values can flex based on the context.
 
 TO DO: Add visual.
 
