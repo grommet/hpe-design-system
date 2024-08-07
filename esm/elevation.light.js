@@ -1,0 +1,14 @@
+/**
+ * Do not edit directly
+ * Generated on Wed, 07 Aug 2024 22:08:45 GMT
+ */
+
+export default {
+  hpe: {
+    elevation: {
+      small: "0 4px 4px 0 #0000001f",
+      medium: "0px 6px 12px 0px #0000001f",
+      large: "0px 6px 12px 0px #0000001f",
+    },
+  },
+};

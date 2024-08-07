@@ -1753,13 +1753,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "elevation.small.color",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "color.shadow.default": {
       "$type": "color",
@@ -1773,13 +1767,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "elevation.medium.color",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "color.shadow.strong": {
       "$type": "color",
@@ -1793,13 +1781,73 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
+      }
+    },
+    "elevation.small": {
+      "$type": "shadow",
+      "$value": [
         {
-          "name": "elevation.large.color",
-          "mode": "default"
+          "color": "{color.shadow.weak}",
+          "offsetX": 0,
+          "offsetY": "{base.dimension.100}",
+          "blur": "{base.dimension.100}",
+          "spread": 0
         }
-      ]
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.medium": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{color.shadow.default}",
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.xsmall}",
+          "blur": "{base.static.spacing.small}",
+          "spread": "{base.static.spacing.none}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.large": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{color.shadow.default}",
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.xsmall}",
+          "blur": "{base.static.spacing.small}",
+          "spread": "{base.static.spacing.none}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     }
   },
   "light": {
@@ -3564,13 +3612,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "elevation.small.color",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "color.shadow.default": {
       "$type": "color",
@@ -3584,13 +3626,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "elevation.medium.color",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "color.shadow.strong": {
       "$type": "color",
@@ -3604,13 +3640,73 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
+      }
+    },
+    "elevation.small": {
+      "$type": "shadow",
+      "$value": [
         {
-          "name": "elevation.large.color",
-          "mode": "default"
+          "color": "{color.shadow.weak}",
+          "offsetX": 0,
+          "offsetY": "{base.dimension.100}",
+          "blur": "{base.dimension.100}",
+          "spread": 0
         }
-      ]
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.medium": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{color.shadow.default}",
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.xsmall}",
+          "blur": "{base.static.spacing.small}",
+          "spread": "{base.static.spacing.none}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.large": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{color.shadow.default}",
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.xsmall}",
+          "blur": "{base.static.spacing.small}",
+          "spread": "{base.static.spacing.none}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     }
   },
   "default": {
@@ -13109,216 +13205,6 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.small.color": {
-      "$type": "color",
-      "$value": "{color.shadow.weak}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.small.offsetX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.small.offsetY": {
-      "$type": "number",
-      "$value": "{base.dimension.50}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.small.blur": {
-      "$type": "number",
-      "$value": "{base.dimension.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.small.spread": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.medium.color": {
-      "$type": "color",
-      "$value": "{color.shadow.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.medium.offsetX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.medium.offsetY": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.medium.blur": {
-      "$type": "number",
-      "$value": "{base.static.spacing.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.medium.spread": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.large.color": {
-      "$type": "color",
-      "$value": "{color.shadow.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.large.offsetX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.large.offsetY": {
-      "$type": "number",
-      "$value": "{base.static.spacing.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.large.blur": {
-      "$type": "number",
-      "$value": "{base.static.spacing.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.large.spread": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }

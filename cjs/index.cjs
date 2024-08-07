@@ -4,6 +4,7 @@ const light = require('./color.light.cjs');
 const components = require('./components.default.cjs');
 const large = require('./dimension.large.cjs');
 const small = require('./dimension.small.cjs');
-const elevation = require('./elevation.default.cjs');
+const elevationdark = require('./elevation.dark.cjs');
+const elevationlight = require('./elevation.light.cjs');
 
-module.exports = { base,dark,light,components,large,small,elevation };
+module.exports = { base,dark,light,components,large,small,elevationdark,elevationlight };

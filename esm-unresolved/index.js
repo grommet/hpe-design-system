@@ -3,5 +3,6 @@ export { default as small } from './dimension.small';
 export { default as dark } from './color - semantic.dark';
 export { default as light } from './color - semantic.light';
 export { default as components } from './component.default';
-export { default as default } from './elevation - semantic.default';
+export { default as dark } from './elevation - semantic.dark';
+export { default as light } from './elevation - semantic.light';
 export { default as base } from './primitives.base';
