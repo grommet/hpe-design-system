@@ -1,10 +1,10 @@
 import 'dotenv/config';
 import * as fs from 'fs';
 
-import FigmaApi from './figma_api.js';
+import FigmaApi from '../figma_api.js';
 
-import { green } from './utils.js';
-import { tokenFilesFromLocalVariables } from './token_export.js';
+import { green } from '../utils.js';
+import { tokenFilesFromLocalVariables } from '../token_export.js';
 
 /**
  * Usage:

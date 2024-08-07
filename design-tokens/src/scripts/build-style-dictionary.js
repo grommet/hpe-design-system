@@ -1,127 +1,7 @@
 /* eslint-disable max-len */
-import StyleDictionary from 'style-dictionary-utils';
 import * as fs from 'fs';
-
-const jsonToNestedValue = token => {
-  // is non-object value
-  if (!token || typeof token !== 'object') return token;
-  // is design token
-  if ('value' in token) return token.value;
-  // is obj
-  const nextObj = {};
-  Object.entries(token).forEach(([prop, value]) => {
-    nextObj[prop] = jsonToNestedValue(value);
-  });
-
-  return nextObj;
-};
-
-const { fileHeader } = StyleDictionary.formatHelpers;
-
-const javascriptCommonJs = ({ dictionary, file, options, platform = {} }) => {
-  const { prefix } = platform;
-  const tokens = prefix ? { [prefix]: dictionary.tokens } : dictionary.tokens;
-  //
-  const output = `${fileHeader({ file })}module.exports = ${JSON.stringify(
-    jsonToNestedValue(tokens),
-    null,
-    2,
-  )}\n`;
-  // return prettified
-  return output;
-};
-
-StyleDictionary.registerFormat({
-  name: 'javascript/commonJs',
-  formatter: javascriptCommonJs,
-});
-
-// js transform group + custom from style-dictionary-utils
-StyleDictionary.registerTransformGroup({
-  name: 'js/w3c',
-  transforms: [
-    'attribute/cti',
-    'name/cti/pascal',
-    'size/rem',
-    'color/hex',
-    'cubicBezier/css', // TO DO revisit if we want to apply this or not (seems odd to have CSS here)
-    'shadow/css',
-  ],
-});
-
-// css transform group + custom from style-dictionary-utils
-StyleDictionary.registerTransformGroup({
-  name: 'css/w3c',
-  transforms: [
-    'attribute/cti',
-    'name/cti/kebab',
-    'time/seconds',
-    'content/icon',
-    'size/rem',
-    'color/css',
-    'cubicBezier/css',
-    'shadow/css',
-    'color/hex',
-    'gradient/css',
-  ],
-});
-
-const getThemeAndMode = file => {
-  const parts = file.split('.');
-  const themeAndMode = parts[parts.length - 2];
-  let theme;
-  let mode;
-  if (themeAndMode.includes('-')) [theme, mode] = themeAndMode.split('-');
-  else mode = themeAndMode;
-
-  return [theme, mode];
-};
-
-// ---- Custom StyleDictionary formatters for color modes and breakpoints ------- //
-
-// color modes
-StyleDictionary.registerFormat({
-  name: 'css/variables-themed',
-  formatter({ dictionary, file, options }) {
-    const { outputReferences, theme, mode } = options;
-    const darkTokens = StyleDictionary.formatHelpers.formattedVariables({
-      format: 'css',
-      dictionary,
-      outputReferences,
-    });
-    const dataTheme = theme ? `[data-theme=${theme}]` : '';
-    // TO DO "mode" is fairly coupled with concept of "dark" right now
-    // just confirm this would be able to expand to concepts like "high-contrast"
-    const dataMode = mode ? `[data-mode=${mode}]` : '';
-    return `${StyleDictionary.formatHelpers.fileHeader({
-      file,
-    })}:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n
-${
-  dataMode
-    ? `@media (prefers-color-scheme: dark) {\n:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n}\n`
-    : ''
-}
-    `;
-  },
-});
-
-// breakpoints
-StyleDictionary.registerFormat({
-  name: 'css/variables-breakpoints',
-  formatter({ dictionary, file, options }) {
-    const { outputReferences, mediaQuery } = options;
-    let output = `:root {\n${StyleDictionary.formatHelpers.formattedVariables({
-      format: 'css',
-      dictionary,
-      outputReferences,
-    })}\n}`;
-    if (mediaQuery) output = `@media (${mediaQuery}) {\n${output}\n}\n`;
-
-    return `${StyleDictionary.formatHelpers.fileHeader({
-      file,
-    })}${output}`;
-  },
-});
+import { HPEStyleDictionary } from '../HPEStyleDictionary.ts';
+import { getThemeAndMode } from '../utils.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -131,8 +11,7 @@ const CSS_DIR = 'dist/css/';
 const PREFIX = 'hpe';
 
 let esm = '';
-
-StyleDictionary.extend({
+HPEStyleDictionary.extend({
   // from dist because it contains the "px" version
   source: ['dist/primitives.base.json'],
   platforms: {
@@ -201,7 +80,7 @@ const camelCase = s => s.replace(/-./g, x => x[1].toUpperCase());
 
 colorModeFiles.forEach(file => {
   const [theme, mode] = getThemeAndMode(file);
-  StyleDictionary.extend({
+  HPEStyleDictionary.extend({
     source: [
       'dist/primitives.base.json',
       file,
@@ -315,7 +194,7 @@ const dimensionFiles = fs
 dimensionFiles.forEach(file => {
   const res = getThemeAndMode(file);
   const mode = res[1];
-  StyleDictionary.extend({
+  HPEStyleDictionary.extend({
     source: [
       'dist/primitives.base.json',
       `dist/typography.${mode}.json`, // dist folder has "rem"
@@ -399,7 +278,7 @@ const exclude = [
   'elevation',
 ];
 
-StyleDictionary.extend({
+HPEStyleDictionary.extend({
   source: [
     // from dist because it contains the "px"/"rem" version
     'dist/primitives.base.json',
@@ -436,7 +315,7 @@ const elevationFiles = fs
 
 elevationFiles.forEach(file => {
   const mode = getThemeAndMode(file)[1];
-  StyleDictionary.extend({
+  HPEStyleDictionary.extend({
     source: [
       'dist/primitives.base.json', // from dist because it contains the "px"/"rem" version
       `${TOKENS_DIR}/color - semantic.${mode}.json`, // using light mode to have a reference name available

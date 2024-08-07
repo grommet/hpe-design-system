@@ -21,12 +21,12 @@
   },
   "scripts": {
     "prettier:check": "prettier --check src/",
-    "sync-tokens-to-figma": "ts-node-esm -P tsconfig.json src/sync_tokens_to_figma.ts",
-    "sync-figma-to-tokens": "ts-node-esm -P tsconfig.json src/sync_figma_to_tokens.ts",
-    "build-style-dictionary": "node src/build-style-dictionary.js",
-    "build-token-tree": "node src/build-token-tree.js",
-    "build": "rm -rf ./dist && node src/build.js && yarn build-style-dictionary && yarn build-token-tree",
-    "release-stable": "node src/release-stable.js",
+    "sync-tokens-to-figma": "ts-node-esm -P tsconfig.json src/scripts/sync_tokens_to_figma.ts",
+    "sync-figma-to-tokens": "ts-node-esm -P tsconfig.json src/scripts/sync_figma_to_tokens.ts",
+    "build-style-dictionary": "ts-node --esm src/scripts/build-style-dictionary.js",
+    "build-token-tree": "node src/scripts/build-token-tree.js",
+    "build": "rm -rf ./dist && node src/scripts/build.js && yarn build-style-dictionary && yarn build-token-tree",
+    "release-stable": "node src/scripts/release-stable.js",
     "test": "jest"
   },
   "dependencies": {
