@@ -1,10 +1,13 @@
 import 'dotenv/config';
 import * as fs from 'fs';
 
-import FigmaApi from './figma_api.js';
+import FigmaApi from '../figma_api.js';
 
-import { green } from './utils.js';
-import { generatePostVariablesPayload, readJsonFiles } from './token_import.js';
+import { green } from '../utils.js';
+import {
+  generatePostVariablesPayload,
+  readJsonFiles,
+} from '../token_import.js';
 
 async function main() {
   if (!process.env.PERSONAL_ACCESS_TOKEN || !process.env.FILE_KEY) {
