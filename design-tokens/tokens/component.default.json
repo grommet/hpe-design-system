@@ -8112,6 +8112,18 @@
             }
           }
         }
+      },
+      "gapX": {
+        "$type": "number",
+        "$value": "{hpe.component.small.textToElementX}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["GAP"],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "medium": {
@@ -8150,6 +8162,18 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["FONT_SIZE"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{hpe.component.medium.textToElementX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
               "codeSyntax": {}
             }
           }
@@ -8204,6 +8228,18 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["FONT_SIZE"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{hpe.component.large.textToElementX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
               "codeSyntax": {}
             }
           }
