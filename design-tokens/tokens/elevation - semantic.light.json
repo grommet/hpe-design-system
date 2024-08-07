@@ -1,0 +1,64 @@
+{
+  "elevation": {
+    "small": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{color.shadow.weak}",
+          "offsetX": 0,
+          "offsetY": "{base.dimension.100}",
+          "blur": "{base.dimension.100}",
+          "spread": 0
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["ALL_SCOPES"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "medium": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{color.shadow.default}",
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.xsmall}",
+          "blur": "{base.static.spacing.small}",
+          "spread": "{base.static.spacing.none}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["ALL_SCOPES"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "large": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{color.shadow.default}",
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.xsmall}",
+          "blur": "{base.static.spacing.small}",
+          "spread": "{base.static.spacing.none}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["ALL_SCOPES"],
+          "codeSyntax": {}
+        }
+      }
+    }
+  }
+}

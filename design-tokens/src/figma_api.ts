@@ -1,64 +1,78 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export interface VariableMode {
-  modeId: string
-  name: string
+  modeId: string;
+  name: string;
 }
 
 export interface VariableModeChange {
-  action: 'CREATE' | 'UPDATE' | 'DELETE'
-  id?: string
-  name?: string
-  variableCollectionId: string
+  action: 'CREATE' | 'UPDATE' | 'DELETE';
+  id?: string;
+  name?: string;
+  variableCollectionId: string;
 }
 
 export interface VariableCollection {
-  id: string
-  name: string
-  modes: VariableMode[]
-  defaultModeId: string
-  remote: boolean
-  hiddenFromPublishing: boolean
+  id: string;
+  name: string;
+  modes: VariableMode[];
+  defaultModeId: string;
+  remote: boolean;
+  hiddenFromPublishing: boolean;
 }
 
 export interface VariableCollectionChange
-  extends Partial<Pick<VariableCollection, 'id' | 'name' | 'hiddenFromPublishing'>> {
-  action: 'CREATE' | 'UPDATE' | 'DELETE'
-  initialModeId?: string
+  extends Partial<
+    Pick<VariableCollection, 'id' | 'name' | 'hiddenFromPublishing'>
+  > {
+  action: 'CREATE' | 'UPDATE' | 'DELETE';
+  initialModeId?: string;
 }
 
 export interface Color {
-  r: number
-  g: number
-  b: number
-  a?: number
+  r: number;
+  g: number;
+  b: number;
+  a?: number;
 }
 
 interface VariableAlias {
-  type: 'VARIABLE_ALIAS'
-  id: string
+  type: 'VARIABLE_ALIAS';
+  id: string;
 }
 
-export type VariableValue = boolean | number | string | Color | VariableAlias
+export type VariableValue = boolean | number | string | Color | VariableAlias;
 
-export type VariableScope = 'ALL_SCOPES' | VariableFloatScopes | VariableColorScopes
-type VariableFloatScopes = 'TEXT_CONTENT' | 'WIDTH_HEIGHT' | 'GAP'
-type VariableColorScopes = 'ALL_FILLS' | 'FRAME_FILL' | 'SHAPE_FILL' | 'TEXT_FILL' | 'STROKE_COLOR'
+export type VariableScope =
+  | 'ALL_SCOPES'
+  | VariableFloatScopes
+  | VariableColorScopes;
+type VariableFloatScopes = 'TEXT_CONTENT' | 'WIDTH_HEIGHT' | 'GAP';
+type VariableColorScopes =
+  | 'ALL_FILLS'
+  | 'FRAME_FILL'
+  | 'SHAPE_FILL'
+  | 'TEXT_FILL'
+  | 'STROKE_COLOR';
 
-export type VariableCodeSyntax = { WEB?: string; ANDROID?: string; iOS?: string }
+export type VariableCodeSyntax = {
+  WEB?: string;
+  ANDROID?: string;
+  iOS?: string;
+};
 
 export interface Variable {
-  id: string
-  name: string
-  key: string
-  variableCollectionId: string
-  resolvedType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR'
-  valuesByMode: { [modeId: string]: VariableValue }
-  remote: boolean
-  description: string
-  hiddenFromPublishing: boolean
-  scopes: VariableScope[]
-  codeSyntax: VariableCodeSyntax
+  id: string;
+  name: string;
+  key: string;
+  variableCollectionId: string;
+  resolvedType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR' | 'SHADOW'; // SHADOW is custom for w3c spec
+  valuesByMode: { [modeId: string]: VariableValue };
+  remote: boolean;
+  description: string;
+  hiddenFromPublishing: boolean;
+  scopes: VariableScope[];
+  codeSyntax: VariableCodeSyntax;
 }
 
 export interface VariableChange
@@ -75,43 +89,43 @@ export interface VariableChange
       | 'codeSyntax'
     >
   > {
-  action: 'CREATE' | 'UPDATE' | 'DELETE'
+  action: 'CREATE' | 'UPDATE' | 'DELETE';
 }
 
 export interface VariableModeValue {
-  variableId: string
-  modeId: string
-  value: VariableValue
+  variableId: string;
+  modeId: string;
+  value: VariableValue;
 }
 
 export interface ApiGetLocalVariablesResponse {
-  status: number
-  error: boolean
+  status: number;
+  error: boolean;
   meta: {
-    variableCollections: { [id: string]: VariableCollection }
-    variables: { [id: string]: Variable }
-  }
+    variableCollections: { [id: string]: VariableCollection };
+    variables: { [id: string]: Variable };
+  };
 }
 
 export interface ApiPostVariablesPayload {
-  variableCollections?: VariableCollectionChange[]
-  variableModes?: VariableModeChange[]
-  variables?: VariableChange[]
-  variableModeValues?: VariableModeValue[]
+  variableCollections?: VariableCollectionChange[];
+  variableModes?: VariableModeChange[];
+  variables?: VariableChange[];
+  variableModeValues?: VariableModeValue[];
 }
 
 interface ApiPostVariablesResponse {
-  status: number
-  error: boolean
-  meta: { tempIdToRealId: { [tempId: string]: string } }
+  status: number;
+  error: boolean;
+  meta: { tempIdToRealId: { [tempId: string]: string } };
 }
 
 export default class FigmaApi {
-  private baseUrl = 'https://api.figma.com'
-  private token: string
+  private baseUrl = 'https://api.figma.com';
+  private token: string;
 
   constructor(token: string) {
-    this.token = token
+    this.token = token;
   }
 
   async getLocalVariables(fileKey: string) {
@@ -121,9 +135,9 @@ export default class FigmaApi {
         Accept: '*/*',
         'X-Figma-Token': this.token,
       },
-    })
+    });
 
-    return resp.data
+    return resp.data;
   }
 
   async postVariables(fileKey: string, payload: ApiPostVariablesPayload) {
@@ -135,8 +149,8 @@ export default class FigmaApi {
         'X-Figma-Token': this.token,
       },
       data: payload,
-    })
+    });
 
-    return resp.data
+    return resp.data;
   }
 }

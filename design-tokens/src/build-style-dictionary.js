@@ -1,21 +1,6 @@
 /* eslint-disable max-len */
 import StyleDictionary from 'style-dictionary-utils';
 import * as fs from 'fs';
-// import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer';
-
-// TO DO how to keep "camelCase" for things like minHeight
-// right now automatic transforms put a kebab (min-height)
-
-// TO DO getting "property collision" from typography files
-// StyleDictionary.extend(
-//   makeSdTailwindConfig({
-//     type: 'all',
-//     isVariables: true,
-//     source: ['tokens-alpha/**/*.json'],
-//     buildPath: 'dist/tailwind/',
-//     // prefix: 'hpe', // TO DO should this be in the token files themselves?
-//   }),
-// ).buildAllPlatforms();
 
 const jsonToNestedValue = token => {
   // is non-object value
@@ -60,6 +45,7 @@ StyleDictionary.registerTransformGroup({
     'size/rem',
     'color/hex',
     'cubicBezier/css', // TO DO revisit if we want to apply this or not (seems odd to have CSS here)
+    'shadow/css',
   ],
 });
 
@@ -219,7 +205,7 @@ colorModeFiles.forEach(file => {
     source: [
       'dist/primitives.base.json',
       file,
-      `${TOKENS_DIR}/elevation.${mode}.json`,
+      // `${TOKENS_DIR}/elevation.${mode}.json`,
       `${TOKENS_DIR}/gradient.${mode}.json`,
     ],
     platforms: {
@@ -236,7 +222,6 @@ colorModeFiles.forEach(file => {
             filter: token =>
               (token.attributes.category === 'color' &&
                 !primitiveColorNames.includes(token.attributes.type)) ||
-              token.attributes.category === 'elevation' ||
               token.attributes.category === 'gradient',
           },
         ],
@@ -254,7 +239,7 @@ colorModeFiles.forEach(file => {
             filter: token =>
               (token.attributes.category === 'color' &&
                 !primitiveColorNames.includes(token.attributes.type)) ||
-              token.attributes.category === 'elevation' ||
+              // token.attributes.category === 'elevation' ||
               token.attributes.category === 'gradient',
           },
         ],
@@ -272,7 +257,7 @@ colorModeFiles.forEach(file => {
             filter: token =>
               (token.attributes.category === 'color' &&
                 !primitiveColorNames.includes(token.attributes.type)) ||
-              token.attributes.category === 'elevation' ||
+              // token.attributes.category === 'elevation' ||
               token.attributes.category === 'gradient',
           },
         ],
@@ -296,7 +281,7 @@ colorModeFiles.forEach(file => {
             filter: token =>
               (token.attributes.category === 'color' &&
                 !primitiveColorNames.includes(token.attributes.type)) ||
-              token.attributes.category === 'elevation' ||
+              // token.attributes.category === 'elevation' ||
               token.attributes.category === 'gradient',
           },
         ],
@@ -397,12 +382,6 @@ dimensionFiles.forEach(file => {
   esm += `export { default as ${mode} } from './dimension.${mode}';\n`;
 });
 
-fs.appendFile(`./${ESM_DIR}index.js`, esm, err => {
-  if (err) {
-    console.log(err);
-  }
-});
-
 // TO DO make dynamic
 const exclude = [
   'static',
@@ -417,6 +396,7 @@ const exclude = [
   'heading',
   'text',
   'size',
+  'elevation',
 ];
 
 StyleDictionary.extend({
@@ -437,34 +417,6 @@ StyleDictionary.extend({
         {
           destination: 'components.css',
           format: 'css/variables',
-          filter: token =>
-            ![...exclude, 'elevation'].includes(token.attributes.category),
-          options: {
-            outputReferences: true,
-          },
-        },
-      ],
-    },
-  },
-}).buildAllPlatforms();
-
-StyleDictionary.extend({
-  source: [
-    // from dist because it contains the "px"/"rem" version
-    'dist/primitives.base.json',
-    `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
-    `${TOKENS_DIR}/dimension - semantic.large.json`, // using large mode to have a reference name available
-    'dist/elevation.default.json',
-  ],
-  platforms: {
-    css: {
-      transformGroup: 'css/w3c',
-      buildPath: CSS_DIR,
-      prefix: PREFIX,
-      files: [
-        {
-          destination: 'elevation.css',
-          format: 'css/variables',
           filter: token => !exclude.includes(token.attributes.category),
           options: {
             outputReferences: true,
@@ -474,6 +426,76 @@ StyleDictionary.extend({
     },
   },
 }).buildAllPlatforms();
+
+const elevationFiles = fs
+  .readdirSync(TOKENS_DIR)
+  .map(file =>
+    file.includes('elevation') ? `${TOKENS_DIR}/${file}` : undefined,
+  )
+  .filter(file => file);
+
+elevationFiles.forEach(file => {
+  const mode = getThemeAndMode(file)[1];
+  StyleDictionary.extend({
+    source: [
+      'dist/primitives.base.json', // from dist because it contains the "px"/"rem" version
+      `${TOKENS_DIR}/color - semantic.${mode}.json`, // using light mode to have a reference name available
+      file,
+    ],
+    platforms: {
+      js: {
+        transformGroup: 'js/w3c',
+        buildPath: ESM_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `elevation.${mode}.js`,
+            format: 'javascript/esm',
+            filter: 'isShadow',
+          },
+        ],
+      },
+      'js/cjs': {
+        transformGroup: 'js/w3c',
+        buildPath: CJS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `elevation.${mode}.cjs`,
+            format: 'javascript/esm',
+            filter: 'isShadow',
+          },
+        ],
+      },
+      css: {
+        transformGroup: 'css/w3c',
+        buildPath: CSS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `elevation.${mode}.css`,
+            filter: 'isShadow',
+            format: 'css/variables-themed',
+            options: {
+              outputReferences: true,
+              mode: mode === 'dark' ? 'dark' : undefined,
+            },
+          },
+        ],
+      },
+    },
+  }).buildAllPlatforms();
+  esm += `export { default as ${camelCase(
+    `elevation${mode}`,
+  )} } from './elevation.${`${mode || ''}`}';\n`;
+});
+
+// create ESM index.js
+fs.appendFile(`./${ESM_DIR}index.js`, esm, err => {
+  if (err) {
+    console.log(err);
+  }
+});
 
 // create CommonJS index.js
 const collections = [];
@@ -486,6 +508,7 @@ fs.readdirSync(CJS_DIR)
       let mode = parts[1];
       // special case for base.js and components
       if (mode === 'default' || !mode) [mode] = parts;
+      else if (parts.includes('elevation')) mode = `elevation${mode}`;
       fs.appendFileSync(
         `${CJS_DIR}index.cjs`,
         `const ${mode} = require('./${file}');\n`,
@@ -499,4 +522,4 @@ const output = `\nmodule.exports = { ${collections.map(
 )} };\n`;
 fs.appendFileSync(`${CJS_DIR}index.cjs`, output);
 
-console.log('✅ CSS, Javascript, and JSON files have been generated.');
+console.log('✅ Style system outputs have been generated.');
