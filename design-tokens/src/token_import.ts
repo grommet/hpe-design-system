@@ -14,6 +14,55 @@ import { colorApproximatelyEqual, parseColor } from './color.js';
 import { areSetsEqual } from './utils.js';
 import { Token, TokenOrTokenGroup, TokensFile } from './token_types.js';
 
+const shadowToVariables = (name: any, values: any) => {
+  const floatValue = (property: any) => ({
+    $value: values[property],
+    $type: 'number',
+    $extensions: {
+      'com.figma': {
+        hiddenFromPublishing: false,
+        scopes: ['EFFECT_FLOAT'],
+        codeSyntax: {},
+      },
+    },
+  });
+
+  const res: { [key: string]: any } = {};
+  res[`${name}/offsetX`] = floatValue('offsetX');
+  res[`${name}/offsetY`] = floatValue('offsetY');
+  res[`${name}/blur`] = floatValue('blur');
+  res[`${name}/spread`] = floatValue('spread');
+  res[`${name}/color`] = {
+    $value: values.color,
+    $type: 'color',
+    $extensions: {
+      'com.figma': {
+        hiddenFromPublishing: false,
+        scopes: ['EFFECT_COLOR'],
+        codeSyntax: {},
+      },
+    },
+  };
+
+  return res;
+};
+
+const transformShadow = (name: string, token: any) => {
+  let tokens = {};
+  const value = token['$value'];
+  const shadowValues = !Array.isArray(value) ? [value] : value;
+
+  // loop through shadows and add the index to the name
+  for (const [index, stepValue] of shadowValues.entries()) {
+    tokens = {
+      ...tokens,
+      ...shadowToVariables(`${name}/${index + 1}`, stepValue),
+    };
+  }
+
+  return tokens;
+};
+
 export type FlattenedTokensByFile = {
   [fileName: string]: {
     [tokenName: string]: Token;
@@ -78,7 +127,12 @@ function traverseCollection({
   }
 
   if (object.$value !== undefined) {
-    tokens[key] = object;
+    if (object.$type === 'shadow') {
+      const shadowTokens: { [key: string]: any } = transformShadow(key, object);
+      Object.keys(shadowTokens).forEach(shadowToken => {
+        tokens[shadowToken] = shadowTokens[shadowToken];
+      });
+    } else tokens[key] = object;
   } else {
     Object.entries<TokenOrTokenGroup>(object).forEach(([key2, object2]) => {
       if (key2.charAt(0) !== '$' && typeof object2 === 'object') {
@@ -113,6 +167,8 @@ function variableResolvedTypeFromToken(token: Token) {
       return 'STRING';
     case 'boolean':
       return 'BOOLEAN';
+    case 'shadow':
+      return 'SHADOW';
     // undefined since Figma Variables doesn't support yet
     case 'cubicBezier':
       return undefined;
