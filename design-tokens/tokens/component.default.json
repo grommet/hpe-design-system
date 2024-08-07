@@ -8115,7 +8115,7 @@
       },
       "gapX": {
         "$type": "number",
-        "$value": "{hpe.component.small.textToElementX}",
+        "$value": "{component.small.textToElementX}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -8168,7 +8168,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.medium.textToElementX}",
+          "$value": "{component.medium.textToElementX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8234,7 +8234,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.large.textToElementX}",
+          "$value": "{component.large.textToElementX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
