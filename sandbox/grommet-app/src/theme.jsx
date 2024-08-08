@@ -9,7 +9,8 @@ import {
   large,
   small,
   components,
-  elevation,
+  elevationdark,
+  elevationlight,
 } from 'design-tokens';
 import {
   Down,
@@ -557,38 +558,14 @@ const buildTheme = tokens => {
         // Naming in Figma file is strong/default/weak vs. Grommet t-shirt sizing.
         // As defined here, default is currently mapping to medium.
         light: {
-          small: `${elevation.hpe.elevation.small.offsetX} ${
-            elevation.hpe.elevation.small.offsetY
-          } ${elevation.hpe.elevation.small.blur} ${
-            colors[elevation.hpe.elevation.small.color].light
-          };`,
-          medium: `${elevation.hpe.elevation.medium.offsetX} ${
-            elevation.hpe.elevation.medium.offsetY
-          } ${elevation.hpe.elevation.medium.blur} ${
-            colors[elevation.hpe.elevation.medium.color].light
-          };`,
-          large: `${elevation.hpe.elevation.large.offsetX} ${
-            elevation.hpe.elevation.large.offsetY
-          } ${elevation.hpe.elevation.large.blur} ${
-            colors[elevation.hpe.elevation.large.color].light
-          };`,
+          small: elevationlight.hpe.elevation.small,
+          medium: elevationlight.hpe.elevation.medium,
+          large: elevationlight.hpe.elevation.large,
         },
         dark: {
-          small: `${elevation.hpe.elevation.small.offsetX} ${
-            elevation.hpe.elevation.small.offsetY
-          } ${elevation.hpe.elevation.small.blur} ${
-            colors[elevation.hpe.elevation.small.color].dark
-          };`,
-          medium: `${elevation.hpe.elevation.medium.offsetX} ${
-            elevation.hpe.elevation.medium.offsetY
-          } ${elevation.hpe.elevation.medium.blur} ${
-            colors[elevation.hpe.elevation.medium.color].dark
-          };`,
-          large: `${elevation.hpe.elevation.large.offsetX} ${
-            elevation.hpe.elevation.large.offsetY
-          } ${elevation.hpe.elevation.large.blur} ${
-            colors[elevation.hpe.elevation.large.color].dark
-          };`,
+          small: elevationdark.hpe.elevation.small,
+          medium: elevationdark.hpe.elevation.medium,
+          large: elevationdark.hpe.elevation.large,
         },
       },
       hover: {
