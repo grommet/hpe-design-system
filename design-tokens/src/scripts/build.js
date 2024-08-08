@@ -1,4 +1,5 @@
 import { mkdirSync, readFileSync, writeFileSync, readdirSync } from 'fs';
+import { access, isReference, nonComponentTokens } from '../utils.ts';
 
 // for now, convert from number (which Figma wants) to dimension with units
 // TO DO clean up this function
@@ -141,12 +142,6 @@ tokens.forEach(file => {
   allTokens = { ...allTokens, ...parsed };
 });
 
-const access = (path, object) => {
-  return path.split('.').reduce((o, i) => o[i], object);
-};
-
-const isReference = value => /{.*}/.test(value);
-
 const getValue = valueArg => {
   let value = valueArg;
   if (
@@ -220,29 +215,13 @@ const jsonToNestedValue = token => {
   return nextObj;
 };
 
-// TO DO make dynamic
-const exclude = [
-  'static',
-  'base',
-  'color',
-  'TBD',
-  'spacing',
-  'radius',
-  'borderWidth',
-  'content',
-  'text',
-  'heading',
-  'paragraph',
-  'elevation',
-];
-
 allTokens = numberToDimension(allTokens, true);
 let res = jsonToNestedValue(allTokens);
 
 // TO DO make prefix dynamic
 const PREFIX = 'hpe';
 
-exclude.forEach(category => {
+nonComponentTokens.forEach(category => {
   delete res[category];
 });
 

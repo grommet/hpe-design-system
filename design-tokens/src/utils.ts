@@ -20,3 +20,25 @@ export const getThemeAndMode = (file: string) => {
 
   return [theme, mode];
 };
+
+export const access = (path: string, object: { [key: string]: any }) => {
+  return path.split('.').reduce((o, i) => o[i], object);
+};
+
+export const isReference = (value: string) => /{.*}/.test(value);
+
+export const nonComponentTokens: string[] = [
+  'static',
+  'base',
+  'color',
+  'TBD',
+  'spacing',
+  'radius',
+  'borderWidth',
+  'content',
+  'text',
+  'heading',
+  'paragraph',
+  'elevation',
+  'size',
+];
