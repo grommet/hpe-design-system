@@ -9522,6 +9522,18 @@
     },
     "small": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.small.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.small.fontSize}",
@@ -9552,6 +9564,18 @@
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.small.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.small.fontSize}",
@@ -9584,6 +9608,18 @@
     },
     "medium": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.medium.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.medium.fontSize}",
@@ -9624,6 +9660,18 @@
               "scopes": [
                 "FONT_SIZE"
               ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.medium.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
               "codeSyntax": {}
             }
           }
@@ -9646,6 +9694,18 @@
     },
     "large": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.large.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.large.fontSize}",
@@ -9690,6 +9750,18 @@
             }
           }
         },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.large.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "lineHeight": {
           "$type": "number",
           "$value": "{text.large.lineHeight}",
@@ -9708,6 +9780,18 @@
     },
     "xlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xlarge.fontSize}",
@@ -9738,6 +9822,18 @@
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xlarge.fontSize}",
@@ -9770,6 +9866,18 @@
     },
     "xxlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xxlarge.fontSize}",
@@ -9800,6 +9908,18 @@
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xxlarge.fontSize}",
@@ -9832,6 +9952,18 @@
     },
     "3xlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.3xl.fontSize}",
@@ -9862,6 +9994,18 @@
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.3xl.fontSize}",
@@ -9894,6 +10038,18 @@
     },
     "4xlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.4xl.fontSize}",
@@ -9924,6 +10080,18 @@
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.4xl.fontSize}",
@@ -9956,6 +10124,18 @@
     },
     "5xlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.5xl.fontSize}",
@@ -9986,6 +10166,18 @@
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.5xl.fontSize}",
@@ -10018,6 +10210,18 @@
     },
     "6xlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.6xl.fontSize}",
@@ -10048,6 +10252,18 @@
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.6xl.fontSize}",
