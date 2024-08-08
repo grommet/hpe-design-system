@@ -9522,6 +9522,20 @@ export default {
     },
     "small": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.small.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.small.fontSize}",
@@ -9552,6 +9566,20 @@ export default {
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.small.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.small.fontSize}",
@@ -9584,6 +9612,20 @@ export default {
     },
     "medium": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.medium.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.medium.fontSize}",
@@ -9623,6 +9665,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "FONT_SIZE"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.medium.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -9646,6 +9702,20 @@ export default {
     },
     "large": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.large.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.large.fontSize}",
@@ -9690,6 +9760,20 @@ export default {
             }
           }
         },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.large.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "lineHeight": {
           "$type": "number",
           "$value": "{text.large.lineHeight}",
@@ -9708,6 +9792,20 @@ export default {
     },
     "xlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xlarge.fontSize}",
@@ -9738,6 +9836,20 @@ export default {
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xlarge.fontSize}",
@@ -9770,6 +9882,20 @@ export default {
     },
     "xxlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xxlarge.fontSize}",
@@ -9800,6 +9926,20 @@ export default {
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xxlarge.fontSize}",
@@ -9832,6 +9972,20 @@ export default {
     },
     "3xlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.3xl.fontSize}",
@@ -9862,6 +10016,20 @@ export default {
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.3xl.fontSize}",
@@ -9894,6 +10062,20 @@ export default {
     },
     "4xlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.4xl.fontSize}",
@@ -9924,6 +10106,20 @@ export default {
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.4xl.fontSize}",
@@ -9956,6 +10152,20 @@ export default {
     },
     "5xlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.5xl.fontSize}",
@@ -9986,6 +10196,20 @@ export default {
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.5xl.fontSize}",
@@ -10018,6 +10242,20 @@ export default {
     },
     "6xlarge": {
       "default": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.6xl.fontSize}",
@@ -10048,6 +10286,20 @@ export default {
         }
       },
       "emphasized": {
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.6xl.fontSize}",

@@ -1154,90 +1154,108 @@ export default {
       },
       "small": {
         "default": {
+          "gapX": "6px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem"
         },
         "emphasized": {
+          "gapX": "6px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem"
         }
       },
       "medium": {
         "default": {
+          "gapX": "6px",
           "fontSize": "1.125rem",
           "lineHeight": "1.5rem"
         },
         "emphasized": {
           "fontSize": "1.125rem",
+          "gapX": "6px",
           "lineHeight": "1.5rem"
         }
       },
       "large": {
         "default": {
+          "gapX": "6px",
           "fontSize": "1.375rem",
           "lineHeight": "1.75rem"
         },
         "emphasized": {
           "fontSize": "1.375rem",
+          "gapX": "6px",
           "lineHeight": "1.75rem"
         }
       },
       "xlarge": {
         "default": {
+          "gapX": "6px",
           "fontSize": "1.5rem",
           "lineHeight": "1.875rem"
         },
         "emphasized": {
+          "gapX": "6px",
           "fontSize": "1.5rem",
           "lineHeight": "1.875rem"
         }
       },
       "xxlarge": {
         "default": {
+          "gapX": "6px",
           "fontSize": "2.25rem",
           "lineHeight": "2.5rem"
         },
         "emphasized": {
+          "gapX": "6px",
           "fontSize": "2.25rem",
           "lineHeight": "2.5rem"
         }
       },
       "3xlarge": {
         "default": {
+          "gapX": "6px",
           "fontSize": "2.625rem",
           "lineHeight": "2.875rem"
         },
         "emphasized": {
+          "gapX": "6px",
           "fontSize": "2.625rem",
           "lineHeight": "2.875rem"
         }
       },
       "4xlarge": {
         "default": {
+          "gapX": "6px",
           "fontSize": "3rem",
           "lineHeight": "3rem"
         },
         "emphasized": {
+          "gapX": "6px",
           "fontSize": "3rem",
           "lineHeight": "3rem"
         }
       },
       "5xlarge": {
         "default": {
+          "gapX": "6px",
           "fontSize": "4.5rem",
           "lineHeight": "4.5rem"
         },
         "emphasized": {
+          "gapX": "6px",
           "fontSize": "4.5rem",
           "lineHeight": "4.5rem"
         }
       },
       "6xlarge": {
         "default": {
+          "gapX": "6px",
           "fontSize": "4.5rem",
           "lineHeight": "4.5rem"
         },
         "emphasized": {
+          "gapX": "6px",
           "fontSize": "4.5rem",
           "lineHeight": "4.5rem"
         }
