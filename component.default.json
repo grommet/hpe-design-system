@@ -1551,8 +1551,8 @@
           }
         },
         "paddingY": {
-          "$type": "number",
-          "$value": "{base.dimension.100}",
+          "$type": "dimension",
+          "$value": "2px",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1710,8 +1710,8 @@
           }
         },
         "paddingY": {
-          "$type": "number",
-          "$value": "{base.static.spacing.xxsmall}",
+          "$type": "dimension",
+          "$value": "3px",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1871,8 +1871,8 @@
           }
         },
         "paddingY": {
-          "$type": "number",
-          "$value": "{base.static.spacing.xsmall}",
+          "$type": "dimension",
+          "$value": "4px",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2509,8 +2509,8 @@
           }
         },
         "paddingY": {
-          "$type": "number",
-          "$value": "{base.dimension.200}",
+          "$type": "dimension",
+          "$value": "8px",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2986,8 +2986,8 @@
           }
         },
         "paddingY": {
-          "$type": "number",
-          "$value": "{base.dimension.225}",
+          "$type": "dimension",
+          "$value": "9px",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3147,8 +3147,8 @@
           }
         },
         "paddingY": {
-          "$type": "number",
-          "$value": "{base.dimension.475}",
+          "$type": "dimension",
+          "$value": "19px",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4331,8 +4331,8 @@
         }
       },
       "paddingY": {
-        "$type": "number",
-        "$value": "{base.static.spacing.xxsmall}",
+        "$type": "dimension",
+        "$value": "3px",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -4362,8 +4362,8 @@
         }
       },
       "paddingY": {
-        "$type": "number",
-        "$value": "{base.static.spacing.xxsmall}",
+        "$type": "dimension",
+        "$value": "3px",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -4533,8 +4533,8 @@
         }
       },
       "paddingY": {
-        "$type": "number",
-        "$value": "{base.static.spacing.xsmall}",
+        "$type": "dimension",
+        "$value": "5px",
         "$description": "",
         "$extensions": {
           "com.figma": {

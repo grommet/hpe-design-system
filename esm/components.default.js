@@ -132,12 +132,12 @@ export default {
       "small": {
         "primary": {
           "paddingX": "12px",
-          "paddingY": "4px",
+          "paddingY": "2px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "28px",
           "fontSize": "1rem",
-          "lineHeight": "1.5rem",
+          "lineHeight": "1.25rem",
           "fontWeight": 700,
           "gapX": "6px",
           "iconOnly": {
@@ -147,12 +147,12 @@ export default {
         },
         "secondary": {
           "paddingX": "12px",
-          "paddingY": "4px",
+          "paddingY": "2px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "28px",
           "fontSize": "1rem",
-          "lineHeight": "1.5rem",
+          "lineHeight": "1.25rem",
           "fontWeight": 700,
           "gapX": "6px",
           "iconOnly": {
@@ -162,12 +162,12 @@ export default {
         },
         "default": {
           "paddingX": "12px",
-          "paddingY": "4px",
+          "paddingY": "2px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "28px",
           "fontSize": "1rem",
-          "lineHeight": "1.5rem",
+          "lineHeight": "1.25rem",
           "fontWeight": 700,
           "gapX": "6px",
           "iconOnly": {
@@ -182,7 +182,7 @@ export default {
           "borderWidth": "1px",
           "minHeight": "28px",
           "fontSize": "1rem",
-          "lineHeight": "1.5rem",
+          "lineHeight": "1.25rem",
           "fontWeight": 600,
           "gapX": "6px",
           "iconOnly": {
@@ -194,7 +194,7 @@ export default {
       "medium": {
         "default": {
           "paddingX": "18px",
-          "paddingY": "6px",
+          "paddingY": "4px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "36px",
@@ -209,7 +209,7 @@ export default {
         },
         "primary": {
           "paddingX": "18px",
-          "paddingY": "6px",
+          "paddingY": "4px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "36px",
@@ -224,7 +224,7 @@ export default {
         },
         "secondary": {
           "paddingX": "18px",
-          "paddingY": "6px",
+          "paddingY": "4px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "36px",
@@ -239,7 +239,7 @@ export default {
         },
         "toolbar": {
           "paddingX": "18px",
-          "paddingY": "6px",
+          "paddingY": "4px",
           "borderRadius": "6px",
           "borderWidth": "default",
           "minHeight": "36px",
@@ -419,7 +419,7 @@ export default {
       "medium": {
         "item": {
           "paddingX": "18px",
-          "paddingY": "6px",
+          "paddingY": "4px",
           "borderRadius": "none",
           "borderWidth": "2px",
           "minHeight": "36px",
@@ -451,7 +451,7 @@ export default {
         "borderWidth": "default",
         "paddingY": "3px",
         "fontSize": "1rem",
-        "lineHeight": "1.5rem",
+        "lineHeight": "1.25rem",
         "minHeight": "28px",
         "textToElementX": "12px",
         "textToIconX": "6px"
@@ -463,7 +463,7 @@ export default {
         "textToElementX": "12px",
         "textToIconX": "6px",
         "borderWidth": "default",
-        "paddingY": "6px"
+        "paddingY": "5px"
       },
       "large": {
         "fontSize": "1.375rem",
@@ -796,7 +796,7 @@ export default {
           "group": {
             "item": {
               "paddingX": "12px",
-              "paddingY": "6px",
+              "paddingY": "5px",
               "borderWidth": "default",
               "minHeight": "36px",
               "borderRadius": "none"
@@ -1155,11 +1155,11 @@ export default {
       "small": {
         "default": {
           "fontSize": "1rem",
-          "lineHeight": "1.5rem"
+          "lineHeight": "1.25rem"
         },
         "emphasized": {
           "fontSize": "1rem",
-          "lineHeight": "1.5rem"
+          "lineHeight": "1.25rem"
         }
       },
       "medium": {
@@ -1241,16 +1241,6 @@ export default {
           "fontSize": "4.5rem",
           "lineHeight": "4.5rem"
         }
-      }
-    },
-    "size": {
-      "icon": {
-        "xsmall": "16px",
-        "small": "16px",
-        "medium": "18px",
-        "large": "22px",
-        "xlarge": "24px",
-        "xxlarge": "36px"
       }
     }
   }

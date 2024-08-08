@@ -1552,7 +1552,7 @@ export default {
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{base.dimension.100}",
+          "$value": 2,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1711,7 +1711,7 @@ export default {
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{base.static.spacing.xxsmall}",
+          "$value": 3,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1872,7 +1872,7 @@ export default {
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{base.static.spacing.xsmall}",
+          "$value": 4,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2510,7 +2510,7 @@ export default {
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{base.dimension.200}",
+          "$value": 8,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2987,7 +2987,7 @@ export default {
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{base.dimension.225}",
+          "$value": 9,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3148,7 +3148,7 @@ export default {
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{base.dimension.475}",
+          "$value": 19,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4332,7 +4332,7 @@ export default {
       },
       "paddingY": {
         "$type": "number",
-        "$value": "{base.static.spacing.xxsmall}",
+        "$value": 3,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -4363,7 +4363,7 @@ export default {
       },
       "paddingY": {
         "$type": "number",
-        "$value": "{base.static.spacing.xxsmall}",
+        "$value": 3,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -4534,7 +4534,7 @@ export default {
       },
       "paddingY": {
         "$type": "number",
-        "$value": "{base.static.spacing.xsmall}",
+        "$value": 5,
         "$description": "",
         "$extensions": {
           "com.figma": {

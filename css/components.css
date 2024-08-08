@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 07 Aug 2024 23:46:20 GMT
+ * Generated on Thu, 08 Aug 2024 23:05:02 GMT
  */
 
 :root {
@@ -42,16 +42,25 @@
   --hpe-select-medium-option-padding-x: 11px;
   --hpe-component-xlarge-padding-y: 20px;
   --hpe-component-large-padding-y: 9px;
+  --hpe-component-medium-padding-y: 5px;
+  --hpe-component-small-padding-y: 3px;
+  --hpe-component-xsmall-padding-y: 3px;
   --hpe-menu-item-disabled-border-color: #00000000;
   --hpe-menu-item-disabled-background: #00000000;
   --hpe-menu-item-hover-border-color: #00000000;
   --hpe-menu-item-enabled-border-color: #00000000;
   --hpe-menu-item-enabled-background: #00000000;
   --hpe-drop-z-index: 110px;
+  --hpe-button-xlarge-default-padding-y: 19px;
+  --hpe-button-large-toolbar-padding-y: 9px;
+  --hpe-button-large-default-padding-y: 8px;
   --hpe-button-medium-default-font-size: 1.1875rem;
+  --hpe-button-medium-default-padding-y: 4px;
   --hpe-button-medium-default-padding-x: 18px;
   --hpe-button-small-toolbar-icon-only-padding-y: 0px;
   --hpe-button-small-toolbar-icon-only-padding-x: 0px;
+  --hpe-button-small-toolbar-padding-y: 3px;
+  --hpe-button-small-default-padding-y: 2px;
   --hpe-button-small-default-padding-x: 12px;
   --hpe-button-default-selected-enabled-border-color: #00000000;
   --hpe-button-default-enabled-border-color: #00000000;
@@ -72,6 +81,7 @@
   --hpe-form-field-medium-help-text-font-weight: var(--hpe-base-font-weight-regular);
   --hpe-form-field-medium-placeholder-text-font-weight: var(--hpe-base-font-weight-regular);
   --hpe-form-field-medium-label-text-font-weight: var(--hpe-base-font-weight-medium);
+  --hpe-form-field-medium-input-group-item-padding-y: var(--hpe-component-medium-padding-y);
   --hpe-header-cell-padding-bottom: var(--hpe-data-cell-padding-bottom);
   --hpe-header-cell-font-weight: var(--hpe-base-font-weight-medium);
   --hpe-data-cell-primary-hover-background: var(--hpe-data-cell-hover-background);
@@ -103,39 +113,46 @@
   --hpe-component-medium-min-height: var(--hpe-base-dimension-900);
   --hpe-component-small-min-height: var(--hpe-base-dimension-700);
   --hpe-component-xsmall-min-height: var(--hpe-base-dimension-600);
+  --hpe-menu-medium-item-padding-y: var(--hpe-button-medium-default-padding-y);
   --hpe-menu-medium-item-padding-x: var(--hpe-button-medium-default-padding-x);
   --hpe-focus-ring-color: var(--hpe-base-color-turquoise-400);
   --hpe-button-xlarge-toolbar-font-weight: var(--hpe-base-font-weight-semibold);
+  --hpe-button-xlarge-toolbar-padding-y: var(--hpe-button-xlarge-default-padding-y);
   --hpe-button-xlarge-secondary-font-weight: var(--hpe-base-font-weight-bold);
+  --hpe-button-xlarge-secondary-padding-y: var(--hpe-button-xlarge-default-padding-y);
   --hpe-button-xlarge-primary-font-weight: var(--hpe-base-font-weight-bold);
+  --hpe-button-xlarge-primary-padding-y: var(--hpe-button-xlarge-default-padding-y);
   --hpe-button-xlarge-default-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-button-xlarge-default-padding-y: var(--hpe-base-dimension-475);
   --hpe-button-xlarge-default-padding-x: var(--hpe-base-dimension-750);
   --hpe-button-large-toolbar-font-weight: var(--hpe-base-font-weight-semibold);
-  --hpe-button-large-toolbar-padding-y: var(--hpe-base-dimension-225);
   --hpe-button-large-toolbar-padding-x: var(--hpe-base-dimension-250);
   --hpe-button-large-secondary-font-weight: var(--hpe-base-font-weight-bold);
+  --hpe-button-large-secondary-padding-y: var(--hpe-button-large-default-padding-y);
   --hpe-button-large-primary-font-weight: var(--hpe-base-font-weight-bold);
+  --hpe-button-large-primary-padding-y: var(--hpe-button-large-default-padding-y);
   --hpe-button-large-default-icon-only-padding-y: var(--hpe-base-dimension-325);
   --hpe-button-large-default-icon-only-padding-x: var(--hpe-base-dimension-325);
   --hpe-button-large-default-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-button-large-default-padding-y: var(--hpe-base-dimension-200);
   --hpe-button-medium-toolbar-font-weight: var(--hpe-base-font-weight-semibold);
   --hpe-button-medium-toolbar-font-size: var(--hpe-button-medium-default-font-size);
+  --hpe-button-medium-toolbar-padding-y: var(--hpe-button-medium-default-padding-y);
   --hpe-button-medium-toolbar-padding-x: var(--hpe-button-medium-default-padding-x);
   --hpe-button-medium-secondary-font-size: var(--hpe-button-medium-default-font-size);
+  --hpe-button-medium-secondary-padding-y: var(--hpe-button-medium-default-padding-y);
   --hpe-button-medium-secondary-padding-x: var(--hpe-button-medium-default-padding-x);
   --hpe-button-medium-primary-font-size: var(--hpe-button-medium-default-font-size);
+  --hpe-button-medium-primary-padding-y: var(--hpe-button-medium-default-padding-y);
   --hpe-button-medium-primary-padding-x: var(--hpe-button-medium-default-padding-x);
   --hpe-button-medium-default-icon-only-padding-y: var(--hpe-base-dimension-225);
   --hpe-button-medium-default-icon-only-padding-x: var(--hpe-base-dimension-225);
   --hpe-button-medium-default-font-weight: var(--hpe-base-font-weight-bold);
   --hpe-button-small-toolbar-font-weight: var(--hpe-base-font-weight-semibold);
   --hpe-button-small-default-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-button-small-default-padding-y: var(--hpe-base-dimension-100);
   --hpe-button-small-secondary-font-weight: var(--hpe-base-font-weight-bold);
+  --hpe-button-small-secondary-padding-y: var(--hpe-button-small-default-padding-y);
   --hpe-button-small-secondary-padding-x: var(--hpe-button-small-default-padding-x);
   --hpe-button-small-primary-font-weight: var(--hpe-base-font-weight-bold);
+  --hpe-button-small-primary-padding-y: var(--hpe-button-small-default-padding-y);
   --hpe-button-small-primary-padding-x: var(--hpe-button-small-default-padding-x);
   --hpe-button-toolbar-selected-enabled-border-color: var(--hpe-button-default-selected-enabled-border-color);
   --hpe-button-default-hover-border-color: var(--hpe-button-default-enabled-border-color);
@@ -380,7 +397,6 @@
   --hpe-component-large-text-to-element-x: var(--hpe-base-static-spacing-small);
   --hpe-component-large-line-height: var(--hpe-text-large-line-height);
   --hpe-component-large-font-size: var(--hpe-text-large-font-size);
-  --hpe-component-medium-padding-y: var(--hpe-base-static-spacing-xsmall);
   --hpe-component-medium-text-to-icon-x: var(--hpe-base-static-spacing-xsmall);
   --hpe-component-medium-text-to-element-x: var(--hpe-base-static-spacing-small);
   --hpe-component-medium-line-height: var(--hpe-text-medium-line-height);
@@ -389,8 +405,6 @@
   --hpe-component-small-text-to-element-x: var(--hpe-base-static-spacing-small);
   --hpe-component-small-line-height: var(--hpe-text-small-line-height);
   --hpe-component-small-font-size: var(--hpe-text-small-font-size);
-  --hpe-component-small-padding-y: var(--hpe-base-static-spacing-xxsmall);
-  --hpe-component-xsmall-padding-y: var(--hpe-base-static-spacing-xxsmall);
   --hpe-component-xsmall-line-height: var(--hpe-text-xsmall-line-height);
   --hpe-component-xsmall-font-size: var(--hpe-text-xsmall-font-size);
   --hpe-component-xsmall-text-to-icon-x: var(--hpe-base-static-spacing-xsmall);
@@ -403,11 +417,8 @@
   --hpe-menu-item-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-drop-background: var(--hpe-color-background-floating);
   --hpe-button-xlarge-toolbar-border-radius: var(--hpe-base-static-radius-small);
-  --hpe-button-xlarge-toolbar-padding-y: var(--hpe-button-xlarge-default-padding-y);
   --hpe-button-xlarge-toolbar-padding-x: var(--hpe-button-xlarge-default-padding-x);
-  --hpe-button-xlarge-secondary-padding-y: var(--hpe-button-xlarge-default-padding-y);
   --hpe-button-xlarge-secondary-padding-x: var(--hpe-button-xlarge-default-padding-x);
-  --hpe-button-xlarge-primary-padding-y: var(--hpe-button-xlarge-default-padding-y);
   --hpe-button-xlarge-primary-padding-x: var(--hpe-button-xlarge-default-padding-x);
   --hpe-button-xlarge-default-icon-only-padding-y: var(--hpe-base-static-spacing-medium);
   --hpe-button-xlarge-default-icon-only-padding-x: var(--hpe-base-static-spacing-medium);
@@ -421,10 +432,8 @@
   --hpe-button-large-toolbar-border-radius: var(--hpe-base-static-radius-xsmall);
   --hpe-button-large-secondary-icon-only-padding-y: var(--hpe-button-large-default-icon-only-padding-y);
   --hpe-button-large-secondary-icon-only-padding-x: var(--hpe-button-large-default-icon-only-padding-x);
-  --hpe-button-large-secondary-padding-y: var(--hpe-button-large-default-padding-y);
   --hpe-button-large-primary-icon-only-padding-y: var(--hpe-button-large-default-icon-only-padding-y);
   --hpe-button-large-primary-icon-only-padding-x: var(--hpe-button-large-default-icon-only-padding-x);
-  --hpe-button-large-primary-padding-y: var(--hpe-button-large-default-padding-y);
   --hpe-button-large-default-line-height: var(--hpe-text-large-line-height);
   --hpe-button-large-default-font-size: var(--hpe-text-large-font-size);
   --hpe-button-large-default-min-height: var(--hpe-component-large-min-height);
@@ -444,13 +453,11 @@
   --hpe-button-medium-default-min-height: var(--hpe-component-medium-min-height);
   --hpe-button-medium-default-border-width: var(--hpe-base-static-border-width-small);
   --hpe-button-medium-default-border-radius: var(--hpe-radius-full);
-  --hpe-button-medium-default-padding-y: var(--hpe-base-static-spacing-xsmall);
   --hpe-button-small-toolbar-line-height: var(--hpe-text-small-line-height);
   --hpe-button-small-toolbar-font-size: var(--hpe-text-small-font-size);
   --hpe-button-small-toolbar-min-height: var(--hpe-component-small-min-height);
   --hpe-button-small-toolbar-border-width: var(--hpe-base-static-border-width-default);
   --hpe-button-small-toolbar-border-radius: var(--hpe-base-static-radius-xsmall);
-  --hpe-button-small-toolbar-padding-y: var(--hpe-base-static-spacing-xxsmall);
   --hpe-button-small-toolbar-padding-x: var(--hpe-base-static-spacing-xsmall);
   --hpe-button-small-default-icon-only-padding-y: var(--hpe-base-static-spacing-xsmall);
   --hpe-button-small-default-icon-only-padding-x: var(--hpe-base-static-spacing-xsmall);
@@ -459,8 +466,6 @@
   --hpe-button-small-default-min-height: var(--hpe-component-small-min-height);
   --hpe-button-small-default-border-width: var(--hpe-base-static-border-width-small);
   --hpe-button-small-default-border-radius: var(--hpe-radius-full);
-  --hpe-button-small-secondary-padding-y: var(--hpe-button-small-default-padding-y);
-  --hpe-button-small-primary-padding-y: var(--hpe-button-small-default-padding-y);
   --hpe-button-toolbar-selected-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-toolbar-hover-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-toolbar-disabled-font-weight: var(--hpe-button-default-enabled-font-weight);
@@ -512,7 +517,6 @@
   --hpe-form-field-medium-input-group-container-padding-x: var(--hpe-spacing-none);
   --hpe-form-field-medium-input-group-item-border-radius: var(--hpe-radius-none);
   --hpe-form-field-medium-input-group-item-border-width: var(--hpe-border-width-default);
-  --hpe-form-field-medium-input-group-item-padding-y: var(--hpe-component-medium-padding-y);
   --hpe-header-cell-gap-x: var(--hpe-component-medium-text-to-icon-x);
   --hpe-header-cell-enabled-text-color: var(--hpe-data-cell-enabled-text-color);
   --hpe-header-cell-padding-top: var(--hpe-data-cell-padding-top);
@@ -543,7 +547,6 @@
   --hpe-menu-medium-item-min-height: var(--hpe-button-medium-default-min-height);
   --hpe-menu-medium-item-border-width: var(--hpe-button-medium-default-border-width);
   --hpe-menu-medium-item-border-radius: var(--hpe-radius-none);
-  --hpe-menu-medium-item-padding-y: var(--hpe-button-medium-default-padding-y);
   --hpe-menu-item-disabled-font-weight: var(--hpe-button-default-disabled-font-weight);
   --hpe-menu-item-disabled-icon-color: var(--hpe-button-default-disabled-icon-color);
   --hpe-menu-item-disabled-text-color: var(--hpe-button-default-disabled-text-color);
@@ -594,17 +597,14 @@
   --hpe-button-medium-toolbar-line-height: var(--hpe-button-medium-default-line-height);
   --hpe-button-medium-toolbar-min-height: var(--hpe-button-medium-default-min-height);
   --hpe-button-medium-toolbar-border-width: var(--hpe-border-width-default);
-  --hpe-button-medium-toolbar-padding-y: var(--hpe-button-medium-default-padding-y);
   --hpe-button-medium-secondary-line-height: var(--hpe-button-medium-default-line-height);
   --hpe-button-medium-secondary-min-height: var(--hpe-button-medium-default-min-height);
   --hpe-button-medium-secondary-border-width: var(--hpe-button-medium-default-border-width);
   --hpe-button-medium-secondary-border-radius: var(--hpe-button-medium-default-border-radius);
-  --hpe-button-medium-secondary-padding-y: var(--hpe-button-medium-default-padding-y);
   --hpe-button-medium-primary-line-height: var(--hpe-button-medium-default-line-height);
   --hpe-button-medium-primary-min-height: var(--hpe-button-medium-default-min-height);
   --hpe-button-medium-primary-border-width: var(--hpe-button-medium-default-border-width);
   --hpe-button-medium-primary-border-radius: var(--hpe-button-medium-default-border-radius);
-  --hpe-button-medium-primary-padding-y: var(--hpe-button-medium-default-padding-y);
   --hpe-button-medium-default-gap-x: var(--hpe-component-medium-text-to-icon-x);
   --hpe-button-small-toolbar-gap-x: var(--hpe-component-xsmall-text-to-icon-x);
   --hpe-button-small-default-gap-x: var(--hpe-component-xsmall-text-to-icon-x);

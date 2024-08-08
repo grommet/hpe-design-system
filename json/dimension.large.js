@@ -6,7 +6,7 @@
     },
     "small": {
       "fontSize": "1rem",
-      "lineHeight": "1.125rem"
+      "lineHeight": "1.25rem"
     },
     "medium": {
       "fontSize": "1.125rem",

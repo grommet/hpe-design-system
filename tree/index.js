@@ -5204,7 +5204,7 @@ export default {
     },
     "button.small.default.paddingY": {
       "$type": "number",
-      "$value": "{base.dimension.100}",
+      "$value": 2,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5359,7 +5359,7 @@ export default {
     },
     "button.small.toolbar.paddingY": {
       "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
+      "$value": 3,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5514,7 +5514,7 @@ export default {
     },
     "button.medium.default.paddingY": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": 4,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6134,7 +6134,7 @@ export default {
     },
     "button.large.default.paddingY": {
       "$type": "number",
-      "$value": "{base.dimension.200}",
+      "$value": 8,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6599,7 +6599,7 @@ export default {
     },
     "button.large.toolbar.paddingY": {
       "$type": "number",
-      "$value": "{base.dimension.225}",
+      "$value": 9,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6754,7 +6754,7 @@ export default {
     },
     "button.xlarge.default.paddingY": {
       "$type": "number",
-      "$value": "{base.dimension.475}",
+      "$value": 19,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7891,7 +7891,7 @@ export default {
     },
     "component.xsmall.paddingY": {
       "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
+      "$value": 3,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7920,7 +7920,7 @@ export default {
     },
     "component.small.paddingY": {
       "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
+      "$value": 3,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8089,7 +8089,7 @@ export default {
     },
     "component.medium.paddingY": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": 5,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13959,7 +13959,7 @@ export default {
     },
     "text.small.lineHeight": {
       "$type": "number",
-      "$value": "{base.fontSize.200}",
+      "$value": "{base.lineHeight.100}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -15726,7 +15726,7 @@ export default {
     },
     "text.small.lineHeight": {
       "$type": "number",
-      "$value": "{base.lineHeight.200}",
+      "$value": "{base.lineHeight.100}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19079,10 +19079,6 @@ export default {
       },
       "usedBy": [
         {
-          "name": "text.small.lineHeight",
-          "mode": "large"
-        },
-        {
           "name": "text.medium.fontSize",
           "mode": "large"
         },
@@ -19419,8 +19415,16 @@ export default {
       },
       "usedBy": [
         {
+          "name": "text.small.lineHeight",
+          "mode": "large"
+        },
+        {
           "name": "heading.medium.lineHeight",
           "mode": "large"
+        },
+        {
+          "name": "text.small.lineHeight",
+          "mode": "small"
         },
         {
           "name": "heading.large.lineHeight",
@@ -19453,10 +19457,6 @@ export default {
         {
           "name": "paragraph.medium.lineHeight",
           "mode": "large"
-        },
-        {
-          "name": "text.small.lineHeight",
-          "mode": "small"
         },
         {
           "name": "text.medium.lineHeight",

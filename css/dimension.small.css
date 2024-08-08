@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 07 Aug 2024 23:46:19 GMT
+ * Generated on Thu, 08 Aug 2024 23:05:02 GMT
  */
 
 @media (max-width: 768px) {
@@ -64,7 +64,7 @@
   --hpe-text-large-font-size: var(--hpe-base-font-size-400);
   --hpe-text-medium-line-height: var(--hpe-base-line-height-200);
   --hpe-text-medium-font-size: var(--hpe-base-font-size-200);
-  --hpe-text-small-line-height: var(--hpe-base-line-height-200);
+  --hpe-text-small-line-height: var(--hpe-base-line-height-100);
   --hpe-text-small-font-size: var(--hpe-base-font-size-100);
   --hpe-text-xsmall-line-height: var(--hpe-base-line-height-90);
   --hpe-text-xsmall-font-size: var(--hpe-base-font-size-90);

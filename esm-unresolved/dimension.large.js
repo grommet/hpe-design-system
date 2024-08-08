@@ -584,7 +584,7 @@ export default {
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.fontSize.200}",
+        "$value": "{base.lineHeight.100}",
         "$description": "",
         "$extensions": {
           "com.figma": {
