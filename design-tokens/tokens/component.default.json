@@ -8298,7 +8298,7 @@
       "default": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8336,7 +8336,7 @@
       "emphasized": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8376,7 +8376,7 @@
       "default": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8414,7 +8414,7 @@
       "emphasized": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8454,7 +8454,7 @@
       "default": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8492,7 +8492,7 @@
       "emphasized": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8532,7 +8532,7 @@
       "default": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8570,7 +8570,7 @@
       "emphasized": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8610,7 +8610,7 @@
       "default": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8648,7 +8648,7 @@
       "emphasized": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8688,7 +8688,7 @@
       "default": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8726,7 +8726,7 @@
       "emphasized": {
         "gapX": {
           "$type": "number",
-          "$value": "{hpe.component.xlarge.textToIconX}",
+          "$value": "{component.xlarge.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
