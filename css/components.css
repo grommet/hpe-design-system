@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 08 Aug 2024 23:15:34 GMT
+ * Generated on Fri, 09 Aug 2024 23:34:02 GMT
  */
 
 :root {
@@ -208,7 +208,7 @@
   --hpe-anchor-default-disabled-text-color: var(--hpe-color-text-strong);
   --hpe-anchor-default-hover-text-color: var(--hpe-color-text-strong);
   --hpe-anchor-default-enabled-text-color: var(--hpe-color-text-strong);
-  --hpe-radio-button-medium-control-border-radius: var(--hpe-base-static-radius-xxsmall);
+  --hpe-radio-button-medium-control-border-radius: var(--hpe-radius-full);
   --hpe-radio-button-medium-label-line-height: var(--hpe-text-medium-line-height);
   --hpe-radio-button-medium-label-font-size: var(--hpe-text-medium-font-size);
   --hpe-radio-button-medium-gap-x: var(--hpe-base-static-spacing-small); /* Space between checkbox control and value (label) */
@@ -268,10 +268,10 @@
   --hpe-form-field-label-text-focus-text-color: var(--hpe-color-text-strong);
   --hpe-form-field-label-text-hover-text-color: var(--hpe-color-text-strong);
   --hpe-form-field-label-text-enabled-text-color: var(--hpe-color-text-strong);
-  --hpe-form-field-input-container-status-critical-border-color: var(--hpe-color-border-strong);
-  --hpe-form-field-input-container-status-critical-background: var(--hpe-color-background-status-critical);
   --hpe-form-field-input-container-disabled-border-color: var(--hpe-color-border-disabled);
   --hpe-form-field-input-container-disabled-background: var(--hpe-color-background-disabled);
+  --hpe-form-field-input-container-status-critical-border-color: var(--hpe-color-border-strong);
+  --hpe-form-field-input-container-status-critical-background: var(--hpe-color-background-status-critical);
   --hpe-form-field-input-container-read-only-border-color: var(--hpe-color-border-weak);
   --hpe-form-field-input-container-read-only-background: var(--hpe-color-background-back);
   --hpe-form-field-input-container-hover-border-color: var(--hpe-color-border-default);

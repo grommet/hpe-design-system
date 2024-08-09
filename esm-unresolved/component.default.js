@@ -8125,38 +8125,6 @@ export default {
             }
           }
         },
-        "disabled": {
-          "background": {
-            "$type": "color",
-            "$value": "{color.background.disabled}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "codeSyntax": {}
-              }
-            }
-          },
-          "borderColor": {
-            "$type": "color",
-            "$value": "{color.border.disabled}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": [
-                  "STROKE_COLOR",
-                  "EFFECT_COLOR"
-                ],
-                "codeSyntax": {}
-              }
-            }
-          }
-        },
         "status": {
           "critical": {
             "background": {
@@ -8187,6 +8155,38 @@ export default {
                   ],
                   "codeSyntax": {}
                 }
+              }
+            }
+          }
+        },
+        "disabled": {
+          "background": {
+            "$type": "color",
+            "$value": "{color.background.disabled}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "borderColor": {
+            "$type": "color",
+            "$value": "{color.border.disabled}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": [
+                  "STROKE_COLOR",
+                  "EFFECT_COLOR"
+                ],
+                "codeSyntax": {}
               }
             }
           }
@@ -9282,7 +9282,7 @@ export default {
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{base.static.radius.xxsmall}",
+          "$value": "{radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9522,20 +9522,6 @@ export default {
     },
     "small": {
       "default": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.small.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.small.fontSize}",
@@ -9559,6 +9545,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.small.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -9566,20 +9566,6 @@ export default {
         }
       },
       "emphasized": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.small.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.small.fontSize}",
@@ -9603,6 +9589,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.small.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -9612,20 +9612,6 @@ export default {
     },
     "medium": {
       "default": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.medium.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.medium.fontSize}",
@@ -9649,6 +9635,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.medium.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -9670,20 +9670,6 @@ export default {
             }
           }
         },
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.medium.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "lineHeight": {
           "$type": "number",
           "$value": "{text.medium.lineHeight}",
@@ -9693,6 +9679,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.medium.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -9702,20 +9702,6 @@ export default {
     },
     "large": {
       "default": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.large.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.large.fontSize}",
@@ -9739,6 +9725,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.large.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -9760,20 +9760,6 @@ export default {
             }
           }
         },
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.large.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "lineHeight": {
           "$type": "number",
           "$value": "{text.large.lineHeight}",
@@ -9783,6 +9769,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.large.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -9792,20 +9792,6 @@ export default {
     },
     "xlarge": {
       "default": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xlarge.fontSize}",
@@ -9829,6 +9815,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -9836,20 +9836,6 @@ export default {
         }
       },
       "emphasized": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xlarge.fontSize}",
@@ -9873,6 +9859,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -9882,20 +9882,6 @@ export default {
     },
     "xxlarge": {
       "default": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xxlarge.fontSize}",
@@ -9919,6 +9905,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -9926,20 +9926,6 @@ export default {
         }
       },
       "emphasized": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.xxlarge.fontSize}",
@@ -9963,6 +9949,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -9972,20 +9972,6 @@ export default {
     },
     "3xlarge": {
       "default": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.3xl.fontSize}",
@@ -10009,6 +9995,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -10016,20 +10016,6 @@ export default {
         }
       },
       "emphasized": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.3xl.fontSize}",
@@ -10053,6 +10039,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -10062,20 +10062,6 @@ export default {
     },
     "4xlarge": {
       "default": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.4xl.fontSize}",
@@ -10099,6 +10085,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -10106,20 +10106,6 @@ export default {
         }
       },
       "emphasized": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.4xl.fontSize}",
@@ -10143,6 +10129,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -10152,20 +10152,6 @@ export default {
     },
     "5xlarge": {
       "default": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.5xl.fontSize}",
@@ -10189,6 +10175,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -10196,20 +10196,6 @@ export default {
         }
       },
       "emphasized": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.5xl.fontSize}",
@@ -10233,6 +10219,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -10242,20 +10242,6 @@ export default {
     },
     "6xlarge": {
       "default": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.6xl.fontSize}",
@@ -10279,6 +10265,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }
@@ -10286,20 +10286,6 @@ export default {
         }
       },
       "emphasized": {
-        "gapX": {
-          "$type": "number",
-          "$value": "{component.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "GAP"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "fontSize": {
           "$type": "number",
           "$value": "{text.6xl.fontSize}",
@@ -10323,6 +10309,20 @@ export default {
               "hiddenFromPublishing": false,
               "scopes": [
                 "LINE_HEIGHT"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{component.xlarge.textToIconX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "GAP"
               ],
               "codeSyntax": {}
             }

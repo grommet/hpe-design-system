@@ -909,15 +909,15 @@ export default {
             "background": "background-back",
             "borderColor": "border-weak"
           },
-          "disabled": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled"
-          },
           "status": {
             "critical": {
               "background": "background-status-critical",
               "borderColor": "border-strong"
             }
+          },
+          "disabled": {
+            "background": "background-disabled",
+            "borderColor": "border-disabled"
           }
         }
       },
@@ -1115,7 +1115,7 @@ export default {
           "height": "24px",
           "width": "24px",
           "borderWidth": "default",
-          "borderRadius": "3px"
+          "borderRadius": "2em"
         }
       }
     },
@@ -1154,112 +1154,139 @@ export default {
       },
       "small": {
         "default": {
-          "gapX": "6px",
           "fontSize": "1rem",
-          "lineHeight": "1.25rem"
+          "lineHeight": "1.25rem",
+          "gapX": "6px"
         },
         "emphasized": {
-          "gapX": "6px",
           "fontSize": "1rem",
-          "lineHeight": "1.25rem"
+          "lineHeight": "1.25rem",
+          "gapX": "6px"
         }
       },
       "medium": {
         "default": {
-          "gapX": "6px",
           "fontSize": "1.125rem",
-          "lineHeight": "1.5rem"
+          "lineHeight": "1.5rem",
+          "gapX": "6px"
         },
         "emphasized": {
           "fontSize": "1.125rem",
-          "gapX": "6px",
-          "lineHeight": "1.5rem"
+          "lineHeight": "1.5rem",
+          "gapX": "6px"
         }
       },
       "large": {
         "default": {
-          "gapX": "6px",
           "fontSize": "1.375rem",
-          "lineHeight": "1.75rem"
+          "lineHeight": "1.75rem",
+          "gapX": "6px"
         },
         "emphasized": {
           "fontSize": "1.375rem",
-          "gapX": "6px",
-          "lineHeight": "1.75rem"
+          "lineHeight": "1.75rem",
+          "gapX": "6px"
         }
       },
       "xlarge": {
         "default": {
-          "gapX": "6px",
           "fontSize": "1.5rem",
-          "lineHeight": "1.875rem"
+          "lineHeight": "1.875rem",
+          "gapX": "6px"
         },
         "emphasized": {
-          "gapX": "6px",
           "fontSize": "1.5rem",
-          "lineHeight": "1.875rem"
+          "lineHeight": "1.875rem",
+          "gapX": "6px"
         }
       },
       "xxlarge": {
         "default": {
-          "gapX": "6px",
           "fontSize": "2.25rem",
-          "lineHeight": "2.5rem"
+          "lineHeight": "2.5rem",
+          "gapX": "6px"
         },
         "emphasized": {
-          "gapX": "6px",
           "fontSize": "2.25rem",
-          "lineHeight": "2.5rem"
+          "lineHeight": "2.5rem",
+          "gapX": "6px"
         }
       },
       "3xlarge": {
         "default": {
-          "gapX": "6px",
           "fontSize": "2.625rem",
-          "lineHeight": "2.875rem"
+          "lineHeight": "2.875rem",
+          "gapX": "6px"
         },
         "emphasized": {
-          "gapX": "6px",
           "fontSize": "2.625rem",
-          "lineHeight": "2.875rem"
+          "lineHeight": "2.875rem",
+          "gapX": "6px"
         }
       },
       "4xlarge": {
         "default": {
-          "gapX": "6px",
           "fontSize": "3rem",
-          "lineHeight": "3rem"
+          "lineHeight": "3rem",
+          "gapX": "6px"
         },
         "emphasized": {
-          "gapX": "6px",
           "fontSize": "3rem",
-          "lineHeight": "3rem"
+          "lineHeight": "3rem",
+          "gapX": "6px"
         }
       },
       "5xlarge": {
         "default": {
-          "gapX": "6px",
           "fontSize": "4.5rem",
-          "lineHeight": "4.5rem"
+          "lineHeight": "4.5rem",
+          "gapX": "6px"
         },
         "emphasized": {
-          "gapX": "6px",
           "fontSize": "4.5rem",
-          "lineHeight": "4.5rem"
+          "lineHeight": "4.5rem",
+          "gapX": "6px"
         }
       },
       "6xlarge": {
         "default": {
-          "gapX": "6px",
           "fontSize": "4.5rem",
-          "lineHeight": "4.5rem"
+          "lineHeight": "4.5rem",
+          "gapX": "6px"
         },
         "emphasized": {
-          "gapX": "6px",
           "fontSize": "4.5rem",
-          "lineHeight": "4.5rem"
+          "lineHeight": "4.5rem",
+          "gapX": "6px"
         }
       }
-    }
+    },
+    "elevation/small": [
+      {
+        "offsetX": 0,
+        "offsetY": "{base.dimension.100}",
+        "blur": "{base.dimension.100}",
+        "spread": 0,
+        "color": "{color.shadow.weak}"
+      }
+    ],
+    "elevation/medium": [
+      {
+        "offsetX": "{base.static.spacing.none}",
+        "offsetY": "{base.static.spacing.xsmall}",
+        "blur": "{base.static.spacing.small}",
+        "spread": "{base.static.spacing.none}",
+        "color": "{color.shadow.default}"
+      }
+    ],
+    "elevation/large": [
+      {
+        "offsetX": "{base.static.spacing.none}",
+        "offsetY": "{base.static.spacing.xsmall}",
+        "blur": "{base.static.spacing.small}",
+        "spread": "{base.static.spacing.none}",
+        "color": "{color.shadow.default}"
+      }
+    ]
   }
 }

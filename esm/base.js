@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 08 Aug 2024 23:15:33 GMT
+ * Generated on Fri, 09 Aug 2024 23:34:01 GMT
  */
 
 export default {
@@ -37,6 +37,7 @@ export default {
         "76800": "1536px",
       },
       color: {
+        brand: "#01a982",
         red: {
           "500": "#fc6161",
           "550": "#fc5a5a",

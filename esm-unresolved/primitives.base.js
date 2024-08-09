@@ -341,6 +341,20 @@ export default {
       }
     },
     "color": {
+      "brand": {
+        "$type": "color",
+        "$value": "{base.color.green.600}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
       "red": {
         "500": {
           "$type": "color",

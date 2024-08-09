@@ -1,19 +1,19 @@
 /**
  * Do not edit directly
- * Generated on Thu, 08 Aug 2024 23:15:34 GMT
+ * Generated on Fri, 09 Aug 2024 23:34:02 GMT
  */
 
 :root[data-mode=dark] {
+  --hpe-elevation-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) 0 var(--hpe-color-shadow-weak);
   --hpe-elevation-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
   --hpe-elevation-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
-  --hpe-elevation-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) 0 var(--hpe-color-shadow-weak);
 }
 
 @media (prefers-color-scheme: dark) {
 :root[data-mode=dark] {
+  --hpe-elevation-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) 0 var(--hpe-color-shadow-weak);
   --hpe-elevation-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
   --hpe-elevation-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
-  --hpe-elevation-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) 0 var(--hpe-color-shadow-weak);
 }
 }
 
