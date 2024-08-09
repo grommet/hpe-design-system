@@ -1,63 +1,61 @@
 {
-  "elevation": {
-    "small": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "color": "{color.shadow.weak}",
-          "offsetX": 0,
-          "offsetY": "{base.dimension.100}",
-          "blur": "{base.dimension.100}",
-          "spread": 0
-        }
-      ],
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["ALL_SCOPES"],
-          "codeSyntax": {}
-        }
+  "elevation/small": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": 0,
+        "offsetY": "{base.dimension.100}",
+        "blur": "{base.dimension.100}",
+        "spread": 0,
+        "color": "{color.shadow.weak}"
       }
-    },
-    "medium": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "color": "{color.shadow.default}",
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.xsmall}",
-          "blur": "{base.static.spacing.small}",
-          "spread": "{base.static.spacing.none}"
-        }
-      ],
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["ALL_SCOPES"],
-          "codeSyntax": {}
-        }
+    ],
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
       }
-    },
-    "large": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "color": "{color.shadow.default}",
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.xsmall}",
-          "blur": "{base.static.spacing.small}",
-          "spread": "{base.static.spacing.none}"
-        }
-      ],
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["ALL_SCOPES"],
-          "codeSyntax": {}
-        }
+    }
+  },
+  "elevation/medium": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "{base.static.spacing.none}",
+        "offsetY": "{base.static.spacing.xsmall}",
+        "blur": "{base.static.spacing.small}",
+        "spread": "{base.static.spacing.none}",
+        "color": "{color.shadow.default}"
+      }
+    ],
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      }
+    }
+  },
+  "elevation/large": {
+    "$type": "shadow",
+    "$value": [
+      {
+        "offsetX": "{base.static.spacing.none}",
+        "offsetY": "{base.static.spacing.xsmall}",
+        "blur": "{base.static.spacing.small}",
+        "spread": "{base.static.spacing.none}",
+        "color": "{color.shadow.default}"
+      }
+    ],
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
       }
     }
   }
