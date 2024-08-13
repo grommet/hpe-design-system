@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 09 Aug 2024 23:34:02 GMT
+ * Generated on Tue, 13 Aug 2024 19:34:06 GMT
  */
 
 :root {
@@ -477,7 +477,6 @@
   --hpe-button-toolbar-enabled-border-color: var(--hpe-color-border-default);
   --hpe-button-toolbar-enabled-background: var(--hpe-color-background-default);
   --hpe-button-default-selected-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
-  --hpe-button-default-selected-enabled-background: var(--hpe-color-background-contrast);
   --hpe-button-default-hover-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-default-disabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-default-disabled-icon-color: var(--hpe-color-icon-disabled);
@@ -640,7 +639,6 @@
   --hpe-button-small-primary-min-height: var(--hpe-button-small-default-min-height);
   --hpe-button-small-primary-border-width: var(--hpe-button-small-default-border-width);
   --hpe-button-small-primary-border-radius: var(--hpe-button-small-default-border-radius);
-  --hpe-button-toolbar-selected-enabled-background: var(--hpe-button-default-selected-enabled-background);
   --hpe-button-toolbar-hover-border-color: var(--hpe-button-toolbar-enabled-border-color);
   --hpe-button-toolbar-hover-background: var(--hpe-color-background-hover);
   --hpe-button-toolbar-enabled-icon-color: var(--hpe-button-default-enabled-icon-color);
@@ -650,12 +648,10 @@
   --hpe-button-default-hover-icon-color: var(--hpe-button-default-enabled-icon-color);
   --hpe-button-default-hover-text-color: var(--hpe-button-default-enabled-text-color);
   --hpe-button-default-hover-background: var(--hpe-color-background-hover);
-  --hpe-button-secondary-selected-enabled-background: var(--hpe-button-default-selected-enabled-background);
   --hpe-button-secondary-hover-icon-color: var(--hpe-button-default-enabled-icon-color);
   --hpe-button-secondary-hover-text-color: var(--hpe-button-default-enabled-text-color);
   --hpe-button-secondary-enabled-icon-color: var(--hpe-button-default-enabled-icon-color);
   --hpe-button-secondary-enabled-text-color: var(--hpe-button-default-enabled-text-color);
-  --hpe-button-primary-selected-enabled-background: var(--hpe-button-default-selected-enabled-background);
   --hpe-button-primary-hover-background: var(--hpe-button-primary-enabled-background);
   --hpe-form-field-input-group-container-hover-border-color: var(--hpe-form-field-input-group-container-enabled-border-color);
   --hpe-form-field-input-group-container-hover-background: var(--hpe-form-field-input-group-container-enabled-background);
@@ -681,8 +677,12 @@
   --hpe-button-toolbar-selected-enabled-text-color: var(--hpe-button-default-selected-enabled-text-color);
   --hpe-button-toolbar-hover-icon-color: var(--hpe-button-toolbar-enabled-icon-color);
   --hpe-button-toolbar-hover-text-color: var(--hpe-button-toolbar-enabled-text-color);
+  --hpe-button-default-selected-enabled-background: var(--hpe-color-background-active);
   --hpe-button-secondary-selected-enabled-icon-color: var(--hpe-button-default-selected-enabled-icon-color);
   --hpe-button-secondary-selected-enabled-text-color: var(--hpe-button-default-selected-enabled-text-color);
   --hpe-button-primary-selected-enabled-icon-color: var(--hpe-button-default-selected-enabled-icon-color);
   --hpe-button-primary-selected-enabled-text-color: var(--hpe-button-default-selected-enabled-text-color);
+  --hpe-button-toolbar-selected-enabled-background: var(--hpe-button-default-selected-enabled-background);
+  --hpe-button-secondary-selected-enabled-background: var(--hpe-button-default-selected-enabled-background);
+  --hpe-button-primary-selected-enabled-background: var(--hpe-button-default-selected-enabled-background);
 }

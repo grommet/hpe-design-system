@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 09 Aug 2024 23:34:02 GMT
+ * Generated on Tue, 13 Aug 2024 19:34:06 GMT
  */
 
 @media (max-width: 768px) {
@@ -68,13 +68,13 @@
   --hpe-text-small-font-size: var(--hpe-base-font-size-100);
   --hpe-text-xsmall-line-height: var(--hpe-base-line-height-90);
   --hpe-text-xsmall-font-size: var(--hpe-base-font-size-90);
-  --hpe-content-xxlarge: var(--hpe-base-static-content-xlarge); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-content-xlarge: var(--hpe-base-static-content-large); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-content-large: var(--hpe-base-static-content-medium); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-content-medium: var(--hpe-base-static-content-small); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-content-small: var(--hpe-base-static-content-xsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-content-xsmall: var(--hpe-base-static-content-xxsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-content-xxsmall: var(--hpe-base-static-content-xxsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-content-xxlarge: var(--hpe-base-static-content-xlarge); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-content-xlarge: var(--hpe-base-static-content-large); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-content-large: var(--hpe-base-static-content-medium); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-content-medium: var(--hpe-base-static-content-small); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-content-small: var(--hpe-base-static-content-xsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-content-xsmall: var(--hpe-base-static-content-xxsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-content-xxsmall: var(--hpe-base-static-content-xxsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
   --hpe-border-width-default: var(--hpe-base-static-border-width-xsmall);
   --hpe-border-width-xlarge: var(--hpe-base-static-border-width-large);
   --hpe-border-width-large: var(--hpe-base-static-border-width-medium);

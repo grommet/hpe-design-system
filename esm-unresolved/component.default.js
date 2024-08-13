@@ -838,7 +838,7 @@ export default {
         "enabled": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.contrast}",
+            "$value": "{color.background.active}",
             "$description": "",
             "$extensions": {
               "com.figma": {

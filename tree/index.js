@@ -119,7 +119,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.default.selected.enabled.background",
+          "mode": "default"
+        }
+      ]
     },
     "color.background.disabled": {
       "$type": "color",
@@ -264,13 +270,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "button.default.selected.enabled.background",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "color.background.status.info": {
       "$type": "color",
@@ -1783,7 +1783,7 @@ export default {
         }
       }
     },
-    "elevation/small": {
+    "elevation.small": {
       "$type": "shadow",
       "$value": [
         {
@@ -1805,7 +1805,7 @@ export default {
         }
       }
     },
-    "elevation/medium": {
+    "elevation.medium": {
       "$type": "shadow",
       "$value": [
         {
@@ -1827,7 +1827,7 @@ export default {
         }
       }
     },
-    "elevation/large": {
+    "elevation.large": {
       "$type": "shadow",
       "$value": [
         {
@@ -1974,7 +1974,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.default.selected.enabled.background",
+          "mode": "default"
+        }
+      ]
     },
     "color.background.disabled": {
       "$type": "color",
@@ -2124,10 +2130,6 @@ export default {
         {
           "name": "color.background.hover",
           "mode": "light"
-        },
-        {
-          "name": "button.default.selected.enabled.background",
-          "mode": "default"
         }
       ]
     },
@@ -3642,7 +3644,7 @@ export default {
         }
       }
     },
-    "elevation/small": {
+    "elevation.small": {
       "$type": "shadow",
       "$value": [
         {
@@ -3664,7 +3666,7 @@ export default {
         }
       }
     },
-    "elevation/medium": {
+    "elevation.medium": {
       "$type": "shadow",
       "$value": [
         {
@@ -3686,7 +3688,7 @@ export default {
         }
       }
     },
-    "elevation/large": {
+    "elevation.large": {
       "$type": "shadow",
       "$value": [
         {
@@ -4515,7 +4517,7 @@ export default {
     },
     "button.default.selected.enabled.background": {
       "$type": "color",
-      "$value": "{color.background.contrast}",
+      "$value": "{color.background.active}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13919,7 +13921,7 @@ export default {
         }
       ]
     },
-    "content.xxsmall": {
+    "size.content.xxsmall": {
       "$type": "number",
       "$value": "{base.static.content.xxsmall}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -13933,7 +13935,7 @@ export default {
         }
       }
     },
-    "content.xsmall": {
+    "size.content.xsmall": {
       "$type": "number",
       "$value": "{base.static.content.xsmall}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -13947,7 +13949,7 @@ export default {
         }
       }
     },
-    "content.small": {
+    "size.content.small": {
       "$type": "number",
       "$value": "{base.static.content.small}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -13961,7 +13963,7 @@ export default {
         }
       }
     },
-    "content.medium": {
+    "size.content.medium": {
       "$type": "number",
       "$value": "{base.static.content.medium}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -13975,7 +13977,7 @@ export default {
         }
       }
     },
-    "content.large": {
+    "size.content.large": {
       "$type": "number",
       "$value": "{base.static.content.large}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -13989,7 +13991,7 @@ export default {
         }
       }
     },
-    "content.xlarge": {
+    "size.content.xlarge": {
       "$type": "number",
       "$value": "{base.static.content.xlarge}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -14003,7 +14005,7 @@ export default {
         }
       }
     },
-    "content.xxlarge": {
+    "size.content.xxlarge": {
       "$type": "number",
       "$value": "{base.static.content.xxlarge}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -15690,7 +15692,7 @@ export default {
         }
       ]
     },
-    "content.xxsmall": {
+    "size.content.xxsmall": {
       "$type": "number",
       "$value": "{base.static.content.xxsmall}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -15704,7 +15706,7 @@ export default {
         }
       }
     },
-    "content.xsmall": {
+    "size.content.xsmall": {
       "$type": "number",
       "$value": "{base.static.content.xxsmall}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -15718,7 +15720,7 @@ export default {
         }
       }
     },
-    "content.small": {
+    "size.content.small": {
       "$type": "number",
       "$value": "{base.static.content.xsmall}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -15732,7 +15734,7 @@ export default {
         }
       }
     },
-    "content.medium": {
+    "size.content.medium": {
       "$type": "number",
       "$value": "{base.static.content.small}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -15746,7 +15748,7 @@ export default {
         }
       }
     },
-    "content.large": {
+    "size.content.large": {
       "$type": "number",
       "$value": "{base.static.content.medium}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -15760,7 +15762,7 @@ export default {
         }
       }
     },
-    "content.xlarge": {
+    "size.content.xlarge": {
       "$type": "number",
       "$value": "{base.static.content.large}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -15774,7 +15776,7 @@ export default {
         }
       }
     },
-    "content.xxlarge": {
+    "size.content.xxlarge": {
       "$type": "number",
       "$value": "{base.static.content.xlarge}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -20738,15 +20740,15 @@ export default {
       },
       "usedBy": [
         {
-          "name": "content.xxsmall",
+          "name": "size.content.xxsmall",
           "mode": "large"
         },
         {
-          "name": "content.xxsmall",
+          "name": "size.content.xxsmall",
           "mode": "small"
         },
         {
-          "name": "content.xsmall",
+          "name": "size.content.xsmall",
           "mode": "small"
         }
       ]
@@ -20767,11 +20769,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "content.xsmall",
+          "name": "size.content.xsmall",
           "mode": "large"
         },
         {
-          "name": "content.small",
+          "name": "size.content.small",
           "mode": "small"
         }
       ]
@@ -20792,11 +20794,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "content.small",
+          "name": "size.content.small",
           "mode": "large"
         },
         {
-          "name": "content.medium",
+          "name": "size.content.medium",
           "mode": "small"
         }
       ]
@@ -20817,11 +20819,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "content.medium",
+          "name": "size.content.medium",
           "mode": "large"
         },
         {
-          "name": "content.large",
+          "name": "size.content.large",
           "mode": "small"
         }
       ]
@@ -20842,11 +20844,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "content.large",
+          "name": "size.content.large",
           "mode": "large"
         },
         {
-          "name": "content.xlarge",
+          "name": "size.content.xlarge",
           "mode": "small"
         }
       ]
@@ -20867,11 +20869,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "content.xlarge",
+          "name": "size.content.xlarge",
           "mode": "large"
         },
         {
-          "name": "content.xxlarge",
+          "name": "size.content.xxlarge",
           "mode": "small"
         }
       ]
@@ -20892,7 +20894,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "content.xxlarge",
+          "name": "size.content.xxlarge",
           "mode": "large"
         }
       ]

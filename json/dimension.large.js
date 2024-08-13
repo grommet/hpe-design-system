@@ -135,16 +135,16 @@
     "xlarge": "24px",
     "default": "1px"
   },
-  "content": {
-    "xxsmall": "48px",
-    "xsmall": "96px",
-    "small": "192px",
-    "medium": "384px",
-    "large": "768px",
-    "xlarge": "1152px",
-    "xxlarge": "1536px"
-  },
   "size": {
+    "content": {
+      "xxsmall": "48px",
+      "xsmall": "96px",
+      "small": "192px",
+      "medium": "384px",
+      "large": "768px",
+      "xlarge": "1152px",
+      "xxlarge": "1536px"
+    },
     "icon": {
       "xsmall": "16px",
       "small": "16px",

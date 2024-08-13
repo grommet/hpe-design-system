@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 09 Aug 2024 23:34:02 GMT
+ * Generated on Tue, 13 Aug 2024 19:34:06 GMT
  */
 
 module.exports = {
@@ -141,16 +141,16 @@ module.exports = {
       "xlarge": "12px",
       "default": "1px"
     },
-    "content": {
-      "xxsmall": "48px",
-      "xsmall": "48px",
-      "small": "96px",
-      "medium": "192px",
-      "large": "384px",
-      "xlarge": "768px",
-      "xxlarge": "1152px"
-    },
     "size": {
+      "content": {
+        "xxsmall": "48px",
+        "xsmall": "48px",
+        "small": "96px",
+        "medium": "192px",
+        "large": "384px",
+        "xlarge": "768px",
+        "xxlarge": "1152px"
+      },
       "icon": {
         "xsmall": "16px",
         "small": "16px",

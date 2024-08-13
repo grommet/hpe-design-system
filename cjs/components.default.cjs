@@ -1,4 +1,4 @@
-exports.default = {
+module.exports = {
   "hpe": {
     "button": {
       "primary": {
@@ -25,7 +25,7 @@ exports.default = {
         },
         "selected": {
           "enabled": {
-            "background": "background-contrast",
+            "background": "background-active",
             "borderColor": "#00000000",
             "textColor": "text-strong",
             "iconColor": "icon-strong",
@@ -57,7 +57,7 @@ exports.default = {
         },
         "selected": {
           "enabled": {
-            "background": "background-contrast",
+            "background": "background-active",
             "borderColor": "#00000000",
             "textColor": "text-strong",
             "iconColor": "icon-strong",
@@ -89,7 +89,7 @@ exports.default = {
         },
         "selected": {
           "enabled": {
-            "background": "background-contrast",
+            "background": "background-active",
             "borderColor": "#00000000",
             "textColor": "text-strong",
             "iconColor": "icon-strong",
@@ -121,7 +121,7 @@ exports.default = {
         },
         "selected": {
           "enabled": {
-            "background": "background-contrast",
+            "background": "background-active",
             "borderColor": "#00000000",
             "textColor": "text-strong",
             "iconColor": "icon-strong",
@@ -1260,33 +1260,6 @@ exports.default = {
           "gapX": "6px"
         }
       }
-    },
-    "elevation/small": [
-      {
-        "offsetX": 0,
-        "offsetY": "{base.dimension.100}",
-        "blur": "{base.dimension.100}",
-        "spread": 0,
-        "color": "{color.shadow.weak}"
-      }
-    ],
-    "elevation/medium": [
-      {
-        "offsetX": "{base.static.spacing.none}",
-        "offsetY": "{base.static.spacing.xsmall}",
-        "blur": "{base.static.spacing.small}",
-        "spread": "{base.static.spacing.none}",
-        "color": "{color.shadow.default}"
-      }
-    ],
-    "elevation/large": [
-      {
-        "offsetX": "{base.static.spacing.none}",
-        "offsetY": "{base.static.spacing.xsmall}",
-        "blur": "{base.static.spacing.small}",
-        "spread": "{base.static.spacing.none}",
-        "color": "{color.shadow.default}"
-      }
-    ]
+    }
   }
 }
