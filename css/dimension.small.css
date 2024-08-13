@@ -1,21 +1,21 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Aug 2024 19:42:07 GMT
+ * Generated on Tue, 13 Aug 2024 21:21:27 GMT
  */
 
 @media (max-width: 768px) {
 :root {
+  --hpe-size-icon-xxlarge: 166rem;
   --hpe-paragraph-xxlarge-max-width: 25em;
   --hpe-paragraph-xlarge-max-width: 25em;
   --hpe-paragraph-large-max-width: 25em;
   --hpe-paragraph-medium-max-width: 25em;
   --hpe-paragraph-small-max-width: 25em;
   --hpe-paragraph-xsmall-max-width: 25em;
-  --hpe-size-icon-xxlarge: var(--hpe-base-dimension-900);
-  --hpe-size-icon-xlarge: var(--hpe-base-dimension-600);
-  --hpe-size-icon-large: var(--hpe-base-dimension-550);
-  --hpe-size-icon-medium: var(--hpe-base-dimension-450);
-  --hpe-size-icon-small: var(--hpe-base-dimension-400);
+  --hpe-size-icon-xlarge: var(--hpe-base-dimension-2400);
+  --hpe-size-icon-large: var(--hpe-base-dimension-1200);
+  --hpe-size-icon-medium: var(--hpe-base-dimension-600);
+  --hpe-size-icon-small: var(--hpe-base-dimension-300);
   --hpe-size-icon-xsmall: var(--hpe-base-dimension-400);
   --hpe-radius-full: var(--hpe-base-dimension-9600);
   --hpe-paragraph-xxlarge-line-height: var(--hpe-base-line-height-600);

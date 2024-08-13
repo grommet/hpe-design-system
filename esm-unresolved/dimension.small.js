@@ -466,7 +466,7 @@ export default {
       },
       "small": {
         "$type": "number",
-        "$value": "{base.dimension.400}",
+        "$value": "{base.dimension.300}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -480,7 +480,7 @@ export default {
       },
       "medium": {
         "$type": "number",
-        "$value": "{base.dimension.450}",
+        "$value": "{base.dimension.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -494,7 +494,7 @@ export default {
       },
       "large": {
         "$type": "number",
-        "$value": "{base.dimension.550}",
+        "$value": "{base.dimension.1200}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -508,7 +508,7 @@ export default {
       },
       "xlarge": {
         "$type": "number",
-        "$value": "{base.dimension.600}",
+        "$value": "{base.dimension.2400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -522,7 +522,7 @@ export default {
       },
       "xxlarge": {
         "$type": "number",
-        "$value": "{base.dimension.900}",
+        "$value": 166,
         "$description": "",
         "$extensions": {
           "com.figma": {

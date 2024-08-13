@@ -17,7 +17,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.90}",
+        "$value": "{base.lineHeight.100}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -46,8 +46,8 @@
         }
       },
       "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.100}",
+        "$type": "dimension",
+        "$value": "1.375rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -92,8 +92,8 @@
     },
     "large": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.400}",
+        "$type": "dimension",
+        "$value": "1.375rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -122,8 +122,8 @@
     },
     "xlarge": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.500}",
+        "$type": "dimension",
+        "$value": "1.6875rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -136,8 +136,8 @@
         }
       },
       "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.400}",
+        "$type": "dimension",
+        "$value": "2.0625rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -166,8 +166,8 @@
         }
       },
       "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.600}",
+        "$type": "dimension",
+        "$value": "2.625rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -305,7 +305,7 @@
     "xlarge": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -318,8 +318,8 @@
         }
       },
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.600}",
+        "$type": "dimension",
+        "$value": "3.3125rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -332,8 +332,8 @@
         }
       },
       "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.500}",
+        "$type": "dimension",
+        "$value": "3.6875rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -349,7 +349,7 @@
     "large": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -362,8 +362,8 @@
         }
       },
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.500}",
+        "$type": "dimension",
+        "$value": "2.75rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -376,8 +376,8 @@
         }
       },
       "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.200}",
+        "$type": "dimension",
+        "$value": "3.125rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -392,8 +392,8 @@
     },
     "medium": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.100}",
+        "$type": "dimension",
+        "$value": "2.25rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -406,8 +406,8 @@
         }
       },
       "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.100}",
+        "$type": "dimension",
+        "$value": "2.625rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -421,7 +421,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -436,8 +436,8 @@
     },
     "small": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.100}",
+        "$type": "dimension",
+        "$value": "1.6875rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -450,8 +450,8 @@
         }
       },
       "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.90}",
+        "$type": "dimension",
+        "$value": "2.0625rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -465,7 +465,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -480,8 +480,8 @@
     },
     "xsmall": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$type": "dimension",
+        "$value": "1rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -494,8 +494,8 @@
         }
       },
       "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.80}",
+        "$type": "dimension",
+        "$value": "1.375rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -509,7 +509,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.semibold}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -524,8 +524,8 @@
     },
     "xxsmall": {
       "fontSize": {
-        "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$type": "dimension",
+        "$value": "0.875rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -538,8 +538,8 @@
         }
       },
       "lineHeight": {
-        "$type": "number",
-        "$value": "{base.lineHeight.80}",
+        "$type": "dimension",
+        "$value": "1.25rem",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -553,7 +553,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.semibold}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -596,20 +596,6 @@
             "codeSyntax": {}
           }
         }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
-            ],
-            "codeSyntax": {}
-          }
-        }
       }
     },
     "small": {
@@ -636,20 +622,6 @@
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -684,20 +656,6 @@
             "codeSyntax": {}
           }
         }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
-            ],
-            "codeSyntax": {}
-          }
-        }
       }
     },
     "large": {
@@ -724,20 +682,6 @@
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -772,20 +716,6 @@
             "codeSyntax": {}
           }
         }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
-            ],
-            "codeSyntax": {}
-          }
-        }
       }
     },
     "xxlarge": {
@@ -812,20 +742,6 @@
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }

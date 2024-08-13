@@ -466,7 +466,7 @@ export default {
       },
       "small": {
         "$type": "number",
-        "$value": "{base.dimension.400}",
+        "$value": "{base.dimension.300}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -480,7 +480,7 @@ export default {
       },
       "medium": {
         "$type": "number",
-        "$value": "{base.dimension.450}",
+        "$value": "{base.dimension.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -494,7 +494,7 @@ export default {
       },
       "large": {
         "$type": "number",
-        "$value": "{base.dimension.550}",
+        "$value": "{base.dimension.1200}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -508,7 +508,7 @@ export default {
       },
       "xlarge": {
         "$type": "number",
-        "$value": "{base.dimension.600}",
+        "$value": "{base.dimension.2400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -522,7 +522,7 @@ export default {
       },
       "xxlarge": {
         "$type": "number",
-        "$value": "{base.dimension.900}",
+        "$value": 166,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -554,7 +554,7 @@ export default {
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.90}",
+        "$value": "{base.lineHeight.100}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -584,7 +584,7 @@ export default {
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.100}",
+        "$value": 22,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -630,7 +630,7 @@ export default {
     "large": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.400}",
+        "$value": 22,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -660,7 +660,7 @@ export default {
     "xlarge": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.500}",
+        "$value": 27,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -674,7 +674,7 @@ export default {
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.400}",
+        "$value": 33,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -704,7 +704,7 @@ export default {
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.600}",
+        "$value": 42,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -842,7 +842,7 @@ export default {
     "xlarge": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -856,7 +856,7 @@ export default {
       },
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.600}",
+        "$value": 53,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -870,7 +870,7 @@ export default {
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.500}",
+        "$value": 59,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -886,7 +886,7 @@ export default {
     "large": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -900,7 +900,7 @@ export default {
       },
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.500}",
+        "$value": 44,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -914,7 +914,7 @@ export default {
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.200}",
+        "$value": 50,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -930,7 +930,7 @@ export default {
     "medium": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.100}",
+        "$value": 36,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -944,7 +944,7 @@ export default {
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.100}",
+        "$value": 42,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -958,7 +958,7 @@ export default {
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -974,7 +974,7 @@ export default {
     "small": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.100}",
+        "$value": 27,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -988,7 +988,7 @@ export default {
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.90}",
+        "$value": 33,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1002,7 +1002,7 @@ export default {
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1018,7 +1018,7 @@ export default {
     "xsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$value": 16,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1032,7 +1032,7 @@ export default {
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.80}",
+        "$value": 22,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1046,7 +1046,7 @@ export default {
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.semibold}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1062,7 +1062,7 @@ export default {
     "xxsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$value": 14,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1076,7 +1076,7 @@ export default {
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.80}",
+        "$value": 20,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1090,7 +1090,7 @@ export default {
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.semibold}",
+        "$value": "{base.fontWeight.bold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1133,20 +1133,6 @@ export default {
             "codeSyntax": {}
           }
         }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
-            ],
-            "codeSyntax": {}
-          }
-        }
       }
     },
     "small": {
@@ -1173,20 +1159,6 @@ export default {
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -1221,20 +1193,6 @@ export default {
             "codeSyntax": {}
           }
         }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
-            ],
-            "codeSyntax": {}
-          }
-        }
       }
     },
     "large": {
@@ -1261,20 +1219,6 @@ export default {
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -1309,20 +1253,6 @@ export default {
             "codeSyntax": {}
           }
         }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
-            ],
-            "codeSyntax": {}
-          }
-        }
       }
     },
     "xxlarge": {
@@ -1349,20 +1279,6 @@ export default {
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "maxWidth": {
-        "$type": "string",
-        "$value": "25em",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }

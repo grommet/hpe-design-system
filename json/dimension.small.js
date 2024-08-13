@@ -147,11 +147,11 @@
     },
     "icon": {
       "xsmall": "16px",
-      "small": "16px",
-      "medium": "18px",
-      "large": "22px",
-      "xlarge": "24px",
-      "xxlarge": "36px"
+      "small": "12px",
+      "medium": "24px",
+      "large": "48px",
+      "xlarge": "96px",
+      "xxlarge": "166rem"
     }
   }
 }

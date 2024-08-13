@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Aug 2024 19:42:07 GMT
+ * Generated on Tue, 13 Aug 2024 21:21:26 GMT
  */
 
 export default {
@@ -8,11 +8,11 @@ export default {
     text: {
       xsmall: {
         fontSize: "0.875rem",
-        lineHeight: "1rem",
+        lineHeight: "1.25rem",
       },
       small: {
         fontSize: "1rem",
-        lineHeight: "1.25rem",
+        lineHeight: "1.375rem",
       },
       medium: {
         fontSize: "1.125rem",
@@ -23,12 +23,12 @@ export default {
         lineHeight: "1.75rem",
       },
       xlarge: {
-        fontSize: "1.5rem",
-        lineHeight: "1.875rem",
+        fontSize: "1.6875rem",
+        lineHeight: "2.0625rem",
       },
       xxlarge: {
         fontSize: "2.25rem",
-        lineHeight: "2.5rem",
+        lineHeight: "2.625rem",
       },
       "3xl": {
         fontSize: "2.625rem",
@@ -49,66 +49,60 @@ export default {
     },
     heading: {
       xlarge: {
-        fontWeight: 500,
-        fontSize: "2.25rem",
-        lineHeight: "2.25rem",
+        fontWeight: 700,
+        fontSize: "3.3125rem",
+        lineHeight: "3.6875rem",
       },
       large: {
-        fontWeight: 500,
-        fontSize: "1.5rem",
-        lineHeight: "1.5rem",
+        fontWeight: 700,
+        fontSize: "2.75rem",
+        lineHeight: "3.125rem",
       },
       medium: {
-        fontSize: "1rem",
-        lineHeight: "1.25rem",
-        fontWeight: 500,
+        fontSize: "2.25rem",
+        lineHeight: "2.625rem",
+        fontWeight: 700,
       },
       small: {
-        fontSize: "1rem",
-        lineHeight: "1rem",
-        fontWeight: 500,
+        fontSize: "1.6875rem",
+        lineHeight: "2.0625rem",
+        fontWeight: 700,
       },
       xsmall: {
-        fontSize: "0.75rem",
-        lineHeight: "0.75rem",
-        fontWeight: 600,
+        fontSize: "1rem",
+        lineHeight: "1.375rem",
+        fontWeight: 700,
       },
       xxsmall: {
-        fontSize: "0.75rem",
-        lineHeight: "0.75rem",
-        fontWeight: 600,
+        fontSize: "0.875rem",
+        lineHeight: "1.25rem",
+        fontWeight: 700,
       },
     },
     paragraph: {
       xsmall: {
         fontSize: "0.875rem",
         lineHeight: "1rem",
-        maxWidth: "25em",
       },
       small: {
         fontSize: "1rem",
         lineHeight: "1.25rem",
-        maxWidth: "25em",
       },
       medium: {
         fontSize: "1.125rem",
         lineHeight: "1.5rem",
-        maxWidth: "25em",
       },
       large: {
         fontSize: "1.375rem",
         lineHeight: "1.75rem",
-        maxWidth: "25em",
       },
       xlarge: {
         fontSize: "1.5rem",
         lineHeight: "1.875rem",
-        maxWidth: "25em",
       },
       xxlarge: {
         fontSize: "2.25rem",
         lineHeight: "2.5rem",
-        maxWidth: "25em",
       },
     },
     spacing: {
@@ -153,11 +147,11 @@ export default {
       },
       icon: {
         xsmall: "16px",
-        small: "16px",
-        medium: "18px",
-        large: "22px",
-        xlarge: "24px",
-        xxlarge: "36px",
+        small: "12px",
+        medium: "24px",
+        large: "48px",
+        xlarge: "96px",
+        xxlarge: "166rem",
       },
     },
   },
