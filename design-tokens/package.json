@@ -27,7 +27,7 @@
     "build-token-tree": "node src/scripts/build-token-tree.js",
     "build": "rm -rf ./dist && tsx src/scripts/build.js && yarn build-style-dictionary && yarn build-token-tree",
     "release-stable": "node src/scripts/release-stable.js --branch=design-tokens-alpha-stable",
-    "release-stable:v3": "node src/scripts/release-stable.js --branch=design-tokens-v3-stable",
+    "release-stable:old-theme": "node src/scripts/release-stable.js --branch=design-tokens-old-theme-stable",
     "paddingY:verify": "tsx src/scripts/verify-paddingY.ts",
     "paddingY:update": "tsx src/scripts/update-paddingY.ts",
     "test": "jest"

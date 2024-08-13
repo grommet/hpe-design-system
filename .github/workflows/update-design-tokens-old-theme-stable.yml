@@ -1,11 +1,11 @@
-name: Update design-tokens-v3-stable
+name: Update design-tokens-old-theme-stable
 on:
   push:
     branches:
-      - design-tokens-v3
+      - design-tokens-old-theme
 
 jobs:
-  update-design-tokens-v3-stable:
+  update-design-tokens-old-theme-stable:
     runs-on: ubuntu-latest
     steps:
       - name: Install Node.js
@@ -26,11 +26,11 @@ jobs:
       - name: Build
         run: yarn build
         working-directory: design-tokens
-      - name: Update design-tokens-v3-stable
+      - name: Update design-tokens-old-theme-stable
         run: |
           git config --global user.name "Grommet Community Bot"
           git config --global user.email "grommet@hpe.com"
-          yarn release-stable:v3
+          yarn release-stable:old-theme
         working-directory: design-tokens
         env:
           GH_TOKEN: ${{ secrets.GH_ACTION_ACCESS_TOKEN }}
