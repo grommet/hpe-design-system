@@ -26,7 +26,6 @@ jobs:
       - name: Build
         run: yarn build
         working-directory: design-tokens
-        
       - name: Update design-tokens-alpha-stable
         run: |
           git config --global user.name "Grommet Community Bot"
@@ -35,3 +34,10 @@ jobs:
         working-directory: design-tokens
         env:
           GH_TOKEN: ${{ secrets.GH_ACTION_ACCESS_TOKEN }}
+      # If stable is successfully update, push the same updates to Figma
+      - name: Sync tokens to Figma file
+        run: yarn sync-tokens-to-figma
+        working-directory: design-tokens
+        env:
+          FILE_KEY: ${{ secrets.GH_ACTION_ALPHA_FIGMA_FILE_KEY }}
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_ACTION_VARIABLES_SYNC_FIGMA_TOKEN }}
