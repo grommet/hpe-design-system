@@ -21,6 +21,7 @@ export interface Token {
     | 'number'
     | 'string'
     | 'boolean'
+    | 'shadow'
     | 'cubicBezier'
     | 'duration'
     | 'gradient';

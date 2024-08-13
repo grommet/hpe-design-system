@@ -45,22 +45,6 @@ import { User } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../theme';
 
-// import {
-//   BannerNotificationInfo,
-//   CheckBoxGroupSimpleExample,
-//   CheckBoxSimpleExample,
-//   MaskedPhoneExample,
-//   NameValueListSimpleExample,
-//   RadioButtonGroupExample,
-//   RangeInputExample,
-//   SearchExample,
-//   SelectExample,
-//   SelectMultipleSimpleExample,
-//   TabsExample,
-//   TextAreaExample,
-//   TextInputExample,
-// } from '../../../../../aries-site/src/examples';
-
 const textSizes = [
   'xsmall',
   'small',
@@ -68,20 +52,15 @@ const textSizes = [
   'large',
   'xlarge',
   'xxlarge',
-  //   '3xl',
-  //   '4xl',
-  //   '5xl',
-  //   '6xl',
+  '3xl',
+  '4xl',
+  '5xl',
+  '6xl',
 ];
 
 const kinds = ['default', 'toolbar', 'secondary', 'primary'];
 const states = ['enabled', 'active', 'disabled'];
-const sizes = [
-  'small',
-  'medium',
-  'large',
-  // , 'xlarge' No xlarge was available in v3
-];
+const sizes = ['small', 'medium', 'large'];
 
 const ModeContext = React.createContext({});
 

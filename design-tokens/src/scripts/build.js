@@ -1,4 +1,5 @@
 import { mkdirSync, readFileSync, writeFileSync, readdirSync } from 'fs';
+import { access, isReference, nonComponentTokens } from '../utils.ts';
 
 // for now, convert from number (which Figma wants) to dimension with units
 // TO DO clean up this function
@@ -142,12 +143,6 @@ tokens.forEach(file => {
   allTokens = { ...allTokens, ...parsed };
 });
 
-const access = (path, object) => {
-  return path.split('.').reduce((o, i) => o[i], object);
-};
-
-const isReference = value => /{.*}/.test(value);
-
 const getValue = valueArg => {
   let value = valueArg;
   if (
@@ -221,26 +216,18 @@ const jsonToNestedValue = token => {
   return nextObj;
 };
 
-// TO DO make dynamic
-const exclude = [
-  'static',
-  'base',
-  'color',
-  'TBD',
-  'spacing',
-  'radius',
-  'borderWidth',
-  'content',
-];
-
 allTokens = numberToDimension(allTokens, true);
 let res = jsonToNestedValue(allTokens);
 
-exclude.forEach(category => delete res[category]);
-
 // TO DO make prefix dynamic
-res = { hpe: { ...res } };
-mkdirSync(`./${BUILD_DIR}/esm/`);
+const PREFIX = 'hpe';
+
+nonComponentTokens.forEach(category => {
+  delete res[category];
+});
+
+res = { [PREFIX]: { ...res } };
+mkdirSync('./dist/esm/');
 writeFileSync(
   `./${BUILD_DIR}/esm/components.default.js`,
   `export default ${JSON.stringify(res, null, 2)}`,
@@ -249,5 +236,10 @@ writeFileSync(
   `./${BUILD_DIR}/esm/index.js`,
   "export { default as components } from './components.default';\n",
 );
+mkdirSync('./dist/cjs/');
+writeFileSync(
+  './dist/cjs/components.default.cjs',
+  `module.exports = ${JSON.stringify(res, null, 2)}`,
+);
 
-console.log('✅ components.default.js has been generated.');
+console.log('✅ components.default.js have been generated.');

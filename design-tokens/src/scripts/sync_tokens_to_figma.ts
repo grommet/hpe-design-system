@@ -1,10 +1,13 @@
 import 'dotenv/config';
 import * as fs from 'fs';
 
-import FigmaApi from './figma_api.js';
+import FigmaApi from '../figma_api.js';
 
-import { green } from './utils.js';
-import { generatePostVariablesPayload, readJsonFiles } from './token_import.js';
+import { green } from '../utils.js';
+import {
+  generatePostVariablesPayload,
+  readJsonFiles,
+} from '../token_import.js';
 
 async function main() {
   if (!process.env.PERSONAL_ACCESS_TOKEN || !process.env.FILE_KEY) {
@@ -19,9 +22,8 @@ async function main() {
     .readdirSync(TOKENS_DIR)
     .map((file: string) =>
       // Figma doesn't support elevation/shadow/gradient tokens yet, so don't try to sync
-      !file.includes('elevation') && !file.includes('gradient')
-        ? `${TOKENS_DIR}/${file}`
-        : '',
+      // !file.includes('elevation') &&
+      !file.includes('gradient') ? `${TOKENS_DIR}/${file}` : '',
     )
     .filter(file => file);
 

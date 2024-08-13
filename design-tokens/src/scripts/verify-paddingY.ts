@@ -1,0 +1,84 @@
+import { readFileSync, readdirSync } from 'fs';
+import { access, isReference } from '../utils.js';
+
+const getValue = (valueArg: any, tokens: { [key: string]: any }) => {
+  let value = valueArg;
+  if (typeof value === 'string') {
+    value = value.slice(1, -1);
+    const a = access(value, tokens).$value;
+    value = getValue(a, tokens);
+    if (value === 'full') value = '2em';
+  }
+
+  return value;
+};
+
+export const descend = (
+  node: { [key: string]: any },
+  tokens: { [key: string]: any },
+  path: string[] = [],
+) => {
+  Object.keys(node).forEach(key => {
+    const value = node[key];
+    const keyPath = [...path, key];
+    if (
+      typeof value === 'object' &&
+      ('minHeight' in value ||
+        'borderWidth' in value ||
+        'lineHeight' in value ||
+        'paddingY' in value)
+    ) {
+      if (
+        value?.minHeight?.$value &&
+        value?.lineHeight?.$value &&
+        value?.borderWidth?.$value
+      ) {
+        if (
+          value?.paddingY?.$value &&
+          (!isReference(value?.paddingY?.$value) ||
+            value?.paddingY?.$value.includes('base'))
+        ) {
+          let minHeight = value?.minHeight?.$value;
+          let lineHeight = value?.lineHeight?.$value;
+          let borderWidth = value?.borderWidth?.$value;
+
+          if (isReference(minHeight)) {
+            minHeight = getValue(minHeight, tokens);
+          }
+          if (isReference(lineHeight)) {
+            lineHeight = getValue(lineHeight, tokens);
+          }
+          if (isReference(borderWidth)) {
+            borderWidth = getValue(borderWidth, tokens);
+          }
+
+          const paddingY = (minHeight - lineHeight - 2 * borderWidth) / 2;
+          if (paddingY !== value.paddingY.$value)
+            console.error(
+              `🛑 ${keyPath.join('.')}: ${paddingY} does not match ${
+                value.paddingY.$value
+              }. Run paddingY:update if this change is expected.`,
+            );
+        }
+      }
+    } else if (typeof value === 'object')
+      return descend(value, tokens, keyPath);
+  });
+};
+
+const TOKENS_DIR = 'tokens';
+const tokens = readdirSync(TOKENS_DIR).map(file => `${TOKENS_DIR}/${file}`);
+let allTokens = {};
+tokens.forEach(file => {
+  const raw = readFileSync(file);
+  const parsed = JSON.parse(raw.toString());
+  allTokens = { ...allTokens, ...parsed };
+});
+
+const verifyPaddingY = (tokens: { [key: string]: any }) => {
+  const allTokens = tokens;
+  descend(tokens, allTokens);
+};
+
+const originalTokens = { ...allTokens };
+verifyPaddingY(originalTokens);

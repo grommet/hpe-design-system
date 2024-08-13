@@ -1,118 +1,18 @@
 /* eslint-disable max-len */
-import StyleDictionary from 'style-dictionary-utils';
 import * as fs from 'fs';
-// import { makeSdTailwindConfig } from 'sd-tailwindcss-transformer';
-
-// TO DO how to keep "camelCase" for things like minHeight
-// right now automatic transforms put a kebab (min-height)
-
-// TO DO getting "property collision" from typography files
-// StyleDictionary.extend(
-//   makeSdTailwindConfig({
-//     type: 'all',
-//     isVariables: true,
-//     source: ['tokens-alpha/**/*.json'],
-//     buildPath: 'dist/tailwind/',
-//     // prefix: 'hpe', // TO DO should this be in the token files themselves?
-//   }),
-// ).buildAllPlatforms();
-
-// js transform group + custom from style-dictionary-utils
-StyleDictionary.registerTransformGroup({
-  name: 'js/w3c',
-  transforms: [
-    'attribute/cti',
-    'name/cti/pascal',
-    'size/rem',
-    'color/hex',
-    'cubicBezier/css', // TO DO revisit if we want to apply this or not (seems odd to have CSS here)
-  ],
-});
-
-// css transform group + custom from style-dictionary-utils
-StyleDictionary.registerTransformGroup({
-  name: 'css/w3c',
-  transforms: [
-    'attribute/cti',
-    'name/cti/kebab',
-    'time/seconds',
-    'content/icon',
-    'size/rem',
-    'color/css',
-    'cubicBezier/css',
-    'shadow/css',
-    'color/hex',
-    'gradient/css',
-  ],
-});
-
-const getThemeAndMode = file => {
-  const parts = file.split('.');
-  const themeAndMode = parts[parts.length - 2];
-  let theme;
-  let mode;
-  if (themeAndMode.includes('-')) [theme, mode] = themeAndMode.split('-');
-  else mode = themeAndMode;
-
-  return [theme, mode];
-};
-
-// ---- Custom StyleDictionary formatters for color modes and breakpoints ------- //
-
-// color modes
-StyleDictionary.registerFormat({
-  name: 'css/variables-themed',
-  formatter({ dictionary, file, options }) {
-    const { outputReferences, theme, mode } = options;
-    const darkTokens = StyleDictionary.formatHelpers.formattedVariables({
-      format: 'css',
-      dictionary,
-      outputReferences,
-    });
-    const dataTheme = theme ? `[data-theme=${theme}]` : '';
-    // TO DO "mode" is fairly coupled with concept of "dark" right now
-    // just confirm this would be able to expand to concepts like "high-contrast"
-    const dataMode = mode ? `[data-mode=${mode}]` : '';
-    return `${StyleDictionary.formatHelpers.fileHeader({
-      file,
-    })}:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n
-${
-  dataMode
-    ? `@media (prefers-color-scheme: dark) {\n:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n}\n`
-    : ''
-}
-    `;
-  },
-});
-
-// breakpoints
-StyleDictionary.registerFormat({
-  name: 'css/variables-breakpoints',
-  formatter({ dictionary, file, options }) {
-    const { outputReferences, mediaQuery } = options;
-    let output = `:root {\n${StyleDictionary.formatHelpers.formattedVariables({
-      format: 'css',
-      dictionary,
-      outputReferences,
-    })}\n}`;
-    if (mediaQuery) output = `@media (${mediaQuery}) {\n${output}\n}\n`;
-
-    return `${StyleDictionary.formatHelpers.fileHeader({
-      file,
-    })}${output}`;
-  },
-});
+import { HPEStyleDictionary } from '../HPEStyleDictionary.ts';
+import { getThemeAndMode } from '../utils.ts';
 
 const BUILD_DIR = 'dist';
 const TOKENS_DIR = 'tokens';
-const ESM_DIR = `${BUILD_DIR}/esm/`;
-const JSON_DIR = `${BUILD_DIR}/json/`;
-const CSS_DIR = `${BUILD_DIR}/css/`;
+const ESM_DIR = 'dist/esm/';
+const CJS_DIR = 'dist/cjs/';
+const JSON_DIR = 'dist/json/';
+const CSS_DIR = 'dist/css/';
 const PREFIX = 'hpe';
 
 let esm = '';
-
-StyleDictionary.extend({
+HPEStyleDictionary.extend({
   // from dist because it contains the "px" version
   source: [`${BUILD_DIR}/primitives.base.json`],
   platforms: {
@@ -124,6 +24,17 @@ StyleDictionary.extend({
         {
           destination: 'base.js',
           format: 'javascript/esm',
+        },
+      ],
+    },
+    'js/cjs': {
+      transformGroup: 'js/w3c',
+      buildPath: CJS_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'base.cjs',
+          format: 'javascript/commonJs',
         },
       ],
     },
@@ -170,11 +81,11 @@ const camelCase = s => s.replace(/-./g, x => x[1].toUpperCase());
 
 colorModeFiles.forEach(file => {
   const [theme, mode] = getThemeAndMode(file);
-  StyleDictionary.extend({
+  HPEStyleDictionary.extend({
     source: [
       `${BUILD_DIR}/primitives.base.json`,
       file,
-      `${TOKENS_DIR}/elevation.${mode}.json`,
+      // `${TOKENS_DIR}/elevation.${mode}.json`,
       `${TOKENS_DIR}/gradient.${mode}.json`,
     ],
     platforms: {
@@ -191,7 +102,24 @@ colorModeFiles.forEach(file => {
             filter: token =>
               (token.attributes.category === 'color' &&
                 !primitiveColorNames.includes(token.attributes.type)) ||
-              token.attributes.category === 'elevation' ||
+              token.attributes.category === 'gradient',
+          },
+        ],
+      },
+      'js/cjs': {
+        transformGroup: 'js/w3c',
+        buildPath: CJS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `color.${
+              theme ? `${theme}-${mode}` : `${mode || ''}`
+            }.cjs`,
+            format: 'javascript/commonJs',
+            filter: token =>
+              (token.attributes.category === 'color' &&
+                !primitiveColorNames.includes(token.attributes.type)) ||
+              // token.attributes.category === 'elevation' ||
               token.attributes.category === 'gradient',
           },
         ],
@@ -209,7 +137,7 @@ colorModeFiles.forEach(file => {
             filter: token =>
               (token.attributes.category === 'color' &&
                 !primitiveColorNames.includes(token.attributes.type)) ||
-              token.attributes.category === 'elevation' ||
+              // token.attributes.category === 'elevation' ||
               token.attributes.category === 'gradient',
           },
         ],
@@ -233,7 +161,7 @@ colorModeFiles.forEach(file => {
             filter: token =>
               (token.attributes.category === 'color' &&
                 !primitiveColorNames.includes(token.attributes.type)) ||
-              token.attributes.category === 'elevation' ||
+              // token.attributes.category === 'elevation' ||
               token.attributes.category === 'gradient',
           },
         ],
@@ -253,6 +181,8 @@ const dimensions = [
   'radius',
   'text',
   'heading',
+  'paragraph',
+  'size',
 ];
 
 const dimensionFiles = fs
@@ -265,7 +195,7 @@ const dimensionFiles = fs
 dimensionFiles.forEach(file => {
   const res = getThemeAndMode(file);
   const mode = res[1];
-  StyleDictionary.extend({
+  HPEStyleDictionary.extend({
     source: [
       `${BUILD_DIR}/primitives.base.json`,
       `${BUILD_DIR}/typography.${mode}.json`, // dist folder has "rem"
@@ -280,6 +210,18 @@ dimensionFiles.forEach(file => {
           {
             destination: `dimension.${mode}.js`,
             format: 'javascript/esm',
+            filter: token => dimensions.includes(token.attributes.category),
+          },
+        ],
+      },
+      'js/cjs': {
+        transformGroup: 'js/w3c',
+        buildPath: CJS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `dimension.${mode}.cjs`,
+            format: 'javascript/commonJs',
             filter: token => dimensions.includes(token.attributes.category),
           },
         ],
@@ -320,12 +262,6 @@ dimensionFiles.forEach(file => {
   esm += `export { default as ${mode} } from './dimension.${mode}';\n`;
 });
 
-fs.appendFile(`./${ESM_DIR}index.js`, esm, err => {
-  if (err) {
-    console.log(err);
-  }
-});
-
 // TO DO make dynamic
 const exclude = [
   'static',
@@ -336,9 +272,14 @@ const exclude = [
   'radius',
   'borderWidth',
   'content',
+  'paragraph',
+  'heading',
+  'text',
+  'size',
+  'elevation',
 ];
 
-StyleDictionary.extend({
+HPEStyleDictionary.extend({
   source: [
     // from dist because it contains the "px"/"rem" version
     `${BUILD_DIR}/primitives.base.json`,
@@ -366,4 +307,99 @@ StyleDictionary.extend({
   },
 }).buildAllPlatforms();
 
-console.log('✅ CSS, Javascript, and JSON files have been generated.');
+const elevationFiles = fs
+  .readdirSync(TOKENS_DIR)
+  .map(file =>
+    file.includes('elevation') ? `${TOKENS_DIR}/${file}` : undefined,
+  )
+  .filter(file => file);
+
+elevationFiles.forEach(file => {
+  const mode = getThemeAndMode(file)[1];
+  HPEStyleDictionary.extend({
+    source: [
+      'dist/primitives.base.json', // from dist because it contains the "px"/"rem" version
+      `${TOKENS_DIR}/color - semantic.${mode}.json`, // using light mode to have a reference name available
+      file,
+    ],
+    platforms: {
+      js: {
+        transformGroup: 'js/w3c',
+        buildPath: ESM_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `elevation.${mode}.js`,
+            format: 'javascript/esm',
+            filter: 'isShadow',
+          },
+        ],
+      },
+      'js/cjs': {
+        transformGroup: 'js/w3c',
+        buildPath: CJS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `elevation.${mode}.cjs`,
+            format: 'javascript/commonJs',
+            filter: 'isShadow',
+          },
+        ],
+      },
+      css: {
+        transformGroup: 'css/w3c',
+        buildPath: CSS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `elevation.${mode}.css`,
+            filter: 'isShadow',
+            format: 'css/variables-themed',
+            options: {
+              outputReferences: true,
+              mode: mode === 'dark' ? 'dark' : undefined,
+            },
+          },
+        ],
+      },
+    },
+  }).buildAllPlatforms();
+  esm += `export { default as ${camelCase(
+    `elevation${mode}`,
+  )} } from './elevation.${`${mode || ''}`}';\n`;
+});
+
+// create ESM index.js
+fs.appendFile(`./${ESM_DIR}index.js`, esm, err => {
+  if (err) {
+    console.log(err);
+  }
+});
+
+// create CommonJS index.js
+const collections = [];
+fs.readdirSync(CJS_DIR)
+  .filter(file => file !== 'index.cjs')
+  .forEach(file => {
+    if (file.toLowerCase().endsWith('.cjs')) {
+      const filename = file.replace('.cjs', '');
+      const parts = filename.split('.');
+      let mode = parts[1];
+      // special case for base.js and components
+      if (mode === 'default' || !mode) [mode] = parts;
+      else if (parts.includes('elevation')) mode = `elevation${mode}`;
+      fs.appendFileSync(
+        `${CJS_DIR}index.cjs`,
+        `const ${mode} = require('./${file}');\n`,
+      );
+      collections.push(mode);
+    }
+  });
+
+const output = `\nmodule.exports = { ${collections.map(
+  collection => collection,
+)} };\n`;
+fs.appendFileSync(`${CJS_DIR}index.cjs`, output);
+
+console.log('✅ Style system outputs have been generated.');

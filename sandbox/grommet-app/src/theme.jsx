@@ -3,7 +3,15 @@ import {
   // keyframes
 } from 'styled-components';
 import { deepFreeze } from 'grommet/utils';
-import { dark, light, large, small, components } from 'design-tokens';
+import {
+  dark,
+  light,
+  large,
+  small,
+  components,
+  elevationdark,
+  elevationlight,
+} from 'design-tokens';
 import {
   Down,
   Blank,
@@ -260,7 +268,10 @@ const option = {
 };
 
 // abstracted so button and pinned list icon can reference
-const mediumIconOnlyPad = '9px';
+const mediumIconOnlyPad = {
+  vertical: components.hpe.button.medium.default.iconOnly.paddingY,
+  horizontal: components.hpe.button.medium.default.iconOnly.paddingX,
+};
 
 const baseSpacing = 24;
 
@@ -547,14 +558,14 @@ const buildTheme = tokens => {
         // Naming in Figma file is strong/default/weak vs. Grommet t-shirt sizing.
         // As defined here, default is currently mapping to medium.
         light: {
-          small: `0px 2px 4px ${MISSING.color};`,
-          medium: `0px 6px 12px ${MISSING.color};`,
-          large: `0px 12px 24px ${MISSING.color};`,
+          small: elevationlight.hpe.elevation.small,
+          medium: elevationlight.hpe.elevation.medium,
+          large: elevationlight.hpe.elevation.large,
         },
         dark: {
-          small: `0px 2px 4px ${MISSING.color};`,
-          medium: `0px 6px 12px ${MISSING.color};`,
-          large: `0px 12px 24px ${MISSING.color};`,
+          small: elevationdark.hpe.elevation.small,
+          medium: elevationdark.hpe.elevation.medium,
+          large: elevationdark.hpe.elevation.large,
         },
       },
       hover: {
@@ -887,7 +898,10 @@ const buildTheme = tokens => {
             horizontal: components.hpe.button.small.default.paddingX,
           },
           iconOnly: {
-            pad: '7px', // Q: confused about this value
+            pad: {
+              vertical: components.hpe.button.small.default.iconOnly.paddingY,
+              horizontal: components.hpe.button.small.default.iconOnly.paddingX,
+            },
           },
           secondary: {
             border: {
@@ -971,7 +985,10 @@ const buildTheme = tokens => {
             horizontal: components.hpe.button.large.default.paddingX,
           },
           iconOnly: {
-            pad: '13px', // Q: confused about this value
+            pad: {
+              vertical: components.hpe.button.large.default.iconOnly.paddingY,
+              horizontal: components.hpe.button.large.default.iconOnly.paddingX,
+            },
           },
           secondary: {
             border: {
@@ -1002,19 +1019,52 @@ const buildTheme = tokens => {
           },
         },
         // xlarge button did not exist in v3
-        // xlarge: {
-        //   // Q: missing tokens for xlarge?
-        //   border: {
-        //     radius: '2em',
-        //   },
-        //   pad: {
-        //     vertical: '21px',
-        //     horizontal: '30px',
-        //   },
-        //   iconOnly: {
-        //     pad: '24px',
-        //   },
-        // },
+        xlarge: {
+          border: {
+            // TO DO need way to map to global radius of full,
+            // Q: is this token correct? token value is 'full' but theme value is '2em'
+            // This change causes the button to loose its rounding
+            radius: components.hpe.button.xlarge.default.borderRadius,
+          },
+          pad: {
+            vertical: components.hpe.button.xlarge.default.paddingY,
+            horizontal: components.hpe.button.xlarge.default.paddingX,
+          },
+          iconOnly: {
+            pad: {
+              vertical: components.hpe.button.xlarge.default.iconOnly.paddingY,
+              horizontal:
+                components.hpe.button.xlarge.default.iconOnly.paddingX,
+            },
+          },
+          secondary: {
+            border: {
+              radius: components.hpe.button.xlarge.secondary.borderRadius,
+            },
+            pad: {
+              vertical: components.hpe.button.xlarge.secondary.paddingY,
+              horizontal: components.hpe.button.xlarge.default.paddingX,
+            },
+          },
+          primary: {
+            border: {
+              radius: components.hpe.button.xlarge.primary.borderRadius,
+            },
+            pad: {
+              vertical: components.hpe.button.xlarge.primary.paddingY,
+              horizontal: components.hpe.button.xlarge.default.paddingX,
+            },
+          },
+          toolbar: {
+            border: {
+              radius: components.hpe.button.xlarge.toolbar.borderRadius,
+            },
+            pad: {
+              vertical: components.hpe.button.xlarge.toolbar.paddingY,
+              horizontal: components.hpe.button.xlarge.toolbar.paddingX,
+            },
+          },
+        },
       },
       extend: ({ hasIcon, hasLabel, kind, sizeProp }) => {
         // necessary so primary label is accessible on HPE green background
@@ -1101,7 +1151,7 @@ const buildTheme = tokens => {
           width: components.hpe.checkbox.control.hover.borderWidth,
         },
         background: {
-          color: components.hpe.formField.input.container.hover.background,
+          color: components.hpe.formField.input.group.item.hover.background,
         },
         // HPE Design System guidance states that pad="none" should be applied on CheckBox
         // when its used outside of a FormField. We will apply this hover treatment in
@@ -1284,7 +1334,7 @@ const buildTheme = tokens => {
           },
         },
         units: {
-          color: MISSING.color, // Q: missing token
+          color: components.hpe.headerCell.units.enabled.textColor, 
         },
       },
       icons: {
@@ -1309,9 +1359,8 @@ const buildTheme = tokens => {
         },
       },
       primary: {
-        // Q: missing tokens
-        weight: MISSING.weight,
-        color: MISSING.color,
+        weight: components.hpe.dataCell.primary.fontWeight,
+        color: components.hpe.dataCell.primary.enabled.textColor,
       },
       resize: {
         // Q: missing tokens
@@ -1476,7 +1525,6 @@ const buildTheme = tokens => {
     },
     heading: {
       color: MISSING.color,
-      // TO DO why is "heading" in component.default.js as well?
       weight: large.hpe.heading.xlarge.fontWeight, // Q: not sure what token to point to here
       level: {
         1: {
@@ -1860,9 +1908,9 @@ const buildTheme = tokens => {
       responsive: {
         breakpoints: ['xsmall', 'small'],
       },
-      title: {
-        size: 'small',
-      },
+      // title: {
+      //   size: 'small',
+      // },
       subtitle: {
         size: 'large',
       },
@@ -1992,32 +2040,32 @@ const buildTheme = tokens => {
         // A: No, use "large" I'm not sure why paragraph is showing up in component but it shouldn't
         size: large.hpe.text.xsmall.fontSize,
         height: large.hpe.text.xsmall.lineHeight,
-        maxWidth: '25em', // TO DO
+        maxWidth: large.hpe.paragraph.xsmall.maxWidth,
       },
       small: {
         size: large.hpe.text.small.fontSize,
         height: large.hpe.text.small.lineHeight,
-        maxWidth: '25em',
+        maxWidth: large.hpe.paragraph.small.maxWidth,
       },
       medium: {
         size: large.hpe.text.medium.fontSize,
         height: large.hpe.text.medium.lineHeight,
-        maxWidth: '25em',
+        maxWidth: large.hpe.paragraph.medium.maxWidth,
       },
       large: {
         size: large.hpe.text.large.fontSize,
         height: large.hpe.text.large.lineHeight,
-        maxWidth: '25em',
+        maxWidth: large.hpe.paragraph.large.maxWidth,
       },
       xlarge: {
         size: large.hpe.text.xlarge.fontSize,
         height: large.hpe.text.xlarge.lineHeight,
-        maxWidth: '25em',
+        maxWidth: large.hpe.paragraph.xlarge.maxWidth,
       },
       xxlarge: {
         size: large.hpe.text.xxlarge.fontSize,
         height: large.hpe.text.xxlarge.lineHeight,
-        maxWidth: '25em',
+        maxWidth: large.hpe.paragraph.xxlarge.maxWidth,
       },
       // This block applies size-specific weights to paragraph to ensure
       // that as paragraph sizes get larger, the weight decreases.
@@ -2052,7 +2100,7 @@ const buildTheme = tokens => {
       gap: components.hpe.radioButton.medium.gapX,
       hover: {
         background: {
-          color: components.hpe.formField.input.container.hover.background,
+          color: components.hpe.formField.input.group.item.hover.background,
         },
         border: {
           color: components.hpe.radioButton.control.hover.borderColor,
