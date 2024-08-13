@@ -21,21 +21,21 @@
   },
   "scripts": {
     "prettier:check": "prettier --check src/",
-    "sync-tokens-to-figma": "ts-node-esm -P tsconfig.json src/scripts/sync_tokens_to_figma.ts",
-    "sync-figma-to-tokens": "ts-node-esm -P tsconfig.json src/scripts/sync_figma_to_tokens.ts",
-    "build-style-dictionary": "ts-node --esm src/scripts/build-style-dictionary.js",
+    "sync-tokens-to-figma": "tsx src/scripts/sync_tokens_to_figma.ts",
+    "sync-figma-to-tokens": "tsx src/scripts/sync_figma_to_tokens.ts",
+    "build-style-dictionary": "tsx src/scripts/build-style-dictionary.js",
     "build-token-tree": "node src/scripts/build-token-tree.js",
-    "build": "rm -rf ./dist && ts-node --esm src/scripts/build.js && yarn build-style-dictionary && yarn build-token-tree",
+    "build": "rm -rf ./dist && tsx src/scripts/build.js && yarn build-style-dictionary && yarn build-token-tree",
     "release-stable": "node src/scripts/release-stable.js",
-    "paddingY:verify": "ts-node --esm src/scripts/verify-paddingY.ts",
-    "paddingY:update": "ts-node --esm src/scripts/update-paddingY.ts",
+    "paddingY:verify": "tsx src/scripts/verify-paddingY.ts",
+    "paddingY:update": "tsx src/scripts/update-paddingY.ts",
     "test": "jest"
   },
   "dependencies": {
     "axios": "^1.6.0",
     "dotenv": "^16.3.1",
     "sd-tailwindcss-transformer": "^1.4.5",
-    "ts-node": "^10.9.1",
+    "tsx": "^4.16.2",
     "typescript": "^5.1.6"
   },
   "devDependencies": {
