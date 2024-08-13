@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Grommet, Box } from 'grommet';
-import { hpe } from 'grommet-theme-hpe';
 import { current, warm } from './theme';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';

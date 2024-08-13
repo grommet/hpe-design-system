@@ -238,7 +238,7 @@ writeFileSync(
 mkdirSync('./dist/cjs/');
 writeFileSync(
   './dist/cjs/components.default.cjs',
-  `exports.default = ${JSON.stringify(res, null, 2)}`,
+  `module.exports = ${JSON.stringify(res, null, 2)}`,
 );
 
 console.log('✅ components.default.js have been generated.');

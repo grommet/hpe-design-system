@@ -341,7 +341,7 @@ elevationFiles.forEach(file => {
         files: [
           {
             destination: `elevation.${mode}.cjs`,
-            format: 'javascript/esm',
+            format: 'javascript/commonJs',
             filter: 'isShadow',
           },
         ],

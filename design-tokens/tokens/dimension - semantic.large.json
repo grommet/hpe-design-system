@@ -7,9 +7,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
+          "scopes": ["GAP"],
           "codeSyntax": {}
         }
       }
@@ -21,9 +19,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
+          "scopes": ["GAP"],
           "codeSyntax": {}
         }
       }
@@ -35,9 +31,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
+          "scopes": ["GAP"],
           "codeSyntax": {}
         }
       }
@@ -49,9 +43,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
+          "scopes": ["GAP"],
           "codeSyntax": {}
         }
       }
@@ -63,9 +55,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
+          "scopes": ["GAP"],
           "codeSyntax": {}
         }
       }
@@ -77,9 +67,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
+          "scopes": ["GAP"],
           "codeSyntax": {}
         }
       }
@@ -91,9 +79,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
+          "scopes": ["GAP"],
           "codeSyntax": {}
         }
       }
@@ -105,9 +91,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
+          "scopes": ["GAP"],
           "codeSyntax": {}
         }
       }
@@ -121,9 +105,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
+          "scopes": ["CORNER_RADIUS"],
           "codeSyntax": {}
         }
       }
@@ -135,9 +117,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
+          "scopes": ["CORNER_RADIUS"],
           "codeSyntax": {}
         }
       }
@@ -149,9 +129,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
+          "scopes": ["CORNER_RADIUS"],
           "codeSyntax": {}
         }
       }
@@ -163,9 +141,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
+          "scopes": ["CORNER_RADIUS"],
           "codeSyntax": {}
         }
       }
@@ -177,9 +153,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
+          "scopes": ["CORNER_RADIUS"],
           "codeSyntax": {}
         }
       }
@@ -191,9 +165,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
+          "scopes": ["CORNER_RADIUS"],
           "codeSyntax": {}
         }
       }
@@ -205,9 +177,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
+          "scopes": ["CORNER_RADIUS"],
           "codeSyntax": {}
         }
       }
@@ -219,9 +189,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
+          "scopes": ["CORNER_RADIUS"],
           "codeSyntax": {}
         }
       }
@@ -233,9 +201,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
+          "scopes": ["CORNER_RADIUS"],
           "codeSyntax": {}
         }
       }
@@ -249,10 +215,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
           "codeSyntax": {}
         }
       }
@@ -264,10 +227,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
           "codeSyntax": {}
         }
       }
@@ -279,10 +239,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
           "codeSyntax": {}
         }
       }
@@ -294,10 +251,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
           "codeSyntax": {}
         }
       }
@@ -309,10 +263,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
           "codeSyntax": {}
         }
       }
@@ -324,10 +275,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
           "codeSyntax": {}
         }
       }
@@ -339,116 +287,99 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    }
-  },
-  "content": {
-    "xxsmall": {
-      "$type": "number",
-      "$value": "{base.static.content.xxsmall}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xsmall": {
-      "$type": "number",
-      "$value": "{base.static.content.xsmall}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "small": {
-      "$type": "number",
-      "$value": "{base.static.content.small}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "medium": {
-      "$type": "number",
-      "$value": "{base.static.content.medium}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "large": {
-      "$type": "number",
-      "$value": "{base.static.content.large}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xlarge": {
-      "$type": "number",
-      "$value": "{base.static.content.xlarge}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "xxlarge": {
-      "$type": "number",
-      "$value": "{base.static.content.xxlarge}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
+          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
           "codeSyntax": {}
         }
       }
     }
   },
   "size": {
+    "content": {
+      "xxsmall": {
+        "$type": "number",
+        "$value": "{base.static.content.xxsmall}",
+        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "xsmall": {
+        "$type": "number",
+        "$value": "{base.static.content.xsmall}",
+        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "small": {
+        "$type": "number",
+        "$value": "{base.static.content.small}",
+        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "medium": {
+        "$type": "number",
+        "$value": "{base.static.content.medium}",
+        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "large": {
+        "$type": "number",
+        "$value": "{base.static.content.large}",
+        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "xlarge": {
+        "$type": "number",
+        "$value": "{base.static.content.xlarge}",
+        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "xxlarge": {
+        "$type": "number",
+        "$value": "{base.static.content.xxlarge}",
+        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["WIDTH_HEIGHT"],
+            "codeSyntax": {}
+          }
+        }
+      }
+    },
     "icon": {
       "xsmall": {
         "$type": "number",
@@ -457,9 +388,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": [
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["WIDTH_HEIGHT"],
             "codeSyntax": {}
           }
         }
@@ -471,9 +400,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": [
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["WIDTH_HEIGHT"],
             "codeSyntax": {}
           }
         }
@@ -485,9 +412,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": [
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["WIDTH_HEIGHT"],
             "codeSyntax": {}
           }
         }
@@ -499,9 +424,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": [
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["WIDTH_HEIGHT"],
             "codeSyntax": {}
           }
         }
@@ -513,9 +436,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": [
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["WIDTH_HEIGHT"],
             "codeSyntax": {}
           }
         }
@@ -527,9 +448,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": [
-              "WIDTH_HEIGHT"
-            ],
+            "scopes": ["WIDTH_HEIGHT"],
             "codeSyntax": {}
           }
         }
