@@ -137,9 +137,9 @@ export default {
             }
           }
         },
-        "ok": {
+        "unknown": {
           "$type": "color",
-          "$value": "{base.color.green.500-Opacity30}",
+          "$value": "{base.color.grey.1200}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -152,9 +152,9 @@ export default {
             }
           }
         },
-        "unknown": {
+        "ok": {
           "$type": "color",
-          "$value": "{base.color.grey.1200}",
+          "$value": "{base.color.green.500-Opacity30}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1022,6 +1022,20 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "{base.color.turquoise.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR"
           ],
           "codeSyntax": {}
         }

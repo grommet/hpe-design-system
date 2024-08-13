@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Aug 2024 22:46:36 GMT
+ * Generated on Tue, 13 Aug 2024 23:20:31 GMT
  */
 
 :root {
@@ -8,6 +8,7 @@
   --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity24);
   --hpe-color-shadow-default: var(--hpe-base-color-black-opacity12);
   --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
+  --hpe-color-focus: var(--hpe-base-color-turquoise-400);
   --hpe-color-data-vis-categorical-70-weak: var(--hpe-base-color-blue-400-opacity12);
   --hpe-color-data-vis-categorical-60-weak: var(--hpe-base-color-purple-500-opacity12);
   --hpe-color-data-vis-categorical-50-weak: var(--hpe-base-color-yellow-300-opacity12);
@@ -60,8 +61,8 @@
   --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
   --hpe-color-background-status-warning: var(--hpe-base-color-orange-400-opacity24);
   --hpe-color-background-status-critical: var(--hpe-base-color-red-500-opacity24);
-  --hpe-color-background-status-unknown: var(--hpe-base-color-grey-50);
   --hpe-color-background-status-ok: var(--hpe-base-color-green-400-opacity24);
+  --hpe-color-background-status-unknown: var(--hpe-base-color-grey-50);
   --hpe-color-background-status-info: var(--hpe-base-color-blue-400-opacity24);
   --hpe-color-background-contrast: var(--hpe-base-color-black-opacity4);
   --hpe-color-background-floating: var(--hpe-base-color-white-100); /* Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons. */

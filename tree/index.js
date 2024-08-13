@@ -287,9 +287,9 @@ export default {
         }
       }
     },
-    "color.background.status.ok": {
+    "color.background.status.unknown": {
       "$type": "color",
-      "$value": "{base.color.green.500-Opacity30}",
+      "$value": "{base.color.grey.1200}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -302,9 +302,9 @@ export default {
         }
       }
     },
-    "color.background.status.unknown": {
+    "color.background.status.ok": {
       "$type": "color",
-      "$value": "{base.color.grey.1200}",
+      "$value": "{base.color.green.500-Opacity30}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1741,6 +1741,20 @@ export default {
         }
       ]
     },
+    "color.focus": {
+      "$type": "color",
+      "$value": "{base.color.turquoise.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "color.shadow.weak": {
       "$type": "color",
       "$value": "{base.color.black.opacity12}",
@@ -2148,9 +2162,9 @@ export default {
         }
       }
     },
-    "color.background.status.ok": {
+    "color.background.status.unknown": {
       "$type": "color",
-      "$value": "{base.color.green.400-Opacity24}",
+      "$value": "{base.color.grey.50}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2163,9 +2177,9 @@ export default {
         }
       }
     },
-    "color.background.status.unknown": {
+    "color.background.status.ok": {
       "$type": "color",
-      "$value": "{base.color.grey.50}",
+      "$value": "{base.color.green.400-Opacity24}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3601,6 +3615,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "color.focus": {
+      "$type": "color",
+      "$value": "{base.color.turquoise.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "color.shadow.weak": {
       "$type": "color",
@@ -17770,7 +17798,17 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "color.focus",
+          "mode": "dark"
+        },
+        {
+          "name": "color.focus",
+          "mode": "light"
+        }
+      ]
     },
     "base.color.turquoise.700": {
       "$type": "color",
