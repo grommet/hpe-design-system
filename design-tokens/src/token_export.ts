@@ -45,6 +45,8 @@ export function tokenFilesFromLocalVariables(
     localVariablesResponse.meta.variableCollections;
   const localVariables = localVariablesResponse.meta.variables;
   const shadows: { [key: string]: any } = {};
+  shadows.elevation = {};
+  const root = shadows.elevation; // TO DO this hard codes the concept of "elevation" in shadow naming
 
   Object.values(localVariables).forEach(variable => {
     // Skip remote variables because we only want to generate tokens for local variables
@@ -64,10 +66,10 @@ export function tokenFilesFromLocalVariables(
 
       if (variable.name.includes('elevation')) {
         const parts = variable.name.split('/');
-        const shadow = parts.slice(0, 2).join('/');
+        const shadow = parts.slice(1, 2).join('');
         const property = parts[parts.length - 1];
-        if (!(shadow in shadows))
-          shadows[shadow] = {
+        if (!(shadow in root))
+          root[shadow] = {
             $type: 'shadow',
             $value: [
               {
@@ -93,7 +95,7 @@ export function tokenFilesFromLocalVariables(
             parseInt(parts[parts.length - 3], 10) >= 0
               ? parseInt(parts[parts.length - 3], 10)
               : 0;
-          const partialShadow = shadows[shadow].$value[index];
+          const partialShadow = root[shadow].$value[index];
           partialShadow[property] = tokenValueFromVariable(
             variable,
             mode.modeId,
