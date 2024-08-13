@@ -114,7 +114,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{button.default.enabled.fontWeight}",
+          "$value": "{button.primary.enabled.fontWeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -176,7 +176,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{button.default.enabled.fontWeight}",
+          "$value": "{button.primary.enabled.fontWeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -239,7 +239,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{button.default.enabled.fontWeight}",
+            "$value": "{button.primary.enabled.fontWeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1094,18 +1094,6 @@
             }
           }
         },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.bold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
-              "codeSyntax": {}
-            }
-          }
-        },
         "gapX": {
           "$type": "number",
           "$value": "{button.small.default.gapX}",
@@ -1226,18 +1214,6 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["LINE_HEIGHT"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.bold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
               "codeSyntax": {}
             }
           }
@@ -1366,18 +1342,6 @@
             }
           }
         },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.bold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
-              "codeSyntax": {}
-            }
-          }
-        },
         "gapX": {
           "$type": "number",
           "$value": "{component.xsmall.textToIconX}",
@@ -1502,18 +1466,6 @@
             }
           }
         },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.semibold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
-              "codeSyntax": {}
-            }
-          }
-        },
         "gapX": {
           "$type": "number",
           "$value": "{component.xsmall.textToIconX}",
@@ -1624,18 +1576,6 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["FONT_SIZE"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.bold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
               "codeSyntax": {}
             }
           }
@@ -1776,18 +1716,6 @@
             }
           }
         },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{button.medium.default.fontWeight}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
-              "codeSyntax": {}
-            }
-          }
-        },
         "gapX": {
           "$type": "number",
           "$value": "{button.medium.default.gapX}",
@@ -1912,18 +1840,6 @@
             }
           }
         },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{button.medium.default.fontWeight}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
-              "codeSyntax": {}
-            }
-          }
-        },
         "gapX": {
           "$type": "number",
           "$value": "{button.medium.default.gapX}",
@@ -2044,18 +1960,6 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["LINE_HEIGHT"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.semibold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
               "codeSyntax": {}
             }
           }
@@ -2186,18 +2090,6 @@
             }
           }
         },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.bold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
-              "codeSyntax": {}
-            }
-          }
-        },
         "gapX": {
           "$type": "number",
           "$value": "{component.large.textToIconX}",
@@ -2318,18 +2210,6 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["LINE_HEIGHT"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.bold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
               "codeSyntax": {}
             }
           }
@@ -2458,18 +2338,6 @@
             }
           }
         },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.bold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
-              "codeSyntax": {}
-            }
-          }
-        },
         "gapX": {
           "$type": "number",
           "$value": "{button.large.default.gapX}",
@@ -2590,18 +2458,6 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["LINE_HEIGHT"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.semibold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
               "codeSyntax": {}
             }
           }
@@ -2732,18 +2588,6 @@
             }
           }
         },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.bold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
-              "codeSyntax": {}
-            }
-          }
-        },
         "gapX": {
           "$type": "number",
           "$value": "{component.xlarge.textToIconX}",
@@ -2864,18 +2708,6 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["LINE_HEIGHT"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.bold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
               "codeSyntax": {}
             }
           }
@@ -3004,18 +2836,6 @@
             }
           }
         },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.bold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
-              "codeSyntax": {}
-            }
-          }
-        },
         "gapX": {
           "$type": "number",
           "$value": "{button.xlarge.default.gapX}",
@@ -3136,18 +2956,6 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["LINE_HEIGHT"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "fontWeight": {
-          "$type": "number",
-          "$value": "{base.fontWeight.semibold}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_STYLE"],
               "codeSyntax": {}
             }
           }
