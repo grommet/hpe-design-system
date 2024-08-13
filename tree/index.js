@@ -3846,7 +3846,7 @@ export default {
     },
     "button.primary.disabled.fontWeight": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.primary.enabled.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3919,7 +3919,7 @@ export default {
     },
     "button.primary.hover.fontWeight": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.primary.enabled.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3992,7 +3992,7 @@ export default {
     },
     "button.primary.selected.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.primary.enabled.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4979,20 +4979,6 @@ export default {
         }
       }
     },
-    "button.small.primary.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.bold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.small.primary.gapX": {
       "$type": "number",
       "$value": "{button.small.default.gapX}",
@@ -5134,20 +5120,6 @@ export default {
         }
       }
     },
-    "button.small.secondary.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.bold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.small.secondary.gapX": {
       "$type": "number",
       "$value": "{button.small.default.gapX}",
@@ -5263,7 +5235,7 @@ export default {
     },
     "button.small.default.fontSize": {
       "$type": "number",
-      "$value": "{text.small.fontSize}",
+      "$value": "{component.small.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5277,27 +5249,13 @@ export default {
     },
     "button.small.default.lineHeight": {
       "$type": "number",
-      "$value": "{text.small.lineHeight}",
+      "$value": "{component.small.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.small.default.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.bold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
           ],
           "codeSyntax": {}
         }
@@ -5444,20 +5402,6 @@ export default {
         }
       }
     },
-    "button.small.toolbar.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.small.toolbar.gapX": {
       "$type": "number",
       "$value": "{component.xsmall.textToIconX}",
@@ -5585,23 +5529,9 @@ export default {
         }
       }
     },
-    "button.medium.default.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.bold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.medium.default.lineHeight": {
       "$type": "number",
-      "$value": "{text.medium.lineHeight}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5754,20 +5684,6 @@ export default {
         }
       }
     },
-    "button.medium.primary.fontWeight": {
-      "$type": "number",
-      "$value": "{button.medium.default.fontWeight}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.medium.primary.gapX": {
       "$type": "number",
       "$value": "{button.medium.default.gapX}",
@@ -5904,20 +5820,6 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.medium.secondary.fontWeight": {
-      "$type": "number",
-      "$value": "{button.medium.default.fontWeight}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
           ],
           "codeSyntax": {}
         }
@@ -6064,20 +5966,6 @@ export default {
         }
       }
     },
-    "button.medium.toolbar.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.medium.toolbar.gapX": {
       "$type": "number",
       "$value": "{button.medium.default.gapX}",
@@ -6193,7 +6081,7 @@ export default {
     },
     "button.large.default.fontSize": {
       "$type": "number",
-      "$value": "{text.large.fontSize}",
+      "$value": "{component.large.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6207,27 +6095,13 @@ export default {
     },
     "button.large.default.lineHeight": {
       "$type": "number",
-      "$value": "{text.large.lineHeight}",
+      "$value": "{component.large.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.large.default.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.bold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
           ],
           "codeSyntax": {}
         }
@@ -6374,20 +6248,6 @@ export default {
         }
       }
     },
-    "button.large.primary.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.bold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.large.primary.gapX": {
       "$type": "number",
       "$value": "{button.large.default.gapX}",
@@ -6524,20 +6384,6 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.large.secondary.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.bold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
           ],
           "codeSyntax": {}
         }
@@ -6684,20 +6530,6 @@ export default {
         }
       }
     },
-    "button.large.toolbar.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.large.toolbar.gapX": {
       "$type": "number",
       "$value": "{button.large.default.gapX}",
@@ -6813,7 +6645,7 @@ export default {
     },
     "button.xlarge.default.fontSize": {
       "$type": "number",
-      "$value": "{text.xlarge.fontSize}",
+      "$value": "{component.xlarge.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6827,27 +6659,13 @@ export default {
     },
     "button.xlarge.default.lineHeight": {
       "$type": "number",
-      "$value": "{text.xlarge.lineHeight}",
+      "$value": "{component.xlarge.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.xlarge.default.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.bold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
           ],
           "codeSyntax": {}
         }
@@ -6994,20 +6812,6 @@ export default {
         }
       }
     },
-    "button.xlarge.primary.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.bold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.xlarge.primary.gapX": {
       "$type": "number",
       "$value": "{button.xlarge.default.gapX}",
@@ -7149,20 +6953,6 @@ export default {
         }
       }
     },
-    "button.xlarge.secondary.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.bold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "button.xlarge.secondary.gapX": {
       "$type": "number",
       "$value": "{button.xlarge.default.gapX}",
@@ -7299,20 +7089,6 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.xlarge.toolbar.fontWeight": {
-      "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
           ],
           "codeSyntax": {}
         }
@@ -7736,7 +7512,7 @@ export default {
     },
     "menu.medium.item.fontSize": {
       "$type": "number",
-      "$value": "{text.medium.fontSize}",
+      "$value": "{button.medium.default.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7750,7 +7526,7 @@ export default {
     },
     "menu.medium.item.lineHeight": {
       "$type": "number",
-      "$value": "{text.medium.lineHeight}",
+      "$value": "{button.medium.default.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8374,7 +8150,7 @@ export default {
     },
     "select.medium.option.fontSize": {
       "$type": "number",
-      "$value": "{base.fontSize.300}",
+      "$value": "{button.medium.default.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8388,7 +8164,7 @@ export default {
     },
     "select.medium.option.lineHeight": {
       "$type": "number",
-      "$value": "{base.lineHeight.200}",
+      "$value": "{button.medium.default.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9050,7 +8826,7 @@ export default {
     },
     "checkbox.medium.label.fontSize": {
       "$type": "number",
-      "$value": "{text.medium.fontSize}",
+      "$value": "{component.medium.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9064,7 +8840,7 @@ export default {
     },
     "checkbox.medium.label.lineHeight": {
       "$type": "number",
-      "$value": "{text.medium.lineHeight}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9092,7 +8868,7 @@ export default {
     },
     "checkbox.medium.control.height": {
       "$type": "number",
-      "$value": "{base.dimension.600}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9106,7 +8882,7 @@ export default {
     },
     "checkbox.medium.control.width": {
       "$type": "number",
-      "$value": "{base.dimension.600}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9622,7 +9398,7 @@ export default {
     },
     "switch.medium.label.fontSize": {
       "$type": "number",
-      "$value": "{text.medium.fontSize}",
+      "$value": "{component.medium.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9636,7 +9412,7 @@ export default {
     },
     "switch.medium.label.lineHeight": {
       "$type": "number",
-      "$value": "{text.medium.lineHeight}",
+      "$value": "{component.medium.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9664,7 +9440,7 @@ export default {
     },
     "switch.medium.control.track.height": {
       "$type": "number",
-      "$value": "{base.dimension.600}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9721,7 +9497,7 @@ export default {
     },
     "switch.medium.control.handle.height": {
       "$type": "number",
-      "$value": "{base.dimension.600}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9735,7 +9511,7 @@ export default {
     },
     "switch.medium.control.handle.width": {
       "$type": "number",
-      "$value": "{base.dimension.600}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9792,7 +9568,7 @@ export default {
     },
     "dataCell.fontSize": {
       "$type": "number",
-      "$value": "{text.medium.fontSize}",
+      "$value": "{component.medium.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9806,7 +9582,7 @@ export default {
     },
     "dataCell.lineHeight": {
       "$type": "number",
-      "$value": "{text.medium.lineHeight}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10871,7 +10647,7 @@ export default {
     },
     "formField.medium.placeholderText.fontSize": {
       "$type": "number",
-      "$value": "{text.medium.fontSize}",
+      "$value": "{component.medium.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10885,7 +10661,7 @@ export default {
     },
     "formField.medium.placeholderText.lineHeight": {
       "$type": "number",
-      "$value": "{text.medium.lineHeight}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11039,7 +10815,7 @@ export default {
     },
     "formField.medium.valueText.fontSize": {
       "$type": "number",
-      "$value": "{text.medium.fontSize}",
+      "$value": "{component.medium.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11053,7 +10829,7 @@ export default {
     },
     "formField.medium.valueText.lineHeight": {
       "$type": "number",
-      "$value": "{text.xsmall.lineHeight}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12405,7 +12181,7 @@ export default {
     },
     "radioButton.medium.label.fontSize": {
       "$type": "number",
-      "$value": "{text.medium.fontSize}",
+      "$value": "{component.medium.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12419,7 +12195,7 @@ export default {
     },
     "radioButton.medium.label.lineHeight": {
       "$type": "number",
-      "$value": "{text.medium.lineHeight}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12447,7 +12223,7 @@ export default {
     },
     "radioButton.medium.control.height": {
       "$type": "number",
-      "$value": "{base.dimension.600}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12461,7 +12237,7 @@ export default {
     },
     "radioButton.medium.control.width": {
       "$type": "number",
-      "$value": "{base.dimension.600}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12710,7 +12486,7 @@ export default {
     },
     "anchor.small.default.fontSize": {
       "$type": "number",
-      "$value": "{text.small.fontSize}",
+      "$value": "{component.small.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12724,7 +12500,7 @@ export default {
     },
     "anchor.small.default.lineHeight": {
       "$type": "number",
-      "$value": "{text.small.lineHeight}",
+      "$value": "{component.small.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12752,7 +12528,7 @@ export default {
     },
     "anchor.small.emphasized.fontSize": {
       "$type": "number",
-      "$value": "{text.small.fontSize}",
+      "$value": "{component.small.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12766,7 +12542,7 @@ export default {
     },
     "anchor.small.emphasized.lineHeight": {
       "$type": "number",
-      "$value": "{text.small.lineHeight}",
+      "$value": "{component.small.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12794,7 +12570,7 @@ export default {
     },
     "anchor.medium.default.fontSize": {
       "$type": "number",
-      "$value": "{text.medium.fontSize}",
+      "$value": "{component.medium.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12808,7 +12584,7 @@ export default {
     },
     "anchor.medium.default.lineHeight": {
       "$type": "number",
-      "$value": "{text.medium.lineHeight}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12836,7 +12612,7 @@ export default {
     },
     "anchor.medium.emphasized.fontSize": {
       "$type": "number",
-      "$value": "{text.medium.fontSize}",
+      "$value": "{component.medium.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12850,7 +12626,7 @@ export default {
     },
     "anchor.medium.emphasized.lineHeight": {
       "$type": "number",
-      "$value": "{text.medium.lineHeight}",
+      "$value": "{component.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12878,7 +12654,7 @@ export default {
     },
     "anchor.large.default.fontSize": {
       "$type": "number",
-      "$value": "{text.large.fontSize}",
+      "$value": "{component.large.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12892,7 +12668,7 @@ export default {
     },
     "anchor.large.default.lineHeight": {
       "$type": "number",
-      "$value": "{text.large.lineHeight}",
+      "$value": "{component.large.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12920,7 +12696,7 @@ export default {
     },
     "anchor.large.emphasized.fontSize": {
       "$type": "number",
-      "$value": "{text.large.fontSize}",
+      "$value": "{component.large.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12934,7 +12710,7 @@ export default {
     },
     "anchor.large.emphasized.lineHeight": {
       "$type": "number",
-      "$value": "{text.large.lineHeight}",
+      "$value": "{component.large.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12962,7 +12738,7 @@ export default {
     },
     "anchor.xlarge.default.fontSize": {
       "$type": "number",
-      "$value": "{text.xlarge.fontSize}",
+      "$value": "{component.xlarge.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12976,7 +12752,7 @@ export default {
     },
     "anchor.xlarge.default.lineHeight": {
       "$type": "number",
-      "$value": "{text.xlarge.lineHeight}",
+      "$value": "{component.xlarge.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13004,7 +12780,7 @@ export default {
     },
     "anchor.xlarge.emphasized.fontSize": {
       "$type": "number",
-      "$value": "{text.xlarge.fontSize}",
+      "$value": "{component.xlarge.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13018,7 +12794,7 @@ export default {
     },
     "anchor.xlarge.emphasized.lineHeight": {
       "$type": "number",
-      "$value": "{text.xlarge.lineHeight}",
+      "$value": "{component.xlarge.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14172,10 +13948,6 @@ export default {
         {
           "name": "formField.medium.errorText.lineHeight",
           "mode": "default"
-        },
-        {
-          "name": "formField.medium.valueText.lineHeight",
-          "mode": "default"
         }
       ]
     },
@@ -14194,23 +13966,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.small.default.fontSize",
-          "mode": "default"
-        },
-        {
           "name": "button.small.toolbar.fontSize",
           "mode": "default"
         },
         {
           "name": "component.small.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.small.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.small.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -14230,23 +13990,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.small.default.lineHeight",
-          "mode": "default"
-        },
-        {
           "name": "button.small.toolbar.lineHeight",
           "mode": "default"
         },
         {
           "name": "component.small.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.small.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.small.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -14266,43 +14014,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "menu.medium.item.fontSize",
-          "mode": "default"
-        },
-        {
           "name": "component.medium.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.medium.label.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.label.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "dataCell.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.placeholderText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.valueText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.label.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.medium.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.medium.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -14322,43 +14034,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.medium.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "menu.medium.item.lineHeight",
-          "mode": "default"
-        },
-        {
           "name": "component.medium.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.medium.label.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.label.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "dataCell.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.placeholderText.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.label.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.medium.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.medium.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -14378,19 +14054,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.large.default.fontSize",
-          "mode": "default"
-        },
-        {
           "name": "component.large.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.large.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.large.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -14410,19 +14074,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.large.default.lineHeight",
-          "mode": "default"
-        },
-        {
           "name": "component.large.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.large.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.large.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -14439,21 +14091,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "button.xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "text.xlarge.lineHeight": {
       "$type": "number",
@@ -14470,23 +14108,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
           "name": "component.xlarge.fontSize",
           "mode": "default"
         },
         {
           "name": "component.xlarge.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -15943,10 +15569,6 @@ export default {
         {
           "name": "formField.medium.errorText.lineHeight",
           "mode": "default"
-        },
-        {
-          "name": "formField.medium.valueText.lineHeight",
-          "mode": "default"
         }
       ]
     },
@@ -15965,23 +15587,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.small.default.fontSize",
-          "mode": "default"
-        },
-        {
           "name": "button.small.toolbar.fontSize",
           "mode": "default"
         },
         {
           "name": "component.small.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.small.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.small.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -16001,23 +15611,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.small.default.lineHeight",
-          "mode": "default"
-        },
-        {
           "name": "button.small.toolbar.lineHeight",
           "mode": "default"
         },
         {
           "name": "component.small.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.small.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.small.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -16037,43 +15635,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "menu.medium.item.fontSize",
-          "mode": "default"
-        },
-        {
           "name": "component.medium.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.medium.label.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.label.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "dataCell.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.placeholderText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.valueText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.label.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.medium.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.medium.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -16093,43 +15655,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.medium.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "menu.medium.item.lineHeight",
-          "mode": "default"
-        },
-        {
           "name": "component.medium.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.medium.label.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.label.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "dataCell.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.placeholderText.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.label.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.medium.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.medium.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -16149,19 +15675,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.large.default.fontSize",
-          "mode": "default"
-        },
-        {
           "name": "component.large.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.large.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.large.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -16181,19 +15695,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.large.default.lineHeight",
-          "mode": "default"
-        },
-        {
           "name": "component.large.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.large.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.large.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -16210,21 +15712,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "button.xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "text.xlarge.lineHeight": {
       "$type": "number",
@@ -16241,23 +15729,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "button.xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
           "name": "component.xlarge.fontSize",
           "mode": "default"
         },
         {
           "name": "component.xlarge.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
