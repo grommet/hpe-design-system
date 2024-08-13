@@ -1,0 +1,43 @@
+name: Update design-tokens-v3-stable
+on:
+  push:
+    branches:
+      - design-tokens-v3
+
+jobs:
+  update-design-tokens-v3-stable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.18.0'
+
+      - name: Set NPM version
+        run: npm install -g npm@9.5.1
+
+      - name: Clone repo
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: yarn install
+        working-directory: design-tokens
+
+      - name: Build
+        run: yarn build
+        working-directory: design-tokens
+      - name: Update design-tokens-v3-stable
+        run: |
+          git config --global user.name "Grommet Community Bot"
+          git config --global user.email "grommet@hpe.com"
+          yarn release-stable:v3
+        working-directory: design-tokens
+        env:
+          GH_TOKEN: ${{ secrets.GH_ACTION_ACCESS_TOKEN }}
+      # If stable is successfully update, push the same updates to Figma
+      - name: Sync tokens to Figma file
+        run: yarn sync-tokens-to-figma
+        working-directory: design-tokens
+        env:
+          FILE_KEY: ${{ secrets.GH_ACTION_V3_FIGMA_FILE_KEY }}
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_ACTION_VARIABLES_SYNC_FIGMA_TOKEN }}
