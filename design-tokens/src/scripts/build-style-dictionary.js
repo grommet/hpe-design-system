@@ -67,6 +67,61 @@ HPEStyleDictionary.extend({
 
 esm += "export { default as base } from './base';\n";
 
+HPEStyleDictionary.extend({
+  source: [`${TOKENS_DIR}/global.default.json`],
+  platforms: {
+    js: {
+      transformGroup: 'js/w3c',
+      buildPath: ESM_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'global.js',
+          format: 'javascript/esm',
+        },
+      ],
+    },
+    'js/cjs': {
+      transformGroup: 'js/w3c',
+      buildPath: CJS_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'global.cjs',
+          format: 'javascript/commonJs',
+        },
+      ],
+    },
+    json: {
+      transformGroup: 'js/w3c',
+      buildPath: JSON_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'global.json',
+          format: 'json/nested',
+        },
+      ],
+    },
+    css: {
+      transformGroup: 'css/w3c',
+      buildPath: CSS_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'global.css',
+          format: 'css/variables',
+          options: {
+            outputReferences: true,
+          },
+        },
+      ],
+    },
+  },
+}).buildAllPlatforms();
+
+esm += "export { default as global } from './global';\n";
+
 const colorModeFiles = fs
   .readdirSync(TOKENS_DIR)
   .map(file => (file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined))
