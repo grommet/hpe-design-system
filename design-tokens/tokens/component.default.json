@@ -7674,7 +7674,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{base.fontWeight.regular}",
+          "$value": "{base.fontWeight.medium}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -7712,7 +7712,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{base.fontWeight.regular}",
+          "$value": "{base.fontWeight.medium}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -7750,7 +7750,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{base.fontWeight.regular}",
+          "$value": "{base.fontWeight.medium}",
           "$description": "",
           "$extensions": {
             "com.figma": {

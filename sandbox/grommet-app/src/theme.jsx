@@ -8,6 +8,7 @@ import {
   light,
   large,
   small,
+  global,
   components,
   elevationdark,
   elevationlight,
@@ -494,7 +495,7 @@ const buildTheme = tokens => {
         `,
       },
       font: {
-        family: "'Metric', Arial, sans-serif", // TO DO need fontStack token
+        family: global.hpe.fontStack.primary,
         face: `
           @font-face {
             font-family: "Metric";
@@ -1512,8 +1513,6 @@ const buildTheme = tokens => {
       margin: {
         bottom: 'none', // TO DO missing token
       },
-      // Q: confused if I should use hpe.formField.medium.input.container.borderRadius
-      // or hpe.formField.medium.input.group.container.borderRadius
       round: components.hpe.formField.medium.input.container.borderRadius,
       // TO DO no tokens
       survey: {
@@ -1525,7 +1524,7 @@ const buildTheme = tokens => {
       },
     },
     heading: {
-      color: MISSING.color,
+      color: 'heading',
       weight: large.hpe.heading.xlarge.fontWeight, // Q: not sure what token to point to here
       level: {
         1: {
