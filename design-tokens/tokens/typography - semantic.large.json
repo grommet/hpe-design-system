@@ -341,7 +341,7 @@
     "medium": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.100}",
+        "$value": "{base.fontSize.300}",
         "$description": "",
         "$extensions": {
           "com.figma": {
