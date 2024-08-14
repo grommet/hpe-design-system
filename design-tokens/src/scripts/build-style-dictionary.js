@@ -13,7 +13,7 @@ const PREFIX = 'hpe';
 let esm = '';
 HPEStyleDictionary.extend({
   // from dist because it contains the "px" version
-  source: ['dist/primitives.base.json'],
+  source: [`${TOKENS_DIR}/primitives.base.json`],
   platforms: {
     js: {
       transformGroup: 'js/w3c',
@@ -127,7 +127,7 @@ const colorModeFiles = fs
   .map(file => (file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined))
   .filter(file => file);
 
-const primitives = fs.readFileSync('dist/primitives.base.json');
+const primitives = fs.readFileSync(`${TOKENS_DIR}/primitives.base.json`);
 const rawPrimitives = JSON.parse(primitives);
 const primitiveColorNames = Object.keys(rawPrimitives.base.color);
 
@@ -137,10 +137,9 @@ colorModeFiles.forEach(file => {
   const [theme, mode] = getThemeAndMode(file);
   HPEStyleDictionary.extend({
     source: [
-      'dist/primitives.base.json',
+      `${TOKENS_DIR}/primitives.base.json`,
       file,
-      // `${TOKENS_DIR}/elevation.${mode}.json`,
-      `${TOKENS_DIR}/gradient.${mode}.json`,
+      // `${TOKENS_DIR}/gradient.${mode}.json`, // TO DO add gradients
     ],
     platforms: {
       js: {
@@ -251,8 +250,8 @@ dimensionFiles.forEach(file => {
   const mode = res[1];
   HPEStyleDictionary.extend({
     source: [
-      'dist/primitives.base.json',
-      `dist/typography.${mode}.json`, // dist folder has "rem"
+      `${TOKENS_DIR}/primitives.base.json`,
+      `${TOKENS_DIR}/typography - semantic.${mode}.json`,
       file,
     ],
     platforms: {
@@ -335,11 +334,10 @@ const exclude = [
 
 HPEStyleDictionary.extend({
   source: [
-    // from dist because it contains the "px"/"rem" version
-    'dist/primitives.base.json',
+    `${TOKENS_DIR}/primitives.base.json`,
     `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
     `${TOKENS_DIR}/dimension - semantic.large.json`, // using large mode to have a reference name available
-    'dist/typography.large.json', // using large mode to have a reference name available
+    `${TOKENS_DIR}/typography - semantic.large.json`, // using large mode to have a reference name available
     'dist/component.default.json',
   ],
   platforms: {
@@ -372,7 +370,7 @@ elevationFiles.forEach(file => {
   const mode = getThemeAndMode(file)[1];
   HPEStyleDictionary.extend({
     source: [
-      'dist/primitives.base.json', // from dist because it contains the "px"/"rem" version
+      `${TOKENS_DIR}/primitives.base.json`,
       `${TOKENS_DIR}/color - semantic.${mode}.json`, // using light mode to have a reference name available
       file,
     ],

@@ -91,6 +91,7 @@ const dimensions = {
         xxlarge: small.hpe.size.content.xxlarge,
         full: '100%',
       },
+      value: global.hpe.breakpoint.xsmall,
     },
     small: {
       borderSize: {
@@ -122,7 +123,15 @@ const dimensions = {
         xxlarge: small.hpe.size.content.xxlarge,
         full: '100%',
       },
+      value: global.hpe.breakpoint.small,
     },
+    medium: {
+      value: global.hpe.breakpoint.medium,
+    },
+    large: {
+      value: global.hpe.breakpoint.large,
+    },
+    xlarge: {},
   },
 };
 
