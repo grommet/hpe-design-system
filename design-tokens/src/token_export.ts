@@ -3,6 +3,8 @@ import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';
 import { Token, TokensFile } from './token_types.js';
 
 function tokenTypeFromVariable(variable: Variable) {
+  if (variable.resolvedType === 'STRING' && variable.name.includes('fontStack'))
+    return 'fontFamily';
   switch (variable.resolvedType) {
     case 'BOOLEAN':
       return 'boolean';
