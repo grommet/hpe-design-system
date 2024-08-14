@@ -1244,6 +1244,10 @@ export default {
           "gapX": "6px"
         }
       }
+    },
+    "fontStack": {
+      "primary": "'Metric', Arial, sans-serif",
+      "code": "'Fira Mono', ui-monospace, monospace"
     }
   }
 }

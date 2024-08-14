@@ -7650,7 +7650,17 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "button.small.toolbar.gapX",
+          "mode": "default"
+        }
+      ]
     },
     "component.xsmall.fontSize": {
       "$type": "number",
@@ -7750,7 +7760,21 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.small.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.small.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
     },
     "component.small.lineHeight": {
       "$type": "number",
@@ -7764,7 +7788,21 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.small.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.small.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
     },
     "component.small.minHeight": {
       "$type": "number",
@@ -7778,7 +7816,17 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.default.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "button.small.toolbar.minHeight",
+          "mode": "default"
+        }
+      ]
     },
     "component.small.textToElementX": {
       "$type": "number",
@@ -7806,7 +7854,17 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.small.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.small.emphasized.gapX",
+          "mode": "default"
+        }
+      ]
     },
     "component.medium.fontSize": {
       "$type": "number",
@@ -7820,7 +7878,45 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.medium.label.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.label.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.label.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "dataCell.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.placeholderText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.valueText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.label.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
     },
     "component.medium.lineHeight": {
       "$type": "number",
@@ -7834,7 +7930,69 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.medium.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.medium.label.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.medium.control.height",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.medium.control.width",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.control.track.height",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.control.handle.height",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.control.handle.width",
+          "mode": "default"
+        },
+        {
+          "name": "dataCell.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.placeholderText.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.valueText.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.label.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.control.height",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.control.width",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
     },
     "component.medium.minHeight": {
       "$type": "number",
@@ -7848,7 +8006,29 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.medium.default.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "select.medium.option.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.input.group.item.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.input.container.minHeight",
+          "mode": "default"
+        }
+      ]
     },
     "component.medium.textToElementX": {
       "$type": "number",
@@ -7876,7 +8056,29 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.medium.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "menu.medium.item.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.emphasized.gapX",
+          "mode": "default"
+        }
+      ]
     },
     "component.medium.borderWidth": {
       "$type": "number",
@@ -7905,7 +8107,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "formField.medium.input.group.item.paddingY",
+          "mode": "default"
+        }
+      ]
     },
     "component.large.fontSize": {
       "$type": "number",
@@ -7919,7 +8127,21 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.large.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
     },
     "component.large.lineHeight": {
       "$type": "number",
@@ -7933,7 +8155,21 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.large.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
     },
     "component.large.minHeight": {
       "$type": "number",
@@ -7947,7 +8183,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.large.default.minHeight",
+          "mode": "default"
+        }
+      ]
     },
     "component.large.textToElementX": {
       "$type": "number",
@@ -7975,7 +8217,21 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.large.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.emphasized.gapX",
+          "mode": "default"
+        }
+      ]
     },
     "component.large.borderWidth": {
       "$type": "number",
@@ -8018,7 +8274,21 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
     },
     "component.xlarge.lineHeight": {
       "$type": "number",
@@ -8032,7 +8302,21 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
     },
     "component.xlarge.minHeight": {
       "$type": "number",
@@ -8046,7 +8330,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.xlarge.default.minHeight",
+          "mode": "default"
+        }
+      ]
     },
     "component.xlarge.textToElementX": {
       "$type": "number",
@@ -8074,7 +8364,61 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "button.xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.emphasized.gapX",
+          "mode": "default"
+        }
+      ]
     },
     "component.xlarge.borderWidth": {
       "$type": "number",
@@ -13263,6 +13607,34 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "fontStack.primary": {
+      "$type": "fontFamily",
+      "$value": "'Metric', Arial, sans-serif",
+      "$description": "For dev use only.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [
+            "FONT_FAMILY"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "fontStack.code": {
+      "$type": "fontFamily",
+      "$value": "'Fira Mono', ui-monospace, monospace",
+      "$description": "For dev use only.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [
+            "FONT_FAMILY"
           ],
           "codeSyntax": {}
         }

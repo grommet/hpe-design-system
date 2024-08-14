@@ -1,0 +1,32 @@
+export default {
+  "fontStack": {
+    "primary": {
+      "$type": "fontFamily",
+      "$value": "'Metric', Arial, sans-serif",
+      "$description": "For dev use only.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [
+            "FONT_FAMILY"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "code": {
+      "$type": "fontFamily",
+      "$value": "'Fira Mono', ui-monospace, monospace",
+      "$description": "For dev use only.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [
+            "FONT_FAMILY"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    }
+  }
+}
