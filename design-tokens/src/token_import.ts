@@ -169,6 +169,8 @@ function variableResolvedTypeFromToken(token: Token) {
       return 'BOOLEAN';
     case 'shadow':
       return 'SHADOW';
+    case 'fontFamily':
+      return 'STRING';
     // undefined since Figma Variables doesn't support yet
     case 'cubicBezier':
       return undefined;

@@ -22,6 +22,7 @@ export interface Token {
     | 'string'
     | 'boolean'
     | 'shadow'
+    | 'fontFamily'
     | 'cubicBezier'
     | 'duration'
     | 'gradient';

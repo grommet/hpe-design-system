@@ -39,6 +39,7 @@ Object.keys(tree).forEach(mode => {
       // for dimension tokens, addit to the used by for "large" and "small"
       const referenceModes = [];
       if (mode === 'default') {
+        if (token.includes('component')) referenceModes.push('default');
         if (tree[mode][key].$type === 'color')
           referenceModes.push(...['light', 'dark']);
         else if (tree[mode][key].$type === 'number')
