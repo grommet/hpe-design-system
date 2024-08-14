@@ -98,11 +98,6 @@ readdirSync(TOKENS_DIR).forEach(file => {
   }
 });
 
-// primitives
-const rawPrimitives = readFileSync(`./${TOKENS_DIR}/primitives.base.json`);
-const primitives = JSON.parse(rawPrimitives);
-const dimensionPrimitives = numberToDimension(primitives);
-
 const rawComponents = readFileSync(`./${TOKENS_DIR}/component.default.json`);
 const components = JSON.parse(rawComponents);
 const dimensionComponents = numberToDimension(components, true);
@@ -110,29 +105,9 @@ const dimensionComponents = numberToDimension(components, true);
 // currently used by style-dictionary. Figma Variables doesn't want units,
 // but code needs them
 writeFileSync(
-  './dist/primitives.base.json',
-  `${JSON.stringify(dimensionPrimitives, null, 2)}`,
-);
-writeFileSync(
   './dist/component.default.json',
   `${JSON.stringify(dimensionComponents, null, 2)}`,
 );
-
-const typographyFiles = readdirSync(TOKENS_DIR)
-  .map(file =>
-    file.includes('typography') ? `${TOKENS_DIR}/${file}` : undefined,
-  )
-  .filter(file => file);
-
-typographyFiles.forEach(file => {
-  const raw = readFileSync(file);
-  const parsed = JSON.parse(raw);
-  const formatted = numberToDimension(parsed, 'rem');
-  writeFileSync(
-    `./dist/${file.replace(TOKENS_DIR, '').replace(' - semantic', '')}`,
-    `${JSON.stringify(formatted, null, 2)}`,
-  );
-});
 
 // ---------------- Build step for Grommet components ----------------- //
 const tokens = readdirSync(TOKENS_DIR).map(file => `${TOKENS_DIR}/${file}`);
