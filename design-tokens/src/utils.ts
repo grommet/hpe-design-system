@@ -42,3 +42,5 @@ export const nonComponentTokens: string[] = [
   'elevation',
   'size',
 ];
+
+export const numberToPixel = (value: number): string => `${value}px`;

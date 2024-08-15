@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import * as fs from 'fs';
 import { HPEStyleDictionary } from '../HPEStyleDictionary.ts';
-import { getThemeAndMode } from '../utils.ts';
+import { getThemeAndMode, numberToPixel } from '../utils.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -130,6 +130,9 @@ const colorModeFiles = fs
 const primitives = fs.readFileSync(`${TOKENS_DIR}/primitives.base.json`);
 const rawPrimitives = JSON.parse(primitives);
 const primitiveColorNames = Object.keys(rawPrimitives.base.color);
+
+const global = fs.readFileSync(`${TOKENS_DIR}/global.default.json`);
+const parsedGlobal = JSON.parse(global);
 
 const camelCase = s => s.replace(/-./g, x => x[1].toUpperCase());
 
@@ -302,9 +305,11 @@ dimensionFiles.forEach(file => {
             options: {
               outputReferences: true,
               mediaQuery:
-                rawPrimitives.base.breakpoint?.[mode] &&
+                parsedGlobal.breakpoint?.[mode] &&
                 !['large', 'xlarge'].includes(mode) &&
-                `max-width: ${rawPrimitives.base.breakpoint[mode].$value}`,
+                `max-width: ${numberToPixel(
+                  parsedGlobal.breakpoint[mode].$value,
+                )}`,
             },
             filter: token => dimensions.includes(token.attributes.category),
           },
