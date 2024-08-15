@@ -6464,20 +6464,9 @@ grommet-theme-hpe@^5.4.0:
   version "0.0.0"
   resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#630d1db073646e794a609d5209c60d5eed1d7aa0"
 
-grommet@^2.37.0:
+grommet@^2.37.0, "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.40.0"
-  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.40.0.tgz#2a8ba3c2986a92dd8e4df38d9ad6d824d88b457e"
-  integrity sha512-U9/crW6tQP8cwdz4JzF0wuN2s7atPw/bneRWenUdc4X7LA2qEAnd48PqvOUVKXpI1kSDdBra1JbyPNDwmD1Qbg==
-  dependencies:
-    "@emotion/is-prop-valid" "^1.2.1"
-    grommet-icons "^4.12.1"
-    hoist-non-react-statics "^3.2.0"
-    markdown-to-jsx "7.4.4"
-    prop-types "^15.8.1"
-
-"grommet@https://github.com/grommet/grommet/tarball/stable":
-  version "2.39.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#007fbaf66008fcda8ff135cd30598a8fa37ff3e3"
+  resolved "https://github.com/grommet/grommet/tarball/stable#91c8c01a49501c7314e2ce235d3d391163a24767"
   dependencies:
     "@emotion/is-prop-valid" "^1.2.1"
     grommet-icons "^4.12.1"
