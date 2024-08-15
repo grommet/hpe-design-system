@@ -1,14 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Wed, 14 Aug 2024 19:57:01 GMT
+ * Generated on Thu, 15 Aug 2024 18:26:57 GMT
  */
 
 :root {
   --hpe-tbd: #00ff0a00; /* Placeholder for colours that still need finalising. */
-  --hpe-base-breakpoint-large: 1440px;
-  --hpe-base-breakpoint-medium: 1080px;
-  --hpe-base-breakpoint-small: 768px;
-  --hpe-base-breakpoint-xsmall: 576px;
   --hpe-base-font-weight-black: 900;
   --hpe-base-font-weight-bold: 700;
   --hpe-base-font-weight-semibold: 600;

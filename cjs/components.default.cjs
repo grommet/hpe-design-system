@@ -141,7 +141,13 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "6px",
-            "paddingY": "6px"
+            "paddingY": "6px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
           }
         },
         "secondary": {
@@ -155,7 +161,13 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "6px",
-            "paddingY": "6px"
+            "paddingY": "6px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
           }
         },
         "default": {
@@ -169,7 +181,13 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "6px",
-            "paddingY": "6px"
+            "paddingY": "6px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
           }
         },
         "toolbar": {
@@ -183,7 +201,13 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "0px",
-            "paddingY": "0px"
+            "paddingY": "0px",
+            "borderRadius": "6px",
+            "borderWidth": "1px",
+            "minHeight": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
           }
         }
       },
@@ -199,7 +223,13 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px"
+            "paddingY": "9px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "36px",
+            "fontSize": "1.1875rem",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
           }
         },
         "primary": {
@@ -213,7 +243,13 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px"
+            "paddingY": "9px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "36px",
+            "fontSize": "1.1875rem",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
           }
         },
         "secondary": {
@@ -227,7 +263,13 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px"
+            "paddingY": "9px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "36px",
+            "fontSize": "1.1875rem",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
           }
         },
         "toolbar": {
@@ -241,7 +283,13 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px"
+            "paddingY": "9px",
+            "borderRadius": "6px",
+            "borderWidth": "default",
+            "minHeight": "36px",
+            "fontSize": "1.1875rem",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
           }
         }
       },
@@ -256,6 +304,12 @@ module.exports = {
           "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "48px",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
+            "gapX": "6px",
             "paddingX": "13px",
             "paddingY": "13px"
           }
@@ -270,6 +324,12 @@ module.exports = {
           "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "48px",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
+            "gapX": "6px",
             "paddingX": "13px",
             "paddingY": "13px"
           }
@@ -284,6 +344,12 @@ module.exports = {
           "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "48px",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
+            "gapX": "6px",
             "paddingX": "13px",
             "paddingY": "13px"
           }
@@ -298,6 +364,12 @@ module.exports = {
           "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
+            "borderRadius": "6px",
+            "borderWidth": "default",
+            "minHeight": "48px",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
+            "gapX": "6px",
             "paddingX": "13px",
             "paddingY": "13px"
           }
@@ -305,6 +377,16 @@ module.exports = {
       },
       "xlarge": {
         "default": {
+          "iconOnly": {
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "72px",
+            "fontSize": "1.875rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px",
+            "paddingX": "24px",
+            "paddingY": "24px"
+          },
           "paddingX": "30px",
           "paddingY": "19px",
           "borderRadius": "2em",
@@ -312,13 +394,19 @@ module.exports = {
           "minHeight": "72px",
           "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "24px",
-            "paddingY": "24px"
-          }
+          "gapX": "6px"
         },
         "primary": {
+          "iconOnly": {
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "72px",
+            "fontSize": "1.875rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px",
+            "paddingX": "24px",
+            "paddingY": "24px"
+          },
           "paddingX": "30px",
           "paddingY": "19px",
           "borderRadius": "2em",
@@ -326,13 +414,19 @@ module.exports = {
           "minHeight": "72px",
           "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "24px",
-            "paddingY": "24px"
-          }
+          "gapX": "6px"
         },
         "secondary": {
+          "iconOnly": {
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "72px",
+            "fontSize": "1.875rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px",
+            "paddingX": "24px",
+            "paddingY": "24px"
+          },
           "paddingX": "30px",
           "paddingY": "19px",
           "borderRadius": "2em",
@@ -340,13 +434,19 @@ module.exports = {
           "minHeight": "72px",
           "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "24px",
-            "paddingY": "24px"
-          }
+          "gapX": "6px"
         },
         "toolbar": {
+          "iconOnly": {
+            "borderRadius": "12px",
+            "borderWidth": "2px",
+            "minHeight": "72px",
+            "fontSize": "1.875rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px",
+            "paddingX": "24px",
+            "paddingY": "24px"
+          },
           "paddingX": "30px",
           "paddingY": "19px",
           "borderRadius": "12px",
@@ -354,16 +454,9 @@ module.exports = {
           "minHeight": "72px",
           "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "24px",
-            "paddingY": "24px"
-          }
+          "gapX": "6px"
         }
       }
-    },
-    "focusRing": {
-      "color": "#00e8cf"
     },
     "drop": {
       "background": "background-floating",
@@ -519,10 +612,6 @@ module.exports = {
           "background": "#00000000",
           "borderColor": "border-strong"
         },
-        "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
-        },
         "selected": {
           "enabled": {
             "background": "background-selected-strong",
@@ -539,6 +628,10 @@ module.exports = {
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
+        },
+        "disabled": {
+          "background": "background-disabled",
+          "borderColor": "border-disabled"
         },
         "indeterminate": {
           "enabled": {
@@ -689,6 +782,7 @@ module.exports = {
       "borderBottomWidth": "1px",
       "paddingTop": "6px",
       "paddingBottom": "5px",
+      "minHeight": "36px",
       "enabled": {
         "textColor": "text-default",
         "borderColor": "#00000000",
@@ -1036,6 +1130,32 @@ module.exports = {
         }
       }
     },
+    "footerCell": {
+      "paddingX": "12px",
+      "fontSize": "1.125rem",
+      "lineHeight": "1.5rem",
+      "fontWeight": 500,
+      "borderTopWidth": "1px",
+      "paddingTop": "5px",
+      "paddingBottom": "6px",
+      "gapX": "6px",
+      "minHeight": "36px",
+      "enabled": {
+        "textColor": "text-default",
+        "borderColor": "border-default",
+        "background": "#00000000"
+      },
+      "hover": {
+        "textColor": "text-default",
+        "borderColor": "#00000000",
+        "background": "#00000000"
+      },
+      "pinned": {
+        "textColor": "text-default",
+        "borderColor": "#00000000",
+        "background": "#00000000"
+      }
+    },
     "radioButton": {
       "control": {
         "enabled": {
@@ -1107,17 +1227,17 @@ module.exports = {
       "default": {
         "enabled": {
           "textColor": "text-strong",
-          "fontWeight": 400,
+          "fontWeight": 500,
           "textDecoration": "underline"
         },
         "hover": {
           "textColor": "text-strong",
-          "fontWeight": 400,
+          "fontWeight": 500,
           "textDecoration": "underline"
         },
         "disabled": {
           "textColor": "text-strong",
-          "fontWeight": 400,
+          "fontWeight": 500,
           "textDecoration": "underline"
         }
       },
@@ -1245,9 +1365,34 @@ module.exports = {
         }
       }
     },
+    "focusRing": {
+      "color": "#00e8cf"
+    },
     "fontStack": {
       "primary": "'Metric', Arial, sans-serif",
       "code": "'Fira Mono', ui-monospace, monospace"
+    },
+    "breakpoint": {
+      "xsmall": "576px",
+      "small": "768px",
+      "medium": "1080px",
+      "large": "1440px"
+    },
+    "fontWeight": {
+      "thin": 100,
+      "light": 300,
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "black": 900
+    },
+    "display": {
+      "medium": {
+        "fontSize": "2.25rem",
+        "lineHeight": "2.25rem",
+        "fontWeight": 400
+      }
     }
   }
 }

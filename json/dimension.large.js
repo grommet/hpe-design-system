@@ -53,7 +53,7 @@
       "lineHeight": "1.5rem"
     },
     "medium": {
-      "fontSize": "1rem",
+      "fontSize": "1.25rem",
       "lineHeight": "1.25rem",
       "fontWeight": 500
     },

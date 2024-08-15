@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 14 Aug 2024 19:57:01 GMT
+ * Generated on Thu, 15 Aug 2024 18:26:57 GMT
  */
 
 module.exports = {
@@ -174,12 +174,6 @@ module.exports = {
         "semibold": 600,
         "bold": 700,
         "black": 900
-      },
-      "breakpoint": {
-        "xsmall": "576px",
-        "small": "768px",
-        "medium": "1080px",
-        "large": "1440px"
       },
       "static": {
         "spacing": {

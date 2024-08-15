@@ -1,9 +1,20 @@
 /**
  * Do not edit directly
- * Generated on Wed, 14 Aug 2024 19:57:01 GMT
+ * Generated on Thu, 15 Aug 2024 18:26:57 GMT
  */
 
 :root {
+  --hpe-font-weight-black: 900;
+  --hpe-font-weight-bold: 700;
+  --hpe-font-weight-semibold: 600;
+  --hpe-font-weight-medium: 500;
+  --hpe-font-weight-regular: 400;
+  --hpe-font-weight-light: 300;
+  --hpe-font-weight-thin: 100;
+  --hpe-breakpoint-large: 1440;
+  --hpe-breakpoint-medium: 1080;
+  --hpe-breakpoint-small: 768;
+  --hpe-breakpoint-xsmall: 576;
   --hpe-font-stack-code: 'Fira Mono', ui-monospace, monospace; /* For dev use only. */
   --hpe-font-stack-primary: 'Metric', Arial, sans-serif; /* For dev use only. */
 }

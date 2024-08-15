@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 14 Aug 2024 19:57:01 GMT
+ * Generated on Thu, 15 Aug 2024 18:26:57 GMT
  */
 
 module.exports = {
@@ -8,6 +8,21 @@ module.exports = {
     "fontStack": {
       "primary": "'Metric', Arial, sans-serif",
       "code": "'Fira Mono', ui-monospace, monospace"
+    },
+    "breakpoint": {
+      "xsmall": 576,
+      "small": 768,
+      "medium": 1080,
+      "large": 1440
+    },
+    "fontWeight": {
+      "thin": 100,
+      "light": 300,
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "black": 900
     }
   }
 }
