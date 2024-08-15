@@ -8450,7 +8450,7 @@
         }
       }
     },
-    "borderBottomWidth": {
+    "borderTopWidth": {
       "$type": "number",
       "$value": "{dataCell.borderBottomWidth}",
       "$description": "",
@@ -8464,8 +8464,8 @@
     },
     "paddingTop": {
       "$type": "number",
-      "$value": "{dataCell.paddingTop}",
-      "$description": "",
+      "$value": "{dataCell.paddingBottom}",
+      "$description": "This intentionally uses paddingBottom because the border side is switched from dataCell.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -8476,8 +8476,8 @@
     },
     "paddingBottom": {
       "$type": "number",
-      "$value": "{dataCell.paddingBottom}",
-      "$description": "",
+      "$value": "{dataCell.paddingTop}",
+      "$description": "This intentionally uses paddingTop because the border side is switched from dataCell.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
