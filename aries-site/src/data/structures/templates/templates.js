@@ -245,6 +245,24 @@ export const templates = [
     tags: [],
   },
   {
+    name: 'popover',
+    available: true,
+    cardOrder: 5,
+    description: `A Popover is an overlay that is opened by a click trigger. They are used to provide
+     additional contextual information and might contain interactive elements.`,
+    preview: {
+      component: () => <SelectorPreview />,
+      background: 'background-front',
+    },
+    seoDescription: `A Popover is an overlay that is opened by a click trigger.
+     They are used to provide additional contextual information and might contain interactive elements.`,
+    relatedContent: [
+      'CheckBoxGroup',
+    ],
+    sections: [],
+    tags: [],
+  },
+  {
     name: 'User feedback collection',
     available: true,
     description: `Improve customer experiences and make impactful,
@@ -587,7 +605,7 @@ export const templates = [
   {
     name: 'Navigation',
     available: true,
-    cardOrder: 5,
+    cardOrder: 7,
     description: 'The entry point for the expansive topic of Navigation.',
     preview: {
       image: {
