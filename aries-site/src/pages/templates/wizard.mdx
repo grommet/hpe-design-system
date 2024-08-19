@@ -34,10 +34,9 @@ Use a wizard when your form involves multiple steps. This makes the experience m
   <WizardAnatomy />
 </Example>
 
-1. **Wizard header**: This region identifies the task flow and provides the wizard's controls. The wizard header spands the full width of the viewport.
+1. **Wizard header**: This region contains the title of the wizard. The wizard header spans the full width of the viewport and is positioned within the scrollable region to scroll off as needed.
    - **a. Wizard title** (required): A short, descriptive title identifying the wizard.
-   - **b. Previous step button** (required): A button allowing the user to return to the previous wizard step. This button is positioned similarly to a browser's back button and is aligned to the left side of the wizard's header. It should appear on all steps except the first.
-   - **c. Cancel button** (required): A button allowing the user to leave the wizard. When clicked, a confirmation modal will appear. This button is aligned to the right side of the header.
+   - **b. Contextual help button (optional).: A button offering the user contextual help. When clicked, a side drawer with relevant information will open. 
 1. **Step identifier:** This region provides the user with information regarding the current step.
    - **a. Step title** (required): A short, descriptive title uniquely identifying the step.
    - **b. Step summary** (optional): A summary of where the user is within the wizard, formatted as "Step X of Y".
