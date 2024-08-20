@@ -42,9 +42,6 @@ export const PopoverInlineExample = () => {
       </Box>
       {showPopover && (
         <Popover
-          heading={
-            <Paragraph margin="none">Automatically Adding Servers</Paragraph>
-          }
           footer={<Anchor label="Learn more" href="#" />}
           target={targetRef.current}
           onClickOutside={handleClosePopover}

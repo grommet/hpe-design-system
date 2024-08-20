@@ -7,6 +7,7 @@ import {
   StatusIndicatorPreview,
   ToastPreview,
   SelectorPreview,
+  PopoverPreview,
 } from '../../../examples/cardPreviews';
 
 export const templates = [
@@ -252,15 +253,13 @@ export const templates = [
      They are used to provide additional contextual information and might
      contain interactive elements.`,
     preview: {
-      component: () => <SelectorPreview />,
+      component: () => <PopoverPreview />,
       background: 'background-front',
     },
     seoDescription: `A Popover is an overlay that is opened by a click trigger.
      They are used to provide additional contextual information and might
      contain interactive elements.`,
-    relatedContent: [
-      'CheckBoxGroup',
-    ],
+    relatedContent: ['CheckBoxGroup'],
     sections: [],
     tags: [],
   },

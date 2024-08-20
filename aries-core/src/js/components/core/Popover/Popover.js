@@ -6,7 +6,6 @@ export const Popover = ({
   heading,
   children,
   footer,
-  // eslint-disable-next-line react/prop-types
   targetRef,
   onClose,
   ...rest
@@ -17,18 +16,17 @@ export const Popover = ({
       role="dialog"
       elevation="medium"
       stretch={false}
-      // eslint-disable-next-line react/prop-types
       target={targetRef?.current}
       onClose={onClose}
       {...rest}
     >
-      <Box direction='row'>
+      <Box direction="row">
         <Box flex gap="small" pad="small">
           {heading}
           {children}
           {footer}
         </Box>
-        <Box pad="small">
+        <Box pad={{ horizontal: 'small', top: 'xsmall' }}>
           <Button
             icon={<Close size="small" />}
             onClick={onClose}
@@ -47,4 +45,5 @@ Popover.propTypes = {
   heading: PropTypes.node,
   footer: PropTypes.node,
   onClose: PropTypes.func,
+  targetRef: PropTypes.func,
 };
