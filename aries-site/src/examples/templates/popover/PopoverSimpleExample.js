@@ -30,7 +30,7 @@ export const PopoverSimpleExample = () => {
       />
       {showPopover && (
         <Popover
-          heading={<Text>I am a Popover</Text>}
+          title={<Text>I am a Popover</Text>}
           target={targetRef.current}
           onClickOutside={handleClosePopover}
           onEsc={handleClosePopover}
