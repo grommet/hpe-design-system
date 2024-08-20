@@ -1,6 +1,6 @@
 import { Box, Button, Drop } from 'grommet';
 import PropTypes from 'prop-types';
-import { Close } from 'grommet-icons';
+import { FormClose } from 'grommet-icons';
 
 export const Popover = ({
   heading,
@@ -28,7 +28,7 @@ export const Popover = ({
         </Box>
         <Box pad={{ horizontal: 'small', top: 'xsmall' }}>
           <Button
-            icon={<Close size="small" />}
+            icon={<FormClose />}
             onClick={onClose}
             a11yTitle={`You are in a popover containing information,
             to close this popover, press Enter.`}
