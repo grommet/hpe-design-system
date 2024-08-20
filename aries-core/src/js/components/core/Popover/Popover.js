@@ -6,6 +6,7 @@ export const Popover = ({
   heading,
   children,
   footer,
+  // eslint-disable-next-line react/prop-types
   targetRef,
   onClose,
   ...rest
@@ -16,6 +17,7 @@ export const Popover = ({
       role="dialog"
       elevation="medium"
       stretch={false}
+      // eslint-disable-next-line react/prop-types
       target={targetRef?.current}
       onClose={onClose}
       {...rest}
@@ -44,8 +46,5 @@ Popover.propTypes = {
   children: PropTypes.node,
   heading: PropTypes.node,
   footer: PropTypes.node,
-  targetRef: PropTypes.shape({
-    current: PropTypes.instanceOf(Element),
-  }),
   onClose: PropTypes.func,
 };
