@@ -36,7 +36,6 @@ export const PopoverSimpleExample = () => {
           onEsc={handleClosePopover}
           onClose={handleClosePopover}
           align={{ bottom: 'top', left: 'left' }}
-          id="simple-popover"
         >
           <Paragraph size="small" margin="none">
             The Popover body provides contextual information related to the
