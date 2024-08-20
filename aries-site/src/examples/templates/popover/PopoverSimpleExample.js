@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 import { Popover } from 'aries-core';
-import { Anchor, Button, Box, Paragraph } from 'grommet';
+import { Button, Box, Paragraph, Text } from 'grommet';
 import { CircleInformation } from 'grommet-icons';
 
 export const PopoverSimpleExample = () => {
@@ -24,24 +24,25 @@ export const PopoverSimpleExample = () => {
         icon={<CircleInformation />}
         onClick={handleButtonClick}
         ref={targetRef}
+        ariaExpanded={showPopover}
+        a11yTitle='informational help'
       />
       {showPopover && (
         <Popover
-          heading="Automatically Adding Servers"
-          footer={<Anchor label="Learn more" href="#" />}
+          heading={<Text>I am a Popover</Text>}
           target={targetRef.current}
           onClickOutside={handleClosePopover}
           onEsc={handleClosePopover}
           onClose={handleClosePopover}
+          align={{ bottom: 'top', left: 'left' }}
         >
           <Paragraph size="small" margin="none">
-            A server is added to a group when you apply an HPE GreenLake device
-            tag that matches the tag of a server group with Automate adding
-            servers enabled or when a server with a matching device tag is added
-            to a Compute Ops Management application instance.
+            The Popover body provides contextual
+            information related to the trigger
           </Paragraph>
         </Popover>
-      )}
-    </Box>
+      )
+      }
+    </Box >
   );
 };
