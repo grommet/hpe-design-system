@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormClose } from 'grommet-icons';
 
 export const Popover = ({
-  heading,
+  title,
   children,
   footer,
   targetRef,
@@ -22,7 +22,7 @@ export const Popover = ({
     >
       <Box direction="row">
         <Box flex gap="small" pad="small">
-          {heading}
+          {title}
           {children}
           {footer}
         </Box>
@@ -42,7 +42,7 @@ export const Popover = ({
 
 Popover.propTypes = {
   children: PropTypes.node,
-  heading: PropTypes.node,
+  title: PropTypes.node,
   footer: PropTypes.node,
   onClose: PropTypes.func,
   targetRef: PropTypes.func,
