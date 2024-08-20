@@ -1,5 +1,5 @@
 import { Example } from '../../layouts';
-import { PopoverSimpleExample } from '../../examples';
+import { PopoverSimpleExample, PopoverInlineExample } from '../../examples';
 
 <Example
   figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?node-id=34141-2"
@@ -18,23 +18,24 @@ A Popover may be triggered through an icon-only button to provide the user with 
   figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?node-id=34141-2"
   width="100%"
 >
-  <PopoverSimpleExample />
+  <PopoverInlineExample />
 </Example>
 
 ## Anatomy
 
 | Label  | Region                  | Purpose                               | Required | Notes                                               |
 | :----: | ----------------------- | ------------------------------------- | :------: | --------------------------------------------------- |
-| **1**  | **Title**               | Identifies the Popover.               | Required | Implemented as Heading level 3.                     |
+| **1**  | **Title**               | Identifies the Popover.               | Optional | Implemented as Heading level 3.                     |
 | **2**  | **Close Button**        | Closes the Popover.                   | Required | --                                                  |
 | **3**  | **Body**                | Provides contextual information.      | Required | May include other elements that are not text.       |
 | **4**  | **Footer**              | Contains additional Popover actions.  | Optional | May contain anchors.                                |
 
-
-## Do’s and Don’ts
-
-
 ## Accessibility
 Be sure to include an a11yTitle on:
 - Any triggers without a label such as an icon-only button. 
-- The Close button describing the contents of the Popover
+- The Close button describing the contents of the Popover.
+
+| Key                   | Interaction                                                                                                                                          |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tab**               | Highlights interactive elements. The focus will remain inside the Popover until exited. Once exited, the focus will return to the Popover’s trigger. |
+| **Esc**               | Used to exit the Popover at any time.                                                                                                                    |                                                                                                    |
