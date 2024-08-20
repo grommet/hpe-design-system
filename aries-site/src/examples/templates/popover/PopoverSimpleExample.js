@@ -25,7 +25,8 @@ export const PopoverSimpleExample = () => {
         onClick={handleButtonClick}
         ref={targetRef}
         ariaExpanded={showPopover}
-        a11yTitle='informational help'
+        a11yTitle="informational help"
+        popovertarget="simple-popover"
       />
       {showPopover && (
         <Popover
@@ -35,14 +36,14 @@ export const PopoverSimpleExample = () => {
           onEsc={handleClosePopover}
           onClose={handleClosePopover}
           align={{ bottom: 'top', left: 'left' }}
+          id="simple-popover"
         >
           <Paragraph size="small" margin="none">
-            The Popover body provides contextual
-            information related to the trigger
+            The Popover body provides contextual information related to the
+            trigger
           </Paragraph>
         </Popover>
-      )
-      }
-    </Box >
+      )}
+    </Box>
   );
 };
