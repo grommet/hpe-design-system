@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Aug 2024 19:45:00 GMT
+ * Generated on Wed, 21 Aug 2024 19:53:54 GMT
  */
 
 :root {
@@ -46,7 +46,7 @@
   --hpe-heading-large-font-weight: var(--hpe-base-font-weight-medium);
   --hpe-heading-xlarge-line-height: var(--hpe-base-line-height-500);
   --hpe-heading-xlarge-font-size: var(--hpe-base-font-size-600);
-  --hpe-heading-xlarge-font-weight: var(--hpe-base-font-weight-regular);
+  --hpe-heading-xlarge-font-weight: var(--hpe-base-font-weight-medium);
   --hpe-text-6xl-line-height: var(--hpe-base-line-height-1000);
   --hpe-text-6xl-font-size: var(--hpe-base-font-size-1000);
   --hpe-text-5xl-line-height: var(--hpe-base-line-height-900);

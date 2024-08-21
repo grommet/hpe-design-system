@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Aug 2024 19:45:00 GMT
+ * Generated on Wed, 21 Aug 2024 19:53:54 GMT
  */
 
 export default {
@@ -49,7 +49,7 @@ export default {
     },
     heading: {
       xlarge: {
-        fontWeight: 400,
+        fontWeight: 500,
         fontSize: "2.25rem",
         lineHeight: "2.25rem",
       },

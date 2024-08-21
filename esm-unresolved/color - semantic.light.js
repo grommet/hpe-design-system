@@ -201,7 +201,7 @@ export default {
       "primary": {
         "default": {
           "$type": "color",
-          "$value": "{base.color.green.700}",
+          "$value": "{base.color.green.600}",
           "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
           "$extensions": {
             "com.figma": {
@@ -234,7 +234,7 @@ export default {
         "strong": {
           "enabled": {
             "$type": "color",
-            "$value": "{base.color.green.700}",
+            "$value": "{base.color.brand}",
             "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
             "$extensions": {
               "com.figma": {
@@ -246,12 +246,25 @@ export default {
                 "codeSyntax": {}
               }
             }
+          },
+          "$type": "color",
+          "$value": "{base.color.green.600}",
+          "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {}
+            }
           }
         },
         "weak": {
           "enabled": {
             "$type": "color",
-            "$value": "#17EBA014",
+            "$value": "{base.color.green.100}",
             "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
             "$extensions": {
               "com.figma": {
@@ -277,6 +290,19 @@ export default {
                 ],
                 "codeSyntax": {}
               }
+            }
+          },
+          "$type": "color",
+          "$value": "{base.color.green.100}",
+          "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {}
             }
           }
         }

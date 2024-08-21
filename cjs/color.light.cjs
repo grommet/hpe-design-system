@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Aug 2024 19:45:00 GMT
+ * Generated on Wed, 21 Aug 2024 19:53:54 GMT
  */
 
 module.exports = {
@@ -23,17 +23,12 @@ module.exports = {
           "warning": "#ffbc443d"
         },
         "primary": {
-          "default": "#008567",
+          "default": "#01a982",
           "hover": "#00ff0a00"
         },
         "selected": {
-          "strong": {
-            "enabled": "#008567"
-          },
-          "weak": {
-            "enabled": "#17eba014",
-            "hover": "#aef6df"
-          }
+          "strong": "#01a982",
+          "weak": "#cbfaeb"
         }
       },
       "border": {

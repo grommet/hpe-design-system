@@ -201,7 +201,7 @@ export default {
       "primary": {
         "default": {
           "$type": "color",
-          "$value": "{base.color.green.1000}",
+          "$value": "{base.color.green.600}",
           "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
           "$extensions": {
             "com.figma": {

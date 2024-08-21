@@ -888,7 +888,7 @@ export default {
     "xlarge": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.regular}",
+        "$value": "{base.fontWeight.medium}",
         "$description": "",
         "$extensions": {
           "com.figma": {
