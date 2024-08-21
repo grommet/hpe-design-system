@@ -6,14 +6,14 @@ import { BackgroundContext } from '../../App';
 const ContentPane = ({
   actions,
   children,
-  contain: containProp,
+  contain: containProp = true,
   heading,
   level,
   skeleton,
   ...rest
 }) => {
   const { backgroundBack } = useContext(BackgroundContext);
-  const contain = containProp || backgroundBack;
+  const contain = containProp !== false ? backgroundBack : undefined;
 
   return (
     <Box

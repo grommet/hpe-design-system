@@ -9,4 +9,5 @@ export const cssW3c: string[] = [
   'shadow/css',
   'color/hex',
   'gradient/css',
+  'numberToDimension',
 ];

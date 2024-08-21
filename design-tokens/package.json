@@ -24,7 +24,7 @@
     "sync-tokens-to-figma": "tsx src/scripts/sync_tokens_to_figma.ts",
     "sync-figma-to-tokens": "tsx src/scripts/sync_figma_to_tokens.ts",
     "build-style-dictionary": "tsx src/scripts/build-style-dictionary.js",
-    "build-token-tree": "node src/scripts/build-token-tree.js",
+    "build-token-tree": "tsx src/scripts/build-token-tree.js",
     "build": "rm -rf ./dist && tsx src/scripts/build.js && yarn build-style-dictionary && yarn build-token-tree",
     "release-stable": "node src/scripts/release-stable.js --branch=design-tokens-alpha-stable",
     "release-stable:old-theme": "node src/scripts/release-stable.js --branch=design-tokens-old-theme-stable",

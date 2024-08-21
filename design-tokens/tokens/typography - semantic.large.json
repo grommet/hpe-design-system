@@ -1,4 +1,44 @@
 {
+  "display": {
+    "medium": {
+      "fontSize": {
+        "$type": "number",
+        "$value": "{base.fontSize.900}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "lineHeight": {
+        "$type": "number",
+        "$value": "{base.lineHeight.900}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{fontWeight.light}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      }
+    }
+  },
   "text": {
     "xsmall": {
       "fontSize": {
@@ -265,7 +305,7 @@
     "xlarge": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.bold}",
+        "$value": "{fontWeight.medium}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -303,7 +343,7 @@
     "large": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.bold}",
+        "$value": "{fontWeight.medium}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -365,7 +405,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.bold}",
+        "$value": "{fontWeight.medium}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -403,7 +443,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.bold}",
+        "$value": "{fontWeight.medium}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -441,7 +481,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.bold}",
+        "$value": "{fontWeight.semibold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -479,7 +519,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.bold}",
+        "$value": "{fontWeight.semibold}",
         "$description": "",
         "$extensions": {
           "com.figma": {

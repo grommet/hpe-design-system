@@ -38,7 +38,13 @@ export const nonComponentTokens: string[] = [
   'content',
   'text',
   'heading',
+  'display',
   'paragraph',
   'elevation',
   'size',
+  'fontStack',
+  'breakpoint',
+  'fontWeight',
 ];
+
+export const numberToPixel = (value: number): string => `${value}px`;

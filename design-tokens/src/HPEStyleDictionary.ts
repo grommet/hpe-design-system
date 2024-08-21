@@ -1,6 +1,10 @@
 import StyleDictionary from 'style-dictionary-utils';
 import { commonJs, cssColorModes, cssBreakpoints } from './formats/index.js';
-import { cssW3c, javascriptW3c } from './transforms/index.js';
+import {
+  cssW3c,
+  javascriptW3c,
+  numberToDimension,
+} from './transforms/index.js';
 
 StyleDictionary.registerFormat({
   name: 'javascript/commonJs',
@@ -13,6 +17,10 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'css/variables-breakpoints',
   formatter: cssBreakpoints,
+});
+StyleDictionary.registerTransform({
+  name: 'numberToDimension',
+  ...numberToDimension,
 });
 StyleDictionary.registerTransformGroup({
   name: 'js/w3c',

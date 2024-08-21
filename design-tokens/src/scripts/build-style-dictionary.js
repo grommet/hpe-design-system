@@ -1,7 +1,11 @@
 /* eslint-disable max-len */
 import * as fs from 'fs';
 import { HPEStyleDictionary } from '../HPEStyleDictionary.ts';
-import { getThemeAndMode } from '../utils.ts';
+import {
+  getThemeAndMode,
+  numberToPixel,
+  nonComponentTokens,
+} from '../utils.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -13,7 +17,7 @@ const PREFIX = 'hpe';
 let esm = '';
 HPEStyleDictionary.extend({
   // from dist because it contains the "px" version
-  source: ['dist/primitives.base.json'],
+  source: [`${TOKENS_DIR}/primitives.base.json`],
   platforms: {
     js: {
       transformGroup: 'js/w3c',
@@ -67,14 +71,72 @@ HPEStyleDictionary.extend({
 
 esm += "export { default as base } from './base';\n";
 
+HPEStyleDictionary.extend({
+  source: [`${TOKENS_DIR}/global.default.json`],
+  platforms: {
+    js: {
+      transformGroup: 'js/w3c',
+      buildPath: ESM_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'global.js',
+          format: 'javascript/esm',
+        },
+      ],
+    },
+    'js/cjs': {
+      transformGroup: 'js/w3c',
+      buildPath: CJS_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'global.cjs',
+          format: 'javascript/commonJs',
+        },
+      ],
+    },
+    json: {
+      transformGroup: 'js/w3c',
+      buildPath: JSON_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'global.json',
+          format: 'json/nested',
+        },
+      ],
+    },
+    css: {
+      transformGroup: 'css/w3c',
+      buildPath: CSS_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'global.css',
+          format: 'css/variables',
+          options: {
+            outputReferences: true,
+          },
+        },
+      ],
+    },
+  },
+}).buildAllPlatforms();
+
+esm += "export { default as global } from './global';\n";
+
 const colorModeFiles = fs
   .readdirSync(TOKENS_DIR)
   .map(file => (file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined))
   .filter(file => file);
 
-const primitives = fs.readFileSync('dist/primitives.base.json');
+const primitives = fs.readFileSync(`${TOKENS_DIR}/primitives.base.json`);
 const rawPrimitives = JSON.parse(primitives);
 const primitiveColorNames = Object.keys(rawPrimitives.base.color);
+
+const global = fs.readFileSync(`${TOKENS_DIR}/global.default.json`);
+const parsedGlobal = JSON.parse(global);
 
 const camelCase = s => s.replace(/-./g, x => x[1].toUpperCase());
 
@@ -82,10 +144,9 @@ colorModeFiles.forEach(file => {
   const [theme, mode] = getThemeAndMode(file);
   HPEStyleDictionary.extend({
     source: [
-      'dist/primitives.base.json',
+      `${TOKENS_DIR}/primitives.base.json`,
       file,
-      // `${TOKENS_DIR}/elevation.${mode}.json`,
-      `${TOKENS_DIR}/gradient.${mode}.json`,
+      // `${TOKENS_DIR}/gradient.${mode}.json`, // TO DO add gradients
     ],
     platforms: {
       js: {
@@ -196,8 +257,9 @@ dimensionFiles.forEach(file => {
   const mode = res[1];
   HPEStyleDictionary.extend({
     source: [
-      'dist/primitives.base.json',
-      `dist/typography.${mode}.json`, // dist folder has "rem"
+      `${TOKENS_DIR}/primitives.base.json`,
+      `${TOKENS_DIR}/global.default.json`,
+      `${TOKENS_DIR}/typography - semantic.${mode}.json`,
       file,
     ],
     platforms: {
@@ -248,9 +310,11 @@ dimensionFiles.forEach(file => {
             options: {
               outputReferences: true,
               mediaQuery:
-                rawPrimitives.base.breakpoint?.[mode] &&
+                parsedGlobal.breakpoint?.[mode] &&
                 !['large', 'xlarge'].includes(mode) &&
-                `max-width: ${rawPrimitives.base.breakpoint[mode].$value}`,
+                `max-width: ${numberToPixel(
+                  parsedGlobal.breakpoint[mode].$value,
+                )}`,
             },
             filter: token => dimensions.includes(token.attributes.category),
           },
@@ -261,30 +325,13 @@ dimensionFiles.forEach(file => {
   esm += `export { default as ${mode} } from './dimension.${mode}';\n`;
 });
 
-// TO DO make dynamic
-const exclude = [
-  'static',
-  'base',
-  'color',
-  'TBD',
-  'spacing',
-  'radius',
-  'borderWidth',
-  'content',
-  'paragraph',
-  'heading',
-  'text',
-  'size',
-  'elevation',
-];
-
 HPEStyleDictionary.extend({
   source: [
-    // from dist because it contains the "px"/"rem" version
-    'dist/primitives.base.json',
+    `${TOKENS_DIR}/primitives.base.json`,
+    `${TOKENS_DIR}/global.default.json`,
     `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
     `${TOKENS_DIR}/dimension - semantic.large.json`, // using large mode to have a reference name available
-    'dist/typography.large.json', // using large mode to have a reference name available
+    `${TOKENS_DIR}/typography - semantic.large.json`, // using large mode to have a reference name available
     'dist/component.default.json',
   ],
   platforms: {
@@ -296,7 +343,8 @@ HPEStyleDictionary.extend({
         {
           destination: 'components.css',
           format: 'css/variables',
-          filter: token => !exclude.includes(token.attributes.category),
+          filter: token =>
+            !nonComponentTokens.includes(token.attributes.category),
           options: {
             outputReferences: true,
           },
@@ -317,7 +365,7 @@ elevationFiles.forEach(file => {
   const mode = getThemeAndMode(file)[1];
   HPEStyleDictionary.extend({
     source: [
-      'dist/primitives.base.json', // from dist because it contains the "px"/"rem" version
+      `${TOKENS_DIR}/primitives.base.json`,
       `${TOKENS_DIR}/color - semantic.${mode}.json`, // using light mode to have a reference name available
       file,
     ],
