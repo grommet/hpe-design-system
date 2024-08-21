@@ -469,7 +469,7 @@ const buildTheme = tokens => {
       colors,
       control: {
         border: {
-          radius: components.hpe.formField.medium.input.container.borderRadius, // TO DO is this the correct token?
+          radius: components.hpe.formField.medium.input.container.borderRadius,
           color: components.hpe.formField.input.container.enabled.borderColor,
         },
       },
