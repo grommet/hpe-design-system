@@ -1367,32 +1367,6 @@ module.exports = {
     },
     "focusRing": {
       "color": "#00e8cf"
-    },
-    "fontStack": {
-      "primary": "'Metric', Arial, sans-serif",
-      "code": "'Fira Mono', ui-monospace, monospace"
-    },
-    "breakpoint": {
-      "xsmall": "576px",
-      "small": "768px",
-      "medium": "1080px",
-      "large": "1440px"
-    },
-    "fontWeight": {
-      "thin": 100,
-      "light": 300,
-      "regular": 400,
-      "medium": 500,
-      "semibold": 600,
-      "bold": 700,
-      "black": 900
-    },
-    "display": {
-      "medium": {
-        "fontSize": "2.25rem",
-        "lineHeight": "2.25rem",
-        "fontWeight": 400
-      }
     }
   }
 }
