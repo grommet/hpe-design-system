@@ -169,12 +169,6 @@
       "bold": 700,
       "black": 900
     },
-    "breakpoint": {
-      "xsmall": "576px",
-      "small": "768px",
-      "medium": "1080px",
-      "large": "1440px"
-    },
     "static": {
       "spacing": {
         "none": "0px",

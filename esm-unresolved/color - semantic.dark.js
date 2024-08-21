@@ -137,9 +137,9 @@ export default {
             }
           }
         },
-        "ok": {
+        "unknown": {
           "$type": "color",
-          "$value": "{base.color.green.500-Opacity30}",
+          "$value": "{base.color.grey.1200}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -152,9 +152,9 @@ export default {
             }
           }
         },
-        "unknown": {
+        "ok": {
           "$type": "color",
-          "$value": "{base.color.grey.1200}",
+          "$value": "{base.color.green.500-Opacity30}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -201,7 +201,7 @@ export default {
       "primary": {
         "default": {
           "$type": "color",
-          "$value": "{base.color.green.600}",
+          "$value": "{base.color.green.1000}",
           "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
           "$extensions": {
             "com.figma": {
@@ -1022,6 +1022,20 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "{base.color.turquoise.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR"
           ],
           "codeSyntax": {}
         }

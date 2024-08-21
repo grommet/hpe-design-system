@@ -1,11 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Aug 2024 19:42:07 GMT
+ * Generated on Wed, 21 Aug 2024 20:01:49 GMT
  */
 
 :root {
   --hpe-elevation-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) 0 var(--hpe-color-shadow-weak);
-  --hpe-elevation-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
+  --hpe-elevation-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
   --hpe-elevation-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
 }
 

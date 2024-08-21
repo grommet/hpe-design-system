@@ -536,6 +536,52 @@ export default {
       }
     }
   },
+  "display": {
+    "medium": {
+      "fontSize": {
+        "$type": "number",
+        "$value": "{base.fontSize.900}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "lineHeight": {
+        "$type": "number",
+        "$value": "{base.lineHeight.900}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{base.fontWeight.light}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      }
+    }
+  },
   "text": {
     "xsmall": {
       "fontSize": {
@@ -842,7 +888,7 @@ export default {
     "xlarge": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{base.fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -930,7 +976,7 @@ export default {
     "medium": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.100}",
+        "$value": "{base.fontSize.300}",
         "$description": "",
         "$extensions": {
           "com.figma": {

@@ -1896,64 +1896,6 @@ export default {
         }
       }
     },
-    "breakpoint": {
-      "xsmall": {
-        "$type": "number",
-        "$value": 576,
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": true,
-            "scopes": [
-              "WIDTH_HEIGHT"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "small": {
-        "$type": "number",
-        "$value": 768,
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": true,
-            "scopes": [
-              "WIDTH_HEIGHT"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "medium": {
-        "$type": "number",
-        "$value": 1080,
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": true,
-            "scopes": [
-              "WIDTH_HEIGHT"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "large": {
-        "$type": "number",
-        "$value": 1440,
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": true,
-            "scopes": [
-              "WIDTH_HEIGHT"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      }
-    },
     "static": {
       "spacing": {
         "none": {

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Aug 2024 19:42:07 GMT
+ * Generated on Wed, 21 Aug 2024 20:01:48 GMT
  */
 
 export default {
@@ -17,13 +17,13 @@ export default {
         contrast: "#ffffff0f",
         status: {
           info: "#00c8ff1f",
-          ok: "#17d0a64d",
           unknown: "#222222",
+          ok: "#17d0a64d",
           critical: "#cc1f1a4d",
           warning: "#fec9011f",
         },
         primary: {
-          default: "#01a982",
+          default: "#093a2f",
           hover: "#00ff0a00",
         },
         selected: {
@@ -97,6 +97,7 @@ export default {
         },
       },
       transparent: "#00000000",
+      focus: "#00e8cf",
       shadow: {
         weak: "#0000001f",
         default: "#0000005c",
