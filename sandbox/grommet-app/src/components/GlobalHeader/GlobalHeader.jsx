@@ -14,6 +14,7 @@ import {
   DropButton,
 } from 'grommet';
 import { Down, User } from 'grommet-icons';
+import { themes } from '../../theme';
 // import { base } from 'design-tokens';
 import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
 
@@ -114,20 +115,10 @@ export const GlobalHeader = ({
                   />
                 </FormField>
                 <FormField label="Theme">
-                  <ToggleGroup
-                    options={[
-                      { label: 'Current', value: 'current' },
-                      { label: 'Warm', value: 'warm' },
-                    ]}
-                    border={{ size: 'none' }}
-                    value={activeTheme === 'Warm theme' ? 'warm' : 'current'}
-                    onChange={e =>
-                      setActiveTheme(
-                        e.target.value === 'warm'
-                          ? 'Warm theme'
-                          : 'Current theme',
-                      )
-                    }
+                  <Select
+                    options={Object.keys(themes).map(theme => theme)}
+                    onChange={({ option }) => setActiveTheme(option)}
+                    value={activeTheme}
                   />
                 </FormField>
               </Box>
