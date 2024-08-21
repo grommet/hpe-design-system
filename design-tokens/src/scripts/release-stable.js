@@ -8,19 +8,22 @@ const repoURL = `https://${process.env.GH_TOKEN}@github.com/grommet/hpe-design-s
 const localFolder = path.resolve('.tmp/design-tokens');
 const localDist = path.resolve('dist');
 
-const BRANCH = 'design-tokens-alpha-stable';
+const [BRANCH] = process.argv
+  .find(v => v.includes('--branch='))
+  .split('=')
+  .slice(-1);
 
 if (process.env.CI) {
   del(localFolder).then(() => {
     git()
       .clone(repoURL, localFolder)
       .then(() => git(localFolder).checkout(BRANCH))
-    //   .then(() => del([`${localFolder}/**/*`]))
+      //   .then(() => del([`${localFolder}/**/*`]))
       .then(() => fs.copy(localDist, localFolder))
       .then(() => git(localFolder).add(['--all', '.']))
       .then(() => git(localFolder).commit(`${BRANCH} updated`))
       .then(() => git(localFolder).push('origin', BRANCH))
-      .catch((err) => console.error('failed: ', err));
+      .catch(err => console.error('failed: ', err));
   });
 } else {
   console.warn(
