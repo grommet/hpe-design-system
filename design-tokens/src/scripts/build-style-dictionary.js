@@ -1,7 +1,11 @@
 /* eslint-disable max-len */
 import * as fs from 'fs';
 import { HPEStyleDictionary } from '../HPEStyleDictionary.ts';
-import { getThemeAndMode, numberToPixel } from '../utils.ts';
+import {
+  getThemeAndMode,
+  numberToPixel,
+  nonComponentTokens,
+} from '../utils.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -254,6 +258,7 @@ dimensionFiles.forEach(file => {
   HPEStyleDictionary.extend({
     source: [
       `${TOKENS_DIR}/primitives.base.json`,
+      `${TOKENS_DIR}/global.default.json`,
       `${TOKENS_DIR}/typography - semantic.${mode}.json`,
       file,
     ],
@@ -320,26 +325,10 @@ dimensionFiles.forEach(file => {
   esm += `export { default as ${mode} } from './dimension.${mode}';\n`;
 });
 
-// TO DO make dynamic
-const exclude = [
-  'static',
-  'base',
-  'color',
-  'TBD',
-  'spacing',
-  'radius',
-  'borderWidth',
-  'content',
-  'paragraph',
-  'heading',
-  'text',
-  'size',
-  'elevation',
-];
-
 HPEStyleDictionary.extend({
   source: [
     `${TOKENS_DIR}/primitives.base.json`,
+    `${TOKENS_DIR}/global.default.json`,
     `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
     `${TOKENS_DIR}/dimension - semantic.large.json`, // using large mode to have a reference name available
     `${TOKENS_DIR}/typography - semantic.large.json`, // using large mode to have a reference name available
@@ -354,7 +343,8 @@ HPEStyleDictionary.extend({
         {
           destination: 'components.css',
           format: 'css/variables',
-          filter: token => !exclude.includes(token.attributes.category),
+          filter: token =>
+            !nonComponentTokens.includes(token.attributes.category),
           options: {
             outputReferences: true,
           },
