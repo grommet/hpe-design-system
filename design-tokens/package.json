@@ -26,7 +26,7 @@
     "build-style-dictionary": "tsx src/scripts/build-style-dictionary.js",
     "build-token-tree": "tsx src/scripts/build-token-tree.js",
     "build": "rm -rf ./dist && tsx src/scripts/build.js && yarn build-style-dictionary && yarn build-token-tree",
-    "release-stable": "node src/scripts/release-stable.js",
+    "release-stable": "node src/scripts/release-stable.js  --branch=design-tokens-alpha-stable",
     "paddingY:verify": "tsx src/scripts/verify-paddingY.ts",
     "paddingY:update": "tsx src/scripts/update-paddingY.ts",
     "test": "jest"
