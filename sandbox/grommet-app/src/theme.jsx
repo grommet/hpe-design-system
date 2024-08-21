@@ -740,23 +740,23 @@ const buildTheme = tokens => {
         },
       },
       // TO DO - temp button kind for brand refresh
-      nav: {
-        color: components.hpe.button.nav.enabled.textColor,
-        border: {
-          width:
-            dimensions.borderSize[
-              components.hpe.button.medium.nav.borderWidth
-            ] || components.hpe.button.medium.nav.borderWidth,
-          color: components.hpe.button.nav.enabled.borderColor,
-          radius:
-            dimensions.borderSize[
-              components.hpe.button.medium.nav.borderRadius
-            ] || components.hpe.button.medium.nav.borderRadius,
-        },
-        font: {
-          weight: components.hpe.button.nav.enabled.fontWeight,
-        },
-      },
+      // nav: {
+      //   color: components.hpe.button.nav.enabled.textColor,
+      //   border: {
+      //     width:
+      //       dimensions.borderSize[
+      //         components.hpe.button.medium.nav.borderWidth
+      //       ] || components.hpe.button.medium.nav.borderWidth,
+      //     color: components.hpe.button.nav.enabled.borderColor,
+      //     radius:
+      //       dimensions.borderSize[
+      //         components.hpe.button.medium.nav.borderRadius
+      //       ] || components.hpe.button.medium.nav.borderRadius,
+      //   },
+      //   font: {
+      //     weight: components.hpe.button.nav.enabled.fontWeight,
+      //   },
+      // },
       gap: components.hpe.button.medium.default.gapX,
       primary: {
         background: {
@@ -822,19 +822,19 @@ const buildTheme = tokens => {
           },
           color: components.hpe.button.secondary.selected.enabled.textColor,
         },
-        nav: {
-          background: {
-            color: components.hpe.button.nav.selected.enabled.background,
-          },
-          border: {
-            // Q: this token isn't correct
-            color: components.hpe.button.nav.selected.enabled.borderColor,
-          },
-          color: components.hpe.button.nav.selected.enabled.textColor,
-          font: {
-            weight: components.hpe.button.nav.selected.enabled.fontWeight,
-          },
-        },
+        // nav: {
+        //   background: {
+        //     color: components.hpe.button.nav.selected.enabled.background,
+        //   },
+        //   border: {
+        //     // Q: this token isn't correct
+        //     color: components.hpe.button.nav.selected.enabled.borderColor,
+        //   },
+        //   color: components.hpe.button.nav.selected.enabled.textColor,
+        //   font: {
+        //     weight: components.hpe.button.nav.selected.enabled.fontWeight,
+        //   },
+        // },
         primary: {
           background: {
             color: components.hpe.button.primary.selected.enabled.background,
@@ -1001,15 +1001,15 @@ const buildTheme = tokens => {
               horizontal: components.hpe.button.medium.default.paddingX,
             },
           },
-          nav: {
-            border: {
-              radius: components.hpe.button.medium.nav.borderRadius,
-            },
-            pad: {
-              vertical: components.hpe.button.medium.nav.paddingY,
-              horizontal: components.hpe.button.medium.nav.paddingX,
-            },
-          },
+          // nav: {
+          //   border: {
+          //     radius: components.hpe.button.medium.nav.borderRadius,
+          //   },
+          //   pad: {
+          //     vertical: components.hpe.button.medium.nav.paddingY,
+          //     horizontal: components.hpe.button.medium.nav.paddingX,
+          //   },
+          // },
           primary: {
             border: {
               radius: components.hpe.button.medium.primary.borderRadius,
