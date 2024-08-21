@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Grommet, Box } from 'grommet';
-import { current, warm } from './theme';
+import { themes } from './theme';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import NextDashboard from './pages/next/index';
@@ -42,11 +42,8 @@ const App = () => {
   }, [backgroundBack]);
 
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
-  const [activeTheme, setActiveTheme] = useState('Current theme');
-  const theme = useMemo(
-    () => (activeTheme === 'Current theme' ? current : warm),
-    [activeTheme],
-  );
+  const [activeTheme, setActiveTheme] = useState(Object.keys(themes)[0]);
+  const theme = useMemo(() => themes[activeTheme], [activeTheme]);
 
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);

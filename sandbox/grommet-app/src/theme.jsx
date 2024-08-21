@@ -4,15 +4,45 @@ import {
 } from 'styled-components';
 import { deepFreeze } from 'grommet/utils';
 import {
-  dark,
-  light,
-  large,
-  small,
-  global,
-  components,
-  elevationdark,
-  elevationlight,
+  dark as localDark,
+  light as localLight,
+  large as localLarge,
+  small as localSmall,
+  global as localGlobal,
+  components as localComponents,
+  elevationdark as localElevationDark,
+  elevationlight as localElevationLight,
 } from 'design-tokens';
+import {
+  dark as alphaDark,
+  light as alphaLight,
+  large as alphaLarge,
+  small as alphaSmall,
+  global as alphaGlobal,
+  components as alphaComponents,
+  elevationdark as alphaElevationDark,
+  elevationlight as alphaElevationLight,
+} from 'hpe-design-tokens-alpha';
+import {
+  dark as oldDark,
+  light as oldLight,
+  large as oldLarge,
+  small as oldSmall,
+  global as oldGlobal,
+  components as oldComponents,
+  elevationdark as oldElevationDark,
+  elevationlight as oldElevationLight,
+} from 'hpe-design-tokens-old-theme';
+import {
+  dark as refreshDark,
+  light as refreshLight,
+  large as refreshLarge,
+  small as refreshSmall,
+  global as refreshGlobal,
+  components as refreshComponents,
+  elevationdark as refreshElevationDark,
+  elevationlight as refreshElevationLight,
+} from 'hpe-design-tokens-brand-refresh';
 import {
   Down,
   Blank,
@@ -28,111 +58,6 @@ import {
 const MISSING = {
   color: 'red',
   weight: 700,
-};
-
-const dimensions = {
-  borderSize: {
-    xsmall: large.hpe.borderWidth.xsmall,
-    small: large.hpe.borderWidth.small,
-    medium: large.hpe.borderWidth.medium,
-    default: large.hpe.borderWidth.default,
-    large: large.hpe.borderWidth.large,
-    xlarge: large.hpe.borderWidth.xlarge,
-  },
-  edgeSize: {
-    none: large.hpe.spacing.none,
-    hair: large.hpe.spacing.hair,
-    xxsmall: large.hpe.spacing.xxsmall,
-    xsmall: large.hpe.spacing.xsmall,
-    small: large.hpe.spacing.small,
-    medium: large.hpe.spacing.medium,
-    large: large.hpe.spacing.large,
-    xlarge: large.hpe.spacing.xlarge,
-    responsiveBreakpoint: 'small',
-  },
-  size: {
-    xxsmall: large.hpe.size.content.xxsmall,
-    xsmall: large.hpe.size.content.xsmall,
-    small: large.hpe.size.content.small,
-    medium: large.hpe.size.content.medium,
-    large: large.hpe.size.content.large,
-    xlarge: large.hpe.size.content.xlarge,
-    xxlarge: large.hpe.size.content.xxlarge,
-    full: '100%',
-  },
-  breakpoints: {
-    xsmall: {
-      borderSize: {
-        xsmall: small.hpe.borderWidth.xsmall,
-        small: small.hpe.borderWidth.small,
-        medium: small.hpe.borderWidth.medium,
-        default: small.hpe.borderWidth.default,
-        large: small.hpe.borderWidth.large,
-        xlarge: small.hpe.borderWidth.xlarge,
-      },
-      edgeSize: {
-        none: small.hpe.spacing.none,
-        hair: small.hpe.spacing.hair,
-        xxsmall: small.hpe.spacing.xxsmall,
-        xsmall: small.hpe.spacing.xsmall,
-        small: small.hpe.spacing.small,
-        medium: small.hpe.spacing.medium,
-        large: small.hpe.spacing.large,
-        xlarge: small.hpe.spacing.xlarge,
-        responsiveBreakpoint: 'small',
-      },
-      size: {
-        xxsmall: small.hpe.size.content.xxsmall,
-        xsmall: small.hpe.size.content.xsmall,
-        small: small.hpe.size.content.small,
-        medium: small.hpe.size.content.medium,
-        large: small.hpe.size.content.large,
-        xlarge: small.hpe.size.content.xlarge,
-        xxlarge: small.hpe.size.content.xxlarge,
-        full: '100%',
-      },
-      value: global.hpe.breakpoint.xsmall,
-    },
-    small: {
-      borderSize: {
-        xsmall: small.hpe.borderWidth.xsmall,
-        small: small.hpe.borderWidth.small,
-        medium: small.hpe.borderWidth.medium,
-        default: small.hpe.borderWidth.default,
-        large: small.hpe.borderWidth.large,
-        xlarge: small.hpe.borderWidth.xlarge,
-      },
-      edgeSize: {
-        none: small.hpe.spacing.none,
-        hair: small.hpe.spacing.hair,
-        xxsmall: small.hpe.spacing.xxsmall,
-        xsmall: small.hpe.spacing.xsmall,
-        small: small.hpe.spacing.small,
-        medium: small.hpe.spacing.medium,
-        large: small.hpe.spacing.large,
-        xlarge: small.hpe.spacing.xlarge,
-        responsiveBreakpoint: 'small',
-      },
-      size: {
-        xxsmall: small.hpe.size.content.xxsmall,
-        xsmall: small.hpe.size.content.xsmall,
-        small: small.hpe.size.content.small,
-        medium: small.hpe.size.content.medium,
-        large: small.hpe.size.content.large,
-        xlarge: small.hpe.size.content.xlarge,
-        xxlarge: small.hpe.size.content.xxlarge,
-        full: '100%',
-      },
-      value: global.hpe.breakpoint.small,
-    },
-    medium: {
-      value: global.hpe.breakpoint.medium,
-    },
-    large: {
-      value: global.hpe.breakpoint.large,
-    },
-    xlarge: {},
-  },
 };
 
 // TO DO should these be added as tokens?
@@ -257,32 +182,6 @@ const primaryHoverBackground = props =>
     ? `background-color: ${props.theme.global.colors.green.dark};`
     : '';
 
-// option button kind styles. abstracted so select.emptySearchMessage
-// can reference pad value
-const option = {
-  color: components.hpe.select.option.enabled.textColor,
-  border: {
-    radius: components.hpe.select.medium.option.borderRadius,
-    width:
-      dimensions.borderSize[components.hpe.select.medium.option.borderWidth] ||
-      components.hpe.select.medium.option.borderWidth,
-    color: components.hpe.select.option.enabled.borderColor,
-  },
-  pad: {
-    horizontal: components.hpe.select.medium.option.paddingX,
-    vertical: components.hpe.select.medium.option.paddingY,
-  },
-  font: {
-    weight: components.hpe.select.option.enabled.fontWeight,
-  },
-};
-
-// abstracted so button and pinned list icon can reference
-const mediumIconOnlyPad = {
-  vertical: components.hpe.button.medium.default.iconOnly.paddingY,
-  horizontal: components.hpe.button.medium.default.iconOnly.paddingX,
-};
-
 const baseSpacing = 24;
 
 const flattenObject = (obj, delimiter = '.', prefix = '') =>
@@ -311,7 +210,16 @@ const access = (path, object) => {
 };
 
 const buildTheme = tokens => {
-  const [light, dark] = tokens;
+  const [
+    light,
+    dark,
+    small,
+    large,
+    elevationlight,
+    elevationdark,
+    global,
+    components,
+  ] = tokens;
   const flatColors = flattenObject(light, '-');
   const tokenColors = {};
   Object.keys(flatColors).forEach(color => {
@@ -459,6 +367,138 @@ const buildTheme = tokens => {
       light: light.hpe.color.icon.default,
       dark: dark.hpe.color.icon.default,
     },
+  };
+
+  const dimensions = {
+    borderSize: {
+      xsmall: large.hpe.borderWidth.xsmall,
+      small: large.hpe.borderWidth.small,
+      medium: large.hpe.borderWidth.medium,
+      default: large.hpe.borderWidth.default,
+      large: large.hpe.borderWidth.large,
+      xlarge: large.hpe.borderWidth.xlarge,
+    },
+    edgeSize: {
+      none: large.hpe.spacing.none,
+      hair: large.hpe.spacing.hair,
+      xxsmall: large.hpe.spacing.xxsmall,
+      xsmall: large.hpe.spacing.xsmall,
+      small: large.hpe.spacing.small,
+      medium: large.hpe.spacing.medium,
+      large: large.hpe.spacing.large,
+      xlarge: large.hpe.spacing.xlarge,
+      responsiveBreakpoint: 'small',
+    },
+    size: {
+      xxsmall: large.hpe.size.content.xxsmall,
+      xsmall: large.hpe.size.content.xsmall,
+      small: large.hpe.size.content.small,
+      medium: large.hpe.size.content.medium,
+      large: large.hpe.size.content.large,
+      xlarge: large.hpe.size.content.xlarge,
+      xxlarge: large.hpe.size.content.xxlarge,
+      full: '100%',
+    },
+    breakpoints: {
+      xsmall: {
+        borderSize: {
+          xsmall: small.hpe.borderWidth.xsmall,
+          small: small.hpe.borderWidth.small,
+          medium: small.hpe.borderWidth.medium,
+          default: small.hpe.borderWidth.default,
+          large: small.hpe.borderWidth.large,
+          xlarge: small.hpe.borderWidth.xlarge,
+        },
+        edgeSize: {
+          none: small.hpe.spacing.none,
+          hair: small.hpe.spacing.hair,
+          xxsmall: small.hpe.spacing.xxsmall,
+          xsmall: small.hpe.spacing.xsmall,
+          small: small.hpe.spacing.small,
+          medium: small.hpe.spacing.medium,
+          large: small.hpe.spacing.large,
+          xlarge: small.hpe.spacing.xlarge,
+          responsiveBreakpoint: 'small',
+        },
+        size: {
+          xxsmall: small.hpe.size.content.xxsmall,
+          xsmall: small.hpe.size.content.xsmall,
+          small: small.hpe.size.content.small,
+          medium: small.hpe.size.content.medium,
+          large: small.hpe.size.content.large,
+          xlarge: small.hpe.size.content.xlarge,
+          xxlarge: small.hpe.size.content.xxlarge,
+          full: '100%',
+        },
+        value: global.hpe.breakpoint.xsmall,
+      },
+      small: {
+        borderSize: {
+          xsmall: small.hpe.borderWidth.xsmall,
+          small: small.hpe.borderWidth.small,
+          medium: small.hpe.borderWidth.medium,
+          default: small.hpe.borderWidth.default,
+          large: small.hpe.borderWidth.large,
+          xlarge: small.hpe.borderWidth.xlarge,
+        },
+        edgeSize: {
+          none: small.hpe.spacing.none,
+          hair: small.hpe.spacing.hair,
+          xxsmall: small.hpe.spacing.xxsmall,
+          xsmall: small.hpe.spacing.xsmall,
+          small: small.hpe.spacing.small,
+          medium: small.hpe.spacing.medium,
+          large: small.hpe.spacing.large,
+          xlarge: small.hpe.spacing.xlarge,
+          responsiveBreakpoint: 'small',
+        },
+        size: {
+          xxsmall: small.hpe.size.content.xxsmall,
+          xsmall: small.hpe.size.content.xsmall,
+          small: small.hpe.size.content.small,
+          medium: small.hpe.size.content.medium,
+          large: small.hpe.size.content.large,
+          xlarge: small.hpe.size.content.xlarge,
+          xxlarge: small.hpe.size.content.xxlarge,
+          full: '100%',
+        },
+        value: global.hpe.breakpoint.small,
+      },
+      medium: {
+        value: global.hpe.breakpoint.medium,
+      },
+      large: {
+        value: global.hpe.breakpoint.large,
+      },
+      xlarge: {},
+    },
+  };
+
+  // option button kind styles. abstracted so select.emptySearchMessage
+  // can reference pad value
+  const option = {
+    color: components.hpe.select.option.enabled.textColor,
+    border: {
+      radius: components.hpe.select.medium.option.borderRadius,
+      width:
+        dimensions.borderSize[
+          components.hpe.select.medium.option.borderWidth
+        ] || components.hpe.select.medium.option.borderWidth,
+      color: components.hpe.select.option.enabled.borderColor,
+    },
+    pad: {
+      horizontal: components.hpe.select.medium.option.paddingX,
+      vertical: components.hpe.select.medium.option.paddingY,
+    },
+    font: {
+      weight: components.hpe.select.option.enabled.fontWeight,
+    },
+  };
+
+  // abstracted so button and pinned list icon can reference
+  const mediumIconOnlyPad = {
+    vertical: components.hpe.button.medium.default.iconOnly.paddingY,
+    horizontal: components.hpe.button.medium.default.iconOnly.paddingX,
   };
 
   return deepFreeze({
@@ -1299,7 +1339,7 @@ const buildTheme = tokens => {
             `background-color: ${
               theme.global.colors[
                 components.hpe.switch.control.track.selected.enabled.background
-              ][theme.dark ? 'dark' : 'light']
+              ]?.[theme.dark ? 'dark' : 'light']
             };`
           }
         `,
@@ -2511,6 +2551,63 @@ const buildTheme = tokens => {
   });
 };
 
-export const current = buildTheme([light, dark]);
-// TO DO add back "warm theme" once tokens
-export const warm = buildTheme([light, dark]);
+export const current = buildTheme([
+  localLight,
+  localDark,
+  localSmall,
+  localLarge,
+  localElevationLight,
+  localElevationDark,
+  localGlobal,
+  localComponents,
+]);
+
+export const warm = buildTheme([
+  localLight,
+  localDark,
+  localSmall,
+  localLarge,
+  localElevationLight,
+  localElevationDark,
+  localGlobal,
+  localComponents,
+]);
+
+export const alpha = buildTheme([
+  alphaLight,
+  alphaDark,
+  alphaSmall,
+  alphaLarge,
+  alphaElevationLight,
+  alphaElevationDark,
+  alphaGlobal,
+  alphaComponents,
+]);
+export const old = buildTheme([
+  oldLight,
+  oldDark,
+  oldSmall,
+  oldLarge,
+  oldElevationLight,
+  oldElevationDark,
+  oldGlobal,
+  oldComponents,
+]);
+
+export const refresh = buildTheme([
+  refreshLight,
+  refreshDark,
+  refreshSmall,
+  refreshLarge,
+  refreshElevationLight,
+  refreshElevationDark,
+  refreshGlobal,
+  refreshComponents,
+]);
+
+export const themes = {
+  local: current,
+  alpha,
+  v3: old,
+  refresh,
+};
