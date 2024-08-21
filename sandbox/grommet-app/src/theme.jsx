@@ -470,6 +470,7 @@ const buildTheme = tokens => {
       control: {
         border: {
           radius: components.hpe.formField.medium.input.container.borderRadius, // TO DO is this the correct token?
+          color: components.hpe.formField.input.container.enabled.borderColor,
         },
       },
       input: {
@@ -664,7 +665,7 @@ const buildTheme = tokens => {
       size: {
         // At this point in time we hadn't standardized on component sizes, so the sizing is off
         // but these feel like the right tokens
-        xsmall: `${baseSpacing * 0.75}px`, // TO DO no component size, is this a one off?
+        xsmall: components.hpe.component.xsmall.minHeight,
         small: components.hpe.component.small.minHeight, // 24px
         medium: components.hpe.component.medium.minHeight, // default 48px
         large: components.hpe.component.large.minHeight, // 72px
@@ -738,6 +739,24 @@ const buildTheme = tokens => {
           weight: components.hpe.button.default.enabled.fontWeight,
         },
       },
+      // TO DO - temp button kind for brand refresh
+      nav: {
+        color: components.hpe.button.nav.enabled.textColor,
+        border: {
+          width:
+            dimensions.borderSize[
+              components.hpe.button.medium.nav.borderWidth
+            ] || components.hpe.button.medium.nav.borderWidth,
+          color: components.hpe.button.nav.enabled.borderColor,
+          radius:
+            dimensions.borderSize[
+              components.hpe.button.medium.nav.borderRadius
+            ] || components.hpe.button.medium.nav.borderRadius,
+        },
+        font: {
+          weight: components.hpe.button.nav.enabled.fontWeight,
+        },
+      },
       gap: components.hpe.button.medium.default.gapX,
       primary: {
         background: {
@@ -757,6 +776,7 @@ const buildTheme = tokens => {
         extend: ``,
       },
       secondary: {
+        background: components.hpe.button.secondary.enabled.background,
         border: {
           width:
             dimensions.borderSize[
@@ -776,6 +796,10 @@ const buildTheme = tokens => {
               components.hpe.button.medium.toolbar.borderWidth
             ] || components.hpe.button.medium.toolbar.borderWidth,
           color: components.hpe.button.toolbar.enabled.borderColor,
+          radius:
+            dimensions.borderSize[
+              components.hpe.button.medium.toolbar.borderRadius
+            ] || components.hpe.button.medium.toolbar.borderRadius,
         },
         color: components.hpe.button.toolbar.enabled.textColor,
         font: {
@@ -797,6 +821,19 @@ const buildTheme = tokens => {
             color: components.hpe.button.secondary.selected.enabled.borderColor,
           },
           color: components.hpe.button.secondary.selected.enabled.textColor,
+        },
+        nav: {
+          background: {
+            color: components.hpe.button.nav.selected.enabled.background,
+          },
+          border: {
+            // Q: this token isn't correct
+            color: components.hpe.button.nav.selected.enabled.borderColor,
+          },
+          color: components.hpe.button.nav.selected.enabled.textColor,
+          font: {
+            weight: components.hpe.button.nav.selected.enabled.fontWeight,
+          },
         },
         primary: {
           background: {
@@ -964,6 +1001,15 @@ const buildTheme = tokens => {
               horizontal: components.hpe.button.medium.default.paddingX,
             },
           },
+          nav: {
+            border: {
+              radius: components.hpe.button.medium.nav.borderRadius,
+            },
+            pad: {
+              vertical: components.hpe.button.medium.nav.paddingY,
+              horizontal: components.hpe.button.medium.nav.paddingX,
+            },
+          },
           primary: {
             border: {
               radius: components.hpe.button.medium.primary.borderRadius,
@@ -975,7 +1021,10 @@ const buildTheme = tokens => {
           },
           toolbar: {
             border: {
-              radius: components.hpe.button.medium.toolbar.borderRadius,
+              radius:
+                dimensions.borderSize[
+                  components.hpe.button.medium.toolbar.borderRadius
+                ] || components.hpe.button.medium.toolbar.borderRadius,
             },
             pad: {
               vertical: components.hpe.button.medium.toolbar.paddingY,
@@ -1134,7 +1183,8 @@ const buildTheme = tokens => {
     card: {
       container: {
         background: 'background-front',
-        elevation: 'medium',
+        elevation: 'medium', // v5
+        // elevation: 'none', // Brand refresh change
         // Q should this have a token?
         // A yes, but we haven't filled in "motion" tokens yet
         extend: 'transition: all 0.3s ease-in-out;',
@@ -1150,7 +1200,8 @@ const buildTheme = tokens => {
       },
       hover: {
         container: {
-          elevation: 'large',
+          elevation: 'large', // v5
+          // elevation: 'medium', // brand refresh change
         },
       },
     },
@@ -1183,17 +1234,23 @@ const buildTheme = tokens => {
         width:
           dimensions.borderSize[
             components.hpe.checkbox.medium.control.borderWidth
-          ],
+          ] || components.hpe.checkbox.medium.control.borderWidth,
       },
       check: {
         radius: components.hpe.checkbox.medium.control.borderRadius,
         thickness: components.hpe.checkbox.control.hover.borderWidth,
         extend: ({ theme, checked, indeterminate }) => `
+        margin-block: ${
+          (parseFloat(large.hpe.text.medium.lineHeight, 10) * 16 -
+            parseFloat(components.hpe.checkbox.medium.control.height, 10) *
+              16) /
+          2
+        }px;
         background-color: ${
           checked || indeterminate
             ? theme.global.colors[
                 components.hpe.checkbox.control.selected.enabled.background
-              ][theme.dark ? 'dark' : 'light']
+              ]?.[theme.dark ? 'dark' : 'light']
             : theme.global.colors.background[theme.dark ? 'dark' : 'light']
         };
         ${(checked || indeterminate) && 'border: none;'}
@@ -1344,7 +1401,7 @@ const buildTheme = tokens => {
           },
         },
         units: {
-          color: MISSING.color, // Q: missing token
+          color: components.hpe.headerCell.units.enabled.textColor, // Q: missing token
         },
       },
       icons: {
@@ -1370,8 +1427,8 @@ const buildTheme = tokens => {
       },
       primary: {
         // Q: missing tokens
-        weight: MISSING.weight,
-        color: MISSING.color,
+        weight: components.hpe.dataCell.primary.fontWeight,
+        color: components.hpe.dataCell.primary.enabled.textColor,
       },
       resize: {
         // Q: missing tokens
@@ -2287,6 +2344,15 @@ const buildTheme = tokens => {
         `,
       },
       body: {
+        pad: {
+          top: components.hpe.dataCell.paddingTop,
+          bottom: components.hpe.dataCell.paddingBottom,
+          horizontal: components.hpe.dataCell.paddingX,
+        },
+        border: {
+          side: 'bottom',
+          color: components.hpe.dataCell.enabled.borderColor,
+        },
         extend: ({ theme }) =>
           `
             &:hover {

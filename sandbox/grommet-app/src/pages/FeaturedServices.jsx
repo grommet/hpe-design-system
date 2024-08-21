@@ -14,8 +14,9 @@ const TabContent = ({ data, ...rest }) => (
         title={service.name}
         subtitle={service.category}
         description={service.description || 'hi'}
-        actions={<LinkNext color="primary" />}
+        actions={<LinkNext color="icon-brand" />}
         level={3}
+        onClick={() => {}}
       />
     ))}
   </Grid>
@@ -35,6 +36,7 @@ export const FeaturedServices = () => {
       level={2}
       actions={<Anchor href="#" label="View catalog" />}
       skeleton={skeleton ? skeletonAnimation : undefined}
+      contain={false}
     >
       <Tabs justify="start">
         <Tab title="Recommended">

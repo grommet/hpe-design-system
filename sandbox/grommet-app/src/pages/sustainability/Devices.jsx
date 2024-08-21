@@ -1452,6 +1452,7 @@ export const Devices = () => {
       <Box overflow={{ horizontal: 'auto' }} skeleton={skeleton}>
         <DataTable
           columns={columns}
+          onSelect={() => {}}
           sortable
           verticalAlign={{ body: 'top' }}
           id="devices-table"
