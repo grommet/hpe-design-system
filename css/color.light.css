@@ -1,10 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Aug 2024 19:37:41 GMT
+ * Generated on Wed, 21 Aug 2024 19:45:00 GMT
  */
 
 :root {
   --hpe-color-transparent: #00000000;
+  --hpe-color-background-selected-weak-enabled: #17eba014; /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity24);
   --hpe-color-shadow-default: var(--hpe-base-color-black-opacity12);
   --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
@@ -55,10 +56,10 @@
   --hpe-color-border-weak: var(--hpe-base-color-black-opacity12); /* Weaker border color for reduced emphasis */
   --hpe-color-border-default: var(--hpe-base-color-black-opacity36); /* Default border colour */
   --hpe-color-border-strong: var(--hpe-base-color-black-opacity72); /* Stronger border color for added emphasis */
-  --hpe-color-background-selected-weak: var(--hpe-base-color-green-100); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
-  --hpe-color-background-selected-strong: var(--hpe-base-color-green-600); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-125); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
+  --hpe-color-background-selected-strong-enabled: var(--hpe-base-color-green-700); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
-  --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
+  --hpe-color-background-primary-default: var(--hpe-base-color-green-700); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
   --hpe-color-background-status-warning: var(--hpe-base-color-orange-400-opacity24);
   --hpe-color-background-status-critical: var(--hpe-base-color-red-500-opacity24);
   --hpe-color-background-status-ok: var(--hpe-base-color-green-400-opacity24);

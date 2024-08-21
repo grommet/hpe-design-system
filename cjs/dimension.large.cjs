@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Aug 2024 19:37:41 GMT
+ * Generated on Wed, 21 Aug 2024 19:45:00 GMT
  */
 
 module.exports = {
@@ -49,7 +49,7 @@ module.exports = {
     },
     "heading": {
       "xlarge": {
-        "fontWeight": 500,
+        "fontWeight": 400,
         "fontSize": "2.25rem",
         "lineHeight": "2.25rem"
       },

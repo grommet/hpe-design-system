@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Aug 2024 19:37:41 GMT
+ * Generated on Wed, 21 Aug 2024 19:44:59 GMT
  */
 
 export default {
@@ -23,7 +23,7 @@ export default {
           warning: "#fec9011f",
         },
         primary: {
-          default: "#01a982",
+          default: "#093a2f",
           hover: "#00ff0a00",
         },
         selected: {
