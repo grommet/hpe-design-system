@@ -1,27 +1,27 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Aug 2024 21:21:26 GMT
+ * Generated on Wed, 21 Aug 2024 20:54:03 GMT
  */
 
 :root {
   --hpe-size-icon-xxlarge: 166rem;
-  --hpe-heading-xxsmall-line-height: 1.25rem;
-  --hpe-heading-xxsmall-font-size: 0.875rem;
-  --hpe-heading-xsmall-line-height: 1.375rem;
-  --hpe-heading-xsmall-font-size: 1rem;
-  --hpe-heading-small-line-height: 2.0625rem;
-  --hpe-heading-small-font-size: 1.6875rem;
-  --hpe-heading-medium-line-height: 2.625rem;
-  --hpe-heading-medium-font-size: 2.25rem;
-  --hpe-heading-large-line-height: 3.125rem;
-  --hpe-heading-large-font-size: 2.75rem;
-  --hpe-heading-xlarge-line-height: 3.6875rem;
-  --hpe-heading-xlarge-font-size: 3.3125rem;
-  --hpe-text-xxlarge-line-height: 2.625rem;
-  --hpe-text-xlarge-line-height: 2.0625rem;
-  --hpe-text-xlarge-font-size: 1.6875rem;
-  --hpe-text-large-font-size: 1.375rem;
-  --hpe-text-small-line-height: 1.375rem;
+  --hpe-heading-xxsmall-line-height: 20;
+  --hpe-heading-xxsmall-font-size: 14;
+  --hpe-heading-xsmall-line-height: 22;
+  --hpe-heading-xsmall-font-size: 16;
+  --hpe-heading-small-line-height: 33;
+  --hpe-heading-small-font-size: 27;
+  --hpe-heading-medium-line-height: 42;
+  --hpe-heading-medium-font-size: 36;
+  --hpe-heading-large-line-height: 50;
+  --hpe-heading-large-font-size: 44;
+  --hpe-heading-xlarge-line-height: 59;
+  --hpe-heading-xlarge-font-size: 53;
+  --hpe-text-xxlarge-line-height: 42;
+  --hpe-text-xlarge-line-height: 33;
+  --hpe-text-xlarge-font-size: 27;
+  --hpe-text-large-font-size: 22;
+  --hpe-text-small-line-height: 22;
   --hpe-size-icon-xlarge: var(--hpe-base-dimension-2400);
   --hpe-size-icon-large: var(--hpe-base-dimension-1200);
   --hpe-size-icon-medium: var(--hpe-base-dimension-600);
@@ -40,12 +40,12 @@
   --hpe-paragraph-small-font-size: var(--hpe-base-font-size-100);
   --hpe-paragraph-xsmall-line-height: var(--hpe-base-line-height-90);
   --hpe-paragraph-xsmall-font-size: var(--hpe-base-font-size-90);
-  --hpe-heading-xxsmall-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-heading-xsmall-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-heading-small-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-heading-medium-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-heading-large-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-heading-xlarge-font-weight: var(--hpe-base-font-weight-bold);
+  --hpe-heading-xxsmall-font-weight: var(--hpe-font-weight-semibold);
+  --hpe-heading-xsmall-font-weight: var(--hpe-font-weight-semibold);
+  --hpe-heading-small-font-weight: var(--hpe-font-weight-medium);
+  --hpe-heading-medium-font-weight: var(--hpe-font-weight-medium);
+  --hpe-heading-large-font-weight: var(--hpe-font-weight-medium);
+  --hpe-heading-xlarge-font-weight: var(--hpe-font-weight-medium);
   --hpe-text-6xl-line-height: var(--hpe-base-line-height-1000);
   --hpe-text-6xl-font-size: var(--hpe-base-font-size-1000);
   --hpe-text-5xl-line-height: var(--hpe-base-line-height-900);

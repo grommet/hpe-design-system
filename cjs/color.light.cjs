@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Aug 2024 21:21:26 GMT
+ * Generated on Wed, 21 Aug 2024 20:54:03 GMT
  */
 
 module.exports = {
@@ -17,9 +17,8 @@ module.exports = {
         "contrast": "#0000000a",
         "status": {
           "info": "#00c8ff3d",
-          "ok": "#17eba03d",
-          "warning": "#ffbc443d",
           "unknown": "#f7f7f7",
+          "ok": "#17eba03d",
           "critical": "#cc1f1a4d"
         },
         "primary": {
@@ -97,6 +96,7 @@ module.exports = {
         }
       },
       "transparent": "#00000000",
+      "focus": "#00e8cf",
       "shadow": {
         "weak": "#0000001f",
         "default": "#0000001f",

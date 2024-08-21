@@ -49,8 +49,8 @@ export default {
       "$value": [
         {
           "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.xsmall}",
-          "blur": "{base.static.spacing.small}",
+          "offsetY": "{base.static.spacing.small}",
+          "blur": "{base.static.spacing.medium}",
           "spread": "{base.static.spacing.none}",
           "color": "{color.shadow.default}"
         }

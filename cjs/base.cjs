@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Aug 2024 21:21:26 GMT
+ * Generated on Wed, 21 Aug 2024 20:54:02 GMT
  */
 
 module.exports = {
@@ -165,21 +165,6 @@ module.exports = {
         "800": "3rem",
         "900": "4.5rem",
         "1000": "4.5rem"
-      },
-      "fontWeight": {
-        "thin": 100,
-        "light": 300,
-        "regular": 400,
-        "medium": 500,
-        "semibold": 600,
-        "bold": 700,
-        "black": 900
-      },
-      "breakpoint": {
-        "xsmall": "576px",
-        "small": "768px",
-        "medium": "1080px",
-        "large": "1440px"
       },
       "static": {
         "spacing": {
