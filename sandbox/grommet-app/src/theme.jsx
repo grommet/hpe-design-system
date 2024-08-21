@@ -593,7 +593,9 @@ const buildTheme = tokens => {
       drop: {
         background: components.hpe.drop.background,
         border: {
-          radius: components.hpe.drop.borderRadius,
+          radius:
+            dimensions.edgeSize[components.hpe.drop.borderRadius] ||
+            components.hpe.drop.borderRadius,
         },
         margin: components.hpe.drop.margin,
         intelligentMargin: true,
