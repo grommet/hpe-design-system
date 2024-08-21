@@ -1,17 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Aug 2024 19:53:54 GMT
+ * Generated on Wed, 21 Aug 2024 20:19:37 GMT
  */
 
 :root {
   --hpe-tbd: #00ff0a00; /* Placeholder for colours that still need finalising. */
-  --hpe-base-font-weight-black: 900;
-  --hpe-base-font-weight-bold: 700;
-  --hpe-base-font-weight-semibold: 600;
-  --hpe-base-font-weight-medium: 500;
-  --hpe-base-font-weight-regular: 400;
-  --hpe-base-font-weight-light: 300;
-  --hpe-base-font-weight-thin: 100;
   --hpe-base-line-height-1000: 4.5rem;
   --hpe-base-line-height-900: 4.5rem;
   --hpe-base-line-height-800: 3rem;

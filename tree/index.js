@@ -3809,7 +3809,7 @@ export default {
     },
     "button.primary.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.bold}",
+      "$value": "{fontWeight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4393,7 +4393,7 @@ export default {
     },
     "button.default.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
+      "$value": "{fontWeight.semibold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9959,7 +9959,7 @@ export default {
     },
     "select.option.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10133,7 +10133,7 @@ export default {
     },
     "select.option.selected.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.bold}",
+      "$value": "{fontWeight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10591,7 +10591,7 @@ export default {
     },
     "checkbox.medium.label.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11163,7 +11163,7 @@ export default {
     },
     "switch.medium.label.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11333,7 +11333,7 @@ export default {
     },
     "dataCell.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11637,7 +11637,7 @@ export default {
     },
     "dataCell.primary.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11912,7 +11912,7 @@ export default {
     },
     "headerCell.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12384,7 +12384,7 @@ export default {
     },
     "formField.medium.labelText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12426,7 +12426,7 @@ export default {
     },
     "formField.medium.placeholderText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12468,7 +12468,7 @@ export default {
     },
     "formField.medium.helpText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12510,7 +12510,7 @@ export default {
     },
     "formField.medium.infoText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12552,7 +12552,7 @@ export default {
     },
     "formField.medium.errorText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12594,7 +12594,7 @@ export default {
     },
     "formField.medium.valueText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13618,7 +13618,7 @@ export default {
     },
     "footerCell.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14219,7 +14219,7 @@ export default {
     },
     "radioButton.medium.label.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14304,7 +14304,7 @@ export default {
     },
     "anchor.default.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14344,7 +14344,7 @@ export default {
     },
     "anchor.default.hover.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14382,7 +14382,7 @@ export default {
     },
     "anchor.default.disabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14420,7 +14420,7 @@ export default {
     },
     "anchor.emphasized.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.bold}",
+      "$value": "{fontWeight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14446,7 +14446,7 @@ export default {
     },
     "anchor.emphasized.hover.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.bold}",
+      "$value": "{fontWeight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14484,7 +14484,7 @@ export default {
     },
     "anchor.emphasized.disabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.bold}",
+      "$value": "{fontWeight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16116,7 +16116,7 @@ export default {
     },
     "display.medium.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.light}",
+      "$value": "{fontWeight.light}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16608,7 +16608,7 @@ export default {
     },
     "heading.xlarge.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16650,7 +16650,7 @@ export default {
     },
     "heading.large.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16720,7 +16720,7 @@ export default {
     },
     "heading.medium.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16762,7 +16762,7 @@ export default {
     },
     "heading.small.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16804,7 +16804,7 @@ export default {
     },
     "heading.xsmall.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
+      "$value": "{fontWeight.semibold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16846,7 +16846,7 @@ export default {
     },
     "heading.xxsmall.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
+      "$value": "{fontWeight.semibold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -17779,7 +17779,7 @@ export default {
     },
     "display.medium.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18271,7 +18271,7 @@ export default {
     },
     "heading.xlarge.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18313,7 +18313,7 @@ export default {
     },
     "heading.large.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18383,7 +18383,7 @@ export default {
     },
     "heading.medium.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18425,7 +18425,7 @@ export default {
     },
     "heading.small.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18467,7 +18467,7 @@ export default {
     },
     "heading.xsmall.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
+      "$value": "{fontWeight.semibold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18509,7 +18509,7 @@ export default {
     },
     "heading.xxsmall.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
+      "$value": "{fontWeight.semibold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -21760,168 +21760,6 @@ export default {
           "mode": "small"
         }
       ]
-    },
-    "base.fontWeight.thin": {
-      "$type": "number",
-      "$value": 100,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "base.fontWeight.light": {
-      "$type": "number",
-      "$value": 300,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "display.medium.fontWeight",
-          "mode": "large"
-        }
-      ]
-    },
-    "base.fontWeight.regular": {
-      "$type": "number",
-      "$value": 400,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "display.medium.fontWeight",
-          "mode": "small"
-        }
-      ]
-    },
-    "base.fontWeight.medium": {
-      "$type": "number",
-      "$value": 500,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "heading.xlarge.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "heading.large.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "heading.medium.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "heading.small.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "heading.xlarge.fontWeight",
-          "mode": "small"
-        },
-        {
-          "name": "heading.large.fontWeight",
-          "mode": "small"
-        },
-        {
-          "name": "heading.medium.fontWeight",
-          "mode": "small"
-        },
-        {
-          "name": "heading.small.fontWeight",
-          "mode": "small"
-        }
-      ]
-    },
-    "base.fontWeight.semibold": {
-      "$type": "number",
-      "$value": 600,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "heading.xsmall.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "heading.xxsmall.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "heading.xsmall.fontWeight",
-          "mode": "small"
-        },
-        {
-          "name": "heading.xxsmall.fontWeight",
-          "mode": "small"
-        }
-      ]
-    },
-    "base.fontWeight.bold": {
-      "$type": "number",
-      "$value": 700,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "base.fontWeight.black": {
-      "$type": "number",
-      "$value": 900,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
     },
     "base.static.spacing.none": {
       "$type": "number",

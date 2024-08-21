@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Aug 2024 19:53:54 GMT
+ * Generated on Wed, 21 Aug 2024 20:19:38 GMT
  */
 
 :root {
@@ -69,42 +69,42 @@
   --hpe-button-default-enabled-border-color: #00000000;
   --hpe-button-default-enabled-background: #00000000;
   --hpe-focus-ring-color: var(--hpe-base-color-turquoise-400);
-  --hpe-anchor-emphasized-disabled-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-anchor-emphasized-hover-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-anchor-emphasized-enabled-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-anchor-default-disabled-font-weight: var(--hpe-base-font-weight-medium);
-  --hpe-anchor-default-hover-font-weight: var(--hpe-base-font-weight-medium);
-  --hpe-anchor-default-enabled-font-weight: var(--hpe-base-font-weight-medium);
-  --hpe-radio-button-medium-label-font-weight: var(--hpe-base-font-weight-medium);
+  --hpe-anchor-emphasized-disabled-font-weight: var(--hpe-font-weight-bold);
+  --hpe-anchor-emphasized-hover-font-weight: var(--hpe-font-weight-bold);
+  --hpe-anchor-emphasized-enabled-font-weight: var(--hpe-font-weight-bold);
+  --hpe-anchor-default-disabled-font-weight: var(--hpe-font-weight-medium);
+  --hpe-anchor-default-hover-font-weight: var(--hpe-font-weight-medium);
+  --hpe-anchor-default-enabled-font-weight: var(--hpe-font-weight-medium);
+  --hpe-radio-button-medium-label-font-weight: var(--hpe-font-weight-medium);
   --hpe-footer-cell-padding-top: var(--hpe-data-cell-padding-bottom); /* This intentionally uses paddingBottom because the border side is switched from dataCell. */
-  --hpe-footer-cell-font-weight: var(--hpe-base-font-weight-medium);
+  --hpe-footer-cell-font-weight: var(--hpe-font-weight-medium);
   --hpe-form-field-input-container-focus-background: var(--hpe-color-transparent);
-  --hpe-form-field-medium-value-text-font-weight: var(--hpe-base-font-weight-medium);
-  --hpe-form-field-medium-error-text-font-weight: var(--hpe-base-font-weight-regular);
-  --hpe-form-field-medium-info-text-font-weight: var(--hpe-base-font-weight-regular);
-  --hpe-form-field-medium-help-text-font-weight: var(--hpe-base-font-weight-regular);
-  --hpe-form-field-medium-placeholder-text-font-weight: var(--hpe-base-font-weight-regular);
-  --hpe-form-field-medium-label-text-font-weight: var(--hpe-base-font-weight-medium);
+  --hpe-form-field-medium-value-text-font-weight: var(--hpe-font-weight-medium);
+  --hpe-form-field-medium-error-text-font-weight: var(--hpe-font-weight-regular);
+  --hpe-form-field-medium-info-text-font-weight: var(--hpe-font-weight-regular);
+  --hpe-form-field-medium-help-text-font-weight: var(--hpe-font-weight-regular);
+  --hpe-form-field-medium-placeholder-text-font-weight: var(--hpe-font-weight-regular);
+  --hpe-form-field-medium-label-text-font-weight: var(--hpe-font-weight-medium);
   --hpe-form-field-medium-input-group-item-padding-y: var(--hpe-component-medium-padding-y);
   --hpe-header-cell-padding-bottom: var(--hpe-data-cell-padding-bottom);
-  --hpe-header-cell-font-weight: var(--hpe-base-font-weight-medium);
+  --hpe-header-cell-font-weight: var(--hpe-font-weight-medium);
   --hpe-data-cell-primary-hover-background: var(--hpe-data-cell-hover-background);
   --hpe-data-cell-primary-enabled-background: var(--hpe-data-cell-enabled-background);
   --hpe-data-cell-primary-enabled-border-color: var(--hpe-data-cell-enabled-border-color);
   --hpe-data-cell-primary-padding-bottom: var(--hpe-data-cell-padding-bottom);
-  --hpe-data-cell-primary-font-weight: var(--hpe-base-font-weight-medium);
+  --hpe-data-cell-primary-font-weight: var(--hpe-font-weight-medium);
   --hpe-data-cell-pinned-background: var(--hpe-data-cell-enabled-background);
   --hpe-data-cell-pinned-background-color: var(--hpe-data-cell-enabled-background);
   --hpe-data-cell-pinned-border-color: var(--hpe-data-cell-enabled-border-color);
   --hpe-data-cell-disabled-background: var(--hpe-data-cell-enabled-background);
   --hpe-data-cell-disabled-border-color: var(--hpe-data-cell-enabled-border-color);
   --hpe-data-cell-hover-border-color: var(--hpe-data-cell-enabled-border-color);
-  --hpe-data-cell-font-weight: var(--hpe-base-font-weight-regular);
+  --hpe-data-cell-font-weight: var(--hpe-font-weight-regular);
   --hpe-switch-medium-control-track-width: var(--hpe-base-dimension-1200);
-  --hpe-switch-medium-label-font-weight: var(--hpe-base-font-weight-medium);
-  --hpe-checkbox-medium-label-font-weight: var(--hpe-base-font-weight-medium);
-  --hpe-select-option-selected-enabled-font-weight: var(--hpe-base-font-weight-bold);
-  --hpe-select-option-enabled-font-weight: var(--hpe-base-font-weight-medium);
+  --hpe-switch-medium-label-font-weight: var(--hpe-font-weight-medium);
+  --hpe-checkbox-medium-label-font-weight: var(--hpe-font-weight-medium);
+  --hpe-select-option-selected-enabled-font-weight: var(--hpe-font-weight-bold);
+  --hpe-select-option-enabled-font-weight: var(--hpe-font-weight-medium);
   --hpe-select-medium-option-font-size: var(--hpe-button-medium-default-font-size);
   --hpe-component-xlarge-min-height: var(--hpe-base-dimension-1800);
   --hpe-component-large-min-height: var(--hpe-base-dimension-1200);
@@ -143,17 +143,14 @@
   --hpe-button-default-hover-border-color: var(--hpe-button-default-enabled-border-color);
   --hpe-button-default-disabled-border-color: var(--hpe-button-default-enabled-border-color);
   --hpe-button-default-disabled-background: var(--hpe-button-default-enabled-background);
-  --hpe-button-default-enabled-font-weight: var(--hpe-base-font-weight-semibold);
+  --hpe-button-default-enabled-font-weight: var(--hpe-font-weight-semibold);
   --hpe-button-secondary-selected-enabled-border-color: var(--hpe-button-default-selected-enabled-border-color);
   --hpe-button-secondary-hover-background: var(--hpe-button-default-enabled-background);
   --hpe-button-secondary-enabled-background: var(--hpe-button-default-enabled-background);
   --hpe-button-primary-selected-enabled-border-color: var(--hpe-button-default-selected-enabled-border-color);
   --hpe-button-primary-disabled-border-color: var(--hpe-button-default-enabled-border-color);
-  --hpe-button-primary-enabled-font-weight: var(--hpe-base-font-weight-bold);
+  --hpe-button-primary-enabled-font-weight: var(--hpe-font-weight-bold);
   --hpe-button-primary-enabled-border-color: var(--hpe-button-default-enabled-border-color);
-  --hpe-display-medium-font-weight: var(--hpe-base-font-weight-light);
-  --hpe-display-medium-line-height: var(--hpe-base-line-height-900);
-  --hpe-display-medium-font-size: var(--hpe-base-font-size-900);
   --hpe-anchor-6xlarge-emphasized-line-height: var(--hpe-text-6xl-line-height);
   --hpe-anchor-6xlarge-emphasized-font-size: var(--hpe-text-6xl-font-size);
   --hpe-anchor-6xlarge-default-line-height: var(--hpe-text-6xl-line-height);
