@@ -5167,6 +5167,7 @@ grommet-icons@^4.12.1:
 
 "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.12.1"
+  uid "92f4e88ab19fa618a4952ac74802f606bf44c207"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#92f4e88ab19fa618a4952ac74802f606bf44c207"
 
 "grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable":

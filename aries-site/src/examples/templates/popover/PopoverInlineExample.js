@@ -41,6 +41,8 @@ const columns = {
   xlarge: ['auto', 'auto', 'auto', 'auto'],
 };
 
+// should we disable ?
+// eslint-disable-next-line react/prop-types
 const CardDevices = ({ title, devices }) => (
   <Card>
     <CardBody>
