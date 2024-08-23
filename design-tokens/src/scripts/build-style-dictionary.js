@@ -387,7 +387,7 @@ HPEStyleDictionary.extend({
           destination: 'components.default.js',
           filter: token =>
             token.filePath === `${TOKENS_DIR}/component.default.json`,
-          format: 'es6GrommetRefs',
+          format: 'esmGrommetRefs',
         },
       ],
     },

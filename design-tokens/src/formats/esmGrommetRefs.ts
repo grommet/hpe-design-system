@@ -5,7 +5,7 @@ import { jsonToNestedValue } from './utils/jsonToNestedValue.js';
 import { access } from '../utils.js';
 const { fileHeader } = StyleDictionary.formatHelpers;
 
-export const es6GrommetRefs = ({
+export const esmGrommetRefs = ({
   dictionary,
   file,
   platform = {},
