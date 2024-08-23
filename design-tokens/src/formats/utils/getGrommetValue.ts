@@ -1,10 +1,32 @@
+import { isReference } from '../../utils.js';
+
+const tokenToGrommetRef = (value: string): string => {
+  const temp: string[] = value.slice(1, -1).split('.');
+  temp.shift();
+  return temp.join('-');
+};
+
 /**
  * @description Transforms a token reference to grommet reference format. {color.text.strong} -> text-strong
  */
 export const getGrommetValue = (token: any, dictionary: any) => {
   let result;
   const originalValue = token.original.value;
-  if (
+  if (token.$type === 'border') {
+    let color = originalValue.color;
+    if (
+      isReference(originalValue.color) &&
+      originalValue.color.split('.')[0].includes('color')
+    ) {
+      color = tokenToGrommetRef(originalValue.color);
+    }
+
+    result = {
+      color: color,
+      width: token.value.width,
+      style: token.value.style,
+    };
+  } else if (
     dictionary.usesReference(originalValue) &&
     !originalValue.split('.')[0].includes('base') &&
     !originalValue.split('.')[0].includes('fontWeight')
@@ -20,9 +42,7 @@ export const getGrommetValue = (token: any, dictionary: any) => {
       originalValue.split('.')[0].includes('borderWidth') ||
       originalValue.split('.')[0].includes('color')
     ) {
-      const temp: string[] = originalValue.slice(1, -1).split('.');
-      temp.shift();
-      result = temp.join('-');
+      result = tokenToGrommetRef(originalValue);
       if (result === 'full') result = '2em';
     } else {
       const refs = dictionary.getReferences(originalValue);

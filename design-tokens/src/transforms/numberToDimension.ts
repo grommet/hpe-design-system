@@ -19,6 +19,7 @@ export const numberToDimension: Transform = {
         'width',
         'height',
         'borderRadius',
+        'breakpoint',
       ].find(v => token.path.includes(v))
     )
       return true;
