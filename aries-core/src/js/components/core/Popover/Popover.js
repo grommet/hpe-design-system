@@ -1,6 +1,6 @@
 import { Box, Button, Drop } from 'grommet';
 import PropTypes from 'prop-types';
-import { FormClose } from 'grommet-icons';
+import { Close } from 'grommet-icons';
 
 export const Popover = ({
   title,
@@ -20,16 +20,20 @@ export const Popover = ({
       onClose={onClose}
       {...rest}
     >
-      <Box direction="row">
-        <Box flex gap="small" pad="small">
+      <Box gap="small" direction="row">
+        <Box flex gap="small" pad={{ vertical: 'small', left: 'small' }}>
+          {/* do we like this format of passing in
+           title children and footer? */}
           {title}
           {children}
           {footer}
         </Box>
-        <Box pad={{ horizontal: 'small', top: 'xsmall' }}>
+        <Box pad={{ right: 'small', top: 'xsmall' }}>
           <Button
-            icon={<FormClose />}
+            icon={<Close size="small" />}
             onClick={onClose}
+            // should we make this a message that the user passes in?
+            // maybe we can have a default just incase they forget?
             a11yTitle={`You are in a popover containing information,
             to close this popover, press Enter.`}
             autoFocus
@@ -40,6 +44,7 @@ export const Popover = ({
   );
 };
 
+// should we be still doing proptypes?
 Popover.propTypes = {
   children: PropTypes.node,
   title: PropTypes.node,
