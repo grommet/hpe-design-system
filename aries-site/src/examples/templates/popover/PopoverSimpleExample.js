@@ -9,7 +9,7 @@ export const PopoverSimpleExample = () => {
   const targetRef = useRef();
 
   const handleButtonClick = () => {
-    setShowPopover(true);
+    setShowPopover(prev => !prev);
   };
 
   const handleClosePopover = () => {
@@ -24,7 +24,7 @@ export const PopoverSimpleExample = () => {
         icon={<CircleInformation />}
         onClick={handleButtonClick}
         ref={targetRef}
-        ariaExpanded={showPopover}
+        aria-expanded={showPopover}
         a11yTitle="informational help"
         popovertarget="simple-popover"
       />

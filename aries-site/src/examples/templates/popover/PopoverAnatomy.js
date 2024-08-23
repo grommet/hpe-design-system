@@ -97,7 +97,6 @@ const PopoverContent = ({ ...rest }) => (
       <Box
         id="popover-footer"
         border={{ style: 'dashed' }}
-        align="center"
         justify="center"
         flex={false}
         pad="medium"
