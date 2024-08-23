@@ -64,7 +64,11 @@ HPEStyleDictionary.extend({
 }).buildAllPlatforms();
 
 HPEStyleDictionary.extend({
-  source: [`${TOKENS_DIR}/global.default.json`],
+  source: [
+    `${TOKENS_DIR}/primitives.base.json`,
+    `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
+    `${TOKENS_DIR}/global.default.json`,
+  ],
   platforms: {
     js: {
       transformGroup: 'js/w3c',
@@ -73,7 +77,9 @@ HPEStyleDictionary.extend({
       files: [
         {
           destination: 'global.js',
-          format: 'javascript/esm',
+          format: 'esmGrommetRefs',
+          filter: token =>
+            token.filePath === `${TOKENS_DIR}/global.default.json`,
         },
       ],
     },
@@ -84,7 +90,9 @@ HPEStyleDictionary.extend({
       files: [
         {
           destination: 'global.cjs',
-          format: 'javascript/commonJs',
+          format: 'commonJsGrommetRefs',
+          filter: token =>
+            token.filePath === `${TOKENS_DIR}/global.default.json`,
         },
       ],
     },
@@ -96,6 +104,8 @@ HPEStyleDictionary.extend({
         {
           destination: 'global.json',
           format: 'json/nested',
+          filter: token =>
+            token.filePath === `${TOKENS_DIR}/global.default.json`,
         },
       ],
     },
@@ -107,6 +117,8 @@ HPEStyleDictionary.extend({
         {
           destination: 'global.css',
           format: 'css/variables',
+          filter: token =>
+            token.filePath === `${TOKENS_DIR}/global.default.json`,
           options: {
             outputReferences: true,
           },
@@ -121,10 +133,6 @@ const colorModeFiles = fs
   .map(file => (file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined))
   .filter(file => file);
 
-const primitives = fs.readFileSync(`${TOKENS_DIR}/primitives.base.json`);
-const rawPrimitives = JSON.parse(primitives);
-const primitiveColorNames = Object.keys(rawPrimitives.base.color);
-
 const global = fs.readFileSync(`${TOKENS_DIR}/global.default.json`);
 const parsedGlobal = JSON.parse(global);
 
@@ -134,6 +142,7 @@ colorModeFiles.forEach(file => {
     source: [
       `${TOKENS_DIR}/primitives.base.json`,
       file,
+      `${TOKENS_DIR}/elevation - semantic.${mode}.json`,
       // `${TOKENS_DIR}/gradient.${mode}.json`, // TO DO add gradients
     ],
     platforms: {
@@ -147,10 +156,12 @@ colorModeFiles.forEach(file => {
               theme ? `${theme}-${mode}` : `${mode || ''}`
             }.js`,
             format: 'javascript/esm',
-            filter: token =>
-              (token.attributes.category === 'color' &&
-                !primitiveColorNames.includes(token.attributes.type)) ||
-              token.attributes.category === 'gradient',
+            filter: token => token.filePath === file,
+          },
+          {
+            destination: `elevation.${mode}.js`,
+            format: 'javascript/esm',
+            filter: 'isShadow',
           },
         ],
       },
@@ -164,11 +175,12 @@ colorModeFiles.forEach(file => {
               theme ? `${theme}-${mode}` : `${mode || ''}`
             }.cjs`,
             format: 'javascript/commonJs',
-            filter: token =>
-              (token.attributes.category === 'color' &&
-                !primitiveColorNames.includes(token.attributes.type)) ||
-              // token.attributes.category === 'elevation' ||
-              token.attributes.category === 'gradient',
+            filter: token => token.filePath === file,
+          },
+          {
+            destination: `elevation.${mode}.cjs`,
+            format: 'javascript/commonJs',
+            filter: 'isShadow',
           },
         ],
       },
@@ -182,11 +194,7 @@ colorModeFiles.forEach(file => {
               theme ? `${theme}-${mode}` : `${mode || ''}`
             }.json`,
             format: 'json/nested',
-            filter: token =>
-              (token.attributes.category === 'color' &&
-                !primitiveColorNames.includes(token.attributes.type)) ||
-              // token.attributes.category === 'elevation' ||
-              token.attributes.category === 'gradient',
+            filter: token => token.filePath === file,
           },
         ],
       },
@@ -206,11 +214,16 @@ colorModeFiles.forEach(file => {
               theme,
             },
             // TO DO revisit should "light" mode be part of base.css?
-            filter: token =>
-              (token.attributes.category === 'color' &&
-                !primitiveColorNames.includes(token.attributes.type)) ||
-              // token.attributes.category === 'elevation' ||
-              token.attributes.category === 'gradient',
+            filter: token => token.filePath === file,
+          },
+          {
+            destination: `elevation.${mode}.css`,
+            filter: 'isShadow',
+            format: 'css/variables-themed',
+            options: {
+              outputReferences: true,
+              mode: mode === 'dark' ? 'dark' : undefined,
+            },
           },
         ],
       },
@@ -242,6 +255,7 @@ dimensionFiles.forEach(file => {
   HPEStyleDictionary.extend({
     source: [
       `${TOKENS_DIR}/primitives.base.json`,
+      `${TOKENS_DIR}/color - semantic.light.json`,
       `${TOKENS_DIR}/global.default.json`,
       `${TOKENS_DIR}/typography - semantic.${mode}.json`,
       file,
@@ -301,66 +315,6 @@ dimensionFiles.forEach(file => {
                 )}`,
             },
             filter: token => dimensions.includes(token.attributes.category),
-          },
-        ],
-      },
-    },
-  }).buildAllPlatforms();
-});
-
-const elevationFiles = fs
-  .readdirSync(TOKENS_DIR)
-  .map(file =>
-    file.includes('elevation') ? `${TOKENS_DIR}/${file}` : undefined,
-  )
-  .filter(file => file);
-
-elevationFiles.forEach(file => {
-  const mode = getThemeAndMode(file)[1];
-  HPEStyleDictionary.extend({
-    source: [
-      `${TOKENS_DIR}/primitives.base.json`,
-      `${TOKENS_DIR}/color - semantic.${mode}.json`, // using light mode to have a reference name available
-      file,
-    ],
-    platforms: {
-      js: {
-        transformGroup: 'js/w3c',
-        buildPath: ESM_DIR,
-        prefix: PREFIX,
-        files: [
-          {
-            destination: `elevation.${mode}.js`,
-            format: 'javascript/esm',
-            filter: 'isShadow',
-          },
-        ],
-      },
-      'js/cjs': {
-        transformGroup: 'js/w3c',
-        buildPath: CJS_DIR,
-        prefix: PREFIX,
-        files: [
-          {
-            destination: `elevation.${mode}.cjs`,
-            format: 'javascript/commonJs',
-            filter: 'isShadow',
-          },
-        ],
-      },
-      css: {
-        transformGroup: 'css/w3c',
-        buildPath: CSS_DIR,
-        prefix: PREFIX,
-        files: [
-          {
-            destination: `elevation.${mode}.css`,
-            filter: 'isShadow',
-            format: 'css/variables-themed',
-            options: {
-              outputReferences: true,
-              mode: mode === 'dark' ? 'dark' : undefined,
-            },
           },
         ],
       },
