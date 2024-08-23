@@ -172,6 +172,8 @@ function variableResolvedTypeFromToken(token: Token) {
     case 'fontFamily':
       return 'STRING';
     // undefined since Figma Variables doesn't support yet
+    case 'border':
+      return undefined;
     case 'cubicBezier':
       return undefined;
     case 'duration':

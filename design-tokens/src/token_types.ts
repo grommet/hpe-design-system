@@ -13,7 +13,7 @@ export interface Token {
    * The [type](https://tr.designtokens.org/format/#type-0) of the token.
    *
    * We allow `string` and `boolean` types in addition to the draft W3C spec's `color` and `number` types
-   * to align with the resolved types for Figma variables. cubicBezier/duration/gradient is not support yet by Figma Variables
+   * to align with the resolved types for Figma variables. cubicBezier/duration/gradient/border is not support yet by Figma Variables
    * so it will be sifted out by sync_tokens_to_figma
    */
   $type:
@@ -23,6 +23,7 @@ export interface Token {
     | 'boolean'
     | 'shadow'
     | 'fontFamily'
+    | 'border'
     | 'cubicBezier'
     | 'duration'
     | 'gradient';
