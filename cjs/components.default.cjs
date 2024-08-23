@@ -1,3 +1,8 @@
+/**
+ * Do not edit directly
+ * Generated on Fri, 23 Aug 2024 00:13:06 GMT
+ */
+
 module.exports = {
   "hpe": {
     "button": {
@@ -462,7 +467,7 @@ module.exports = {
       "background": "background-floating",
       "borderRadius": "xsmall",
       "margin": "xsmall",
-      "zIndex": "110px"
+      "zIndex": 110
     },
     "menu": {
       "item": {
@@ -750,7 +755,7 @@ module.exports = {
       "medium": {
         "gapX": "12px",
         "width": "48px",
-        "height": "1.5rem",
+        "height": "24px",
         "borderRadius": "9999px",
         "borderWidth": "default",
         "label": {

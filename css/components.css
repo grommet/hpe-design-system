@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Aug 2024 21:10:44 GMT
+ * Generated on Fri, 23 Aug 2024 00:13:06 GMT
  */
 
 :root {
@@ -32,7 +32,7 @@
   --hpe-data-cell-enabled-border-color: #00000000;
   --hpe-data-cell-padding-bottom: 5px;
   --hpe-switch-medium-border-radius: 9999px;
-  --hpe-switch-medium-height: 1.5rem;
+  --hpe-switch-medium-height: 24px;
   --hpe-switch-medium-width: 48px;
   --hpe-checkbox-control-hover-background: #00000000;
   --hpe-checkbox-control-enabled-background: #00000000;
@@ -53,7 +53,7 @@
   --hpe-menu-item-hover-border-color: #00000000;
   --hpe-menu-item-enabled-border-color: #00000000;
   --hpe-menu-item-enabled-background: #00000000;
-  --hpe-drop-z-index: 110px;
+  --hpe-drop-z-index: 110;
   --hpe-button-xlarge-default-padding-y: 19px;
   --hpe-button-large-toolbar-padding-y: 9px;
   --hpe-button-large-default-padding-y: 8px;
