@@ -84,28 +84,28 @@ const Index = () => (
   <>
     <Meta title={title} description={pageDetails.seoDescription} />
     <Box>
-      <Box>
-        <PageContent>
-          <Box align="center" pad={{ vertical: 'xlarge' }} gap="medium">
-            <Heading margin="none">Built for the enterprise by HPE</Heading>
-            <Paragraph
-              color="text-weak"
-              textAlign="center"
-              size="xlarge"
-              margin="none"
-            >
-              Empower designers and developers to quickly collaborate and create
-              accessible enterprise experiences for HPE.
-            </Paragraph>
-            <Button label="Get started" primary />
-          </Box>
-        </PageContent>
-        <Box height="medium" background="validation-ok" />
-      </Box>
       <StyledBox
         pad={{ vertical: 'xlarge' }}
         background={{ image: 'datawave-white-3', opacity: 'weak' }}
+        gap="xlarge"
       >
+        <Box>
+          <PageContent>
+            <Box align="center" gap="medium">
+              <Heading margin="none">Built for the enterprise by HPE</Heading>
+              <Paragraph
+                color="text-weak"
+                textAlign="center"
+                size="xlarge"
+                margin="none"
+              >
+                Empower designers and developers to quickly collaborate and
+                create accessible enterprise experiences for HPE.
+              </Paragraph>
+              <Button label="Get started" primary />
+            </Box>
+          </PageContent>
+        </Box>
         <Featured {...widthProps} />
       </StyledBox>
       <WhatIs {...widthProps} />

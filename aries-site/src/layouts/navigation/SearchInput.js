@@ -16,7 +16,7 @@ export const SearchInput = forwardRef(({ ...rest }, ref) => (
     ref={ref}
     icon={<SearchIcon id="search-icon" />}
     plain
-    reverse
+    // reverse
     {...rest}
   />
 ));

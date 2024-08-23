@@ -34,7 +34,7 @@ export const WhatIs = ({ ...rest }) => {
           top: 'xlarge',
           bottom: 'medium',
         }}
-        gap="large"
+        gap="xlarge"
         {...rest}
       >
         <Box gap="medium" align="center">
@@ -43,7 +43,7 @@ export const WhatIs = ({ ...rest }) => {
           </Heading>
           <Paragraph
             color="text-weak"
-            size="large"
+            size="xlarge"
             textAlign="center"
             margin="none"
           >
@@ -57,13 +57,15 @@ export const WhatIs = ({ ...rest }) => {
           fill="horizontal"
           border={{ side: 'bottom', color: 'border-weak' }}
         />
-        <Grid columns={['flex', 'flex', 'flex', 'flex']} gap="medium" fill>
+        <Grid columns={['flex', 'flex', 'flex', 'flex']} gap="large" fill>
           {whatIsContent.map(({ heading, text, tag }, index) => (
             <Box key={`whatis-${index}`}>
               <Heading level={3} margin="none">
                 {heading}
               </Heading>
-              <Paragraph color="text-weak">{text}</Paragraph>
+              <Paragraph color="text-weak" size="large">
+                {text}
+              </Paragraph>
               {tag}
             </Box>
           ))}

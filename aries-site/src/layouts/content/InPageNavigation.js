@@ -2,15 +2,18 @@ import { useState, useRef, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
-import styled, { ThemeContext } from 'styled-components';
-import { StatusGoodSmall } from 'grommet-icons';
+import {
+  // styled,
+  ThemeContext,
+} from 'styled-components';
+// import { StatusGoodSmall } from 'grommet-icons';
 import { nameToSlug } from '../../utils';
 import { ViewContext } from '../../pages/_app';
 
-const SectionButton = styled(Button)`
-  border-radius: 0 ${props => props.theme.global.edgeSize.xsmall}
-    ${props => props.theme.global.edgeSize.xsmall} 0;
-`;
+// const SectionButton = styled(Button)`
+//   border-radius: 0 ${props => props.theme.global.edgeSize.xsmall}
+//     ${props => props.theme.global.edgeSize.xsmall} 0;
+// `;
 
 const useActiveHeadingId = (headings, options) => {
   const [activeHeadingId, setActiveHeadingId] = useState();
@@ -82,15 +85,19 @@ export const InPageNavigation = ({ headings, title }) => {
       <Box
         pad={{ horizontal: 'small', bottom: 'small' }}
         flex={false}
-        border={{ side: 'left', color: 'border-weak', size: 'small' }}
+        gap="small"
+        // border={{ side: 'left', color: 'border-weak', size: 'small' }}
       >
         <Text
-          color="text-strong"
-          weight="bold"
+          color="text-weak"
+          size="small"
           // align with button labels
-          margin={{ left: theme.global.borderSize.small }}
+          // margin={{ left: theme.global.borderSize.small }}
         >
-          Jump to section
+          On this page
+        </Text>
+        <Text size="large" style={{ fontWeight: 500 }}>
+          {title}
         </Text>
       </Box>
       <Nav gap="none" a11yTitle="Jump to section">
@@ -102,11 +109,11 @@ export const InPageNavigation = ({ headings, title }) => {
           const headingTitle = heading[1];
           const active = activeId === nameToSlug(headingTitle);
 
-          const borderLeft = {
-            side: 'left',
-            size: active ? 'medium' : 'small',
-            color: active ? 'border-strong' : 'border-weak',
-          };
+          // const borderLeft = {
+          //   side: 'left',
+          //   size: active ? 'medium' : 'small',
+          //   color: active ? 'border-strong' : 'border-weak',
+          // };
 
           let subsectionPad = 'small';
           if (level.length > 3) subsectionPad = 'large';
@@ -136,7 +143,15 @@ export const InPageNavigation = ({ headings, title }) => {
               passHref
               legacyBehavior
             >
-              <SectionButton theme={theme} hoverIndicator>
+              <Button
+                label={headingTitle}
+                active={active}
+                kind="navigation"
+                size="small"
+                align="start"
+                style={{ color: 'inherit' }}
+              />
+              {/* <SectionButton theme={theme} hoverIndicator>
                 <Box border={borderLeft}>
                   <Box
                     pad={{
@@ -168,7 +183,7 @@ export const InPageNavigation = ({ headings, title }) => {
                     )}
                   </Box>
                 </Box>
-              </SectionButton>
+              </SectionButton> */}
             </Link>
           );
         })}

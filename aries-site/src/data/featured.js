@@ -12,8 +12,8 @@ export const featured = [
     icon: <Code size="large" color="text-strong" />,
   },
   {
-    name: "What's new",
-    description: 'Stay up to date with the latest changes, news, and stories.',
+    name: 'Migrate',
+    description: 'Bring your existing apps to the HPE design system',
     icon: <Star size="large" color="text-strong" />,
     url: '/whats-new',
   },

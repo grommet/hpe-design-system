@@ -6,7 +6,7 @@ import { Aruba, Hpe } from 'grommet-icons';
 const brands = {
   hpe: {
     name: 'HPE',
-    logo: <Hpe color="brand" />,
+    logo: <Hpe color="brand" height="medium" />,
   },
   aruba: {
     name: 'Aruba',

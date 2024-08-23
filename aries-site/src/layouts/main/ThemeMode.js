@@ -1,10 +1,13 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { Grommet } from 'grommet';
 import PropTypes from 'prop-types';
 import { ariesPop } from '../../themes/aries';
 import { analytics, useDarkMode } from '../../utils';
 
 export const ThemeMode = ({ children, ...rest }) => {
+  const router = useRouter();
+
   const { value } = useDarkMode(ariesPop.defaultMode === 'dark');
   const themeMode = value ? 'dark' : 'light';
 
@@ -16,7 +19,7 @@ export const ThemeMode = ({ children, ...rest }) => {
 
   const body = (
     <Grommet
-      // background="background-back"
+      background={router.route === '/' ? 'background' : 'background-back'}
       options={{
         layer: {
           singleId: true,
