@@ -1,5 +1,11 @@
 import StyleDictionary from 'style-dictionary-utils';
-import { commonJs, cssColorModes, cssBreakpoints } from './formats/index.js';
+import {
+  commonJs,
+  commonJsGrommetRefs,
+  cssColorModes,
+  cssBreakpoints,
+  es6GrommetRefs,
+} from './formats/index.js';
 import {
   cssW3c,
   javascriptW3c,
@@ -17,6 +23,14 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'css/variables-breakpoints',
   formatter: cssBreakpoints,
+});
+StyleDictionary.registerFormat({
+  name: `es6GrommetRefs`,
+  formatter: es6GrommetRefs,
+});
+StyleDictionary.registerFormat({
+  name: `commonJsGrommetRefs`,
+  formatter: commonJsGrommetRefs,
 });
 StyleDictionary.registerTransform({
   name: 'numberToDimension',

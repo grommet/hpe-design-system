@@ -1,11 +1,7 @@
 /* eslint-disable max-len */
 import * as fs from 'fs';
 import { HPEStyleDictionary } from '../HPEStyleDictionary.ts';
-import {
-  getThemeAndMode,
-  numberToPixel,
-  nonComponentTokens,
-} from '../utils.ts';
+import { getThemeAndMode, numberToPixel } from '../utils.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -14,9 +10,7 @@ const JSON_DIR = 'dist/json/';
 const CSS_DIR = 'dist/css/';
 const PREFIX = 'hpe';
 
-let esm = '';
 HPEStyleDictionary.extend({
-  // from dist because it contains the "px" version
   source: [`${TOKENS_DIR}/primitives.base.json`],
   platforms: {
     js: {
@@ -68,8 +62,6 @@ HPEStyleDictionary.extend({
     },
   },
 }).buildAllPlatforms();
-
-esm += "export { default as base } from './base';\n";
 
 HPEStyleDictionary.extend({
   source: [`${TOKENS_DIR}/global.default.json`],
@@ -124,8 +116,6 @@ HPEStyleDictionary.extend({
   },
 }).buildAllPlatforms();
 
-esm += "export { default as global } from './global';\n";
-
 const colorModeFiles = fs
   .readdirSync(TOKENS_DIR)
   .map(file => (file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined))
@@ -137,8 +127,6 @@ const primitiveColorNames = Object.keys(rawPrimitives.base.color);
 
 const global = fs.readFileSync(`${TOKENS_DIR}/global.default.json`);
 const parsedGlobal = JSON.parse(global);
-
-const camelCase = s => s.replace(/-./g, x => x[1].toUpperCase());
 
 colorModeFiles.forEach(file => {
   const [theme, mode] = getThemeAndMode(file);
@@ -228,10 +216,6 @@ colorModeFiles.forEach(file => {
       },
     },
   }).buildAllPlatforms();
-
-  esm += `export { default as ${camelCase(
-    `${theme ? `${theme}-` : ''}${mode}`,
-  )} } from './color.${theme ? `${theme}-${mode}` : `${mode || ''}`}';\n`;
 });
 
 const dimensions = [
@@ -322,37 +306,7 @@ dimensionFiles.forEach(file => {
       },
     },
   }).buildAllPlatforms();
-  esm += `export { default as ${mode} } from './dimension.${mode}';\n`;
 });
-
-HPEStyleDictionary.extend({
-  source: [
-    `${TOKENS_DIR}/primitives.base.json`,
-    `${TOKENS_DIR}/global.default.json`,
-    `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
-    `${TOKENS_DIR}/dimension - semantic.large.json`, // using large mode to have a reference name available
-    `${TOKENS_DIR}/typography - semantic.large.json`, // using large mode to have a reference name available
-    'dist/component.default.json',
-  ],
-  platforms: {
-    css: {
-      transformGroup: 'css/w3c',
-      buildPath: CSS_DIR,
-      prefix: PREFIX,
-      files: [
-        {
-          destination: 'components.css',
-          format: 'css/variables',
-          filter: token =>
-            !nonComponentTokens.includes(token.attributes.category),
-          options: {
-            outputReferences: true,
-          },
-        },
-      ],
-    },
-  },
-}).buildAllPlatforms();
 
 const elevationFiles = fs
   .readdirSync(TOKENS_DIR)
@@ -412,17 +366,62 @@ elevationFiles.forEach(file => {
       },
     },
   }).buildAllPlatforms();
-  esm += `export { default as ${camelCase(
-    `elevation${mode}`,
-  )} } from './elevation.${`${mode || ''}`}';\n`;
 });
 
-// create ESM index.js
-fs.appendFile(`./${ESM_DIR}index.js`, esm, err => {
-  if (err) {
-    console.log(err);
-  }
-});
+HPEStyleDictionary.extend({
+  source: [
+    `${TOKENS_DIR}/primitives.base.json`,
+    `${TOKENS_DIR}/global.default.json`,
+    `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
+    `${TOKENS_DIR}/dimension - semantic.large.json`, // using large mode to have a reference name available
+    `${TOKENS_DIR}/typography - semantic.large.json`, // using large mode to have a reference name available
+    `${TOKENS_DIR}/component.default.json`,
+  ],
+  platforms: {
+    js: {
+      transformGroup: 'js/w3c',
+      buildPath: ESM_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'components.default.js',
+          filter: token =>
+            token.filePath === `${TOKENS_DIR}/component.default.json`,
+          format: 'es6GrommetRefs',
+        },
+      ],
+    },
+    'js/cjs': {
+      transformGroup: 'js/w3c',
+      buildPath: CJS_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'components.default.cjs',
+          filter: token =>
+            token.filePath === `${TOKENS_DIR}/component.default.json`,
+          format: 'commonJsGrommetRefs',
+        },
+      ],
+    },
+    css: {
+      transformGroup: 'css/w3c',
+      buildPath: CSS_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'components.css',
+          format: 'css/variables',
+          filter: token =>
+            token.filePath === `${TOKENS_DIR}/component.default.json`,
+          options: {
+            outputReferences: true,
+          },
+        },
+      ],
+    },
+  },
+}).buildAllPlatforms();
 
 // create CommonJS index.js
 const collections = [];
@@ -448,5 +447,25 @@ const output = `\nmodule.exports = { ${collections.map(
   collection => collection,
 )} };\n`;
 fs.appendFileSync(`${CJS_DIR}index.cjs`, output);
+
+// create ESM index.js
+const esmCollections = [];
+fs.readdirSync(ESM_DIR)
+  .filter(file => file !== 'index.js')
+  .forEach(file => {
+    if (file.toLowerCase().endsWith('.js')) {
+      const filename = file.replace('.js', '');
+      const parts = filename.split('.');
+      let mode = parts[1];
+      // special case for base.js and components
+      if (mode === 'default' || !mode) [mode] = parts;
+      else if (parts.includes('elevation')) mode = `elevation${mode}`;
+      fs.appendFileSync(
+        `${ESM_DIR}index.js`,
+        `export { default as ${mode} } from './${filename}';\n`,
+      );
+      esmCollections.push(mode);
+    }
+  });
 
 console.log('✅ Style system outputs have been generated.');
