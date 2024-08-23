@@ -112,7 +112,10 @@ export const SearchResults = ({
       {query && (
         <>
           <Box fill="horizontal" border={{ side: 'bottom', color: 'border' }} />
-          <Box overflow="auto" pad="medium">
+          <Box
+            overflow={{ vertical: 'auto', horizontal: 'hidden' }}
+            pad="medium"
+          >
             {matches.length > 0 && (
               <List
                 data={matches}

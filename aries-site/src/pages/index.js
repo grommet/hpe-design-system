@@ -91,14 +91,9 @@ const Index = () => (
       >
         <Box>
           <PageContent>
-            <Box align="center" gap="medium">
+            <Box align="start" gap="medium">
               <Heading margin="none">Built for the enterprise by HPE</Heading>
-              <Paragraph
-                color="text-weak"
-                textAlign="center"
-                size="xlarge"
-                margin="none"
-              >
+              <Paragraph color="text-weak" size="xlarge" margin="none">
                 Empower designers and developers to quickly collaborate and
                 create accessible enterprise experiences for HPE.
               </Paragraph>
@@ -106,11 +101,28 @@ const Index = () => (
             </Box>
           </PageContent>
         </Box>
+        <PageContent>
+          <Box
+            fill="horizontal"
+            border={{ side: 'bottom', color: 'border-weak' }}
+          />
+        </PageContent>
         <Featured {...widthProps} />
       </StyledBox>
+      <PageContent>
+        <Box
+          fill="horizontal"
+          border={{ side: 'bottom', color: 'border-weak' }}
+        />
+      </PageContent>
       <WhatIs {...widthProps} />
       <Highlights {...widthProps} />
-      {/* <Quote /> */}
+      <PageContent>
+        <Box
+          fill="horizontal"
+          border={{ side: 'bottom', color: 'border-weak' }}
+        />
+      </PageContent>
       <Community {...widthProps} />
     </Box>
   </>

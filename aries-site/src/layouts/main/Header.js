@@ -1,33 +1,37 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { Box, Button, Header, ResponsiveContext } from 'grommet';
-import { Search as SearchIcon } from 'grommet-icons';
+import { Box, Button, Header } from 'grommet';
+import { Search as SearchIcon, Sidebar } from 'grommet-icons';
 import { ThemeModeToggle, AppIdentity } from '../../components';
 
-import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
 
-const StyledHeader = ({ ...rest }) => {
-  const pageDetails = getPageDetails('Home');
-  const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
+const StyledHeader = ({ showSidebar, setShowSidebar, ...rest }) => {
   const [showSearch, setShowSearch] = useState(false);
-  const size = useContext(ResponsiveContext);
-  const router = useRouter();
 
   return (
     <Header
       pad={{
         vertical: 'medium',
+        horizontal: 'medium',
       }}
-      sticky="scrollUp"
       {...rest}
     >
-      <Link href="/" passHref legacyBehavior>
-        <AppIdentity brand="hpe" title="Design System" />
-      </Link>
+      <Box direction="row" align="center" gap="medium">
+        {!showSidebar ? (
+          <Button icon={<Sidebar />} onClick={() => setShowSidebar(true)} />
+        ) : undefined}
+        <Link href="/" passHref legacyBehavior>
+          <AppIdentity
+            brand="hpe"
+            title="Design System"
+            boxProps={{ pad: 'none' }}
+          />
+        </Link>
+      </Box>
       <Box direction="row" align="center" gap="xsmall">
-        {!['xsmall', 'small'].includes(size) &&
+        {/* {!['xsmall', 'small'].includes(size) &&
           navItems.map(item => (
             <Link
               key={item.name}
@@ -41,7 +45,7 @@ const StyledHeader = ({ ...rest }) => {
                 active={router.pathname === nameToPath(item.name)}
               />
             </Link>
-          ))}
+          ))} */}
         <Button
           a11yTitle="Search"
           id="search-button"
@@ -55,4 +59,8 @@ const StyledHeader = ({ ...rest }) => {
   );
 };
 
+StyledHeader.propTypes = {
+  showSidebar: PropTypes.bool,
+  setShowSidebar: PropTypes.func,
+};
 export { StyledHeader as Header };

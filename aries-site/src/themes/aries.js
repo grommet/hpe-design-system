@@ -18,6 +18,7 @@ export const aries = deepMerge(hpe, {
     },
     container: {
       pad: 'medium',
+      gap: 'small',
     },
     header: {
       align: 'start',
@@ -27,6 +28,7 @@ export const aries = deepMerge(hpe, {
     },
     heading: {
       level: 2,
+      size: 'small',
       margin: {
         vertical: 'none',
       },

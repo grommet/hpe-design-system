@@ -34,7 +34,7 @@ const SlackOption = () => (
       icon={<ChatOption />}
       label="Join us on Slack"
       href="https://slack-invite.grommet.io/"
-      primary
+      secondary
     />
   </Box>
 );
@@ -112,7 +112,6 @@ export const Community = ({ ...rest }) => {
           columns="medium"
           rows={[['auto', 'full']]}
           gap={{ row: 'large', column: 'small' }}
-          fill
         >
           <SlackOption />
           {/* <Roadmap />

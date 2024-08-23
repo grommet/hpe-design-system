@@ -11,18 +11,21 @@ const whatIsContent = [
   {
     heading: 'Components',
     // eslint-disable-next-line max-len
-    text: 'A vetted set of reusable interface elements for use in apps and websites delivered in React and Figma.',
+    text: `A vetted set of reusable interface elements for use in apps 
+    and websites delivered in React and Figma.`,
   },
   {
     heading: 'Tokens',
-    text: 'Standardized design attributes for color, fonts, and spacing  ensuring consistency across digital products.',
+    text: `Standardized design attributes for color, fonts, and spacing 
+    ensuring consistency across digital products.`,
     tag: (
       <Tag alignSelf="start" value="Coming soon" background="validation-ok" />
     ),
   },
   {
     heading: 'Icons',
-    text: '500+ open source glyphs that have been curated for theming and customization with the HPE design system.',
+    text: `500+ open source glyphs that have been curated for theming 
+    and customization with the HPE design system.`,
   },
 ];
 
@@ -37,16 +40,11 @@ export const WhatIs = ({ ...rest }) => {
         gap="xlarge"
         {...rest}
       >
-        <Box gap="medium" align="center">
+        <Box gap="medium" align="start">
           <Heading level={2} margin="none">
             What is the HPE Design System?
           </Heading>
-          <Paragraph
-            color="text-weak"
-            size="xlarge"
-            textAlign="center"
-            margin="none"
-          >
+          <Paragraph color="text-weak" size="xlarge" margin="none">
             Our design system empowers designers and developers to deliver the
             next generation of IT systems on a dynamic open source UI framework
             that supports HPE, our partners, and the community in its pursuit of
@@ -57,7 +55,7 @@ export const WhatIs = ({ ...rest }) => {
           fill="horizontal"
           border={{ side: 'bottom', color: 'border-weak' }}
         />
-        <Grid columns={['flex', 'flex', 'flex', 'flex']} gap="large" fill>
+        <Grid columns={['flex', 'flex', 'flex', 'flex']} gap="large">
           {whatIsContent.map(({ heading, text, tag }, index) => (
             <Box key={`whatis-${index}`}>
               <Heading level={3} margin="none">

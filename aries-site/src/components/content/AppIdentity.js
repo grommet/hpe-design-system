@@ -15,7 +15,7 @@ const brands = {
 };
 
 export const AppIdentity = forwardRef(
-  ({ brand, logo = true, logoOnly, href, title, ...rest }, ref) => {
+  ({ brand, logo = true, logoOnly, href, title, boxProps, ...rest }, ref) => {
     const textSize = 'medium';
 
     return (
@@ -28,6 +28,7 @@ export const AppIdentity = forwardRef(
           // non-responsive maintains same dimensions for mobile
           pad={{ vertical: 'small' }}
           responsive={false}
+          {...boxProps}
         >
           {brand && logo && brands[brand].logo}
           {!logoOnly && (
@@ -47,6 +48,7 @@ export const AppIdentity = forwardRef(
 );
 
 AppIdentity.propTypes = {
+  boxProps: PropTypes.object,
   brand: PropTypes.string.isRequired,
   logo: PropTypes.bool,
   logoOnly: PropTypes.bool,

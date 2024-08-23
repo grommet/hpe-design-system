@@ -18,11 +18,9 @@ const Components = () => (
     />
     <PageContent gap="large">
       <PageIntro>
-        <Box justify="center" fill>
+        <Box fill>
           <Heading margin="none">{title}</Heading>
-          <Paragraph size="large" fill>
-            {pageDetails.description}
-          </Paragraph>
+          <Paragraph size="large">{pageDetails.description}</Paragraph>
         </Box>
       </PageIntro>
       <ContentSection>

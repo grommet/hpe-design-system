@@ -18,12 +18,8 @@ const Foundation = () => (
     />
     <PageContent gap="large">
       <PageIntro>
-        <Box justify="center" fill>
-          <Heading margin="none">{title}</Heading>
-          <Paragraph size="large" fill>
-            {pageDetails.description}
-          </Paragraph>
-        </Box>
+        <Heading margin="none">{title}</Heading>
+        <Paragraph size="large">{pageDetails.description}</Paragraph>
       </PageIntro>
       <ContentSection>
         <Subsection level={2} name="Philosophy">

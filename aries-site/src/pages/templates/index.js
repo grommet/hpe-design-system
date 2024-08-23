@@ -18,12 +18,8 @@ const Templates = () => (
     />
     <PageContent gap="large">
       <PageIntro>
-        <Box justify="center" fill>
-          <Heading margin="none">{title}</Heading>
-          <Paragraph size="large" fill>
-            {pageDetails.description}
-          </Paragraph>
-        </Box>
+        <Heading margin="none">{title}</Heading>
+        <Paragraph size="large">{pageDetails.description}</Paragraph>
       </PageIntro>
       <CardGrid cards={cards} pad={{ bottom: 'large' }} headingLevel={2} />
     </PageContent>
