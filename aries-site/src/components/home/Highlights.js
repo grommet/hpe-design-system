@@ -8,6 +8,7 @@ import {
   PageContent,
   Paragraph,
   ResponsiveContext,
+  ThemeContext,
 } from 'grommet';
 
 import Link from 'next/link';
@@ -28,29 +29,49 @@ const HighlightsLayout = () => {
       {highlights.map(({ name, summary, image }) => {
         const href = nameToPath(name);
         return (
-          <ContentPreviewCard key={name} href={href} pad="medium">
-            <Box direction="row" align="center" gap="medium">
-              <Box width="small" round="xsmall">
-                {image && (
-                  <Image
-                    src={
-                      darkMode.value
-                        ? image.src.dark || image.src
-                        : image.src.light || image.src
-                    }
-                    alt={image.alt}
-                    fit={image.fit || 'contain'}
-                  />
-                )}
+          <ThemeContext.Extend
+            value={{
+              card: {
+                container: {
+                  elevation: 'none',
+                },
+                hover: {
+                  container: {
+                    elevation: 'medium',
+                  },
+                },
+              },
+            }}
+          >
+            <ContentPreviewCard
+              key={name}
+              href={href}
+              pad="medium"
+              border={{ color: 'border-weak' }}
+            >
+              <Box direction="row" align="center" gap="medium">
+                <Box width="small" round="xsmall">
+                  {image && (
+                    <Image
+                      src={
+                        darkMode.value
+                          ? image.src.dark || image.src
+                          : image.src.light || image.src
+                      }
+                      alt={image.alt}
+                      fit={image.fit || 'contain'}
+                    />
+                  )}
+                </Box>
+                <Box gap="xsmall">
+                  <Heading level={3} margin="none">
+                    {name}
+                  </Heading>
+                  <Paragraph margin="none">{summary}</Paragraph>
+                </Box>
               </Box>
-              <Box gap="xsmall">
-                <Heading level={3} margin="none">
-                  {name}
-                </Heading>
-                <Paragraph margin="none">{summary}</Paragraph>
-              </Box>
-            </Box>
-          </ContentPreviewCard>
+            </ContentPreviewCard>
+          </ThemeContext.Extend>
         );
       })}
     </Grid>
@@ -58,31 +79,16 @@ const HighlightsLayout = () => {
 };
 
 export const Highlights = ({ ...rest }) => (
-  <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
-    <Box fill gap="medium" pad={{ vertical: 'large' }} {...rest}>
-      <Box justify="center" align="center" gap="large">
-        <Heading margin="none" level={2} size="large">
-          Highlights
-        </Heading>
-        <Box width="large" pad={{ bottom: 'medium' }}>
-          <Paragraph size="xlarge" fill textAlign="center" margin="none">
-            The HPE Design System team is committed to conducting thorough
-            research so you don't have to think about it. Just find what you
-            need, design and deliver quickly!
-          </Paragraph>
-        </Box>
-      </Box>
+  <PageContent>
+    <Box fill pad={{ vertical: 'large' }} gap="large" {...rest}>
+      <Heading margin="none" level={2}>
+        Popular resources
+      </Heading>
       <HighlightsLayout />
-      <Box
-        fill="horizontal"
-        align="center"
-        justify="center"
-        pad={{ vertical: 'medium' }}
-      >
-        <Link href="/showmore" passHref legacyBehavior>
-          <Button primary label="Show me more" />
-        </Link>
-      </Box>
+
+      <Link href="/components" passHref legacyBehavior>
+        <Button alignSelf="start" primary label="View all components" />
+      </Link>
     </Box>
   </PageContent>
 );

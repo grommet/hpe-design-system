@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
+import styled from 'styled-components';
 import {
   Box,
+  Button,
   Card,
   Grid,
   Heading,
@@ -18,8 +20,7 @@ import {
   Featured,
   Hero,
   Highlights,
-  Quote,
-  Video,
+  // Quote,
   WhatIs,
 } from '../components/home';
 import { getPageDetails } from '../utils';
@@ -28,7 +29,12 @@ const title = 'Home';
 const pageDetails = getPageDetails(title);
 
 // These make a box width limited to xxlarge but centered
-const widthProps = { margin: 'auto' };
+const widthProps = {};
+
+const StyledBox = styled(Box)`
+
+  }
+`;
 
 const Intro = ({ children }) => {
   const size = useContext(ResponsiveContext);
@@ -78,26 +84,33 @@ const Index = () => (
   <>
     <Meta title={title} description={pageDetails.seoDescription} />
     <Box>
-      <Intro>
-        {/* custom width ensures "and deliver" is on second line */}
-        <Box width={{ max: '700px' }}>
-          <Heading margin="none" size="large">
-            Design, develop and deliver
-          </Heading>
-          <Paragraph size="xlarge">
-            Empower designers and developers to quickly create accessible
-            enterprise app experiences.
-          </Paragraph>
-        </Box>
-      </Intro>
-      <Stack guidingChild="last">
-        <Box background="background-front" margin={{ top: 'xlarge' }} fill />
+      <Box>
+        <PageContent>
+          <Box align="center" pad={{ vertical: 'xlarge' }} gap="medium">
+            <Heading margin="none">Built for the enterprise by HPE</Heading>
+            <Paragraph
+              color="text-weak"
+              textAlign="center"
+              size="xlarge"
+              margin="none"
+            >
+              Empower designers and developers to quickly collaborate and create
+              accessible enterprise experiences for HPE.
+            </Paragraph>
+            <Button label="Get started" primary />
+          </Box>
+        </PageContent>
+        <Box height="medium" background="validation-ok" />
+      </Box>
+      <StyledBox
+        pad={{ vertical: 'xlarge' }}
+        background={{ image: 'datawave-white-3', opacity: 'weak' }}
+      >
         <Featured {...widthProps} />
-      </Stack>
+      </StyledBox>
       <WhatIs {...widthProps} />
-      <Video {...widthProps} />
       <Highlights {...widthProps} />
-      <Quote />
+      {/* <Quote /> */}
       <Community {...widthProps} />
     </Box>
   </>

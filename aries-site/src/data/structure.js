@@ -108,10 +108,9 @@ export const structure = [
   },
   {
     name: 'Whats New',
-    description:
-      'Track Design System announcements, new template patterns, guidance, and released components.',
+    description: 'Stay up to date with the latest changes, news, and stories.',
     seoDescription:
-      'Track HPE Design System announcements, new template patterns, guidance, and released components.',
+      'Stay up to date with the latest changes, news, and stories.',
     pages: [],
     pageLayout: 'plain',
   },

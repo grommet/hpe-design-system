@@ -20,6 +20,7 @@ const StyledHeader = ({ ...rest }) => {
       pad={{
         vertical: 'medium',
       }}
+      sticky="scrollUp"
       {...rest}
     >
       <Link href="/" passHref legacyBehavior>
