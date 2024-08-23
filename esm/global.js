@@ -1,28 +1,35 @@
 /**
  * Do not edit directly
- * Generated on Fri, 23 Aug 2024 00:13:05 GMT
+ * Generated on Fri, 23 Aug 2024 18:26:40 GMT
  */
 
 export default {
-  hpe: {
-    fontStack: {
-      primary: "'Metric', Arial, sans-serif",
-      code: "'Fira Mono', ui-monospace, monospace",
+  "hpe": {
+    "focusIndicator": {
+      "outline": {
+        "color": "focus",
+        "width": "2px",
+        "style": "solid"
+      }
     },
-    breakpoint: {
-      xsmall: 576,
-      small: 768,
-      medium: 1080,
-      large: 1440,
+    "fontStack": {
+      "primary": "'Metric', Arial, sans-serif",
+      "code": "'Fira Mono', ui-monospace, monospace"
     },
-    fontWeight: {
-      thin: 100,
-      light: 300,
-      regular: 400,
-      medium: 500,
-      semibold: 600,
-      bold: 700,
-      black: 900,
+    "breakpoint": {
+      "xsmall": "576px",
+      "small": "768px",
+      "medium": "1080px",
+      "large": "1440px"
     },
-  },
-};
+    "fontWeight": {
+      "thin": 100,
+      "light": 300,
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "black": 900
+    }
+  }
+}
