@@ -4,7 +4,7 @@ import {
   commonJsGrommetRefs,
   cssColorModes,
   cssBreakpoints,
-  es6GrommetRefs,
+  esmGrommetRefs,
 } from './formats/index.js';
 import {
   cssW3c,
@@ -25,8 +25,8 @@ StyleDictionary.registerFormat({
   formatter: cssBreakpoints,
 });
 StyleDictionary.registerFormat({
-  name: `es6GrommetRefs`,
-  formatter: es6GrommetRefs,
+  name: `esmGrommetRefs`,
+  formatter: esmGrommetRefs,
 });
 StyleDictionary.registerFormat({
   name: `commonJsGrommetRefs`,
