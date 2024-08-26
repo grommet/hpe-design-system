@@ -671,7 +671,7 @@ module.exports = {
             "iconColor": "icon-onPrimary"
           },
           "hover": {
-            "background": "background-selected-strong",
+            "background": "background-selected-strong-enabled",
             "borderColor": "border-strong",
             "iconColor": "icon-onPrimary"
           },
@@ -687,12 +687,12 @@ module.exports = {
         },
         "indeterminate": {
           "enabled": {
-            "background": "background-selected-strong",
+            "background": "background-selected-strong-enabled",
             "borderColor": "border-selected",
             "iconColor": "icon-onPrimary"
           },
           "hover": {
-            "background": "background-selected-strong",
+            "background": "background-selected-strong-enabled",
             "borderColor": "border-strong",
             "iconColor": "icon-onPrimary"
           },
@@ -746,11 +746,11 @@ module.exports = {
           },
           "selected": {
             "enabled": {
-              "background": "background-selected-strong",
-              "borderColor": "border-default"
+              "background": "background-selected-strong-enabled",
+              "borderColor": "transparent"
             },
             "hover": {
-              "background": "background-selected-strong",
+              "background": "background-selected-strong-enabled",
               "borderColor": "border-strong"
             },
             "disabled": {
@@ -762,7 +762,7 @@ module.exports = {
         "handle": {
           "enabled": {
             "background": "background-default",
-            "borderColor": "border-default"
+            "borderColor": "transparent"
           },
           "hover": {
             "background": "background-default",
@@ -813,13 +813,13 @@ module.exports = {
         "control": {
           "track": {
             "height": "1.5rem",
-            "width": "48px",
+            "width": "36px",
             "borderWidth": "default",
             "borderRadius": "24px"
           },
           "handle": {
-            "height": "1.5rem",
-            "width": "1.5rem",
+            "height": "16px",
+            "width": "16px",
             "borderWidth": "default",
             "borderRadius": "24px"
           }

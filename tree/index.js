@@ -443,29 +443,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "checkbox.control.selected.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.hover.background",
-          "mode": "default"
-        }
-      ]
+      }
     },
     "color.background.selected.weak": {
       "enabled": {
@@ -596,14 +574,6 @@ export default {
         },
         {
           "name": "switch.control.track.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.enabled.borderColor",
           "mode": "default"
         },
         {
@@ -1770,6 +1740,14 @@ export default {
       },
       "usedBy": [
         {
+          "name": "switch.control.track.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.enabled.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "formField.input.container.focus.background",
           "mode": "default"
         }
@@ -2340,6 +2318,26 @@ export default {
         {
           "name": "checkbox.control.selected.enabled.background",
           "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.hover.background",
+          "mode": "default"
         }
       ]
     },
@@ -2457,14 +2455,6 @@ export default {
         },
         {
           "name": "switch.control.track.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.enabled.borderColor",
           "mode": "default"
         },
         {
@@ -3630,6 +3620,14 @@ export default {
         }
       },
       "usedBy": [
+        {
+          "name": "switch.control.track.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.enabled.borderColor",
+          "mode": "default"
+        },
         {
           "name": "formField.input.container.focus.background",
           "mode": "default"
@@ -9832,14 +9830,6 @@ export default {
           "mode": "default"
         },
         {
-          "name": "switch.medium.control.handle.height",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.control.handle.width",
-          "mode": "default"
-        },
-        {
           "name": "dataCell.lineHeight",
           "mode": "default"
         },
@@ -10786,7 +10776,7 @@ export default {
     },
     "checkbox.control.selected.hover.background": {
       "$type": "color",
-      "$value": "{color.background.selected.strong}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10906,7 +10896,7 @@ export default {
     },
     "checkbox.control.indeterminate.enabled.background": {
       "$type": "color",
-      "$value": "{color.background.selected.strong}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10951,7 +10941,7 @@ export default {
     },
     "checkbox.control.indeterminate.hover.background": {
       "$type": "color",
-      "$value": "{color.background.selected.strong}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11286,7 +11276,7 @@ export default {
     },
     "switch.control.track.selected.enabled.background": {
       "$type": "color",
-      "$value": "{color.background.selected.strong}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11301,7 +11291,7 @@ export default {
     },
     "switch.control.track.selected.enabled.borderColor": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.transparent}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11316,7 +11306,7 @@ export default {
     },
     "switch.control.track.selected.hover.background": {
       "$type": "color",
-      "$value": "{color.background.selected.strong}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11391,7 +11381,7 @@ export default {
     },
     "switch.control.handle.enabled.borderColor": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.transparent}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11725,7 +11715,7 @@ export default {
     },
     "switch.medium.control.track.width": {
       "$type": "number",
-      "$value": "{base.dimension.1200}",
+      "$value": "{base.dimension.900}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11768,7 +11758,7 @@ export default {
     },
     "switch.medium.control.handle.height": {
       "$type": "number",
-      "$value": "{component.medium.lineHeight}",
+      "$value": "{base.dimension.400}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11782,7 +11772,7 @@ export default {
     },
     "switch.medium.control.handle.width": {
       "$type": "number",
-      "$value": "{component.medium.lineHeight}",
+      "$value": "{base.dimension.400}",
       "$description": "",
       "$extensions": {
         "com.figma": {

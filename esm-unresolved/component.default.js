@@ -6869,7 +6869,7 @@ export default {
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.strong}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6997,7 +6997,7 @@ export default {
         "enabled": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.strong}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7044,7 +7044,7 @@ export default {
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.strong}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7410,7 +7410,7 @@ export default {
           "enabled": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.selected.strong}",
+              "$value": "{color.background.selected.strong.enabled}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7425,7 +7425,7 @@ export default {
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.default}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7442,7 +7442,7 @@ export default {
           "hover": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.selected.strong}",
+              "$value": "{color.background.selected.strong.enabled}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7524,7 +7524,7 @@ export default {
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.border.default}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7886,7 +7886,7 @@ export default {
           },
           "width": {
             "$type": "number",
-            "$value": "{base.dimension.1200}",
+            "$value": "{base.dimension.900}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7931,7 +7931,7 @@ export default {
         "handle": {
           "height": {
             "$type": "number",
-            "$value": "{component.medium.lineHeight}",
+            "$value": "{base.dimension.400}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7945,7 +7945,7 @@ export default {
           },
           "width": {
             "$type": "number",
-            "$value": "{component.medium.lineHeight}",
+            "$value": "{base.dimension.400}",
             "$description": "",
             "$extensions": {
               "com.figma": {
