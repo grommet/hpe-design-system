@@ -90,10 +90,6 @@ export const PopoverInlineExample = () => {
             />
           </Box>
         </Box>
-        <Box gap="medium" direction="row" alignSelf="end" justify="end">
-          <Button secondary label="Download Device List" />
-          <Button primary label="Add Devices" />
-        </Box>
         {showPopover && targetRef.current && (
           <Popover
             footer={<Anchor label="Learn more" href="#" />}

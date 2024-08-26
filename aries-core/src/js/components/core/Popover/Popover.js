@@ -28,8 +28,10 @@ export const Popover = ({
           {children}
           {footer}
         </Box>
-        <Box pad={{ right: 'small', top: 'xsmall' }}>
+        {/* // see if we have a close t shirt size for the 8 px */}
+        <Box pad={{ right: 'small', top: '8px' }}>
           <Button
+            size="small"
             icon={<Close size="small" />}
             onClick={onClose}
             // should we make this a message that the user passes in?
