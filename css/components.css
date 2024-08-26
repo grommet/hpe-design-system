@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Aug 2024 18:47:57 GMT
+ * Generated on Mon, 26 Aug 2024 18:57:56 GMT
  */
 
 :root {
@@ -72,7 +72,6 @@
   --hpe-button-default-selected-enabled-border-color: #00000000;
   --hpe-button-default-enabled-border-color: #00000000;
   --hpe-button-default-enabled-background: #00000000;
-  --hpe-focus-ring-color: var(--hpe-base-color-turquoise-400);
   --hpe-anchor-emphasized-disabled-font-weight: var(--hpe-font-weight-bold);
   --hpe-anchor-emphasized-hover-font-weight: var(--hpe-font-weight-bold);
   --hpe-anchor-emphasized-enabled-font-weight: var(--hpe-font-weight-bold);
@@ -125,13 +124,14 @@
   --hpe-button-xlarge-primary-padding-y: var(--hpe-button-xlarge-default-padding-y);
   --hpe-button-xlarge-primary-icon-only-padding-y: var(--hpe-button-xlarge-default-icon-only-padding-y);
   --hpe-button-xlarge-default-padding-x: var(--hpe-base-dimension-750);
+  --hpe-button-xlarge-default-icon-only-padding-x: var(--hpe-button-xlarge-default-icon-only-padding-y);
   --hpe-button-large-toolbar-icon-only-padding-y: var(--hpe-button-large-default-icon-only-padding-y);
   --hpe-button-large-toolbar-padding-x: var(--hpe-base-dimension-250);
   --hpe-button-large-secondary-icon-only-padding-y: var(--hpe-button-large-default-icon-only-padding-y);
   --hpe-button-large-secondary-padding-y: var(--hpe-button-large-default-padding-y);
   --hpe-button-large-primary-icon-only-padding-y: var(--hpe-button-large-default-icon-only-padding-y);
   --hpe-button-large-primary-padding-y: var(--hpe-button-large-default-padding-y);
-  --hpe-button-large-default-icon-only-padding-x: var(--hpe-base-dimension-325);
+  --hpe-button-large-default-icon-only-padding-x: var(--hpe-button-large-default-icon-only-padding-y);
   --hpe-button-medium-toolbar-icon-only-padding-y: var(--hpe-button-medium-default-icon-only-padding-y);
   --hpe-button-medium-toolbar-font-size: var(--hpe-button-medium-default-font-size);
   --hpe-button-medium-toolbar-padding-y: var(--hpe-button-medium-default-padding-y);
@@ -145,7 +145,8 @@
   --hpe-button-medium-primary-padding-y: var(--hpe-button-medium-default-padding-y);
   --hpe-button-medium-primary-padding-x: var(--hpe-button-medium-default-padding-x);
   --hpe-button-medium-default-icon-only-font-size: var(--hpe-button-medium-default-font-size);
-  --hpe-button-medium-default-icon-only-padding-x: var(--hpe-base-dimension-225);
+  --hpe-button-medium-default-icon-only-padding-x: var(--hpe-button-medium-default-icon-only-padding-y);
+  --hpe-button-small-default-icon-only-padding-x: var(--hpe-button-small-default-icon-only-padding-y);
   --hpe-button-small-secondary-icon-only-padding-y: var(--hpe-button-small-default-icon-only-padding-y);
   --hpe-button-small-secondary-padding-y: var(--hpe-button-small-default-padding-y);
   --hpe-button-small-secondary-padding-x: var(--hpe-button-small-default-padding-x);
@@ -341,8 +342,6 @@
   --hpe-checkbox-control-indeterminate-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-checkbox-control-indeterminate-enabled-border-color: var(--hpe-color-border-selected);
   --hpe-checkbox-control-indeterminate-enabled-background: var(--hpe-color-background-selected-strong);
-  --hpe-checkbox-control-disabled-border-color: var(--hpe-color-border-disabled);
-  --hpe-checkbox-control-disabled-background: var(--hpe-color-background-disabled);
   --hpe-checkbox-control-selected-disabled-icon-color: var(--hpe-color-icon-disabled);
   --hpe-checkbox-control-selected-disabled-border-color: var(--hpe-color-border-disabled);
   --hpe-checkbox-control-selected-disabled-background: var(--hpe-color-background-disabled);
@@ -352,6 +351,8 @@
   --hpe-checkbox-control-selected-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-checkbox-control-selected-enabled-border-color: var(--hpe-color-border-selected);
   --hpe-checkbox-control-selected-enabled-background: var(--hpe-color-background-selected-strong);
+  --hpe-checkbox-control-disabled-border-color: var(--hpe-color-border-disabled);
+  --hpe-checkbox-control-disabled-background: var(--hpe-color-background-disabled);
   --hpe-checkbox-control-hover-border-color: var(--hpe-color-border-strong);
   --hpe-checkbox-control-enabled-border-color: var(--hpe-color-border-default);
   --hpe-select-option-selected-enabled-text-color: var(--hpe-color-text-strong);
@@ -391,12 +392,14 @@
   --hpe-drop-background: var(--hpe-color-background-floating);
   --hpe-button-xlarge-toolbar-border-radius: var(--hpe-base-static-radius-small);
   --hpe-button-xlarge-toolbar-padding-x: var(--hpe-button-xlarge-default-padding-x);
+  --hpe-button-xlarge-toolbar-icon-only-padding-x: var(--hpe-button-xlarge-default-icon-only-padding-x);
   --hpe-button-xlarge-secondary-padding-x: var(--hpe-button-xlarge-default-padding-x);
+  --hpe-button-xlarge-secondary-icon-only-padding-x: var(--hpe-button-xlarge-default-icon-only-padding-x);
   --hpe-button-xlarge-primary-padding-x: var(--hpe-button-xlarge-default-padding-x);
+  --hpe-button-xlarge-primary-icon-only-padding-x: var(--hpe-button-xlarge-default-icon-only-padding-x);
   --hpe-button-xlarge-default-min-height: var(--hpe-component-xlarge-min-height);
   --hpe-button-xlarge-default-border-width: var(--hpe-base-static-border-width-small);
   --hpe-button-xlarge-default-border-radius: var(--hpe-radius-full);
-  --hpe-button-xlarge-default-icon-only-padding-x: var(--hpe-base-static-spacing-medium);
   --hpe-button-large-toolbar-icon-only-padding-x: var(--hpe-button-large-default-icon-only-padding-x);
   --hpe-button-large-toolbar-border-radius: var(--hpe-base-static-radius-xsmall);
   --hpe-button-large-secondary-icon-only-padding-x: var(--hpe-button-large-default-icon-only-padding-x);
@@ -421,10 +424,11 @@
   --hpe-button-small-toolbar-border-width: var(--hpe-base-static-border-width-default);
   --hpe-button-small-toolbar-border-radius: var(--hpe-base-static-radius-xsmall);
   --hpe-button-small-toolbar-padding-x: var(--hpe-base-static-spacing-xsmall);
-  --hpe-button-small-default-icon-only-padding-x: var(--hpe-base-static-spacing-xsmall);
   --hpe-button-small-default-min-height: var(--hpe-component-small-min-height);
   --hpe-button-small-default-border-width: var(--hpe-base-static-border-width-small);
   --hpe-button-small-default-border-radius: var(--hpe-radius-full);
+  --hpe-button-small-secondary-icon-only-padding-x: var(--hpe-button-small-default-icon-only-padding-x);
+  --hpe-button-small-primary-icon-only-padding-x: var(--hpe-button-small-default-icon-only-padding-x);
   --hpe-button-toolbar-selected-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-toolbar-hover-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-toolbar-disabled-font-weight: var(--hpe-button-default-enabled-font-weight);
@@ -464,7 +468,6 @@
   --hpe-button-primary-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-button-primary-enabled-text-color: var(--hpe-color-text-on-primary);
   --hpe-button-primary-enabled-background: var(--hpe-color-background-primary-default);
-  --hpe-focus-indicator-outline: var(--hpe-base-dimension-50) solid var(--hpe-color-focus);
   --hpe-anchor-6xlarge-emphasized-gap-x: var(--hpe-component-xlarge-text-to-icon-x);
   --hpe-anchor-6xlarge-default-gap-x: var(--hpe-component-xlarge-text-to-icon-x);
   --hpe-anchor-5xlarge-emphasized-gap-x: var(--hpe-component-xlarge-text-to-icon-x);
@@ -571,16 +574,13 @@
   --hpe-drop-border-radius: var(--hpe-radius-xsmall);
   --hpe-button-xlarge-toolbar-min-height: var(--hpe-button-xlarge-default-min-height);
   --hpe-button-xlarge-toolbar-border-width: var(--hpe-button-xlarge-default-border-width);
-  --hpe-button-xlarge-toolbar-icon-only-padding-x: var(--hpe-button-xlarge-default-icon-only-padding-x);
   --hpe-button-xlarge-toolbar-icon-only-border-radius: var(--hpe-button-xlarge-toolbar-border-radius);
   --hpe-button-xlarge-secondary-min-height: var(--hpe-button-xlarge-default-min-height);
   --hpe-button-xlarge-secondary-border-width: var(--hpe-button-xlarge-default-border-width);
   --hpe-button-xlarge-secondary-border-radius: var(--hpe-button-xlarge-default-border-radius);
-  --hpe-button-xlarge-secondary-icon-only-padding-x: var(--hpe-button-xlarge-default-icon-only-padding-x);
   --hpe-button-xlarge-primary-min-height: var(--hpe-button-xlarge-default-min-height);
   --hpe-button-xlarge-primary-border-width: var(--hpe-button-xlarge-default-border-width);
   --hpe-button-xlarge-primary-border-radius: var(--hpe-button-xlarge-default-border-radius);
-  --hpe-button-xlarge-primary-icon-only-padding-x: var(--hpe-button-xlarge-default-icon-only-padding-x);
   --hpe-button-xlarge-default-gap-x: var(--hpe-component-xlarge-text-to-icon-x);
   --hpe-button-xlarge-default-line-height: var(--hpe-component-xlarge-line-height);
   --hpe-button-xlarge-default-font-size: var(--hpe-component-xlarge-font-size);
@@ -630,11 +630,9 @@
   --hpe-button-small-default-gap-x: var(--hpe-component-xsmall-text-to-icon-x);
   --hpe-button-small-default-line-height: var(--hpe-component-small-line-height);
   --hpe-button-small-default-font-size: var(--hpe-component-small-font-size);
-  --hpe-button-small-secondary-icon-only-padding-x: var(--hpe-button-small-default-icon-only-padding-x);
   --hpe-button-small-secondary-min-height: var(--hpe-button-small-default-min-height);
   --hpe-button-small-secondary-border-width: var(--hpe-button-small-default-border-width);
   --hpe-button-small-secondary-border-radius: var(--hpe-button-small-default-border-radius);
-  --hpe-button-small-primary-icon-only-padding-x: var(--hpe-button-small-default-icon-only-padding-x);
   --hpe-button-small-primary-min-height: var(--hpe-button-small-default-min-height);
   --hpe-button-small-primary-border-width: var(--hpe-button-small-default-border-width);
   --hpe-button-small-primary-border-radius: var(--hpe-button-small-default-border-radius);

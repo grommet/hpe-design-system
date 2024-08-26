@@ -1794,7 +1794,7 @@ export default {
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{base.static.spacing.xsmall}",
+            "$value": "{button.small.default.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2256,7 +2256,7 @@ export default {
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{base.dimension.225}",
+            "$value": "{button.medium.default.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3263,7 +3263,7 @@ export default {
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{base.dimension.325}",
+            "$value": "{button.large.default.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4072,7 +4072,7 @@ export default {
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{base.static.spacing.medium}",
+            "$value": "{button.xlarge.default.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6284,6 +6284,38 @@ export default {
           }
         }
       },
+      "disabled": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.background.disabled}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{color.border.disabled}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "STROKE_COLOR",
+                "EFFECT_COLOR"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
       "selected": {
         "enabled": {
           "background": {
@@ -6423,38 +6455,6 @@ export default {
                 ],
                 "codeSyntax": {}
               }
-            }
-          }
-        }
-      },
-      "disabled": {
-        "background": {
-          "$type": "color",
-          "$value": "{color.background.disabled}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "borderColor": {
-          "$type": "color",
-          "$value": "{color.border.disabled}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "STROKE_COLOR",
-                "EFFECT_COLOR"
-              ],
-              "codeSyntax": {}
             }
           }
         }
@@ -11728,33 +11728,6 @@ export default {
             }
           }
         }
-      }
-    }
-  },
-  "focusRing": {
-    "color": {
-      "$type": "color",
-      "$value": "{base.color.turquoise.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    }
-  },
-  "focusIndicator": {
-    "outline": {
-      "$type": "border",
-      "$value": {
-        "color": "{color.focus}",
-        "width": "{base.dimension.50}",
-        "style": "solid"
       }
     }
   }

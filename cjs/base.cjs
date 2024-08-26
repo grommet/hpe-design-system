@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Aug 2024 18:47:57 GMT
+ * Generated on Mon, 26 Aug 2024 18:57:55 GMT
  */
 
 module.exports = {
@@ -83,9 +83,11 @@ module.exports = {
         },
         "turquoise": {
           "200": "#82fff2",
+          "300": "#1bf6df",
           "400": "#00e8cf",
           "700": "#117b82",
-          "200-Opacity12": "#82fff21f"
+          "200-Opacity12": "#82fff21f",
+          "300-Opacity12": "#1bf6df1f"
         },
         "blue": {
           "400": "#00c8ff",

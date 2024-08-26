@@ -868,6 +868,20 @@ export default {
             }
           }
         },
+        "300": {
+          "$type": "color",
+          "$value": "#1bf6df",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
         "400": {
           "$type": "color",
           "$value": "#00e8cf",
@@ -903,6 +917,20 @@ export default {
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": true,
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "300-Opacity12": {
+          "$type": "color",
+          "$value": "#1bf6df1f",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
               "scopes": [
                 "ALL_SCOPES"
               ],

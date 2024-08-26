@@ -159,11 +159,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "checkbox.control.selected.disabled.background",
+          "name": "checkbox.control.disabled.background",
           "mode": "default"
         },
         {
-          "name": "checkbox.control.disabled.background",
+          "name": "checkbox.control.selected.disabled.background",
           "mode": "default"
         },
         {
@@ -675,11 +675,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "checkbox.control.selected.disabled.borderColor",
+          "name": "checkbox.control.disabled.borderColor",
           "mode": "default"
         },
         {
-          "name": "checkbox.control.disabled.borderColor",
+          "name": "checkbox.control.selected.disabled.borderColor",
           "mode": "default"
         },
         {
@@ -2032,11 +2032,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "checkbox.control.selected.disabled.background",
+          "name": "checkbox.control.disabled.background",
           "mode": "default"
         },
         {
-          "name": "checkbox.control.disabled.background",
+          "name": "checkbox.control.selected.disabled.background",
           "mode": "default"
         },
         {
@@ -2554,11 +2554,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "checkbox.control.selected.disabled.borderColor",
+          "name": "checkbox.control.disabled.borderColor",
           "mode": "default"
         },
         {
-          "name": "checkbox.control.disabled.borderColor",
+          "name": "checkbox.control.selected.disabled.borderColor",
           "mode": "default"
         },
         {
@@ -5483,7 +5483,7 @@ export default {
     },
     "button.small.default.iconOnly.paddingX": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{button.small.default.iconOnly.paddingY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5935,7 +5935,7 @@ export default {
     },
     "button.medium.default.iconOnly.paddingX": {
       "$type": "number",
-      "$value": "{base.dimension.225}",
+      "$value": "{button.medium.default.iconOnly.paddingY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6924,7 +6924,7 @@ export default {
     },
     "button.large.default.iconOnly.paddingX": {
       "$type": "number",
-      "$value": "{base.dimension.325}",
+      "$value": "{button.large.default.iconOnly.paddingY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7715,7 +7715,7 @@ export default {
     },
     "button.xlarge.default.iconOnly.paddingX": {
       "$type": "number",
-      "$value": "{base.static.spacing.medium}",
+      "$value": "{button.xlarge.default.iconOnly.paddingY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10205,6 +10205,36 @@ export default {
         }
       }
     },
+    "checkbox.control.disabled.background": {
+      "$type": "color",
+      "$value": "{color.background.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "checkbox.control.disabled.borderColor": {
+      "$type": "color",
+      "$value": "{color.border.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "checkbox.control.selected.enabled.background": {
       "$type": "color",
       "$value": "{color.background.selected.strong}",
@@ -10335,36 +10365,6 @@ export default {
           "scopes": [
             "SHAPE_FILL",
             "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "checkbox.control.disabled.background": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "checkbox.control.disabled.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
           ],
           "codeSyntax": {}
         }
@@ -15250,21 +15250,6 @@ export default {
         }
       }
     },
-    "focusRing.color": {
-      "$type": "color",
-      "$value": "{base.color.turquoise.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "focusIndicator.outline": {
       "$type": "border",
       "$value": {
@@ -20057,6 +20042,20 @@ export default {
         }
       ]
     },
+    "base.color.turquoise.300": {
+      "$type": "color",
+      "$value": "#1bf6df",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "base.color.turquoise.400": {
       "$type": "color",
       "$value": "#00e8cf",
@@ -20120,6 +20119,20 @@ export default {
           "mode": "light"
         }
       ]
+    },
+    "base.color.turquoise.300-Opacity12": {
+      "$type": "color",
+      "$value": "#1bf6df1f",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "base.color.blue.400": {
       "$type": "color",
