@@ -246,7 +246,7 @@ export const templates = [
     tags: [],
   },
   {
-    name: 'popover',
+    name: 'Popover',
     available: true,
     cardOrder: 5,
     description: `A Popover is an overlay that is opened by a
