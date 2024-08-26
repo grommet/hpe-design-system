@@ -9944,19 +9944,5 @@
         }
       }
     }
-  },
-  "focusRing": {
-    "color": {
-      "$type": "color",
-      "$value": "{base.color.turquoise.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["STROKE_COLOR", "EFFECT_COLOR"],
-          "codeSyntax": {}
-        }
-      }
-    }
   }
 }
