@@ -5215,7 +5215,7 @@
         "enabled": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.weak}",
+            "$value": "{color.background.selected.weak.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5349,7 +5349,7 @@
         "enabled": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.strong}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5387,7 +5387,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.strong}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5465,7 +5465,7 @@
         "enabled": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.strong}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5503,7 +5503,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.strong}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5810,7 +5810,7 @@
           "enabled": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.selected.strong}",
+              "$value": "{color.background.selected.strong.enabled}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -5836,7 +5836,7 @@
           "hover": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.selected.strong}",
+              "$value": "{color.background.selected.strong.enabled}",
               "$description": "",
               "$extensions": {
                 "com.figma": {

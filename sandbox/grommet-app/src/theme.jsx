@@ -269,7 +269,6 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.background.default,
       light: light.hpe.color.background.default,
     },
-    focus: components.hpe.focusRing.color, // TO DO something seems off here that this isn't part of "colors"
     text: {
       dark: dark.hpe.color.text.default,
       light: light.hpe.color.text.default,
@@ -479,7 +478,9 @@ const buildTheme = tokens => {
   const option = {
     color: components.hpe.select.option.enabled.textColor,
     border: {
-      radius: components.hpe.select.medium.option.borderRadius,
+      radius:
+        dimensions.edgeSize[components.hpe.select.medium.option.borderRadius] ||
+        components.hpe.select.medium.option.borderRadius,
       width:
         dimensions.borderSize[
           components.hpe.select.medium.option.borderWidth
@@ -907,9 +908,7 @@ const buildTheme = tokens => {
       },
       selected: {
         option: {
-          background: 'brand',
-          // Q: this token is the wrong color
-          // background: components.hpe.select.option.selected.background,
+          background: components.hpe.select.option.selected.enabled.background,
           color: components.hpe.select.option.selected.textColor,
           font: {
             weight: components.hpe.select.option.selected.fontWeight,
