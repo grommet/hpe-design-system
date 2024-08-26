@@ -28,9 +28,17 @@ export const descend = (
         'lineHeight' in value ||
         'paddingY' in value)
     ) {
+      let contentHeight = value?.lineHeight;
+      // this is special use case for `iconOnly` buttons
+      // could be improved in future if needed to be more dynamic
+      if (key === 'iconOnly') {
+        // [component, size, kind...]
+        const size = keyPath[1];
+        contentHeight = tokens.size?.icon?.[size];
+      }
       if (
         value?.minHeight?.$value &&
-        value?.lineHeight?.$value &&
+        contentHeight?.$value &&
         value?.borderWidth?.$value
       ) {
         if (
@@ -39,7 +47,7 @@ export const descend = (
             value?.paddingY?.$value.includes('base'))
         ) {
           let minHeight = value?.minHeight?.$value;
-          let lineHeight = value?.lineHeight?.$value;
+          let lineHeight = contentHeight?.$value;
           let borderWidth = value?.borderWidth?.$value;
 
           if (isReference(minHeight)) {
@@ -61,8 +69,8 @@ export const descend = (
             );
         }
       }
-    } else if (typeof value === 'object')
-      return descend(value, tokens, keyPath);
+    }
+    if (typeof value === 'object') return descend(value, tokens, keyPath);
   });
 };
 
