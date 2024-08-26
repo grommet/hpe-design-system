@@ -1275,6 +1275,7 @@ const buildTheme = tokens => {
       // Q is toggle and switch the same thing?
       // A: Yes, we can discuss if this name feels right or not.
       toggle: {
+        size: components.hpe.switch.medium.control.track.width, // TO DO should this token be called "size" instead?
         background: components.hpe.switch.control.track.enabled.background,
         color: components.hpe.switch.control.handle.enabled.background,
         knob: {
@@ -1290,17 +1291,32 @@ const buildTheme = tokens => {
             theme.global.colors[
               components.hpe.switch.control.handle.enabled.borderColor
             ][theme.dark ? 'dark' : 'light']
-          }
+          };
+            width: ${components.hpe.switch.medium.control.handle.width};
+            height: ${components.hpe.switch.medium.control.handle.height};
+            margin-block: 2px; // TO DO token?
           `,
         },
-        extend: ({ checked, theme }) => `
+        extend: ({ checked, theme, toggle }) => `
           ${
             checked &&
             `background-color: ${
               theme.global.colors[
                 components.hpe.switch.control.track.selected.enabled.background
-              ][theme.dark ? 'dark' : 'light']
-            };`
+              ]?.[theme.dark ? 'dark' : 'light']
+            };
+            ${
+              toggle
+                ? `
+            border-color: ${
+              theme.global.colors[
+                components.hpe.switch.control.track.selected.enabled.borderColor
+              ]?.[theme.dark ? 'dark' : 'light']
+            };
+            `
+                : ''
+            }
+            `
           }
         `,
       },
