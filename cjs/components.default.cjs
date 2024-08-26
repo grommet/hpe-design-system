@@ -1,10 +1,17 @@
 /**
  * Do not edit directly
- * Generated on Fri, 23 Aug 2024 18:37:39 GMT
+ * Generated on Mon, 26 Aug 2024 18:47:57 GMT
  */
 
 module.exports = {
   "hpe": {
+    "focusIndicator": {
+      "outline": {
+        "color": "focus",
+        "width": "2px",
+        "style": "solid"
+      }
+    },
     "button": {
       "primary": {
         "enabled": {
@@ -146,7 +153,7 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "6px",
-            "paddingY": "6px",
+            "paddingY": "4px",
             "borderRadius": "2em",
             "borderWidth": "2px",
             "minHeight": "28px",
@@ -166,7 +173,7 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "6px",
-            "paddingY": "6px",
+            "paddingY": "4px",
             "borderRadius": "2em",
             "borderWidth": "2px",
             "minHeight": "28px",
@@ -186,7 +193,7 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "6px",
-            "paddingY": "6px",
+            "paddingY": "4px",
             "borderRadius": "2em",
             "borderWidth": "2px",
             "minHeight": "28px",
@@ -228,7 +235,7 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px",
+            "paddingY": "7px",
             "borderRadius": "2em",
             "borderWidth": "2px",
             "minHeight": "36px",
@@ -248,7 +255,7 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px",
+            "paddingY": "7px",
             "borderRadius": "2em",
             "borderWidth": "2px",
             "minHeight": "36px",
@@ -268,7 +275,7 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px",
+            "paddingY": "7px",
             "borderRadius": "2em",
             "borderWidth": "2px",
             "minHeight": "36px",
@@ -288,7 +295,7 @@ module.exports = {
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px",
+            "paddingY": "7px",
             "borderRadius": "6px",
             "borderWidth": "default",
             "minHeight": "36px",
@@ -316,7 +323,7 @@ module.exports = {
             "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "13px",
-            "paddingY": "13px"
+            "paddingY": "11px"
           }
         },
         "primary": {
@@ -336,7 +343,7 @@ module.exports = {
             "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "13px",
-            "paddingY": "13px"
+            "paddingY": "11px"
           }
         },
         "secondary": {
@@ -356,7 +363,7 @@ module.exports = {
             "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "13px",
-            "paddingY": "13px"
+            "paddingY": "11px"
           }
         },
         "toolbar": {
@@ -376,7 +383,7 @@ module.exports = {
             "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "13px",
-            "paddingY": "13px"
+            "paddingY": "11px"
           }
         }
       },
@@ -390,7 +397,7 @@ module.exports = {
             "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "24px",
-            "paddingY": "24px"
+            "paddingY": "22px"
           },
           "paddingX": "30px",
           "paddingY": "19px",
@@ -410,7 +417,7 @@ module.exports = {
             "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "24px",
-            "paddingY": "24px"
+            "paddingY": "22px"
           },
           "paddingX": "30px",
           "paddingY": "19px",
@@ -430,7 +437,7 @@ module.exports = {
             "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "24px",
-            "paddingY": "24px"
+            "paddingY": "22px"
           },
           "paddingX": "30px",
           "paddingY": "19px",
@@ -450,7 +457,7 @@ module.exports = {
             "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "24px",
-            "paddingY": "24px"
+            "paddingY": "22px"
           },
           "paddingX": "30px",
           "paddingY": "19px",

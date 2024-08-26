@@ -1808,7 +1808,7 @@ export default {
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{base.static.spacing.xsmall}",
+            "$value": 4,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2270,7 +2270,7 @@ export default {
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{base.dimension.225}",
+            "$value": 7,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3277,7 +3277,7 @@ export default {
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{base.dimension.325}",
+            "$value": 11,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4086,7 +4086,7 @@ export default {
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{base.static.spacing.medium}",
+            "$value": 22,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -11745,6 +11745,16 @@ export default {
           ],
           "codeSyntax": {}
         }
+      }
+    }
+  },
+  "focusIndicator": {
+    "outline": {
+      "$type": "border",
+      "$value": {
+        "color": "{color.focus}",
+        "width": "{base.dimension.50}",
+        "style": "solid"
       }
     }
   }

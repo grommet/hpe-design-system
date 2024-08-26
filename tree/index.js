@@ -5497,7 +5497,7 @@ export default {
     },
     "button.small.default.iconOnly.paddingY": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": 4,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5949,7 +5949,7 @@ export default {
     },
     "button.medium.default.iconOnly.paddingY": {
       "$type": "number",
-      "$value": "{base.dimension.225}",
+      "$value": 7,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6938,7 +6938,7 @@ export default {
     },
     "button.large.default.iconOnly.paddingY": {
       "$type": "number",
-      "$value": "{base.dimension.325}",
+      "$value": 11,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7729,7 +7729,7 @@ export default {
     },
     "button.xlarge.default.iconOnly.paddingY": {
       "$type": "number",
-      "$value": "{base.static.spacing.medium}",
+      "$value": 22,
       "$description": "",
       "$extensions": {
         "com.figma": {
