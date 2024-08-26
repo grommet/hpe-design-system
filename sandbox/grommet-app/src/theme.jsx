@@ -960,7 +960,10 @@ const buildTheme = tokens => {
           background: components.hpe.button.secondary.hover.background,
           border: {
             color: components.hpe.button.secondary.hover.borderColor,
-            width: '3px', // TO DO
+            width:
+              dimensions.borderSize[
+                components.hpe.button.medium.secondary.borderWidth
+              ] || components.hpe.button.medium.secondary.borderWidth,
           },
           color: components.hpe.button.secondary.hover.textColor,
         },
@@ -1176,6 +1179,9 @@ const buildTheme = tokens => {
         if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
           style += `font-size: ${fontSize};
           line-height: ${lineHeight};`;
+        }
+        if (kind === 'secondary') {
+          style += `&:hover { box-shadow: ${components.hpe.button[sizeProp].secondary.hover.boxShadow}; }`;
         }
         return style;
       },
