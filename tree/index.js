@@ -5310,7 +5310,16 @@ export default {
     },
     "button.small.secondary.hover.boxShadow": {
       "$type": "shadow",
-      "$value": "{button.medium.secondary.hover.boxShadow}",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.none}",
+          "blur": "{base.static.spacing.none}",
+          "spread": "{base.dimension.25}",
+          "color": "{button.secondary.hover.borderColor}",
+          "inset": true
+        }
+      ],
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7381,7 +7390,16 @@ export default {
     },
     "button.large.secondary.hover.boxShadow": {
       "$type": "shadow",
-      "$value": "{button.medium.secondary.hover.boxShadow}",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.none}",
+          "blur": "{base.static.spacing.none}",
+          "spread": "{base.dimension.25}",
+          "color": "{button.secondary.hover.borderColor}",
+          "inset": true
+        }
+      ],
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8299,7 +8317,16 @@ export default {
     },
     "button.xlarge.secondary.hover.boxShadow": {
       "$type": "shadow",
-      "$value": "{button.medium.secondary.hover.boxShadow}",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.none}",
+          "blur": "{base.static.spacing.none}",
+          "spread": "{base.dimension.25}",
+          "color": "{button.secondary.hover.borderColor}",
+          "inset": true
+        }
+      ],
       "$description": "",
       "$extensions": {
         "com.figma": {

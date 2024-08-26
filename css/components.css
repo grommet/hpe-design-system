@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Aug 2024 23:20:31 GMT
+ * Generated on Mon, 26 Aug 2024 23:25:57 GMT
  */
 
 :root {
@@ -387,6 +387,7 @@
   --hpe-button-xlarge-toolbar-border-radius: var(--hpe-base-static-radius-small);
   --hpe-button-xlarge-toolbar-padding-x: var(--hpe-button-xlarge-default-padding-x);
   --hpe-button-xlarge-toolbar-icon-only-padding-x: var(--hpe-button-xlarge-default-icon-only-padding-x);
+  --hpe-button-xlarge-secondary-hover-box-shadow: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-none) var(--hpe-base-dimension-25) var(--hpe-button-secondary-hover-border-color) inset;
   --hpe-button-xlarge-secondary-padding-x: var(--hpe-button-xlarge-default-padding-x);
   --hpe-button-xlarge-secondary-icon-only-padding-x: var(--hpe-button-xlarge-default-icon-only-padding-x);
   --hpe-button-xlarge-primary-padding-x: var(--hpe-button-xlarge-default-padding-x);
@@ -396,6 +397,7 @@
   --hpe-button-xlarge-default-border-radius: var(--hpe-radius-full);
   --hpe-button-large-toolbar-icon-only-padding-x: var(--hpe-button-large-default-icon-only-padding-x);
   --hpe-button-large-toolbar-border-radius: var(--hpe-base-static-radius-xsmall);
+  --hpe-button-large-secondary-hover-box-shadow: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-none) var(--hpe-base-dimension-25) var(--hpe-button-secondary-hover-border-color) inset;
   --hpe-button-large-secondary-icon-only-padding-x: var(--hpe-button-large-default-icon-only-padding-x);
   --hpe-button-large-primary-icon-only-padding-x: var(--hpe-button-large-default-icon-only-padding-x);
   --hpe-button-large-default-min-height: var(--hpe-component-large-min-height);
@@ -422,6 +424,7 @@
   --hpe-button-small-default-min-height: var(--hpe-component-small-min-height);
   --hpe-button-small-default-border-width: var(--hpe-base-static-border-width-small);
   --hpe-button-small-default-border-radius: var(--hpe-radius-full);
+  --hpe-button-small-secondary-hover-box-shadow: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-none) var(--hpe-base-dimension-25) var(--hpe-button-secondary-hover-border-color) inset;
   --hpe-button-small-secondary-icon-only-padding-x: var(--hpe-button-small-default-icon-only-padding-x);
   --hpe-button-small-primary-icon-only-padding-x: var(--hpe-button-small-default-icon-only-padding-x);
   --hpe-button-toolbar-selected-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
@@ -576,7 +579,6 @@
   --hpe-button-xlarge-toolbar-min-height: var(--hpe-button-xlarge-default-min-height);
   --hpe-button-xlarge-toolbar-border-width: var(--hpe-button-xlarge-default-border-width);
   --hpe-button-xlarge-toolbar-icon-only-border-radius: var(--hpe-button-xlarge-toolbar-border-radius);
-  --hpe-button-xlarge-secondary-hover-box-shadow: var(--hpe-button-medium-secondary-hover-box-shadow);
   --hpe-button-xlarge-secondary-min-height: var(--hpe-button-xlarge-default-min-height);
   --hpe-button-xlarge-secondary-border-width: var(--hpe-button-xlarge-default-border-width);
   --hpe-button-xlarge-secondary-border-radius: var(--hpe-button-xlarge-default-border-radius);
@@ -592,7 +594,6 @@
   --hpe-button-large-toolbar-icon-only-border-radius: var(--hpe-button-large-toolbar-border-radius);
   --hpe-button-large-toolbar-min-height: var(--hpe-button-large-default-min-height);
   --hpe-button-large-toolbar-border-width: var(--hpe-border-width-default);
-  --hpe-button-large-secondary-hover-box-shadow: var(--hpe-button-medium-secondary-hover-box-shadow);
   --hpe-button-large-secondary-min-height: var(--hpe-button-large-default-min-height);
   --hpe-button-large-secondary-border-width: var(--hpe-button-large-default-border-width);
   --hpe-button-large-secondary-border-radius: var(--hpe-button-large-default-border-radius);
@@ -633,7 +634,6 @@
   --hpe-button-small-default-gap-x: var(--hpe-component-xsmall-text-to-icon-x);
   --hpe-button-small-default-line-height: var(--hpe-component-small-line-height);
   --hpe-button-small-default-font-size: var(--hpe-component-small-font-size);
-  --hpe-button-small-secondary-hover-box-shadow: var(--hpe-button-medium-secondary-hover-box-shadow);
   --hpe-button-small-secondary-min-height: var(--hpe-button-small-default-min-height);
   --hpe-button-small-secondary-border-width: var(--hpe-button-small-default-border-width);
   --hpe-button-small-secondary-border-radius: var(--hpe-button-small-default-border-radius);
