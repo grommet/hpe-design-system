@@ -6158,7 +6158,7 @@ export default {
         "enabled": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.weak}",
+            "$value": "{color.background.selected.weak.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6320,7 +6320,7 @@ export default {
         "enabled": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.strong}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6367,7 +6367,7 @@ export default {
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.strong}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6463,7 +6463,7 @@ export default {
         "enabled": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.strong}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6510,7 +6510,7 @@ export default {
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.selected.strong}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6876,7 +6876,7 @@ export default {
           "enabled": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.selected.strong}",
+              "$value": "{color.background.selected.strong.enabled}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -6908,7 +6908,7 @@ export default {
           "hover": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.selected.strong}",
+              "$value": "{color.background.selected.strong.enabled}",
               "$description": "",
               "$extensions": {
                 "com.figma": {

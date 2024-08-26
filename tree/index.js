@@ -397,24 +397,9 @@ export default {
         }
       }
     },
-    "color.background.selected.strong": {
-      "enabled": {
-        "$type": "color",
-        "$value": "{base.color.brand}",
-        "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "FRAME_FILL",
-              "SHAPE_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
+    "color.background.selected.strong.enabled": {
       "$type": "color",
-      "$value": "{base.color.green.600}",
+      "$value": "{base.color.brand}",
       "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
@@ -453,37 +438,7 @@ export default {
         }
       ]
     },
-    "color.background.selected.weak": {
-      "enabled": {
-        "$type": "color",
-        "$value": "{base.color.green.1000}",
-        "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "FRAME_FILL",
-              "SHAPE_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "hover": {
-        "$type": "color",
-        "$value": "{base.color.green.900}",
-        "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "FRAME_FILL",
-              "SHAPE_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
+    "color.background.selected.weak.enabled": {
       "$type": "color",
       "$value": "{base.color.green.1000}",
       "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
@@ -503,6 +458,21 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "color.background.selected.weak.hover": {
+      "$type": "color",
+      "$value": "{base.color.green.900}",
+      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "color.border.strong": {
       "$type": "color",
@@ -2276,24 +2246,9 @@ export default {
         }
       }
     },
-    "color.background.selected.strong": {
-      "enabled": {
-        "$type": "color",
-        "$value": "{base.color.brand}",
-        "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "FRAME_FILL",
-              "SHAPE_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
+    "color.background.selected.strong.enabled": {
       "$type": "color",
-      "$value": "{base.color.green.600}",
+      "$value": "{base.color.brand}",
       "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
@@ -2332,37 +2287,7 @@ export default {
         }
       ]
     },
-    "color.background.selected.weak": {
-      "enabled": {
-        "$type": "color",
-        "$value": "{base.color.green.100}",
-        "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "FRAME_FILL",
-              "SHAPE_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "hover": {
-        "$type": "color",
-        "$value": "{base.color.green.125}",
-        "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "FRAME_FILL",
-              "SHAPE_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
+    "color.background.selected.weak.enabled": {
       "$type": "color",
       "$value": "{base.color.green.100}",
       "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
@@ -2382,6 +2307,21 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "color.background.selected.weak.hover": {
+      "$type": "color",
+      "$value": "{base.color.green.125}",
+      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "color.border.strong": {
       "$type": "color",
@@ -10089,7 +10029,7 @@ export default {
     },
     "select.option.selected.enabled.background": {
       "$type": "color",
-      "$value": "{color.background.selected.weak}",
+      "$value": "{color.background.selected.weak.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10237,7 +10177,7 @@ export default {
     },
     "checkbox.control.selected.enabled.background": {
       "$type": "color",
-      "$value": "{color.background.selected.strong}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10282,7 +10222,7 @@ export default {
     },
     "checkbox.control.selected.hover.background": {
       "$type": "color",
-      "$value": "{color.background.selected.strong}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10372,7 +10312,7 @@ export default {
     },
     "checkbox.control.indeterminate.enabled.background": {
       "$type": "color",
-      "$value": "{color.background.selected.strong}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10417,7 +10357,7 @@ export default {
     },
     "checkbox.control.indeterminate.hover.background": {
       "$type": "color",
-      "$value": "{color.background.selected.strong}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10752,7 +10692,7 @@ export default {
     },
     "switch.control.track.selected.enabled.background": {
       "$type": "color",
-      "$value": "{color.background.selected.strong}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10782,7 +10722,7 @@ export default {
     },
     "switch.control.track.selected.hover.background": {
       "$type": "color",
-      "$value": "{color.background.selected.strong}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19332,7 +19272,17 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "color.background.selected.strong.enabled",
+          "mode": "dark"
+        },
+        {
+          "name": "color.background.selected.strong.enabled",
+          "mode": "light"
+        }
+      ]
     },
     "base.color.red.500": {
       "$type": "color",
@@ -19789,7 +19739,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "color.background.selected.weak",
+          "name": "color.background.selected.weak.enabled",
           "mode": "light"
         }
       ]
@@ -19806,7 +19756,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "color.background.selected.weak.hover",
+          "mode": "light"
+        }
+      ]
     },
     "base.color.green.400": {
       "$type": "color",
@@ -19865,10 +19821,6 @@ export default {
           "mode": "dark"
         },
         {
-          "name": "color.background.selected.strong",
-          "mode": "dark"
-        },
-        {
           "name": "color.border.selected",
           "mode": "dark"
         },
@@ -19882,10 +19834,6 @@ export default {
         },
         {
           "name": "color.background.primary.default",
-          "mode": "light"
-        },
-        {
-          "name": "color.background.selected.strong",
           "mode": "light"
         },
         {
@@ -19942,7 +19890,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "color.background.selected.weak.hover",
+          "mode": "dark"
+        }
+      ]
     },
     "base.color.green.1000": {
       "$type": "color",
@@ -19959,7 +19913,7 @@ export default {
       },
       "usedBy": [
         {
-          "name": "color.background.selected.weak",
+          "name": "color.background.selected.weak.enabled",
           "mode": "dark"
         }
       ]

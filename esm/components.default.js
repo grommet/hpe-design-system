@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Aug 2024 18:57:56 GMT
+ * Generated on Mon, 26 Aug 2024 22:04:42 GMT
  */
 
 export default {
@@ -599,7 +599,7 @@ export default {
         },
         "selected": {
           "enabled": {
-            "background": "background-selected-weak",
+            "background": "background-selected-weak-enabled",
             "borderColor": "#00000000",
             "textColor": "text-strong",
             "fontWeight": 700
@@ -623,12 +623,12 @@ export default {
         },
         "selected": {
           "enabled": {
-            "background": "background-selected-strong",
+            "background": "background-selected-strong-enabled",
             "borderColor": "border-selected",
             "iconColor": "icon-onPrimary"
           },
           "hover": {
-            "background": "background-selected-strong",
+            "background": "background-selected-strong-enabled",
             "borderColor": "border-strong",
             "iconColor": "icon-onPrimary"
           },
@@ -640,12 +640,12 @@ export default {
         },
         "indeterminate": {
           "enabled": {
-            "background": "background-selected-strong",
+            "background": "background-selected-strong-enabled",
             "borderColor": "border-selected",
             "iconColor": "icon-onPrimary"
           },
           "hover": {
-            "background": "background-selected-strong",
+            "background": "background-selected-strong-enabled",
             "borderColor": "border-strong",
             "iconColor": "icon-onPrimary"
           },
@@ -699,11 +699,11 @@ export default {
           },
           "selected": {
             "enabled": {
-              "background": "background-selected-strong",
+              "background": "background-selected-strong-enabled",
               "borderColor": "border-default"
             },
             "hover": {
-              "background": "background-selected-strong",
+              "background": "background-selected-strong-enabled",
               "borderColor": "border-strong"
             },
             "disabled": {
