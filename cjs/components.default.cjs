@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Aug 2024 22:04:42 GMT
+ * Generated on Mon, 26 Aug 2024 23:20:31 GMT
  */
 
 module.exports = {
@@ -173,6 +173,9 @@ module.exports = {
             "fontSize": "1rem",
             "lineHeight": "1.25rem",
             "gapX": "6px"
+          },
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
           }
         },
         "default": {
@@ -258,6 +261,9 @@ module.exports = {
           }
         },
         "secondary": {
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+          },
           "paddingX": "18px",
           "paddingY": "4px",
           "borderRadius": "2em",
@@ -357,6 +363,9 @@ module.exports = {
             "gapX": "6px",
             "paddingX": "11px",
             "paddingY": "11px"
+          },
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
           }
         },
         "toolbar": {
@@ -439,7 +448,10 @@ module.exports = {
           "minHeight": "72px",
           "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
-          "gapX": "6px"
+          "gapX": "6px",
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+          }
         },
         "toolbar": {
           "iconOnly": {

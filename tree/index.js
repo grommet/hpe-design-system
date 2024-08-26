@@ -5308,6 +5308,20 @@ export default {
         }
       }
     },
+    "button.small.secondary.hover.boxShadow": {
+      "$type": "shadow",
+      "$value": "{button.medium.secondary.hover.boxShadow}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "button.small.default.paddingX": {
       "$type": "number",
       "$value": 12,
@@ -6207,6 +6221,29 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.medium.secondary.hover.boxShadow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.none}",
+          "blur": "{base.static.spacing.none}",
+          "spread": "{base.dimension.25}",
+          "color": "{button.secondary.hover.borderColor}",
+          "inset": true
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -7342,6 +7379,20 @@ export default {
         }
       }
     },
+    "button.large.secondary.hover.boxShadow": {
+      "$type": "shadow",
+      "$value": "{button.medium.secondary.hover.boxShadow}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "button.large.toolbar.paddingX": {
       "$type": "number",
       "$value": "{base.dimension.250}",
@@ -8241,6 +8292,20 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.xlarge.secondary.hover.boxShadow": {
+      "$type": "shadow",
+      "$value": "{button.medium.secondary.hover.boxShadow}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }

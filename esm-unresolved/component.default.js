@@ -1675,6 +1675,22 @@ export default {
               }
             }
           }
+        },
+        "hover": {
+          "boxShadow": {
+            "$type": "shadow",
+            "$value": "{button.medium.secondary.hover.boxShadow}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": [
+                  "ALL_SCOPES"
+                ],
+                "codeSyntax": {}
+              }
+            }
+          }
         }
       },
       "default": {
@@ -2600,6 +2616,31 @@ export default {
         }
       },
       "secondary": {
+        "hover": {
+          "boxShadow": {
+            "$type": "shadow",
+            "$value": [
+              {
+                "offsetX": "{base.static.spacing.none}",
+                "offsetY": "{base.static.spacing.none}",
+                "blur": "{base.static.spacing.none}",
+                "spread": "{base.dimension.25}",
+                "color": "{button.secondary.hover.borderColor}",
+                "inset": true
+              }
+            ],
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": [
+                  "ALL_SCOPES"
+                ],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
         "paddingX": {
           "$type": "number",
           "$value": "{button.medium.default.paddingX}",
@@ -3749,6 +3790,22 @@ export default {
               }
             }
           }
+        },
+        "hover": {
+          "boxShadow": {
+            "$type": "shadow",
+            "$value": "{button.medium.secondary.hover.boxShadow}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": [
+                  "ALL_SCOPES"
+                ],
+                "codeSyntax": {}
+              }
+            }
+          }
         }
       },
       "toolbar": {
@@ -4669,6 +4726,22 @@ export default {
                 "GAP"
               ],
               "codeSyntax": {}
+            }
+          }
+        },
+        "hover": {
+          "boxShadow": {
+            "$type": "shadow",
+            "$value": "{button.medium.secondary.hover.boxShadow}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": [
+                  "ALL_SCOPES"
+                ],
+                "codeSyntax": {}
+              }
             }
           }
         }
