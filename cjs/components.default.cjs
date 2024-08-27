@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Aug 2024 23:25:57 GMT
+ * Generated on Tue, 27 Aug 2024 18:50:54 GMT
  */
 
 module.exports = {
@@ -637,7 +637,7 @@ module.exports = {
           "enabled": {
             "background": "background-selected-strong-enabled",
             "borderColor": "border-selected",
-            "iconColor": "icon-onPrimary"
+            "iconColor": "icon-onSelectedStrong"
           },
           "hover": {
             "background": "background-selected-strong-enabled",

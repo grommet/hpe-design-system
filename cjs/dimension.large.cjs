@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Aug 2024 23:25:57 GMT
+ * Generated on Tue, 27 Aug 2024 18:50:54 GMT
  */
 
 module.exports = {
@@ -8,43 +8,53 @@ module.exports = {
     "text": {
       "xsmall": {
         "fontSize": "0.875rem",
-        "lineHeight": "1rem"
+        "lineHeight": "1rem",
+        "fontWeight": 400
       },
       "small": {
         "fontSize": "1rem",
-        "lineHeight": "1.25rem"
+        "lineHeight": "1.25rem",
+        "fontWeight": 400
       },
       "medium": {
         "fontSize": "1.125rem",
-        "lineHeight": "1.5rem"
+        "lineHeight": "1.5rem",
+        "fontWeight": 400
       },
       "large": {
         "fontSize": "1.375rem",
-        "lineHeight": "1.75rem"
+        "lineHeight": "1.75rem",
+        "fontWeight": 400
       },
       "xlarge": {
         "fontSize": "1.5rem",
-        "lineHeight": "1.875rem"
+        "lineHeight": "1.875rem",
+        "fontWeight": 400
       },
       "xxlarge": {
         "fontSize": "2.25rem",
-        "lineHeight": "2.5rem"
+        "lineHeight": "2.5rem",
+        "fontWeight": 300
       },
       "3xl": {
         "fontSize": "2.625rem",
-        "lineHeight": "2.875rem"
+        "lineHeight": "2.875rem",
+        "fontWeight": 300
       },
       "4xl": {
         "fontSize": "3rem",
-        "lineHeight": "3rem"
+        "lineHeight": "3rem",
+        "fontWeight": 300
       },
       "5xl": {
         "fontSize": "4.5rem",
-        "lineHeight": "4.5rem"
+        "lineHeight": "4.5rem",
+        "fontWeight": 300
       },
       "6xl": {
         "fontSize": "4.5rem",
-        "lineHeight": "4.5rem"
+        "lineHeight": "4.5rem",
+        "fontWeight": 300
       }
     },
     "heading": {

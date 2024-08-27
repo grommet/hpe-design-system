@@ -6450,7 +6450,7 @@ export default {
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.onPrimary}",
+            "$value": "{color.icon.onSelectedStrong}",
             "$description": "",
             "$extensions": {
               "com.figma": {

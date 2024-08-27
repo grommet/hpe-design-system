@@ -12,9 +12,9 @@
       "status": {
         "info": "#00c8ff1f",
         "unknown": "#222222",
-        "ok": "#17d0a64d",
         "critical": "#cc1f1a4d",
-        "warning": "#fec9011f"
+        "warning": "#fec9011f",
+        "ok": "#17d0a64d"
       },
       "primary": {
         "default": "#01a982",
@@ -42,8 +42,10 @@
       "strong": "#ffffff",
       "weak": "#ffffff80",
       "xweak": "#ffffff33",
+      "placeholder": "#ffffff80",
       "disabled": "#ffffff3d",
       "onPrimary": "#ffffff",
+      "onSelectedStrong": "#ffffff",
       "brand": "#01a982",
       "heading": {
         "default": "#ffffff"
@@ -66,6 +68,7 @@
         "unknown": "#555555"
       },
       "onPrimary": "#ffffff",
+      "onSelectedStrong": "#ffffff",
       "brand": "#01a982"
     },
     "decorative": {

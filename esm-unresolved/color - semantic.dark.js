@@ -152,21 +152,6 @@ export default {
             }
           }
         },
-        "ok": {
-          "$type": "color",
-          "$value": "{base.color.green.500-Opacity30}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
         "critical": {
           "$type": "color",
           "$value": "{base.color.red.800-Opacity30}",
@@ -185,6 +170,21 @@ export default {
         "warning": {
           "$type": "color",
           "$value": "{base.color.yellow.400-Opacity12}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "ok": {
+          "$type": "color",
+          "$value": "{base.color.green.500-Opacity30}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -416,6 +416,20 @@ export default {
           }
         }
       },
+      "placeholder": {
+        "$type": "color",
+        "$value": "{color.text.weak}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
       "disabled": {
         "$type": "color",
         "$value": "{base.color.white.opacity24}",
@@ -434,6 +448,20 @@ export default {
         "$type": "color",
         "$value": "{base.color.white.100}",
         "$description": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "onSelectedStrong": {
+        "$type": "color",
+        "$value": "{base.color.white.100}",
+        "$description": "Text color to be used for text sitting on background-selected-strong.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -665,6 +693,20 @@ export default {
               "FRAME_FILL",
               "SHAPE_FILL",
               "STROKE_COLOR"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "onSelectedStrong": {
+        "$type": "color",
+        "$value": "{base.color.white.100}",
+        "$description": "Icon color to be used for Icon sitting on background-selected-strong.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "TEXT_FILL"
             ],
             "codeSyntax": {}
           }

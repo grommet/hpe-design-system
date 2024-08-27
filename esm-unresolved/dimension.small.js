@@ -611,6 +611,20 @@ export default {
             "codeSyntax": {}
           }
         }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{fontWeight.regular}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "small": {
@@ -637,6 +651,20 @@ export default {
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{fontWeight.regular}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -671,6 +699,20 @@ export default {
             "codeSyntax": {}
           }
         }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{fontWeight.regular}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "large": {
@@ -697,6 +739,20 @@ export default {
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{fontWeight.regular}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -731,6 +787,20 @@ export default {
             "codeSyntax": {}
           }
         }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{fontWeight.regular}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "xxlarge": {
@@ -757,6 +827,20 @@ export default {
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{fontWeight.light}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -791,6 +875,20 @@ export default {
             "codeSyntax": {}
           }
         }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{fontWeight.light}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "4xl": {
@@ -817,6 +915,20 @@ export default {
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{fontWeight.light}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }
@@ -851,6 +963,20 @@ export default {
             "codeSyntax": {}
           }
         }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{fontWeight.light}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "6xl": {
@@ -877,6 +1003,20 @@ export default {
             "hiddenFromPublishing": false,
             "scopes": [
               "LINE_HEIGHT"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "fontWeight": {
+        "$type": "number",
+        "$value": "{fontWeight.light}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "ALL_SCOPES"
             ],
             "codeSyntax": {}
           }

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Aug 2024 23:25:57 GMT
+ * Generated on Tue, 27 Aug 2024 18:50:54 GMT
  */
 
 @media (max-width: 768px) {
@@ -48,24 +48,34 @@
   --hpe-heading-xlarge-line-height: var(--hpe-base-line-height-200);
   --hpe-heading-xlarge-font-size: var(--hpe-base-font-size-500);
   --hpe-heading-xlarge-font-weight: var(--hpe-font-weight-medium);
+  --hpe-text-6xl-font-weight: var(--hpe-font-weight-light);
   --hpe-text-6xl-line-height: var(--hpe-base-line-height-1000);
   --hpe-text-6xl-font-size: var(--hpe-base-font-size-1000);
+  --hpe-text-5xl-font-weight: var(--hpe-font-weight-light);
   --hpe-text-5xl-line-height: var(--hpe-base-line-height-900);
   --hpe-text-5xl-font-size: var(--hpe-base-font-size-900);
+  --hpe-text-4xl-font-weight: var(--hpe-font-weight-light);
   --hpe-text-4xl-line-height: var(--hpe-base-line-height-800);
   --hpe-text-4xl-font-size: var(--hpe-base-font-size-800);
+  --hpe-text-3xl-font-weight: var(--hpe-font-weight-light);
   --hpe-text-3xl-line-height: var(--hpe-base-line-height-700);
   --hpe-text-3xl-font-size: var(--hpe-base-font-size-700);
+  --hpe-text-xxlarge-font-weight: var(--hpe-font-weight-light);
   --hpe-text-xxlarge-line-height: var(--hpe-base-line-height-600);
   --hpe-text-xxlarge-font-size: var(--hpe-base-font-size-600);
+  --hpe-text-xlarge-font-weight: var(--hpe-font-weight-regular);
   --hpe-text-xlarge-line-height: var(--hpe-base-line-height-400);
   --hpe-text-xlarge-font-size: var(--hpe-base-font-size-500);
+  --hpe-text-large-font-weight: var(--hpe-font-weight-regular);
   --hpe-text-large-line-height: var(--hpe-base-line-height-300);
   --hpe-text-large-font-size: var(--hpe-base-font-size-400);
+  --hpe-text-medium-font-weight: var(--hpe-font-weight-regular);
   --hpe-text-medium-line-height: var(--hpe-base-line-height-200);
   --hpe-text-medium-font-size: var(--hpe-base-font-size-200);
+  --hpe-text-small-font-weight: var(--hpe-font-weight-regular);
   --hpe-text-small-line-height: var(--hpe-base-line-height-100);
   --hpe-text-small-font-size: var(--hpe-base-font-size-100);
+  --hpe-text-xsmall-font-weight: var(--hpe-font-weight-regular);
   --hpe-text-xsmall-line-height: var(--hpe-base-line-height-90);
   --hpe-text-xsmall-font-size: var(--hpe-base-font-size-90);
   --hpe-size-content-xxlarge: var(--hpe-base-static-content-xlarge); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */

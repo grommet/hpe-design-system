@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Aug 2024 23:25:57 GMT
+ * Generated on Tue, 27 Aug 2024 18:50:53 GMT
  */
 
 export default {
@@ -18,9 +18,9 @@ export default {
         status: {
           info: "#00c8ff1f",
           unknown: "#222222",
-          ok: "#17d0a64d",
           critical: "#cc1f1a4d",
           warning: "#fec9011f",
+          ok: "#17d0a64d",
         },
         primary: {
           default: "#01a982",
@@ -48,8 +48,10 @@ export default {
         strong: "#ffffff",
         weak: "#ffffff80",
         xweak: "#ffffff33",
+        placeholder: "#ffffff80",
         disabled: "#ffffff3d",
         onPrimary: "#ffffff",
+        onSelectedStrong: "#ffffff",
         brand: "#01a982",
         heading: {
           default: "#ffffff",
@@ -72,6 +74,7 @@ export default {
           unknown: "#555555",
         },
         onPrimary: "#ffffff",
+        onSelectedStrong: "#ffffff",
         brand: "#01a982",
       },
       decorative: {

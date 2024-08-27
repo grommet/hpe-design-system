@@ -302,21 +302,6 @@ export default {
         }
       }
     },
-    "color.background.status.ok": {
-      "$type": "color",
-      "$value": "{base.color.green.500-Opacity30}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "color.background.status.critical": {
       "$type": "color",
       "$value": "{base.color.red.800-Opacity30}",
@@ -345,6 +330,21 @@ export default {
     "color.background.status.warning": {
       "$type": "color",
       "$value": "{base.color.yellow.400-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.status.ok": {
+      "$type": "color",
+      "$value": "{base.color.green.500-Opacity30}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -950,6 +950,10 @@ export default {
       },
       "usedBy": [
         {
+          "name": "color.text.placeholder",
+          "mode": "dark"
+        },
+        {
           "name": "headerCell.units.enabled.textColor",
           "mode": "default"
         },
@@ -982,6 +986,20 @@ export default {
     "color.text.xweak": {
       "$type": "color",
       "$value": "{base.color.white.opacity20}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.placeholder": {
+      "$type": "color",
+      "$value": "{color.text.weak}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1076,6 +1094,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "color.text.onSelectedStrong": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Text color to be used for text sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "color.text.brand": {
       "$type": "color",
@@ -1354,10 +1386,6 @@ export default {
           "mode": "default"
         },
         {
-          "name": "checkbox.control.selected.enabled.iconColor",
-          "mode": "default"
-        },
-        {
           "name": "checkbox.control.selected.hover.iconColor",
           "mode": "default"
         },
@@ -1367,6 +1395,26 @@ export default {
         },
         {
           "name": "checkbox.control.indeterminate.hover.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.onSelectedStrong": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Icon color to be used for Icon sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.control.selected.enabled.iconColor",
           "mode": "default"
         }
       ]
@@ -2151,21 +2199,6 @@ export default {
         }
       }
     },
-    "color.background.status.ok": {
-      "$type": "color",
-      "$value": "{base.color.green.400-Opacity24}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "color.background.status.critical": {
       "$type": "color",
       "$value": "{base.color.red.500-Opacity24}",
@@ -2194,6 +2227,21 @@ export default {
     "color.background.status.warning": {
       "$type": "color",
       "$value": "{base.color.orange.400-Opacity24}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.status.ok": {
+      "$type": "color",
+      "$value": "{base.color.green.400-Opacity24}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2799,6 +2847,10 @@ export default {
       },
       "usedBy": [
         {
+          "name": "color.text.placeholder",
+          "mode": "light"
+        },
+        {
           "name": "headerCell.units.enabled.textColor",
           "mode": "default"
         },
@@ -2831,6 +2883,20 @@ export default {
     "color.text.xweak": {
       "$type": "color",
       "$value": "{base.color.grey.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.placeholder": {
+      "$type": "color",
+      "$value": "{color.text.weak}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2925,6 +2991,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "color.text.onSelectedStrong": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Text color to be used for text sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "color.text.brand": {
       "$type": "color",
@@ -3203,10 +3283,6 @@ export default {
           "mode": "default"
         },
         {
-          "name": "checkbox.control.selected.enabled.iconColor",
-          "mode": "default"
-        },
-        {
           "name": "checkbox.control.selected.hover.iconColor",
           "mode": "default"
         },
@@ -3216,6 +3292,26 @@ export default {
         },
         {
           "name": "checkbox.control.indeterminate.hover.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.onSelectedStrong": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Icon color to be used for Icon sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.control.selected.enabled.iconColor",
           "mode": "default"
         }
       ]
@@ -10299,7 +10395,7 @@ export default {
     },
     "checkbox.control.selected.enabled.iconColor": {
       "$type": "color",
-      "$value": "{color.icon.onPrimary}",
+      "$value": "{color.icon.onSelectedStrong}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16225,6 +16321,20 @@ export default {
         }
       ]
     },
+    "text.xsmall.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.small.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.100}",
@@ -16273,6 +16383,20 @@ export default {
         }
       ]
     },
+    "text.small.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.medium.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.200}",
@@ -16312,6 +16436,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "text.medium.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "text.large.fontSize": {
       "$type": "number",
@@ -16353,6 +16491,20 @@ export default {
         }
       ]
     },
+    "text.large.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.xlarge.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.500}",
@@ -16390,6 +16542,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "text.xlarge.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "text.xxlarge.fontSize": {
       "$type": "number",
@@ -16439,6 +16605,20 @@ export default {
         }
       ]
     },
+    "text.xxlarge.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.3xl.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.700}",
@@ -16486,6 +16666,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "text.3xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "text.4xl.fontSize": {
       "$type": "number",
@@ -16535,6 +16729,20 @@ export default {
         }
       ]
     },
+    "text.4xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.5xl.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.900}",
@@ -16583,6 +16791,20 @@ export default {
         }
       ]
     },
+    "text.5xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.6xl.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.1000}",
@@ -16630,6 +16852,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "text.6xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "heading.xlarge.fontWeight": {
       "$type": "number",
@@ -17888,6 +18124,20 @@ export default {
         }
       ]
     },
+    "text.xsmall.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.small.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.100}",
@@ -17936,6 +18186,20 @@ export default {
         }
       ]
     },
+    "text.small.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.medium.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.200}",
@@ -17975,6 +18239,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "text.medium.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "text.large.fontSize": {
       "$type": "number",
@@ -18016,6 +18294,20 @@ export default {
         }
       ]
     },
+    "text.large.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.xlarge.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.500}",
@@ -18053,6 +18345,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "text.xlarge.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "text.xxlarge.fontSize": {
       "$type": "number",
@@ -18102,6 +18408,20 @@ export default {
         }
       ]
     },
+    "text.xxlarge.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.3xl.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.700}",
@@ -18149,6 +18469,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "text.3xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "text.4xl.fontSize": {
       "$type": "number",
@@ -18198,6 +18532,20 @@ export default {
         }
       ]
     },
+    "text.4xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.5xl.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.900}",
@@ -18246,6 +18594,20 @@ export default {
         }
       ]
     },
+    "text.5xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "text.6xl.fontSize": {
       "$type": "number",
       "$value": "{base.fontSize.1000}",
@@ -18293,6 +18655,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "text.6xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "heading.xlarge.fontWeight": {
       "$type": "number",
@@ -20827,6 +21203,10 @@ export default {
           "mode": "dark"
         },
         {
+          "name": "color.text.onSelectedStrong",
+          "mode": "dark"
+        },
+        {
           "name": "color.icon.default",
           "mode": "dark"
         },
@@ -20836,6 +21216,10 @@ export default {
         },
         {
           "name": "color.icon.onPrimary",
+          "mode": "dark"
+        },
+        {
+          "name": "color.icon.onSelectedStrong",
           "mode": "dark"
         },
         {
@@ -20855,11 +21239,19 @@ export default {
           "mode": "light"
         },
         {
+          "name": "color.text.onSelectedStrong",
+          "mode": "light"
+        },
+        {
           "name": "color.text.inverse.default",
           "mode": "light"
         },
         {
           "name": "color.icon.onPrimary",
+          "mode": "light"
+        },
+        {
+          "name": "color.icon.onSelectedStrong",
           "mode": "light"
         }
       ]
