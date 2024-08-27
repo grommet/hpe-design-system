@@ -387,6 +387,18 @@
           }
         }
       },
+      "onSelectedWeak": {
+        "$type": "color",
+        "$value": "{color.text.strong}",
+        "$description": "Text color to be used for text sitting on background-selected-strong.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "brand": {
         "$type": "color",
         "$value": "{base.color.green.600}",
@@ -567,6 +579,18 @@
         "$type": "color",
         "$value": "{base.color.white.100}",
         "$description": "Icon color to be used for Icon sitting on background-selected-strong.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "onSelectedWeak": {
+        "$type": "color",
+        "$value": "{color.text.strong}",
+        "$description": "Icon color to be used for icon sitting on background-selected-strong.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,

@@ -850,7 +850,7 @@ const buildTheme = tokens => {
           weight: components.hpe.button.toolbar.enabled.fontWeight,
         },
       },
-      option,
+      option: option,
       active: {
         background: {
           color: components.hpe.button.default.selected.enabled.background,
@@ -912,7 +912,7 @@ const buildTheme = tokens => {
           background: components.hpe.select.option.selected.enabled.background,
           color: components.hpe.select.option.selected.textColor,
           font: {
-            weight: components.hpe.select.option.selected.fontWeight,
+            weight: components.hpe.select.option.selected.enabled.fontWeight,
           },
         },
       },
