@@ -1,4 +1,14 @@
 export default {
+  "focusIndicator": {
+    "outline": {
+      "$type": "border",
+      "$value": {
+        "color": "{color.focus}",
+        "width": "{base.dimension.50}",
+        "style": "solid"
+      }
+    }
+  },
   "fontStack": {
     "primary": {
       "$type": "fontFamily",

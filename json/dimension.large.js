@@ -43,7 +43,7 @@
   },
   "heading": {
     "xlarge": {
-      "fontWeight": 400,
+      "fontWeight": 500,
       "fontSize": "2.25rem",
       "lineHeight": "2.25rem"
     },

@@ -163,11 +163,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "checkbox.control.selected.disabled.background",
+          "name": "checkbox.control.disabled.background",
           "mode": "default"
         },
         {
-          "name": "checkbox.control.disabled.background",
+          "name": "checkbox.control.selected.disabled.background",
           "mode": "default"
         },
         {
@@ -415,24 +415,9 @@ export default {
         }
       }
     },
-    "color.background.selected.strong": {
-      "enabled": {
-        "$type": "color",
-        "$value": "{base.color.brand}",
-        "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "FRAME_FILL",
-              "SHAPE_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
+    "color.background.selected.strong.enabled": {
       "$type": "color",
-      "$value": "{base.color.green.600}",
+      "$value": "{base.color.brand}",
       "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
@@ -443,39 +428,35 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.control.selected.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.hover.background",
+          "mode": "default"
+        }
+      ]
     },
-    "color.background.selected.weak": {
-      "enabled": {
-        "$type": "color",
-        "$value": "{base.color.green.1000}",
-        "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "FRAME_FILL",
-              "SHAPE_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "hover": {
-        "$type": "color",
-        "$value": "{base.color.green.900}",
-        "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "FRAME_FILL",
-              "SHAPE_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
+    "color.background.selected.weak.enabled": {
       "$type": "color",
       "$value": "{base.color.green.1000}",
       "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
@@ -491,10 +472,29 @@ export default {
       },
       "usedBy": [
         {
+          "name": "button.nav.selected.enabled.background",
+          "mode": "default"
+        },
+        {
           "name": "select.option.selected.enabled.background",
           "mode": "default"
         }
       ]
+    },
+    "color.background.selected.weak.hover": {
+      "$type": "color",
+      "$value": "{base.color.green.900}",
+      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "color.border.strong": {
       "$type": "color",
@@ -663,11 +663,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "checkbox.control.selected.disabled.borderColor",
+          "name": "checkbox.control.disabled.borderColor",
           "mode": "default"
         },
         {
-          "name": "checkbox.control.disabled.borderColor",
+          "name": "checkbox.control.selected.disabled.borderColor",
           "mode": "default"
         },
         {
@@ -2044,11 +2044,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "checkbox.control.selected.disabled.background",
+          "name": "checkbox.control.disabled.background",
           "mode": "default"
         },
         {
-          "name": "checkbox.control.disabled.background",
+          "name": "checkbox.control.selected.disabled.background",
           "mode": "default"
         },
         {
@@ -2359,6 +2359,10 @@ export default {
         {
           "name": "button.nav.selected.enabled.background",
           "mode": "default"
+        },
+        {
+          "name": "select.option.selected.enabled.background",
+          "mode": "default"
         }
       ]
     },
@@ -2544,11 +2548,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "checkbox.control.selected.disabled.borderColor",
+          "name": "checkbox.control.disabled.borderColor",
           "mode": "default"
         },
         {
-          "name": "checkbox.control.disabled.borderColor",
+          "name": "checkbox.control.selected.disabled.borderColor",
           "mode": "default"
         },
         {
@@ -3819,7 +3823,7 @@ export default {
     },
     "button.primary.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
+      "$value": "{fontWeight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4403,7 +4407,7 @@ export default {
     },
     "button.default.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
+      "$value": "{fontWeight.semibold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4695,7 +4699,7 @@ export default {
     },
     "button.nav.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4914,7 +4918,7 @@ export default {
     },
     "button.nav.selected.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5670,6 +5674,29 @@ export default {
         }
       }
     },
+    "button.small.secondary.hover.boxShadow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.none}",
+          "blur": "{base.static.spacing.none}",
+          "spread": "{base.dimension.25}",
+          "color": "{button.secondary.hover.borderColor}",
+          "inset": true
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "button.small.default.paddingX": {
       "$type": "number",
       "$value": 12,
@@ -5785,7 +5812,7 @@ export default {
     },
     "button.small.default.iconOnly.paddingX": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{button.small.default.iconOnly.paddingY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5799,7 +5826,7 @@ export default {
     },
     "button.small.default.iconOnly.paddingY": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": 4,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6251,7 +6278,7 @@ export default {
     },
     "button.medium.default.iconOnly.paddingY": {
       "$type": "number",
-      "$value": "{base.dimension.225}",
+      "$value": 7,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6463,7 +6490,7 @@ export default {
     },
     "button.medium.nav.iconOnly.paddingX": {
       "$type": "number",
-      "$value": "{base.dimension.225}",
+      "$value": "{button.medium.default.iconOnly.paddingY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6477,7 +6504,7 @@ export default {
     },
     "button.medium.nav.iconOnly.paddingY": {
       "$type": "number",
-      "$value": "{base.dimension.225}",
+      "$value": 7,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6795,6 +6822,29 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.medium.secondary.hover.boxShadow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.none}",
+          "blur": "{base.static.spacing.none}",
+          "spread": "{base.dimension.25}",
+          "color": "{button.secondary.hover.borderColor}",
+          "inset": true
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -7452,7 +7502,7 @@ export default {
     },
     "button.large.default.iconOnly.paddingX": {
       "$type": "number",
-      "$value": "{base.dimension.325}",
+      "$value": "{button.large.default.iconOnly.paddingY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7466,7 +7516,7 @@ export default {
     },
     "button.large.default.iconOnly.paddingY": {
       "$type": "number",
-      "$value": "{base.dimension.325}",
+      "$value": 11,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7930,6 +7980,29 @@ export default {
         }
       }
     },
+    "button.large.secondary.hover.boxShadow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.none}",
+          "blur": "{base.static.spacing.none}",
+          "spread": "{base.dimension.25}",
+          "color": "{button.secondary.hover.borderColor}",
+          "inset": true
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "button.large.toolbar.paddingX": {
       "$type": "number",
       "$value": "{base.dimension.250}",
@@ -8243,7 +8316,7 @@ export default {
     },
     "button.xlarge.default.iconOnly.paddingX": {
       "$type": "number",
-      "$value": "{base.static.spacing.medium}",
+      "$value": "{button.xlarge.default.iconOnly.paddingY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8257,7 +8330,7 @@ export default {
     },
     "button.xlarge.default.iconOnly.paddingY": {
       "$type": "number",
-      "$value": "{base.static.spacing.medium}",
+      "$value": 22,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8829,6 +8902,29 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.xlarge.secondary.hover.boxShadow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.none}",
+          "blur": "{base.static.spacing.none}",
+          "spread": "{base.dimension.25}",
+          "color": "{button.secondary.hover.borderColor}",
+          "inset": true
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -10483,7 +10579,7 @@ export default {
     },
     "select.option.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10613,7 +10709,7 @@ export default {
     },
     "select.option.selected.enabled.background": {
       "$type": "color",
-      "$value": "{color.background.selected.weak}",
+      "$value": "{color.background.selected.weak.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10657,7 +10753,7 @@ export default {
     },
     "select.option.selected.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.bold}",
+      "$value": "{fontWeight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10717,6 +10813,36 @@ export default {
     "checkbox.control.hover.borderColor": {
       "$type": "color",
       "$value": "{color.border.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "checkbox.control.disabled.background": {
+      "$type": "color",
+      "$value": "{color.background.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "checkbox.control.disabled.borderColor": {
+      "$type": "color",
+      "$value": "{color.border.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10859,36 +10985,6 @@ export default {
           "scopes": [
             "SHAPE_FILL",
             "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "checkbox.control.disabled.background": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "checkbox.control.disabled.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
           ],
           "codeSyntax": {}
         }
@@ -11115,7 +11211,7 @@ export default {
     },
     "checkbox.medium.label.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11687,7 +11783,7 @@ export default {
     },
     "switch.medium.label.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11857,7 +11953,7 @@ export default {
     },
     "dataCell.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12161,7 +12257,7 @@ export default {
     },
     "dataCell.primary.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12436,7 +12532,7 @@ export default {
     },
     "headerCell.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12908,7 +13004,7 @@ export default {
     },
     "formField.medium.labelText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12950,7 +13046,7 @@ export default {
     },
     "formField.medium.placeholderText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12992,7 +13088,7 @@ export default {
     },
     "formField.medium.helpText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13034,7 +13130,7 @@ export default {
     },
     "formField.medium.infoText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13076,7 +13172,7 @@ export default {
     },
     "formField.medium.errorText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13118,7 +13214,7 @@ export default {
     },
     "formField.medium.valueText.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14142,7 +14238,7 @@ export default {
     },
     "footerCell.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14743,7 +14839,7 @@ export default {
     },
     "radioButton.medium.label.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14828,7 +14924,7 @@ export default {
     },
     "anchor.default.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14868,7 +14964,7 @@ export default {
     },
     "anchor.default.hover.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14906,7 +15002,7 @@ export default {
     },
     "anchor.default.disabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14944,7 +15040,7 @@ export default {
     },
     "anchor.emphasized.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.bold}",
+      "$value": "{fontWeight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14970,7 +15066,7 @@ export default {
     },
     "anchor.emphasized.hover.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.bold}",
+      "$value": "{fontWeight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -15008,7 +15104,7 @@ export default {
     },
     "anchor.emphasized.disabled.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.bold}",
+      "$value": "{fontWeight.bold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -15774,19 +15870,12 @@ export default {
         }
       }
     },
-    "focusRing.color": {
-      "$type": "color",
-      "$value": "{base.color.turquoise.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
+    "focusIndicator.outline": {
+      "$type": "border",
+      "$value": {
+        "color": "{color.focus}",
+        "width": "{base.dimension.50}",
+        "style": "solid"
       }
     },
     "fontStack.primary": {
@@ -16636,7 +16725,7 @@ export default {
     },
     "display.medium.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.light}",
+      "$value": "{fontWeight.light}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -17132,7 +17221,7 @@ export default {
     },
     "heading.xlarge.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -17174,7 +17263,7 @@ export default {
     },
     "heading.large.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -17244,7 +17333,7 @@ export default {
     },
     "heading.medium.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -17286,7 +17375,7 @@ export default {
     },
     "heading.small.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -17328,7 +17417,7 @@ export default {
     },
     "heading.xsmall.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
+      "$value": "{fontWeight.semibold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -17370,7 +17459,7 @@ export default {
     },
     "heading.xxsmall.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
+      "$value": "{fontWeight.semibold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18299,7 +18388,7 @@ export default {
     },
     "display.medium.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.regular}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18795,7 +18884,7 @@ export default {
     },
     "heading.xlarge.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18837,7 +18926,7 @@ export default {
     },
     "heading.large.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18907,7 +18996,7 @@ export default {
     },
     "heading.medium.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18949,7 +19038,7 @@ export default {
     },
     "heading.small.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.medium}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18991,7 +19080,7 @@ export default {
     },
     "heading.xsmall.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
+      "$value": "{fontWeight.semibold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19033,7 +19122,7 @@ export default {
     },
     "heading.xxsmall.fontWeight": {
       "$type": "number",
-      "$value": "{base.fontWeight.semibold}",
+      "$value": "{fontWeight.semibold}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19863,7 +19952,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "color.background.selected.strong.enabled",
+          "mode": "dark"
+        }
+      ]
     },
     "base.color.red.500": {
       "$type": "color",
@@ -20392,10 +20487,6 @@ export default {
       },
       "usedBy": [
         {
-          "name": "color.background.selected.strong",
-          "mode": "dark"
-        },
-        {
           "name": "color.border.selected",
           "mode": "dark"
         },
@@ -20469,7 +20560,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "color.background.selected.weak.hover",
+          "mode": "dark"
+        }
+      ]
     },
     "base.color.green.1000": {
       "$type": "color",
@@ -20490,7 +20587,7 @@ export default {
           "mode": "dark"
         },
         {
-          "name": "color.background.selected.weak",
+          "name": "color.background.selected.weak.enabled",
           "mode": "dark"
         }
       ]
@@ -20573,6 +20670,20 @@ export default {
         }
       ]
     },
+    "base.color.turquoise.300": {
+      "$type": "color",
+      "$value": "#1bf6df",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "base.color.turquoise.400": {
       "$type": "color",
       "$value": "#00e8cf",
@@ -20636,6 +20747,20 @@ export default {
           "mode": "light"
         }
       ]
+    },
+    "base.color.turquoise.300-Opacity12": {
+      "$type": "color",
+      "$value": "#1bf6df1f",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "base.color.blue.400": {
       "$type": "color",
@@ -22284,168 +22409,6 @@ export default {
           "mode": "small"
         }
       ]
-    },
-    "base.fontWeight.thin": {
-      "$type": "number",
-      "$value": 100,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "base.fontWeight.light": {
-      "$type": "number",
-      "$value": 300,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "display.medium.fontWeight",
-          "mode": "large"
-        }
-      ]
-    },
-    "base.fontWeight.regular": {
-      "$type": "number",
-      "$value": 400,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "heading.xlarge.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "display.medium.fontWeight",
-          "mode": "small"
-        }
-      ]
-    },
-    "base.fontWeight.medium": {
-      "$type": "number",
-      "$value": 500,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "heading.large.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "heading.medium.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "heading.small.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "heading.xlarge.fontWeight",
-          "mode": "small"
-        },
-        {
-          "name": "heading.large.fontWeight",
-          "mode": "small"
-        },
-        {
-          "name": "heading.medium.fontWeight",
-          "mode": "small"
-        },
-        {
-          "name": "heading.small.fontWeight",
-          "mode": "small"
-        }
-      ]
-    },
-    "base.fontWeight.semibold": {
-      "$type": "number",
-      "$value": 600,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "heading.xsmall.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "heading.xxsmall.fontWeight",
-          "mode": "large"
-        },
-        {
-          "name": "heading.xsmall.fontWeight",
-          "mode": "small"
-        },
-        {
-          "name": "heading.xxsmall.fontWeight",
-          "mode": "small"
-        }
-      ]
-    },
-    "base.fontWeight.bold": {
-      "$type": "number",
-      "$value": 700,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "base.fontWeight.black": {
-      "$type": "number",
-      "$value": 900,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
     },
     "base.static.spacing.none": {
       "$type": "number",

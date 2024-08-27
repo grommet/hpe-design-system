@@ -1,19 +1,26 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Aug 2024 21:47:26 GMT
+ * Generated on Tue, 27 Aug 2024 18:10:06 GMT
  */
 
 module.exports = {
   "hpe": {
+    "focusIndicator": {
+      "outline": {
+        "color": "focus",
+        "width": "2px",
+        "style": "solid"
+      }
+    },
     "fontStack": {
       "primary": "'Metric', Arial, sans-serif",
       "code": "'Fira Mono', ui-monospace, monospace"
     },
     "breakpoint": {
-      "xsmall": 576,
-      "small": 768,
-      "medium": 1080,
-      "large": 1440
+      "xsmall": "576px",
+      "small": "768px",
+      "medium": "1080px",
+      "large": "1440px"
     },
     "fontWeight": {
       "thin": 100,

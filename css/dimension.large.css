@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Aug 2024 21:47:26 GMT
+ * Generated on Tue, 27 Aug 2024 18:10:07 GMT
  */
 
 :root {
@@ -29,24 +29,24 @@
   --hpe-paragraph-small-font-size: var(--hpe-base-font-size-100);
   --hpe-paragraph-xsmall-line-height: var(--hpe-base-line-height-90);
   --hpe-paragraph-xsmall-font-size: var(--hpe-base-font-size-90);
-  --hpe-heading-xxsmall-font-weight: var(--hpe-base-font-weight-semibold);
+  --hpe-heading-xxsmall-font-weight: var(--hpe-font-weight-semibold);
   --hpe-heading-xxsmall-line-height: var(--hpe-base-line-height-80);
   --hpe-heading-xxsmall-font-size: var(--hpe-base-font-size-80);
-  --hpe-heading-xsmall-font-weight: var(--hpe-base-font-weight-semibold);
+  --hpe-heading-xsmall-font-weight: var(--hpe-font-weight-semibold);
   --hpe-heading-xsmall-line-height: var(--hpe-base-line-height-80);
   --hpe-heading-xsmall-font-size: var(--hpe-base-font-size-80);
-  --hpe-heading-small-font-weight: var(--hpe-base-font-weight-medium);
+  --hpe-heading-small-font-weight: var(--hpe-font-weight-medium);
   --hpe-heading-small-line-height: var(--hpe-base-line-height-90);
   --hpe-heading-small-font-size: var(--hpe-base-font-size-100);
-  --hpe-heading-medium-font-weight: var(--hpe-base-font-weight-medium);
+  --hpe-heading-medium-font-weight: var(--hpe-font-weight-medium);
   --hpe-heading-medium-line-height: var(--hpe-base-line-height-100);
   --hpe-heading-medium-font-size: var(--hpe-base-font-size-300);
   --hpe-heading-large-line-height: var(--hpe-base-line-height-200);
   --hpe-heading-large-font-size: var(--hpe-base-font-size-500);
-  --hpe-heading-large-font-weight: var(--hpe-base-font-weight-medium);
+  --hpe-heading-large-font-weight: var(--hpe-font-weight-medium);
   --hpe-heading-xlarge-line-height: var(--hpe-base-line-height-500);
   --hpe-heading-xlarge-font-size: var(--hpe-base-font-size-600);
-  --hpe-heading-xlarge-font-weight: var(--hpe-base-font-weight-regular);
+  --hpe-heading-xlarge-font-weight: var(--hpe-font-weight-medium);
   --hpe-text-6xl-line-height: var(--hpe-base-line-height-1000);
   --hpe-text-6xl-font-size: var(--hpe-base-font-size-1000);
   --hpe-text-5xl-line-height: var(--hpe-base-line-height-900);

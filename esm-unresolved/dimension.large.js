@@ -568,7 +568,7 @@ export default {
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.light}",
+        "$value": "{fontWeight.light}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -888,7 +888,7 @@ export default {
     "xlarge": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.regular}",
+        "$value": "{fontWeight.medium}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -932,7 +932,7 @@ export default {
     "large": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{fontWeight.medium}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1004,7 +1004,7 @@ export default {
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{fontWeight.medium}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1048,7 +1048,7 @@ export default {
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.medium}",
+        "$value": "{fontWeight.medium}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1092,7 +1092,7 @@ export default {
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.semibold}",
+        "$value": "{fontWeight.semibold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1136,7 +1136,7 @@ export default {
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{base.fontWeight.semibold}",
+        "$value": "{fontWeight.semibold}",
         "$description": "",
         "$extensions": {
           "com.figma": {
