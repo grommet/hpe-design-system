@@ -1424,7 +1424,7 @@ const buildTheme = tokens => {
       },
       header: {
         border: { side: 'bottom' },
-        color: components.hpe.headerCell.enabled.color,
+        color: components.hpe.headerCell.enabled.textColor,
         extend: ({ column, sort, sortable, theme }) =>
           `
             ${
@@ -1933,7 +1933,7 @@ const buildTheme = tokens => {
         },
       },
       message: {
-        color: { dark: 'text-strong' }, // TO DO why are we doing this exception for dark mode?
+        color: 'text-onStatus',
       },
       title: {
         // any text props
