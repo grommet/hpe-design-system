@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Aug 2024 18:50:53 GMT
+ * Generated on Tue, 27 Aug 2024 19:28:55 GMT
  */
 
 :root[data-mode=dark] {
@@ -74,7 +74,9 @@
   --hpe-color-background-active: var(--hpe-base-color-white-opacity6); /* Standard active state color */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
+  --hpe-color-icon-on-selected-weak: var(--hpe-color-text-strong); /* Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-text-heading-default: var(--hpe-color-text-strong);
+  --hpe-color-text-on-selected-weak: var(--hpe-color-text-strong); /* Text color to be used for text sitting on background-selected-strong. */
   --hpe-color-text-placeholder: var(--hpe-color-text-weak);
   --hpe-color-background-selected-strong-enabled: var(--hpe-base-color-brand); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
 }
@@ -151,7 +153,9 @@
   --hpe-color-background-active: var(--hpe-base-color-white-opacity6); /* Standard active state color */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
+  --hpe-color-icon-on-selected-weak: var(--hpe-color-text-strong); /* Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-text-heading-default: var(--hpe-color-text-strong);
+  --hpe-color-text-on-selected-weak: var(--hpe-color-text-strong); /* Text color to be used for text sitting on background-selected-strong. */
   --hpe-color-text-placeholder: var(--hpe-color-text-weak);
   --hpe-color-background-selected-strong-enabled: var(--hpe-base-color-brand); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
 }

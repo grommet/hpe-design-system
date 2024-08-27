@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Aug 2024 18:50:54 GMT
+ * Generated on Tue, 27 Aug 2024 19:28:56 GMT
  */
 
 :root {
@@ -42,7 +42,6 @@
   --hpe-select-option-enabled-border-color: #00000000;
   --hpe-select-option-enabled-background: #00000000;
   --hpe-select-medium-option-padding-y: 5px;
-  --hpe-select-medium-option-padding-x: 11px;
   --hpe-component-xlarge-padding-y: 20px;
   --hpe-component-large-padding-y: 9px;
   --hpe-component-medium-padding-y: 5px;
@@ -106,7 +105,7 @@
   --hpe-switch-medium-control-track-width: var(--hpe-base-dimension-1200);
   --hpe-switch-medium-label-font-weight: var(--hpe-font-weight-medium);
   --hpe-checkbox-medium-label-font-weight: var(--hpe-font-weight-medium);
-  --hpe-select-option-selected-enabled-font-weight: var(--hpe-font-weight-bold);
+  --hpe-select-option-selected-enabled-font-weight: var(--hpe-font-weight-medium);
   --hpe-select-option-enabled-font-weight: var(--hpe-font-weight-medium);
   --hpe-select-medium-option-font-size: var(--hpe-button-medium-default-font-size);
   --hpe-component-xlarge-min-height: var(--hpe-base-dimension-1800);
@@ -349,7 +348,6 @@
   --hpe-checkbox-control-disabled-background: var(--hpe-color-background-disabled);
   --hpe-checkbox-control-hover-border-color: var(--hpe-color-border-strong);
   --hpe-checkbox-control-enabled-border-color: var(--hpe-color-border-default);
-  --hpe-select-option-selected-enabled-text-color: var(--hpe-color-text-strong);
   --hpe-select-option-selected-enabled-background: var(--hpe-color-background-selected-weak-enabled);
   --hpe-select-option-disabled-font-weight: var(--hpe-select-option-enabled-font-weight);
   --hpe-select-option-disabled-text-color: var(--hpe-color-text-disabled);
@@ -556,8 +554,10 @@
   --hpe-checkbox-control-indeterminate-enabled-background: var(--hpe-color-background-selected-strong-enabled);
   --hpe-checkbox-control-selected-hover-background: var(--hpe-color-background-selected-strong-enabled);
   --hpe-checkbox-control-selected-enabled-background: var(--hpe-color-background-selected-strong-enabled);
+  --hpe-select-option-selected-enabled-text-color: var(--hpe-color-text-on-selected-weak);
   --hpe-select-option-hover-background: var(--hpe-color-background-hover);
   --hpe-select-medium-option-border-radius: var(--hpe-radius-none);
+  --hpe-select-medium-option-padding-x: var(--hpe-form-field-medium-input-container-padding-x);
   --hpe-component-xlarge-border-width: var(--hpe-border-width-default);
   --hpe-component-large-border-width: var(--hpe-border-width-default);
   --hpe-component-medium-border-width: var(--hpe-border-width-default);

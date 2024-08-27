@@ -46,6 +46,7 @@
       "disabled": "#0000003d",
       "onPrimary": "#ffffff",
       "onSelectedStrong": "#ffffff",
+      "onSelectedWeak": "#333333",
       "brand": "#01a982",
       "heading": {
         "default": "#333333"
@@ -69,6 +70,7 @@
       },
       "onPrimary": "#ffffff",
       "onSelectedStrong": "#ffffff",
+      "onSelectedWeak": "#333333",
       "brand": "#01a982"
     },
     "decorative": {

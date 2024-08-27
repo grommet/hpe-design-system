@@ -874,7 +874,15 @@ export default {
       },
       "usedBy": [
         {
+          "name": "color.text.onSelectedWeak",
+          "mode": "dark"
+        },
+        {
           "name": "color.text.heading.default",
+          "mode": "dark"
+        },
+        {
+          "name": "color.icon.onSelectedWeak",
           "mode": "dark"
         },
         {
@@ -887,10 +895,6 @@ export default {
         },
         {
           "name": "select.option.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.selected.enabled.textColor",
           "mode": "default"
         },
         {
@@ -1108,6 +1112,26 @@ export default {
           "codeSyntax": {}
         }
       }
+    },
+    "color.text.onSelectedWeak": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "Text color to be used for text sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "select.option.selected.enabled.textColor",
+          "mode": "default"
+        }
+      ]
     },
     "color.text.brand": {
       "$type": "color",
@@ -1418,6 +1442,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "color.icon.onSelectedWeak": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "Icon color to be used for icon sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "color.icon.brand": {
       "$type": "color",
@@ -2771,7 +2809,15 @@ export default {
       },
       "usedBy": [
         {
+          "name": "color.text.onSelectedWeak",
+          "mode": "light"
+        },
+        {
           "name": "color.text.heading.default",
+          "mode": "light"
+        },
+        {
+          "name": "color.icon.onSelectedWeak",
           "mode": "light"
         },
         {
@@ -2784,10 +2830,6 @@ export default {
         },
         {
           "name": "select.option.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.selected.enabled.textColor",
           "mode": "default"
         },
         {
@@ -3005,6 +3047,26 @@ export default {
           "codeSyntax": {}
         }
       }
+    },
+    "color.text.onSelectedWeak": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "Text color to be used for text sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "select.option.selected.enabled.textColor",
+          "mode": "default"
+        }
+      ]
     },
     "color.text.brand": {
       "$type": "color",
@@ -3315,6 +3377,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "color.icon.onSelectedWeak": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "Icon color to be used for icon sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "color.icon.brand": {
       "$type": "color",
@@ -9944,7 +10020,7 @@ export default {
     },
     "select.medium.option.paddingX": {
       "$type": "number",
-      "$value": 11,
+      "$value": "{formField.medium.input.container.paddingX}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10247,7 +10323,7 @@ export default {
     },
     "select.option.selected.enabled.textColor": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.onSelectedWeak}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10261,7 +10337,7 @@ export default {
     },
     "select.option.selected.enabled.fontWeight": {
       "$type": "number",
-      "$value": "{fontWeight.bold}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {

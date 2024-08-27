@@ -5974,7 +5974,7 @@ export default {
       "option": {
         "paddingX": {
           "$type": "number",
-          "$value": 11,
+          "$value": "{formField.medium.input.container.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6288,7 +6288,7 @@ export default {
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.strong}",
+            "$value": "{color.text.onSelectedWeak}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6302,7 +6302,7 @@ export default {
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{fontWeight.bold}",
+            "$value": "{fontWeight.medium}",
             "$description": "",
             "$extensions": {
               "com.figma": {
