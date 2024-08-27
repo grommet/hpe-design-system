@@ -8258,7 +8258,7 @@ export default {
     "enabled": {
       "textColor": {
         "$type": "color",
-        "$value": "{dataCell.enabled.textColor}",
+        "$value": "{color.text.strong}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -8333,7 +8333,7 @@ export default {
       },
       "background": {
         "$type": "color",
-        "$value": "#00000000",
+        "$value": "{color.background.hover}",
         "$description": "",
         "$extensions": {
           "com.figma": {

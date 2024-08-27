@@ -101,6 +101,10 @@ export default {
           "mode": "default"
         },
         {
+          "name": "headerCell.hover.background",
+          "mode": "default"
+        },
+        {
           "name": "formField.input.group.item.hover.background",
           "mode": "default"
         }
@@ -742,6 +746,10 @@ export default {
       },
       "usedBy": [
         {
+          "name": "color.text.onStatus",
+          "mode": "dark"
+        },
+        {
           "name": "checkbox.label.enabled.textColor",
           "mode": "default"
         },
@@ -899,6 +907,10 @@ export default {
         },
         {
           "name": "dataCell.primary.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.enabled.textColor",
           "mode": "default"
         },
         {
@@ -1132,6 +1144,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "color.text.onStatus": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "color.text.brand": {
       "$type": "color",
@@ -2030,6 +2056,10 @@ export default {
           "mode": "default"
         },
         {
+          "name": "headerCell.hover.background",
+          "mode": "default"
+        },
+        {
           "name": "formField.input.group.item.hover.background",
           "mode": "default"
         }
@@ -2677,6 +2707,10 @@ export default {
       },
       "usedBy": [
         {
+          "name": "color.text.onStatus",
+          "mode": "light"
+        },
+        {
           "name": "checkbox.label.enabled.textColor",
           "mode": "default"
         },
@@ -2834,6 +2868,10 @@ export default {
         },
         {
           "name": "dataCell.primary.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.enabled.textColor",
           "mode": "default"
         },
         {
@@ -3067,6 +3105,20 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "color.text.onStatus": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "color.text.brand": {
       "$type": "color",
@@ -12173,7 +12225,7 @@ export default {
     },
     "headerCell.enabled.textColor": {
       "$type": "color",
-      "$value": "{dataCell.enabled.textColor}",
+      "$value": "{color.text.strong}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12246,7 +12298,7 @@ export default {
     },
     "headerCell.hover.background": {
       "$type": "color",
-      "$value": "#00000000",
+      "$value": "{color.background.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {

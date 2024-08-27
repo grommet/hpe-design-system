@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Aug 2024 19:28:55 GMT
+ * Generated on Tue, 27 Aug 2024 19:44:14 GMT
  */
 
 export default {
@@ -53,6 +53,7 @@ export default {
         onPrimary: "#ffffff",
         onSelectedStrong: "#ffffff",
         onSelectedWeak: "#ffffff",
+        onStatus: "#ffffff",
         brand: "#01a982",
         heading: {
           default: "#ffffff",

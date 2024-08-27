@@ -486,6 +486,20 @@ export default {
           }
         }
       },
+      "onStatus": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "Text color to be used on status backgrounds.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
       "brand": {
         "$type": "color",
         "$value": "{base.color.green.600}",

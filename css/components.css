@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Aug 2024 19:28:56 GMT
+ * Generated on Tue, 27 Aug 2024 19:44:15 GMT
  */
 
 :root {
@@ -25,7 +25,6 @@
   --hpe-form-field-input-group-item-enabled-background: #00000000;
   --hpe-form-field-medium-input-container-padding-y: 5px;
   --hpe-header-cell-pinned-background: #00000000;
-  --hpe-header-cell-hover-background: #00000000;
   --hpe-header-cell-enabled-background: #00000000;
   --hpe-data-cell-hover-background: #00000000;
   --hpe-data-cell-enabled-background: #00000000;
@@ -286,6 +285,7 @@
   --hpe-header-cell-pinned-border-color: var(--hpe-data-cell-hover-border-color);
   --hpe-header-cell-hover-border-color: var(--hpe-data-cell-hover-border-color);
   --hpe-header-cell-enabled-border-color: var(--hpe-color-border-default);
+  --hpe-header-cell-enabled-text-color: var(--hpe-color-text-strong);
   --hpe-data-cell-primary-pinned-background: var(--hpe-data-cell-pinned-background);
   --hpe-data-cell-primary-pinned-border-color: var(--hpe-data-cell-pinned-border-color);
   --hpe-data-cell-primary-disabled-background: var(--hpe-data-cell-disabled-background);
@@ -523,7 +523,7 @@
   --hpe-form-field-medium-input-group-item-border-radius: var(--hpe-radius-none);
   --hpe-form-field-medium-input-group-item-border-width: var(--hpe-border-width-default);
   --hpe-header-cell-gap-x: var(--hpe-component-medium-text-to-icon-x);
-  --hpe-header-cell-enabled-text-color: var(--hpe-data-cell-enabled-text-color);
+  --hpe-header-cell-hover-background: var(--hpe-color-background-hover);
   --hpe-header-cell-padding-top: var(--hpe-data-cell-padding-top);
   --hpe-header-cell-border-bottom-width: var(--hpe-data-cell-border-bottom-width);
   --hpe-header-cell-padding-x: var(--hpe-data-cell-padding-x);

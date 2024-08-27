@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Aug 2024 19:28:55 GMT
+ * Generated on Tue, 27 Aug 2024 19:44:15 GMT
  */
 
 module.exports = {
@@ -860,14 +860,14 @@ module.exports = {
       "paddingTop": "6px",
       "paddingBottom": "5px",
       "enabled": {
-        "textColor": "text-default",
+        "textColor": "text-strong",
         "borderColor": "border-default",
         "background": "#00000000"
       },
       "hover": {
         "textColor": "text-default",
         "borderColor": "#00000000",
-        "background": "#00000000"
+        "background": "background-hover"
       },
       "pinned": {
         "textColor": "text-default",

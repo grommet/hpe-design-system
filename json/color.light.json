@@ -47,6 +47,7 @@
       "onPrimary": "#ffffff",
       "onSelectedStrong": "#ffffff",
       "onSelectedWeak": "#333333",
+      "onStatus": "#555555",
       "brand": "#01a982",
       "heading": {
         "default": "#333333"
