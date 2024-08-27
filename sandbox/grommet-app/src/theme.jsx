@@ -250,13 +250,8 @@ const buildTheme = tokens => {
     control: MISSING.color,
     'active-text': MISSING.color,
     'disabled-text': MISSING.color, // deprecated, use text-weak instead
-    'selected-background': MISSING.color,
-    'selected-text': {
-      dark: MISSING.color,
-      light: MISSING.color,
-    },
-    placeholder: MISSING.color,
-    'text-primary-button': MISSING.color,
+
+    'text-primary-button': components.hpe.button.primary.enabled.textColor,
     'background-cta-alternate': MISSING.color,
 
     // ----------- These ones we need to map manually for backwards compatibility -----------
@@ -365,6 +360,12 @@ const buildTheme = tokens => {
     icon: {
       light: light.hpe.color.icon.default,
       dark: dark.hpe.color.icon.default,
+    },
+    'selected-background': 'background-selected-strong-enabled',
+    'selected-text': 'text-onSelectedStrong',
+    placeholder: {
+      light: light.hpe.color.text.placeholder,
+      dark: dark.hpe.color.text.placeholder,
     },
   };
 
@@ -588,7 +589,7 @@ const buildTheme = tokens => {
         border: undefined,
       },
       active: {
-        background: 'active-background',
+        background: 'background-active',
         color: 'active-text',
       },
       drop: {
@@ -627,8 +628,8 @@ const buildTheme = tokens => {
         color: MISSING.color, // TO DO
       },
       selected: {
-        background: 'background-selected',
-        color: 'selected-text',
+        background: 'background-selected-strong-enabled',
+        color: 'text-onSelectedStrong',
       },
     },
     accordion: {
@@ -1187,9 +1188,20 @@ const buildTheme = tokens => {
       },
     },
     calendar: {
-      // ensure color is #FFFFFF to meet color contrast requirement on HPE green
       day: {
-        extend: ({ isSelected }) => isSelected && `color: ${MISSING.color};`, // TO DO feels like we need a textOnSelectedStrong?
+        extend: ({ isSelected, theme }) =>
+          isSelected &&
+          `
+          background: ${
+            theme.global.colors[theme.global.selected.background]?.[
+              theme.dark ? 'dark' : 'light'
+            ]
+          };
+          color: ${
+            theme.global.colors[theme.global.selected.color]?.[
+              theme.dark ? 'dark' : 'light'
+            ]
+          };`,
       },
       icons: {
         // next: Next,
@@ -1305,7 +1317,11 @@ const buildTheme = tokens => {
       },
       icon: {
         extend: ({ theme }) => `stroke-width: 2px;
-        stroke: ${theme.global.colors['text-primary-button']}`, // TO DO need a sematic token for onSelected
+        stroke: ${
+          theme.global.colors[
+            components.hpe.checkbox.control.selected.enabled.iconColor
+          ]?.[theme.dark ? 'dark' : 'light']
+        }`,
       },
       // Q make sure this is 12px is small
       gap: components.hpe.checkbox.medium.gapX,
@@ -2490,9 +2506,7 @@ const buildTheme = tokens => {
       extend: ({ size }) => `
         ${
           ['xxlarge', '3xl', '4xl', '5xl', '6xl'].includes(size)
-            ? `font-weight: ${
-                large.hpe.text[size].fontWeight || MISSING.weight
-              };` // TO DO we don't have font-weight for each t-shirt size as token. Should we?
+            ? `font-weight: ${large.hpe.text[size].fontWeight};`
             : ''
         };
       `,
