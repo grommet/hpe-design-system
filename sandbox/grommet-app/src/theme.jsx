@@ -4,15 +4,45 @@ import {
 } from 'styled-components';
 import { deepFreeze } from 'grommet/utils';
 import {
-  dark,
-  light,
-  large,
-  small,
-  global,
-  components,
-  elevationdark,
-  elevationlight,
+  dark as localDark,
+  light as localLight,
+  large as localLarge,
+  small as localSmall,
+  global as localGlobal,
+  components as localComponents,
+  elevationdark as localElevationDark,
+  elevationlight as localElevationLight,
 } from 'design-tokens';
+import {
+  dark as alphaDark,
+  light as alphaLight,
+  large as alphaLarge,
+  small as alphaSmall,
+  global as alphaGlobal,
+  components as alphaComponents,
+  elevationdark as alphaElevationDark,
+  elevationlight as alphaElevationLight,
+} from 'hpe-design-tokens-alpha';
+import {
+  dark as oldDark,
+  light as oldLight,
+  large as oldLarge,
+  small as oldSmall,
+  global as oldGlobal,
+  components as oldComponents,
+  elevationdark as oldElevationDark,
+  elevationlight as oldElevationLight,
+} from 'hpe-design-tokens-old-theme';
+import {
+  dark as refreshDark,
+  light as refreshLight,
+  large as refreshLarge,
+  small as refreshSmall,
+  global as refreshGlobal,
+  components as refreshComponents,
+  elevationdark as refreshElevationDark,
+  elevationlight as refreshElevationLight,
+} from 'hpe-design-tokens-brand-refresh';
 import {
   Down,
   Blank,
@@ -28,111 +58,6 @@ import {
 const MISSING = {
   color: 'red',
   weight: 700,
-};
-
-const dimensions = {
-  borderSize: {
-    xsmall: large.hpe.borderWidth.xsmall,
-    small: large.hpe.borderWidth.small,
-    medium: large.hpe.borderWidth.medium,
-    default: large.hpe.borderWidth.default,
-    large: large.hpe.borderWidth.large,
-    xlarge: large.hpe.borderWidth.xlarge,
-  },
-  edgeSize: {
-    none: large.hpe.spacing.none,
-    hair: large.hpe.spacing.hair,
-    xxsmall: large.hpe.spacing.xxsmall,
-    xsmall: large.hpe.spacing.xsmall,
-    small: large.hpe.spacing.small,
-    medium: large.hpe.spacing.medium,
-    large: large.hpe.spacing.large,
-    xlarge: large.hpe.spacing.xlarge,
-    responsiveBreakpoint: 'small',
-  },
-  size: {
-    xxsmall: large.hpe.size.content.xxsmall,
-    xsmall: large.hpe.size.content.xsmall,
-    small: large.hpe.size.content.small,
-    medium: large.hpe.size.content.medium,
-    large: large.hpe.size.content.large,
-    xlarge: large.hpe.size.content.xlarge,
-    xxlarge: large.hpe.size.content.xxlarge,
-    full: '100%',
-  },
-  breakpoints: {
-    xsmall: {
-      borderSize: {
-        xsmall: small.hpe.borderWidth.xsmall,
-        small: small.hpe.borderWidth.small,
-        medium: small.hpe.borderWidth.medium,
-        default: small.hpe.borderWidth.default,
-        large: small.hpe.borderWidth.large,
-        xlarge: small.hpe.borderWidth.xlarge,
-      },
-      edgeSize: {
-        none: small.hpe.spacing.none,
-        hair: small.hpe.spacing.hair,
-        xxsmall: small.hpe.spacing.xxsmall,
-        xsmall: small.hpe.spacing.xsmall,
-        small: small.hpe.spacing.small,
-        medium: small.hpe.spacing.medium,
-        large: small.hpe.spacing.large,
-        xlarge: small.hpe.spacing.xlarge,
-        responsiveBreakpoint: 'small',
-      },
-      size: {
-        xxsmall: small.hpe.size.content.xxsmall,
-        xsmall: small.hpe.size.content.xsmall,
-        small: small.hpe.size.content.small,
-        medium: small.hpe.size.content.medium,
-        large: small.hpe.size.content.large,
-        xlarge: small.hpe.size.content.xlarge,
-        xxlarge: small.hpe.size.content.xxlarge,
-        full: '100%',
-      },
-      value: global.hpe.breakpoint.xsmall,
-    },
-    small: {
-      borderSize: {
-        xsmall: small.hpe.borderWidth.xsmall,
-        small: small.hpe.borderWidth.small,
-        medium: small.hpe.borderWidth.medium,
-        default: small.hpe.borderWidth.default,
-        large: small.hpe.borderWidth.large,
-        xlarge: small.hpe.borderWidth.xlarge,
-      },
-      edgeSize: {
-        none: small.hpe.spacing.none,
-        hair: small.hpe.spacing.hair,
-        xxsmall: small.hpe.spacing.xxsmall,
-        xsmall: small.hpe.spacing.xsmall,
-        small: small.hpe.spacing.small,
-        medium: small.hpe.spacing.medium,
-        large: small.hpe.spacing.large,
-        xlarge: small.hpe.spacing.xlarge,
-        responsiveBreakpoint: 'small',
-      },
-      size: {
-        xxsmall: small.hpe.size.content.xxsmall,
-        xsmall: small.hpe.size.content.xsmall,
-        small: small.hpe.size.content.small,
-        medium: small.hpe.size.content.medium,
-        large: small.hpe.size.content.large,
-        xlarge: small.hpe.size.content.xlarge,
-        xxlarge: small.hpe.size.content.xxlarge,
-        full: '100%',
-      },
-      value: global.hpe.breakpoint.small,
-    },
-    medium: {
-      value: global.hpe.breakpoint.medium,
-    },
-    large: {
-      value: global.hpe.breakpoint.large,
-    },
-    xlarge: {},
-  },
 };
 
 // TO DO should these be added as tokens?
@@ -257,32 +182,6 @@ const primaryHoverBackground = props =>
     ? `background-color: ${props.theme.global.colors.green.dark};`
     : '';
 
-// option button kind styles. abstracted so select.emptySearchMessage
-// can reference pad value
-const option = {
-  color: components.hpe.select.option.enabled.textColor,
-  border: {
-    radius: components.hpe.select.medium.option.borderRadius,
-    width:
-      dimensions.borderSize[components.hpe.select.medium.option.borderWidth] ||
-      components.hpe.select.medium.option.borderWidth,
-    color: components.hpe.select.option.enabled.borderColor,
-  },
-  pad: {
-    horizontal: components.hpe.select.medium.option.paddingX,
-    vertical: components.hpe.select.medium.option.paddingY,
-  },
-  font: {
-    weight: components.hpe.select.option.enabled.fontWeight,
-  },
-};
-
-// abstracted so button and pinned list icon can reference
-const mediumIconOnlyPad = {
-  vertical: components.hpe.button.medium.default.iconOnly.paddingY,
-  horizontal: components.hpe.button.medium.default.iconOnly.paddingX,
-};
-
 const baseSpacing = 24;
 
 const flattenObject = (obj, delimiter = '.', prefix = '') =>
@@ -311,7 +210,16 @@ const access = (path, object) => {
 };
 
 const buildTheme = tokens => {
-  const [light, dark] = tokens;
+  const [
+    light,
+    dark,
+    small,
+    large,
+    elevationlight,
+    elevationdark,
+    global,
+    components,
+  ] = tokens;
   const flatColors = flattenObject(light, '-');
   const tokenColors = {};
   Object.keys(flatColors).forEach(color => {
@@ -361,7 +269,6 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.background.default,
       light: light.hpe.color.background.default,
     },
-    focus: components.hpe.focusRing.color, // TO DO something seems off here that this isn't part of "colors"
     text: {
       dark: dark.hpe.color.text.default,
       light: light.hpe.color.text.default,
@@ -461,6 +368,140 @@ const buildTheme = tokens => {
     },
   };
 
+  const dimensions = {
+    borderSize: {
+      xsmall: large.hpe.borderWidth.xsmall,
+      small: large.hpe.borderWidth.small,
+      medium: large.hpe.borderWidth.medium,
+      default: large.hpe.borderWidth.default,
+      large: large.hpe.borderWidth.large,
+      xlarge: large.hpe.borderWidth.xlarge,
+    },
+    edgeSize: {
+      none: large.hpe.spacing.none,
+      hair: large.hpe.spacing.hair,
+      xxsmall: large.hpe.spacing.xxsmall,
+      xsmall: large.hpe.spacing.xsmall,
+      small: large.hpe.spacing.small,
+      medium: large.hpe.spacing.medium,
+      large: large.hpe.spacing.large,
+      xlarge: large.hpe.spacing.xlarge,
+      responsiveBreakpoint: 'small',
+    },
+    size: {
+      xxsmall: large.hpe.size.content.xxsmall,
+      xsmall: large.hpe.size.content.xsmall,
+      small: large.hpe.size.content.small,
+      medium: large.hpe.size.content.medium,
+      large: large.hpe.size.content.large,
+      xlarge: large.hpe.size.content.xlarge,
+      xxlarge: large.hpe.size.content.xxlarge,
+      full: '100%',
+    },
+    breakpoints: {
+      xsmall: {
+        borderSize: {
+          xsmall: small.hpe.borderWidth.xsmall,
+          small: small.hpe.borderWidth.small,
+          medium: small.hpe.borderWidth.medium,
+          default: small.hpe.borderWidth.default,
+          large: small.hpe.borderWidth.large,
+          xlarge: small.hpe.borderWidth.xlarge,
+        },
+        edgeSize: {
+          none: small.hpe.spacing.none,
+          hair: small.hpe.spacing.hair,
+          xxsmall: small.hpe.spacing.xxsmall,
+          xsmall: small.hpe.spacing.xsmall,
+          small: small.hpe.spacing.small,
+          medium: small.hpe.spacing.medium,
+          large: small.hpe.spacing.large,
+          xlarge: small.hpe.spacing.xlarge,
+          responsiveBreakpoint: 'small',
+        },
+        size: {
+          xxsmall: small.hpe.size.content.xxsmall,
+          xsmall: small.hpe.size.content.xsmall,
+          small: small.hpe.size.content.small,
+          medium: small.hpe.size.content.medium,
+          large: small.hpe.size.content.large,
+          xlarge: small.hpe.size.content.xlarge,
+          xxlarge: small.hpe.size.content.xxlarge,
+          full: '100%',
+        },
+        value: global.hpe.breakpoint.xsmall,
+      },
+      small: {
+        borderSize: {
+          xsmall: small.hpe.borderWidth.xsmall,
+          small: small.hpe.borderWidth.small,
+          medium: small.hpe.borderWidth.medium,
+          default: small.hpe.borderWidth.default,
+          large: small.hpe.borderWidth.large,
+          xlarge: small.hpe.borderWidth.xlarge,
+        },
+        edgeSize: {
+          none: small.hpe.spacing.none,
+          hair: small.hpe.spacing.hair,
+          xxsmall: small.hpe.spacing.xxsmall,
+          xsmall: small.hpe.spacing.xsmall,
+          small: small.hpe.spacing.small,
+          medium: small.hpe.spacing.medium,
+          large: small.hpe.spacing.large,
+          xlarge: small.hpe.spacing.xlarge,
+          responsiveBreakpoint: 'small',
+        },
+        size: {
+          xxsmall: small.hpe.size.content.xxsmall,
+          xsmall: small.hpe.size.content.xsmall,
+          small: small.hpe.size.content.small,
+          medium: small.hpe.size.content.medium,
+          large: small.hpe.size.content.large,
+          xlarge: small.hpe.size.content.xlarge,
+          xxlarge: small.hpe.size.content.xxlarge,
+          full: '100%',
+        },
+        value: global.hpe.breakpoint.small,
+      },
+      medium: {
+        value: global.hpe.breakpoint.medium,
+      },
+      large: {
+        value: global.hpe.breakpoint.large,
+      },
+      xlarge: {},
+    },
+  };
+
+  // option button kind styles. abstracted so select.emptySearchMessage
+  // can reference pad value
+  const option = {
+    color: components.hpe.select.option.enabled.textColor,
+    border: {
+      radius:
+        dimensions.edgeSize[components.hpe.select.medium.option.borderRadius] ||
+        components.hpe.select.medium.option.borderRadius,
+      width:
+        dimensions.borderSize[
+          components.hpe.select.medium.option.borderWidth
+        ] || components.hpe.select.medium.option.borderWidth,
+      color: components.hpe.select.option.enabled.borderColor,
+    },
+    pad: {
+      horizontal: components.hpe.select.medium.option.paddingX,
+      vertical: components.hpe.select.medium.option.paddingY,
+    },
+    font: {
+      weight: components.hpe.select.option.enabled.fontWeight,
+    },
+  };
+
+  // abstracted so button and pinned list icon can reference
+  const mediumIconOnlyPad = {
+    vertical: components.hpe.button.medium.default.iconOnly.paddingY,
+    horizontal: components.hpe.button.medium.default.iconOnly.paddingX,
+  };
+
   return deepFreeze({
     defaultMode: 'light',
     global: {
@@ -469,7 +510,7 @@ const buildTheme = tokens => {
       colors,
       control: {
         border: {
-          radius: components.hpe.formField.medium.input.container.borderRadius, // TO DO is this the correct token?
+          radius: components.hpe.formField.medium.input.container.borderRadius,
           color: components.hpe.formField.input.container.enabled.borderColor,
         },
       },
@@ -553,7 +594,9 @@ const buildTheme = tokens => {
       drop: {
         background: components.hpe.drop.background,
         border: {
-          radius: components.hpe.drop.borderRadius,
+          radius:
+            dimensions.edgeSize[components.hpe.drop.borderRadius] ||
+            components.hpe.drop.borderRadius,
         },
         margin: components.hpe.drop.margin,
         intelligentMargin: true,
@@ -741,20 +784,20 @@ const buildTheme = tokens => {
       },
       // TO DO - temp button kind for brand refresh
       nav: {
-        color: components.hpe.button.nav.enabled.textColor,
+        color: components.hpe.button.nav?.enabled.textColor,
         border: {
           width:
             dimensions.borderSize[
-              components.hpe.button.medium.nav.borderWidth
-            ] || components.hpe.button.medium.nav.borderWidth,
-          color: components.hpe.button.nav.enabled.borderColor,
+              components.hpe.button.medium.nav?.borderWidth
+            ] || components.hpe.button.medium.nav?.borderWidth,
+          color: components.hpe.button.nav?.enabled.borderColor,
           radius:
             dimensions.borderSize[
-              components.hpe.button.medium.nav.borderRadius
-            ] || components.hpe.button.medium.nav.borderRadius,
+              components.hpe.button.medium.nav?.borderRadius
+            ] || components.hpe.button.medium.nav?.borderRadius,
         },
         font: {
-          weight: components.hpe.button.nav.enabled.fontWeight,
+          weight: components.hpe.button.nav?.enabled.fontWeight,
         },
       },
       gap: components.hpe.button.medium.default.gapX,
@@ -824,15 +867,15 @@ const buildTheme = tokens => {
         },
         nav: {
           background: {
-            color: components.hpe.button.nav.selected.enabled.background,
+            color: components.hpe.button.nav?.selected.enabled.background,
           },
           border: {
             // Q: this token isn't correct
-            color: components.hpe.button.nav.selected.enabled.borderColor,
+            color: components.hpe.button.nav?.selected.enabled.borderColor,
           },
-          color: components.hpe.button.nav.selected.enabled.textColor,
+          color: components.hpe.button.nav?.selected.enabled.textColor,
           font: {
-            weight: components.hpe.button.nav.selected.enabled.fontWeight,
+            weight: components.hpe.button.nav?.selected.enabled.fontWeight,
           },
         },
         primary: {
@@ -865,9 +908,7 @@ const buildTheme = tokens => {
       },
       selected: {
         option: {
-          background: 'brand',
-          // Q: this token is the wrong color
-          // background: components.hpe.select.option.selected.background,
+          background: components.hpe.select.option.selected.enabled.background,
           color: components.hpe.select.option.selected.textColor,
           font: {
             weight: components.hpe.select.option.selected.fontWeight,
@@ -919,7 +960,10 @@ const buildTheme = tokens => {
           background: components.hpe.button.secondary.hover.background,
           border: {
             color: components.hpe.button.secondary.hover.borderColor,
-            width: '3px', // TO DO
+            width:
+              dimensions.borderSize[
+                components.hpe.button.medium.secondary.borderWidth
+              ] || components.hpe.button.medium.secondary.borderWidth,
           },
           color: components.hpe.button.secondary.hover.textColor,
         },
@@ -1003,11 +1047,11 @@ const buildTheme = tokens => {
           },
           nav: {
             border: {
-              radius: components.hpe.button.medium.nav.borderRadius,
+              radius: components.hpe.button.medium.nav?.borderRadius,
             },
             pad: {
-              vertical: components.hpe.button.medium.nav.paddingY,
-              horizontal: components.hpe.button.medium.nav.paddingX,
+              vertical: components.hpe.button.medium.nav?.paddingY,
+              horizontal: components.hpe.button.medium.nav?.paddingX,
             },
           },
           primary: {
@@ -1136,6 +1180,9 @@ const buildTheme = tokens => {
           style += `font-size: ${fontSize};
           line-height: ${lineHeight};`;
         }
+        if (kind === 'secondary') {
+          style += `&:hover { box-shadow: ${components.hpe.button[sizeProp].secondary.hover.boxShadow}; }`;
+        }
         return style;
       },
     },
@@ -1243,7 +1290,9 @@ const buildTheme = tokens => {
         margin-block: ${
           (parseFloat(large.hpe.text.medium.lineHeight, 10) * 16 -
             parseFloat(components.hpe.checkbox.medium.control.height, 10) *
-              16) /
+              (components.hpe.checkbox.medium.control.height.includes('rem')
+                ? 16
+                : 1)) /
           2
         }px;
         background-color: ${
@@ -2527,6 +2576,63 @@ const buildTheme = tokens => {
   });
 };
 
-export const current = buildTheme([light, dark]);
-// TO DO add back "warm theme" once tokens
-export const warm = buildTheme([light, dark]);
+export const current = buildTheme([
+  localLight,
+  localDark,
+  localSmall,
+  localLarge,
+  localElevationLight,
+  localElevationDark,
+  localGlobal,
+  localComponents,
+]);
+
+export const warm = buildTheme([
+  localLight,
+  localDark,
+  localSmall,
+  localLarge,
+  localElevationLight,
+  localElevationDark,
+  localGlobal,
+  localComponents,
+]);
+
+export const alpha = buildTheme([
+  alphaLight,
+  alphaDark,
+  alphaSmall,
+  alphaLarge,
+  alphaElevationLight,
+  alphaElevationDark,
+  alphaGlobal,
+  alphaComponents,
+]);
+export const old = buildTheme([
+  oldLight,
+  oldDark,
+  oldSmall,
+  oldLarge,
+  oldElevationLight,
+  oldElevationDark,
+  oldGlobal,
+  oldComponents,
+]);
+
+export const refresh = buildTheme([
+  refreshLight,
+  refreshDark,
+  refreshSmall,
+  refreshLarge,
+  refreshElevationLight,
+  refreshElevationDark,
+  refreshGlobal,
+  refreshComponents,
+]);
+
+export const themes = {
+  local: current,
+  alpha,
+  v3: old,
+  refresh,
+};

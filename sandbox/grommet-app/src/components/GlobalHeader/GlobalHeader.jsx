@@ -24,7 +24,7 @@ import {
   HelpOption,
   Menu,
 } from 'grommet-icons';
-// import { base } from 'design-tokens';
+import { themes } from '../../theme';
 import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
 
 // TO DO fix animation once motion tokens are added
@@ -68,7 +68,11 @@ export const GlobalHeader = ({
           direction="row"
           justify="between"
           align="center"
-          background={{ color: 'background-primary-default', dark: true }}
+          background={
+            activeTheme === 'refresh'
+              ? { color: 'background-primary-default', dark: true }
+              : 'background-front'
+          }
           pad={{ horizontal: 'xsmall', vertical: 'small' }}
           {...boxProps}
         >
@@ -78,7 +82,12 @@ export const GlobalHeader = ({
               <Box border={{ side: 'left', color: 'border-weak' }} />
             </Box>
             <Box height="32px" width="90px" align="start">
-              <Image src={`/hpe_greenlake_grn_rev_rgb.svg`} fit="contain" />
+              <Image
+                src={`/hpe_greenlake_grn_${
+                  activeTheme === 'refresh' ? 'rev' : 'pos'
+                }_rgb.svg`}
+                fit="contain"
+              />
             </Box>
             <Box width="large">
               <TextInput
@@ -106,12 +115,16 @@ export const GlobalHeader = ({
               onOpen={() => setOpen(true)}
               onClose={() => setOpen(false)}
               dropProps={{ animate: 'select' }}
-              // plain
             />
             <DropButton
               icon={<User />}
               dropContent={
-                <Box pad="medium" gap="medium" width="medium">
+                <Box
+                  background={{ dark: false, color: 'background-floating' }}
+                  pad="medium"
+                  gap="medium"
+                  width="medium"
+                >
                   <Heading level={2} margin="none">
                     Change theme
                   </Heading>
@@ -140,20 +153,10 @@ export const GlobalHeader = ({
                     />
                   </FormField>
                   <FormField label="Theme">
-                    <ToggleGroup
-                      options={[
-                        { label: 'Current', value: 'current' },
-                        { label: 'Warm', value: 'warm' },
-                      ]}
-                      border={{ size: 'none' }}
-                      value={activeTheme === 'Warm theme' ? 'warm' : 'current'}
-                      onChange={e =>
-                        setActiveTheme(
-                          e.target.value === 'warm'
-                            ? 'Warm theme'
-                            : 'Current theme',
-                        )
-                      }
+                    <Select
+                      options={Object.keys(themes).map(theme => theme)}
+                      onChange={({ option }) => setActiveTheme(option)}
+                      value={activeTheme}
                     />
                   </FormField>
                 </Box>

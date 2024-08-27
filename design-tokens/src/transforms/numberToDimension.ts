@@ -6,17 +6,30 @@ export const numberToDimension: Transform = {
   matcher: (token: TransformedToken) => {
     if (
       token.attributes?.type &&
-      ['dimension', 'fontSize', 'lineHeight', 'spacing'].find(v =>
-        token.path.includes(v),
-      )
+      // TO DO automate this
+      [
+        'dimension',
+        'fontSize',
+        'lineHeight',
+        'spacing',
+        'paddingX',
+        'paddingY',
+        'paddingBottom',
+        'paddingTop',
+        'width',
+        'height',
+        'borderRadius',
+        'borderWidth',
+        'breakpoint',
+      ].find(v => token.path.includes(v))
     )
       return true;
     return false;
   },
   transformer: (token: TransformedToken) => {
-    const fontToken =
-      token.attributes?.type &&
-      ['lineHeight', 'fontSize'].includes(token.attributes?.type);
+    const fontToken = ['lineHeight', 'fontSize'].find(v =>
+      token.path.includes(v),
+    );
 
     if (typeof token.value === 'string') return token.value;
     if (fontToken) return `${token.value / 16}rem`;

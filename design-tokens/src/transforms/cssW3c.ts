@@ -6,6 +6,7 @@ export const cssW3c: string[] = [
   'size/rem',
   'color/css',
   'cubicBezier/css',
+  'border/css',
   'shadow/css',
   'color/hex',
   'gradient/css',
