@@ -261,7 +261,7 @@ export const templates = [
      click trigger.
      They are used to provide additional contextual information and might
      contain interactive elements.`,
-    relatedContent: ['CheckBoxGroup'],
+    relatedContent: [],
     sections: [],
     tags: [],
   },
