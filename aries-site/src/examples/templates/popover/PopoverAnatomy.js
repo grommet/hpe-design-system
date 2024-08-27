@@ -70,13 +70,10 @@ const PopoverContent = ({ ...rest }) => (
     {...rest}
   >
     <Box pad={{ top: 'medium', horizontal: 'medium' }}>
-      <Box
-        direction="row"
-        justify="between"
-        align="center"
-        border={{ style: 'dashed' }}
-      >
-        <Text id="popover-title">Title</Text>
+      <Box justify="between" direction="row">
+        <Box width="small" align="start" border={{ style: 'dashed' }}>
+          <Text id="popover-title">Title</Text>
+        </Box>
         <Button
           id="popover-close"
           a11yTitle="close button"
