@@ -40,32 +40,16 @@ export const PopoverAnatomy = () => {
   ];
 
   if (['xsmall', 'small'].includes(breakpoint)) {
-    columns = ['36px', 'flex'];
-    rows = [
-      '48px',
-      '24px',
-      '37px',
-      '25px',
-      '24px',
-      'xsmall',
-      'xsmall',
-      '24px',
-      '74px',
-      '24px',
-      '48px',
-    ];
+    columns = ['36px', 'flex', '24px'];
+    rows = ['32px', '35px', '32px', '48px', '55px', '24px', '24px'];
     areas = [
-      ['empty-0', 'annotation-pad'],
-      ['empty-0', 'layer'],
-      ['annotation-1a', 'layer'],
-      ['annotation-1b', 'layer'],
-      ['gap-1', 'layer'],
-      ['annotation-2', 'layer'],
-      ['annotation-gap', 'layer'],
-      ['gap-2', 'layer'],
-      ['annotation-3', 'layer'],
-      ['annotation-round', 'layer'],
-      ['empty-2', 'layer'],
+      ['empty-1', 'annotation-pad'],
+      ['empty', 'annotation-2'],
+      ['annotation-1', 'popover'],
+      ['annotation-3', 'popover'],
+      ['annotation-4', 'popover'],
+      ['annotation-gap', 'popover'],
+      ['empty-2', 'annotation-round'],
       ['empty-2', 'annotation-elevation'],
     ];
   }
@@ -136,46 +120,55 @@ export const PopoverAnatomy = () => {
   );
 };
 
-const PopoverContent = ({ ...rest }) => (
-  <Box
-    id="popover-container"
-    alignSelf="start"
-    round="xxsmall"
-    elevation="medium"
-    {...rest}
-  >
-    <Box gap="small" direction="row">
-      <Box fill pad={{ top: 'small', left: 'small' }}>
-        <Box id="popover-title" border={{ style: 'dashed' }}>
-          <Text>Title</Text>
+const PopoverContent = ({ ...rest }) => {
+  const breakpoint = useContext(ResponsiveContext);
+  return (
+    <Box
+      id="popover-container"
+      alignSelf="start"
+      round="xxsmall"
+      elevation="medium"
+      {...rest}
+    >
+      <Box gap="small" direction="row">
+        <Box fill pad={{ top: 'small', left: 'small' }}>
+          <Box id="popover-title" border={{ style: 'dashed' }}>
+            <Text>Title</Text>
+          </Box>
+          <Box pad="small" id="first-gap" />
+          <Box id="popover-body" border={{ style: 'dashed' }} height="xxsmall">
+            Body
+          </Box>
+          <Box pad="small" id="popover-gap" />
+          <Box id="popover-footer" border={{ style: 'dashed' }}>
+            Footer
+          </Box>
+          <Box pad="xsmall" />
         </Box>
-        <Box pad="small" id="first-gap" />
-        <Box id="popover-body" border={{ style: 'dashed' }} height="xxsmall">
-          Body
-        </Box>
-        <Box pad="small" id="popover-gap" />
-        <Box id="popover-footer" border={{ style: 'dashed' }}>
-          Footer
-        </Box>
-        <Box pad="xsmall" />
-      </Box>
-      <Box pad={{ top: '10px', right: '4px' }}>
         <Box
-          border={{ style: 'dashed' }}
-          alignSelf="start"
-          pad={{ right: 'xxsmall', bottom: '4px' }}
-          id="popover-close"
+          pad={
+            ['xsmall', 'small'].includes(breakpoint)
+              ? { top: '6px', right: '4px' }
+              : { top: '10px', right: '4px' }
+          }
         >
-          <Button
-            a11yTitle="close button"
-            icon={<Close size="small" />}
-            size="small"
-            fill
-          />
+          <Box
+            border={{ style: 'dashed' }}
+            alignSelf="start"
+            pad={{ right: 'xxsmall', bottom: '4px' }}
+            id="popover-close"
+          >
+            <Button
+              a11yTitle="close button"
+              icon={<Close size="small" />}
+              size="small"
+              fill
+            />
+          </Box>
+          <Box fill />
+          <Box pad="xsmall" id="bottom-pad" />
         </Box>
-        <Box fill />
-        <Box pad="xsmall" id="bottom-pad" />
       </Box>
     </Box>
-  </Box>
-);
+  );
+};
