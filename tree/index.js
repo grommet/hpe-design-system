@@ -435,6 +435,10 @@ export default {
           "mode": "default"
         },
         {
+          "name": "checkbox.control.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "checkbox.control.selected.hover.background",
           "mode": "default"
         },
@@ -723,10 +727,6 @@ export default {
         }
       },
       "usedBy": [
-        {
-          "name": "checkbox.control.selected.enabled.borderColor",
-          "mode": "default"
-        },
         {
           "name": "checkbox.control.indeterminate.enabled.borderColor",
           "mode": "default"
@@ -2320,6 +2320,10 @@ export default {
           "mode": "default"
         },
         {
+          "name": "checkbox.control.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "checkbox.control.selected.hover.background",
           "mode": "default"
         },
@@ -2608,10 +2612,6 @@ export default {
         }
       },
       "usedBy": [
-        {
-          "name": "checkbox.control.selected.enabled.borderColor",
-          "mode": "default"
-        },
         {
           "name": "checkbox.control.indeterminate.enabled.borderColor",
           "mode": "default"
@@ -9922,10 +9922,6 @@ export default {
           "mode": "default"
         },
         {
-          "name": "switch.medium.control.track.height",
-          "mode": "default"
-        },
-        {
           "name": "dataCell.lineHeight",
           "mode": "default"
         },
@@ -10872,7 +10868,7 @@ export default {
     },
     "checkbox.control.selected.enabled.borderColor": {
       "$type": "color",
-      "$value": "{color.border.selected}",
+      "$value": "{color.background.selected.strong.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11698,7 +11694,7 @@ export default {
     },
     "switch.medium.width": {
       "$type": "number",
-      "$value": 48,
+      "$value": "{base.dimension.900}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11712,7 +11708,7 @@ export default {
     },
     "switch.medium.height": {
       "$type": "number",
-      "$value": 24,
+      "$value": 20,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11797,7 +11793,7 @@ export default {
     },
     "switch.medium.control.track.height": {
       "$type": "number",
-      "$value": "{component.medium.lineHeight}",
+      "$value": 20,
       "$description": "",
       "$extensions": {
         "com.figma": {

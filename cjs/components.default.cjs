@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Aug 2024 18:10:07 GMT
+ * Generated on Wed, 28 Aug 2024 23:47:35 GMT
  */
 
 module.exports = {
@@ -688,7 +688,7 @@ module.exports = {
         "selected": {
           "enabled": {
             "background": "background-selected-strong-enabled",
-            "borderColor": "border-selected",
+            "borderColor": "background-selected-strong-enabled",
             "iconColor": "icon-onPrimary"
           },
           "hover": {
@@ -818,8 +818,8 @@ module.exports = {
       },
       "medium": {
         "gapX": "12px",
-        "width": "48px",
-        "height": "24px",
+        "width": "36px",
+        "height": "20px",
         "borderRadius": "9999px",
         "borderWidth": "default",
         "label": {
@@ -829,7 +829,7 @@ module.exports = {
         },
         "control": {
           "track": {
-            "height": "1.5rem",
+            "height": "20px",
             "width": "36px",
             "borderWidth": "default",
             "borderRadius": "24px"

@@ -6969,7 +6969,7 @@ export default {
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.border.selected}",
+            "$value": "{color.background.selected.strong.enabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7869,7 +7869,7 @@ export default {
       },
       "width": {
         "$type": "number",
-        "$value": 48,
+        "$value": "{base.dimension.900}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7883,7 +7883,7 @@ export default {
       },
       "height": {
         "$type": "number",
-        "$value": 24,
+        "$value": 20,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7972,7 +7972,7 @@ export default {
         "track": {
           "height": {
             "$type": "number",
-            "$value": "{component.medium.lineHeight}",
+            "$value": 20,
             "$description": "",
             "$extensions": {
               "com.figma": {
