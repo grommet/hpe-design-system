@@ -261,9 +261,9 @@ export const templates = [
      click trigger.
      They are used to provide additional contextual information and might
      contain interactive elements.`,
-    relatedContent: [],
-    sections: [],
-    tags: [],
+    relatedContent: ['Tip'],
+    sections: ['Use cases', 'Anatomy', 'Content guidlines', 'Accessibility'],
+    tags: ['tip', 'tooltip', 'modal', 'popoverMenu', 'inline popover'],
   },
   {
     name: 'User feedback collection',
