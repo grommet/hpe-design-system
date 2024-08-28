@@ -17,7 +17,8 @@ export const PopoverSimpleExample = () => {
   };
 
   return (
-    <Box justify="center" align="center">
+    <Box direction="row" justify="center" align="center">
+      <Text>Click for Popover.</Text>
       <Button
         align="center"
         justify="start"

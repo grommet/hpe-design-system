@@ -29,16 +29,17 @@ export const Popover = ({
           {footer}
         </Box>
         {/* // see if we have a close t shirt size for the 8 px */}
-        <Box pad={{ right: 'small', top: '8px' }}>
+        {/* // have xsmall for right or small none cuts off focus   */}
+        <Box pad={{ right: 'xsmall', top: '8px' }}>
           <Button
             size="small"
             icon={<Close size="small" />}
             onClick={onClose}
+            autoFocus
             // should we make this a message that the user passes in?
             // maybe we can have a default just incase they forget?
             a11yTitle={`You are in a popover containing information,
             to close this popover, press Enter.`}
-            autoFocus
           />
         </Box>
       </Box>
