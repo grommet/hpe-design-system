@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 28 Aug 2024 23:47:35 GMT
+ * Generated on Thu, 29 Aug 2024 19:09:28 GMT
  */
 
 :root {
@@ -113,9 +113,9 @@
   --hpe-switch-medium-control-track-width: var(--hpe-base-dimension-900);
   --hpe-switch-medium-label-font-weight: var(--hpe-font-weight-medium);
   --hpe-switch-medium-width: var(--hpe-base-dimension-900);
-  --hpe-switch-control-handle-enabled-border-color: var(--hpe-color-transparent);
   --hpe-switch-control-track-selected-enabled-border-color: var(--hpe-color-transparent);
   --hpe-checkbox-medium-label-font-weight: var(--hpe-font-weight-medium);
+  --hpe-checkbox-control-indeterminate-enabled-border-color: var(--hpe-color-transparent);
   --hpe-select-option-selected-enabled-font-weight: var(--hpe-font-weight-bold);
   --hpe-select-option-selected-enabled-background: var(--hpe-color-background-selected-weak-enabled);
   --hpe-select-option-enabled-font-weight: var(--hpe-font-weight-medium);
@@ -319,6 +319,7 @@
   --hpe-switch-control-handle-disabled-background: var(--hpe-color-background-disabled);
   --hpe-switch-control-handle-hover-border-color: var(--hpe-color-border-default);
   --hpe-switch-control-handle-hover-background: var(--hpe-color-background-default);
+  --hpe-switch-control-handle-enabled-border-color: var(--hpe-color-border-default);
   --hpe-switch-control-handle-enabled-background: var(--hpe-color-background-default);
   --hpe-switch-control-track-selected-disabled-border-color: var(--hpe-color-border-disabled);
   --hpe-switch-control-track-selected-disabled-background: var(--hpe-color-background-disabled);
@@ -342,7 +343,6 @@
   --hpe-checkbox-control-indeterminate-hover-border-color: var(--hpe-color-border-strong);
   --hpe-checkbox-control-indeterminate-hover-background: var(--hpe-color-background-selected-strong-enabled);
   --hpe-checkbox-control-indeterminate-enabled-icon-color: var(--hpe-color-icon-on-primary);
-  --hpe-checkbox-control-indeterminate-enabled-border-color: var(--hpe-color-border-selected);
   --hpe-checkbox-control-indeterminate-enabled-background: var(--hpe-color-background-selected-strong-enabled);
   --hpe-checkbox-control-selected-disabled-icon-color: var(--hpe-color-icon-disabled);
   --hpe-checkbox-control-selected-disabled-border-color: var(--hpe-color-border-disabled);

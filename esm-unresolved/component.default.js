@@ -7112,7 +7112,7 @@ export default {
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.border.selected}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7624,7 +7624,7 @@ export default {
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.transparent}",
+            "$value": "{color.border.default}",
             "$description": "",
             "$extensions": {
               "com.figma": {

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 28 Aug 2024 23:47:35 GMT
+ * Generated on Thu, 29 Aug 2024 19:09:28 GMT
  */
 
 module.exports = {
@@ -705,7 +705,7 @@ module.exports = {
         "indeterminate": {
           "enabled": {
             "background": "background-selected-strong-enabled",
-            "borderColor": "border-selected",
+            "borderColor": "transparent",
             "iconColor": "icon-onPrimary"
           },
           "hover": {
@@ -779,7 +779,7 @@ module.exports = {
         "handle": {
           "enabled": {
             "background": "background-default",
-            "borderColor": "transparent"
+            "borderColor": "border-default"
           },
           "hover": {
             "background": "background-default",

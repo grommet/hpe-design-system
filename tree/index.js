@@ -581,6 +581,10 @@ export default {
           "mode": "default"
         },
         {
+          "name": "switch.control.handle.enabled.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "switch.control.handle.hover.borderColor",
           "mode": "default"
         },
@@ -727,10 +731,6 @@ export default {
         }
       },
       "usedBy": [
-        {
-          "name": "checkbox.control.indeterminate.enabled.borderColor",
-          "mode": "default"
-        },
         {
           "name": "radioButton.control.selected.enabled.borderColor",
           "mode": "default"
@@ -1740,11 +1740,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "switch.control.track.selected.enabled.borderColor",
+          "name": "checkbox.control.indeterminate.enabled.borderColor",
           "mode": "default"
         },
         {
-          "name": "switch.control.handle.enabled.borderColor",
+          "name": "switch.control.track.selected.enabled.borderColor",
           "mode": "default"
         },
         {
@@ -2466,6 +2466,10 @@ export default {
           "mode": "default"
         },
         {
+          "name": "switch.control.handle.enabled.borderColor",
+          "mode": "default"
+        },
+        {
           "name": "switch.control.handle.hover.borderColor",
           "mode": "default"
         },
@@ -2612,10 +2616,6 @@ export default {
         }
       },
       "usedBy": [
-        {
-          "name": "checkbox.control.indeterminate.enabled.borderColor",
-          "mode": "default"
-        },
         {
           "name": "radioButton.control.selected.enabled.borderColor",
           "mode": "default"
@@ -3625,11 +3625,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "switch.control.track.selected.enabled.borderColor",
+          "name": "checkbox.control.indeterminate.enabled.borderColor",
           "mode": "default"
         },
         {
-          "name": "switch.control.handle.enabled.borderColor",
+          "name": "switch.control.track.selected.enabled.borderColor",
           "mode": "default"
         },
         {
@@ -11003,7 +11003,7 @@ export default {
     },
     "checkbox.control.indeterminate.enabled.borderColor": {
       "$type": "color",
-      "$value": "{color.border.selected}",
+      "$value": "{color.transparent}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11473,7 +11473,7 @@ export default {
     },
     "switch.control.handle.enabled.borderColor": {
       "$type": "color",
-      "$value": "{color.transparent}",
+      "$value": "{color.border.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
