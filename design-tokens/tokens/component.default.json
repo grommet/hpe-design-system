@@ -6522,7 +6522,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.default}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -9524,7 +9524,7 @@
       "control": {
         "height": {
           "$type": "number",
-          "$value": "{component.medium.lineHeight}",
+          "$value": 20,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9536,7 +9536,7 @@
         },
         "width": {
           "$type": "number",
-          "$value": "{component.medium.lineHeight}",
+          "$value": 20,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9548,7 +9548,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{borderWidth.default}",
+          "$value": 2,
           "$description": "",
           "$extensions": {
             "com.figma": {
