@@ -41,7 +41,6 @@ const columns = {
   xlarge: ['auto', 'auto', 'auto', 'auto'],
 };
 
-// should we disable ?
 // eslint-disable-next-line react/prop-types
 const CardDevices = ({ title, devices }) => (
   <Card>
@@ -87,16 +86,20 @@ export const PopoverInlineExample = () => {
               ref={targetRef}
               a11yTitle="Informational help"
               aria-expanded={showPopover}
+              aria-haspopup="true"
+              aria-controls="popover-info"
             />
           </Box>
         </Box>
-        {showPopover && targetRef.current && (
+        {showPopover && (
           <Popover
             footer={<Anchor size="small" label="Learn more" href="#" />}
             target={targetRef.current}
             onClickOutside={handleClosePopover}
             onEsc={handleClosePopover}
             onClose={handleClosePopover}
+            align={{ bottom: 'top', left: 'left' }}
+            id="popover-info"
           >
             <Paragraph size="small" margin="none">
               A server is added to a group when you apply an HPE GreenLake

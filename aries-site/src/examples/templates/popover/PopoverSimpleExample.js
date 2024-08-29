@@ -27,10 +27,12 @@ export const PopoverSimpleExample = () => {
         ref={targetRef}
         aria-expanded={showPopover}
         a11yTitle="informational help"
-        popovertarget="simple-popover"
+        aria-haspopup="true"
+        aria-controls="simple-popover"
       />
       {showPopover && (
         <Popover
+          id="simple-popover"
           title={<Text>I am a Popover</Text>}
           target={targetRef.current}
           onClickOutside={handleClosePopover}
