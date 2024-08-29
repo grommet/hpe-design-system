@@ -6017,7 +6017,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.border.selected}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
