@@ -9,7 +9,7 @@ import {
   Heading,
   Layer,
   Text,
-  ResponsiveContext,
+  // ResponsiveContext,
 } from 'grommet';
 import { Close } from 'grommet-icons/icons/Close';
 
@@ -47,7 +47,7 @@ export const Feedback = ({
   title,
 }) => {
   const theme = useContext(ThemeContext);
-  const breakpoint = useContext(ResponsiveContext);
+  // const breakpoint = useContext(ResponsiveContext);
   // tracks if feedback has successfully been submitted
   const [successfulSubmit, setSuccessfulSubmit] = useState(false);
 
