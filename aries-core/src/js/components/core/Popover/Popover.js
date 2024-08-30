@@ -7,7 +7,7 @@ export const Popover = ({
   title,
   children,
   footer,
-  targetRef,
+  target,
   onClose,
   ...rest
 }) => {
@@ -17,33 +17,34 @@ export const Popover = ({
       role="dialog"
       elevation="medium"
       stretch={false}
-      target={targetRef?.current}
+      target={target}
       onClose={onClose}
       {...rest}
     >
-      <Box gap="small" direction="row">
-        <Box flex gap="small" pad={{ vertical: 'small', left: 'small' }}>
-          {/* do we like this format of passing in
-           title children and footer? */}
+      <Box
+        gap="xsmall"
+        pad={{ vertical: 'small', left: 'small', right: 'xsmall' }}
+        direction="row"
+      >
+        <Box flex gap="small">
           {title}
           {children}
           {footer}
         </Box>
-        {/* // see if we have a close t shirt size for the 8 px */}
-        {/* // have xsmall for right or small none cuts off focus   */}
-        <Box pad={{ right: 'xsmall', top: '8px' }}>
-          <Button
-            size="small"
-            icon={<Close size="small" />}
-            onClick={onClose}
-            autoFocus
-            a11yTitle={
-              { a11yTitle } ||
-              `You are in a popover,
+        <Button
+          size="small"
+          icon={<Close size="small" />}
+          onClick={onClose}
+          autoFocus
+          alignSelf="start"
+          // need to align with text
+          margin={{ top: '-2px' }}
+          a11yTitle={
+            a11yTitle ||
+            `You are in a popover,
             to close this popover, press Enter.`
-            }
-          />
-        </Box>
+          }
+        />
       </Box>
     </Drop>
   );
