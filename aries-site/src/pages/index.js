@@ -91,6 +91,7 @@ const Index = () => (
             webkitMaskImage:
               'linear-gradient(to bottom, black, 90%, transparent)',
             maskImage:
+              // eslint-disable-next-line max-len
               'linear-gradient(to bottom, transparent, 5%, black, 90%, transparent)',
           }}
           height="large"

@@ -23,6 +23,7 @@ import {
   Anchor,
   Layer,
 } from 'grommet';
+import { Close, ShareRounded, Sidebar } from 'grommet-icons';
 import {
   ContentSection,
   DocsPageHeader,
@@ -34,8 +35,8 @@ import {
 } from '..';
 import {
   Meta,
-  PageBackground,
-  FeedbackButton,
+  // PageBackground,
+  // FeedbackButton,
   Feedback,
   Question,
 } from '../../components';
@@ -44,7 +45,6 @@ import { getRelatedContent, getPageDetails, nameToPath } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateNotification } from '../content/UpdateNotification';
 import { ViewContext } from '../../pages/_app';
-import { Close, ShareRounded, Sidebar } from 'grommet-icons';
 
 const pageDetails = getPageDetails('Home');
 const navItems = pageDetails.pages.map(topic => getPageDetails(topic));

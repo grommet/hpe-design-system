@@ -6,7 +6,7 @@ import {
   Keyboard,
   List,
   ResponsiveContext,
-  Pagination,
+  // Pagination,
   Text,
 } from 'grommet';
 import { Close } from 'grommet-icons';
@@ -15,7 +15,7 @@ import { TextEmphasis } from 'aries-core';
 import { SearchInput, SearchResult } from '.';
 
 const defaultPage = { begin: 0, end: 4 };
-const step = defaultPage.end - defaultPage.begin;
+// const step = defaultPage.end - defaultPage.begin;
 
 export const SearchResults = ({
   allSuggestions,
