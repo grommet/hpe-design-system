@@ -21,6 +21,7 @@ import {
   SkipLink,
   SkipLinks,
   Anchor,
+  Layer,
 } from 'grommet';
 import {
   ContentSection,
@@ -43,7 +44,7 @@ import { getRelatedContent, getPageDetails, nameToPath } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateNotification } from '../content/UpdateNotification';
 import { ViewContext } from '../../pages/_app';
-import { ShareRounded, Sidebar } from 'grommet-icons';
+import { Close, ShareRounded, Sidebar } from 'grommet-icons';
 
 const pageDetails = getPageDetails('Home');
 const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
@@ -146,53 +147,81 @@ export const Layout = ({
     setPageUpdateReady(false);
   }, [setPageUpdateReady, title]);
 
+  useEffect(() => {
+    if (!['xlarge', 'large'].includes(breakpoint)) {
+      setShowSidebar(false);
+    }
+  }, [breakpoint]);
+
+  const navContent = (
+    <Box gap="medium">
+      <Box as="nav" gap="small">
+        {navItems.map(item => (
+          <Link
+            key={item.name}
+            href={nameToPath(item.name)}
+            passHref
+            legacyBehavior
+          >
+            <Button
+              align="start"
+              key={item.name}
+              label={item.name}
+              active={router.pathname === nameToPath(item.name)}
+            />
+          </Link>
+        ))}
+      </Box>
+      <Box border={{ side: 'bottom', color: 'border-weak' }} />
+      <Box gap="medium" pad={{ horizontal: 'small' }}>
+        <Anchor icon={<ShareRounded />} label="Github" />
+        <Button
+          label="Give feedback"
+          secondary
+          alignSelf="start"
+          size="small"
+          onClick={onOpen}
+        />
+      </Box>
+    </Box>
+  );
   return (
     <Box direction="row">
-      <Collapsible open={showSidebar} direction="horizontal">
-        <Box
-          background="background-front"
-          width="medium"
-          height="100vh"
-          pad="medium"
-          border={{ side: 'right', color: 'border-weak' }}
-          gap="medium"
-        >
-          <Button
-            alignSelf="start"
-            icon={<Sidebar color="brand" />}
-            onClick={() => setShowSidebar(false)}
-          />
-
-          <Box gap="small">
-            {navItems.map(item => (
-              <Link
-                key={item.name}
-                href={nameToPath(item.name)}
-                passHref
-                legacyBehavior
-              >
-                <Button
-                  align="start"
-                  key={item.name}
-                  label={item.name}
-                  active={router.pathname === nameToPath(item.name)}
-                />
-              </Link>
-            ))}
-          </Box>
-          <Box border={{ side: 'bottom', color: 'border-weak' }} />
-          <Box gap="medium" pad={{ horizontal: 'small' }}>
-            <Anchor icon={<ShareRounded />} label="Github" />
+      {/* eslint-disable-next-line no-nested-ternary */}
+      {['large', 'xlarge'].includes(breakpoint) ? (
+        <Collapsible open={showSidebar} direction="horizontal">
+          <Box
+            background="background-front"
+            width="medium"
+            pad={{ horizontal: 'medium', vertical: 'small' }}
+            border={{ side: 'right', color: 'border-weak' }}
+            gap="medium"
+            style={{ position: 'sticky', top: 0, bottom: 0 }}
+            height="100vh"
+            overflow="auto"
+          >
             <Button
-              label="Give feedback"
-              secondary
+              a11yTitle="Hide sidebar"
               alignSelf="start"
-              size="small"
-              onClick={onOpen}
+              icon={<Sidebar color="brand" />}
+              onClick={() => setShowSidebar(false)}
             />
+            {navContent}
           </Box>
-        </Box>
-      </Collapsible>
+        </Collapsible>
+      ) : showSidebar ? (
+        <Layer animation="fadeIn" r>
+          <Box pad="medium">
+            <Button
+              a11yTitle="Close navigation dialog"
+              icon={<Close />}
+              alignSelf="end"
+              onClick={() => setShowSidebar(false)}
+            />
+            {navContent}
+          </Box>
+        </Layer>
+      ) : undefined}
       <Page>
         {/* I think Head is redundant at this point, 
               but left it as is for now */}

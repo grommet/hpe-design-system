@@ -6,12 +6,14 @@ export const featured = [
     description: 'Access our Figma UI kits, components, and styles.',
     icon: <Brush size="large" color="text-strong" />,
     label: 'Start designing',
+    url: '/foundation/designer-guidance',
   },
   {
     name: 'Developer',
     description: 'Find guides, tools, and docs to get your app running.',
     icon: <Code size="large" color="text-strong" />,
     label: 'Get the code',
+    url: '/foundation/developer-guidance',
   },
   {
     name: 'Migrate',

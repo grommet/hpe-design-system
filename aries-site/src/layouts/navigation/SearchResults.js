@@ -170,14 +170,14 @@ export const SearchResults = ({
             )}
           </Box>
           {/* <Pagination
-        alignSelf={['xsmall', 'small'].includes(size) ? 'center' : 'end'}
-        numberItems={results.length}
-        page={Math.floor(page.end / step)}
-        onChange={({ startIndex, endIndex }) => {
-          setPage({ begin: startIndex, end: endIndex });
-        }}
-        step={step}
-      /> */}
+            alignSelf={['xsmall', 'small'].includes(size) ? 'center' : 'end'}
+            numberItems={results.length}
+            page={Math.floor(page.end / step)}
+            onChange={({ startIndex, endIndex }) => {
+              setPage({ begin: startIndex, end: endIndex });
+            }}
+            step={step}
+          /> */}
         </>
       )}
     </Box>

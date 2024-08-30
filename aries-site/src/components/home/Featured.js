@@ -22,7 +22,7 @@ const FeaturedLayout = ({ ...rest }) => (
             {name}
           </Heading>
           <Paragraph color="text-weak">{description}</Paragraph>
-          <Link passHref legacyBehavior href="#">
+          <Link passHref legacyBehavior href={nameToPath(name) || url}>
             <Button secondary label={label} />
           </Link>
         </Box>

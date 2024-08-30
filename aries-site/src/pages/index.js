@@ -84,31 +84,41 @@ const Index = () => (
   <>
     <Meta title={title} description={pageDetails.seoDescription} />
     <Box>
-      <StyledBox
-        pad={{ vertical: 'xlarge' }}
-        background={{ image: 'datawave-white-3', opacity: 'weak' }}
-        gap="xlarge"
-      >
-        <Box>
-          <PageContent>
-            <Box align="start" gap="medium">
-              <Heading margin="none">Built for the enterprise by HPE</Heading>
-              <Paragraph color="text-weak" size="xlarge" margin="none">
-                Empower designers and developers to quickly collaborate and
-                create accessible enterprise experiences for HPE.
-              </Paragraph>
-              <Button label="Get started" primary />
-            </Box>
-          </PageContent>
+      <Stack guidingChild="last" interactiveChild="last">
+        <Box
+          background={{ image: 'datawave-white-3', opacity: 'weak' }}
+          style={{
+            webkitMaskImage:
+              'linear-gradient(to bottom, black, 90%, transparent)',
+            maskImage:
+              'linear-gradient(to bottom, transparent, 5%, black, 90%, transparent)',
+          }}
+          height="large"
+        >
+          <Box height="large" />
         </Box>
-        <PageContent>
-          <Box
-            fill="horizontal"
-            border={{ side: 'bottom', color: 'border-weak' }}
-          />
-        </PageContent>
-        <Featured {...widthProps} />
-      </StyledBox>
+        <StyledBox pad={{ vertical: 'xlarge' }} gap="xlarge">
+          <Box>
+            <PageContent>
+              <Box align="start" gap="medium">
+                <Heading margin="none">Built for the enterprise by HPE</Heading>
+                <Paragraph color="text-weak" size="xlarge" margin="none">
+                  Empower designers and developers to quickly collaborate and
+                  create accessible enterprise experiences for HPE.
+                </Paragraph>
+                <Button label="Get started" primary />
+              </Box>
+            </PageContent>
+          </Box>
+          <PageContent>
+            <Box
+              fill="horizontal"
+              border={{ side: 'bottom', color: 'border-weak' }}
+            />
+          </PageContent>
+          <Featured {...widthProps} />
+        </StyledBox>
+      </Stack>
       <PageContent>
         <Box
           fill="horizontal"

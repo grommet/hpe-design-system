@@ -1,26 +1,31 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Box, Button, Header } from 'grommet';
-import { Search as SearchIcon, Sidebar } from 'grommet-icons';
+import { Box, Button, Header, ResponsiveContext } from 'grommet';
+import { Search as SearchIcon, Sidebar, Menu } from 'grommet-icons';
 import { ThemeModeToggle, AppIdentity } from '../../components';
 
 import { Search } from '../navigation';
 
 const StyledHeader = ({ showSidebar, setShowSidebar, ...rest }) => {
+  const size = useContext(ResponsiveContext);
   const [showSearch, setShowSearch] = useState(false);
 
   return (
     <Header
       pad={{
-        vertical: 'medium',
+        vertical: 'small',
         horizontal: 'medium',
       }}
       {...rest}
     >
       <Box direction="row" align="center" gap="medium">
         {!showSidebar ? (
-          <Button icon={<Sidebar />} onClick={() => setShowSidebar(true)} />
+          <Button
+            a11yTitle="Show navigation panel"
+            icon={['large', 'xlarge'].includes(size) ? <Sidebar /> : <Menu />}
+            onClick={() => setShowSidebar(true)}
+          />
         ) : undefined}
         <Link href="/" passHref legacyBehavior>
           <AppIdentity
