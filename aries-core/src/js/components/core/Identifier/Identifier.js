@@ -7,7 +7,7 @@ export const Identifier = ({
   level,
   title,
   subTitle,
-  size,
+  size = 'medium',
   ...rest
 }) => (
   <Box align="center" {...rest}>
@@ -33,12 +33,4 @@ Identifier.propTypes = {
   title: PropTypes.string,
   size: PropTypes.string,
   subTitle: PropTypes.string,
-};
-
-Identifier.defaultProps = {
-  children: undefined,
-  level: undefined,
-  size: 'medium',
-  subTitle: undefined,
-  title: undefined,
 };
