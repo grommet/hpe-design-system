@@ -5647,11 +5647,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.small.default.fontSize",
+          "name": "anchor.emphasized.small.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.small.emphasized.fontSize",
+          "name": "anchor.emphasized.small.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -5675,11 +5675,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.small.default.lineHeight",
+          "name": "anchor.emphasized.small.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.small.emphasized.lineHeight",
+          "name": "anchor.emphasized.small.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -5737,11 +5737,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.small.default.gapX",
+          "name": "anchor.emphasized.small.default.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.small.emphasized.gapX",
+          "name": "anchor.emphasized.small.emphasized.gapX",
           "mode": "default"
         }
       ]
@@ -5831,11 +5831,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.medium.default.fontSize",
+          "name": "anchor.emphasized.medium.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.medium.emphasized.fontSize",
+          "name": "anchor.emphasized.medium.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -5907,11 +5907,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.medium.default.lineHeight",
+          "name": "anchor.emphasized.medium.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.medium.emphasized.lineHeight",
+          "name": "anchor.emphasized.medium.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -6005,11 +6005,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.medium.default.gapX",
+          "name": "anchor.emphasized.medium.default.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.medium.emphasized.gapX",
+          "name": "anchor.emphasized.medium.emphasized.gapX",
           "mode": "default"
         }
       ]
@@ -6110,11 +6110,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.large.default.fontSize",
+          "name": "anchor.emphasized.large.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.large.emphasized.fontSize",
+          "name": "anchor.emphasized.large.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -6138,11 +6138,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.large.default.lineHeight",
+          "name": "anchor.emphasized.large.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.large.emphasized.lineHeight",
+          "name": "anchor.emphasized.large.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -6200,11 +6200,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.large.default.gapX",
+          "name": "anchor.emphasized.large.default.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.large.emphasized.gapX",
+          "name": "anchor.emphasized.large.emphasized.gapX",
           "mode": "default"
         }
       ]
@@ -6299,11 +6299,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.xlarge.default.fontSize",
+          "name": "anchor.emphasized.xlarge.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.xlarge.emphasized.fontSize",
+          "name": "anchor.emphasized.xlarge.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -6327,11 +6327,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.xlarge.default.lineHeight",
+          "name": "anchor.emphasized.xlarge.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.xlarge.emphasized.lineHeight",
+          "name": "anchor.emphasized.xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -6389,51 +6389,51 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.xlarge.default.gapX",
+          "name": "anchor.emphasized.xlarge.default.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.xlarge.emphasized.gapX",
+          "name": "anchor.emphasized.xlarge.emphasized.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.xxlarge.default.gapX",
+          "name": "anchor.emphasized.xxlarge.default.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.xxlarge.emphasized.gapX",
+          "name": "anchor.emphasized.xxlarge.emphasized.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.3xlarge.default.gapX",
+          "name": "anchor.emphasized.3xlarge.default.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.3xlarge.emphasized.gapX",
+          "name": "anchor.emphasized.3xlarge.emphasized.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.4xlarge.default.gapX",
+          "name": "anchor.emphasized.4xlarge.default.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.4xlarge.emphasized.gapX",
+          "name": "anchor.emphasized.4xlarge.emphasized.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.5xlarge.default.gapX",
+          "name": "anchor.emphasized.5xlarge.default.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.5xlarge.emphasized.gapX",
+          "name": "anchor.emphasized.5xlarge.emphasized.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.6xlarge.default.gapX",
+          "name": "anchor.emphasized.6xlarge.default.gapX",
           "mode": "default"
         },
         {
-          "name": "anchor.6xlarge.emphasized.gapX",
+          "name": "anchor.emphasized.6xlarge.emphasized.gapX",
           "mode": "default"
         }
       ]
@@ -9289,7 +9289,7 @@ export default {
     },
     "formField.medium.valueText.fontWeight": {
       "$type": "number",
-      "$value": "{fontWeight.regular}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11125,7 +11125,19 @@ export default {
         }
       }
     },
-    "anchor.emphasized.hover.textColor": {
+    "anchor.emphasized.enabled.textDecoration": {
+      "$type": "string",
+      "$value": "none",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.emphasized.enabled.hover.textColor": {
       "$type": "color",
       "$value": "{color.text.brand}",
       "$description": "",
@@ -11139,7 +11151,7 @@ export default {
         }
       }
     },
-    "anchor.emphasized.hover.fontWeight": {
+    "anchor.emphasized.enabled.hover.fontWeight": {
       "$type": "number",
       "$value": "{fontWeight.bold}",
       "$description": "",
@@ -11151,7 +11163,7 @@ export default {
         }
       }
     },
-    "anchor.emphasized.hover.textDecoration": {
+    "anchor.emphasized.enabled.hover.textDecoration": {
       "$type": "string",
       "$value": "underline",
       "$description": "",
@@ -11163,7 +11175,7 @@ export default {
         }
       }
     },
-    "anchor.emphasized.disabled.textColor": {
+    "anchor.emphasized.enabled.disabled.textColor": {
       "$type": "color",
       "$value": "{color.text.brand}",
       "$description": "",
@@ -11177,7 +11189,7 @@ export default {
         }
       }
     },
-    "anchor.emphasized.disabled.fontWeight": {
+    "anchor.emphasized.enabled.disabled.fontWeight": {
       "$type": "number",
       "$value": "{fontWeight.bold}",
       "$description": "",
@@ -11189,7 +11201,7 @@ export default {
         }
       }
     },
-    "anchor.small.default.fontSize": {
+    "anchor.emphasized.small.default.fontSize": {
       "$type": "number",
       "$value": "{component.small.fontSize}",
       "$description": "",
@@ -11203,7 +11215,7 @@ export default {
         }
       }
     },
-    "anchor.small.default.lineHeight": {
+    "anchor.emphasized.small.default.lineHeight": {
       "$type": "number",
       "$value": "{component.small.lineHeight}",
       "$description": "",
@@ -11217,7 +11229,7 @@ export default {
         }
       }
     },
-    "anchor.small.default.gapX": {
+    "anchor.emphasized.small.default.gapX": {
       "$type": "number",
       "$value": "{component.small.textToIconX}",
       "$description": "",
@@ -11231,7 +11243,7 @@ export default {
         }
       }
     },
-    "anchor.small.emphasized.fontSize": {
+    "anchor.emphasized.small.emphasized.fontSize": {
       "$type": "number",
       "$value": "{component.small.fontSize}",
       "$description": "",
@@ -11245,7 +11257,7 @@ export default {
         }
       }
     },
-    "anchor.small.emphasized.lineHeight": {
+    "anchor.emphasized.small.emphasized.lineHeight": {
       "$type": "number",
       "$value": "{component.small.lineHeight}",
       "$description": "",
@@ -11259,7 +11271,7 @@ export default {
         }
       }
     },
-    "anchor.small.emphasized.gapX": {
+    "anchor.emphasized.small.emphasized.gapX": {
       "$type": "number",
       "$value": "{component.small.textToIconX}",
       "$description": "",
@@ -11273,7 +11285,7 @@ export default {
         }
       }
     },
-    "anchor.medium.default.fontSize": {
+    "anchor.emphasized.medium.default.fontSize": {
       "$type": "number",
       "$value": "{component.medium.fontSize}",
       "$description": "",
@@ -11287,7 +11299,7 @@ export default {
         }
       }
     },
-    "anchor.medium.default.lineHeight": {
+    "anchor.emphasized.medium.default.lineHeight": {
       "$type": "number",
       "$value": "{component.medium.lineHeight}",
       "$description": "",
@@ -11301,7 +11313,7 @@ export default {
         }
       }
     },
-    "anchor.medium.default.gapX": {
+    "anchor.emphasized.medium.default.gapX": {
       "$type": "number",
       "$value": "{component.medium.textToIconX}",
       "$description": "",
@@ -11315,7 +11327,7 @@ export default {
         }
       }
     },
-    "anchor.medium.emphasized.fontSize": {
+    "anchor.emphasized.medium.emphasized.fontSize": {
       "$type": "number",
       "$value": "{component.medium.fontSize}",
       "$description": "",
@@ -11329,7 +11341,7 @@ export default {
         }
       }
     },
-    "anchor.medium.emphasized.lineHeight": {
+    "anchor.emphasized.medium.emphasized.lineHeight": {
       "$type": "number",
       "$value": "{component.medium.lineHeight}",
       "$description": "",
@@ -11343,7 +11355,7 @@ export default {
         }
       }
     },
-    "anchor.medium.emphasized.gapX": {
+    "anchor.emphasized.medium.emphasized.gapX": {
       "$type": "number",
       "$value": "{component.medium.textToIconX}",
       "$description": "",
@@ -11357,7 +11369,7 @@ export default {
         }
       }
     },
-    "anchor.large.default.fontSize": {
+    "anchor.emphasized.large.default.fontSize": {
       "$type": "number",
       "$value": "{component.large.fontSize}",
       "$description": "",
@@ -11371,7 +11383,7 @@ export default {
         }
       }
     },
-    "anchor.large.default.lineHeight": {
+    "anchor.emphasized.large.default.lineHeight": {
       "$type": "number",
       "$value": "{component.large.lineHeight}",
       "$description": "",
@@ -11385,7 +11397,7 @@ export default {
         }
       }
     },
-    "anchor.large.default.gapX": {
+    "anchor.emphasized.large.default.gapX": {
       "$type": "number",
       "$value": "{component.large.textToIconX}",
       "$description": "",
@@ -11399,7 +11411,7 @@ export default {
         }
       }
     },
-    "anchor.large.emphasized.fontSize": {
+    "anchor.emphasized.large.emphasized.fontSize": {
       "$type": "number",
       "$value": "{component.large.fontSize}",
       "$description": "",
@@ -11413,7 +11425,7 @@ export default {
         }
       }
     },
-    "anchor.large.emphasized.lineHeight": {
+    "anchor.emphasized.large.emphasized.lineHeight": {
       "$type": "number",
       "$value": "{component.large.lineHeight}",
       "$description": "",
@@ -11427,7 +11439,7 @@ export default {
         }
       }
     },
-    "anchor.large.emphasized.gapX": {
+    "anchor.emphasized.large.emphasized.gapX": {
       "$type": "number",
       "$value": "{component.large.textToIconX}",
       "$description": "",
@@ -11441,7 +11453,7 @@ export default {
         }
       }
     },
-    "anchor.xlarge.default.fontSize": {
+    "anchor.emphasized.xlarge.default.fontSize": {
       "$type": "number",
       "$value": "{component.xlarge.fontSize}",
       "$description": "",
@@ -11455,7 +11467,7 @@ export default {
         }
       }
     },
-    "anchor.xlarge.default.lineHeight": {
+    "anchor.emphasized.xlarge.default.lineHeight": {
       "$type": "number",
       "$value": "{component.xlarge.lineHeight}",
       "$description": "",
@@ -11469,7 +11481,7 @@ export default {
         }
       }
     },
-    "anchor.xlarge.default.gapX": {
+    "anchor.emphasized.xlarge.default.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -11483,7 +11495,7 @@ export default {
         }
       }
     },
-    "anchor.xlarge.emphasized.fontSize": {
+    "anchor.emphasized.xlarge.emphasized.fontSize": {
       "$type": "number",
       "$value": "{component.xlarge.fontSize}",
       "$description": "",
@@ -11497,7 +11509,7 @@ export default {
         }
       }
     },
-    "anchor.xlarge.emphasized.lineHeight": {
+    "anchor.emphasized.xlarge.emphasized.lineHeight": {
       "$type": "number",
       "$value": "{component.xlarge.lineHeight}",
       "$description": "",
@@ -11511,7 +11523,7 @@ export default {
         }
       }
     },
-    "anchor.xlarge.emphasized.gapX": {
+    "anchor.emphasized.xlarge.emphasized.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -11525,7 +11537,7 @@ export default {
         }
       }
     },
-    "anchor.xxlarge.default.fontSize": {
+    "anchor.emphasized.xxlarge.default.fontSize": {
       "$type": "number",
       "$value": "{text.xxlarge.fontSize}",
       "$description": "",
@@ -11539,7 +11551,7 @@ export default {
         }
       }
     },
-    "anchor.xxlarge.default.lineHeight": {
+    "anchor.emphasized.xxlarge.default.lineHeight": {
       "$type": "number",
       "$value": "{text.xxlarge.lineHeight}",
       "$description": "",
@@ -11553,7 +11565,7 @@ export default {
         }
       }
     },
-    "anchor.xxlarge.default.gapX": {
+    "anchor.emphasized.xxlarge.default.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -11567,7 +11579,7 @@ export default {
         }
       }
     },
-    "anchor.xxlarge.emphasized.fontSize": {
+    "anchor.emphasized.xxlarge.emphasized.fontSize": {
       "$type": "number",
       "$value": "{text.xxlarge.fontSize}",
       "$description": "",
@@ -11581,7 +11593,7 @@ export default {
         }
       }
     },
-    "anchor.xxlarge.emphasized.lineHeight": {
+    "anchor.emphasized.xxlarge.emphasized.lineHeight": {
       "$type": "number",
       "$value": "{text.xxlarge.lineHeight}",
       "$description": "",
@@ -11595,7 +11607,7 @@ export default {
         }
       }
     },
-    "anchor.xxlarge.emphasized.gapX": {
+    "anchor.emphasized.xxlarge.emphasized.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -11609,7 +11621,7 @@ export default {
         }
       }
     },
-    "anchor.3xlarge.default.fontSize": {
+    "anchor.emphasized.3xlarge.default.fontSize": {
       "$type": "number",
       "$value": "{text.3xl.fontSize}",
       "$description": "",
@@ -11623,7 +11635,7 @@ export default {
         }
       }
     },
-    "anchor.3xlarge.default.lineHeight": {
+    "anchor.emphasized.3xlarge.default.lineHeight": {
       "$type": "number",
       "$value": "{text.3xl.lineHeight}",
       "$description": "",
@@ -11637,7 +11649,7 @@ export default {
         }
       }
     },
-    "anchor.3xlarge.default.gapX": {
+    "anchor.emphasized.3xlarge.default.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -11651,7 +11663,7 @@ export default {
         }
       }
     },
-    "anchor.3xlarge.emphasized.fontSize": {
+    "anchor.emphasized.3xlarge.emphasized.fontSize": {
       "$type": "number",
       "$value": "{text.3xl.fontSize}",
       "$description": "",
@@ -11665,7 +11677,7 @@ export default {
         }
       }
     },
-    "anchor.3xlarge.emphasized.lineHeight": {
+    "anchor.emphasized.3xlarge.emphasized.lineHeight": {
       "$type": "number",
       "$value": "{text.3xl.lineHeight}",
       "$description": "",
@@ -11679,7 +11691,7 @@ export default {
         }
       }
     },
-    "anchor.3xlarge.emphasized.gapX": {
+    "anchor.emphasized.3xlarge.emphasized.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -11693,7 +11705,7 @@ export default {
         }
       }
     },
-    "anchor.4xlarge.default.fontSize": {
+    "anchor.emphasized.4xlarge.default.fontSize": {
       "$type": "number",
       "$value": "{text.4xl.fontSize}",
       "$description": "",
@@ -11707,7 +11719,7 @@ export default {
         }
       }
     },
-    "anchor.4xlarge.default.lineHeight": {
+    "anchor.emphasized.4xlarge.default.lineHeight": {
       "$type": "number",
       "$value": "{text.4xl.lineHeight}",
       "$description": "",
@@ -11721,7 +11733,7 @@ export default {
         }
       }
     },
-    "anchor.4xlarge.default.gapX": {
+    "anchor.emphasized.4xlarge.default.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -11735,7 +11747,7 @@ export default {
         }
       }
     },
-    "anchor.4xlarge.emphasized.fontSize": {
+    "anchor.emphasized.4xlarge.emphasized.fontSize": {
       "$type": "number",
       "$value": "{text.4xl.fontSize}",
       "$description": "",
@@ -11749,7 +11761,7 @@ export default {
         }
       }
     },
-    "anchor.4xlarge.emphasized.lineHeight": {
+    "anchor.emphasized.4xlarge.emphasized.lineHeight": {
       "$type": "number",
       "$value": "{text.4xl.lineHeight}",
       "$description": "",
@@ -11763,7 +11775,7 @@ export default {
         }
       }
     },
-    "anchor.4xlarge.emphasized.gapX": {
+    "anchor.emphasized.4xlarge.emphasized.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -11777,7 +11789,7 @@ export default {
         }
       }
     },
-    "anchor.5xlarge.default.fontSize": {
+    "anchor.emphasized.5xlarge.default.fontSize": {
       "$type": "number",
       "$value": "{text.5xl.fontSize}",
       "$description": "",
@@ -11791,7 +11803,7 @@ export default {
         }
       }
     },
-    "anchor.5xlarge.default.lineHeight": {
+    "anchor.emphasized.5xlarge.default.lineHeight": {
       "$type": "number",
       "$value": "{text.5xl.lineHeight}",
       "$description": "",
@@ -11805,7 +11817,7 @@ export default {
         }
       }
     },
-    "anchor.5xlarge.default.gapX": {
+    "anchor.emphasized.5xlarge.default.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -11819,7 +11831,7 @@ export default {
         }
       }
     },
-    "anchor.5xlarge.emphasized.fontSize": {
+    "anchor.emphasized.5xlarge.emphasized.fontSize": {
       "$type": "number",
       "$value": "{text.5xl.fontSize}",
       "$description": "",
@@ -11833,7 +11845,7 @@ export default {
         }
       }
     },
-    "anchor.5xlarge.emphasized.lineHeight": {
+    "anchor.emphasized.5xlarge.emphasized.lineHeight": {
       "$type": "number",
       "$value": "{text.5xl.lineHeight}",
       "$description": "",
@@ -11847,7 +11859,7 @@ export default {
         }
       }
     },
-    "anchor.5xlarge.emphasized.gapX": {
+    "anchor.emphasized.5xlarge.emphasized.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -11861,7 +11873,7 @@ export default {
         }
       }
     },
-    "anchor.6xlarge.default.fontSize": {
+    "anchor.emphasized.6xlarge.default.fontSize": {
       "$type": "number",
       "$value": "{text.6xl.fontSize}",
       "$description": "",
@@ -11875,7 +11887,7 @@ export default {
         }
       }
     },
-    "anchor.6xlarge.default.lineHeight": {
+    "anchor.emphasized.6xlarge.default.lineHeight": {
       "$type": "number",
       "$value": "{text.6xl.lineHeight}",
       "$description": "",
@@ -11889,7 +11901,7 @@ export default {
         }
       }
     },
-    "anchor.6xlarge.default.gapX": {
+    "anchor.emphasized.6xlarge.default.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -11903,7 +11915,7 @@ export default {
         }
       }
     },
-    "anchor.6xlarge.emphasized.fontSize": {
+    "anchor.emphasized.6xlarge.emphasized.fontSize": {
       "$type": "number",
       "$value": "{text.6xl.fontSize}",
       "$description": "",
@@ -11917,7 +11929,7 @@ export default {
         }
       }
     },
-    "anchor.6xlarge.emphasized.lineHeight": {
+    "anchor.emphasized.6xlarge.emphasized.lineHeight": {
       "$type": "number",
       "$value": "{text.6xl.lineHeight}",
       "$description": "",
@@ -11931,7 +11943,7 @@ export default {
         }
       }
     },
-    "anchor.6xlarge.emphasized.gapX": {
+    "anchor.emphasized.6xlarge.emphasized.gapX": {
       "$type": "number",
       "$value": "{component.xlarge.textToIconX}",
       "$description": "",
@@ -17145,11 +17157,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.emphasized.hover.textColor",
+          "name": "anchor.emphasized.enabled.hover.textColor",
           "mode": "default"
         },
         {
-          "name": "anchor.emphasized.disabled.textColor",
+          "name": "anchor.emphasized.enabled.disabled.textColor",
           "mode": "default"
         }
       ]
@@ -19127,11 +19139,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.emphasized.hover.textColor",
+          "name": "anchor.emphasized.enabled.hover.textColor",
           "mode": "default"
         },
         {
-          "name": "anchor.emphasized.disabled.textColor",
+          "name": "anchor.emphasized.enabled.disabled.textColor",
           "mode": "default"
         }
       ]
@@ -20938,11 +20950,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.xxlarge.default.fontSize",
+          "name": "anchor.emphasized.xxlarge.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.xxlarge.emphasized.fontSize",
+          "name": "anchor.emphasized.xxlarge.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -20962,11 +20974,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.xxlarge.default.lineHeight",
+          "name": "anchor.emphasized.xxlarge.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.xxlarge.emphasized.lineHeight",
+          "name": "anchor.emphasized.xxlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -21000,11 +21012,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.3xlarge.default.fontSize",
+          "name": "anchor.emphasized.3xlarge.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.3xlarge.emphasized.fontSize",
+          "name": "anchor.emphasized.3xlarge.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -21024,11 +21036,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.3xlarge.default.lineHeight",
+          "name": "anchor.emphasized.3xlarge.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.3xlarge.emphasized.lineHeight",
+          "name": "anchor.emphasized.3xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -21062,11 +21074,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.4xlarge.default.fontSize",
+          "name": "anchor.emphasized.4xlarge.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.4xlarge.emphasized.fontSize",
+          "name": "anchor.emphasized.4xlarge.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -21086,11 +21098,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.4xlarge.default.lineHeight",
+          "name": "anchor.emphasized.4xlarge.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.4xlarge.emphasized.lineHeight",
+          "name": "anchor.emphasized.4xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -21124,11 +21136,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.5xlarge.default.fontSize",
+          "name": "anchor.emphasized.5xlarge.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.5xlarge.emphasized.fontSize",
+          "name": "anchor.emphasized.5xlarge.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -21148,11 +21160,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.5xlarge.default.lineHeight",
+          "name": "anchor.emphasized.5xlarge.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.5xlarge.emphasized.lineHeight",
+          "name": "anchor.emphasized.5xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -21186,11 +21198,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.6xlarge.default.fontSize",
+          "name": "anchor.emphasized.6xlarge.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.6xlarge.emphasized.fontSize",
+          "name": "anchor.emphasized.6xlarge.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -21210,11 +21222,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.6xlarge.default.lineHeight",
+          "name": "anchor.emphasized.6xlarge.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.6xlarge.emphasized.lineHeight",
+          "name": "anchor.emphasized.6xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -22733,11 +22745,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.xxlarge.default.fontSize",
+          "name": "anchor.emphasized.xxlarge.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.xxlarge.emphasized.fontSize",
+          "name": "anchor.emphasized.xxlarge.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -22757,11 +22769,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.xxlarge.default.lineHeight",
+          "name": "anchor.emphasized.xxlarge.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.xxlarge.emphasized.lineHeight",
+          "name": "anchor.emphasized.xxlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -22795,11 +22807,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.3xlarge.default.fontSize",
+          "name": "anchor.emphasized.3xlarge.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.3xlarge.emphasized.fontSize",
+          "name": "anchor.emphasized.3xlarge.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -22819,11 +22831,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.3xlarge.default.lineHeight",
+          "name": "anchor.emphasized.3xlarge.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.3xlarge.emphasized.lineHeight",
+          "name": "anchor.emphasized.3xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -22857,11 +22869,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.4xlarge.default.fontSize",
+          "name": "anchor.emphasized.4xlarge.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.4xlarge.emphasized.fontSize",
+          "name": "anchor.emphasized.4xlarge.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -22881,11 +22893,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.4xlarge.default.lineHeight",
+          "name": "anchor.emphasized.4xlarge.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.4xlarge.emphasized.lineHeight",
+          "name": "anchor.emphasized.4xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -22919,11 +22931,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.5xlarge.default.fontSize",
+          "name": "anchor.emphasized.5xlarge.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.5xlarge.emphasized.fontSize",
+          "name": "anchor.emphasized.5xlarge.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -22943,11 +22955,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.5xlarge.default.lineHeight",
+          "name": "anchor.emphasized.5xlarge.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.5xlarge.emphasized.lineHeight",
+          "name": "anchor.emphasized.5xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -22981,11 +22993,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.6xlarge.default.fontSize",
+          "name": "anchor.emphasized.6xlarge.default.fontSize",
           "mode": "default"
         },
         {
-          "name": "anchor.6xlarge.emphasized.fontSize",
+          "name": "anchor.emphasized.6xlarge.emphasized.fontSize",
           "mode": "default"
         }
       ]
@@ -23005,11 +23017,11 @@ export default {
       },
       "usedBy": [
         {
-          "name": "anchor.6xlarge.default.lineHeight",
+          "name": "anchor.emphasized.6xlarge.default.lineHeight",
           "mode": "default"
         },
         {
-          "name": "anchor.6xlarge.emphasized.lineHeight",
+          "name": "anchor.emphasized.6xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]

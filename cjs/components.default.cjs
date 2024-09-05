@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 05 Sep 2024 18:25:38 GMT
+ * Generated on Thu, 05 Sep 2024 18:32:22 GMT
  */
 
 module.exports = {
@@ -988,7 +988,7 @@ module.exports = {
         "valueText": {
           "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
-          "fontWeight": 400
+          "fontWeight": 500
         }
       },
       "input": {
@@ -1310,124 +1310,125 @@ module.exports = {
       "emphasized": {
         "enabled": {
           "textColor": "text-brand",
-          "fontWeight": 700
-        },
-        "hover": {
-          "textColor": "text-brand",
           "fontWeight": 700,
-          "textDecoration": "underline"
+          "textDecoration": "none",
+          "hover": {
+            "textColor": "text-brand",
+            "fontWeight": 700,
+            "textDecoration": "underline"
+          },
+          "disabled": {
+            "textColor": "text-brand",
+            "fontWeight": 700
+          }
         },
-        "disabled": {
-          "textColor": "text-brand",
-          "fontWeight": 700
-        }
-      },
-      "small": {
-        "default": {
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "6px"
+        "small": {
+          "default": {
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
+          },
+          "emphasized": {
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
+          }
         },
-        "emphasized": {
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "6px"
-        }
-      },
-      "medium": {
-        "default": {
-          "fontSize": "1.125rem",
-          "lineHeight": "1.5rem",
-          "gapX": "6px"
+        "medium": {
+          "default": {
+            "fontSize": "1.125rem",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
+          },
+          "emphasized": {
+            "fontSize": "1.125rem",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
+          }
         },
-        "emphasized": {
-          "fontSize": "1.125rem",
-          "lineHeight": "1.5rem",
-          "gapX": "6px"
-        }
-      },
-      "large": {
-        "default": {
-          "fontSize": "1.375rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px"
+        "large": {
+          "default": {
+            "fontSize": "1.375rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px"
+          },
+          "emphasized": {
+            "fontSize": "1.375rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px"
+          }
         },
-        "emphasized": {
-          "fontSize": "1.375rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px"
-        }
-      },
-      "xlarge": {
-        "default": {
-          "fontSize": "1.875rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px"
+        "xlarge": {
+          "default": {
+            "fontSize": "1.875rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px"
+          },
+          "emphasized": {
+            "fontSize": "1.875rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px"
+          }
         },
-        "emphasized": {
-          "fontSize": "1.875rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px"
-        }
-      },
-      "xxlarge": {
-        "default": {
-          "fontSize": "2.25rem",
-          "lineHeight": "2.5rem",
-          "gapX": "6px"
+        "xxlarge": {
+          "default": {
+            "fontSize": "2.25rem",
+            "lineHeight": "2.5rem",
+            "gapX": "6px"
+          },
+          "emphasized": {
+            "fontSize": "2.25rem",
+            "lineHeight": "2.5rem",
+            "gapX": "6px"
+          }
         },
-        "emphasized": {
-          "fontSize": "2.25rem",
-          "lineHeight": "2.5rem",
-          "gapX": "6px"
-        }
-      },
-      "3xlarge": {
-        "default": {
-          "fontSize": "2.625rem",
-          "lineHeight": "2.875rem",
-          "gapX": "6px"
+        "3xlarge": {
+          "default": {
+            "fontSize": "2.625rem",
+            "lineHeight": "2.875rem",
+            "gapX": "6px"
+          },
+          "emphasized": {
+            "fontSize": "2.625rem",
+            "lineHeight": "2.875rem",
+            "gapX": "6px"
+          }
         },
-        "emphasized": {
-          "fontSize": "2.625rem",
-          "lineHeight": "2.875rem",
-          "gapX": "6px"
-        }
-      },
-      "4xlarge": {
-        "default": {
-          "fontSize": "3rem",
-          "lineHeight": "3rem",
-          "gapX": "6px"
+        "4xlarge": {
+          "default": {
+            "fontSize": "3rem",
+            "lineHeight": "3rem",
+            "gapX": "6px"
+          },
+          "emphasized": {
+            "fontSize": "3rem",
+            "lineHeight": "3rem",
+            "gapX": "6px"
+          }
         },
-        "emphasized": {
-          "fontSize": "3rem",
-          "lineHeight": "3rem",
-          "gapX": "6px"
-        }
-      },
-      "5xlarge": {
-        "default": {
-          "fontSize": "4.5rem",
-          "lineHeight": "4.5rem",
-          "gapX": "6px"
+        "5xlarge": {
+          "default": {
+            "fontSize": "4.5rem",
+            "lineHeight": "4.5rem",
+            "gapX": "6px"
+          },
+          "emphasized": {
+            "fontSize": "4.5rem",
+            "lineHeight": "4.5rem",
+            "gapX": "6px"
+          }
         },
-        "emphasized": {
-          "fontSize": "4.5rem",
-          "lineHeight": "4.5rem",
-          "gapX": "6px"
-        }
-      },
-      "6xlarge": {
-        "default": {
-          "fontSize": "4.5rem",
-          "lineHeight": "4.5rem",
-          "gapX": "6px"
-        },
-        "emphasized": {
-          "fontSize": "4.5rem",
-          "lineHeight": "4.5rem",
-          "gapX": "6px"
+        "6xlarge": {
+          "default": {
+            "fontSize": "4.5rem",
+            "lineHeight": "4.5rem",
+            "gapX": "6px"
+          },
+          "emphasized": {
+            "fontSize": "4.5rem",
+            "lineHeight": "4.5rem",
+            "gapX": "6px"
+          }
         }
       }
     }
