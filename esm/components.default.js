@@ -1,10 +1,17 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Aug 2024 19:44:15 GMT
+ * Generated on Thu, 05 Sep 2024 00:47:07 GMT
  */
 
 export default {
   "hpe": {
+    "focusIndicator": {
+      "outline": {
+        "color": "focus",
+        "width": "2px",
+        "style": "solid"
+      }
+    },
     "button": {
       "primary": {
         "enabled": {
@@ -143,7 +150,7 @@ export default {
           "minHeight": "28px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
-          "gapX": "6px",
+          "gapX": "3px",
           "iconOnly": {
             "paddingX": "4px",
             "paddingY": "4px",
@@ -152,7 +159,7 @@ export default {
             "minHeight": "28px",
             "fontSize": "1rem",
             "lineHeight": "1.25rem",
-            "gapX": "6px"
+            "gapX": "3px"
           }
         },
         "secondary": {
@@ -163,7 +170,7 @@ export default {
           "minHeight": "28px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
-          "gapX": "6px",
+          "gapX": "3px",
           "iconOnly": {
             "paddingX": "4px",
             "paddingY": "4px",
@@ -172,7 +179,7 @@ export default {
             "minHeight": "28px",
             "fontSize": "1rem",
             "lineHeight": "1.25rem",
-            "gapX": "6px"
+            "gapX": "3px"
           },
           "hover": {
             "boxShadow": "0px 0px 0px 1px #01a982 inset"
@@ -186,7 +193,7 @@ export default {
           "minHeight": "28px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
-          "gapX": "6px",
+          "gapX": "3px",
           "iconOnly": {
             "paddingX": "4px",
             "paddingY": "4px",
@@ -195,7 +202,7 @@ export default {
             "minHeight": "28px",
             "fontSize": "1rem",
             "lineHeight": "1.25rem",
-            "gapX": "6px"
+            "gapX": "3px"
           }
         },
         "toolbar": {
@@ -206,7 +213,7 @@ export default {
           "minHeight": "28px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
-          "gapX": "6px",
+          "gapX": "3px",
           "iconOnly": {
             "paddingX": "0px",
             "paddingY": "0px",
@@ -215,7 +222,7 @@ export default {
             "minHeight": "28px",
             "fontSize": "1rem",
             "lineHeight": "1.25rem",
-            "gapX": "6px"
+            "gapX": "3px"
           }
         }
       },
@@ -261,9 +268,6 @@ export default {
           }
         },
         "secondary": {
-          "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
-          },
           "paddingX": "18px",
           "paddingY": "4px",
           "borderRadius": "2em",
@@ -281,6 +285,17 @@ export default {
             "fontSize": "1.1875rem",
             "lineHeight": "1.5rem",
             "gapX": "6px"
+          },
+          "hover": {
+            "boxShadow": {
+              "1": {
+                "offsetX": "0px",
+                "offsetY": "0px",
+                "blur": "0px",
+                "spread": "1px",
+                "color": "border-selected"
+              }
+            }
           }
         },
         "toolbar": {
@@ -307,19 +322,19 @@ export default {
       "large": {
         "default": {
           "paddingX": "24px",
-          "paddingY": "8px",
+          "paddingY": "7px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
+          "lineHeight": "1.875rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "2em",
             "borderWidth": "2px",
             "minHeight": "48px",
             "fontSize": "1.375rem",
-            "lineHeight": "1.75rem",
+            "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "11px",
             "paddingY": "11px"
@@ -327,19 +342,19 @@ export default {
         },
         "primary": {
           "paddingX": "24px",
-          "paddingY": "8px",
+          "paddingY": "7px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
+          "lineHeight": "1.875rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "2em",
             "borderWidth": "2px",
             "minHeight": "48px",
             "fontSize": "1.375rem",
-            "lineHeight": "1.75rem",
+            "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "11px",
             "paddingY": "11px"
@@ -347,42 +362,50 @@ export default {
         },
         "secondary": {
           "paddingX": "24px",
-          "paddingY": "8px",
+          "paddingY": "7px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
+          "lineHeight": "1.875rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "2em",
             "borderWidth": "2px",
             "minHeight": "48px",
             "fontSize": "1.375rem",
-            "lineHeight": "1.75rem",
+            "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "11px",
             "paddingY": "11px"
           },
           "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+            "boxShadow": {
+              "1": {
+                "offsetX": "0px",
+                "offsetY": "0px",
+                "blur": "0px",
+                "spread": "1px",
+                "color": "border-selected"
+              }
+            }
           }
         },
         "toolbar": {
           "paddingX": "10px",
-          "paddingY": "9px",
+          "paddingY": "8px",
           "borderRadius": "6px",
           "borderWidth": "default",
           "minHeight": "48px",
           "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
+          "lineHeight": "1.875rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "6px",
             "borderWidth": "default",
             "minHeight": "48px",
             "fontSize": "1.375rem",
-            "lineHeight": "1.75rem",
+            "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "11px",
             "paddingY": "11px"
@@ -450,7 +473,15 @@ export default {
           "lineHeight": "1.875rem",
           "gapX": "6px",
           "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+            "boxShadow": {
+              "1": {
+                "offsetX": "0px",
+                "offsetY": "0px",
+                "blur": "0px",
+                "spread": "1px",
+                "color": "border-selected"
+              }
+            }
           }
         },
         "toolbar": {
@@ -534,21 +565,31 @@ export default {
     "component": {
       "xsmall": {
         "minHeight": "24px",
-        "textToElementX": "6px",
-        "textToIconX": "6px",
+        "textToElementX": "3px",
+        "textToIconX": "3px",
         "fontSize": "0.875rem",
         "lineHeight": "1rem",
         "borderWidth": "default",
-        "paddingY": "3px"
+        "paddingY": "3px",
+        "paddingX": {
+          "Narrow": "3px",
+          "Standard": "6px",
+          "Wide": "9px"
+        }
       },
       "small": {
-        "borderWidth": "default",
+        "borderWidth": "1px",
         "paddingY": "3px",
         "fontSize": "1rem",
         "lineHeight": "1.25rem",
         "minHeight": "28px",
         "textToElementX": "12px",
-        "textToIconX": "6px"
+        "textToIconX": "6px",
+        "paddingX": {
+          "Narrow": "3px",
+          "Standard": "6px",
+          "Wide": "9px"
+        }
       },
       "medium": {
         "fontSize": "1.125rem",
@@ -557,16 +598,26 @@ export default {
         "textToElementX": "12px",
         "textToIconX": "6px",
         "borderWidth": "default",
-        "paddingY": "5px"
+        "paddingY": "5px",
+        "paddingX": {
+          "Narrow": "5px",
+          "Standard": "10px",
+          "Wide": "15px"
+        }
       },
       "large": {
         "fontSize": "1.375rem",
-        "lineHeight": "1.75rem",
+        "lineHeight": "1.875rem",
         "minHeight": "48px",
         "textToElementX": "12px",
         "textToIconX": "6px",
         "borderWidth": "default",
-        "paddingY": "9px"
+        "paddingY": "8px",
+        "paddingX": {
+          "Narrow": "9px",
+          "Standard": "18px",
+          "Wide": "24px"
+        }
       },
       "xlarge": {
         "fontSize": "1.875rem",
@@ -575,7 +626,12 @@ export default {
         "textToElementX": "12px",
         "textToIconX": "6px",
         "borderWidth": "default",
-        "paddingY": "20px"
+        "paddingY": "20px",
+        "paddingX": {
+          "Narrow": "16px",
+          "Standard": "24px",
+          "Wide": "32px"
+        }
       }
     },
     "select": {
@@ -629,10 +685,6 @@ export default {
           "background": "#00000000",
           "borderColor": "border-strong"
         },
-        "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
-        },
         "selected": {
           "enabled": {
             "background": "background-selected-strong-enabled",
@@ -649,6 +701,10 @@ export default {
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
+        },
+        "disabled": {
+          "background": "background-disabled",
+          "borderColor": "border-disabled"
         },
         "indeterminate": {
           "enabled": {
@@ -726,7 +782,7 @@ export default {
         },
         "handle": {
           "enabled": {
-            "background": "background-default",
+            "background": "background-disabled",
             "borderColor": "border-default"
           },
           "hover": {
@@ -779,7 +835,7 @@ export default {
           "track": {
             "height": "1.5rem",
             "width": "48px",
-            "borderWidth": "default",
+            "borderWidth": "1px",
             "borderRadius": "24px"
           },
           "handle": {
@@ -923,7 +979,7 @@ export default {
         },
         "helpText": {
           "fontSize": "0.875rem",
-          "lineHeight": "1rem",
+          "lineHeight": "0.75rem",
           "fontWeight": 400
         },
         "infoText": {
@@ -939,7 +995,7 @@ export default {
         "valueText": {
           "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
-          "fontWeight": 500
+          "fontWeight": 400
         }
       },
       "input": {
@@ -998,21 +1054,21 @@ export default {
           },
           "focus": {
             "background": "transparent",
-            "borderColor": "#ffffff"
+            "borderColor": "border-default"
           },
           "readOnly": {
             "background": "background-back",
             "borderColor": "border-weak"
+          },
+          "disabled": {
+            "background": "background-disabled",
+            "borderColor": "border-disabled"
           },
           "status": {
             "critical": {
               "background": "background-status-critical",
               "borderColor": "border-strong"
             }
-          },
-          "disabled": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled"
           }
         }
       },
@@ -1216,7 +1272,7 @@ export default {
       },
       "label": {
         "enabled": {
-          "textColor": "text-default"
+          "textColor": "background-disabled"
         },
         "hover": {
           "textColor": "text-default"
@@ -1300,12 +1356,12 @@ export default {
       "large": {
         "default": {
           "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
+          "lineHeight": "1.875rem",
           "gapX": "6px"
         },
         "emphasized": {
           "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
+          "lineHeight": "1.875rem",
           "gapX": "6px"
         }
       },

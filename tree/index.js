@@ -1,3916 +1,4 @@
 export default {
-  "dark": {
-    "color.background.default": {
-      "$type": "color",
-      "$value": "{base.color.grey.1300}",
-      "$description": "Default color for component backgrounds in the default/enabled state. Can also be used for page background.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.toolbar.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.group.container.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.focus.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.hover": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity6}",
-      "$description": "Standard hover state color",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.default.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "button.toolbar.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "menu.item.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "headerCell.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.group.item.hover.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.active": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity6}",
-      "$description": "Standard active state color",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.default.selected.enabled.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.disabled": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity7}",
-      "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "button.secondary.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "button.toolbar.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.disabled.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.back": {
-      "$type": "color",
-      "$value": "{base.color.grey.1300}",
-      "$description": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "formField.input.container.readOnly.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.front": {
-      "$type": "color",
-      "$value": "{base.color.grey.1200}",
-      "$description": "Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.floating": {
-      "$type": "color",
-      "$value": "{base.color.grey.1100}",
-      "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "drop.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.contrast": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity6}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.status.info": {
-      "$type": "color",
-      "$value": "{base.color.blue.400-Opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.status.unknown": {
-      "$type": "color",
-      "$value": "{base.color.grey.1200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.status.critical": {
-      "$type": "color",
-      "$value": "{base.color.red.800-Opacity30}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "formField.input.group.item.status.critical.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.status.critical.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.status.warning": {
-      "$type": "color",
-      "$value": "{base.color.yellow.400-Opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.status.ok": {
-      "$type": "color",
-      "$value": "{base.color.green.500-Opacity30}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.primary.default": {
-      "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "button.secondary.enabled.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.primary.hover": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "Hover color variant of the primary color.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.selected.strong.enabled": {
-      "$type": "color",
-      "$value": "{base.color.brand}",
-      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "checkbox.control.selected.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.hover.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.selected.weak.enabled": {
-      "$type": "color",
-      "$value": "{base.color.green.1000}",
-      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "select.option.selected.enabled.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.selected.weak.hover": {
-      "$type": "color",
-      "$value": "{base.color.green.900}",
-      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.border.strong": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity72}",
-      "$description": "Stronger border color for added emphasis",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "checkbox.control.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.status.critical.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.hover.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.border.default": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity36}",
-      "$description": "Default border colour",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.toolbar.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "menu.group.separator.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "headerCell.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "footerCell.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.focus.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.border.weak": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity12}",
-      "$description": "Weaker border color for reduced emphasis",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "formField.input.container.readOnly.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.border.disabled": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity12}",
-      "$description": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.secondary.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.toolbar.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.group.container.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.disabled.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.border.selected": {
-      "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.secondary.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.focus.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.default": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Default text color that is accessible on standard background colors",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "color.text.onStatus",
-          "mode": "dark"
-        },
-        {
-          "name": "checkbox.label.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.label.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.label.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.label.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "dataCell.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.disabled.color",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.status.critical.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.status.critical.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.status.critical.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.status.critical.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.label.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.label.hover.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.strong": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Stronger text color for added prominence",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "color.text.onSelectedWeak",
-          "mode": "dark"
-        },
-        {
-          "name": "color.text.heading.default",
-          "mode": "dark"
-        },
-        {
-          "name": "color.icon.onSelectedWeak",
-          "mode": "dark"
-        },
-        {
-          "name": "button.default.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "dataCell.primary.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "headerCell.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.status.critical.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.default.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.default.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.default.disabled.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.weak": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity50}",
-      "$description": "Weaker text color for reduced emphasis",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "color.text.placeholder",
-          "mode": "dark"
-        },
-        {
-          "name": "headerCell.units.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "headerCell.units.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.status.critical.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.xweak": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity20}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.text.placeholder": {
-      "$type": "color",
-      "$value": "{color.text.weak}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.text.disabled": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity24}",
-      "$description": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.secondary.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.default.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.toolbar.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.label.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.label.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.disabled",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.label.disabled.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.onPrimary": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.primary.hover.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.onSelectedStrong": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Text color to be used for text sitting on background-selected-strong.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.text.onSelectedWeak": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "Text color to be used for text sitting on background-selected-strong.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "select.option.selected.enabled.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.onStatus": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "Text color to be used on status backgrounds.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.text.brand": {
-      "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.emphasized.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.disabled.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.heading.default": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.text.inverse.default": {
-      "$type": "color",
-      "$value": "{base.color.grey.1200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.default": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Default icon colour that is accessible on standard background colours",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.strong": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Stronger icon color for added prominence",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.default.enabled.iconColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.icon.weak": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity50}",
-      "$description": "Weaker icon color for reduced emphasis",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.xweak": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity20}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.disabled": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity24}",
-      "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.secondary.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.default.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.toolbar.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.disabled.iconColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.icon.status.critical": {
-      "$type": "color",
-      "$value": "{base.color.red.700}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.status.info": {
-      "$type": "color",
-      "$value": "{base.color.blue.700}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.status.ok": {
-      "$type": "color",
-      "$value": "{base.color.green.700}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.status.warning": {
-      "$type": "color",
-      "$value": "{base.color.orange.700}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.status.unknown": {
-      "$type": "color",
-      "$value": "{base.color.grey.800}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.onPrimary": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.enabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.primary.hover.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.hover.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.enabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.hover.iconColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.icon.onSelectedStrong": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Icon color to be used for Icon sitting on background-selected-strong.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "checkbox.control.selected.enabled.iconColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.icon.onSelectedWeak": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "Icon color to be used for icon sitting on background-selected-strong.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.brand": {
-      "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "Brand color for icons.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "radioButton.control.selected.enabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.hover.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.focus.iconColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.decorative.green": {
-      "$type": "color",
-      "$value": "{base.color.green.700}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.purple": {
-      "$type": "color",
-      "$value": "{base.color.purple.900}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.turquoise": {
-      "$type": "color",
-      "$value": "{base.color.turquoise.700}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.blue": {
-      "$type": "color",
-      "$value": "{base.color.blue.700}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.red": {
-      "$type": "color",
-      "$value": "{base.color.red.850}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.orange": {
-      "$type": "color",
-      "$value": "{base.color.orange.700}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.yellow": {
-      "$type": "color",
-      "$value": "{base.color.yellow.700}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.10": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.20": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.30": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.40": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.50": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.60": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.70": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.10Weak": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.20Weak": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.30weak": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.40Weak": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.50Weak": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.60Weak": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.70Weak": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.transparent": {
-      "$type": "color",
-      "$value": "#00000000",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "formField.input.container.focus.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.focus": {
-      "$type": "color",
-      "$value": "{base.color.turquoise.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.shadow.weak": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.shadow.default": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity36}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.shadow.strong": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity50}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.small": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "offsetX": 0,
-          "offsetY": "{base.dimension.100}",
-          "blur": "{base.dimension.100}",
-          "spread": 0,
-          "color": "{color.shadow.weak}"
-        }
-      ],
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.medium": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.xsmall}",
-          "blur": "{base.static.spacing.small}",
-          "spread": "{base.static.spacing.none}",
-          "color": "{color.shadow.default}"
-        }
-      ],
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.large": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.small}",
-          "blur": "{base.static.spacing.medium}",
-          "spread": "{base.static.spacing.none}",
-          "color": "{color.shadow.default}"
-        }
-      ],
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    }
-  },
-  "light": {
-    "color.background.default": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Default color for component backgrounds in the default/enabled state. Can also be used for page background.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.toolbar.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.group.container.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.focus.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.hover": {
-      "$type": "color",
-      "$value": "{color.background.contrast}",
-      "$description": "Standard hover state color",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "color.background.active",
-          "mode": "light"
-        },
-        {
-          "name": "button.default.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "button.toolbar.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "menu.item.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "headerCell.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.group.item.hover.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.active": {
-      "$type": "color",
-      "$value": "{color.background.hover}",
-      "$description": "Standard active state color",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.default.selected.enabled.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.disabled": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity4}",
-      "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "button.secondary.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "button.toolbar.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.disabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.disabled.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.back": {
-      "$type": "color",
-      "$value": "{base.color.grey.50}",
-      "$description": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "formField.input.container.readOnly.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.front": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.floating": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "drop.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.contrast": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity4}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "color.background.hover",
-          "mode": "light"
-        }
-      ]
-    },
-    "color.background.status.info": {
-      "$type": "color",
-      "$value": "{base.color.blue.400-Opacity24}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.status.unknown": {
-      "$type": "color",
-      "$value": "{base.color.grey.50}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.status.critical": {
-      "$type": "color",
-      "$value": "{base.color.red.500-Opacity24}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "formField.input.group.item.status.critical.background",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.status.critical.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.status.warning": {
-      "$type": "color",
-      "$value": "{base.color.orange.400-Opacity24}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.status.ok": {
-      "$type": "color",
-      "$value": "{base.color.green.400-Opacity24}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.primary.default": {
-      "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "button.secondary.enabled.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.primary.hover": {
-      "$type": "color",
-      "$value": "{TBD}",
-      "$description": "Hover color variant of the primary color.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.background.selected.strong.enabled": {
-      "$type": "color",
-      "$value": "{base.color.brand}",
-      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "checkbox.control.selected.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.hover.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.enabled.background",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.hover.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.selected.weak.enabled": {
-      "$type": "color",
-      "$value": "{base.color.green.100}",
-      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "select.option.selected.enabled.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.background.selected.weak.hover": {
-      "$type": "color",
-      "$value": "{base.color.green.125}",
-      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.border.strong": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity72}",
-      "$description": "Stronger border color for added emphasis",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "checkbox.control.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.status.critical.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.hover.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.border.default": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity36}",
-      "$description": "Default border colour",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.toolbar.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "menu.group.separator.background",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "headerCell.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "footerCell.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.focus.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.border.weak": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity12}",
-      "$description": "Weaker border color for reduced emphasis",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "formField.input.container.readOnly.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.border.disabled": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity12}",
-      "$description": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.secondary.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.toolbar.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.track.selected.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.control.handle.selected.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.group.container.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.input.container.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.disabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.disabled.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.border.selected": {
-      "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.secondary.hover.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.enabled.borderColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.focus.borderColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.default": {
-      "$type": "color",
-      "$value": "{base.color.grey.800}",
-      "$description": "Default text color that is accessible on standard background colors",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "color.text.onStatus",
-          "mode": "light"
-        },
-        {
-          "name": "checkbox.label.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.label.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.label.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.label.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "dataCell.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.disabled.color",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.helpText.status.critical.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.status.critical.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.errorText.status.critical.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.status.critical.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.label.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.label.hover.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.strong": {
-      "$type": "color",
-      "$value": "{base.color.grey.1000}",
-      "$description": "Stronger text color for added prominence",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "color.text.onSelectedWeak",
-          "mode": "light"
-        },
-        {
-          "name": "color.text.heading.default",
-          "mode": "light"
-        },
-        {
-          "name": "color.icon.onSelectedWeak",
-          "mode": "light"
-        },
-        {
-          "name": "button.default.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "dataCell.primary.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "headerCell.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.labelText.status.critical.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.default.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.default.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.default.disabled.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.weak": {
-      "$type": "color",
-      "$value": "{base.color.grey.700}",
-      "$description": "Weaker text color for reduced emphasis",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "color.text.placeholder",
-          "mode": "light"
-        },
-        {
-          "name": "headerCell.units.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "headerCell.units.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.focus.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.readOnly.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.status.critical.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.xweak": {
-      "$type": "color",
-      "$value": "{base.color.grey.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.text.placeholder": {
-      "$type": "color",
-      "$value": "{color.text.weak}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.text.disabled": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity24}",
-      "$description": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.secondary.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.default.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.toolbar.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "select.option.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.label.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "switch.label.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.placeholderText.disabled",
-          "mode": "default"
-        },
-        {
-          "name": "formField.infoText.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "formField.valueText.disabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.label.disabled.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.onPrimary": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.primary.hover.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.onSelectedStrong": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Text color to be used for text sitting on background-selected-strong.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.text.onSelectedWeak": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "Text color to be used for text sitting on background-selected-strong.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "select.option.selected.enabled.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.onStatus": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "Text color to be used on status backgrounds.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.text.brand": {
-      "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.emphasized.enabled.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.hover.textColor",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.disabled.textColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.text.heading.default": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.text.inverse.default": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.default": {
-      "$type": "color",
-      "$value": "{base.color.grey.800}",
-      "$description": "Default icon colour that is accessible on standard background colours",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.strong": {
-      "$type": "color",
-      "$value": "{base.color.grey.1000}",
-      "$description": "Stronger icon color for added prominence",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.default.enabled.iconColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.icon.weak": {
-      "$type": "color",
-      "$value": "{base.color.grey.700}",
-      "$description": "Weaker icon color for reduced emphasis",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.xweak": {
-      "$type": "color",
-      "$value": "{base.color.grey.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.disabled": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity24}",
-      "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.secondary.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.default.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.toolbar.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.disabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.disabled.iconColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.icon.status.critical": {
-      "$type": "color",
-      "$value": "{base.color.red.550}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.status.info": {
-      "$type": "color",
-      "$value": "{base.color.blue.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.status.ok": {
-      "$type": "color",
-      "$value": "{base.color.green.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.status.warning": {
-      "$type": "color",
-      "$value": "{base.color.orange.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.status.unknown": {
-      "$type": "color",
-      "$value": "{base.color.grey.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.onPrimary": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.primary.enabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "button.primary.hover.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.selected.hover.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.enabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.control.indeterminate.hover.iconColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.icon.onSelectedStrong": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Icon color to be used for Icon sitting on background-selected-strong.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "checkbox.control.selected.enabled.iconColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.icon.onSelectedWeak": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "Icon color to be used for icon sitting on background-selected-strong.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.icon.brand": {
-      "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "Brand color for icons.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "radioButton.control.selected.enabled.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.hover.iconColor",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.control.selected.focus.iconColor",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.decorative.green": {
-      "$type": "color",
-      "$value": "{base.color.green.400}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.purple": {
-      "$type": "color",
-      "$value": "{base.color.purple.500}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.turquoise": {
-      "$type": "color",
-      "$value": "{base.color.turquoise.200}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.blue": {
-      "$type": "color",
-      "$value": "{base.color.blue.400}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.red": {
-      "$type": "color",
-      "$value": "{base.color.red.500}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.orange": {
-      "$type": "color",
-      "$value": "{base.color.orange.400}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.decorative.yellow": {
-      "$type": "color",
-      "$value": "{base.color.yellow.200}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.10": {
-      "$type": "color",
-      "$value": "{base.color.blue.700}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.20": {
-      "$type": "color",
-      "$value": "{base.color.orange.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.30": {
-      "$type": "color",
-      "$value": "{base.color.purple.800}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.40": {
-      "$type": "color",
-      "$value": "{base.color.turquoise.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.50": {
-      "$type": "color",
-      "$value": "{base.color.yellow.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.60": {
-      "$type": "color",
-      "$value": "{base.color.purple.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.70": {
-      "$type": "color",
-      "$value": "{base.color.blue.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.10Weak": {
-      "$type": "color",
-      "$value": "{base.color.blue.700-Opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.20Weak": {
-      "$type": "color",
-      "$value": "{base.color.orange.500-Opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.30weak": {
-      "$type": "color",
-      "$value": "{base.color.purple.800-Opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.40Weak": {
-      "$type": "color",
-      "$value": "{base.color.turquoise.200-Opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.50Weak": {
-      "$type": "color",
-      "$value": "{base.color.yellow.300-Opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.60Weak": {
-      "$type": "color",
-      "$value": "{base.color.purple.500-Opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.dataVis.categorical.70Weak": {
-      "$type": "color",
-      "$value": "{base.color.blue.400-Opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.transparent": {
-      "$type": "color",
-      "$value": "#00000000",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "formField.input.container.focus.background",
-          "mode": "default"
-        }
-      ]
-    },
-    "color.focus": {
-      "$type": "color",
-      "$value": "{base.color.turquoise.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.shadow.weak": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.shadow.default": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "color.shadow.strong": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity24}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.small": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "offsetX": 0,
-          "offsetY": "{base.dimension.100}",
-          "blur": "{base.dimension.100}",
-          "spread": 0,
-          "color": "{color.shadow.weak}"
-        }
-      ],
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.medium": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.xsmall}",
-          "blur": "{base.static.spacing.small}",
-          "spread": "{base.static.spacing.none}",
-          "color": "{color.shadow.default}"
-        }
-      ],
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "elevation.large": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.small}",
-          "blur": "{base.static.spacing.medium}",
-          "spread": "{base.static.spacing.none}",
-          "color": "{color.shadow.default}"
-        }
-      ],
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    }
-  },
   "default": {
     "button.primary.enabled.background": {
       "$type": "color",
@@ -5201,7 +1289,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -5215,7 +1303,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -5427,7 +1515,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -5441,7 +1529,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -5676,7 +1764,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -5690,7 +1778,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -5902,7 +1990,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -5916,7 +2004,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -6128,7 +2216,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -6142,7 +2230,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -6354,7 +2442,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -6368,7 +2456,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -6454,29 +2542,6 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.medium.secondary.hover.boxShadow": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.none}",
-          "blur": "{base.static.spacing.none}",
-          "spread": "{base.dimension.25}",
-          "color": "{button.secondary.hover.borderColor}",
-          "inset": true
-        }
-      ],
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -6603,7 +2668,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -6617,7 +2682,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -6708,6 +2773,76 @@ export default {
         }
       }
     },
+    "button.medium.secondary.hover.boxShadow.1.offsetX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.medium.secondary.hover.boxShadow.1.offsetY": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.medium.secondary.hover.boxShadow.1.blur": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.medium.secondary.hover.boxShadow.1.spread": {
+      "$type": "number",
+      "$value": "{base.dimension.25}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.medium.secondary.hover.boxShadow.1.color": {
+      "$type": "color",
+      "$value": "{button.secondary.hover.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "button.medium.toolbar.paddingX": {
       "$type": "number",
       "$value": "{button.medium.default.paddingX}",
@@ -6738,7 +2873,7 @@ export default {
     },
     "button.medium.toolbar.borderRadius": {
       "$type": "number",
-      "$value": "{base.static.radius.xsmall}",
+      "$value": "{base.static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6829,7 +2964,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -6843,7 +2978,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -6950,7 +3085,7 @@ export default {
     },
     "button.large.default.paddingY": {
       "$type": "number",
-      "$value": 8,
+      "$value": 7,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7140,7 +3275,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -7154,7 +3289,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -7366,7 +3501,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -7380,7 +3515,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -7592,7 +3727,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -7606,30 +3741,77 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
       }
     },
-    "button.large.secondary.hover.boxShadow": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.none}",
-          "blur": "{base.static.spacing.none}",
-          "spread": "{base.dimension.25}",
-          "color": "{button.secondary.hover.borderColor}",
-          "inset": true
-        }
-      ],
+    "button.large.secondary.hover.boxShadow.1.offsetX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.large.secondary.hover.boxShadow.1.offsetY": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.large.secondary.hover.boxShadow.1.blur": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.large.secondary.hover.boxShadow.1.spread": {
+      "$type": "number",
+      "$value": "{base.dimension.25}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.large.secondary.hover.boxShadow.1.color": {
+      "$type": "color",
+      "$value": "{button.secondary.hover.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_COLOR"
           ],
           "codeSyntax": {}
         }
@@ -7651,7 +3833,7 @@ export default {
     },
     "button.large.toolbar.paddingY": {
       "$type": "number",
-      "$value": 9,
+      "$value": 8,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7841,7 +4023,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -7855,7 +4037,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -7954,7 +4136,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -7968,7 +4150,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -8180,7 +4362,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -8194,7 +4376,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -8406,7 +4588,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -8420,7 +4602,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -8539,24 +4721,71 @@ export default {
         }
       }
     },
-    "button.xlarge.secondary.hover.boxShadow": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.none}",
-          "blur": "{base.static.spacing.none}",
-          "spread": "{base.dimension.25}",
-          "color": "{button.secondary.hover.borderColor}",
-          "inset": true
-        }
-      ],
+    "button.xlarge.secondary.hover.boxShadow.1.offsetX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.xlarge.secondary.hover.boxShadow.1.offsetY": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.xlarge.secondary.hover.boxShadow.1.blur": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.xlarge.secondary.hover.boxShadow.1.spread": {
+      "$type": "number",
+      "$value": "{base.dimension.25}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "button.xlarge.secondary.hover.boxShadow.1.color": {
+      "$type": "color",
+      "$value": "{button.secondary.hover.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_COLOR"
           ],
           "codeSyntax": {}
         }
@@ -8655,7 +4884,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -8669,7 +4898,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -9235,7 +5464,7 @@ export default {
     },
     "component.xsmall.textToElementX": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{base.static.spacing.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9249,7 +5478,7 @@ export default {
     },
     "component.xsmall.textToIconX": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{base.static.spacing.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9328,9 +5557,51 @@ export default {
         }
       }
     },
+    "component.xsmall.paddingX.Narrow": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xsmall.paddingX.Standard": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xsmall.paddingX.Wide": {
+      "$type": "number",
+      "$value": 9,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "component.small.borderWidth": {
       "$type": "number",
-      "$value": "{borderWidth.default}",
+      "$value": "{base.static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9474,6 +5745,48 @@ export default {
           "mode": "default"
         }
       ]
+    },
+    "component.small.paddingX.Narrow": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.small.paddingX.Standard": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.small.paddingX.Wide": {
+      "$type": "number",
+      "$value": 9,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
     },
     "component.medium.fontSize": {
       "$type": "number",
@@ -9736,6 +6049,48 @@ export default {
         }
       ]
     },
+    "component.medium.paddingX.Narrow": {
+      "$type": "number",
+      "$value": 5,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.medium.paddingX.Standard": {
+      "$type": "number",
+      "$value": 10,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.medium.paddingX.Wide": {
+      "$type": "number",
+      "$value": 15,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "component.large.fontSize": {
       "$type": "number",
       "$value": "{text.large.fontSize}",
@@ -9766,7 +6121,7 @@ export default {
     },
     "component.large.lineHeight": {
       "$type": "number",
-      "$value": "{text.large.lineHeight}",
+      "$value": "{text.xlarge.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9871,7 +6226,49 @@ export default {
     },
     "component.large.paddingY": {
       "$type": "number",
+      "$value": 8,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.large.paddingX.Narrow": {
+      "$type": "number",
       "$value": 9,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.large.paddingX.Standard": {
+      "$type": "number",
+      "$value": 18,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.large.paddingX.Wide": {
+      "$type": "number",
+      "$value": 24,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10059,6 +6456,48 @@ export default {
     "component.xlarge.paddingY": {
       "$type": "number",
       "$value": 20,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xlarge.paddingX.Narrow": {
+      "$type": "number",
+      "$value": 16,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xlarge.paddingX.Standard": {
+      "$type": "number",
+      "$value": 24,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xlarge.paddingX.Wide": {
+      "$type": "number",
+      "$value": 32,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10461,36 +6900,6 @@ export default {
         }
       }
     },
-    "checkbox.control.disabled.background": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "checkbox.control.disabled.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "checkbox.control.selected.enabled.background": {
       "$type": "color",
       "$value": "{color.background.selected.strong.enabled}",
@@ -10621,6 +7030,36 @@ export default {
           "scopes": [
             "SHAPE_FILL",
             "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "checkbox.control.disabled.background": {
+      "$type": "color",
+      "$value": "{color.background.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "checkbox.control.disabled.borderColor": {
+      "$type": "color",
+      "$value": "{color.border.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
           ],
           "codeSyntax": {}
         }
@@ -11098,7 +7537,7 @@ export default {
     },
     "switch.control.handle.enabled.background": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11461,7 +7900,7 @@ export default {
     },
     "switch.medium.control.track.borderWidth": {
       "$type": "number",
-      "$value": "{borderWidth.default}",
+      "$value": "{base.static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12710,7 +9149,7 @@ export default {
     },
     "formField.medium.helpText.lineHeight": {
       "$type": "number",
-      "$value": "{text.xsmall.lineHeight}",
+      "$value": "{heading.xsmall.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12850,7 +9289,7 @@ export default {
     },
     "formField.medium.valueText.fontWeight": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13209,7 +9648,7 @@ export default {
     },
     "formField.input.container.focus.borderColor": {
       "$type": "color",
-      "$value": "#ffffff",
+      "$value": "{color.border.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13252,36 +9691,6 @@ export default {
         }
       }
     },
-    "formField.input.container.status.critical.background": {
-      "$type": "color",
-      "$value": "{color.background.status.critical}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "formField.input.container.status.critical.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "formField.input.container.disabled.background": {
       "$type": "color",
       "$value": "{color.background.disabled}",
@@ -13300,6 +9709,36 @@ export default {
     "formField.input.container.disabled.borderColor": {
       "$type": "color",
       "$value": "{color.border.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.input.container.status.critical.background": {
+      "$type": "color",
+      "$value": "{color.background.status.critical}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.input.container.status.critical.borderColor": {
+      "$type": "color",
+      "$value": "{color.border.strong}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14391,7 +10830,7 @@ export default {
     },
     "radioButton.label.enabled.textColor": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.background.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -15604,7 +12043,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -15618,7 +12057,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -15632,7 +12071,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -15646,7 +12085,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -15660,7 +12099,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -15674,7 +12113,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -15688,3615 +12127,9 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    }
-  },
-  "large": {
-    "spacing.none": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "formField.medium.input.group.container.paddingX",
-          "mode": "default"
-        }
-      ]
-    },
-    "spacing.hair": {
-      "$type": "number",
-      "$value": "{base.static.spacing.hair}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "spacing.xxsmall": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "spacing.xsmall": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "drop.margin",
-          "mode": "default"
-        }
-      ]
-    },
-    "spacing.small": {
-      "$type": "number",
-      "$value": "{base.static.spacing.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "spacing.medium": {
-      "$type": "number",
-      "$value": "{base.static.spacing.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "spacing.large": {
-      "$type": "number",
-      "$value": "{base.static.spacing.large}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "spacing.xlarge": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xlarge}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.none": {
-      "$type": "number",
-      "$value": "{base.static.radius.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "menu.medium.item.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "select.medium.option.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.input.group.item.borderRadius",
-          "mode": "default"
-        }
-      ]
-    },
-    "radius.hair": {
-      "$type": "number",
-      "$value": "{base.static.radius.hair}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.xxsmall": {
-      "$type": "number",
-      "$value": "{base.static.radius.xxsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.xsmall": {
-      "$type": "number",
-      "$value": "{base.static.radius.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "drop.borderRadius",
-          "mode": "default"
-        }
-      ]
-    },
-    "radius.small": {
-      "$type": "number",
-      "$value": "{base.static.radius.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.medium": {
-      "$type": "number",
-      "$value": "{base.static.radius.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.large": {
-      "$type": "number",
-      "$value": "{base.static.radius.large}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.xlarge": {
-      "$type": "number",
-      "$value": "{base.static.radius.xlarge}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.full": {
-      "$type": "number",
-      "$value": "{base.dimension.9600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.small.default.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "button.medium.default.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "button.large.default.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "button.xlarge.default.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.control.borderRadius",
-          "mode": "default"
-        }
-      ]
-    },
-    "borderWidth.none": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.xsmall": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.small": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.medium": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.large": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.large}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.xlarge": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.xlarge}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.default": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.medium.toolbar.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "button.large.toolbar.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.xsmall.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.small.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.medium.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.large.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.xlarge.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.medium.control.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.control.track.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.control.handle.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.input.group.item.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.input.group.container.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.control.borderWidth",
-          "mode": "default"
-        }
-      ]
-    },
-    "size.content.xxsmall": {
-      "$type": "number",
-      "$value": "{base.static.content.xxsmall}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.xsmall": {
-      "$type": "number",
-      "$value": "{base.static.content.xsmall}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.small": {
-      "$type": "number",
-      "$value": "{base.static.content.small}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.medium": {
-      "$type": "number",
-      "$value": "{base.static.content.medium}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.large": {
-      "$type": "number",
-      "$value": "{base.static.content.large}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.xlarge": {
-      "$type": "number",
-      "$value": "{base.static.content.xlarge}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.xxlarge": {
-      "$type": "number",
-      "$value": "{base.static.content.xxlarge}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.xsmall": {
-      "$type": "number",
-      "$value": "{base.dimension.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.small": {
-      "$type": "number",
-      "$value": "{base.dimension.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.medium": {
-      "$type": "number",
-      "$value": "{base.dimension.450}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.large": {
-      "$type": "number",
-      "$value": "{base.dimension.550}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.xlarge": {
-      "$type": "number",
-      "$value": "{base.dimension.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.xxlarge": {
-      "$type": "number",
-      "$value": "{base.dimension.900}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "display.medium.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.900}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "display.medium.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.900}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "display.medium.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.xsmall.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.xsmall.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.labelText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.helpText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.infoText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.errorText.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.xsmall.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.xsmall.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.labelText.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.helpText.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.infoText.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.errorText.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.xsmall.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.small.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.small.toolbar.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "component.small.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.small.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.small.toolbar.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "component.small.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.small.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.medium.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.medium.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.medium.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.medium.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.medium.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.large.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.large.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.large.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.large.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.large.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.xlarge.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.xlarge.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.xlarge.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "component.xlarge.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.xlarge.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.xxlarge.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.xxlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xxlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.xxlarge.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.xxlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xxlarge.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.xxlarge.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.3xl.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.700}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.3xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.3xlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.3xl.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.700}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.3xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.3xlarge.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.3xl.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.4xl.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.800}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.4xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.4xlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.4xl.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.800}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.4xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.4xlarge.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.4xl.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.5xl.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.900}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.5xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.5xlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.5xl.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.900}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.5xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.5xlarge.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.5xl.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.6xl.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.1000}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.6xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.6xlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.6xl.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.1000}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.6xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.6xlarge.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.6xl.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xlarge.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xlarge.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xlarge.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.large.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.large.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.large.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.medium.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.medium.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.medium.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.small.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.small.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.small.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xsmall.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.80}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xsmall.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.80}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xsmall.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.semibold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xxsmall.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.80}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xxsmall.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.80}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xxsmall.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.semibold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xsmall.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xsmall.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xsmall.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.small.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.small.lineHeight": {
-      "$type": "number",
-      "$value": "{base.fontSize.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.small.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.medium.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.medium.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.medium.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.large.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.large.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.large.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xlarge.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xlarge.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xlarge.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xxlarge.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xxlarge.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xxlarge.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    }
-  },
-  "small": {
-    "spacing.none": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "formField.medium.input.group.container.paddingX",
-          "mode": "default"
-        }
-      ]
-    },
-    "spacing.hair": {
-      "$type": "number",
-      "$value": "{base.static.spacing.hair}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "spacing.xxsmall": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "spacing.xsmall": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "drop.margin",
-          "mode": "default"
-        }
-      ]
-    },
-    "spacing.small": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "spacing.medium": {
-      "$type": "number",
-      "$value": "{base.static.spacing.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "spacing.large": {
-      "$type": "number",
-      "$value": "{base.static.spacing.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "spacing.xlarge": {
-      "$type": "number",
-      "$value": "{base.static.spacing.large}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.none": {
-      "$type": "number",
-      "$value": "{base.static.radius.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "menu.medium.item.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "select.medium.option.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.input.group.item.borderRadius",
-          "mode": "default"
-        }
-      ]
-    },
-    "radius.hair": {
-      "$type": "number",
-      "$value": "{base.static.radius.hair}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.xxsmall": {
-      "$type": "number",
-      "$value": "{base.static.radius.hair}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.xsmall": {
-      "$type": "number",
-      "$value": "{base.static.radius.xxsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "drop.borderRadius",
-          "mode": "default"
-        }
-      ]
-    },
-    "radius.small": {
-      "$type": "number",
-      "$value": "{base.static.radius.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.medium": {
-      "$type": "number",
-      "$value": "{base.static.radius.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.large": {
-      "$type": "number",
-      "$value": "{base.static.radius.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.xlarge": {
-      "$type": "number",
-      "$value": "{base.static.radius.large}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "radius.full": {
-      "$type": "number",
-      "$value": "{base.dimension.9600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.small.default.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "button.medium.default.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "button.large.default.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "button.xlarge.default.borderRadius",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.control.borderRadius",
-          "mode": "default"
-        }
-      ]
-    },
-    "borderWidth.none": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.xsmall": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.small": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.medium": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.large": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.xlarge": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.large}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "borderWidth.default": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.medium.toolbar.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "button.large.toolbar.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.xsmall.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.small.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.medium.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.large.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.xlarge.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.medium.control.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.control.track.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.control.handle.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.input.group.item.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.input.group.container.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.control.borderWidth",
-          "mode": "default"
-        }
-      ]
-    },
-    "size.content.xxsmall": {
-      "$type": "number",
-      "$value": "{base.static.content.xxsmall}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.xsmall": {
-      "$type": "number",
-      "$value": "{base.static.content.xxsmall}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.small": {
-      "$type": "number",
-      "$value": "{base.static.content.xsmall}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.medium": {
-      "$type": "number",
-      "$value": "{base.static.content.small}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.large": {
-      "$type": "number",
-      "$value": "{base.static.content.medium}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.xlarge": {
-      "$type": "number",
-      "$value": "{base.static.content.large}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.content.xxlarge": {
-      "$type": "number",
-      "$value": "{base.static.content.xlarge}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.xsmall": {
-      "$type": "number",
-      "$value": "{base.dimension.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.small": {
-      "$type": "number",
-      "$value": "{base.dimension.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.medium": {
-      "$type": "number",
-      "$value": "{base.dimension.450}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.large": {
-      "$type": "number",
-      "$value": "{base.dimension.550}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.xlarge": {
-      "$type": "number",
-      "$value": "{base.dimension.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "size.icon.xxlarge": {
-      "$type": "number",
-      "$value": "{base.dimension.900}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "display.medium.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "display.medium.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "display.medium.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.xsmall.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.xsmall.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.labelText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.helpText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.infoText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.errorText.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.xsmall.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.xsmall.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.labelText.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.helpText.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.infoText.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.errorText.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.xsmall.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.small.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.small.toolbar.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "component.small.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.small.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.small.toolbar.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "component.small.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.small.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.medium.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.medium.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.medium.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.medium.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.medium.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.large.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.large.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.large.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.large.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.large.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.xlarge.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.xlarge.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "component.xlarge.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "component.xlarge.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.xlarge.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.xxlarge.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.xxlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xxlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.xxlarge.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.xxlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.xxlarge.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.xxlarge.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.3xl.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.700}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.3xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.3xlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.3xl.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.700}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.3xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.3xlarge.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.3xl.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.4xl.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.800}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.4xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.4xlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.4xl.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.800}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.4xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.4xlarge.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.4xl.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.5xl.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.900}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.5xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.5xlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.5xl.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.900}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.5xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.5xlarge.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.5xl.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "text.6xl.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.1000}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.6xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.6xlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.6xl.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.1000}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.6xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.6xlarge.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "text.6xl.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xlarge.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xlarge.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xlarge.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.large.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.large.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.large.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.medium.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.medium.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.medium.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.small.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.80}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.small.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.80}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.small.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xsmall.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.80}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xsmall.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.80}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xsmall.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.semibold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xxsmall.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.80}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xxsmall.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.80}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "heading.xxsmall.fontWeight": {
-      "$type": "number",
-      "$value": "{fontWeight.semibold}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xsmall.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xsmall.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xsmall.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.small.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.small.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.small.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.medium.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.medium.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.medium.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.large.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.large.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.large.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xlarge.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xlarge.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xlarge.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xxlarge.fontSize": {
-      "$type": "number",
-      "$value": "{base.fontSize.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xxlarge.lineHeight": {
-      "$type": "number",
-      "$value": "{base.lineHeight.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "paragraph.xxlarge.maxWidth": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -19627,14 +12460,6 @@ export default {
       },
       "usedBy": [
         {
-          "name": "size.icon.xlarge",
-          "mode": "large"
-        },
-        {
-          "name": "size.icon.xlarge",
-          "mode": "small"
-        },
-        {
           "name": "base.static.spacing.medium",
           "mode": "base"
         },
@@ -19645,6 +12470,14 @@ export default {
         {
           "name": "base.static.borderWidth.xlarge",
           "mode": "base"
+        },
+        {
+          "name": "size.icon.xlarge",
+          "mode": "large"
+        },
+        {
+          "name": "size.icon.xlarge",
+          "mode": "small"
         }
       ]
     },
@@ -19789,16 +12622,16 @@ export default {
       },
       "usedBy": [
         {
+          "name": "base.static.content.medium",
+          "mode": "base"
+        },
+        {
           "name": "radius.full",
           "mode": "large"
         },
         {
           "name": "radius.full",
           "mode": "small"
-        },
-        {
-          "name": "base.static.content.medium",
-          "mode": "base"
         }
       ]
     },
@@ -19932,13 +12765,7 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "usedBy": [
-        {
-          "name": "color.icon.status.critical",
-          "mode": "dark"
-        }
-      ]
+      }
     },
     "base.color.red.750": {
       "$type": "color",
@@ -19952,7 +12779,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "color.icon.status.critical",
+          "mode": "dark"
+        }
+      ]
     },
     "base.color.red.800": {
       "$type": "color",
@@ -20413,40 +13246,40 @@ export default {
       },
       "usedBy": [
         {
-          "name": "color.background.primary.default",
-          "mode": "dark"
-        },
-        {
-          "name": "color.border.selected",
-          "mode": "dark"
-        },
-        {
-          "name": "color.text.brand",
-          "mode": "dark"
-        },
-        {
-          "name": "color.icon.brand",
-          "mode": "dark"
-        },
-        {
-          "name": "color.background.primary.default",
-          "mode": "light"
-        },
-        {
-          "name": "color.border.selected",
-          "mode": "light"
-        },
-        {
-          "name": "color.text.brand",
-          "mode": "light"
-        },
-        {
-          "name": "color.icon.brand",
-          "mode": "light"
-        },
-        {
           "name": "base.color.brand",
           "mode": "base"
+        },
+        {
+          "name": "color.background.primary.default",
+          "mode": "dark"
+        },
+        {
+          "name": "color.border.selected",
+          "mode": "dark"
+        },
+        {
+          "name": "color.text.brand",
+          "mode": "dark"
+        },
+        {
+          "name": "color.icon.brand",
+          "mode": "dark"
+        },
+        {
+          "name": "color.background.primary.default",
+          "mode": "light"
+        },
+        {
+          "name": "color.border.selected",
+          "mode": "light"
+        },
+        {
+          "name": "color.text.brand",
+          "mode": "light"
+        },
+        {
+          "name": "color.icon.brand",
+          "mode": "light"
         }
       ]
     },
@@ -20961,8 +13794,16 @@ export default {
       },
       "usedBy": [
         {
+          "name": "color.background.overlay",
+          "mode": "dark"
+        },
+        {
           "name": "color.shadow.weak",
           "mode": "dark"
+        },
+        {
+          "name": "color.background.overlay",
+          "mode": "light"
         },
         {
           "name": "color.border.weak",
@@ -21171,6 +14012,10 @@ export default {
       },
       "usedBy": [
         {
+          "name": "color.icon.status.unknown",
+          "mode": "dark"
+        },
+        {
           "name": "color.text.weak",
           "mode": "light"
         },
@@ -21194,10 +14039,6 @@ export default {
         }
       },
       "usedBy": [
-        {
-          "name": "color.icon.status.unknown",
-          "mode": "dark"
-        },
         {
           "name": "color.text.default",
           "mode": "light"
@@ -21367,11 +14208,11 @@ export default {
           "mode": "light"
         },
         {
-          "name": "color.text.onSelectedStrong",
+          "name": "color.text.inverse.default",
           "mode": "light"
         },
         {
-          "name": "color.text.inverse.default",
+          "name": "color.text.onSelectedStrong",
           "mode": "light"
         },
         {
@@ -21752,10 +14593,6 @@ export default {
       "usedBy": [
         {
           "name": "heading.medium.fontSize",
-          "mode": "large"
-        },
-        {
-          "name": "paragraph.small.lineHeight",
           "mode": "large"
         },
         {
@@ -22140,6 +14977,10 @@ export default {
       "usedBy": [
         {
           "name": "text.large.lineHeight",
+          "mode": "large"
+        },
+        {
+          "name": "paragraph.small.lineHeight",
           "mode": "large"
         },
         {
@@ -23152,6 +15993,7550 @@ export default {
           "mode": "light"
         }
       ]
+    }
+  },
+  "dark": {
+    "color.background.default": {
+      "$type": "color",
+      "$value": "{base.color.grey.1300}",
+      "$description": "Default color for component backgrounds in the default/enabled state. Can also be used for page background.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.toolbar.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.group.container.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.focus.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.hover": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity6}",
+      "$description": "Standard hover state color",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.default.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "menu.item.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "select.option.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.group.item.hover.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.active": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity6}",
+      "$description": "Standard active state color",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.default.selected.enabled.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.disabled": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity7}",
+      "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "select.option.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.label.enabled.textColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.back": {
+      "$type": "color",
+      "$value": "{base.color.grey.1300}",
+      "$description": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.input.container.readOnly.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.front": {
+      "$type": "color",
+      "$value": "{base.color.grey.1200}",
+      "$description": "Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.floating": {
+      "$type": "color",
+      "$value": "{base.color.grey.1100}",
+      "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "drop.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.overlay": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.contrast": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity6}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.status.info": {
+      "$type": "color",
+      "$value": "{base.color.blue.400-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.status.unknown": {
+      "$type": "color",
+      "$value": "{base.color.grey.1200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.status.critical": {
+      "$type": "color",
+      "$value": "{base.color.red.800-Opacity30}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.input.group.item.status.critical.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.status.critical.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.status.warning": {
+      "$type": "color",
+      "$value": "{base.color.yellow.400-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.status.ok": {
+      "$type": "color",
+      "$value": "{base.color.green.500-Opacity30}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.selected.strong.enabled": {
+      "$type": "color",
+      "$value": "{base.color.brand}",
+      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.control.selected.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.hover.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.selected.weak.enabled": {
+      "$type": "color",
+      "$value": "{base.color.green.1000}",
+      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "select.option.selected.enabled.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.selected.weak.hover": {
+      "$type": "color",
+      "$value": "{base.color.green.900}",
+      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.primary.default": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.enabled.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.primary.hover": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "Hover color variant of the primary color.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.border.strong": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity72}",
+      "$description": "Stronger border color for added emphasis",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.control.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.status.critical.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.hover.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.border.default": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity36}",
+      "$description": "Default border colour",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.toolbar.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "menu.group.separator.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.focus.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "footerCell.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.focus.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.border.weak": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity12}",
+      "$description": "Weaker border color for reduced emphasis",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.input.container.readOnly.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.border.disabled": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity12}",
+      "$description": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.secondary.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.group.container.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.disabled.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.border.selected": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.secondary.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.focus.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.text.default": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Default text color that is accessible on standard background colors",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.label.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.label.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.label.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.label.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "dataCell.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.disabled.color",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.label.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "color.text.onStatus",
+          "mode": "dark"
+        }
+      ]
+    },
+    "color.text.strong": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Stronger text color for added prominence",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.default.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "select.option.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "select.option.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "dataCell.primary.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.default.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.default.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.default.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "color.text.heading.default",
+          "mode": "dark"
+        },
+        {
+          "name": "color.text.onSelectedWeak",
+          "mode": "dark"
+        },
+        {
+          "name": "color.icon.onSelectedWeak",
+          "mode": "dark"
+        }
+      ]
+    },
+    "color.text.weak": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity50}",
+      "$description": "Weaker text color for reduced emphasis",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "headerCell.units.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.units.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "color.text.placeholder",
+          "mode": "dark"
+        }
+      ]
+    },
+    "color.text.xweak": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity20}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.placeholder": {
+      "$type": "color",
+      "$value": "{color.text.weak}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.disabled": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity24}",
+      "$description": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.default.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "select.option.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.label.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.label.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.disabled",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.label.disabled.textColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.text.onPrimary": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.primary.hover.textColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.text.brand": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.emphasized.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.disabled.textColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.text.heading.default": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.inverse.default": {
+      "$type": "color",
+      "$value": "{base.color.grey.1200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.onSelectedStrong": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Text color to be used for text sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.onSelectedWeak": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "Text color to be used for text sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "select.option.selected.enabled.textColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.text.onStatus": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.default": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Default icon colour that is accessible on standard background colours",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.strong": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Stronger icon color for added prominence",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.default.enabled.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.weak": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity50}",
+      "$description": "Weaker icon color for reduced emphasis",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.xweak": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity20}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.disabled": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity24}",
+      "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.default.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.disabled.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.status.critical": {
+      "$type": "color",
+      "$value": "{base.color.red.750}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.status.info": {
+      "$type": "color",
+      "$value": "{base.color.blue.700}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.status.ok": {
+      "$type": "color",
+      "$value": "{base.color.green.700}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.status.warning": {
+      "$type": "color",
+      "$value": "{base.color.orange.700}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.status.unknown": {
+      "$type": "color",
+      "$value": "{base.color.grey.700}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.onPrimary": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.enabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.primary.hover.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.hover.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.enabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.hover.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.brand": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "Brand color for icons.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "radioButton.control.selected.enabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.hover.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.focus.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.onSelectedStrong": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Icon color to be used for Icon sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.control.selected.enabled.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.onSelectedWeak": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "Icon color to be used for icon sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.green": {
+      "$type": "color",
+      "$value": "{base.color.green.700}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.purple": {
+      "$type": "color",
+      "$value": "{base.color.purple.900}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.turquoise": {
+      "$type": "color",
+      "$value": "{base.color.turquoise.700}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.blue": {
+      "$type": "color",
+      "$value": "{base.color.blue.700}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.red": {
+      "$type": "color",
+      "$value": "{base.color.red.850}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.orange": {
+      "$type": "color",
+      "$value": "{base.color.orange.700}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.yellow": {
+      "$type": "color",
+      "$value": "{base.color.yellow.700}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.10": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.20": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.30": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.40": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.50": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.60": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.70": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.10Weak": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.20Weak": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.30weak": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.40Weak": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.50Weak": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.60Weak": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.70Weak": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.transparent": {
+      "$type": "color",
+      "$value": "#00000000",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.input.container.focus.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.focus": {
+      "$type": "color",
+      "$value": "{base.color.turquoise.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.shadow.weak": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.shadow.default": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity36}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.shadow.strong": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity50}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.small": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": 0,
+          "offsetY": "{base.dimension.100}",
+          "blur": "{base.dimension.100}",
+          "spread": 0,
+          "color": "{color.shadow.weak}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.medium": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.xsmall}",
+          "blur": "{base.static.spacing.small}",
+          "spread": "{base.static.spacing.none}",
+          "color": "{color.shadow.default}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.large": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.small}",
+          "blur": "{base.static.spacing.medium}",
+          "spread": "{base.static.spacing.none}",
+          "color": "{color.shadow.default}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    }
+  },
+  "light": {
+    "color.background.default": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Default color for component backgrounds in the default/enabled state. Can also be used for page background.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.toolbar.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.group.container.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.focus.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.hover": {
+      "$type": "color",
+      "$value": "{color.background.contrast}",
+      "$description": "Standard hover state color",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.default.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "menu.item.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "select.option.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.group.item.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "color.background.active",
+          "mode": "light"
+        }
+      ]
+    },
+    "color.background.active": {
+      "$type": "color",
+      "$value": "{color.background.hover}",
+      "$description": "Standard active state color",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.default.selected.enabled.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.disabled": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity4}",
+      "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "select.option.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.disabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.label.enabled.textColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.back": {
+      "$type": "color",
+      "$value": "{base.color.grey.50}",
+      "$description": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.input.container.readOnly.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.front": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.floating": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "drop.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.overlay": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.contrast": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity4}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "color.background.hover",
+          "mode": "light"
+        }
+      ]
+    },
+    "color.background.status.info": {
+      "$type": "color",
+      "$value": "{base.color.blue.400-Opacity24}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.status.unknown": {
+      "$type": "color",
+      "$value": "{base.color.grey.50}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.status.critical": {
+      "$type": "color",
+      "$value": "{base.color.red.500-Opacity24}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.input.group.item.status.critical.background",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.status.critical.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.status.warning": {
+      "$type": "color",
+      "$value": "{base.color.orange.400-Opacity24}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.status.ok": {
+      "$type": "color",
+      "$value": "{base.color.green.400-Opacity24}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.selected.strong.enabled": {
+      "$type": "color",
+      "$value": "{base.color.brand}",
+      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.control.selected.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.hover.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.hover.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.selected.weak.enabled": {
+      "$type": "color",
+      "$value": "{base.color.green.100}",
+      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "select.option.selected.enabled.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.selected.weak.hover": {
+      "$type": "color",
+      "$value": "{base.color.green.125}",
+      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.background.primary.default": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.enabled.background",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.enabled.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.background.primary.hover": {
+      "$type": "color",
+      "$value": "{TBD}",
+      "$description": "Hover color variant of the primary color.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.border.strong": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity72}",
+      "$description": "Stronger border color for added emphasis",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.control.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.status.critical.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.hover.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.border.default": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity36}",
+      "$description": "Default border colour",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.toolbar.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "menu.group.separator.background",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.focus.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "footerCell.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.focus.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.border.weak": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "Weaker border color for reduced emphasis",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.input.container.readOnly.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.border.disabled": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.secondary.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.track.selected.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.control.handle.selected.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.group.container.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.input.container.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.disabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.disabled.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.border.selected": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.secondary.hover.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.enabled.borderColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.focus.borderColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.text.default": {
+      "$type": "color",
+      "$value": "{base.color.grey.800}",
+      "$description": "Default text color that is accessible on standard background colors",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.label.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.label.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.label.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.label.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "dataCell.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.disabled.color",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.helpText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.errorText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.label.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "color.text.onStatus",
+          "mode": "light"
+        }
+      ]
+    },
+    "color.text.strong": {
+      "$type": "color",
+      "$value": "{base.color.grey.1000}",
+      "$description": "Stronger text color for added prominence",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.default.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "select.option.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "select.option.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "dataCell.primary.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.labelText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.default.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.default.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.default.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "color.text.heading.default",
+          "mode": "light"
+        },
+        {
+          "name": "color.text.onSelectedWeak",
+          "mode": "light"
+        },
+        {
+          "name": "color.icon.onSelectedWeak",
+          "mode": "light"
+        }
+      ]
+    },
+    "color.text.weak": {
+      "$type": "color",
+      "$value": "{base.color.grey.700}",
+      "$description": "Weaker text color for reduced emphasis",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "headerCell.units.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.units.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.focus.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.readOnly.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.status.critical.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "color.text.placeholder",
+          "mode": "light"
+        }
+      ]
+    },
+    "color.text.xweak": {
+      "$type": "color",
+      "$value": "{base.color.grey.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.placeholder": {
+      "$type": "color",
+      "$value": "{color.text.weak}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.disabled": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity24}",
+      "$description": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.default.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "select.option.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.label.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "switch.label.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.placeholderText.disabled",
+          "mode": "default"
+        },
+        {
+          "name": "formField.infoText.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "formField.valueText.disabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.label.disabled.textColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.text.onPrimary": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.primary.hover.textColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.text.brand": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.emphasized.enabled.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.hover.textColor",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.disabled.textColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.text.heading.default": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.inverse.default": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.onSelectedStrong": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Text color to be used for text sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.text.onSelectedWeak": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "Text color to be used for text sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "select.option.selected.enabled.textColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.text.onStatus": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.default": {
+      "$type": "color",
+      "$value": "{base.color.grey.800}",
+      "$description": "Default icon colour that is accessible on standard background colours",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.strong": {
+      "$type": "color",
+      "$value": "{base.color.grey.1000}",
+      "$description": "Stronger icon color for added prominence",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.default.enabled.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.weak": {
+      "$type": "color",
+      "$value": "{base.color.grey.700}",
+      "$description": "Weaker icon color for reduced emphasis",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.xweak": {
+      "$type": "color",
+      "$value": "{base.color.grey.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.disabled": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity24}",
+      "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.secondary.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.default.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.toolbar.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.disabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.disabled.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.status.critical": {
+      "$type": "color",
+      "$value": "{base.color.red.550}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.status.info": {
+      "$type": "color",
+      "$value": "{base.color.blue.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.status.ok": {
+      "$type": "color",
+      "$value": "{base.color.green.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.status.warning": {
+      "$type": "color",
+      "$value": "{base.color.orange.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.status.unknown": {
+      "$type": "color",
+      "$value": "{base.color.grey.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.icon.onPrimary": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.primary.enabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "button.primary.hover.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.selected.hover.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.enabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.control.indeterminate.hover.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.brand": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "Brand color for icons.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "radioButton.control.selected.enabled.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.hover.iconColor",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.control.selected.focus.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.onSelectedStrong": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Icon color to be used for Icon sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.control.selected.enabled.iconColor",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.icon.onSelectedWeak": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "Icon color to be used for icon sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.green": {
+      "$type": "color",
+      "$value": "{base.color.green.400}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.purple": {
+      "$type": "color",
+      "$value": "{base.color.purple.500}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.turquoise": {
+      "$type": "color",
+      "$value": "{base.color.turquoise.200}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.blue": {
+      "$type": "color",
+      "$value": "{base.color.blue.400}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.red": {
+      "$type": "color",
+      "$value": "{base.color.red.500}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.orange": {
+      "$type": "color",
+      "$value": "{base.color.orange.400}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.decorative.yellow": {
+      "$type": "color",
+      "$value": "{base.color.yellow.200}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.10": {
+      "$type": "color",
+      "$value": "{base.color.blue.700}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.20": {
+      "$type": "color",
+      "$value": "{base.color.orange.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.30": {
+      "$type": "color",
+      "$value": "{base.color.purple.800}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.40": {
+      "$type": "color",
+      "$value": "{base.color.turquoise.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.50": {
+      "$type": "color",
+      "$value": "{base.color.yellow.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.60": {
+      "$type": "color",
+      "$value": "{base.color.purple.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.70": {
+      "$type": "color",
+      "$value": "{base.color.blue.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.10Weak": {
+      "$type": "color",
+      "$value": "{base.color.blue.700-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.20Weak": {
+      "$type": "color",
+      "$value": "{base.color.orange.500-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.30weak": {
+      "$type": "color",
+      "$value": "{base.color.purple.800-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.40Weak": {
+      "$type": "color",
+      "$value": "{base.color.turquoise.200-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.50Weak": {
+      "$type": "color",
+      "$value": "{base.color.yellow.300-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.60Weak": {
+      "$type": "color",
+      "$value": "{base.color.purple.500-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.dataVis.categorical.70Weak": {
+      "$type": "color",
+      "$value": "{base.color.blue.400-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.transparent": {
+      "$type": "color",
+      "$value": "#00000000",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.input.container.focus.background",
+          "mode": "default"
+        }
+      ]
+    },
+    "color.focus": {
+      "$type": "color",
+      "$value": "{base.color.turquoise.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.shadow.weak": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.shadow.default": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "color.shadow.strong": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity24}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.small": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": 0,
+          "offsetY": "{base.dimension.100}",
+          "blur": "{base.dimension.100}",
+          "spread": 0,
+          "color": "{color.shadow.weak}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.medium": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.xsmall}",
+          "blur": "{base.static.spacing.small}",
+          "spread": "{base.static.spacing.none}",
+          "color": "{color.shadow.default}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "elevation.large": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.small}",
+          "blur": "{base.static.spacing.medium}",
+          "spread": "{base.static.spacing.none}",
+          "color": "{color.shadow.default}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    }
+  },
+  "large": {
+    "spacing.none": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.medium.input.group.container.paddingX",
+          "mode": "default"
+        }
+      ]
+    },
+    "spacing.hair": {
+      "$type": "number",
+      "$value": "{base.static.spacing.hair}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "spacing.xxsmall": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "spacing.xsmall": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "drop.margin",
+          "mode": "default"
+        }
+      ]
+    },
+    "spacing.small": {
+      "$type": "number",
+      "$value": "{base.static.spacing.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "spacing.medium": {
+      "$type": "number",
+      "$value": "{base.static.spacing.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "spacing.large": {
+      "$type": "number",
+      "$value": "{base.static.spacing.large}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "spacing.xlarge": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xlarge}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.none": {
+      "$type": "number",
+      "$value": "{base.static.radius.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "menu.medium.item.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "select.medium.option.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.input.group.item.borderRadius",
+          "mode": "default"
+        }
+      ]
+    },
+    "radius.hair": {
+      "$type": "number",
+      "$value": "{base.static.radius.hair}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.xxsmall": {
+      "$type": "number",
+      "$value": "{base.static.radius.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.xsmall": {
+      "$type": "number",
+      "$value": "{base.static.radius.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "drop.borderRadius",
+          "mode": "default"
+        }
+      ]
+    },
+    "radius.small": {
+      "$type": "number",
+      "$value": "{base.static.radius.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.medium": {
+      "$type": "number",
+      "$value": "{base.static.radius.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.large": {
+      "$type": "number",
+      "$value": "{base.static.radius.large}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.xlarge": {
+      "$type": "number",
+      "$value": "{base.static.radius.xlarge}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.full": {
+      "$type": "number",
+      "$value": "{base.dimension.9600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.default.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "button.medium.default.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "button.large.default.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "button.xlarge.default.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.control.borderRadius",
+          "mode": "default"
+        }
+      ]
+    },
+    "borderWidth.none": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.xsmall": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.small": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.medium": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.large": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.large}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.xlarge": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.xlarge}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.default": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.medium.toolbar.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "button.large.toolbar.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.xsmall.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.medium.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.large.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.xlarge.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.medium.control.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.control.handle.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.input.group.item.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.input.group.container.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.control.borderWidth",
+          "mode": "default"
+        }
+      ]
+    },
+    "size.content.xxsmall": {
+      "$type": "number",
+      "$value": "{base.static.content.xxsmall}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.xsmall": {
+      "$type": "number",
+      "$value": "{base.static.content.xsmall}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.small": {
+      "$type": "number",
+      "$value": "{base.static.content.small}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.medium": {
+      "$type": "number",
+      "$value": "{base.static.content.medium}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.large": {
+      "$type": "number",
+      "$value": "{base.static.content.large}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.xlarge": {
+      "$type": "number",
+      "$value": "{base.static.content.xlarge}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.xxlarge": {
+      "$type": "number",
+      "$value": "{base.static.content.xxlarge}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.xsmall": {
+      "$type": "number",
+      "$value": "{base.dimension.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.small": {
+      "$type": "number",
+      "$value": "{base.dimension.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.medium": {
+      "$type": "number",
+      "$value": "{base.dimension.450}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.large": {
+      "$type": "number",
+      "$value": "{base.dimension.550}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.xlarge": {
+      "$type": "number",
+      "$value": "{base.dimension.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.xxlarge": {
+      "$type": "number",
+      "$value": "{base.dimension.900}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "display.medium.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.900}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "display.medium.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.900}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "display.medium.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.xsmall.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.90}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.xsmall.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.labelText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.helpText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.infoText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.errorText.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.xsmall.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.90}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.xsmall.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.labelText.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.infoText.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.errorText.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.xsmall.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.small.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.toolbar.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "component.small.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.small.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.toolbar.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "component.small.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.small.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.medium.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.medium.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.medium.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.medium.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.medium.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.large.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.large.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.large.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.large.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.xlarge.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.xlarge.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.large.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "component.xlarge.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "component.xlarge.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.xlarge.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.xxlarge.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.xxlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.xxlarge.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.xxlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.xxlarge.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.3xl.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.700}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.3xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.3xl.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.700}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.3xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.3xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.4xl.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.800}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.4xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.4xl.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.800}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.4xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.4xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.5xl.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.900}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.5xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.5xl.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.900}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.5xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.5xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.6xl.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.1000}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.6xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.6xl.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.1000}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.6xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.6xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xlarge.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xlarge.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xlarge.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.large.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.large.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.large.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.medium.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.medium.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.medium.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.small.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.small.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.90}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.small.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xsmall.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.80}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xsmall.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.80}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.medium.helpText.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "heading.xsmall.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.semibold}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xxsmall.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.80}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xxsmall.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.80}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xxsmall.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.semibold}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xsmall.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.90}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xsmall.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.90}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xsmall.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.small.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.small.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.small.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.medium.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.medium.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.medium.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.large.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.large.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.large.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xlarge.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xlarge.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xlarge.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xxlarge.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xxlarge.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xxlarge.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    }
+  },
+  "small": {
+    "spacing.none": {
+      "$type": "number",
+      "$value": "{base.static.spacing.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.medium.input.group.container.paddingX",
+          "mode": "default"
+        }
+      ]
+    },
+    "spacing.hair": {
+      "$type": "number",
+      "$value": "{base.static.spacing.hair}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "spacing.xxsmall": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "spacing.xsmall": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "drop.margin",
+          "mode": "default"
+        }
+      ]
+    },
+    "spacing.small": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "spacing.medium": {
+      "$type": "number",
+      "$value": "{base.static.spacing.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "spacing.large": {
+      "$type": "number",
+      "$value": "{base.static.spacing.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "spacing.xlarge": {
+      "$type": "number",
+      "$value": "{base.static.spacing.large}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.none": {
+      "$type": "number",
+      "$value": "{base.static.radius.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "menu.medium.item.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "select.medium.option.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.input.group.item.borderRadius",
+          "mode": "default"
+        }
+      ]
+    },
+    "radius.hair": {
+      "$type": "number",
+      "$value": "{base.static.radius.hair}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.xxsmall": {
+      "$type": "number",
+      "$value": "{base.static.radius.hair}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.xsmall": {
+      "$type": "number",
+      "$value": "{base.static.radius.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "drop.borderRadius",
+          "mode": "default"
+        }
+      ]
+    },
+    "radius.small": {
+      "$type": "number",
+      "$value": "{base.static.radius.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.medium": {
+      "$type": "number",
+      "$value": "{base.static.radius.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.large": {
+      "$type": "number",
+      "$value": "{base.static.radius.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.xlarge": {
+      "$type": "number",
+      "$value": "{base.static.radius.large}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "radius.full": {
+      "$type": "number",
+      "$value": "{base.dimension.9600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.default.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "button.medium.default.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "button.large.default.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "button.xlarge.default.borderRadius",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.control.borderRadius",
+          "mode": "default"
+        }
+      ]
+    },
+    "borderWidth.none": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.none}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.xsmall": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.small": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.medium": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.large": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.xlarge": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.large}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "borderWidth.default": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.medium.toolbar.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "button.large.toolbar.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.xsmall.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.medium.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.large.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.xlarge.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.medium.control.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.control.handle.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.input.group.item.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.input.group.container.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.control.borderWidth",
+          "mode": "default"
+        }
+      ]
+    },
+    "size.content.xxsmall": {
+      "$type": "number",
+      "$value": "{base.static.content.xxsmall}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.xsmall": {
+      "$type": "number",
+      "$value": "{base.static.content.xxsmall}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.small": {
+      "$type": "number",
+      "$value": "{base.static.content.xsmall}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.medium": {
+      "$type": "number",
+      "$value": "{base.static.content.small}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.large": {
+      "$type": "number",
+      "$value": "{base.static.content.medium}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.xlarge": {
+      "$type": "number",
+      "$value": "{base.static.content.large}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.content.xxlarge": {
+      "$type": "number",
+      "$value": "{base.static.content.xlarge}",
+      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.xsmall": {
+      "$type": "number",
+      "$value": "{base.dimension.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.small": {
+      "$type": "number",
+      "$value": "{base.dimension.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.medium": {
+      "$type": "number",
+      "$value": "{base.dimension.450}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.large": {
+      "$type": "number",
+      "$value": "{base.dimension.550}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.xlarge": {
+      "$type": "number",
+      "$value": "{base.dimension.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "size.icon.xxlarge": {
+      "$type": "number",
+      "$value": "{base.dimension.900}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "display.medium.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "display.medium.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "display.medium.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.xsmall.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.90}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.xsmall.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.labelText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.helpText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.infoText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.errorText.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.xsmall.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.90}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.xsmall.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.labelText.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.infoText.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.errorText.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.xsmall.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.small.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.toolbar.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "component.small.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.small.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.toolbar.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "component.small.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.small.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.medium.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.medium.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.medium.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.medium.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.medium.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.large.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.large.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.large.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.large.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.xlarge.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.xlarge.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "component.large.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "component.xlarge.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "component.xlarge.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.xlarge.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.regular}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.xxlarge.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.xxlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.xxlarge.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.xxlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.xxlarge.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.3xl.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.700}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.3xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.3xl.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.700}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.3xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.3xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.4xl.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.800}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.4xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.4xl.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.800}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.4xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.4xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.5xl.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.900}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.5xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.5xl.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.900}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.5xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.5xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "text.6xl.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.1000}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.6xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.6xl.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.1000}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.6xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "text.6xl.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.light}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xlarge.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xlarge.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xlarge.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.large.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.large.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.large.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.medium.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.medium.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.90}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.medium.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.small.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.80}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.small.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.80}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.small.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xsmall.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.80}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xsmall.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.80}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.medium.helpText.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "heading.xsmall.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.semibold}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xxsmall.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.80}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xxsmall.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.80}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "heading.xxsmall.fontWeight": {
+      "$type": "number",
+      "$value": "{fontWeight.semibold}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xsmall.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.90}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xsmall.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.90}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xsmall.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.small.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.small.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.small.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.medium.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.medium.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.medium.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.large.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.large.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.large.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xlarge.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.500}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xlarge.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xlarge.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xxlarge.fontSize": {
+      "$type": "number",
+      "$value": "{base.fontSize.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xxlarge.lineHeight": {
+      "$type": "number",
+      "$value": "{base.lineHeight.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "paragraph.xxlarge.maxWidth": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
     }
   }
 }

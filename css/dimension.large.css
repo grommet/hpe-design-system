@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Aug 2024 19:44:14 GMT
+ * Generated on Thu, 05 Sep 2024 00:47:07 GMT
  */
 
 :root {
@@ -25,7 +25,7 @@
   --hpe-paragraph-large-font-size: var(--hpe-base-font-size-400);
   --hpe-paragraph-medium-line-height: var(--hpe-base-line-height-200);
   --hpe-paragraph-medium-font-size: var(--hpe-base-font-size-200);
-  --hpe-paragraph-small-line-height: var(--hpe-base-font-size-300);
+  --hpe-paragraph-small-line-height: var(--hpe-base-line-height-300);
   --hpe-paragraph-small-font-size: var(--hpe-base-font-size-100);
   --hpe-paragraph-xsmall-line-height: var(--hpe-base-line-height-90);
   --hpe-paragraph-xsmall-font-size: var(--hpe-base-font-size-90);

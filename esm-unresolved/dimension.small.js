@@ -546,7 +546,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_SIZE"
             ],
             "codeSyntax": {}
           }
@@ -560,7 +560,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "LINE_HEIGHT"
             ],
             "codeSyntax": {}
           }
@@ -574,7 +574,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -620,7 +620,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -664,7 +664,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -708,7 +708,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -752,7 +752,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -796,7 +796,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -840,7 +840,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -884,7 +884,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -928,7 +928,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -972,7 +972,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }
@@ -1016,7 +1016,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "FONT_STYLE"
             ],
             "codeSyntax": {}
           }

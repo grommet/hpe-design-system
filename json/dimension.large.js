@@ -91,7 +91,7 @@
     },
     "small": {
       "fontSize": "1rem",
-      "lineHeight": "1.25rem",
+      "lineHeight": "1.75rem",
       "maxWidth": "25em"
     },
     "medium": {

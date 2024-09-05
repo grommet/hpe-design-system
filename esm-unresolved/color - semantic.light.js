@@ -106,6 +106,21 @@ export default {
           }
         }
       },
+      "overlay": {
+        "$type": "color",
+        "$value": "{base.color.black.opacity12}",
+        "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
       "contrast": {
         "$type": "color",
         "$value": "{base.color.black.opacity4}",
@@ -198,38 +213,6 @@ export default {
           }
         }
       },
-      "primary": {
-        "default": {
-          "$type": "color",
-          "$value": "{base.color.green.600}",
-          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{TBD}",
-          "$description": "Hover color variant of the primary color.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          }
-        }
-      },
       "selected": {
         "strong": {
           "enabled": {
@@ -277,6 +260,38 @@ export default {
                 ],
                 "codeSyntax": {}
               }
+            }
+          }
+        }
+      },
+      "primary": {
+        "default": {
+          "$type": "color",
+          "$value": "{base.color.green.600}",
+          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{TBD}",
+          "$description": "Hover color variant of the primary color.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {}
             }
           }
         }
@@ -458,48 +473,6 @@ export default {
           }
         }
       },
-      "onSelectedStrong": {
-        "$type": "color",
-        "$value": "{base.color.white.100}",
-        "$description": "Text color to be used for text sitting on background-selected-strong.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "TEXT_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "onSelectedWeak": {
-        "$type": "color",
-        "$value": "{color.text.strong}",
-        "$description": "Text color to be used for text sitting on background-selected-strong.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "TEXT_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "onStatus": {
-        "$type": "color",
-        "$value": "{color.text.default}",
-        "$description": "Text color to be used on status backgrounds.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "TEXT_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
       "brand": {
         "$type": "color",
         "$value": "{base.color.green.600}",
@@ -543,6 +516,48 @@ export default {
               ],
               "codeSyntax": {}
             }
+          }
+        }
+      },
+      "onSelectedStrong": {
+        "$type": "color",
+        "$value": "{base.color.white.100}",
+        "$description": "Text color to be used for text sitting on background-selected-strong.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "onSelectedWeak": {
+        "$type": "color",
+        "$value": "{color.text.strong}",
+        "$description": "Text color to be used for text sitting on background-selected-strong.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "onStatus": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "Text color to be used on status backgrounds.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {}
           }
         }
       }
@@ -726,6 +741,22 @@ export default {
           }
         }
       },
+      "brand": {
+        "$type": "color",
+        "$value": "{base.color.green.600}",
+        "$description": "Brand color for icons.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL",
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {}
+          }
+        }
+      },
       "onSelectedStrong": {
         "$type": "color",
         "$value": "{base.color.white.100}",
@@ -734,7 +765,8 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "TEXT_FILL"
+              "FRAME_FILL",
+              "SHAPE_FILL"
             ],
             "codeSyntax": {}
           }
@@ -748,23 +780,8 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "TEXT_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "brand": {
-        "$type": "color",
-        "$value": "{base.color.green.600}",
-        "$description": "Brand color for icons.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
               "FRAME_FILL",
-              "SHAPE_FILL",
-              "STROKE_COLOR"
+              "SHAPE_FILL"
             ],
             "codeSyntax": {}
           }
@@ -1108,7 +1125,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "EFFECT_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -1122,7 +1139,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "EFFECT_COLOR"
             ],
             "codeSyntax": {}
           }
@@ -1136,7 +1153,7 @@ export default {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": [
-              "ALL_SCOPES"
+              "EFFECT_COLOR"
             ],
             "codeSyntax": {}
           }

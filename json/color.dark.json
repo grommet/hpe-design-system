@@ -8,6 +8,7 @@
       "back": "#1c1c1c",
       "front": "#222222",
       "floating": "#292929",
+      "overlay": "#0000001f",
       "contrast": "#ffffff0f",
       "status": {
         "info": "#00c8ff1f",
@@ -15,10 +16,6 @@
         "critical": "#cc1f1a4d",
         "warning": "#fec9011f",
         "ok": "#17d0a64d"
-      },
-      "primary": {
-        "default": "#01a982",
-        "hover": "#00ff0a00"
       },
       "selected": {
         "strong": {
@@ -28,6 +25,10 @@
           "enabled": "#093a2f",
           "hover": "#074b3b"
         }
+      },
+      "primary": {
+        "default": "#01a982",
+        "hover": "#00ff0a00"
       }
     },
     "border": {
@@ -45,16 +46,16 @@
       "placeholder": "#ffffff80",
       "disabled": "#ffffff3d",
       "onPrimary": "#ffffff",
-      "onSelectedStrong": "#ffffff",
-      "onSelectedWeak": "#ffffff",
-      "onStatus": "#ffffff",
       "brand": "#01a982",
       "heading": {
         "default": "#ffffff"
       },
       "inverse": {
         "default": "#222222"
-      }
+      },
+      "onSelectedStrong": "#ffffff",
+      "onSelectedWeak": "#ffffff",
+      "onStatus": "#ffffff"
     },
     "icon": {
       "default": "#ffffff",
@@ -63,16 +64,16 @@
       "xweak": "#ffffff33",
       "disabled": "#ffffff3d",
       "status": {
-        "critical": "#d04f4e",
+        "critical": "#c54e4b",
         "info": "#00739d",
         "ok": "#008567",
         "warning": "#9b6310",
-        "unknown": "#555555"
+        "unknown": "#757575"
       },
       "onPrimary": "#ffffff",
+      "brand": "#01a982",
       "onSelectedStrong": "#ffffff",
-      "onSelectedWeak": "#ffffff",
-      "brand": "#01a982"
+      "onSelectedWeak": "#ffffff"
     },
     "decorative": {
       "green": "#008567",

@@ -104,7 +104,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -118,7 +118,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -132,7 +132,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -146,7 +146,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -160,7 +160,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -174,7 +174,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],
@@ -188,7 +188,7 @@ export default {
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_STYLE"
           ],

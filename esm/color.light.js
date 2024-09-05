@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Aug 2024 19:44:14 GMT
+ * Generated on Thu, 05 Sep 2024 00:47:07 GMT
  */
 
 export default {
@@ -14,6 +14,7 @@ export default {
         back: "#f7f7f7",
         front: "#ffffff",
         floating: "#ffffff",
+        overlay: "#0000001f",
         contrast: "#0000000a",
         status: {
           info: "#00c8ff3d",
@@ -21,10 +22,6 @@ export default {
           critical: "#fc61613d",
           warning: "#ffbc443d",
           ok: "#17eba03d",
-        },
-        primary: {
-          default: "#01a982",
-          hover: "#00ff0a00",
         },
         selected: {
           strong: {
@@ -34,6 +31,10 @@ export default {
             enabled: "#cbfaeb",
             hover: "#aef6df",
           },
+        },
+        primary: {
+          default: "#01a982",
+          hover: "#00ff0a00",
         },
       },
       border: {
@@ -51,9 +52,6 @@ export default {
         placeholder: "#757575",
         disabled: "#0000003d",
         onPrimary: "#ffffff",
-        onSelectedStrong: "#ffffff",
-        onSelectedWeak: "#333333",
-        onStatus: "#555555",
         brand: "#01a982",
         heading: {
           default: "#333333",
@@ -61,6 +59,9 @@ export default {
         inverse: {
           default: "#ffffff",
         },
+        onSelectedStrong: "#ffffff",
+        onSelectedWeak: "#333333",
+        onStatus: "#555555",
       },
       icon: {
         default: "#555555",
@@ -76,9 +77,9 @@ export default {
           unknown: "#cccccc",
         },
         onPrimary: "#ffffff",
+        brand: "#01a982",
         onSelectedStrong: "#ffffff",
         onSelectedWeak: "#333333",
-        brand: "#01a982",
       },
       decorative: {
         green: "#17eba0",
