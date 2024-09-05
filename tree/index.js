@@ -2773,71 +2773,24 @@ export default {
         }
       }
     },
-    "button.medium.secondary.hover.boxShadow.1.offsetX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
+    "button.medium.secondary.hover.boxShadow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.none}",
+          "blur": "{base.static.spacing.none}",
+          "spread": "{base.dimension.25}",
+          "color": "{button.secondary.hover.borderColor}",
+          "inset": true
         }
-      }
-    },
-    "button.medium.secondary.hover.boxShadow.1.offsetY": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
+      ],
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.medium.secondary.hover.boxShadow.1.blur": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.medium.secondary.hover.boxShadow.1.spread": {
-      "$type": "number",
-      "$value": "{base.dimension.25}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.medium.secondary.hover.boxShadow.1.color": {
-      "$type": "color",
-      "$value": "{button.secondary.hover.borderColor}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_COLOR"
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -3747,71 +3700,24 @@ export default {
         }
       }
     },
-    "button.large.secondary.hover.boxShadow.1.offsetX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
+    "button.large.secondary.hover.boxShadow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.none}",
+          "blur": "{base.static.spacing.none}",
+          "spread": "{base.dimension.25}",
+          "color": "{button.secondary.hover.borderColor}",
+          "inset": true
         }
-      }
-    },
-    "button.large.secondary.hover.boxShadow.1.offsetY": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
+      ],
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.large.secondary.hover.boxShadow.1.blur": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.large.secondary.hover.boxShadow.1.spread": {
-      "$type": "number",
-      "$value": "{base.dimension.25}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.large.secondary.hover.boxShadow.1.color": {
-      "$type": "color",
-      "$value": "{button.secondary.hover.borderColor}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_COLOR"
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -4721,71 +4627,24 @@ export default {
         }
       }
     },
-    "button.xlarge.secondary.hover.boxShadow.1.offsetX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
+    "button.xlarge.secondary.hover.boxShadow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "{base.static.spacing.none}",
+          "offsetY": "{base.static.spacing.none}",
+          "blur": "{base.static.spacing.none}",
+          "spread": "{base.dimension.25}",
+          "color": "{button.secondary.hover.borderColor}",
+          "inset": true
         }
-      }
-    },
-    "button.xlarge.secondary.hover.boxShadow.1.offsetY": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
+      ],
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.xlarge.secondary.hover.boxShadow.1.blur": {
-      "$type": "number",
-      "$value": "{base.static.spacing.none}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.xlarge.secondary.hover.boxShadow.1.spread": {
-      "$type": "number",
-      "$value": "{base.dimension.25}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "button.xlarge.secondary.hover.boxShadow.1.color": {
-      "$type": "color",
-      "$value": "{button.secondary.hover.borderColor}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_COLOR"
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }

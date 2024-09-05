@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 05 Sep 2024 18:52:42 GMT
+ * Generated on Thu, 05 Sep 2024 22:57:04 GMT
  */
 
 export default {
@@ -280,15 +280,7 @@ export default {
             "gapX": "6px"
           },
           "hover": {
-            "boxShadow": {
-              "1": {
-                "offsetX": "0px",
-                "offsetY": "0px",
-                "blur": "0px",
-                "spread": "1px",
-                "color": "border-selected"
-              }
-            }
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
           }
         },
         "toolbar": {
@@ -373,15 +365,7 @@ export default {
             "paddingY": "11px"
           },
           "hover": {
-            "boxShadow": {
-              "1": {
-                "offsetX": "0px",
-                "offsetY": "0px",
-                "blur": "0px",
-                "spread": "1px",
-                "color": "border-selected"
-              }
-            }
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
           }
         },
         "toolbar": {
@@ -466,15 +450,7 @@ export default {
           "lineHeight": "1.875rem",
           "gapX": "6px",
           "hover": {
-            "boxShadow": {
-              "1": {
-                "offsetX": "0px",
-                "offsetY": "0px",
-                "blur": "0px",
-                "spread": "1px",
-                "color": "border-selected"
-              }
-            }
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
           }
         },
         "toolbar": {
