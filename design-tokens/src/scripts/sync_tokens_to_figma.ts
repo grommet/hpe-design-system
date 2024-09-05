@@ -10,17 +10,15 @@ import {
 } from '../token_import.js';
 
 async function main() {
-  if (!process.env.PERSONAL_ACCESS_TOKEN) {
-    throw new Error('PERSONAL_ACCESS_TOKEN environment variable is required.');
-  }
-  if (!process.env.FILE_KEY_PRIMITIVE) {
-    throw new Error('FILE_KEY_PRIMITIVE environment variable is required.');
-  }
-  if (!process.env.FILE_KEY_SEMANTIC) {
-    throw new Error('FILE_KEY_SEMANTIC environment variable is required.');
-  }
-  if (!process.env.FILE_KEY_COMPONENT) {
-    throw new Error('FILE_KEY_COMPONENT environment variable is required.');
+  if (
+    !process.env.PERSONAL_ACCESS_TOKEN ||
+    !process.env.FILE_KEY_PRIMITIVE ||
+    !process.env.FILE_KEY_SEMANTIC ||
+    !process.env.FILE_KEY_COMPONENT
+  ) {
+    throw new Error(
+      'PERSONAL_ACCESS_TOKEN, FILE_KEY_PRIMITIVE, FILE_KEY_SEMANTIC, and FILE_KEY_COMPONENT environment variables are required',
+    );
   }
   const fileKeys: { [key: string]: string } = {
     primitive: process.env.FILE_KEY_PRIMITIVE,
