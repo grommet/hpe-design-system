@@ -289,9 +289,33 @@
           }
         }
       },
+      "7200": {
+        "$type": "number",
+        "$value": 288,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [],
+            "codeSyntax": {}
+          }
+        }
+      },
       "9600": {
         "$type": "number",
         "$value": 384,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "14400": {
+        "$type": "number",
+        "$value": 576,
         "$description": "",
         "$extensions": {
           "com.figma": {
