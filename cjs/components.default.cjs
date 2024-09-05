@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 05 Sep 2024 18:46:41 GMT
+ * Generated on Thu, 05 Sep 2024 18:52:42 GMT
  */
 
 module.exports = {
@@ -775,7 +775,7 @@ module.exports = {
         },
         "handle": {
           "enabled": {
-            "background": "background-disabled",
+            "background": "background-front",
             "borderColor": "border-default"
           },
           "hover": {

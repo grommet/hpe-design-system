@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 05 Sep 2024 18:46:40 GMT
+ * Generated on Thu, 05 Sep 2024 18:52:42 GMT
  */
 
 export default {
@@ -775,7 +775,7 @@ export default {
         },
         "handle": {
           "enabled": {
-            "background": "background-disabled",
+            "background": "background-front",
             "borderColor": "border-default"
           },
           "hover": {

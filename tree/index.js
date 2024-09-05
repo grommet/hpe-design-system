@@ -7537,7 +7537,7 @@ export default {
     },
     "switch.control.handle.enabled.background": {
       "$type": "color",
-      "$value": "{color.background.disabled}",
+      "$value": "{color.background.front}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16187,10 +16187,6 @@ export default {
           "mode": "default"
         },
         {
-          "name": "switch.control.handle.enabled.background",
-          "mode": "default"
-        },
-        {
           "name": "switch.control.handle.disabled.background",
           "mode": "default"
         },
@@ -16250,7 +16246,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "switch.control.handle.enabled.background",
+          "mode": "default"
+        }
+      ]
     },
     "color.background.floating": {
       "$type": "color",
@@ -18163,10 +18165,6 @@ export default {
           "mode": "default"
         },
         {
-          "name": "switch.control.handle.enabled.background",
-          "mode": "default"
-        },
-        {
           "name": "switch.control.handle.disabled.background",
           "mode": "default"
         },
@@ -18226,7 +18224,13 @@ export default {
           ],
           "codeSyntax": {}
         }
-      }
+      },
+      "usedBy": [
+        {
+          "name": "switch.control.handle.enabled.background",
+          "mode": "default"
+        }
+      ]
     },
     "color.background.floating": {
       "$type": "color",

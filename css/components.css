@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 05 Sep 2024 18:46:41 GMT
+ * Generated on Thu, 05 Sep 2024 18:52:42 GMT
  */
 
 :root {
@@ -330,7 +330,7 @@
   --hpe-switch-control-handle-hover-border-color: var(--hpe-color-border-default);
   --hpe-switch-control-handle-hover-background: var(--hpe-color-background-default);
   --hpe-switch-control-handle-enabled-border-color: var(--hpe-color-border-default);
-  --hpe-switch-control-handle-enabled-background: var(--hpe-color-background-disabled);
+  --hpe-switch-control-handle-enabled-background: var(--hpe-color-background-front);
   --hpe-switch-control-track-selected-disabled-border-color: var(--hpe-color-border-disabled);
   --hpe-switch-control-track-selected-disabled-background: var(--hpe-color-background-disabled);
   --hpe-switch-control-track-selected-hover-border-color: var(--hpe-color-border-strong);
