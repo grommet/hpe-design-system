@@ -45,6 +45,7 @@ export const nonComponentTokens: string[] = [
   'fontStack',
   'breakpoint',
   'fontWeight',
+  'focusIndicator',
 ];
 
 export const numberToPixel = (value: number): string => `${value}px`;
