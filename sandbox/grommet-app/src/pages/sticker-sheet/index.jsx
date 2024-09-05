@@ -42,7 +42,6 @@ import {
   Meter,
 } from 'grommet';
 import { User } from 'grommet-icons';
-import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../theme';
 import { themes } from '../../theme';
 
@@ -71,7 +70,7 @@ const Compare = ({ children, ...rest }) => {
   if (direction === 'row') {
     return (
       <Box direction="row" gap="medium">
-        <ThemeContext.Extend value={hpe}>
+        <ThemeContext.Extend value={themes.alpha}>
           <Box align="start">{children}</Box>
         </ThemeContext.Extend>
         <Grommet theme={hpeCurrent}>
