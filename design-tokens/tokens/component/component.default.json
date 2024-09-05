@@ -1881,7 +1881,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": 19,
+          "$value": "{component.medium.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {

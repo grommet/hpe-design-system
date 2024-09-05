@@ -43,7 +43,7 @@
     "xsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.90}",
+        "$value": "{base.fontSize.80}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -81,7 +81,7 @@
     "small": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.100}",
+        "$value": "{base.fontSize.90}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -119,7 +119,7 @@
     "medium": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.200}",
+        "$value": "{base.fontSize.100}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -157,7 +157,7 @@
     "large": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.400}",
+        "$value": 19,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -195,7 +195,7 @@
     "xlarge": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.500}",
+        "$value": "{base.fontSize.300}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -233,7 +233,7 @@
     "xxlarge": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.600}",
+        "$value": 31,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -271,7 +271,7 @@
     "3xl": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.700}",
+        "$value": "{base.fontSize.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -309,7 +309,7 @@
     "4xl": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.800}",
+        "$value": "{base.fontSize.700}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -347,7 +347,7 @@
     "5xl": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.900}",
+        "$value": 64,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -385,7 +385,7 @@
     "6xl": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.1000}",
+        "$value": 64,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -437,7 +437,7 @@
       },
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.600}",
+        "$value": 31,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -475,7 +475,7 @@
       },
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.500}",
+        "$value": 21,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -501,7 +501,7 @@
     "medium": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.300}",
+        "$value": 17,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -539,7 +539,7 @@
     "small": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.100}",
+        "$value": 14,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -577,7 +577,7 @@
     "xsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$value": 11,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -615,7 +615,7 @@
     "xxsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$value": 11,
         "$description": "",
         "$extensions": {
           "com.figma": {

@@ -42,8 +42,8 @@ import {
   Meter,
 } from 'grommet';
 import { User } from 'grommet-icons';
-import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../theme';
+import { themes } from '../../theme';
 
 const textSizes = [
   'xsmall',
@@ -70,26 +70,26 @@ const Compare = ({ children, ...rest }) => {
   if (direction === 'row') {
     return (
       <Box direction="row" gap="medium">
-        <ThemeContext.Extend value={hpe}>
+        <ThemeContext.Extend value={themes.alpha}>
           <Box align="start">{children}</Box>
         </ThemeContext.Extend>
-        <ThemeContext.Extend value={hpeCurrent}>
+        <Grommet theme={hpeCurrent}>
           <Box align="start">{children}</Box>
-        </ThemeContext.Extend>
+        </Grommet>
       </Box>
     );
   }
 
   return (
-    <Stack {...rest}>
-      <ThemeContext.Extend value={hpe}>
+    <Stack {...rest} guidingChild="last">
+      <ThemeContext.Extend value={themes.alpha}>
         <Box
           align="start"
           style={
             // eslint-disable-next-line no-nested-ternary
             mode === 'Compare diffs'
               ? { opacity: 0.5, filter: 'invert(1)', color: 'green' }
-              : mode === 'tokens'
+              : mode === 'metric2'
               ? { visibility: 'hidden' }
               : {}
           }
@@ -98,14 +98,14 @@ const Compare = ({ children, ...rest }) => {
         </Box>
       </ThemeContext.Extend>
 
-      <ThemeContext.Extend value={hpeCurrent}>
+      <Grommet background="transparent" theme={hpeCurrent}>
         <Box
           align="start"
-          style={mode === 'v3' ? { visibility: 'hidden' } : {}}
+          style={mode === 'alpha' ? { visibility: 'hidden' } : {}}
         >
           {children}
         </Box>
-      </ThemeContext.Extend>
+      </Grommet>
     </Stack>
   );
 };
@@ -129,7 +129,7 @@ const StickerSheet = () => {
     };
   }, [mode, direction]);
   return (
-    <Grommet theme={hpe}>
+    <Grommet theme={themes.alpha}>
       <ModeContext.Provider value={contextValue}>
         <Page kind="full" pad={{ bottom: 'xlarge' }}>
           <PageContent align="start" gap="medium">
@@ -152,7 +152,7 @@ const StickerSheet = () => {
                   </FormField>
                   <FormField label="View mode">
                     <Select
-                      options={['v3', 'tokens', 'Compare diffs']}
+                      options={['alpha', 'metric2', 'Compare diffs']}
                       value={mode}
                       onChange={({ option }) => setMode(option)}
                     />
