@@ -38,7 +38,9 @@ jobs:
         run: yarn sync-figma-to-tokens -- --output tokens
         working-directory: design-tokens
         env:
-          FILE_KEY: ${{ github.event.inputs.file_key }}
+          FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
+          FILE_KEY_SEMANTIC: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_SEMANTIC }}
+          FILE_KEY_COMPONENT: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_COMPONENT }}
           PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_ACTION_VARIABLES_SYNC_FIGMA_TOKEN }}
 
       - name: Create Pull Request

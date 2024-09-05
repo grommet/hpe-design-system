@@ -11,7 +11,7 @@ const CSS_DIR = 'dist/css/';
 const PREFIX = 'hpe';
 
 HPEStyleDictionary.extend({
-  source: [`${TOKENS_DIR}/primitives.base.json`],
+  source: [`${TOKENS_DIR}/primitive/primitives.base.json`],
   platforms: {
     js: {
       transformGroup: 'js/w3c',
@@ -65,9 +65,9 @@ HPEStyleDictionary.extend({
 
 HPEStyleDictionary.extend({
   source: [
-    `${TOKENS_DIR}/primitives.base.json`,
-    `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
-    `${TOKENS_DIR}/global.default.json`,
+    `${TOKENS_DIR}/primitive/primitives.base.json`,
+    `${TOKENS_DIR}/semantic/color - semantic.light.json`, // using light mode to have a reference name available
+    `${TOKENS_DIR}/semantic/global.default.json`,
   ],
   platforms: {
     js: {
@@ -79,7 +79,7 @@ HPEStyleDictionary.extend({
           destination: 'global.js',
           format: 'esmGrommetRefs',
           filter: token =>
-            token.filePath === `${TOKENS_DIR}/global.default.json`,
+            token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
         },
       ],
     },
@@ -92,7 +92,7 @@ HPEStyleDictionary.extend({
           destination: 'global.cjs',
           format: 'commonJsGrommetRefs',
           filter: token =>
-            token.filePath === `${TOKENS_DIR}/global.default.json`,
+            token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
         },
       ],
     },
@@ -105,7 +105,7 @@ HPEStyleDictionary.extend({
           destination: 'global.json',
           format: 'json/nested',
           filter: token =>
-            token.filePath === `${TOKENS_DIR}/global.default.json`,
+            token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
         },
       ],
     },
@@ -118,7 +118,7 @@ HPEStyleDictionary.extend({
           destination: 'global.css',
           format: 'css/variables',
           filter: token =>
-            token.filePath === `${TOKENS_DIR}/global.default.json`,
+            token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
           options: {
             outputReferences: true,
           },
@@ -129,20 +129,22 @@ HPEStyleDictionary.extend({
 }).buildAllPlatforms();
 
 const colorModeFiles = fs
-  .readdirSync(TOKENS_DIR)
-  .map(file => (file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined))
+  .readdirSync(`${TOKENS_DIR}/semantic`)
+  .map(file =>
+    file.includes('color') ? `${TOKENS_DIR}/semantic/${file}` : undefined,
+  )
   .filter(file => file);
 
-const global = fs.readFileSync(`${TOKENS_DIR}/global.default.json`);
+const global = fs.readFileSync(`${TOKENS_DIR}/semantic/global.default.json`);
 const parsedGlobal = JSON.parse(global);
 
 colorModeFiles.forEach(file => {
   const [theme, mode] = getThemeAndMode(file);
   HPEStyleDictionary.extend({
     source: [
-      `${TOKENS_DIR}/primitives.base.json`,
+      `${TOKENS_DIR}/primitive/primitives.base.json`,
       file,
-      `${TOKENS_DIR}/elevation - semantic.${mode}.json`,
+      `${TOKENS_DIR}/semantic/elevation - semantic.${mode}.json`,
       // `${TOKENS_DIR}/gradient.${mode}.json`, // TO DO add gradients
     ],
     platforms: {
@@ -243,9 +245,9 @@ const dimensions = [
 ];
 
 const dimensionFiles = fs
-  .readdirSync(TOKENS_DIR)
+  .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('dimension') ? `${TOKENS_DIR}/${file}` : undefined,
+    file.includes('dimension') ? `${TOKENS_DIR}/semantic/${file}` : undefined,
   )
   .filter(file => file);
 
@@ -254,10 +256,10 @@ dimensionFiles.forEach(file => {
   const mode = res[1];
   HPEStyleDictionary.extend({
     source: [
-      `${TOKENS_DIR}/primitives.base.json`,
-      `${TOKENS_DIR}/color - semantic.light.json`,
-      `${TOKENS_DIR}/global.default.json`,
-      `${TOKENS_DIR}/typography - semantic.${mode}.json`,
+      `${TOKENS_DIR}/primitive/primitives.base.json`,
+      `${TOKENS_DIR}/semantic/color - semantic.light.json`,
+      `${TOKENS_DIR}/semantic/global.default.json`,
+      `${TOKENS_DIR}/semantic/typography - semantic.${mode}.json`,
       file,
     ],
     platforms: {
@@ -324,12 +326,12 @@ dimensionFiles.forEach(file => {
 
 HPEStyleDictionary.extend({
   source: [
-    `${TOKENS_DIR}/primitives.base.json`,
-    `${TOKENS_DIR}/global.default.json`,
-    `${TOKENS_DIR}/color - semantic.light.json`, // using light mode to have a reference name available
-    `${TOKENS_DIR}/dimension - semantic.large.json`, // using large mode to have a reference name available
-    `${TOKENS_DIR}/typography - semantic.large.json`, // using large mode to have a reference name available
-    `${TOKENS_DIR}/component.default.json`,
+    `${TOKENS_DIR}/primitive/primitives.base.json`,
+    `${TOKENS_DIR}/semantic/global.default.json`,
+    `${TOKENS_DIR}/semantic/color - semantic.light.json`, // using light mode to have a reference name available
+    `${TOKENS_DIR}/semantic/dimension - semantic.large.json`, // using large mode to have a reference name available
+    `${TOKENS_DIR}/semantic/typography - semantic.large.json`, // using large mode to have a reference name available
+    `${TOKENS_DIR}/component/component.default.json`,
   ],
   platforms: {
     js: {
@@ -340,7 +342,7 @@ HPEStyleDictionary.extend({
         {
           destination: 'components.default.js',
           filter: token =>
-            token.filePath === `${TOKENS_DIR}/component.default.json`,
+            token.filePath === `${TOKENS_DIR}/component/component.default.json`,
           format: 'esmGrommetRefs',
         },
       ],
@@ -353,7 +355,7 @@ HPEStyleDictionary.extend({
         {
           destination: 'components.default.cjs',
           filter: token =>
-            token.filePath === `${TOKENS_DIR}/component.default.json`,
+            token.filePath === `${TOKENS_DIR}/component/component.default.json`,
           format: 'commonJsGrommetRefs',
         },
       ],
@@ -367,7 +369,7 @@ HPEStyleDictionary.extend({
           destination: 'components.css',
           format: 'css/variables',
           filter: token =>
-            token.filePath === `${TOKENS_DIR}/component.default.json`,
+            token.filePath === `${TOKENS_DIR}/component/component.default.json`,
           options: {
             outputReferences: true,
           },

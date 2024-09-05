@@ -10,76 +10,102 @@ import {
 } from '../token_import.js';
 
 async function main() {
-  if (!process.env.PERSONAL_ACCESS_TOKEN || !process.env.FILE_KEY) {
+  if (
+    !process.env.PERSONAL_ACCESS_TOKEN ||
+    !process.env.FILE_KEY_PRIMITIVE ||
+    !process.env.FILE_KEY_SEMANTIC ||
+    !process.env.FILE_KEY_COMPONENT
+  ) {
     throw new Error(
-      'PERSONAL_ACCESS_TOKEN and FILE_KEY environemnt variables are required',
+      'PERSONAL_ACCESS_TOKEN, FILE_KEY_PRIMITIVE, FILE_KEY_SEMANTIC, and FILE_KEY_COMPONENT environment variables are required',
     );
   }
-  const fileKey = process.env.FILE_KEY;
+  const fileKeys: { [key: string]: string } = {
+    primitive: process.env.FILE_KEY_PRIMITIVE,
+    semantic: process.env.FILE_KEY_SEMANTIC,
+    component: process.env.FILE_KEY_COMPONENT,
+  };
 
   const TOKENS_DIR = 'tokens';
-  const tokensFiles = fs
-    .readdirSync(TOKENS_DIR)
-    .map((file: string) =>
-      // Figma doesn't support elevation/shadow/gradient tokens yet, so don't try to sync
-      // !file.includes('elevation') &&
-      !file.includes('gradient') ? `${TOKENS_DIR}/${file}` : '',
-    )
-    .filter(file => file);
+  const tokenDirs = fs
+    .readdirSync(TOKENS_DIR, { withFileTypes: true })
+    .filter(dir => dir.isDirectory())
+    .map(dir => dir.name);
 
-  const tokensByFile = readJsonFiles(tokensFiles);
+  tokenDirs.forEach(async dir => {
+    const tokensFiles = fs
+      .readdirSync(`${TOKENS_DIR}/${dir}`)
+      .map((file: string) => `${TOKENS_DIR}/${dir}/${file}`)
+      .filter(file => file);
 
-  console.log('Read tokens files:', Object.keys(tokensByFile));
+    const tokensByFile = readJsonFiles(tokensFiles);
 
-  const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN);
-  const localVariables = await api.getLocalVariables(fileKey);
+    console.log('Read tokens files:', Object.keys(tokensByFile));
 
-  const postVariablesPayload = generatePostVariablesPayload(
-    tokensByFile,
-    localVariables,
-  );
+    const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
+    const localVariables = await api.getLocalVariables(fileKeys[dir]);
 
-  if (Object.values(postVariablesPayload).every(value => value.length === 0)) {
-    console.log(green('✅ Tokens are already up to date with the Figma file'));
-    return;
-  }
-
-  const apiResp = await api.postVariables(fileKey, postVariablesPayload);
-
-  console.log('POST variables API response:', apiResp);
-
-  if (
-    postVariablesPayload.variableCollections &&
-    postVariablesPayload.variableCollections.length
-  ) {
-    console.log(
-      'Updated variable collections',
-      postVariablesPayload.variableCollections,
+    const postVariablesPayload = generatePostVariablesPayload(
+      tokensByFile,
+      localVariables,
     );
-  }
 
-  if (
-    postVariablesPayload.variableModes &&
-    postVariablesPayload.variableModes.length
-  ) {
-    console.log('Updated variable modes', postVariablesPayload.variableModes);
-  }
+    if (
+      Object.values(postVariablesPayload).every(value => value.length === 0)
+    ) {
+      console.log(
+        green(`✅ "${dir}" tokens are already up to date with the Figma file`),
+      );
+      return;
+    }
 
-  if (postVariablesPayload.variables && postVariablesPayload.variables.length) {
-    console.log('Updated variables', postVariablesPayload.variables);
-  }
-
-  if (
-    postVariablesPayload.variableModeValues &&
-    postVariablesPayload.variableModeValues.length
-  ) {
-    console.log(
-      'Updated variable mode values',
-      postVariablesPayload.variableModeValues,
+    const apiResp = await api.postVariables(
+      fileKeys[dir],
+      postVariablesPayload,
     );
-  }
 
-  console.log(green('✅ Figma file has been updated with the new tokens'));
+    console.log(`"${dir}" POST variables API response:`, apiResp);
+
+    if (
+      postVariablesPayload.variableCollections &&
+      postVariablesPayload.variableCollections.length
+    ) {
+      console.log(
+        `Updated "${dir}" variable collections`,
+        postVariablesPayload.variableCollections,
+      );
+    }
+
+    if (
+      postVariablesPayload.variableModes &&
+      postVariablesPayload.variableModes.length
+    ) {
+      console.log(
+        `Updated "${dir}" variable modes`,
+        postVariablesPayload.variableModes,
+      );
+    }
+
+    if (
+      postVariablesPayload.variables &&
+      postVariablesPayload.variables.length
+    ) {
+      console.log(`Updated "${dir}" variables`, postVariablesPayload.variables);
+    }
+
+    if (
+      postVariablesPayload.variableModeValues &&
+      postVariablesPayload.variableModeValues.length
+    ) {
+      console.log(
+        `Updated "${dir}" variable mode values`,
+        postVariablesPayload.variableModeValues,
+      );
+    }
+    console.log(
+      green(`✅ Figma files have been updated with the new ${dir} tokens`),
+    );
+  });
 }
 
 main();
