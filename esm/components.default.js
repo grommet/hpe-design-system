@@ -1,17 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Thu, 05 Sep 2024 16:53:57 GMT
+ * Generated on Thu, 05 Sep 2024 18:25:38 GMT
  */
 
 export default {
   "hpe": {
-    "focusIndicator": {
-      "outline": {
-        "color": "focus",
-        "width": "2px",
-        "style": "solid"
-      }
-    },
     "button": {
       "primary": {
         "enabled": {
