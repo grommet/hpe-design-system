@@ -1570,6 +1570,7 @@ const buildTheme = tokens => {
       content: {
         // Q: missing tokens
         margin: { vertical: 'xsmall' },
+        pad: 'none',
       },
       border: {
         error: {
