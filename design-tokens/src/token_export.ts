@@ -1,6 +1,7 @@
 import { rgbToHex } from './color.js';
 import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';
 import { Token, TokensFile } from './token_types.js';
+import { access } from './utils.js';
 
 function tokenTypeFromVariable(variable: Variable) {
   if (variable.resolvedType === 'STRING' && variable.name.includes('fontStack'))
@@ -66,7 +67,54 @@ export function tokenFilesFromLocalVariables(
 
       let obj: any = tokenFiles[fileName];
 
-      if (variable.name.includes('elevation')) {
+      if (variable.name.includes('boxShadow')) {
+        const parts = variable.name.split('/');
+        const keyPath = parts.slice(0, parts.indexOf('boxShadow') + 1);
+        const property = parts[parts.length - 1];
+
+        keyPath.forEach(groupName => {
+          obj[groupName] = obj[groupName] || {};
+          obj = obj[groupName];
+        });
+
+        const token = {
+          $type: 'shadow',
+          $value: [
+            {
+              [property]: tokenValueFromVariable(
+                variable,
+                mode.modeId,
+                localVariables,
+              ),
+            },
+          ],
+          $description: '',
+          $extensions: {
+            'com.figma': {
+              hiddenFromPublishing: false,
+              scopes: ['ALL_SCOPES'],
+              codeSyntax: {},
+            },
+          },
+        };
+
+        // if there isn't anything in the shadow yet, create the initial value array
+        const boxShadow = access(keyPath.join('.'), tokenFiles[fileName]);
+        if (Object.keys(boxShadow).length === 0) {
+          Object.assign(obj, token);
+        } else {
+          const index =
+            parseInt(parts[parts.length - 3], 10) >= 0
+              ? parseInt(parts[parts.length - 3], 10)
+              : 0;
+          const partialShadow = boxShadow.$value[index];
+          partialShadow[property] = tokenValueFromVariable(
+            variable,
+            mode.modeId,
+            localVariables,
+          );
+        }
+      } else if (variable.name.includes('elevation')) {
         const parts = variable.name.split('/');
         const shadow = parts.slice(1, 2).join('');
         const property = parts[parts.length - 1];
