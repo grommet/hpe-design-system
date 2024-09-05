@@ -90,7 +90,7 @@ const Compare = ({ children, ...rest }) => {
             // eslint-disable-next-line no-nested-ternary
             mode === 'Compare diffs'
               ? { opacity: 0.5, filter: 'invert(1)', color: 'green' }
-              : mode === 'tokens'
+              : mode === 'metric2'
               ? { visibility: 'hidden' }
               : {}
           }
@@ -102,7 +102,7 @@ const Compare = ({ children, ...rest }) => {
       <Grommet background="transparent" theme={hpeCurrent}>
         <Box
           align="start"
-          style={mode === 'v3' ? { visibility: 'hidden' } : {}}
+          style={mode === 'alpha' ? { visibility: 'hidden' } : {}}
         >
           {children}
         </Box>
@@ -153,7 +153,7 @@ const StickerSheet = () => {
                   </FormField>
                   <FormField label="View mode">
                     <Select
-                      options={['v3', 'tokens', 'Compare diffs']}
+                      options={['alpha', 'metric2', 'Compare diffs']}
                       value={mode}
                       onChange={({ option }) => setMode(option)}
                     />
