@@ -219,6 +219,7 @@ const buildTheme = tokens => {
     elevationdark,
     global,
     components,
+    fontFace,
   ] = tokens;
   const flatColors = flattenObject(light, '-');
   const tokenColors = {};
@@ -547,8 +548,47 @@ const buildTheme = tokens => {
         `,
       },
       font: {
-        family: global.hpe.fontStack.primary,
-        face: `
+        family:
+          fontFace === 'metric2' ? '"Metric2"' : global.hpe.fontStack.primary,
+        face:
+          fontFace === 'metric2'
+            ? `
+            @font-face {
+              font-family: "Metric2";
+              src: url("./fonts/metric-2-hpe-regular.woff2") format('woff2'),
+                   url("./fonts/metric-2-hpe-regular.woff") format('woff');
+            }
+            @font-face {
+              font-family: "Metric2";
+              src: url("./fonts/metric-2-hpe-regular.woff2") format('woff2'),
+                   url("./fonts/metric-2-hpe-regular.woff") format('woff');
+              font-weight: 400;
+            }
+            @font-face {
+              font-family: "Metric2";
+              src: url("./fonts/metric-2-hpe-bold.woff2") format('woff2'),
+                   url("./fonts/metric-2-hpe-bold.woff") format('woff');
+              font-weight: 700;
+            }
+            @font-face {
+              font-family: "Metric2";
+              src: url("./fonts/metric-2-hpe-bold.woff2") format('woff2'),
+                   url("./fonts/metric-2-hpe-bold.woff") format('woff');
+              font-weight: 600;
+            }
+            @font-face {
+              font-family: "Metric2";
+              src: url("./fonts/metric-2-hpe-medium.woff2") format('woff2'),
+                   url("./fonts/metric-2-hpe-medium.woff") format('woff');
+              font-weight: 500;
+            }
+            @font-face {
+              font-family: "Metric2";
+              src: url("./fonts/metric-2-hpe-light.woff2") format('woff2'),
+                   url("./fonts/metric-2-hpe-light.woff") format('woff');
+              font-weight: 100;
+            }`
+            : `
           @font-face {
             font-family: "Metric";
             src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
@@ -584,6 +624,7 @@ const buildTheme = tokens => {
                  url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Light.woff") format('woff');
             font-weight: 100;
           }`,
+        size: large.hpe.text.medium.fontSize,
       },
       focus: {
         border: undefined,
@@ -1353,7 +1394,7 @@ const buildTheme = tokens => {
             theme.global.colors[
               components.hpe.switch.control.handle.enabled.borderColor
             ][theme.dark ? 'dark' : 'light']
-          }
+          };
           `,
         },
         extend: ({ checked, theme }) => `
@@ -2581,6 +2622,7 @@ export const current = buildTheme([
   localElevationDark,
   localGlobal,
   localComponents,
+  'metric2',
 ]);
 
 export const warm = buildTheme([

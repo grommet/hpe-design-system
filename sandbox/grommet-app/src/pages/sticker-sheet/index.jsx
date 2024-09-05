@@ -44,6 +44,7 @@ import {
 import { User } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../theme';
+import { themes } from '../../theme';
 
 const textSizes = [
   'xsmall',
@@ -73,16 +74,16 @@ const Compare = ({ children, ...rest }) => {
         <ThemeContext.Extend value={hpe}>
           <Box align="start">{children}</Box>
         </ThemeContext.Extend>
-        <ThemeContext.Extend value={hpeCurrent}>
+        <Grommet theme={hpeCurrent}>
           <Box align="start">{children}</Box>
-        </ThemeContext.Extend>
+        </Grommet>
       </Box>
     );
   }
 
   return (
-    <Stack {...rest}>
-      <ThemeContext.Extend value={hpe}>
+    <Stack {...rest} guidingChild="last">
+      <ThemeContext.Extend value={themes.alpha}>
         <Box
           align="start"
           style={
@@ -98,14 +99,14 @@ const Compare = ({ children, ...rest }) => {
         </Box>
       </ThemeContext.Extend>
 
-      <ThemeContext.Extend value={hpeCurrent}>
+      <Grommet background="transparent" theme={hpeCurrent}>
         <Box
           align="start"
           style={mode === 'v3' ? { visibility: 'hidden' } : {}}
         >
           {children}
         </Box>
-      </ThemeContext.Extend>
+      </Grommet>
     </Stack>
   );
 };
@@ -129,7 +130,7 @@ const StickerSheet = () => {
     };
   }, [mode, direction]);
   return (
-    <Grommet theme={hpe}>
+    <Grommet theme={themes.alpha}>
       <ModeContext.Provider value={contextValue}>
         <Page kind="full" pad={{ bottom: 'xlarge' }}>
           <PageContent align="start" gap="medium">
