@@ -4718,7 +4718,7 @@
         }
       },
       "paddingX": {
-        "Narrow": {
+        "narrow": {
           "$type": "number",
           "$value": "{base.static.spacing.xxsmall}",
           "$description": "",
@@ -4730,7 +4730,7 @@
             }
           }
         },
-        "Standard": {
+        "default": {
           "$type": "number",
           "$value": "{base.static.spacing.xsmall}",
           "$description": "",
@@ -4742,7 +4742,7 @@
             }
           }
         },
-        "Wide": {
+        "wide": {
           "$type": "number",
           "$value": 9,
           "$description": "",
@@ -4842,7 +4842,7 @@
         }
       },
       "paddingX": {
-        "Narrow": {
+        "narrow": {
           "$type": "number",
           "$value": "{base.static.spacing.xxsmall}",
           "$description": "",
@@ -4854,7 +4854,7 @@
             }
           }
         },
-        "Standard": {
+        "default": {
           "$type": "number",
           "$value": "{base.static.spacing.xsmall}",
           "$description": "",
@@ -4866,7 +4866,7 @@
             }
           }
         },
-        "Wide": {
+        "wide": {
           "$type": "number",
           "$value": 9,
           "$description": "",
@@ -4966,7 +4966,7 @@
         }
       },
       "paddingX": {
-        "Narrow": {
+        "narrow": {
           "$type": "number",
           "$value": 5,
           "$description": "",
@@ -4978,7 +4978,7 @@
             }
           }
         },
-        "Standard": {
+        "default": {
           "$type": "number",
           "$value": 10,
           "$description": "",
@@ -4990,7 +4990,7 @@
             }
           }
         },
-        "Wide": {
+        "wide": {
           "$type": "number",
           "$value": 15,
           "$description": "",
@@ -5090,7 +5090,7 @@
         }
       },
       "paddingX": {
-        "Narrow": {
+        "narrow": {
           "$type": "number",
           "$value": 9,
           "$description": "",
@@ -5102,7 +5102,7 @@
             }
           }
         },
-        "Standard": {
+        "default": {
           "$type": "number",
           "$value": 18,
           "$description": "",
@@ -5114,7 +5114,7 @@
             }
           }
         },
-        "Wide": {
+        "wide": {
           "$type": "number",
           "$value": 24,
           "$description": "",
@@ -5214,7 +5214,7 @@
         }
       },
       "paddingX": {
-        "Narrow": {
+        "narrow": {
           "$type": "number",
           "$value": 16,
           "$description": "",
@@ -5226,7 +5226,7 @@
             }
           }
         },
-        "Standard": {
+        "default": {
           "$type": "number",
           "$value": 24,
           "$description": "",
@@ -5238,7 +5238,7 @@
             }
           }
         },
-        "Wide": {
+        "wide": {
           "$type": "number",
           "$value": 32,
           "$description": "",
