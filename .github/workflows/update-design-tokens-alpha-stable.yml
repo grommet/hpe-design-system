@@ -39,5 +39,7 @@ jobs:
         run: yarn sync-tokens-to-figma
         working-directory: design-tokens
         env:
-          FILE_KEY: ${{ secrets.GH_ACTION_ALPHA_FIGMA_FILE_KEY }}
+          FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
+          FILE_KEY_SEMANTIC: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_SEMANTIC }}
+          FILE_KEY_COMPONENT: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_COMPONENT }}
           PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_ACTION_VARIABLES_SYNC_FIGMA_TOKEN }}
