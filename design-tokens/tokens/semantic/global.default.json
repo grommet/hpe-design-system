@@ -3,9 +3,17 @@
     "outline": {
       "$type": "border",
       "$value": {
+        "style": "solid",
         "color": "{color.focus}",
-        "width": "{base.dimension.50}",
-        "style": "solid"
+        "width": "{base.dimension.50}"
+      },
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [],
+          "codeSyntax": {}
+        }
       }
     }
   },
