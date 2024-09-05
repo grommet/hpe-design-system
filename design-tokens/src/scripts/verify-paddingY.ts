@@ -75,10 +75,21 @@ export const descend = (
 };
 
 const TOKENS_DIR = 'tokens';
-const tokens = readdirSync(TOKENS_DIR).map(file => `${TOKENS_DIR}/${file}`);
+const tokenDirs = readdirSync(TOKENS_DIR, { withFileTypes: true })
+  .filter((dir: any) => dir.isDirectory())
+  .map((dir: any) => dir.name);
+
+const tokens = tokenDirs
+  .map(dir =>
+    readdirSync(`${TOKENS_DIR}/${dir}`).map(
+      file => `${TOKENS_DIR}/${dir}/${file}`,
+    ),
+  )
+  .flat();
+
 let allTokens = {};
 tokens.forEach(file => {
-  const raw = readFileSync(file);
+  const raw = readFileSync(file.toString());
   const parsed = JSON.parse(raw.toString());
   allTokens = { ...allTokens, ...parsed };
 });
