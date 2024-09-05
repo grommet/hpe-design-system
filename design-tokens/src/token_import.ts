@@ -43,6 +43,19 @@ const shadowToVariables = (name: any, values: any) => {
       },
     },
   };
+  if (values.inset) {
+    res[`${name}/inset`] = {
+      $value: values.inset,
+      $type: 'boolean',
+      $extensions: {
+        'com.figma': {
+          hiddenFromPublishing: true,
+          scopes: undefined, // no scopes for boolean variables
+          codeSyntax: {},
+        },
+      },
+    };
+  }
 
   return res;
 };
