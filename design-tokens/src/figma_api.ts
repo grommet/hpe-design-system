@@ -66,7 +66,7 @@ export interface Variable {
   name: string;
   key: string;
   variableCollectionId: string;
-  resolvedType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR' | 'SHADOW'; // SHADOW is custom for w3c spec
+  resolvedType: 'BOOLEAN' | 'FLOAT' | 'STRING' | 'COLOR' | 'SHADOW' | 'BORDER'; // SHADOW, BORDER is custom for w3c spec
   valuesByMode: { [modeId: string]: VariableValue };
   remote: boolean;
   description: string;

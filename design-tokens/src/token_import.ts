@@ -76,6 +76,57 @@ const transformShadow = (name: string, token: any) => {
   return tokens;
 };
 
+const borderToVariables = (name: any, values: any) => {
+  const floatValue = (property: any) => ({
+    $type: 'number',
+    $value: values[property],
+    $extensions: {
+      'com.figma': {
+        hiddenFromPublishing: false,
+        scopes: ['EFFECT_FLOAT'],
+        codeSyntax: {},
+      },
+    },
+  });
+
+  const res: { [key: string]: any } = {};
+  res[`${name}/width`] = floatValue('width');
+  res[`${name}/color`] = {
+    $type: 'color',
+    $value: values.color,
+    $extensions: {
+      'com.figma': {
+        hiddenFromPublishing: false,
+        scopes: ['EFFECT_COLOR'],
+        codeSyntax: {},
+      },
+    },
+  };
+  res[`${name}/style`] = {
+    $type: 'string',
+    $value: values.style,
+    $extensions: {
+      'com.figma': {
+        hiddenFromPublishing: false,
+        scopes: [],
+        codeSyntax: {},
+      },
+    },
+  };
+
+  return res;
+};
+
+const transformBorder = (name: string, token: any) => {
+  let tokens = {};
+  const value = token['$value'];
+  tokens = {
+    ...tokens,
+    ...borderToVariables(name, value),
+  };
+
+  return tokens;
+};
 export type FlattenedTokensByFile = {
   [fileName: string]: {
     [tokenName: string]: Token;
@@ -145,6 +196,15 @@ function traverseCollection({
       Object.keys(shadowTokens).forEach(shadowToken => {
         tokens[shadowToken] = shadowTokens[shadowToken];
       });
+    } else if (object.$type === 'border') {
+      const borderTokens: { [key: string]: any } = transformBorder(key, object);
+      Object.keys(borderTokens).forEach(borderToken => {
+        tokens[borderToken] = borderTokens[borderToken];
+      });
+      fs.writeFileSync(
+        './dist/mine.json',
+        JSON.stringify(borderTokens, null, 2),
+      );
     } else tokens[key] = object;
   } else {
     Object.entries<TokenOrTokenGroup>(object).forEach(([key2, object2]) => {
@@ -181,12 +241,12 @@ function variableResolvedTypeFromToken(token: Token) {
     case 'boolean':
       return 'BOOLEAN';
     case 'shadow':
-      return 'SHADOW';
+      return 'SHADOW'; // not directly supported by Figma, so we flatten to parts
     case 'fontFamily':
       return 'STRING';
-    // undefined since Figma Variables doesn't support yet
     case 'border':
-      return undefined;
+      return 'BORDER'; // not directly supported by Figma, so we flatten to parts
+    // undefined since Figma Variables doesn't support yet
     case 'cubicBezier':
       return undefined;
     case 'duration':
