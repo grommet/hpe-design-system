@@ -11334,72 +11334,72 @@ export default {
               "codeSyntax": {}
             }
           }
-        },
-        "hover": {
-          "textColor": {
-            "$type": "color",
-            "$value": "{color.text.brand}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": [
-                  "TEXT_FILL"
-                ],
-                "codeSyntax": {}
-              }
-            }
-          },
-          "fontWeight": {
-            "$type": "number",
-            "$value": "{fontWeight.bold}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": [],
-                "codeSyntax": {}
-              }
-            }
-          },
-          "textDecoration": {
-            "$type": "string",
-            "$value": "underline",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": true,
-                "scopes": [],
-                "codeSyntax": {}
-              }
+        }
+      },
+      "hover": {
+        "textColor": {
+          "$type": "color",
+          "$value": "{color.text.brand}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {}
             }
           }
         },
-        "disabled": {
-          "textColor": {
-            "$type": "color",
-            "$value": "{color.text.brand}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": [
-                  "TEXT_FILL"
-                ],
-                "codeSyntax": {}
-              }
+        "fontWeight": {
+          "$type": "number",
+          "$value": "{fontWeight.bold}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [],
+              "codeSyntax": {}
             }
-          },
-          "fontWeight": {
-            "$type": "number",
-            "$value": "{fontWeight.bold}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": [],
-                "codeSyntax": {}
-              }
+          }
+        },
+        "textDecoration": {
+          "$type": "string",
+          "$value": "underline",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": true,
+              "scopes": [],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "disabled": {
+        "textColor": {
+          "$type": "color",
+          "$value": "{color.text.brand}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "fontWeight": {
+          "$type": "number",
+          "$value": "{fontWeight.bold}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [],
+              "codeSyntax": {}
             }
           }
         }

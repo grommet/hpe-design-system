@@ -1,10 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Thu, 05 Sep 2024 18:32:22 GMT
+ * Generated on Thu, 05 Sep 2024 18:35:58 GMT
  */
 
 :root {
-  --hpe-anchor-emphasized-enabled-hover-text-decoration: underline;
+  --hpe-anchor-emphasized-hover-text-decoration: underline;
   --hpe-anchor-emphasized-enabled-text-decoration: none;
   --hpe-anchor-default-disabled-text-decoration: underline;
   --hpe-anchor-default-hover-text-decoration: underline;
@@ -81,8 +81,8 @@
   --hpe-button-default-selected-enabled-border-color: #00000000;
   --hpe-button-default-enabled-border-color: #00000000;
   --hpe-button-default-enabled-background: #00000000;
-  --hpe-anchor-emphasized-enabled-disabled-font-weight: var(--hpe-font-weight-bold);
-  --hpe-anchor-emphasized-enabled-hover-font-weight: var(--hpe-font-weight-bold);
+  --hpe-anchor-emphasized-disabled-font-weight: var(--hpe-font-weight-bold);
+  --hpe-anchor-emphasized-hover-font-weight: var(--hpe-font-weight-bold);
   --hpe-anchor-emphasized-enabled-font-weight: var(--hpe-font-weight-bold);
   --hpe-anchor-default-disabled-font-weight: var(--hpe-font-weight-medium);
   --hpe-anchor-default-hover-font-weight: var(--hpe-font-weight-medium);
@@ -197,8 +197,8 @@
   --hpe-anchor-emphasized-xxlarge-emphasized-font-size: var(--hpe-text-xxlarge-font-size);
   --hpe-anchor-emphasized-xxlarge-default-line-height: var(--hpe-text-xxlarge-line-height);
   --hpe-anchor-emphasized-xxlarge-default-font-size: var(--hpe-text-xxlarge-font-size);
-  --hpe-anchor-emphasized-enabled-disabled-text-color: var(--hpe-color-text-brand);
-  --hpe-anchor-emphasized-enabled-hover-text-color: var(--hpe-color-text-brand);
+  --hpe-anchor-emphasized-disabled-text-color: var(--hpe-color-text-brand);
+  --hpe-anchor-emphasized-hover-text-color: var(--hpe-color-text-brand);
   --hpe-anchor-emphasized-enabled-text-color: var(--hpe-color-text-brand);
   --hpe-anchor-default-disabled-text-color: var(--hpe-color-text-strong);
   --hpe-anchor-default-hover-text-color: var(--hpe-color-text-strong);

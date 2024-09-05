@@ -11137,7 +11137,7 @@ export default {
         }
       }
     },
-    "anchor.emphasized.enabled.hover.textColor": {
+    "anchor.emphasized.hover.textColor": {
       "$type": "color",
       "$value": "{color.text.brand}",
       "$description": "",
@@ -11151,7 +11151,7 @@ export default {
         }
       }
     },
-    "anchor.emphasized.enabled.hover.fontWeight": {
+    "anchor.emphasized.hover.fontWeight": {
       "$type": "number",
       "$value": "{fontWeight.bold}",
       "$description": "",
@@ -11163,7 +11163,7 @@ export default {
         }
       }
     },
-    "anchor.emphasized.enabled.hover.textDecoration": {
+    "anchor.emphasized.hover.textDecoration": {
       "$type": "string",
       "$value": "underline",
       "$description": "",
@@ -11175,7 +11175,7 @@ export default {
         }
       }
     },
-    "anchor.emphasized.enabled.disabled.textColor": {
+    "anchor.emphasized.disabled.textColor": {
       "$type": "color",
       "$value": "{color.text.brand}",
       "$description": "",
@@ -11189,7 +11189,7 @@ export default {
         }
       }
     },
-    "anchor.emphasized.enabled.disabled.fontWeight": {
+    "anchor.emphasized.disabled.fontWeight": {
       "$type": "number",
       "$value": "{fontWeight.bold}",
       "$description": "",
@@ -17157,11 +17157,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.emphasized.enabled.hover.textColor",
+          "name": "anchor.emphasized.hover.textColor",
           "mode": "default"
         },
         {
-          "name": "anchor.emphasized.enabled.disabled.textColor",
+          "name": "anchor.emphasized.disabled.textColor",
           "mode": "default"
         }
       ]
@@ -19139,11 +19139,11 @@ export default {
           "mode": "default"
         },
         {
-          "name": "anchor.emphasized.enabled.hover.textColor",
+          "name": "anchor.emphasized.hover.textColor",
           "mode": "default"
         },
         {
-          "name": "anchor.emphasized.enabled.disabled.textColor",
+          "name": "anchor.emphasized.disabled.textColor",
           "mode": "default"
         }
       ]

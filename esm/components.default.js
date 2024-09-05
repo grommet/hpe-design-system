@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 05 Sep 2024 18:32:22 GMT
+ * Generated on Thu, 05 Sep 2024 18:35:58 GMT
  */
 
 export default {
@@ -1311,16 +1311,16 @@ export default {
         "enabled": {
           "textColor": "text-brand",
           "fontWeight": 700,
-          "textDecoration": "none",
-          "hover": {
-            "textColor": "text-brand",
-            "fontWeight": 700,
-            "textDecoration": "underline"
-          },
-          "disabled": {
-            "textColor": "text-brand",
-            "fontWeight": 700
-          }
+          "textDecoration": "none"
+        },
+        "hover": {
+          "textColor": "text-brand",
+          "fontWeight": 700,
+          "textDecoration": "underline"
+        },
+        "disabled": {
+          "textColor": "text-brand",
+          "fontWeight": 700
         },
         "small": {
           "default": {
