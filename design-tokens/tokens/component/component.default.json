@@ -9586,6 +9586,18 @@
               "codeSyntax": {}
             }
           }
+        },
+        "textDecoration": {
+          "$type": "string",
+          "$value": "none",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": true,
+              "scopes": [],
+              "codeSyntax": {}
+            }
+          }
         }
       },
       "hover": {

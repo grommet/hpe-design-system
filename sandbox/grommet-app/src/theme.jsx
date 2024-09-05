@@ -710,39 +710,46 @@ const buildTheme = tokens => {
         // A: Our approach to anchor styling makes it difficult to automate
         // because we've blended "size" and "kind into single variables"
         large: {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: components.hpe.anchor.emphasized.enabled.textColor,
+          textDecoration:
+            components.hpe.anchor.emphasized.enabled.textDecoration,
+          fontWeight: components.hpe.anchor.emphasized.enabled.fontWeight,
         },
         xlarge: {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: components.hpe.anchor.emphasized.enabled.textColor,
+          textDecoration:
+            components.hpe.anchor.emphasized.enabled.textDecoration,
+          fontWeight: components.hpe.anchor.emphasized.enabled.fontWeight,
         },
         xxlarge: {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: components.hpe.anchor.emphasized.enabled.textColor,
+          textDecoration:
+            components.hpe.anchor.emphasized.enabled.textDecoration,
+          fontWeight: components.hpe.anchor.emphasized.enabled.fontWeight,
         },
         '3xl': {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: components.hpe.anchor.emphasized.enabled.textColor,
+          textDecoration:
+            components.hpe.anchor.emphasized.enabled.textDecoration,
+          fontWeight: components.hpe.anchor.emphasized.enabled.fontWeight,
         },
         '4xl': {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: components.hpe.anchor.emphasized.enabled.textColor,
+          textDecoration:
+            components.hpe.anchor.emphasized.enabled.textDecoration,
+          fontWeight: components.hpe.anchor.emphasized.enabled.fontWeight,
         },
         '5xl': {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: components.hpe.anchor.emphasized.enabled.textColor,
+          textDecoration:
+            components.hpe.anchor.emphasized.enabled.textDecoration,
+          fontWeight: components.hpe.anchor.emphasized.enabled.fontWeight,
         },
         '6xl': {
-          color: components.hpe.anchor.default.enabled.textColor,
-          textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-          fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+          color: components.hpe.anchor.emphasized.enabled.textColor,
+          textDecoration:
+            components.hpe.anchor.emphasized.enabled.textDecoration,
+          fontWeight: components.hpe.anchor.emphasized.enabled.fontWeight,
         },
       },
     },
