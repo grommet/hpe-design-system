@@ -2,15 +2,11 @@ name: Sync Figma variables to tokens
 on:
   workflow_dispatch:
     inputs:
-      file_key:
-        description: 'The file key of the Figma file to be updated'
-        required: true
       branch:
         type: choice
         description: Which branch to update
         options:
           - design-tokens-alpha
-          - design-tokens
 jobs:
   sync-figma-to-tokens:
     runs-on: ubuntu-latest
@@ -48,6 +44,6 @@ jobs:
         with:
           commit-message: Update tokens from Figma
           title: Update tokens from Figma
-          body: 'Update tokens from Figma from file: https://www.figma.com/file/${{ github.event.inputs.file_key }}'
+          body: 'Update tokens from Figma from tokens files'
           base: ${{ github.event.inputs.branch }}
           branch: update-tokens

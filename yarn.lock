@@ -4227,9 +4227,9 @@ camelize@^1.0.0:
   integrity sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==
 
 caniuse-lite@^1.0.30001579, caniuse-lite@^1.0.30001646:
-  version "1.0.30001655"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001655.tgz#0ce881f5a19a2dcfda2ecd927df4d5c1684b982f"
-  integrity sha512-jRGVy3iSGO5Uutn2owlb5gR6qsGngTw9ZTb4ali9f3glshcNmJ2noam4Mo9zia5P9Dk3jNNydy7vQjuE5dQmfg==
+  version "1.0.30001657"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001657.tgz#29fd504bffca719d1c6b63a1f6f840be1973a660"
+  integrity sha512-DPbJAlP8/BAXy3IgiWmZKItubb3TYGP0WscQQlVGIfT4s/YlFYVuJgyOsQNP7rJRChx/qdMeLJQJP0Sgg2yjNA==
 
 capital-case@^1.0.4:
   version "1.0.4"
@@ -5131,9 +5131,9 @@ ejs@^3.1.10:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.4:
-  version "1.5.13"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.13.tgz#1abf0410c5344b2b829b7247e031f02810d442e6"
-  integrity sha512-lbBcvtIJ4J6sS4tb5TLp1b4LyfCdMkwStzXPyAgVgTRAsep4bvrAGaBOP7ZJtQMNJpSQ9SqG4brWOroNaQtm7Q==
+  version "1.5.14"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.14.tgz#8de5fd941f4deede999f90503c4b5923fbe1962b"
+  integrity sha512-bEfPECb3fJ15eaDnu9LEJ2vPGD6W1vt7vZleSVyFhYuMIKm3vz/g9lt7IvEzgdwj58RjbPKUF2rXTCN/UW47tQ==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -6672,7 +6672,7 @@ hpack.js@^2.1.6:
 
 "hpe-design-tokens-alpha@https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable":
   version "0.1.0"
-  resolved "https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable#13777d728dbe6b47fcce2610f9b244b19b7397a6"
+  resolved "https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable#72c2874a8204629c462fdc09b39935275664de78"
   dependencies:
     axios "^1.6.0"
     dotenv "^16.3.1"
@@ -8419,9 +8419,9 @@ language-tags@^1.0.9:
     language-subtag-registry "^0.3.20"
 
 launch-editor@^2.6.0:
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/launch-editor/-/launch-editor-2.8.2.tgz#939e1b3469f9d5471e4eaacedd51b3b7c45352cd"
-  integrity sha512-eF5slEUZXmi6WvFzI3dYcv+hA24/iKnROf24HztcURJpSz9RBmBgz5cNCVOeguouf1llrwy6Yctl4C4HM+xI8g==
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/launch-editor/-/launch-editor-2.9.1.tgz#253f173bd441e342d4344b4dae58291abb425047"
+  integrity sha512-Gcnl4Bd+hRO9P9icCP/RVVT2o8SFlPXofuCxvA2SaZuH45whSvf5p8x5oih5ftLiVhEI4sp5xDY+R+b3zJBh5w==
   dependencies:
     picocolors "^1.0.0"
     shell-quote "^1.8.1"
