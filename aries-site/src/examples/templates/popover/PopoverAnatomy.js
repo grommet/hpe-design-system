@@ -126,6 +126,7 @@ const PopoverContent = ({ ...rest }) => {
     <Box
       id="popover-container"
       alignSelf="start"
+      background="background-front"
       round="xxsmall"
       elevation="medium"
       {...rest}
