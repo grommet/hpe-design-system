@@ -66,7 +66,7 @@ HPEStyleDictionary.extend({
 HPEStyleDictionary.extend({
   source: [
     `${TOKENS_DIR}/primitive/primitives.base.json`,
-    `${TOKENS_DIR}/semantic/color - semantic.light.json`, // using light mode to have a reference name available
+    `${TOKENS_DIR}/semantic/color.light.json`, // using light mode to have a reference name available
     `${TOKENS_DIR}/semantic/global.default.json`,
   ],
   platforms: {
@@ -144,7 +144,7 @@ colorModeFiles.forEach(file => {
     source: [
       `${TOKENS_DIR}/primitive/primitives.base.json`,
       file,
-      `${TOKENS_DIR}/semantic/elevation - semantic.${mode}.json`,
+      `${TOKENS_DIR}/semantic/elevation.${mode}.json`,
       // `${TOKENS_DIR}/gradient.${mode}.json`, // TO DO add gradients
     ],
     platforms: {
@@ -257,9 +257,9 @@ dimensionFiles.forEach(file => {
   HPEStyleDictionary.extend({
     source: [
       `${TOKENS_DIR}/primitive/primitives.base.json`,
-      `${TOKENS_DIR}/semantic/color - semantic.light.json`,
+      `${TOKENS_DIR}/semantic/color.light.json`,
       `${TOKENS_DIR}/semantic/global.default.json`,
-      `${TOKENS_DIR}/semantic/typography - semantic.${mode}.json`,
+      `${TOKENS_DIR}/semantic/typography.${mode}.json`,
       file,
     ],
     platforms: {
@@ -328,9 +328,9 @@ HPEStyleDictionary.extend({
   source: [
     `${TOKENS_DIR}/primitive/primitives.base.json`,
     `${TOKENS_DIR}/semantic/global.default.json`,
-    `${TOKENS_DIR}/semantic/color - semantic.light.json`, // using light mode to have a reference name available
-    `${TOKENS_DIR}/semantic/dimension - semantic.large.json`, // using large mode to have a reference name available
-    `${TOKENS_DIR}/semantic/typography - semantic.large.json`, // using large mode to have a reference name available
+    `${TOKENS_DIR}/semantic/color.light.json`, // using light mode to have a reference name available
+    `${TOKENS_DIR}/semantic/dimension.large.json`, // using large mode to have a reference name available
+    `${TOKENS_DIR}/semantic/typography.large.json`, // using large mode to have a reference name available
     `${TOKENS_DIR}/component/component.default.json`,
   ],
   platforms: {
