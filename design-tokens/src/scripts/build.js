@@ -7,10 +7,10 @@ mkdirSync('./dist');
 mkdirSync('./dist/esm-unresolved');
 let esm = '';
 
-const dimensionFiles = readdirSync(TOKENS_DIR)
+const dimensionFiles = readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
     file.includes('small') || file.includes('large')
-      ? `${TOKENS_DIR}/${file}`
+      ? `${TOKENS_DIR}/semantic/${file}`
       : undefined,
   )
   .filter(file => file);
@@ -32,20 +32,26 @@ Object.keys(dimensionTokens).forEach(key => {
   esm += `export { default as ${key} } from './dimension.${key}';\n`;
 });
 
-readdirSync(TOKENS_DIR).forEach(file => {
-  if (!file.includes('large') && !file.includes('small')) {
-    const raw = readFileSync(`${TOKENS_DIR}/${file}`);
-    const parsed = JSON.parse(raw);
-    let mode = file.includes('component') ? 'components' : file.split('.')[1];
-    if (file.includes('elevation')) mode = `elevation${mode}`;
-    esm += `export { default as ${mode} } from './${file.replace(
-      '.json',
-      '',
-    )}';\n`;
-    writeFileSync('./dist/esm-unresolved/index.js', esm);
-    writeFileSync(
-      `./dist/esm-unresolved/${file.replace('json', 'js')}`,
-      `export default ${JSON.stringify(parsed, null, 2)}`,
-    );
-  }
+const tokenDirs = readdirSync(TOKENS_DIR, { withFileTypes: true })
+  .filter(dir => dir.isDirectory())
+  .map(dir => dir.name);
+
+tokenDirs.forEach(dir => {
+  readdirSync(`${TOKENS_DIR}/${dir}`).forEach(file => {
+    if (!file.includes('large') && !file.includes('small')) {
+      const raw = readFileSync(`${TOKENS_DIR}/${dir}/${file}`);
+      const parsed = JSON.parse(raw);
+      let mode = file.includes('component') ? 'components' : file.split('.')[1];
+      if (file.includes('elevation')) mode = `elevation${mode}`;
+      esm += `export { default as ${mode} } from './${file.replace(
+        '.json',
+        '',
+      )}';\n`;
+      writeFileSync('./dist/esm-unresolved/index.js', esm);
+      writeFileSync(
+        `./dist/esm-unresolved/${file.replace('json', 'js')}`,
+        `export default ${JSON.stringify(parsed, null, 2)}`,
+      );
+    }
+  });
 });

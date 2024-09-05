@@ -205,6 +205,8 @@ function variableValueFromToken(
 
     // When mapping aliases to existing local variables, we assume that variable names
     // are unique *across all collections* in the Figma file
+    // TO DO how will this work with our density token concept is there are repeated
+    // variable names for spacing.medium on breakpoint/density?
     for (const localVariablesByName of Object.values(
       localVariablesByCollectionAndName,
     )) {
@@ -344,10 +346,11 @@ export function generatePostVariablesPayload(
   });
 
   Object.values(localVariables.meta.variables).forEach(variable => {
+    // Commenting the below out to accommodate separate Figma file structure
     // Skip over remote variables because we can't modify them
-    if (variable.remote) {
-      return;
-    }
+    // if (variable.remote) {
+    //   return;
+    // }
 
     if (!localVariablesByCollectionAndName[variable.variableCollectionId]) {
       localVariablesByCollectionAndName[variable.variableCollectionId] = {};
