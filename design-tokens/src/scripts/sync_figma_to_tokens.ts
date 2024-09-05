@@ -17,34 +17,58 @@ import { tokenFilesFromLocalVariables } from '../token_export.js';
  */
 
 async function main() {
-  if (!process.env.PERSONAL_ACCESS_TOKEN || !process.env.FILE_KEY) {
+  if (
+    !process.env.PERSONAL_ACCESS_TOKEN ||
+    !process.env.FILE_KEY_PRIMITIVE ||
+    !process.env.FILE_KEY_SEMANTIC ||
+    !process.env.FILE_KEY_COMPONENT
+  ) {
     throw new Error(
-      'PERSONAL_ACCESS_TOKEN and FILE_KEY environemnt variables are required',
+      'PERSONAL_ACCESS_TOKEN, FILE_KEY_PRIMITIVE, FILE_KEY_SEMANTIC, and FILE_KEY_COMPONENT environment variables are required',
     );
   }
-  const fileKey = process.env.FILE_KEY;
+  const fileKeys: { [key: string]: string } = {
+    primitive: process.env.FILE_KEY_PRIMITIVE,
+    semantic: process.env.FILE_KEY_SEMANTIC,
+    component: process.env.FILE_KEY_COMPONENT,
+  };
 
-  const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN);
-  const localVariables = await api.getLocalVariables(fileKey);
-
-  const tokensFiles = tokenFilesFromLocalVariables(localVariables);
+  const TOKENS_DIR = 'tokens';
+  const tokenDirs = fs
+    .readdirSync(TOKENS_DIR, { withFileTypes: true })
+    .filter(dir => dir.isDirectory())
+    .map(dir => dir.name);
 
   let outputDir = 'tokens_new';
-  const outputArgIdx = process.argv.indexOf('--output');
-  if (outputArgIdx !== -1) {
-    outputDir = process.argv[outputArgIdx + 1];
-  }
 
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir);
-  }
-
-  Object.entries(tokensFiles).forEach(([fileName, fileContent]) => {
+  tokenDirs.forEach(async dir => {
+    const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
+    const localVariables = await api.getLocalVariables(fileKeys[dir]);
     fs.writeFileSync(
-      `${outputDir}/${fileName}`,
-      `${JSON.stringify(fileContent, null, 2)}\n`,
+      `./dist/figma-${dir}.json`,
+      JSON.stringify(localVariables, null, 2),
     );
-    console.log(`Wrote ${fileName}`);
+    const tokensFiles = tokenFilesFromLocalVariables(localVariables);
+
+    const outputArgIdx = process.argv.indexOf('--output');
+    if (outputArgIdx !== -1) {
+      outputDir = process.argv[outputArgIdx + 1];
+    }
+
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir);
+    }
+    if (!fs.existsSync(`${outputDir}/${dir}`)) {
+      fs.mkdirSync(`${outputDir}/${dir}`);
+    }
+
+    Object.entries(tokensFiles).forEach(([fileName, fileContent]) => {
+      fs.writeFileSync(
+        `${outputDir}/${dir}/${fileName}`,
+        `${JSON.stringify(fileContent, null, 2)}\n`,
+      );
+      console.log(`Wrote ${fileName}`);
+    });
   });
 
   console.log(

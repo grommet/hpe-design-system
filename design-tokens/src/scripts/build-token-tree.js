@@ -15,17 +15,23 @@ const flattenObject = (obj, delimiter = '.', prefix = '') =>
   }, {});
 
 const TOKENS_DIR = 'tokens';
+const tokenDirs = fs
+  .readdirSync(TOKENS_DIR, { withFileTypes: true })
+  .filter(dir => dir.isDirectory())
+  .map(dir => dir.name);
 
 const tree = {};
 
-fs.readdirSync(TOKENS_DIR).forEach(file => {
-  // [tokens/color, light, json]
-  const mode = file.split('.')[1];
-  const raw = fs.readFileSync(`${TOKENS_DIR}/${file}`);
-  const parsed = JSON.parse(raw);
-  const flat = flattenObject(parsed, '.');
-  if (!(mode in tree)) tree[mode] = {};
-  tree[mode] = { ...tree[mode], ...flat };
+tokenDirs.forEach(dir => {
+  fs.readdirSync(`${TOKENS_DIR}/${dir}`).forEach(file => {
+    // [tokens/color, light, json]
+    const mode = file.split('.')[1];
+    const raw = fs.readFileSync(`${TOKENS_DIR}/${dir}/${file}`);
+    const parsed = JSON.parse(raw);
+    const flat = flattenObject(parsed, '.');
+    if (!(mode in tree)) tree[mode] = {};
+    tree[mode] = { ...tree[mode], ...flat };
+  });
 });
 
 Object.keys(tree).forEach(mode => {

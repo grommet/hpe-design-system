@@ -92,7 +92,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": ["FONT_STYLE"],
           "codeSyntax": {}
         }
@@ -104,7 +104,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": ["FONT_STYLE"],
           "codeSyntax": {}
         }
@@ -116,7 +116,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": ["FONT_STYLE"],
           "codeSyntax": {}
         }
@@ -128,7 +128,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": ["FONT_STYLE"],
           "codeSyntax": {}
         }
@@ -140,7 +140,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": ["FONT_STYLE"],
           "codeSyntax": {}
         }
@@ -152,7 +152,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": ["FONT_STYLE"],
           "codeSyntax": {}
         }
@@ -164,7 +164,7 @@
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": ["FONT_STYLE"],
           "codeSyntax": {}
         }
