@@ -5416,7 +5416,7 @@ export default {
         }
       }
     },
-    "component.xsmall.paddingX.Narrow": {
+    "component.xsmall.paddingX.narrow": {
       "$type": "number",
       "$value": "{base.static.spacing.xxsmall}",
       "$description": "",
@@ -5430,7 +5430,7 @@ export default {
         }
       }
     },
-    "component.xsmall.paddingX.Standard": {
+    "component.xsmall.paddingX.default": {
       "$type": "number",
       "$value": "{base.static.spacing.xsmall}",
       "$description": "",
@@ -5444,7 +5444,7 @@ export default {
         }
       }
     },
-    "component.xsmall.paddingX.Wide": {
+    "component.xsmall.paddingX.wide": {
       "$type": "number",
       "$value": 9,
       "$description": "",
@@ -5605,7 +5605,7 @@ export default {
         }
       ]
     },
-    "component.small.paddingX.Narrow": {
+    "component.small.paddingX.narrow": {
       "$type": "number",
       "$value": "{base.static.spacing.xxsmall}",
       "$description": "",
@@ -5619,7 +5619,7 @@ export default {
         }
       }
     },
-    "component.small.paddingX.Standard": {
+    "component.small.paddingX.default": {
       "$type": "number",
       "$value": "{base.static.spacing.xsmall}",
       "$description": "",
@@ -5633,7 +5633,7 @@ export default {
         }
       }
     },
-    "component.small.paddingX.Wide": {
+    "component.small.paddingX.wide": {
       "$type": "number",
       "$value": 9,
       "$description": "",
@@ -5908,7 +5908,7 @@ export default {
         }
       ]
     },
-    "component.medium.paddingX.Narrow": {
+    "component.medium.paddingX.narrow": {
       "$type": "number",
       "$value": 5,
       "$description": "",
@@ -5922,7 +5922,7 @@ export default {
         }
       }
     },
-    "component.medium.paddingX.Standard": {
+    "component.medium.paddingX.default": {
       "$type": "number",
       "$value": 10,
       "$description": "",
@@ -5936,7 +5936,7 @@ export default {
         }
       }
     },
-    "component.medium.paddingX.Wide": {
+    "component.medium.paddingX.wide": {
       "$type": "number",
       "$value": 15,
       "$description": "",
@@ -6097,7 +6097,7 @@ export default {
         }
       }
     },
-    "component.large.paddingX.Narrow": {
+    "component.large.paddingX.narrow": {
       "$type": "number",
       "$value": 9,
       "$description": "",
@@ -6111,7 +6111,7 @@ export default {
         }
       }
     },
-    "component.large.paddingX.Standard": {
+    "component.large.paddingX.default": {
       "$type": "number",
       "$value": 18,
       "$description": "",
@@ -6125,7 +6125,7 @@ export default {
         }
       }
     },
-    "component.large.paddingX.Wide": {
+    "component.large.paddingX.wide": {
       "$type": "number",
       "$value": 24,
       "$description": "",
@@ -6326,7 +6326,7 @@ export default {
         }
       }
     },
-    "component.xlarge.paddingX.Narrow": {
+    "component.xlarge.paddingX.narrow": {
       "$type": "number",
       "$value": 16,
       "$description": "",
@@ -6340,7 +6340,7 @@ export default {
         }
       }
     },
-    "component.xlarge.paddingX.Standard": {
+    "component.xlarge.paddingX.default": {
       "$type": "number",
       "$value": 24,
       "$description": "",
@@ -6354,7 +6354,7 @@ export default {
         }
       }
     },
-    "component.xlarge.paddingX.Wide": {
+    "component.xlarge.paddingX.wide": {
       "$type": "number",
       "$value": 32,
       "$description": "",

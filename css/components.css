@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 05 Sep 2024 22:57:04 GMT
+ * Generated on Thu, 05 Sep 2024 23:16:08 GMT
  */
 
 :root {
@@ -42,15 +42,15 @@
   --hpe-select-option-enabled-background: #00000000;
   --hpe-select-medium-option-padding-y: 5px;
   --hpe-component-xlarge-padding-x-wide: 32px;
-  --hpe-component-xlarge-padding-x-standard: 24px;
+  --hpe-component-xlarge-padding-x-default: 24px;
   --hpe-component-xlarge-padding-x-narrow: 16px;
   --hpe-component-xlarge-padding-y: 20px;
   --hpe-component-large-padding-x-wide: 24px;
-  --hpe-component-large-padding-x-standard: 18px;
+  --hpe-component-large-padding-x-default: 18px;
   --hpe-component-large-padding-x-narrow: 9px;
   --hpe-component-large-padding-y: 8px;
   --hpe-component-medium-padding-x-wide: 15px;
-  --hpe-component-medium-padding-x-standard: 10px;
+  --hpe-component-medium-padding-x-default: 10px;
   --hpe-component-medium-padding-x-narrow: 5px;
   --hpe-component-medium-padding-y: 5px;
   --hpe-component-small-padding-x-wide: 9px;
@@ -382,14 +382,14 @@
   --hpe-component-medium-text-to-element-x: var(--hpe-base-static-spacing-small);
   --hpe-component-medium-line-height: var(--hpe-text-medium-line-height);
   --hpe-component-medium-font-size: var(--hpe-text-medium-font-size);
-  --hpe-component-small-padding-x-standard: var(--hpe-base-static-spacing-xsmall);
+  --hpe-component-small-padding-x-default: var(--hpe-base-static-spacing-xsmall);
   --hpe-component-small-padding-x-narrow: var(--hpe-base-static-spacing-xxsmall);
   --hpe-component-small-text-to-icon-x: var(--hpe-base-static-spacing-xsmall);
   --hpe-component-small-text-to-element-x: var(--hpe-base-static-spacing-small);
   --hpe-component-small-line-height: var(--hpe-text-small-line-height);
   --hpe-component-small-font-size: var(--hpe-text-small-font-size);
   --hpe-component-small-border-width: var(--hpe-base-static-border-width-default);
-  --hpe-component-xsmall-padding-x-standard: var(--hpe-base-static-spacing-xsmall);
+  --hpe-component-xsmall-padding-x-default: var(--hpe-base-static-spacing-xsmall);
   --hpe-component-xsmall-padding-x-narrow: var(--hpe-base-static-spacing-xxsmall);
   --hpe-component-xsmall-line-height: var(--hpe-text-xsmall-line-height);
   --hpe-component-xsmall-font-size: var(--hpe-text-xsmall-font-size);

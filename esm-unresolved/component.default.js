@@ -5564,7 +5564,7 @@ export default {
         }
       },
       "paddingX": {
-        "Narrow": {
+        "narrow": {
           "$type": "number",
           "$value": "{base.static.spacing.xxsmall}",
           "$description": "",
@@ -5578,7 +5578,7 @@ export default {
             }
           }
         },
-        "Standard": {
+        "default": {
           "$type": "number",
           "$value": "{base.static.spacing.xsmall}",
           "$description": "",
@@ -5592,7 +5592,7 @@ export default {
             }
           }
         },
-        "Wide": {
+        "wide": {
           "$type": "number",
           "$value": 9,
           "$description": "",
@@ -5709,7 +5709,7 @@ export default {
         }
       },
       "paddingX": {
-        "Narrow": {
+        "narrow": {
           "$type": "number",
           "$value": "{base.static.spacing.xxsmall}",
           "$description": "",
@@ -5723,7 +5723,7 @@ export default {
             }
           }
         },
-        "Standard": {
+        "default": {
           "$type": "number",
           "$value": "{base.static.spacing.xsmall}",
           "$description": "",
@@ -5737,7 +5737,7 @@ export default {
             }
           }
         },
-        "Wide": {
+        "wide": {
           "$type": "number",
           "$value": 9,
           "$description": "",
@@ -5854,7 +5854,7 @@ export default {
         }
       },
       "paddingX": {
-        "Narrow": {
+        "narrow": {
           "$type": "number",
           "$value": 5,
           "$description": "",
@@ -5868,7 +5868,7 @@ export default {
             }
           }
         },
-        "Standard": {
+        "default": {
           "$type": "number",
           "$value": 10,
           "$description": "",
@@ -5882,7 +5882,7 @@ export default {
             }
           }
         },
-        "Wide": {
+        "wide": {
           "$type": "number",
           "$value": 15,
           "$description": "",
@@ -5999,7 +5999,7 @@ export default {
         }
       },
       "paddingX": {
-        "Narrow": {
+        "narrow": {
           "$type": "number",
           "$value": 9,
           "$description": "",
@@ -6013,7 +6013,7 @@ export default {
             }
           }
         },
-        "Standard": {
+        "default": {
           "$type": "number",
           "$value": 18,
           "$description": "",
@@ -6027,7 +6027,7 @@ export default {
             }
           }
         },
-        "Wide": {
+        "wide": {
           "$type": "number",
           "$value": 24,
           "$description": "",
@@ -6144,7 +6144,7 @@ export default {
         }
       },
       "paddingX": {
-        "Narrow": {
+        "narrow": {
           "$type": "number",
           "$value": 16,
           "$description": "",
@@ -6158,7 +6158,7 @@ export default {
             }
           }
         },
-        "Standard": {
+        "default": {
           "$type": "number",
           "$value": 24,
           "$description": "",
@@ -6172,7 +6172,7 @@ export default {
             }
           }
         },
-        "Wide": {
+        "wide": {
           "$type": "number",
           "$value": 32,
           "$description": "",

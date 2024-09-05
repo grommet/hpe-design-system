@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 05 Sep 2024 22:57:04 GMT
+ * Generated on Thu, 05 Sep 2024 23:16:08 GMT
  */
 
 export default {
@@ -541,9 +541,9 @@ export default {
         "borderWidth": "default",
         "paddingY": "3px",
         "paddingX": {
-          "Narrow": "3px",
-          "Standard": "6px",
-          "Wide": "9px"
+          "narrow": "3px",
+          "default": "6px",
+          "wide": "9px"
         }
       },
       "small": {
@@ -555,9 +555,9 @@ export default {
         "textToElementX": "12px",
         "textToIconX": "6px",
         "paddingX": {
-          "Narrow": "3px",
-          "Standard": "6px",
-          "Wide": "9px"
+          "narrow": "3px",
+          "default": "6px",
+          "wide": "9px"
         }
       },
       "medium": {
@@ -569,9 +569,9 @@ export default {
         "borderWidth": "default",
         "paddingY": "5px",
         "paddingX": {
-          "Narrow": "5px",
-          "Standard": "10px",
-          "Wide": "15px"
+          "narrow": "5px",
+          "default": "10px",
+          "wide": "15px"
         }
       },
       "large": {
@@ -583,9 +583,9 @@ export default {
         "borderWidth": "default",
         "paddingY": "8px",
         "paddingX": {
-          "Narrow": "9px",
-          "Standard": "18px",
-          "Wide": "24px"
+          "narrow": "9px",
+          "default": "18px",
+          "wide": "24px"
         }
       },
       "xlarge": {
@@ -597,9 +597,9 @@ export default {
         "borderWidth": "default",
         "paddingY": "20px",
         "paddingX": {
-          "Narrow": "16px",
-          "Standard": "24px",
-          "Wide": "32px"
+          "narrow": "16px",
+          "default": "24px",
+          "wide": "32px"
         }
       }
     },
