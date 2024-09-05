@@ -6672,7 +6672,7 @@ hpack.js@^2.1.6:
 
 "hpe-design-tokens-alpha@https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable":
   version "0.1.0"
-  resolved "https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable#26345acf0807c659d282545cdda4a189ace96df7"
+  resolved "https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable#c2f26d9869bcb466d57ff06de538c5fe4e3131ee"
   dependencies:
     axios "^1.6.0"
     dotenv "^16.3.1"
