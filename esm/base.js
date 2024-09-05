@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 05 Sep 2024 23:16:07 GMT
+ * Generated on Thu, 05 Sep 2024 23:57:23 GMT
  */
 
 export default {
@@ -31,7 +31,9 @@ export default {
         "1800": "72px",
         "2400": "96px",
         "4800": "192px",
+        "7200": "288px",
         "9600": "384px",
+        "14400": "576px",
         "19200": "768px",
         "38400": "1152px",
         "76800": "1536px",

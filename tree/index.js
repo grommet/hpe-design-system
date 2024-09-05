@@ -5307,1067 +5307,6 @@ export default {
         }
       }
     },
-    "component.xsmall.minHeight": {
-      "$type": "number",
-      "$value": "{base.dimension.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xsmall.textToElementX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xsmall.textToIconX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.small.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "button.small.toolbar.gapX",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.xsmall.fontSize": {
-      "$type": "number",
-      "$value": "{text.xsmall.fontSize}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xsmall.lineHeight": {
-      "$type": "number",
-      "$value": "{text.xsmall.lineHeight}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xsmall.borderWidth": {
-      "$type": "number",
-      "$value": "{borderWidth.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xsmall.paddingY": {
-      "$type": "number",
-      "$value": 3,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xsmall.paddingX.narrow": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xsmall.paddingX.default": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xsmall.paddingX.wide": {
-      "$type": "number",
-      "$value": 9,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.small.borderWidth": {
-      "$type": "number",
-      "$value": "{base.static.borderWidth.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.small.paddingY": {
-      "$type": "number",
-      "$value": 3,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.small.fontSize": {
-      "$type": "number",
-      "$value": "{text.small.fontSize}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.small.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.small.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.small.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.small.lineHeight": {
-      "$type": "number",
-      "$value": "{text.small.lineHeight}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.small.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.small.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.small.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.small.minHeight": {
-      "$type": "number",
-      "$value": "{base.dimension.700}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.small.default.minHeight",
-          "mode": "default"
-        },
-        {
-          "name": "button.small.toolbar.minHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.small.textToElementX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.small.textToIconX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "anchor.emphasized.small.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.small.emphasized.gapX",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.small.paddingX.narrow": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.small.paddingX.default": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.small.paddingX.wide": {
-      "$type": "number",
-      "$value": 9,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.medium.fontSize": {
-      "$type": "number",
-      "$value": "{text.medium.fontSize}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "checkbox.medium.label.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.label.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.label.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "dataCell.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.placeholderText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.valueText.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.label.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.medium.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.medium.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.medium.lineHeight": {
-      "$type": "number",
-      "$value": "{text.medium.lineHeight}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.medium.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.medium.label.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.medium.control.height",
-          "mode": "default"
-        },
-        {
-          "name": "checkbox.medium.control.width",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.control.track.height",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.control.handle.height",
-          "mode": "default"
-        },
-        {
-          "name": "switch.medium.control.handle.width",
-          "mode": "default"
-        },
-        {
-          "name": "dataCell.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.placeholderText.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.valueText.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.label.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.control.height",
-          "mode": "default"
-        },
-        {
-          "name": "radioButton.medium.control.width",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.medium.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.medium.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.medium.minHeight": {
-      "$type": "number",
-      "$value": "{base.dimension.900}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.medium.default.minHeight",
-          "mode": "default"
-        },
-        {
-          "name": "select.medium.option.minHeight",
-          "mode": "default"
-        },
-        {
-          "name": "dataCell.minHeight",
-          "mode": "default"
-        },
-        {
-          "name": "headerCell.minHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.input.group.item.minHeight",
-          "mode": "default"
-        },
-        {
-          "name": "formField.medium.input.container.minHeight",
-          "mode": "default"
-        },
-        {
-          "name": "footerCell.minHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.medium.textToElementX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.medium.textToIconX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.medium.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "menu.medium.item.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "headerCell.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "footerCell.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.medium.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.medium.emphasized.gapX",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.medium.borderWidth": {
-      "$type": "number",
-      "$value": "{borderWidth.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.medium.paddingY": {
-      "$type": "number",
-      "$value": 5,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "formField.medium.input.group.item.paddingY",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.medium.paddingX.narrow": {
-      "$type": "number",
-      "$value": 5,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.medium.paddingX.default": {
-      "$type": "number",
-      "$value": 10,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.medium.paddingX.wide": {
-      "$type": "number",
-      "$value": 15,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.large.fontSize": {
-      "$type": "number",
-      "$value": "{text.large.fontSize}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.large.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.large.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.large.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.large.lineHeight": {
-      "$type": "number",
-      "$value": "{text.xlarge.lineHeight}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.large.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.large.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.large.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.large.minHeight": {
-      "$type": "number",
-      "$value": "{base.dimension.1200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.large.default.minHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.large.textToElementX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.large.textToIconX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.large.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.large.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.large.emphasized.gapX",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.large.borderWidth": {
-      "$type": "number",
-      "$value": "{borderWidth.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.large.paddingY": {
-      "$type": "number",
-      "$value": 8,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.large.paddingX.narrow": {
-      "$type": "number",
-      "$value": 9,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.large.paddingX.default": {
-      "$type": "number",
-      "$value": 18,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.large.paddingX.wide": {
-      "$type": "number",
-      "$value": 24,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xlarge.fontSize": {
-      "$type": "number",
-      "$value": "{text.xlarge.lineHeight}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.xlarge.default.fontSize",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.xlarge.emphasized.fontSize",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.xlarge.lineHeight": {
-      "$type": "number",
-      "$value": "{text.xlarge.lineHeight}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.xlarge.default.lineHeight",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.xlarge.emphasized.lineHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.xlarge.minHeight": {
-      "$type": "number",
-      "$value": "{base.dimension.1800}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.xlarge.default.minHeight",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.xlarge.textToElementX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xlarge.textToIconX": {
-      "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "usedBy": [
-        {
-          "name": "button.xlarge.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.xlarge.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.xlarge.emphasized.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.xxlarge.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.xxlarge.emphasized.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.3xlarge.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.3xlarge.emphasized.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.4xlarge.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.4xlarge.emphasized.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.5xlarge.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.5xlarge.emphasized.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.6xlarge.default.gapX",
-          "mode": "default"
-        },
-        {
-          "name": "anchor.emphasized.6xlarge.emphasized.gapX",
-          "mode": "default"
-        }
-      ]
-    },
-    "component.xlarge.borderWidth": {
-      "$type": "number",
-      "$value": "{borderWidth.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xlarge.paddingY": {
-      "$type": "number",
-      "$value": 20,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xlarge.paddingX.narrow": {
-      "$type": "number",
-      "$value": 16,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xlarge.paddingX.default": {
-      "$type": "number",
-      "$value": 24,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "component.xlarge.paddingX.wide": {
-      "$type": "number",
-      "$value": 32,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "select.medium.option.paddingX": {
       "$type": "number",
       "$value": "{formField.medium.input.container.paddingX}",
@@ -9550,36 +8489,6 @@ export default {
         }
       }
     },
-    "formField.input.container.disabled.background": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "formField.input.container.disabled.borderColor": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "formField.input.container.status.critical.background": {
       "$type": "color",
       "$value": "{color.background.status.critical}",
@@ -9598,6 +8507,36 @@ export default {
     "formField.input.container.status.critical.borderColor": {
       "$type": "color",
       "$value": "{color.border.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.input.container.disabled.background": {
+      "$type": "color",
+      "$value": "{color.background.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "formField.input.container.disabled.borderColor": {
+      "$type": "color",
+      "$value": "{color.border.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11816,6 +10755,1959 @@ export default {
         }
       }
     },
+    "anchor.small.default.fontSize": {
+      "$type": "number",
+      "$value": "{component.small.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.small.default.lineHeight": {
+      "$type": "number",
+      "$value": "{component.small.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.small.default.gapX": {
+      "$type": "number",
+      "$value": "{component.small.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.small.emphasized.fontSize": {
+      "$type": "number",
+      "$value": "{component.small.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.small.emphasized.lineHeight": {
+      "$type": "number",
+      "$value": "{component.small.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.small.emphasized.gapX": {
+      "$type": "number",
+      "$value": "{component.small.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.medium.default.fontSize": {
+      "$type": "number",
+      "$value": "{component.medium.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.medium.default.lineHeight": {
+      "$type": "number",
+      "$value": "{component.medium.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.medium.default.gapX": {
+      "$type": "number",
+      "$value": "{component.medium.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.medium.emphasized.fontSize": {
+      "$type": "number",
+      "$value": "{component.medium.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.medium.emphasized.lineHeight": {
+      "$type": "number",
+      "$value": "{component.medium.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.medium.emphasized.gapX": {
+      "$type": "number",
+      "$value": "{component.medium.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.large.default.fontSize": {
+      "$type": "number",
+      "$value": "{component.large.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.large.default.lineHeight": {
+      "$type": "number",
+      "$value": "{component.large.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.large.default.gapX": {
+      "$type": "number",
+      "$value": "{component.large.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.large.emphasized.fontSize": {
+      "$type": "number",
+      "$value": "{component.large.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.large.emphasized.lineHeight": {
+      "$type": "number",
+      "$value": "{component.large.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.large.emphasized.gapX": {
+      "$type": "number",
+      "$value": "{component.large.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xlarge.default.fontSize": {
+      "$type": "number",
+      "$value": "{component.xlarge.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xlarge.default.lineHeight": {
+      "$type": "number",
+      "$value": "{component.xlarge.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xlarge.default.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xlarge.emphasized.fontSize": {
+      "$type": "number",
+      "$value": "{component.xlarge.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xlarge.emphasized.lineHeight": {
+      "$type": "number",
+      "$value": "{component.xlarge.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xlarge.emphasized.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xxlarge.default.fontSize": {
+      "$type": "number",
+      "$value": "{text.xxlarge.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xxlarge.default.lineHeight": {
+      "$type": "number",
+      "$value": "{text.xxlarge.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xxlarge.default.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xxlarge.emphasized.fontSize": {
+      "$type": "number",
+      "$value": "{text.xxlarge.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xxlarge.emphasized.lineHeight": {
+      "$type": "number",
+      "$value": "{text.xxlarge.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.xxlarge.emphasized.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.3xlarge.default.fontSize": {
+      "$type": "number",
+      "$value": "{text.3xl.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.3xlarge.default.lineHeight": {
+      "$type": "number",
+      "$value": "{text.3xl.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.3xlarge.default.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.3xlarge.emphasized.fontSize": {
+      "$type": "number",
+      "$value": "{text.3xl.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.3xlarge.emphasized.lineHeight": {
+      "$type": "number",
+      "$value": "{text.3xl.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.3xlarge.emphasized.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.4xlarge.default.fontSize": {
+      "$type": "number",
+      "$value": "{text.4xl.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.4xlarge.default.lineHeight": {
+      "$type": "number",
+      "$value": "{text.4xl.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.4xlarge.default.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.4xlarge.emphasized.fontSize": {
+      "$type": "number",
+      "$value": "{text.4xl.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.4xlarge.emphasized.lineHeight": {
+      "$type": "number",
+      "$value": "{text.4xl.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.4xlarge.emphasized.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.5xlarge.default.fontSize": {
+      "$type": "number",
+      "$value": "{text.5xl.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.5xlarge.default.lineHeight": {
+      "$type": "number",
+      "$value": "{text.5xl.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.5xlarge.default.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.5xlarge.emphasized.fontSize": {
+      "$type": "number",
+      "$value": "{text.5xl.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.5xlarge.emphasized.lineHeight": {
+      "$type": "number",
+      "$value": "{text.5xl.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.5xlarge.emphasized.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.6xlarge.default.fontSize": {
+      "$type": "number",
+      "$value": "{text.6xl.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.6xlarge.default.lineHeight": {
+      "$type": "number",
+      "$value": "{text.6xl.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.6xlarge.default.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.6xlarge.emphasized.fontSize": {
+      "$type": "number",
+      "$value": "{text.6xl.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.6xlarge.emphasized.lineHeight": {
+      "$type": "number",
+      "$value": "{text.6xl.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "anchor.6xlarge.emphasized.gapX": {
+      "$type": "number",
+      "$value": "{component.xlarge.textToIconX}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xsmall.minHeight": {
+      "$type": "number",
+      "$value": "{base.dimension.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xsmall.textToElementX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xsmall.textToIconX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "button.small.toolbar.gapX",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.xsmall.fontSize": {
+      "$type": "number",
+      "$value": "{text.xsmall.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xsmall.lineHeight": {
+      "$type": "number",
+      "$value": "{text.xsmall.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xsmall.borderWidth": {
+      "$type": "number",
+      "$value": "{borderWidth.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xsmall.paddingY": {
+      "$type": "number",
+      "$value": 3,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xsmall.paddingX.narrow": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xsmall.paddingX.default": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xsmall.paddingX.wide": {
+      "$type": "number",
+      "$value": 9,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.small.borderWidth": {
+      "$type": "number",
+      "$value": "{base.static.borderWidth.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.small.paddingY": {
+      "$type": "number",
+      "$value": 3,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.small.fontSize": {
+      "$type": "number",
+      "$value": "{text.small.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.small.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.small.emphasized.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.small.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.small.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.small.lineHeight": {
+      "$type": "number",
+      "$value": "{text.small.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.small.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.small.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.small.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.small.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.small.minHeight": {
+      "$type": "number",
+      "$value": "{base.dimension.700}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.small.default.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "button.small.toolbar.minHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.small.textToElementX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.small.textToIconX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "anchor.emphasized.small.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.small.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.small.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.small.emphasized.gapX",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.small.paddingX.narrow": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.small.paddingX.default": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.small.paddingX.wide": {
+      "$type": "number",
+      "$value": 9,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.medium.fontSize": {
+      "$type": "number",
+      "$value": "{text.medium.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "checkbox.medium.label.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.label.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.label.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "dataCell.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.placeholderText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.valueText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.label.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.medium.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.medium.emphasized.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.medium.lineHeight": {
+      "$type": "number",
+      "$value": "{text.medium.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.medium.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.medium.label.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.medium.control.height",
+          "mode": "default"
+        },
+        {
+          "name": "checkbox.medium.control.width",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.control.track.height",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.control.handle.height",
+          "mode": "default"
+        },
+        {
+          "name": "switch.medium.control.handle.width",
+          "mode": "default"
+        },
+        {
+          "name": "dataCell.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.placeholderText.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.valueText.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.label.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.control.height",
+          "mode": "default"
+        },
+        {
+          "name": "radioButton.medium.control.width",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.medium.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.medium.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.medium.minHeight": {
+      "$type": "number",
+      "$value": "{base.dimension.900}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.medium.default.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "select.medium.option.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "dataCell.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.input.group.item.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "formField.medium.input.container.minHeight",
+          "mode": "default"
+        },
+        {
+          "name": "footerCell.minHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.medium.textToElementX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.medium.textToIconX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.medium.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "menu.medium.item.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "headerCell.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "footerCell.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.medium.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.medium.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.medium.emphasized.gapX",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.medium.borderWidth": {
+      "$type": "number",
+      "$value": "{borderWidth.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.medium.paddingY": {
+      "$type": "number",
+      "$value": 5,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "formField.medium.input.group.item.paddingY",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.medium.paddingX.narrow": {
+      "$type": "number",
+      "$value": 5,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.medium.paddingX.default": {
+      "$type": "number",
+      "$value": 10,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.medium.paddingX.wide": {
+      "$type": "number",
+      "$value": 15,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.large.fontSize": {
+      "$type": "number",
+      "$value": "{text.large.fontSize}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.large.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.large.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.large.emphasized.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.large.lineHeight": {
+      "$type": "number",
+      "$value": "{text.xlarge.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.large.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.large.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.large.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.large.minHeight": {
+      "$type": "number",
+      "$value": "{base.dimension.1200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.large.default.minHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.large.textToElementX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.large.textToIconX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.large.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.large.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.large.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.large.emphasized.gapX",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.large.borderWidth": {
+      "$type": "number",
+      "$value": "{borderWidth.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.large.paddingY": {
+      "$type": "number",
+      "$value": 8,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.large.paddingX.narrow": {
+      "$type": "number",
+      "$value": 9,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.large.paddingX.default": {
+      "$type": "number",
+      "$value": 18,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.large.paddingX.wide": {
+      "$type": "number",
+      "$value": 24,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xlarge.fontSize": {
+      "$type": "number",
+      "$value": "{text.xlarge.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.xlarge.emphasized.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.emphasized.fontSize",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.xlarge.lineHeight": {
+      "$type": "number",
+      "$value": "{text.xlarge.lineHeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.xlarge.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.emphasized.lineHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.xlarge.minHeight": {
+      "$type": "number",
+      "$value": "{base.dimension.1800}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.xlarge.default.minHeight",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.xlarge.textToElementX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xlarge.textToIconX": {
+      "$type": "number",
+      "$value": "{base.static.spacing.xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      },
+      "usedBy": [
+        {
+          "name": "button.xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.xxlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.xxlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.3xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.3xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.4xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.4xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.5xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.5xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.6xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.emphasized.6xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.emphasized.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.default.gapX",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.emphasized.gapX",
+          "mode": "default"
+        }
+      ]
+    },
+    "component.xlarge.borderWidth": {
+      "$type": "number",
+      "$value": "{borderWidth.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_FLOAT",
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xlarge.paddingY": {
+      "$type": "number",
+      "$value": 20,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xlarge.paddingX.narrow": {
+      "$type": "number",
+      "$value": 16,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xlarge.paddingX.default": {
+      "$type": "number",
+      "$value": 24,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "component.xlarge.paddingX.wide": {
+      "$type": "number",
+      "$value": 32,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
     "focusIndicator.outline": {
       "$type": "border",
       "$value": {
@@ -12480,6 +13372,18 @@ export default {
         }
       ]
     },
+    "base.dimension.7200": {
+      "$type": "number",
+      "$value": 288,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
     "base.dimension.9600": {
       "$type": "number",
       "$value": 384,
@@ -12505,6 +13409,18 @@ export default {
           "mode": "small"
         }
       ]
+    },
+    "base.dimension.14400": {
+      "$type": "number",
+      "$value": 576,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
     },
     "base.dimension.19200": {
       "$type": "number",
@@ -20231,22 +21147,6 @@ export default {
           "mode": "default"
         },
         {
-          "name": "component.xsmall.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.medium.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.large.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.xlarge.borderWidth",
-          "mode": "default"
-        },
-        {
           "name": "checkbox.medium.control.borderWidth",
           "mode": "default"
         },
@@ -20268,6 +21168,22 @@ export default {
         },
         {
           "name": "radioButton.medium.control.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.xsmall.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.medium.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.large.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.xlarge.borderWidth",
           "mode": "default"
         }
       ]
@@ -20511,10 +21427,6 @@ export default {
       },
       "usedBy": [
         {
-          "name": "component.xsmall.fontSize",
-          "mode": "default"
-        },
-        {
           "name": "formField.medium.labelText.fontSize",
           "mode": "default"
         },
@@ -20528,6 +21440,10 @@ export default {
         },
         {
           "name": "formField.medium.errorText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "component.xsmall.fontSize",
           "mode": "default"
         }
       ]
@@ -20547,10 +21463,6 @@ export default {
       },
       "usedBy": [
         {
-          "name": "component.xsmall.lineHeight",
-          "mode": "default"
-        },
-        {
           "name": "formField.medium.labelText.lineHeight",
           "mode": "default"
         },
@@ -20560,6 +21472,10 @@ export default {
         },
         {
           "name": "formField.medium.errorText.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "component.xsmall.lineHeight",
           "mode": "default"
         }
       ]
@@ -20819,6 +21735,14 @@ export default {
         {
           "name": "anchor.emphasized.xxlarge.emphasized.fontSize",
           "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.emphasized.fontSize",
+          "mode": "default"
         }
       ]
     },
@@ -20842,6 +21766,14 @@ export default {
         },
         {
           "name": "anchor.emphasized.xxlarge.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -20881,6 +21813,14 @@ export default {
         {
           "name": "anchor.emphasized.3xlarge.emphasized.fontSize",
           "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.emphasized.fontSize",
+          "mode": "default"
         }
       ]
     },
@@ -20904,6 +21844,14 @@ export default {
         },
         {
           "name": "anchor.emphasized.3xlarge.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -20943,6 +21891,14 @@ export default {
         {
           "name": "anchor.emphasized.4xlarge.emphasized.fontSize",
           "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.emphasized.fontSize",
+          "mode": "default"
         }
       ]
     },
@@ -20966,6 +21922,14 @@ export default {
         },
         {
           "name": "anchor.emphasized.4xlarge.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -21005,6 +21969,14 @@ export default {
         {
           "name": "anchor.emphasized.5xlarge.emphasized.fontSize",
           "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.emphasized.fontSize",
+          "mode": "default"
         }
       ]
     },
@@ -21028,6 +22000,14 @@ export default {
         },
         {
           "name": "anchor.emphasized.5xlarge.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -21067,6 +22047,14 @@ export default {
         {
           "name": "anchor.emphasized.6xlarge.emphasized.fontSize",
           "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.emphasized.fontSize",
+          "mode": "default"
         }
       ]
     },
@@ -21090,6 +22078,14 @@ export default {
         },
         {
           "name": "anchor.emphasized.6xlarge.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -22026,22 +23022,6 @@ export default {
           "mode": "default"
         },
         {
-          "name": "component.xsmall.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.medium.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.large.borderWidth",
-          "mode": "default"
-        },
-        {
-          "name": "component.xlarge.borderWidth",
-          "mode": "default"
-        },
-        {
           "name": "checkbox.medium.control.borderWidth",
           "mode": "default"
         },
@@ -22063,6 +23043,22 @@ export default {
         },
         {
           "name": "radioButton.medium.control.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.xsmall.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.medium.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.large.borderWidth",
+          "mode": "default"
+        },
+        {
+          "name": "component.xlarge.borderWidth",
           "mode": "default"
         }
       ]
@@ -22306,10 +23302,6 @@ export default {
       },
       "usedBy": [
         {
-          "name": "component.xsmall.fontSize",
-          "mode": "default"
-        },
-        {
           "name": "formField.medium.labelText.fontSize",
           "mode": "default"
         },
@@ -22323,6 +23315,10 @@ export default {
         },
         {
           "name": "formField.medium.errorText.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "component.xsmall.fontSize",
           "mode": "default"
         }
       ]
@@ -22342,10 +23338,6 @@ export default {
       },
       "usedBy": [
         {
-          "name": "component.xsmall.lineHeight",
-          "mode": "default"
-        },
-        {
           "name": "formField.medium.labelText.lineHeight",
           "mode": "default"
         },
@@ -22355,6 +23347,10 @@ export default {
         },
         {
           "name": "formField.medium.errorText.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "component.xsmall.lineHeight",
           "mode": "default"
         }
       ]
@@ -22614,6 +23610,14 @@ export default {
         {
           "name": "anchor.emphasized.xxlarge.emphasized.fontSize",
           "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.emphasized.fontSize",
+          "mode": "default"
         }
       ]
     },
@@ -22637,6 +23641,14 @@ export default {
         },
         {
           "name": "anchor.emphasized.xxlarge.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.xxlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -22676,6 +23688,14 @@ export default {
         {
           "name": "anchor.emphasized.3xlarge.emphasized.fontSize",
           "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.emphasized.fontSize",
+          "mode": "default"
         }
       ]
     },
@@ -22699,6 +23719,14 @@ export default {
         },
         {
           "name": "anchor.emphasized.3xlarge.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.3xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -22738,6 +23766,14 @@ export default {
         {
           "name": "anchor.emphasized.4xlarge.emphasized.fontSize",
           "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.emphasized.fontSize",
+          "mode": "default"
         }
       ]
     },
@@ -22761,6 +23797,14 @@ export default {
         },
         {
           "name": "anchor.emphasized.4xlarge.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.4xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -22800,6 +23844,14 @@ export default {
         {
           "name": "anchor.emphasized.5xlarge.emphasized.fontSize",
           "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.emphasized.fontSize",
+          "mode": "default"
         }
       ]
     },
@@ -22823,6 +23875,14 @@ export default {
         },
         {
           "name": "anchor.emphasized.5xlarge.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.5xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
@@ -22862,6 +23922,14 @@ export default {
         {
           "name": "anchor.emphasized.6xlarge.emphasized.fontSize",
           "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.default.fontSize",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.emphasized.fontSize",
+          "mode": "default"
         }
       ]
     },
@@ -22885,6 +23953,14 @@ export default {
         },
         {
           "name": "anchor.emphasized.6xlarge.emphasized.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.default.lineHeight",
+          "mode": "default"
+        },
+        {
+          "name": "anchor.6xlarge.emphasized.lineHeight",
           "mode": "default"
         }
       ]
