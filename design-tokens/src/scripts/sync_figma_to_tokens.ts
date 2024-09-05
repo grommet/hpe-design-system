@@ -44,10 +44,6 @@ async function main() {
   tokenDirs.forEach(async dir => {
     const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
     const localVariables = await api.getLocalVariables(fileKeys[dir]);
-    fs.writeFileSync(
-      `./dist/figma-${dir}.json`,
-      JSON.stringify(localVariables, null, 2),
-    );
     const tokensFiles = tokenFilesFromLocalVariables(localVariables);
 
     const outputArgIdx = process.argv.indexOf('--output');
