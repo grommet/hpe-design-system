@@ -67,7 +67,45 @@ export function tokenFilesFromLocalVariables(
 
       let obj: any = tokenFiles[fileName];
 
-      if (variable.name.includes('boxShadow')) {
+      if (variable.name.includes('outline')) {
+        const parts = variable.name.split('/');
+        const keyPath = parts.slice(0, -1);
+        const property = parts[parts.length - 1];
+
+        keyPath.forEach(groupName => {
+          obj[groupName] = obj[groupName] || {};
+          obj = obj[groupName];
+        });
+        const token = {
+          $type: 'border',
+          $value: {
+            [property]: tokenValueFromVariable(
+              variable,
+              mode.modeId,
+              localVariables,
+            ),
+          },
+          $description: '',
+          $extensions: {
+            'com.figma': {
+              hiddenFromPublishing: true,
+              scopes: [],
+              codeSyntax: {},
+            },
+          },
+        };
+        const outline = access(keyPath.join('.'), tokenFiles[fileName]);
+        if (Object.keys(outline).length === 0) {
+          Object.assign(obj, token);
+        } else {
+          const partialOutline = outline.$value;
+          partialOutline[property] = tokenValueFromVariable(
+            variable,
+            mode.modeId,
+            localVariables,
+          );
+        }
+      } else if (variable.name.includes('boxShadow')) {
         const parts = variable.name.split('/');
         const keyPath = parts.slice(0, parts.indexOf('boxShadow') + 1);
         const property = parts[parts.length - 1];
