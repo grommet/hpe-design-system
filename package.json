@@ -8,16 +8,11 @@
       "import": "./esm/index.js",
       "require": "./cjs/index.cjs"
     },
-    "./esm-unresolved": "./esm-unresolved/index.js",
+    "./docs": "./docs/index.js",
     "./css/*.css": {
       "import": "./css/*.css",
       "require": "./css/*.css"
-    },
-    "./tailwind/*.js": {
-      "import": "./tailwind/*.js",
-      "require": "./tailwind/*.js"
-    },
-    "./tree": "./tree/index.js"
+    }
   },
   "scripts": {
     "prettier:check": "prettier --check src/",
