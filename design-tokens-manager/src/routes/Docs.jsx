@@ -14,7 +14,7 @@ import {
 } from 'grommet';
 import { Folder } from 'grommet-icons';
 import * as tokens from 'design-tokens';
-import * as rawTokens from 'design-tokens/esm-unresolved';
+import * as rawTokens from 'design-tokens/docs';
 
 const ColorPreview = ({ datum }) => (
   <Box pad="medium" round="xsmall" flex={false} background={datum.value} />

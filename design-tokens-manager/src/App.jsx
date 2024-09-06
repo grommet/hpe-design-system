@@ -2,22 +2,10 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Grommet, Header, Button, Box, Text } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
-import tokens from 'design-tokens/tree';
 import { Github, Moon, Sun } from 'grommet-icons';
 import { Visualizer } from './routes/Visualizer';
 import { Builder } from './routes/Builder';
 import { Docs } from './routes/Docs';
-
-const tokensArr = [];
-Object.keys(tokens).forEach(mode => {
-  Object.keys(tokens[mode]).forEach(token =>
-    tokensArr.push({
-      name: token,
-      mode: mode,
-      ...tokens[mode][token],
-    }),
-  );
-});
 
 function App() {
   const [darkMode, setDarkMode] = useState(

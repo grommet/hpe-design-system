@@ -6,7 +6,6 @@ import { getThemeAndMode, numberToPixel } from '../utils.ts';
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
 const CJS_DIR = 'dist/cjs/';
-const JSON_DIR = 'dist/json/';
 const CSS_DIR = 'dist/css/';
 const PREFIX = 'hpe';
 
@@ -32,17 +31,6 @@ HPEStyleDictionary.extend({
         {
           destination: 'base.cjs',
           format: 'javascript/commonJs',
-        },
-      ],
-    },
-    json: {
-      transformGroup: 'js/w3c',
-      buildPath: JSON_DIR,
-      prefix: PREFIX,
-      files: [
-        {
-          destination: 'base.json',
-          format: 'json/nested',
         },
       ],
     },
@@ -91,19 +79,6 @@ HPEStyleDictionary.extend({
         {
           destination: 'global.cjs',
           format: 'commonJsGrommetRefs',
-          filter: token =>
-            token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
-        },
-      ],
-    },
-    json: {
-      transformGroup: 'js/w3c',
-      buildPath: JSON_DIR,
-      prefix: PREFIX,
-      files: [
-        {
-          destination: 'global.json',
-          format: 'json/nested',
           filter: token =>
             token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
         },
@@ -183,20 +158,6 @@ colorModeFiles.forEach(file => {
             destination: `elevation.${mode}.cjs`,
             format: 'javascript/commonJs',
             filter: 'isShadow',
-          },
-        ],
-      },
-      json: {
-        transformGroup: 'js/w3c',
-        buildPath: JSON_DIR,
-        prefix: PREFIX,
-        files: [
-          {
-            destination: `color.${
-              theme ? `${theme}-${mode}` : `${mode || ''}`
-            }.json`,
-            format: 'json/nested',
-            filter: token => token.filePath === file,
           },
         ],
       },
@@ -283,18 +244,6 @@ dimensionFiles.forEach(file => {
           {
             destination: `dimension.${mode}.cjs`,
             format: 'javascript/commonJs',
-            filter: token => dimensions.includes(token.attributes.category),
-          },
-        ],
-      },
-      json: {
-        transformGroup: 'js/w3c',
-        buildPath: JSON_DIR,
-        prefix: PREFIX,
-        files: [
-          {
-            destination: `dimension.${mode}.js`,
-            format: 'json/nested',
             filter: token => dimensions.includes(token.attributes.category),
           },
         ],
