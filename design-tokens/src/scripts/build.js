@@ -4,7 +4,7 @@ const TOKENS_DIR = 'tokens';
 
 mkdirSync('./dist');
 
-mkdirSync('./dist/esm-unresolved');
+mkdirSync('./dist/docs');
 let esm = '';
 
 const dimensionFiles = readdirSync(`${TOKENS_DIR}/semantic`)
@@ -26,7 +26,7 @@ dimensionFiles.forEach(file => {
 
 Object.keys(dimensionTokens).forEach(key => {
   writeFileSync(
-    `./dist/esm-unresolved/dimension.${key}.js`,
+    `./dist/docs/dimension.${key}.js`,
     `export default ${JSON.stringify(dimensionTokens[key], null, 2)}`,
   );
   esm += `export { default as ${key} } from './dimension.${key}';\n`;
@@ -47,9 +47,9 @@ tokenDirs.forEach(dir => {
         '.json',
         '',
       )}';\n`;
-      writeFileSync('./dist/esm-unresolved/index.js', esm);
+      writeFileSync('./dist/docs/index.js', esm);
       writeFileSync(
-        `./dist/esm-unresolved/${file.replace('json', 'js')}`,
+        `./dist/docs/${file.replace('json', 'js')}`,
         `export default ${JSON.stringify(parsed, null, 2)}`,
       );
     }

@@ -14,16 +14,18 @@ import {
   Toolbar,
 } from 'grommet';
 
-import tokens from 'design-tokens/tree';
 import { LinkNext } from 'grommet-icons';
+import { buildTokenTree } from '../build-token-tree';
+
+const tree = buildTokenTree();
 
 const tokensArr = [];
-Object.keys(tokens).forEach(mode => {
-  Object.keys(tokens[mode]).forEach(token =>
+Object.keys(tree).forEach(mode => {
+  Object.keys(tree[mode]).forEach(token =>
     tokensArr.push({
       name: token,
       mode: mode,
-      ...tokens[mode][token],
+      ...tree[mode][token],
     }),
   );
 });
@@ -97,7 +99,7 @@ const FilteredTokens = ({ selected, setSelected }) => {
 
 const buildTree = (selectedToken, showValue) => {
   const { mode, name } = selectedToken;
-  const usedBy = tokens[mode][name].usedBy;
+  const usedBy = tree[mode][name].usedBy;
   return (
     <Box
       key={`${name}-${mode}`}
@@ -109,7 +111,7 @@ const buildTree = (selectedToken, showValue) => {
       <Tag
         name={name}
         badge={mode}
-        value={showValue ? tokens[mode][name]['$value'] : undefined}
+        value={showValue ? tree[mode][name]['$value'] : undefined}
       />
       {usedBy?.length ? (
         <Box direction="row" gap="small" align="start" flex={false}>
