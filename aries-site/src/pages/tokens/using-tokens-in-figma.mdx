@@ -1,1 +1,44 @@
-TBD.
+import { Notification } from 'grommet';
+import { TokenTypes } from '../../examples';
+
+<Notification
+  message="Design tokens as Figma variables are currently in alpha testing. It's possible that variable names will change in v1 resulting in unlinked styles."
+  width={{ max: 'large' }}
+  margin={{ bottom: 'medium' }}
+  status="warning"
+/>
+
+In Figma, design tokens are stored as variables and styles. They are used by applying these to properties in a file.
+
+Use these Figma guides to [learn more about Figma variables](https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma) and [how to apply variables to designs](https://help.figma.com/hc/en-us/articles/15343107263511-Apply-variables-to-designs).
+
+## Enable HPE Design Tokens library
+
+Variables and styles should be available by default, but if not, make sure the HPE Design Tokens library is enabled on your design file.
+
+See the [Figma guide on using libraries](https://help.figma.com/hc/en-us/articles/360041051154-Guide-to-libraries-in-Figma), and read more about HPE Design token libraries below.
+
+## Add design tokens to Figma designs
+
+To use HPE design tokens in Figma as a product designer, you’ll need to enable ("Add to file") the ["Design tokens - Semantic" library]() in your design files.
+
+These tokens are intended to be used generically across use cases and cover the following categories:
+
+- Typography
+- Color
+- Elevation
+- Spacing
+- Size
+- Radius
+- Border width (currently not supported by Figma)
+
+<Notification
+  message='Note: "Primitive" and "Component" token libraries are primarily for design system maintainers and should not be enabled/used directly in product designer files.'
+  width={{ max: 'large' }}
+  margin={{ bottom: 'medium' }}
+  status="info"
+/>
+
+## Semantic token types in Figma
+
+<TokenTypes />
