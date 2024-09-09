@@ -12,7 +12,7 @@ import {
   components as localComponents,
   elevationdark as localElevationDark,
   elevationlight as localElevationLight,
-} from 'design-tokens';
+} from 'hpe-design-tokens';
 import {
   dark as alphaDark,
   light as alphaLight,

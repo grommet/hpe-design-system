@@ -1,9 +1,10 @@
-import 'design-tokens/dist/css/base.css';
-import 'design-tokens/dist/css/color.light.css';
-import 'design-tokens/dist/css/color.dark.css';
-import 'design-tokens/dist/css/components.css';
-import 'design-tokens/dist/css/dimension.large.css';
-import 'design-tokens/dist/css/dimension.small.css';
+import 'hpe-design-tokens/dist/css/base.css';
+import 'hpe-design-tokens/dist/css/color.light.css';
+import 'hpe-design-tokens/dist/css/color.dark.css';
+import 'hpe-design-tokens/dist/css/components.css';
+import 'hpe-design-tokens/dist/css/global.css';
+import 'hpe-design-tokens/dist/css/dimension.large.css';
+import 'hpe-design-tokens/dist/css/dimension.small.css';
 import './css/fonts.css';
 import './css/components.css';
 import './css/app.css';
