@@ -104,6 +104,9 @@ tokens.forEach(file => {
   allTokens = { ...allTokens, ...parsed };
 });
 
+/**
+ * Calculate and update paddingY values based on minHeight, lineHeight, and borderWidth
+ */
 const updatePaddingY = (tokens: { [key: string]: any }) => {
   const result = tokens;
   const allTokens = tokens;
