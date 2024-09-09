@@ -13,9 +13,10 @@ import {
   DataSummary,
 } from 'grommet';
 import { Folder } from 'grommet-icons';
-import * as tokens from 'design-tokens';
-import * as rawTokens from 'design-tokens/docs';
+import * as tokens from 'hpe-design-tokens';
+import * as rawTokens from 'hpe-design-tokens/docs';
 
+console.log(rawTokens.light);
 const ColorPreview = ({ datum }) => (
   <Box pad="medium" round="xsmall" flex={false} background={datum.value} />
 );
