@@ -1,4 +1,4 @@
-import * as tokens from 'design-tokens/docs';
+import * as tokens from 'hpe-design-tokens/docs';
 
 const flattenObject = (obj, delimiter = '.', prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
