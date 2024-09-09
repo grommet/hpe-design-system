@@ -5,7 +5,12 @@ on:
       file_key:
         description: 'The file key of the Figma file to be updated'
         required: true
-
+      branch:
+        type: choice
+        description: Which branch to update
+        options:
+          - design-tokens-alpha
+          - design-tokens
 jobs:
   sync-figma-to-tokens:
     runs-on: ubuntu-latest
@@ -17,7 +22,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.16.0'
+          node-version: '18.18.0'
 
       - name: Set NPM version
         run: npm install -g npm@9.5.1
@@ -40,5 +45,5 @@ jobs:
           commit-message: Update tokens from Figma
           title: Update tokens from Figma
           body: 'Update tokens from Figma from file: https://www.figma.com/file/${{ github.event.inputs.file_key }}'
-          base: design-tokens
+          base: ${{ github.event.inputs.branch }}
           branch: update-tokens
