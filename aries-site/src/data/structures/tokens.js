@@ -49,11 +49,11 @@ export const tokens = [
   {
     name: 'Using tokens in Figma',
     type: 'Building with tokens',
-    description: 'How to use tokens in Figma with Figma variables.',
+    description: 'How to use tokens with Figma variables.',
     preview: {
       component: () => <Figma size="xxlarge" color="plain" />,
     },
-    seoDescription: 'How to use tokens in Figma with Figma variables.',
+    seoDescription: 'How to use tokens with Figma variables.',
     sections: [],
     relatedContent: [],
     tags: [],
