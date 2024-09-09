@@ -1,13 +1,10 @@
-import { Notification } from 'grommet';
+## Using tokens with Grommet
 
-<Notification
-  status="info"
-  width="large"
-  title="Note to teams building with Grommet"
-  message={`You do not need to install "hpe-design-tokens" or change how you build with Grommet. The HPE Design System team has mapped "hpe-design-tokens" into "grommet-theme-hpe", so there should be no change to your workflow.`}
-/>
+There is no need to install "hpe-design-tokens" or change how you build with Grommet. The HPE Design System team has mapped "hpe-design-tokens" into "grommet-theme-hpe", so there should be no change to your workflow.
 
-## Install hpe-design-tokens
+## Using tokens in non-Grommet projects
+
+### Install hpe-design-tokens
 
 To add hpe-design-tokens to your application, add the following to your `package.json`. This is the temporary location for HPE design tokens during this alpha phase of work.
 
@@ -15,16 +12,17 @@ To add hpe-design-tokens to your application, add the following to your `package
 "hpe-design-tokens": "https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable"
 ```
 
-## Apply tokens
+### Apply tokens
 
 HPE Design Tokens are exported in a variety of formats to support teams across tech stacks. The currently supported formats are:
 
 - CSS variables
-- Javascript module
+- ESM
+- CommonJS
 
 If the exports from `hpe-design-tokens` do not meet the needs of your team, please reach out to our team in `#hpe-design-system` in Slack.
 
-### CSS variables
+#### CSS variables
 
 To use hpe-design-tokens as CSS variables, first import the CSS files into your project. How these files are imported will depend on your tech stack.
 
@@ -33,6 +31,7 @@ To use hpe-design-tokens as CSS variables, first import the CSS files into your 
 import 'hpe-design-tokens/css/base.css';
 import 'hpe-design-tokens/css/color.light.css';
 import 'hpe-design-tokens/css/color.dark.css';
+import 'hpe-design-tokens/css/global.css';
 import 'hpe-design-tokens/css/components.css';
 import 'hpe-design-tokens/css/dimension.large.css';
 import 'hpe-design-tokens/css/dimension.small.css';
@@ -55,9 +54,9 @@ button.primary:disabled {
 }
 ```
 
-### Javascript module
+### ESM
 
-To use hpe-design-tokens as a Javascript module, first import the modules into your project.
+To use hpe-design-tokens as ESM, first import the modules into your project.
 
 ```
 // For example, main.jsx

@@ -1,13 +1,6 @@
 import { Example } from '../../layouts';
 import { Box, Text } from 'grommet';
 
-<Example height={{ min: 'xsmall' }}>
-  <Box align="center" direction="row" gap="small">
-    <Box background="brand" pad="medium" round="small" flex={false} />
-    <Text size="large">hpe.color.brand</Text>
-  </Box>
-</Example>
-
 ## What is a design token?
 
 Design tokens codify the design decisions that make up a design system's visual style. Tokens replace hard-coded values, such as hex codes for color or px values for spacing, with clear names.
@@ -24,7 +17,7 @@ Additionally, a design token can have these optional properties:
 1. Type: A category for the token's value (e.g., color, dimension, shadow).
 1. Description: Concise text to describe how the token should be used.
 
-TO DO: Add visual.
+TO DO: Add visual
 
 ## Why are design tokens important?
 
@@ -41,17 +34,22 @@ Design tokens allow us to:
 
 ## Types of tokens
 
-Our tokens can be grouped into 3 categories: primitive, semantic, and component. The specificity of design tokens increases from primitive to semantic to component. This tiered system of tokens exists to enhance token consumption, management, and maintenance.
+Our tokens can be grouped into 3 levels: primitive, semantic, and component. The naming and intended use of a token get more specific as you move from the primitive to semantic to component level. This tiered system of tokens exists to enhance token consumption, management, and maintenance.
 
 ### Primitive tokens
 
-Primitive tokens define the most foundational level of the token system, establishing key/value pairs for fundamental attributes like color and dimension.
+Primitive tokens define the most foundational level of the token system, establishing fundamental attributes like color and dimension.
 
 The value of a primitive token will always be a CSS value such as a hex code, px, or rem value. Typically, primitive token names describe the token value and not where it should be applied.
 
 Primitive design tokens should not be used directly. They exist to provide the foundational options and be referenced in semantic and component design tokens.
 
-TO DO: Add visual.
+<Example height={{ min: 'xsmall' }}>
+  <Box align="center" direction="row" gap="small">
+    <Box background="brand" pad="medium" round="small" flex={false} />
+    <Text size="large">hpe.green.600</Text>
+  </Box>
+</Example>
 
 ### Semantic tokens
 
@@ -61,7 +59,12 @@ The value of a semantic token can either be a reference to a primitive token or 
 
 Semantic tokens can have different values in different contexts. For example, the value of `hpe.color.background.back` might differ for light vs dark mode. Similarly, the value of `hpe.spacing.large` might differ for wide vs narrow viewports. By building with semantic tokens, the values can flex based on the context.
 
-TO DO: Add visual.
+<Example height={{ min: 'xsmall' }}>
+  <Box align="center" direction="row" gap="small">
+    <Box background="brand" pad="medium" round="small" flex={false} />
+    <Text size="large">hpe.background.primary.default</Text>
+  </Box>
+</Example>
 
 ### Component tokens
 
@@ -69,4 +72,9 @@ Component tokens capture specific design decisions for an individual component (
 
 The value of a component token can either be a reference to a primitive token, semantic token, or another component token.
 
-TO DO: Add visual.
+<Example height={{ min: 'xsmall' }}>
+  <Box align="center" direction="row" gap="small">
+    <Box background="brand" pad="medium" round="small" flex={false} />
+    <Text size="large">hpe.button.primary.enabled.background</Text>
+  </Box>
+</Example>
