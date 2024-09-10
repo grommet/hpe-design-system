@@ -1,9 +1,0 @@
-node_modules/
-dist/
-.cache/
-public/
-yarn.lock
-package-lock.json
-babel.config.js
-.next/
-out/
