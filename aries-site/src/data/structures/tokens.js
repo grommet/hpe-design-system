@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { Figma, Code, Book } from 'grommet-icons';
+import { Figma, Code, Book, Table } from 'grommet-icons';
 import { Box, Text } from 'grommet';
 
 export const tokens = [
@@ -63,7 +63,7 @@ export const tokens = [
     type: 'Building with tokens',
     description: 'An overview of all available design tokens.',
     preview: {
-      component: () => <Figma size="xxlarge" color="plain" />,
+      component: () => <Table size="xxlarge" />,
     },
     seoDescription: 'An overview of all available design tokens.',
     sections: [],
