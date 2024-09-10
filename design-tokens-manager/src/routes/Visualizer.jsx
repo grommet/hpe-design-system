@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {
   Page,
@@ -13,22 +13,12 @@ import {
   DataSummary,
   Toolbar,
 } from 'grommet';
+import * as tokens from 'hpe-design-tokens/docs';
 
 import { LinkNext } from 'grommet-icons';
 import { buildTokenTree } from '../build-token-tree';
 
-const tree = buildTokenTree();
-
-const tokensArr = [];
-Object.keys(tree).forEach(mode => {
-  Object.keys(tree[mode]).forEach(token =>
-    tokensArr.push({
-      name: token,
-      mode: mode,
-      ...tree[mode][token],
-    }),
-  );
-});
+const tree = buildTokenTree(tokens);
 
 const StyledBox = styled(Box)`
   &:focus:not(:focus-visible) {
@@ -100,6 +90,7 @@ const FilteredTokens = ({ selected, setSelected }) => {
 const buildTree = (selectedToken, showValue) => {
   const { mode, name } = selectedToken;
   const usedBy = tree[mode][name].usedBy;
+
   return (
     <Box
       key={`${name}-${mode}`}
@@ -127,6 +118,21 @@ const buildTree = (selectedToken, showValue) => {
 
 const Visualizer = () => {
   const [selected, setSelected] = useState({});
+  const [tokensArr, setTokensArr] = useState([]);
+
+  useEffect(() => {
+    const nextTokensArr = [];
+    Object.keys(tree).forEach(mode => {
+      Object.keys(tree[mode]).forEach(token =>
+        nextTokensArr.push({
+          name: token,
+          mode: mode,
+          ...tree[mode][token],
+        }),
+      );
+      setTokensArr(nextTokensArr);
+    });
+  }, []);
 
   return (
     <Page kind="full">

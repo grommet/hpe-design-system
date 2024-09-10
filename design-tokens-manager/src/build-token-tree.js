@@ -1,20 +1,4 @@
-import * as tokens from 'hpe-design-tokens/docs';
-
-const flattenObject = (obj, delimiter = '.', prefix = '') =>
-  Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}${delimiter}` : '';
-    if (
-      typeof obj[k] === 'object' &&
-      obj[k] !== null &&
-      Object.keys(obj[k]).length > 0 &&
-      !('$value' in obj[k])
-    )
-      Object.assign(acc, flattenObject(obj[k], delimiter, pre + k));
-    else acc[pre + k] = obj[k];
-    return acc;
-  }, {});
-
-export const buildTokenTree = () => {
+export const buildTokenTree = tokens => {
   const tree = {};
 
   Object.keys(tokens).forEach(collection => {
@@ -28,7 +12,12 @@ export const buildTokenTree = () => {
     } else if (collection.includes('elevation'))
       mode = collection.replace('elevation', '');
 
-    const flat = flattenObject(tokens[collection], '.');
+    const flat = Object.fromEntries(
+      Object.keys(tokens[collection]).map(token => [
+        token,
+        tokens[collection][token],
+      ]),
+    );
     if (!(mode in tree)) tree[mode] = {};
     tree[mode] = { ...tree[mode], ...flat };
   });
@@ -36,7 +25,7 @@ export const buildTokenTree = () => {
   Object.keys(tree).forEach(mode => {
     Object.keys(tree[mode]).forEach(key => {
       // if it's a reference, add it to the "usedBy" for the referenced token
-      const value = tree[mode][key].$value;
+      const value = tree[mode][key].original.value;
       if (/^{.*}$/.test(value)) {
         const token = value.slice(1, -1);
         // for color tokens, add it to the used by for "light" and "dark" modes
@@ -54,20 +43,25 @@ export const buildTokenTree = () => {
         }
         referenceModes.forEach(referenceMode => {
           // if this is the first reference, create `usedBy`
-          // is it within this mode?
-          if (tree[referenceMode][token]) {
-            if (!('usedBy' in tree[referenceMode][token])) {
-              tree[referenceMode][token].usedBy = [
+          const reference = tree[referenceMode][`hpe.${token}`];
+          if (reference) {
+            if (!('usedBy' in reference)) {
+              reference.usedBy = [
                 {
                   name: key,
                   mode,
                 },
               ];
-            } else
-              tree[referenceMode][token].usedBy.push({
+            } else if (
+              !reference.usedBy.find(
+                ref => ref.name === key && ref.mode === mode,
+              )
+            ) {
+              reference.usedBy.push({
                 name: key,
                 mode,
               });
+            }
           }
         });
       }
@@ -76,27 +70,3 @@ export const buildTokenTree = () => {
 
   return tree;
 };
-
-// const TOKENS_DIR = 'tokens';
-// const tokenDirs = fs
-//   .readdirSync(TOKENS_DIR, { withFileTypes: true })
-//   .filter(dir => dir.isDirectory())
-//   .map(dir => dir.name);
-
-// tokenDirs.forEach(dir => {
-//   fs.readdirSync(`${TOKENS_DIR}/${dir}`).forEach(file => {
-//     // [tokens/color, light, json]
-//     const mode = file.split('.')[1];
-//     const raw = fs.readFileSync(`${TOKENS_DIR}/${dir}/${file}`);
-//     const parsed = JSON.parse(raw);
-//     const flat = flattenObject(parsed, '.');
-//     if (!(mode in tree)) tree[mode] = {};
-//     tree[mode] = { ...tree[mode], ...flat };
-//   });
-// });
-
-// fs.mkdirSync('./dist/tree');
-// fs.writeFileSync(
-//   './dist/tree/index.js',
-//   `export default ${JSON.stringify(tree, null, 2)}`,
-// );

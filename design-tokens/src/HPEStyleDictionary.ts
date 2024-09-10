@@ -5,6 +5,7 @@ import {
   cssColorModes,
   cssBreakpoints,
   esmGrommetRefs,
+  jsonFlat,
 } from './formats/index.js';
 import {
   cssW3c,
@@ -32,9 +33,20 @@ StyleDictionary.registerFormat({
   name: `commonJsGrommetRefs`,
   formatter: commonJsGrommetRefs,
 });
+StyleDictionary.registerFormat({
+  name: `jsonFlat`,
+  formatter: jsonFlat,
+});
 StyleDictionary.registerTransform({
   name: 'numberToDimension',
   ...numberToDimension,
+});
+StyleDictionary.registerTransform({
+  name: 'name/dot',
+  type: 'name',
+  transformer: (token, config) => {
+    return [config.prefix].concat(token.path).join('.');
+  },
 });
 StyleDictionary.registerTransformGroup({
   name: 'js/w3c',

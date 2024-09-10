@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "design-tokens": "*",
-    "hpe-design-tokens-alpha": "https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable",
-    "hpe-design-tokens-old-theme": "https://github.com/grommet/hpe-design-system/tarball/design-tokens-old-theme-stable",
-    "hpe-design-tokens-brand-refresh": "https://github.com/grommet/hpe-design-system/tarball/design-tokens-brand-refresh-stable",
     "gsap": "^3.12.5",
+    "hpe-design-tokens-alpha": "https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable",
+    "hpe-design-tokens-brand-refresh": "https://github.com/grommet/hpe-design-system/tarball/design-tokens-brand-refresh-stable",
+    "hpe-design-tokens-old-theme": "https://github.com/grommet/hpe-design-system/tarball/design-tokens-old-theme-stable",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-gsap": "^3.2.1",

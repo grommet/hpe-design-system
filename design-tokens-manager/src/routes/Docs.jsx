@@ -3,22 +3,106 @@ import {
   Toolbar,
   DataSearch,
   Page,
+  Heading,
   PageContent,
-  Grid,
   Button,
   Box,
   Data,
   Text,
   DataTable,
   DataSummary,
+  Collapsible,
+  FormField,
+  Select,
 } from 'grommet';
 import { Folder } from 'grommet-icons';
-import * as tokens from 'hpe-design-tokens';
-import * as rawTokens from 'hpe-design-tokens/docs';
+import * as tokens from 'hpe-design-tokens/docs';
 
-console.log(rawTokens.light);
+const structuredTokens = {
+  primitive: {},
+  semantic: {},
+  component: {},
+};
+
+Object.keys(tokens).forEach(mode => {
+  // base, component, light, dark, etc.
+  Object.keys(tokens[mode]).forEach(token => {
+    const currentToken = tokens[mode][token];
+
+    const parts = token.split('.');
+    const category = parts[1];
+    let level;
+    if (mode === 'base') level = 'primitive';
+    else if (mode === 'components') level = 'component';
+    else level = 'semantic';
+
+    if (!(category in structuredTokens[level]))
+      structuredTokens[level][category] = {};
+    if (!(token in structuredTokens[level][category]))
+      structuredTokens[level][category][token] = {};
+    if (!('modes' in structuredTokens[level][category][token]))
+      structuredTokens[level][category][token].modes = {};
+
+    if (level === 'semantic' && mode !== 'global') {
+      structuredTokens[level][category][token].modes[mode] = currentToken;
+    } else
+      structuredTokens[level][category][token].modes.default = currentToken;
+  });
+});
+
+const NavSection = ({ active, collection, setActive, tokens }) => {
+  const activeParts = active.split('.');
+  const [open, setOpen] = useState(
+    activeParts[activeParts.length - 1] in structuredTokens[collection]
+      ? true
+      : false,
+  );
+
+  return (
+    <Box flex={false}>
+      <Button
+        icon={<Folder />}
+        justify="start"
+        align="start"
+        label={collection}
+        onClick={() => setOpen(!open)}
+      />
+      <Collapsible open={open}>
+        <Box pad={{ left: 'medium' }} flex={false}>
+          {Object.keys(tokens[collection]).map(category => (
+            <Button
+              key={category}
+              align="start"
+              label={category}
+              active={active === `${collection}.${category}`}
+              onClick={() => setActive(`${collection}.${category}`)}
+            />
+          ))}
+        </Box>
+      </Collapsible>
+    </Box>
+  );
+};
+const Nav = ({ active, setActive, tokens }) => {
+  return Object.keys(tokens).map(collection => (
+    <NavSection
+      key={collection}
+      tokens={tokens}
+      collection={collection}
+      active={active}
+      setActive={setActive}
+    />
+  ));
+};
+
 const ColorPreview = ({ datum }) => (
-  <Box pad="medium" round="xsmall" flex={false} background={datum.value} />
+  <Box
+    pad="medium"
+    round="xsmall"
+    flex={false}
+    background={datum.value}
+    border={{ color: 'border-weak' }}
+  />
 );
 
 const DimensionPreview = ({ datum }) =>
@@ -28,7 +112,7 @@ const DimensionPreview = ({ datum }) =>
       flex={false}
       background="brand"
       width={datum.value}
-      height="36px"
+      height={datum.token.includes('icon') ? datum.value : '36px'}
     />
   ) : (
     '--'
@@ -56,122 +140,61 @@ const WeightPreview = ({ datum }) => (
 
 const TextPreview = ({ datum }) => <Text size={datum.value}>Hello world</Text>;
 
-const flattenObject = (obj, delimiter = '.', prefix = '') =>
-  Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? `${prefix}${delimiter}` : '';
-    if (
-      typeof obj[k] === 'object' &&
-      obj[k] !== null &&
-      Object.keys(obj[k]).length > 0 &&
-      !('$value' in obj[k])
-    )
-      Object.assign(acc, flattenObject(obj[k], delimiter, pre + k));
-    else acc[pre + k] = obj[k];
-    return acc;
-  }, {});
-
-const Nav = ({ tokens: obj, active, setActive }) =>
-  Object.keys(obj).map(key => (
-    <>
-      <Button
-        icon={typeof obj[key] === 'object' ? <Folder /> : undefined}
-        label={key === 'base' ? 'primitives' : key}
-        align="start"
-        justify="start"
-        active={active === key}
-        onClick={() => setActive(key)}
-      />
-      {/* the first level in is going to be "hpe", and we want to skip that for nav*/}
-      {!('$value' in obj[key].hpe) ? (
-        <Box pad={{ horizontal: 'small' }}>
-          {Object.keys(obj[key].hpe).map(j => (
-            <>
-              <Button
-                key={j}
-                label={j}
-                align="start"
-                justify="start"
-                active={active === `${key}.hpe.${j}`}
-                onClick={() => setActive(`${key}.hpe.${j}`)}
-              />
-              {key === 'base' && typeof obj[key].hpe[j] === 'object' ? (
-                <Box pad={{ horizontal: 'small' }}>
-                  {Object.keys(obj[key].hpe[j]).map(k => (
-                    <Button
-                      key={k}
-                      label={k}
-                      align="start"
-                      active={active === `${key}.hpe.${j}.${k}`}
-                      onClick={() => setActive(`${key}.hpe.${j}.${k}`)}
-                    />
-                  ))}
-                </Box>
-              ) : undefined}
-            </>
-          ))}
-        </Box>
-      ) : undefined}
-    </>
-  ));
+const getTokens = (tokens, mode) =>
+  Object.keys(tokens).map(key => {
+    return {
+      id: key,
+      token: key,
+      type: tokens[key]?.modes[mode]?.$type,
+      description: tokens[key]?.modes[mode]?.$description,
+      value: tokens[key]?.modes[mode].value,
+    };
+  });
 
 const Docs = () => {
-  const [active, setActive] = useState(`base.hpe`);
+  const [active, setActive] = useState('primitive.base');
   const [data, setData] = useState([]);
+  const [modes, setModes] = useState([]);
+  const [selectedMode, setSelectedMode] = useState('');
 
   useEffect(() => {
-    let prefix = active.split('.');
-    prefix.shift();
-    prefix = prefix.join('.');
+    const keyPath = active.split('.');
 
-    let keyPath = `${active}`.split('.');
-    let res = tokens;
+    let res = structuredTokens;
     keyPath.forEach(key => {
       res = res[key];
     });
 
-    let resRaw = rawTokens;
-    let rawKeyPath = `${active}`.split('.');
-    // remove extra 'hpe' which rawTokens won't have
-    const index = rawKeyPath.indexOf('hpe');
-    if (index > -1) {
-      // only splice array when item is found
-      rawKeyPath.splice(index, 1);
-    }
-    rawKeyPath.forEach(key => {
-      resRaw = resRaw[key];
-    });
-    const flat =
-      typeof res === 'object' ? flattenObject(res, '.', `${prefix}`) : res;
-    const flatRaw = flattenObject(resRaw, '.', `${prefix}`);
+    const modes = Object.keys(Object.values(res)[0].modes).map(mode => mode);
+    let nextMode;
+    if (modes.includes('light')) nextMode = 'light';
+    else if (modes.includes('large')) nextMode = 'large';
+    else nextMode = modes[0];
 
-    const nextData =
-      typeof flat === 'object'
-        ? Object.keys(flat).map(key => {
-            return {
-              id: key,
-              token: key,
-              type: flatRaw[key]?.$type,
-              description: flatRaw[key]?.$description,
-              value: flat[key],
-            };
-          })
-        : [
-            {
-              id: active,
-              token: active,
-              // type: flatRaw[key]?.$type,
-              // description: flatRaw[key]?.$description,
-              value: flat[active.split('.')[active.length - 1]],
-            },
-          ];
+    const nextData = getTokens(res, nextMode);
+
     setData(nextData);
+    setModes(modes);
+    setSelectedMode(nextMode);
   }, [active]);
 
   return (
     <Page kind="full">
-      <Grid columns={['medium', 'flex']}>
-        <Box pad="medium" background="background-front">
-          <Nav tokens={tokens} active={active} setActive={setActive} />
+      <Box direction="row">
+        <Box
+          width="medium"
+          pad="medium"
+          background="background-front"
+          flex={false}
+          style={{ position: 'sticky', top: 0, bottom: 0 }}
+          height="100vh"
+          overflow="auto"
+        >
+          <Nav
+            tokens={structuredTokens}
+            active={active}
+            setActive={setActive}
+          />
         </Box>
         <PageContent>
           <Box
@@ -180,14 +203,46 @@ const Docs = () => {
             background="background-front"
             margin={{ vertical: 'medium' }}
           >
+            <Heading margin="none">
+              {active
+                .split('.')
+                .map(
+                  (part, index) =>
+                    `${part} ${
+                      index < active.split('.').length - 1 ? '/ ' : ''
+                    }`,
+                )}
+            </Heading>
             <Data data={data} pad={{ vertical: 'medium' }}>
-              <Toolbar>
+              <Toolbar align="end">
                 <DataSearch />
+                {modes.length > 1 ? (
+                  <FormField
+                    label="Mode"
+                    contentProps={{ margin: { bottom: 'none', top: 'xsmall' } }}
+                  >
+                    <Select
+                      options={modes}
+                      value={selectedMode}
+                      onChange={({ option }) => {
+                        const keyPath = active.split('.');
+
+                        let res = structuredTokens;
+                        keyPath.forEach(key => {
+                          res = res[key];
+                        });
+                        setData(getTokens(res, option));
+                        setSelectedMode(option);
+                      }}
+                    />
+                  </FormField>
+                ) : undefined}
               </Toolbar>
               <DataSummary />
               <Box overflow={{ horizontal: 'auto' }}>
                 <DataTable
                   verticalAlign="top"
+                  primaryKey="token"
                   columns={[
                     {
                       property: 'id',
@@ -197,7 +252,7 @@ const Docs = () => {
                           return <ColorPreview datum={datum} />;
 
                         if (
-                          datum.token.includes('content') ||
+                          datum.token.includes('size') ||
                           datum.token.includes('dimension') ||
                           datum.token.includes('spacing') ||
                           datum.token.includes('gap')
@@ -263,7 +318,7 @@ const Docs = () => {
             </Data>
           </Box>
         </PageContent>
-      </Grid>
+      </Box>
     </Page>
   );
 };

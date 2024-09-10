@@ -4,7 +4,7 @@ import { Grommet, Header, Button, Box, Text } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
 import { Github, Moon, Sun } from 'grommet-icons';
 import { Visualizer } from './routes/Visualizer';
-import { Builder } from './routes/Builder';
+// import { Builder } from './routes/Builder';
 import { Docs } from './routes/Docs';
 
 function App() {
@@ -31,12 +31,12 @@ function App() {
         >
           <Button as={Link} to="/">
             <Text weight={500} color="text-strong">
-              Design Token Manager
+              HPE Design Tokens Manager
             </Text>
           </Button>
           <Box direction="row" gap="xsmall">
             <Button as={Link} to="/visualizer" label="Token Visualizer" />
-            <Button as={Link} to="/builder" label="Token builder" />
+            {/* <Button as={Link} to="/builder" label="Token builder" /> */}
             <Button
               icon={<Github />}
               href="https://github.com/grommet/hpe-design-system/tree/design-tokens-alpha/design-tokens/tokens"
@@ -53,7 +53,7 @@ function App() {
         </Header>
         <Routes>
           <Route path="/" element={<Docs />} />
-          <Route path="/builder" element={<Builder />} />
+          {/* <Route path="/builder" element={<Builder />} /> */}
           <Route path="/visualizer" element={<Visualizer />} />
         </Routes>
       </BrowserRouter>
