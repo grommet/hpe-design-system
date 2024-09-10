@@ -1,8 +1,27 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 10 Sep 2024 17:11:18 GMT
+ */
+
 export default {
-  "elevation": {
-    "small": {
+  "hpe.elevation.small": {
+    "$type": "shadow",
+    "value": "0 4px 4px 0 #0000001f",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/elevation.light.json",
+    "isSource": true,
+    "original": {
       "$type": "shadow",
-      "$value": [
+      "value": [
         {
           "offsetX": 0,
           "offsetY": "{base.dimension.100}",
@@ -11,7 +30,7 @@ export default {
           "color": "{color.shadow.weak}"
         }
       ],
-      "$description": "",
+      "comment": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -22,9 +41,34 @@ export default {
         }
       }
     },
-    "medium": {
+    "name": "hpe.elevation.small",
+    "attributes": {
+      "category": "elevation",
+      "type": "small"
+    },
+    "path": [
+      "elevation",
+      "small"
+    ]
+  },
+  "hpe.elevation.medium": {
+    "$type": "shadow",
+    "value": "0px 6px 12px 0px #0000001f",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/elevation.light.json",
+    "isSource": true,
+    "original": {
       "$type": "shadow",
-      "$value": [
+      "value": [
         {
           "offsetX": "{base.static.spacing.none}",
           "offsetY": "{base.static.spacing.xsmall}",
@@ -33,7 +77,7 @@ export default {
           "color": "{color.shadow.default}"
         }
       ],
-      "$description": "",
+      "comment": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -44,9 +88,34 @@ export default {
         }
       }
     },
-    "large": {
+    "name": "hpe.elevation.medium",
+    "attributes": {
+      "category": "elevation",
+      "type": "medium"
+    },
+    "path": [
+      "elevation",
+      "medium"
+    ]
+  },
+  "hpe.elevation.large": {
+    "$type": "shadow",
+    "value": "0px 12px 24px 0px #0000001f",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/elevation.light.json",
+    "isSource": true,
+    "original": {
       "$type": "shadow",
-      "$value": [
+      "value": [
         {
           "offsetX": "{base.static.spacing.none}",
           "offsetY": "{base.static.spacing.small}",
@@ -55,7 +124,7 @@ export default {
           "color": "{color.shadow.default}"
         }
       ],
-      "$description": "",
+      "comment": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -65,6 +134,15 @@ export default {
           "codeSyntax": {}
         }
       }
-    }
+    },
+    "name": "hpe.elevation.large",
+    "attributes": {
+      "category": "elevation",
+      "type": "large"
+    },
+    "path": [
+      "elevation",
+      "large"
+    ]
   }
 }
