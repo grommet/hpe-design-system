@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 10 Sep 2024 21:56:53 GMT
+ * Generated on Tue, 10 Sep 2024 22:35:48 GMT
  */
 
 module.exports = {
@@ -1169,7 +1169,7 @@ module.exports = {
       },
       "label": {
         "enabled": {
-          "textColor": "background-disabled"
+          "textColor": "text-default"
         },
         "hover": {
           "textColor": "text-default"

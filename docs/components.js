@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 10 Sep 2024 21:56:54 GMT
+ * Generated on Tue, 10 Sep 2024 22:35:48 GMT
  */
 
 export default {
@@ -29604,7 +29604,7 @@ export default {
   },
   "hpe.radioButton.label.enabled.textColor": {
     "$type": "color",
-    "value": "#0000000a",
+    "value": "#555555",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -29619,7 +29619,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.background.disabled}",
+      "value": "{color.text.default}",
       "comment": "",
       "$extensions": {
         "com.figma": {
