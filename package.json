@@ -14,6 +14,7 @@
       "require": "./css/*.css"
     }
   },
+  "license": "Apache-2.0",
   "scripts": {
     "prettier:check": "prettier --check src/",
     "sync-tokens-to-figma": "ts-node-esm -P tsconfig.json src/sync_tokens_to_figma.ts",
