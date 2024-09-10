@@ -7,6 +7,7 @@ const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
 const CJS_DIR = 'dist/cjs/';
 const CSS_DIR = 'dist/css/';
+const DOCS_DIR = 'dist/docs/';
 const PREFIX = 'hpe';
 
 HPEStyleDictionary.extend({
@@ -47,6 +48,12 @@ HPEStyleDictionary.extend({
           },
         },
       ],
+    },
+    docs: {
+      transformGroup: 'js/w3c',
+      buildPath: DOCS_DIR,
+      prefix: PREFIX,
+      files: [{ destination: 'base.js', format: 'jsonFlat' }],
     },
   },
 }).buildAllPlatforms();
@@ -97,6 +104,19 @@ HPEStyleDictionary.extend({
           options: {
             outputReferences: true,
           },
+        },
+      ],
+    },
+    docs: {
+      transformGroup: 'js/w3c',
+      buildPath: DOCS_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'global.js',
+          format: 'jsonFlat',
+          filter: token =>
+            token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
         },
       ],
     },
@@ -190,6 +210,25 @@ colorModeFiles.forEach(file => {
           },
         ],
       },
+      docs: {
+        transformGroup: 'js/w3c',
+        buildPath: DOCS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `color.${
+              theme ? `${theme}-${mode}` : `${mode || ''}`
+            }.js`,
+            filter: token => token.filePath === file,
+            format: 'jsonFlat',
+          },
+          {
+            destination: `elevation.${mode}.js`,
+            filter: 'isShadow',
+            format: 'jsonFlat',
+          },
+        ],
+      },
     },
   }).buildAllPlatforms();
 });
@@ -269,6 +308,18 @@ dimensionFiles.forEach(file => {
           },
         ],
       },
+      docs: {
+        transformGroup: 'js/w3c',
+        buildPath: DOCS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: `dimension.${mode}.js`,
+            filter: token => dimensions.includes(token.attributes.category),
+            format: 'jsonFlat',
+          },
+        ],
+      },
     },
   }).buildAllPlatforms();
 });
@@ -325,6 +376,19 @@ HPEStyleDictionary.extend({
         },
       ],
     },
+    docs: {
+      transformGroup: 'js/w3c',
+      buildPath: DOCS_DIR,
+      prefix: PREFIX,
+      files: [
+        {
+          destination: 'components.js',
+          filter: token =>
+            token.filePath === `${TOKENS_DIR}/component/component.default.json`,
+          format: 'jsonFlat',
+        },
+      ],
+    },
   },
 }).buildAllPlatforms();
 
@@ -370,6 +434,25 @@ fs.readdirSync(ESM_DIR)
         `export { default as ${mode} } from './${filename}';\n`,
       );
       esmCollections.push(mode);
+    }
+  });
+
+const docsCollections = [];
+fs.readdirSync(DOCS_DIR)
+  .filter(file => file !== 'index.js')
+  .forEach(file => {
+    if (file.toLowerCase().endsWith('.js')) {
+      const filename = file.replace('.js', '');
+      const parts = filename.split('.');
+      let mode = parts[1];
+      // special case for base.js and components
+      if (mode === 'default' || !mode) [mode] = parts;
+      else if (parts.includes('elevation')) mode = `elevation${mode}`;
+      fs.appendFileSync(
+        `${DOCS_DIR}index.js`,
+        `export { default as ${mode} } from './${filename}';\n`,
+      );
+      docsCollections.push(mode);
     }
   });
 
