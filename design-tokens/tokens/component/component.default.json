@@ -8550,7 +8550,7 @@
       "enabled": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.background.disabled}",
+          "$value": "{color.text.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
