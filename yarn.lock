@@ -5193,9 +5193,9 @@ ejs@^3.1.10:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.4:
-  version "1.5.18"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.18.tgz#5fe62b9d21efbcfa26571066502d94f3ed97e495"
-  integrity sha512-1OfuVACu+zKlmjsNdcJuVQuVE61sZOLbNM4JAQ1Rvh6EOj0/EUKhMJjRH73InPlXSh8HIJk1cVZ8pyOV/FMdUQ==
+  version "1.5.19"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.19.tgz#aeaa0a076f3f0f0e8db2c57fd10158508f00725a"
+  integrity sha512-kpLJJi3zxTR1U828P+LIUDZ5ohixyo68/IcYOHLqnbTPr/wdgn4i1ECvmALN9E16JPA6cvCG5UG79gVwVdEK5w==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -6561,7 +6561,7 @@ grommet-theme-hpe@5.6.0, grommet-theme-hpe@^5.4.0:
 
 grommet@^2.37.0, "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.40.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#ffdd636f944ebdae5ff864cc5fb87e154300b594"
+  resolved "https://github.com/grommet/grommet/tarball/stable#fa2559253f26b22348f934b3cb215d14a2ce1aa7"
   dependencies:
     "@emotion/is-prop-valid" "^1.2.1"
     grommet-icons "^4.12.1"
@@ -6747,7 +6747,7 @@ hpack.js@^2.1.6:
 
 "hpe-design-tokens-alpha@https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable":
   version "0.1.0"
-  resolved "https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable#e7af389228651e02973de8c1d843f455430768dd"
+  resolved "https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable#1a2e6d3037cb31e2d31a37337d855ba7bf6c3ba4"
   dependencies:
     axios "^1.6.0"
     dotenv "^16.3.1"
