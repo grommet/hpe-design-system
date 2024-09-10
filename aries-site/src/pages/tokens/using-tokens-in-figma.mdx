@@ -12,25 +12,22 @@ In Figma, design tokens are stored as variables and styles. They are used by app
 
 Use these Figma guides to [learn more about Figma variables](https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma) and [how to apply variables to designs](https://help.figma.com/hc/en-us/articles/15343107263511-Apply-variables-to-designs).
 
-## Enable HPE Design Tokens library
-
-Variables and styles should be available by default, but if not, make sure the HPE Design Tokens library is enabled on your design file.
-
-See the [Figma guide on using libraries](https://help.figma.com/hc/en-us/articles/360041051154-Guide-to-libraries-in-Figma), and read more about HPE Design token libraries below.
-
 ## Add design tokens to Figma designs
 
-To use HPE design tokens in Figma as a product designer, you’ll need to enable ("Add to file") the ["Design tokens - Semantic" library]() in your design files.
+To use HPE design tokens in Figma as a product designer, you’ll need to enable ("Add to file") the ['Design tokens - Semantic'](https://www.figma.com/design/vH5MOEoXU5Kv7qWvBqiUC2/Design-Tokens---Semantic?node-id=0-1&t=49Ozw7ivhg8310Cv-1) library in your design files. See the [Figma guide on using libraries](https://help.figma.com/hc/en-us/articles/360041051154-Guide-to-libraries-in-Figma) if needed. These tokens are intended to be used generically across use cases and cover the following categories:
 
-These tokens are intended to be used generically across use cases and cover the following categories:
+As variables:
 
-- Typography
 - Color
-- Elevation
 - Spacing
 - Size
 - Radius
-- Border width (currently not supported by Figma)
+- BorderWidth (currently not supported by Figma)
+
+As styles:
+
+- Typography
+- Elevation
 
 <Notification
   message='Note: "Primitive" and "Component" token libraries are primarily for design system maintainers and should not be enabled/used directly in product designer files.'
@@ -42,3 +39,7 @@ These tokens are intended to be used generically across use cases and cover the 
 ## Semantic token types in Figma
 
 <TokenTypes />
+
+## Variable scoping
+
+We have scoped variables only to the properties they apply to. For example, in Figma, border colour tokens (e.g. color.border.default) can only be applied to strokes and borderRadius tokens (e.g. radius.small) can only be applied to corner radius in Figma. This should make it easier to find and apply tokens in Figma.
