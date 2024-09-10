@@ -431,7 +431,7 @@ fs.readdirSync(ESM_DIR)
       else if (parts.includes('elevation')) mode = `elevation${mode}`;
       fs.appendFileSync(
         `${ESM_DIR}index.js`,
-        `export { default as ${mode} } from './${filename}';\n`,
+        `export { default as ${mode} } from './${filename}.js';\n`,
       );
       esmCollections.push(mode);
     }
@@ -450,7 +450,7 @@ fs.readdirSync(DOCS_DIR)
       else if (parts.includes('elevation')) mode = `elevation${mode}`;
       fs.appendFileSync(
         `${DOCS_DIR}index.js`,
-        `export { default as ${mode} } from './${filename}';\n`,
+        `export { default as ${mode} } from './${filename}.js';\n`,
       );
       docsCollections.push(mode);
     }

@@ -146,7 +146,7 @@ const getTokens = (tokens, mode) =>
       id: key,
       token: key,
       type: tokens[key]?.modes[mode]?.$type,
-      description: tokens[key]?.modes[mode]?.$description,
+      description: tokens[key]?.modes[mode]?.comment,
       value: tokens[key]?.modes[mode].value,
     };
   });
