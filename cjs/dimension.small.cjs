@@ -1,10 +1,68 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 18:04:20 GMT
+ * Generated on Wed, 11 Sep 2024 19:46:59 GMT
  */
 
 module.exports = {
   "hpe": {
+    "spacing": {
+      "none": "0px",
+      "hair": "1px",
+      "xxsmall": "3px",
+      "xsmall": "3px",
+      "small": "6px",
+      "medium": "12px",
+      "large": "24px",
+      "xlarge": "48px"
+    },
+    "radius": {
+      "none": "0px",
+      "hair": "1px",
+      "xxsmall": "1px",
+      "xsmall": "3px",
+      "small": "6px",
+      "medium": "12px",
+      "large": "24px",
+      "xlarge": "48px",
+      "full": "384px"
+    },
+    "borderWidth": {
+      "none": "0px",
+      "xsmall": "1px",
+      "small": "1px",
+      "medium": "2px",
+      "large": "4px",
+      "xlarge": "12px",
+      "default": "1px"
+    },
+    "size": {
+      "content": {
+        "xxsmall": "48px",
+        "xsmall": "48px",
+        "small": "96px",
+        "smallPlus": "12px",
+        "medium": "192px",
+        "mediumPlus": "384px",
+        "large": "384px",
+        "xlarge": "768px",
+        "xxlarge": "1152px"
+      },
+      "icon": {
+        "xsmall": "16px",
+        "small": "16px",
+        "medium": "18px",
+        "large": "22px",
+        "xlarge": "24px",
+        "xxlarge": "36px"
+      }
+    },
+    "display": {
+      "medium": {
+        "fontSize": "2.25rem",
+        "lineHeight": "2.25rem",
+        "fontWeight": 400
+      }
+    },
     "text": {
       "xsmall": {
         "fontSize": "0.875rem",
@@ -119,57 +177,6 @@ module.exports = {
         "fontSize": "2.25rem",
         "lineHeight": "2.5rem",
         "maxWidth": "25em"
-      }
-    },
-    "spacing": {
-      "none": "0px",
-      "hair": "1px",
-      "xxsmall": "3px",
-      "xsmall": "3px",
-      "small": "6px",
-      "medium": "12px",
-      "large": "24px",
-      "xlarge": "48px"
-    },
-    "radius": {
-      "none": "0px",
-      "hair": "1px",
-      "xxsmall": "1px",
-      "xsmall": "3px",
-      "small": "6px",
-      "medium": "12px",
-      "large": "24px",
-      "xlarge": "48px",
-      "full": "384px"
-    },
-    "borderWidth": {
-      "none": "0px",
-      "xsmall": "1px",
-      "small": "1px",
-      "medium": "2px",
-      "large": "4px",
-      "xlarge": "12px",
-      "default": "1px"
-    },
-    "size": {
-      "content": {
-        "xxsmall": "48px",
-        "xsmall": "48px",
-        "small": "96px",
-        "smallPlus": "12px",
-        "medium": "192px",
-        "mediumPlus": "384px",
-        "large": "384px",
-        "xlarge": "768px",
-        "xxlarge": "1152px"
-      },
-      "icon": {
-        "xsmall": "16px",
-        "small": "16px",
-        "medium": "18px",
-        "large": "22px",
-        "xlarge": "24px",
-        "xxlarge": "36px"
       }
     }
   }

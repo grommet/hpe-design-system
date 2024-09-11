@@ -1,10 +1,68 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 18:04:20 GMT
+ * Generated on Wed, 11 Sep 2024 19:46:59 GMT
  */
 
 export default {
   hpe: {
+    spacing: {
+      none: "0px",
+      hair: "1px",
+      xxsmall: "3px",
+      xsmall: "6px",
+      small: "12px",
+      medium: "24px",
+      large: "48px",
+      xlarge: "96px",
+    },
+    radius: {
+      none: "0px",
+      hair: "1px",
+      xxsmall: "3px",
+      xsmall: "6px",
+      small: "12px",
+      medium: "24px",
+      large: "48px",
+      xlarge: "96px",
+      full: "384px",
+    },
+    borderWidth: {
+      none: "0px",
+      xsmall: "1px",
+      small: "2px",
+      medium: "4px",
+      large: "12px",
+      xlarge: "24px",
+      default: "1px",
+    },
+    size: {
+      content: {
+        xxsmall: "48px",
+        xsmall: "96px",
+        small: "192px",
+        smallPlus: "288px",
+        medium: "384px",
+        mediumPlus: "576px",
+        large: "768px",
+        xlarge: "1152px",
+        xxlarge: "1536px",
+      },
+      icon: {
+        xsmall: "16px",
+        small: "16px",
+        medium: "18px",
+        large: "22px",
+        xlarge: "24px",
+        xxlarge: "36px",
+      },
+    },
+    display: {
+      medium: {
+        fontSize: "4.5rem",
+        lineHeight: "4.5rem",
+        fontWeight: 300,
+      },
+    },
     text: {
       xsmall: {
         fontSize: "0.875rem",
@@ -119,57 +177,6 @@ export default {
         fontSize: "2.25rem",
         lineHeight: "2.5rem",
         maxWidth: "25em",
-      },
-    },
-    spacing: {
-      none: "0px",
-      hair: "1px",
-      xxsmall: "3px",
-      xsmall: "6px",
-      small: "12px",
-      medium: "24px",
-      large: "48px",
-      xlarge: "96px",
-    },
-    radius: {
-      none: "0px",
-      hair: "1px",
-      xxsmall: "3px",
-      xsmall: "6px",
-      small: "12px",
-      medium: "24px",
-      large: "48px",
-      xlarge: "96px",
-      full: "384px",
-    },
-    borderWidth: {
-      none: "0px",
-      xsmall: "1px",
-      small: "2px",
-      medium: "4px",
-      large: "12px",
-      xlarge: "24px",
-      default: "1px",
-    },
-    size: {
-      content: {
-        xxsmall: "48px",
-        xsmall: "96px",
-        small: "192px",
-        smallPlus: "288px",
-        medium: "384px",
-        mediumPlus: "576px",
-        large: "768px",
-        xlarge: "1152px",
-        xxlarge: "1536px",
-      },
-      icon: {
-        xsmall: "16px",
-        small: "16px",
-        medium: "18px",
-        large: "22px",
-        xlarge: "24px",
-        xxlarge: "36px",
       },
     },
   },

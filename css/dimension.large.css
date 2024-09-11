@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 18:04:20 GMT
+ * Generated on Wed, 11 Sep 2024 19:46:59 GMT
  */
 
 :root {
@@ -10,13 +10,6 @@
   --hpe-paragraph-medium-max-width: 25em;
   --hpe-paragraph-small-max-width: 25em;
   --hpe-paragraph-xsmall-max-width: 25em;
-  --hpe-size-icon-xxlarge: var(--hpe-base-dimension-900);
-  --hpe-size-icon-xlarge: var(--hpe-base-dimension-600);
-  --hpe-size-icon-large: var(--hpe-base-dimension-550);
-  --hpe-size-icon-medium: var(--hpe-base-dimension-450);
-  --hpe-size-icon-small: var(--hpe-base-dimension-400);
-  --hpe-size-icon-xsmall: var(--hpe-base-dimension-400);
-  --hpe-radius-full: var(--hpe-base-dimension-9600);
   --hpe-paragraph-xxlarge-line-height: var(--hpe-base-line-height-600);
   --hpe-paragraph-xxlarge-font-size: var(--hpe-base-font-size-600);
   --hpe-paragraph-xlarge-line-height: var(--hpe-base-line-height-400);
@@ -77,6 +70,16 @@
   --hpe-text-xsmall-font-weight: var(--hpe-font-weight-regular);
   --hpe-text-xsmall-line-height: var(--hpe-base-line-height-90);
   --hpe-text-xsmall-font-size: var(--hpe-base-font-size-90);
+  --hpe-display-medium-font-weight: var(--hpe-font-weight-light);
+  --hpe-display-medium-line-height: var(--hpe-base-line-height-900);
+  --hpe-display-medium-font-size: var(--hpe-base-font-size-900);
+  --hpe-size-icon-xxlarge: var(--hpe-base-dimension-900);
+  --hpe-size-icon-xlarge: var(--hpe-base-dimension-600);
+  --hpe-size-icon-large: var(--hpe-base-dimension-550);
+  --hpe-size-icon-medium: var(--hpe-base-dimension-450);
+  --hpe-size-icon-small: var(--hpe-base-dimension-400);
+  --hpe-size-icon-xsmall: var(--hpe-base-dimension-400);
+  --hpe-radius-full: var(--hpe-base-dimension-9600);
   --hpe-size-content-xxlarge: var(--hpe-base-static-content-xxlarge); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
   --hpe-size-content-xlarge: var(--hpe-base-static-content-xlarge); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
   --hpe-size-content-large: var(--hpe-base-static-content-large); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
