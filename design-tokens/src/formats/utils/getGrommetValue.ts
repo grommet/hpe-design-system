@@ -27,7 +27,8 @@ export const getGrommetValue = (token: any, dictionary: any) => {
       style: token.value.style,
     };
   } else if (
-    token.$type !== 'shadow' && // shadow is already transformed
+    token.$type !== 'shadow' &&
+    token.$type !== 'gradient' && // shadow and gradient are already transformed
     dictionary.usesReference(originalValue) &&
     !originalValue.split('.')[0].includes('base') &&
     !originalValue.split('.')[0].includes('fontWeight')

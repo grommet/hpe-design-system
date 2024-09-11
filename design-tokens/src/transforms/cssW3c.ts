@@ -9,6 +9,6 @@ export const cssW3c: string[] = [
   'border/css',
   'shadow/css',
   'color/hex',
-  'gradient/css',
+  'linearGradient/css',
   'numberToDimension',
 ];

@@ -10,6 +10,7 @@ import {
 import {
   cssW3c,
   javascriptW3c,
+  linearGradientCss,
   numberToDimension,
 } from './transforms/index.js';
 
@@ -47,6 +48,10 @@ StyleDictionary.registerTransform({
   transformer: (token, config) => {
     return [config.prefix].concat(token.path).join('.');
   },
+});
+StyleDictionary.registerTransform({
+  name: 'linearGradient/css',
+  ...linearGradientCss,
 });
 StyleDictionary.registerTransformGroup({
   name: 'js/w3c',
