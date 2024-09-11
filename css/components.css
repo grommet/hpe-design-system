@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 19:46:59 GMT
+ * Generated on Wed, 11 Sep 2024 20:33:27 GMT
  */
 
 :root {
@@ -171,9 +171,11 @@
   --hpe-button-secondary-hover-background: var(--hpe-button-default-enabled-background);
   --hpe-button-secondary-enabled-background: var(--hpe-button-default-enabled-background);
   --hpe-button-primary-selected-enabled-border-color: var(--hpe-button-default-selected-enabled-border-color);
+  --hpe-button-primary-hover-background: var(--hpe-base-color-green-700);
   --hpe-button-primary-disabled-border-color: var(--hpe-button-default-enabled-border-color);
   --hpe-button-primary-enabled-font-weight: var(--hpe-font-weight-bold);
   --hpe-button-primary-enabled-border-color: var(--hpe-button-default-enabled-border-color);
+  --hpe-button-primary-enabled-background: linear-gradient(70deg, var(--hpe-color-transparent), var(--hpe-color-background-primary-default) 35%, var(--hpe-color-transparent) 70%, var(--hpe-color-background-primary-default) 100%);
   --hpe-component-xlarge-text-to-icon-x: var(--hpe-base-static-spacing-xsmall);
   --hpe-component-xlarge-text-to-element-x: var(--hpe-base-static-spacing-small);
   --hpe-component-xlarge-line-height: var(--hpe-text-xlarge-line-height);
@@ -501,7 +503,6 @@
   --hpe-button-primary-disabled-background: var(--hpe-color-background-disabled);
   --hpe-button-primary-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-button-primary-enabled-text-color: var(--hpe-color-text-on-primary);
-  --hpe-button-primary-enabled-background: var(--hpe-color-background-primary-default);
   --hpe-component-xlarge-border-width: var(--hpe-border-width-default);
   --hpe-component-large-border-width: var(--hpe-border-width-default);
   --hpe-component-medium-border-width: var(--hpe-border-width-default);
@@ -723,7 +724,6 @@
   --hpe-button-secondary-hover-text-color: var(--hpe-button-default-enabled-text-color);
   --hpe-button-secondary-enabled-icon-color: var(--hpe-button-default-enabled-icon-color);
   --hpe-button-secondary-enabled-text-color: var(--hpe-button-default-enabled-text-color);
-  --hpe-button-primary-hover-background: var(--hpe-button-primary-enabled-background);
   --hpe-footer-cell-pinned-text-color: var(--hpe-data-cell-hover-text-color);
   --hpe-footer-cell-hover-text-color: var(--hpe-data-cell-hover-text-color);
   --hpe-footer-cell-line-height: var(--hpe-data-cell-line-height);

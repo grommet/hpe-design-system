@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 19:46:59 GMT
+ * Generated on Wed, 11 Sep 2024 20:33:27 GMT
  */
 
 export default {
@@ -8,7 +8,7 @@ export default {
     "button": {
       "primary": {
         "enabled": {
-          "background": "background-primary-default",
+          "background": "linear-gradient(70deg, #00000000, #01a982 35%, #00000000 70%, #01a982 100%)",
           "borderColor": "#00000000",
           "textColor": "text-onPrimary",
           "iconColor": "icon-onPrimary",
@@ -22,7 +22,7 @@ export default {
           "fontWeight": 700
         },
         "hover": {
-          "background": "background-primary-default",
+          "background": "#008567",
           "borderColor": "#00000000",
           "textColor": "text-onPrimary",
           "iconColor": "icon-onPrimary",

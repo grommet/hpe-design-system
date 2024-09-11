@@ -1,12 +1,12 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 19:46:59 GMT
+ * Generated on Wed, 11 Sep 2024 20:33:28 GMT
  */
 
 export default {
   "hpe.button.primary.enabled.background": {
-    "$type": "color",
-    "value": "#01a982",
+    "$type": "gradient",
+    "value": "linear-gradient(70deg, #00000000, #01a982 35%, #00000000 70%, #01a982 100%)",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -21,8 +21,28 @@ export default {
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
-      "$type": "color",
-      "value": "{color.background.primary.default}",
+      "$type": "gradient",
+      "value": {
+        "angle": 70,
+        "stops": [
+          {
+            "color": "{color.transparent}",
+            "position": 0
+          },
+          {
+            "color": "{color.background.primary.default}",
+            "position": 0.35
+          },
+          {
+            "color": "{color.transparent}",
+            "position": 0.7
+          },
+          {
+            "color": "{color.background.primary.default}",
+            "position": 1
+          }
+        ]
+      },
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -448,7 +468,7 @@ export default {
   },
   "hpe.button.primary.hover.background": {
     "$type": "color",
-    "value": "#01a982",
+    "value": "#008567",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -464,7 +484,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{button.primary.enabled.background}",
+      "value": "{base.color.green.700}",
       "comment": "",
       "$extensions": {
         "com.figma": {
