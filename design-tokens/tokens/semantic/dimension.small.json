@@ -331,6 +331,18 @@
           }
         }
       },
+      "smallPlus": {
+        "$type": "number",
+        "$value": "{base.static.radius.small}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "medium": {
         "$type": "number",
         "$value": "{base.static.content.small}",
@@ -339,6 +351,18 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": ["WIDTH_HEIGHT"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "mediumPlus": {
+        "$type": "number",
+        "$value": "{base.static.content.medium}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
             "codeSyntax": {}
           }
         }

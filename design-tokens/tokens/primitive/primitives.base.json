@@ -1958,6 +1958,18 @@
             }
           }
         },
+        "smallPlus": {
+          "$type": "number",
+          "$value": "{base.dimension.7200}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "medium": {
           "$type": "number",
           "$value": "{base.dimension.9600}",
@@ -1966,6 +1978,18 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["WIDTH_HEIGHT", "GAP"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "mediumPlus": {
+          "$type": "number",
+          "$value": "{base.dimension.14400}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
               "codeSyntax": {}
             }
           }
