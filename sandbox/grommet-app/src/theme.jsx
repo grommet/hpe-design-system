@@ -801,9 +801,7 @@ const buildTheme = tokens => {
       // },
       gap: components.hpe.button.medium.default.gapX,
       primary: {
-        background: {
-          color: components.hpe.button.primary.enabled.background,
-        },
+        background: '',
         border: {
           width:
             dimensions.borderSize[
@@ -815,7 +813,16 @@ const buildTheme = tokens => {
         font: {
           weight: components.hpe.button.primary.enabled.fontWeight,
         },
-        extend: ``,
+        extend: props =>
+          !props.active
+            ? `background: ${
+                components.hpe.button.primary.enabled.background
+              }; background-color: ${
+                props.theme.global.colors[
+                  components.hpe.button.primary.enabled.backgroundColor
+                ][props.theme.dark ? 'dark' : 'light']
+              };`
+            : '',
       },
       secondary: {
         background: components.hpe.button.secondary.enabled.background,
@@ -948,12 +955,19 @@ const buildTheme = tokens => {
           color: components.hpe.select.option.hover.textColor,
         },
         primary: {
-          background: components.hpe.button.primary.hover.background,
+          background: '',
           border: {
             color: components.hpe.button.primary.hover.borderColor,
           },
           color: components.hpe.button.primary.hover.textColor,
-          extend: ``,
+          extend: props =>
+            !props.active
+              ? `background-color: ${components.hpe.button.primary.hover.background};`
+              : `color: ${
+                  props.theme.global.colors[
+                    components.hpe.button.primary.selected.enabled.textColor
+                  ][props.theme.dark ? 'dark' : 'light']
+                }`,
         },
         secondary: {
           background: components.hpe.button.secondary.hover.background,

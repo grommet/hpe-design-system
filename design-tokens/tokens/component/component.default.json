@@ -34,6 +34,18 @@
             }
           }
         },
+        "backgroundColor": {
+          "$type": "color",
+          "$value": "{color.background.primary.default}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["STROKE_COLOR", "EFFECT_COLOR"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "borderColor": {
           "$type": "color",
           "$value": "{button.default.enabled.borderColor}",
@@ -1044,7 +1056,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.small.default.paddingY}",
+          "$value": 4,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1068,7 +1080,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.small.default.borderWidth}",
+          "$value": 0,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2049,7 +2061,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.medium.default.paddingY}",
+          "$value": 6,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2073,7 +2085,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.medium.default.borderWidth}",
+          "$value": 0,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2858,7 +2870,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.large.default.paddingY}",
+          "$value": 10,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2882,7 +2894,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.large.default.borderWidth}",
+          "$value": 0,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3765,7 +3777,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.xlarge.default.paddingY}",
+          "$value": 21,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3789,7 +3801,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.xlarge.default.borderWidth}",
+          "$value": 0,
           "$description": "",
           "$extensions": {
             "com.figma": {
