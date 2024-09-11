@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 20:33:28 GMT
+ * Generated on Wed, 11 Sep 2024 21:07:48 GMT
  */
 
 export default {
@@ -67,6 +67,51 @@ export default {
       "primary",
       "enabled",
       "background"
+    ]
+  },
+  "hpe.button.primary.enabled.backgroundColor": {
+    "$type": "color",
+    "value": "#01a982",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.background.primary.default}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.primary.enabled.backgroundColor",
+    "attributes": {
+      "category": "button",
+      "type": "primary",
+      "item": "enabled",
+      "subitem": "backgroundColor"
+    },
+    "path": [
+      "button",
+      "primary",
+      "enabled",
+      "backgroundColor"
     ]
   },
   "hpe.button.primary.enabled.borderColor": {
@@ -3645,7 +3690,7 @@ export default {
   },
   "hpe.button.small.primary.paddingY": {
     "$type": "number",
-    "value": "2px",
+    "value": "4px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -3660,7 +3705,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{button.small.default.paddingY}",
+      "value": 4,
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -3731,7 +3776,7 @@ export default {
   },
   "hpe.button.small.primary.borderWidth": {
     "$type": "number",
-    "value": "2px",
+    "value": "0px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -3747,7 +3792,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{button.small.default.borderWidth}",
+      "value": 0,
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -4083,7 +4128,7 @@ export default {
   },
   "hpe.button.small.primary.iconOnly.borderWidth": {
     "$type": "number",
-    "value": "2px",
+    "value": "0px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -7239,7 +7284,7 @@ export default {
   },
   "hpe.button.medium.primary.paddingY": {
     "$type": "number",
-    "value": "4px",
+    "value": "6px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -7254,7 +7299,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{button.medium.default.paddingY}",
+      "value": 6,
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -7325,7 +7370,7 @@ export default {
   },
   "hpe.button.medium.primary.borderWidth": {
     "$type": "number",
-    "value": "2px",
+    "value": "0px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -7341,7 +7386,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{button.medium.default.borderWidth}",
+      "value": 0,
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -7677,7 +7722,7 @@ export default {
   },
   "hpe.button.medium.primary.iconOnly.borderWidth": {
     "$type": "number",
-    "value": "2px",
+    "value": "0px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -10125,7 +10170,7 @@ export default {
   },
   "hpe.button.large.primary.paddingY": {
     "$type": "number",
-    "value": "7px",
+    "value": "10px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -10140,7 +10185,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{button.large.default.paddingY}",
+      "value": 10,
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -10211,7 +10256,7 @@ export default {
   },
   "hpe.button.large.primary.borderWidth": {
     "$type": "number",
-    "value": "2px",
+    "value": "0px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -10227,7 +10272,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{button.large.default.borderWidth}",
+      "value": 0,
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -10473,7 +10518,7 @@ export default {
   },
   "hpe.button.large.primary.iconOnly.borderWidth": {
     "$type": "number",
-    "value": "2px",
+    "value": "0px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -13013,7 +13058,7 @@ export default {
   },
   "hpe.button.xlarge.primary.iconOnly.borderWidth": {
     "$type": "number",
-    "value": "2px",
+    "value": "0px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -13373,7 +13418,7 @@ export default {
   },
   "hpe.button.xlarge.primary.paddingY": {
     "$type": "number",
-    "value": "19px",
+    "value": "21px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -13388,7 +13433,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{button.xlarge.default.paddingY}",
+      "value": 21,
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -13459,7 +13504,7 @@ export default {
   },
   "hpe.button.xlarge.primary.borderWidth": {
     "$type": "number",
-    "value": "2px",
+    "value": "0px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -13475,7 +13520,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{button.xlarge.default.borderWidth}",
+      "value": 0,
       "comment": "",
       "$extensions": {
         "com.figma": {

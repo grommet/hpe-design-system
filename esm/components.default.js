@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 20:33:27 GMT
+ * Generated on Wed, 11 Sep 2024 21:07:48 GMT
  */
 
 export default {
@@ -9,6 +9,7 @@ export default {
       "primary": {
         "enabled": {
           "background": "linear-gradient(70deg, #00000000, #01a982 35%, #00000000 70%, #01a982 100%)",
+          "backgroundColor": "background-primary-default",
           "borderColor": "#00000000",
           "textColor": "text-onPrimary",
           "iconColor": "icon-onPrimary",
@@ -137,9 +138,9 @@ export default {
       "small": {
         "primary": {
           "paddingX": "12px",
-          "paddingY": "2px",
+          "paddingY": "4px",
           "borderRadius": "2em",
-          "borderWidth": "2px",
+          "borderWidth": "0px",
           "minHeight": "28px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
@@ -148,7 +149,7 @@ export default {
             "paddingX": "4px",
             "paddingY": "4px",
             "borderRadius": "2em",
-            "borderWidth": "2px",
+            "borderWidth": "0px",
             "minHeight": "28px",
             "fontSize": "1rem",
             "lineHeight": "1.25rem",
@@ -242,9 +243,9 @@ export default {
         },
         "primary": {
           "paddingX": "18px",
-          "paddingY": "4px",
+          "paddingY": "6px",
           "borderRadius": "2em",
-          "borderWidth": "2px",
+          "borderWidth": "0px",
           "minHeight": "36px",
           "fontSize": "1.1875rem",
           "lineHeight": "1.5rem",
@@ -253,7 +254,7 @@ export default {
             "paddingX": "7px",
             "paddingY": "7px",
             "borderRadius": "2em",
-            "borderWidth": "2px",
+            "borderWidth": "0px",
             "minHeight": "36px",
             "fontSize": "1.1875rem",
             "lineHeight": "1.5rem",
@@ -327,16 +328,16 @@ export default {
         },
         "primary": {
           "paddingX": "24px",
-          "paddingY": "7px",
+          "paddingY": "10px",
           "borderRadius": "2em",
-          "borderWidth": "2px",
+          "borderWidth": "0px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.875rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "2em",
-            "borderWidth": "2px",
+            "borderWidth": "0px",
             "minHeight": "48px",
             "fontSize": "1.375rem",
             "lineHeight": "1.875rem",
@@ -413,7 +414,7 @@ export default {
         "primary": {
           "iconOnly": {
             "borderRadius": "2em",
-            "borderWidth": "2px",
+            "borderWidth": "0px",
             "minHeight": "72px",
             "fontSize": "1.875rem",
             "lineHeight": "1.875rem",
@@ -422,9 +423,9 @@ export default {
             "paddingY": "22px"
           },
           "paddingX": "30px",
-          "paddingY": "19px",
+          "paddingY": "21px",
           "borderRadius": "2em",
-          "borderWidth": "2px",
+          "borderWidth": "0px",
           "minHeight": "72px",
           "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
