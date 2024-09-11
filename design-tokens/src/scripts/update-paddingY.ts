@@ -39,7 +39,7 @@ export const descend = (
       if (
         value?.minHeight?.$value &&
         contentHeight?.$value &&
-        value?.borderWidth?.$value
+        value?.borderWidth?.$value !== undefined
       ) {
         if (
           value?.paddingY?.$value &&
