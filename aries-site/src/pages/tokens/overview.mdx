@@ -3,9 +3,9 @@ import { Box, Text } from 'grommet';
 
 ## What is a design token?
 
-Design tokens codify the design decisions that make up a design system's visual style. Tokens replace hard-coded values, such as hex codes for color or px values for spacing, with clear names.
+Design tokens codify the design decisions that make up a design system's visual style. Design tokens replace hard-coded values, such as hex codes for color or pixel values for spacing, with clear names.
 
-Tokens can represent values including but not limited to colors, typography, spacing, and motion.
+Tokens can represent values such as colors, typography, spacing, motion and more.
 
 An HPE Design Token consists of two main parts:
 
@@ -16,6 +16,8 @@ Additionally, a design token can have these optional properties:
 
 1. Type: A category for the token's value (e.g., color, dimension, shadow).
 1. Description: Concise text to describe how the token should be used.
+
+To know more about token naming, visit [How to read tokens](tokens/how-to-read-tokens).
 
 TO DO: Add visual
 
@@ -29,7 +31,7 @@ Design tokens allow us to:
 
 - Codify design decisions
 - Enable teams across various tech stacks to build efficiently and consistenly with the HPE Design System
-- Replaces manual maintenance methods with faster automated processes that keep design and dev sychronized
+- Replace manual maintenance methods with faster automated processes that keep design and development synchronized
 - Build a shared language across design and development
 
 ## Types of tokens
@@ -40,7 +42,7 @@ Our tokens can be grouped into 3 levels: primitive, semantic, and component. The
 
 Primitive tokens define the most foundational level of the token system, establishing fundamental attributes like color and dimension.
 
-The value of a primitive token will always be a CSS value such as a hex code, px, or rem value. Typically, primitive token names describe the token value and not where it should be applied.
+The value of a primitive token will always be a CSS value such as a hex code, pixel, or rem value. Typically, primitive token names describe the token value and not where it should be applied.
 
 Primitive design tokens should not be used directly. They exist to provide the foundational options and be referenced in semantic and component design tokens.
 
@@ -57,7 +59,7 @@ Semantic tokens apply a specific meaning to a primitive token to establish how a
 
 The value of a semantic token can either be a reference to a primitive token or another semantic token.
 
-Semantic tokens can have different values in different contexts. For example, the value of `hpe.color.background.back` might differ for light vs dark mode. Similarly, the value of `hpe.spacing.large` might differ for wide vs narrow viewports. By building with semantic tokens, the values can flex based on the context.
+Semantic tokens can have different values in different contexts. For example, the value of `hpe.color.background.back` might differ for light versus dark mode. Similarly, the value of `hpe.spacing.large` might differ for wide versus narrow viewports. By building with semantic tokens, the values can flex based on the context.
 
 <Example height={{ min: 'xsmall' }}>
   <Box align="center" direction="row" gap="small">
