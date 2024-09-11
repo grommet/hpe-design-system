@@ -233,17 +233,6 @@ colorModeFiles.forEach(file => {
   }).buildAllPlatforms();
 });
 
-const dimensions = [
-  'content',
-  'spacing',
-  'borderWidth',
-  'radius',
-  'text',
-  'heading',
-  'paragraph',
-  'size',
-];
-
 const dimensionFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
@@ -259,7 +248,6 @@ dimensionFiles.forEach(file => {
       `${TOKENS_DIR}/primitive/primitives.base.json`,
       `${TOKENS_DIR}/semantic/color.light.json`,
       `${TOKENS_DIR}/semantic/global.default.json`,
-      `${TOKENS_DIR}/semantic/typography.${mode}.json`,
       file,
     ],
     platforms: {
@@ -271,7 +259,7 @@ dimensionFiles.forEach(file => {
           {
             destination: `dimension.${mode}.js`,
             format: 'javascript/esm',
-            filter: token => dimensions.includes(token.attributes.category),
+            filter: token => token.filePath === file,
           },
         ],
       },
@@ -283,7 +271,7 @@ dimensionFiles.forEach(file => {
           {
             destination: `dimension.${mode}.cjs`,
             format: 'javascript/commonJs',
-            filter: token => dimensions.includes(token.attributes.category),
+            filter: token => token.filePath === file,
           },
         ],
       },
@@ -304,7 +292,7 @@ dimensionFiles.forEach(file => {
                   parsedGlobal.breakpoint[mode].$value,
                 )}`,
             },
-            filter: token => dimensions.includes(token.attributes.category),
+            filter: token => token.filePath === file,
           },
         ],
       },
@@ -315,7 +303,7 @@ dimensionFiles.forEach(file => {
         files: [
           {
             destination: `dimension.${mode}.js`,
-            filter: token => dimensions.includes(token.attributes.category),
+            filter: token => token.filePath === file,
             format: 'jsonFlat',
           },
         ],
@@ -330,7 +318,6 @@ HPEStyleDictionary.extend({
     `${TOKENS_DIR}/semantic/global.default.json`,
     `${TOKENS_DIR}/semantic/color.light.json`, // using light mode to have a reference name available
     `${TOKENS_DIR}/semantic/dimension.large.json`, // using large mode to have a reference name available
-    `${TOKENS_DIR}/semantic/typography.large.json`, // using large mode to have a reference name available
     `${TOKENS_DIR}/component/component.default.json`,
   ],
   platforms: {
