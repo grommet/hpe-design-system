@@ -3,8 +3,28 @@
     "primary": {
       "enabled": {
         "background": {
-          "$type": "color",
-          "$value": "{color.background.primary.default}",
+          "$type": "gradient",
+          "$value": {
+            "angle": 70,
+            "stops": [
+              {
+                "color": "{color.transparent}",
+                "position": 0
+              },
+              {
+                "color": "{color.background.primary.default}",
+                "position": 0.35
+              },
+              {
+                "color": "{color.transparent}",
+                "position": 0.7
+              },
+              {
+                "color": "{color.background.primary.default}",
+                "position": 1
+              }
+            ]
+          },
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -128,7 +148,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "{button.primary.enabled.background}",
+          "$value": "{base.color.green.700}",
           "$description": "",
           "$extensions": {
             "com.figma": {
