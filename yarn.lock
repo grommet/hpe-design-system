@@ -6745,10 +6745,6 @@ hpack.js@^2.1.6:
     readable-stream "^2.0.1"
     wbuf "^1.1.0"
 
-"hpe-design-tokens-alpha@https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable":
-  version "0.1.0"
-  resolved "https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable#298691d1b13e0edac71db2ad87b194afebc9732c"
-
 "hpe-design-tokens-brand-refresh@https://github.com/grommet/hpe-design-system/tarball/design-tokens-brand-refresh-stable":
   version "0.1.0"
   resolved "https://github.com/grommet/hpe-design-system/tarball/design-tokens-brand-refresh-stable#4147cf8a9b3c467dfff0be11c019dc49e00333d6"
