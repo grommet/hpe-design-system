@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 21:07:48 GMT
+ * Generated on Wed, 11 Sep 2024 21:17:44 GMT
  */
 
 module.exports = {
@@ -328,7 +328,7 @@ module.exports = {
         },
         "primary": {
           "paddingX": "24px",
-          "paddingY": "10px",
+          "paddingY": "9px",
           "borderRadius": "2em",
           "borderWidth": "0px",
           "minHeight": "48px",

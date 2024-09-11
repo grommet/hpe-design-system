@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 21:07:48 GMT
+ * Generated on Wed, 11 Sep 2024 21:17:45 GMT
  */
 
 export default {
@@ -10170,7 +10170,7 @@ export default {
   },
   "hpe.button.large.primary.paddingY": {
     "$type": "number",
-    "value": "10px",
+    "value": "9px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -10185,7 +10185,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 10,
+      "value": 9,
       "comment": "",
       "$extensions": {
         "com.figma": {
