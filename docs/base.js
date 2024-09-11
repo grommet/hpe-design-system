@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 17:49:44 GMT
+ * Generated on Wed, 11 Sep 2024 17:58:29 GMT
  */
 
 export default {
@@ -6660,6 +6660,49 @@ export default {
       "small"
     ]
   },
+  "hpe.base.static.content.smallPlus": {
+    "$type": "number",
+    "value": "288px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.7200}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.static.content.smallPlus",
+    "attributes": {
+      "category": "base",
+      "type": "static",
+      "item": "content",
+      "subitem": "smallPlus"
+    },
+    "path": [
+      "base",
+      "static",
+      "content",
+      "smallPlus"
+    ]
+  },
   "hpe.base.static.content.medium": {
     "$type": "number",
     "value": "384px",
@@ -6703,6 +6746,49 @@ export default {
       "static",
       "content",
       "medium"
+    ]
+  },
+  "hpe.base.static.content.mediumPlus": {
+    "$type": "number",
+    "value": "576px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.14400}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.static.content.mediumPlus",
+    "attributes": {
+      "category": "base",
+      "type": "static",
+      "item": "content",
+      "subitem": "mediumPlus"
+    },
+    "path": [
+      "base",
+      "static",
+      "content",
+      "mediumPlus"
     ]
   },
   "hpe.base.static.content.large": {

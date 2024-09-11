@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 17:49:44 GMT
+ * Generated on Wed, 11 Sep 2024 17:58:30 GMT
  */
 
 module.exports = {
@@ -156,7 +156,9 @@ module.exports = {
         "xxsmall": "48px",
         "xsmall": "96px",
         "small": "192px",
+        "smallPlus": "288px",
         "medium": "384px",
+        "mediumPlus": "576px",
         "large": "768px",
         "xlarge": "1152px",
         "xxlarge": "1536px"

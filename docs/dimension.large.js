@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 17:49:44 GMT
+ * Generated on Wed, 11 Sep 2024 17:58:30 GMT
  */
 
 export default {
@@ -3783,6 +3783,47 @@ export default {
       "small"
     ]
   },
+  "hpe.size.content.smallPlus": {
+    "$type": "number",
+    "value": "288px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.large.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.static.content.smallPlus}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.size.content.smallPlus",
+    "attributes": {
+      "category": "size",
+      "type": "content",
+      "item": "smallPlus"
+    },
+    "path": [
+      "size",
+      "content",
+      "smallPlus"
+    ]
+  },
   "hpe.size.content.medium": {
     "$type": "number",
     "value": "384px",
@@ -3822,6 +3863,47 @@ export default {
       "size",
       "content",
       "medium"
+    ]
+  },
+  "hpe.size.content.mediumPlus": {
+    "$type": "number",
+    "value": "576px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.large.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.static.content.mediumPlus}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.size.content.mediumPlus",
+    "attributes": {
+      "category": "size",
+      "type": "content",
+      "item": "mediumPlus"
+    },
+    "path": [
+      "size",
+      "content",
+      "mediumPlus"
     ]
   },
   "hpe.size.content.large": {

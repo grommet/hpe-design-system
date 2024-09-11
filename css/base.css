@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 17:49:44 GMT
+ * Generated on Wed, 11 Sep 2024 17:58:29 GMT
  */
 
 :root {
@@ -141,7 +141,9 @@
   --hpe-base-static-content-xxlarge: var(--hpe-base-dimension-76800);
   --hpe-base-static-content-xlarge: var(--hpe-base-dimension-38400);
   --hpe-base-static-content-large: var(--hpe-base-dimension-19200);
+  --hpe-base-static-content-medium-plus: var(--hpe-base-dimension-14400);
   --hpe-base-static-content-medium: var(--hpe-base-dimension-9600);
+  --hpe-base-static-content-small-plus: var(--hpe-base-dimension-7200);
   --hpe-base-static-content-small: var(--hpe-base-dimension-4800);
   --hpe-base-static-content-xsmall: var(--hpe-base-dimension-2400);
   --hpe-base-static-content-xxsmall: var(--hpe-base-dimension-1200);
