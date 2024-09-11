@@ -14,16 +14,6 @@ import {
   elevationlight as localElevationLight,
 } from 'hpe-design-tokens';
 import {
-  dark as alphaDark,
-  light as alphaLight,
-  large as alphaLarge,
-  small as alphaSmall,
-  global as alphaGlobal,
-  components as alphaComponents,
-  elevationdark as alphaElevationDark,
-  elevationlight as alphaElevationLight,
-} from 'hpe-design-tokens-alpha';
-import {
   dark as oldDark,
   light as oldLight,
   large as oldLarge,
@@ -1190,7 +1180,7 @@ const buildTheme = tokens => {
           line-height: ${lineHeight};`;
         }
         if (kind === 'secondary') {
-          style += `&:hover { box-shadow: ${components.hpe.button[sizeProp].secondary.hover.boxShadow}; }`;
+          style += `&:hover { box-shadow: ${components.hpe.button[sizeProp].secondary?.hover?.boxShadow}; }`;
         }
         return style;
       },
@@ -2603,16 +2593,6 @@ export const warm = buildTheme([
   localComponents,
 ]);
 
-export const alpha = buildTheme([
-  alphaLight,
-  alphaDark,
-  alphaSmall,
-  alphaLarge,
-  alphaElevationLight,
-  alphaElevationDark,
-  alphaGlobal,
-  alphaComponents,
-]);
 export const old = buildTheme([
   oldLight,
   oldDark,
@@ -2637,7 +2617,6 @@ export const refresh = buildTheme([
 
 export const themes = {
   local: current,
-  alpha,
   v3: old,
   refresh,
 };
