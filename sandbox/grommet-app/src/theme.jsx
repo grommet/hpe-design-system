@@ -266,38 +266,58 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.decorative.blue,
       light: light.hpe.color.decorative.blue,
     },
-    'blue!': MISSING.color,
+    'blue!': {
+      dark: dark.hpe.color.decorative['blue!'],
+      light: light.hpe.color.decorative['blue!'],
+    },
     green: {
       dark: dark.hpe.color.decorative.green,
       light: light.hpe.color.decorative.green,
     },
-    'green!': MISSING.color, // Q: missing token
+    'green!': {
+      dark: dark.hpe.color.decorative['green!'],
+      light: light.hpe.color.decorative['green!'],
+    },
     teal: {
-      // Q; should this token be called teal instead of teal?
       dark: dark.hpe.color.decorative.teal,
       light: light.hpe.color.decorative.teal,
     },
-    'teal!': MISSING.color, // Q: missing token
+    'teal!': {
+      dark: dark.hpe.color.decorative['teal!'],
+      light: light.hpe.color.decorative['teal!'],
+    },
     purple: {
       dark: dark.hpe.color.decorative.purple,
       light: light.hpe.color.decorative.purple,
     },
-    'purple!': light.hpe.color.dataVis.categorical[30],
+    'purple!': {
+      dark: dark.hpe.color.decorative['purple!'],
+      light: light.hpe.color.decorative['purple!'],
+    },
     red: {
       dark: dark.hpe.color.decorative.red,
       light: light.hpe.color.decorative.red,
     },
-    'red!': MISSING.color, // Q: missing token
+    'red!': {
+      dark: dark.hpe.color.decorative['red!'],
+      light: light.hpe.color.decorative['red!'],
+    },
     orange: {
       dark: dark.hpe.color.decorative.orange,
       light: light.hpe.color.decorative.orange,
     },
-    'orange!': MISSING.color, // Q: missing token
+    'orange!': {
+      dark: dark.hpe.color.decorative['orange!'],
+      light: light.hpe.color.decorative['orange!'],
+    },
     yellow: {
       dark: dark.hpe.color.decorative.yellow,
       light: light.hpe.color.decorative.yellow,
     },
-    'yellow!': MISSING.color, // Q: missing
+    'yellow!': {
+      dark: dark.hpe.color.decorative['yellow!'],
+      light: light.hpe.color.decorative['yellow!'],
+    },
     'graph-0': {
       light: light.hpe.color.dataVis.categorical[10],
       dark: dark.hpe.color.dataVis.categorical[10],
