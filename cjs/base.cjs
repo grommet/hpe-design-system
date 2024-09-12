@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 21:17:44 GMT
+ * Generated on Thu, 12 Sep 2024 17:56:51 GMT
  */
 
 module.exports = {
@@ -83,7 +83,7 @@ module.exports = {
           "400-Opacity24": "#17eba03d",
           "500-Opacity30": "#17d0a64d"
         },
-        "turquoise": {
+        "teal": {
           "200": "#82fff2",
           "300": "#1bf6df",
           "400": "#00e8cf",

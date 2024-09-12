@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 21:17:44 GMT
+ * Generated on Thu, 12 Sep 2024 17:56:51 GMT
  */
 
 module.exports = {
@@ -84,11 +84,17 @@ module.exports = {
       "decorative": {
         "green": "#17eba0",
         "purple": "#f740ff",
-        "turquoise": "#82fff2",
+        "teal": "#82fff2",
         "blue": "#00c8ff",
         "red": "#fc6161",
         "orange": "#ffbc44",
-        "yellow": "#ffeb59"
+        "yellow": "#ffeb59",
+        "purple!": "#7630ea",
+        "teal!": "#00e8cf",
+        "blue!": "#00739d",
+        "red!": "#c54e4b",
+        "orange!": "#ff8300",
+        "yellow!": "#fec901"
       },
       "dataVis": {
         "categorical": {

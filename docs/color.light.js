@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 11 Sep 2024 21:17:44 GMT
+ * Generated on Thu, 12 Sep 2024 17:56:51 GMT
  */
 
 export default {
@@ -2317,7 +2317,7 @@ export default {
       "purple"
     ]
   },
-  "hpe.color.decorative.turquoise": {
+  "hpe.color.decorative.teal": {
     "$type": "color",
     "value": "#82fff2",
     "comment": "Use for decorative purposes when colour has no specific meaning.",
@@ -2334,7 +2334,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.turquoise.200}",
+      "value": "{base.color.teal.200}",
       "comment": "Use for decorative purposes when colour has no specific meaning.",
       "$extensions": {
         "com.figma": {
@@ -2346,16 +2346,16 @@ export default {
         }
       }
     },
-    "name": "hpe.color.decorative.turquoise",
+    "name": "hpe.color.decorative.teal",
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "turquoise"
+      "item": "teal"
     },
     "path": [
       "color",
       "decorative",
-      "turquoise"
+      "teal"
     ]
   },
   "hpe.color.decorative.blue": {
@@ -2522,6 +2522,252 @@ export default {
       "yellow"
     ]
   },
+  "hpe.color.decorative.purple!": {
+    "$type": "color",
+    "value": "#7630ea",
+    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.purple.800}",
+      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.decorative.purple!",
+    "attributes": {
+      "category": "color",
+      "type": "decorative",
+      "item": "purple!"
+    },
+    "path": [
+      "color",
+      "decorative",
+      "purple!"
+    ]
+  },
+  "hpe.color.decorative.teal!": {
+    "$type": "color",
+    "value": "#00e8cf",
+    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.teal.400}",
+      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.decorative.teal!",
+    "attributes": {
+      "category": "color",
+      "type": "decorative",
+      "item": "teal!"
+    },
+    "path": [
+      "color",
+      "decorative",
+      "teal!"
+    ]
+  },
+  "hpe.color.decorative.blue!": {
+    "$type": "color",
+    "value": "#00739d",
+    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.blue.700}",
+      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.decorative.blue!",
+    "attributes": {
+      "category": "color",
+      "type": "decorative",
+      "item": "blue!"
+    },
+    "path": [
+      "color",
+      "decorative",
+      "blue!"
+    ]
+  },
+  "hpe.color.decorative.red!": {
+    "$type": "color",
+    "value": "#c54e4b",
+    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.red.750}",
+      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.decorative.red!",
+    "attributes": {
+      "category": "color",
+      "type": "decorative",
+      "item": "red!"
+    },
+    "path": [
+      "color",
+      "decorative",
+      "red!"
+    ]
+  },
+  "hpe.color.decorative.orange!": {
+    "$type": "color",
+    "value": "#ff8300",
+    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.orange.500}",
+      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.decorative.orange!",
+    "attributes": {
+      "category": "color",
+      "type": "decorative",
+      "item": "orange!"
+    },
+    "path": [
+      "color",
+      "decorative",
+      "orange!"
+    ]
+  },
+  "hpe.color.decorative.yellow!": {
+    "$type": "color",
+    "value": "#fec901",
+    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.yellow.400}",
+      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.decorative.yellow!",
+    "attributes": {
+      "category": "color",
+      "type": "decorative",
+      "item": "yellow!"
+    },
+    "path": [
+      "color",
+      "decorative",
+      "yellow!"
+    ]
+  },
   "hpe.color.dataVis.categorical.10": {
     "$type": "color",
     "value": "#00739d",
@@ -2668,7 +2914,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.turquoise.200}",
+      "value": "{base.color.teal.200}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -2969,7 +3215,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.turquoise.200-Opacity12}",
+      "value": "{base.color.teal.200-Opacity12}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -3180,7 +3426,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.turquoise.400}",
+      "value": "{base.color.teal.400}",
       "comment": "",
       "$extensions": {
         "com.figma": {
