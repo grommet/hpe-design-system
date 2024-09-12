@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 12 Sep 2024 18:09:35 GMT
+ * Generated on Thu, 12 Sep 2024 18:49:42 GMT
  */
 
 module.exports = {
@@ -84,13 +84,13 @@ module.exports = {
       "decorative": {
         "green": "#17eba0",
         "purple": "#f740ff",
-        "turquoise": "#82fff2",
+        "teal": "#82fff2",
         "blue": "#00c8ff",
         "red": "#fc6161",
         "orange": "#ffbc44",
         "yellow": "#ffeb59",
         "purple!": "#7630ea",
-        "turquoise!": "#00e8cf",
+        "teal!": "#00e8cf",
         "blue!": "#00739d",
         "red!": "#c54e4b",
         "orange!": "#ff8300",

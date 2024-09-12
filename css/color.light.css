@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 12 Sep 2024 18:09:35 GMT
+ * Generated on Thu, 12 Sep 2024 18:49:42 GMT
  */
 
 :root {
@@ -8,18 +8,18 @@
   --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity24);
   --hpe-color-shadow-default: var(--hpe-base-color-black-opacity12);
   --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
-  --hpe-color-focus: var(--hpe-base-color-turquoise-400);
+  --hpe-color-focus: var(--hpe-base-color-teal-400);
   --hpe-color-data-vis-categorical-70-weak: var(--hpe-base-color-blue-400-opacity12);
   --hpe-color-data-vis-categorical-60-weak: var(--hpe-base-color-purple-500-opacity12);
   --hpe-color-data-vis-categorical-50-weak: var(--hpe-base-color-yellow-300-opacity12);
-  --hpe-color-data-vis-categorical-40-weak: var(--hpe-base-color-turquoise-200-opacity12);
+  --hpe-color-data-vis-categorical-40-weak: var(--hpe-base-color-teal-200-opacity12);
   --hpe-color-data-vis-categorical-30weak: var(--hpe-base-color-purple-800-opacity12);
   --hpe-color-data-vis-categorical-20-weak: var(--hpe-base-color-orange-500-opacity12);
   --hpe-color-data-vis-categorical-10-weak: var(--hpe-base-color-blue-700-opacity12);
   --hpe-color-data-vis-categorical-70: var(--hpe-base-color-blue-400);
   --hpe-color-data-vis-categorical-60: var(--hpe-base-color-purple-500);
   --hpe-color-data-vis-categorical-50: var(--hpe-base-color-yellow-300);
-  --hpe-color-data-vis-categorical-40: var(--hpe-base-color-turquoise-200);
+  --hpe-color-data-vis-categorical-40: var(--hpe-base-color-teal-200);
   --hpe-color-data-vis-categorical-30: var(--hpe-base-color-purple-800);
   --hpe-color-data-vis-categorical-20: var(--hpe-base-color-orange-500);
   --hpe-color-data-vis-categorical-10: var(--hpe-base-color-blue-700);
@@ -27,13 +27,13 @@
   --hpe-color-decorative-orange: var(--hpe-base-color-orange-500); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-red: var(--hpe-base-color-red-750); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-blue: var(--hpe-base-color-blue-700); /* Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-turquoise: var(--hpe-base-color-turquoise-400); /* Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-teal: var(--hpe-base-color-teal-400); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-purple: var(--hpe-base-color-purple-800); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-yellow: var(--hpe-base-color-yellow-200); /* Use for decorative purposes when colour has no specific meaning. */
   --hpe-color-decorative-orange: var(--hpe-base-color-orange-400); /* Use for decorative purposes when colour has no specific meaning. */
   --hpe-color-decorative-red: var(--hpe-base-color-red-500); /* Use for decorative purposes when colour has no specific meaning. */
   --hpe-color-decorative-blue: var(--hpe-base-color-blue-400); /* Use for decorative purposes when colour has no specific meaning. */
-  --hpe-color-decorative-turquoise: var(--hpe-base-color-turquoise-200); /* Use for decorative purposes when colour has no specific meaning. */
+  --hpe-color-decorative-teal: var(--hpe-base-color-teal-200); /* Use for decorative purposes when colour has no specific meaning. */
   --hpe-color-decorative-purple: var(--hpe-base-color-purple-500); /* Use for decorative purposes when colour has no specific meaning. */
   --hpe-color-decorative-green: var(--hpe-base-color-green-400); /* Use for decorative purposes when colour has no specific meaning. */
   --hpe-color-icon-on-selected-strong: var(--hpe-base-color-white-100); /* Icon color to be used for Icon sitting on background-selected-strong. */

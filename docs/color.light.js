@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 12 Sep 2024 18:09:35 GMT
+ * Generated on Thu, 12 Sep 2024 18:49:42 GMT
  */
 
 export default {
@@ -2317,7 +2317,7 @@ export default {
       "purple"
     ]
   },
-  "hpe.color.decorative.turquoise": {
+  "hpe.color.decorative.teal": {
     "$type": "color",
     "value": "#82fff2",
     "comment": "Use for decorative purposes when colour has no specific meaning.",
@@ -2334,7 +2334,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.turquoise.200}",
+      "value": "{base.color.teal.200}",
       "comment": "Use for decorative purposes when colour has no specific meaning.",
       "$extensions": {
         "com.figma": {
@@ -2346,16 +2346,16 @@ export default {
         }
       }
     },
-    "name": "hpe.color.decorative.turquoise",
+    "name": "hpe.color.decorative.teal",
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "turquoise"
+      "item": "teal"
     },
     "path": [
       "color",
       "decorative",
-      "turquoise"
+      "teal"
     ]
   },
   "hpe.color.decorative.blue": {
@@ -2563,7 +2563,7 @@ export default {
       "purple!"
     ]
   },
-  "hpe.color.decorative.turquoise!": {
+  "hpe.color.decorative.teal!": {
     "$type": "color",
     "value": "#00e8cf",
     "comment": "Use for decorative purposes when color has no specific meaning.",
@@ -2580,7 +2580,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.turquoise.400}",
+      "value": "{base.color.teal.400}",
       "comment": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
@@ -2592,16 +2592,16 @@ export default {
         }
       }
     },
-    "name": "hpe.color.decorative.turquoise!",
+    "name": "hpe.color.decorative.teal!",
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "turquoise!"
+      "item": "teal!"
     },
     "path": [
       "color",
       "decorative",
-      "turquoise!"
+      "teal!"
     ]
   },
   "hpe.color.decorative.blue!": {
@@ -2914,7 +2914,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.turquoise.200}",
+      "value": "{base.color.teal.200}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -3215,7 +3215,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.turquoise.200-Opacity12}",
+      "value": "{base.color.teal.200-Opacity12}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -3426,7 +3426,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.turquoise.400}",
+      "value": "{base.color.teal.400}",
       "comment": "",
       "$extensions": {
         "com.figma": {
