@@ -6,7 +6,7 @@ on:
         type: choice
         description: Which branch to update
         options:
-          - design-tokens-alpha
+          - master
 jobs:
   sync-figma-to-tokens:
     runs-on: ubuntu-latest

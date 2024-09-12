@@ -1,11 +1,13 @@
-name: Update design-tokens-alpha-stable
+name: Update design-tokens-stable
 on:
   push:
     branches:
-      - design-tokens-alpha
+      - master
+    paths:
+      - design-tokens/**
 
 jobs:
-  update-design-tokens-alpha-stable:
+  update-design-tokens-stable:
     runs-on: ubuntu-latest
     steps:
       - name: Install Node.js
@@ -26,7 +28,7 @@ jobs:
       - name: Build
         run: yarn build
         working-directory: design-tokens
-      - name: Update design-tokens-alpha-stable
+      - name: Update design-tokens-stable
         run: |
           git config --global user.name "Grommet Community Bot"
           git config --global user.email "grommet@hpe.com"
