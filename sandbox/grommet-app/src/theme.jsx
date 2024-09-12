@@ -273,9 +273,9 @@ const buildTheme = tokens => {
     },
     'green!': MISSING.color, // Q: missing token
     teal: {
-      // Q; should this token be called teal instead of turquoise?
-      dark: dark.hpe.color.decorative.turquoise,
-      light: light.hpe.color.decorative.turquoise,
+      // Q; should this token be called teal instead of teal?
+      dark: dark.hpe.color.decorative.teal,
+      light: light.hpe.color.decorative.teal,
     },
     'teal!': MISSING.color, // Q: missing token
     purple: {
