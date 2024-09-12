@@ -6554,12 +6554,12 @@ grommet-icons@^4.12.1:
   version "4.12.1"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#92f4e88ab19fa618a4952ac74802f606bf44c207"
 
-grommet-theme-hpe@5.6.0, grommet-theme-hpe@^5.4.0:
+grommet-theme-hpe@5.6.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-5.6.0.tgz#9968f222b38167180e7ff5de9ca8b59ac972ba0e"
   integrity sha512-Kad+b8jPlJAqVij35HsO4Tk7W/wiHwfw2wtT1QGUqX9YI5pBVQgNkRTYkGys7iuLlSCH4u+CO1NsBC9T+8JcFA==
 
-grommet@^2.37.0, "grommet@https://github.com/grommet/grommet/tarball/stable":
+"grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.40.1"
   resolved "https://github.com/grommet/grommet/tarball/stable#8eabc5546a3bf25f98e78f82978879a6d5357fe5"
   dependencies:
