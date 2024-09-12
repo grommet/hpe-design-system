@@ -661,9 +661,9 @@
           }
         }
       },
-      "turquoise": {
+      "teal": {
         "$type": "color",
-        "$value": "{base.color.turquoise.200}",
+        "$value": "{base.color.teal.200}",
         "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
@@ -720,6 +720,78 @@
             "codeSyntax": {}
           }
         }
+      },
+      "purple!": {
+        "$type": "color",
+        "$value": "{base.color.purple.800}",
+        "$description": "Use for decorative purposes when color has no specific meaning.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "teal!": {
+        "$type": "color",
+        "$value": "{base.color.teal.400}",
+        "$description": "Use for decorative purposes when color has no specific meaning.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "blue!": {
+        "$type": "color",
+        "$value": "{base.color.blue.700}",
+        "$description": "Use for decorative purposes when color has no specific meaning.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "red!": {
+        "$type": "color",
+        "$value": "{base.color.red.750}",
+        "$description": "Use for decorative purposes when color has no specific meaning.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "orange!": {
+        "$type": "color",
+        "$value": "{base.color.orange.500}",
+        "$description": "Use for decorative purposes when color has no specific meaning.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "yellow!": {
+        "$type": "color",
+        "$value": "{base.color.yellow.400}",
+        "$description": "Use for decorative purposes when color has no specific meaning.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "dataVis": {
@@ -762,7 +834,7 @@
         },
         "40": {
           "$type": "color",
-          "$value": "{base.color.turquoise.200}",
+          "$value": "{base.color.teal.200}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -846,7 +918,7 @@
         },
         "40Weak": {
           "$type": "color",
-          "$value": "{base.color.turquoise.200-Opacity12}",
+          "$value": "{base.color.teal.200-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -908,7 +980,7 @@
     },
     "focus": {
       "$type": "color",
-      "$value": "{base.color.turquoise.400}",
+      "$value": "{base.color.teal.400}",
       "$description": "",
       "$extensions": {
         "com.figma": {
