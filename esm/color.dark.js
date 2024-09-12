@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 12 Sep 2024 18:57:50 GMT
+ * Generated on Thu, 12 Sep 2024 19:14:40 GMT
  */
 
 export default {
@@ -121,6 +121,11 @@ export default {
         default: "#0000005c",
         strong: "#00000080",
       },
+    },
+    elevation: {
+      small: "0 4px 4px 0 #0000001f",
+      medium: "0px 6px 12px 0px #0000005c",
+      large: "0px 12px 24px 0px #0000005c",
     },
   },
 };

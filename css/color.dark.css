@@ -1,10 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Thu, 12 Sep 2024 18:57:50 GMT
+ * Generated on Thu, 12 Sep 2024 19:14:40 GMT
  */
 
 :root[data-mode=dark] {
   --hpe-color-transparent: #00000000;
+  --hpe-elevation-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) 0 var(--hpe-color-shadow-weak);
   --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity50);
   --hpe-color-shadow-default: var(--hpe-base-color-black-opacity36);
   --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
@@ -81,6 +82,8 @@
   --hpe-color-background-active: var(--hpe-base-color-white-opacity6); /* Standard active state color */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
+  --hpe-elevation-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
+  --hpe-elevation-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
   --hpe-color-icon-on-selected-weak: var(--hpe-color-text-strong); /* Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-text-on-status: var(--hpe-color-text-default); /* Text color to be used on status backgrounds. */
   --hpe-color-text-on-selected-weak: var(--hpe-color-text-strong); /* Text color to be used for text sitting on background-selected-strong. */
@@ -92,6 +95,7 @@
 @media (prefers-color-scheme: dark) {
 :root[data-mode=dark] {
   --hpe-color-transparent: #00000000;
+  --hpe-elevation-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) 0 var(--hpe-color-shadow-weak);
   --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity50);
   --hpe-color-shadow-default: var(--hpe-base-color-black-opacity36);
   --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
@@ -168,6 +172,8 @@
   --hpe-color-background-active: var(--hpe-base-color-white-opacity6); /* Standard active state color */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
+  --hpe-elevation-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
+  --hpe-elevation-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
   --hpe-color-icon-on-selected-weak: var(--hpe-color-text-strong); /* Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-text-on-status: var(--hpe-color-text-default); /* Text color to be used on status backgrounds. */
   --hpe-color-text-on-selected-weak: var(--hpe-color-text-strong); /* Text color to be used for text sitting on background-selected-strong. */
