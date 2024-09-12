@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 12 Sep 2024 17:56:51 GMT
+ * Generated on Thu, 12 Sep 2024 18:02:11 GMT
  */
 
 export default {
@@ -84,13 +84,13 @@ export default {
       decorative: {
         green: "#008567",
         purple: "#6633bc",
-        teal: "#117b82",
+        turquoise: "#117b82",
         blue: "#00739d",
         red: "#a2423d",
         orange: "#9b6310",
         yellow: "#8d741c",
         "purple!": "#7630ea",
-        "teal!": "#00e8cf",
+        "turquoise!": "#00e8cf",
         "blue!": "#00739d",
         "red!": "#c54e4b",
         "orange!": "#ff8300",

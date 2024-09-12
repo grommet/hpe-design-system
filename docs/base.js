@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 12 Sep 2024 17:56:51 GMT
+ * Generated on Thu, 12 Sep 2024 18:02:11 GMT
  */
 
 export default {
@@ -2664,7 +2664,7 @@ export default {
       "500-Opacity30"
     ]
   },
-  "hpe.base.color.teal.200": {
+  "hpe.base.color.turquoise.200": {
     "$type": "color",
     "value": "#82fff2",
     "comment": "",
@@ -2693,21 +2693,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.teal.200",
+    "name": "hpe.base.color.turquoise.200",
     "attributes": {
       "category": "base",
       "type": "color",
-      "item": "teal",
+      "item": "turquoise",
       "subitem": "200"
     },
     "path": [
       "base",
       "color",
-      "teal",
+      "turquoise",
       "200"
     ]
   },
-  "hpe.base.color.teal.300": {
+  "hpe.base.color.turquoise.300": {
     "$type": "color",
     "value": "#1bf6df",
     "comment": "",
@@ -2736,21 +2736,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.teal.300",
+    "name": "hpe.base.color.turquoise.300",
     "attributes": {
       "category": "base",
       "type": "color",
-      "item": "teal",
+      "item": "turquoise",
       "subitem": "300"
     },
     "path": [
       "base",
       "color",
-      "teal",
+      "turquoise",
       "300"
     ]
   },
-  "hpe.base.color.teal.400": {
+  "hpe.base.color.turquoise.400": {
     "$type": "color",
     "value": "#00e8cf",
     "comment": "",
@@ -2779,21 +2779,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.teal.400",
+    "name": "hpe.base.color.turquoise.400",
     "attributes": {
       "category": "base",
       "type": "color",
-      "item": "teal",
+      "item": "turquoise",
       "subitem": "400"
     },
     "path": [
       "base",
       "color",
-      "teal",
+      "turquoise",
       "400"
     ]
   },
-  "hpe.base.color.teal.700": {
+  "hpe.base.color.turquoise.700": {
     "$type": "color",
     "value": "#117b82",
     "comment": "",
@@ -2822,21 +2822,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.teal.700",
+    "name": "hpe.base.color.turquoise.700",
     "attributes": {
       "category": "base",
       "type": "color",
-      "item": "teal",
+      "item": "turquoise",
       "subitem": "700"
     },
     "path": [
       "base",
       "color",
-      "teal",
+      "turquoise",
       "700"
     ]
   },
-  "hpe.base.color.teal.200-Opacity12": {
+  "hpe.base.color.turquoise.200-Opacity12": {
     "$type": "color",
     "value": "#82fff21f",
     "comment": "",
@@ -2865,21 +2865,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.teal.200-Opacity12",
+    "name": "hpe.base.color.turquoise.200-Opacity12",
     "attributes": {
       "category": "base",
       "type": "color",
-      "item": "teal",
+      "item": "turquoise",
       "subitem": "200-Opacity12"
     },
     "path": [
       "base",
       "color",
-      "teal",
+      "turquoise",
       "200-Opacity12"
     ]
   },
-  "hpe.base.color.teal.300-Opacity12": {
+  "hpe.base.color.turquoise.300-Opacity12": {
     "$type": "color",
     "value": "#1bf6df1f",
     "comment": "",
@@ -2908,17 +2908,17 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.teal.300-Opacity12",
+    "name": "hpe.base.color.turquoise.300-Opacity12",
     "attributes": {
       "category": "base",
       "type": "color",
-      "item": "teal",
+      "item": "turquoise",
       "subitem": "300-Opacity12"
     },
     "path": [
       "base",
       "color",
-      "teal",
+      "turquoise",
       "300-Opacity12"
     ]
   },
