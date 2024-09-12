@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "license": "Apache-2.0",
   "type": "module",
-  "module": "dist/esm/index.js",
+  "module": "./dist/esm/index.js",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
@@ -21,7 +21,7 @@
     "sync-tokens-to-figma": "tsx src/scripts/sync_tokens_to_figma.ts",
     "sync-figma-to-tokens": "tsx src/scripts/sync_figma_to_tokens.ts",
     "build-style-dictionary": "tsx src/scripts/build-style-dictionary.js",
-    "build": "rm -rf ./dist && tsx src/scripts/build.js && yarn build-style-dictionary",
+    "build": "rm -rf ./dist && yarn build-style-dictionary",
     "release-stable": "node src/scripts/release-stable.js  --branch=design-tokens-alpha-stable",
     "paddingY:verify": "tsx src/scripts/verify-paddingY.ts",
     "paddingY:update": "tsx src/scripts/update-paddingY.ts",
