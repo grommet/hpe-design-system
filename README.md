@@ -18,7 +18,7 @@ yarn add hpe-design-tokens
 
 ## Usage
 
-For usage instructions, see [HPE Design System design token documentation](https://design-system.hpe.design/tokens).
+For usage instructions, see [HPE Design System design tokens documentation](https://design-system.hpe.design/tokens).
 
 ## License
 
