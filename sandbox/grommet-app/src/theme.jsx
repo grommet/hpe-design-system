@@ -1,7 +1,4 @@
-import {
-  css,
-  // keyframes
-} from 'styled-components';
+import { css } from 'styled-components';
 import { deepFreeze } from 'grommet/utils';
 import {
   dark as localDark,
