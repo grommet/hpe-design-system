@@ -661,9 +661,9 @@
           }
         }
       },
-      "turquoise": {
+      "teal": {
         "$type": "color",
-        "$value": "{base.color.turquoise.200}",
+        "$value": "{base.color.teal.200}",
         "$description": "Use for decorative purposes when colour has no specific meaning.",
         "$extensions": {
           "com.figma": {
@@ -733,9 +733,9 @@
           }
         }
       },
-      "turquoise!": {
+      "teal!": {
         "$type": "color",
-        "$value": "{base.color.turquoise.400}",
+        "$value": "{base.color.teal.400}",
         "$description": "Use for decorative purposes when color has no specific meaning.",
         "$extensions": {
           "com.figma": {
@@ -834,7 +834,7 @@
         },
         "40": {
           "$type": "color",
-          "$value": "{base.color.turquoise.200}",
+          "$value": "{base.color.teal.200}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -918,7 +918,7 @@
         },
         "40Weak": {
           "$type": "color",
-          "$value": "{base.color.turquoise.200-Opacity12}",
+          "$value": "{base.color.teal.200-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -980,7 +980,7 @@
     },
     "focus": {
       "$type": "color",
-      "$value": "{base.color.turquoise.400}",
+      "$value": "{base.color.teal.400}",
       "$description": "",
       "$extensions": {
         "com.figma": {
