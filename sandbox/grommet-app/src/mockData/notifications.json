@@ -1,0 +1,28 @@
+{
+  "notifications": [
+    {
+      "service": "Block storage",
+      "message": "We are experiencing an issue with HPE Data Services engine",
+      "createdAt": "2024-01-12T20:05:00.000Z",
+      "status": "warning"
+    },
+    {
+      "service": "HPE GreenLake Platform",
+      "message": "Scheduled maintenance for HPE GreenLake completed.",
+      "createdAt": "2024-01-12T18:34:00.000Z",
+      "status": "info"
+    },
+    {
+      "service": "Networking",
+      "message": "Critical fan faults and system shutdown on CX 6100 Switch",
+      "createdAt": "2024-01-12T14:13:00.000Z",
+      "status": "critical"
+    },
+    {
+      "service": "Compute",
+      "message": "HPE Apollo 2000 Gen 10 Plus - defect",
+      "createdAt": "2024-01-12T12:23:00.000Z",
+      "status": "warning"
+    }
+  ]
+}
