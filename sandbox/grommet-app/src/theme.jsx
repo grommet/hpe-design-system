@@ -10,8 +10,6 @@ import {
   small as localSmall,
   global as localGlobal,
   components as localComponents,
-  elevationdark as localElevationDark,
-  elevationlight as localElevationLight,
 } from 'hpe-design-tokens';
 import {
   dark as oldDark,
@@ -200,7 +198,7 @@ const access = (path, object) => {
 };
 
 const buildTheme = tokens => {
-  const [
+  const {
     light,
     dark,
     small,
@@ -209,15 +207,18 @@ const buildTheme = tokens => {
     elevationdark,
     global,
     components,
-  ] = tokens;
+  } = tokens;
+
   const flatColors = flattenObject(light, '-');
   const tokenColors = {};
   Object.keys(flatColors).forEach(color => {
-    const adjustedColor = color.split('-').join('.');
-    tokenColors[color] = {
-      light: access(`hpe.color.${adjustedColor}`, light),
-      dark: access(`hpe.color.${adjustedColor}`, dark),
-    };
+    if (!color.includes('elevation')) {
+      const adjustedColor = color.split('-').join('.');
+      tokenColors[color] = {
+        light: access(`hpe.color.${adjustedColor}`, light),
+        dark: access(`hpe.color.${adjustedColor}`, dark),
+      };
+    }
   });
   const colors = {
     // Here we're passing through all the colors from hpe-design-tokens
@@ -624,14 +625,26 @@ const buildTheme = tokens => {
         // Naming in Figma file is strong/default/weak vs. Grommet t-shirt sizing.
         // As defined here, default is currently mapping to medium.
         light: {
-          small: elevationlight.hpe.elevation.small,
-          medium: elevationlight.hpe.elevation.medium,
-          large: elevationlight.hpe.elevation.large,
+          small: elevationlight
+            ? elevationlight.hpe.elevation.small
+            : light.hpe.elevation.small,
+          medium: elevationlight
+            ? elevationlight.hpe.elevation.medium
+            : light.hpe.elevation.medium,
+          large: elevationlight
+            ? elevationlight.hpe.elevation.large
+            : light.hpe.elevation.large,
         },
         dark: {
-          small: elevationdark.hpe.elevation.small,
-          medium: elevationdark.hpe.elevation.medium,
-          large: elevationdark.hpe.elevation.large,
+          small: elevationdark
+            ? elevationdark.hpe.elevation.small
+            : dark.hpe.elevation.small,
+          medium: elevationdark
+            ? elevationdark.hpe.elevation.medium
+            : dark.hpe.elevation.medium,
+          large: elevationdark
+            ? elevationdark.hpe.elevation.large
+            : dark.hpe.elevation.large,
         },
       },
       hover: {
@@ -2236,9 +2249,7 @@ const buildTheme = tokens => {
       extend: ({ size }) => `
         ${
           ['xxlarge'].includes(size)
-            ? `font-weight: ${
-                large.hpe.text[size].fontWeight || MISSING.weight
-              };`
+            ? `font-weight: ${large.hpe.text[size].fontWeight};`
             : ''
         };
       `,
@@ -2605,49 +2616,45 @@ const buildTheme = tokens => {
   });
 };
 
-export const current = buildTheme([
-  localLight,
-  localDark,
-  localSmall,
-  localLarge,
-  localElevationLight,
-  localElevationDark,
-  localGlobal,
-  localComponents,
-]);
+export const current = buildTheme({
+  light: localLight,
+  dark: localDark,
+  small: localSmall,
+  large: localLarge,
+  global: localGlobal,
+  components: localComponents,
+});
 
-export const warm = buildTheme([
-  localLight,
-  localDark,
-  localSmall,
-  localLarge,
-  localElevationLight,
-  localElevationDark,
-  localGlobal,
-  localComponents,
-]);
+export const warm = buildTheme({
+  light: localLight,
+  dark: localDark,
+  small: localSmall,
+  large: localLarge,
+  global: localGlobal,
+  components: localComponents,
+});
 
-export const old = buildTheme([
-  oldLight,
-  oldDark,
-  oldSmall,
-  oldLarge,
-  oldElevationLight,
-  oldElevationDark,
-  oldGlobal,
-  oldComponents,
-]);
+export const old = buildTheme({
+  light: oldLight,
+  dark: oldDark,
+  small: oldSmall,
+  large: oldLarge,
+  elevationlight: oldElevationLight,
+  elevationdark: oldElevationDark,
+  global: oldGlobal,
+  components: oldComponents,
+});
 
-export const refresh = buildTheme([
-  refreshLight,
-  refreshDark,
-  refreshSmall,
-  refreshLarge,
-  refreshElevationLight,
-  refreshElevationDark,
-  refreshGlobal,
-  refreshComponents,
-]);
+export const refresh = buildTheme({
+  light: refreshLight,
+  dark: refreshDark,
+  small: refreshSmall,
+  large: refreshLarge,
+  elevationlight: refreshElevationLight,
+  elevationdark: refreshElevationDark,
+  global: refreshGlobal,
+  components: refreshComponents,
+});
 
 export const themes = {
   local: current,

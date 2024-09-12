@@ -136,12 +136,7 @@ const parsedGlobal = JSON.parse(global);
 colorModeFiles.forEach(file => {
   const [theme, mode] = getThemeAndMode(file);
   HPEStyleDictionary.extend({
-    source: [
-      `${TOKENS_DIR}/primitive/primitives.base.json`,
-      file,
-      `${TOKENS_DIR}/semantic/elevation.${mode}.json`,
-      // `${TOKENS_DIR}/gradient.${mode}.json`, // TO DO add gradients
-    ],
+    source: [`${TOKENS_DIR}/primitive/primitives.base.json`, file],
     platforms: {
       js: {
         transformGroup: 'js/w3c',
@@ -154,11 +149,6 @@ colorModeFiles.forEach(file => {
             }.js`,
             format: 'javascript/esm',
             filter: token => token.filePath === file,
-          },
-          {
-            destination: `elevation.${mode}.js`,
-            format: 'javascript/esm',
-            filter: 'isShadow',
           },
         ],
       },
@@ -173,11 +163,6 @@ colorModeFiles.forEach(file => {
             }.cjs`,
             format: 'javascript/commonJs',
             filter: token => token.filePath === file,
-          },
-          {
-            destination: `elevation.${mode}.cjs`,
-            format: 'javascript/commonJs',
-            filter: 'isShadow',
           },
         ],
       },
@@ -199,15 +184,6 @@ colorModeFiles.forEach(file => {
             // TO DO revisit should "light" mode be part of base.css?
             filter: token => token.filePath === file,
           },
-          {
-            destination: `elevation.${mode}.css`,
-            filter: 'isShadow',
-            format: 'css/variables-themed',
-            options: {
-              outputReferences: true,
-              mode: mode === 'dark' ? 'dark' : undefined,
-            },
-          },
         ],
       },
       docs: {
@@ -220,11 +196,6 @@ colorModeFiles.forEach(file => {
               theme ? `${theme}-${mode}` : `${mode || ''}`
             }.js`,
             filter: token => token.filePath === file,
-            format: 'jsonFlat',
-          },
-          {
-            destination: `elevation.${mode}.js`,
-            filter: 'isShadow',
             format: 'jsonFlat',
           },
         ],
@@ -390,7 +361,6 @@ fs.readdirSync(CJS_DIR)
       let mode = parts[1];
       // special case for base.js and components
       if (mode === 'default' || !mode) [mode] = parts;
-      else if (parts.includes('elevation')) mode = `elevation${mode}`;
       fs.appendFileSync(
         `${CJS_DIR}index.cjs`,
         `const ${mode} = require('./${file}');\n`,
@@ -415,7 +385,6 @@ fs.readdirSync(ESM_DIR)
       let mode = parts[1];
       // special case for base.js and components
       if (mode === 'default' || !mode) [mode] = parts;
-      else if (parts.includes('elevation')) mode = `elevation${mode}`;
       fs.appendFileSync(
         `${ESM_DIR}index.js`,
         `export { default as ${mode} } from './${filename}.js';\n`,
@@ -434,7 +403,6 @@ fs.readdirSync(DOCS_DIR)
       let mode = parts[1];
       // special case for base.js and components
       if (mode === 'default' || !mode) [mode] = parts;
-      else if (parts.includes('elevation')) mode = `elevation${mode}`;
       fs.appendFileSync(
         `${DOCS_DIR}index.js`,
         `export { default as ${mode} } from './${filename}.js';\n`,
