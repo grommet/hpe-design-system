@@ -24,3 +24,4 @@ export * from './FilterControls';
 export * from './ReverseAnchor';
 export * from './StatusIndicator';
 export * from './selector';
+export * from './popover';
