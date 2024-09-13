@@ -13,14 +13,13 @@ export const Popover = ({
 }) => {
   return (
     <Drop
-      round="xxsmall"
       role="dialog"
       elevation="medium"
       stretch={false}
       target={target}
       onClose={onClose}
       // need this for drop to control focus
-      restrictFocus
+      // restrictFocus
       {...rest}
     >
       <Box
