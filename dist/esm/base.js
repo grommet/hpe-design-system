@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 16 Sep 2024 16:54:15 GMT
+ * Generated on Mon, 16 Sep 2024 17:15:36 GMT
  */
 
 export default {
@@ -137,10 +137,25 @@ export default {
           opacity50: "#ffffff80",
           opacity72: "#ffffffb8",
         },
+        dataVis: {
+          green1000: "#074b3b",
+          green325: "#809605",
+          "green325-opacity50": "#80960580",
+          pink1000: "#7d006c",
+          pink325: "#f23bda",
+          "pink325-opacity50": "#f23bda80",
+          purple1000: "#5900a1",
+          purple325: "#ba66ff",
+          "purple325-opacity50": "#ba66ff80",
+          blue1000: "#193a97",
+          blue325: "#009abf",
+          "blue325-opacity50": "#009abf80",
+        },
       },
       fontFamily: {
-        primary: "MetricHPEXS",
+        MetricHPEXS: "MetricHPEXS",
         code: "Fira Mono",
+        primary: "MetricHPEXS",
       },
       fontSize: {
         "80": "0.75rem",

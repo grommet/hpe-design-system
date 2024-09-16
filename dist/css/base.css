@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 16 Sep 2024 16:54:15 GMT
+ * Generated on Mon, 16 Sep 2024 17:15:36 GMT
  */
 
 :root {
@@ -29,8 +29,21 @@
   --hpe-base-font-size-100: 1rem;
   --hpe-base-font-size-90: 0.875rem;
   --hpe-base-font-size-80: 0.75rem;
-  --hpe-base-font-family-code: Fira Mono;
   --hpe-base-font-family-primary: MetricHPEXS;
+  --hpe-base-font-family-code: Fira Mono;
+  --hpe-base-font-family-metric-hpexs: MetricHPEXS;
+  --hpe-base-color-data-vis-blue325-opacity50: #009abf80;
+  --hpe-base-color-data-vis-blue325: #009abf;
+  --hpe-base-color-data-vis-blue1000: #193a97;
+  --hpe-base-color-data-vis-purple325-opacity50: #ba66ff80;
+  --hpe-base-color-data-vis-purple325: #ba66ff;
+  --hpe-base-color-data-vis-purple1000: #5900a1;
+  --hpe-base-color-data-vis-pink325-opacity50: #f23bda80;
+  --hpe-base-color-data-vis-pink325: #f23bda;
+  --hpe-base-color-data-vis-pink1000: #7d006c;
+  --hpe-base-color-data-vis-green325-opacity50: #80960580;
+  --hpe-base-color-data-vis-green325: #809605;
+  --hpe-base-color-data-vis-green1000: #074b3b;
   --hpe-base-color-white-opacity72: #ffffffb8;
   --hpe-base-color-white-opacity50: #ffffff80;
   --hpe-base-color-white-opacity36: #ffffff5c;

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 16 Sep 2024 16:54:16 GMT
+ * Generated on Mon, 16 Sep 2024 17:15:37 GMT
  */
 
 module.exports = {
@@ -583,6 +583,10 @@ module.exports = {
           "background": "#00000000",
           "borderColor": "border-strong"
         },
+        "disabled": {
+          "background": "background-disabled",
+          "borderColor": "border-disabled"
+        },
         "selected": {
           "enabled": {
             "background": "background-selected-strong-enabled",
@@ -599,10 +603,6 @@ module.exports = {
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
-        },
-        "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
         },
         "indeterminate": {
           "enabled": {
@@ -958,15 +958,15 @@ module.exports = {
             "background": "background-back",
             "borderColor": "border-weak"
           },
+          "disabled": {
+            "background": "background-disabled",
+            "borderColor": "border-disabled"
+          },
           "status": {
             "critical": {
               "background": "background-status-critical",
               "borderColor": "border-strong"
             }
-          },
-          "disabled": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled"
           }
         }
       },

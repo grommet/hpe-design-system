@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 16 Sep 2024 16:54:15 GMT
+ * Generated on Mon, 16 Sep 2024 17:15:37 GMT
  */
 
 export default {
@@ -391,9 +391,9 @@ export default {
       "contrast"
     ]
   },
-  "hpe.color.background.status.info": {
+  "hpe.color.background.status.warning": {
     "$type": "color",
-    "value": "#00c8ff1f",
+    "value": "#fec9011f",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -409,7 +409,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.blue.400-Opacity12}",
+      "value": "{base.color.yellow.400-Opacity12}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -422,18 +422,18 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.status.info",
+    "name": "hpe.color.background.status.warning",
     "attributes": {
       "category": "color",
       "type": "background",
       "item": "status",
-      "subitem": "info"
+      "subitem": "warning"
     },
     "path": [
       "color",
       "background",
       "status",
-      "info"
+      "warning"
     ]
   },
   "hpe.color.background.status.unknown": {
@@ -481,6 +481,51 @@ export default {
       "unknown"
     ]
   },
+  "hpe.color.background.status.ok": {
+    "$type": "color",
+    "value": "#17d0a64d",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.green.500-Opacity30}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.status.ok",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "status",
+      "subitem": "ok"
+    },
+    "path": [
+      "color",
+      "background",
+      "status",
+      "ok"
+    ]
+  },
   "hpe.color.background.status.critical": {
     "$type": "color",
     "value": "#cc1f1a4d",
@@ -526,9 +571,9 @@ export default {
       "critical"
     ]
   },
-  "hpe.color.background.status.warning": {
+  "hpe.color.background.status.info": {
     "$type": "color",
-    "value": "#fec9011f",
+    "value": "#00c8ff1f",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -544,7 +589,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.yellow.400-Opacity12}",
+      "value": "{base.color.blue.400-Opacity12}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -557,63 +602,18 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.status.warning",
+    "name": "hpe.color.background.status.info",
     "attributes": {
       "category": "color",
       "type": "background",
       "item": "status",
-      "subitem": "warning"
+      "subitem": "info"
     },
     "path": [
       "color",
       "background",
       "status",
-      "warning"
-    ]
-  },
-  "hpe.color.background.status.ok": {
-    "$type": "color",
-    "value": "#17d0a64d",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{base.color.green.500-Opacity30}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.status.ok",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "status",
-      "subitem": "ok"
-    },
-    "path": [
-      "color",
-      "background",
-      "status",
-      "ok"
+      "info"
     ]
   },
   "hpe.color.background.selected.strong.enabled": {
@@ -855,8 +855,7 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
+          "STROKE_COLOR"
         ],
         "codeSyntax": {}
       }
@@ -871,8 +870,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
+            "STROKE_COLOR"
           ],
           "codeSyntax": {}
         }
@@ -1390,49 +1388,6 @@ export default {
       "brand"
     ]
   },
-  "hpe.color.text.heading.default": {
-    "$type": "color",
-    "value": "#ffffff",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{color.text.strong}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.heading.default",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "heading",
-      "subitem": "default"
-    },
-    "path": [
-      "color",
-      "text",
-      "heading",
-      "default"
-    ]
-  },
   "hpe.color.text.inverse.default": {
     "$type": "color",
     "value": "#222222",
@@ -1473,6 +1428,49 @@ export default {
       "color",
       "text",
       "inverse",
+      "default"
+    ]
+  },
+  "hpe.color.text.heading.default": {
+    "$type": "color",
+    "value": "#ffffff",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.text.strong}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.heading.default",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "heading",
+      "subitem": "default"
+    },
+    "path": [
+      "color",
+      "text",
+      "heading",
       "default"
     ]
   },
@@ -2563,6 +2561,47 @@ export default {
       "purple!"
     ]
   },
+  "hpe.color.decorative.green!": {
+    "$type": "color",
+    "value": "#01a982",
+    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.brand}",
+      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.decorative.green!",
+    "attributes": {
+      "category": "color",
+      "type": "decorative",
+      "item": "green!"
+    },
+    "path": [
+      "color",
+      "decorative",
+      "green!"
+    ]
+  },
   "hpe.color.decorative.teal!": {
     "$type": "color",
     "value": "#00e8cf",
@@ -3069,7 +3108,7 @@ export default {
       "70"
     ]
   },
-  "hpe.color.dataVis.categorical.10Weak": {
+  "hpe.color.dataVis.categorical.80": {
     "$type": "color",
     "value": "#00ff0a00",
     "comment": "",
@@ -3098,18 +3137,18 @@ export default {
         }
       }
     },
-    "name": "hpe.color.dataVis.categorical.10Weak",
+    "name": "hpe.color.dataVis.categorical.80",
     "attributes": {
       "category": "color",
       "type": "dataVis",
       "item": "categorical",
-      "subitem": "10Weak"
+      "subitem": "80"
     },
     "path": [
       "color",
       "dataVis",
       "categorical",
-      "10Weak"
+      "80"
     ]
   },
   "hpe.color.dataVis.categorical.20Weak": {
@@ -3155,49 +3194,6 @@ export default {
       "20Weak"
     ]
   },
-  "hpe.color.dataVis.categorical.30weak": {
-    "$type": "color",
-    "value": "#00ff0a00",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{TBD}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.dataVis.categorical.30weak",
-    "attributes": {
-      "category": "color",
-      "type": "dataVis",
-      "item": "categorical",
-      "subitem": "30weak"
-    },
-    "path": [
-      "color",
-      "dataVis",
-      "categorical",
-      "30weak"
-    ]
-  },
   "hpe.color.dataVis.categorical.40Weak": {
     "$type": "color",
     "value": "#00ff0a00",
@@ -3239,49 +3235,6 @@ export default {
       "dataVis",
       "categorical",
       "40Weak"
-    ]
-  },
-  "hpe.color.dataVis.categorical.50Weak": {
-    "$type": "color",
-    "value": "#00ff0a00",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{TBD}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.dataVis.categorical.50Weak",
-    "attributes": {
-      "category": "color",
-      "type": "dataVis",
-      "item": "categorical",
-      "subitem": "50Weak"
-    },
-    "path": [
-      "color",
-      "dataVis",
-      "categorical",
-      "50Weak"
     ]
   },
   "hpe.color.dataVis.categorical.60Weak": {
@@ -3327,7 +3280,7 @@ export default {
       "60Weak"
     ]
   },
-  "hpe.color.dataVis.categorical.70Weak": {
+  "hpe.color.dataVis.categorical.80Weak": {
     "$type": "color",
     "value": "#00ff0a00",
     "comment": "",
@@ -3356,18 +3309,18 @@ export default {
         }
       }
     },
-    "name": "hpe.color.dataVis.categorical.70Weak",
+    "name": "hpe.color.dataVis.categorical.80Weak",
     "attributes": {
       "category": "color",
       "type": "dataVis",
       "item": "categorical",
-      "subitem": "70Weak"
+      "subitem": "80Weak"
     },
     "path": [
       "color",
       "dataVis",
       "categorical",
-      "70Weak"
+      "80Weak"
     ]
   },
   "hpe.color.transparent": {

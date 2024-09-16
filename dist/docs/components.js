@@ -1,13 +1,13 @@
 /**
  * Do not edit directly
- * Generated on Mon, 16 Sep 2024 16:54:16 GMT
+ * Generated on Mon, 16 Sep 2024 17:15:37 GMT
  */
 
 export default {
   "hpe.button.primary.enabled.background": {
     "$type": "gradient",
     "value": "linear-gradient(70deg, #00000000, #01a982 35%, #00000000 70%, #01a982 100%)",
-    "comment": "",
+    "comment": "For dev use.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -43,7 +43,7 @@ export default {
           }
         ]
       },
-      "comment": "",
+      "comment": "For dev use.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -17684,6 +17684,96 @@ export default {
       "borderColor"
     ]
   },
+  "hpe.checkbox.control.disabled.background": {
+    "$type": "color",
+    "value": "#0000000a",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.background.disabled}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.control.disabled.background",
+    "attributes": {
+      "category": "checkbox",
+      "type": "control",
+      "item": "disabled",
+      "subitem": "background"
+    },
+    "path": [
+      "checkbox",
+      "control",
+      "disabled",
+      "background"
+    ]
+  },
+  "hpe.checkbox.control.disabled.borderColor": {
+    "$type": "color",
+    "value": "#0000001f",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.border.disabled}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.control.disabled.borderColor",
+    "attributes": {
+      "category": "checkbox",
+      "type": "control",
+      "item": "disabled",
+      "subitem": "borderColor"
+    },
+    "path": [
+      "checkbox",
+      "control",
+      "disabled",
+      "borderColor"
+    ]
+  },
   "hpe.checkbox.control.selected.enabled.background": {
     "$type": "color",
     "value": "#01a982",
@@ -18105,96 +18195,6 @@ export default {
       "selected",
       "disabled",
       "iconColor"
-    ]
-  },
-  "hpe.checkbox.control.disabled.background": {
-    "$type": "color",
-    "value": "#0000000a",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{color.background.disabled}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.disabled.background",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "disabled",
-      "subitem": "background"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "disabled",
-      "background"
-    ]
-  },
-  "hpe.checkbox.control.disabled.borderColor": {
-    "$type": "color",
-    "value": "#0000001f",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{color.border.disabled}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.disabled.borderColor",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "disabled",
-      "subitem": "borderColor"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "disabled",
-      "borderColor"
     ]
   },
   "hpe.checkbox.control.indeterminate.enabled.background": {
@@ -26229,6 +26229,100 @@ export default {
       "borderColor"
     ]
   },
+  "hpe.formField.input.container.disabled.background": {
+    "$type": "color",
+    "value": "#0000000a",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.background.disabled}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.container.disabled.background",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "container",
+      "subitem": "disabled",
+      "state": "background"
+    },
+    "path": [
+      "formField",
+      "input",
+      "container",
+      "disabled",
+      "background"
+    ]
+  },
+  "hpe.formField.input.container.disabled.borderColor": {
+    "$type": "color",
+    "value": "#0000001f",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.border.disabled}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.container.disabled.borderColor",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "container",
+      "subitem": "disabled",
+      "state": "borderColor"
+    },
+    "path": [
+      "formField",
+      "input",
+      "container",
+      "disabled",
+      "borderColor"
+    ]
+  },
   "hpe.formField.input.container.status.critical.background": {
     "$type": "color",
     "value": "#fc61613d",
@@ -26322,100 +26416,6 @@ export default {
       "container",
       "status",
       "critical",
-      "borderColor"
-    ]
-  },
-  "hpe.formField.input.container.disabled.background": {
-    "$type": "color",
-    "value": "#0000000a",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{color.background.disabled}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.container.disabled.background",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "container",
-      "subitem": "disabled",
-      "state": "background"
-    },
-    "path": [
-      "formField",
-      "input",
-      "container",
-      "disabled",
-      "background"
-    ]
-  },
-  "hpe.formField.input.container.disabled.borderColor": {
-    "$type": "color",
-    "value": "#0000001f",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{color.border.disabled}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.container.disabled.borderColor",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "container",
-      "subitem": "disabled",
-      "state": "borderColor"
-    },
-    "path": [
-      "formField",
-      "input",
-      "container",
-      "disabled",
       "borderColor"
     ]
   },

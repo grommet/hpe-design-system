@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 16 Sep 2024 16:54:15 GMT
+ * Generated on Mon, 16 Sep 2024 17:15:36 GMT
  */
 
 export default {
@@ -4470,13 +4470,529 @@ export default {
       "opacity72"
     ]
   },
-  "hpe.base.fontFamily.primary": {
+  "hpe.base.color.dataVis.green1000": {
+    "$type": "color",
+    "value": "#074b3b",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#074b3b",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.green1000",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "green1000"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "green1000"
+    ]
+  },
+  "hpe.base.color.dataVis.green325": {
+    "$type": "color",
+    "value": "#809605",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#809605",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.green325",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "green325"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "green325"
+    ]
+  },
+  "hpe.base.color.dataVis.green325-opacity50": {
+    "$type": "color",
+    "value": "#80960580",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#80960580",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.green325-opacity50",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "green325-opacity50"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "green325-opacity50"
+    ]
+  },
+  "hpe.base.color.dataVis.pink1000": {
+    "$type": "color",
+    "value": "#7d006c",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#7d006c",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.pink1000",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "pink1000"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "pink1000"
+    ]
+  },
+  "hpe.base.color.dataVis.pink325": {
+    "$type": "color",
+    "value": "#f23bda",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#f23bda",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.pink325",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "pink325"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "pink325"
+    ]
+  },
+  "hpe.base.color.dataVis.pink325-opacity50": {
+    "$type": "color",
+    "value": "#f23bda80",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#f23bda80",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.pink325-opacity50",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "pink325-opacity50"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "pink325-opacity50"
+    ]
+  },
+  "hpe.base.color.dataVis.purple1000": {
+    "$type": "color",
+    "value": "#5900a1",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#5900a1",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.purple1000",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "purple1000"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "purple1000"
+    ]
+  },
+  "hpe.base.color.dataVis.purple325": {
+    "$type": "color",
+    "value": "#ba66ff",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#ba66ff",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.purple325",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "purple325"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "purple325"
+    ]
+  },
+  "hpe.base.color.dataVis.purple325-opacity50": {
+    "$type": "color",
+    "value": "#ba66ff80",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#ba66ff80",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.purple325-opacity50",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "purple325-opacity50"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "purple325-opacity50"
+    ]
+  },
+  "hpe.base.color.dataVis.blue1000": {
+    "$type": "color",
+    "value": "#193a97",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#193a97",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.blue1000",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "blue1000"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "blue1000"
+    ]
+  },
+  "hpe.base.color.dataVis.blue325": {
+    "$type": "color",
+    "value": "#009abf",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#009abf",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.blue325",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "blue325"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "blue325"
+    ]
+  },
+  "hpe.base.color.dataVis.blue325-opacity50": {
+    "$type": "color",
+    "value": "#009abf80",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "#009abf80",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.dataVis.blue325-opacity50",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "dataVis",
+      "subitem": "blue325-opacity50"
+    },
+    "path": [
+      "base",
+      "color",
+      "dataVis",
+      "blue325-opacity50"
+    ]
+  },
+  "hpe.base.fontFamily.MetricHPEXS": {
     "$type": "string",
     "value": "MetricHPEXS",
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_FAMILY"
         ],
@@ -4491,7 +5007,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_FAMILY"
           ],
@@ -4499,16 +5015,16 @@ export default {
         }
       }
     },
-    "name": "hpe.base.fontFamily.primary",
+    "name": "hpe.base.fontFamily.MetricHPEXS",
     "attributes": {
       "category": "base",
       "type": "fontFamily",
-      "item": "primary"
+      "item": "MetricHPEXS"
     },
     "path": [
       "base",
       "fontFamily",
-      "primary"
+      "MetricHPEXS"
     ]
   },
   "hpe.base.fontFamily.code": {
@@ -4550,6 +5066,47 @@ export default {
       "base",
       "fontFamily",
       "code"
+    ]
+  },
+  "hpe.base.fontFamily.primary": {
+    "$type": "string",
+    "value": "MetricHPEXS",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": true,
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "value": "MetricHPEXS",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [
+            "FONT_FAMILY"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.fontFamily.primary",
+    "attributes": {
+      "category": "base",
+      "type": "fontFamily",
+      "item": "primary"
+    },
+    "path": [
+      "base",
+      "fontFamily",
+      "primary"
     ]
   },
   "hpe.base.fontSize.80": {

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 16 Sep 2024 16:54:16 GMT
+ * Generated on Mon, 16 Sep 2024 17:15:37 GMT
  */
 
 module.exports = {
@@ -17,11 +17,11 @@ module.exports = {
         "overlay": "#0000001f",
         "contrast": "#0000000a",
         "status": {
-          "info": "#00c8ff3d",
-          "unknown": "#f7f7f7",
-          "critical": "#fc61613d",
           "warning": "#ffbc443d",
-          "ok": "#17eba03d"
+          "unknown": "#f7f7f7",
+          "ok": "#17eba03d",
+          "critical": "#fc61613d",
+          "info": "#00c8ff3d"
         },
         "selected": {
           "strong": {
@@ -53,11 +53,11 @@ module.exports = {
         "disabled": "#0000003d",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
-        "heading": {
-          "default": "#333333"
-        },
         "inverse": {
           "default": "#ffffff"
+        },
+        "heading": {
+          "default": "#333333"
         },
         "onSelectedStrong": "#ffffff",
         "onSelectedWeak": "#333333",
@@ -90,6 +90,7 @@ module.exports = {
         "orange": "#ffbc44",
         "yellow": "#ffeb59",
         "purple!": "#7630ea",
+        "green!": "#01a982",
         "teal!": "#00e8cf",
         "blue!": "#00739d",
         "red!": "#c54e4b",
@@ -98,20 +99,18 @@ module.exports = {
       },
       "dataVis": {
         "categorical": {
-          "10": "#00739d",
-          "20": "#ff8300",
-          "30": "#7630ea",
-          "40": "#82fff2",
-          "50": "#ffd829",
-          "60": "#f740ff",
-          "70": "#00c8ff",
-          "10Weak": "#00739d1f",
-          "20Weak": "#ff83001f",
-          "30weak": "#7630ea1f",
-          "40Weak": "#82fff21f",
-          "50Weak": "#ffd8291f",
-          "60Weak": "#f740ff1f",
-          "70Weak": "#00c8ff1f"
+          "10": "#074b3b",
+          "20": "#809605",
+          "30": "#7d006c",
+          "40": "#f23bda",
+          "50": "#5900a1",
+          "60": "#ba66ff",
+          "70": "#193a97",
+          "80": "#009abf",
+          "20Weak": "#80960580",
+          "40Weak": "#f23bda80",
+          "60Weak": "#ba66ff80",
+          "80Weak": "#009abf80"
         }
       },
       "transparent": "#00000000",

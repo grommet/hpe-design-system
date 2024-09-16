@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 16 Sep 2024 16:54:16 GMT
+ * Generated on Mon, 16 Sep 2024 17:15:37 GMT
  */
 
 :root {
@@ -10,20 +10,18 @@
   --hpe-color-shadow-default: var(--hpe-base-color-black-opacity12);
   --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
   --hpe-color-focus: var(--hpe-base-color-teal-400);
-  --hpe-color-data-vis-categorical-70-weak: var(--hpe-base-color-blue-400-opacity12);
-  --hpe-color-data-vis-categorical-60-weak: var(--hpe-base-color-purple-500-opacity12);
-  --hpe-color-data-vis-categorical-50-weak: var(--hpe-base-color-yellow-300-opacity12);
-  --hpe-color-data-vis-categorical-40-weak: var(--hpe-base-color-teal-200-opacity12);
-  --hpe-color-data-vis-categorical-30weak: var(--hpe-base-color-purple-800-opacity12);
-  --hpe-color-data-vis-categorical-20-weak: var(--hpe-base-color-orange-500-opacity12);
-  --hpe-color-data-vis-categorical-10-weak: var(--hpe-base-color-blue-700-opacity12);
-  --hpe-color-data-vis-categorical-70: var(--hpe-base-color-blue-400);
-  --hpe-color-data-vis-categorical-60: var(--hpe-base-color-purple-500);
-  --hpe-color-data-vis-categorical-50: var(--hpe-base-color-yellow-300);
-  --hpe-color-data-vis-categorical-40: var(--hpe-base-color-teal-200);
-  --hpe-color-data-vis-categorical-30: var(--hpe-base-color-purple-800);
-  --hpe-color-data-vis-categorical-20: var(--hpe-base-color-orange-500);
-  --hpe-color-data-vis-categorical-10: var(--hpe-base-color-blue-700);
+  --hpe-color-data-vis-categorical-80-weak: var(--hpe-base-color-data-vis-blue325-opacity50);
+  --hpe-color-data-vis-categorical-60-weak: var(--hpe-base-color-data-vis-purple325-opacity50);
+  --hpe-color-data-vis-categorical-40-weak: var(--hpe-base-color-data-vis-pink325-opacity50);
+  --hpe-color-data-vis-categorical-20-weak: var(--hpe-base-color-data-vis-green325-opacity50);
+  --hpe-color-data-vis-categorical-80: var(--hpe-base-color-data-vis-blue325);
+  --hpe-color-data-vis-categorical-70: var(--hpe-base-color-data-vis-blue1000);
+  --hpe-color-data-vis-categorical-60: var(--hpe-base-color-data-vis-purple325);
+  --hpe-color-data-vis-categorical-50: var(--hpe-base-color-data-vis-purple1000);
+  --hpe-color-data-vis-categorical-40: var(--hpe-base-color-data-vis-pink325);
+  --hpe-color-data-vis-categorical-30: var(--hpe-base-color-data-vis-pink1000);
+  --hpe-color-data-vis-categorical-20: var(--hpe-base-color-data-vis-green325);
+  --hpe-color-data-vis-categorical-10: var(--hpe-base-color-data-vis-green1000);
   --hpe-color-decorative-yellow: var(--hpe-base-color-yellow-400); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-orange: var(--hpe-base-color-orange-500); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-red: var(--hpe-base-color-red-750); /* Use for decorative purposes when color has no specific meaning. */
@@ -68,11 +66,11 @@
   --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
   --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-125); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-100); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
-  --hpe-color-background-status-ok: var(--hpe-base-color-green-400-opacity24);
-  --hpe-color-background-status-warning: var(--hpe-base-color-orange-400-opacity24);
-  --hpe-color-background-status-critical: var(--hpe-base-color-red-500-opacity24);
-  --hpe-color-background-status-unknown: var(--hpe-base-color-grey-50);
   --hpe-color-background-status-info: var(--hpe-base-color-blue-400-opacity24);
+  --hpe-color-background-status-critical: var(--hpe-base-color-red-500-opacity24);
+  --hpe-color-background-status-ok: var(--hpe-base-color-green-400-opacity24);
+  --hpe-color-background-status-unknown: var(--hpe-base-color-grey-50);
+  --hpe-color-background-status-warning: var(--hpe-base-color-orange-400-opacity24);
   --hpe-color-background-contrast: var(--hpe-base-color-black-opacity4);
   --hpe-color-background-overlay: var(--hpe-base-color-black-opacity12); /* Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons. */
   --hpe-color-background-floating: var(--hpe-base-color-white-100); /* Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons. */
@@ -82,6 +80,7 @@
   --hpe-color-background-default: var(--hpe-base-color-white-100); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
   --hpe-elevation-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
   --hpe-elevation-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
+  --hpe-color-decorative-green: var(--hpe-base-color-brand); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-icon-on-selected-weak: var(--hpe-color-text-strong); /* Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-text-on-status: var(--hpe-color-text-default); /* Text color to be used on status backgrounds. */
   --hpe-color-text-on-selected-weak: var(--hpe-color-text-strong); /* Text color to be used for text sitting on background-selected-strong. */

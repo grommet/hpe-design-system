@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 16 Sep 2024 16:54:15 GMT
+ * Generated on Mon, 16 Sep 2024 17:15:37 GMT
  */
 
 module.exports = {
@@ -17,11 +17,11 @@ module.exports = {
         "overlay": "#0000001f",
         "contrast": "#ffffff0f",
         "status": {
-          "info": "#00c8ff1f",
-          "unknown": "#222222",
-          "critical": "#cc1f1a4d",
           "warning": "#fec9011f",
-          "ok": "#17d0a64d"
+          "unknown": "#222222",
+          "ok": "#17d0a64d",
+          "critical": "#cc1f1a4d",
+          "info": "#00c8ff1f"
         },
         "selected": {
           "strong": {
@@ -53,11 +53,11 @@ module.exports = {
         "disabled": "#ffffff3d",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
-        "heading": {
-          "default": "#ffffff"
-        },
         "inverse": {
           "default": "#222222"
+        },
+        "heading": {
+          "default": "#ffffff"
         },
         "onSelectedStrong": "#ffffff",
         "onSelectedWeak": "#ffffff",
@@ -90,6 +90,7 @@ module.exports = {
         "orange": "#9b6310",
         "yellow": "#8d741c",
         "purple!": "#7630ea",
+        "green!": "#01a982",
         "teal!": "#00e8cf",
         "blue!": "#00739d",
         "red!": "#c54e4b",
@@ -105,13 +106,11 @@ module.exports = {
           "50": "#00ff0a00",
           "60": "#00ff0a00",
           "70": "#00ff0a00",
-          "10Weak": "#00ff0a00",
+          "80": "#00ff0a00",
           "20Weak": "#00ff0a00",
-          "30weak": "#00ff0a00",
           "40Weak": "#00ff0a00",
-          "50Weak": "#00ff0a00",
           "60Weak": "#00ff0a00",
-          "70Weak": "#00ff0a00"
+          "80Weak": "#00ff0a00"
         }
       },
       "transparent": "#00000000",
