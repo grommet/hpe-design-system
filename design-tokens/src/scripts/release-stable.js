@@ -28,6 +28,12 @@ if (process.env.CI) {
           fs.copyFile(path.resolve(file), `${localFolder}/${file}`),
         ),
       )
+      .then(() =>
+        fs.copyFile(
+          `${path.resolve('src')}/index.d.ts`,
+          `${localFolder}/${BUILD_DIR}/esm/index.d.ts`,
+        ),
+      )
       .then(() => git(localFolder).add(['--all', '.']))
       .then(() => git(localFolder).commit(`${BRANCH} updated`))
       .then(() => git(localFolder).push('origin', BRANCH))
