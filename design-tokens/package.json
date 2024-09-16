@@ -5,6 +5,7 @@
   "license": "Apache-2.0",
   "type": "module",
   "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
