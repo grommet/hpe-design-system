@@ -24,6 +24,17 @@ const nextConfig = {
   },
   output: 'export',
   swcMinify: true,
+  // redirecting since original README referenced "/tokens"
+  // not permanent in case our direction changes
+  async redirects() {
+    return [
+      {
+        source: '/tokens',
+        destination: '/design-tokens',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 const plugins = [withTM, withMDX];
