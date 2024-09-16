@@ -18,7 +18,9 @@ import {
   Notification,
 } from 'grommet';
 import { Folder } from 'grommet-icons';
+// eslint-disable-next-line import/no-unresolved
 import * as tokens from 'hpe-design-tokens/docs';
+import { BetaNotification } from '../../examples';
 
 const structuredTokens = {
   primitive: {},
@@ -182,18 +184,11 @@ const AllTokens = () => {
 
   return (
     <Page kind="full">
-      <Notification
-        status="warning"
-        message={`Design tokens are currently in alpha testing. 
-            It's possible that token names will have breaking changes in v1.`}
-        margin={{ bottom: 'medium' }}
-        width={{ max: 'large' }}
-      />
+      <BetaNotification />
       <Box direction="row" gap="large">
         <Box
           width="medium"
           pad="medium"
-          //   background="background-front"
           border={{ color: 'border-weak' }}
           round="medium"
           flex={false}

@@ -1,12 +1,7 @@
 import { Notification } from 'grommet';
-import { TokenTypes } from '../../examples';
+import { BetaNotification, TokenTypes } from '../../examples';
 
-<Notification
-  message="Design tokens are currently in alpha testing. It's possible that token names will have breaking changes in v1."
-  width={{ max: 'large' }}
-  margin={{ bottom: 'medium' }}
-  status="warning"
-/>
+<BetaNotification />
 
 In Figma, design tokens are stored as variables and styles. They are used by applying these to properties in a file.
 
@@ -42,4 +37,4 @@ As styles:
 
 ## Variable scoping
 
-We have scoped variables only to the properties they apply to. For example, in Figma, border colour tokens (e.g. color.border.default) can only be applied to strokes and borderRadius tokens (e.g. radius.small) can only be applied to corner radius in Figma. This should make it easier to find and apply tokens in Figma.
+We have scoped variables only to the properties they apply to. For example, in Figma, border color tokens (e.g. color.border.default) can only be applied to strokes and borderRadius tokens (e.g. radius.small) can only be applied to corner radius in Figma. This should make it easier to find and apply tokens in Figma.

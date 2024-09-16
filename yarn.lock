@@ -6217,9 +6217,9 @@ hpack.js@^2.1.6:
     ts-node "^10.9.1"
     typescript "^5.1.6"
 
-"hpe-design-tokens@https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable":
+"hpe-design-tokens@https://github.com/grommet/hpe-design-system/tarball/design-tokens-stable":
   version "0.1.0"
-  resolved "https://github.com/grommet/hpe-design-system/tarball/design-tokens-alpha-stable#3ce9fa14ee5c0fa1df6695f808a0403638621ecd"
+  resolved "https://github.com/grommet/hpe-design-system/tarball/design-tokens-stable#276502ab9bdf5adf650c8f1a416890062ed249b4"
 
 html-encoding-sniffer@^2.0.1:
   version "2.0.1"

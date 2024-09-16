@@ -19,7 +19,7 @@ export const tokens = [
     name: 'How to read tokens',
     type: 'Getting started',
     description:
-      'An explanation of HPE Design System token naming conventions.',
+      'An explanation of HPE Design System design token naming conventions.',
     preview: {
       component: () => (
         <Box align="center" direction="row" gap="small">
@@ -29,31 +29,31 @@ export const tokens = [
       ),
     },
     seoDescription:
-      'An explanation of HPE Design System token naming conventions.',
+      'An explanation of HPE Design System design token naming conventions.',
     sections: [],
     relatedContent: [],
     tags: [],
   },
   {
-    name: 'Using tokens in code',
+    name: 'Using design tokens in code',
     type: 'Building with tokens',
-    description: 'How to map tokens to code.',
+    description: 'How to map design tokens to code.',
     preview: {
       component: () => <Code size="xxlarge" color="text-strong" />,
     },
-    seoDescription: 'How to map tokens to code.',
+    seoDescription: 'How to map design tokens to code.',
     sections: [],
     relatedContent: [],
     tags: [],
   },
   {
-    name: 'Using tokens in Figma',
+    name: 'Using design tokens in Figma',
     type: 'Building with tokens',
-    description: 'How to use tokens with Figma variables.',
+    description: 'How to use design tokens with Figma variables.',
     preview: {
       component: () => <Figma size="xxlarge" color="plain" />,
     },
-    seoDescription: 'How to use tokens with Figma variables.',
+    seoDescription: 'How to use design tokens with Figma variables.',
     sections: [],
     relatedContent: [],
     tags: [],

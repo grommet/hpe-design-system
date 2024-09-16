@@ -22,7 +22,7 @@ export const structure = [
     name: 'Home',
     seoDescription:
       "The HPE Design System is the way Hewlett Packard Enterprise's brand, technology, and it's partners share a single language for application, web, and digital experiences.",
-    pages: ['Foundation', 'Tokens', 'Components', 'Templates', 'Learn'],
+    pages: ['Foundation', 'Design tokens', 'Components', 'Templates', 'Learn'],
   },
   {
     name: 'Feedback',
@@ -119,8 +119,7 @@ export const structure = [
     pageLayout: 'plain',
   },
   {
-    name: 'Tokens',
-    render: 'Design tokens',
+    name: 'Design tokens',
     color: 'purple',
     description:
       'Design tokens represent design decisions such as color, typography, spacing, and motion in a consistent, reusable, and tech-agnostic format.',
