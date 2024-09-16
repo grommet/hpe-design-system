@@ -1,11 +1,6 @@
-import { Notification } from 'grommet';
+import { BetaNotification } from '../../examples';
 
-<Notification
-  status="warning"
-  message={`Design tokens are currently in alpha testing. It's possible that token names will have breaking changes in v1.`}
-  width={{ max: 'large' }}
-  margin={{ bottom: 'medium' }}
-/>
+<BetaNotification />
 
 ## Using tokens with Grommet
 
@@ -77,7 +72,23 @@ To use hpe-design-tokens as ESM, import the modules into your project.
 
 ```
 // For example, main.jsx
-import { base, light, dark, large, small, components } from 'hpe-design-tokens';
+import { light, dark, large, small, global, components } from 'hpe-design-tokens';
+
+const theme = {
+    button: {
+        primary: {
+            background: components.hpe.button.primary.enabled.background,
+        }
+    }
+}
+```
+
+#### CommonJS
+
+To use hpe-design-tokens with CommonJS, import the modules into your project.
+
+```
+const { light, dark, large, small, global, components } = require("hpe-design-tokens");
 
 const theme = {
     button: {

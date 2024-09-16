@@ -14,7 +14,7 @@ import {
 import { Meta, ContentCard } from '../../components';
 import { getCards, getPageDetails, nameToPath } from '../../utils';
 
-const title = 'Tokens';
+const title = 'Design tokens';
 const pageDetails = getPageDetails(title);
 const cards = getCards(title);
 
@@ -31,7 +31,7 @@ const Tokens = () => (
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </Box>
       <Notification
-        message={`Design tokens are in an alpha phase. This documentation is in 
+        message={`Design tokens are in a beta phase. This documentation is in 
             progress and subject to change.`}
         width="large"
         margin={{ bottom: 'large' }}
@@ -47,12 +47,6 @@ const Tokens = () => (
             const building = data.filter(
               datum => datum.type === 'Building with tokens',
             );
-            const explanations = data.filter(
-              datum => datum.type === 'Explanations',
-            );
-            const references = data.filter(
-              datum => datum.type === 'References',
-            );
 
             const results = [
               {
@@ -60,16 +54,8 @@ const Tokens = () => (
                 data: gettingStarted,
               },
               {
-                heading: 'Building with tokens',
+                heading: 'Building with design tokens',
                 data: building,
-              },
-              {
-                heading: 'Explanations',
-                data: explanations,
-              },
-              {
-                heading: 'References',
-                data: references,
               },
             ];
 
