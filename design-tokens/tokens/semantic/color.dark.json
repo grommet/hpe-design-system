@@ -110,9 +110,9 @@
         }
       },
       "status": {
-        "info": {
+        "warning": {
           "$type": "color",
-          "$value": "{base.color.blue.400-Opacity12}",
+          "$value": "{base.color.yellow.400-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -134,6 +134,18 @@
             }
           }
         },
+        "ok": {
+          "$type": "color",
+          "$value": "{base.color.green.500-Opacity30}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "critical": {
           "$type": "color",
           "$value": "{base.color.red.800-Opacity30}",
@@ -146,21 +158,9 @@
             }
           }
         },
-        "warning": {
+        "info": {
           "$type": "color",
-          "$value": "{base.color.yellow.400-Opacity12}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "ok": {
-          "$type": "color",
-          "$value": "{base.color.green.500-Opacity30}",
+          "$value": "{base.color.blue.400-Opacity12}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -248,7 +248,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["STROKE_COLOR", "EFFECT_COLOR"],
+            "scopes": ["STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -399,20 +399,6 @@
           }
         }
       },
-      "heading": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.text.strong}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        }
-      },
       "inverse": {
         "default": {
           "$type": "color",
@@ -422,6 +408,20 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "heading": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
               "codeSyntax": {}
             }
           }
@@ -733,6 +733,18 @@
           }
         }
       },
+      "green!": {
+        "$type": "color",
+        "$value": "{base.color.brand}",
+        "$description": "Use for decorative purposes when color has no specific meaning.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "teal!": {
         "$type": "color",
         "$value": "{base.color.teal.400}",
@@ -880,7 +892,7 @@
             }
           }
         },
-        "10Weak": {
+        "80": {
           "$type": "color",
           "$value": "{TBD}",
           "$description": "",
@@ -904,31 +916,7 @@
             }
           }
         },
-        "30weak": {
-          "$type": "color",
-          "$value": "{TBD}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
         "40Weak": {
-          "$type": "color",
-          "$value": "{TBD}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "50Weak": {
           "$type": "color",
           "$value": "{TBD}",
           "$description": "",
@@ -952,7 +940,7 @@
             }
           }
         },
-        "70Weak": {
+        "80Weak": {
           "$type": "color",
           "$value": "{TBD}",
           "$description": "",
