@@ -1,0 +1,112 @@
+import { Box, Button, Notification, Text } from 'grommet';
+import { Checkmark, Next } from 'grommet-icons';
+import Link from 'next/link';
+import { Example } from '../../layouts';
+import { BetaNotification } from '../../examples';
+
+<BetaNotification />
+
+## Overview
+
+Design tokens allow HPE digital experiences to be presented as a unified, one-HPE. Tokens establish consistency by serving as a single source of truth encoding HPE's visual language. They are delivered in an easy-to-consume manner allowing the visual style to fluidly evolve along with HPE and customer needs.
+
+## Encoding HPE's visual language
+
+Design tokens codify all decisions making up a design system's visual style. Tokens represent colors, typography, spacing, motion, and more through clear names specifying how and where the token should be applied.
+
+Consuming token names, as opposed to the values to which they resolve, builds inherit agility and flexibility into the system. Underlying values can be updated at the source of truth — and then seamlessly consumed by teams with little-to-no effort on their part. Simply point to the latest version and the updated styles are available in designs, sites, and applications.
+
+This means HPE digital experiences can be elevated more rapidly as a unified one-HPE.
+
+## What is a design token?
+
+Design tokens represent color, typography, spacing, motion, and other style values by a clear name conveying its intended usage.
+
+An HPE design token consists of:
+
+| Property        | Description                                              | Example                   | Required                                    |
+| --------------- | -------------------------------------------------------- | ------------------------- | ------------------------------------------- |
+| **Name**        | A self-documenting name that represents the coded value. | hpe.color.background.back | <Checkmark a11yTitle="true" size="small" /> |
+| **Value**       | The value of the token.                                  | #f7f7f7                   | <Checkmark a11yTitle="true" size="small" /> |
+| **Type**        | A category for the token's value.                        | color, dimension, shadow  | Optional                                    |
+| **Description** | Concise text to describe how the token should be used.   | --                        | Optional                                    |
+
+To know more about token naming, visit [How to read design tokens](/design-tokens/how-to-read-design-tokens).
+
+## Why are design tokens important?
+
+Design tokens establish a source of truth for HPE's visual style in a tech-agnostic format, enabling a truly consistent, unified experience across applications.
+
+Token names are purpose-driven, rather than hard-coded values, which provides the flexibility for token values to evolve over time with our visual style. When tokens are implemented across design and development, style updates will propagate consistently across applications simply by pulling in the latest version of the tokens.
+
+Design tokens allow us to:
+
+- Codify design decisions
+- Enable teams across various tech stacks to build efficiently and consistenly with the HPE Design System
+- Replace manual maintenance methods with faster automated processes that keep design and development synchronized
+- Build a shared language across design and development
+
+## Types of design tokens
+
+Tokens are grouped into 3 levels: [primitive](#primitive-tokens), [semantic](#semantic-tokens), and [component](#component-tokens). Each level exists to convey specificity, intended usage, and enhance token consumption and delivery. The name and intended use of a token becomes more specific as you move from primitive to semantic to component levels.
+
+<Notification
+  message={`When consuming design tokens, begin with the most specific token level available. Look first to see if a component token exists. If not available, use semantic tokens as a fallback.`}
+  status="info"
+  width={{ max: 'large' }}
+  margin={{ bottom: 'medium' }}
+/>
+
+### Primitive tokens
+
+Primitive tokens define the most foundational level of the token system, establishing fundamental attributes like color and dimension.
+
+The value of a primitive token will always be a CSS value such as a hex code, pixel, or rem value. Typically, primitive token names describe the token value and not where it should be applied.
+
+Primitive design tokens should not be used directly. They exist to provide the foundational options and be referenced in semantic and component design tokens.
+
+<Example height={{ min: 'xsmall' }}>
+  <Box align="center" direction="row" gap="small">
+    <Box background="brand" pad="medium" round="small" flex={false} />
+    <Text size="large">hpe.base.color.green.600</Text>
+  </Box>
+</Example>
+
+### Semantic tokens
+
+Semantic tokens provide meaning to a primitive token. It's name specifies how and when the token should be applied and its value references another lower-level token.
+
+The value of a semantic token can either be a reference to a primitive token or another semantic token.
+
+Building with semantic tokens, creates flexibility for a single token to have multiple values dependent on context. For example, the value for the token `hpe.color.background.back` might differ for light versus dark mode. Similarly, the value for the token `hpe.spacing.large` might differ for wide versus narrow viewports.
+
+<Example height={{ min: 'xsmall' }}>
+  <Box align="center" direction="row" gap="small">
+    <Box background="brand" pad="medium" round="small" flex={false} />
+    <Text size="large">hpe.background.primary.default</Text>
+  </Box>
+</Example>
+
+### Component tokens
+
+Component tokens capture specific design decisions for an individual component (e.g. button) or family of related components (e.g. inputs).
+
+The value of a component token can either be a reference to a primitive token, semantic token, or another component token.
+
+<Example height={{ min: 'xsmall' }}>
+  <Box align="center" direction="row" gap="small">
+    <Box background="brand" pad="medium" round="small" flex={false} />
+    <Text size="large">hpe.button.primary.enabled.background</Text>
+  </Box>
+</Example>
+
+<Link href="/design-tokens/how-to-read-design-tokens" passHref legacyBehavior>
+  <Button
+    alignSelf="start"
+    label="Learn how to read design tokens"
+    icon={<Next />}
+    primary
+    reverse
+    size="large"
+  />
+</Link>
