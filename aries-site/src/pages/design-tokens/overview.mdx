@@ -1,5 +1,5 @@
-import { Box, Notification, Text } from 'grommet';
-import { Checkmark } from 'grommet-icons';
+import { Box, Button, Notification, Text } from 'grommet';
+import { Checkmark, Next } from 'grommet-icons';
 import { Example } from '../../layouts';
 import { BetaNotification } from '../../examples';
 
@@ -73,11 +73,11 @@ Primitive design tokens should not be used directly. They exist to provide the f
 
 ### Semantic tokens
 
-Semantic tokens apply a specific meaning to a primitive token to establish how and when a style should be applied. Semantic tokens capture design decisions for color, spacing, elevation, typography, and more.
+Semantic tokens provide meaning to a primitive token. It's name specifies how and when the token should be applied and its value references another lower-level token.
 
 The value of a semantic token can either be a reference to a primitive token or another semantic token.
 
-Semantic tokens can have different values in different contexts. For example, the value of `hpe.color.background.back` might differ for light versus dark mode. Similarly, the value of `hpe.spacing.large` might differ for wide versus narrow viewports. By building with semantic tokens, the values can flex based on the context.
+Building with semantic tokens, creates flexibility for a single token to have multiple values dependent on context. For example, the value for the token `hpe.color.background.back` might differ for light versus dark mode. Similarly, the value for the token `hpe.spacing.large` might differ for wide versus narrow viewports.
 
 <Example height={{ min: 'xsmall' }}>
   <Box align="center" direction="row" gap="small">
@@ -88,7 +88,7 @@ Semantic tokens can have different values in different contexts. For example, th
 
 ### Component tokens
 
-Component tokens capture specific design decisions for an individual component (such as button) or family of related components (such as inputs).
+Component tokens capture specific design decisions for an individual component (e.g. button) or family of related components (e.g. inputs).
 
 The value of a component token can either be a reference to a primitive token, semantic token, or another component token.
 
@@ -98,3 +98,12 @@ The value of a component token can either be a reference to a primitive token, s
     <Text size="large">hpe.button.primary.enabled.background</Text>
   </Box>
 </Example>
+
+<Button
+  alignSelf="start"
+  label="Learn how to read design tokens"
+  icon={<Next />}
+  primary
+  reverse
+  size="large"
+/>
