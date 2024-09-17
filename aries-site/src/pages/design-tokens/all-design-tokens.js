@@ -243,7 +243,7 @@ const AllTokens = () => {
               </Heading>
               {openLayer ? (
                 <Layer onEsc={() => setOpenLayer(false)} full>
-                  <Box pad="medium" gap="small">
+                  <Box pad="medium" gap="small" overflow="auto">
                     <Button
                       icon={<Close />}
                       a11yTitle="Close design token navigation."
