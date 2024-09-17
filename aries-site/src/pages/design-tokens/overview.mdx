@@ -1,28 +1,32 @@
-import { Box, Text } from 'grommet';
+import { Box, Notification, Text } from 'grommet';
+import { Checkmark } from 'grommet-icons';
 import { Example } from '../../layouts';
 import { BetaNotification } from '../../examples';
 
 <BetaNotification />
 
+## Overview
+
+Design tokens allow HPE digital experiences to be presented as a unified, one-HPE. Tokens establish consistency by serving as a single source of truth encoding HPE's visual language. They are delivered in an easy-to-consume manner allowing the visual style to fluidly evolve along with HPE and customer needs.
+
+## Encoding HPE's visual language
+
+Design tokens codify all decisions making up a design system's visual style. Tokens represent colors, typography, spacing, motion, and more through clear names specifying how and where the token should be applied. Consuming token names, as opposed to the values to which they resolve, builds inherit agility and flexibility into the system. Underlying values can be updated at the source of truth — and then seamlessly consumed by teams with little-to-no effort on their part. Simply point to the latest version and the updated styles are available in designs, sites, and applications. This means HPE digital experiences can be elevated more rapidly as a unified one-HPE. Change can be easy.
+
 ## What is a design token?
 
-Design tokens codify the design decisions that make up a design system's visual style. Design tokens replace hard-coded values, such as hex codes for color or pixel values for spacing, with clear names.
+Tokens represent color, typography, spacing, motion, and other style values by a clear name conveying its intended usage.
 
-Tokens can represent values such as colors, typography, spacing, motion and more.
+An HPE design token consists of:
 
-An HPE Design Token consists of two main parts:
+| Property        | Description                                              | Example                  | Required                                    |
+| --------------- | -------------------------------------------------------- | ------------------------ | ------------------------------------------- |
+| **Name**        | A self-documenting name that represents the coded value. | hpe.color.brand          | <Checkmark a11yTitle="true" size="small" /> |
+| **Value**       | The value of the token.                                  | #01A982                  | <Checkmark a11yTitle="true" size="small" /> |
+| **Type**        | A category for the token's value.                        | color, dimension, shadow | Optional                                    |
+| **Description** | Concise text to describe how the token should be used.   | --                       | Optional                                    |
 
-1. A self-documenting name that represents the coded value: “hpe.color.brand".
-1. An associated value: #01A982.
-
-Additionally, a design token can have these optional properties:
-
-1. Type: A category for the token's value (e.g., color, dimension, shadow).
-1. Description: Concise text to describe how the token should be used.
-
-To know more about token naming, visit [How to read tokens](tokens/how-to-read-tokens).
-
-TO DO: Add visual
+To know more about token naming, visit [How to read design tokens](/design-tokens/how-to-read-design-tokens).
 
 ## Why are design tokens important?
 
@@ -37,9 +41,15 @@ Design tokens allow us to:
 - Replace manual maintenance methods with faster automated processes that keep design and development synchronized
 - Build a shared language across design and development
 
-## Types of tokens
+## Types of design tokens
 
-Our tokens can be grouped into 3 levels: primitive, semantic, and component. The naming and intended use of a token get more specific as you move from the primitive to semantic to component level. This tiered system of tokens exists to enhance token consumption, management, and maintenance.
+Tokens are grouped into 3 levels: [primitive](#primitive-tokens), [semantic](#semantic-tokens), and [component](#component-tokens). Each level exists to convey specificity, intended usage, and enhance token consumption and delivery. The name and intended use of a token becomes more specific as you move from primitive to semantic to component levels.
+
+<Notification
+  message={`When consuming design tokens, begin with the most specific token level available. Look first to see if a component token exists. If not available, use semantic tokens as a fallback.`}
+  width={{ max: 'large' }}
+  margin={{ bottom: 'medium' }}
+/>
 
 ### Primitive tokens
 
@@ -52,7 +62,7 @@ Primitive design tokens should not be used directly. They exist to provide the f
 <Example height={{ min: 'xsmall' }}>
   <Box align="center" direction="row" gap="small">
     <Box background="brand" pad="medium" round="small" flex={false} />
-    <Text size="large">hpe.green.600</Text>
+    <Text size="large">hpe.base.color.green.600</Text>
   </Box>
 </Example>
 

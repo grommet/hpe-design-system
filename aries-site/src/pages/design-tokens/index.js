@@ -3,8 +3,6 @@ import {
   Box,
   Data,
   DataContext,
-  DataSearch,
-  DataSummary,
   Heading,
   Grid,
   PageContent,
@@ -31,14 +29,13 @@ const Tokens = () => (
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </Box>
       <Notification
-        message={`Design tokens are in a beta phase. This documentation is in 
-            progress and subject to change.`}
+        message={`Design tokens are in a beta phase. Accordingly, 
+          this documentation is a work in progress and will be 
+          updated as needed during this phase.`}
         width="large"
         margin={{ bottom: 'large' }}
       />
       <Data data={cards} pad={{ bottom: 'large' }}>
-        <DataSearch width={{ max: 'medium', width: '100%' }} />
-        <DataSummary />
         <DataContext.Consumer>
           {({ data }) => {
             const gettingStarted = data.filter(
