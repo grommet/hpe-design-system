@@ -19,7 +19,7 @@ export const TokenHighlight = ({ highlight }) => {
   return (
     <Text size="large">
       {parts.map((part, index) => (
-        <>
+        <Text key={index}>
           <Text
             size="large"
             color={
@@ -27,12 +27,11 @@ export const TokenHighlight = ({ highlight }) => {
                 ? 'purple!'
                 : 'text-weak'
             }
-            key={part}
           >
             [{part}]
           </Text>
           {index < parts.length - 1 ? ' . ' : ''}
-        </>
+        </Text>
       ))}
     </Text>
   );

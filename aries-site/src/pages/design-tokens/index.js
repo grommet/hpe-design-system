@@ -21,7 +21,7 @@ const Tokens = () => (
     <Meta
       title={title}
       description={pageDetails.seoDescription}
-      canonicalUrl="https://design-system.hpe.design/tokens"
+      canonicalUrl="https://design-system.hpe.design/design-tokens"
     />
     <PageContent>
       <Box pad={{ vertical: 'medium' }} justify="center" width="large">

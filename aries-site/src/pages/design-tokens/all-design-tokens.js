@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import {
   Toolbar,
   DataSearch,
@@ -14,10 +14,13 @@ import {
   DataSummary,
   Collapsible,
   FormField,
+  Layer,
   Select,
   Notification,
+  ResponsiveContext,
 } from 'grommet';
-import { Folder } from 'grommet-icons';
+import { Close, Folder, Menu } from 'grommet-icons';
+import { ThemeContext } from 'styled-components';
 // eslint-disable-next-line import/no-unresolved
 import * as tokens from 'hpe-design-tokens/docs';
 import { BetaNotification } from '../../examples';
@@ -63,7 +66,8 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
   return (
     <Box flex={false}>
       <Button
-        icon={<Folder />}
+        icon={<Folder aria-hidden="true" />}
+        a11yTitle={`${collection} token directory`}
         justify="start"
         align="start"
         label={collection}
@@ -158,6 +162,9 @@ const AllTokens = () => {
   const [data, setData] = useState([]);
   const [modes, setModes] = useState([]);
   const [selectedMode, setSelectedMode] = useState('');
+  const [openLayer, setOpenLayer] = useState(false);
+  const breakpoint = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
 
   useEffect(() => {
     const keyPath = active.split('.');
@@ -182,38 +189,72 @@ const AllTokens = () => {
     setSelectedMode(nextMode);
   }, [active]);
 
+  useEffect(() => {
+    if (openLayer && ['large', 'xlarge'].includes(breakpoint))
+      setOpenLayer(false);
+  }, [breakpoint, openLayer]);
+
+  const navContent = (
+    <Nav tokens={structuredTokens} active={active} setActive={setActive} />
+  );
+
   return (
     <Page kind="full">
       <BetaNotification />
       <Box direction="row" gap="large">
-        <Box
-          width="medium"
-          pad="medium"
-          border={{ color: 'border-weak' }}
-          round="medium"
-          flex={false}
-          style={{ position: 'sticky', top: 0, bottom: 0 }}
-          height="100vh"
-          overflow="auto"
-        >
-          <Nav
-            tokens={structuredTokens}
-            active={active}
-            setActive={setActive}
-          />
-        </Box>
+        {['large', 'xlarge'].includes(breakpoint) ? (
+          <Box
+            width="medium"
+            pad="medium"
+            border={{ color: 'border-weak' }}
+            round="medium"
+            flex={false}
+            style={{
+              position: 'sticky',
+              top: theme.global.edgeSize.medium,
+              bottom: 0,
+            }}
+            height="100vh"
+            overflow="auto"
+          >
+            {navContent}
+          </Box>
+        ) : undefined}
         <PageContent pad="none">
           <Box pad="medium" round="medium" background="background-front">
-            <Heading level={2} margin="none" id="token-table-heading">
-              {active
-                .split('.')
-                .map(
-                  (part, index) =>
-                    `${part} ${
-                      index < active.split('.').length - 1 ? '/ ' : ''
-                    }`,
-                )}
-            </Heading>
+            <Box direction="row" align="center" gap="small">
+              {!['large', 'xlarge'].includes(breakpoint) ? (
+                <Button
+                  icon={<Menu />}
+                  a11yTitle="Open design tokens menu"
+                  margin={{ top: 'xsmall' }}
+                  onClick={() => setOpenLayer(true)}
+                />
+              ) : undefined}
+              <Heading level={2} margin="none" id="token-table-heading">
+                {active
+                  .split('.')
+                  .map(
+                    (part, index) =>
+                      `${part} ${
+                        index < active.split('.').length - 1 ? '/ ' : ''
+                      }`,
+                  )}
+              </Heading>
+              {openLayer ? (
+                <Layer onEsc={() => setOpenLayer(false)} full>
+                  <Box pad="medium" gap="small">
+                    <Button
+                      icon={<Close />}
+                      a11yTitle="Close design token navigation."
+                      alignSelf="end"
+                      onClick={() => setOpenLayer(false)}
+                    />
+                    {navContent}
+                  </Box>
+                </Layer>
+              ) : undefined}
+            </Box>
             {active.includes('primitive') ? (
               <Notification
                 status="warning"

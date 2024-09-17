@@ -31,7 +31,11 @@ export const tokens = [
     seoDescription:
       'An explanation of HPE Design System design token naming conventions.',
     sections: [],
-    relatedContent: [],
+    relatedContent: [
+      'All design tokens',
+      'Using design tokens in code',
+      'Using design tokens in Figma',
+    ],
     tags: [],
   },
   {
@@ -43,7 +47,11 @@ export const tokens = [
     },
     seoDescription: 'How to map design tokens to code.',
     sections: [],
-    relatedContent: [],
+    relatedContent: [
+      'All design tokens',
+      'How to read design tokens',
+      'Using design tokens in Figma',
+    ],
     tags: [],
   },
   {
@@ -55,7 +63,11 @@ export const tokens = [
     },
     seoDescription: 'How to use design tokens with Figma variables.',
     sections: [],
-    relatedContent: [],
+    relatedContent: [
+      'All design tokens',
+      'How to read design tokens',
+      'Using design tokens in code',
+    ],
     tags: [],
   },
   {
@@ -67,7 +79,11 @@ export const tokens = [
     },
     seoDescription: 'An overview of all available design tokens.',
     sections: [],
-    relatedContent: [],
+    relatedContent: [
+      'How to read design tokens',
+      'Using design tokens in code',
+      'Using design tokens in Figma',
+    ],
     tags: [],
   },
 ];
