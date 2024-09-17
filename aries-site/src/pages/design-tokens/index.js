@@ -64,7 +64,11 @@ const Tokens = () => (
                       <Heading level={2} margin="none">
                         {type.heading}
                       </Heading>
-                      <Grid columns="medium" gap="medium">
+                      <Grid
+                        columns="medium"
+                        rows={[['auto', 'full']]}
+                        gap="medium"
+                      >
                         {type.data.map(item => (
                           <ContentCard
                             key={item.name}
