@@ -12,11 +12,11 @@ export const tokens = [
     },
     seoDescription: 'The what and why of design tokens.',
     sections: [],
-    relatedContent: ['How to read tokens'],
+    relatedContent: ['How to read design tokens'],
     tags: [],
   },
   {
-    name: 'How to read tokens',
+    name: 'How to read design tokens',
     type: 'Getting started',
     description:
       'An explanation of HPE Design System design token naming conventions.',

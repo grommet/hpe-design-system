@@ -20,7 +20,7 @@ The structure of the token naming schema intends to:
 
 A consistent convention makes it easier to understand what tokens do, how they should be used, and how new tokens could be added in the future.
 
-These are all of the possible parts of a token name, but each [type of token](#types-of-tokens) uses a subset of these.
+These are all of the possible parts of a token name, but each [type of design token](#types-of-design-tokens) uses a subset of these.
 
 <Example height="auto">
   <TokenHighlight highlight="all" />
@@ -39,9 +39,9 @@ These are all of the possible parts of a token name, but each [type of token](#t
 | state     | Interactive or programmatically unique state.                                                                                                                                                                      | enabled, hover, readOnly, selected, indeterminate | --                                                                                                                                                           |
 | property  | An item’s style. This is required for component tokens.                                                                                                                                                            | background, borderRadius, lineHeight, fontSize    | It usually matches a CSS property, but it can also store other conceptual definitions such as size, paddingX, etc. For multi-word properties, use camelCase. |
 
-## Types of tokens
+## Types of design tokens
 
-Each type of token uses a subset of the overall convention. To learn about types of tokens, read the documentation of [types of tokens](/design-tokens/overview#types-of-tokens).
+Each type of token uses a subset of the overall convention. To learn about types of tokens, read the documentation of [types of design tokens](/design-tokens/overview#types-of-design-tokens).
 
 ### Primitive
 
@@ -97,4 +97,4 @@ Component tokens represent tokens for specific components and should not be used
 
 ## Token delimiters
 
-While our documentation uses . dot as a delimiter, token parts should be separated by the appropriate character for a given framework. For example, use the - dash character for CSS variables.
+While our documentation uses `.` dot as a delimiter, token parts should be separated by the appropriate character for a given framework. For example, CSS variables use the `-` character.
