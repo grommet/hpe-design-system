@@ -1,80 +1,117 @@
+import {
+    TagAnatomy,
+    TagMetaData,
+    TagSimple,
+    CreateTagSimple,
+    TagResource,
+    TagAttention
+} from '../../examples';
+import { Example } from '../../layouts';
+
+<Example
+  componentName="Tag"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
+  docs="https://v2.grommet.io/tag?theme=hpe"
+  figma=""
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Tag/Tag.js"
+>
+  <TagSimple />
+</Example>
 
 ## Use cases
 
-### Quick Filtering within Global Search
+### Displaying metadata
+Static tags can be used to display non critical concise information with
+the purpose to annotate or label items. Tags can contain value only,
+or a name value pair to assist with classification.
 
-Removable and selectable tags in a global search allow users to refine their search results dynamically. Selectable tags help narrow down the search by applying specific filter, while removable tags provide the flexibility to undo or adjust these filters, enabling users to modify their search criteria without starting over.
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
+>
+  <TagMetaData />
+</Example>
 
+### Managing metadata
+Tags can be created, assigned and removed from resources/items by a user.
 
-### Personalizing Workspaces
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
+>
+  <CreateTagSimple />
+</Example>
 
-Selectable tags while onboarding allow users to to personalize workspace. Selectable tags help tailor the experience by applying specific preferences as filters.
+### Filtering
+Interactive tags can be activated by mouse or keyboard input to enable quick filtering.
+Interacting with the tag will display items that share the same assigned value.
 
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
+>
+  <TagResource />
+</Example>
 
-### Managing Tags
+### Drawing attention
+Highlight tags can be used to draw attention to an element on the page.
+They are a decorative variant of the static tag.
+Highlights should only contain descriptions that are temporary, such as “New”,
+“Updated”. As such they should not be used a permanent design feature.
 
-A user can manage their tags using a tag manager by creating new tags to categorize resources, assign these tags to relevant items, and easily remove or edit tags as needed. This allows for flexible and dynamic organization of resources based on changing criteria and priorities.
-
-
-### Organizing Data
-
-Read-only tags provide users with a quick glance at non-critical information from where data is being retrieved from.
-
-
-### Accessing Account Types
-
-Read-only tags provide manager service providers with a quick overview on workspaces they can access to manage clients inventory such as devices assigned to different workspaces or services.
-
-### Promoting Trials and Features Updates
-
-Announcements about new offerings and features should excite current and potential customers about HPE's services. The use of this brand-approved gradient as a tag border allows this card to stand out from its surrounding content.
-
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
+>
+  <TagAttention />
+</Example>
 
 
 ## Anatomy
 
+<Example
+  caption="Diagram illustrating the four parts composing tag."
+  pad="small"
+  previewWidth="large"
+  height={{ min: 'small' }}
+>
+  <TagAnatomy />
+</Example>
+
 
 | Label | Region        | Purpose                                                      | Required | Notes                                                       |
 | :---: | ------------- | ------------------------------------------------------------ | :------: | ----------------------------------------------------------- |
-| **1** | **Container** | Contains name-value pairs and close icon.              | Required | Uses neutral background color for read-only tag and gradient border for marketing tag to differentiate from a button.                                                        |
-| **2** | **Name**     | Unique identifier or term referring to a data item.             | Optional | --                     |
-| **3** | **Value**      | Description of data or a pointer to the location of that data. | Required | Required when name item is not available or not needed. |
+| **1** | **Container** | Controls padding, border & background color.              | Required | Uses neutral background color for read-only tag and gradient border for marketing tag to differentiate from a button.                                                        |
+| **2** | **Name**      | Descriptive label or category that identifies what kind of data is stored in the associated value. For example “Country” or “Color”.             | Optional | --                     |
+| **3** | **Value**     | The specific descriptive data associated with an item.  For example “USA” or “Green”. | Required | Required when name item is not available or not needed. |
 | **4** | **Close Icon Button**      | Used to indicate that tag is removable. | Optional | Required for only removable tags.  |
-
 
 
 ## Types
 
+### Tag 
+- Contains simple, concise information used to annotate, categorize, group or otherwise label items.
+- Used to display secondary or supplementary information related to an object or item. 
+- Can be used to communicate the state or condition of something (e.g. published, deployed, new, updated, etc.). State is defined here.
+- A tag should not be used to convey system status, that is considered primary information.
+
+### Static 
+- All points as above plus...
+- A static tag is not interactive in any way.
+
+### Interactive 
+- Interactive tags enable users to discover, filter, or navigate to identically tagged items.
+- An interactive tag can be actioned by mouse or keyboard.
+
 ### Removable
 
-- Used to remove categories that have been created and or assigned.
-- Used to dismiss filtered items within searched or filtered results.
-- Interactive by mouse or keyboard only on close icon, not on full body.
-- Close icon receives the following states: enabled, hover and focus.
+- A removable tag is interactive via the icon button.
+- Can be used to dismiss a category/value set from a filtered view.
+- Can be used to remove a value that has been assigned to an item or resource.
 
-### Selectable
+### Highlight
 
-- Used for single select and multi-select, usually in filtering scenarios.
-- Interactive: container can be actioned by mouse or keyboard.
-- Selectable container receives the following states: enabled, hover, active and focus.
-- It’s not a button and doesn’t navigate to other pages.
-
-### Simple
-
-- Used to categorize non-critical, tertiary information placed near an object's primary identifier.
-- Static: not clickable or interactive in any way.
-- Uses neutral color. 
-- Not used to convey status, health or critical information. Instead, use status indicators.
-
-### Marketing
-
-- Used to promote new features or trials.
-- Placed near primary identifier such as within a card or inline of a link.
-- Static: not clickable or interactive in any way.
-- Uses gradientEdge border only.
-- Never used to convey status, health or critical information. Instead, use status indicators.
-- Uses temporary description, not a permanent taxonomy description -- Eg “New” or “Updated”
-- Receives no states.
+- A highlight tag used to indicate a temporary or transient state associated with an item - eg new, updated, promotional
+- A highlight tag draws attention but is no louder than a secondary/primary button.
+- A highlight tag is not interactive in any way.
+- A tags size should be limited to x-small or small
+- Use “gradientEdge” border for highlight tags. This treatment should be used sparingly.
 
 
 ## Accessibility
