@@ -1,0 +1,182 @@
+{
+  "focusIndicator": {
+    "outline": {
+      "$type": "border",
+      "$value": {
+        "style": "solid",
+        "color": "{color.focus}",
+        "width": "{base.dimension.50}"
+      },
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    }
+  },
+  "fontStack": {
+    "primary": {
+      "$type": "fontFamily",
+      "$value": "'Metric', Arial, sans-serif",
+      "$description": "For dev use only.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": ["FONT_FAMILY"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "code": {
+      "$type": "fontFamily",
+      "$value": "'Fira Mono', ui-monospace, monospace",
+      "$description": "For dev use only.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": ["FONT_FAMILY"],
+          "codeSyntax": {}
+        }
+      }
+    }
+  },
+  "breakpoint": {
+    "xsmall": {
+      "$type": "number",
+      "$value": 576,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "small": {
+      "$type": "number",
+      "$value": 768,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "medium": {
+      "$type": "number",
+      "$value": 1080,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "large": {
+      "$type": "number",
+      "$value": 1440,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    }
+  },
+  "fontWeight": {
+    "thin": {
+      "$type": "number",
+      "$value": 100,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["FONT_STYLE"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "light": {
+      "$type": "number",
+      "$value": 300,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["FONT_STYLE"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "regular": {
+      "$type": "number",
+      "$value": 400,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["FONT_STYLE"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "medium": {
+      "$type": "number",
+      "$value": 500,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["FONT_STYLE"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "semibold": {
+      "$type": "number",
+      "$value": 600,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["FONT_STYLE"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "bold": {
+      "$type": "number",
+      "$value": 700,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["FONT_STYLE"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "black": {
+      "$type": "number",
+      "$value": 900,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["FONT_STYLE"],
+          "codeSyntax": {}
+        }
+      }
+    }
+  }
+}

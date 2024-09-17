@@ -46,7 +46,7 @@ export const Layout = ({
   children,
   title: titleProp,
   topic,
-  isLanding,
+  isLanding = false,
 }) => {
   useEffect(() => {
     if (Config.gaId) {
@@ -265,8 +265,4 @@ Layout.propTypes = {
   isLanding: PropTypes.bool,
   title: PropTypes.string,
   topic: PropTypes.string,
-};
-
-Layout.defaultProps = {
-  isLanding: false,
 };

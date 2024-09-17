@@ -43,7 +43,7 @@ export const PageBannerExample = () => {
             // changes the route and sets the active tab.
             actions={[{ label: 'View details', onClick: () => setActive(2) }]}
           />
-          <Tabs activeIndex={active}>
+          <Tabs justify="start" activeIndex={active}>
             <Tab title="Projects" onClick={() => setActive(0)}>
               <Box pad={{ vertical: 'medium' }}>
                 <Grid columns="medium" rows="small" gap="medium">
