@@ -1,5 +1,6 @@
 import { Box, Button, Notification, Text } from 'grommet';
 import { Checkmark, Next } from 'grommet-icons';
+import Link from 'next/link';
 import { Example } from '../../layouts';
 import { BetaNotification } from '../../examples';
 
@@ -99,11 +100,13 @@ The value of a component token can either be a reference to a primitive token, s
   </Box>
 </Example>
 
-<Button
-  alignSelf="start"
-  label="Learn how to read design tokens"
-  icon={<Next />}
-  primary
-  reverse
-  size="large"
-/>
+<Link href="/design-tokens/how-to-read-design-tokens" passHref legacyBehavior>
+  <Button
+    alignSelf="start"
+    label="Learn how to read design tokens"
+    icon={<Next />}
+    primary
+    reverse
+    size="large"
+  />
+</Link>
