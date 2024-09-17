@@ -7,7 +7,7 @@
         "color": "{color.focus}",
         "width": "{base.dimension.50}"
       },
-      "$description": "",
+      "$description": "For dev use only.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
