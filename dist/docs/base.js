@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 16 Sep 2024 19:57:12 GMT
+ * Generated on Wed, 18 Sep 2024 00:08:30 GMT
  */
 
 export default {
@@ -380,7 +380,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -395,7 +395,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1165,7 +1165,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1180,7 +1180,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1208,7 +1208,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1223,7 +1223,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1251,7 +1251,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1266,7 +1266,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1294,7 +1294,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1309,7 +1309,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1337,7 +1337,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1352,7 +1352,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1380,7 +1380,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1395,7 +1395,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1423,7 +1423,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1438,7 +1438,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1466,7 +1466,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1481,7 +1481,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1509,7 +1509,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1524,7 +1524,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1552,7 +1552,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1567,7 +1567,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1595,7 +1595,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1610,7 +1610,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1638,7 +1638,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1653,7 +1653,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1681,7 +1681,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1696,7 +1696,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1724,7 +1724,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1739,7 +1739,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1767,7 +1767,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1782,7 +1782,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1810,7 +1810,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1825,7 +1825,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1853,7 +1853,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1868,7 +1868,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1896,7 +1896,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1911,7 +1911,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1939,7 +1939,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1954,7 +1954,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -1982,7 +1982,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -1997,7 +1997,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2025,7 +2025,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2040,7 +2040,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2068,7 +2068,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2083,7 +2083,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2111,7 +2111,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2126,7 +2126,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2154,7 +2154,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2169,7 +2169,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2197,7 +2197,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2212,7 +2212,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2240,7 +2240,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2255,7 +2255,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2283,7 +2283,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2298,7 +2298,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2326,7 +2326,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2341,7 +2341,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2369,7 +2369,7 @@ export default {
     "comment": "HPE Brand",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2384,7 +2384,7 @@ export default {
       "comment": "HPE Brand",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2412,7 +2412,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2427,7 +2427,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2455,7 +2455,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2470,7 +2470,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2498,7 +2498,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2513,7 +2513,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2541,7 +2541,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2556,7 +2556,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2584,7 +2584,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2599,7 +2599,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2627,7 +2627,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2642,7 +2642,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2670,7 +2670,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2685,7 +2685,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2756,7 +2756,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2771,7 +2771,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2799,7 +2799,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2814,7 +2814,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2842,7 +2842,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2857,7 +2857,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2928,7 +2928,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2943,7 +2943,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -2971,7 +2971,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -2986,7 +2986,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3014,7 +3014,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3029,7 +3029,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3057,7 +3057,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3072,7 +3072,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3100,7 +3100,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3115,7 +3115,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3143,7 +3143,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3158,7 +3158,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3186,7 +3186,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3201,7 +3201,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3229,7 +3229,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3244,7 +3244,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3272,7 +3272,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3287,7 +3287,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3315,7 +3315,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3330,7 +3330,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3358,7 +3358,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3373,7 +3373,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3401,7 +3401,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3416,7 +3416,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3444,7 +3444,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3459,7 +3459,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3487,7 +3487,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3502,7 +3502,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3530,7 +3530,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3545,7 +3545,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3573,7 +3573,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3588,7 +3588,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3616,7 +3616,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3631,7 +3631,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3659,7 +3659,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3674,7 +3674,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3702,7 +3702,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3717,7 +3717,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3745,7 +3745,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3760,7 +3760,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3788,7 +3788,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3803,7 +3803,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3831,7 +3831,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3846,7 +3846,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3874,7 +3874,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3889,7 +3889,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3917,7 +3917,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3932,7 +3932,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -3960,7 +3960,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -3975,7 +3975,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -4003,7 +4003,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -4018,7 +4018,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -4046,7 +4046,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -4061,7 +4061,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -4089,7 +4089,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -4104,7 +4104,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -4132,7 +4132,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -4147,7 +4147,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -4175,7 +4175,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -4190,7 +4190,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -4218,7 +4218,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -4233,7 +4233,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -4261,7 +4261,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -4276,7 +4276,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -4304,7 +4304,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -4319,7 +4319,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -4347,7 +4347,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -4362,7 +4362,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -4390,7 +4390,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -4405,7 +4405,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -4433,7 +4433,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "ALL_SCOPES"
         ],
@@ -4448,7 +4448,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
           ],
@@ -5033,7 +5033,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_FAMILY"
         ],
@@ -5048,7 +5048,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_FAMILY"
           ],
@@ -5074,7 +5074,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_FAMILY"
         ],
@@ -5089,7 +5089,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_FAMILY"
           ],
@@ -5115,7 +5115,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5130,7 +5130,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5156,7 +5156,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5171,7 +5171,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5197,7 +5197,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5212,7 +5212,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5238,7 +5238,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5253,7 +5253,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5279,7 +5279,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5294,7 +5294,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5320,7 +5320,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5335,7 +5335,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5361,7 +5361,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5376,7 +5376,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5402,7 +5402,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5417,7 +5417,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5443,7 +5443,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5458,7 +5458,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5484,7 +5484,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5499,7 +5499,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5525,7 +5525,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5540,7 +5540,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5566,7 +5566,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "FONT_SIZE"
         ],
@@ -5581,7 +5581,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "FONT_SIZE"
           ],
@@ -5607,7 +5607,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -5622,7 +5622,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
@@ -5648,7 +5648,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -5663,7 +5663,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
@@ -5689,7 +5689,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -5704,7 +5704,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
@@ -5730,7 +5730,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -5745,7 +5745,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
@@ -5771,7 +5771,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -5786,7 +5786,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
@@ -5812,7 +5812,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -5827,7 +5827,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
@@ -5853,7 +5853,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -5868,7 +5868,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
@@ -5894,7 +5894,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -5909,7 +5909,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
@@ -5935,7 +5935,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -5950,7 +5950,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
@@ -5976,7 +5976,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -5991,7 +5991,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
@@ -6017,7 +6017,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -6032,7 +6032,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
@@ -6058,7 +6058,7 @@ export default {
     "comment": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
+        "hiddenFromPublishing": false,
         "scopes": [
           "LINE_HEIGHT"
         ],
@@ -6073,7 +6073,7 @@ export default {
       "comment": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
+          "hiddenFromPublishing": false,
           "scopes": [
             "LINE_HEIGHT"
           ],
