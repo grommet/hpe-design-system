@@ -59,7 +59,7 @@
     "small": {
       "$type": "number",
       "$value": 768,
-      "$description": "",
+      "$description": "Default mobile breakpoint.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
