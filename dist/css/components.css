@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Sep 2024 00:08:31 GMT
+ * Generated on Wed, 18 Sep 2024 20:25:27 GMT
  */
 
 :root {
@@ -405,6 +405,8 @@
   --hpe-checkbox-control-indeterminate-hover-border-color: var(--hpe-color-border-strong);
   --hpe-checkbox-control-indeterminate-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-checkbox-control-indeterminate-enabled-border-color: var(--hpe-color-border-selected);
+  --hpe-checkbox-control-disabled-border-color: var(--hpe-color-border-disabled);
+  --hpe-checkbox-control-disabled-background: var(--hpe-color-background-disabled);
   --hpe-checkbox-control-selected-disabled-icon-color: var(--hpe-color-icon-disabled);
   --hpe-checkbox-control-selected-disabled-border-color: var(--hpe-color-border-disabled);
   --hpe-checkbox-control-selected-disabled-background: var(--hpe-color-background-disabled);
@@ -412,8 +414,6 @@
   --hpe-checkbox-control-selected-hover-border-color: var(--hpe-color-border-strong);
   --hpe-checkbox-control-selected-enabled-icon-color: var(--hpe-color-icon-on-selected-strong);
   --hpe-checkbox-control-selected-enabled-border-color: var(--hpe-color-border-selected);
-  --hpe-checkbox-control-disabled-border-color: var(--hpe-color-border-disabled);
-  --hpe-checkbox-control-disabled-background: var(--hpe-color-background-disabled);
   --hpe-checkbox-control-hover-border-color: var(--hpe-color-border-strong);
   --hpe-checkbox-control-enabled-border-color: var(--hpe-color-border-default);
   --hpe-select-option-selected-enabled-background: var(--hpe-color-background-selected-weak-enabled);
@@ -509,9 +509,9 @@
   --hpe-button-primary-disabled-icon-color: var(--hpe-color-icon-disabled);
   --hpe-button-primary-disabled-text-color: var(--hpe-color-text-disabled);
   --hpe-button-primary-disabled-background: var(--hpe-color-background-disabled);
+  --hpe-button-primary-enabled-background-color: var(--hpe-color-background-primary-default);
   --hpe-button-primary-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-button-primary-enabled-text-color: var(--hpe-color-text-on-primary);
-  --hpe-button-primary-enabled-background-color: var(--hpe-color-background-primary-default);
   --hpe-component-xlarge-border-width: var(--hpe-border-width-default);
   --hpe-component-large-border-width: var(--hpe-border-width-default);
   --hpe-component-medium-border-width: var(--hpe-border-width-default);

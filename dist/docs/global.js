@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Sep 2024 00:08:30 GMT
+ * Generated on Wed, 18 Sep 2024 20:25:26 GMT
  */
 
 export default {
@@ -11,7 +11,7 @@ export default {
       "color": "#00e8cf",
       "width": "2px"
     },
-    "comment": "For dev use only.",
+    "comment": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -28,7 +28,7 @@ export default {
         "color": "{color.focus}",
         "width": "{base.dimension.50}"
       },
-      "comment": "For dev use only.",
+      "comment": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -167,7 +167,7 @@ export default {
   "hpe.breakpoint.small": {
     "$type": "number",
     "value": "768px",
-    "comment": "Default mobile breakpoint.",
+    "comment": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -182,7 +182,7 @@ export default {
     "original": {
       "$type": "number",
       "value": 768,
-      "comment": "Default mobile breakpoint.",
+      "comment": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Sep 2024 00:08:31 GMT
+ * Generated on Wed, 18 Sep 2024 20:25:27 GMT
  */
 
 module.exports = {
@@ -9,11 +9,11 @@ module.exports = {
       "primary": {
         "enabled": {
           "background": "linear-gradient(70deg, #00000000, #01a982 35%, #00000000 70%, #01a982 100%)",
-          "backgroundColor": "background-primary-default",
           "borderColor": "#00000000",
           "textColor": "text-onPrimary",
           "iconColor": "icon-onPrimary",
-          "fontWeight": 700
+          "fontWeight": 700,
+          "backgroundColor": "background-primary-default"
         },
         "disabled": {
           "background": "background-disabled",
@@ -583,10 +583,6 @@ module.exports = {
           "background": "#00000000",
           "borderColor": "border-strong"
         },
-        "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
-        },
         "selected": {
           "enabled": {
             "background": "background-selected-strong-enabled",
@@ -603,6 +599,10 @@ module.exports = {
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
+        },
+        "disabled": {
+          "background": "background-disabled",
+          "borderColor": "border-disabled"
         },
         "indeterminate": {
           "enabled": {

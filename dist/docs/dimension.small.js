@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Sep 2024 00:08:31 GMT
+ * Generated on Wed, 18 Sep 2024 20:25:27 GMT
  */
 
 export default {
@@ -1085,7 +1085,7 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "WIDTH_HEIGHT"
         ],
         "codeSyntax": {}
       }
@@ -1100,7 +1100,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "WIDTH_HEIGHT"
           ],
           "codeSyntax": {}
         }
@@ -1167,7 +1167,7 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "WIDTH_HEIGHT"
         ],
         "codeSyntax": {}
       }
@@ -1182,7 +1182,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "WIDTH_HEIGHT"
           ],
           "codeSyntax": {}
         }

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Sep 2024 00:08:31 GMT
+ * Generated on Wed, 18 Sep 2024 20:25:27 GMT
  */
 
 export default {
@@ -67,51 +67,6 @@ export default {
       "primary",
       "enabled",
       "background"
-    ]
-  },
-  "hpe.button.primary.enabled.backgroundColor": {
-    "$type": "color",
-    "value": "#01a982",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{color.background.primary.default}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.button.primary.enabled.backgroundColor",
-    "attributes": {
-      "category": "button",
-      "type": "primary",
-      "item": "enabled",
-      "subitem": "backgroundColor"
-    },
-    "path": [
-      "button",
-      "primary",
-      "enabled",
-      "backgroundColor"
     ]
   },
   "hpe.button.primary.enabled.borderColor": {
@@ -288,6 +243,51 @@ export default {
       "primary",
       "enabled",
       "fontWeight"
+    ]
+  },
+  "hpe.button.primary.enabled.backgroundColor": {
+    "$type": "color",
+    "value": "#01a982",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.background.primary.default}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.primary.enabled.backgroundColor",
+    "attributes": {
+      "category": "button",
+      "type": "primary",
+      "item": "enabled",
+      "subitem": "backgroundColor"
+    },
+    "path": [
+      "button",
+      "primary",
+      "enabled",
+      "backgroundColor"
     ]
   },
   "hpe.button.primary.disabled.background": {
@@ -17684,96 +17684,6 @@ export default {
       "borderColor"
     ]
   },
-  "hpe.checkbox.control.disabled.background": {
-    "$type": "color",
-    "value": "#0000000a",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{color.background.disabled}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.disabled.background",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "disabled",
-      "subitem": "background"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "disabled",
-      "background"
-    ]
-  },
-  "hpe.checkbox.control.disabled.borderColor": {
-    "$type": "color",
-    "value": "#0000001f",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{color.border.disabled}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.disabled.borderColor",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "disabled",
-      "subitem": "borderColor"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "disabled",
-      "borderColor"
-    ]
-  },
   "hpe.checkbox.control.selected.enabled.background": {
     "$type": "color",
     "value": "#01a982",
@@ -18195,6 +18105,96 @@ export default {
       "selected",
       "disabled",
       "iconColor"
+    ]
+  },
+  "hpe.checkbox.control.disabled.background": {
+    "$type": "color",
+    "value": "#0000000a",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.background.disabled}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.control.disabled.background",
+    "attributes": {
+      "category": "checkbox",
+      "type": "control",
+      "item": "disabled",
+      "subitem": "background"
+    },
+    "path": [
+      "checkbox",
+      "control",
+      "disabled",
+      "background"
+    ]
+  },
+  "hpe.checkbox.control.disabled.borderColor": {
+    "$type": "color",
+    "value": "#0000001f",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.border.disabled}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.control.disabled.borderColor",
+    "attributes": {
+      "category": "checkbox",
+      "type": "control",
+      "item": "disabled",
+      "subitem": "borderColor"
+    },
+    "path": [
+      "checkbox",
+      "control",
+      "disabled",
+      "borderColor"
     ]
   },
   "hpe.checkbox.control.indeterminate.enabled.background": {
