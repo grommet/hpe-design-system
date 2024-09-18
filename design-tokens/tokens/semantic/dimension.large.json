@@ -338,7 +338,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": ["WIDTH_HEIGHT"],
             "codeSyntax": {}
           }
         }
@@ -362,7 +362,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
+            "scopes": ["WIDTH_HEIGHT"],
             "codeSyntax": {}
           }
         }
