@@ -7,7 +7,7 @@
         "color": "{color.focus}",
         "width": "{base.dimension.50}"
       },
-      "$description": "For dev use only.",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -59,7 +59,7 @@
     "small": {
       "$type": "number",
       "$value": 768,
-      "$description": "Default mobile breakpoint.",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
