@@ -1,0 +1,184 @@
+import { Anchor } from 'grommet';
+import { BestPracticeGroup, Example } from '../../layouts';
+import {
+  BannerContentLayoutExample,
+  BannerNotificationCritical,
+  BannerNotificationCriticalClose,
+  BannerNotificationDoExample,
+  BannerNotificationDontExample,
+  BannerNotificationInfo,
+  BannerNotificationWarning,
+  BannerNotificationWarningClose,
+  BannerNotificationDiagram,
+} from '../../examples';
+import { Checkmark } from 'grommet-icons';
+
+{/* height, width, and screenContainer.scale value chosen to best visually represent the example */}
+
+<Example
+  showResponsiveControls={['fullScreen']}
+  height="650px"
+  width="100%"
+  docs="https://v2.grommet.io/notification?theme=hpe"
+  figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?m=auto&node-id=21753-5242&t=es1RXYNRHqCIwU7m-1"
+  caption="An example of a dashboard with a Global notification warning the user that their subscription is expiring. The user can either dismiss the notification or click on the anchor to renew their subscription."
+  screenContainer={{ scale: 0.57 }}
+>
+  <BannerContentLayoutExample />
+</Example>
+
+## When to use
+
+Global notifications are high-attention notifications used primarily for status updates on background processes and upcoming system changes and releases.
+
+Global notifications are used to showcase warning and critical statuses or informational alerts. Depending on the severity of the information, they may remain persistent across multiple sessions or be dismissible by the user.
+
+## When not to use
+
+- Completion of tasks, such as long running or batch actions.
+- Success or failure confirmations.
+- Low-attention and low-severity information.
+
+For low-severity notifications that do not require user action or user attention such as confirmation receipts, instead use [Toast Notifications](/templates/toast-notifications).
+
+## Anatomy
+
+<Example
+  caption="Diagram illustrating the four parts of a Global Notification."
+  plain
+>
+  <BannerNotificationDiagram />
+</Example>
+
+| Label | Region                       | Purpose                                                      |                  Required                   | Notes                                                                                                          |
+| ----- | ---------------------------- | ------------------------------------------------------------ | :-----------------------------------------: | -------------------------------------------------------------------------------------------------------------- |
+| **1** | **Icon or status indicator** | Indicates the status of notification                         | <Checkmark a11yTitle="true" size="small" /> | <span>Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span> |
+| **2** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                             |
+| **3** | **Anchors (optional)**       | Used to direct users to additional detail or related content |                  Optional                   | --                                                                                                             |
+| **4** | **Close button**             | Dismisses the notification                                   |                  Optional                   | Critical notifications should not be dismissible.                                                              |
+
+## Best practices
+
+- Since Global notifications take over the top of an interface and can be intrusive, they should be reserved only for important system generated updates.
+- Also when applicable, Global notifications should always have a relevant anchor(s) to direct users to further actions or to view more about the issue in full detail.
+- Do not use `onClose` when information is important and needs to remain persistent. Also, global notifications may remain persistent across multiple sessions until they are dismissed.
+
+### Placement
+
+- Always located directly below the Global Header without a gap and should be implemented inline with content so no content or actions are obscured.
+- Can persist across multiple sessions until dismissed if necessary.
+
+### Format
+
+- Only show one global notification at a time.
+- Global notifications should stay within the 192 character limit.
+- Long text is not truncated but instead will wrap on smaller screen sizes.
+- Anchors are left-aligned and will wrap alongisde the text.
+- Use only two or fewer anchors.
+- Utilize writing guide to stay within character count as well as the writing effective content guidance for appropriate language.
+
+### Behavior
+
+- Never sticky and should scroll when there is other content.
+- The background spans the full width of the screen, but the content resizes alongside the Global Header.
+
+### Things to avoid
+
+- Global notifications are not clickable. Instead use anchors to direct users to take further action or to view the issue in full detail.
+- Do not allow messages to exceed 192 characters.
+
+## Variants
+
+### Dismissible info notification
+
+Some possible use cases are when **new features are available** or a **new release is coming**. Informational notifications should be dismissible.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationInfo.js"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/global-banner-notification/Examples/BannerNotificationInfo.js"
+  docs="https://v2.grommet.io/notification?theme=hpe"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <BannerNotificationInfo />
+</Example>
+
+### Dismissible critical notification
+
+One possible use case is **scheduled maintenance**. A critical status should be used and the notification should be dismissible.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationCriticalClose.js"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationCriticalClose.js"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <BannerNotificationCriticalClose />
+</Example>
+
+### Persistent critical notification
+
+One possible use case is when **platform access is unavailable due to the system**. A critical status should be used and should not be dismissible.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationCritical.js"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationCritical.js"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <BannerNotificationCritical />
+</Example>
+
+### Dismissible warning notification
+
+One possible use case is when **subscriptions about to expire**. A warning status should be used and the notification should be dismissible.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationWarningClose.js"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationWarningClose.js"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <BannerNotificationWarningClose />
+</Example>
+
+### Persistent warning notification
+
+One possible use case is a **session timeout**. A warning status should be used and should not be dismissible. The notification should also contain a relevant anchor to refresh.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationWarning.js"
+  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/templates/global-banner-notifications/Examples/BannerNotificationWarning.js"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <BannerNotificationWarning />
+</Example>
+
+## Do’s and don’ts
+
+<BestPracticeGroup columns="auto" gap="none">
+  <Example
+    bestPractice={{
+      type: 'do',
+      message:
+        'Global notifications should always have an anchor (or anchors) that is relevant to resolving the notification. It is not recommended to use more than two anchors. Also, low-severity notifications should be dismissible.',
+    }}
+    height={{ min: 'small' }}
+    pad="large"
+    width="100%"
+  >
+    <BannerNotificationDoExample />
+  </Example>
+  <Example
+    height={{ min: 'small' }}
+    pad="large"
+    bestPractice={{
+      type: 'dont',
+      message: `Overloading notifications with long messages and anchors can lead to clutter and confusion.`,
+    }}
+    width="100%"
+  >
+    <BannerNotificationDontExample />
+  </Example>
+</BestPracticeGroup>

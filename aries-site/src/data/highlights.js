@@ -78,7 +78,7 @@ export const highlights = [
     },
   },
   {
-    name: 'Page Layouts',
+    name: 'Page layouts',
     summary: 'Common designs for building your enterprise experience',
     image: {
       src: {

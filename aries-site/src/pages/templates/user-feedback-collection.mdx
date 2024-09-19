@@ -1,3 +1,4 @@
+import { Anchor } from 'grommet';
 import {
   FeedbackAnatomy,
   SimpleFeedbackExample,
@@ -8,7 +9,7 @@ import { Checkmark } from 'grommet-icons';
 
 export const contact = {
   name: 'HPE GreenLake Experience Management COE',
-  email: 'dhpegreenlakexm@hpe.com',
+  email: 'hpegreenlakexm@hpe.com',
 };
 
 Feedback collected from users provides qualitative insights into users' perception of ease-of-use
@@ -25,7 +26,7 @@ to form a well-rounded analytic picture of the customer experience.
 
 ## When to use
 
-When and where to collect feedback from users should be a collaborative effort working with the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>HPE GreenLake Experience Management COE</a>.
+When and where to collect feedback from users should be a collaborative effort working with the <Anchor href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>HPE GreenLake Experience Management COE</Anchor>.
 This team will work with you to construct a questionnaire aligned with your objectives and
 [provide implementation details](#feedback-setup-and-submission) such as API credentials and endpoints for submitting
 feedback responses.
@@ -34,7 +35,7 @@ In-app feedback collection should be considered where it aids the understanding 
 perceptions around the ease-of-use and/or satisfaction with particular content, features,
 or workflows.
 
-Feedback may be [actively solicited](#solicited-feedback) or [passively collected](#capturing-unsolicited-feedback).
+Feedback may be [actively solicited](#solicited-feedback) or [passively collected](#unsolicited-feedback).
 
 ### When not to use
 
@@ -43,7 +44,7 @@ Don’t collect feedback in the following use cases:
 - Collecting feedback should not interrupt or impede a user from completing their intended objective.
 - There is no actionable plan for what to do with the data.
 - In locations where users do not have enough context to form a valid opinion.
-- There are too many instances soliciting feedback which can [dilute feedback effectiveness](#sampling-frequency).
+- There are too many instances soliciting feedback which can [dilute feedback effectiveness](#sampling-frequency-for-actively-solicited-feedback).
 
 ### Sampling frequency for actively solicited feedback
 
@@ -91,7 +92,7 @@ Feedback surveys are composed with Grommet Form and FormFields containing any in
 
 ### Feedback setup and submission
 
-To initiate user feedback collection, please contact the <a href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>HPE GreenLake Experience Management COE</a> for the following steps:
+To initiate user feedback collection, please contact the <Anchor href={`mailto:${contact.email}?subject=Collecting%20user%20feedback%20in%20a%20product%20experience`}>HPE GreenLake Experience Management COE</Anchor> for the following steps:
 
 1. The customer experience team will work with you to understand your needs and create a dedicated survey for your use case. At that time, an API token, survey id, and response id will be provided.
 1. Map UI survey implementation to the survey's response schema. Use the API token, survey Id, and response Id to obtain the survey response schema with the [retrieve a survey response call](https://api.qualtrics.com/1179a68b7183c-retrieve-a-survey-response). The properties in the "values" object represent the data which should be submitted with each new survey response.
@@ -115,6 +116,10 @@ fetch(`https://yul1.qualtrics.com/API/v3/surveys/${SURVEY_ID}/responses`, {
 });
 ```
 
+**Notes**:
+
+- During testing, please use the endpoint `https://iad1.qualtrics.com/API/v3/surveys/${SURVEY_ID}/responses` instead
+
 ### Passing non-user data
 
 There may be non-user data that needs to passed as a parameter in the survey response. A good example of this can
@@ -134,6 +139,11 @@ For example you may want to pass the currrent url with user collect data:
   };
 
 ```
+
+**Notes**:
+
+- The structure of the `surveyValues` object needs to exactly match the fields associated with a given survey. These fields (QID-type fields) are NOT free-form entry fields and will be ignored if they do not match the survey in question. They cannot be shared between surveys and may differ even for two identical surveys.
+- Review the response structure within the XM tool and validate they survey field structure using a tool (like Postman) and verfiy that all responses are collected correctly.
 
 ## Examples
 

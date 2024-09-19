@@ -91,10 +91,12 @@ export const FilterServers = () => (
     height={{ min: 'medium' }}
   >
     <Data data={serverhealth} properties={properties}>
-      <Toolbar>
-        <DataSearch responsive />
+      <Toolbar gap="medium">
+        <Toolbar>
+          <DataSearch responsive />
+          <DataFilters layer />
+        </Toolbar>
         <DataTableColumns drop tip="Configure columns" options={options} />
-        <DataFilters layer />
         {/* Flex Box added for spacing between Button */}
         <Box flex />
         <Button secondary label="Add server" />

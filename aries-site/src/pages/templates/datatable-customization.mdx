@@ -3,7 +3,6 @@ import {
   ColumnSettingsExample,
 } from '../../examples';
 import { Example } from '../../layouts';
-import { Box } from 'grommet';
 
 <Example
   code={[
@@ -32,7 +31,7 @@ which columns should appear in the DataTable and another for ordering the column
 
 Since we want to customize the data table itself, we have separate controls for changing
 which columns are shown in the data table and their order. Place a button with a `Manage columns`
-icon between the search and filter controls on the left. These view controls change what items
+icon to the right of the search and filter controls. These view controls change what items
 are shown in the data table or how they are presented rather than changing the items themselves.
 The right aligned `Actions` menu is mainly for actions which modify items in the data table.
 
@@ -43,18 +42,16 @@ be active and labeled "Select columns." The tab content should consist of a Sear
 and a CheckBoxGroup that lists all possible table columns.
 
 When a column in the list is checked, it is visible in the data table. When it is unchecked,
-it is removed from the data table. Adjustments to the table data should occur immediately as
+it is removed from the data table. When a column from the data table is required, display it as checked and disabled. Adjustments to the table data should occur immediately as
 the user checks or unchecks a column, as opposed to waiting until the dropdown closes.
 
 The user can also search for a specific column by typing in the Search input.
 
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/ColumnSettings.js"
-  horizontalLayout
-  height="none"
-  width={{ min: 'medium' }}
->
-  <ColumnSettingsExample activeIndex={0} />
+<Example 
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/ColumnSettingsExample.js"
+
+height="none">
+    <ColumnSettingsExample />
 </Example>
 
 ### Column order
@@ -66,12 +63,3 @@ the move up/move down buttons that are present next to each column name.
 
 Similar to column selection, the reordering of the data table columns should take
 place immediately, as opposed to waiting until the dropdown closes.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/table-customization/components/ColumnSettings.js"
-  horizontalLayout
-  height="none"
-  width={{ min: 'medium' }}
->
-  <ColumnSettingsExample activeIndex={1} />
-</Example>

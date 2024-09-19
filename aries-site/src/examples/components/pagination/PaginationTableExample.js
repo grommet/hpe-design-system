@@ -520,7 +520,7 @@ export const PaginationTableExample = () => {
         level={3}
         margin={{ bottom: 'small', top: 'none' }}
       >
-        Storage Pools
+        Storage pools
       </Heading>
       <Box>
         <DataTable

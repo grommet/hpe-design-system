@@ -1,72 +1,113 @@
+import { Text } from 'grommet';
 import { Example } from '../../layouts';
 import {
   FilteringCards,
   FilteringLists,
   FilteringTable,
-  FilteringWithRangeSelector,
-  FilteringWithSelect,
+  QuickFilterToolbar,
 } from '../../examples';
+
+export const DataSummaryExample = ({ filters }) => (
+  <Text>
+    {filters ? 'X results of ' : undefined}Y items
+    <Text margin={{ horizontal: 'xsmall' }}>|</Text>Z selected
+  </Text>
+);
+
+For details on the components that make up the filtering experience, see [Data documentation](/components/data).
 
 <Example
   code={[
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringCards/FilteringCards.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringCards/mockData.js',
   ]}
-  figma="https://www.figma.com/file/EA0OZFdocKVcQ55c7Jainb/HPE-Filter-Templates?node-id=681%3A1430"
-  showResponsiveControls={['laptop', 'mobile']}
+  docs="https://v2.grommet.io/data"
+  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=163-77&t=r7Bf1k6QfmCKSMhJ-1"
+  showResponsiveControls={['fullScreen']}
   template
 >
   <FilteringCards />
 </Example>
 
-## What makes up filtering?
+## When to use
 
-Filtering allows data to be narrowed down around a set of specified parameters. When users may not have a specific record in mind but are seeking to group data around a certain set of attributes, filtering should be used to allow the user to narrow the data and take action on relevant records.
+Filtering allows data to be narrowed down around a set of specified parameters. When users may not have a specific record in mind but are seeking to group data around a certain set of attributes, filtering allows the user to narrow the data and take action on relevant records.
 
 If a user will likely be looking for a specific record as opposed to groups of data, consider implementing search.
 
-### Controls
+## Placement
 
 Filter controls should live above the data content and facilitate a user's ability to locate and take actions against records of interest.
 
-### Filters
+## Presentation
 
-The way filters are displayed is dependent on the use case, number of filters, and data types of the content. These [general guidelines](#guidelines) are a starting point for how to present filtering in your application, but it's important to consider each recommendation in the context of your application's use cases.
+The way filters are displayed is dependent on the number of filters, data types of the content, and the use case.
 
-### Results
+- In most cases, filters should be [presented in a side-drawer layer](#filters-in-a-layer) that can be opened by a button with Filter icon.
+- At times, it may be helpful to expose a [frequently used filter in the toolbar](#exposed-filter-in-toolbar) directly.
 
-Results should live below the controls and display any records that meet filter criteria.
+Filter types should suit both the type of data and number of options available. For example, rendering numeric data as a RangeSelector is more beneficial than rendering it as a CheckBoxGroup because it allows the user to more efficiently define a desired range.
+
+When building with [Data and friends](/components/data), a smart default input for a given property will be determined based on the type of data and the number of options. For details on which/how the default input type is chosen, see [DataFilter documentation](/components/data#datafilter).
+
+While the default input types are intended as smart defaults for the 80% case, other input types can be used if it better suits the use case.
+
+## Results
+
+Results should live below the controls and display any records that meet the filter criteria.
 Depending on the data types and use case, results may be represented by a
 [List](/templates/lists), [Cards](/components/card), or [DataTable](/components/datatable).
 
-### Pagination
+## Data summary
 
-If the number of records displayed per page is limited, pagination should be placed underneath the results.
+The summary displayed beneath the filter controls should always reflect the user's actions. When [filtering is combined with selection](#selectable-results), the summary text should adjust for the following scenarios.
 
-## When to use
+| State                                | Summary                        | Notes                                                                                                  |
+| ------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| **No filters, no selections**        | Y items                        | Y is the total number of items in the dataset.                                                         |
+| **Filters applied, no selections**   | X results of Y items           | X is the number of items that meet the filter criteria. Y is the total number of items in the dataset. |
+| **No filters, selections made**      | <DataSummaryExample />         | Z is the total number of items selected.                                                               |
+| **Filters applied, selections made** | <DataSummaryExample filters /> | Z is the total number of items selected.                                                               |
+
+When building with Grommet, [DataSummary](/components/data#datasummary) manages these messages automatically.
+
+## Pagination
+
+For large data sets, it can be helpful to paginate the data and display pagination controls underneath the results. For details on pagination behavior, see [Pagination documentation](/components/pagination).
+
+## Examples
 
 ### Filters in a layer
 
-When applying many filters at once, it is helpful to present them in a consolidated [Layer](/components/layer).
+When applying many filters at once, it is helpful to present them in a consolidated layer.
 
 <Example
   code={[
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringLists/FilteringLists.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringLists/mockData.js',
   ]}
-  showResponsiveControls={['laptop', 'mobile']}
+  docs="https://v2.grommet.io/data"
+  showResponsiveControls={['fullScreen']}
   template
 >
   <FilteringLists />
 </Example>
 
-### Filtering with selectable results
+### Exposed filter in toolbar
 
-The summary displayed beneath the search input should always reflect the user's actions. When filtering is combined with selection, the summary text should adjust for the following scenarios:
+If it's expected that a specific filter or filters will be most frequently used, the filter can be exposed in the toolbar. Use your understanding of the use case to determine if this will aid the user's goal.
 
-- No filters, no selections &mdash; The summary should read "X items", where X is the total number of items.
-- Filters applied, no selections &mdash; The summary should read "X results of Y items".
-- Selections made &mdash; The summary should read "X of Y items selected", where Y is the total number of results that meet the filter criteria or the total number of items if no filtering has been applied.
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/QuickFilterToolbar.js"
+  docs="https://v2.grommet.io/data"
+  template
+  height="auto"
+  showResponsiveControls={['fullScreen']}
+>
+  <QuickFilterToolbar />
+</Example>
+
+### Selectable results
 
 <Example
   code={[
@@ -74,51 +115,10 @@ The summary displayed beneath the search input should always reflect the user's 
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringTable/FilterServers.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringTable/mockData.js',
   ]}
-  showResponsiveControls={['laptop', 'mobile']}
+  docs="https://v2.grommet.io/data"
+  showResponsiveControls={false}
+  width="100%"
   template
 >
   <FilteringTable />
-</Example>
-
-## Guidelines
-
-Filtering should help users quickly narrow down data sets by selecting certain parameters to define the relevant data bounds. Different types of inputs may better suited for filtering depending on the type of data.
-
-Use your best judgement around which input type is appropriate for the data you are filtering. However, here are a few things to consider:
-
-- **Is data presented as Cards or List?** When there is ample screen space, display the
-  filters to the left of the data as a persistent column. Once space
-  becomes limited, use a single filter button that opens a Layer containing the filters.
-- **Is there more than one filter?** Use a single button with filter icon that
-  [opens a Layer containing the filters](/templates/filtering).
-- **When only one item can be selected from a list, use the [Select](/components/select) component.
-- **Is the user going to be selecting from 4 or fewer multiple selection options?** Filter with
-  [CheckBoxGroup](#filters-in-a-center-layer).
-- **If the filter set allows for multiple selections and there are 5 or more items to choose from, use [SelectMultiple](/components/SelectMultiple).
-- **When the data contains 10 or more items, consider including search in your [SelectMultiple](/components/SelectMultiple) implementation.
-- **Is the user aiming to filter based on a range?** Filter with
-  [RangeSelector](#filtering-with-rangeselector).
-
-## More examples of filtering
-
-### Filtering with RangeSelector
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringWithRangeSelector.js"
-  template
-  showResponsiveControls={['laptop', 'mobile']}
->
-  <FilteringWithRangeSelector />
-</Example>
-
-### Filtering with Select
-
-Filtering with Select should be used when the goal of the user will likely be to filter data around one specific criteria. If the user will be selecting multiple criteria, consider using CheckBoxGroup.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/filtering/FilteringWithSelect.js"
-  template
-  showResponsiveControls={['laptop', 'mobile']}
->
-  <FilteringWithSelect />
 </Example>

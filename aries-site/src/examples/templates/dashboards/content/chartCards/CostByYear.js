@@ -62,7 +62,7 @@ export const CostByYear = ({ period }) => {
   }, [consumptionData, reportWindow.begin, reportWindow.end]);
 
   return (
-    <ChartCard title="Annual Spend" subtitle={period}>
+    <ChartCard title="Annual spend" subtitle={period}>
       {values && <AnnualSpend reportWindow={reportWindow} data={values} />}
     </ChartCard>
   );

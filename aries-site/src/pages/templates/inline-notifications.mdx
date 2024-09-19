@@ -22,6 +22,7 @@ or call attention to a new feature in which a user may be interested.
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ModalDialog/ModalDialog.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/typography/TextEmphasis.js',
   ]}
+  figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?m=auto&node-id=21753-5242&t=2U6ZSZfQLODc1QIW-1"
   github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/inline-notifications/InlineNotificationExample.js"
   showResponsiveControls={['fullScreen']}
   screenContainer
@@ -52,10 +53,10 @@ for the following scenarios:
 - **Low severity information** &ndash; If communicating low severity information
   which does not need to persist or require the user's attention, consider using
   a [toast notification](/templates/toast-notifications).
-- **High attention information** &ndash; Consider using [global banner notification](/templates/global-banner-notifications)
+- **High attention information** &ndash; Consider using [global notifications](/templates/global-notifications)
   when communicating information which might result in loss of functionality or
   requires the user's attention and/or action. Examples might include a system
-  outage, critical error, or expiring subscription or license. [Global banner notifications](/templates/global-banner-notifications)
+  outage, critical error, or expiring subscription or license. [Global notifications](/templates/global-notifications)
   are persistent and require user action to acknowledge or dismiss.
 - **Immediate feedback** &ndash; When providing immediate feedback to a user's
   action, a variety of tools are likely more appropriate.
@@ -78,11 +79,11 @@ An inline notification consists of:
 
 | Label | Region                       | Purpose                                                      |                  Required                   | Notes                                                                                                                  |
 | ----- | ---------------------------- | ------------------------------------------------------------ | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Icon or status indicator** | Indicates the type of notification                           | <Checkmark a11yTitle="true" size="small" /> | <span>Normal, Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span> |
-| **2** | **Title**                    | Short, descriptive label identifying the notification        |                                             | Titles should only be used for inline notifications presenting page level summaries.                                   |
-| **3** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> |                                                                                                                        |
-| **4** | **Link**                   | Used to direct users to additional detail or related content |                                             |                                                                                                                        |
-| **5** | **Close button**             | Dismisses the notification                                   |                                             | Critical notifications should not be dismissible.                                                                      |
+| **1** | **Icon or status indicator** | Indicates the status of notification                         | <Checkmark a11yTitle="true" size="small" /> | <span>Normal, Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span> |
+| **2** | **Title**                    | Short, descriptive label identifying the notification        |                  Optional                   | Titles should only be used for inline notifications presenting page level summaries.                                   |
+| **3** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> | --                                                                                                                     |
+| **4** | **Link**                     | Used to direct users to additional detail or related content |                  Optional                   | --                                                                                                                     |
+| **5** | **Close button**             | Dismisses the notification                                   |                  Optional                   | Critical notifications should not be dismissible.                                                                      |
 
 ## Placement
 
@@ -104,7 +105,7 @@ Examples of inline notifications relating to an action element:
 ## Format
 
 - Titles and messages should be brief and clear.
-- Messages should generally be no longer than two lines.
+- Messages should generally be no longer than 192 characters.
 - Longer messages should wrap on narrower screens; they should not be truncated.
 - Anchor links may be used to provide additional information about the
   notification. The links should immediately follow the message and should be
@@ -122,7 +123,7 @@ provide clear direction on how to resolve the issue.
 - **Timely** &ndash; Deliver notifications in a timely manner and ensure they
   are kept up to date with current status.
 - **Informative** &ndash; Messages shoud provide clear context and direction on
-  how to resolve any issues. Follow the [voice and tone guidelines](/guidelines/voice-and-tone) for writing
+  how to resolve any issues. Follow the [voice and tone guidelines](/foundation/voice-and-tone) for writing
   crisp and effective content.
 
 ## Behavior

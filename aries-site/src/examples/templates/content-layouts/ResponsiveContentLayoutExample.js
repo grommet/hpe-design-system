@@ -21,7 +21,7 @@ export const ResponsiveContentLayoutExample = () => {
         <PageContent gap="large">
           <PageHeader
             /* for dev purposes, will be replaced with dashboard content */
-            title={`Dashboard @ '${size}' Breakpoint`}
+            title={`Dashboard @ '${size}' breakpoint`}
           />
           <Content />
         </PageContent>

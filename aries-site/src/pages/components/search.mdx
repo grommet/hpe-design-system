@@ -1,5 +1,6 @@
 import { BestPracticeGroup, Example } from '../../layouts';
 import {
+  ClearSearchExample,
   SearchExample,
   SearchIconPositionExample,
   SearchPlaceholder,
@@ -12,7 +13,7 @@ import {
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/search/SearchExample.js"
   designer="https://designer.grommet.io/search?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
   docs="https://v2.grommet.io/textinput?theme=hpe#props"
-  figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?type=design&node-id=1340-33248&t=KjhQZHbAZR51Nmwu-11"
+  figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?m=auto&node-id=417-9849&t=dNAWkldzvBKPSCeU-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/TextInput/TextInput.js"
   width="medium"
 >
@@ -27,14 +28,14 @@ Many search best practices extend "behind the scenes," such as how query strings
 
 ### Placeholder
 
-Placeholder text should only contain the text "Search".
+Placeholder text should be brief and to the point.
 
 <BestPracticeGroup>
   <Example
     height="small"
     bestPractice={{
       type: 'do',
-      message: 'Search placeholder only contains the text "Search".',
+      message: 'Make the placeholder text concise.',
     }}
   >
     <SearchPlaceholder />
@@ -43,7 +44,7 @@ Placeholder text should only contain the text "Search".
     height="small"
     bestPractice={{
       type: 'dont',
-      message: `Don’t use specific attributes or descriptors in the search placeholder.`,
+      message: `Avoid lengthly placeholder text that overflows.`,
     }}
   >
     <SearchPlaceholder bestPractice={false} />
@@ -64,14 +65,42 @@ Placeholder text should only contain the text "Search".
 
 ### Accessibility
 
-Search inputs should be accessible. Ensure users have the ability to return results using their keyboard as well as clicking a button.
+Search inputs should be accessible. Ensure users have the ability to return results using their keyboard or by clicking a button.
 
-Inputs should always be accompanied by labels for accessibility. An icon may serve as a label if:
+All search inputs should specify `type="search"`.
 
-1. The icon meaning is well understood.
-2. Has an 'aria-labelledby' attribute.
+Use an `aria-label` in addition to a placeholder unless a visual label is provided.
 
-For additional detail, see [ARIA form hints](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints) and ['aria-labelledby'](https://www.w3.org/WAI/tutorials/forms/labels/#using-aria-labelledby).
+For additional detail, see [ARIA form hints](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints).
+
+## Search icon
+
+### Placement
+
+The search icon may be placed either to the right or left of the input field. Icon position is controlled via the [reverse](#icon-position) property.
+
+Place the icon in the position that most helps people to scan the page and identify the search field. Working as a visual aid, the intention should be for the search icon to be seen first and the placeholder text second. When deciding where to place the icon, consider where the search bar is located and how the user might be scanning the page (for example, in an F shape pattern from left to right).
+
+### Interactivity
+
+The search icon is not interactive. The search may be submitted either "onChange" as the user types, "onEnter", or in some cases by clicking on an accompanying button.
+
+## Clear search control
+
+When an input has `type="search"`, many browsers will insert a native "clear" control inside the input that allows the user to clear the entire search string.
+
+The styling of this "clear" control is controlled by each browser, so it may differ visually from HPE brand colors and icons.
+
+Click into the search input to see the "clear" control.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/search/ClearSearchExample.js"
+  docs="https://v2.grommet.io/textinput?theme=hpe#props"
+  width="medium"
+  height="auto"
+>
+  <ClearSearchExample />
+</Example>
 
 ## Variants
 
@@ -107,7 +136,7 @@ Use simple search when its input field is desired to blend with its surrounding 
 
 ### Icon position
 
-The search icon may be placed either to the right or left of the input field. Icon position is controlled via the [reverse](https://v2.grommet.io/textinput?theme=hpe#reverse) property.
+Icon position is controlled via the [reverse](https://v2.grommet.io/textinput?theme=hpe#reverse) property.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/search/SearchIconPositionExample.js"

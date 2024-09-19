@@ -1,5 +1,5 @@
 import { Box, Button, Text } from 'grommet';
-import { Clock, Figma, Next } from 'grommet-icons';
+import { Clock, Next } from 'grommet-icons';
 import Link from 'next/link';
 
 import { Example } from '../../layouts';
@@ -12,15 +12,6 @@ import {
   PageContainerWide,
   PageMarginAnatomy,
 } from '../../examples';
-
-<Button
-  icon={<Figma color="plain" />}
-  label="Open in Figma"
-  secondary
-  alignSelf="start"
-  href="https://www.figma.com/file/4rdBkUlHd5MCVq3hvUOXHd/Page-Layouts?node-id=2%3A1440"
-  target="_blank"
-/>
 
 ## Elements of an app UI
 
@@ -229,7 +220,7 @@ to very wide.
 
 For specific guidelines and templates regarding page content, see [Content Layouts](/templates/content-layouts).
 
-<Link href="/templates/content-layouts" passHref>
+<Link href="/templates/content-layouts" passHref legacyBehavior>
   <Button
     primary
     label="See Content Layouts"

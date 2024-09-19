@@ -137,7 +137,7 @@ export const CreateCluster = () => {
   return (
     <Box alignSelf="center" gap="medium" width="medium">
       <Heading level={2} margin="none">
-        Create Cluster
+        Create cluster
       </Heading>
       <Form
         value={formValues}

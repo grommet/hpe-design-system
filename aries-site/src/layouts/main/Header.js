@@ -22,13 +22,18 @@ const StyledHeader = ({ ...rest }) => {
       }}
       {...rest}
     >
-      <Link href="/" passHref>
+      <Link href="/" passHref legacyBehavior>
         <AppIdentity brand="hpe" logo={false} title="Design System" />
       </Link>
       <Box direction="row" align="center" gap="xsmall">
         {!['xsmall', 'small'].includes(size) &&
           navItems.map(item => (
-            <Link key={item.name} href={nameToPath(item.name)} passHref>
+            <Link
+              key={item.name}
+              href={nameToPath(item.name)}
+              passHref
+              legacyBehavior
+            >
               <Button
                 key={item.name}
                 label={item.name}

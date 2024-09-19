@@ -21,10 +21,7 @@ test(`should navigate to correct path in Header when choosen
 
   await tabToHref(t, expectedPath);
 
-  await t
-    .pressKey('enter')
-    .expect(getLocation())
-    .contains(expectedPath);
+  await t.pressKey('enter').expect(getLocation()).contains(expectedPath);
 });
 
 // eslint-disable-next-line max-len
@@ -45,11 +42,8 @@ test('should navigate to correct path in home page card when choosen via keyboar
   const page = 'Color';
   const element = Selector('a').withText(page);
   const expectedPath = await element.getAttribute('href');
-    
+
   await tabToHref(t, expectedPath);
 
-  await t
-    .pressKey('enter')
-    .expect(getLocation())
-    .contains(expectedPath);
+  await t.pressKey('enter').expect(getLocation()).contains(expectedPath);
 });

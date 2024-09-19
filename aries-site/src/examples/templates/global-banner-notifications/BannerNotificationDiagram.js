@@ -90,7 +90,7 @@ export const BannerNotificationDiagram = () => (
       </AnatomyBox>
       <AnatomyBox>
         <Text id="content" alignSelf="center">
-          Banner message goes here.
+          Message goes here.
         </Text>
       </AnatomyBox>
       <AnatomyBox align="center">

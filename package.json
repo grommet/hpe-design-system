@@ -27,15 +27,18 @@
   },
   "workspaces": [
     "aries-core",
-    "aries-site"
+    "aries-site",
+    "design-tokens",
+    "sandbox/*",
+    "design-tokens-manager"
   ],
   "dependencies": {
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
-    "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/stable",
+    "grommet-theme-hpe": "5.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.11"
   },
   "scripts": {
     "prepare": "husky install"

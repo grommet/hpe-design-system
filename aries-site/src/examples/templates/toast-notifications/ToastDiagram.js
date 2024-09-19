@@ -22,7 +22,7 @@ const connections = [
     color,
     thickness,
     fromTarget: '2',
-    toTarget: 'content',
+    toTarget: 'title',
   },
   {
     anchor,
@@ -30,6 +30,14 @@ const connections = [
     color,
     thickness,
     fromTarget: '3',
+    toTarget: 'message',
+  },
+  {
+    anchor,
+    type,
+    color,
+    thickness,
+    fromTarget: '4',
     toTarget: 'close-button',
   },
 ];
@@ -61,6 +69,14 @@ export const ToastDiagram = () => (
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >
           3
+        </Box>
+        <Box
+          id="4"
+          border
+          round="full"
+          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+        >
+          4
         </Box>
       </Box>
       <ToastPreview title="Status title" message="This is a status message" />

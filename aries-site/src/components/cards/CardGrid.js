@@ -15,7 +15,7 @@ export const CardGrid = ({ cards, headingLevel, minimal, ...rest }) => (
   >
     {cards &&
       cards.map(topic => {
-        const href = topic.href || nameToPath(topic.name);
+        const href = topic.href || nameToPath(topic?.name);
 
         return (
           <ContentCard

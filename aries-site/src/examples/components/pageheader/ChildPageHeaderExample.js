@@ -12,7 +12,7 @@ export const ChildPageHeaderExample = () => (
       <PageHeader
         title="Servers"
         subtitle="View and manage servers."
-        parent={<ReverseAnchor label="Manage Account" />}
+        parent={<ReverseAnchor label="Manage account" />}
       />
       <FilterServers />
     </PageContent>
