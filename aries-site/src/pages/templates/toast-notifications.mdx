@@ -9,11 +9,12 @@ import { StatusGoodSmall } from 'grommet-icons/icons/StatusGoodSmall';
 import { StatusWarningSmall } from 'grommet-icons/icons/StatusWarningSmall';
 import { StatusUnknownSmall } from 'grommet-icons/icons/StatusUnknownSmall';
 import { Box } from 'grommet';
+import { Checkmark } from 'grommet-icons';
 
 <Example
   docs="https://v2.grommet.io/notification"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/toast-notifications/ToastNotificationExample.js"
-  figma="https://www.figma.com/file/FGvOd2htjrChVVS2oz73ds/HPE-Notifications?node-id=1965%3A3844"
+  figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?m=auto&node-id=21753-5242&t=QFApfo4o66WnQoDj-1"
 >
   <ToastNotificationExample />
 </Example>
@@ -72,11 +73,14 @@ Toasts are automatically dismissed after 8 seconds. Because they contain low-att
 
 <ToastDiagram />
 
-Toasts are compromised of three main elements:
+Diagram illustrating the four parts of a Toast notification.
 
-1. Status Indicator
-2. Content (Title + Message)
-3. Close button
+| Label | Region                       | Purpose                                                      |                  Required                   | Notes                                                                                                                  |
+| ----- | ---------------------------- | ------------------------------------------------------------ | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Icon or status indicator** | Indicates the status of notification                         | <Checkmark a11yTitle="true" size="small" /> | <span>Normal, Warning, Critical, and Unknown [status indicators](/templates/status-indicator) can be displayed.</span> |
+| **2** | **Title**                    | Short, descriptive label identifying the notification        | Optional                                            |   --                                                                                                                     |
+| **3** | **Message**                  | Briefly describes the action, status, or additional context  | <Checkmark a11yTitle="true" size="small" /> |    --                                                                                                                    |
+| **4** | **Close button**             | Dismisses the notification                                   | Optional                                            |    --                                                                                                                    |
 
 All toasts have a fixed width size at "medium" (384px) but the height is driven by the amount of content.
 

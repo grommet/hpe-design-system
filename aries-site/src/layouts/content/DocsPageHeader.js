@@ -19,7 +19,7 @@ export const DocsPageHeader = ({ title, topic, render }) => {
             <Anchor label={parent.name} icon={<Previous />} />
           </Link>
         ) : (
-          <Link href={`/${topic.toLowerCase()}`} passHref legacyBehavior>
+          <Link href={nameToPath(topic.toLowerCase())} passHref legacyBehavior>
             <Anchor
               icon={parent.icon('small', parent.color)}
               label={parent.name}

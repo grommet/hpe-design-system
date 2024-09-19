@@ -37,7 +37,8 @@ Here is an example of a toast notification that illustrates their differences:
 
 <StateVsStatusDiagram />
 
-Keep in mind that a status **derives** from a state.
+<br />
+Keep in mind that a status **derives** from a state. The state of this task is successful, therefore the status of the Toast notification is normal.
 
 ## Notification systems
 
@@ -49,34 +50,6 @@ The following types of notifications are used to provide users with full transpa
 ## Variants
 
 There are a couple types of the notification component depending on use case.
-
-### Toast notification
-
-Toast notifications are used for low attention status messages or updates that do not require user action. For more thorough guidance on how and when to properly make use of a toast, access the full page on [Toast Notifications](/templates/toast-notifications).
-
-<Example
-  componentName="Notification"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/toast-notifications/ToastNotificationExample.js"
-  docs="https://v2.grommet.io/notification"
-  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Notification/Notification.js"
->
-  <ToastNotificationExample />
-</Example>
-
-### Global banner notification
-
-Global banner notifications are system-generated alerts that attract the user's attention to system conditions and updates. For more thorough guidance on how and when to properly make use of a global banner, access the full page on [Global Banner Notifications](/templates/global-banner-notifications).
-
-<Example
-  componentName="Notification"
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-banner-notifications/Examples/ToastNotificationExample.js"
-  docs="https://v2.grommet.io/notification"
-  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Notification/Notification.js"
-  height={{ min: 'small' }}
-  width="100%"
->
-  <BannerNotificationCritical />
-</Example>
 
 ### Inline notification
 
@@ -97,13 +70,42 @@ Inline notifications are messages that appear near the content to which they are
   <InlineNotificationExample />
 </Example>
 
+
+### Toast notification
+
+Toast notifications are used for low attention status messages or updates that do not require user action. For more thorough guidance on how and when to properly make use of a toast, access the full page on [Toast Notifications](/templates/toast-notifications).
+
+<Example
+  componentName="Notification"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/toast-notifications/ToastNotificationExample.js"
+  docs="https://v2.grommet.io/notification"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Notification/Notification.js"
+>
+  <ToastNotificationExample />
+</Example>
+
+### Global notifications
+
+Global notifications are system-generated alerts that attract the user's attention to system conditions and updates. For more thorough guidance on how and when to properly make use of a global notification, access the full page on [Global Notifications](/templates/global-notifications).
+
+<Example
+  componentName="Notification"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/global-banner-notifications/Examples/ToastNotificationExample.js"
+  docs="https://v2.grommet.io/notification"
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Notification/Notification.js"
+  height={{ min: 'small' }}
+  width="100%"
+>
+  <BannerNotificationCritical />
+</Example>
+
+
+
 ### Roadmap
 
 The Design System team is currently exploring and researching best practices and considerations for notification patterns. Here are some we plan on addressing:
 
 - Page banner
-- System
-- Inline
 - Notification center
 - Badging & bell
 
