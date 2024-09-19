@@ -17,7 +17,3 @@ export const Head = ({ title }) => (
 Head.propTypes = {
   title: PropTypes.string,
 };
-
-Head.defaultProps = {
-  title: undefined,
-};
