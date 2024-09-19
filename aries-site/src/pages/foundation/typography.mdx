@@ -1,4 +1,5 @@
 import { Button } from 'grommet';
+import { Figma } from 'grommet-icons';
 import {
   HeadingExample,
   ParagraphExample,
@@ -8,18 +9,19 @@ import { Example } from '../../layouts';
 
 Our typography is about more than words. It’s an integral part of our personality and design. When we’re making a statement, we want our visual language to be clear, recognized and understood.
 
-<Button
-  alignSelf="start"
-  label="See in Figma"
-  href="https://www.figma.com/file/oJhw3JqMemtbwWjlLPWW5O/HPE-Typography-Styles?node-id=149%3A2"
-  primary
-  target="_blank"
-  rel="noreferrer noopener"
-/>
+  <Button
+    href="https://www.figma.com/design/oJhw3JqMemtbwWjlLPWW5O/HPE-Typography-Styles?m=auto&node-id=0-1&t=FGQxx1dTsnYSBi3K-1"
+    icon={<Figma color="plain" />}
+    label="Open in Figma"
+    target="_blank"
+    secondary
+    rel="noreferrer noopener"
+    alignSelf="start"
+  />
 
 ## MetricHPE styles
 
-The weights and styles shown are part of the HPE Design System theme. MetricHPE comes in a varity of weights. For digital experiences we use Light, Regular, Medium, and Bold weights at a variety of scales to compliment the content in a given design.
+The weights and styles shown are part of the HPE Design System theme. MetricHPE comes in a varity of weights. For digital experiences we use Light, Regular, Medium, Semibold and Bold weights at a variety of scales to compliment the content in a given design.
 
 ## Heading
 
@@ -52,8 +54,8 @@ If heading levels are not implemented in the correct hierarchy, users of screen 
 - Never skip heading levels. For example, a heading with `level={3}` must always following a heading with `level={2}` but can never immediately proceed a heading with `level={1}`.
 - Do not use semantically incorrect headings to achieve a desired style. Instead, apply the semantically correct heading and let the size of the heading be determined by the theme.
 - It is rare that you should need to use a Heading level greater than 3, as this indicates the information on that page may be very dense. Before implementing heading levels 4-6, consider if there is a more concise way to present the page information or to separate it into more sections
-- Do not use Heading for Card titles since a Card does not define a page section. Instead, use [Text](#text) with a bold treatment. See examples of how to properly implement this in our [Card examples](/components/card).
-- Treat Layers as if they were their own page with the exceptions that the first heading in a Layer would be a Heading with `level={2}`.
+- For Card specific guidance, see [card titles](/components/card#card-titles) documentation.
+- For Layer specific guidance, see [layer titles](/components/layer#layer-titles) documentation.
 
 Below is an example of how Heading levels should be implemented for a page called "Page title" with 3 topics called Topic A, Topic B, and Topic C. Each topic has 2 subtopics.
 

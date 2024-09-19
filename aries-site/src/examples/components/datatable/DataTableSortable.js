@@ -162,7 +162,7 @@ export const DataTableSortable = () => {
         level={3}
         margin={{ bottom: 'small', top: 'none' }}
       >
-        Sortable Items
+        Sortable items
       </Heading>
       <Box align="start" margin={{ right: 'auto' }} overflow="auto">
         <DataTable

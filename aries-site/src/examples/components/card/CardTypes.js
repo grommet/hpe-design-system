@@ -65,7 +65,7 @@ const Type = ({ description, href, preview, title }) => (
       </Heading>
       <Paragraph margin="none">{description}</Paragraph>
       {href ? (
-        <Link href={href} passHref>
+        <Link href={href} passHref legacyBehavior>
           <Button
             a11yTitle={`Read ${title} guidance`}
             alignSelf="start"

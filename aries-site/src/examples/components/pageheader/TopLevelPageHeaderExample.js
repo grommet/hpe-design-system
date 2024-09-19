@@ -25,7 +25,7 @@ import { TextEmphasis } from 'aries-core';
 const data = [
   {
     icon: <Organization />,
-    title: 'Account Details',
+    title: 'Account details',
     subtitle: 'View and edit your company account information.',
   },
   {
@@ -62,7 +62,7 @@ export const TopLevelPageHeaderExample = () => (
     </Box>
     <PageContent>
       <PageHeader
-        title="Manage Account"
+        title="Manage account"
         subtitle="Manage your HPE Common Cloud Account."
         actions={
           <Button a11yTitle="Add cards" icon={<ChapterAdd />} tip="Add cards" />

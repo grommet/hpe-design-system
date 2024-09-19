@@ -50,6 +50,14 @@ const Components = () => (
             headingLevel={3}
           />
         </Subsection>
+        <Subsection name="Data">
+          <CardGrid
+            cards={cards.filter(
+              card => card.category === 'Data' && !card.parentPage,
+            )}
+            headingLevel={3}
+          />
+        </Subsection>
         <Subsection name="Visualizations">
           <CardGrid
             cards={cards.filter(
@@ -58,6 +66,7 @@ const Components = () => (
             headingLevel={3}
           />
         </Subsection>
+
         <Subsection name="All Components">
           <SubsectionText>
             View additional Grommet components which haven't been presented

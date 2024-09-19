@@ -216,7 +216,7 @@ const DecisionTree = () => {
         useCases={['Creating/editing an account, role, user, profile, etc.']}
       >
         Use a{' '}
-        <Link href="#full-page-forms" passHref>
+        <Link href="#full-page-forms" passHref legacyBehavior>
           <Anchor color="text-strong">dedicated page</Anchor>
         </Link>
         .
@@ -248,7 +248,11 @@ const DecisionTree = () => {
         ]}
       >
         Use a{' '}
-        <Link href="/components/layer#side-drawer-modal" passHref>
+        <Link
+          href="/components/layer#side-drawer-modal"
+          passHref
+          legacyBehavior
+        >
           <Anchor color="text-strong">side-drawer</Anchor>
         </Link>
         .
@@ -265,11 +269,11 @@ const DecisionTree = () => {
         detail={
           <Text>
             The form may either be presented as a{' '}
-            <Link href="#full-page-forms" passHref>
+            <Link href="#full-page-forms" passHref legacyBehavior>
               <Anchor color="text-strong">full-page form</Anchor>
             </Link>{' '}
             or as a{' '}
-            <Link href="/templates/wizard" passHref>
+            <Link href="/templates/wizard" passHref legacyBehavior>
               <Anchor color="text-strong">wizard</Anchor>
             </Link>
             . The advantage of presenting the layer in fullscreen mode is that
@@ -294,7 +298,7 @@ const DecisionTree = () => {
   the user’s eye and presents the form task focussed and distraction free.`}
       >
         Use a{' '}
-        <Link href="/components/layer#center-modal" passHref>
+        <Link href="/components/layer#center-modal" passHref legacyBehavior>
           <Anchor color="text-strong">centered modal</Anchor>
         </Link>
         .

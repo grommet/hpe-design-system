@@ -5,6 +5,7 @@ import { DashBoardSkeletonExample, SkeletonAnatomy } from '../../examples';
 <Example
   componentName="Skeleton"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/skeleton/DashBoardSkeletonExample.js"
+  grommetSource="https://github.com/grommet/grommet/tree/master/src/js/components/Skeleton/Skeleton.js"
   docs="https://v2.grommet.io/skeleton?theme=hpe#props"
   height="500px"
   align="start"
@@ -14,16 +15,11 @@ import { DashBoardSkeletonExample, SkeletonAnatomy } from '../../examples';
   <DashBoardSkeletonExample />
 </Example>
 
-### When to use
-Skeletons are used on all pages to provide a visual layout of the content being loaded.  They help users perceive a loading period as being shorter in duration.
+### Use When
+- Waiting for content to be returned and displayed to a user, to provide a sense of page structure and minimize layout shifts.
 
-### When not to use
-Skeletons should not be used if:
-- The data or elements being loaded are unknown.
-- The user is awaiting feedback for in-context actions such as submitting a form or fetching search results.
-  - The Spinner component may be more appropriate.
-- The loading process takes more than a few minutes to load.
-  - Pair with a message or notification to provide the user with better visibility of a system’s status.
+#### Don't Use When
+- Indicating the status for an ongoing activity where the result will be success or failure. Use [Busy Button](/components/button?q=button#busy-buttonn), [Spinner](/components/spinner) or Progress Bar (coming soon) instead.
 
 ### Anatomy
 

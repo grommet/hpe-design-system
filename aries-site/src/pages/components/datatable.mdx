@@ -20,7 +20,7 @@ import {
   componentName="DataTable"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
-  figma="https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table-Component?node-id=195%3A0"
+  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=3886-2&t=MbeGrKbJ20bkXyUL-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/DataTable/DataTable.js"
   showResponsiveControls={['laptop', 'mobile']}
   template
@@ -72,13 +72,6 @@ quickly as possible.
 - As backup, use sortable columns coupled with paginated results. This combination
   provides users with the knowledge of alpha-numeric range, enabling an
   educated guess as to the record's location in the sort.
-
-<ExampleImagePreview
-  label="See finding a specific record"
-  href="#searching-and-filtering-datatables"
-  src="/static/images/Searching_Data_Tables.png"
-  alt="Example demonstrating how to find a record of interest with a Table"
-/>
 
 ### Narrowing a result set
 
@@ -187,7 +180,7 @@ For recognizability, it may be better to crop the middle of a string. Define the
 
 End-text truncation is when the ellipsis is placed at the end of the string.
 
-If truncating numerical values is absolutely necessary, use end-text truncation. Additionally, provide a [tooltip](/compontents/tip) to help users view the complete string.
+If truncating numerical values is absolutely necessary, use end-text truncation. Additionally, provide a [tooltip](/components/tip) to help users view the complete string.
 
 ### Wrapping
 
@@ -210,7 +203,7 @@ For empty cells, add an `a11yTitle="No value"` to the Text component that would 
   componentName="DataTable"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableEmptyCellExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
-  figma="https://www.figma.com/file/XEoIWIlLfcARRIFhkpFCch/HPE-Table-Component?node-id=195%3A0"
+  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=3886-2&t=MbeGrKbJ20bkXyUL-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/DataTable/DataTable.js"
   showResponsiveControls={false}
   template
@@ -225,7 +218,7 @@ To ensure screen readers are able to associate a page heading with a given DataT
 For example, if on the Heading you apply `id="storage-pools-heading"`, on the DataTable you would apply `aria-describedBy="storage-pools-heading"`. In this example, the screen reader would properly associate "Storage Pools" as the description for the DataTable.
 
 ```
-<Heading id="storage-pools-heading">Storage Pools</Heading>
+<Heading id="storage-pools-heading">Storage pools</Heading>
 <DataTable aria-describedBy="storage-pools-heading" />
 ```
 

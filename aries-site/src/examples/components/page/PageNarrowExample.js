@@ -24,7 +24,7 @@ export const PageNarrowExample = () => (
   <Page kind="narrow" flex="grow" pad={{ vertical: 'large' }} {...demoStyle}>
     <PageContent gap="large" {...demoStyle}>
       <PageHeader
-        title="Narrow Page"
+        title="Narrow page"
         actions={[<Button key="Action A" secondary label="Action A" />]}
       />
       <FormSection />

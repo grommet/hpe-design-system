@@ -79,7 +79,7 @@ export const Highlights = ({ ...rest }) => (
         justify="center"
         pad={{ vertical: 'medium' }}
       >
-        <Link href="/showmore" passHref>
+        <Link href="/showmore" passHref legacyBehavior>
           <Button primary label="Show me more" />
         </Link>
       </Box>

@@ -111,10 +111,12 @@ const Results = () => {
   const properties = buildProperties();
   return (
     <Data data={allData} flex properties={properties}>
-      <Toolbar>
-        <DataSearch responsive />
+      <Toolbar gap="medium">
+        <Toolbar>
+          <DataSearch responsive />
+          <DataFilters layer />
+        </Toolbar>
         <DataTableColumns drop options={options} />
-        <DataFilters layer />
         {/* Flex box for spacing between Data components and Actions button  */}
         <Box flex />
         <Menu label="Actions" kind="toolbar" />

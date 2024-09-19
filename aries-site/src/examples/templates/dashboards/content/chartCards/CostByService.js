@@ -126,7 +126,7 @@ export const CostByService = ({ period, notification }) => {
   };
 
   return (
-    <ChartCard title="Cost by Service" subtitle={period}>
+    <ChartCard title="Cost by service" subtitle={period}>
       <Box gap="medium">
         {notification}
         {values && (

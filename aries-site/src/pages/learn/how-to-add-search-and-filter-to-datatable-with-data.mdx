@@ -4,7 +4,7 @@ import { Box, Image, Notification } from 'grommet';
 
 Let’s get started!
 
-Use this [CodeSandbox template](https://codesandbox.io/s/how-to-add-search-and-filter-to-datatable-with-data-7gxmcy?file=/index.js) to start. The template is populated with a paginated DataTable configured to display SpaceX data.
+Use this [CodeSandbox template](https://codesandbox.io/p/devbox/how-to-add-search-and-filter-to-datatable-j7n3dz) to start. The template is populated with a paginated DataTable configured to display SpaceX data.
 
 <Notification
   status="info"
@@ -33,7 +33,9 @@ import { Box, Data, DataTable, Grommet, Pagination, Text } from "grommet";
 
 ### Toolbar
 
-Add `toolbar` as a boolean property on Data to display a search input, filter button, and results summary above the DataTable.
+Setting `toolbar` to 'true' will include a Toolbar containing DataSearch, a results summary above the DataTable, and DataFilters with layer prop.
+
+Grommet offers a [Toolbar component](https://v2.grommet.io/toolbar) for users who may want to configure their own toolbar.
 
 ```
 <Data data={data} toolbar>
@@ -170,7 +172,7 @@ Add the following to Data:
 </Data>
 ```
 
-Now, when the filters menu is opened, the filters will look like this:
+Now, when the filters layer is opened, the filters will look like this:
 
 <Box
   width="medium"
@@ -187,4 +189,4 @@ Now, when the filters menu is opened, the filters will look like this:
 
 Congratulations! You’ve used Data to add search and filter controls to manage what data should be rendered in a DataTable.
 
-To reference a completed implementation, check out this [CodeSandbox with completed code](https://codesandbox.io/s/how-to-add-search-and-filter-to-datatable-with-data-completed-crbf9h?file=/index.js).
+To reference a completed implementation, check out this [CodeSandbox with completed code](https://codesandbox.io/p/devbox/how-to-add-search-and-filter-to-datatable-completed-dgs243).

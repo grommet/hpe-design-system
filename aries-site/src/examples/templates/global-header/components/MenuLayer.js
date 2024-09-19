@@ -90,8 +90,8 @@ const SidebarHeader = () => (
 const SidebarNav = () => (
   <Nav a11yTitle="Sidebar Navigation">
     <NavButton label="Home" />
-    <NavButton label="My Apps" />
-    <NavButton label="App Catalog" />
+    <NavButton label="My apps" />
+    <NavButton label="App catalog" />
     <NavButton label="Manage" />
   </Nav>
 );

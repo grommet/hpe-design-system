@@ -11,7 +11,7 @@ export const applications = [
         href: '#',
       },
       anchor: {
-        label: 'View Networking Products',
+        label: 'View networking products',
         href: '#',
       },
     },
@@ -26,7 +26,7 @@ export const applications = [
         href: '#',
       },
       anchor: {
-        label: 'View Data & Storage Products',
+        label: 'View data & storage products',
         href: '#',
       },
     },
@@ -41,7 +41,7 @@ export const applications = [
         href: '#',
       },
       anchor: {
-        label: 'View Compute Products',
+        label: 'View compute products',
         href: '#',
       },
     },
@@ -56,7 +56,7 @@ export const applications = [
         href: '#',
       },
       anchor: {
-        label: 'View Cloud Workload Products',
+        label: 'View cloud workload products',
         href: '#',
       },
     },
@@ -66,7 +66,7 @@ export const applications = [
 export const activities = [
   {
     icon: <Notes color="blue" />,
-    title: 'Helpful Guides',
+    title: 'Helpful guides',
     description: `Access step by step guides on getting the most out of 
     your GreenLake console.`,
     action: {
@@ -76,7 +76,7 @@ export const activities = [
   },
   {
     icon: <UserAdd color="red" />,
-    title: 'Invite Users',
+    title: 'Invite users',
     description: `Send a sign-up link to users so you can collaborate 
     with your team.`,
     action: {
@@ -86,7 +86,7 @@ export const activities = [
   },
   {
     icon: <CloudUpload color="purple" />,
-    title: 'Manage Devices',
+    title: 'Manage devices',
     description: `Add, apply licenses, and assign devices in your
     device inventory.`,
     action: {

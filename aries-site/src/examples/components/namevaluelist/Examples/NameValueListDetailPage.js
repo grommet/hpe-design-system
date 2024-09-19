@@ -41,10 +41,10 @@ export const NameValueListDetailPage = () => {
           </Box>
         </Tab>
         <Tab title="Policies">
-          <Box margin="small">Policies Information</Box>
+          <Box margin="small">Policies information</Box>
         </Tab>
         <Tab title="Services">
-          <Box margin="small">Services Information</Box>
+          <Box margin="small">Services information</Box>
         </Tab>
       </Tabs>
     </Box>

@@ -47,7 +47,7 @@ export const NameValueListEditHorizontalExample = () => {
   return (
     <Box gap="medium">
       <PageHeader
-        title="Company Information"
+        title="Company information"
         subtitle="Add your company information."
         actions={
           !edit && (

@@ -24,7 +24,7 @@ export const NameValueListEditExample = () => {
   return (
     <Box gap="medium">
       <PageHeader
-        title="Profile Details"
+        title="Profile details"
         actions={
           !edit && (
             <Button

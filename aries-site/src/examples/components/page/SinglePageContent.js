@@ -63,7 +63,7 @@ export const SinglePageContent = ({ containerRef }) => {
     >
       <PageContent gap="large" {...demoStyle}>
         <PageHeader
-          title="Explore Datasets"
+          title="Explore datasets"
           subtitle={`Explore datasets from a variety of sources without reliance
           on IT or governance and compliance.`}
         />

@@ -1,0 +1,47 @@
+name: Update design-tokens-stable
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - design-tokens/**
+
+jobs:
+  update-design-tokens-stable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.18.0'
+
+      - name: Set NPM version
+        run: npm install -g npm@9.5.1
+
+      - name: Clone repo
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: yarn install
+        working-directory: design-tokens
+
+      - name: Build
+        run: yarn build
+        working-directory: design-tokens
+      - name: Update design-tokens-stable
+        run: |
+          git config --global user.name "Grommet Community Bot"
+          git config --global user.email "grommet@hpe.com"
+          yarn release-stable
+        working-directory: design-tokens
+        env:
+          GH_TOKEN: ${{ secrets.GH_ACTION_ACCESS_TOKEN }}
+      # If stable is successfully update, push the same updates to Figma
+      - name: Sync tokens to Figma file
+        run: yarn sync-tokens-to-figma
+        working-directory: design-tokens
+        env:
+          FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
+          FILE_KEY_SEMANTIC: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_SEMANTIC }}
+          FILE_KEY_COMPONENT: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_COMPONENT }}
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_ACTION_VARIABLES_SYNC_FIGMA_TOKEN }}

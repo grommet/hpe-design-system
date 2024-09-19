@@ -4,6 +4,7 @@ import {
   TextInputDisabledExample,
   TextInputLabeledByExample,
   TextInputPasswordExample,
+  TextInputReadOnlyExample,
   TextInputSuggestionsExample,
   TextInputValidationExample,
 } from '../../examples';
@@ -13,7 +14,7 @@ import {
   designer="https://designer.grommet.io/textinput?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
   docs="https://v2.grommet.io/textinput?theme=hpe#props"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/textinput/TextInputExample.js"
-  figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?type=design&node-id=1249-23170&t=KjhQZHbAZR51Nmwu-11"
+  figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?type=design&node-id=2-8&mode=design&t=hjwmMifUySHPcxar-0"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/TextInput/TextInput.js"
 >
   <TextInputExample />
@@ -45,7 +46,7 @@ A TextInput's visual state informs the user of its ability to be interacted with
 
 ### Password
 
-Used to maintain the privacy of the password a user has entered. This is achieved by applying type="password" to the TextInput.
+Used to maintain the privacy of the password, PIN, or any credentials allowing access to an account a user has entered. This is achieved by applying type="password" to the TextInput.
 
 <Example
   docs="https://v2.grommet.io/textinput?theme=hpe#props"
@@ -93,7 +94,7 @@ Used to indicate that a TextInput does not meet the validation requirements of i
 
 ### Disabled
 
-Used to indicate that a TextInput cannot be interacted with.
+Used to indicate that a TextInput cannot be interacted with. When an input is disabled, it will not receive tab focus and will not be submitted with form data.
 
 <Example
   docs="https://v2.grommet.io/textinput?theme=hpe#props"
@@ -101,4 +102,18 @@ Used to indicate that a TextInput cannot be interacted with.
   height={{ min: 'small' }}
 >
   <TextInputDisabledExample />
+</Example>
+
+### Readonly
+
+Used to indicate that a TextInput cannot be edited. When an input is readonly, it will still receive tab focus and be submitted with form data.
+
+Apply `readOnlyCopy` to TextInput to display a copy button in the input.
+
+<Example
+  docs="https://v2.grommet.io/textinput?theme=hpe#props"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/textinput/TextInputReadOnlyExample.js"
+  height={{ min: 'small' }}
+>
+  <TextInputReadOnlyExample />
 </Example>

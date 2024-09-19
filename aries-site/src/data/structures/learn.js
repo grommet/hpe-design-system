@@ -3,13 +3,14 @@ import { Grommet } from 'grommet-icons';
 import {
   BoxPreview,
   DataHowTo,
+  DataHowToAddAdditionalControls,
   GridPreview,
 } from '../../examples/cardPreviews';
 
 export const learn = [
   {
-    name: 'The Box Model Part One',
-    render: 'The Box Model: Part One',
+    name: 'The Box model part one',
+    render: 'The Box model: part one',
     type: 'Getting started',
     description:
       'Build a hero section to learn about fundamental Box properties.',
@@ -24,8 +25,8 @@ export const learn = [
     tags: ['Box', 'layout', 'fundamentals'],
   },
   {
-    name: 'Grid Fundamentals Part One',
-    render: 'Grid Fundamentals: Part One',
+    name: 'Grid fundamentals part one',
+    render: 'Grid fundamentals: part one',
     type: 'Getting started',
     description:
       'Use Grid to display a collection of products, similar to that of an e-commerce website.',
@@ -55,6 +56,21 @@ export const learn = [
     tags: [],
   },
   {
+    name: 'How to add additional controls to a toolbar',
+    description:
+      'This how-to guide shows you how compose a Toolbar when controls beyond search and filter are needed.',
+    type: 'How-to guides',
+    preview: {
+      component: () => <DataHowToAddAdditionalControls />,
+      background: 'background-front',
+    },
+    seoDescription:
+      'This how-to guide shows you how compose a Toolbar when controls beyond search and filter are needed.',
+    sections: [],
+    relatedContent: ['Data', 'Filtering'],
+    tags: [],
+  },
+  {
     name: 'Tshirt sizing',
     render: 'T-shirt sizing',
     type: 'Explanations',
@@ -74,7 +90,7 @@ export const learn = [
     href: '/foundation/tshirt-sizing',
   },
   {
-    name: 'Grommet API Docs',
+    name: 'Grommet API docs',
     type: 'References',
     available: true,
     description:
@@ -86,25 +102,25 @@ export const learn = [
       'Documentation on availability properties and property types for Grommet components.',
     url: 'https://grommet.io',
   },
-  {
-    name: 'Roadmap',
-    type: 'References',
-    available: true,
-    description:
-      'An interactive roadmap of the HPE Design System that provides insight into current and future milestones.',
-    preview: {
-      image: {
-        src: {
-          light: '/extendImages/extend-preview-roadmap.svg',
-          dark: '/extendImages/extend-preview-roadmap-invert.svg',
-        },
-        alt: 'HPE Design System Roadmap',
-        fit: 'contain',
-      },
-    },
-    seoDescription:
-      'An interactive roadmap of the HPE Design System that provides insight into current and future milestones.',
-    sections: [],
-    url: 'https://github.com/orgs/grommet/projects/11?fullscreen=true',
-  },
+  // {
+  //   name: 'Roadmap',
+  //   type: 'References',
+  //   available: true,
+  //   description:
+  //     'An interactive roadmap of the HPE Design System that provides insight into current and future milestones.',
+  //   preview: {
+  //     image: {
+  //       src: {
+  //         light: '/extendImages/extend-preview-roadmap.svg',
+  //         dark: '/extendImages/extend-preview-roadmap-invert.svg',
+  //       },
+  //       alt: 'HPE Design System Roadmap',
+  //       fit: 'contain',
+  //     },
+  //   },
+  //   seoDescription:
+  //     'An interactive roadmap of the HPE Design System that provides insight into current and future milestones.',
+  //   sections: [],
+  //   url: 'https://github.com/orgs/grommet/projects/11?fullscreen=true',
+  // },
 ];

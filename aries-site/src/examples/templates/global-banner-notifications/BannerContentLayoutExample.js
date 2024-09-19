@@ -57,7 +57,7 @@ export const BannerContentLayoutExample = () => (
       <PageContent>
         {/* needed pad to match align with content 
         // strip out once fixed */}
-        <PageHeader title="Page Header" pad="small" />
+        <PageHeader title="Page header" pad="small" />
         <Content />
       </PageContent>
     </Page>

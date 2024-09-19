@@ -64,7 +64,7 @@ const Type = ({ children, href, preview, title }) => (
         {title}
       </Heading>
       {children}
-      <Link href={href} passHref>
+      <Link href={href} passHref legacyBehavior>
         <Button
           a11yTitle={`Read ${title.toLowerCase()} guidance.`}
           alignSelf="start"
