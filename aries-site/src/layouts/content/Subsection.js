@@ -21,10 +21,10 @@ export const HEADING_SIZE = {
 
 export const Subsection = ({
   children,
-  showHeading,
-  gap,
+  showHeading = true,
+  gap = 'medium',
   headingSize,
-  level,
+  level = 2,
   name,
   topic,
   ...rest
@@ -137,13 +137,4 @@ Subsection.propTypes = {
   name: PropTypes.string.isRequired,
   showHeading: PropTypes.bool,
   topic: PropTypes.string,
-};
-
-Subsection.defaultProps = {
-  children: undefined,
-  level: 2,
-  gap: 'medium',
-  headingSize: undefined,
-  showHeading: true,
-  topic: undefined,
 };

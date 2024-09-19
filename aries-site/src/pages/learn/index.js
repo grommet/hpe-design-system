@@ -72,7 +72,11 @@ const Learn = () => (
                       <Heading level={2} margin="none">
                         {type.heading}
                       </Heading>
-                      <Grid columns="medium" gap="medium">
+                      <Grid
+                        columns="medium"
+                        gap="medium"
+                        rows={[['auto', 'full']]}
+                      >
                         {type.data.map(item => (
                           <ContentCard
                             key={item.name}

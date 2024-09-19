@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+}
+:focus-visible {
+  outline: 2px auto var(--hpe-focus-ring-color);
+}
+
+a {
+  /* font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit; */
+}
+a:hover {
+  /* color: #535bf2; */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: var(--hpe-heading-medium-h1-font-size);
+  line-height: var(--hpe-heading-medium-h1-line-height);
+  font-weight: var(--hpe-base-font-weight-medium);
+}
+
+h2 {
+  font-size: var(--hpe-heading-medium-h2-font-size);
+  line-height: var(--hpe-heading-medium-h2-line-height);
+  font-weight: var(--hpe-base-font-weight-medium);
+}
+
+p {
+  font-size: var(--hpe-text-medium-font-size);
+  line-height: var(--hpe-text-medium-line-height);
+  max-width: 25em;
+}
+
+button {
+  /* visual tokens */
+  --button-backgroundColor: var(--hpe-button-default-enabled-background);
+  --button-borderColor: var(--hpe-button-default-enabled-border-color);
+  --button-label-color: var(--hpe-button-default-enabled-text-color);
+  --button-label-fontWeight: 600; /* where does font-weight go? */
+
+  /* dimension tokens */
+  --button-borderRadius: var(--hpe-button-medium-default-border-radius);
+  --button-borderWidth: var(--hpe-button-medium-default-border-width);
+  --button-paddingVertical: var(--hpe-button-medium-default-padding-y);
+  --button-paddingHorizontal: var(--hpe-button-medium-default-padding-x);
+  --button-fontSize: var(--hpe-button-medium-default-font-size);
+  --button-lineHeight: var(--hpe-button-medium-default-line-height);
+  --button-gapX: var(--hpe-button-medium-default-gap-x);
+
+  display: flex;
+  align-items: center;
+  border-radius: var(--button-borderRadius);
+  background-color: var(--button-backgroundColor);
+  border: var(--button-borderWidth) solid var(--button-borderColor);
+  color: var(--button-label-color);
+  gap: var(--button-gapX);
+  padding: var(--button-paddingVertical) var(--button-paddingHorizontal);
+  font-size: var(--button-fontSize);
+  line-height: var(--button-lineHeight);
+  font-weight: var(--button-label-fontWeight);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  --button-backgroundColor: var(--hpe-button-default-hover-background);
+  --button-borderColor: var(--hpe-button-default-hover-border-color);
+  --button-label-color: var(--hpe-button-default-hover-text-color);
+}
+
+button.hpe-button-primary {
+  --button-backgroundColor: var(--hpe-button-primary-enabled-background);
+  --button-borderColor: var(--hpe-button-primary-enabled-border-color);
+  --button-label-color: var(--hpe-button-primary-enabled-text-color);
+
+  --button-borderRadius: var(--hpe-button-medium-primary-border-radius);
+  --button-borderWidth: var(--hpe-button-medium-primary-border-width);
+  --button-paddingVertical: var(--hpe-button-medium-primary-padding-y);
+  --button-paddingHorizontal: var(--hpe-button-medium-primary-padding-x);
+  --button-fontSize: var(--hpe-button-medium-primary-font-size);
+  --button-lineHeight: var(--hpe-button-medium-primary-line-height);
+}
+
+button.hpe-button-primary:hover {
+  --button-backgroundColor: var(--hpe-button-primary-hover-background);
+  --button-borderColor: var(--hpe-button-primary-hover-border-color);
+  --button-label-color: var(--hpe-button-primary-hover-text-color);
+}
+
+button.hpe-button-secondary {
+  --button-backgroundColor: var(--hpe-button-secondary-enabled-background);
+  --button-borderColor: var(--hpe-button-secondary-enabled-border-color);
+  --button-label-color: var(--hpe-button-secondary-enabled-text-color);
+
+  --button-borderRadius: var(--hpe-button-medium-secondary-border-radius);
+  --button-borderWidth: var(--hpe-button-medium-secondary-border-width);
+  --button-paddingVertical: var(--hpe-button-medium-secondary-padding-y);
+  --button-paddingHorizontal: var(--hpe-button-medium-secondary-padding-x);
+  --button-fontSize: var(--hpe-button-medium-secondary-font-size);
+  --button-lineHeight: var(--hpe-button-medium-secondary-line-height);
+}
+
+button.hpe-button-secondary:hover {
+  --button-backgroundColor: var(--hpe-button-secondary-hover-background);
+  --button-borderColor: var(--hpe-button-secondary-hover-border-color);
+  --button-label-color: var(--hpe-button-secondary-hover-text-color);
+}
+
+.SwitchRoot {
+  --switch-background: var(--hpe-test-switch-enabled-background);
+  --switch-borderWidth: var(--hpe-test-switch-medium-border-width);
+  --switch-borderColor: var(--hpe-test-switch-enabled-border-color);
+  --switch-width: var(--hpe-test-switch-medium-width);
+  --switch-height: var(--hpe-test-switch-medium-height);
+  --switch-borderRadius: var(--hpe-test-switch-medium-border-radius);
+  width: var(--switch-width);
+  height: var(--switch-height);
+  background-color: var(--switch-background);
+  border-radius: var(--switch-borderRadius);
+  position: relative;
+  border: var(--switch-borderWidth) solid var(--switch-borderColor);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.SwitchRoot[data-state='checked'] {
+  --switch-background: var(--hpe-test-switch-selected-background);
+}
+
+.SwitchThumb {
+  --swtich-thumb-borderWidth: var(--hpe-test-switch-medium-border-width);
+  --swtich-thumb-borderRadius: var(--hpe-test-switch-medium-border-radius);
+  --switch-thumb-borderColor: var(--hpe-test-switch-enabled-knob-border-color);
+  display: flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border: var(--swtich-thumb-borderWidth) solid var(--switch-thumb-borderColor);
+  border-radius: var(--swtich-thumb-borderRadius);
+  /* box-shadow: 0 2px 2px var(--hpe-color-border-strong); */
+  transition: transform 100ms;
+  transform: translateX(-20px);
+  will-change: transform;
+}
+.SwitchThumb[data-state='checked'] {
+  transform: translateX(6px);
+}
+
+.Label {
+  color: var(--hpe-color-text-strong);
+  font-size: var(--hpe-text-medium-font-size);
+  line-height: var(--hpe-text-medium-line-height);
+}
+
+.SelectTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 0 15px;
+  color: var(--hpe-test-input-text-value-text-color);
+  font-size: var(--hpe-test-input-field-container-medium-value-text-font-size);
+  line-height: var(
+    --hpe-test-input-field-container-medium-value-text-line-height
+  );
+  font-weight: var(
+    --hpe-test-input-field-container-medium-value-text-font-weight
+  );
+  min-height: var(--hpe-test-input-field-container-medium-min-height);
+  gap: var(--hpe-test-input-field-container-medium-gap-x);
+}
+.SelectTrigger:hover {
+  /* background-color: var(--mauve-3); */
+}
+.SelectTrigger:focus {
+}
+.SelectTrigger[data-placeholder] {
+  color: var(--hpe-test-input-text-value-text-color);
+}
+
+.SelectIcon {
+  color: Var(--violet-11);
+}
+
+.SelectContent {
+  overflow: hidden;
+  background-color: var(--hpe-test-drop-background);
+  border-radius: var(--hpe-test-drop-border-radius);
+  box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35),
+    0px 10px 20px -15px rgba(22, 23, 24, 0.2);
+}
+
+.SelectViewport {
+  padding: 0;
+}
+
+.SelectItem {
+  --select-option-background: var(--hpe-test-select-option-enabled-background);
+  font-size: var(--hpe-text-medium-font-size);
+  line-height: var(--hpe-text-medium-line-height);
+  font-weight: var(--hpe-base-font-weight-medium);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  background: var(--select-option-background);
+  border: var(--hpe-test-select-option-medium-border-width) solid
+    var(--hpe-test-select-option-enabled-border-color);
+  color: var(--hpe-test-select-option-enabled-text-color);
+  min-height: var(--hpe-test-select-option-medium-min-height);
+  padding-block: var(--hpe-test-select-option-medium-padding-y);
+  padding-inline: var(--hpe-test-select-option-medium-padding-x);
+  position: relative;
+  user-select: none;
+}
+
+.SelectItem[data-disabled] {
+  --select-option-background: var(--hpe-test-select-option-disabled-background);
+  color: var(--mauve-8);
+  pointer-events: none;
+}
+.SelectItem[data-highlighted] {
+  --select-option-background: var(--hpe-test-select-option-hover-background);
+  cursor: pointer;
+}
+
+.SelectLabel {
+  padding: 0 25px;
+  font-size: 12px;
+  line-height: 25px;
+  color: var(--mauve-11);
+}
+
+.SelectSeparator {
+  height: 1px;
+  background-color: var(--violet-6);
+  margin: 5px;
+}
+
+.SelectItemIndicator {
+  position: absolute;
+  left: 0;
+  width: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SelectScrollButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  background-color: white;
+  color: var(--violet-11);
+  cursor: default;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+}

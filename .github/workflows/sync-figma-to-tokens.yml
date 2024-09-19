@@ -2,10 +2,14 @@ name: Sync Figma variables to tokens
 on:
   workflow_dispatch:
     inputs:
-      file_key:
-        description: 'The file key of the Figma file to be updated'
-        required: true
-
+      branch:
+        type: choice
+        description: Which branch to update
+        options:
+          - master
+  schedule:
+    # Run this workflow everyday at 16.00 UTC
+    - cron: '0 16 * * *'
 jobs:
   sync-figma-to-tokens:
     runs-on: ubuntu-latest
@@ -17,7 +21,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.16.0'
+          node-version: '18.18.0'
 
       - name: Set NPM version
         run: npm install -g npm@9.5.1
@@ -27,18 +31,24 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
+        working-directory: design-tokens
 
       - name: Sync variables in Figma file to tokens
         run: yarn sync-figma-to-tokens -- --output tokens
+        working-directory: design-tokens
         env:
-          FILE_KEY: ${{ github.event.inputs.file_key }}
+          FILE_KEY_PRIMITIVE: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_PRIMITIVE }}
+          FILE_KEY_SEMANTIC: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_SEMANTIC }}
+          FILE_KEY_COMPONENT: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_COMPONENT }}
           PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_ACTION_VARIABLES_SYNC_FIGMA_TOKEN }}
-
+      - name: Format token files with prettier
+        run: yarn prettier tokens --write
+        working-directory: design-tokens
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           commit-message: Update tokens from Figma
           title: Update tokens from Figma
-          body: 'Update tokens from Figma from file: https://www.figma.com/file/${{ github.event.inputs.file_key }}'
-          base: design-tokens
+          body: 'Update tokens from Figma from tokens files'
+          base: ${{ github.event.inputs.branch }}
           branch: update-tokens
