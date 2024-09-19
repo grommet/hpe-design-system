@@ -1,4 +1,5 @@
 import { Button } from 'grommet';
+import { Figma } from 'grommet-icons';
 import { Example } from '../../layouts';
 
 import {
@@ -18,14 +19,15 @@ Icons can be used to represent information to users, such as actions a user can 
 It is important that the use of an icon is clear. In some cases, it may be beneficial to pair icons with text to ensure the use of the icon is properly understood, but if text is always needed, consider using the text without an icon.
 Best practice is to not use icons unless most users are already familiar with their meaning. Otherwise, multiple products may end up using the same obscure icon for different reasons, resulting in confusion for users using those products.
 
-<Button
-  alignSelf="start"
-  label="See in Figma"
-  href="https://www.figma.com/file/G99KGffGLFKICy8xRs51lW/HPE-Icons"
-  primary
-  target="_blank"
-  rel="noreferrer noopener"
-/>
+  <Button
+    icon={<Figma color="plain" />}
+    label="Open in Figma"
+    target="_blank"
+    secondary
+    href="https://www.figma.com/design/G99KGffGLFKICy8xRs51lW/HPE-Icons?m=auto&node-id=261-0&t=tacoqxpPPqeHfQ94-1"
+    rel="noreferrer noopener"
+    alignSelf="start"
+  />
 
 ### Developing with Grommet Icons
 

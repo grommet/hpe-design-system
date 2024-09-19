@@ -21,6 +21,7 @@ import {
   TabsPreview,
   TextAreaPreview,
   TextInputPreview,
+  ToggleGroupPreview,
   DataHowTo,
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
@@ -1284,12 +1285,12 @@ export const components = [
       'State v.s. Status',
       'Notification Systems',
       'Toast Notification',
-      'Global Banner Notification',
+      'Global notifications',
     ],
     relatedContent: [
       'Status indicator',
       'Toast notifications',
-      'Global banner notifications',
+      'Global notifications',
       'Inline notifications',
     ],
     tags: [
@@ -1543,8 +1544,8 @@ export const components = [
     name: 'Pagination',
     available: true,
     category: 'Controls',
-    description: `Pagination divides content into separate pages in order to 
-    enhance navigation to specific items.`,
+    description: `Pagination enables the user to  navigate between pages
+     of data and control the number of results per pages.`,
     preview: {
       image: {
         src: {
@@ -1555,8 +1556,8 @@ export const components = [
         fit: 'contain',
       },
     },
-    seoDescription: `Pagination divides content into separate pages in order to 
-    enhance navigation to specific items.`,
+    seoDescription: `Pagination enables the user to  navigate between
+     pages of data and control the number of results per pages.`,
     sections: [
       'When to use Pagination',
       'Number of results per page',
@@ -1747,6 +1748,20 @@ export const components = [
       'How to add search and filter to DataTable with Data',
       'How to add additional controls to a toolbar',
     ],
+  },
+  {
+    name: 'ToggleGroup',
+    available: true,
+    category: 'Controls',
+    description:
+      'A group of related buttons that enable the user to toggle one or more options on or off.',
+    preview: {
+      component: () => <ToggleGroupPreview />,
+    },
+    seoDescription:
+      'A group of related buttons that enable the user to toggle one or more options on or off.',
+    sections: [],
+    relatedContent: [],
   },
   {
     name: 'All components',

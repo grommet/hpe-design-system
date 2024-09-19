@@ -36,14 +36,14 @@ export const PageBannerExample = () => {
           <Notification
             flex={false}
             status="critical"
-            message={`Support for CentOS v7.5 ended on 04/04/021. One or 
-          more applications require updates to a later version.`}
+            message={`Support for CentOS v7.5 ended on 04/04/021.
+            One or more applications require updates to a later version.`}
             // onClick is used for Design System site demonstration only.
             // in production, onClick should be replaced with an href that
             // changes the route and sets the active tab.
             actions={[{ label: 'View details', onClick: () => setActive(2) }]}
           />
-          <Tabs activeIndex={active}>
+          <Tabs justify="start" activeIndex={active}>
             <Tab title="Projects" onClick={() => setActive(0)}>
               <Box pad={{ vertical: 'medium' }}>
                 <Grid columns="medium" rows="small" gap="medium">

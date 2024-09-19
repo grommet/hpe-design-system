@@ -1,0 +1,127 @@
+{
+  "services": [
+    {
+      "name": "HPE GreenLake Flex Solutions",
+      "category": "Workloads",
+      "description": "Manage your cloud services and view usage, cost, and more."
+    },
+    {
+      "name": "Sustainability Insight Center",
+      "category": "Common",
+      "description": "Monitor your estate carbon footprint and energy consumption.",
+      "href": "/sustainability"
+    },
+    {
+      "name": "Aruba NetInsight",
+      "category": "Networking",
+      "description": "Manage campus, branch, SD-WAN & data center networks with AI, automation & security.",
+      "subscription": {
+        "name": "Aruba NetInsight 90 Day Eval Subscription",
+        "expiration": "2024-01-31T10:00:00.0000Z"
+      }
+    },
+    {
+      "name": "Compute Ops Management",
+      "category": "Compute",
+      "description": "Modern compute management that simplifies provisioning and automates key lifecycle tasks."
+    },
+    {
+      "name": "Backup and Recovery",
+      "category": "Storage",
+      "description": "Data protection as a service that’s effortless, efficient, and secure.",
+      "subscription": {
+        "name": "Backup and Recovery 90 Day Eval Subscription",
+        "expiration": "2024-04-31T10:00:00.0000Z"
+      }
+    },
+    {
+      "name": "Block Storage",
+      "category": "Storage",
+      "description": "Simple self-service storage for any workload with AI-driven cloud management.",
+      "subscription": {
+        "name": "Block Storage 90 Day Eval Subscription",
+        "expiration": "2024-05-15T10:00:00.0000Z"
+      }
+    },
+    {
+      "name": "ML Ops",
+      "category": "Workloads",
+      "description": "Bring DevOps features to the machine learning lifecycle with containerized clusters for testing and development environments."
+    },
+    {
+      "name": "Private Cloud",
+      "category": "Private Cloud",
+      "description": "Cloud solutions that scale to any workload supporting vms, storage, containers and bare metal in your private environment."
+    },
+    {
+      "name": "Data Ops Management",
+      "category": "Storage",
+      "description": "Cloud solutions that scale to any workload supporting vms, storage, containers and bare metal in your private environment."
+    },
+    {
+      "name": "Containers",
+      "category": "Workloads",
+      "description": "Self-service management of containers across edge, data center and hybrid cloud."
+    },
+    {
+      "name": "High Performace Computing",
+      "category": "Workloads",
+      "description": "Solve big problems with systems optimized for high performance workloads and AI."
+    },
+    {
+      "title": "Machine Learning",
+      "subtitle": "Bring DevOps features to the machine learning lifecycle.",
+      "recommended": true
+    },
+    {
+      "title": "Backup & Recovery",
+      "subtitle": "Data protection as a service that's secure & reliable.",
+      "recommended": true
+    },
+    {
+      "title": "Data Fabric",
+      "subtitle": "Accelerate configuring, monitoring, and managing storage fabrics.",
+      "recommended": true
+    }
+  ],
+  "learn": [
+    {
+      "title": "Explore GreenLake",
+      "subtitle": "Learn more about what the GreenLake platform has to offer."
+    },
+    {
+      "title": "HPE GreenLake Developer Portal",
+      "subtitle": "Integrate apps and services."
+    },
+    {
+      "title": "Test Drive Services",
+      "subtitle": "Take a hands-on, guided tour of HPE GreenLake cloud services in a live production environment."
+    }
+  ],
+  "notifications": [
+    {
+      "service": "Block storage",
+      "message": "We are experiencing an issue with HPE Data Services engine",
+      "createdAt": "2024-01-12T20:05:00.000Z",
+      "status": "warning"
+    },
+    {
+      "service": "HPE GreenLake Platform",
+      "message": "Scheduled maintenance for HPE GreenLake completed.",
+      "createdAt": "2024-01-12T18:34:00.000Z",
+      "status": "info"
+    },
+    {
+      "service": "Networking",
+      "message": "Critical fan faults and system shutdown on CX 6100 Switch",
+      "createdAt": "2024-01-12T14:13:00.000Z",
+      "status": "critical"
+    },
+    {
+      "service": "Compute",
+      "message": "HPE Apollo 2000 Gen 10 Plus - defect",
+      "createdAt": "2024-01-12T12:23:00.000Z",
+      "status": "warning"
+    }
+  ]
+}
