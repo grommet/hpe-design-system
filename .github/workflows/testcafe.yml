@@ -25,6 +25,10 @@ jobs:
         working-directory: aries-site
       - name: Log Git Repository
         run: echo "$GITHUB_REPOSITORY"
+      # Ensure a build of design tokens is available
+      - name: Create design tokens build
+        run: yarn build
+        working-directory: design-tokens
       - name: Create production build
         run: yarn build
         working-directory: aries-site
