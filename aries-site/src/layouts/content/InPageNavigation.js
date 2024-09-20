@@ -89,14 +89,8 @@ export const InPageNavigation = ({ headings, title }) => {
         pad={{ horizontal: 'small', bottom: 'small' }}
         flex={false}
         gap="small"
-        // border={{ side: 'left', color: 'border-weak', size: 'small' }}
       >
-        <Text
-          color="text-weak"
-          size="small"
-          // align with button labels
-          // margin={{ left: theme.global.borderSize.small }}
-        >
+        <Text color="text" size="small">
           On this page
         </Text>
         <Text size="large" style={{ fontWeight: 500 }}>
@@ -111,16 +105,6 @@ export const InPageNavigation = ({ headings, title }) => {
           // heading[1] refers to the full heading title matched by regex
           const headingTitle = heading[1];
           const active = activeId === nameToSlug(headingTitle);
-
-          // const borderLeft = {
-          //   side: 'left',
-          //   size: active ? 'medium' : 'small',
-          //   color: active ? 'border-strong' : 'border-weak',
-          // };
-
-          // let subsectionPad = 'small';
-          // if (level.length > 3) subsectionPad = 'large';
-          // else if (level.length === 3) subsectionPad = 'medium';
 
           let sectionList;
           // let showUpdate = false;

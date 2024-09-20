@@ -88,7 +88,7 @@ const Index = () => (
         <Box
           background={{ image: 'datawave-white-3', opacity: 'weak' }}
           style={{
-            webkitMaskImage:
+            WebkitMaskImage:
               'linear-gradient(to bottom, black, 90%, transparent)',
             maskImage:
               // eslint-disable-next-line max-len

@@ -1,14 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Box, Button, Header, ResponsiveContext } from 'grommet';
+import { Box, Button, Header } from 'grommet';
 import { Search as SearchIcon, Sidebar, Menu } from 'grommet-icons';
 import { ThemeModeToggle, AppIdentity } from '../../components';
 
 import { Search } from '../navigation';
 
-const StyledHeader = ({ showSidebar, setShowSidebar, ...rest }) => {
-  const size = useContext(ResponsiveContext);
+const StyledHeader = ({
+  sidebarLayout,
+  onToggleNav,
+  showNavControl,
+  ...rest
+}) => {
   const [showSearch, setShowSearch] = useState(false);
 
   return (
@@ -20,11 +24,11 @@ const StyledHeader = ({ showSidebar, setShowSidebar, ...rest }) => {
       {...rest}
     >
       <Box direction="row" align="center" gap="medium">
-        {!showSidebar ? (
+        {showNavControl ? (
           <Button
             a11yTitle="Show navigation panel"
-            icon={['large', 'xlarge'].includes(size) ? <Sidebar /> : <Menu />}
-            onClick={() => setShowSidebar(true)}
+            icon={sidebarLayout ? <Sidebar /> : <Menu />}
+            onClick={() => onToggleNav(true)}
           />
         ) : undefined}
         <Link href="/" passHref legacyBehavior>
@@ -36,21 +40,6 @@ const StyledHeader = ({ showSidebar, setShowSidebar, ...rest }) => {
         </Link>
       </Box>
       <Box direction="row" align="center" gap="xsmall">
-        {/* {!['xsmall', 'small'].includes(size) &&
-          navItems.map(item => (
-            <Link
-              key={item.name}
-              href={nameToPath(item.name)}
-              passHref
-              legacyBehavior
-            >
-              <Button
-                key={item.name}
-                label={item.name}
-                active={router.pathname === nameToPath(item.name)}
-              />
-            </Link>
-          ))} */}
         <Button
           a11yTitle="Search"
           id="search-button"
@@ -65,7 +54,8 @@ const StyledHeader = ({ showSidebar, setShowSidebar, ...rest }) => {
 };
 
 StyledHeader.propTypes = {
-  showSidebar: PropTypes.bool,
-  setShowSidebar: PropTypes.func,
+  sidebarLayout: PropTypes.bool,
+  onToggleNav: PropTypes.func,
+  showNavControl: PropTypes.bool,
 };
 export { StyledHeader as Header };

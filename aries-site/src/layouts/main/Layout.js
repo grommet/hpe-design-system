@@ -3,12 +3,14 @@ import React, {
   useEffect,
   useContext,
   useCallback,
+  useMemo,
   useState,
 } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { initialize, pageview } from 'react-ga';
+import { ThemeContext } from 'styled-components';
 import {
   Box,
   Button,
@@ -78,7 +80,6 @@ export const Layout = ({
   const MainContentWrapper = isLanding ? Fragment : PageContent;
   const breakpoint = useContext(ResponsiveContext);
   const [open, setOpen] = useState(false);
-  const [showSidebar, setShowSidebar] = useState(true);
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
 
@@ -147,11 +148,26 @@ export const Layout = ({
     setPageUpdateReady(false);
   }, [setPageUpdateReady, title]);
 
+  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebarLayer, setShowSidebarLayer] = useState(false);
+  const theme = useContext(ThemeContext);
+
+  // if the clientWidth > theme breakpoint value, it's because
+  // on first render, breakpoint comes back as "medium" because
+  // ResponsiveContext hasn't updated to actual window width
+  const sidebarLayout = useMemo(
+    () =>
+      !(
+        !['xlarge', 'large'].includes(breakpoint) &&
+        document.documentElement.clientWidth <=
+          theme.global.breakpoints[breakpoint].value
+      ),
+    [breakpoint, theme.global.breakpoints],
+  );
+
   useEffect(() => {
-    if (!['xlarge', 'large'].includes(breakpoint)) {
-      setShowSidebar(false);
-    }
-  }, [breakpoint]);
+    if (sidebarLayout) setShowSidebarLayer(false);
+  }, [sidebarLayout]);
 
   const navContent = (
     <Box gap="medium">
@@ -185,43 +201,49 @@ export const Layout = ({
       </Box>
     </Box>
   );
+
+  let nav;
+  if (sidebarLayout) {
+    nav = (
+      <Collapsible open={showSidebar} direction="horizontal">
+        <Box
+          background="background-front"
+          width="medium"
+          pad={{ horizontal: 'medium', vertical: 'small' }}
+          border={{ side: 'right', color: 'border-weak' }}
+          gap="medium"
+          style={{ position: 'sticky', top: 0, bottom: 0 }}
+          height="100vh"
+          overflow="auto"
+        >
+          <Button
+            a11yTitle="Hide sidebar"
+            alignSelf="start"
+            icon={<Sidebar color="brand" />}
+            onClick={() => setShowSidebar(false)}
+          />
+          {navContent}
+        </Box>
+      </Collapsible>
+    );
+  } else if (showSidebarLayer) {
+    nav = (
+      <Layer animation="fadeIn" full>
+        <Box pad="medium">
+          <Button
+            a11yTitle="Close navigation dialog"
+            icon={<Close />}
+            alignSelf="end"
+            onClick={() => setShowSidebarLayer(false)}
+          />
+          {navContent}
+        </Box>
+      </Layer>
+    );
+  }
   return (
     <Box direction="row">
-      {/* eslint-disable-next-line no-nested-ternary */}
-      {['large', 'xlarge'].includes(breakpoint) ? (
-        <Collapsible open={showSidebar} direction="horizontal">
-          <Box
-            background="background-front"
-            width="medium"
-            pad={{ horizontal: 'medium', vertical: 'small' }}
-            border={{ side: 'right', color: 'border-weak' }}
-            gap="medium"
-            style={{ position: 'sticky', top: 0, bottom: 0 }}
-            height="100vh"
-            overflow="auto"
-          >
-            <Button
-              a11yTitle="Hide sidebar"
-              alignSelf="start"
-              icon={<Sidebar color="brand" />}
-              onClick={() => setShowSidebar(false)}
-            />
-            {navContent}
-          </Box>
-        </Collapsible>
-      ) : showSidebar ? (
-        <Layer animation="fadeIn" r>
-          <Box pad="medium">
-            <Button
-              a11yTitle="Close navigation dialog"
-              icon={<Close />}
-              alignSelf="end"
-              onClick={() => setShowSidebar(false)}
-            />
-            {navContent}
-          </Box>
-        </Layer>
-      ) : undefined}
+      {nav}
       <Page>
         {/* I think Head is redundant at this point, 
               but left it as is for now */}
@@ -241,8 +263,9 @@ export const Layout = ({
           <Header
             fill="horizontal"
             alignSelf="center"
-            showSidebar={showSidebar}
-            setShowSidebar={setShowSidebar}
+            sidebarLayout={sidebarLayout}
+            onToggleNav={sidebarLayout ? setShowSidebar : setShowSidebarLayer}
+            showNavControl={sidebarLayout ? !showSidebar : true}
           />
           <MainContentWrapper>
             <Main overflow="visible">
