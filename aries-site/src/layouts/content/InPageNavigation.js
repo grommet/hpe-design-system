@@ -99,12 +99,16 @@ export const InPageNavigation = ({ headings, title }) => {
       </Box>
       <Nav gap="none" a11yTitle="Jump to section">
         {headings.map((heading, index) => {
-          // const levelRegexp = new RegExp(/^(#)+/);
+          const levelRegexp = new RegExp(/^(#)+/);
           // remove space from in front of #s
-          // const [level] = heading[0].substring(1).match(levelRegexp);
+          const [level] = heading[0].substring(1).match(levelRegexp);
           // heading[1] refers to the full heading title matched by regex
           const headingTitle = heading[1];
           const active = activeId === nameToSlug(headingTitle);
+
+          let subsectionPad;
+          if (level.length > 3) subsectionPad = 'medium';
+          else if (level.length === 3) subsectionPad = 'small';
 
           let sectionList;
           // let showUpdate = false;
@@ -137,6 +141,7 @@ export const InPageNavigation = ({ headings, title }) => {
                 size="small"
                 align="start"
                 style={{ color: 'inherit' }}
+                margin={{ left: subsectionPad }}
               />
               {/* <SectionButton theme={theme} hoverIndicator>
                 <Box border={borderLeft}>
