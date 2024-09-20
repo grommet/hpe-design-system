@@ -15,12 +15,10 @@ const whatIsContent = [
     and websites delivered in React and Figma.`,
   },
   {
-    heading: 'Tokens',
+    heading: 'Design tokens',
     text: `Standardized design attributes for color, fonts, and spacing 
     ensuring consistency across digital products.`,
-    tag: (
-      <Tag alignSelf="start" value="Coming soon" background="validation-ok" />
-    ),
+    tag: <Tag alignSelf="start" value="Beta" background="validation-ok" />,
   },
   {
     heading: 'Icons',
