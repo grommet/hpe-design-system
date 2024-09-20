@@ -190,7 +190,13 @@ export const Layout = ({
       </Box>
       <Box border={{ side: 'bottom', color: 'border-weak' }} />
       <Box gap="medium" pad={{ horizontal: 'small' }}>
-        <Anchor icon={<ShareRounded />} label="Github" />
+        <Anchor
+          icon={<ShareRounded />}
+          label="Github"
+          href="https://github.com/grommet/hpe-design-system"
+          rel="noopener noreferrer"
+          target="_blank"
+        />
         <Button
           label="Give feedback"
           secondary
