@@ -1,5 +1,10 @@
 import React from 'react';
-import { Box, Heading, PageContent, Paragraph } from 'grommet';
+import {
+  // Box,
+  Heading,
+  PageContent,
+  Paragraph,
+} from 'grommet';
 
 import { CardGrid, Meta } from '../../components';
 import { ContentSection, PageIntro, Subsection } from '../../layouts';
@@ -18,12 +23,8 @@ const Foundation = () => (
     />
     <PageContent gap="large">
       <PageIntro>
-        <Box justify="center" fill>
-          <Heading margin="none">{title}</Heading>
-          <Paragraph size="large" fill>
-            {pageDetails.description}
-          </Paragraph>
-        </Box>
+        <Heading margin="none">{title}</Heading>
+        <Paragraph size="large">{pageDetails.description}</Paragraph>
       </PageIntro>
       <ContentSection>
         <Subsection level={2} name="Philosophy">

@@ -7,25 +7,25 @@ import { internalLink } from '../../components';
 import { SearchResult, SearchResults } from '.';
 import { siteContents } from '../../data/search/contentForSearch';
 
-const allSuggestions = getSearchSuggestions.filter(item => 
-  item.value.searchable || item.value.searchable === undefined,
-).map(page => {
-  const { label, value } = page;
-  const match = siteContents.find(item => item.name === value.name);
-  if (match) {
-    const { parent, path, content } = match;
-    return {
-      label,
-      value: {
-        ...value,
-        parent,
-        path,
-        content,
-      },
-    };
-  }
-  return page;
-});
+const allSuggestions = getSearchSuggestions
+  .filter(item => item.value.searchable || item.value.searchable === undefined)
+  .map(page => {
+    const { label, value } = page;
+    const match = siteContents.find(item => item.name === value.name);
+    if (match) {
+      const { parent, path, content } = match;
+      return {
+        label,
+        value: {
+          ...value,
+          parent,
+          path,
+          content,
+        },
+      };
+    }
+    return page;
+  });
 
 /*
  * Construct an object where 'label' is the displayed element and
@@ -228,10 +228,11 @@ export const Search = ({ setOpen }) => {
   return (
     <Layer
       id="search-results"
-      margin={!['xsmall', 'small'].includes(size) ? { top: 'medium' } : 'none'}
+      margin={!['xsmall', 'small'].includes(size) ? { top: 'xlarge' } : 'none'}
       onEsc={onClose}
       onClickOutside={onClose}
       position="top"
+      round="medium"
     >
       <SearchResults
         allSuggestions={allSuggestions}
