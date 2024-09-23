@@ -1,10 +1,10 @@
 import {
-    TagAnatomy,
-    TagMetaData,
-    TagSimple,
-    CreateTagSimple,
-    TagResource,
-    TagAttention
+  TagAnatomy,
+  TagMetaData,
+  TagSimple,
+  CreateTagSimple,
+  TagResource,
+  TagAttention
 } from '../../examples';
 import { Example } from '../../layouts';
 
@@ -21,7 +21,7 @@ import { Example } from '../../layouts';
 ## Use cases
 
 ### Displaying metadata
-Static tags can be used to display non critical concise information with
+[Static tags](/components/tag#static) can be used to display non critical concise information with
 the purpose to annotate or label items. Tags can contain value only,
 or a name value pair to assist with classification.
 
@@ -32,7 +32,7 @@ or a name value pair to assist with classification.
 </Example>
 
 ### Managing metadata
-Tags can be created, assigned and removed from resources/items by a user.
+Tags can be created, assigned and [removed](/components/tag#removable) from resources/items by a user.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
@@ -41,7 +41,7 @@ Tags can be created, assigned and removed from resources/items by a user.
 </Example>
 
 ### Filtering
-Interactive tags can be activated by mouse or keyboard input to enable quick filtering.
+[Interactive tags](/components/tag#interactive) can be activated by mouse or keyboard input to enable quick filtering.
 Interacting with the tag will display items that share the same assigned value.
 
 <Example
@@ -51,8 +51,8 @@ Interacting with the tag will display items that share the same assigned value.
 </Example>
 
 ### Drawing attention
-Highlight tags can be used to draw attention to an element on the page.
-They are a decorative variant of the static tag.
+[Highlight tags](/components/tag#highlight) can be used to draw attention to an element on the page.
+They are a decorative variant of the [static tag](/components/tag#static).
 Highlights should only contain descriptions that are temporary, such as “New”,
 “Updated”. As such they should not be used a permanent design feature.
 
@@ -77,9 +77,9 @@ Highlights should only contain descriptions that are temporary, such as “New�
 
 | Label | Region        | Purpose                                                      | Required | Notes                                                       |
 | :---: | ------------- | ------------------------------------------------------------ | :------: | ----------------------------------------------------------- |
-| **1** | **Container** | Controls padding, border & background color.              | Required | Uses neutral background color for read-only tag and gradient border for marketing tag to differentiate from a button.                                                        |
-| **2** | **Name**      | Descriptive label or category that identifies what kind of data is stored in the associated value. For example “Country” or “Color”.             | Optional | --                     |
-| **3** | **Value**     | The specific descriptive data associated with an item.  For example “USA” or “Green”. | Required | Required when name item is not available or not needed. |
+| **1** | **Container** | Controls padding, border & background color.              | Required | Behavior and style will change depending on tag type.                                                        |
+| **2** | **Name**      | Descriptive label or category that identifies what kind of data is stored in the associated value. For example “Country” or “Color”.             | Optional | Up to 128 characters max.                     |
+| **3** | **Value**     | The specific descriptive data associated with an item.  For example “USA” or “Green”. | Required | Up to 256 characters max. |
 | **4** | **Close Icon Button**      | Used to indicate that tag is removable. | Optional | Required for only removable tags.  |
 
 
@@ -88,11 +88,11 @@ Highlights should only contain descriptions that are temporary, such as “New�
 ### Tag 
 - Contains simple, concise information used to annotate, categorize, group or otherwise label items.
 - Used to display secondary or supplementary information related to an object or item. 
-- Can be used to communicate the state or condition of something (e.g. published, deployed, new, updated, etc.). State is defined here.
+- Can be used to communicate the state or condition of something (e.g. published, deployed, new, updated, etc.). State is defined [here](/components/notification#taxonomy).
 - A tag should not be used to convey system status, that is considered primary information.
 
 ### Static 
-- All points as above plus...
+-  All points as above, but static tags are not interactive in any way.
 - A static tag is not interactive in any way.
 
 ### Interactive 
@@ -107,10 +107,10 @@ Highlights should only contain descriptions that are temporary, such as “New�
 
 ### Highlight
 
-- A highlight tag used to indicate a temporary or transient state associated with an item - eg new, updated, promotional
+- A highlight tag used to indicate a temporary or transient state associated with an item - eg new, updated, promotional.
 - A highlight tag draws attention but is no louder than a secondary/primary button.
 - A highlight tag is not interactive in any way.
-- A tags size should be limited to x-small or small
+- A tags size should be limited to x-small or small.
 - Use “gradientEdge” border for highlight tags. This treatment should be used sparingly.
 
 

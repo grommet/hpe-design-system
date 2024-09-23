@@ -6,7 +6,7 @@ export const TagAttention = () => {
   return (
     <Box gap="medium">
       <Card
-        icon={<Tag value="new" margin={{ bottom: 'xsmall' }} />}
+        icon={<Tag value="New" margin={{ bottom: 'xsmall' }} />}
         title="Compute Ops Management"
         subtitle="Compute"
         description={`Securely manage your compute infrastructure
