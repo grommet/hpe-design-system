@@ -3,7 +3,7 @@ import { Box, ResponsiveContext } from 'grommet';
 import { ColorRow, UsageExample } from '../../../layouts';
 
 import { colorExamples } from '../../../data';
-import { ElevationExample, TextExample } from '../..';
+import { ElevationExample, TextExample, StatusExample } from '../..';
 
 const { coreColors, darkColors, lightColors, primaryColors } =
   colorExamples.palettes;
@@ -144,14 +144,18 @@ export const TextDark = () => (
 );
 
 export const StatusLight = () => (
-  <UsageExample themeMode="light" label="Light Background" pad="none">
-    {statusColorsLight && generateColorExamples(statusColorsLight)}
+  <UsageExample themeMode="light" label="Light Background" justify="between">
+    {statusColorsLight.map(color => (
+      <StatusExample key={color.name} color={color.name} hex={color.value} />
+    ))}
   </UsageExample>
 );
 
 export const StatusDark = () => (
-  <UsageExample themeMode="dark" label="Dark Background" pad="none">
-    {statusColorsDark && generateColorExamples(statusColorsDark)}
+  <UsageExample themeMode="dark" label="Dark Background" justify="between">
+    {statusColorsDark.map(color => (
+      <StatusExample key={color.name} color={color.name} hex={color.value} />
+    ))}
   </UsageExample>
 );
 
