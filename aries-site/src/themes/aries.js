@@ -77,7 +77,7 @@ export const ariesPop = deepMerge(aries, {
         background: '',
         pad: {
           horizontal: '12px',
-          vertical: '5px',
+          vertical: '6px',
         },
       },
       text: {
@@ -87,6 +87,9 @@ export const ariesPop = deepMerge(aries, {
     },
     container: {
       extend: ({ theme }) => `
+      & button[aria-label*="Clear selection"] {
+        font-size: 19px;
+      }
       & button[aria-label*="Clear selection"]:hover {
         background: ${
           theme.global.colors['background-contrast'][
