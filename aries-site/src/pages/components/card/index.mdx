@@ -134,33 +134,6 @@ When cards are presenting as a group, they should function as a list.
 
 - When data attributes across items needs to be analyzed, sorted, compared, and filtered, a card may not be the best tool. Instead, [DataTable](/components/datatable) may be more appropriate tool to meet these needs.
 - Cards should not be used as controls to filter data directly on the same screen. Instead, the [Selector](templates/selector) component is the appropriate tool for filtering data sets.
-
-<BestPracticeGroup>
-  <Example
-    height={{ min: 'small' }}
-    bestPractice={{
-      type: 'do',
-      message:
-        'Style status filter buttons as default buttons when the buttons are placed on the same page as the data they will be filtering.',
-    }}
-    scale={0.4}
-    width="100%"
-  >
-    <CardFilteringBestPractice />
-  </Example>
-  <Example
-    height={{ min: 'small' }}
-    bestPractice={{
-      type: 'dont',
-      message: `Don’t use a card to wrap a set of status filter buttons if clicking on one of those buttons will filter data that exists on the same page as that card. Cards should act as independent regions that do not affect surrounding content. However, placing these buttons in a card would be appropriate on a dashboard, where clicking on one of the status buttons would navigate to a different page that is filtered by the selected status.`,
-    }}
-    scale={0.4}
-    width="100%"
-  >
-    <CardFilteringBestPractice bestPractice={false} />
-  </Example>
-</BestPracticeGroup>
-
 - A card should not be used to group complex content into a single container. A card is meant to be individual, presenting a single, summarized topic which cannot be divided.
 
 <BestPracticeGroup>
