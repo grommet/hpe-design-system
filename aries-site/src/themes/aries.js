@@ -71,6 +71,32 @@ export const ariesPop = deepMerge(aries, {
       },
     },
   },
+  select: {
+    clear: {
+      container: {
+        background: '',
+        pad: {
+          horizontal: '12px',
+          vertical: '5px',
+        },
+      },
+      text: {
+        color: 'text-strong',
+        weight: 600,
+      },
+    },
+    container: {
+      extend: ({ theme }) => `
+      & button[aria-label*="Clear selection"]:hover {
+        background: ${
+          theme.global.colors['background-contrast'][
+            theme.dark ? 'dark' : 'light'
+          ]
+        };
+      }
+    `,
+    },
+  },
 });
 
 export const { colors } = aries.global;
