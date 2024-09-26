@@ -3,13 +3,6 @@ import { AppsRounded, Figma, Language, Search, Shop } from 'grommet-icons';
 import { GlobalHeaderExample } from '../../examples';
 import { DiagramPreview, Example } from '../../layouts';
 
-<Notification
-  status="info"
-  message={`Please note that this implementation is a visual reference but should not be used in production. Implementation details are still being worked out.`}
-  actions={[{ label: 'See implementation notes', href: '#for-developers' }]}
-  margin={{ bottom: 'medium' }}
-/>
-
 <Example
   figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?node-id=3028%3A58403"
   height={{ min: 'small' }}
@@ -40,21 +33,11 @@ The Global Header is published as a Figma component in the HPE Design System Com
 
 ### For developers
 
-<Notification
-  status="info"
-  message={`Please note that implementation details are still being worked out.`}
-  width={{ min: 'medium', max: 'large' }}
-  margin={{ bottom: 'medium' }}
-/>
+The HPE GreenLake Global Header is an innersource project that is currently in development by an HPE GreenLake engineering team. The header is delivered as a Web Component, which can be easily consumed by any UI framework.
 
-While the specifics of the Global Header implementation are still being worked out, we do know that the Global Header will:
+Documentation can be found on the [HPE GreenLake Developer Portal](https://developer.greenlake.hpe.com/docs/greenlake/guides/internal/front-end/greenlake_header/).
 
-- Continue to be delivered as its own service with 24/7 support.
-- Be distributed as a Web Component which can be easily consumed by any UI framework.
-
-In the meantime, the [Global Header Figma component](https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?node-id=3028%3A58403) should be referenced for the latest design specs.
-
-For additional questions, feel free to [reach out on Grommet Slack](https://grommet.slack.com) in the #hpe-design-system channel.
+For additional questions, feel free to reach out on Slack in the #greenlake-header-support channel.
 
 ## HPE Common Header and Footer Web Service
 
