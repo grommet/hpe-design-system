@@ -3,46 +3,46 @@ import {
   Box,
   Data,
   DataContext,
-  DataSearch,
-  DataSummary,
   Heading,
   Grid,
   PageContent,
   Paragraph,
+  Notification,
 } from 'grommet';
 import { Meta, ContentCard } from '../../components';
 import { getCards, getPageDetails, nameToPath } from '../../utils';
 
-const title = 'Learn';
+const title = 'Design tokens';
 const pageDetails = getPageDetails(title);
 const cards = getCards(title);
 
-const Learn = () => (
+const Tokens = () => (
   <>
     <Meta
       title={title}
       description={pageDetails.seoDescription}
-      canonicalUrl="https://design-system.hpe.design/learn"
+      canonicalUrl="https://design-system.hpe.design/design-tokens"
     />
     <PageContent>
       <Box pad={{ vertical: 'medium' }} justify="center" width="large">
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </Box>
+      <Notification
+        message={`Design tokens are in a beta phase. Accordingly, 
+          this documentation is a work in progress and will be 
+          updated as needed during this phase.`}
+        width="large"
+        margin={{ bottom: 'large' }}
+      />
       <Data data={cards} pad={{ bottom: 'large' }}>
-        <DataSearch width={{ max: 'medium', width: '100%' }} />
-        <DataSummary />
         <DataContext.Consumer>
           {({ data }) => {
             const gettingStarted = data.filter(
               datum => datum.type === 'Getting started',
             );
-            const howTo = data.filter(datum => datum.type === 'How-to guides');
-            const explanations = data.filter(
-              datum => datum.type === 'Explanations',
-            );
-            const references = data.filter(
-              datum => datum.type === 'References',
+            const building = data.filter(
+              datum => datum.type === 'Building with tokens',
             );
 
             const results = [
@@ -51,16 +51,8 @@ const Learn = () => (
                 data: gettingStarted,
               },
               {
-                heading: 'How-to guides',
-                data: howTo,
-              },
-              {
-                heading: 'Explanations',
-                data: explanations,
-              },
-              {
-                heading: 'References',
-                data: references,
+                heading: 'Building with design tokens',
+                data: building,
               },
             ];
 
@@ -74,8 +66,8 @@ const Learn = () => (
                       </Heading>
                       <Grid
                         columns="medium"
-                        gap="medium"
                         rows={[['auto', 'full']]}
+                        gap="medium"
                       >
                         {type.data.map(item => (
                           <ContentCard
@@ -99,4 +91,4 @@ const Learn = () => (
   </>
 );
 
-export default Learn;
+export default Tokens;
