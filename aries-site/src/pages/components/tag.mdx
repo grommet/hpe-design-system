@@ -21,7 +21,7 @@ import { Tag } from 'grommet';
 ## Use cases
 
 ### Displaying metadata
-[Static tags](/components/tag#static) can be used to display non critical concise information with
+[Static tags](/components/tag#static) can be used to display non-critical, concise information with
 the purpose to annotate or label items. Tags can contain value only,
 or a name value pair to assist with classification.
 
@@ -32,7 +32,7 @@ or a name value pair to assist with classification.
 </Example>
 
 ### Managing metadata
-Tags can be created, assigned and [removed](/components/tag#removable) from resources/items by a user.
+Tags can be created, assigned and [removed](/components/tag#removable) from resources or items by a user.
 
 <Example
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
@@ -94,7 +94,7 @@ Interacting with the tag will display items that share the same assigned value.
 
 ### Removable
 
-- A removable tag is interactive via the icon button.
+- A removable tag is interactive via the "Close" icon button.
 - Can be used to dismiss a category/value set from a filtered view.
 - Can be used to remove a value that has been assigned to an item or resource.
 <Example plain>
@@ -108,4 +108,4 @@ Interacting with the tag will display items that share the same assigned value.
 | Key                   | Interaction                                                                                                                    |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | **Tab**               | Used to navigate between interactive tags. Focuses on tag if it is selectable. When there is a close icon present, icon receives focus. For read-only, screen reader will read alongside content from where it lives. |
-| **Space/Enter**       | Selects tag or close icon with focus.                                                                                                     |
+| **Space/Enter**       | For interactive tags, selects the tag. For removable tags, remove the tag.                                                                                      |
