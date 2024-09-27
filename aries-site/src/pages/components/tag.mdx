@@ -4,9 +4,9 @@ import {
   TagSimple,
   CreateTagSimple,
   TagResource,
-  TagAttention
 } from '../../examples';
 import { Example } from '../../layouts';
+import { Tag } from 'grommet';
 
 <Example
   componentName="Tag"
@@ -50,19 +50,6 @@ Interacting with the tag will display items that share the same assigned value.
   <TagResource />
 </Example>
 
-### Drawing attention
-[Highlight tags](/components/tag#highlight) can be used to draw attention to an element on the page.
-They are a decorative variant of the [static tag](/components/tag#static).
-Highlights should only contain descriptions that are temporary, such as “New”,
-“Updated”. As such they should not be used a permanent design feature.
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
->
-  <TagAttention />
-</Example>
-
-
 ## Anatomy
 
 <Example
@@ -85,32 +72,34 @@ Highlights should only contain descriptions that are temporary, such as “New�
 
 ## Types
 
-### Tag 
+### Static
 - Contains simple, concise information used to annotate, categorize, group or otherwise label items.
 - Used to display secondary or supplementary information related to an object or item. 
 - Can be used to communicate the state or condition of something (e.g. published, deployed, new, updated, etc.). State is defined [here](/components/notification#taxonomy).
 - A tag should not be used to convey system status, that is considered primary information.
+- Static tags are not interactive in any way.
 
-### Static 
-- All points as above, but static tags are not interactive in any way.
+<Example plain>
+  <Tag alignSelf='start' name='Type-Static' />
+</Example>
+
 
 ### Interactive 
 - Interactive tags enable users to discover, filter, or navigate to identically tagged items.
 - An interactive tag can be actioned by mouse or keyboard.
+
+<Example plain>
+  <Tag alignSelf='start' onClick={() => {}} name='Type-Interactive' />
+</Example>
 
 ### Removable
 
 - A removable tag is interactive via the icon button.
 - Can be used to dismiss a category/value set from a filtered view.
 - Can be used to remove a value that has been assigned to an item or resource.
-
-### Highlight
-
-- A highlight tag used to indicate a temporary or transient state associated with an item - eg new, updated, promotional.
-- A highlight tag draws attention but is no louder than a secondary/primary button.
-- A highlight tag is not interactive in any way.
-- A tags size should be limited to x-small or small.
-- Use “gradientEdge” border for highlight tags. This treatment should be used sparingly.
+<Example plain>
+  <Tag alignSelf='start' name='Type-Removable' onRemove={() => {}} />
+</Example>
 
 
 ## Accessibility
