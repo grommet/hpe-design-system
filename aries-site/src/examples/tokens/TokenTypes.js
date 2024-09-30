@@ -131,10 +131,7 @@ export const TokenTypes = () => {
           <Box pad="large" round="small" flex={false} elevation="medium" />
         </TokenPreview>
       </TypePreview>
-      <TypePreview
-        title="Border width"
-        description="Not currently supported by Figma"
-      >
+      <TypePreview title="Border width" description="Apply to Stroke styles">
         <TokenPreview token="borderWidth.small">
           <Box
             height="xsmall"
