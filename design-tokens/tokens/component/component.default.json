@@ -65,7 +65,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "STROKE_COLOR"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -139,7 +139,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "STROKE_COLOR"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -201,7 +201,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -264,7 +264,7 @@
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
-                "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
                 "codeSyntax": {}
               }
             }
@@ -329,7 +329,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -391,7 +391,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -453,7 +453,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -516,7 +516,7 @@
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
-                "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
                 "codeSyntax": {}
               }
             }
@@ -705,7 +705,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -768,7 +768,7 @@
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
-                "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
                 "codeSyntax": {}
               }
             }
@@ -833,7 +833,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -895,7 +895,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -957,7 +957,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -1020,7 +1020,7 @@
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
-                "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
                 "codeSyntax": {}
               }
             }
@@ -1752,7 +1752,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": 0,
+            "$value": 5,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1764,7 +1764,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 0,
+            "$value": 5,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2061,7 +2061,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 6,
+          "$value": "{button.medium.default.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3442,7 +3442,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{button.large.default.iconOnly.paddingX}",
+            "$value": 14,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7289,7 +7289,7 @@
             "critical": {
               "background": {
                 "$type": "color",
-                "$value": "{color.background.status.critical}",
+                "$value": "{color.background.critical}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7528,7 +7528,7 @@
           "critical": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.status.critical}",
+              "$value": "{color.background.critical}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -10564,7 +10564,7 @@
       "paddingX": {
         "narrow": {
           "$type": "number",
-          "$value": "{base.static.spacing.xxsmall}",
+          "$value": 5,
           "$description": "",
           "$extensions": {
             "com.figma": {
