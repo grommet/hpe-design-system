@@ -245,6 +245,20 @@ export const templates = [
     tags: [],
   },
   {
+    name: 'Progressbar',
+    available: true,
+    cardOrder: 5,
+    description: 'a visual indicator of progress in a process or journey.',
+    preview: {
+      component: () => <SelectorPreview />,
+      background: 'background-front',
+    },
+    seoDescription: 'A selection control that allows users to choose one or',
+    relatedContent: [],
+    sections: [],
+    tags: [],
+  },
+  {
     name: 'User feedback collection',
     available: true,
     description: `Improve customer experiences and make impactful,
