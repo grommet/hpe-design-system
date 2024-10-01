@@ -204,6 +204,7 @@ const buildTheme = tokens => {
     elevationdark,
     global,
     components,
+    refresh,
   } = tokens;
 
   const flatColors = flattenObject(light, '-');
@@ -354,16 +355,16 @@ const buildTheme = tokens => {
     },
     'status-disabled': '#CCCCCC', // deprecated, does not support light and dark.hpe. use text-weak instead
     'validation-critical': {
-      light: light.hpe.color.background.status.critical,
-      dark: dark.hpe.color.background.status.critical,
+      light: light.hpe.color.background.critical,
+      dark: dark.hpe.color.background.critical,
     },
     'validation-ok': {
-      light: light.hpe.color.background.status.ok,
-      dark: dark.hpe.color.background.status.ok,
+      light: light.hpe.color.background.ok,
+      dark: dark.hpe.color.background.ok,
     },
     'validation-warning': {
-      light: light.hpe.color.background.status.warning,
-      dark: dark.hpe.color.background.status.critical,
+      light: light.hpe.color.background.warning,
+      dark: dark.hpe.color.background.critical,
     },
     icon: {
       light: light.hpe.color.icon.default,
@@ -849,8 +850,9 @@ const buildTheme = tokens => {
                 components.hpe.button.primary.enabled.background
               }; background-color: ${
                 props.theme.global.colors[
-                  components.hpe.button.primary.enabled.backgroundColor
-                ][props.theme.dark ? 'dark' : 'light']
+                  components.hpe.button.primary.enabled.backgroundColor ||
+                    components.hpe.button.primary.enabled.background
+                ]?.[props.theme.dark ? 'dark' : 'light']
               };`
             : '',
       },
@@ -1342,10 +1344,12 @@ const buildTheme = tokens => {
         thickness: components.hpe.checkbox.control.hover.borderWidth,
         extend: ({ theme, checked, indeterminate }) => `
         margin-block: ${
-          (parseFloat(large.hpe.text.medium.lineHeight, 10) * 16 -
-            parseFloat(components.hpe.checkbox.medium.control.height, 10) *
-              16) /
-          2
+          refresh
+            ? 2
+            : (parseFloat(large.hpe.text.medium.lineHeight, 10) * 16 -
+                parseFloat(components.hpe.checkbox.medium.control.height, 10) *
+                  16) /
+              2
         }px;
         background-color: ${
           checked || indeterminate
@@ -2651,6 +2655,7 @@ export const refresh = buildTheme({
   elevationdark: refreshElevationDark,
   global: refreshGlobal,
   components: refreshComponents,
+  refresh: true,
 });
 
 export const themes = {
