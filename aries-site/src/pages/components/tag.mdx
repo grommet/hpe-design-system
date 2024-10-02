@@ -95,7 +95,7 @@ Highlights should only contain descriptions that are temporary, such as “New�
 - Static tags are not interactive in any way.
 
 <Example plain>
-  <Tag alignSelf='start' name='Type-Static' />
+  <Tag alignSelf='start' value="Static" />
 </Example>
 
 
@@ -104,7 +104,7 @@ Highlights should only contain descriptions that are temporary, such as “New�
 - An interactive tag can be actioned by mouse or keyboard.
 
 <Example plain>
-  <Tag alignSelf='start' onClick={() => {}} name='Type-Interactive' />
+  <Tag alignSelf='start' onClick={() => {}} value="Interactive" />
 </Example>
 
 ### Removable
@@ -113,7 +113,7 @@ Highlights should only contain descriptions that are temporary, such as “New�
 - Can be used to dismiss a category/value set from a filtered view.
 - Can be used to remove a value that has been assigned to an item or resource.
 <Example plain>
-  <Tag alignSelf='start' name='Type-Removable' onRemove={() => {}} />
+  <Tag alignSelf='start' value='Removable' onRemove={() => {}} />
 </Example>
 
 ### Highlight
@@ -122,9 +122,9 @@ Highlights should only contain descriptions that are temporary, such as “New�
 - Draws attention but is no louder than a secondary/primary button.
 - A highlight tag is not interactive in any way.
 - A tags size should be limited to x-small or small.
-- Use “blue!” border for highlight tags. This treatment should be used sparingly.
+- Use “primary/blue” border for highlight tags. This treatment should be used sparingly.
 <Example plain>
-  <Tag alignSelf='start' border={{ color: 'blue' }} name='Type-Highlight' />
+  <Tag alignSelf='start' border={{ color: 'blue' }} value="Highlight" />
 </Example>
 
 
