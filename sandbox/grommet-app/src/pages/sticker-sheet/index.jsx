@@ -43,7 +43,7 @@ import {
 } from 'grommet';
 import { User } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
-import { current as hpeCurrent } from '../../theme';
+import { refresh as hpeCurrent } from '../../theme';
 
 const textSizes = [
   'xsmall',
