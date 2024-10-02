@@ -1,5 +1,6 @@
 import {
   TagAnatomy,
+  TagAttention,
   TagMetaData,
   TagSimple,
   CreateTagSimple,
@@ -50,6 +51,20 @@ Interacting with the tag will display items that share the same assigned value.
   <TagResource />
 </Example>
 
+### Drawing attention
+[Highlight tags](/components/tag#highlight) can be used to draw attention to an element on the page.
+They are a decorative variant of the [static tag](/components/tag#static).
+Highlights should only contain descriptions that are temporary, such as “New”,
+“Updated”. As such they should not be used a permanent design feature.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
+>
+  <TagAttention />
+</Example>
+
+
+
 ## Anatomy
 
 <Example
@@ -99,6 +114,17 @@ Interacting with the tag will display items that share the same assigned value.
 - Can be used to remove a value that has been assigned to an item or resource.
 <Example plain>
   <Tag alignSelf='start' name='Type-Removable' onRemove={() => {}} />
+</Example>
+
+### Highlight
+
+- Used to indicate a temporary or transient state associated with an item - eg new, updated, promotional.
+- Draws attention but is no louder than a secondary/primary button.
+- A highlight tag is not interactive in any way.
+- A tags size should be limited to x-small or small.
+- Use “blue!” border for highlight tags. This treatment should be used sparingly.
+<Example plain>
+  <Tag alignSelf='start' border={{ color: 'blue!' }} name='Type-Highlight' />
 </Example>
 
 
