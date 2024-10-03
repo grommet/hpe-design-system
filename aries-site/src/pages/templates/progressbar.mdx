@@ -1,0 +1,29 @@
+## Use cases
+### Displaying progress for uploading
+Progress bar within FileInput allows users to see the upload process taking place, with its status and progress.
+
+
+### Displaying progress for time consuming processes
+Progress bar that tells a user when a process will be completed when downloading or extracting data.
+
+### Displaying capacity
+Progress bar that tells a user how much capacity is left.
+
+## Anatomy
+
+| Label  | Region                  | Purpose                                                                                      | Required | Notes                                                                                                                                                                    |
+| :----: | ----------------------- | -------------------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **1**  | **Container**           | Controls the layout/organization of it children.                     | Required | --                                                                                                                                                                       |
+| **2**  | **Identifier** | Identifies the process or context for action in progress. | Required | For an upload progress bar display the filename.                                                                                                                   |
+| **3**  | **Progress**          | Region providing user contextual feedback regarding how much progress has been made, how much remains until completion, and ideally an estimate for when the user can expect the task’s completion.                                                       |    Required    | --                                                                                                                                                                       |
+| **3a** | **Progress Bar/Meter**                | Visual representation providing the proportion of the task’s completion.                  | Required | --                                                                     |
+| **3b** | **Contextual Feedback**               | Provides user with a description of the process and estimate for when they can expect the task to be complete.                                                                        | Optional | Dependent on available data.                                                                                                                                                                       |
+| **3c** | **Quantity**         | Amount loaded of total size in numeric form + document type.                          | Required | --                                                                                                                                                                       |
+| **4**  | **Actions/Icons**                | Visually represent the final status of the progress or contains an action button to halt the process.                               | Required | Use a ‘close’ icon button on uploading states. |
+
+## Accessibility
+
+| Key             | Interaction                                                                     |
+| --------------- | -------------------------------------------------------------------------- |
+| **Tab**         | Navigates between buttons. If an item doesn't have any buttons it won't receive focus.      |
+| **Space/Enter** | Trigger a focused button.                                                     |
