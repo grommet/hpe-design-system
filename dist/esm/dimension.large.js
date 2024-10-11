@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Aug 2024 19:42:07 GMT
+ * Generated on Thu, 29 Aug 2024 19:09:27 GMT
  */
 
 export default {
@@ -59,7 +59,7 @@ export default {
         lineHeight: "1.5rem",
       },
       medium: {
-        fontSize: "1rem",
+        fontSize: "1.25rem",
         lineHeight: "1.25rem",
         fontWeight: 500,
       },

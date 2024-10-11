@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Aug 2024 19:42:07 GMT
+ * Generated on Thu, 29 Aug 2024 19:09:27 GMT
  */
 
 module.exports = {
@@ -83,9 +83,11 @@ module.exports = {
         },
         "turquoise": {
           "200": "#82fff2",
+          "300": "#1bf6df",
           "400": "#00e8cf",
           "700": "#117b82",
-          "200-Opacity12": "#82fff21f"
+          "200-Opacity12": "#82fff21f",
+          "300-Opacity12": "#1bf6df1f"
         },
         "blue": {
           "400": "#00c8ff",
@@ -165,21 +167,6 @@ module.exports = {
         "800": "3rem",
         "900": "4.5rem",
         "1000": "4.5rem"
-      },
-      "fontWeight": {
-        "thin": 100,
-        "light": 300,
-        "regular": 400,
-        "medium": 500,
-        "semibold": 600,
-        "bold": 700,
-        "black": 900
-      },
-      "breakpoint": {
-        "xsmall": "576px",
-        "small": "768px",
-        "medium": "1080px",
-        "large": "1440px"
       },
       "static": {
         "spacing": {

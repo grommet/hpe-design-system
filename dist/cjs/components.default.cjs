@@ -1,3 +1,8 @@
+/**
+ * Do not edit directly
+ * Generated on Thu, 29 Aug 2024 19:09:28 GMT
+ */
+
 module.exports = {
   "hpe": {
     "button": {
@@ -14,14 +19,14 @@ module.exports = {
           "borderColor": "#00000000",
           "textColor": "text-disabled",
           "iconColor": "icon-disabled",
-          "fontWeight": 600
+          "fontWeight": 700
         },
         "hover": {
           "background": "background-primary-default",
           "borderColor": "#00000000",
           "textColor": "text-onPrimary",
           "iconColor": "icon-onPrimary",
-          "fontWeight": 600
+          "fontWeight": 700
         },
         "selected": {
           "enabled": {
@@ -29,23 +34,23 @@ module.exports = {
             "borderColor": "#00000000",
             "textColor": "text-strong",
             "iconColor": "icon-strong",
-            "fontWeight": 600
+            "fontWeight": 700
           }
         }
       },
       "secondary": {
         "enabled": {
-          "background": "#00000000",
-          "borderColor": "background-primary-default",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
+          "background": "background-contrast",
+          "borderColor": "#00000000",
+          "textColor": "background-primary-default",
+          "iconColor": "background-primary-default",
           "fontWeight": 600
         },
         "hover": {
-          "background": "#00000000",
-          "borderColor": "border-selected",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
+          "background": "background-contrast",
+          "borderColor": "#00000000",
+          "textColor": "background-primary-default",
+          "iconColor": "background-primary-default",
           "fontWeight": 600
         },
         "disabled": {
@@ -97,6 +102,38 @@ module.exports = {
           }
         }
       },
+      "nav": {
+        "enabled": {
+          "background": "#00000000",
+          "borderColor": "#00000000",
+          "textColor": "text-strong",
+          "iconColor": "icon-strong",
+          "fontWeight": 400
+        },
+        "disabled": {
+          "background": "#00000000",
+          "borderColor": "#00000000",
+          "textColor": "text-disabled",
+          "iconColor": "icon-disabled",
+          "fontWeight": 600
+        },
+        "hover": {
+          "background": "background-hover",
+          "borderColor": "#00000000",
+          "textColor": "text-strong",
+          "iconColor": "icon-strong",
+          "fontWeight": 600
+        },
+        "selected": {
+          "enabled": {
+            "background": "background-selected-weak-enabled",
+            "borderColor": "#00000000",
+            "textColor": "text-brand",
+            "iconColor": "icon-strong",
+            "fontWeight": 500
+          }
+        }
+      },
       "toolbar": {
         "enabled": {
           "background": "background-default",
@@ -138,11 +175,16 @@ module.exports = {
           "minHeight": "28px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
-          "fontWeight": 700,
           "gapX": "6px",
           "iconOnly": {
-            "paddingX": "6px",
-            "paddingY": "6px"
+            "paddingX": "4px",
+            "paddingY": "4px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
           }
         },
         "secondary": {
@@ -153,11 +195,19 @@ module.exports = {
           "minHeight": "28px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
-          "fontWeight": 700,
           "gapX": "6px",
           "iconOnly": {
-            "paddingX": "6px",
-            "paddingY": "6px"
+            "paddingX": "4px",
+            "paddingY": "4px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
+          },
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #00000000 inset"
           }
         },
         "default": {
@@ -168,11 +218,16 @@ module.exports = {
           "minHeight": "28px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
-          "fontWeight": 700,
           "gapX": "6px",
           "iconOnly": {
-            "paddingX": "6px",
-            "paddingY": "6px"
+            "paddingX": "4px",
+            "paddingY": "4px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
           }
         },
         "toolbar": {
@@ -183,11 +238,16 @@ module.exports = {
           "minHeight": "28px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
-          "fontWeight": 600,
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "0px",
-            "paddingY": "0px"
+            "paddingY": "0px",
+            "borderRadius": "6px",
+            "borderWidth": "1px",
+            "minHeight": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
           }
         }
       },
@@ -198,13 +258,38 @@ module.exports = {
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "36px",
-          "fontSize": "1.1875rem",
-          "fontWeight": 700,
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px"
+            "paddingY": "7px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "36px",
+            "fontSize": "1.125rem",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
+          }
+        },
+        "nav": {
+          "paddingX": "12px",
+          "paddingY": "4px",
+          "borderRadius": "6px",
+          "borderWidth": "2px",
+          "minHeight": "36px",
+          "fontSize": "1.1875rem",
+          "lineHeight": "1.5rem",
+          "gapX": "6px",
+          "iconOnly": {
+            "paddingX": "7px",
+            "paddingY": "7px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "36px",
+            "fontSize": "1.125rem",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
           }
         },
         "primary": {
@@ -213,28 +298,41 @@ module.exports = {
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "36px",
-          "fontSize": "1.1875rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
-          "fontWeight": 700,
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px"
+            "paddingY": "7px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "36px",
+            "fontSize": "1.125rem",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
           }
         },
         "secondary": {
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #00000000 inset"
+          },
           "paddingX": "18px",
           "paddingY": "4px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "36px",
-          "fontSize": "1.1875rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
-          "fontWeight": 700,
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px"
+            "paddingY": "7px",
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "36px",
+            "fontSize": "1.125rem",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
           }
         },
         "toolbar": {
@@ -243,13 +341,18 @@ module.exports = {
           "borderRadius": "6px",
           "borderWidth": "default",
           "minHeight": "36px",
-          "fontSize": "1.1875rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
-          "fontWeight": 600,
           "gapX": "6px",
           "iconOnly": {
             "paddingX": "9px",
-            "paddingY": "9px"
+            "paddingY": "7px",
+            "borderRadius": "6px",
+            "borderWidth": "default",
+            "minHeight": "36px",
+            "fontSize": "1.125rem",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
           }
         }
       },
@@ -262,11 +365,16 @@ module.exports = {
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.75rem",
-          "fontWeight": 700,
           "gapX": "6px",
           "iconOnly": {
-            "paddingX": "13px",
-            "paddingY": "13px"
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "48px",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
+            "gapX": "6px",
+            "paddingX": "11px",
+            "paddingY": "11px"
           }
         },
         "primary": {
@@ -277,11 +385,16 @@ module.exports = {
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.75rem",
-          "fontWeight": 700,
           "gapX": "6px",
           "iconOnly": {
-            "paddingX": "13px",
-            "paddingY": "13px"
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "48px",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
+            "gapX": "6px",
+            "paddingX": "11px",
+            "paddingY": "11px"
           }
         },
         "secondary": {
@@ -292,11 +405,19 @@ module.exports = {
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.75rem",
-          "fontWeight": 700,
           "gapX": "6px",
           "iconOnly": {
-            "paddingX": "13px",
-            "paddingY": "13px"
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "48px",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
+            "gapX": "6px",
+            "paddingX": "11px",
+            "paddingY": "11px"
+          },
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #00000000 inset"
           }
         },
         "toolbar": {
@@ -307,85 +428,110 @@ module.exports = {
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.75rem",
-          "fontWeight": 600,
           "gapX": "6px",
           "iconOnly": {
-            "paddingX": "13px",
-            "paddingY": "13px"
+            "borderRadius": "6px",
+            "borderWidth": "default",
+            "minHeight": "48px",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
+            "gapX": "6px",
+            "paddingX": "11px",
+            "paddingY": "11px"
           }
         }
       },
       "xlarge": {
         "default": {
+          "iconOnly": {
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "72px",
+            "fontSize": "1.875rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px",
+            "paddingX": "22px",
+            "paddingY": "22px"
+          },
           "paddingX": "30px",
           "paddingY": "19px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "72px",
-          "fontSize": "1.5rem",
+          "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
-          "fontWeight": 700,
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "24px",
-            "paddingY": "24px"
-          }
+          "gapX": "6px"
         },
         "primary": {
+          "iconOnly": {
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "72px",
+            "fontSize": "1.875rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px",
+            "paddingX": "22px",
+            "paddingY": "22px"
+          },
           "paddingX": "30px",
           "paddingY": "19px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "72px",
-          "fontSize": "1.5rem",
+          "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
-          "fontWeight": 700,
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "24px",
-            "paddingY": "24px"
-          }
+          "gapX": "6px"
         },
         "secondary": {
+          "iconOnly": {
+            "borderRadius": "2em",
+            "borderWidth": "2px",
+            "minHeight": "72px",
+            "fontSize": "1.875rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px",
+            "paddingX": "22px",
+            "paddingY": "22px"
+          },
           "paddingX": "30px",
           "paddingY": "19px",
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "72px",
-          "fontSize": "1.5rem",
+          "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
-          "fontWeight": 700,
           "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "24px",
-            "paddingY": "24px"
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #00000000 inset"
           }
         },
         "toolbar": {
+          "iconOnly": {
+            "borderRadius": "12px",
+            "borderWidth": "2px",
+            "minHeight": "72px",
+            "fontSize": "1.875rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px",
+            "paddingX": "22px",
+            "paddingY": "22px"
+          },
           "paddingX": "30px",
           "paddingY": "19px",
           "borderRadius": "12px",
           "borderWidth": "2px",
           "minHeight": "72px",
-          "fontSize": "1.5rem",
+          "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
-          "fontWeight": 600,
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "24px",
-            "paddingY": "24px"
-          }
+          "gapX": "6px"
         }
       }
-    },
-    "focusRing": {
-      "color": "#00e8cf"
     },
     "drop": {
       "background": "background-floating",
       "borderRadius": "xsmall",
       "margin": "xsmall",
-      "zIndex": "110px"
+      "zIndex": 110
     },
     "menu": {
       "item": {
@@ -492,7 +638,7 @@ module.exports = {
           "minHeight": "36px",
           "borderRadius": "none",
           "borderWidth": "1px",
-          "fontSize": "1.25rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem"
         }
       },
@@ -517,7 +663,7 @@ module.exports = {
         },
         "selected": {
           "enabled": {
-            "background": "background-selected-weak",
+            "background": "background-selected-weak-enabled",
             "borderColor": "#00000000",
             "textColor": "text-strong",
             "fontWeight": 700
@@ -529,7 +675,7 @@ module.exports = {
       "control": {
         "enabled": {
           "background": "#00000000",
-          "borderColor": "border-default"
+          "borderColor": "border-strong"
         },
         "hover": {
           "background": "#00000000",
@@ -541,12 +687,12 @@ module.exports = {
         },
         "selected": {
           "enabled": {
-            "background": "background-selected-strong",
-            "borderColor": "border-selected",
+            "background": "background-selected-strong-enabled",
+            "borderColor": "background-selected-strong-enabled",
             "iconColor": "icon-onPrimary"
           },
           "hover": {
-            "background": "background-selected-strong",
+            "background": "background-selected-strong-enabled",
             "borderColor": "border-strong",
             "iconColor": "icon-onPrimary"
           },
@@ -558,12 +704,12 @@ module.exports = {
         },
         "indeterminate": {
           "enabled": {
-            "background": "background-selected-strong",
-            "borderColor": "border-selected",
+            "background": "background-selected-strong-enabled",
+            "borderColor": "transparent",
             "iconColor": "icon-onPrimary"
           },
           "hover": {
-            "background": "background-selected-strong",
+            "background": "background-selected-strong-enabled",
             "borderColor": "border-strong",
             "iconColor": "icon-onPrimary"
           },
@@ -593,10 +739,10 @@ module.exports = {
           "fontWeight": 500
         },
         "control": {
-          "height": "24px",
-          "width": "24px",
-          "borderWidth": "default",
-          "borderRadius": "3px"
+          "height": "20px",
+          "width": "20px",
+          "borderWidth": "2px",
+          "borderRadius": "4px"
         }
       }
     },
@@ -617,11 +763,11 @@ module.exports = {
           },
           "selected": {
             "enabled": {
-              "background": "background-selected-strong",
-              "borderColor": "border-default"
+              "background": "background-selected-strong-enabled",
+              "borderColor": "transparent"
             },
             "hover": {
-              "background": "background-selected-strong",
+              "background": "background-selected-strong-enabled",
               "borderColor": "border-strong"
             },
             "disabled": {
@@ -672,25 +818,25 @@ module.exports = {
       },
       "medium": {
         "gapX": "12px",
-        "width": "48px",
-        "height": "1.5rem",
+        "width": "36px",
+        "height": "20px",
         "borderRadius": "9999px",
         "borderWidth": "default",
         "label": {
           "fontSize": "1.125rem",
-          "lineHeight": "1.5rem",
+          "lineHeight": "1.125rem",
           "fontWeight": 500
         },
         "control": {
           "track": {
-            "height": "24px",
-            "width": "48px",
+            "height": "20px",
+            "width": "36px",
             "borderWidth": "default",
             "borderRadius": "24px"
           },
           "handle": {
-            "height": "24px",
-            "width": "24px",
+            "height": "16px",
+            "width": "16px",
             "borderWidth": "default",
             "borderRadius": "24px"
           }
@@ -703,26 +849,27 @@ module.exports = {
       "lineHeight": "1.5rem",
       "fontWeight": 400,
       "borderBottomWidth": "1px",
-      "paddingTop": "6px",
-      "paddingBottom": "5px",
+      "paddingTop": "12px",
+      "paddingBottom": "11px",
+      "minHeight": "36px",
       "enabled": {
         "textColor": "text-default",
-        "borderColor": "#00000000",
+        "borderColor": "border-weak",
         "background": "#00000000"
       },
       "hover": {
         "textColor": "text-default",
-        "borderColor": "#00000000",
+        "borderColor": "border-weak",
         "background": "#00000000"
       },
       "disabled": {
         "textColor": "text-default",
-        "borderColor": "#00000000",
+        "borderColor": "border-weak",
         "background": "#00000000"
       },
       "pinned": {
         "textColor": "text-default",
-        "borderColor": "#00000000",
+        "borderColor": "border-weak",
         "backgroundColor": "#00000000",
         "background": "#00000000"
       },
@@ -732,26 +879,26 @@ module.exports = {
         "lineHeight": "1.5rem",
         "fontWeight": 500,
         "borderBottomWidth": "1px",
-        "paddingTop": "6px",
-        "paddingBottom": "5px",
+        "paddingTop": "12px",
+        "paddingBottom": "11px",
         "enabled": {
           "textColor": "text-strong",
-          "borderColor": "#00000000",
+          "borderColor": "border-weak",
           "background": "#00000000"
         },
         "hover": {
           "textColor": "text-default",
-          "borderColor": "#00000000",
+          "borderColor": "border-weak",
           "background": "#00000000"
         },
         "disabled": {
           "textColor": "text-default",
-          "borderColor": "#00000000",
+          "borderColor": "border-weak",
           "background": "#00000000"
         },
         "pinned": {
           "textColor": "text-default",
-          "borderColor": "#00000000",
+          "borderColor": "border-weak",
           "background": "#00000000"
         }
       }
@@ -762,8 +909,8 @@ module.exports = {
       "lineHeight": "1.5rem",
       "fontWeight": 500,
       "borderBottomWidth": "1px",
-      "paddingTop": "6px",
-      "paddingBottom": "5px",
+      "paddingTop": "12px",
+      "paddingBottom": "11px",
       "enabled": {
         "textColor": "text-default",
         "borderColor": "border-default",
@@ -771,12 +918,12 @@ module.exports = {
       },
       "hover": {
         "textColor": "text-default",
-        "borderColor": "#00000000",
+        "borderColor": "border-weak",
         "background": "#00000000"
       },
       "pinned": {
         "textColor": "text-default",
-        "borderColor": "#00000000",
+        "borderColor": "border-weak",
         "background": "#00000000"
       },
       "gapX": "6px",
@@ -843,7 +990,7 @@ module.exports = {
         },
         "valueText": {
           "fontSize": "1.125rem",
-          "lineHeight": "1rem",
+          "lineHeight": "1.5rem",
           "fontWeight": 500
         }
       },
@@ -1052,6 +1199,32 @@ module.exports = {
         }
       }
     },
+    "footerCell": {
+      "paddingX": "12px",
+      "fontSize": "1.125rem",
+      "lineHeight": "1.5rem",
+      "fontWeight": 500,
+      "borderTopWidth": "1px",
+      "paddingTop": "11px",
+      "paddingBottom": "12px",
+      "gapX": "6px",
+      "minHeight": "36px",
+      "enabled": {
+        "textColor": "text-default",
+        "borderColor": "border-default",
+        "background": "#00000000"
+      },
+      "hover": {
+        "textColor": "text-default",
+        "borderColor": "border-weak",
+        "background": "#00000000"
+      },
+      "pinned": {
+        "textColor": "text-default",
+        "borderColor": "border-weak",
+        "background": "#00000000"
+      }
+    },
     "radioButton": {
       "control": {
         "enabled": {
@@ -1112,8 +1285,8 @@ module.exports = {
           "fontWeight": 500
         },
         "control": {
-          "height": "24px",
-          "width": "24px",
+          "height": "1.5rem",
+          "width": "1.5rem",
           "borderWidth": "default",
           "borderRadius": "2em"
         }
@@ -1122,18 +1295,18 @@ module.exports = {
     "anchor": {
       "default": {
         "enabled": {
-          "textColor": "text-strong",
-          "fontWeight": 400,
-          "textDecoration": "underline"
+          "textColor": "background-primary-default",
+          "fontWeight": 500,
+          "textDecoration": "none"
         },
         "hover": {
           "textColor": "text-strong",
-          "fontWeight": 400,
+          "fontWeight": 500,
           "textDecoration": "underline"
         },
         "disabled": {
           "textColor": "text-strong",
-          "fontWeight": 400,
+          "fontWeight": 500,
           "textDecoration": "underline"
         }
       },
@@ -1190,12 +1363,12 @@ module.exports = {
       },
       "xlarge": {
         "default": {
-          "fontSize": "1.5rem",
+          "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
           "gapX": "6px"
         },
         "emphasized": {
-          "fontSize": "1.5rem",
+          "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
           "gapX": "6px"
         }

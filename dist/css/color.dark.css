@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Aug 2024 19:42:07 GMT
+ * Generated on Thu, 29 Aug 2024 19:09:27 GMT
  */
 
 :root[data-mode=dark] {
@@ -8,6 +8,7 @@
   --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity50);
   --hpe-color-shadow-default: var(--hpe-base-color-black-opacity36);
   --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
+  --hpe-color-focus: var(--hpe-base-color-turquoise-400);
   --hpe-color-data-vis-categorical-70-weak: var(--hpe-tbd);
   --hpe-color-data-vis-categorical-60-weak: var(--hpe-tbd);
   --hpe-color-data-vis-categorical-50-weak: var(--hpe-tbd);
@@ -54,14 +55,14 @@
   --hpe-color-border-weak: var(--hpe-base-color-white-opacity12); /* Weaker border color for reduced emphasis */
   --hpe-color-border-default: var(--hpe-base-color-white-opacity36); /* Default border colour */
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /* Stronger border color for added emphasis */
-  --hpe-color-background-selected-weak: var(--hpe-base-color-green-1000); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
-  --hpe-color-background-selected-strong: var(--hpe-base-color-green-600); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-900); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
+  --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-1000); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
-  --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
+  --hpe-color-background-primary-default: var(--hpe-base-color-green-1000); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
   --hpe-color-background-status-warning: var(--hpe-base-color-yellow-400-opacity12);
   --hpe-color-background-status-critical: var(--hpe-base-color-red-800-opacity30);
-  --hpe-color-background-status-unknown: var(--hpe-base-color-grey-1200);
   --hpe-color-background-status-ok: var(--hpe-base-color-green-500-opacity30);
+  --hpe-color-background-status-unknown: var(--hpe-base-color-grey-1200);
   --hpe-color-background-status-info: var(--hpe-base-color-blue-400-opacity12);
   --hpe-color-background-contrast: var(--hpe-base-color-white-opacity6);
   --hpe-color-background-floating: var(--hpe-base-color-grey-1100); /* Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons. */
@@ -72,6 +73,7 @@
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
   --hpe-color-text-heading-default: var(--hpe-color-text-strong);
+  --hpe-color-background-selected-strong-enabled: var(--hpe-base-color-brand); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -80,6 +82,7 @@
   --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity50);
   --hpe-color-shadow-default: var(--hpe-base-color-black-opacity36);
   --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
+  --hpe-color-focus: var(--hpe-base-color-turquoise-400);
   --hpe-color-data-vis-categorical-70-weak: var(--hpe-tbd);
   --hpe-color-data-vis-categorical-60-weak: var(--hpe-tbd);
   --hpe-color-data-vis-categorical-50-weak: var(--hpe-tbd);
@@ -126,14 +129,14 @@
   --hpe-color-border-weak: var(--hpe-base-color-white-opacity12); /* Weaker border color for reduced emphasis */
   --hpe-color-border-default: var(--hpe-base-color-white-opacity36); /* Default border colour */
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /* Stronger border color for added emphasis */
-  --hpe-color-background-selected-weak: var(--hpe-base-color-green-1000); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
-  --hpe-color-background-selected-strong: var(--hpe-base-color-green-600); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-900); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
+  --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-1000); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
-  --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
+  --hpe-color-background-primary-default: var(--hpe-base-color-green-1000); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
   --hpe-color-background-status-warning: var(--hpe-base-color-yellow-400-opacity12);
   --hpe-color-background-status-critical: var(--hpe-base-color-red-800-opacity30);
-  --hpe-color-background-status-unknown: var(--hpe-base-color-grey-1200);
   --hpe-color-background-status-ok: var(--hpe-base-color-green-500-opacity30);
+  --hpe-color-background-status-unknown: var(--hpe-base-color-grey-1200);
   --hpe-color-background-status-info: var(--hpe-base-color-blue-400-opacity12);
   --hpe-color-background-contrast: var(--hpe-base-color-white-opacity6);
   --hpe-color-background-floating: var(--hpe-base-color-grey-1100); /* Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons. */
@@ -144,6 +147,7 @@
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
   --hpe-color-text-heading-default: var(--hpe-color-text-strong);
+  --hpe-color-background-selected-strong-enabled: var(--hpe-base-color-brand); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
 }
 }
 
