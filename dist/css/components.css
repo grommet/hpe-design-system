@@ -481,7 +481,7 @@
   --hpe-button-primary-disabled-background: var(--hpe-color-background-disabled);
   --hpe-button-primary-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-button-primary-enabled-text-color: var(--hpe-color-text-on-primary);
-  --hpe-button-primary-enabled-background: var(--hpe-color-background-primary-default);
+  --hpe-button-primary-enabled-background-color: var(--hpe-color-background-primary-default);
   --hpe-anchor-6xlarge-emphasized-gap-x: var(--hpe-component-xlarge-text-to-icon-x);
   --hpe-anchor-6xlarge-default-gap-x: var(--hpe-component-xlarge-text-to-icon-x);
   --hpe-anchor-5xlarge-emphasized-gap-x: var(--hpe-component-xlarge-text-to-icon-x);
