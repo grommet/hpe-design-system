@@ -6029,14 +6029,10 @@ grommet-icons@^4.12.0, grommet-icons@^4.12.1:
   version "4.12.1"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#92f4e88ab19fa618a4952ac74802f606bf44c207"
 
-grommet-theme-hpe@^5.2.0, grommet-theme-hpe@^5.4.0:
+grommet-theme-hpe@5.7.0, grommet-theme-hpe@^5.2.0, grommet-theme-hpe@^5.4.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-5.7.0.tgz#c2488c5ae88467a035129e71b608e0d59db1b8df"
   integrity sha512-P8n7wQt1QTWdgDCOV1zc0jOlnq9ml5bCCEgtdCsMKiWIQkbOGJVbOACsfiZOS+J6M7l9ur9QFoXtVkGO6a+HAA==
-
-"grommet-theme-hpe@https://github.com/grommet/grommet-theme-hpe/tarball/stable":
-  version "5.6.0"
-  resolved "https://github.com/grommet/grommet-theme-hpe/tarball/stable#f8f2a90322a699b8e279607990d64e1ac064ca76"
 
 grommet@^2.35.0, grommet@^2.37.0:
   version "2.40.2"
