@@ -2,22 +2,16 @@
   "name": "hpe-design-tokens",
   "version": "0.1.0",
   "type": "module",
-  "module": "./esm/index.js",
+  "module": "./dist/esm/index.js",
   "exports": {
     ".": {
-      "import": "./esm/index.js",
-      "require": "./cjs/index.cjs"
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs"
     },
-    "./esm-unresolved": "./esm-unresolved/index.js",
-    "./css/*.css": {
-      "import": "./css/*.css",
-      "require": "./css/*.css"
-    },
-    "./tailwind/*.js": {
-      "import": "./tailwind/*.js",
-      "require": "./tailwind/*.js"
-    },
-    "./tree": "./tree/index.js"
+    "./dist/css/*.css": {
+      "import": "./dist/css/*.css",
+      "require": "./dist/css/*.css"
+    }
   },
   "scripts": {
     "prettier:check": "prettier --check src/",
