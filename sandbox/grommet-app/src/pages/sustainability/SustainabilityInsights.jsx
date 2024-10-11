@@ -34,7 +34,7 @@ const CarbonEmissions = () => {
       level={2}
       border={{
         side: 'top',
-        color: 'chart-qualitative-70',
+        color: 'graph-0',
         size: !open ? 'medium' : 'none',
       }}
       {...(skeleton ? skeletonProps : {})}
@@ -72,13 +72,13 @@ const CarbonEmissions = () => {
                     property: 'emissions',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'chart-qualitative-70-weak',
+                    color: 'dataVis-categorical-20Weak',
                   },
                   {
                     property: 'emissions',
                     type: 'line',
                     thickness: 'xxsmall',
-                    color: 'chart-qualitative-70',
+                    color: 'graph-0',
                     round: true,
                   },
                 ]}
@@ -108,7 +108,7 @@ const EnergyConsumption = () => {
       level={2}
       border={{
         side: 'top',
-        color: 'chart-qualitative-20',
+        color: 'graph-2',
         size: !open ? 'medium' : 'none',
       }}
       {...(skeleton ? skeletonProps : {})}
@@ -146,13 +146,13 @@ const EnergyConsumption = () => {
                     property: 'energy',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'chart-qualitative-20-weak',
+                    color: 'dataVis-categorical-40Weak',
                   },
                   {
                     property: 'energy',
                     type: 'line',
                     thickness: 'xxsmall',
-                    color: 'chart-qualitative-20',
+                    color: 'graph-2',
                     round: true,
                   },
                 ]}
@@ -182,7 +182,7 @@ const EnergyCost = () => {
       level={2}
       border={{
         side: 'top',
-        color: 'chart-qualitative-30',
+        color: 'graph-4',
         size: !open ? 'medium' : 'none',
       }}
       {...(skeleton ? skeletonProps : {})}
@@ -221,13 +221,13 @@ const EnergyCost = () => {
                     property: 'cost',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'chart-qualitative-30-weak',
+                    color: 'dataVis-categorical-60Weak',
                   },
                   {
                     property: 'cost',
                     type: 'line',
                     thickness: 'xxsmall',
-                    color: 'chart-qualitative-30',
+                    color: 'graph-4',
                     round: true,
                   },
                 ]}
