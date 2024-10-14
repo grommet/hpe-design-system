@@ -1444,6 +1444,9 @@ export const Devices = () => {
             }
           />
         ) : undefined}
+        <Box flex align="end">
+          <Menu label="Actions" secondary />
+        </Box>
       </Toolbar>
       <Box skeleton={skeleton}>
         <DataSummary margin={{ bottom: 'none', top: 'xsmall' }} />

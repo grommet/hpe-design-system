@@ -26,15 +26,15 @@ export const UserOverview = () => {
           values={[
             {
               value: 70,
-              color: skeleton ? 'background-contrast' : 'chart-qualitative-70',
+              color: skeleton ? 'background-contrast' : 'graph-0',
             },
             {
               value: 10,
-              color: skeleton ? 'background-contrast' : 'chart-qualitative-50',
+              color: skeleton ? 'background-contrast' : 'graph-1',
             },
             {
               value: 20,
-              color: skeleton ? 'background-contrast' : 'chart-qualitative-30',
+              color: skeleton ? 'background-contrast' : 'graph-2',
             },
           ]}
           size="small"
@@ -56,22 +56,19 @@ export const UserOverview = () => {
             </Text>
           </Box>
           <Box direction="row" align="center" justify="between">
-            <Legend
-              label="Assigned and subscribed"
-              color="chart-qualitative-70"
-            />
+            <Legend label="Assigned and subscribed" color="graph-0" />
             <Text weight={500} color="text-strong" size="small">
               163
             </Text>
           </Box>
           <Box direction="row" align="center" justify="between">
-            <Legend label="Inactive" color="chart-qualitative-50" />
+            <Legend label="Inactive" color="graph-1" />
             <Text weight={500} color="text-strong" size="small">
               40
             </Text>
           </Box>
           <Box direction="row" align="center" justify="between">
-            <Legend label="Unverified" color="chart-qualitative-30" />
+            <Legend label="Unverified" color="graph-2" />
             <Text weight={500} color="text-strong" size="small">
               19
             </Text>

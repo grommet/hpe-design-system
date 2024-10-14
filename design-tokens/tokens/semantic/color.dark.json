@@ -88,7 +88,7 @@
       "overlay": {
         "$type": "color",
         "$value": "{base.color.black.opacity12}",
-        "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
+        "$description": "",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -106,6 +106,92 @@
             "hiddenFromPublishing": false,
             "scopes": ["FRAME_FILL", "SHAPE_FILL"],
             "codeSyntax": {}
+          }
+        }
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{base.color.blue.400-Opacity12}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "unknown": {
+        "$type": "color",
+        "$value": "{base.color.grey.1200}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "ok": {
+        "$type": "color",
+        "$value": "{base.color.green.500-Opacity30}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "critical": {
+        "$type": "color",
+        "$value": "{base.color.red.800-Opacity30}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{base.color.yellow.400-Opacity12}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "primary": {
+        "default": {
+          "$type": "color",
+          "$value": "{base.color.green.700}",
+          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{base.color.green.900}",
+          "$description": "Hover color variant of the primary color.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+              "codeSyntax": {}
+            }
           }
         }
       },
@@ -148,92 +234,6 @@
                 "codeSyntax": {}
               }
             }
-          }
-        }
-      },
-      "ok": {
-        "$type": "color",
-        "$value": "{base.color.green.500-Opacity30}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "primary": {
-        "default": {
-          "$type": "color",
-          "$value": "{base.color.green.600}",
-          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{TBD}",
-          "$description": "Hover color variant of the primary color.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        }
-      },
-      "info": {
-        "$type": "color",
-        "$value": "{base.color.blue.400-Opacity12}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "warning": {
-        "$type": "color",
-        "$value": "{base.color.yellow.400-Opacity12}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "critical": {
-        "$type": "color",
-        "$value": "{base.color.red.800-Opacity30}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "unknown": {
-        "$type": "color",
-        "$value": "{base.color.grey.1200}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
           }
         }
       }
@@ -433,6 +433,18 @@
           }
         }
       },
+      "primary": {
+        "$type": "color",
+        "$value": "{base.color.green.800}",
+        "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "onPrimary": {
         "$type": "color",
         "$value": "{base.color.white.100}",
@@ -580,6 +592,66 @@
             "codeSyntax": {}
           }
         }
+      },
+      "onCritical": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "Text color to be used on status backgrounds.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "onWarning": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "Text color to be used on status backgrounds.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "onOk": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "Text color to be used on status backgrounds.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "onInfo": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "Text color to be used on status backgrounds.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "onUnknown": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "Text color to be used on status backgrounds.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
       }
     },
     "icon": {
@@ -645,7 +717,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{base.color.red.750}",
+        "$value": "{base.color.red.700}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -693,12 +765,24 @@
       },
       "unknown": {
         "$type": "color",
-        "$value": "{base.color.grey.700}",
+        "$value": "{base.color.grey.800}",
         "$description": "",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "{base.color.green.800}",
+        "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
             "codeSyntax": {}
           }
         }
@@ -1114,7 +1198,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["EFFECT_COLOR"],
+            "scopes": ["EFFEC_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -1126,7 +1210,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["EFFECT_COLOR"],
+            "scopes": ["ALL_SCOPES"],
             "codeSyntax": {}
           }
         }
