@@ -40,7 +40,7 @@ import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateNotification } from '../content/UpdateNotification';
 import { ViewContext } from '../../pages/_app';
-import { Login } from '../../pages/Login';
+import { Login } from '../../components/Login';
 
 export const Layout = ({
   backgroundImage,
