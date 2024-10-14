@@ -11,9 +11,10 @@ import {
   DataFilters,
   DataFilter,
   Skeleton,
+  ToggleGroup,
 } from 'grommet';
 import { Hide, FormView } from 'grommet-icons';
-import { Card, Legend, Metric, ToggleGroup } from '../../components';
+import { Card, Legend, Metric } from '../../components';
 import mockData from '../../mockData/sustainability.json';
 import {
   useLoading,
@@ -291,11 +292,22 @@ export const SustainabilityInsights = () => {
                 <Text>Charts</Text>
                 <ToggleGroup
                   options={[
-                    { id: '0', label: <FormView />, value: true },
-                    { id: '1', label: <Hide />, value: false },
+                    {
+                      icon: <FormView />,
+                      tip: 'View charts',
+                      value: true,
+                    },
+                    {
+                      icon: <Hide />,
+                      tip: 'Hide charts',
+                      value: false,
+                    },
                   ]}
                   value={open}
-                  setValue={setOpen}
+                  onToggle={e => {
+                    if (e.value === true) setOpen(true);
+                    else setOpen(false);
+                  }}
                 />
               </Toolbar>
             ) : undefined}

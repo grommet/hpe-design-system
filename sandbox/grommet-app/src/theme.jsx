@@ -874,6 +874,7 @@ const buildTheme = tokens => {
         reverse: true,
       },
       ...buttonKindTheme,
+      option,
       active: buttonStatesTheme.active,
       disabled: {
         opacity: 1,

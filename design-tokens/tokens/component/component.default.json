@@ -831,7 +831,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "#00000000",
+            "$value": "{color.border.selected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
