@@ -40,6 +40,7 @@ import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateNotification } from '../content/UpdateNotification';
 import { ViewContext } from '../../pages/_app';
+import { Login } from '../../pages/Login';
 
 export const Layout = ({
   backgroundImage,
@@ -48,6 +49,13 @@ export const Layout = ({
   topic,
   isLanding = false,
 }) => {
+  const [authenticated, setAuthenticated] = useState(
+    localStorage.getItem('design-tokens-demo') || false,
+  );
+  useEffect(() => {
+    if (localStorage.getItem('design-tokens-demo')) setAuthenticated(true);
+  }, []);
+
   useEffect(() => {
     if (Config.gaId) {
       initialize(Config.gaId);
@@ -143,117 +151,128 @@ export const Layout = ({
       {/* When a backgroundImage is present, the main page content becomes 
       the `last` child. We want this content to drive the layout.
       For details on this prop, see here: https://v2.grommet.io/stack#guidingChild */}
-      <Stack fill guidingChild={backgroundImage && 'last'}>
-        {backgroundImage && (
-          <PageBackground backgroundImage={backgroundImage} />
-        )}
-        <Page>
-          {/* I think Head is redundant at this point, 
+      {authenticated ? (
+        <Stack fill guidingChild={backgroundImage && 'last'}>
+          {backgroundImage && (
+            <PageBackground backgroundImage={backgroundImage} />
+          )}
+          <Page>
+            {/* I think Head is redundant at this point, 
               but left it as is for now */}
-          <Head title={title} />
-          <Meta
-            title={title}
-            render={render}
-            description={seoDescription}
-            canonicalUrl={`https://design-system.hpe.design${router.route}`}
-          />
-          <>
-            <SkipLinks id="skip-links">
-              {skiplinks.map(({ id, label }) => (
-                <SkipLink key={id} id={id} label={label} />
-              ))}
-            </SkipLinks>
-            <PageContent>
-              <Header fill="horizontal" alignSelf="center" />
-            </PageContent>
-            <MainContentWrapper>
-              <Main overflow="visible">
-                {/* row-reverse direction, tab through ToC first */}
-                <Box direction={layout !== 'plain' ? 'row-reverse' : 'column'}>
-                  {layout !== 'plain' ? (
-                    <>
-                      {showInPageNav ? (
-                        <Box pad={{ left: 'large' }}>
-                          <SkipLinkTarget id="toc" />
-                          <InPageNavigation title={title} headings={headings} />
-                        </Box>
-                      ) : undefined}
-                      <Box
-                        width={
-                          showInPageNav
-                            ? 'calc(100% - 192px)' // 192px = small t-shirt size
-                            : '100%'
-                        }
-                      >
-                        {/* top pad handled by PageHeader */}
-                        <SkipLinkTarget id="main" />
-                        <ContentSection pad={{ top: 'none' }}>
-                          <DocsPageHeader
-                            title={title}
-                            topic={topic}
-                            render={render}
-                          />
-                          {pageUpdateReady && contentHistory[title]?.update && (
-                            <UpdateNotification name={title} />
-                          )}
-                          {children}
-                        </ContentSection>
-                        {relatedContent.length > 0 && (
-                          <RelatedContent
-                            relatedContent={relatedContent}
-                            title={title}
-                          />
-                        )}
-                        <FeedbackSection />
-                      </Box>
-                    </>
-                  ) : (
-                    <>
-                      <SkipLinkTarget id="main" />
-                      {children}
-                    </>
-                  )}
-                </Box>
-              </Main>
-            </MainContentWrapper>
-            <FeedbackButton
-              margin={{ vertical: 'medium', horizontal: 'medium' }}
-              elevation="large"
-              onClick={onOpen}
-              label="Feedback"
-              primary
-              a11yTitle="This button launches a modal to give feedback."
+            <Head title={title} />
+            <Meta
+              title={title}
+              render={render}
+              description={seoDescription}
+              canonicalUrl={`https://design-system.hpe.design${router.route}`}
             />
-            <Feedback
-              show={open}
-              messages={{
-                submit: 'Submit feedback',
-                cancel: 'No thanks',
-                successful: 'Thank you!',
-              }}
-              modal
-              onClose={onClose}
-              title="We’d love your feedback"
-              onSubmit={onSubmit}
-            >
-              <Question
-                label="Was this page helpful?"
-                kind="thumbs"
-                name="like-rating"
+            <>
+              <SkipLinks id="skip-links">
+                {skiplinks.map(({ id, label }) => (
+                  <SkipLink key={id} id={id} label={label} />
+                ))}
+              </SkipLinks>
+              <PageContent>
+                <Header fill="horizontal" alignSelf="center" />
+              </PageContent>
+              <MainContentWrapper>
+                <Main overflow="visible">
+                  {/* row-reverse direction, tab through ToC first */}
+                  <Box
+                    direction={layout !== 'plain' ? 'row-reverse' : 'column'}
+                  >
+                    {layout !== 'plain' ? (
+                      <>
+                        {showInPageNav ? (
+                          <Box pad={{ left: 'large' }}>
+                            <SkipLinkTarget id="toc" />
+                            <InPageNavigation
+                              title={title}
+                              headings={headings}
+                            />
+                          </Box>
+                        ) : undefined}
+                        <Box
+                          width={
+                            showInPageNav
+                              ? // 192px = small t-shirt size
+                                'calc(100% - 192px)'
+                              : '100%'
+                          }
+                        >
+                          {/* top pad handled by PageHeader */}
+                          <SkipLinkTarget id="main" />
+                          <ContentSection pad={{ top: 'none' }}>
+                            <DocsPageHeader
+                              title={title}
+                              topic={topic}
+                              render={render}
+                            />
+                            {pageUpdateReady &&
+                              contentHistory[title]?.update && (
+                                <UpdateNotification name={title} />
+                              )}
+                            {children}
+                          </ContentSection>
+                          {relatedContent.length > 0 && (
+                            <RelatedContent
+                              relatedContent={relatedContent}
+                              title={title}
+                            />
+                          )}
+                          <FeedbackSection />
+                        </Box>
+                      </>
+                    ) : (
+                      <>
+                        <SkipLinkTarget id="main" />
+                        {children}
+                      </>
+                    )}
+                  </Box>
+                </Main>
+              </MainContentWrapper>
+              <FeedbackButton
+                margin={{ vertical: 'medium', horizontal: 'medium' }}
+                elevation="large"
+                onClick={onOpen}
+                label="Feedback"
+                primary
+                a11yTitle="This button launches a modal to give feedback."
               />
-              <Question
-                name="text-area"
-                kind="textArea"
-                label="Any additional comments?"
-                formProps={{
-                  help: `Here's your chance to tell us your thoughts 
-                  about this page.`,
+              <Feedback
+                show={open}
+                messages={{
+                  submit: 'Submit feedback',
+                  cancel: 'No thanks',
+                  successful: 'Thank you!',
                 }}
-              />
-            </Feedback>
-          </>
-        </Page>
-      </Stack>
+                modal
+                onClose={onClose}
+                title="We’d love your feedback"
+                onSubmit={onSubmit}
+              >
+                <Question
+                  label="Was this page helpful?"
+                  kind="thumbs"
+                  name="like-rating"
+                />
+                <Question
+                  name="text-area"
+                  kind="textArea"
+                  label="Any additional comments?"
+                  formProps={{
+                    help: `Here's your chance to tell us your thoughts 
+                  about this page.`,
+                  }}
+                />
+              </Feedback>
+            </>
+          </Page>
+        </Stack>
+      ) : (
+        <Login setAuthenticated={setAuthenticated} />
+      )}
     </>
   );
 };
