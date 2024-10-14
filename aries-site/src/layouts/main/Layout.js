@@ -50,10 +50,10 @@ export const Layout = ({
   isLanding = false,
 }) => {
   const [authenticated, setAuthenticated] = useState(
-    localStorage.getItem('design-tokens-demo') || false,
+    localStorage.getItem('theme-update-demo') || false,
   );
   useEffect(() => {
-    if (localStorage.getItem('design-tokens-demo')) setAuthenticated(true);
+    if (localStorage.getItem('theme-update-demo')) setAuthenticated(true);
   }, []);
 
   useEffect(() => {

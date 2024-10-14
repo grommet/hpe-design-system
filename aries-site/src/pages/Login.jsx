@@ -20,7 +20,7 @@ export const Login = ({ setAuthenticated }) => {
         <Form
           onSubmit={({ value }) => {
             if (value.password === process.env.NEXT_PUBLIC_PASSWORD) {
-              localStorage.setItem('design-tokens-demo', 'true');
+              localStorage.setItem('theme-update-demo', 'true');
               setAuthenticated(true);
             }
           }}
