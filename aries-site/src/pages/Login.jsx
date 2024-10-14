@@ -19,7 +19,6 @@ export const Login = ({ setAuthenticated }) => {
         />
         <Form
           onSubmit={({ value }) => {
-            console.log(value.password, process.env.NEXT_PUBLIC_PASSWORD);
             if (value.password === process.env.NEXT_PUBLIC_PASSWORD) {
               localStorage.setItem('design-tokens-demo', 'true');
               setAuthenticated(true);
