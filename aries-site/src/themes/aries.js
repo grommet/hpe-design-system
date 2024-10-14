@@ -675,6 +675,7 @@ const buildTheme = tokens => {
             font-weight: 100;
           }`,
         size: large.hpe.text.medium.fontSize,
+        height: large.hpe.text.medium.lineHeight,
       },
       focus: {
         border: undefined,
@@ -856,7 +857,7 @@ const buildTheme = tokens => {
         ...buttonStatesTheme.hover,
       },
       size: buttonSizesTheme,
-      extend: ({ active, kind, theme }) => {
+      extend: ({ active, kind, sizeProp, theme }) => {
         let style = '';
         if (active) {
           style += `&:hover {
@@ -874,6 +875,7 @@ const buildTheme = tokens => {
             };
           }`;
         }
+        style += `line-height: ${large.hpe.text[sizeProp]?.lineHeight};`;
         return style;
       },
     },

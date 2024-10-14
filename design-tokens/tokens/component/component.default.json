@@ -1625,7 +1625,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 2,
+          "$value": 3,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1649,7 +1649,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{base.static.borderWidth.small}",
+          "$value": "{component.small.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1722,7 +1722,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 4,
+            "$value": 5,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2019,7 +2019,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 4,
+          "$value": 5,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2043,7 +2043,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{base.static.borderWidth.small}",
+          "$value": "{component.medium.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2116,7 +2116,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 7,
+            "$value": 8,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2805,7 +2805,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 7,
+          "$value": 8,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2829,7 +2829,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{base.static.borderWidth.small}",
+          "$value": "{component.large.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2974,7 +2974,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 11,
+            "$value": 12,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3687,7 +3687,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 22,
+            "$value": 23,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3712,7 +3712,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 19,
+          "$value": 20,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3736,7 +3736,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{base.static.borderWidth.small}",
+          "$value": "{component.xlarge.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4298,7 +4298,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 22,
+            "$value": 23,
             "$description": "",
             "$extensions": {
               "com.figma": {
