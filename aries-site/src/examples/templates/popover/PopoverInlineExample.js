@@ -25,7 +25,7 @@ const device = [
   },
   {
     title: 'Assigned & subscribed',
-    devices: '0',
+    devices: '74',
   },
   {
     title: 'Total Devices',
