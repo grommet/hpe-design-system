@@ -257,7 +257,7 @@ export const templates = [
     seoDescription: `A Popover is an overlay presenting contextual information related to a specific UI element. It is revealed and closed by click events.`,
     relatedContent: ['Tip'],
     sections: ['Use cases', 'Anatomy', 'Content guidelines', 'Accessibility'],
-    tags: ['tip', 'tooltip', 'modal', 'popoverMenu', 'inline popover'],
+    tags: ['popup', 'pop up', 'popover', 'tip', 'tooltip', 'modal', 'popover menu', 'inline popover'],
   },
   {
     name: 'User feedback collection',
