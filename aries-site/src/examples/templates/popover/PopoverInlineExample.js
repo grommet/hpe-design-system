@@ -21,7 +21,7 @@ const device = [
   },
   {
     title: 'Require Subscriptions',
-    devices: '10',
+    devices: '6',
   },
   {
     title: 'Assigned & subscribed',
