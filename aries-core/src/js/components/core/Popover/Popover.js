@@ -19,7 +19,7 @@ export const Popover = ({
       target={target}
       onClose={onClose}
       // need this for drop to control focus
-      // restrictFocus
+      restrictFocus
       {...rest}
     >
       <Box
