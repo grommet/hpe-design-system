@@ -259,7 +259,7 @@ export const templates = [
      They are used to provide additional contextual information and might
      contain interactive elements.`,
     relatedContent: ['Tip'],
-    sections: ['Use cases', 'Anatomy', 'Content guidlines', 'Accessibility'],
+    sections: ['Use cases', 'Anatomy', 'Content guidelines', 'Accessibility'],
     tags: ['tip', 'tooltip', 'modal', 'popoverMenu', 'inline popover'],
   },
   {
