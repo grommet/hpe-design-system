@@ -20,7 +20,7 @@ const device = [
     devices: '17',
   },
   {
-    title: 'Require Subscriptions',
+    title: 'Require subscriptions',
     devices: '6',
   },
   {
