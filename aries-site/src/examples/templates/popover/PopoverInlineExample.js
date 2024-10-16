@@ -27,10 +27,6 @@ const device = [
     title: 'Assigned & subscribed',
     devices: '74',
   },
-  {
-    title: 'Total Devices',
-    devices: '10',
-  },
 ];
 
 const columns = {
