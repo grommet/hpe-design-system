@@ -16,7 +16,7 @@ import { CircleInformation } from 'grommet-icons';
 
 const device = [
   {
-    title: 'Require Assignments',
+    title: 'Require assignments',
     devices: '17',
   },
   {
