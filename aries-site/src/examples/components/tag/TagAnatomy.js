@@ -107,7 +107,7 @@ export const TagAnatomy = () => {
         <Box />
         <Annotation id="border-annotation" target="1" />
         <Box />
-        <Annotation alignSelf="center" id="name-annotation" target="3" />
+        <Annotation alignSelf="center" id="name-annotation" target="2" />
         <AnatomyBox
           id="border"
           nameId="tagName-2"
@@ -126,7 +126,7 @@ export const TagAnatomy = () => {
             }px`,
           }}
         >
-          <Annotation id="value-annotation" target="2" />
+          <Annotation id="value-annotation" target="3" />
         </Box>
         <Box />
       </AnatomyGrid>
