@@ -254,10 +254,7 @@ export const templates = [
       component: () => <PopoverPreview />,
       background: 'background-front',
     },
-    seoDescription: `A Popover is an overlay that is opened by a
-     click trigger.
-     They are used to provide additional contextual information and might
-     contain interactive elements.`,
+    seoDescription: `A Popover is an overlay presenting contextual information related to a specific UI element. It is revealed and closed by click events.`,
     relatedContent: ['Tip'],
     sections: ['Use cases', 'Anatomy', 'Content guidelines', 'Accessibility'],
     tags: ['tip', 'tooltip', 'modal', 'popoverMenu', 'inline popover'],
