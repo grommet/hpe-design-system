@@ -249,10 +249,7 @@ export const templates = [
     name: 'Popover',
     available: true,
     cardOrder: 5,
-    description: `A Popover is an overlay that is opened by a
-     click trigger.
-     It is used to provide additional contextual information and might
-     contain interactive elements.`,
+    description: `A Popover is an overlay presenting contextual information related to a specific UI element.`,
     preview: {
       component: () => <PopoverPreview />,
       background: 'background-front',
