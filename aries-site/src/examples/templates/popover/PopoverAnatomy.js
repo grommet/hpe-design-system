@@ -110,7 +110,7 @@ export const PopoverAnatomy = () => {
           alignSelf="center"
           id="round"
           kind="style"
-          target={mobile ? '6' : 'round="xxsmall"'}
+          target={mobile ? '4' : 'round="xsmall"'}
           gridArea="annotation-round"
         />
         <PopoverContent gridArea="popover" />
