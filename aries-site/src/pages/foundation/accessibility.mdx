@@ -16,7 +16,7 @@ Everyone has the right to fully access and take advantage of the web. Web access
 
 <CorePrinciples />
 
-Creating accessible applications means providing experiences that are easily usable by those who rely on keyboard navigation or screen readers, who are colorblind, or who are experiencing some other permanent, temporary, or situational disability.
+Creating accessible applications means providing experiences that are easily usable by those who rely on keyboard navigation, speech input software, screen readers, alternative input devices (like head pointers), screen magnification software, who are colorblind, or who are experiencing some other permanent, temporary, or situational disability.
 
 Accessibility covers a spectrum of disabilities, including but not restricted to blindness, low vision, hearing and cognitive impairments and situational disabilities. From using glasses to aid with sight to a temporary broken bone to carpal tunnel, [about 25% of the United States population](https://www.cdc.gov/ncbddd/disabilityandhealth/infographic-disability-impacts-all.html) lives with some type of disability, permanent or not.
 
@@ -66,7 +66,7 @@ The following are actions you can incorporate into your workflow to better test 
 
 - **Accessibility first.** If accessibility is incorporated into the design process and development lifecycle as early as possible, many violations could be avoided in the future. More research, dialogue, testing and empathy will increase the accessibility of HPE products.
 - **Conduct research.** It is important to understand the limitations and pain points of the audience you are trying to engage with and build for. Read about the current best practices and standards for the interface you are building. Understand how users with disabilities will interact with your product.
-- **Try it yourself.** When testing your products manually by yourself, it is important to simulate the experience of a person with a disability to the best of your capabilities in order to build empathy. For example:
+- **Try it yourself.** When testing your products manually by yourself, it is important to simulate the experience of a person with a disability to the best of your capabilities in order to build empathy. Make sure to test with multiple assistive technologies and operating systems. For example:
   - Turn your monitor off when using a screen reader.
   - Avoid any reliance on your mouse.
   - Use [technologies to aid in simulating disabilities](#disability-simulator-tools) such as color blindness, dyslexia and tunnel vision.
@@ -78,7 +78,7 @@ The following are actions you can incorporate into your workflow to better test 
 
 The following testing tools can be used to help check code, designs, and applications for accessibility. Automated testing tools will not catch 100% of your product's accessibility violations, but offer a good initial report of issues to track and fix.
 
-### CI/CD tools
+### Continuous integration and delivery tools
 
 - [Lighthouse Github Action](https://github.com/jakejarvis/lighthouse-action): [Built into the Design System repo](https://github.com/grommet/hpe-design-system/blob/master/.github/workflows/main.yml), this Github action performs a Lighthouse audit on open pull requests to ensure no accessibility violations, among other checks.
 - [axe-core](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react): An accessibility testing engine built to integrate with existing functional testing to help automate accessibility checks.

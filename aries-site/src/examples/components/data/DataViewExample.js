@@ -1,5 +1,5 @@
 import React from 'react';
-import { Data, DataView } from 'grommet';
+import { Data, DataView, Toolbar } from 'grommet';
 import applications from '../../../data/mockData/applications.json';
 
 export const DataViewExample = () => {
@@ -22,7 +22,9 @@ export const DataViewExample = () => {
         },
       ]}
     >
-      <DataView />
+      <Toolbar>
+        <DataView />
+      </Toolbar>
     </Data>
   );
 };

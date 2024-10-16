@@ -1,0 +1,100 @@
+import { BetaNotification } from '../../examples';
+
+<BetaNotification />
+
+## Using tokens with Grommet
+
+There is no need to install "hpe-design-tokens" or change how you build with Grommet. The HPE Design System team has mapped "hpe-design-tokens" into "grommet-theme-hpe", so there should be no change to your workflow.
+
+## Using tokens in non-Grommet projects
+
+### Install hpe-design-tokens
+
+Run the following command to add HPE design tokens to your project.
+
+```
+yarn add hpe-design-tokens
+```
+
+```
+pnpm add hpe-design-tokens
+```
+
+```
+npm install hpe-design-tokens
+```
+
+### Apply tokens
+
+HPE Design Tokens are exported in a variety of formats to support teams across tech stacks. The currently supported formats are:
+
+- CSS variables
+- ESM
+- CommonJS
+
+If the exports from `hpe-design-tokens` do not meet the needs of your team, please reach out to our team in `#hpe-design-system` in Slack.
+
+#### CSS variables
+
+To use hpe-design-tokens as CSS variables, first import the CSS files into your project. How these files are imported will depend on your tech stack.
+
+```
+// For example, main.jsx
+import 'hpe-design-tokens/css/base.css';
+import 'hpe-design-tokens/css/color.light.css';
+import 'hpe-design-tokens/css/color.dark.css';
+import 'hpe-design-tokens/css/global.css';
+import 'hpe-design-tokens/css/components.css';
+import 'hpe-design-tokens/css/dimension.large.css';
+import 'hpe-design-tokens/css/dimension.small.css';
+```
+
+Then, apply the token directly to a CSS property, or create your own CSS variable that can be modified across states.
+
+```
+// For example, styles.css
+
+button.primary {
+    --button-primary-background: var(--hpe-button-primary-enabled-background);
+    background: var(--button-primary-background);
+}
+button.primary:hover {
+    --button-primary-background: var(--hpe-button-primary-hover-background);
+}
+button.primary:disabled {
+    --button-primary-background: var(--hpe-button-primary-disabled-background);
+}
+```
+
+#### ESM
+
+To use hpe-design-tokens as ESM, import the modules into your project.
+
+```
+// For example, main.jsx
+import { light, dark, large, small, global, components } from 'hpe-design-tokens';
+
+const theme = {
+    button: {
+        primary: {
+            background: components.hpe.button.primary.enabled.background,
+        }
+    }
+}
+```
+
+#### CommonJS
+
+To use hpe-design-tokens with CommonJS, import the modules into your project.
+
+```
+const { light, dark, large, small, global, components } = require("hpe-design-tokens");
+
+const theme = {
+    button: {
+        primary: {
+            background: components.hpe.button.primary.enabled.background,
+        }
+    }
+}
+```
