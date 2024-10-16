@@ -93,7 +93,14 @@ export const PopoverInlineExample = () => {
         </Box>
         {showPopover && (
           <Popover
-            footer={<Anchor size="small" label="Learn more" href="#" />}
+            footer={
+              <Anchor
+                alignSelf="start"
+                size="small"
+                label="Learn more"
+                href="#"
+              />
+            }
             target={targetRef.current}
             onClickOutside={handleClosePopover}
             onEsc={handleClosePopover}
