@@ -19,6 +19,7 @@ export * from './maskedinput';
 export * from './menu';
 export * from './namevaluelist';
 export * from './page-layouts';
+export * from './popover';
 export * from './radiobuttonGroup';
 export * from './rangeinput';
 export * from './SearchPreview';
