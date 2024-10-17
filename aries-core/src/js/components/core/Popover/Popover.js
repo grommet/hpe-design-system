@@ -14,6 +14,7 @@ export const Popover = ({
   return (
     <Drop
       role="dialog"
+      aria-label="popover"
       elevation="medium"
       stretch={false}
       target={target}
