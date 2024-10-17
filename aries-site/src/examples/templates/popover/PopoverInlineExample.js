@@ -106,7 +106,7 @@ export const PopoverInlineExample = () => {
           >
             <Paragraph size="small" margin="none">
               To add a new device, apply a license key to any device that
-              reuqies a subscription.
+              requires a subscription.
             </Paragraph>
           </Popover>
         )}
