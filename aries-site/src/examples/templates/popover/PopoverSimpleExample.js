@@ -42,7 +42,7 @@ export const PopoverSimpleExample = () => {
         >
           <Paragraph size="small" margin="none">
             A popover's contents provide contextual information for the related
-            UI element. Unlike a tooltip, a popover is revealed and closed by a
+            UI element. Unlike a tip, a popover is revealed and closed by a
             click event and may contain interactive elements.
           </Paragraph>
         </Popover>
