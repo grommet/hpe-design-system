@@ -3035,16 +3035,16 @@
     "@types/node" "*"
 
 "@types/node@*":
-  version "22.7.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.7.5.tgz#cfde981727a7ab3611a481510b473ae54442b92b"
-  integrity sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==
+  version "22.7.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.7.6.tgz#3ec3e2b071e136cd11093c19128405e1d1f92f33"
+  integrity sha512-/d7Rnj0/ExXDMcioS78/kf1lMzYk4BZV8MZGTBKzTGZ6/406ukkbYlIsZmMPhcR5KlkunDHQLrtAVmSq7r+mSw==
   dependencies:
     undici-types "~6.19.2"
 
 "@types/node@^20.14.5", "@types/node@^20.4.5":
-  version "20.16.11"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.16.11.tgz#9b544c3e716b1577ac12e70f9145193f32750b33"
-  integrity sha512-y+cTCACu92FyA5fgQSAI8A1H429g7aSK2HsO7K4XYUWc4dY5IUz55JSDIYT6/VsOLfGy8vmvQYC2hfb0iF16Uw==
+  version "20.16.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.16.12.tgz#61cc9be049584b472fa31e465aa0ab3c090dac56"
+  integrity sha512-LfPFB0zOeCeCNQV3i+67rcoVvoN5n0NVuR2vLG0O5ySQMgchuZlC4lgz546ZOJyDtj5KIgOxy+lacOimfqZAIA==
   dependencies:
     undici-types "~6.19.2"
 
@@ -5179,9 +5179,9 @@ ejs@^3.1.10:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.28:
-  version "1.5.39"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.39.tgz#5cbe5200b43dff7b7c2bcb6bdacf65d514c76bb2"
-  integrity sha512-4xkpSR6CjuiaNyvwiWDI85N9AxsvbPawB8xc7yzLPonYTuP19BVgYweKyUMFtHEZgIcHWMt1ks5Cqx2m+6/Grg==
+  version "1.5.41"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.41.tgz#eae1ba6c49a1a61d84cf8263351d3513b2bcc534"
+  integrity sha512-dfdv/2xNjX0P8Vzme4cfzHqnPm5xsZXwsolTYr0eyW18IUmNyG08vL+fttvinTfhKfIKdRoqkDIC9e9iWQCNYQ==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -6548,7 +6548,7 @@ grommet-theme-hpe@5.7.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.41.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#8ef3d2d89fe75e446fdbf7348ea48b98904650ae"
+  resolved "https://github.com/grommet/grommet/tarball/stable#ff7e163a05512574ce5caded58668f788f1931a5"
   dependencies:
     "@emotion/is-prop-valid" "^1.3.1"
     grommet-icons "^4.12.1"
