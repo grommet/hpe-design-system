@@ -19,6 +19,7 @@ export const Popover = ({
       stretch={false}
       target={target}
       onClose={onClose}
+      onEsc={onClose}
       // need this for drop to control focus
       restrictFocus
       {...rest}
