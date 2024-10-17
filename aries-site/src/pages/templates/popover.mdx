@@ -1,9 +1,10 @@
-import { Example } from '../../layouts';
+import { Example, StyleTable } from '../../layouts';
 import {
   PopoverAnatomy,
   PopoverSimpleExample,
   PopoverInlineExample,
 } from '../../examples';
+import { Checkmark } from 'grommet-icons'; 
 
 <Example
   figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?m=auto&node-id=36369-2087&t=DQC2q9WBqfsNEi8I-1"
@@ -35,10 +36,34 @@ Contextual help, such as a term's definition or feature explanation, may be prov
 | Label | Region        | Purpose                              | Required | Notes                                      |
 | :---: | ------------- | ------------------------------------ | :------: | ------------------------------------------ |
 | **1** | **Title**     | Identifies the popover.               | Optional |                                            |
-| **2** | **Close button** | Closes the popover.                | Required |  Closed by mouse-click and/or keyboard. A popover also closes by any clicks outside of the popover. |
-| **3** | **Body**      | Provides contextual information.      | Required | May include non-text elements.             |
+| **2** | **Close button** | Closes the popover.                |  <Checkmark align='center' a11yTitle="true" size="small" />  |  Closed by mouse-click and/or keyboard. A popover also closes by any clicks outside of the popover. |
+| **3** | **Body**      | Provides contextual information.      |  <Checkmark a11yTitle="true" size="small" />  | May include non-text elements.             |
 | **4** | **Footer**    | Contains additional actions.          | Optional | May include anchors.                       |
 
+<StyleTable
+  data={[
+    {
+      label: 4,
+      property: 'pad',
+      value: 'small',
+    },
+    {
+      label: 5,
+      property: 'gap',
+      value: 'small',
+    },
+    {
+      label: 6,
+      property: 'round',
+      value: 'xsmall',
+    },
+    {
+      label: 7,
+      property: 'elevation',
+      value: 'medium',
+    },
+  ]}
+/>
 
 ## Content guidelines
 
@@ -56,7 +81,7 @@ Recommended practices:
 
 Ensure accessibility by including an `a11yTitle` on:
 - Triggers without labels, such as icon-only buttons.
-- The Close button, describing the Popover's contents.
+- The Close button.
 
 Add `aria-haspopup` as well as `aria-controls` on:
 - The trigger in which opens the popover.

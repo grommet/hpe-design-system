@@ -31,8 +31,8 @@ const device = [
 
 const columns = {
   xsmall: ['auto'],
-  small: ['auto'],
-  medium: ['auto'],
+  small: ['auto', 'auto', 'auto'],
+  medium: ['auto', 'auto', 'auto'],
   large: ['auto', 'auto', 'auto'],
   xlarge: ['auto', 'auto', 'auto', 'auto'],
 };
@@ -77,7 +77,7 @@ export const PopoverInlineExample = () => {
             <Button
               align="center"
               justify="start"
-              icon={<CircleInformation size="small" />}
+              icon={<CircleInformation aria-hidden="true" size="small" />}
               onClick={handleButtonClick}
               ref={targetRef}
               a11yTitle="Informational help"

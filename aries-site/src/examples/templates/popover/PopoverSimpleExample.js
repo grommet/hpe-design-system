@@ -41,9 +41,9 @@ export const PopoverSimpleExample = () => {
           align={{ bottom: 'top', left: 'left' }}
         >
           <Paragraph size="small" margin="none">
-            A popover's contents provide contextual information for the related UI element.
-            
-            Unlike a tooltip, a popover is revealed and closed by a click event and may contain interactive elements.
+            A popover's contents provide contextual information for the related
+            UI element. Unlike a tooltip, a popover is revealed and closed by a
+            click event and may contain interactive elements.
           </Paragraph>
         </Popover>
       )}
