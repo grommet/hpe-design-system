@@ -105,10 +105,8 @@ export const PopoverInlineExample = () => {
             id="popover-info"
           >
             <Paragraph size="small" margin="none">
-              A server is added to a group when you apply an HPE GreenLake
-              device tag that matches the tag of a server group with Automate
-              adding servers enabled or when a server with a matching device tag
-              is added to a Compute Ops Management application instance.
+              To add a new device, apply a license key to any device that
+              reuqies a subscription.
             </Paragraph>
           </Popover>
         )}
