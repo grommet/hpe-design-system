@@ -22,7 +22,7 @@ export const PopoverSimpleExample = () => {
       <Button
         align="center"
         justify="start"
-        icon={<CircleInformation />}
+        icon={<CircleInformation aria-hidden />}
         onClick={handleButtonClick}
         ref={targetRef}
         aria-expanded={showPopover}

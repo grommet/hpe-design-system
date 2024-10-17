@@ -77,7 +77,7 @@ export const PopoverInlineExample = () => {
             <Button
               align="center"
               justify="start"
-              icon={<CircleInformation aria-hidden="true" size="small" />}
+              icon={<CircleInformation aria-hidden size="small" />}
               onClick={handleButtonClick}
               ref={targetRef}
               a11yTitle="Informational help"
