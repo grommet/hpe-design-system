@@ -34,7 +34,7 @@ export const Popover = ({
         </Box>
         <Button
           size="small"
-          icon={<Close size="small" />}
+          icon={<Close aria-hidden size="small" />}
           onClick={onClose}
           autoFocus
           alignSelf="start"
@@ -43,7 +43,7 @@ export const Popover = ({
           a11yTitle={
             a11yTitle ||
             `You are in a popover,
-            to close this popover, press Enter.`
+            to close this popover, press Enter or Esc.`
           }
         />
       </Box>
