@@ -227,7 +227,7 @@
       },
       "unknown": {
         "$type": "color",
-        "$value": "{base.color.grey.50}",
+        "$value": "{base.color.black.opacity4}",
         "$description": "",
         "$extensions": {
           "com.figma": {
