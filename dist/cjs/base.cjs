@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Sep 2024 20:25:26 GMT
+ * Generated on Mon, 21 Oct 2024 23:03:38 GMT
  */
 
 module.exports = {
@@ -204,7 +204,8 @@ module.exports = {
           "small": "12px",
           "medium": "24px",
           "large": "48px",
-          "xlarge": "96px"
+          "xlarge": "96px",
+          "full": "384px"
         },
         "borderWidth": {
           "none": "0px",

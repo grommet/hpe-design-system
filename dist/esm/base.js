@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Sep 2024 20:25:26 GMT
+ * Generated on Mon, 21 Oct 2024 23:03:38 GMT
  */
 
 export default {
@@ -205,6 +205,7 @@ export default {
           medium: "24px",
           large: "48px",
           xlarge: "96px",
+          full: "384px",
         },
         borderWidth: {
           none: "0px",

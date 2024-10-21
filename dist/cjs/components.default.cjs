@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Sep 2024 20:25:27 GMT
+ * Generated on Mon, 21 Oct 2024 23:03:39 GMT
  */
 
 module.exports = {
@@ -136,67 +136,70 @@ module.exports = {
         }
       },
       "small": {
-        "primary": {
+        "default": {
           "paddingX": "12px",
-          "paddingY": "4px",
+          "paddingY": "3px",
           "borderRadius": "2em",
-          "borderWidth": "0px",
+          "borderWidth": "1px",
           "minHeight": "28px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
-          "gapX": "3px",
+          "gapX": "6px",
           "iconOnly": {
-            "paddingX": "4px",
-            "paddingY": "4px",
+            "paddingX": "5px",
+            "paddingY": "5px",
             "borderRadius": "2em",
-            "borderWidth": "0px",
+            "borderWidth": "1px",
             "minHeight": "28px",
+            "minWidth": "28px",
             "fontSize": "1rem",
             "lineHeight": "1.25rem",
-            "gapX": "3px"
+            "gapX": "6px"
+          }
+        },
+        "primary": {
+          "paddingX": "12px",
+          "paddingY": "3px",
+          "borderRadius": "2em",
+          "borderWidth": "1px",
+          "minHeight": "28px",
+          "fontSize": "1rem",
+          "lineHeight": "1.25rem",
+          "gapX": "6px",
+          "iconOnly": {
+            "paddingX": "5px",
+            "paddingY": "5px",
+            "borderRadius": "2em",
+            "borderWidth": "1px",
+            "minHeight": "28px",
+            "minWidth": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
           }
         },
         "secondary": {
           "paddingX": "12px",
-          "paddingY": "2px",
+          "paddingY": "3px",
           "borderRadius": "2em",
-          "borderWidth": "2px",
+          "borderWidth": "1px",
           "minHeight": "28px",
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
-          "gapX": "3px",
+          "gapX": "6px",
           "iconOnly": {
-            "paddingX": "4px",
-            "paddingY": "4px",
+            "paddingX": "5px",
+            "paddingY": "5px",
             "borderRadius": "2em",
-            "borderWidth": "2px",
+            "borderWidth": "1px",
             "minHeight": "28px",
+            "minWidth": "28px",
             "fontSize": "1rem",
             "lineHeight": "1.25rem",
-            "gapX": "3px"
+            "gapX": "6px"
           },
           "hover": {
             "boxShadow": "0px 0px 0px 1px #01a982 inset"
-          }
-        },
-        "default": {
-          "paddingX": "12px",
-          "paddingY": "2px",
-          "borderRadius": "2em",
-          "borderWidth": "2px",
-          "minHeight": "28px",
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "3px",
-          "iconOnly": {
-            "paddingX": "4px",
-            "paddingY": "4px",
-            "borderRadius": "2em",
-            "borderWidth": "2px",
-            "minHeight": "28px",
-            "fontSize": "1rem",
-            "lineHeight": "1.25rem",
-            "gapX": "3px"
           }
         },
         "toolbar": {
@@ -209,11 +212,12 @@ module.exports = {
           "lineHeight": "1.25rem",
           "gapX": "3px",
           "iconOnly": {
-            "paddingX": "0px",
-            "paddingY": "0px",
+            "paddingX": "5px",
+            "paddingY": "5px",
             "borderRadius": "6px",
             "borderWidth": "1px",
             "minHeight": "28px",
+            "minWidth": "28px",
             "fontSize": "1rem",
             "lineHeight": "1.25rem",
             "gapX": "3px"
@@ -223,40 +227,42 @@ module.exports = {
       "medium": {
         "default": {
           "paddingX": "18px",
-          "paddingY": "4px",
+          "paddingY": "5px",
           "borderRadius": "2em",
-          "borderWidth": "2px",
+          "borderWidth": "1px",
           "minHeight": "36px",
-          "fontSize": "1.1875rem",
+          "fontSize": "19px",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
-            "paddingX": "7px",
-            "paddingY": "7px",
+            "paddingX": "8px",
+            "paddingY": "8px",
             "borderRadius": "2em",
-            "borderWidth": "2px",
+            "borderWidth": "1px",
             "minHeight": "36px",
-            "fontSize": "1.1875rem",
+            "minWidth": "36px",
+            "fontSize": "19px",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
         },
         "primary": {
           "paddingX": "18px",
-          "paddingY": "6px",
+          "paddingY": "5px",
           "borderRadius": "2em",
-          "borderWidth": "0px",
+          "borderWidth": "1px",
           "minHeight": "36px",
-          "fontSize": "1.1875rem",
+          "fontSize": "19px",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
-            "paddingX": "7px",
-            "paddingY": "7px",
+            "paddingX": "8px",
+            "paddingY": "8px",
             "borderRadius": "2em",
-            "borderWidth": "0px",
+            "borderWidth": "1px",
             "minHeight": "36px",
-            "fontSize": "1.1875rem",
+            "minWidth": "36px",
+            "fontSize": "19px",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
@@ -267,7 +273,7 @@ module.exports = {
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "36px",
-          "fontSize": "1.1875rem",
+          "fontSize": "19px",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
@@ -276,7 +282,8 @@ module.exports = {
             "borderRadius": "2em",
             "borderWidth": "2px",
             "minHeight": "36px",
-            "fontSize": "1.1875rem",
+            "minWidth": "36px",
+            "fontSize": "19px",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           },
@@ -286,20 +293,21 @@ module.exports = {
         },
         "toolbar": {
           "paddingX": "18px",
-          "paddingY": "4px",
+          "paddingY": "5px",
           "borderRadius": "6px",
           "borderWidth": "default",
           "minHeight": "36px",
-          "fontSize": "1.1875rem",
+          "fontSize": "19px",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
-            "paddingX": "7px",
-            "paddingY": "7px",
+            "paddingX": "8px",
+            "paddingY": "8px",
             "borderRadius": "6px",
             "borderWidth": "default",
             "minHeight": "36px",
-            "fontSize": "1.1875rem",
+            "minWidth": "36px",
+            "fontSize": "19px",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
@@ -308,62 +316,65 @@ module.exports = {
       "large": {
         "default": {
           "paddingX": "24px",
-          "paddingY": "7px",
-          "borderRadius": "2em",
-          "borderWidth": "2px",
+          "paddingY": "8px",
+          "borderRadius": "96px",
+          "borderWidth": "1px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.875rem",
           "gapX": "6px",
           "iconOnly": {
-            "borderRadius": "2em",
-            "borderWidth": "2px",
+            "borderRadius": "96px",
+            "borderWidth": "1px",
             "minHeight": "48px",
+            "minWidth": "48px",
             "fontSize": "1.375rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
-            "paddingX": "11px",
-            "paddingY": "11px"
+            "paddingX": "12px",
+            "paddingY": "12px"
           }
         },
         "primary": {
           "paddingX": "24px",
-          "paddingY": "9px",
-          "borderRadius": "2em",
-          "borderWidth": "0px",
+          "paddingY": "8px",
+          "borderRadius": "96px",
+          "borderWidth": "1px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.875rem",
           "gapX": "6px",
           "iconOnly": {
-            "borderRadius": "2em",
-            "borderWidth": "0px",
+            "borderRadius": "96px",
+            "borderWidth": "1px",
             "minHeight": "48px",
+            "minWidth": "48px",
             "fontSize": "1.375rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
-            "paddingX": "11px",
-            "paddingY": "11px"
+            "paddingX": "12px",
+            "paddingY": "12px"
           }
         },
         "secondary": {
           "paddingX": "24px",
           "paddingY": "7px",
-          "borderRadius": "2em",
+          "borderRadius": "96px",
           "borderWidth": "2px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.875rem",
           "gapX": "6px",
           "iconOnly": {
-            "borderRadius": "2em",
+            "borderRadius": "96px",
             "borderWidth": "2px",
             "minHeight": "48px",
+            "minWidth": "48px",
             "fontSize": "1.375rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
-            "paddingX": "11px",
-            "paddingY": "11px"
+            "paddingX": "12px",
+            "paddingY": "12px"
           },
           "hover": {
             "boxShadow": "0px 0px 0px 1px #01a982 inset"
@@ -382,11 +393,12 @@ module.exports = {
             "borderRadius": "6px",
             "borderWidth": "default",
             "minHeight": "48px",
+            "minWidth": "48px",
             "fontSize": "1.375rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
-            "paddingX": "11px",
-            "paddingY": "11px"
+            "paddingX": "14px",
+            "paddingY": "12px"
           }
         }
       },
@@ -394,18 +406,19 @@ module.exports = {
         "default": {
           "iconOnly": {
             "borderRadius": "2em",
-            "borderWidth": "2px",
+            "borderWidth": "1px",
             "minHeight": "72px",
+            "minWidth": "72px",
             "fontSize": "1.875rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
-            "paddingX": "22px",
-            "paddingY": "22px"
+            "paddingX": "23px",
+            "paddingY": "23px"
           },
-          "paddingX": "30px",
-          "paddingY": "19px",
+          "paddingX": "32px",
+          "paddingY": "20px",
           "borderRadius": "2em",
-          "borderWidth": "2px",
+          "borderWidth": "1px",
           "minHeight": "72px",
           "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
@@ -414,18 +427,19 @@ module.exports = {
         "primary": {
           "iconOnly": {
             "borderRadius": "2em",
-            "borderWidth": "0px",
+            "borderWidth": "1px",
             "minHeight": "72px",
+            "minWidth": "72px",
             "fontSize": "1.875rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
-            "paddingX": "22px",
-            "paddingY": "22px"
+            "paddingX": "23px",
+            "paddingY": "23px"
           },
-          "paddingX": "30px",
-          "paddingY": "21px",
+          "paddingX": "32px",
+          "paddingY": "20px",
           "borderRadius": "2em",
-          "borderWidth": "0px",
+          "borderWidth": "1px",
           "minHeight": "72px",
           "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
@@ -436,13 +450,14 @@ module.exports = {
             "borderRadius": "2em",
             "borderWidth": "2px",
             "minHeight": "72px",
+            "minWidth": "72px",
             "fontSize": "1.875rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
-            "paddingX": "22px",
-            "paddingY": "22px"
+            "paddingX": "23px",
+            "paddingY": "23px"
           },
-          "paddingX": "30px",
+          "paddingX": "32px",
           "paddingY": "19px",
           "borderRadius": "2em",
           "borderWidth": "2px",
@@ -457,18 +472,19 @@ module.exports = {
         "toolbar": {
           "iconOnly": {
             "borderRadius": "12px",
-            "borderWidth": "2px",
+            "borderWidth": "1px",
             "minHeight": "72px",
+            "minWidth": "72px",
             "fontSize": "1.875rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
-            "paddingX": "22px",
-            "paddingY": "22px"
+            "paddingX": "23px",
+            "paddingY": "23px"
           },
-          "paddingX": "30px",
-          "paddingY": "19px",
+          "paddingX": "32px",
+          "paddingY": "20px",
           "borderRadius": "12px",
-          "borderWidth": "2px",
+          "borderWidth": "1px",
           "minHeight": "72px",
           "fontSize": "1.875rem",
           "lineHeight": "1.875rem",
@@ -514,11 +530,11 @@ module.exports = {
       "medium": {
         "item": {
           "paddingX": "18px",
-          "paddingY": "4px",
+          "paddingY": "5px",
           "borderRadius": "none",
-          "borderWidth": "2px",
+          "borderWidth": "1px",
           "minHeight": "36px",
-          "fontSize": "1.1875rem",
+          "fontSize": "19px",
           "lineHeight": "1.5rem",
           "gapX": "6px"
         },
@@ -540,7 +556,7 @@ module.exports = {
           "minHeight": "36px",
           "borderRadius": "none",
           "borderWidth": "1px",
-          "fontSize": "1.1875rem",
+          "fontSize": "19px",
           "lineHeight": "1.5rem"
         }
       },
@@ -576,11 +592,11 @@ module.exports = {
     "checkbox": {
       "control": {
         "enabled": {
-          "background": "#00000000",
+          "background": "background-default",
           "borderColor": "border-default"
         },
         "hover": {
-          "background": "#00000000",
+          "background": "background-default",
           "borderColor": "border-strong"
         },
         "selected": {
@@ -923,7 +939,7 @@ module.exports = {
             },
             "status": {
               "critical": {
-                "background": "background-status-critical",
+                "background": "background-critical",
                 "borderColor": "#00000000"
               }
             },
@@ -964,7 +980,7 @@ module.exports = {
           },
           "status": {
             "critical": {
-              "background": "background-status-critical",
+              "background": "background-critical",
               "borderColor": "border-strong"
             }
           }
@@ -1058,22 +1074,28 @@ module.exports = {
       },
       "errorText": {
         "enabled": {
-          "textColor": "text-default"
+          "textColor": "text-default",
+          "iconColor": "icon-default"
         },
         "hover": {
+          "iconColor": "icon-default",
           "textColor": "text-default"
         },
         "focus": {
+          "iconColor": "icon-default",
           "textColor": "text-default"
         },
         "disabled": {
+          "iconColor": "icon-default",
           "textColor": "text-default"
         },
         "readOnly": {
+          "iconColor": "icon-default",
           "textColor": "text-default"
         },
         "status": {
           "critical": {
+            "iconColor": "icon-default",
             "textColor": "text-default"
           }
         }
@@ -1471,7 +1493,7 @@ module.exports = {
         "paddingX": {
           "narrow": "3px",
           "default": "6px",
-          "wide": "9px"
+          "wide": "12px"
         }
       },
       "medium": {
@@ -1485,7 +1507,7 @@ module.exports = {
         "paddingX": {
           "narrow": "5px",
           "default": "10px",
-          "wide": "15px"
+          "wide": "18px"
         }
       },
       "large": {
@@ -1511,7 +1533,7 @@ module.exports = {
         "borderWidth": "default",
         "paddingY": "20px",
         "paddingX": {
-          "narrow": "16px",
+          "narrow": "20px",
           "default": "24px",
           "wide": "32px"
         }

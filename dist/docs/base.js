@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Sep 2024 20:25:26 GMT
+ * Generated on Mon, 21 Oct 2024 23:03:38 GMT
  */
 
 export default {
@@ -6779,6 +6779,49 @@ export default {
       "static",
       "radius",
       "xlarge"
+    ]
+  },
+  "hpe.base.static.radius.full": {
+    "$type": "number",
+    "value": "384px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.9600}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.static.radius.full",
+    "attributes": {
+      "category": "base",
+      "type": "static",
+      "item": "radius",
+      "subitem": "full"
+    },
+    "path": [
+      "base",
+      "static",
+      "radius",
+      "full"
     ]
   },
   "hpe.base.static.borderWidth.none": {

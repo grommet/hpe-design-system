@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Sep 2024 20:25:27 GMT
+ * Generated on Mon, 21 Oct 2024 23:03:38 GMT
  */
 
 module.exports = {
@@ -16,13 +16,6 @@ module.exports = {
         "floating": "#ffffff",
         "overlay": "#0000001f",
         "contrast": "#0000000a",
-        "status": {
-          "warning": "#ffbc443d",
-          "unknown": "#f7f7f7",
-          "ok": "#17eba03d",
-          "critical": "#fc61613d",
-          "info": "#00c8ff3d"
-        },
         "selected": {
           "strong": {
             "enabled": "#01a982"
@@ -32,17 +25,27 @@ module.exports = {
             "hover": "#aef6df"
           }
         },
+        "ok": "#17eba03d",
         "primary": {
           "default": "#01a982",
           "hover": "#00ff0a00"
-        }
+        },
+        "info": "#00c8ff3d",
+        "warning": "#ffbc443d",
+        "critical": "#fc61613d",
+        "unknown": "#0000000a"
       },
       "border": {
         "strong": "#000000b8",
         "default": "#0000005c",
         "weak": "#0000001f",
         "disabled": "#0000001f",
-        "selected": "#01a982"
+        "selected": "#01a982",
+        "critical": "#0000005c",
+        "info": "#0000005c",
+        "ok": "#0000005c",
+        "warning": "#0000005c",
+        "unknown": "#0000005c"
       },
       "text": {
         "default": "#555555",
@@ -59,6 +62,11 @@ module.exports = {
         "heading": {
           "default": "#333333"
         },
+        "critical": "#555555",
+        "info": "#555555",
+        "ok": "#555555",
+        "warning": "#555555",
+        "unknown": "#555555",
         "onSelectedStrong": "#ffffff",
         "onSelectedWeak": "#333333",
         "onStatus": "#555555"
@@ -69,13 +77,11 @@ module.exports = {
         "weak": "#757575",
         "xweak": "#bbbbbb",
         "disabled": "#0000003d",
-        "status": {
-          "critical": "#fc5a5a",
-          "info": "#00c8ff",
-          "ok": "#17eba0",
-          "warning": "#ffbc44",
-          "unknown": "#cccccc"
-        },
+        "critical": "#fc5a5a",
+        "info": "#00c8ff",
+        "ok": "#17eba0",
+        "warning": "#ffbc44",
+        "unknown": "#cccccc",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
         "onSelectedStrong": "#ffffff",
