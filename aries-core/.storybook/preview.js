@@ -1,4 +1,3 @@
-/** @type { import('@storybook/react').Preview } */
 import React from 'react';
 import { hpe } from 'grommet-theme-hpe';
 import { Grommet } from 'grommet';
@@ -7,7 +6,6 @@ export default {
   decorators: [
     (Story, context) => {
       let mode = 'light';
-      console.log(context);
       if (
         context.globals?.backgrounds?.value ===
         hpe.global.colors.background.dark
@@ -28,12 +26,5 @@ export default {
         { name: 'dark', value: hpe.global.colors.background.dark },
       ],
     },
-    // controls: {
-    //   matchers: {
-    //     color: /(background|color)$/i,
-    //     date: /Date$/i,
-    //   },
-    // },
-    // layout: 'fullscreen',
   },
 };
