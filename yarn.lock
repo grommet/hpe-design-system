@@ -7363,7 +7363,7 @@ grommet-theme-hpe@5.7.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.41.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#6249bcbb51c98ac47307fa1092da20bc66294c96"
+  resolved "https://github.com/grommet/grommet/tarball/stable#4018c52f618f28a38d924897992502f35532a085"
   dependencies:
     "@emotion/is-prop-valid" "^1.3.1"
     grommet-icons "^4.12.1"
