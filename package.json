@@ -21,9 +21,9 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.0",
     "jest": "^27.5.1",
-    "prettier": "^2.8.8",
-    "husky": "^8.0.0"
+    "prettier": "^2.8.8"
   },
   "workspaces": [
     "aries-core",
@@ -42,5 +42,6 @@
   },
   "scripts": {
     "prepare": "husky install"
-  }
+  },
+  "packageManager": "yarn@4.5.1"
 }
