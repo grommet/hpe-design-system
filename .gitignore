@@ -31,3 +31,5 @@ report*
 .DS_Store
 .native-web
 .tailwind-app
+
+*storybook.log

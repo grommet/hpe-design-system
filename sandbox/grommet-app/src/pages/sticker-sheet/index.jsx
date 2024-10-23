@@ -61,7 +61,7 @@ const textSizes = [
 
 const kinds = ['default', 'toolbar', 'secondary', 'primary'];
 const states = ['enabled', 'active', 'disabled'];
-const sizes = ['small', 'medium', 'large', 'xlarge'];
+const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 const ModeContext = React.createContext({});
 

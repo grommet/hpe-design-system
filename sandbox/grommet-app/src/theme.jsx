@@ -627,16 +627,16 @@ const buildTheme = tokens => {
     });
     buttonSizesTheme[size] = {
       border: {
-        radius: components.hpe.button?.[size].default.borderRadius,
+        radius: components.hpe.button?.[size]?.default.borderRadius,
       },
       pad: {
-        vertical: components.hpe.button?.[size].default.paddingY,
-        horizontal: components.hpe.button?.[size].default.paddingX,
+        vertical: components.hpe.button?.[size]?.default.paddingY,
+        horizontal: components.hpe.button?.[size]?.default.paddingX,
       },
       iconOnly: {
         pad: {
-          vertical: components.hpe.button?.[size].default.iconOnly.paddingY,
-          horizontal: components.hpe.button?.[size].default.iconOnly.paddingX,
+          vertical: components.hpe.button?.[size]?.default.iconOnly.paddingY,
+          horizontal: components.hpe.button?.[size]?.default.iconOnly.paddingX,
         },
       },
       ...kindStyles,
@@ -2258,7 +2258,7 @@ const buildTheme = tokens => {
         remove: Close,
       },
       pad: {
-        horizontal: components.hpe.component.medium.paddingX.default,
+        horizontal: components.hpe.component.medium?.paddingX?.default,
         vertical: components.hpe.component.medium.paddingY,
       },
       remove: {
@@ -2276,7 +2276,7 @@ const buildTheme = tokens => {
           icon: undefined,
           pad: {
             vertical: components.hpe.component.small.paddingY,
-            horizontal: components.hpe.component.small.paddingX.default,
+            horizontal: components.hpe.component.small?.paddingX?.default,
           },
           remove: {
             size: 'xsmall',
@@ -2290,7 +2290,7 @@ const buildTheme = tokens => {
           icon: undefined,
           pad: {
             vertical: components.hpe.component.small.paddingY,
-            horizontal: components.hpe.component.small.paddingX.default,
+            horizontal: components.hpe.component.small?.paddingX?.default,
           },
           remove: {
             size: 'xsmall',
@@ -2305,7 +2305,7 @@ const buildTheme = tokens => {
           icon: undefined,
           pad: {
             vertical: components.hpe.component.medium.paddingY,
-            horizontal: components.hpe.component.medium.paddingX.default,
+            horizontal: components.hpe.component.medium?.paddingX?.default,
           },
           remove: {
             size: 'small',
@@ -2318,7 +2318,7 @@ const buildTheme = tokens => {
           icon: undefined,
           pad: {
             vertical: components.hpe.component.large.paddingY,
-            horizontal: components.hpe.component.large.paddingX.default,
+            horizontal: components.hpe.component.large?.paddingX?.default,
           },
           remove: {
             size: 'medium',
@@ -2331,7 +2331,7 @@ const buildTheme = tokens => {
           icon: undefined,
           pad: {
             vertical: components.hpe.component.xlarge.paddingY,
-            horizontal: components.hpe.component.xlarge.paddingX.default,
+            horizontal: components.hpe.component.xlarge?.paddingX?.default,
           },
           remove: {
             size: 'large',
