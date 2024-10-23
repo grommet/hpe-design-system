@@ -167,7 +167,7 @@ const access = (path, object) => {
   return path.split('.').reduce((o, i) => o[i], object);
 };
 
-const componentSizes = ['small', 'medium', 'large', 'xlarge'];
+const componentSizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
 const buttonKinds = ['default', 'secondary', 'primary', 'toolbar'];
 const buttonStates = ['active', 'hover', 'disabled'];
 
@@ -327,6 +327,14 @@ const buildTheme = tokens => {
     'graph-4': {
       light: light.hpe.color.dataVis.categorical[50],
       dark: dark.hpe.color.dataVis.categorical[50],
+    },
+    'graph-5': {
+      light: light.hpe.color.dataVis.categorical[60],
+      dark: dark.hpe.color.dataVis.categorical[60],
+    },
+    'graph-6': {
+      light: light.hpe.color.dataVis.categorical[70],
+      dark: dark.hpe.color.dataVis.categorical[70],
     },
     'status-critical': {
       dark: dark.hpe.color.icon.critical,
@@ -717,6 +725,7 @@ const buildTheme = tokens => {
             font-weight: 100;
           }`,
         size: large.hpe.text.medium.fontSize,
+        height: large.hpe.text.medium.lineHeight,
       },
       focus: {
         border: undefined,
@@ -805,7 +814,7 @@ const buildTheme = tokens => {
       color: components.hpe.anchor.default.enabled.textColor,
       textDecoration: components.hpe.anchor.default.enabled.textDecoration,
       fontWeight: components.hpe.anchor.default.enabled.fontWeight,
-      gap: components.hpe.anchor.medium.gapX, // TO DO not size specific
+      gap: components.hpe.anchor.medium.default.gapX, // TO DO not size specific
       hover: {
         textDecoration: components.hpe.anchor.default.hover.textDecoration,
       },
@@ -897,8 +906,21 @@ const buildTheme = tokens => {
         },
         ...buttonStatesTheme.hover,
       },
-      size: buttonSizesTheme,
-      extend: ({ active, kind, theme }) => {
+      size: {
+        xsmall: {
+          border: {
+            radius: '2em',
+          },
+          iconOnly: {
+            pad: {
+              vertical: '3px',
+              horizontal: '3px',
+            },
+          },
+        },
+        ...buttonSizesTheme,
+      },
+      extend: ({ active, kind, sizeProp, theme }) => {
         let style = '';
         if (active) {
           style += `&:hover {
@@ -916,6 +938,7 @@ const buildTheme = tokens => {
             };
           }`;
         }
+        style += `line-height: ${large.hpe.text[sizeProp]?.lineHeight};`;
         return style;
       },
     },
@@ -1615,6 +1638,7 @@ const buildTheme = tokens => {
       disableScaleDown: true,
       matchSize: true, // NOTE: Disabled this since concept didn't exist in v3
       size: {
+        xsmall: large.hpe.size.icon.xsmall,
         small: large.hpe.size.icon.small,
         medium: large.hpe.size.icon.medium,
         large: large.hpe.size.icon.large,
@@ -2160,12 +2184,12 @@ const buildTheme = tokens => {
           }
           & button[aria-selected="true"]:hover > div {
             background: ${
-              theme.global.colors['background-selected-strong-hover']?.[
+              theme.global.colors['background-selected-strong-hover'][
                 theme.dark ? 'dark' : 'light'
               ]
             };
             color: ${
-              theme.global.colors['text-onSelectedStrong']?.[
+              theme.global.colors['text-onSelectedStrong'][
                 theme.dark ? 'dark' : 'light'
               ]
             };
@@ -2230,15 +2254,15 @@ const buildTheme = tokens => {
       border: {
         color: 'border-weak',
       },
-      // icons: {
-      //   remove: Close,
-      // },
+      icons: {
+        remove: Close,
+      },
       pad: {
-        // Q: should we be using t-shirt sizes from tokens
-        // A: No this is correct because this points to "small" which is already built w tokens
-        // but it does highlight a gap of something we couldn't automatically update
-        horizontal: 'small',
-        vertical: components.hpe.component.medium.paddingY, // 5px pad + 1px border = 6px 'xsmall'
+        horizontal: components.hpe.component.medium.paddingX.default,
+        vertical: components.hpe.component.medium.paddingY,
+      },
+      remove: {
+        kind: 'default',
       },
       value: {
         // Q should this be a token?
@@ -2247,14 +2271,76 @@ const buildTheme = tokens => {
         weight: global.hpe.fontWeight.medium,
       },
       round: 'xsmall',
-      // size: {
-      // TO DO NEED MEDIUM AS DEFAULT SIZE
-      //   medium: {
-      //     icon: {
-      //       size: 'small',
-      //     },
-      //   },
-      // },
+      size: {
+        xsmall: {
+          icon: undefined,
+          pad: {
+            vertical: components.hpe.component.small.paddingY,
+            horizontal: components.hpe.component.small.paddingX.default,
+          },
+          remove: {
+            size: 'xsmall',
+            margin: {
+              right: 'none',
+              vertical: '-1px', // account for border
+            },
+          },
+        },
+        small: {
+          icon: undefined,
+          pad: {
+            vertical: components.hpe.component.small.paddingY,
+            horizontal: components.hpe.component.small.paddingX.default,
+          },
+          remove: {
+            size: 'xsmall',
+            margin: {
+              right: '2px',
+            },
+          },
+        },
+        // TO DO need default size "medium"
+        // TO DO tag rounding is overriding "default" rounding, do we expect this?
+        medium: {
+          icon: undefined,
+          pad: {
+            vertical: components.hpe.component.medium.paddingY,
+            horizontal: components.hpe.component.medium.paddingX.default,
+          },
+          remove: {
+            size: 'small',
+            margin: {
+              right: 'xxsmall',
+            },
+          },
+        },
+        large: {
+          icon: undefined,
+          pad: {
+            vertical: components.hpe.component.large.paddingY,
+            horizontal: components.hpe.component.large.paddingX.default,
+          },
+          remove: {
+            size: 'medium',
+            margin: {
+              right: 'xxsmall',
+            },
+          },
+        },
+        xlarge: {
+          icon: undefined,
+          pad: {
+            vertical: components.hpe.component.xlarge.paddingY,
+            horizontal: components.hpe.component.xlarge.paddingX.default,
+          },
+          remove: {
+            size: 'large',
+            margin: {
+              right: 'xsmall',
+            },
+          },
+        },
+      },
     },
     text: {
       ...textTheme,
@@ -2300,6 +2386,9 @@ const buildTheme = tokens => {
     // TO DO need way to style background color
     toggleGroup: {
       button: {
+        border: {
+          radius: 'xsmall',
+        },
         pad: {
           // these are fine since it is built with buttons
           vertical: '6px',
@@ -2319,9 +2408,7 @@ const buildTheme = tokens => {
           size: components.hpe.button.medium.toolbar.borderWidth,
         },
       },
-      divider: {
-        color: 'transparent',
-      },
+      divider: false,
     },
     buttonGroup: {
       gap: 'small',
