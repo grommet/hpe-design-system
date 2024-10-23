@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 23 Oct 2024 23:00:19 GMT
+ * Generated on Wed, 23 Oct 2024 23:34:33 GMT
  */
 
 :root {
@@ -76,14 +76,24 @@
   --hpe-button-default-enabled-background: #00000000;
   --hpe-component-xlarge-padding-x-default: var(--hpe-base-dimension-600);
   --hpe-component-xlarge-padding-x-narrow: var(--hpe-base-dimension-500);
+  --hpe-component-xlarge-height: var(--hpe-base-dimension-1800);
+  --hpe-component-xlarge-width: var(--hpe-base-dimension-1800);
   --hpe-component-xlarge-min-height: var(--hpe-base-dimension-1800);
   --hpe-component-large-padding-x-wide: var(--hpe-base-dimension-600);
   --hpe-component-large-padding-x-default: var(--hpe-base-dimension-450);
   --hpe-component-large-padding-x-narrow: var(--hpe-base-dimension-225);
+  --hpe-component-large-height: var(--hpe-base-dimension-1200);
+  --hpe-component-large-width: var(--hpe-base-dimension-1200);
   --hpe-component-large-min-height: var(--hpe-base-dimension-1200);
   --hpe-component-medium-padding-x-wide: var(--hpe-base-dimension-450);
+  --hpe-component-medium-height: var(--hpe-base-dimension-900);
+  --hpe-component-medium-width: var(--hpe-base-dimension-900);
   --hpe-component-medium-min-height: var(--hpe-base-dimension-900);
+  --hpe-component-small-height: var(--hpe-base-dimension-700);
+  --hpe-component-small-width: var(--hpe-base-dimension-700);
   --hpe-component-small-min-height: var(--hpe-base-dimension-700);
+  --hpe-component-xsmall-height: var(--hpe-base-dimension-600);
+  --hpe-component-xsmall-width: var(--hpe-base-dimension-600);
   --hpe-component-xsmall-padding-x-wide: var(--hpe-base-dimension-225);
   --hpe-component-xsmall-min-height: var(--hpe-base-dimension-600);
   --hpe-anchor-emphasized-disabled-font-weight: var(--hpe-font-weight-bold);
@@ -393,8 +403,6 @@
   --hpe-checkbox-control-indeterminate-hover-border-color: var(--hpe-color-border-strong);
   --hpe-checkbox-control-indeterminate-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-checkbox-control-indeterminate-enabled-border-color: var(--hpe-color-border-selected);
-  --hpe-checkbox-control-disabled-border-color: var(--hpe-color-border-disabled);
-  --hpe-checkbox-control-disabled-background: var(--hpe-color-background-disabled);
   --hpe-checkbox-control-selected-disabled-icon-color: var(--hpe-color-icon-disabled);
   --hpe-checkbox-control-selected-disabled-border-color: var(--hpe-color-border-disabled);
   --hpe-checkbox-control-selected-disabled-background: var(--hpe-color-background-disabled);
@@ -402,6 +410,8 @@
   --hpe-checkbox-control-selected-hover-border-color: var(--hpe-color-border-strong);
   --hpe-checkbox-control-selected-enabled-icon-color: var(--hpe-color-icon-on-selected-strong);
   --hpe-checkbox-control-selected-enabled-border-color: var(--hpe-color-border-selected);
+  --hpe-checkbox-control-disabled-border-color: var(--hpe-color-border-disabled);
+  --hpe-checkbox-control-disabled-background: var(--hpe-color-background-disabled);
   --hpe-checkbox-control-hover-border-color: var(--hpe-color-border-strong);
   --hpe-checkbox-control-hover-background: var(--hpe-color-background-default);
   --hpe-checkbox-control-enabled-border-color: var(--hpe-color-border-default);
@@ -615,9 +625,13 @@
   --hpe-form-field-medium-value-text-font-size: var(--hpe-component-medium-font-size);
   --hpe-form-field-medium-placeholder-text-line-height: var(--hpe-component-medium-line-height);
   --hpe-form-field-medium-placeholder-text-font-size: var(--hpe-component-medium-font-size);
+  --hpe-form-field-medium-input-container-text-to-element-x: var(--hpe-component-medium-text-to-element-x);
+  --hpe-form-field-medium-input-container-text-to-icon-x: var(--hpe-component-medium-text-to-icon-x);
   --hpe-form-field-medium-input-group-container-border-radius: var(--hpe-form-field-medium-input-container-border-radius);
   --hpe-form-field-medium-input-group-container-border-width: var(--hpe-border-width-default);
   --hpe-form-field-medium-input-group-container-padding-x: var(--hpe-spacing-none);
+  --hpe-form-field-medium-input-group-item-text-to-element-x: var(--hpe-component-medium-text-to-element-x);
+  --hpe-form-field-medium-input-group-item-text-to-icon-x: var(--hpe-component-medium-text-to-icon-x);
   --hpe-form-field-medium-input-group-item-border-radius: var(--hpe-radius-none);
   --hpe-form-field-medium-input-group-item-border-width: var(--hpe-border-width-default);
   --hpe-header-cell-gap-x: var(--hpe-component-medium-text-to-icon-x);

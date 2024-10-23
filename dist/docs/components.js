@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 23 Oct 2024 23:00:20 GMT
+ * Generated on Wed, 23 Oct 2024 23:34:33 GMT
  */
 
 export default {
@@ -21320,6 +21320,96 @@ export default {
       "borderColor"
     ]
   },
+  "hpe.checkbox.control.disabled.background": {
+    "$type": "color",
+    "value": "#0000000a",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.background.disabled}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.control.disabled.background",
+    "attributes": {
+      "category": "checkbox",
+      "type": "control",
+      "item": "disabled",
+      "subitem": "background"
+    },
+    "path": [
+      "checkbox",
+      "control",
+      "disabled",
+      "background"
+    ]
+  },
+  "hpe.checkbox.control.disabled.borderColor": {
+    "$type": "color",
+    "value": "#0000001f",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.border.disabled}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.control.disabled.borderColor",
+    "attributes": {
+      "category": "checkbox",
+      "type": "control",
+      "item": "disabled",
+      "subitem": "borderColor"
+    },
+    "path": [
+      "checkbox",
+      "control",
+      "disabled",
+      "borderColor"
+    ]
+  },
   "hpe.checkbox.control.selected.enabled.background": {
     "$type": "color",
     "value": "#01a982",
@@ -21741,96 +21831,6 @@ export default {
       "selected",
       "disabled",
       "iconColor"
-    ]
-  },
-  "hpe.checkbox.control.disabled.background": {
-    "$type": "color",
-    "value": "#0000000a",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{color.background.disabled}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.disabled.background",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "disabled",
-      "subitem": "background"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "disabled",
-      "background"
-    ]
-  },
-  "hpe.checkbox.control.disabled.borderColor": {
-    "$type": "color",
-    "value": "#0000001f",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{color.border.disabled}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.disabled.borderColor",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "disabled",
-      "subitem": "borderColor"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "disabled",
-      "borderColor"
     ]
   },
   "hpe.checkbox.control.indeterminate.enabled.background": {
@@ -27436,6 +27436,98 @@ export default {
       "borderRadius"
     ]
   },
+  "hpe.formField.medium.input.group.item.textToIconX": {
+    "$type": "number",
+    "value": "6px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{component.medium.textToIconX}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.medium.input.group.item.textToIconX",
+    "attributes": {
+      "category": "formField",
+      "type": "medium",
+      "item": "input",
+      "subitem": "group",
+      "state": "item"
+    },
+    "path": [
+      "formField",
+      "medium",
+      "input",
+      "group",
+      "item",
+      "textToIconX"
+    ]
+  },
+  "hpe.formField.medium.input.group.item.textToElementX": {
+    "$type": "number",
+    "value": "12px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{component.medium.textToElementX}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.medium.input.group.item.textToElementX",
+    "attributes": {
+      "category": "formField",
+      "type": "medium",
+      "item": "input",
+      "subitem": "group",
+      "state": "item"
+    },
+    "path": [
+      "formField",
+      "medium",
+      "input",
+      "group",
+      "item",
+      "textToElementX"
+    ]
+  },
   "hpe.formField.medium.input.group.container.paddingX": {
     "$type": "number",
     "value": "0px",
@@ -27847,6 +27939,96 @@ export default {
       "input",
       "container",
       "minHeight"
+    ]
+  },
+  "hpe.formField.medium.input.container.textToIconX": {
+    "$type": "number",
+    "value": "6px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{component.medium.textToIconX}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.medium.input.container.textToIconX",
+    "attributes": {
+      "category": "formField",
+      "type": "medium",
+      "item": "input",
+      "subitem": "container",
+      "state": "textToIconX"
+    },
+    "path": [
+      "formField",
+      "medium",
+      "input",
+      "container",
+      "textToIconX"
+    ]
+  },
+  "hpe.formField.medium.input.container.textToElementX": {
+    "$type": "number",
+    "value": "12px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{component.medium.textToElementX}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.medium.input.container.textToElementX",
+    "attributes": {
+      "category": "formField",
+      "type": "medium",
+      "item": "input",
+      "subitem": "container",
+      "state": "textToElementX"
+    },
+    "path": [
+      "formField",
+      "medium",
+      "input",
+      "container",
+      "textToElementX"
     ]
   },
   "hpe.formField.medium.labelText.fontSize": {
@@ -39909,6 +40091,88 @@ export default {
       "wide"
     ]
   },
+  "hpe.component.xsmall.width": {
+    "$type": "number",
+    "value": "24px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.600}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.component.xsmall.width",
+    "attributes": {
+      "category": "component",
+      "type": "xsmall",
+      "item": "width"
+    },
+    "path": [
+      "component",
+      "xsmall",
+      "width"
+    ]
+  },
+  "hpe.component.xsmall.height": {
+    "$type": "number",
+    "value": "24px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.600}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.component.xsmall.height",
+    "attributes": {
+      "category": "component",
+      "type": "xsmall",
+      "item": "height"
+    },
+    "path": [
+      "component",
+      "xsmall",
+      "height"
+    ]
+  },
   "hpe.component.small.borderWidth": {
     "$type": "number",
     "value": "1px",
@@ -40114,6 +40378,88 @@ export default {
       "component",
       "small",
       "minHeight"
+    ]
+  },
+  "hpe.component.small.width": {
+    "$type": "number",
+    "value": "28px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.700}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.component.small.width",
+    "attributes": {
+      "category": "component",
+      "type": "small",
+      "item": "width"
+    },
+    "path": [
+      "component",
+      "small",
+      "width"
+    ]
+  },
+  "hpe.component.small.height": {
+    "$type": "number",
+    "value": "28px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.700}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.component.small.height",
+    "attributes": {
+      "category": "component",
+      "type": "small",
+      "item": "height"
+    },
+    "path": [
+      "component",
+      "small",
+      "height"
     ]
   },
   "hpe.component.small.textToElementX": {
@@ -40448,6 +40794,88 @@ export default {
       "component",
       "medium",
       "minHeight"
+    ]
+  },
+  "hpe.component.medium.width": {
+    "$type": "number",
+    "value": "36px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.900}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.component.medium.width",
+    "attributes": {
+      "category": "component",
+      "type": "medium",
+      "item": "width"
+    },
+    "path": [
+      "component",
+      "medium",
+      "width"
+    ]
+  },
+  "hpe.component.medium.height": {
+    "$type": "number",
+    "value": "36px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.900}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.component.medium.height",
+    "attributes": {
+      "category": "component",
+      "type": "medium",
+      "item": "height"
+    },
+    "path": [
+      "component",
+      "medium",
+      "height"
     ]
   },
   "hpe.component.medium.textToElementX": {
@@ -40868,6 +41296,88 @@ export default {
       "minHeight"
     ]
   },
+  "hpe.component.large.width": {
+    "$type": "number",
+    "value": "48px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.1200}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.component.large.width",
+    "attributes": {
+      "category": "component",
+      "type": "large",
+      "item": "width"
+    },
+    "path": [
+      "component",
+      "large",
+      "width"
+    ]
+  },
+  "hpe.component.large.height": {
+    "$type": "number",
+    "value": "48px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.1200}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.component.large.height",
+    "attributes": {
+      "category": "component",
+      "type": "large",
+      "item": "height"
+    },
+    "path": [
+      "component",
+      "large",
+      "height"
+    ]
+  },
   "hpe.component.large.textToElementX": {
     "$type": "number",
     "value": "12px",
@@ -41284,6 +41794,88 @@ export default {
       "component",
       "xlarge",
       "minHeight"
+    ]
+  },
+  "hpe.component.xlarge.width": {
+    "$type": "number",
+    "value": "72px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.1800}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.component.xlarge.width",
+    "attributes": {
+      "category": "component",
+      "type": "xlarge",
+      "item": "width"
+    },
+    "path": [
+      "component",
+      "xlarge",
+      "width"
+    ]
+  },
+  "hpe.component.xlarge.height": {
+    "$type": "number",
+    "value": "72px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{base.dimension.1800}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.component.xlarge.height",
+    "attributes": {
+      "category": "component",
+      "type": "xlarge",
+      "item": "height"
+    },
+    "path": [
+      "component",
+      "xlarge",
+      "height"
     ]
   },
   "hpe.component.xlarge.textToElementX": {

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 23 Oct 2024 23:00:19 GMT
+ * Generated on Wed, 23 Oct 2024 23:34:33 GMT
  */
 
 export default {
@@ -684,6 +684,10 @@ export default {
           "background": "background-default",
           "borderColor": "border-strong"
         },
+        "disabled": {
+          "background": "background-disabled",
+          "borderColor": "border-disabled"
+        },
         "selected": {
           "enabled": {
             "background": "background-selected-strong-enabled",
@@ -700,10 +704,6 @@ export default {
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
-        },
-        "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
         },
         "indeterminate": {
           "enabled": {
@@ -949,7 +949,9 @@ export default {
               "paddingY": "5px",
               "borderWidth": "default",
               "minHeight": "36px",
-              "borderRadius": "none"
+              "borderRadius": "none",
+              "textToIconX": "6px",
+              "textToElementX": "12px"
             },
             "container": {
               "paddingX": "none",
@@ -963,7 +965,9 @@ export default {
             "paddingY": "5px",
             "borderWidth": "1px",
             "borderRadius": "6px",
-            "minHeight": "36px"
+            "minHeight": "36px",
+            "textToIconX": "6px",
+            "textToElementX": "12px"
           }
         },
         "labelText": {
@@ -1565,7 +1569,9 @@ export default {
           "narrow": "3px",
           "default": "6px",
           "wide": "9px"
-        }
+        },
+        "width": "24px",
+        "height": "24px"
       },
       "small": {
         "borderWidth": "1px",
@@ -1573,6 +1579,8 @@ export default {
         "fontSize": "1rem",
         "lineHeight": "1.25rem",
         "minHeight": "28px",
+        "width": "28px",
+        "height": "28px",
         "textToElementX": "12px",
         "textToIconX": "6px",
         "paddingX": {
@@ -1585,6 +1593,8 @@ export default {
         "fontSize": "1.125rem",
         "lineHeight": "1.5rem",
         "minHeight": "36px",
+        "width": "36px",
+        "height": "36px",
         "textToElementX": "12px",
         "textToIconX": "6px",
         "borderWidth": "default",
@@ -1599,6 +1609,8 @@ export default {
         "fontSize": "1.375rem",
         "lineHeight": "1.875rem",
         "minHeight": "48px",
+        "width": "48px",
+        "height": "48px",
         "textToElementX": "12px",
         "textToIconX": "6px",
         "borderWidth": "default",
@@ -1613,6 +1625,8 @@ export default {
         "fontSize": "1.875rem",
         "lineHeight": "1.875rem",
         "minHeight": "72px",
+        "width": "72px",
+        "height": "72px",
         "textToElementX": "12px",
         "textToIconX": "6px",
         "borderWidth": "default",
