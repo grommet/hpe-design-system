@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 21 Oct 2024 23:03:39 GMT
+ * Generated on Wed, 23 Oct 2024 23:00:19 GMT
  */
 
 export default {
@@ -132,6 +132,91 @@ export default {
             "textColor": "text-strong",
             "iconColor": "icon-strong",
             "fontWeight": 600
+          }
+        }
+      },
+      "xsmall": {
+        "primary": {
+          "paddingX": "12px",
+          "paddingY": "3px",
+          "borderRadius": "2em",
+          "borderWidth": "default",
+          "minHeight": "24px",
+          "fontSize": "0.875rem",
+          "lineHeight": "1rem",
+          "gapX": "3px",
+          "iconOnly": {
+            "paddingX": "4px",
+            "paddingY": "4px",
+            "borderRadius": "2em",
+            "borderWidth": "default",
+            "minHeight": "24px",
+            "fontSize": "0.875rem",
+            "lineHeight": "1rem",
+            "gapX": "3px"
+          }
+        },
+        "secondary": {
+          "paddingX": "12px",
+          "paddingY": "3px",
+          "borderRadius": "2em",
+          "borderWidth": "default",
+          "minHeight": "24px",
+          "fontSize": "0.875rem",
+          "lineHeight": "1rem",
+          "gapX": "3px",
+          "iconOnly": {
+            "paddingX": "4px",
+            "paddingY": "4px",
+            "borderRadius": "2em",
+            "borderWidth": "default",
+            "minHeight": "24px",
+            "fontSize": "0.875rem",
+            "lineHeight": "1rem",
+            "gapX": "3px"
+          },
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+          }
+        },
+        "default": {
+          "paddingX": "12px",
+          "paddingY": "3px",
+          "borderRadius": "2em",
+          "borderWidth": "default",
+          "minHeight": "24px",
+          "fontSize": "0.875rem",
+          "lineHeight": "1rem",
+          "gapX": "3px",
+          "iconOnly": {
+            "paddingX": "4px",
+            "paddingY": "4px",
+            "borderRadius": "2em",
+            "borderWidth": "default",
+            "minHeight": "24px",
+            "fontSize": "0.875rem",
+            "lineHeight": "1rem",
+            "gapX": "3px"
+          }
+        },
+        "toolbar": {
+          "paddingX": "6px",
+          "paddingY": "3px",
+          "borderRadius": "6px",
+          "borderWidth": "1px",
+          "minHeight": "24px",
+          "fontSize": "0.875rem",
+          "lineHeight": "1rem",
+          "gapX": "3px",
+          "iconOnly": {
+            "paddingX": "5px",
+            "paddingY": "4px",
+            "borderRadius": "6px",
+            "borderWidth": "1px",
+            "minHeight": "24px",
+            "fontSize": "0.875rem",
+            "lineHeight": "1rem",
+            "gapX": "3px"
           }
         }
       },

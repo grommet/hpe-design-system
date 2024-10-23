@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 21 Oct 2024 23:03:38 GMT
+ * Generated on Wed, 23 Oct 2024 23:00:19 GMT
  */
 
 export default {
@@ -413,6 +413,47 @@ export default {
       "base",
       "dimension",
       "325"
+    ]
+  },
+  "hpe.base.dimension.350": {
+    "$type": "number",
+    "value": "14px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": 14,
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.dimension.350",
+    "attributes": {
+      "category": "base",
+      "type": "dimension",
+      "item": "350"
+    },
+    "path": [
+      "base",
+      "dimension",
+      "350"
     ]
   },
   "hpe.base.dimension.400": {

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 21 Oct 2024 23:03:38 GMT
+ * Generated on Wed, 23 Oct 2024 23:00:18 GMT
  */
 
 export default {
@@ -18,6 +18,7 @@ export default {
         "250": "10px",
         "300": "12px",
         "325": "13px",
+        "350": "14px",
         "400": "16px",
         "450": "18px",
         "475": "19px",

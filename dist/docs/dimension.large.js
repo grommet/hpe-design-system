@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 21 Oct 2024 23:03:39 GMT
+ * Generated on Wed, 23 Oct 2024 23:00:19 GMT
  */
 
 export default {
@@ -1325,7 +1325,7 @@ export default {
   },
   "hpe.size.icon.xsmall": {
     "$type": "number",
-    "value": "16px",
+    "value": "14px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -1340,7 +1340,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{base.dimension.400}",
+      "value": "{base.dimension.350}",
       "comment": "",
       "$extensions": {
         "com.figma": {
