@@ -21,7 +21,33 @@ const config = {
   ],
   framework: {
     name: getAbsolutePath('@storybook/react-webpack5'),
-    options: {},
+    options: {
+      builder: {
+        useSWC: true,
+      },
+    },
+  },
+  swc: () => ({
+    jsc: {
+      transform: {
+        react: {
+          runtime: 'automatic',
+        },
+      },
+    },
+  }),
+  webpackFinal: async config => {
+    config.resolve = {
+      ...config.resolve,
+      fallback: {
+        fs: false,
+        assert: false,
+        stream: false,
+        buffer: false,
+        zlib: false,
+      },
+    };
+    return config;
   },
 };
 export default config;
