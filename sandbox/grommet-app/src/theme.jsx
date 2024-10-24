@@ -183,6 +183,7 @@ const textSizes = [
   '5xl',
   '6xl',
 ];
+
 const buildTheme = tokens => {
   const {
     light,
@@ -1227,6 +1228,9 @@ const buildTheme = tokens => {
           margin: ${theme.global.edgeSize.xxsmall} 0px;
           padding: 0px ${theme.global.edgeSize.xxsmall};
         `,
+        selected: {
+          background: components.hpe.dataCell.selected.enabled.background,
+        },
       },
       groupHeader: {
         // background: undefined,
