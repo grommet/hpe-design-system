@@ -1229,7 +1229,7 @@ const buildTheme = tokens => {
           padding: 0px ${theme.global.edgeSize.xxsmall};
         `,
         selected: {
-          background: components.hpe.dataCell.selected.enabled.background,
+          background: components.hpe.dataCell.selected?.enabled?.background,
         },
       },
       groupHeader: {
@@ -2140,7 +2140,7 @@ const buildTheme = tokens => {
         weight: 500,
       },
       hover: {
-        background: 'transparent',
+        background: 'background-hover',
         color: 'text',
       },
       border: {
@@ -2172,20 +2172,14 @@ const buildTheme = tokens => {
         vertical: 'none',
         horizontal: 'none',
       },
-      extend: () => 'border-radius: 2em;',
+      extend: ({ theme }) => `border-radius: ${theme.global.edgeSize.xsmall};`,
     },
     tabs: {
+      gap: 'small',
       header: {
-        background: 'rgba(0, 0, 0, 0.02)', // TO DO not a color from palette
         border: undefined,
         extend: ({ theme }) => `
-          border-radius: 2em; 
-          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08) inset;
-          & button[aria-selected="true"] > div {
-           box-shadow: ${
-             theme.global.elevation?.[theme.dark ? 'dark' : 'light'].medium
-           }; 
-          }
+          border-radius: ${theme.global.edgeSize.xsmall}; 
           & button[aria-selected="true"]:hover > div {
             background: ${
               theme.global.colors['background-selected-strong-hover'][
