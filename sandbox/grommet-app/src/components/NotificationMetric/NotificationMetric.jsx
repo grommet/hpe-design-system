@@ -11,23 +11,23 @@ import { SkeletonContext } from '../SkeletonContext';
 
 const statuses = {
   critical: {
-    background: 'background-status-critical',
-    icon: <StatusCritical color="foreground-status-critical" height="medium" />,
+    background: 'background-critical',
+    icon: <StatusCritical color="icon-critical" height="medium" />,
     label: 'Critical',
   },
   warning: {
-    background: 'background-status-warning',
-    icon: <StatusWarning color="foreground-status-warning" height="medium" />,
+    background: 'background-warning',
+    icon: <StatusWarning color="icon-warning" height="medium" />,
     label: 'Warning',
   },
   ok: {
-    background: 'background-status-ok',
-    icon: <StatusGood color="foreground-status-ok" height="medium" />,
+    background: 'background-ok',
+    icon: <StatusGood color="icon-ok" height="medium" />,
     label: 'Ok',
   },
   info: {
-    background: 'background-status-info',
-    icon: <CircleInformation color="foreground-status-info" height="medium" />,
+    background: 'background-info',
+    icon: <CircleInformation color="icon-info" height="medium" />,
     label: 'Information',
   },
 };

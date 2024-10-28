@@ -16,21 +16,15 @@ export const DeviceSummary = () => {
             values={[
               {
                 value: 70,
-                color: skeleton
-                  ? 'background-contrast'
-                  : 'chart-qualitative-70',
+                color: skeleton ? 'background-contrast' : 'graph-0',
               },
               {
                 value: 10,
-                color: skeleton
-                  ? 'background-contrast'
-                  : 'chart-qualitative-50',
+                color: skeleton ? 'background-contrast' : 'graph-1',
               },
               {
                 value: 20,
-                color: skeleton
-                  ? 'background-contrast'
-                  : 'chart-qualitative-30',
+                color: skeleton ? 'background-contrast' : 'graph-2',
               },
             ]}
             size="small"
@@ -45,25 +39,19 @@ export const DeviceSummary = () => {
         </Stack>
         <Box gap="small">
           <Box direction="row" align="center" justify="between">
-            <Legend label="Require assignments" color="chart-qualitative-30" />
+            <Legend label="Require assignments" color="graph-2" />
             <Text weight={500} color="text-strong">
               68
             </Text>
           </Box>
           <Box direction="row" align="center" justify="between">
-            <Legend
-              label="Require subscriptions"
-              color="chart-qualitative-50"
-            />
+            <Legend label="Require subscriptions" color="graph-1" />
             <Text weight={500} color="text-strong">
               34
             </Text>
           </Box>
           <Box direction="row" align="center" justify="between">
-            <Legend
-              label="Assigned and subscribed"
-              color="chart-qualitative-70"
-            />
+            <Legend label="Assigned and subscribed" color="graph-0" />
             <Text weight={500} color="text-strong">
               245
             </Text>
