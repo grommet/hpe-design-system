@@ -235,7 +235,6 @@ const buildTheme = tokens => {
 
     // ---- TO DO: Tokens do not exist, should they? ---- //
     brand: MISSING.color,
-    'background-layer-overlay': MISSING.color,
     control: MISSING.color,
     'active-text': MISSING.color,
     'disabled-text': MISSING.color, // deprecated, use text-weak instead
@@ -245,6 +244,10 @@ const buildTheme = tokens => {
 
     // ----------- These ones we need to map manually for backwards compatibility -----------
     // ----------- with current color namespace ---------------
+    'background-layer-overlay': {
+      dark: dark.hpe.color.background.screenOverlay,
+      light: light.hpe.color.background.screenOverlay,
+    },
     'active-background': {
       dark: dark.hpe.color.background.active,
       light: light.hpe.color.background.active,
