@@ -40,10 +40,11 @@ import {
   ThumbsRating,
   DataTable,
   Meter,
+  ToggleGroup,
 } from 'grommet';
-import { User } from 'grommet-icons';
+import { User, Table, List, MapLocation } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
-import { refresh as hpeCurrent } from '../../theme';
+import { current as hpeCurrent } from '../../theme';
 
 const textSizes = [
   'xsmall',
@@ -419,7 +420,31 @@ const StickerSheet = () => {
               </Tabs>
             </Compare>
             <Compare>
-              <Tag value="Value" name="Name" />
+              <Box align="start" gap="small">
+                <ToggleGroup
+                  value={2}
+                  options={[
+                    {
+                      value: 1,
+                      icon: <Table />,
+                    },
+                    {
+                      value: 2,
+                      icon: <List />,
+                    },
+                    {
+                      value: 3,
+                      icon: <MapLocation />,
+                    },
+                  ]}
+                />
+              </Box>
+            </Compare>
+            <Compare>
+              <Box align="start" gap="small">
+                <Tag value="Value" name="Name" />
+                <Tag value="Value" name="Name" onRemove={() => {}} />
+              </Box>
             </Compare>
             <Compare>
               <TextArea placeholder="Type something" />
