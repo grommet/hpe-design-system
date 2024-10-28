@@ -407,7 +407,7 @@
     "icon": {
       "xsmall": {
         "$type": "number",
-        "$value": "{base.dimension.350}",
+        "$value": "{base.dimension.400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
