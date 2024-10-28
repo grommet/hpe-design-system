@@ -823,8 +823,6 @@ const buildTheme = tokens => {
     },
     avatar: {
       size: {
-        // At this point in time we hadn't standardized on component sizes, so the sizing is off
-        // but these feel like the right tokens
         xsmall: components.hpe.element?.xsmall.minHeight,
         small: components.hpe.element?.small.minHeight, // 24px
         medium: components.hpe.element?.medium.minHeight, // default 48px
@@ -837,9 +835,7 @@ const buildTheme = tokens => {
       },
       text: {
         size: {
-          xsmall: 'small', // TO DO no component size, is this a one off?
-          // At this point in time we hadn't standardized on component sizes, so the sizing is off
-          // TO DO this feels like it should be able to point to components.hpe.element?.medium.fontSize, etc.
+          xsmall: 'xsmall',
           small: 'small',
           medium: 'medium',
           large: 'large',
@@ -1307,7 +1303,6 @@ const buildTheme = tokens => {
         },
       },
       primary: {
-        // Q: missing tokens
         weight: components.hpe.dataCell.primary.fontWeight,
         color: components.hpe.dataCell.primary.enabled.textColor,
       },
@@ -1334,8 +1329,6 @@ const buildTheme = tokens => {
         size: components.hpe.formField.medium.input.container.borderWidth,
       },
       button: {
-        // Q: should we point to button tokens here?
-        // A: Yes, I think we should unless different values are required
         background: components.hpe.button.secondary.enabled.background,
         border: {
           // Q: is this the correct value?
@@ -2297,7 +2290,6 @@ const buildTheme = tokens => {
             },
           },
         },
-        // TO DO need default size "medium"
         // TO DO tag rounding is overriding "default" rounding, do we expect this?
         medium: {
           icon: undefined,

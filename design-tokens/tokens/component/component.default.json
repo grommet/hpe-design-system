@@ -7882,7 +7882,7 @@
       },
       "background": {
         "$type": "color",
-        "$value": "#00000000",
+        "$value": "{color.background.hover}",
         "$description": "",
         "$extensions": {
           "com.figma": {

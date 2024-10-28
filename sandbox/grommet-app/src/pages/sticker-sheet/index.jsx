@@ -42,7 +42,7 @@ import {
   Meter,
   ToggleGroup,
 } from 'grommet';
-import { User, List, MapLocation, Table } from 'grommet-icons';
+import { User, Table, List, MapLocation } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../theme';
 
@@ -437,19 +437,29 @@ const StickerSheet = () => {
             </Compare>
             <Compare>
               <Box align="start" gap="small">
-                <Tag value="Value" name="Name" size="medium" />
-                <Tag
-                  value="Value"
-                  name="Name"
-                  size="medium"
-                  onClick={() => {}}
+                <ToggleGroup
+                  value={2}
+                  options={[
+                    {
+                      value: 1,
+                      icon: <Table />,
+                    },
+                    {
+                      value: 2,
+                      icon: <List />,
+                    },
+                    {
+                      value: 3,
+                      icon: <MapLocation />,
+                    },
+                  ]}
                 />
-                <Tag
-                  value="Value"
-                  name="Name"
-                  size="medium"
-                  onRemove={() => {}}
-                />
+              </Box>
+            </Compare>
+            <Compare>
+              <Box align="start" gap="small">
+                <Tag value="Value" name="Name" />
+                <Tag value="Value" name="Name" onRemove={() => {}} />
               </Box>
             </Compare>
             <Compare>
