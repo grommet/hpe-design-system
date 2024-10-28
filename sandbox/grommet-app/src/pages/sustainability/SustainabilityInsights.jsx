@@ -11,9 +11,10 @@ import {
   DataFilters,
   DataFilter,
   Skeleton,
+  ToggleGroup,
 } from 'grommet';
 import { Hide, FormView } from 'grommet-icons';
-import { Card, Legend, Metric, ToggleGroup } from '../../components';
+import { Card, Legend, Metric } from '../../components';
 import mockData from '../../mockData/sustainability.json';
 import {
   useLoading,
@@ -34,7 +35,7 @@ const CarbonEmissions = () => {
       level={2}
       border={{
         side: 'top',
-        color: 'chart-qualitative-70',
+        color: 'graph-0',
         size: !open ? 'medium' : 'none',
       }}
       {...(skeleton ? skeletonProps : {})}
@@ -49,10 +50,7 @@ const CarbonEmissions = () => {
         <Metric value={132000} unit="MTCO2e" />
         <Collapsible open={open}>
           <Box gap="medium">
-            <Legend
-              label="Carbon emissions (MTCO2e)"
-              color="chart-qualitative-70"
-            />
+            <Legend label="Carbon emissions (MTCO2e)" color="graph-0" />
             {!skeleton ? (
               <DataChart
                 data={mockData.sustainability.slice(0, 10)}
@@ -72,13 +70,13 @@ const CarbonEmissions = () => {
                     property: 'emissions',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'chart-qualitative-70-weak',
+                    color: { color: 'graph-0', opacity: 'strong' },
                   },
                   {
                     property: 'emissions',
                     type: 'line',
                     thickness: 'xxsmall',
-                    color: 'chart-qualitative-70',
+                    color: 'graph-0',
                     round: true,
                   },
                 ]}
@@ -108,7 +106,7 @@ const EnergyConsumption = () => {
       level={2}
       border={{
         side: 'top',
-        color: 'chart-qualitative-20',
+        color: 'graph-2',
         size: !open ? 'medium' : 'none',
       }}
       {...(skeleton ? skeletonProps : {})}
@@ -123,10 +121,7 @@ const EnergyConsumption = () => {
         <Metric value={325000} unit="kWh" />
         <Collapsible open={open}>
           <Box gap="medium">
-            <Legend
-              label="Energy consumption (kWh)"
-              color="chart-qualitative-20"
-            />
+            <Legend label="Energy consumption (kWh)" color="graph-2" />
             {!skeleton ? (
               <DataChart
                 data={mockData.sustainability.slice(0, 10)}
@@ -146,13 +141,13 @@ const EnergyConsumption = () => {
                     property: 'energy',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'chart-qualitative-20-weak',
+                    color: { color: 'graph-2', opacity: 'strong' },
                   },
                   {
                     property: 'energy',
                     type: 'line',
                     thickness: 'xxsmall',
-                    color: 'chart-qualitative-20',
+                    color: 'graph-2',
                     round: true,
                   },
                 ]}
@@ -182,7 +177,7 @@ const EnergyCost = () => {
       level={2}
       border={{
         side: 'top',
-        color: 'chart-qualitative-30',
+        color: 'graph-4',
         size: !open ? 'medium' : 'none',
       }}
       {...(skeleton ? skeletonProps : {})}
@@ -201,7 +196,7 @@ const EnergyCost = () => {
         />
         <Collapsible open={open}>
           <Box gap="medium">
-            <Legend label="Energy cost (USD)" color="chart-qualitative-30" />
+            <Legend label="Energy cost (USD)" color="graph-4" />
             {!skeleton ? (
               <DataChart
                 data={mockData.sustainability.slice(0, 10)}
@@ -221,13 +216,13 @@ const EnergyCost = () => {
                     property: 'cost',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'chart-qualitative-30-weak',
+                    color: { color: 'graph-4', opacity: 'strong' },
                   },
                   {
                     property: 'cost',
                     type: 'line',
                     thickness: 'xxsmall',
-                    color: 'chart-qualitative-30',
+                    color: 'graph-4',
                     round: true,
                   },
                 ]}
@@ -291,11 +286,22 @@ export const SustainabilityInsights = () => {
                 <Text>Charts</Text>
                 <ToggleGroup
                   options={[
-                    { id: '0', label: <FormView />, value: true },
-                    { id: '1', label: <Hide />, value: false },
+                    {
+                      icon: <FormView />,
+                      tip: 'View charts',
+                      value: true,
+                    },
+                    {
+                      icon: <Hide />,
+                      tip: 'Hide charts',
+                      value: false,
+                    },
                   ]}
                   value={open}
-                  setValue={setOpen}
+                  onToggle={e => {
+                    if (e.value === true) setOpen(true);
+                    else setOpen(false);
+                  }}
                 />
               </Toolbar>
             ) : undefined}

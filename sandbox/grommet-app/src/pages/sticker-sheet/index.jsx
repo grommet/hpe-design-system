@@ -61,7 +61,7 @@ const textSizes = [
 
 const kinds = ['default', 'toolbar', 'secondary', 'primary'];
 const states = ['enabled', 'active', 'disabled'];
-const sizes = ['small', 'medium', 'large', 'xlarge'];
+const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 const ModeContext = React.createContext({});
 
@@ -229,6 +229,31 @@ const StickerSheet = () => {
             </Box>
             <Box gap="small">
               <Compare>
+                <ToggleGroup
+                  a11yTitle="Choose view"
+                  options={[
+                    {
+                      icon: <List a11yTitle="List view" />,
+                      value: 'list',
+                      tip: 'List',
+                    },
+                    {
+                      icon: <Table a11yTitle="Map view" />,
+                      value: 'table',
+                      tip: 'Table',
+                    },
+                    {
+                      icon: <MapLocation a11yTitle="Map view" />,
+                      value: 'map',
+                      tip: 'Map',
+                    },
+                  ]}
+                  defaultValue="list"
+                />
+              </Compare>
+            </Box>
+            <Box gap="small">
+              <Compare>
                 <Button secondary icon={<User />} size="small" />
               </Compare>
               <Compare>
@@ -241,6 +266,25 @@ const StickerSheet = () => {
                 <Button secondary icon={<User />} size="xlarge" />
               </Compare>
             </Box>
+            <Compare>
+              <Menu
+                label="Menu"
+                items={[
+                  [{ label: 'Item 1' }, { label: 'Item 2' }],
+                  [{ label: 'Delete' }],
+                ]}
+              />
+            </Compare>
+            <Compare>
+              <Menu
+                label="Menu"
+                kind="toolbar"
+                items={[
+                  [{ label: 'Item 1' }, { label: 'Item 2' }],
+                  [{ label: 'Delete' }],
+                ]}
+              />
+            </Compare>
             <Box gap="small">
               <Compare>
                 <User size="small" />
@@ -303,11 +347,17 @@ const StickerSheet = () => {
               </FormField>
             </Compare>
             <Compare>
+              <CheckBox label="Switch label" toggle />
               <CheckBox label="Switch label" toggle checked />
+              <CheckBox label="Switch label" toggle disabled />
             </Compare>
             <Compare guidingChild="last">
               <CheckBoxGroup
-                options={['Option 1', 'Option 2', 'Option 3']}
+                options={[
+                  'Option 1',
+                  'Option 2',
+                  { label: 'Option 3', disabled: true },
+                ]}
                 value={['Option 2']}
               />
             </Compare>
@@ -321,9 +371,12 @@ const StickerSheet = () => {
             </Compare>
             <Compare>
               <DateInput
-                format="mm/dd/yyyy"
+                format="mm/dd/yyyy-mm/dd/yyyy"
                 inline
-                value={new Date().toISOString()}
+                value={[
+                  new Date().toISOString(),
+                  new Date(+new Date() + 86400000 * 9).toISOString(),
+                ]}
               />
             </Compare>
             <Compare>
@@ -332,50 +385,6 @@ const StickerSheet = () => {
             {/* <Compare>
                 <MaskedPhoneExample />
               </Compare> */}
-            <Compare>
-              <Menu
-                label="Menu"
-                items={[
-                  [{ label: 'Item 1' }, { label: 'Item 2' }],
-                  [{ label: 'Delete' }],
-                ]}
-              />
-            </Compare>
-            <Compare>
-              <Menu
-                label="Menu"
-                kind="toolbar"
-                items={[
-                  [{ label: 'Item 1' }, { label: 'Item 2' }],
-                  [{ label: 'Delete' }],
-                ]}
-              />
-            </Compare>
-            <Compare>
-              <NameValueList>
-                <NameValuePair name="City">San Francisco</NameValuePair>
-                <NameValuePair name="State">California</NameValuePair>
-              </NameValueList>
-            </Compare>
-            <Compare>
-              <Notification
-                status="warning"
-                message="this is a message"
-                title="this is a title"
-              />
-            </Compare>
-            <Compare>
-              <PageHeader
-                title="Page title"
-                subtitle="Here is a subtitle for the page."
-              />
-            </Compare>
-            <Compare>
-              <Pagination numberItems={100} size="small" />
-            </Compare>
-            <Compare>
-              <Pagination numberItems={100} />
-            </Compare>
             <Compare>
               <Pagination numberItems={100} size="large" />
             </Compare>
@@ -401,6 +410,15 @@ const StickerSheet = () => {
               />
             </Compare>
             <Compare>
+              <TextArea placeholder="Type something" />
+            </Compare>
+            <Compare>
+              <TextInput placeholder="Placeholder" />
+            </Compare>
+            <Compare>
+              <Spinner size="xsmall" />
+            </Compare>
+            <Compare>
               <Spinner size="small" />
             </Compare>
             <Compare>
@@ -410,13 +428,11 @@ const StickerSheet = () => {
               <Spinner size="large" />
             </Compare>
             <Compare>
-              <StarRating value={2} />
-            </Compare>
-            <Compare>
               <Tabs>
                 <Tab title="Tab 1" active />
-                <Tab title="Tab 2" active />
-                <Tab title="Tab 3" active />
+                <Tab title="Tab 2" />
+                <Tab title="Tab 3 (disabled)" disabled />
+                <Tab title="Tab 4" />
               </Tabs>
             </Compare>
             <Compare>
@@ -447,16 +463,73 @@ const StickerSheet = () => {
               </Box>
             </Compare>
             <Compare>
-              <TextArea placeholder="Type something" />
-            </Compare>
-            <Compare>
-              <TextInput placeholder="Placeholder" />
+              <StarRating value={2} />
             </Compare>
             <Compare>
               <ThumbsRating value="like" />
             </Compare>
             <Compare>
+              <NameValueList>
+                <NameValuePair name="City">San Francisco</NameValuePair>
+                <NameValuePair name="State">California</NameValuePair>
+              </NameValueList>
+            </Compare>
+            <Compare>
+              <Notification
+                status="critical"
+                message="this is a message"
+                title="this is a title"
+                // onClose={() => {}}
+              />
+            </Compare>
+            <Compare>
+              <Notification
+                status="warning"
+                message="this is a message"
+                title="this is a title"
+                onClose={() => {}}
+              />
+            </Compare>
+            <Compare>
+              <Notification
+                status="normal"
+                message="this is a message"
+                title="this is a title"
+                onClose={() => {}}
+              />
+            </Compare>
+            <Compare>
+              <Notification
+                status="info"
+                message="this is a message"
+                title="this is a title"
+                onClose={() => {}}
+              />
+            </Compare>
+            <Compare>
+              <Notification
+                status="unknown"
+                message="this is a message"
+                title="this is a title"
+                onClose={() => {}}
+              />
+            </Compare>
+            <Compare>
+              <PageHeader
+                title="Page title"
+                subtitle="Here is a subtitle for the page."
+              />
+            </Compare>
+            <Compare>
+              <Pagination numberItems={100} size="small" />
+            </Compare>
+            <Compare>
+              <Pagination numberItems={100} />
+            </Compare>
+            <Compare>
               <DataTable
+                onSelect={() => {}}
+                select={['4352351']}
                 columns={[
                   {
                     property: 'id',

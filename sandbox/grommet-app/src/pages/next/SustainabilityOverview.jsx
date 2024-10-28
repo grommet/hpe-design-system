@@ -39,13 +39,13 @@ export const SustainabilityOverview = () => {
                     property: 'emissions',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'chart-qualitative-70-weak',
+                    color: { color: 'graph-0', opacity: 'strong' },
                   },
                   {
                     property: 'emissions',
                     type: 'line',
                     thickness: 'xxsmall',
-                    color: 'chart-qualitative-70',
+                    color: 'graph-0',
                     round: true,
                   },
                 ]}
@@ -75,13 +75,13 @@ export const SustainabilityOverview = () => {
                     property: 'energy',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'chart-qualitative-20-weak',
+                    color: { color: 'graph-1', opacity: 'strong' },
                   },
                   {
                     property: 'energy',
                     type: 'line',
                     thickness: 'xxsmall',
-                    color: 'chart-qualitative-20',
+                    color: 'graph-1',
                     round: true,
                   },
                 ]}
@@ -106,13 +106,13 @@ export const SustainabilityOverview = () => {
                     property: 'cost',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'chart-qualitative-30-weak',
+                    color: { color: 'graph-2', opacity: 'strong' },
                   },
                   {
                     property: 'cost',
                     type: 'line',
                     thickness: 'xxsmall',
-                    color: 'chart-qualitative-30',
+                    color: 'graph-2',
                     round: true,
                   },
                 ]}
