@@ -4,6 +4,7 @@ import { DashboardCard } from '../components';
 import { AppsRounded, UserAdd } from 'grommet-icons';
 import { useContext } from 'react';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
+
 export const GetStarted = ({ kind, heading }) => {
   const size = useContext(ResponsiveContext);
   const skeleton = useLoading(150);

@@ -50,10 +50,7 @@ const CarbonEmissions = () => {
         <Metric value={132000} unit="MTCO2e" />
         <Collapsible open={open}>
           <Box gap="medium">
-            <Legend
-              label="Carbon emissions (MTCO2e)"
-              color="chart-qualitative-70"
-            />
+            <Legend label="Carbon emissions (MTCO2e)" color="graph-0" />
             {!skeleton ? (
               <DataChart
                 data={mockData.sustainability.slice(0, 10)}
@@ -73,7 +70,7 @@ const CarbonEmissions = () => {
                     property: 'emissions',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'dataVis-categorical-20Weak',
+                    color: { color: 'graph-0', opacity: 'strong' },
                   },
                   {
                     property: 'emissions',
@@ -124,10 +121,7 @@ const EnergyConsumption = () => {
         <Metric value={325000} unit="kWh" />
         <Collapsible open={open}>
           <Box gap="medium">
-            <Legend
-              label="Energy consumption (kWh)"
-              color="chart-qualitative-20"
-            />
+            <Legend label="Energy consumption (kWh)" color="graph-2" />
             {!skeleton ? (
               <DataChart
                 data={mockData.sustainability.slice(0, 10)}
@@ -147,7 +141,7 @@ const EnergyConsumption = () => {
                     property: 'energy',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'dataVis-categorical-40Weak',
+                    color: { color: 'graph-2', opacity: 'strong' },
                   },
                   {
                     property: 'energy',
@@ -202,7 +196,7 @@ const EnergyCost = () => {
         />
         <Collapsible open={open}>
           <Box gap="medium">
-            <Legend label="Energy cost (USD)" color="chart-qualitative-30" />
+            <Legend label="Energy cost (USD)" color="graph-4" />
             {!skeleton ? (
               <DataChart
                 data={mockData.sustainability.slice(0, 10)}
@@ -222,7 +216,7 @@ const EnergyCost = () => {
                     property: 'cost',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: 'dataVis-categorical-60Weak',
+                    color: { color: 'graph-4', opacity: 'strong' },
                   },
                   {
                     property: 'cost',

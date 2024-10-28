@@ -50,11 +50,7 @@ function Index() {
             <PageHeader
               title="Home"
               actions={
-                <Button
-                  label="Customize"
-                  icon={<Configure color="primary" />}
-                  reverse
-                />
+                <Button label="Customize" icon={<Configure />} reverse />
               }
               pad="none"
             />
