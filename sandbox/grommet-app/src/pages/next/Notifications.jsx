@@ -16,34 +16,26 @@ import { SkeletonContext } from '../../components';
 const statuses = {
   critical: {
     background: 'background-status-critical',
-    icon: <StatusCritical color="foreground-status-critical" height="medium" />,
-    iconCompact: (
-      <StatusCriticalSmall color="foreground-status-critical" height="medium" />
-    ),
+    icon: <StatusCritical color="icon-critical" height="medium" />,
+    iconCompact: <StatusCriticalSmall color="icon-critical" height="medium" />,
     label: 'Critical',
   },
   warning: {
     background: 'background-status-warning',
-    icon: <StatusWarning color="foreground-status-warning" height="medium" />,
-    iconCompact: (
-      <StatusWarningSmall color="foreground-status-warning" height="medium" />
-    ),
+    icon: <StatusWarning color="icon-warning" height="medium" />,
+    iconCompact: <StatusWarningSmall color="icon-warning" height="medium" />,
     label: 'Warning',
   },
   ok: {
     background: 'background-status-ok',
-    icon: <StatusGood color="foreground-status-ok" height="medium" />,
-    iconCompact: (
-      <StatusGoodSmall color="foreground-status-ok" height="medium" />
-    ),
+    icon: <StatusGood color="icon-ok" height="medium" />,
+    iconCompact: <StatusGoodSmall color="icon-ok" height="medium" />,
     label: 'Ok',
   },
   info: {
     background: 'background-status-info',
-    icon: <CircleInformation color="foreground-status-info" height="medium" />,
-    iconCompact: (
-      <StatusGoodSmall color="foreground-status-info" height="medium" />
-    ),
+    icon: <CircleInformation color="icon-info" height="medium" />,
+    iconCompact: <StatusGoodSmall color="icon-info" height="medium" />,
     label: 'Information',
   },
 };
