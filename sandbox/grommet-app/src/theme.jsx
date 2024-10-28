@@ -738,11 +738,11 @@ const buildTheme = tokens => {
       size: {
         // At this point in time we hadn't standardized on component sizes, so the sizing is off
         // but these feel like the right tokens
-        xsmall: components.hpe.component.xsmall.minHeight,
-        small: components.hpe.component.small.minHeight, // 24px
-        medium: components.hpe.component.medium.minHeight, // default 48px
-        large: components.hpe.component.large.minHeight, // 72px
-        xlarge: components.hpe.component.xlarge.minHeight, // 96px
+        xsmall: components.hpe.element?.xsmall.minHeight,
+        small: components.hpe.element?.small.minHeight, // 24px
+        medium: components.hpe.element?.medium.minHeight, // default 48px
+        large: components.hpe.element?.large.minHeight, // 72px
+        xlarge: components.hpe.element?.xlarge.minHeight, // 96px
         '2xl': `${baseSpacing * 5}px`, // TO DO no component size, is this a one off?
         '3xl': `${baseSpacing * 6}px`, // TO DO no component size, is this a one off?
         '4xl': `${baseSpacing * 7}px`, // TO DO no component size, is this a one off?
@@ -752,7 +752,7 @@ const buildTheme = tokens => {
         size: {
           xsmall: 'small', // TO DO no component size, is this a one off?
           // At this point in time we hadn't standardized on component sizes, so the sizing is off
-          // TO DO this feels like it should be able to point to components.hpe.component.medium.fontSize, etc.
+          // TO DO this feels like it should be able to point to components.hpe.element?.medium.fontSize, etc.
           small: 'small',
           medium: 'medium',
           large: 'large',
@@ -1377,7 +1377,7 @@ const buildTheme = tokens => {
         align: 'start',
       },
       pad: {
-        vertical: components.hpe.component.medium.paddingY,
+        vertical: components.hpe.element?.medium.paddingY,
         horizontal: components.hpe.formField.medium.input.container.paddingX, // TO DO is this correct usage?
       },
       size: components.hpe.checkbox.medium.control.width, // TO DO should this token be called "size" instead?
@@ -2163,11 +2163,11 @@ const buildTheme = tokens => {
               horizontal: '4px',
             },
             font: {
-              size: components.hpe.component.small.fontSize,
-              height: components.hpe.component.small.lineHeight,
+              size: components.hpe.element?.small.fontSize,
+              height: components.hpe.element?.small.lineHeight,
             },
-            height: components.hpe.component.small.minHeight,
-            width: components.hpe.component.small.minHeight,
+            height: components.hpe.element?.small.minHeight,
+            width: components.hpe.element?.small.minHeight,
           },
           medium: {
             border: {
@@ -2182,11 +2182,11 @@ const buildTheme = tokens => {
               horizontal: `4px`,
             },
             font: {
-              size: components.hpe.component.medium.fontSize,
-              height: components.hpe.component.medium.lineHeight,
+              size: components.hpe.element?.medium.fontSize,
+              height: components.hpe.element?.medium.lineHeight,
             },
-            height: components.hpe.component.medium.minHeight,
-            width: components.hpe.component.medium.minHeight,
+            height: components.hpe.element?.medium.minHeight,
+            width: components.hpe.element?.medium.minHeight,
           },
           large: {
             border: {
@@ -2201,11 +2201,11 @@ const buildTheme = tokens => {
               horizontal: `4px`,
             },
             font: {
-              size: components.hpe.component.large.fontSize,
-              height: components.hpe.component.large.lineHeight,
+              size: components.hpe.element?.large.fontSize,
+              height: components.hpe.element?.large.lineHeight,
             },
-            height: components.hpe.component.large.minHeight,
-            width: components.hpe.component.large.minHeight,
+            height: components.hpe.element?.large.minHeight,
+            width: components.hpe.element?.large.minHeight,
           },
         },
       },
@@ -2367,10 +2367,10 @@ const buildTheme = tokens => {
       },
       size: {
         xsmall: `${baseSpacing * 0.75}px`, // TO DO no "xsmall" component size
-        small: components.hpe.component.small.minHeight, // TO DO should these align? this was before we standardized on component sizes
-        medium: components.hpe.component.medium.minHeight,
-        large: components.hpe.component.large.minHeight,
-        xlarge: components.hpe.component.xlarge.minHeight,
+        small: components.hpe.element?.small.minHeight, // TO DO should these align? this was before we standardized on component sizes
+        medium: components.hpe.element?.medium.minHeight,
+        large: components.hpe.element?.large.minHeight,
+        xlarge: components.hpe.element?.xlarge.minHeight,
       },
     },
     starRating: {
@@ -2494,7 +2494,7 @@ const buildTheme = tokens => {
         // but it does highlight a gap of something we couldn't automatically update
         horizontal: 'small',
         // Q: should this be a token?
-        // A: Yes, ideally this could point to "components.hpe.component.medium.paddingY"
+        // A: Yes, ideally this could point to "components.hpe.element?.medium.paddingY"
         vertical: '5px', // 5px pad + 1px border = 6px 'xsmall'
       },
       value: {
