@@ -21,14 +21,7 @@ export const QuickActions = ({ edit = true, icons }) => {
         <Heading level={2} margin="none">
           Quick Actions
         </Heading>
-        {edit && (
-          <Button
-            label="Edit"
-            icon={<Edit color="foreground-brand-default" />}
-            kind="subtle"
-            reverse
-          />
-        )}
+        {edit && <Button label="Edit" icon={<Edit />} reverse />}
       </Box>
       <Box gap="small" animation={!skeleton ? 'fadeIn' : undefined}>
         {skeleton ? (
