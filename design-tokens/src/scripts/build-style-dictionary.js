@@ -289,6 +289,7 @@ HPEStyleDictionary.extend({
     `${TOKENS_DIR}/semantic/global.default.json`,
     `${TOKENS_DIR}/semantic/color.light.json`, // using light mode to have a reference name available
     `${TOKENS_DIR}/semantic/dimension.large.json`, // using large mode to have a reference name available
+    `${TOKENS_DIR}/component/element.default.json`,
     `${TOKENS_DIR}/component/component.default.json`,
   ],
   platforms: {
@@ -299,8 +300,7 @@ HPEStyleDictionary.extend({
       files: [
         {
           destination: 'components.default.js',
-          filter: token =>
-            token.filePath === `${TOKENS_DIR}/component/component.default.json`,
+          filter: token => token.filePath.includes(`${TOKENS_DIR}/component/`),
           format: 'esmGrommetRefs',
         },
       ],
@@ -312,8 +312,7 @@ HPEStyleDictionary.extend({
       files: [
         {
           destination: 'components.default.cjs',
-          filter: token =>
-            token.filePath === `${TOKENS_DIR}/component/component.default.json`,
+          filter: token => token.filePath.includes(`${TOKENS_DIR}/component/`),
           format: 'commonJsGrommetRefs',
         },
       ],
@@ -326,8 +325,7 @@ HPEStyleDictionary.extend({
         {
           destination: 'components.css',
           format: 'css/variables',
-          filter: token =>
-            token.filePath === `${TOKENS_DIR}/component/component.default.json`,
+          filter: token => token.filePath.includes(`${TOKENS_DIR}/component/`),
           options: {
             outputReferences: true,
           },
@@ -341,8 +339,7 @@ HPEStyleDictionary.extend({
       files: [
         {
           destination: 'components.js',
-          filter: token =>
-            token.filePath === `${TOKENS_DIR}/component/component.default.json`,
+          filter: token => token.filePath.includes(`${TOKENS_DIR}/component/`),
           format: 'jsonFlat',
         },
       ],
