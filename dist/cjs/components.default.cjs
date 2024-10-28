@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 22:25:07 GMT
+ * Generated on Mon, 28 Oct 2024 23:05:12 GMT
  */
 
 module.exports = {
@@ -459,7 +459,7 @@ module.exports = {
           }
         },
         "toolbar": {
-          "paddingX": "18px",
+          "paddingX": "10px",
           "paddingY": "5px",
           "borderRadius": "6px",
           "borderWidth": "default",
@@ -1179,7 +1179,7 @@ module.exports = {
           "textColor": "text-strong"
         },
         "disabled": {
-          "textColor": "text-strong"
+          "textColor": "text-disabled"
         },
         "readOnly": {
           "textColor": "text-strong"

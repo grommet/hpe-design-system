@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 22:25:06 GMT
+ * Generated on Mon, 28 Oct 2024 23:05:12 GMT
  */
 
 :root {
@@ -96,6 +96,7 @@
   --hpe-color-border-ok: var(--hpe-color-border-default);
   --hpe-color-border-info: var(--hpe-color-border-default);
   --hpe-color-border-critical: var(--hpe-color-border-default);
+  --hpe-color-background-selected-strong-hover: var(--hpe-base-color-brand); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-background-selected-strong-enabled: var(--hpe-base-color-brand); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-background-hover: var(--hpe-color-background-contrast); /* Standard hover state color */
   --hpe-color-background-active: var(--hpe-color-background-hover); /* Standard active state color */

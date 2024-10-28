@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 22:25:06 GMT
+ * Generated on Mon, 28 Oct 2024 23:05:12 GMT
  */
 
 export default {
@@ -22,6 +22,7 @@ export default {
         selected: {
           strong: {
             enabled: "#01a982",
+            hover: "#01a982",
           },
           weak: {
             enabled: "#093a2f",

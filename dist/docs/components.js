@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 22:25:07 GMT
+ * Generated on Mon, 28 Oct 2024 23:05:13 GMT
  */
 
 export default {
@@ -14440,7 +14440,7 @@ export default {
   },
   "hpe.button.medium.toolbar.paddingX": {
     "$type": "number",
-    "value": "18px",
+    "value": "10px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -14455,7 +14455,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{button.medium.default.paddingX}",
+      "value": "{element.medium.paddingX.default}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -33327,7 +33327,7 @@ export default {
   },
   "hpe.formField.labelText.disabled.textColor": {
     "$type": "color",
-    "value": "#333333",
+    "value": "#0000003d",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -33342,7 +33342,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.strong}",
+      "value": "{color.text.disabled}",
       "comment": "",
       "$extensions": {
         "com.figma": {

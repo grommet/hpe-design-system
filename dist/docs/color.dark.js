@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 22:25:06 GMT
+ * Generated on Mon, 28 Oct 2024 23:05:12 GMT
  */
 
 export default {
@@ -565,6 +565,53 @@ export default {
       "selected",
       "strong",
       "enabled"
+    ]
+  },
+  "hpe.color.background.selected.strong.hover": {
+    "$type": "color",
+    "value": "#01a982",
+    "comment": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.brand}",
+      "comment": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.selected.strong.hover",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "selected",
+      "subitem": "strong",
+      "state": "hover"
+    },
+    "path": [
+      "color",
+      "background",
+      "selected",
+      "strong",
+      "hover"
     ]
   },
   "hpe.color.background.selected.weak.enabled": {

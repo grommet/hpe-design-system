@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 22:25:07 GMT
+ * Generated on Mon, 28 Oct 2024 23:05:13 GMT
  */
 
 :root {
@@ -111,6 +111,7 @@
   --hpe-button-large-default-icon-only-padding-x: var(--hpe-button-large-default-icon-only-padding-y);
   --hpe-button-large-default-padding-y: var(--hpe-element-large-padding-y);
   --hpe-button-medium-toolbar-icon-only-padding-y: var(--hpe-button-medium-default-icon-only-padding-y);
+  --hpe-button-medium-toolbar-padding-x: var(--hpe-element-medium-padding-x-default);
   --hpe-button-medium-secondary-icon-only-padding-x: var(--hpe-button-medium-secondary-icon-only-padding-y);
   --hpe-button-medium-primary-icon-only-padding-y: var(--hpe-button-medium-default-icon-only-padding-y);
   --hpe-button-medium-default-icon-only-padding-x: var(--hpe-button-medium-default-icon-only-padding-y);
@@ -264,7 +265,7 @@
   --hpe-form-field-placeholder-text-disabled: var(--hpe-color-text-disabled);
   --hpe-form-field-label-text-status-critical-text-color: var(--hpe-color-text-strong);
   --hpe-form-field-label-text-read-only-text-color: var(--hpe-color-text-strong);
-  --hpe-form-field-label-text-disabled-text-color: var(--hpe-color-text-strong);
+  --hpe-form-field-label-text-disabled-text-color: var(--hpe-color-text-disabled);
   --hpe-form-field-label-text-focus-text-color: var(--hpe-color-text-strong);
   --hpe-form-field-label-text-hover-text-color: var(--hpe-color-text-strong);
   --hpe-form-field-label-text-enabled-text-color: var(--hpe-color-text-strong);
@@ -733,7 +734,6 @@
   --hpe-button-medium-toolbar-icon-only-border-radius: var(--hpe-button-medium-toolbar-border-radius);
   --hpe-button-medium-toolbar-min-height: var(--hpe-button-medium-default-min-height);
   --hpe-button-medium-toolbar-border-width: var(--hpe-border-width-default);
-  --hpe-button-medium-toolbar-padding-x: var(--hpe-button-medium-default-padding-x);
   --hpe-button-medium-secondary-icon-only-font-size: var(--hpe-button-medium-secondary-font-size);
   --hpe-button-medium-secondary-icon-only-border-width: var(--hpe-button-medium-secondary-border-width);
   --hpe-button-medium-secondary-min-height: var(--hpe-button-medium-default-min-height);
