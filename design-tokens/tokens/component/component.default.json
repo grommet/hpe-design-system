@@ -1568,7 +1568,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 4,
+            "$value": 3,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1764,7 +1764,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 4,
+            "$value": 3,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7080,7 +7080,7 @@
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
-          "scopes": ["GAP"],
+          "scopes": ["WIDTH_HEIGHT"],
           "codeSyntax": {}
         }
       }
