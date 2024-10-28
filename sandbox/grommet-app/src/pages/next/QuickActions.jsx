@@ -27,17 +27,13 @@ export const QuickActions = ({ edit = true, icons }) => {
         {skeleton ? (
           <Skeleton height={theme.text.medium.size} />
         ) : (
-          <Anchor
-            icon={icons && <ChapterAdd color="foreground-brand-default" />}
-            label="Add devices"
-            href="#"
-          />
+          <Anchor icon={icons && <ChapterAdd />} label="Add devices" href="#" />
         )}
         {skeleton ? (
           <Skeleton height={theme.text.medium.size} />
         ) : (
           <Anchor
-            icon={icons && <Cloud color="foreground-brand-default" />}
+            icon={icons && <Cloud />}
             label="Add service subscriptions"
             href="#"
           />
@@ -45,17 +41,13 @@ export const QuickActions = ({ edit = true, icons }) => {
         {skeleton ? (
           <Skeleton height={theme.text.medium.size} />
         ) : (
-          <Anchor
-            icon={icons && <UserAdd color="foreground-brand-default" />}
-            label="Add users"
-            href="#"
-          />
+          <Anchor icon={icons && <UserAdd />} label="Add users" href="#" />
         )}
         {skeleton ? (
           <Skeleton height={theme.text.medium.size} />
         ) : (
           <Anchor
-            icon={icons && <Stakeholder color="foreground-brand-default" />}
+            icon={icons && <Stakeholder />}
             label="Assign roles"
             href="#"
           />
@@ -64,7 +56,7 @@ export const QuickActions = ({ edit = true, icons }) => {
           <Skeleton height={theme.text.medium.size} />
         ) : (
           <Anchor
-            icon={icons && <MapLocation color="foreground-brand-default" />}
+            icon={icons && <MapLocation />}
             label="Create location"
             href="#"
           />
