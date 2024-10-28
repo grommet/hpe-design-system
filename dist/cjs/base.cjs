@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 23 Oct 2024 23:34:32 GMT
+ * Generated on Mon, 28 Oct 2024 22:25:06 GMT
  */
 
 module.exports = {
@@ -139,6 +139,21 @@ module.exports = {
           "opacity72": "#ffffffb8"
         },
         "dataVis": {
+          "green1": "#01a982",
+          "darkblue1": "#00384d",
+          "purple1": "#7022ec",
+          "gold1": "#be8e0a",
+          "lightblue1": "#3e92cc",
+          "pink1": "#a70179",
+          "blue1": "#01609f",
+          "grape1": "#7800a7",
+          "darkblue2": "#b3ebff",
+          "purple2": "#6013dd",
+          "gold2": "#f5c542",
+          "lightblue2": "#0074c5",
+          "pink2": "#ca319f",
+          "blue2": "#0099ff",
+          "purple-2": "#a225d3",
           "green1000": "#074b3b",
           "green325": "#809605",
           "green325-opacity50": "#80960580",

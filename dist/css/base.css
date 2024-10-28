@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 23 Oct 2024 23:34:32 GMT
+ * Generated on Mon, 28 Oct 2024 22:25:06 GMT
  */
 
 :root {
@@ -44,6 +44,21 @@
   --hpe-base-color-data-vis-green325-opacity50: #80960580;
   --hpe-base-color-data-vis-green325: #809605;
   --hpe-base-color-data-vis-green1000: #074b3b;
+  --hpe-base-color-data-vis-purple-2: #a225d3;
+  --hpe-base-color-data-vis-blue2: #0099ff;
+  --hpe-base-color-data-vis-pink2: #ca319f;
+  --hpe-base-color-data-vis-lightblue2: #0074c5;
+  --hpe-base-color-data-vis-gold2: #f5c542;
+  --hpe-base-color-data-vis-purple2: #6013dd;
+  --hpe-base-color-data-vis-darkblue2: #b3ebff;
+  --hpe-base-color-data-vis-grape1: #7800a7;
+  --hpe-base-color-data-vis-blue1: #01609f;
+  --hpe-base-color-data-vis-pink1: #a70179;
+  --hpe-base-color-data-vis-lightblue1: #3e92cc;
+  --hpe-base-color-data-vis-gold1: #be8e0a;
+  --hpe-base-color-data-vis-purple1: #7022ec;
+  --hpe-base-color-data-vis-darkblue1: #00384d;
+  --hpe-base-color-data-vis-green1: #01a982;
   --hpe-base-color-white-opacity72: #ffffffb8;
   --hpe-base-color-white-opacity50: #ffffff80;
   --hpe-base-color-white-opacity36: #ffffff5c;

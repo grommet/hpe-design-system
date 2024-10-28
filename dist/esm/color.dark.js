@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 23 Oct 2024 23:34:32 GMT
+ * Generated on Mon, 28 Oct 2024 22:25:06 GMT
  */
 
 export default {
@@ -14,8 +14,11 @@ export default {
         back: "#1c1c1c",
         front: "#222222",
         floating: "#292929",
-        overlay: "#0000001f",
+        screenOverlay: "#0000001f",
         contrast: "#ffffff0f",
+        unknown: "#ffffff0f",
+        critical: "#cc1f1a4d",
+        warning: "#fec9011f",
         selected: {
           strong: {
             enabled: "#01a982",
@@ -25,15 +28,12 @@ export default {
             hover: "#074b3b",
           },
         },
-        ok: "#17d0a64d",
         primary: {
           default: "#01a982",
           hover: "#00ff0a00",
         },
+        ok: "#17d0a64d",
         info: "#00c8ff1f",
-        warning: "#fec9011f",
-        critical: "#cc1f1a4d",
-        unknown: "#ffffff0f",
       },
       border: {
         strong: "#ffffffb8",
@@ -105,22 +105,24 @@ export default {
       },
       dataVis: {
         categorical: {
-          "10": "#00ff0a00",
-          "20": "#00ff0a00",
-          "30": "#00ff0a00",
-          "40": "#00ff0a00",
-          "50": "#00ff0a00",
-          "60": "#00ff0a00",
-          "70": "#00ff0a00",
-          "80": "#00ff0a00",
-          "20Weak": "#00ff0a00",
-          "40Weak": "#00ff0a00",
-          "60Weak": "#00ff0a00",
-          "80Weak": "#00ff0a00",
+          "10": "#01a982",
+          "20": "#b3ebff",
+          "30": "#f5c542",
+          "40": "#6013dd",
+          "50": "#0074c5",
+          "60": "#ca319f",
+          "70": "#0099ff",
+          "80": "#a225d3",
         },
       },
       transparent: "#00000000",
       focus: "#00e8cf",
+      foreground: {
+        primary: "#01a982",
+        critical: "#c54e4b",
+        warning: "#9b6310",
+        unknown: "#757575",
+      },
       shadow: {
         weak: "#0000001f",
         default: "#0000005c",

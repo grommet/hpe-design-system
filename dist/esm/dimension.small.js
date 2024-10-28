@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 23 Oct 2024 23:34:33 GMT
+ * Generated on Mon, 28 Oct 2024 22:25:07 GMT
  */
 
 export default {
@@ -48,7 +48,7 @@ export default {
         xxlarge: "1152px",
       },
       icon: {
-        xsmall: "14px",
+        xsmall: "16px",
         small: "16px",
         medium: "18px",
         large: "22px",
