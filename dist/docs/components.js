@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 23:05:13 GMT
+ * Generated on Mon, 28 Oct 2024 23:40:44 GMT
  */
 
 export default {
@@ -5273,7 +5273,7 @@ export default {
   },
   "hpe.button.toolbar.enabled.background": {
     "$type": "color",
-    "value": "#ffffff",
+    "value": "#00000000",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -5289,7 +5289,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.background.default}",
+      "value": "{color.transparent}",
       "comment": "",
       "$extensions": {
         "com.figma": {

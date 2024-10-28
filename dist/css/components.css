@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 23:05:13 GMT
+ * Generated on Mon, 28 Oct 2024 23:40:43 GMT
  */
 
 :root {
@@ -128,6 +128,7 @@
   --hpe-button-xsmall-primary-icon-only-padding-y: var(--hpe-button-xsmall-default-icon-only-padding-y);
   --hpe-button-xsmall-primary-padding-y: var(--hpe-button-xsmall-default-padding-y);
   --hpe-button-xsmall-primary-padding-x: var(--hpe-button-xsmall-default-padding-x);
+  --hpe-button-toolbar-enabled-background: var(--hpe-color-transparent);
   --hpe-button-default-selected-enabled-border-color: var(--hpe-color-transparent);
   --hpe-button-default-enabled-font-weight: var(--hpe-font-weight-semibold);
   --hpe-button-default-enabled-border-color: var(--hpe-color-transparent);
@@ -466,7 +467,6 @@
   --hpe-button-toolbar-disabled-background: var(--hpe-color-background-disabled);
   --hpe-button-toolbar-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-toolbar-enabled-border-color: var(--hpe-color-border-default);
-  --hpe-button-toolbar-enabled-background: var(--hpe-color-background-default);
   --hpe-button-default-selected-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-default-hover-font-weight: var(--hpe-button-default-enabled-font-weight);
   --hpe-button-default-hover-border-color: var(--hpe-button-default-enabled-border-color);

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 23:05:12 GMT
+ * Generated on Mon, 28 Oct 2024 23:40:43 GMT
  */
 
 module.exports = {
@@ -187,7 +187,7 @@ module.exports = {
       },
       "toolbar": {
         "enabled": {
-          "background": "background-default",
+          "background": "transparent",
           "borderColor": "border-default",
           "textColor": "text-strong",
           "iconColor": "icon-strong",
