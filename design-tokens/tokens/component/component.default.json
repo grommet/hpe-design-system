@@ -792,7 +792,7 @@
       "enabled": {
         "background": {
           "$type": "color",
-          "$value": "{color.background.default}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
