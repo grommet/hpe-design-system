@@ -768,6 +768,7 @@ const buildTheme = tokens => {
       },
     },
     button: {
+      intelligentPad: false,
       badge: {
         align: 'container', // TO DO this is a grommet-ism?
         container: {
