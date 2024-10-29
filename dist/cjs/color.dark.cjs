@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 29 Oct 2024 20:21:57 GMT
+ * Generated on Tue, 29 Oct 2024 20:43:09 GMT
  */
 
 module.exports = {
@@ -57,11 +57,11 @@ module.exports = {
         "disabled": "#ffffff3d",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
-        "inverse": {
-          "default": "#222222"
-        },
         "heading": {
           "default": "#ffffff"
+        },
+        "inverse": {
+          "default": "#222222"
         },
         "critical": "#ffffff",
         "info": "#ffffff",

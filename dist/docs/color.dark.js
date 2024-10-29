@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 29 Oct 2024 20:21:57 GMT
+ * Generated on Tue, 29 Oct 2024 20:43:09 GMT
  */
 
 export default {
@@ -1646,49 +1646,6 @@ export default {
       "brand"
     ]
   },
-  "hpe.color.text.inverse.default": {
-    "$type": "color",
-    "value": "#222222",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{base.color.grey.1200}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.inverse.default",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "inverse",
-      "subitem": "default"
-    },
-    "path": [
-      "color",
-      "text",
-      "inverse",
-      "default"
-    ]
-  },
   "hpe.color.text.heading.default": {
     "$type": "color",
     "value": "#ffffff",
@@ -1729,6 +1686,49 @@ export default {
       "color",
       "text",
       "heading",
+      "default"
+    ]
+  },
+  "hpe.color.text.inverse.default": {
+    "$type": "color",
+    "value": "#222222",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.grey.1200}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.inverse.default",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "inverse",
+      "subitem": "default"
+    },
+    "path": [
+      "color",
+      "text",
+      "inverse",
       "default"
     ]
   },

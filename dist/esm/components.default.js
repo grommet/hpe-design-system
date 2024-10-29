@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 29 Oct 2024 20:21:58 GMT
+ * Generated on Tue, 29 Oct 2024 20:43:09 GMT
  */
 
 export default {
@@ -19,11 +19,11 @@ export default {
           "default": "6px",
           "wide": "9px"
         },
-        "width": "24px",
-        "height": "24px",
         "icon": {
           "size": "16px"
-        }
+        },
+        "width": "24px",
+        "height": "24px"
       },
       "small": {
         "borderWidth": "1px",

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 29 Oct 2024 20:21:58 GMT
+ * Generated on Tue, 29 Oct 2024 20:43:10 GMT
  */
 
 export default {
@@ -422,6 +422,49 @@ export default {
       "wide"
     ]
   },
+  "hpe.element.xsmall.icon.size": {
+    "$type": "number",
+    "value": "16px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/element.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{size.icon.xsmall}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.element.xsmall.icon.size",
+    "attributes": {
+      "category": "element",
+      "type": "xsmall",
+      "item": "icon",
+      "subitem": "size"
+    },
+    "path": [
+      "element",
+      "xsmall",
+      "icon",
+      "size"
+    ]
+  },
   "hpe.element.xsmall.width": {
     "$type": "number",
     "value": "24px",
@@ -502,49 +545,6 @@ export default {
       "element",
       "xsmall",
       "height"
-    ]
-  },
-  "hpe.element.xsmall.icon.size": {
-    "$type": "number",
-    "value": "16px",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "WIDTH_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/element.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "value": "{size.icon.xsmall}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.element.xsmall.icon.size",
-    "attributes": {
-      "category": "element",
-      "type": "xsmall",
-      "item": "icon",
-      "subitem": "size"
-    },
-    "path": [
-      "element",
-      "xsmall",
-      "icon",
-      "size"
     ]
   },
   "hpe.element.small.borderWidth": {
