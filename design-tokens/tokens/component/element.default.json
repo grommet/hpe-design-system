@@ -123,6 +123,20 @@
           }
         }
       },
+      "icon": {
+        "size": {
+          "$type": "number",
+          "$value": "{size.icon.xsmall}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["WIDTH_HEIGHT"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
       "width": {
         "$type": "number",
         "$value": "{base.dimension.600}",
@@ -144,20 +158,6 @@
             "hiddenFromPublishing": false,
             "scopes": ["WIDTH_HEIGHT"],
             "codeSyntax": {}
-          }
-        }
-      },
-      "icon": {
-        "size": {
-          "$type": "number",
-          "$value": "{size.icon.xsmall}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["WIDTH_HEIGHT"],
-              "codeSyntax": {}
-            }
           }
         }
       }
