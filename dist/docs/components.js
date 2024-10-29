@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 23:40:44 GMT
+ * Generated on Tue, 29 Oct 2024 19:11:13 GMT
  */
 
 export default {
@@ -504,6 +504,49 @@ export default {
       "height"
     ]
   },
+  "hpe.element.xsmall.icon.size": {
+    "$type": "number",
+    "value": "16px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/element.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{size.icon.xsmall}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.element.xsmall.icon.size",
+    "attributes": {
+      "category": "element",
+      "type": "xsmall",
+      "item": "icon",
+      "subitem": "size"
+    },
+    "path": [
+      "element",
+      "xsmall",
+      "icon",
+      "size"
+    ]
+  },
   "hpe.element.small.borderWidth": {
     "$type": "number",
     "value": "1px",
@@ -1002,6 +1045,49 @@ export default {
       "small",
       "paddingX",
       "wide"
+    ]
+  },
+  "hpe.element.small.icon.size": {
+    "$type": "number",
+    "value": "16px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/element.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{size.icon.small}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.element.small.icon.size",
+    "attributes": {
+      "category": "element",
+      "type": "small",
+      "item": "icon",
+      "subitem": "size"
+    },
+    "path": [
+      "element",
+      "small",
+      "icon",
+      "size"
     ]
   },
   "hpe.element.medium.fontSize": {
@@ -1504,6 +1590,49 @@ export default {
       "wide"
     ]
   },
+  "hpe.element.medium.icon.size": {
+    "$type": "number",
+    "value": "18px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/element.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{size.icon.medium}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.element.medium.icon.size",
+    "attributes": {
+      "category": "element",
+      "type": "medium",
+      "item": "icon",
+      "subitem": "size"
+    },
+    "path": [
+      "element",
+      "medium",
+      "icon",
+      "size"
+    ]
+  },
   "hpe.element.large.fontSize": {
     "$type": "number",
     "value": "1.375rem",
@@ -2004,6 +2133,49 @@ export default {
       "wide"
     ]
   },
+  "hpe.element.large.icon.size": {
+    "$type": "number",
+    "value": "22px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/element.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{size.icon.large}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.element.large.icon.size",
+    "attributes": {
+      "category": "element",
+      "type": "large",
+      "item": "icon",
+      "subitem": "size"
+    },
+    "path": [
+      "element",
+      "large",
+      "icon",
+      "size"
+    ]
+  },
   "hpe.element.xlarge.fontSize": {
     "$type": "number",
     "value": "1.875rem",
@@ -2502,6 +2674,49 @@ export default {
       "xlarge",
       "paddingX",
       "wide"
+    ]
+  },
+  "hpe.element.xlarge.icon.size": {
+    "$type": "number",
+    "value": "24px",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/element.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "value": "{size.icon.xlarge}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.element.xlarge.icon.size",
+    "attributes": {
+      "category": "element",
+      "type": "xlarge",
+      "item": "icon",
+      "subitem": "size"
+    },
+    "path": [
+      "element",
+      "xlarge",
+      "icon",
+      "size"
     ]
   },
   "hpe.button.primary.enabled.background": {

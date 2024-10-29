@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 23:40:43 GMT
+ * Generated on Tue, 29 Oct 2024 19:11:12 GMT
  */
 
 :root {
@@ -504,18 +504,22 @@
   --hpe-button-primary-enabled-icon-color: var(--hpe-color-icon-on-primary);
   --hpe-button-primary-enabled-text-color: var(--hpe-color-text-on-primary);
   --hpe-button-primary-enabled-border-color: var(--hpe-button-default-enabled-border-color);
+  --hpe-element-xlarge-icon-size: var(--hpe-size-icon-xlarge);
   --hpe-element-xlarge-text-to-icon-x: var(--hpe-base-static-spacing-xsmall);
   --hpe-element-xlarge-text-to-element-x: var(--hpe-base-static-spacing-small);
   --hpe-element-xlarge-line-height: var(--hpe-text-xlarge-line-height);
   --hpe-element-xlarge-font-size: var(--hpe-text-xlarge-line-height);
+  --hpe-element-large-icon-size: var(--hpe-size-icon-large);
   --hpe-element-large-text-to-icon-x: var(--hpe-base-static-spacing-xsmall);
   --hpe-element-large-text-to-element-x: var(--hpe-base-static-spacing-small);
   --hpe-element-large-line-height: var(--hpe-text-xlarge-line-height);
   --hpe-element-large-font-size: var(--hpe-text-large-font-size);
+  --hpe-element-medium-icon-size: var(--hpe-size-icon-medium);
   --hpe-element-medium-text-to-icon-x: var(--hpe-base-static-spacing-xsmall);
   --hpe-element-medium-text-to-element-x: var(--hpe-base-static-spacing-small);
   --hpe-element-medium-line-height: var(--hpe-text-medium-line-height);
   --hpe-element-medium-font-size: var(--hpe-text-medium-font-size);
+  --hpe-element-small-icon-size: var(--hpe-size-icon-small);
   --hpe-element-small-padding-x-wide: var(--hpe-base-static-spacing-small);
   --hpe-element-small-padding-x-default: var(--hpe-base-static-spacing-xsmall);
   --hpe-element-small-padding-x-narrow: var(--hpe-base-static-spacing-xxsmall);
@@ -524,6 +528,7 @@
   --hpe-element-small-line-height: var(--hpe-text-small-line-height);
   --hpe-element-small-font-size: var(--hpe-text-small-font-size);
   --hpe-element-small-border-width: var(--hpe-base-static-border-width-default);
+  --hpe-element-xsmall-icon-size: var(--hpe-size-icon-xsmall);
   --hpe-element-xsmall-padding-x-default: var(--hpe-base-static-spacing-xsmall);
   --hpe-element-xsmall-padding-x-narrow: var(--hpe-base-static-spacing-xxsmall);
   --hpe-element-xsmall-line-height: var(--hpe-text-xsmall-line-height);

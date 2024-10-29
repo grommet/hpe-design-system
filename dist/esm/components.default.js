@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 23:40:43 GMT
+ * Generated on Tue, 29 Oct 2024 19:11:12 GMT
  */
 
 export default {
@@ -20,7 +20,10 @@ export default {
           "wide": "9px"
         },
         "width": "24px",
-        "height": "24px"
+        "height": "24px",
+        "icon": {
+          "size": "16px"
+        }
       },
       "small": {
         "borderWidth": "1px",
@@ -36,6 +39,9 @@ export default {
           "narrow": "3px",
           "default": "6px",
           "wide": "12px"
+        },
+        "icon": {
+          "size": "16px"
         }
       },
       "medium": {
@@ -52,6 +58,9 @@ export default {
           "narrow": "5px",
           "default": "10px",
           "wide": "18px"
+        },
+        "icon": {
+          "size": "18px"
         }
       },
       "large": {
@@ -68,6 +77,9 @@ export default {
           "narrow": "9px",
           "default": "18px",
           "wide": "24px"
+        },
+        "icon": {
+          "size": "22px"
         }
       },
       "xlarge": {
@@ -84,6 +96,9 @@ export default {
           "narrow": "20px",
           "default": "24px",
           "wide": "32px"
+        },
+        "icon": {
+          "size": "24px"
         }
       }
     },
