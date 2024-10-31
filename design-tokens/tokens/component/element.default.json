@@ -501,7 +501,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{text.xlarge.lineHeight}",
+        "$value": "{text.large.lineHeight}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -651,7 +651,7 @@
     "xlarge": {
       "fontSize": {
         "$type": "number",
-        "$value": "{text.xlarge.lineHeight}",
+        "$value": "{text.xlarge.fontSize}",
         "$description": "",
         "$extensions": {
           "com.figma": {
