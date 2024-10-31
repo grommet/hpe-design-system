@@ -585,7 +585,7 @@
       },
       "paddingY": {
         "$type": "number",
-        "$value": 8,
+        "$value": 9,
         "$description": "",
         "$extensions": {
           "com.figma": {

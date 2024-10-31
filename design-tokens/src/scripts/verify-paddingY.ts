@@ -63,7 +63,9 @@ export const descend = (
           const paddingY = (minHeight - lineHeight - 2 * borderWidth) / 2;
           if (paddingY !== value.paddingY.$value)
             console.error(
-              `🛑 ${keyPath.join('.')}: ${paddingY} does not match ${
+              `🛑 ${keyPath.join(
+                '.',
+              )}: Expected value ${paddingY} does not match existing value ${
                 value.paddingY.$value
               }. Run paddingY:update if this change is expected.`,
             );
