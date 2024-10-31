@@ -84,7 +84,7 @@ export const DashboardCard = ({
             ) : external ? (
               <ShareRounded
                 a11yTitle={`Go to ${title}`}
-                color="foreground-brand-default"
+                color="icon-primary"
                 data-icon={
                   !inline && workspace === 'Acme Next' ? 'dashboard' : ''
                 }
@@ -92,7 +92,7 @@ export const DashboardCard = ({
             ) : (
               <LinkNext
                 a11yTitle={`Go to ${title}`}
-                color="foreground-brand-default"
+                color="icon-primary"
                 data-icon={
                   !inline && workspace === 'Acme Next' ? 'dashboard' : ''
                 }
