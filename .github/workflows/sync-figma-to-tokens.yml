@@ -29,9 +29,11 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v3
 
+      - name: Upgrade stable branch dependencies
+        run: yarn upgrade grommet
+
       - name: Install dependencies
         run: yarn install
-        working-directory: design-tokens
 
       - name: Sync variables in Figma file to tokens
         run: yarn sync-figma-to-tokens -- --output tokens
@@ -44,6 +46,9 @@ jobs:
       - name: Format token files with prettier
         run: yarn prettier tokens --write
         working-directory: design-tokens
+      - name: Build site search for pre-commit linting
+        run: yarn build-search
+        working-directory: aries-site
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:

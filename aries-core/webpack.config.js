@@ -1,10 +1,20 @@
-const path = require('path');
+import path from 'path';
 
-module.exports = {
+export default {
   entry: './src/js/index.js',
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'index_bundle.js',
+  },
+  resolve: {
+    extensions: ['.js', '.json'],
+    fallback: {
+      fs: false,
+      net: false,
+      tls: false,
+      zlib: false,
+      stream: false,
+    },
   },
   module: {
     rules: [
