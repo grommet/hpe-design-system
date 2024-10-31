@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 31 Oct 2024 22:21:43 GMT
+ * Generated on Thu, 31 Oct 2024 22:32:19 GMT
  */
 
 module.exports = {
@@ -16,6 +16,10 @@ module.exports = {
         "floating": "#292929",
         "screenOverlay": "#0000001f",
         "contrast": "#ffffff0f",
+        "primary": {
+          "default": "#01a982",
+          "hover": "#00ff0a00"
+        },
         "unknown": "#ffffff0f",
         "critical": "#cc1f1a4d",
         "warning": "#fec9011f",
@@ -28,10 +32,6 @@ module.exports = {
             "enabled": "#093a2f",
             "hover": "#074b3b"
           }
-        },
-        "primary": {
-          "default": "#01a982",
-          "hover": "#00ff0a00"
         },
         "ok": "#17d0a64d",
         "info": "#00c8ff1f"
@@ -130,7 +130,7 @@ module.exports = {
         "strong": "#00000080"
       }
     },
-    "elevation": {
+    "shadow": {
       "small": "0 4px 4px 0 #0000001f",
       "medium": "0px 6px 12px 0px #0000005c",
       "large": "0px 12px 24px 0px #0000005c"

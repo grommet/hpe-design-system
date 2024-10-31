@@ -1,11 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Thu, 31 Oct 2024 22:21:43 GMT
+ * Generated on Thu, 31 Oct 2024 22:32:19 GMT
  */
 
 :root[data-mode=dark] {
   --hpe-color-transparent: #00000000;
-  --hpe-elevation-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) 0 var(--hpe-color-shadow-weak);
+  --hpe-shadow-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) 0 var(--hpe-color-shadow-weak);
   --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity50);
   --hpe-color-shadow-default: var(--hpe-base-color-black-opacity36);
   --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
@@ -63,13 +63,13 @@
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /* Stronger border color for added emphasis */
   --hpe-color-background-info: var(--hpe-base-color-blue-400-opacity12);
   --hpe-color-background-ok: var(--hpe-base-color-green-500-opacity30);
-  --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
-  --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
   --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-900); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-1000); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-warning: var(--hpe-base-color-yellow-400-opacity12);
   --hpe-color-background-critical: var(--hpe-base-color-red-800-opacity30);
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6);
+  --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
+  --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
   --hpe-color-background-contrast: var(--hpe-base-color-white-opacity6);
   --hpe-color-background-screen-overlay: var(--hpe-base-color-black-opacity12); /* Use for the backdrop overlay that sits behind dialogues, modals or layers. */
   --hpe-color-background-floating: var(--hpe-base-color-grey-1100); /* Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons. */
@@ -79,8 +79,8 @@
   --hpe-color-background-active: var(--hpe-base-color-white-opacity6); /* Standard active state color */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
-  --hpe-elevation-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
-  --hpe-elevation-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
+  --hpe-shadow-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
+  --hpe-shadow-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
   --hpe-color-foreground-primary: var(--hpe-base-color-brand);
   --hpe-color-decorative-green: var(--hpe-base-color-brand); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-icon-on-selected-weak: var(--hpe-color-text-strong); /* Icon color to be used for icon sitting on background-selected-strong. */
@@ -105,7 +105,7 @@
 @media (prefers-color-scheme: dark) {
 :root[data-mode=dark] {
   --hpe-color-transparent: #00000000;
-  --hpe-elevation-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) 0 var(--hpe-color-shadow-weak);
+  --hpe-shadow-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) 0 var(--hpe-color-shadow-weak);
   --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity50);
   --hpe-color-shadow-default: var(--hpe-base-color-black-opacity36);
   --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
@@ -163,13 +163,13 @@
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /* Stronger border color for added emphasis */
   --hpe-color-background-info: var(--hpe-base-color-blue-400-opacity12);
   --hpe-color-background-ok: var(--hpe-base-color-green-500-opacity30);
-  --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
-  --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
   --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-900); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-1000); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-warning: var(--hpe-base-color-yellow-400-opacity12);
   --hpe-color-background-critical: var(--hpe-base-color-red-800-opacity30);
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6);
+  --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
+  --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
   --hpe-color-background-contrast: var(--hpe-base-color-white-opacity6);
   --hpe-color-background-screen-overlay: var(--hpe-base-color-black-opacity12); /* Use for the backdrop overlay that sits behind dialogues, modals or layers. */
   --hpe-color-background-floating: var(--hpe-base-color-grey-1100); /* Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons. */
@@ -179,8 +179,8 @@
   --hpe-color-background-active: var(--hpe-base-color-white-opacity6); /* Standard active state color */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
-  --hpe-elevation-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
-  --hpe-elevation-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
+  --hpe-shadow-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
+  --hpe-shadow-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default);
   --hpe-color-foreground-primary: var(--hpe-base-color-brand);
   --hpe-color-decorative-green: var(--hpe-base-color-brand); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-icon-on-selected-weak: var(--hpe-color-text-strong); /* Icon color to be used for icon sitting on background-selected-strong. */
