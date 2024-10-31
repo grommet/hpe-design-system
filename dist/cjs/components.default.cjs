@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 29 Oct 2024 20:43:10 GMT
+ * Generated on Thu, 31 Oct 2024 21:42:11 GMT
  */
 
 module.exports = {
@@ -65,7 +65,7 @@ module.exports = {
       },
       "large": {
         "fontSize": "1.375rem",
-        "lineHeight": "1.875rem",
+        "lineHeight": "1.75rem",
         "minHeight": "48px",
         "width": "48px",
         "height": "48px",
@@ -83,7 +83,7 @@ module.exports = {
         }
       },
       "xlarge": {
-        "fontSize": "1.875rem",
+        "fontSize": "1.5rem",
         "lineHeight": "1.875rem",
         "minHeight": "72px",
         "width": "72px",
@@ -503,7 +503,7 @@ module.exports = {
           "borderWidth": "1px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
-          "lineHeight": "1.875rem",
+          "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "96px",
@@ -511,7 +511,7 @@ module.exports = {
             "minHeight": "48px",
             "minWidth": "48px",
             "fontSize": "1.375rem",
-            "lineHeight": "1.875rem",
+            "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "12px",
             "paddingY": "12px"
@@ -524,7 +524,7 @@ module.exports = {
           "borderWidth": "1px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
-          "lineHeight": "1.875rem",
+          "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "96px",
@@ -532,7 +532,7 @@ module.exports = {
             "minHeight": "48px",
             "minWidth": "48px",
             "fontSize": "1.375rem",
-            "lineHeight": "1.875rem",
+            "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "12px",
             "paddingY": "12px"
@@ -545,7 +545,7 @@ module.exports = {
           "borderWidth": "2px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
-          "lineHeight": "1.875rem",
+          "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "96px",
@@ -553,7 +553,7 @@ module.exports = {
             "minHeight": "48px",
             "minWidth": "48px",
             "fontSize": "1.375rem",
-            "lineHeight": "1.875rem",
+            "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "12px",
             "paddingY": "12px"
@@ -569,7 +569,7 @@ module.exports = {
           "borderWidth": "default",
           "minHeight": "48px",
           "fontSize": "1.375rem",
-          "lineHeight": "1.875rem",
+          "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "6px",
@@ -577,7 +577,7 @@ module.exports = {
             "minHeight": "48px",
             "minWidth": "48px",
             "fontSize": "1.375rem",
-            "lineHeight": "1.875rem",
+            "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "14px",
             "paddingY": "12px"
@@ -591,7 +591,7 @@ module.exports = {
             "borderWidth": "1px",
             "minHeight": "72px",
             "minWidth": "72px",
-            "fontSize": "1.875rem",
+            "fontSize": "1.5rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "23px",
@@ -602,7 +602,7 @@ module.exports = {
           "borderRadius": "2em",
           "borderWidth": "1px",
           "minHeight": "72px",
-          "fontSize": "1.875rem",
+          "fontSize": "1.5rem",
           "lineHeight": "1.875rem",
           "gapX": "6px"
         },
@@ -612,7 +612,7 @@ module.exports = {
             "borderWidth": "1px",
             "minHeight": "72px",
             "minWidth": "72px",
-            "fontSize": "1.875rem",
+            "fontSize": "1.5rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "23px",
@@ -623,7 +623,7 @@ module.exports = {
           "borderRadius": "2em",
           "borderWidth": "1px",
           "minHeight": "72px",
-          "fontSize": "1.875rem",
+          "fontSize": "1.5rem",
           "lineHeight": "1.875rem",
           "gapX": "6px"
         },
@@ -633,7 +633,7 @@ module.exports = {
             "borderWidth": "2px",
             "minHeight": "72px",
             "minWidth": "72px",
-            "fontSize": "1.875rem",
+            "fontSize": "1.5rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "23px",
@@ -644,7 +644,7 @@ module.exports = {
           "borderRadius": "2em",
           "borderWidth": "2px",
           "minHeight": "72px",
-          "fontSize": "1.875rem",
+          "fontSize": "1.5rem",
           "lineHeight": "1.875rem",
           "gapX": "6px",
           "hover": {
@@ -657,7 +657,7 @@ module.exports = {
             "borderWidth": "1px",
             "minHeight": "72px",
             "minWidth": "72px",
-            "fontSize": "1.875rem",
+            "fontSize": "1.5rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "23px",
@@ -668,7 +668,7 @@ module.exports = {
           "borderRadius": "12px",
           "borderWidth": "1px",
           "minHeight": "72px",
-          "fontSize": "1.875rem",
+          "fontSize": "1.5rem",
           "lineHeight": "1.875rem",
           "gapX": "6px"
         }
@@ -1271,16 +1271,16 @@ module.exports = {
       },
       "errorText": {
         "enabled": {
-          "textColor": "text-default",
+          "textColor": "text-critical",
           "iconColor": "icon-default"
         },
         "hover": {
           "iconColor": "icon-default",
-          "textColor": "text-default"
+          "textColor": "text-critical"
         },
         "focus": {
           "iconColor": "icon-default",
-          "textColor": "text-default"
+          "textColor": "text-critical"
         },
         "disabled": {
           "iconColor": "icon-default",
@@ -1339,7 +1339,7 @@ module.exports = {
       "hover": {
         "textColor": "text-default",
         "iconColor": "icon-default",
-        "borderColor": "transparent",
+        "borderColor": "border-default",
         "background": "transparent"
       },
       "pinned": {
@@ -1476,23 +1476,23 @@ module.exports = {
         "large": {
           "default": {
             "fontSize": "1.375rem",
-            "lineHeight": "1.875rem",
+            "lineHeight": "1.75rem",
             "gapX": "6px"
           },
           "emphasized": {
             "fontSize": "1.375rem",
-            "lineHeight": "1.875rem",
+            "lineHeight": "1.75rem",
             "gapX": "6px"
           }
         },
         "xlarge": {
           "default": {
-            "fontSize": "1.875rem",
+            "fontSize": "1.5rem",
             "lineHeight": "1.875rem",
             "gapX": "6px"
           },
           "emphasized": {
-            "fontSize": "1.875rem",
+            "fontSize": "1.5rem",
             "lineHeight": "1.875rem",
             "gapX": "6px"
           }
@@ -1585,23 +1585,23 @@ module.exports = {
       "large": {
         "default": {
           "fontSize": "1.375rem",
-          "lineHeight": "1.875rem",
+          "lineHeight": "1.75rem",
           "gapX": "6px"
         },
         "emphasized": {
           "fontSize": "1.375rem",
-          "lineHeight": "1.875rem",
+          "lineHeight": "1.75rem",
           "gapX": "6px"
         }
       },
       "xlarge": {
         "default": {
-          "fontSize": "1.875rem",
+          "fontSize": "1.5rem",
           "lineHeight": "1.875rem",
           "gapX": "6px"
         },
         "emphasized": {
-          "fontSize": "1.875rem",
+          "fontSize": "1.5rem",
           "lineHeight": "1.875rem",
           "gapX": "6px"
         }

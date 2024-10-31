@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 29 Oct 2024 20:43:09 GMT
+ * Generated on Thu, 31 Oct 2024 21:42:10 GMT
  */
 
 export default {
@@ -357,7 +357,8 @@ export default {
         "hiddenFromPublishing": false,
         "scopes": [
           "FRAME_FILL",
-          "SHAPE_FILL"
+          "SHAPE_FILL",
+          "STROKE_COLOR"
         ],
         "codeSyntax": {}
       }
@@ -373,7 +374,8 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "FRAME_FILL",
-            "SHAPE_FILL"
+            "SHAPE_FILL",
+            "STROKE_COLOR"
           ],
           "codeSyntax": {}
         }

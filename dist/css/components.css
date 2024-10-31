@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 29 Oct 2024 20:43:10 GMT
+ * Generated on Thu, 31 Oct 2024 21:42:11 GMT
  */
 
 :root {
@@ -240,12 +240,9 @@
   --hpe-form-field-error-text-read-only-icon-color: var(--hpe-color-icon-default);
   --hpe-form-field-error-text-disabled-text-color: var(--hpe-color-text-default);
   --hpe-form-field-error-text-disabled-icon-color: var(--hpe-color-icon-default);
-  --hpe-form-field-error-text-focus-text-color: var(--hpe-color-text-default);
   --hpe-form-field-error-text-focus-icon-color: var(--hpe-color-icon-default);
-  --hpe-form-field-error-text-hover-text-color: var(--hpe-color-text-default);
   --hpe-form-field-error-text-hover-icon-color: var(--hpe-color-icon-default);
   --hpe-form-field-error-text-enabled-icon-color: var(--hpe-color-icon-default);
-  --hpe-form-field-error-text-enabled-text-color: var(--hpe-color-text-default);
   --hpe-form-field-info-text-status-critical-text-color: var(--hpe-color-text-default);
   --hpe-form-field-info-text-read-only-text-color: var(--hpe-color-text-default);
   --hpe-form-field-info-text-disabled-text-color: var(--hpe-color-text-disabled);
@@ -435,7 +432,6 @@
   --hpe-button-medium-default-border-width: var(--hpe-base-static-border-width-default);
   --hpe-button-medium-default-border-radius: var(--hpe-radius-full);
   --hpe-button-medium-default-padding-x: var(--hpe-element-medium-padding-x-wide);
-  --hpe-button-small-toolbar-line-height: var(--hpe-text-small-line-height);
   --hpe-button-small-toolbar-font-size: var(--hpe-text-small-font-size);
   --hpe-button-small-toolbar-min-height: var(--hpe-element-small-min-height);
   --hpe-button-small-toolbar-border-width: var(--hpe-base-static-border-width-default);
@@ -508,11 +504,11 @@
   --hpe-element-xlarge-text-to-icon-x: var(--hpe-base-static-spacing-xsmall);
   --hpe-element-xlarge-text-to-element-x: var(--hpe-base-static-spacing-small);
   --hpe-element-xlarge-line-height: var(--hpe-text-xlarge-line-height);
-  --hpe-element-xlarge-font-size: var(--hpe-text-xlarge-line-height);
+  --hpe-element-xlarge-font-size: var(--hpe-text-xlarge-font-size);
   --hpe-element-large-icon-size: var(--hpe-size-icon-large);
   --hpe-element-large-text-to-icon-x: var(--hpe-base-static-spacing-xsmall);
   --hpe-element-large-text-to-element-x: var(--hpe-base-static-spacing-small);
-  --hpe-element-large-line-height: var(--hpe-text-xlarge-line-height);
+  --hpe-element-large-line-height: var(--hpe-text-large-line-height);
   --hpe-element-large-font-size: var(--hpe-text-large-font-size);
   --hpe-element-medium-icon-size: var(--hpe-size-icon-medium);
   --hpe-element-medium-text-to-icon-x: var(--hpe-base-static-spacing-xsmall);
@@ -611,13 +607,16 @@
   --hpe-footer-cell-pinned-border-color: var(--hpe-data-cell-hover-border-color);
   --hpe-footer-cell-pinned-icon-color: var(--hpe-data-cell-enabled-icon-color);
   --hpe-footer-cell-pinned-text-color: var(--hpe-data-cell-enabled-icon-color);
-  --hpe-footer-cell-hover-border-color: var(--hpe-data-cell-hover-border-color);
+  --hpe-footer-cell-hover-border-color: var(--hpe-footer-cell-enabled-border-color);
   --hpe-footer-cell-enabled-icon-color: var(--hpe-data-cell-enabled-icon-color);
   --hpe-footer-cell-enabled-text-color: var(--hpe-data-cell-enabled-text-color);
   --hpe-footer-cell-gap-x: var(--hpe-element-medium-text-to-icon-x);
   --hpe-footer-cell-padding-bottom: var(--hpe-data-cell-padding-top); /* This intentionally uses paddingTop because the border side is switched from dataCell. */
   --hpe-footer-cell-border-top-width: var(--hpe-data-cell-border-bottom-width);
   --hpe-footer-cell-padding-x: var(--hpe-data-cell-padding-x);
+  --hpe-form-field-error-text-focus-text-color: var(--hpe-color-text-critical);
+  --hpe-form-field-error-text-hover-text-color: var(--hpe-color-text-critical);
+  --hpe-form-field-error-text-enabled-text-color: var(--hpe-color-text-critical);
   --hpe-form-field-input-group-item-hover-background: var(--hpe-color-background-hover);
   --hpe-form-field-input-group-container-read-only-border-color: var(--hpe-form-field-input-container-read-only-border-color);
   --hpe-form-field-input-group-container-read-only-background: var(--hpe-form-field-input-container-read-only-background);
@@ -753,12 +752,12 @@
   --hpe-button-medium-default-icon-only-border-radius: var(--hpe-button-medium-default-border-radius);
   --hpe-button-medium-default-gap-x: var(--hpe-element-medium-text-to-icon-x);
   --hpe-button-medium-default-line-height: var(--hpe-element-medium-line-height);
-  --hpe-button-small-toolbar-icon-only-line-height: var(--hpe-button-small-toolbar-line-height);
   --hpe-button-small-toolbar-icon-only-font-size: var(--hpe-button-small-toolbar-font-size);
   --hpe-button-small-toolbar-icon-only-min-height: var(--hpe-button-small-toolbar-min-height);
   --hpe-button-small-toolbar-icon-only-border-width: var(--hpe-button-small-toolbar-border-width);
   --hpe-button-small-toolbar-icon-only-border-radius: var(--hpe-button-small-toolbar-border-radius);
   --hpe-button-small-toolbar-gap-x: var(--hpe-element-xsmall-text-to-icon-x);
+  --hpe-button-small-toolbar-line-height: var(--hpe-element-small-line-height);
   --hpe-button-small-toolbar-padding-x: var(--hpe-element-small-padding-x-default);
   --hpe-button-small-secondary-min-height: var(--hpe-button-small-default-min-height);
   --hpe-button-small-secondary-border-width: var(--hpe-button-small-default-border-width);
@@ -807,8 +806,8 @@
   --hpe-element-large-border-width: var(--hpe-border-width-default);
   --hpe-element-medium-border-width: var(--hpe-border-width-default);
   --hpe-element-xsmall-border-width: var(--hpe-border-width-default);
-  --hpe-footer-cell-hover-icon-color: var(--hpe-data-cell-hover-icon-color);
-  --hpe-footer-cell-hover-text-color: var(--hpe-data-cell-hover-text-color);
+  --hpe-footer-cell-hover-icon-color: var(--hpe-footer-cell-enabled-icon-color);
+  --hpe-footer-cell-hover-text-color: var(--hpe-footer-cell-enabled-text-color);
   --hpe-footer-cell-line-height: var(--hpe-data-cell-line-height);
   --hpe-footer-cell-font-size: var(--hpe-data-cell-font-size);
   --hpe-form-field-input-group-container-hover-border-color: var(--hpe-form-field-input-group-container-enabled-border-color);
@@ -878,6 +877,7 @@
   --hpe-button-medium-default-icon-only-line-height: var(--hpe-button-medium-default-line-height);
   --hpe-button-medium-default-icon-only-min-width: var(--hpe-button-medium-default-icon-only-min-height);
   --hpe-button-small-toolbar-icon-only-gap-x: var(--hpe-button-small-toolbar-gap-x);
+  --hpe-button-small-toolbar-icon-only-line-height: var(--hpe-button-small-toolbar-line-height);
   --hpe-button-small-toolbar-icon-only-min-width: var(--hpe-button-small-default-icon-only-min-height);
   --hpe-button-small-secondary-icon-only-min-height: var(--hpe-button-small-secondary-min-height);
   --hpe-button-small-secondary-icon-only-border-width: var(--hpe-button-small-secondary-border-width);
