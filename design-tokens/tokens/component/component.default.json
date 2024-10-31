@@ -2572,7 +2572,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{text.small.lineHeight}",
+          "$value": "{element.small.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9101,7 +9101,7 @@
       "enabled": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.default}",
+          "$value": "{color.text.critical}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9139,7 +9139,7 @@
         },
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.default}",
+          "$value": "{color.text.critical}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9165,7 +9165,7 @@
         },
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.default}",
+          "$value": "{color.text.critical}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9508,7 +9508,7 @@
     "hover": {
       "textColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.textColor}",
+        "$value": "{footerCell.enabled.textColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -9520,7 +9520,7 @@
       },
       "iconColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.iconColor}",
+        "$value": "{footerCell.enabled.iconColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -9532,7 +9532,7 @@
       },
       "borderColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.borderColor}",
+        "$value": "{footerCell.enabled.borderColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
