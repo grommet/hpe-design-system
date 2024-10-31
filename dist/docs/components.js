@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 31 Oct 2024 21:42:11 GMT
+ * Generated on Thu, 31 Oct 2024 22:21:44 GMT
  */
 
 export default {
@@ -1965,7 +1965,7 @@ export default {
   },
   "hpe.element.large.paddingY": {
     "$type": "number",
-    "value": "8px",
+    "value": "9px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -1980,7 +1980,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 8,
+      "value": 9,
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -15451,7 +15451,7 @@ export default {
   },
   "hpe.button.large.default.paddingY": {
     "$type": "number",
-    "value": "8px",
+    "value": "9px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -16204,7 +16204,7 @@ export default {
   },
   "hpe.button.large.primary.paddingY": {
     "$type": "number",
-    "value": "8px",
+    "value": "9px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -16957,7 +16957,7 @@ export default {
   },
   "hpe.button.large.secondary.paddingY": {
     "$type": "number",
-    "value": "7px",
+    "value": "8px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -16972,7 +16972,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 7,
+      "value": 8,
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -17764,7 +17764,7 @@ export default {
   },
   "hpe.button.large.toolbar.paddingY": {
     "$type": "number",
-    "value": "8px",
+    "value": "9px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -17779,7 +17779,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 8,
+      "value": 9,
       "comment": "",
       "$extensions": {
         "com.figma": {

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 31 Oct 2024 21:42:11 GMT
+ * Generated on Thu, 31 Oct 2024 22:21:43 GMT
  */
 
 :root {
@@ -20,8 +20,8 @@
   --hpe-button-xlarge-secondary-padding-y: 19px;
   --hpe-button-xlarge-default-icon-only-padding-y: 23px;
   --hpe-button-large-toolbar-icon-only-padding-x: 14px;
-  --hpe-button-large-toolbar-padding-y: 8px;
-  --hpe-button-large-secondary-padding-y: 7px;
+  --hpe-button-large-toolbar-padding-y: 9px;
+  --hpe-button-large-secondary-padding-y: 8px;
   --hpe-button-large-default-icon-only-padding-y: 12px;
   --hpe-button-medium-secondary-icon-only-padding-y: 7px;
   --hpe-button-medium-secondary-padding-y: 4px;
@@ -37,7 +37,7 @@
   --hpe-button-xsmall-default-padding-x: 12px;
   --hpe-element-xlarge-padding-x-wide: 32px;
   --hpe-element-xlarge-padding-y: 20px;
-  --hpe-element-large-padding-y: 8px;
+  --hpe-element-large-padding-y: 9px;
   --hpe-element-medium-padding-x-default: 10px;
   --hpe-element-medium-padding-x-narrow: 5px;
   --hpe-element-medium-padding-y: 5px;

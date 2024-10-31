@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 31 Oct 2024 21:42:11 GMT
+ * Generated on Thu, 31 Oct 2024 22:21:43 GMT
  */
 
 module.exports = {
@@ -72,7 +72,7 @@ module.exports = {
         "textToElementX": "12px",
         "textToIconX": "6px",
         "borderWidth": "default",
-        "paddingY": "8px",
+        "paddingY": "9px",
         "paddingX": {
           "narrow": "9px",
           "default": "18px",
@@ -498,7 +498,7 @@ module.exports = {
       "large": {
         "default": {
           "paddingX": "24px",
-          "paddingY": "8px",
+          "paddingY": "9px",
           "borderRadius": "96px",
           "borderWidth": "1px",
           "minHeight": "48px",
@@ -519,7 +519,7 @@ module.exports = {
         },
         "primary": {
           "paddingX": "24px",
-          "paddingY": "8px",
+          "paddingY": "9px",
           "borderRadius": "96px",
           "borderWidth": "1px",
           "minHeight": "48px",
@@ -540,7 +540,7 @@ module.exports = {
         },
         "secondary": {
           "paddingX": "24px",
-          "paddingY": "7px",
+          "paddingY": "8px",
           "borderRadius": "96px",
           "borderWidth": "2px",
           "minHeight": "48px",
@@ -564,7 +564,7 @@ module.exports = {
         },
         "toolbar": {
           "paddingX": "10px",
-          "paddingY": "8px",
+          "paddingY": "9px",
           "borderRadius": "6px",
           "borderWidth": "default",
           "minHeight": "48px",
