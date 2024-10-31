@@ -9101,7 +9101,7 @@
       "enabled": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.critical}",
+          "$value": "{color.text.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
