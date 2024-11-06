@@ -1637,7 +1637,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2031,7 +2031,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2714,7 +2714,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{text.small.fontSize}",
+          "$value": "{element.small.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2726,7 +2726,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{text.small.lineHeight}",
+          "$value": "{element.small.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2888,7 +2888,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4102,7 +4102,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 7,
+          "$value": 8,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4333,7 +4333,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 8,
+          "$value": 9,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4665,7 +4665,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5377,7 +5377,7 @@
     },
     "margin": {
       "$type": "number",
-      "$value": "{spacing.xsmall}",
+      "$value": "{base.static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5645,7 +5645,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.medium.default.borderWidth}",
+          "$value": "{base.static.borderWidth.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5777,7 +5777,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.none}",
+          "$value": "{base.static.radius.none}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8478,7 +8478,7 @@
               "$extensions": {
                 "com.figma": {
                   "hiddenFromPublishing": false,
-                  "scopes": ["SHAPE_FILL", "TEXT_FILL"],
+                  "scopes": ["STROKE_COLOR"],
                   "codeSyntax": {}
                 }
               }
@@ -9622,7 +9622,7 @@
     "hover": {
       "textColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.textColor}",
+        "$value": "{footerCell.enabled.textColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -9634,7 +9634,7 @@
       },
       "iconColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.iconColor}",
+        "$value": "{footerCell.enabled.iconColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -9646,7 +9646,7 @@
       },
       "borderColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.borderColor}",
+        "$value": "{footerCell.enabled.borderColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -10115,7 +10115,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {

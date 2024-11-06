@@ -46,6 +46,9 @@ jobs:
       - name: Format token files with prettier
         run: yarn prettier tokens --write
         working-directory: design-tokens
+      - name: Build site search for pre-commit linting
+        run: yarn build-search
+        working-directory: aries-site
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:

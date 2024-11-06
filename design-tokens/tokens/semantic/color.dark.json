@@ -99,12 +99,12 @@
       },
       "contrast": {
         "$type": "color",
-        "$value": "{base.color.white.opacity6}",
+        "$value": "{base.color.white.opacity12}",
         "$description": "",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -481,20 +481,6 @@
           }
         }
       },
-      "inverse": {
-        "default": {
-          "$type": "color",
-          "$value": "{base.color.grey.1200}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["TEXT_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        }
-      },
       "heading": {
         "default": {
           "$type": "color",
@@ -504,6 +490,20 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "inverse": {
+        "default": {
+          "$type": "color",
+          "$value": "{base.color.grey.1200}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
               "codeSyntax": {}
             }
           }
@@ -1231,7 +1231,7 @@
       }
     }
   },
-  "elevation": {
+  "shadow": {
     "small": {
       "$type": "shadow",
       "$value": [
