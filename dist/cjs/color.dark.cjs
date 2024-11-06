@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 31 Oct 2024 22:32:19 GMT
+ * Generated on Wed, 06 Nov 2024 16:50:48 GMT
  */
 
 module.exports = {
@@ -15,11 +15,7 @@ module.exports = {
         "front": "#222222",
         "floating": "#292929",
         "screenOverlay": "#0000001f",
-        "contrast": "#ffffff0f",
-        "primary": {
-          "default": "#01a982",
-          "hover": "#00ff0a00"
-        },
+        "contrast": "#ffffff1f",
         "unknown": "#ffffff0f",
         "critical": "#cc1f1a4d",
         "warning": "#fec9011f",
@@ -32,6 +28,10 @@ module.exports = {
             "enabled": "#093a2f",
             "hover": "#074b3b"
           }
+        },
+        "primary": {
+          "default": "#01a982",
+          "hover": "#00ff0a00"
         },
         "ok": "#17d0a64d",
         "info": "#00c8ff1f"

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 31 Oct 2024 22:32:19 GMT
+ * Generated on Wed, 06 Nov 2024 16:50:49 GMT
  */
 
 export default {
@@ -7961,7 +7961,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{radius.full}",
+      "value": "{base.static.radius.full}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -9377,7 +9377,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{radius.full}",
+      "value": "{base.static.radius.full}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -11821,7 +11821,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{text.small.fontSize}",
+      "value": "{element.small.fontSize}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -12443,7 +12443,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{radius.full}",
+      "value": "{base.static.radius.full}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -18982,7 +18982,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{radius.full}",
+      "value": "{base.static.radius.full}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -21633,7 +21633,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{spacing.xsmall}",
+      "value": "{base.static.spacing.xsmall}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -22547,7 +22547,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{button.medium.default.borderWidth}",
+      "value": "{base.static.borderWidth.default}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -22986,7 +22986,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{radius.none}",
+      "value": "{base.static.radius.none}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -25272,7 +25272,7 @@ export default {
   },
   "hpe.checkbox.medium.control.height": {
     "$type": "number",
-    "value": "1.5rem",
+    "value": "24px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -25287,7 +25287,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{element.medium.lineHeight}",
+      "value": "{base.dimension.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -25315,7 +25315,7 @@ export default {
   },
   "hpe.checkbox.medium.control.width": {
     "$type": "number",
-    "value": "1.5rem",
+    "value": "24px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -25330,7 +25330,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{element.medium.lineHeight}",
+      "value": "{base.dimension.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -27051,7 +27051,7 @@ export default {
   },
   "hpe.switch.medium.control.track.height": {
     "$type": "number",
-    "value": "1.5rem",
+    "value": "24px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -27066,7 +27066,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{element.medium.lineHeight}",
+      "value": "{base.dimension.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -27233,7 +27233,7 @@ export default {
   },
   "hpe.switch.medium.control.handle.height": {
     "$type": "number",
-    "value": "1.5rem",
+    "value": "22px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -27248,7 +27248,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{element.medium.lineHeight}",
+      "value": "{base.dimension.550}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -27278,7 +27278,7 @@ export default {
   },
   "hpe.switch.medium.control.handle.width": {
     "$type": "number",
-    "value": "1.5rem",
+    "value": "22px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -27293,7 +27293,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{element.medium.lineHeight}",
+      "value": "{base.dimension.550}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -32035,8 +32035,7 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "SHAPE_FILL",
-          "TEXT_FILL"
+          "STROKE_COLOR"
         ],
         "codeSyntax": {}
       }
@@ -32051,8 +32050,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "SHAPE_FILL",
-            "TEXT_FILL"
+            "STROKE_COLOR"
           ],
           "codeSyntax": {}
         }
@@ -37355,7 +37353,7 @@ export default {
   },
   "hpe.radioButton.medium.control.height": {
     "$type": "number",
-    "value": "1.5rem",
+    "value": "24px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -37370,7 +37368,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{element.medium.lineHeight}",
+      "value": "{base.dimension.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -37398,7 +37396,7 @@ export default {
   },
   "hpe.radioButton.medium.control.width": {
     "$type": "number",
-    "value": "1.5rem",
+    "value": "24px",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -37413,7 +37411,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{element.medium.lineHeight}",
+      "value": "{base.dimension.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -37501,7 +37499,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": "{radius.full}",
+      "value": "{base.static.radius.full}",
       "comment": "",
       "$extensions": {
         "com.figma": {

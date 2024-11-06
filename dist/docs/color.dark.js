@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 31 Oct 2024 22:32:19 GMT
+ * Generated on Wed, 06 Nov 2024 16:50:48 GMT
  */
 
 export default {
@@ -350,7 +350,7 @@ export default {
   },
   "hpe.color.background.contrast": {
     "$type": "color",
-    "value": "#ffffff0f",
+    "value": "#ffffff1f",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -367,7 +367,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity6}",
+      "value": "{base.color.white.opacity12}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -391,96 +391,6 @@ export default {
       "color",
       "background",
       "contrast"
-    ]
-  },
-  "hpe.color.background.primary.default": {
-    "$type": "color",
-    "value": "#01a982",
-    "comment": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{base.color.green.600}",
-      "comment": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.primary.default",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "primary",
-      "subitem": "default"
-    },
-    "path": [
-      "color",
-      "background",
-      "primary",
-      "default"
-    ]
-  },
-  "hpe.color.background.primary.hover": {
-    "$type": "color",
-    "value": "#00ff0a00",
-    "comment": "Hover color variant of the primary color.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{TBD}",
-      "comment": "Hover color variant of the primary color.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.primary.hover",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "primary",
-      "subitem": "hover"
-    },
-    "path": [
-      "color",
-      "background",
-      "primary",
-      "hover"
     ]
   },
   "hpe.color.background.unknown": {
@@ -797,6 +707,96 @@ export default {
       "background",
       "selected",
       "weak",
+      "hover"
+    ]
+  },
+  "hpe.color.background.primary.default": {
+    "$type": "color",
+    "value": "#01a982",
+    "comment": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.green.600}",
+      "comment": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.primary.default",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "primary",
+      "subitem": "default"
+    },
+    "path": [
+      "color",
+      "background",
+      "primary",
+      "default"
+    ]
+  },
+  "hpe.color.background.primary.hover": {
+    "$type": "color",
+    "value": "#00ff0a00",
+    "comment": "Hover color variant of the primary color.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{TBD}",
+      "comment": "Hover color variant of the primary color.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.primary.hover",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "primary",
+      "subitem": "hover"
+    },
+    "path": [
+      "color",
+      "background",
+      "primary",
       "hover"
     ]
   },

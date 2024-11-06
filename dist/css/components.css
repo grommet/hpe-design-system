@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 31 Oct 2024 22:32:19 GMT
+ * Generated on Wed, 06 Nov 2024 16:50:48 GMT
  */
 
 :root {
@@ -49,6 +49,8 @@
   --hpe-anchor-default-disabled-font-weight: var(--hpe-font-weight-medium);
   --hpe-anchor-default-hover-font-weight: var(--hpe-font-weight-medium);
   --hpe-anchor-default-enabled-font-weight: var(--hpe-font-weight-medium);
+  --hpe-radio-button-medium-control-width: var(--hpe-base-dimension-600);
+  --hpe-radio-button-medium-control-height: var(--hpe-base-dimension-600);
   --hpe-radio-button-medium-label-font-weight: var(--hpe-font-weight-medium);
   --hpe-radio-button-control-focus-background: var(--hpe-color-transparent);
   --hpe-radio-button-control-hover-background: var(--hpe-color-transparent);
@@ -83,8 +85,13 @@
   --hpe-data-cell-enabled-background: var(--hpe-color-transparent);
   --hpe-data-cell-enabled-border-color: var(--hpe-color-transparent);
   --hpe-data-cell-font-weight: var(--hpe-font-weight-regular);
+  --hpe-switch-medium-control-handle-width: var(--hpe-base-dimension-550);
+  --hpe-switch-medium-control-handle-height: var(--hpe-base-dimension-550);
   --hpe-switch-medium-control-track-width: var(--hpe-base-dimension-1200);
+  --hpe-switch-medium-control-track-height: var(--hpe-base-dimension-600);
   --hpe-switch-medium-label-font-weight: var(--hpe-font-weight-medium);
+  --hpe-checkbox-medium-control-width: var(--hpe-base-dimension-600);
+  --hpe-checkbox-medium-control-height: var(--hpe-base-dimension-600);
   --hpe-checkbox-medium-label-font-weight: var(--hpe-font-weight-medium);
   --hpe-select-option-selected-enabled-font-weight: var(--hpe-font-weight-medium);
   --hpe-select-option-selected-enabled-border-color: var(--hpe-color-transparent);
@@ -204,7 +211,7 @@
   --hpe-anchor-default-disabled-text-color: var(--hpe-color-text-strong);
   --hpe-anchor-default-hover-text-color: var(--hpe-color-text-strong);
   --hpe-anchor-default-enabled-text-color: var(--hpe-color-text-strong);
-  --hpe-radio-button-medium-control-border-radius: var(--hpe-radius-full);
+  --hpe-radio-button-medium-control-border-radius: var(--hpe-base-static-radius-full);
   --hpe-radio-button-medium-gap-x: var(--hpe-base-static-spacing-small); /* Space between checkbox control and value (label) */
   --hpe-radio-button-label-disabled-text-color: var(--hpe-color-text-disabled);
   --hpe-radio-button-label-hover-text-color: var(--hpe-color-text-default);
@@ -384,13 +391,16 @@
   --hpe-select-option-enabled-text-color: var(--hpe-color-text-strong);
   --hpe-select-medium-option-font-size: var(--hpe-button-medium-default-font-size);
   --hpe-select-medium-option-border-width: var(--hpe-base-static-border-width-xsmall);
+  --hpe-select-medium-option-border-radius: var(--hpe-base-static-radius-none);
   --hpe-select-medium-option-min-height: var(--hpe-element-medium-min-height);
   --hpe-menu-medium-group-separator-height: var(--hpe-base-static-border-width-xsmall);
   --hpe-menu-medium-group-container-padding-y: var(--hpe-base-static-spacing-xsmall);
   --hpe-menu-medium-item-font-size: var(--hpe-button-medium-default-font-size);
+  --hpe-menu-medium-item-border-width: var(--hpe-base-static-border-width-default);
   --hpe-menu-medium-item-padding-y: var(--hpe-button-medium-default-padding-y);
   --hpe-menu-group-separator-background: var(--hpe-color-border-default);
   --hpe-menu-item-enabled-font-weight: var(--hpe-button-default-enabled-font-weight);
+  --hpe-drop-margin: var(--hpe-base-static-spacing-xsmall);
   --hpe-drop-background: var(--hpe-color-background-floating);
   --hpe-button-xlarge-toolbar-border-radius: var(--hpe-base-static-radius-small);
   --hpe-button-xlarge-toolbar-padding-y: var(--hpe-button-xlarge-default-padding-y);
@@ -405,7 +415,7 @@
   --hpe-button-xlarge-primary-icon-only-padding-x: var(--hpe-button-xlarge-default-icon-only-padding-x);
   --hpe-button-xlarge-default-min-height: var(--hpe-element-xlarge-min-height);
   --hpe-button-xlarge-default-border-width: var(--hpe-base-static-border-width-default);
-  --hpe-button-xlarge-default-border-radius: var(--hpe-radius-full);
+  --hpe-button-xlarge-default-border-radius: var(--hpe-base-static-radius-full);
   --hpe-button-large-toolbar-border-radius: var(--hpe-base-static-radius-xsmall);
   --hpe-button-large-secondary-hover-box-shadow: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-none) var(--hpe-base-dimension-25) var(--hpe-button-secondary-hover-border-color) inset;
   --hpe-button-large-secondary-icon-only-padding-x: var(--hpe-button-large-default-icon-only-padding-x);
@@ -430,9 +440,8 @@
   --hpe-button-medium-default-icon-only-font-size: var(--hpe-button-medium-default-font-size);
   --hpe-button-medium-default-min-height: var(--hpe-element-medium-min-height);
   --hpe-button-medium-default-border-width: var(--hpe-base-static-border-width-default);
-  --hpe-button-medium-default-border-radius: var(--hpe-radius-full);
+  --hpe-button-medium-default-border-radius: var(--hpe-base-static-radius-full);
   --hpe-button-medium-default-padding-x: var(--hpe-element-medium-padding-x-wide);
-  --hpe-button-small-toolbar-font-size: var(--hpe-text-small-font-size);
   --hpe-button-small-toolbar-min-height: var(--hpe-element-small-min-height);
   --hpe-button-small-toolbar-border-width: var(--hpe-base-static-border-width-default);
   --hpe-button-small-toolbar-border-radius: var(--hpe-base-static-radius-xsmall);
@@ -444,12 +453,12 @@
   --hpe-button-small-primary-padding-y: var(--hpe-button-small-default-padding-y);
   --hpe-button-small-default-min-height: var(--hpe-element-small-min-height);
   --hpe-button-small-default-border-width: var(--hpe-base-static-border-width-default);
-  --hpe-button-small-default-border-radius: var(--hpe-radius-full);
+  --hpe-button-small-default-border-radius: var(--hpe-base-static-radius-full);
   --hpe-button-xsmall-toolbar-min-height: var(--hpe-element-xsmall-min-height);
   --hpe-button-xsmall-toolbar-border-width: var(--hpe-base-static-border-width-default);
   --hpe-button-xsmall-toolbar-border-radius: var(--hpe-base-static-radius-xsmall);
   --hpe-button-xsmall-default-min-height: var(--hpe-element-xsmall-min-height);
-  --hpe-button-xsmall-default-border-radius: var(--hpe-radius-full);
+  --hpe-button-xsmall-default-border-radius: var(--hpe-base-static-radius-full);
   --hpe-button-xsmall-secondary-hover-box-shadow: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-none) var(--hpe-base-dimension-25) var(--hpe-button-secondary-hover-border-color) inset;
   --hpe-button-xsmall-secondary-icon-only-padding-x: var(--hpe-button-xsmall-default-icon-only-padding-x);
   --hpe-button-xsmall-primary-icon-only-padding-x: var(--hpe-button-xsmall-default-icon-only-padding-x);
@@ -600,8 +609,6 @@
   --hpe-anchor-emphasized-small-default-line-height: var(--hpe-element-small-line-height);
   --hpe-anchor-emphasized-small-default-font-size: var(--hpe-element-small-font-size);
   --hpe-radio-button-medium-control-border-width: var(--hpe-border-width-default);
-  --hpe-radio-button-medium-control-width: var(--hpe-element-medium-line-height);
-  --hpe-radio-button-medium-control-height: var(--hpe-element-medium-line-height);
   --hpe-radio-button-medium-label-line-height: var(--hpe-element-medium-line-height);
   --hpe-radio-button-medium-label-font-size: var(--hpe-element-medium-font-size);
   --hpe-footer-cell-pinned-border-color: var(--hpe-data-cell-hover-border-color);
@@ -667,17 +674,12 @@
   --hpe-data-cell-line-height: var(--hpe-element-medium-line-height);
   --hpe-data-cell-font-size: var(--hpe-element-medium-font-size);
   --hpe-switch-medium-control-handle-border-width: var(--hpe-border-width-default);
-  --hpe-switch-medium-control-handle-width: var(--hpe-element-medium-line-height);
-  --hpe-switch-medium-control-handle-height: var(--hpe-element-medium-line-height);
-  --hpe-switch-medium-control-track-height: var(--hpe-element-medium-line-height);
   --hpe-switch-medium-label-line-height: var(--hpe-element-medium-font-size);
   --hpe-switch-medium-label-font-size: var(--hpe-element-medium-font-size);
   --hpe-switch-medium-border-width: var(--hpe-border-width-default);
   --hpe-switch-control-track-selected-hover-background: var(--hpe-color-background-selected-strong-enabled);
   --hpe-switch-control-track-selected-enabled-background: var(--hpe-color-background-selected-strong-enabled);
   --hpe-checkbox-medium-control-border-width: var(--hpe-border-width-default);
-  --hpe-checkbox-medium-control-width: var(--hpe-element-medium-line-height);
-  --hpe-checkbox-medium-control-height: var(--hpe-element-medium-line-height);
   --hpe-checkbox-medium-label-line-height: var(--hpe-element-medium-line-height);
   --hpe-checkbox-medium-label-font-size: var(--hpe-element-medium-font-size);
   --hpe-checkbox-control-indeterminate-hover-background: var(--hpe-color-background-selected-strong-enabled);
@@ -686,11 +688,9 @@
   --hpe-checkbox-control-selected-enabled-background: var(--hpe-color-background-selected-strong-enabled);
   --hpe-select-option-selected-enabled-text-color: var(--hpe-color-text-on-selected-weak);
   --hpe-select-option-hover-background: var(--hpe-color-background-hover);
-  --hpe-select-medium-option-border-radius: var(--hpe-radius-none);
   --hpe-select-medium-option-padding-x: var(--hpe-form-field-medium-input-container-padding-x);
   --hpe-menu-medium-item-gap-x: var(--hpe-element-medium-text-to-icon-x);
   --hpe-menu-medium-item-min-height: var(--hpe-button-medium-default-min-height);
-  --hpe-menu-medium-item-border-width: var(--hpe-button-medium-default-border-width);
   --hpe-menu-medium-item-border-radius: var(--hpe-radius-none);
   --hpe-menu-medium-item-padding-x: var(--hpe-button-medium-default-padding-x);
   --hpe-menu-item-disabled-font-weight: var(--hpe-button-default-disabled-font-weight);
@@ -700,7 +700,6 @@
   --hpe-menu-item-hover-background: var(--hpe-color-background-hover);
   --hpe-menu-item-enabled-icon-color: var(--hpe-button-default-enabled-icon-color);
   --hpe-menu-item-enabled-text-color: var(--hpe-button-default-enabled-text-color);
-  --hpe-drop-margin: var(--hpe-spacing-xsmall);
   --hpe-drop-border-radius: var(--hpe-radius-xsmall);
   --hpe-button-xlarge-toolbar-min-height: var(--hpe-button-xlarge-default-min-height);
   --hpe-button-xlarge-toolbar-border-width: var(--hpe-button-xlarge-default-border-width);
@@ -752,12 +751,12 @@
   --hpe-button-medium-default-icon-only-border-radius: var(--hpe-button-medium-default-border-radius);
   --hpe-button-medium-default-gap-x: var(--hpe-element-medium-text-to-icon-x);
   --hpe-button-medium-default-line-height: var(--hpe-element-medium-line-height);
-  --hpe-button-small-toolbar-icon-only-font-size: var(--hpe-button-small-toolbar-font-size);
   --hpe-button-small-toolbar-icon-only-min-height: var(--hpe-button-small-toolbar-min-height);
   --hpe-button-small-toolbar-icon-only-border-width: var(--hpe-button-small-toolbar-border-width);
   --hpe-button-small-toolbar-icon-only-border-radius: var(--hpe-button-small-toolbar-border-radius);
   --hpe-button-small-toolbar-gap-x: var(--hpe-element-xsmall-text-to-icon-x);
   --hpe-button-small-toolbar-line-height: var(--hpe-element-small-line-height);
+  --hpe-button-small-toolbar-font-size: var(--hpe-element-small-font-size);
   --hpe-button-small-toolbar-padding-x: var(--hpe-element-small-padding-x-default);
   --hpe-button-small-secondary-min-height: var(--hpe-button-small-default-min-height);
   --hpe-button-small-secondary-border-width: var(--hpe-button-small-default-border-width);
@@ -878,6 +877,7 @@
   --hpe-button-medium-default-icon-only-min-width: var(--hpe-button-medium-default-icon-only-min-height);
   --hpe-button-small-toolbar-icon-only-gap-x: var(--hpe-button-small-toolbar-gap-x);
   --hpe-button-small-toolbar-icon-only-line-height: var(--hpe-button-small-toolbar-line-height);
+  --hpe-button-small-toolbar-icon-only-font-size: var(--hpe-button-small-toolbar-font-size);
   --hpe-button-small-toolbar-icon-only-min-width: var(--hpe-button-small-default-icon-only-min-height);
   --hpe-button-small-secondary-icon-only-min-height: var(--hpe-button-small-secondary-min-height);
   --hpe-button-small-secondary-icon-only-border-width: var(--hpe-button-small-secondary-border-width);
