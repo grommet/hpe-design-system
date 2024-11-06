@@ -1483,7 +1483,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1877,7 +1877,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2560,7 +2560,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{text.small.fontSize}",
+          "$value": "{element.small.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2734,7 +2734,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4558,7 +4558,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5305,7 +5305,7 @@
     },
     "margin": {
       "$type": "number",
-      "$value": "{spacing.xsmall}",
+      "$value": "{base.static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5573,7 +5573,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.medium.default.borderWidth}",
+          "$value": "{base.static.borderWidth.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5705,7 +5705,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.none}",
+          "$value": "{base.static.radius.none}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6369,7 +6369,7 @@
       "control": {
         "height": {
           "$type": "number",
-          "$value": "{element.medium.lineHeight}",
+          "$value": "{base.dimension.600}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6381,7 +6381,7 @@
         },
         "width": {
           "$type": "number",
-          "$value": "{element.medium.lineHeight}",
+          "$value": "{base.dimension.600}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6888,7 +6888,7 @@
         "track": {
           "height": {
             "$type": "number",
-            "$value": "{element.medium.lineHeight}",
+            "$value": "{base.dimension.600}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6938,7 +6938,7 @@
         "handle": {
           "height": {
             "$type": "number",
-            "$value": "{element.medium.lineHeight}",
+            "$value": "{base.dimension.550}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6950,7 +6950,7 @@
           },
           "width": {
             "$type": "number",
-            "$value": "{element.medium.lineHeight}",
+            "$value": "{base.dimension.550}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -8354,7 +8354,7 @@
               "$extensions": {
                 "com.figma": {
                   "hiddenFromPublishing": false,
-                  "scopes": ["SHAPE_FILL", "TEXT_FILL"],
+                  "scopes": ["STROKE_COLOR"],
                   "codeSyntax": {}
                 }
               }
@@ -9965,7 +9965,7 @@
       "control": {
         "height": {
           "$type": "number",
-          "$value": "{element.medium.lineHeight}",
+          "$value": "{base.dimension.600}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9977,7 +9977,7 @@
         },
         "width": {
           "$type": "number",
-          "$value": "{element.medium.lineHeight}",
+          "$value": "{base.dimension.600}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -10001,7 +10001,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
