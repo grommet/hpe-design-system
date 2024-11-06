@@ -941,47 +941,33 @@ const buildTheme = tokens => {
     },
     calendar: {
       day: {
-        extend: ({ isSelected, inRange, theme }) => {
-          let style = '';
-          if (isSelected) {
-            style += `
-              background: ${
-                theme.global.colors['background-selected-strong-enabled']?.[
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-              color: ${
-                theme.global.colors['text-onSelectedStrong']?.[
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-              font-weight: ${global.hpe.fontWeight.bold};
-              &:hover {
-                 background: ${
-                   theme.global.colors['background-selected-strong-hover']?.[
-                     theme.dark ? 'dark' : 'light'
-                   ]
-                 };
-              }
-              `;
-          }
-          if (inRange) {
-            style += `
-              background: ${
-                theme.global.colors['background-selected-weak-enabled']?.[
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-              color: ${
-                theme.global.colors['text-onSelectedWeak']?.[
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-              font-weight: ${global.hpe.fontWeight.regular};
-              `;
-          }
-          return style;
+        hover: {
+          background: 'background-hover',
+          color: 'text-strong',
         },
+        selected: {
+          background: 'background-selected-strong-enabled',
+          color: 'text-onSelectedStrong',
+          hover: {
+            background: 'background-selected-strong-hover',
+          },
+          font: {
+            weight: global.hpe.fontWeight.bold,
+          },
+        },
+        inRange: {
+          color: 'text-onSelectedWeak',
+          hover: {
+            background: 'background-selected-weak-hover',
+          },
+          font: {
+            weight: global.hpe.fontWeight.medium,
+          },
+        },
+        extend: '',
+      },
+      range: {
+        background: 'background-selected-weak-enabled',
       },
       icons: {
         // next: Next,
@@ -1002,9 +988,19 @@ const buildTheme = tokens => {
         fontSize: '18px',
         lineHeight: 1.45,
         daySize: '54.86px',
+        day: {},
+        range: {
+          round: 'none',
+          start: {
+            round: 'none',
+          },
+          end: {
+            round: 'none',
+          },
+        },
         title: {
           size: 'large',
-          weight: global.hpe.fontWeight.regular,
+          weight: global.hpe.fontWeight.medium,
           color: 'text-strong',
         },
       },
@@ -1322,7 +1318,7 @@ const buildTheme = tokens => {
         // Q: confused on which token to use here formfield.medium.input.group.item.borderWidth?
         color: components.hpe.formField.input.container.enabled.borderColor,
         side: 'all',
-        style: 'solid',
+        style: 'dashed',
         size: components.hpe.formField.medium.input.container.borderWidth,
       },
       button: {
