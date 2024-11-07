@@ -169,7 +169,7 @@ const access = (path, object) => {
 
 const componentSizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
 const buttonKinds = ['default', 'secondary', 'primary', 'toolbar'];
-const buttonStates = ['active', 'hover', 'disabled'];
+const buttonStates = ['hover', 'active', 'disabled'];
 
 const textSizes = [
   'xsmall',
@@ -582,6 +582,25 @@ const buildTheme = tokens => {
               components.hpe.button?.[kind]?.[adjustedState].enabled.fontWeight,
           },
         };
+        if (!('active' in buttonStatesTheme.hover))
+          buttonStatesTheme.hover.active = {};
+        buttonStatesTheme.hover[state][kind] = {
+          background: {
+            color:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover?.background,
+          },
+          border: {
+            color:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover
+                ?.borderColor,
+          },
+          color:
+            components.hpe.button?.[kind]?.[adjustedState]?.hover?.textColor,
+          font: {
+            weight:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover?.fontWeight,
+          },
+        };
       } else if (kind === 'option') {
         if (state === 'active') adjustedState = 'selected';
         buttonStatesTheme[state][kind] = {
@@ -765,6 +784,7 @@ const buildTheme = tokens => {
           large: elevationlight
             ? elevationlight.hpe.elevation.large
             : light.hpe.shadow.large,
+          'inset-selected': `inset 3px 0 ${light.hpe.color.border.selected}`,
         },
         dark: {
           small: elevationdark
@@ -776,6 +796,7 @@ const buildTheme = tokens => {
           large: elevationdark
             ? elevationdark.hpe.elevation.large
             : dark.hpe.shadow.large,
+          'inset-selected': `inset 3px 0 ${dark.hpe.color.border.selected}`,
         },
       },
       hover: {
@@ -893,6 +914,7 @@ const buildTheme = tokens => {
           font: {
             weight: components.hpe.select.option.selected.enabled.fontWeight,
           },
+          elevation: 'inset-selected',
         },
       },
       hover: {
@@ -2484,30 +2506,12 @@ const buildTheme = tokens => {
         color: 'background-selected-strong-enabled',
       },
     },
-    // TO DO need way to style background color
     toggleGroup: {
       button: {
-        border: {
-          radius: 'xsmall',
-        },
-        pad: {
-          // these are fine since it is built with buttons
-          vertical: '6px',
-          horizontal: '12px',
-        },
-        iconOnly: {
-          // Q this will be a token?
-          pad: {
-            vertical: parseInt(mediumIconOnlyPad, 10),
-            horizontal: parseInt(mediumIconOnlyPad, 10),
-          },
-        },
+        kind: 'toolbar',
       },
       container: {
-        border: {
-          color: components.hpe.button.toolbar.enabled.borderColor,
-          size: components.hpe.button.medium.toolbar.borderWidth,
-        },
+        border: false,
       },
       divider: false,
     },

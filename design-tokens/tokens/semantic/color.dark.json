@@ -313,7 +313,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{color.border.default}",
+        "$value": "{color.foreground.critical}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -447,7 +447,7 @@
       },
       "primary": {
         "$type": "color",
-        "$value": "{base.color.green.800}",
+        "$value": "{base.color.brand}",
         "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
         "$extensions": {
           "com.figma": {
@@ -511,7 +511,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{color.text.default}",
+        "$value": "{color.foreground.critical}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -799,7 +799,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{base.color.red.550}",
+        "$value": "{color.foreground.critical}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -859,7 +859,7 @@
       },
       "primary": {
         "$type": "color",
-        "$value": "{base.color.green.800}",
+        "$value": "{base.color.brand}",
         "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
         "$extensions": {
           "com.figma": {

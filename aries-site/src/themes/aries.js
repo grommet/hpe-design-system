@@ -119,7 +119,7 @@ const access = (path, object) => {
 
 const componentSizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
 const buttonKinds = ['default', 'secondary', 'primary', 'toolbar'];
-const buttonStates = ['active', 'hover', 'disabled'];
+const buttonStates = ['hover', 'active', 'disabled'];
 
 const textSizes = [
   'xsmall',
@@ -532,6 +532,25 @@ const buildTheme = tokens => {
               components.hpe.button?.[kind]?.[adjustedState].enabled.fontWeight,
           },
         };
+        if (!('active' in buttonStatesTheme.hover))
+          buttonStatesTheme.hover.active = {};
+        buttonStatesTheme.hover[state][kind] = {
+          background: {
+            color:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover?.background,
+          },
+          border: {
+            color:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover
+                ?.borderColor,
+          },
+          color:
+            components.hpe.button?.[kind]?.[adjustedState]?.hover?.textColor,
+          font: {
+            weight:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover?.fontWeight,
+          },
+        };
       } else if (kind === 'option') {
         if (state === 'active') adjustedState = 'selected';
         buttonStatesTheme[state][kind] = {
@@ -708,24 +727,26 @@ const buildTheme = tokens => {
         light: {
           small: elevationlight
             ? elevationlight.hpe.elevation.small
-            : light.hpe.elevation.small,
+            : light.hpe.shadow.small,
           medium: elevationlight
             ? elevationlight.hpe.elevation.medium
-            : light.hpe.elevation.medium,
+            : light.hpe.shadow.medium,
           large: elevationlight
             ? elevationlight.hpe.elevation.large
-            : light.hpe.elevation.large,
+            : light.hpe.shadow.large,
+          'inset-selected': `inset 3px 0 ${light.hpe.color.border.selected}`,
         },
         dark: {
           small: elevationdark
             ? elevationdark.hpe.elevation.small
-            : dark.hpe.elevation.small,
+            : dark.hpe.shadow.small,
           medium: elevationdark
             ? elevationdark.hpe.elevation.medium
-            : dark.hpe.elevation.medium,
+            : dark.hpe.shadow.medium,
           large: elevationdark
             ? elevationdark.hpe.elevation.large
-            : dark.hpe.elevation.large,
+            : dark.hpe.shadow.large,
+          'inset-selected': `inset 3px 0 ${dark.hpe.color.border.selected}`,
         },
       },
       hover: {
@@ -773,8 +794,6 @@ const buildTheme = tokens => {
     },
     avatar: {
       size: {
-        // At this point in time we hadn't standardized on component sizes, so the sizing is off
-        // but these feel like the right tokens
         xsmall: components.hpe.element?.xsmall.minHeight,
         small: components.hpe.element?.small.minHeight, // 24px
         medium: components.hpe.element?.medium.minHeight, // default 48px
@@ -787,9 +806,7 @@ const buildTheme = tokens => {
       },
       text: {
         size: {
-          xsmall: 'small', // TO DO no component size, is this a one off?
-          // At this point in time we hadn't standardized on component sizes, so the sizing is off
-          // TO DO this feels like it should be able to point to components.hpe.element?.medium.fontSize, etc.
+          xsmall: 'xsmall',
           small: 'small',
           medium: 'medium',
           large: 'large',
@@ -847,6 +864,7 @@ const buildTheme = tokens => {
           font: {
             weight: components.hpe.select.option.selected.enabled.fontWeight,
           },
+          elevation: 'inset-selected',
         },
       },
       hover: {
@@ -895,48 +913,33 @@ const buildTheme = tokens => {
     },
     calendar: {
       day: {
-        extend: ({ isSelected, inRange, theme }) => {
-          let style = '';
-          style += 'border-radius: 2em;';
-          if (isSelected) {
-            style += `
-              background: ${
-                theme.global.colors['background-selected-strong-enabled']?.[
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-              color: ${
-                theme.global.colors['text-onSelectedStrong']?.[
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-              font-weight: ${global.hpe.fontWeight.regular};
-              &:hover {
-                 background: ${
-                   theme.global.colors['background-selected-strong-hover']?.[
-                     theme.dark ? 'dark' : 'light'
-                   ]
-                 };
-              }
-              `;
-          }
-          if (inRange) {
-            style += `
-              background: ${
-                theme.global.colors['background-selected-weak-enabled']?.[
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-              color: ${
-                theme.global.colors['text-onSelectedWeak']?.[
-                  theme.dark ? 'dark' : 'light'
-                ]
-              };
-              font-weight: ${global.hpe.fontWeight.regular};
-              `;
-          }
-          return style;
+        hover: {
+          background: 'background-hover',
+          color: 'text-strong',
         },
+        selected: {
+          background: 'background-selected-strong-enabled',
+          color: 'text-onSelectedStrong',
+          hover: {
+            background: 'background-selected-strong-hover',
+          },
+          font: {
+            weight: global.hpe.fontWeight.medium,
+          },
+        },
+        inRange: {
+          color: 'text-onSelectedWeak',
+          hover: {
+            background: 'background-selected-weak-hover',
+          },
+          font: {
+            weight: global.hpe.fontWeight.medium,
+          },
+        },
+        extend: '',
+      },
+      range: {
+        background: 'background-selected-weak-enabled',
       },
       icons: {
         // next: Next,
@@ -949,17 +952,35 @@ const buildTheme = tokens => {
         daySize: '27.43px',
         title: {
           size: 'medium',
-          weight: MISSING.weight,
-          color: MISSING.color,
+          weight: global.hpe.fontWeight.normal,
+          color: 'text-strong',
         },
       },
       medium: {
         fontSize: '18px',
         lineHeight: 1.45,
         daySize: '54.86px',
+        day: {
+          round: 'full',
+        },
+        range: {
+          round: 'none',
+          start: {
+            round: {
+              corner: 'left',
+              size: 'full',
+            },
+          },
+          end: {
+            round: {
+              corner: 'right',
+              size: 'full',
+            },
+          },
+        },
         title: {
           size: 'large',
-          weight: global.hpe.fontWeight.regular,
+          weight: global.hpe.fontWeight.normal,
           color: 'text-strong',
         },
       },
@@ -969,8 +990,8 @@ const buildTheme = tokens => {
         daySize: '109.71px',
         title: {
           size: 'xlarge',
-          weight: MISSING.weight,
-          color: MISSING.color,
+          weight: global.hpe.fontWeight.normal,
+          color: 'text-strong',
         },
       },
     },
@@ -1257,7 +1278,6 @@ const buildTheme = tokens => {
         },
       },
       primary: {
-        // Q: missing tokens
         weight: components.hpe.dataCell.primary.fontWeight,
         color: components.hpe.dataCell.primary.enabled.textColor,
       },
@@ -1284,8 +1304,6 @@ const buildTheme = tokens => {
         size: components.hpe.formField.medium.input.container.borderWidth,
       },
       button: {
-        // Q: should we point to button tokens here?
-        // A: Yes, I think we should unless different values are required
         background: components.hpe.button.secondary.enabled.background,
         border: {
           // Q: is this the correct value?
@@ -1706,7 +1724,7 @@ const buildTheme = tokens => {
         },
       },
       message: {
-        color: 'text-onStatus',
+        color: 'text',
       },
       title: {
         // any text props
@@ -1715,56 +1733,164 @@ const buildTheme = tokens => {
       },
       critical: {
         background: 'background-critical',
+        message: {
+          color: 'text-onCritical-default',
+        },
+        title: {
+          color: 'text-onCritical-strong',
+        },
         global: {
           background: 'background-critical',
+          message: {
+            color: 'text-onCritical-default',
+          },
+          title: {
+            color: 'text-onCritical-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
       warning: {
         background: 'background-warning',
+        message: {
+          color: 'text-onWarning-default',
+        },
+        title: {
+          color: 'text-onWarning-strong',
+        },
         global: {
           background: 'background-warning',
+          message: {
+            color: 'text-onWarning-default',
+          },
+          title: {
+            color: 'text-onWarning-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
       normal: {
         background: 'background-ok',
+        message: {
+          color: 'text-onOk-default',
+        },
+        title: {
+          color: 'text-onOk-strong',
+        },
         global: {
           background: 'background-ok',
+          message: {
+            color: 'text-onOk-default',
+          },
+          title: {
+            color: 'text-onOk-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
       unknown: {
-        background: 'background-contrast',
+        background: 'background-unknown',
+        message: {
+          color: 'text-onUnknown-default',
+        },
+        title: {
+          color: 'text-onUnknown-strong',
+        },
         global: {
-          background: 'background-contrast',
+          background: 'background-unknown',
+          message: {
+            color: 'text-onUnknown-default',
+          },
+          title: {
+            color: 'text-onUnknown-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
       info: {
         background: 'background-info',
+        message: {
+          color: 'text-onInfo-default',
+        },
+        title: {
+          color: 'text-onInfo-strong',
+        },
         global: {
           background: 'background-info',
+          message: {
+            color: 'text-onInfo-default',
+          },
+          title: {
+            color: 'text-onInfo-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
       undefined: {
-        background: 'background-contrast',
+        background: 'background-unknown',
+        message: {
+          color: 'text-onUnknown-default',
+        },
+        title: {
+          color: 'text-onUnknown-strong',
+        },
         global: {
-          background: 'background-contrast',
+          background: 'background-ok',
+          message: {
+            color: 'text-onUnknown-default',
+          },
+          title: {
+            color: 'text-onUnknown-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
     },
@@ -2247,7 +2373,6 @@ const buildTheme = tokens => {
             },
           },
         },
-        // TO DO need default size "medium"
         // TO DO tag rounding is overriding "default" rounding, do we expect this?
         medium: {
           icon: undefined,
@@ -2331,30 +2456,12 @@ const buildTheme = tokens => {
         color: 'background-selected-strong-enabled',
       },
     },
-    // TO DO need way to style background color
     toggleGroup: {
       button: {
-        border: {
-          radius: 'xsmall',
-        },
-        pad: {
-          // these are fine since it is built with buttons
-          vertical: '6px',
-          horizontal: '12px',
-        },
-        iconOnly: {
-          // Q this will be a token?
-          pad: {
-            vertical: parseInt(mediumIconOnlyPad, 10),
-            horizontal: parseInt(mediumIconOnlyPad, 10),
-          },
-        },
+        kind: 'toolbar',
       },
       container: {
-        border: {
-          color: components.hpe.button.toolbar.enabled.borderColor,
-          size: components.hpe.button.medium.toolbar.borderWidth,
-        },
+        border: false,
       },
       divider: false,
     },
