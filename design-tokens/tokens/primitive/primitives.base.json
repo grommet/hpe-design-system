@@ -412,6 +412,18 @@
             }
           }
         },
+        "600": {
+          "$type": "color",
+          "$value": "#ec3331",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "700": {
           "$type": "color",
           "$value": "#d04f4e",
@@ -513,6 +525,18 @@
         "500": {
           "$type": "color",
           "$value": "#ff8300",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#d36d00",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -734,6 +758,18 @@
           "$type": "color",
           "$value": "#01a982",
           "$description": "HPE Brand",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "650": {
+          "$type": "color",
+          "$value": "#009a71",
+          "$description": "",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -1139,6 +1175,18 @@
         "500": {
           "$type": "color",
           "$value": "#bbbbbb",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#8c8c8c",
           "$description": "",
           "$extensions": {
             "com.figma": {

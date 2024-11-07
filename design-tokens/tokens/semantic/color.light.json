@@ -657,7 +657,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{base.color.red.550}",
+        "$value": "{base.color.red.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -681,7 +681,7 @@
       },
       "ok": {
         "$type": "color",
-        "$value": "{base.color.green.400}",
+        "$value": "{base.color.green.650}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -693,7 +693,7 @@
       },
       "warning": {
         "$type": "color",
-        "$value": "{base.color.orange.400}",
+        "$value": "{base.color.orange.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -705,7 +705,7 @@
       },
       "unknown": {
         "$type": "color",
-        "$value": "{base.color.grey.400}",
+        "$value": "{base.color.grey.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1073,7 +1073,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{base.color.red.550}",
+        "$value": "{base.color.red.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1085,7 +1085,7 @@
       },
       "warning": {
         "$type": "color",
-        "$value": "{base.color.orange.400}",
+        "$value": "{base.color.orange.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1097,7 +1097,7 @@
       },
       "unknown": {
         "$type": "color",
-        "$value": "{base.color.grey.400}",
+        "$value": "{base.color.grey.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
