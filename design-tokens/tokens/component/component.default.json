@@ -380,7 +380,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "{base.color.grey.600}",
+          "$value": "{base.color.grey.550}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3698,7 +3698,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 8,
+          "$value": 9,
           "$description": "",
           "$extensions": {
             "com.figma": {

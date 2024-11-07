@@ -606,62 +606,132 @@
         }
       },
       "onCritical": {
-        "$type": "color",
-        "$value": "{color.text.default}",
-        "$description": "Text color to be used on status backgrounds.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
+        "strong": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
           }
-        }
-      },
-      "onWarning": {
-        "$type": "color",
-        "$value": "{color.text.default}",
-        "$description": "Text color to be used on status backgrounds.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "onOk": {
-        "$type": "color",
-        "$value": "{color.text.default}",
-        "$description": "Text color to be used on status backgrounds.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.default}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
           }
         }
       },
       "onInfo": {
-        "$type": "color",
-        "$value": "{color.text.default}",
-        "$description": "Text color to be used on status backgrounds.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
+        "strong": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.default}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "onOk": {
+        "strong": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.default}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
           }
         }
       },
       "onUnknown": {
-        "$type": "color",
-        "$value": "{color.text.default}",
-        "$description": "Text color to be used on status backgrounds.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
+        "strong": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.default}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "onWarning": {
+        "strong": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.default}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
           }
         }
       }
@@ -729,7 +799,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{base.color.red.800}",
+        "$value": "{base.color.red.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -753,7 +823,7 @@
       },
       "ok": {
         "$type": "color",
-        "$value": "{base.color.green.400}",
+        "$value": "{base.color.green.650}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -765,7 +835,7 @@
       },
       "warning": {
         "$type": "color",
-        "$value": "{base.color.orange.400}",
+        "$value": "{base.color.orange.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -777,7 +847,7 @@
       },
       "unknown": {
         "$type": "color",
-        "$value": "{base.color.grey.400}",
+        "$value": "{base.color.grey.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1157,7 +1227,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{base.color.red.550}",
+        "$value": "{base.color.red.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1169,7 +1239,7 @@
       },
       "warning": {
         "$type": "color",
-        "$value": "{base.color.orange.400}",
+        "$value": "{base.color.orange.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1181,7 +1251,7 @@
       },
       "unknown": {
         "$type": "color",
-        "$value": "{base.color.grey.400}",
+        "$value": "{base.color.grey.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
