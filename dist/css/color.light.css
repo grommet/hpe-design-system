@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 06 Nov 2024 16:50:48 GMT
+ * Generated on Thu, 07 Nov 2024 17:21:58 GMT
  */
 
 :root {
@@ -9,9 +9,9 @@
   --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity24);
   --hpe-color-shadow-default: var(--hpe-base-color-black-opacity12);
   --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
-  --hpe-color-foreground-unknown: var(--hpe-base-color-grey-400);
-  --hpe-color-foreground-warning: var(--hpe-base-color-orange-400);
-  --hpe-color-foreground-critical: var(--hpe-base-color-red-550);
+  --hpe-color-foreground-unknown: var(--hpe-base-color-grey-600);
+  --hpe-color-foreground-warning: var(--hpe-base-color-orange-600);
+  --hpe-color-foreground-critical: var(--hpe-base-color-red-600);
   --hpe-color-focus: var(--hpe-base-color-teal-400);
   --hpe-color-data-vis-categorical-80: var(--hpe-base-color-data-vis-grape1);
   --hpe-color-data-vis-categorical-70: var(--hpe-base-color-data-vis-blue1);
@@ -37,11 +37,11 @@
   --hpe-color-icon-on-selected-strong: var(--hpe-base-color-white-100); /* Icon color to be used for Icon sitting on background-selected-strong. */
   --hpe-color-icon-brand: var(--hpe-base-color-green-600); /* Brand color for icons. */
   --hpe-color-icon-on-primary: var(--hpe-base-color-white-100); /* Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour. */
-  --hpe-color-icon-unknown: var(--hpe-base-color-grey-400);
-  --hpe-color-icon-warning: var(--hpe-base-color-orange-400);
-  --hpe-color-icon-ok: var(--hpe-base-color-green-400);
+  --hpe-color-icon-unknown: var(--hpe-base-color-grey-600);
+  --hpe-color-icon-warning: var(--hpe-base-color-orange-600);
+  --hpe-color-icon-ok: var(--hpe-base-color-green-650);
   --hpe-color-icon-info: var(--hpe-base-color-blue-400);
-  --hpe-color-icon-critical: var(--hpe-base-color-red-550);
+  --hpe-color-icon-critical: var(--hpe-base-color-red-600);
   --hpe-color-icon-disabled: var(--hpe-base-color-black-opacity24); /* Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level. */
   --hpe-color-icon-xweak: var(--hpe-base-color-grey-500);
   --hpe-color-icon-weak: var(--hpe-base-color-grey-700); /* Weaker icon color for reduced emphasis */

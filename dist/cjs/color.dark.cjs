@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 06 Nov 2024 16:50:48 GMT
+ * Generated on Thu, 07 Nov 2024 17:21:58 GMT
  */
 
 module.exports = {
@@ -78,10 +78,10 @@ module.exports = {
         "weak": "#ffffff80",
         "xweak": "#ffffff33",
         "disabled": "#ffffff3d",
-        "critical": "#c54e4b",
+        "critical": "#fc5a5a",
         "info": "#00739d",
-        "ok": "#008567",
-        "warning": "#9b6310",
+        "ok": "#17d0a6",
+        "warning": "#d36d00",
         "unknown": "#757575",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
@@ -120,8 +120,8 @@ module.exports = {
       "focus": "#00e8cf",
       "foreground": {
         "primary": "#01a982",
-        "critical": "#c54e4b",
-        "warning": "#9b6310",
+        "critical": "#fc5a5a",
+        "warning": "#d36d00",
         "unknown": "#757575"
       },
       "shadow": {

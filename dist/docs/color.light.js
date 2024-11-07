@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 06 Nov 2024 16:50:48 GMT
+ * Generated on Thu, 07 Nov 2024 17:21:58 GMT
  */
 
 export default {
@@ -2309,7 +2309,7 @@ export default {
   },
   "hpe.color.icon.critical": {
     "$type": "color",
-    "value": "#fc5a5a",
+    "value": "#ec3331",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -2326,7 +2326,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.red.550}",
+      "value": "{base.color.red.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -2399,7 +2399,7 @@ export default {
   },
   "hpe.color.icon.ok": {
     "$type": "color",
-    "value": "#17eba0",
+    "value": "#009a71",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -2416,7 +2416,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.400}",
+      "value": "{base.color.green.650}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -2444,7 +2444,7 @@ export default {
   },
   "hpe.color.icon.warning": {
     "$type": "color",
-    "value": "#ffbc44",
+    "value": "#d36d00",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -2461,7 +2461,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.orange.400}",
+      "value": "{base.color.orange.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -2489,7 +2489,7 @@ export default {
   },
   "hpe.color.icon.unknown": {
     "$type": "color",
-    "value": "#cccccc",
+    "value": "#8c8c8c",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -2506,7 +2506,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.grey.400}",
+      "value": "{base.color.grey.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -3751,7 +3751,7 @@ export default {
   },
   "hpe.color.foreground.critical": {
     "$type": "color",
-    "value": "#fc5a5a",
+    "value": "#ec3331",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -3768,7 +3768,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.red.550}",
+      "value": "{base.color.red.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -3796,7 +3796,7 @@ export default {
   },
   "hpe.color.foreground.warning": {
     "$type": "color",
-    "value": "#ffbc44",
+    "value": "#d36d00",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -3813,7 +3813,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.orange.400}",
+      "value": "{base.color.orange.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -3841,7 +3841,7 @@ export default {
   },
   "hpe.color.foreground.unknown": {
     "$type": "color",
-    "value": "#cccccc",
+    "value": "#8c8c8c",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -3858,7 +3858,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.grey.400}",
+      "value": "{base.color.grey.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 06 Nov 2024 16:50:48 GMT
+ * Generated on Thu, 07 Nov 2024 17:21:58 GMT
  */
 
 export default {
@@ -78,11 +78,11 @@ export default {
         weak: "#757575",
         xweak: "#bbbbbb",
         disabled: "#0000003d",
-        critical: "#fc5a5a",
+        critical: "#ec3331",
         info: "#00c8ff",
-        ok: "#17eba0",
-        warning: "#ffbc44",
-        unknown: "#cccccc",
+        ok: "#009a71",
+        warning: "#d36d00",
+        unknown: "#8c8c8c",
         onPrimary: "#ffffff",
         brand: "#01a982",
         onSelectedStrong: "#ffffff",
@@ -120,9 +120,9 @@ export default {
       focus: "#00e8cf",
       foreground: {
         primary: "#01a982",
-        critical: "#fc5a5a",
-        warning: "#ffbc44",
-        unknown: "#cccccc",
+        critical: "#ec3331",
+        warning: "#d36d00",
+        unknown: "#8c8c8c",
       },
       shadow: {
         weak: "#0000001f",

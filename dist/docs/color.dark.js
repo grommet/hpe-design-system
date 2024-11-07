@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 06 Nov 2024 16:50:48 GMT
+ * Generated on Thu, 07 Nov 2024 17:21:58 GMT
  */
 
 export default {
@@ -2309,7 +2309,7 @@ export default {
   },
   "hpe.color.icon.critical": {
     "$type": "color",
-    "value": "#c54e4b",
+    "value": "#fc5a5a",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -2326,7 +2326,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.red.750}",
+      "value": "{base.color.red.550}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -2399,7 +2399,7 @@ export default {
   },
   "hpe.color.icon.ok": {
     "$type": "color",
-    "value": "#008567",
+    "value": "#17d0a6",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -2416,7 +2416,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.700}",
+      "value": "{base.color.green.500}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -2444,7 +2444,7 @@ export default {
   },
   "hpe.color.icon.warning": {
     "$type": "color",
-    "value": "#9b6310",
+    "value": "#d36d00",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -2461,7 +2461,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.orange.700}",
+      "value": "{base.color.orange.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -3751,7 +3751,7 @@ export default {
   },
   "hpe.color.foreground.critical": {
     "$type": "color",
-    "value": "#c54e4b",
+    "value": "#fc5a5a",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -3768,7 +3768,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.red.750}",
+      "value": "{base.color.red.550}",
       "comment": "",
       "$extensions": {
         "com.figma": {
@@ -3796,7 +3796,7 @@ export default {
   },
   "hpe.color.foreground.warning": {
     "$type": "color",
-    "value": "#9b6310",
+    "value": "#d36d00",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -3813,7 +3813,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.orange.700}",
+      "value": "{base.color.orange.600}",
       "comment": "",
       "$extensions": {
         "com.figma": {
