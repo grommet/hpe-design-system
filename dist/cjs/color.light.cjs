@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 07 Nov 2024 17:21:58 GMT
+ * Generated on Thu, 07 Nov 2024 17:46:52 GMT
  */
 
 module.exports = {
@@ -19,6 +19,12 @@ module.exports = {
         "unknown": "#0000000a",
         "critical": "#fc61613d",
         "warning": "#ffbc443d",
+        "ok": "#17eba03d",
+        "primary": {
+          "default": "#01a982",
+          "hover": "#00ff0a00"
+        },
+        "info": "#00c8ff3d",
         "selected": {
           "strong": {
             "enabled": "#01a982",
@@ -28,13 +34,7 @@ module.exports = {
             "enabled": "#cbfaeb",
             "hover": "#aef6df"
           }
-        },
-        "primary": {
-          "default": "#01a982",
-          "hover": "#00ff0a00"
-        },
-        "ok": "#17eba03d",
-        "info": "#00c8ff3d"
+        }
       },
       "border": {
         "strong": "#000000b8",
@@ -70,7 +70,27 @@ module.exports = {
         "unknown": "#555555",
         "onSelectedStrong": "#ffffff",
         "onSelectedWeak": "#333333",
-        "onStatus": "#555555"
+        "onStatus": "#555555",
+        "onCritical": {
+          "strong": "#333333",
+          "default": "#555555"
+        },
+        "onInfo": {
+          "strong": "#333333",
+          "default": "#555555"
+        },
+        "onOk": {
+          "strong": "#333333",
+          "default": "#555555"
+        },
+        "onUnknown": {
+          "strong": "#333333",
+          "default": "#555555"
+        },
+        "onWarning": {
+          "strong": "#333333",
+          "default": "#555555"
+        }
       },
       "icon": {
         "default": "#555555",

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 07 Nov 2024 17:21:58 GMT
+ * Generated on Thu, 07 Nov 2024 17:46:52 GMT
  */
 
 export default {
@@ -19,6 +19,12 @@ export default {
         unknown: "#ffffff0f",
         critical: "#cc1f1a4d",
         warning: "#fec9011f",
+        ok: "#17d0a64d",
+        primary: {
+          default: "#01a982",
+          hover: "#00ff0a00",
+        },
+        info: "#00c8ff1f",
         selected: {
           strong: {
             enabled: "#01a982",
@@ -29,12 +35,6 @@ export default {
             hover: "#074b3b",
           },
         },
-        primary: {
-          default: "#01a982",
-          hover: "#00ff0a00",
-        },
-        ok: "#17d0a64d",
-        info: "#00c8ff1f",
       },
       border: {
         strong: "#ffffffb8",
@@ -71,6 +71,26 @@ export default {
         onSelectedStrong: "#ffffff",
         onSelectedWeak: "#ffffff",
         onStatus: "#ffffff",
+        onCritical: {
+          strong: "#ffffff",
+          default: "#ffffff",
+        },
+        onInfo: {
+          strong: "#ffffff",
+          default: "#ffffff",
+        },
+        onOk: {
+          strong: "#ffffff",
+          default: "#ffffff",
+        },
+        onUnknown: {
+          strong: "#ffffff",
+          default: "#ffffff",
+        },
+        onWarning: {
+          strong: "#ffffff",
+          default: "#ffffff",
+        },
       },
       icon: {
         default: "#ffffff",

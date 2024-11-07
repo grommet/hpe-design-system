@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 07 Nov 2024 17:21:58 GMT
+ * Generated on Thu, 07 Nov 2024 17:46:52 GMT
  */
 
 export default {
@@ -522,6 +522,182 @@ export default {
       "warning"
     ]
   },
+  "hpe.color.background.ok": {
+    "$type": "color",
+    "value": "#17eba03d",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.green.400-Opacity24}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.ok",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "ok"
+    },
+    "path": [
+      "color",
+      "background",
+      "ok"
+    ]
+  },
+  "hpe.color.background.primary.default": {
+    "$type": "color",
+    "value": "#01a982",
+    "comment": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.green.600}",
+      "comment": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.primary.default",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "primary",
+      "subitem": "default"
+    },
+    "path": [
+      "color",
+      "background",
+      "primary",
+      "default"
+    ]
+  },
+  "hpe.color.background.primary.hover": {
+    "$type": "color",
+    "value": "#00ff0a00",
+    "comment": "Hover color variant of the primary color.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{TBD}",
+      "comment": "Hover color variant of the primary color.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.primary.hover",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "primary",
+      "subitem": "hover"
+    },
+    "path": [
+      "color",
+      "background",
+      "primary",
+      "hover"
+    ]
+  },
+  "hpe.color.background.info": {
+    "$type": "color",
+    "value": "#00c8ff3d",
+    "comment": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{base.color.blue.400-Opacity24}",
+      "comment": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.info",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "info"
+    },
+    "path": [
+      "color",
+      "background",
+      "info"
+    ]
+  },
   "hpe.color.background.selected.strong.enabled": {
     "$type": "color",
     "value": "#01a982",
@@ -708,182 +884,6 @@ export default {
       "selected",
       "weak",
       "hover"
-    ]
-  },
-  "hpe.color.background.primary.default": {
-    "$type": "color",
-    "value": "#01a982",
-    "comment": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{base.color.green.600}",
-      "comment": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.primary.default",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "primary",
-      "subitem": "default"
-    },
-    "path": [
-      "color",
-      "background",
-      "primary",
-      "default"
-    ]
-  },
-  "hpe.color.background.primary.hover": {
-    "$type": "color",
-    "value": "#00ff0a00",
-    "comment": "Hover color variant of the primary color.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{TBD}",
-      "comment": "Hover color variant of the primary color.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.primary.hover",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "primary",
-      "subitem": "hover"
-    },
-    "path": [
-      "color",
-      "background",
-      "primary",
-      "hover"
-    ]
-  },
-  "hpe.color.background.ok": {
-    "$type": "color",
-    "value": "#17eba03d",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{base.color.green.400-Opacity24}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.ok",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "ok"
-    },
-    "path": [
-      "color",
-      "background",
-      "ok"
-    ]
-  },
-  "hpe.color.background.info": {
-    "$type": "color",
-    "value": "#00c8ff3d",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{base.color.blue.400-Opacity24}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.info",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "info"
-    },
-    "path": [
-      "color",
-      "background",
-      "info"
     ]
   },
   "hpe.color.border.strong": {
@@ -2080,6 +2080,436 @@ export default {
       "color",
       "text",
       "onStatus"
+    ]
+  },
+  "hpe.color.text.onCritical.strong": {
+    "$type": "color",
+    "value": "#333333",
+    "comment": "Text color to be used on status backgrounds.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.text.strong}",
+      "comment": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onCritical.strong",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onCritical",
+      "subitem": "strong"
+    },
+    "path": [
+      "color",
+      "text",
+      "onCritical",
+      "strong"
+    ]
+  },
+  "hpe.color.text.onCritical.default": {
+    "$type": "color",
+    "value": "#555555",
+    "comment": "Text color to be used on status backgrounds.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.text.default}",
+      "comment": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onCritical.default",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onCritical",
+      "subitem": "default"
+    },
+    "path": [
+      "color",
+      "text",
+      "onCritical",
+      "default"
+    ]
+  },
+  "hpe.color.text.onInfo.strong": {
+    "$type": "color",
+    "value": "#333333",
+    "comment": "Text color to be used on status backgrounds.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.text.strong}",
+      "comment": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onInfo.strong",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onInfo",
+      "subitem": "strong"
+    },
+    "path": [
+      "color",
+      "text",
+      "onInfo",
+      "strong"
+    ]
+  },
+  "hpe.color.text.onInfo.default": {
+    "$type": "color",
+    "value": "#555555",
+    "comment": "Text color to be used on status backgrounds.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.text.default}",
+      "comment": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onInfo.default",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onInfo",
+      "subitem": "default"
+    },
+    "path": [
+      "color",
+      "text",
+      "onInfo",
+      "default"
+    ]
+  },
+  "hpe.color.text.onOk.strong": {
+    "$type": "color",
+    "value": "#333333",
+    "comment": "Text color to be used on status backgrounds.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.text.strong}",
+      "comment": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onOk.strong",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onOk",
+      "subitem": "strong"
+    },
+    "path": [
+      "color",
+      "text",
+      "onOk",
+      "strong"
+    ]
+  },
+  "hpe.color.text.onOk.default": {
+    "$type": "color",
+    "value": "#555555",
+    "comment": "Text color to be used on status backgrounds.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.text.default}",
+      "comment": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onOk.default",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onOk",
+      "subitem": "default"
+    },
+    "path": [
+      "color",
+      "text",
+      "onOk",
+      "default"
+    ]
+  },
+  "hpe.color.text.onUnknown.strong": {
+    "$type": "color",
+    "value": "#333333",
+    "comment": "Text color to be used on status backgrounds.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.text.strong}",
+      "comment": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onUnknown.strong",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onUnknown",
+      "subitem": "strong"
+    },
+    "path": [
+      "color",
+      "text",
+      "onUnknown",
+      "strong"
+    ]
+  },
+  "hpe.color.text.onUnknown.default": {
+    "$type": "color",
+    "value": "#555555",
+    "comment": "Text color to be used on status backgrounds.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.text.default}",
+      "comment": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onUnknown.default",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onUnknown",
+      "subitem": "default"
+    },
+    "path": [
+      "color",
+      "text",
+      "onUnknown",
+      "default"
+    ]
+  },
+  "hpe.color.text.onWarning.strong": {
+    "$type": "color",
+    "value": "#333333",
+    "comment": "Text color to be used on status backgrounds.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.text.strong}",
+      "comment": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onWarning.strong",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onWarning",
+      "subitem": "strong"
+    },
+    "path": [
+      "color",
+      "text",
+      "onWarning",
+      "strong"
+    ]
+  },
+  "hpe.color.text.onWarning.default": {
+    "$type": "color",
+    "value": "#555555",
+    "comment": "Text color to be used on status backgrounds.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "value": "{color.text.default}",
+      "comment": "Text color to be used on status backgrounds.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onWarning.default",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onWarning",
+      "subitem": "default"
+    },
+    "path": [
+      "color",
+      "text",
+      "onWarning",
+      "default"
     ]
   },
   "hpe.color.icon.default": {
