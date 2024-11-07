@@ -1740,7 +1740,7 @@ const buildTheme = tokens => {
         },
       },
       message: {
-        color: 'text-onStatus',
+        color: 'text',
       },
       title: {
         // any text props
@@ -1749,56 +1749,164 @@ const buildTheme = tokens => {
       },
       critical: {
         background: 'background-critical',
+        message: {
+          color: 'text-onCritical-default',
+        },
+        title: {
+          color: 'text-onCritical-strong',
+        },
         global: {
           background: 'background-critical',
+          message: {
+            color: 'text-onCritical-default',
+          },
+          title: {
+            color: 'text-onCritical-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
       warning: {
         background: 'background-warning',
+        message: {
+          color: 'text-onWarning-default',
+        },
+        title: {
+          color: 'text-onWarning-strong',
+        },
         global: {
           background: 'background-warning',
+          message: {
+            color: 'text-onWarning-default',
+          },
+          title: {
+            color: 'text-onWarning-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
       normal: {
         background: 'background-ok',
+        message: {
+          color: 'text-onOk-default',
+        },
+        title: {
+          color: 'text-onOk-strong',
+        },
         global: {
           background: 'background-ok',
+          message: {
+            color: 'text-onOk-default',
+          },
+          title: {
+            color: 'text-onOk-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
       unknown: {
-        background: 'background-contrast',
+        background: 'background-unknown',
+        message: {
+          color: 'text-onUnknown-default',
+        },
+        title: {
+          color: 'text-onUnknown-strong',
+        },
         global: {
-          background: 'background-contrast',
+          background: 'background-unknown',
+          message: {
+            color: 'text-onUnknown-default',
+          },
+          title: {
+            color: 'text-onUnknown-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
       info: {
         background: 'background-info',
+        message: {
+          color: 'text-onInfo-default',
+        },
+        title: {
+          color: 'text-onInfo-strong',
+        },
         global: {
           background: 'background-info',
+          message: {
+            color: 'text-onInfo-default',
+          },
+          title: {
+            color: 'text-onInfo-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
       undefined: {
-        background: 'background-contrast',
+        background: 'background-unknown',
+        message: {
+          color: 'text-onUnknown-default',
+        },
+        title: {
+          color: 'text-onUnknown-strong',
+        },
         global: {
-          background: 'background-contrast',
+          background: 'background-ok',
+          message: {
+            color: 'text-onUnknown-default',
+          },
+          title: {
+            color: 'text-onUnknown-strong',
+          },
         },
         toast: {
           background: 'background-front',
+          message: {
+            color: 'text',
+          },
+          title: {
+            color: 'text-strong',
+          },
         },
       },
     },
