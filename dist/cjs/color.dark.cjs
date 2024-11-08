@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 07 Nov 2024 17:46:52 GMT
+ * Generated on Fri, 08 Nov 2024 22:08:50 GMT
  */
 
 module.exports = {
@@ -19,12 +19,6 @@ module.exports = {
         "unknown": "#ffffff0f",
         "critical": "#cc1f1a4d",
         "warning": "#fec9011f",
-        "ok": "#17d0a64d",
-        "primary": {
-          "default": "#01a982",
-          "hover": "#00ff0a00"
-        },
-        "info": "#00c8ff1f",
         "selected": {
           "strong": {
             "enabled": "#01a982",
@@ -34,6 +28,15 @@ module.exports = {
             "enabled": "#093a2f",
             "hover": "#074b3b"
           }
+        },
+        "primary": {
+          "default": "#01a982",
+          "hover": "#00ff0a00"
+        },
+        "ok": "#17d0a64d",
+        "info": "#00c8ff1f",
+        "neutral": {
+          "xstrong": "#f7f7f7"
         }
       },
       "border": {
@@ -57,11 +60,11 @@ module.exports = {
         "disabled": "#ffffff3d",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
+        "onStrong": {
+          "default": "#222222"
+        },
         "heading": {
           "default": "#ffffff"
-        },
-        "inverse": {
-          "default": "#222222"
         },
         "critical": "#ffffff",
         "info": "#ffffff",

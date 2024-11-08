@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 07 Nov 2024 17:46:52 GMT
+ * Generated on Fri, 08 Nov 2024 22:08:50 GMT
  */
 
 :root {
@@ -48,7 +48,7 @@
   --hpe-color-icon-strong: var(--hpe-base-color-grey-1000); /* Stronger icon color for added prominence */
   --hpe-color-icon-default: var(--hpe-base-color-grey-800); /* Default icon colour that is accessible on standard background colours */
   --hpe-color-text-on-selected-strong: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on background-selected-strong. */
-  --hpe-color-text-inverse-default: var(--hpe-base-color-white-100);
+  --hpe-color-text-on-strong-default: var(--hpe-base-color-white-100);
   --hpe-color-text-brand: var(--hpe-base-color-green-600); /* Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px. */
   --hpe-color-text-on-primary: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour. */
   --hpe-color-text-disabled: var(--hpe-base-color-black-opacity24); /* Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level. */
@@ -61,12 +61,13 @@
   --hpe-color-border-weak: var(--hpe-base-color-black-opacity12); /* Weaker border color for reduced emphasis */
   --hpe-color-border-default: var(--hpe-base-color-black-opacity36); /* Default border colour */
   --hpe-color-border-strong: var(--hpe-base-color-black-opacity72); /* Stronger border color for added emphasis */
-  --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-125); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
-  --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-100); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
+  --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-1000);
   --hpe-color-background-info: var(--hpe-base-color-blue-400-opacity24);
+  --hpe-color-background-ok: var(--hpe-base-color-green-400-opacity24);
   --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
   --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
-  --hpe-color-background-ok: var(--hpe-base-color-green-400-opacity24);
+  --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-125); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
+  --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-100); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-warning: var(--hpe-base-color-orange-400-opacity24);
   --hpe-color-background-critical: var(--hpe-base-color-red-500-opacity24);
   --hpe-color-background-unknown: var(--hpe-base-color-black-opacity4);
