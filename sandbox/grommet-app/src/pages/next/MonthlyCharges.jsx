@@ -48,17 +48,17 @@ export const MonthlyCharges = () => {
                   {
                     property: 'storage',
                     thickness: 'small',
-                    color: 'chart-qualitative-30',
+                    color: 'graph-0',
                   },
                   {
                     property: 'compute',
                     thickness: 'small',
-                    color: 'chart-qualitative-70',
+                    color: 'graph-1',
                   },
                   {
                     property: 'networking',
                     thickness: 'small',
-                    color: 'chart-qualitative-50',
+                    color: 'graph-2',
                   },
                 ],
                 type: 'bars',
@@ -68,9 +68,9 @@ export const MonthlyCharges = () => {
             guide={{ y: { granularity: 'fine' } }}
           />
           <Box direction="row" alignSelf="center" gap="medium">
-            <Legend label="Storage" color="chart-qualitative-30" />
-            <Legend label="Compute" color="chart-qualitative-70" />
-            <Legend label="Networking" color="chart-qualitative-50" />
+            <Legend label="Storage" color="graph-0" />
+            <Legend label="Compute" color="graph-1" />
+            <Legend label="Networking" color="graph-2" />
           </Box>
         </>
       )}

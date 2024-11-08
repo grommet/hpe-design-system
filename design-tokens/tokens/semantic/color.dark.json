@@ -85,10 +85,10 @@
           }
         }
       },
-      "overlay": {
+      "screenOverlay": {
         "$type": "color",
         "$value": "{base.color.black.opacity12}",
-        "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
+        "$description": "Use for the backdrop overlay that sits behind dialogues, modals or layers.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -98,6 +98,18 @@
         }
       },
       "contrast": {
+        "$type": "color",
+        "$value": "{base.color.white.opacity12}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "unknown": {
         "$type": "color",
         "$value": "{base.color.white.opacity6}",
         "$description": "",
@@ -109,11 +121,47 @@
           }
         }
       },
-      "status": {
-        "warning": {
+      "critical": {
+        "$type": "color",
+        "$value": "{base.color.red.800-Opacity30}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{base.color.yellow.400-Opacity12}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "ok": {
+        "$type": "color",
+        "$value": "{base.color.green.500-Opacity30}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "primary": {
+        "default": {
           "$type": "color",
-          "$value": "{base.color.yellow.400-Opacity12}",
-          "$description": "",
+          "$value": "{base.color.green.600}",
+          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -122,46 +170,10 @@
             }
           }
         },
-        "unknown": {
+        "hover": {
           "$type": "color",
-          "$value": "{base.color.grey.1200}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "ok": {
-          "$type": "color",
-          "$value": "{base.color.green.500-Opacity30}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "critical": {
-          "$type": "color",
-          "$value": "{base.color.red.800-Opacity30}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "info": {
-          "$type": "color",
-          "$value": "{base.color.blue.400-Opacity12}",
-          "$description": "",
+          "$value": "{TBD}",
+          "$description": "Hover color variant of the primary color.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -171,9 +183,33 @@
           }
         }
       },
+      "info": {
+        "$type": "color",
+        "$value": "{base.color.blue.400-Opacity12}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "selected": {
         "strong": {
           "enabled": {
+            "$type": "color",
+            "$value": "{base.color.brand}",
+            "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
             "$type": "color",
             "$value": "{base.color.brand}",
             "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
@@ -209,32 +245,6 @@
                 "scopes": ["FRAME_FILL", "SHAPE_FILL"],
                 "codeSyntax": {}
               }
-            }
-          }
-        }
-      },
-      "primary": {
-        "default": {
-          "$type": "color",
-          "$value": "{base.color.green.600}",
-          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{TBD}",
-          "$description": "Hover color variant of the primary color.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
             }
           }
         }
@@ -297,6 +307,66 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": ["STROKE_COLOR", "EFFECT_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "critical": {
+        "$type": "color",
+        "$value": "{color.border.default}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{color.border.default}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "ok": {
+        "$type": "color",
+        "$value": "{color.border.default}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.border.default}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "unknown": {
+        "$type": "color",
+        "$value": "{color.border.default}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -399,6 +469,20 @@
           }
         }
       },
+      "heading": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
       "inverse": {
         "default": {
           "$type": "color",
@@ -413,17 +497,63 @@
           }
         }
       },
-      "heading": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.text.strong}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
+      "critical": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "ok": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "unknown": {
+        "$type": "color",
+        "$value": "{color.text.default}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
           }
         }
       },
@@ -460,6 +590,136 @@
             "hiddenFromPublishing": false,
             "scopes": ["TEXT_FILL"],
             "codeSyntax": {}
+          }
+        }
+      },
+      "onCritical": {
+        "strong": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.default}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "onInfo": {
+        "strong": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.default}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "onOk": {
+        "strong": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.default}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "onUnknown": {
+        "strong": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.default}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "onWarning": {
+        "strong": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.default}",
+          "$description": "Text color to be used on status backgrounds.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
           }
         }
       }
@@ -525,65 +785,63 @@
           }
         }
       },
-      "status": {
-        "critical": {
-          "$type": "color",
-          "$value": "{base.color.red.750}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
-              "codeSyntax": {}
-            }
+      "critical": {
+        "$type": "color",
+        "$value": "{base.color.red.550}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
           }
-        },
-        "info": {
-          "$type": "color",
-          "$value": "{base.color.blue.700}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
-              "codeSyntax": {}
-            }
+        }
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{base.color.blue.700}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
           }
-        },
-        "ok": {
-          "$type": "color",
-          "$value": "{base.color.green.700}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
-              "codeSyntax": {}
-            }
+        }
+      },
+      "ok": {
+        "$type": "color",
+        "$value": "{base.color.green.500}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
           }
-        },
-        "warning": {
-          "$type": "color",
-          "$value": "{base.color.orange.700}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
-              "codeSyntax": {}
-            }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{base.color.orange.600}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
           }
-        },
-        "unknown": {
-          "$type": "color",
-          "$value": "{base.color.grey.700}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
-              "codeSyntax": {}
-            }
+        }
+      },
+      "unknown": {
+        "$type": "color",
+        "$value": "{base.color.grey.700}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
           }
         }
       },
@@ -810,7 +1068,7 @@
       "categorical": {
         "10": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.green1}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -822,7 +1080,7 @@
         },
         "20": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.darkblue2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -834,7 +1092,7 @@
         },
         "30": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.gold2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -846,7 +1104,7 @@
         },
         "40": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.purple2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -858,7 +1116,7 @@
         },
         "50": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.lightblue2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -870,7 +1128,7 @@
         },
         "60": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.pink2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -882,7 +1140,7 @@
         },
         "70": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.blue2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -894,55 +1152,7 @@
         },
         "80": {
           "$type": "color",
-          "$value": "{TBD}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "20Weak": {
-          "$type": "color",
-          "$value": "{TBD}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "40Weak": {
-          "$type": "color",
-          "$value": "{TBD}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "60Weak": {
-          "$type": "color",
-          "$value": "{TBD}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "80Weak": {
-          "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.purple-2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -975,6 +1185,56 @@
           "hiddenFromPublishing": false,
           "scopes": ["STROKE_COLOR"],
           "codeSyntax": {}
+        }
+      }
+    },
+    "foreground": {
+      "primary": {
+        "$type": "color",
+        "$value": "{base.color.brand}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "critical": {
+        "$type": "color",
+        "$value": "{base.color.red.550}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{base.color.orange.600}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "unknown": {
+        "$type": "color",
+        "$value": "{base.color.grey.700}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
         }
       }
     },
@@ -1017,7 +1277,7 @@
       }
     }
   },
-  "elevation": {
+  "shadow": {
     "small": {
       "$type": "shadow",
       "$value": [

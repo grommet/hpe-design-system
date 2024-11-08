@@ -1736,15 +1736,18 @@ export const components = [
     name: 'Data',
     available: true,
     category: 'Data',
-    description:
-      'A wrapper component to enable turn-key presentation and management of data collections.',
+    description: 'Turnkey presentation and manipulation of data collections.',
     preview: {
       component: () => <DataHowTo />,
     },
     seoDescription:
-      'A wrapper component to enable turn-key presentation and management of data collections.',
+      'Turnkey presentation and manipulation of data collections.',
     sections: [],
-    relatedContent: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+    ],
   },
   {
     name: 'ToggleGroup',
