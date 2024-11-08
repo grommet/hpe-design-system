@@ -109,6 +109,9 @@ export const Example = ({
     showResponsiveControls,
     template,
     overflow,
+    ...(bestPractice
+      ? { border: { color: 'border-weak' }, round: 'small' }
+      : {}),
   };
 
   // Affects how the Example can behave/display within the outer container

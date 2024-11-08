@@ -28,12 +28,10 @@ export const ExampleControls = ({
 
   const boxProps = !horizontalLayout
     ? {
-        background: 'background-front',
-        border: {
-          side: 'top',
-          color: 'background-back',
-          size: 'xsmall',
-        },
+        background:
+          figma || docs || grommetSource || guidance
+            ? 'background-contrast'
+            : 'background',
         pad: { horizontal: 'medium', vertical: 'small' },
       }
     : {
