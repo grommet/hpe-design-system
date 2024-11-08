@@ -21,7 +21,7 @@ const Templates = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/templates"
     />
-    <PageContent gap="large">
+    <PageContent>
       <PageIntro>
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>

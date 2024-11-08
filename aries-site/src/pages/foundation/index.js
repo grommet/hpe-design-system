@@ -21,12 +21,12 @@ const Foundation = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/foundation"
     />
-    <PageContent gap="large">
+    <PageContent>
       <PageIntro>
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </PageIntro>
-      <ContentSection>
+      <ContentSection gap="medium">
         <Subsection level={2} name="Philosophy">
           <CardGrid
             cards={cards.filter(card => card.category === 'Philosophy')}

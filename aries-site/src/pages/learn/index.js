@@ -3,8 +3,6 @@ import {
   Box,
   Data,
   DataContext,
-  DataSearch,
-  DataSummary,
   Heading,
   Grid,
   PageContent,
@@ -31,8 +29,6 @@ const Learn = () => (
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </PageIntro>
       <Data data={cards} pad={{ bottom: 'large' }}>
-        <DataSearch width={{ max: 'medium', width: '100%' }} />
-        <DataSummary />
         <DataContext.Consumer>
           {({ data }) => {
             const gettingStarted = data.filter(
@@ -81,7 +77,6 @@ const Learn = () => (
                         {type.data.map(item => (
                           <ContentCard
                             key={item.name}
-                            pad="small"
                             topic={item}
                             href={item.href || nameToPath(item.name)}
                             level={3}

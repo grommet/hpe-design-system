@@ -26,6 +26,7 @@ export const HorizontalExample = ({
   return (
     <Grid columns={grid.columns[size]} gap={grid.gap}>
       <Box
+        alignSelf="start"
         // let content maintain its defined width
         flex={false}
         // when plain, keep spacing between content and
@@ -46,11 +47,13 @@ export const HorizontalExample = ({
               }
         }
         width={width}
+        border={{ color: 'border-weak' }}
+        round="small"
       >
         {content}
       </Box>
-      <Box width={{ min: 'medium' }} overflow="auto">
-        {resources}
+      <Box width={{ min: 'medium' }}>
+        <Box overflow="auto">{resources}</Box>
         {controls}
       </Box>
     </Grid>

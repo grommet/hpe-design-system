@@ -218,12 +218,20 @@ export const Example = ({
       />
     );
 
+  const generalProps =
+    !bestPractice && !plain
+      ? {
+          border: { color: 'border-weak' },
+          round: 'small',
+        }
+      : {};
+
   if (!horizontalLayout)
     content = (
-      <>
+      <Box {...generalProps}>
         {content}
         {exampleControls}
-      </>
+      </Box>
     );
 
   if (caption)

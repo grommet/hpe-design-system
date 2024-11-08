@@ -16,14 +16,12 @@ const Components = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/components"
     />
-    <PageContent gap="large">
+    <PageContent>
       <PageIntro>
-        <Box fill>
-          <Heading margin="none">{title}</Heading>
-          <Paragraph size="large">{pageDetails.description}</Paragraph>
-        </Box>
+        <Heading margin="none">{title}</Heading>
+        <Paragraph size="large">{pageDetails.description}</Paragraph>
       </PageIntro>
-      <ContentSection>
+      <ContentSection gap="medium">
         <Subsection name="Layouts">
           <CardGrid
             cards={cards.filter(

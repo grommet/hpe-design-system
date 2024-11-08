@@ -20,6 +20,6 @@ export const featured = [
     description: 'Bring your existing apps to the HPE design system',
     icon: <Star size="large" color="text-strong" />,
     label: 'Migration resources',
-    url: '/whats-new',
+    url: '/design-tokens',
   },
 ];

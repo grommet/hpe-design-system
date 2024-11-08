@@ -11,6 +11,7 @@ export const CardGrid = ({ cards, headingLevel, minimal, ...rest }) => (
     rows={[['auto', 'full']]}
     gap="medium"
     justify="center"
+    margin={{ top: 'small' }}
     {...rest}
   >
     {cards &&
