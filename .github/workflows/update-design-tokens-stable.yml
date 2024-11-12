@@ -1,4 +1,4 @@
-name: Update design-tokens-NEXT-stable
+name: Update design-tokens-stable
 on:
   push:
     branches:
