@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 08 Nov 2024 22:08:50 GMT
+ * Generated on Wed, 13 Nov 2024 18:32:01 GMT
  */
 
 module.exports = {
@@ -146,30 +146,18 @@ module.exports = {
           "green1": "#01a982",
           "darkblue1": "#00384d",
           "purple1": "#7022ec",
-          "gold1": "#be8e0a",
+          "gold1": "#bd8d09",
           "lightblue1": "#3e92cc",
           "pink1": "#a70179",
           "blue1": "#01609f",
           "grape1": "#7800a7",
-          "darkblue2": "#b3ebff",
-          "purple2": "#6013dd",
-          "gold2": "#f5c542",
-          "lightblue2": "#0074c5",
-          "pink2": "#ca319f",
-          "blue2": "#0099ff",
-          "purple-2": "#a225d3",
-          "green1000": "#074b3b",
-          "green325": "#809605",
-          "green325-opacity50": "#80960580",
-          "pink1000": "#7d006c",
-          "pink325": "#f23bda",
-          "pink325-opacity50": "#f23bda80",
-          "purple1000": "#5900a1",
-          "purple325": "#ba66ff",
-          "purple325-opacity50": "#ba66ff80",
-          "blue1000": "#193a97",
-          "blue325": "#009abf",
-          "blue325-opacity50": "#009abf80"
+          "darkblue2": "#006f99",
+          "purple2": "#803bee",
+          "gold2": "#c0910e",
+          "lightblue2": "#78bff0",
+          "pink2": "#ba2880",
+          "blue2": "#1f95e4",
+          "purple-2": "#9a3ac0"
         }
       },
       "fontFamily": {

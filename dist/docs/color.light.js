@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 08 Nov 2024 22:08:50 GMT
+ * Generated on Wed, 13 Nov 2024 18:32:02 GMT
  */
 
 export default {
@@ -3843,7 +3843,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.30": {
     "$type": "color",
-    "value": "#be8e0a",
+    "value": "#bd8d09",
     "comment": "",
     "$extensions": {
       "com.figma": {

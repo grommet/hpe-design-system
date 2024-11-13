@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 08 Nov 2024 22:08:50 GMT
+ * Generated on Wed, 13 Nov 2024 18:32:02 GMT
  */
 
 module.exports = {
@@ -131,7 +131,7 @@ module.exports = {
         "categorical": {
           "10": "#01a982",
           "20": "#00384d",
-          "30": "#be8e0a",
+          "30": "#bd8d09",
           "40": "#7022ec",
           "50": "#3e92cc",
           "60": "#a70179",

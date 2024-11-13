@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 08 Nov 2024 22:08:50 GMT
+ * Generated on Wed, 13 Nov 2024 18:32:02 GMT
  */
 
 export default {
@@ -3800,7 +3800,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.20": {
     "$type": "color",
-    "value": "#b3ebff",
+    "value": "#006f99",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -3843,7 +3843,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.30": {
     "$type": "color",
-    "value": "#f5c542",
+    "value": "#c0910e",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -3886,7 +3886,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.40": {
     "$type": "color",
-    "value": "#6013dd",
+    "value": "#803bee",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -3929,7 +3929,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.50": {
     "$type": "color",
-    "value": "#0074c5",
+    "value": "#78bff0",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -3972,7 +3972,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.60": {
     "$type": "color",
-    "value": "#ca319f",
+    "value": "#ba2880",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -4015,7 +4015,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.70": {
     "$type": "color",
-    "value": "#0099ff",
+    "value": "#1f95e4",
     "comment": "",
     "$extensions": {
       "com.figma": {
@@ -4058,7 +4058,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.80": {
     "$type": "color",
-    "value": "#a225d3",
+    "value": "#9a3ac0",
     "comment": "",
     "$extensions": {
       "com.figma": {

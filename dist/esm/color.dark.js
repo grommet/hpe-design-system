@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 08 Nov 2024 22:08:50 GMT
+ * Generated on Wed, 13 Nov 2024 18:32:02 GMT
  */
 
 export default {
@@ -130,13 +130,13 @@ export default {
       dataVis: {
         categorical: {
           "10": "#01a982",
-          "20": "#b3ebff",
-          "30": "#f5c542",
-          "40": "#6013dd",
-          "50": "#0074c5",
-          "60": "#ca319f",
-          "70": "#0099ff",
-          "80": "#a225d3",
+          "20": "#006f99",
+          "30": "#c0910e",
+          "40": "#803bee",
+          "50": "#78bff0",
+          "60": "#ba2880",
+          "70": "#1f95e4",
+          "80": "#9a3ac0",
         },
       },
       transparent: "#00000000",

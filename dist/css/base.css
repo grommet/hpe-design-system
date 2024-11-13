@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 08 Nov 2024 22:08:50 GMT
+ * Generated on Wed, 13 Nov 2024 18:32:01 GMT
  */
 
 :root {
@@ -32,30 +32,18 @@
   --hpe-base-font-family-primary: MetricHPEXS;
   --hpe-base-font-family-code: Fira Mono;
   --hpe-base-font-family-metric-hpexs: MetricHPEXS;
-  --hpe-base-color-data-vis-blue325-opacity50: #009abf80;
-  --hpe-base-color-data-vis-blue325: #009abf;
-  --hpe-base-color-data-vis-blue1000: #193a97;
-  --hpe-base-color-data-vis-purple325-opacity50: #ba66ff80;
-  --hpe-base-color-data-vis-purple325: #ba66ff;
-  --hpe-base-color-data-vis-purple1000: #5900a1;
-  --hpe-base-color-data-vis-pink325-opacity50: #f23bda80;
-  --hpe-base-color-data-vis-pink325: #f23bda;
-  --hpe-base-color-data-vis-pink1000: #7d006c;
-  --hpe-base-color-data-vis-green325-opacity50: #80960580;
-  --hpe-base-color-data-vis-green325: #809605;
-  --hpe-base-color-data-vis-green1000: #074b3b;
-  --hpe-base-color-data-vis-purple-2: #a225d3;
-  --hpe-base-color-data-vis-blue2: #0099ff;
-  --hpe-base-color-data-vis-pink2: #ca319f;
-  --hpe-base-color-data-vis-lightblue2: #0074c5;
-  --hpe-base-color-data-vis-gold2: #f5c542;
-  --hpe-base-color-data-vis-purple2: #6013dd;
-  --hpe-base-color-data-vis-darkblue2: #b3ebff;
+  --hpe-base-color-data-vis-purple-2: #9a3ac0;
+  --hpe-base-color-data-vis-blue2: #1f95e4;
+  --hpe-base-color-data-vis-pink2: #ba2880;
+  --hpe-base-color-data-vis-lightblue2: #78bff0;
+  --hpe-base-color-data-vis-gold2: #c0910e;
+  --hpe-base-color-data-vis-purple2: #803bee;
+  --hpe-base-color-data-vis-darkblue2: #006f99;
   --hpe-base-color-data-vis-grape1: #7800a7;
   --hpe-base-color-data-vis-blue1: #01609f;
   --hpe-base-color-data-vis-pink1: #a70179;
   --hpe-base-color-data-vis-lightblue1: #3e92cc;
-  --hpe-base-color-data-vis-gold1: #be8e0a;
+  --hpe-base-color-data-vis-gold1: #bd8d09;
   --hpe-base-color-data-vis-purple1: #7022ec;
   --hpe-base-color-data-vis-darkblue1: #00384d;
   --hpe-base-color-data-vis-green1: #01a982;
