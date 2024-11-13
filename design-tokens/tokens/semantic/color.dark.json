@@ -109,9 +109,33 @@
           }
         }
       },
+      "info": {
+        "$type": "color",
+        "$value": "{base.color.blue.400-Opacity12}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "unknown": {
         "$type": "color",
-        "$value": "{base.color.white.opacity6}",
+        "$value": "{base.color.grey.1200}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "ok": {
+        "$type": "color",
+        "$value": "{base.color.green.500-Opacity30}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -145,22 +169,10 @@
           }
         }
       },
-      "ok": {
-        "$type": "color",
-        "$value": "{base.color.green.500-Opacity30}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "primary": {
         "default": {
           "$type": "color",
-          "$value": "{base.color.green.600}",
+          "$value": "{base.color.green.700}",
           "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
           "$extensions": {
             "com.figma": {
@@ -172,7 +184,7 @@
         },
         "hover": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.green.900}",
           "$description": "Hover color variant of the primary color.",
           "$extensions": {
             "com.figma": {
@@ -180,18 +192,6 @@
               "scopes": ["FRAME_FILL", "SHAPE_FILL"],
               "codeSyntax": {}
             }
-          }
-        }
-      },
-      "info": {
-        "$type": "color",
-        "$value": "{base.color.blue.400-Opacity12}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
           }
         }
       },
@@ -313,7 +313,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{color.border.default}",
+        "$value": "{color.foreground.critical}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -445,6 +445,18 @@
           }
         }
       },
+      "primary": {
+        "$type": "color",
+        "$value": "{base.color.brand}",
+        "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "onPrimary": {
         "$type": "color",
         "$value": "{base.color.white.100}",
@@ -499,7 +511,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{color.text.default}",
+        "$value": "{color.foreground.critical}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -787,7 +799,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{base.color.red.550}",
+        "$value": "{color.foreground.critical}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -835,12 +847,24 @@
       },
       "unknown": {
         "$type": "color",
-        "$value": "{base.color.grey.700}",
+        "$value": "{base.color.grey.800}",
         "$description": "",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "{base.color.brand}",
+        "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
             "codeSyntax": {}
           }
         }
@@ -1258,7 +1282,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["EFFECT_COLOR"],
+            "scopes": ["EFFEC_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -1270,7 +1294,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["EFFECT_COLOR"],
+            "scopes": ["ALL_SCOPES"],
             "codeSyntax": {}
           }
         }

@@ -83,12 +83,10 @@ export const SearchResults = ({
 
   return (
     <Box
-      background="background-front"
+      background={{ color: 'background-front', dark: false }}
       round="medium"
-      // gap="small"
       width="large"
       height={{ max: '576px' }}
-      // fill="vertical"
       {...rest}
     >
       <Box align="center" direction="row" pad="medium" gap="small" flex={false}>

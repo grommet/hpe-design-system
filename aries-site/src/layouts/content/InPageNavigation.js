@@ -137,10 +137,8 @@ export const InPageNavigation = ({ headings, title }) => {
               <Button
                 label={headingTitle}
                 active={active}
-                kind="navigation"
                 size="small"
                 align="start"
-                style={{ color: 'inherit' }}
                 margin={{ left: subsectionPad }}
               />
               {/* <SectionButton theme={theme} hoverIndicator>

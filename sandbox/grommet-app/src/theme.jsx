@@ -169,7 +169,7 @@ const access = (path, object) => {
 
 const componentSizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
 const buttonKinds = ['default', 'secondary', 'primary', 'toolbar'];
-const buttonStates = ['active', 'hover', 'disabled'];
+const buttonStates = ['hover', 'active', 'disabled'];
 
 const textSizes = [
   'xsmall',
@@ -582,6 +582,25 @@ const buildTheme = tokens => {
               components.hpe.button?.[kind]?.[adjustedState].enabled.fontWeight,
           },
         };
+        if (!('active' in buttonStatesTheme.hover))
+          buttonStatesTheme.hover.active = {};
+        buttonStatesTheme.hover[state][kind] = {
+          background: {
+            color:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover?.background,
+          },
+          border: {
+            color:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover
+                ?.borderColor,
+          },
+          color:
+            components.hpe.button?.[kind]?.[adjustedState]?.hover?.textColor,
+          font: {
+            weight:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover?.fontWeight,
+          },
+        };
       } else if (kind === 'option') {
         if (state === 'active') adjustedState = 'selected';
         buttonStatesTheme[state][kind] = {
@@ -765,6 +784,7 @@ const buildTheme = tokens => {
           large: elevationlight
             ? elevationlight.hpe.elevation.large
             : light.hpe.shadow.large,
+          'inset-selected': `inset 3px 0 ${light.hpe.color.border.selected}`,
         },
         dark: {
           small: elevationdark
@@ -776,6 +796,7 @@ const buildTheme = tokens => {
           large: elevationdark
             ? elevationdark.hpe.elevation.large
             : dark.hpe.shadow.large,
+          'inset-selected': `inset 3px 0 ${dark.hpe.color.border.selected}`,
         },
       },
       hover: {
@@ -893,6 +914,7 @@ const buildTheme = tokens => {
           font: {
             weight: components.hpe.select.option.selected.enabled.fontWeight,
           },
+          elevation: 'inset-selected',
         },
       },
       hover: {
@@ -952,7 +974,7 @@ const buildTheme = tokens => {
             background: 'background-selected-strong-hover',
           },
           font: {
-            weight: global.hpe.fontWeight.bold,
+            weight: global.hpe.fontWeight.medium,
           },
         },
         inRange: {
@@ -980,27 +1002,35 @@ const buildTheme = tokens => {
         daySize: '27.43px',
         title: {
           size: 'medium',
-          weight: MISSING.weight,
-          color: MISSING.color,
+          weight: global.hpe.fontWeight.normal,
+          color: 'text-strong',
         },
       },
       medium: {
         fontSize: '18px',
         lineHeight: 1.45,
         daySize: '54.86px',
-        day: {},
+        day: {
+          round: 'full',
+        },
         range: {
           round: 'none',
           start: {
-            round: 'none',
+            round: {
+              corner: 'left',
+              size: 'full',
+            },
           },
           end: {
-            round: 'none',
+            round: {
+              corner: 'right',
+              size: 'full',
+            },
           },
         },
         title: {
           size: 'large',
-          weight: global.hpe.fontWeight.medium,
+          weight: global.hpe.fontWeight.normal,
           color: 'text-strong',
         },
       },
@@ -1010,8 +1040,8 @@ const buildTheme = tokens => {
         daySize: '109.71px',
         title: {
           size: 'xlarge',
-          weight: MISSING.weight,
-          color: MISSING.color,
+          weight: global.hpe.fontWeight.normal,
+          color: 'text-strong',
         },
       },
     },
@@ -1133,7 +1163,7 @@ const buildTheme = tokens => {
         size: components.hpe.switch.medium.control.track.width,
         // TO DO need token for handle elevation
         knob: {
-          extend: ({ theme }) => `
+          extend: ({ theme, checked }) => `
              box-shadow: ${
                theme.global.elevation[theme.dark ? 'dark' : 'light'].small
              };
@@ -1148,6 +1178,8 @@ const buildTheme = tokens => {
           };
           width: ${components.hpe.switch.medium.control.handle.width};
           height: ${components.hpe.switch.medium.control.handle.height};
+          top: 1px; // TO DO token?
+          ${!checked ? 'left: 1px;' : ''} // TO DO token?
           `,
         },
         extend: ({ checked, theme }) => `
@@ -1318,27 +1350,27 @@ const buildTheme = tokens => {
         // Q: confused on which token to use here formfield.medium.input.group.item.borderWidth?
         color: components.hpe.formField.input.container.enabled.borderColor,
         side: 'all',
-        style: 'dashed',
+        style: 'solid',
         size: components.hpe.formField.medium.input.container.borderWidth,
       },
       button: {
-        background: components.hpe.button.default.enabled.background,
+        background: components.hpe.button.secondary.enabled.background,
         border: {
           // Q: is this the correct value?
           // A: yes
-          radius: components.hpe.button.medium.default.borderRadius,
+          radius: components.hpe.button.medium.secondary.borderRadius,
         },
         pad: {
-          vertical: components.hpe.button.medium.default.paddingY,
-          horizontal: components.hpe.button.medium.default.paddingX,
+          vertical: components.hpe.button.medium.secondary.paddingY,
+          horizontal: components.hpe.button.medium.secondary.paddingX,
         },
-        color: components.hpe.button.default.enabled.textColor,
+        color: components.hpe.button.secondary.enabled.textColor,
         font: {
-          weight: components.hpe.button.default.enabled.fontWeight,
+          weight: components.hpe.button.secondary.enabled.fontWeight,
         },
         hover: {
-          background: components.hpe.button.default.hover.background,
-          color: components.hpe.button.default.hover.textColor,
+          background: components.hpe.button.secondary.hover.background,
+          color: components.hpe.button.secondary.hover.textColor,
         },
       },
       dragOver: {
@@ -1399,7 +1431,9 @@ const buildTheme = tokens => {
         container: {
           gap: 'xsmall', // Q: missing token
         },
-        icon: <CircleAlert size="small" color={light.hpe.color.icon.strong} />, // TO DO need to handle modes
+        icon: (
+          <CircleAlert size="small" color={light.hpe.color.icon.critical} />
+        ), // TO DO need to handle modes
         size: 'xsmall', // Q: missing token
         // Q: confused why we have both hpe.formField.errorText.enabled.textColor
         // and hpe.formField.errorText.disabled.color
@@ -2101,9 +2135,19 @@ const buildTheme = tokens => {
       },
       color: components.hpe.radioButton.control.selected.enabled.borderColor,
       container: {
-        extend: () => `
+        extend: ({ theme }) => `
         width: auto;
-        padding-inline: ${components.hpe.formField.medium.input.group.item.paddingX};
+        padding-inline: ${
+          components.hpe.formField.medium.input.group.item.paddingX
+        };
+        &:has(input[checked]) {
+          background: ${
+            // TO DO how to only do in FormField
+            theme.global.colors['background-selected-weak-enabled'][
+              theme.dark ? 'dark' : 'light'
+            ]
+          };
+        }
       `,
       },
       extend: () => `
@@ -2129,7 +2173,7 @@ const buildTheme = tokens => {
               components.hpe.radioButton.control.selected.enabled.iconColor
             }
           >
-            <circle cx="12" cy="12" r="8" />
+            <circle cx="12" cy="12" r="6" />
           </Blank>
         ),
       },
@@ -2217,52 +2261,64 @@ const buildTheme = tokens => {
     tab: {
       color: 'text',
       active: {
-        background: undefined,
-        color: 'text-strong',
-        weight: 600,
+        background: 'background-selected-strong-enabled',
+        color: 'text-onSelectedStrong',
+        weight: 500,
       },
       hover: {
-        background: 'transparent',
+        background: 'background-hover',
         color: 'text',
       },
       border: {
-        side: 'bottom',
+        side: 'all',
         color: 'transparent',
-        size: 'medium',
+        size:
+          dimensions[components.hpe.element?.medium.borderWidth] ||
+          components.hpe.element?.medium.borderWidth,
         active: {
-          color: 'brand',
+          color: 'transparent',
         },
         disabled: {
           color: undefined,
         },
         hover: {
-          color: 'border-weak',
+          color: undefined,
         },
       },
       disabled: {
-        color: 'text-xweak',
+        background: 'background-disabled',
+        color: 'text-disabled',
       },
       pad: {
-        // top and bottom pad need to be defined individually, specifying
-        // "vertical" only applies to top
-        bottom: '9px',
-        top: '9px',
-        // align horizontal pad with button
-        horizontal: '18px',
+        bottom: components.hpe.element?.medium.paddingY,
+        top: components.hpe.element?.medium.paddingY,
+        horizontal: components.hpe.element?.medium?.paddingX?.wide,
       },
       margin: {
-        // bring the overall tabs border behind invidual tab borders
-        vertical: '-1px',
+        vertical: 'none',
         horizontal: 'none',
       },
+      extend: ({ theme }) => `border-radius: ${theme.global.edgeSize.xsmall};`,
     },
     tabs: {
+      gap: 'small',
       header: {
-        border: {
-          side: 'bottom',
-          size: 'xsmall',
-          color: 'border-weak',
-        },
+        border: undefined,
+        extend: ({ theme }) => `
+          border-radius: ${theme.global.edgeSize.xsmall}; 
+          & button[aria-selected="true"]:hover > div {
+            background: ${
+              theme.global.colors['background-selected-strong-hover'][
+                theme.dark ? 'dark' : 'light'
+              ]
+            };
+            color: ${
+              theme.global.colors['text-onSelectedStrong'][
+                theme.dark ? 'dark' : 'light'
+              ]
+            };
+          }
+        `,
       },
       step: {
         xsmall: 1,
@@ -2320,7 +2376,7 @@ const buildTheme = tokens => {
     // TO DO NOTE: Tag dimensions are off because there was a bug in Tag in 3.1.0
     tag: {
       border: {
-        color: 'border',
+        color: 'border-weak',
       },
       icons: {
         remove: Close,
@@ -2338,7 +2394,7 @@ const buildTheme = tokens => {
         // weight: MISSING.weight, // TO DO
         weight: global.hpe.fontWeight.medium,
       },
-      round: 'large',
+      round: 'xsmall',
       size: {
         xsmall: {
           icon: undefined,
@@ -2367,6 +2423,7 @@ const buildTheme = tokens => {
             },
           },
         },
+        // TO DO tag rounding is overriding "default" rounding, do we expect this?
         medium: {
           icon: undefined,
           pad: {
@@ -2410,6 +2467,7 @@ const buildTheme = tokens => {
     },
     text: {
       ...textTheme,
+      extend: '', // TO DO can remove once merging, needed to override current extend
     },
     textInput: {
       container: {
@@ -2450,25 +2508,12 @@ const buildTheme = tokens => {
     },
     toggleGroup: {
       button: {
-        pad: {
-          // these are fine since it is built with buttons
-          vertical: '6px',
-          horizontal: '12px',
-        },
-        iconOnly: {
-          // Q this will be a token?
-          pad: {
-            vertical: parseInt(mediumIconOnlyPad, 10),
-            horizontal: parseInt(mediumIconOnlyPad, 10),
-          },
-        },
+        kind: 'toolbar',
       },
       container: {
-        border: {
-          color: components.hpe.button.toolbar.enabled.borderColor,
-          size: components.hpe.button.medium.toolbar.borderWidth,
-        },
+        border: false,
       },
+      divider: false,
     },
     buttonGroup: {
       gap: 'small',

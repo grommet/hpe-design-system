@@ -109,9 +109,33 @@
           }
         }
       },
+      "info": {
+        "$type": "color",
+        "$value": "{base.color.blue.400-Opacity24}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "unknown": {
         "$type": "color",
-        "$value": "{base.color.black.opacity4}",
+        "$value": "{base.color.grey.50}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "ok": {
+        "$type": "color",
+        "$value": "{base.color.green.400-Opacity24}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -145,22 +169,10 @@
           }
         }
       },
-      "ok": {
-        "$type": "color",
-        "$value": "{base.color.green.400-Opacity24}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "primary": {
         "default": {
           "$type": "color",
-          "$value": "{base.color.green.600}",
+          "$value": "{base.color.green.700}",
           "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
           "$extensions": {
             "com.figma": {
@@ -172,7 +184,7 @@
         },
         "hover": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.green.800}",
           "$description": "Hover color variant of the primary color.",
           "$extensions": {
             "com.figma": {
@@ -183,23 +195,11 @@
           }
         }
       },
-      "info": {
-        "$type": "color",
-        "$value": "{base.color.blue.400-Opacity24}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "selected": {
         "strong": {
           "enabled": {
             "$type": "color",
-            "$value": "{base.color.brand}",
+            "$value": "{color.background.primary.default}",
             "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
             "$extensions": {
               "com.figma": {
@@ -211,7 +211,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.brand}",
+            "$value": "{color.background.primary.hover}",
             "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
             "$extensions": {
               "com.figma": {
@@ -225,7 +225,7 @@
         "weak": {
           "enabled": {
             "$type": "color",
-            "$value": "{base.color.green.100}",
+            "$value": "#CBFAEB",
             "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
             "$extensions": {
               "com.figma": {
@@ -301,7 +301,7 @@
       },
       "selected": {
         "$type": "color",
-        "$value": "{base.color.green.600}",
+        "$value": "{base.color.green.700}",
         "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
         "$extensions": {
           "com.figma": {
@@ -313,7 +313,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{color.border.default}",
+        "$value": "{base.color.red.800}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -469,6 +469,18 @@
           }
         }
       },
+      "primary": {
+        "$type": "color",
+        "$value": "{base.color.green.800}",
+        "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "heading": {
         "default": {
           "$type": "color",
@@ -499,7 +511,7 @@
       },
       "critical": {
         "$type": "color",
-        "$value": "{color.text.default}",
+        "$value": "{base.color.red.800}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -571,7 +583,7 @@
       },
       "onSelectedWeak": {
         "$type": "color",
-        "$value": "{color.text.strong}",
+        "$value": "{base.color.green.900}",
         "$description": "Text color to be used for text sitting on background-selected-strong.",
         "$extensions": {
           "com.figma": {
@@ -841,6 +853,18 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "{base.color.green.800}",
+        "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
             "codeSyntax": {}
           }
         }
@@ -1270,7 +1294,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["EFFECT_COLOR"],
+            "scopes": ["ALL_SCOPES"],
             "codeSyntax": {}
           }
         }

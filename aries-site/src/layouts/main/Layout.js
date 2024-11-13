@@ -47,6 +47,7 @@ import { getRelatedContent, getPageDetails, nameToPath } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateNotification } from '../content/UpdateNotification';
 import { ViewContext } from '../../pages/_app';
+import { Login } from '../../components/Login';
 
 const pageDetails = getPageDetails('Home');
 const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
@@ -58,6 +59,13 @@ export const Layout = ({
   topic,
   isLanding = false,
 }) => {
+  const [authenticated, setAuthenticated] = useState(
+    localStorage.getItem('theme-update-demo') || false,
+  );
+  useEffect(() => {
+    if (localStorage.getItem('theme-update-demo')) setAuthenticated(true);
+  }, []);
+
   useEffect(() => {
     if (Config.gaId) {
       initialize(Config.gaId);
@@ -225,7 +233,7 @@ export const Layout = ({
           <Button
             a11yTitle="Hide sidebar"
             alignSelf="start"
-            icon={<Sidebar color="brand" />}
+            icon={<Sidebar color="icon-primary" />}
             onClick={() => setShowSidebar(false)}
           />
           {navContent}
@@ -247,7 +255,7 @@ export const Layout = ({
       </Layer>
     );
   }
-  return (
+  return authenticated ? (
     <Box direction="row">
       {nav}
       <Page>
@@ -353,6 +361,8 @@ export const Layout = ({
         </>
       </Page>
     </Box>
+  ) : (
+    <Login />
   );
 };
 

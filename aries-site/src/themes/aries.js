@@ -51,39 +51,10 @@ export const aries = deepMerge(hpe, {
 
 export const ariesPop = deepMerge(aries, {
   ...hpePop,
-  anchor: {
-    // rely on base anchor styling to meet color contrast on background-back
-    size: {
-      large: undefined,
-      xlarge: undefined,
+  global: {
+    colors: {
+      brand: '#01A892',
     },
-  },
-  button: {
-    navigation: {
-      background: 'none',
-      font: {
-        color: 'text',
-        weight: 400,
-      },
-    },
-    active: {
-      navigation: {
-        color: 'text-strong',
-        font: {
-          weight: 500,
-        },
-      },
-    },
-    hover: {
-      navigation: {
-        color: 'text-strong',
-        background: 'background-contrast',
-      },
-    },
-  },
-  heading: {
-    ...hpePop.heading,
-    color: 'text',
   },
   layer: {
     border: {
