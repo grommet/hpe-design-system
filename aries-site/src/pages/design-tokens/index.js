@@ -68,7 +68,7 @@ const Tokens = () => (
                       <Grid
                         columns="medium"
                         rows={[['auto', 'full']]}
-                        gap="medium"
+                        gap="large"
                       >
                         {type.data.map(item => (
                           <ContentCard
