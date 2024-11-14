@@ -3,7 +3,7 @@ import { deepFreeze } from 'grommet/utils';
 import {
   dark as localDark,
   light as localLight,
-  large as localLarge,
+  medium as localMedium,
   small as localSmall,
   global as localGlobal,
   components as localComponents,
@@ -2485,7 +2485,7 @@ export const current = buildTheme({
   light: localLight,
   dark: localDark,
   small: localSmall,
-  large: localLarge,
+  large: localMedium,
   global: localGlobal,
   components: localComponents,
 });
@@ -2494,7 +2494,7 @@ export const warm = buildTheme({
   light: localLight,
   dark: localDark,
   small: localSmall,
-  large: localLarge,
+  large: localMedium,
   global: localGlobal,
   components: localComponents,
 });
