@@ -1,9 +1,8 @@
 /**
  * Do not edit directly
- * Generated on Thu, 14 Nov 2024 21:55:53 GMT
+ * Generated on Thu, 14 Nov 2024 22:04:58 GMT
  */
 
-@media (max-width: 1080px) {
 :root {
   --hpe-paragraph-xxlarge-max-width: 25em;
   --hpe-paragraph-xlarge-max-width: 25em;
@@ -113,5 +112,4 @@
   --hpe-spacing-xxsmall: var(--hpe-base-static-spacing-xxsmall);
   --hpe-spacing-hair: var(--hpe-base-static-spacing-hair);
   --hpe-spacing-none: var(--hpe-base-static-spacing-none);
-}
 }
