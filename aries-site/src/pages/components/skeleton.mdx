@@ -1,19 +1,36 @@
 import { Notification } from 'grommet';
 import { Example } from '../../layouts';
-import { DashBoardSkeletonExample, SkeletonAnatomy } from '../../examples';
+import { DashboardChartsExample, DashBoardSkeletonExample, SkeletonAnatomy } from '../../examples';
 
 <Example
   componentName="Skeleton"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/skeleton/DashBoardSkeletonExample.js"
   grommetSource="https://github.com/grommet/grommet/tree/master/src/js/components/Skeleton/Skeleton.js"
   docs="https://v2.grommet.io/skeleton?theme=hpe#props"
-  height="500px"
-  align="start"
-  overflow="auto"
+
   width="100%"
 >
   <DashBoardSkeletonExample />
 </Example>
+
+## Use cases
+
+Loading data collections, such as:
+- Tables
+- Lists
+- Cards
+- Dashboards
+
+<Example>
+  <DashboardChartsExample />
+</Example>
+
+Loading dashboard content where contents may be fetched from a variety of services, such as:
+- User profiles
+- Notifications
+- Messages
+- Activity feeds
+- Chart summaries
 
 ### Use When
 - Waiting for content to be returned and displayed to a user, to provide a sense of page structure and minimize layout shifts.
@@ -28,9 +45,31 @@ import { DashBoardSkeletonExample, SkeletonAnatomy } from '../../examples';
 </Example>
 
 
+### Variants
+
 Skeletons come in three different shapes - circular, rounded, and rectangular. The shape, size, and elevation of a Skeleton are all dependent on the UI elements that are loading. 
 Grommet has added `skeleton` property in order to make it easy to switch between a skeleton state and data-rich state for a variety of components.
 The components that currently support skeleton are:
 - Text, Paragraph, Heading
 - Button
 - Box, Card, Pageheader, Footer, Header
+
+### Accessibility
+
+Skeletons are not meant to be interactive, and should not receive focus. They should only be used to 
+indicate loading states. Ensure that screen readers are informed of the loading state by using `aria-live` 
+attributes. For example, you can use `aria-live="polite"` to announce loading states to screen readers.
+
+### Best Practices
+
+- Use Skeletons to provide a visual cue to users that content is loading.
+- Avoid using Skeletons for long periods of time, as they can lead to confusion if users are left waiting without feedback.
+- Ensure that the transition from Skeleton to actual content is smooth to enhance user experience.
+- Consider using a combination of Skeletons and other loading indicators (like spinners) for better user feedback.
+
+### Conclusion
+
+Skeletons are a useful tool for improving user experience during loading states. They provide a visual 
+representation of the content structure, helping users understand what to expect while waiting for 
+data to load. By following best practices and accessibility guidelines, you can effectively implement 
+Skeletons in your applications.
