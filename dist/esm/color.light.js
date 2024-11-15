@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 14 Nov 2024 22:04:58 GMT
+ * Generated on Fri, 15 Nov 2024 18:00:24 GMT
  */
 
 export default {
@@ -16,6 +16,7 @@ export default {
         floating: "#ffffff",
         screenOverlay: "#0000001f",
         contrast: "#0000000a",
+        info: "#00c8ff3d",
         unknown: "#0000000a",
         critical: "#fc61613d",
         warning: "#ffbc443d",
@@ -34,7 +35,6 @@ export default {
           hover: "#00ff0a00",
         },
         ok: "#17eba03d",
-        info: "#00c8ff3d",
         neutral: {
           xstrong: "#333333",
         },

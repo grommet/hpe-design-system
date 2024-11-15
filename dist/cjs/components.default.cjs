@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 14 Nov 2024 22:04:58 GMT
+ * Generated on Fri, 15 Nov 2024 18:00:24 GMT
  */
 
 module.exports = {
@@ -781,10 +781,6 @@ module.exports = {
           "background": "background-default",
           "borderColor": "border-strong"
         },
-        "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
-        },
         "selected": {
           "enabled": {
             "background": "background-selected-strong-enabled",
@@ -801,6 +797,10 @@ module.exports = {
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
+        },
+        "disabled": {
+          "background": "background-disabled",
+          "borderColor": "border-disabled"
         },
         "indeterminate": {
           "enabled": {

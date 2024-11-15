@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 14 Nov 2024 22:04:58 GMT
+ * Generated on Fri, 15 Nov 2024 18:00:24 GMT
  */
 
 module.exports = {
@@ -16,6 +16,7 @@ module.exports = {
         "floating": "#292929",
         "screenOverlay": "#0000001f",
         "contrast": "#ffffff1f",
+        "info": "#00c8ff1f",
         "unknown": "#ffffff0f",
         "critical": "#cc1f1a4d",
         "warning": "#fec9011f",
@@ -34,7 +35,6 @@ module.exports = {
           "hover": "#00ff0a00"
         },
         "ok": "#17d0a64d",
-        "info": "#00c8ff1f",
         "neutral": {
           "xstrong": "#f7f7f7"
         }

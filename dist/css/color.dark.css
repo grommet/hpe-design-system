@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 14 Nov 2024 22:04:58 GMT
+ * Generated on Fri, 15 Nov 2024 18:00:24 GMT
  */
 
 :root[data-mode=dark] {
@@ -62,7 +62,6 @@
   --hpe-color-border-default: var(--hpe-base-color-white-opacity36); /* Default border colour */
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /* Stronger border color for added emphasis */
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-50);
-  --hpe-color-background-info: var(--hpe-base-color-blue-400-opacity12);
   --hpe-color-background-ok: var(--hpe-base-color-green-500-opacity30);
   --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
   --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
@@ -71,6 +70,7 @@
   --hpe-color-background-warning: var(--hpe-base-color-yellow-400-opacity12);
   --hpe-color-background-critical: var(--hpe-base-color-red-800-opacity30);
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6);
+  --hpe-color-background-info: var(--hpe-base-color-blue-400-opacity12);
   --hpe-color-background-contrast: var(--hpe-base-color-white-opacity12);
   --hpe-color-background-screen-overlay: var(--hpe-base-color-black-opacity12); /* Use for the backdrop overlay that sits behind dialogues, modals or layers. */
   --hpe-color-background-floating: var(--hpe-base-color-grey-1100); /* Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons. */
@@ -173,7 +173,6 @@
   --hpe-color-border-default: var(--hpe-base-color-white-opacity36); /* Default border colour */
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /* Stronger border color for added emphasis */
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-50);
-  --hpe-color-background-info: var(--hpe-base-color-blue-400-opacity12);
   --hpe-color-background-ok: var(--hpe-base-color-green-500-opacity30);
   --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
   --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
@@ -182,6 +181,7 @@
   --hpe-color-background-warning: var(--hpe-base-color-yellow-400-opacity12);
   --hpe-color-background-critical: var(--hpe-base-color-red-800-opacity30);
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6);
+  --hpe-color-background-info: var(--hpe-base-color-blue-400-opacity12);
   --hpe-color-background-contrast: var(--hpe-base-color-white-opacity12);
   --hpe-color-background-screen-overlay: var(--hpe-base-color-black-opacity12); /* Use for the backdrop overlay that sits behind dialogues, modals or layers. */
   --hpe-color-background-floating: var(--hpe-base-color-grey-1100); /* Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons. */
