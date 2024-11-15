@@ -48,6 +48,7 @@ const data = [
 export const ListImageIdentifierExample = () => (
   <Box width={{ max: 'xxlarge' }} margin="auto" fill>
     <List
+      aria-label="Locations of people and image of location"
       background="background-front"
       data={data}
       onClickItem={e => {
