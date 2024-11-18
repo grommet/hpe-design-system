@@ -196,6 +196,8 @@ const buildTheme = tokens => {
     components,
   } = tokens;
 
+  const sd4 = 'valueText' in components.hpe.formField.medium ? false : true;
+
   const flatColors = flattenObject(light, '-');
   const tokenColors = {};
   Object.keys(flatColors).forEach(color => {
@@ -659,7 +661,9 @@ const buildTheme = tokens => {
       input: {
         font: {
           height: 'inherit',
-          weight: components.hpe.formField.medium.valueText.fontWeight,
+          weight:
+            components.hpe.formField.medium[!sd4 ? 'valueText' : 'value']
+              .fontWeight,
         },
         padding: {
           horizontal: components.hpe.formField.medium.input.container.paddingX,
@@ -675,15 +679,27 @@ const buildTheme = tokens => {
         },
         extend: `
           &::-webkit-input-placeholder {
-          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+          font-weight: ${
+            components.hpe.formField.medium[
+              !sd4 ? 'placeholderText' : 'placeholder'
+            ].fontWeight
+          };
         }
       
         &::-moz-placeholder {
-          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+          font-weight: ${
+            components.hpe.formField.medium[
+              !sd4 ? 'placeholderText' : 'placeholder'
+            ].fontWeight
+          };
         }
       
         &:-ms-input-placeholder {
-          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+          font-weight: ${
+            components.hpe.formField.medium[
+              !sd4 ? 'placeholderText' : 'placeholder'
+            ].fontWeight
+          };
         }
         `,
       },
@@ -1388,7 +1404,9 @@ const buildTheme = tokens => {
           color: components.hpe.formField.input.container.disabled.borderColor,
         },
         label: {
-          color: components.hpe.formField.labelText.disabled.textColor,
+          color:
+            components.hpe.formField[!sd4 ? 'labelText' : 'label'].disabled
+              .textColor,
         },
       },
       error: {
@@ -1404,7 +1422,9 @@ const buildTheme = tokens => {
         // Q: confused why we have both hpe.formField.errorText.enabled.textColor
         // and hpe.formField.errorText.disabled.color
         // A: This is to be able to style text differently in different states
-        color: components.hpe.formField.errorText.enabled.textColor,
+        color:
+          components.hpe.formField[!sd4 ? 'errorText' : 'error'].enabled
+            .textColor,
         margin: {
           // Q: missing token
           bottom: 'xsmall',
@@ -1420,12 +1440,14 @@ const buildTheme = tokens => {
       },
       help: {
         size: 'xsmall',
-        color: components.hpe.formField.helpText.enabled.color,
+        color:
+          components.hpe.formField[!sd4 ? 'helpText' : 'help'].enabled.color,
         margin: 'none', // TO DO missing token
       },
       info: {
         size: 'xsmall',
-        color: components.hpe.formField.infoText.enabled.color,
+        color:
+          components.hpe.formField[!sd4 ? 'infoText' : 'info'].enabled.color,
         margin: {
           // Q: missing token
           bottom: 'xsmall',
@@ -1435,7 +1457,8 @@ const buildTheme = tokens => {
       },
       label: {
         size: 'xsmall', // TO DO how to capture this as token, currently we have "fontSize", "lineHeight", "..."
-        color: components.hpe.formField.labelText.enabled.color,
+        color:
+          components.hpe.formField[!sd4 ? 'labelText' : 'label'].enabled.color,
         margin: {
           // Q: missing token
           bottom: 'none',
@@ -1443,7 +1466,9 @@ const buildTheme = tokens => {
           horizontal: 'none',
         },
         requiredIndicator: true,
-        weight: components.hpe.formField.medium.labelText.fontWeight,
+        weight:
+          components.hpe.formField.medium[!sd4 ? 'labelText' : 'label']
+            .fontWeight,
       },
       margin: {
         bottom: 'none', // TO DO missing token
