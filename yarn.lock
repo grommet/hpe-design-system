@@ -6047,9 +6047,9 @@ ejs@^3.1.10:
     jake "^10.8.5"
 
 electron-to-chromium@^1.5.41:
-  version "1.5.62"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.62.tgz#8289468414b0b0b3e9180ef619a763555debe612"
-  integrity sha512-t8c+zLmJHa9dJy96yBZRXGQYoiCEnHYgFwn1asvSPZSUdVxnB62A4RASd7k41ytG3ErFBA0TpHlKg9D9SQBmLg==
+  version "1.5.63"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.63.tgz#69444d592fbbe628d129866c2355691ea93eda3e"
+  integrity sha512-ddeXKuY9BHo/mw145axlyWjlJ1UBt4WK3AlvkT7W2AbqfRQoacVoRUCF6wL3uIx/8wT9oLKXzI+rFqHHscByaA==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -9741,9 +9741,9 @@ macos-release@^3.0.1:
   integrity sha512-tPJQ1HeyiU2vRruNGhZ+VleWuMQRro8iFtJxYgnS4NQe+EukKF6aGiIT+7flZhISAt2iaXBCfFGvAyif7/f8nQ==
 
 magic-string@^0.30.5:
-  version "0.30.12"
-  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.30.12.tgz#9eb11c9d072b9bcb4940a5b2c2e1a217e4ee1a60"
-  integrity sha512-Ea8I3sQMVXr8JhN4z+H/d8zwo+tYDgHE9+5G4Wnrwhs0gaK9fXTKx0Tw5Xwsd/bCPTTZNRAdpyzvoeORe9LYpw==
+  version "0.30.13"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.30.13.tgz#92438e3ff4946cf54f18247c981e5c161c46683c"
+  integrity sha512-8rYBO+MsWkgjDSOvLomYnzhdwEG51olQ4zL5KXnNJWV5MNmrb4rTZdrtkhxjnD/QyZUqR/Z/XDsUs/4ej2nx0g==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.5.0"
 
