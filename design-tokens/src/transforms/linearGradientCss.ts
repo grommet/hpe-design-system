@@ -1,4 +1,4 @@
-import type { Transform, TransformedToken } from 'style-dictionary';
+import { Transform, TransformedToken } from 'style-dictionary/types';
 
 /**
  * See W3C design token spec: https://tr.designtokens.org/format/#gradient
@@ -9,11 +9,12 @@ type GradientStop = {
 };
 
 export const linearGradientCss: Transform = {
+  name: 'linearGradient/css',
   type: `value`,
   transitive: true,
-  matcher: (token: TransformedToken): boolean => token?.$type === 'gradient',
-  transformer: (token: TransformedToken) => {
-    const stops = token.value.stops
+  filter: (token: TransformedToken): boolean => token?.$type === 'gradient',
+  transform: (token: TransformedToken) => {
+    const stops = token.$value.stops
       .map(
         (stop: GradientStop) =>
           `${stop.color}${
@@ -23,7 +24,7 @@ export const linearGradientCss: Transform = {
       .join(', ');
 
     return `linear-gradient(${
-      token.value.angle ? `${token.value.angle}deg, ` : ''
+      token.$value.angle ? `${token.$value.angle}deg, ` : ''
     }${stops})`;
   },
 };
