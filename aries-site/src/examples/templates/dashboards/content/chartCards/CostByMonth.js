@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Grid, DataChart, Text } from 'grommet';
+import { DataChart, Text, Box, NameValueList } from 'grommet';
 import { ChartCard, Measure } from '../../components';
 import {
   convertDatesToFeatures,
@@ -115,49 +115,40 @@ export const CostByMonth = ({ period }) => {
     }
   }, [values]);
 
-  const grid = {
-    columns: ['auto', 'auto'],
-    rows: ['auto', 'auto'],
-    areas: [
-      ['measure', 'projection'],
-      ['chart', 'chart'],
-    ],
-    gap: 'medium',
-  };
-
   return (
     <ChartCard title="Cost by month" subtitle={period}>
-      {values && (
-        <Grid
-          columns={grid.columns}
-          rows={grid.rows}
-          areas={grid.areas}
-          gap={grid.gap}
-        >
+      {values && (     
+        <Box gap="medium">
+          <NameValueList
+            valueProps={{ width: ['xsmall', 'auto'] }}
+            pairProps={{ direction: 'column' }}
+            layout="grid"
+          >
+            <Measure
+              gridArea="measure"
+              name={{ label: { label: 'Monthly Average', size: 'medium' } }}
+              value={{
+                value: formatCurrency(meanCost, Navigator.language),
+                size: 'xlarge',
+              }}
+            />
+            <Measure
+              gridArea="projection"
+              name={{
+                label: { label: 'Projected, Next Month', size: 'medium' },
+              }}
+              value={{
+                value: formatCurrency(projectedCost, Navigator.language),
+                size: 'xlarge',
+              }}
+            />
+          </NameValueList>
           <MonthlySpend
             gridArea="chart"
             reportWindow={reportWindow}
             data={values}
           />
-          <Measure
-            gridArea="measure"
-            name={{ label: { label: 'Monthly Average', size: 'medium' } }}
-            value={{
-              value: formatCurrency(meanCost, Navigator.language),
-              size: 'xlarge',
-            }}
-          />
-          <Measure
-            gridArea="projection"
-            name={{
-              label: { label: 'Projected, Next Month', size: 'medium' },
-            }}
-            value={{
-              value: formatCurrency(projectedCost, Navigator.language),
-              size: 'xlarge',
-            }}
-          />
-        </Grid>
+        </Box>
       )}
     </ChartCard>
   );
