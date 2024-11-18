@@ -1,6 +1,5 @@
 /**
- * Do not edit directly
- * Generated on Fri, 15 Nov 2024 18:00:24 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 export default {
@@ -105,7 +104,7 @@ export default {
     "button": {
       "primary": {
         "enabled": {
-          "background": "linear-gradient(70deg, #00000000, #01a982 35%, #00000000 70%, #01a982 100%)",
+          "background": "linear-gradient(70deg, rgba(0, 0, 0, 0), #01a982 35%, rgba(0, 0, 0, 0) 70%, #01a982 100%)",
           "borderColor": "transparent",
           "textColor": "text-onPrimary",
           "iconColor": "icon-onPrimary",
@@ -1078,32 +1077,32 @@ export default {
             "textToElementX": "12px"
           }
         },
-        "labelText": {
+        "label": {
           "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "fontWeight": 500
         },
-        "placeholderText": {
+        "placeholder": {
           "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "fontWeight": 400
         },
-        "helpText": {
+        "help": {
           "fontSize": "0.875rem",
           "lineHeight": "0.75rem",
           "fontWeight": 400
         },
-        "infoText": {
+        "info": {
           "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "fontWeight": 400
         },
-        "errorText": {
+        "error": {
           "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "fontWeight": 400
         },
-        "valueText": {
+        "value": {
           "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "fontWeight": 500
@@ -1183,7 +1182,7 @@ export default {
           }
         }
       },
-      "labelText": {
+      "label": {
         "enabled": {
           "textColor": "text-strong"
         },
@@ -1205,7 +1204,7 @@ export default {
           }
         }
       },
-      "placeholderText": {
+      "placeholder": {
         "disabled": "text-disabled",
         "enabled": {
           "textColor": "text-weak"
@@ -1225,7 +1224,7 @@ export default {
           }
         }
       },
-      "helpText": {
+      "help": {
         "enabled": {
           "textColor": "text-default"
         },
@@ -1247,7 +1246,7 @@ export default {
           }
         }
       },
-      "infoText": {
+      "info": {
         "enabled": {
           "textColor": "text-default"
         },
@@ -1269,7 +1268,7 @@ export default {
           }
         }
       },
-      "errorText": {
+      "error": {
         "enabled": {
           "textColor": "text-critical",
           "iconColor": "icon-default"
@@ -1297,7 +1296,7 @@ export default {
           }
         }
       },
-      "valueText": {
+      "value": {
         "enabled": {
           "textColor": "text-default"
         },

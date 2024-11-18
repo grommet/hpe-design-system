@@ -1,6 +1,5 @@
 /**
- * Do not edit directly
- * Generated on Fri, 15 Nov 2024 18:00:24 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 module.exports = {
@@ -8,18 +7,18 @@ module.exports = {
     "color": {
       "background": {
         "default": "#ffffff",
-        "hover": "#0000000a",
-        "active": "#0000000a",
-        "disabled": "#0000000a",
+        "hover": "rgba(0, 0, 0, 0.04)",
+        "active": "rgba(0, 0, 0, 0.04)",
+        "disabled": "rgba(0, 0, 0, 0.04)",
         "back": "#f7f7f7",
         "front": "#ffffff",
         "floating": "#ffffff",
-        "screenOverlay": "#0000001f",
-        "contrast": "#0000000a",
-        "info": "#00c8ff3d",
-        "unknown": "#0000000a",
-        "critical": "#fc61613d",
-        "warning": "#ffbc443d",
+        "screenOverlay": "rgba(0, 0, 0, 0.12)",
+        "contrast": "rgba(0, 0, 0, 0.04)",
+        "info": "rgba(0, 200, 255, 0.24)",
+        "unknown": "rgba(0, 0, 0, 0.04)",
+        "critical": "rgba(252, 97, 97, 0.24)",
+        "warning": "rgba(255, 188, 68, 0.24)",
         "selected": {
           "strong": {
             "enabled": "#01a982",
@@ -32,24 +31,24 @@ module.exports = {
         },
         "primary": {
           "default": "#01a982",
-          "hover": "#00ff0a00"
+          "hover": "rgba(0, 255, 10, 0)"
         },
-        "ok": "#17eba03d",
+        "ok": "rgba(23, 235, 160, 0.24)",
         "neutral": {
           "xstrong": "#333333"
         }
       },
       "border": {
-        "strong": "#000000b8",
-        "default": "#0000005c",
-        "weak": "#0000001f",
-        "disabled": "#0000001f",
+        "strong": "rgba(0, 0, 0, 0.72)",
+        "default": "rgba(0, 0, 0, 0.36)",
+        "weak": "rgba(0, 0, 0, 0.12)",
+        "disabled": "rgba(0, 0, 0, 0.12)",
         "selected": "#01a982",
-        "critical": "#0000005c",
-        "info": "#0000005c",
-        "ok": "#0000005c",
-        "warning": "#0000005c",
-        "unknown": "#0000005c"
+        "critical": "rgba(0, 0, 0, 0.36)",
+        "info": "rgba(0, 0, 0, 0.36)",
+        "ok": "rgba(0, 0, 0, 0.36)",
+        "warning": "rgba(0, 0, 0, 0.36)",
+        "unknown": "rgba(0, 0, 0, 0.36)"
       },
       "text": {
         "default": "#555555",
@@ -57,7 +56,7 @@ module.exports = {
         "weak": "#757575",
         "xweak": "#bbbbbb",
         "placeholder": "#757575",
-        "disabled": "#0000003d",
+        "disabled": "rgba(0, 0, 0, 0.24)",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
         "onStrong": {
@@ -100,7 +99,7 @@ module.exports = {
         "strong": "#333333",
         "weak": "#757575",
         "xweak": "#bbbbbb",
-        "disabled": "#0000003d",
+        "disabled": "rgba(0, 0, 0, 0.24)",
         "critical": "#ec3331",
         "info": "#00c8ff",
         "ok": "#009a71",
@@ -139,7 +138,7 @@ module.exports = {
           "80": "#7800a7"
         }
       },
-      "transparent": "#00000000",
+      "transparent": "rgba(0, 0, 0, 0)",
       "focus": "#00e8cf",
       "foreground": {
         "primary": "#01a982",
@@ -148,15 +147,15 @@ module.exports = {
         "unknown": "#8c8c8c"
       },
       "shadow": {
-        "weak": "#0000001f",
-        "default": "#0000001f",
-        "strong": "#0000003d"
+        "weak": "rgba(0, 0, 0, 0.12)",
+        "default": "rgba(0, 0, 0, 0.12)",
+        "strong": "rgba(0, 0, 0, 0.24)"
       }
     },
     "shadow": {
-      "small": "0 4px 4px 0 #0000001f",
-      "medium": "0px 6px 12px 0px #0000001f",
-      "large": "0px 12px 24px 0px #0000001f"
+      "small": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+      "medium": "0px 6px 12px 0px rgba(0, 0, 0, 0.12) ",
+      "large": "0px 12px 24px 0px rgba(0, 0, 0, 0.12) "
     }
   }
 }

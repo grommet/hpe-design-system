@@ -1,6 +1,5 @@
 /**
- * Do not edit directly
- * Generated on Fri, 15 Nov 2024 18:00:24 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 module.exports = {
