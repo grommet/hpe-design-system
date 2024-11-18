@@ -1136,10 +1136,11 @@ const buildTheme = tokens => {
       label: {
         align: 'start',
       },
-      pad: {
-        vertical: components.hpe.element?.medium.paddingY,
-        horizontal: components.hpe.formField.medium.input.container.paddingX, // TO DO is this correct usage?
-      },
+      // pad: {
+      //   vertical: components.hpe.element?.medium.paddingY,
+      //   horizontal: components.hpe.formField.medium.input.container.paddingX, // TO DO is this correct usage?
+      // },
+      pad: 'none',
       size: components.hpe.checkbox.medium.control.width, // TO DO should this token be called "size" instead?
       // Q is toggle and switch the same thing?
       // A: Yes, we can discuss if this name feels right or not.
@@ -1190,14 +1191,7 @@ const buildTheme = tokens => {
       // HPE Design System guidance states that pad="none" should be applied on CheckBox
       // when its used outside of a FormField. We will apply this hover treatment in
       // those instances.
-      extend: ({ disabled, pad }) => css`
-      ${
-        !disabled &&
-        pad === 'none' &&
-        `&:hover {
-        background-color: unset;
-      }`
-      }
+      extend: () => css`
       font-weight: ${components.hpe.checkbox.medium.label.fontWeight};
       width: auto;
     };
@@ -1205,11 +1199,8 @@ const buildTheme = tokens => {
     },
     checkBoxGroup: {
       container: {
-        gap: 'none', // TO DO missing token
-        margin: {
-          vertical:
-            components.hpe.formField.medium.input.group.container.paddingY,
-        },
+        gap: 'xsmall', // TO DO missing token
+        margin: 'none',
       },
     },
     data: {
@@ -1380,10 +1371,50 @@ const buildTheme = tokens => {
       extend: `border-radius: ${components.hpe.formField.medium.input.container.borderRadius};`,
     },
     formField: {
+      extend: ({ theme }) => `
+        // TO DO bad practice
+        [class*="ContentBox"] {
+          label {
+          padding-block: ${
+            components.hpe.formField.medium.input.group.item.paddingY
+          };
+          padding-inline: ${
+            components.hpe.formField.medium.input.group.item.paddingX
+          };
+          &:hover {
+            background: ${
+              theme.global.colors[
+                components.hpe.formField.input.group.item.hover.background
+              ][theme.dark ? 'dark' : 'light']
+            };
+          }
+        }
+          [role="group"], [role="radiogroup"] {
+            gap: 0; // TO DO need checkboxgroup to use cssGap
+            padding-block: ${
+              components.hpe.formField.medium.input.group.container.paddingY
+            };
+            label {
+              padding-block: ${
+                components.hpe.formField.medium.input.group.item.paddingY
+              };
+              padding-inline: ${
+                components.hpe.formField.medium.input.group.item.paddingX
+              };
+              &:hover {
+                background: ${
+                  theme.global.colors[
+                    components.hpe.formField.input.group.item.hover.background
+                  ][theme.dark ? 'dark' : 'light']
+                };
+              }
+          }
+        }
+      }`,
       content: {
         // Q: missing tokens
         margin: { vertical: 'xsmall' },
-        pad: 'none',
+        pad: 'none', // TO DO when we have a CheckBoxGroup or RadioButtonGroup, we want padding
       },
       border: {
         error: {
@@ -1394,9 +1425,12 @@ const buildTheme = tokens => {
         color: components.hpe.formField.input.container.enabled.borderColor,
         side: 'all',
       },
-      // checkBox: {
-      //   pad: 'large',
-      // },
+      checkBox: {
+        pad: {
+          horizontal: components.hpe.formField.medium.input.group.item.paddingX,
+          vertical: components.hpe.formField.medium.input.group.item.paddingY,
+        },
+      },
       disabled: {
         background:
           components.hpe.formField.input.group.container.disabled.background,
@@ -2128,17 +2162,13 @@ const buildTheme = tokens => {
       container: {
         extend: () => `
         width: auto;
-        padding-inline: ${components.hpe.formField.medium.input.group.item.paddingX};
+        padding-inline: none;
       `,
       },
-      extend: () => `
-        padding-block: ${components.hpe.formField.medium.input.group.item.paddingY};
-      `,
+      extend: () => ``,
       gap: components.hpe.radioButton.medium.gapX,
       hover: {
-        background: {
-          color: components.hpe.formField.input.group.item.hover.background,
-        },
+        background: 'transparent',
         border: {
           color: components.hpe.radioButton.control.hover.borderColor,
         },
@@ -2161,11 +2191,8 @@ const buildTheme = tokens => {
     },
     radioButtonGroup: {
       container: {
-        gap: 'none', // TO DO should be token?
-        margin: {
-          vertical:
-            components.hpe.formField.medium.input.group.container.paddingY,
-        },
+        gap: 'xsmall', // TO DO should be token?
+        margin: 'none',
       },
     },
     rangeInput: {
