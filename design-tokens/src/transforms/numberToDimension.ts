@@ -1,9 +1,10 @@
 import { Transform, TransformedToken } from 'style-dictionary/types';
 
 export const numberToDimension: Transform = {
+  name: 'numberToDimension',
   type: 'value',
   transitive: true,
-  matcher: (token: TransformedToken) => {
+  filter: (token: TransformedToken) => {
     if (
       token.attributes?.type &&
       // TO DO automate this
@@ -26,13 +27,13 @@ export const numberToDimension: Transform = {
       return true;
     return false;
   },
-  transformer: (token: TransformedToken) => {
+  transform: (token: TransformedToken) => {
     const fontToken = ['lineHeight', 'fontSize'].find(v =>
       token.path.includes(v),
     );
 
-    if (typeof token.value === 'string') return token.value;
-    if (fontToken) return `${token.value / 16}rem`;
-    return `${token.value}px`;
+    if (typeof token.$value === 'string') return token.$value;
+    if (fontToken) return `${token.$value / 16}rem`;
+    return `${token.$value}px`;
   },
 };
