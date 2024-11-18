@@ -1,13 +1,12 @@
 /**
- * Do not edit directly
- * Generated on Tue, 12 Nov 2024 20:55:32 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 export default {
   "hpe.color.background.default": {
     "$type": "color",
-    "value": "#1c1c1c",
-    "comment": "Default color for component backgrounds in the default/enabled state. Can also be used for page background.",
+    "$value": "#1c1c1c",
+    "$description": "Default color for component backgrounds in the default/enabled state. Can also be used for page background.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -22,8 +21,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.grey.1300}",
-      "comment": "Default color for component backgrounds in the default/enabled state. Can also be used for page background.",
+      "$value": "{base.color.grey.1300}",
+      "$description": "Default color for component backgrounds in the default/enabled state. Can also be used for page background.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -49,8 +48,8 @@ export default {
   },
   "hpe.color.background.hover": {
     "$type": "color",
-    "value": "#ffffff0f",
-    "comment": "Standard hover state color",
+    "$value": "rgba(255, 255, 255, 0.06)",
+    "$description": "Standard hover state color",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -65,8 +64,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity6}",
-      "comment": "Standard hover state color",
+      "$value": "{base.color.white.opacity6}",
+      "$description": "Standard hover state color",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -92,8 +91,8 @@ export default {
   },
   "hpe.color.background.active": {
     "$type": "color",
-    "value": "#ffffff0f",
-    "comment": "Standard active state color",
+    "$value": "rgba(255, 255, 255, 0.06)",
+    "$description": "Standard active state color",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -108,8 +107,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity6}",
-      "comment": "Standard active state color",
+      "$value": "{base.color.white.opacity6}",
+      "$description": "Standard active state color",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -135,8 +134,8 @@ export default {
   },
   "hpe.color.background.disabled": {
     "$type": "color",
-    "value": "#ffffff12",
-    "comment": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+    "$value": "rgba(255, 255, 255, 0.07)",
+    "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -151,8 +150,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity7}",
-      "comment": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$value": "{base.color.white.opacity7}",
+      "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -178,8 +177,8 @@ export default {
   },
   "hpe.color.background.back": {
     "$type": "color",
-    "value": "#1c1c1c",
-    "comment": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
+    "$value": "#1c1c1c",
+    "$description": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -194,8 +193,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.grey.1300}",
-      "comment": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
+      "$value": "{base.color.grey.1300}",
+      "$description": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -221,8 +220,8 @@ export default {
   },
   "hpe.color.background.front": {
     "$type": "color",
-    "value": "#222222",
-    "comment": "Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table.",
+    "$value": "#222222",
+    "$description": "Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -237,8 +236,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.grey.1200}",
-      "comment": "Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table.",
+      "$value": "{base.color.grey.1200}",
+      "$description": "Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -264,8 +263,8 @@ export default {
   },
   "hpe.color.background.floating": {
     "$type": "color",
-    "value": "#292929",
-    "comment": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
+    "$value": "#292929",
+    "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -280,8 +279,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.grey.1100}",
-      "comment": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
+      "$value": "{base.color.grey.1100}",
+      "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -307,8 +306,8 @@ export default {
   },
   "hpe.color.background.screenOverlay": {
     "$type": "color",
-    "value": "#0000001f",
-    "comment": "Use for the backdrop overlay that sits behind dialogues, modals or layers.",
+    "$value": "rgba(0, 0, 0, 0.12)",
+    "$description": "Use for the backdrop overlay that sits behind dialogues, modals or layers.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -323,8 +322,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.black.opacity12}",
-      "comment": "Use for the backdrop overlay that sits behind dialogues, modals or layers.",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "Use for the backdrop overlay that sits behind dialogues, modals or layers.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -350,8 +349,8 @@ export default {
   },
   "hpe.color.background.contrast": {
     "$type": "color",
-    "value": "#ffffff1f",
-    "comment": "",
+    "$value": "rgba(255, 255, 255, 0.12)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -367,8 +366,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity12}",
-      "comment": "",
+      "$value": "{base.color.white.opacity12}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -395,8 +394,8 @@ export default {
   },
   "hpe.color.background.info": {
     "$type": "color",
-    "value": "#00c8ff1f",
-    "comment": "",
+    "$value": "rgba(0, 200, 255, 0.12)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -411,8 +410,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.blue.400-Opacity12}",
-      "comment": "",
+      "$value": "{base.color.blue.400-Opacity12}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -438,8 +437,8 @@ export default {
   },
   "hpe.color.background.unknown": {
     "$type": "color",
-    "value": "#222222",
-    "comment": "",
+    "$value": "#222222",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -454,8 +453,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.grey.1200}",
-      "comment": "",
+      "$value": "{base.color.grey.1200}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -481,8 +480,8 @@ export default {
   },
   "hpe.color.background.ok": {
     "$type": "color",
-    "value": "#17d0a64d",
-    "comment": "",
+    "$value": "rgba(23, 208, 166, 0.3)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -497,8 +496,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.500-Opacity30}",
-      "comment": "",
+      "$value": "{base.color.green.500-Opacity30}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -524,8 +523,8 @@ export default {
   },
   "hpe.color.background.critical": {
     "$type": "color",
-    "value": "#cc1f1a4d",
-    "comment": "",
+    "$value": "rgba(204, 31, 26, 0.3)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -540,8 +539,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.red.800-Opacity30}",
-      "comment": "",
+      "$value": "{base.color.red.800-Opacity30}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -567,8 +566,8 @@ export default {
   },
   "hpe.color.background.warning": {
     "$type": "color",
-    "value": "#fec9011f",
-    "comment": "",
+    "$value": "rgba(254, 201, 1, 0.12)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -583,8 +582,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.yellow.400-Opacity12}",
-      "comment": "",
+      "$value": "{base.color.yellow.400-Opacity12}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -610,8 +609,8 @@ export default {
   },
   "hpe.color.background.primary.default": {
     "$type": "color",
-    "value": "#008567",
-    "comment": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+    "$value": "#007c60",
+    "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -626,8 +625,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.700}",
-      "comment": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+      "$value": "#007C60",
+      "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -655,8 +654,8 @@ export default {
   },
   "hpe.color.background.primary.hover": {
     "$type": "color",
-    "value": "#074b3b",
-    "comment": "Hover color variant of the primary color.",
+    "$value": "#00513f",
+    "$description": "Hover color variant of the primary color.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -671,8 +670,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.900}",
-      "comment": "Hover color variant of the primary color.",
+      "$value": "#00513F",
+      "$description": "Hover color variant of the primary color.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -700,8 +699,8 @@ export default {
   },
   "hpe.color.background.selected.strong.enabled": {
     "$type": "color",
-    "value": "#01a982",
-    "comment": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+    "$value": "#007c60",
+    "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -716,8 +715,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.brand}",
-      "comment": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+      "$value": "{color.background.primary.default}",
+      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -747,8 +746,8 @@ export default {
   },
   "hpe.color.background.selected.strong.hover": {
     "$type": "color",
-    "value": "#01a982",
-    "comment": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+    "$value": "#00513f",
+    "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -763,8 +762,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.brand}",
-      "comment": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+      "$value": "{color.background.primary.hover}",
+      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -794,8 +793,8 @@ export default {
   },
   "hpe.color.background.selected.weak.enabled": {
     "$type": "color",
-    "value": "#093a2f",
-    "comment": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+    "$value": "#093a2f",
+    "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -810,8 +809,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.1000}",
-      "comment": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+      "$value": "{base.color.green.1000}",
+      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -841,8 +840,8 @@ export default {
   },
   "hpe.color.background.selected.weak.hover": {
     "$type": "color",
-    "value": "#074b3b",
-    "comment": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+    "$value": "#074b3b",
+    "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -857,8 +856,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.900}",
-      "comment": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+      "$value": "{base.color.green.900}",
+      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -886,10 +885,53 @@ export default {
       "hover"
     ]
   },
+  "hpe.color.background.neutral.xstrong": {
+    "$type": "color",
+    "$value": "#f7f7f7",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.grey.50}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.neutral.xstrong",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "neutral",
+      "subitem": "xstrong"
+    },
+    "path": [
+      "color",
+      "background",
+      "neutral",
+      "xstrong"
+    ]
+  },
   "hpe.color.border.strong": {
     "$type": "color",
-    "value": "#ffffffb8",
-    "comment": "Stronger border color for added emphasis",
+    "$value": "rgba(255, 255, 255, 0.72)",
+    "$description": "Stronger border color for added emphasis",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -903,8 +945,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity72}",
-      "comment": "Stronger border color for added emphasis",
+      "$value": "{base.color.white.opacity72}",
+      "$description": "Stronger border color for added emphasis",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -929,8 +971,8 @@ export default {
   },
   "hpe.color.border.default": {
     "$type": "color",
-    "value": "#ffffff5c",
-    "comment": "Default border colour",
+    "$value": "rgba(255, 255, 255, 0.36)",
+    "$description": "Default border colour",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -945,8 +987,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity36}",
-      "comment": "Default border colour",
+      "$value": "{base.color.white.opacity36}",
+      "$description": "Default border colour",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -972,8 +1014,8 @@ export default {
   },
   "hpe.color.border.weak": {
     "$type": "color",
-    "value": "#ffffff1f",
-    "comment": "Weaker border color for reduced emphasis",
+    "$value": "rgba(255, 255, 255, 0.12)",
+    "$description": "Weaker border color for reduced emphasis",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -988,8 +1030,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity12}",
-      "comment": "Weaker border color for reduced emphasis",
+      "$value": "{base.color.white.opacity12}",
+      "$description": "Weaker border color for reduced emphasis",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1015,8 +1057,8 @@ export default {
   },
   "hpe.color.border.disabled": {
     "$type": "color",
-    "value": "#ffffff1f",
-    "comment": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+    "$value": "rgba(255, 255, 255, 0.12)",
+    "$description": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1031,8 +1073,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity12}",
-      "comment": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$value": "{base.color.white.opacity12}",
+      "$description": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1058,8 +1100,8 @@ export default {
   },
   "hpe.color.border.selected": {
     "$type": "color",
-    "value": "#01a982",
-    "comment": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
+    "$value": "#01a982",
+    "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1074,8 +1116,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.600}",
-      "comment": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
+      "$value": "{base.color.green.600}",
+      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1101,8 +1143,8 @@ export default {
   },
   "hpe.color.border.critical": {
     "$type": "color",
-    "value": "#fc5a5a",
-    "comment": "",
+    "$value": "#fc5a5a",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1116,8 +1158,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.foreground.critical}",
-      "comment": "",
+      "$value": "{color.foreground.critical}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1142,8 +1184,8 @@ export default {
   },
   "hpe.color.border.info": {
     "$type": "color",
-    "value": "#ffffff5c",
-    "comment": "",
+    "$value": "rgba(255, 255, 255, 0.36)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1159,8 +1201,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.border.default}",
-      "comment": "",
+      "$value": "{color.border.default}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1187,8 +1229,8 @@ export default {
   },
   "hpe.color.border.ok": {
     "$type": "color",
-    "value": "#ffffff5c",
-    "comment": "",
+    "$value": "rgba(255, 255, 255, 0.36)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1204,8 +1246,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.border.default}",
-      "comment": "",
+      "$value": "{color.border.default}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1232,8 +1274,8 @@ export default {
   },
   "hpe.color.border.warning": {
     "$type": "color",
-    "value": "#ffffff5c",
-    "comment": "",
+    "$value": "rgba(255, 255, 255, 0.36)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1249,8 +1291,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.border.default}",
-      "comment": "",
+      "$value": "{color.border.default}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1277,8 +1319,8 @@ export default {
   },
   "hpe.color.border.unknown": {
     "$type": "color",
-    "value": "#ffffff5c",
-    "comment": "",
+    "$value": "rgba(255, 255, 255, 0.36)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1294,8 +1336,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.border.default}",
-      "comment": "",
+      "$value": "{color.border.default}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1322,8 +1364,8 @@ export default {
   },
   "hpe.color.text.default": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Default text color that is accessible on standard background colors",
+    "$value": "#ffffff",
+    "$description": "Default text color that is accessible on standard background colors",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1337,8 +1379,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.100}",
-      "comment": "Default text color that is accessible on standard background colors",
+      "$value": "{base.color.white.100}",
+      "$description": "Default text color that is accessible on standard background colors",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1363,8 +1405,8 @@ export default {
   },
   "hpe.color.text.strong": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Stronger text color for added prominence",
+    "$value": "#ffffff",
+    "$description": "Stronger text color for added prominence",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1378,8 +1420,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.100}",
-      "comment": "Stronger text color for added prominence",
+      "$value": "{base.color.white.100}",
+      "$description": "Stronger text color for added prominence",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1404,8 +1446,8 @@ export default {
   },
   "hpe.color.text.weak": {
     "$type": "color",
-    "value": "#ffffff80",
-    "comment": "Weaker text color for reduced emphasis",
+    "$value": "rgba(255, 255, 255, 0.5)",
+    "$description": "Weaker text color for reduced emphasis",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1419,8 +1461,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity50}",
-      "comment": "Weaker text color for reduced emphasis",
+      "$value": "{base.color.white.opacity50}",
+      "$description": "Weaker text color for reduced emphasis",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1445,8 +1487,8 @@ export default {
   },
   "hpe.color.text.xweak": {
     "$type": "color",
-    "value": "#ffffff33",
-    "comment": "",
+    "$value": "rgba(255, 255, 255, 0.2)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1460,8 +1502,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity20}",
-      "comment": "",
+      "$value": "{base.color.white.opacity20}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1486,8 +1528,8 @@ export default {
   },
   "hpe.color.text.placeholder": {
     "$type": "color",
-    "value": "#ffffff80",
-    "comment": "",
+    "$value": "rgba(255, 255, 255, 0.5)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1501,8 +1543,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.weak}",
-      "comment": "",
+      "$value": "{color.text.weak}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1527,8 +1569,8 @@ export default {
   },
   "hpe.color.text.disabled": {
     "$type": "color",
-    "value": "#ffffff3d",
-    "comment": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+    "$value": "rgba(255, 255, 255, 0.24)",
+    "$description": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1542,8 +1584,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity24}",
-      "comment": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$value": "{base.color.white.opacity24}",
+      "$description": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1568,8 +1610,8 @@ export default {
   },
   "hpe.color.text.primary": {
     "$type": "color",
-    "value": "#01a982",
-    "comment": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+    "$value": "#01a982",
+    "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1583,8 +1625,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.brand}",
-      "comment": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+      "$value": "{base.color.brand}",
+      "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1609,8 +1651,8 @@ export default {
   },
   "hpe.color.text.onPrimary": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1624,8 +1666,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.100}",
-      "comment": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+      "$value": "{base.color.white.100}",
+      "$description": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1650,8 +1692,8 @@ export default {
   },
   "hpe.color.text.brand": {
     "$type": "color",
-    "value": "#01a982",
-    "comment": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+    "$value": "#01a982",
+    "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1665,8 +1707,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.600}",
-      "comment": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+      "$value": "{base.color.green.600}",
+      "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1689,10 +1731,53 @@ export default {
       "brand"
     ]
   },
+  "hpe.color.text.onStrong.default": {
+    "$type": "color",
+    "$value": "#222222",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.grey.1200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onStrong.default",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onStrong",
+      "subitem": "default"
+    },
+    "path": [
+      "color",
+      "text",
+      "onStrong",
+      "default"
+    ]
+  },
   "hpe.color.text.heading.default": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "",
+    "$value": "#ffffff",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1706,8 +1791,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.strong}",
-      "comment": "",
+      "$value": "{color.text.strong}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1732,53 +1817,10 @@ export default {
       "default"
     ]
   },
-  "hpe.color.text.inverse.default": {
-    "$type": "color",
-    "value": "#222222",
-    "comment": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "value": "{base.color.grey.1200}",
-      "comment": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.inverse.default",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "inverse",
-      "subitem": "default"
-    },
-    "path": [
-      "color",
-      "text",
-      "inverse",
-      "default"
-    ]
-  },
   "hpe.color.text.critical": {
     "$type": "color",
-    "value": "#fc5a5a",
-    "comment": "",
+    "$value": "#fc5a5a",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1794,8 +1836,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.foreground.critical}",
-      "comment": "",
+      "$value": "{color.foreground.critical}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1822,8 +1864,8 @@ export default {
   },
   "hpe.color.text.info": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "",
+    "$value": "#ffffff",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1839,8 +1881,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.default}",
-      "comment": "",
+      "$value": "{color.text.default}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1867,8 +1909,8 @@ export default {
   },
   "hpe.color.text.ok": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "",
+    "$value": "#ffffff",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1884,8 +1926,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.default}",
-      "comment": "",
+      "$value": "{color.text.default}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1912,8 +1954,8 @@ export default {
   },
   "hpe.color.text.warning": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "",
+    "$value": "#ffffff",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1929,8 +1971,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.default}",
-      "comment": "",
+      "$value": "{color.text.default}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1957,8 +1999,8 @@ export default {
   },
   "hpe.color.text.unknown": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "",
+    "$value": "#ffffff",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1974,8 +2016,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.default}",
-      "comment": "",
+      "$value": "{color.text.default}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2002,8 +2044,8 @@ export default {
   },
   "hpe.color.text.onSelectedStrong": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used for text sitting on background-selected-strong.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used for text sitting on background-selected-strong.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2017,8 +2059,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.100}",
-      "comment": "Text color to be used for text sitting on background-selected-strong.",
+      "$value": "{base.color.white.100}",
+      "$description": "Text color to be used for text sitting on background-selected-strong.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2043,8 +2085,8 @@ export default {
   },
   "hpe.color.text.onSelectedWeak": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used for text sitting on background-selected-strong.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used for text sitting on background-selected-strong.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2058,8 +2100,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.strong}",
-      "comment": "Text color to be used for text sitting on background-selected-strong.",
+      "$value": "{color.text.strong}",
+      "$description": "Text color to be used for text sitting on background-selected-strong.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2084,8 +2126,8 @@ export default {
   },
   "hpe.color.text.onStatus": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used on status backgrounds.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2099,8 +2141,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.default}",
-      "comment": "Text color to be used on status backgrounds.",
+      "$value": "{color.text.default}",
+      "$description": "Text color to be used on status backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2125,8 +2167,8 @@ export default {
   },
   "hpe.color.text.onCritical.strong": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used on status backgrounds.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2140,8 +2182,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.strong}",
-      "comment": "Text color to be used on status backgrounds.",
+      "$value": "{color.text.strong}",
+      "$description": "Text color to be used on status backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2168,8 +2210,8 @@ export default {
   },
   "hpe.color.text.onCritical.default": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used on status backgrounds.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2183,8 +2225,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.default}",
-      "comment": "Text color to be used on status backgrounds.",
+      "$value": "{color.text.default}",
+      "$description": "Text color to be used on status backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2211,8 +2253,8 @@ export default {
   },
   "hpe.color.text.onInfo.strong": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used on status backgrounds.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2226,8 +2268,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.strong}",
-      "comment": "Text color to be used on status backgrounds.",
+      "$value": "{color.text.strong}",
+      "$description": "Text color to be used on status backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2254,8 +2296,8 @@ export default {
   },
   "hpe.color.text.onInfo.default": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used on status backgrounds.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2269,8 +2311,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.default}",
-      "comment": "Text color to be used on status backgrounds.",
+      "$value": "{color.text.default}",
+      "$description": "Text color to be used on status backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2297,8 +2339,8 @@ export default {
   },
   "hpe.color.text.onOk.strong": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used on status backgrounds.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2312,8 +2354,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.strong}",
-      "comment": "Text color to be used on status backgrounds.",
+      "$value": "{color.text.strong}",
+      "$description": "Text color to be used on status backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2340,8 +2382,8 @@ export default {
   },
   "hpe.color.text.onOk.default": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used on status backgrounds.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2355,8 +2397,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.default}",
-      "comment": "Text color to be used on status backgrounds.",
+      "$value": "{color.text.default}",
+      "$description": "Text color to be used on status backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2383,8 +2425,8 @@ export default {
   },
   "hpe.color.text.onUnknown.strong": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used on status backgrounds.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2398,8 +2440,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.strong}",
-      "comment": "Text color to be used on status backgrounds.",
+      "$value": "{color.text.strong}",
+      "$description": "Text color to be used on status backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2426,8 +2468,8 @@ export default {
   },
   "hpe.color.text.onUnknown.default": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used on status backgrounds.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2441,8 +2483,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.default}",
-      "comment": "Text color to be used on status backgrounds.",
+      "$value": "{color.text.default}",
+      "$description": "Text color to be used on status backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2469,8 +2511,8 @@ export default {
   },
   "hpe.color.text.onWarning.strong": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used on status backgrounds.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2484,8 +2526,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.strong}",
-      "comment": "Text color to be used on status backgrounds.",
+      "$value": "{color.text.strong}",
+      "$description": "Text color to be used on status backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2512,8 +2554,8 @@ export default {
   },
   "hpe.color.text.onWarning.default": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Text color to be used on status backgrounds.",
+    "$value": "#ffffff",
+    "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2527,8 +2569,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.default}",
-      "comment": "Text color to be used on status backgrounds.",
+      "$value": "{color.text.default}",
+      "$description": "Text color to be used on status backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2555,8 +2597,8 @@ export default {
   },
   "hpe.color.icon.default": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Default icon colour that is accessible on standard background colours",
+    "$value": "#ffffff",
+    "$description": "Default icon colour that is accessible on standard background colours",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2572,8 +2614,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.100}",
-      "comment": "Default icon colour that is accessible on standard background colours",
+      "$value": "{base.color.white.100}",
+      "$description": "Default icon colour that is accessible on standard background colours",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2600,8 +2642,8 @@ export default {
   },
   "hpe.color.icon.strong": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Stronger icon color for added prominence",
+    "$value": "#ffffff",
+    "$description": "Stronger icon color for added prominence",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2617,8 +2659,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.100}",
-      "comment": "Stronger icon color for added prominence",
+      "$value": "{base.color.white.100}",
+      "$description": "Stronger icon color for added prominence",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2645,8 +2687,8 @@ export default {
   },
   "hpe.color.icon.weak": {
     "$type": "color",
-    "value": "#ffffff80",
-    "comment": "Weaker icon color for reduced emphasis",
+    "$value": "rgba(255, 255, 255, 0.5)",
+    "$description": "Weaker icon color for reduced emphasis",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2662,8 +2704,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity50}",
-      "comment": "Weaker icon color for reduced emphasis",
+      "$value": "{base.color.white.opacity50}",
+      "$description": "Weaker icon color for reduced emphasis",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2690,8 +2732,8 @@ export default {
   },
   "hpe.color.icon.xweak": {
     "$type": "color",
-    "value": "#ffffff33",
-    "comment": "",
+    "$value": "rgba(255, 255, 255, 0.2)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2707,8 +2749,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity20}",
-      "comment": "",
+      "$value": "{base.color.white.opacity20}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2735,8 +2777,8 @@ export default {
   },
   "hpe.color.icon.disabled": {
     "$type": "color",
-    "value": "#ffffff3d",
-    "comment": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+    "$value": "rgba(255, 255, 255, 0.24)",
+    "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2752,8 +2794,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.opacity24}",
-      "comment": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$value": "{base.color.white.opacity24}",
+      "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2780,8 +2822,8 @@ export default {
   },
   "hpe.color.icon.critical": {
     "$type": "color",
-    "value": "#fc5a5a",
-    "comment": "",
+    "$value": "#fc5a5a",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2797,8 +2839,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.foreground.critical}",
-      "comment": "",
+      "$value": "{color.foreground.critical}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2825,8 +2867,8 @@ export default {
   },
   "hpe.color.icon.info": {
     "$type": "color",
-    "value": "#00739d",
-    "comment": "",
+    "$value": "#00739d",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2842,8 +2884,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.blue.700}",
-      "comment": "",
+      "$value": "{base.color.blue.700}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2870,8 +2912,8 @@ export default {
   },
   "hpe.color.icon.ok": {
     "$type": "color",
-    "value": "#17d0a6",
-    "comment": "",
+    "$value": "#17d0a6",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2887,8 +2929,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.500}",
-      "comment": "",
+      "$value": "{base.color.green.500}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2915,8 +2957,8 @@ export default {
   },
   "hpe.color.icon.warning": {
     "$type": "color",
-    "value": "#d36d00",
-    "comment": "",
+    "$value": "#d36d00",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2932,8 +2974,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.orange.600}",
-      "comment": "",
+      "$value": "{base.color.orange.600}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2960,8 +3002,8 @@ export default {
   },
   "hpe.color.icon.unknown": {
     "$type": "color",
-    "value": "#555555",
-    "comment": "",
+    "$value": "#555555",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2977,8 +3019,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.grey.800}",
-      "comment": "",
+      "$value": "{base.color.grey.800}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3005,8 +3047,8 @@ export default {
   },
   "hpe.color.icon.primary": {
     "$type": "color",
-    "value": "#01a982",
-    "comment": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+    "$value": "#01a982",
+    "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3020,8 +3062,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.brand}",
-      "comment": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+      "$value": "{base.color.brand}",
+      "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3046,8 +3088,8 @@ export default {
   },
   "hpe.color.icon.onPrimary": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+    "$value": "#ffffff",
+    "$description": "Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3063,8 +3105,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.100}",
-      "comment": "Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+      "$value": "{base.color.white.100}",
+      "$description": "Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3091,8 +3133,8 @@ export default {
   },
   "hpe.color.icon.brand": {
     "$type": "color",
-    "value": "#01a982",
-    "comment": "Brand color for icons.",
+    "$value": "#01a982",
+    "$description": "Brand color for icons.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3108,8 +3150,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.600}",
-      "comment": "Brand color for icons.",
+      "$value": "{base.color.green.600}",
+      "$description": "Brand color for icons.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3136,8 +3178,8 @@ export default {
   },
   "hpe.color.icon.onSelectedStrong": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Icon color to be used for Icon sitting on background-selected-strong.",
+    "$value": "#ffffff",
+    "$description": "Icon color to be used for Icon sitting on background-selected-strong.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3152,8 +3194,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.white.100}",
-      "comment": "Icon color to be used for Icon sitting on background-selected-strong.",
+      "$value": "{base.color.white.100}",
+      "$description": "Icon color to be used for Icon sitting on background-selected-strong.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3179,8 +3221,8 @@ export default {
   },
   "hpe.color.icon.onSelectedWeak": {
     "$type": "color",
-    "value": "#ffffff",
-    "comment": "Icon color to be used for icon sitting on background-selected-strong.",
+    "$value": "#ffffff",
+    "$description": "Icon color to be used for icon sitting on background-selected-strong.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3195,8 +3237,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{color.text.strong}",
-      "comment": "Icon color to be used for icon sitting on background-selected-strong.",
+      "$value": "{color.text.strong}",
+      "$description": "Icon color to be used for icon sitting on background-selected-strong.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3222,8 +3264,8 @@ export default {
   },
   "hpe.color.decorative.green": {
     "$type": "color",
-    "value": "#008567",
-    "comment": "Use for decorative purposes when colour has no specific meaning.",
+    "$value": "#008567",
+    "$description": "Use for decorative purposes when colour has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3237,8 +3279,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.green.700}",
-      "comment": "Use for decorative purposes when colour has no specific meaning.",
+      "$value": "{base.color.green.700}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3263,8 +3305,8 @@ export default {
   },
   "hpe.color.decorative.purple": {
     "$type": "color",
-    "value": "#6633bc",
-    "comment": "Use for decorative purposes when colour has no specific meaning.",
+    "$value": "#6633bc",
+    "$description": "Use for decorative purposes when colour has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3278,8 +3320,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.purple.900}",
-      "comment": "Use for decorative purposes when colour has no specific meaning.",
+      "$value": "{base.color.purple.900}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3304,8 +3346,8 @@ export default {
   },
   "hpe.color.decorative.teal": {
     "$type": "color",
-    "value": "#117b82",
-    "comment": "Use for decorative purposes when colour has no specific meaning.",
+    "$value": "#117b82",
+    "$description": "Use for decorative purposes when colour has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3319,8 +3361,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.teal.700}",
-      "comment": "Use for decorative purposes when colour has no specific meaning.",
+      "$value": "{base.color.teal.700}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3345,8 +3387,8 @@ export default {
   },
   "hpe.color.decorative.blue": {
     "$type": "color",
-    "value": "#00739d",
-    "comment": "Use for decorative purposes when colour has no specific meaning.",
+    "$value": "#00739d",
+    "$description": "Use for decorative purposes when colour has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3360,8 +3402,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.blue.700}",
-      "comment": "Use for decorative purposes when colour has no specific meaning.",
+      "$value": "{base.color.blue.700}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3386,8 +3428,8 @@ export default {
   },
   "hpe.color.decorative.red": {
     "$type": "color",
-    "value": "#a2423d",
-    "comment": "Use for decorative purposes when colour has no specific meaning.",
+    "$value": "#a2423d",
+    "$description": "Use for decorative purposes when colour has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3401,8 +3443,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.red.850}",
-      "comment": "Use for decorative purposes when colour has no specific meaning.",
+      "$value": "{base.color.red.850}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3427,8 +3469,8 @@ export default {
   },
   "hpe.color.decorative.orange": {
     "$type": "color",
-    "value": "#9b6310",
-    "comment": "Use for decorative purposes when colour has no specific meaning.",
+    "$value": "#9b6310",
+    "$description": "Use for decorative purposes when colour has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3442,8 +3484,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.orange.700}",
-      "comment": "Use for decorative purposes when colour has no specific meaning.",
+      "$value": "{base.color.orange.700}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3468,8 +3510,8 @@ export default {
   },
   "hpe.color.decorative.yellow": {
     "$type": "color",
-    "value": "#8d741c",
-    "comment": "Use for decorative purposes when colour has no specific meaning.",
+    "$value": "#8d741c",
+    "$description": "Use for decorative purposes when colour has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3483,8 +3525,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.yellow.700}",
-      "comment": "Use for decorative purposes when colour has no specific meaning.",
+      "$value": "{base.color.yellow.700}",
+      "$description": "Use for decorative purposes when colour has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3509,8 +3551,8 @@ export default {
   },
   "hpe.color.decorative.purple!": {
     "$type": "color",
-    "value": "#7630ea",
-    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$value": "#7630ea",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3524,8 +3566,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.purple.800}",
-      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$value": "{base.color.purple.800}",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3550,8 +3592,8 @@ export default {
   },
   "hpe.color.decorative.green!": {
     "$type": "color",
-    "value": "#01a982",
-    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$value": "#01a982",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3565,8 +3607,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.brand}",
-      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$value": "{base.color.brand}",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3591,8 +3633,8 @@ export default {
   },
   "hpe.color.decorative.teal!": {
     "$type": "color",
-    "value": "#00e8cf",
-    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$value": "#00e8cf",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3606,8 +3648,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.teal.400}",
-      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$value": "{base.color.teal.400}",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3632,8 +3674,8 @@ export default {
   },
   "hpe.color.decorative.blue!": {
     "$type": "color",
-    "value": "#00739d",
-    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$value": "#00739d",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3647,8 +3689,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.blue.700}",
-      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$value": "{base.color.blue.700}",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3673,8 +3715,8 @@ export default {
   },
   "hpe.color.decorative.red!": {
     "$type": "color",
-    "value": "#c54e4b",
-    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$value": "#c54e4b",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3688,8 +3730,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.red.750}",
-      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$value": "{base.color.red.750}",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3714,8 +3756,8 @@ export default {
   },
   "hpe.color.decorative.orange!": {
     "$type": "color",
-    "value": "#ff8300",
-    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$value": "#ff8300",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3729,8 +3771,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.orange.500}",
-      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$value": "{base.color.orange.500}",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3755,8 +3797,8 @@ export default {
   },
   "hpe.color.decorative.yellow!": {
     "$type": "color",
-    "value": "#fec901",
-    "comment": "Use for decorative purposes when color has no specific meaning.",
+    "$value": "#fec901",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3770,8 +3812,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.yellow.400}",
-      "comment": "Use for decorative purposes when color has no specific meaning.",
+      "$value": "{base.color.yellow.400}",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3796,8 +3838,8 @@ export default {
   },
   "hpe.color.dataVis.categorical.10": {
     "$type": "color",
-    "value": "#01a982",
-    "comment": "",
+    "$value": "#01a982",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3811,8 +3853,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.dataVis.green1}",
-      "comment": "",
+      "$value": "{base.color.dataVis.green1}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3839,8 +3881,8 @@ export default {
   },
   "hpe.color.dataVis.categorical.20": {
     "$type": "color",
-    "value": "#b3ebff",
-    "comment": "",
+    "$value": "#006f99",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3854,8 +3896,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.dataVis.darkblue2}",
-      "comment": "",
+      "$value": "{base.color.dataVis.darkblue2}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3882,8 +3924,8 @@ export default {
   },
   "hpe.color.dataVis.categorical.30": {
     "$type": "color",
-    "value": "#f5c542",
-    "comment": "",
+    "$value": "#c0910e",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3897,8 +3939,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.dataVis.gold2}",
-      "comment": "",
+      "$value": "{base.color.dataVis.gold2}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3925,8 +3967,8 @@ export default {
   },
   "hpe.color.dataVis.categorical.40": {
     "$type": "color",
-    "value": "#6013dd",
-    "comment": "",
+    "$value": "#803bee",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3940,8 +3982,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.dataVis.purple2}",
-      "comment": "",
+      "$value": "{base.color.dataVis.purple2}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3968,8 +4010,8 @@ export default {
   },
   "hpe.color.dataVis.categorical.50": {
     "$type": "color",
-    "value": "#0074c5",
-    "comment": "",
+    "$value": "#78bff0",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3983,8 +4025,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.dataVis.lightblue2}",
-      "comment": "",
+      "$value": "{base.color.dataVis.lightblue2}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4011,8 +4053,8 @@ export default {
   },
   "hpe.color.dataVis.categorical.60": {
     "$type": "color",
-    "value": "#ca319f",
-    "comment": "",
+    "$value": "#ba2880",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4026,8 +4068,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.dataVis.pink2}",
-      "comment": "",
+      "$value": "{base.color.dataVis.pink2}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4054,8 +4096,8 @@ export default {
   },
   "hpe.color.dataVis.categorical.70": {
     "$type": "color",
-    "value": "#0099ff",
-    "comment": "",
+    "$value": "#1f95e4",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4069,8 +4111,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.dataVis.blue2}",
-      "comment": "",
+      "$value": "{base.color.dataVis.blue2}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4097,8 +4139,8 @@ export default {
   },
   "hpe.color.dataVis.categorical.80": {
     "$type": "color",
-    "value": "#a225d3",
-    "comment": "",
+    "$value": "#9a3ac0",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4112,8 +4154,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.dataVis.purple-2}",
-      "comment": "",
+      "$value": "{base.color.dataVis.purple-2}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4140,8 +4182,8 @@ export default {
   },
   "hpe.color.transparent": {
     "$type": "color",
-    "value": "#00000000",
-    "comment": "",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4155,8 +4197,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "#00000000",
-      "comment": "",
+      "$value": "#00000000",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4179,8 +4221,8 @@ export default {
   },
   "hpe.color.focus": {
     "$type": "color",
-    "value": "#00e8cf",
-    "comment": "",
+    "$value": "#00e8cf",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4194,8 +4236,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.teal.400}",
-      "comment": "",
+      "$value": "{base.color.teal.400}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4218,8 +4260,8 @@ export default {
   },
   "hpe.color.foreground.primary": {
     "$type": "color",
-    "value": "#01a982",
-    "comment": "",
+    "$value": "#01a982",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4235,8 +4277,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.brand}",
-      "comment": "",
+      "$value": "{base.color.brand}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4263,8 +4305,8 @@ export default {
   },
   "hpe.color.foreground.critical": {
     "$type": "color",
-    "value": "#fc5a5a",
-    "comment": "",
+    "$value": "#fc5a5a",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4280,8 +4322,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.red.550}",
-      "comment": "",
+      "$value": "{base.color.red.550}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4308,8 +4350,8 @@ export default {
   },
   "hpe.color.foreground.warning": {
     "$type": "color",
-    "value": "#d36d00",
-    "comment": "",
+    "$value": "#d36d00",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4325,8 +4367,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.orange.600}",
-      "comment": "",
+      "$value": "{base.color.orange.600}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4353,8 +4395,8 @@ export default {
   },
   "hpe.color.foreground.unknown": {
     "$type": "color",
-    "value": "#757575",
-    "comment": "",
+    "$value": "#757575",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4370,8 +4412,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.grey.700}",
-      "comment": "",
+      "$value": "{base.color.grey.700}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4398,8 +4440,8 @@ export default {
   },
   "hpe.color.shadow.weak": {
     "$type": "color",
-    "value": "#0000001f",
-    "comment": "",
+    "$value": "rgba(0, 0, 0, 0.12)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4413,8 +4455,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.black.opacity12}",
-      "comment": "",
+      "$value": "{base.color.black.opacity12}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4439,8 +4481,8 @@ export default {
   },
   "hpe.color.shadow.default": {
     "$type": "color",
-    "value": "#0000005c",
-    "comment": "",
+    "$value": "rgba(0, 0, 0, 0.36)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4454,8 +4496,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.black.opacity36}",
-      "comment": "",
+      "$value": "{base.color.black.opacity36}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4480,8 +4522,8 @@ export default {
   },
   "hpe.color.shadow.strong": {
     "$type": "color",
-    "value": "#00000080",
-    "comment": "",
+    "$value": "rgba(0, 0, 0, 0.5)",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4495,8 +4537,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "value": "{base.color.black.opacity50}",
-      "comment": "",
+      "$value": "{base.color.black.opacity50}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4521,8 +4563,8 @@ export default {
   },
   "hpe.shadow.small": {
     "$type": "shadow",
-    "value": "0 4px 4px 0 #0000001f",
-    "comment": "",
+    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4536,7 +4578,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "shadow",
-      "value": [
+      "$value": [
         {
           "offsetX": 0,
           "offsetY": "{base.dimension.100}",
@@ -4545,7 +4587,7 @@ export default {
           "color": "{color.shadow.weak}"
         }
       ],
-      "comment": "",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4568,8 +4610,8 @@ export default {
   },
   "hpe.shadow.medium": {
     "$type": "shadow",
-    "value": "0px 6px 12px 0px #0000005c",
-    "comment": "",
+    "$value": "0px 6px 12px 0px rgba(0, 0, 0, 0.36) ",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4583,7 +4625,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "shadow",
-      "value": [
+      "$value": [
         {
           "offsetX": "{base.static.spacing.none}",
           "offsetY": "{base.static.spacing.xsmall}",
@@ -4592,7 +4634,7 @@ export default {
           "color": "{color.shadow.default}"
         }
       ],
-      "comment": "",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4615,8 +4657,8 @@ export default {
   },
   "hpe.shadow.large": {
     "$type": "shadow",
-    "value": "0px 12px 24px 0px #0000005c",
-    "comment": "",
+    "$value": "0px 12px 24px 0px rgba(0, 0, 0, 0.36) ",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4630,7 +4672,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "shadow",
-      "value": [
+      "$value": [
         {
           "offsetX": "{base.static.spacing.none}",
           "offsetY": "{base.static.spacing.small}",
@@ -4639,7 +4681,7 @@ export default {
           "color": "{color.shadow.default}"
         }
       ],
-      "comment": "",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,

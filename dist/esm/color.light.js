@@ -1,161 +1,163 @@
 /**
- * Do not edit directly
- * Generated on Tue, 12 Nov 2024 20:55:32 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 export default {
-  hpe: {
-    color: {
-      background: {
-        default: "#ffffff",
-        hover: "#0000000a",
-        active: "#0000000a",
-        disabled: "#0000000a",
-        back: "#f7f7f7",
-        front: "#ffffff",
-        floating: "#ffffff",
-        screenOverlay: "#0000001f",
-        contrast: "#0000000a",
-        info: "#00c8ff3d",
-        unknown: "#f7f7f7",
-        ok: "#17eba03d",
-        critical: "#fc61613d",
-        warning: "#ffbc443d",
-        primary: {
-          default: "#008567",
-          hover: "#006750",
+  "hpe": {
+    "color": {
+      "background": {
+        "default": "#ffffff",
+        "hover": "rgba(0, 0, 0, 0.04)",
+        "active": "rgba(0, 0, 0, 0.04)",
+        "disabled": "rgba(0, 0, 0, 0.04)",
+        "back": "#f7f7f7",
+        "front": "#ffffff",
+        "floating": "#ffffff",
+        "screenOverlay": "rgba(0, 0, 0, 0.12)",
+        "contrast": "rgba(0, 0, 0, 0.04)",
+        "info": "rgba(0, 200, 255, 0.24)",
+        "unknown": "#f7f7f7",
+        "ok": "rgba(23, 235, 160, 0.24)",
+        "critical": "rgba(252, 97, 97, 0.24)",
+        "warning": "rgba(255, 188, 68, 0.24)",
+        "primary": {
+          "default": "#008567",
+          "hover": "#006750"
         },
-        selected: {
-          strong: {
-            enabled: "#008567",
-            hover: "#006750",
+        "selected": {
+          "strong": {
+            "enabled": "#008567",
+            "hover": "#006750"
           },
-          weak: {
-            enabled: "#cbfaeb",
-            hover: "#aef6df",
-          },
+          "weak": {
+            "enabled": "#cbfaeb",
+            "hover": "#aef6df"
+          }
         },
+        "neutral": {
+          "xstrong": "#333333"
+        }
       },
-      border: {
-        strong: "#000000b8",
-        default: "#0000005c",
-        weak: "#0000001f",
-        disabled: "#0000001f",
-        selected: "#008567",
-        critical: "#cc1f1a",
-        info: "#0000005c",
-        ok: "#0000005c",
-        warning: "#0000005c",
-        unknown: "#0000005c",
+      "border": {
+        "strong": "rgba(0, 0, 0, 0.72)",
+        "default": "rgba(0, 0, 0, 0.36)",
+        "weak": "rgba(0, 0, 0, 0.12)",
+        "disabled": "rgba(0, 0, 0, 0.12)",
+        "selected": "#008567",
+        "critical": "#cc1f1a",
+        "info": "rgba(0, 0, 0, 0.36)",
+        "ok": "rgba(0, 0, 0, 0.36)",
+        "warning": "rgba(0, 0, 0, 0.36)",
+        "unknown": "rgba(0, 0, 0, 0.36)"
       },
-      text: {
-        default: "#555555",
-        strong: "#333333",
-        weak: "#757575",
-        xweak: "#bbbbbb",
-        placeholder: "#757575",
-        disabled: "#0000003d",
-        onPrimary: "#ffffff",
-        brand: "#01a982",
-        primary: "#006750",
-        heading: {
-          default: "#333333",
+      "text": {
+        "default": "#555555",
+        "strong": "#333333",
+        "weak": "#757575",
+        "xweak": "#bbbbbb",
+        "placeholder": "#757575",
+        "disabled": "rgba(0, 0, 0, 0.24)",
+        "onPrimary": "#ffffff",
+        "brand": "#01a982",
+        "primary": "#006750",
+        "onStrong": {
+          "default": "#ffffff"
         },
-        inverse: {
-          default: "#ffffff",
+        "heading": {
+          "default": "#333333"
         },
-        critical: "#cc1f1a",
-        info: "#555555",
-        ok: "#555555",
-        warning: "#555555",
-        unknown: "#555555",
-        onSelectedStrong: "#ffffff",
-        onSelectedWeak: "#074b3b",
-        onStatus: "#555555",
-        onCritical: {
-          strong: "#333333",
-          default: "#555555",
+        "critical": "#cc1f1a",
+        "info": "#555555",
+        "ok": "#555555",
+        "warning": "#555555",
+        "unknown": "#555555",
+        "onSelectedStrong": "#ffffff",
+        "onSelectedWeak": "#074b3b",
+        "onStatus": "#555555",
+        "onCritical": {
+          "strong": "#333333",
+          "default": "#555555"
         },
-        onInfo: {
-          strong: "#333333",
-          default: "#555555",
+        "onInfo": {
+          "strong": "#333333",
+          "default": "#555555"
         },
-        onOk: {
-          strong: "#333333",
-          default: "#555555",
+        "onOk": {
+          "strong": "#333333",
+          "default": "#555555"
         },
-        onUnknown: {
-          strong: "#333333",
-          default: "#555555",
+        "onUnknown": {
+          "strong": "#333333",
+          "default": "#555555"
         },
-        onWarning: {
-          strong: "#333333",
-          default: "#555555",
-        },
+        "onWarning": {
+          "strong": "#333333",
+          "default": "#555555"
+        }
       },
-      icon: {
-        default: "#555555",
-        strong: "#333333",
-        weak: "#757575",
-        xweak: "#bbbbbb",
-        disabled: "#0000003d",
-        critical: "#ec3331",
-        info: "#00c8ff",
-        ok: "#009a71",
-        warning: "#d36d00",
-        unknown: "#8c8c8c",
-        primary: "#006750",
-        onPrimary: "#ffffff",
-        brand: "#01a982",
-        onSelectedStrong: "#ffffff",
-        onSelectedWeak: "#333333",
+      "icon": {
+        "default": "#555555",
+        "strong": "#333333",
+        "weak": "#757575",
+        "xweak": "#bbbbbb",
+        "disabled": "rgba(0, 0, 0, 0.24)",
+        "critical": "#ec3331",
+        "info": "#00c8ff",
+        "ok": "#009a71",
+        "warning": "#d36d00",
+        "unknown": "#8c8c8c",
+        "primary": "#006750",
+        "onPrimary": "#ffffff",
+        "brand": "#01a982",
+        "onSelectedStrong": "#ffffff",
+        "onSelectedWeak": "#333333"
       },
-      decorative: {
-        green: "#17eba0",
-        purple: "#f740ff",
-        teal: "#82fff2",
-        blue: "#00c8ff",
-        red: "#fc6161",
-        orange: "#ffbc44",
-        yellow: "#ffeb59",
+      "decorative": {
+        "green": "#17eba0",
+        "purple": "#f740ff",
+        "teal": "#82fff2",
+        "blue": "#00c8ff",
+        "red": "#fc6161",
+        "orange": "#ffbc44",
+        "yellow": "#ffeb59",
         "purple!": "#7630ea",
         "green!": "#01a982",
         "teal!": "#00e8cf",
         "blue!": "#00739d",
         "red!": "#c54e4b",
         "orange!": "#ff8300",
-        "yellow!": "#fec901",
+        "yellow!": "#fec901"
       },
-      dataVis: {
-        categorical: {
+      "dataVis": {
+        "categorical": {
           "10": "#01a982",
           "20": "#00384d",
-          "30": "#be8e0a",
+          "30": "#bd8d09",
           "40": "#7022ec",
           "50": "#3e92cc",
           "60": "#a70179",
           "70": "#01609f",
-          "80": "#7800a7",
-        },
+          "80": "#7800a7"
+        }
       },
-      transparent: "#00000000",
-      focus: "#00e8cf",
-      foreground: {
-        primary: "#01a982",
-        critical: "#ec3331",
-        warning: "#d36d00",
-        unknown: "#8c8c8c",
+      "transparent": "rgba(0, 0, 0, 0)",
+      "focus": "#00e8cf",
+      "foreground": {
+        "primary": "#01a982",
+        "critical": "#ec3331",
+        "warning": "#d36d00",
+        "unknown": "#8c8c8c"
       },
-      shadow: {
-        weak: "#0000001f",
-        default: "#0000001f",
-        strong: "#0000003d",
-      },
+      "shadow": {
+        "weak": "rgba(0, 0, 0, 0.12)",
+        "default": "rgba(0, 0, 0, 0.12)",
+        "strong": "rgba(0, 0, 0, 0.24)"
+      }
     },
-    shadow: {
-      small: "0 4px 4px 0 #0000001f",
-      medium: "0px 6px 12px 0px #0000001f",
-      large: "0px 12px 24px 0px #0000001f",
-    },
-  },
-};
+    "shadow": {
+      "small": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+      "medium": "0px 6px 12px 0px rgba(0, 0, 0, 0.12) ",
+      "large": "0px 12px 24px 0px rgba(0, 0, 0, 0.12) "
+    }
+  }
+}

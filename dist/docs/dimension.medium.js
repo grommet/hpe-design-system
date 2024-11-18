@@ -16,7 +16,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -55,7 +55,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -94,7 +94,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -122,7 +122,7 @@ export default {
   },
   "hpe.spacing.xsmall": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "6px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -133,11 +133,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
+      "$value": "{base.static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -161,7 +161,7 @@ export default {
   },
   "hpe.spacing.small": {
     "$type": "number",
-    "$value": "6px",
+    "$value": "12px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -172,11 +172,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{base.static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -200,7 +200,7 @@ export default {
   },
   "hpe.spacing.medium": {
     "$type": "number",
-    "$value": "12px",
+    "$value": "24px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -211,11 +211,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{base.static.spacing.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -239,7 +239,7 @@ export default {
   },
   "hpe.spacing.large": {
     "$type": "number",
-    "$value": "24px",
+    "$value": "48px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -250,11 +250,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.medium}",
+      "$value": "{base.static.spacing.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -278,7 +278,7 @@ export default {
   },
   "hpe.spacing.xlarge": {
     "$type": "number",
-    "$value": "48px",
+    "$value": "96px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -289,11 +289,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.large}",
+      "$value": "{base.static.spacing.xlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -328,7 +328,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -367,7 +367,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -395,7 +395,7 @@ export default {
   },
   "hpe.radius.xxsmall": {
     "$type": "number",
-    "$value": "1px",
+    "$value": "3px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -406,11 +406,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.hair}",
+      "$value": "{base.static.radius.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -434,7 +434,7 @@ export default {
   },
   "hpe.radius.xsmall": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "6px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -445,11 +445,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xxsmall}",
+      "$value": "{base.static.radius.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -473,7 +473,7 @@ export default {
   },
   "hpe.radius.small": {
     "$type": "number",
-    "$value": "6px",
+    "$value": "12px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -484,11 +484,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xsmall}",
+      "$value": "{base.static.radius.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -512,7 +512,7 @@ export default {
   },
   "hpe.radius.medium": {
     "$type": "number",
-    "$value": "12px",
+    "$value": "24px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -523,11 +523,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.small}",
+      "$value": "{base.static.radius.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -551,7 +551,7 @@ export default {
   },
   "hpe.radius.large": {
     "$type": "number",
-    "$value": "24px",
+    "$value": "48px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -562,11 +562,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.medium}",
+      "$value": "{base.static.radius.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -590,7 +590,7 @@ export default {
   },
   "hpe.radius.xlarge": {
     "$type": "number",
-    "$value": "48px",
+    "$value": "96px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -601,11 +601,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.large}",
+      "$value": "{base.static.radius.xlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -640,7 +640,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -680,7 +680,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -721,7 +721,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -750,7 +750,7 @@ export default {
   },
   "hpe.borderWidth.small": {
     "$type": "number",
-    "$value": "1px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -762,11 +762,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
+      "$value": "{base.static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -791,7 +791,7 @@ export default {
   },
   "hpe.borderWidth.medium": {
     "$type": "number",
-    "$value": "2px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -803,11 +803,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.small}",
+      "$value": "{base.static.borderWidth.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -832,7 +832,7 @@ export default {
   },
   "hpe.borderWidth.large": {
     "$type": "number",
-    "$value": "4px",
+    "$value": "12px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -844,11 +844,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.medium}",
+      "$value": "{base.static.borderWidth.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -873,7 +873,7 @@ export default {
   },
   "hpe.borderWidth.xlarge": {
     "$type": "number",
-    "$value": "12px",
+    "$value": "24px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -885,11 +885,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.large}",
+      "$value": "{base.static.borderWidth.xlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -926,7 +926,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -966,7 +966,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -996,7 +996,7 @@ export default {
   },
   "hpe.size.content.xsmall": {
     "$type": "number",
-    "$value": "48px",
+    "$value": "96px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
     "$extensions": {
       "com.figma": {
@@ -1007,11 +1007,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.xxsmall}",
+      "$value": "{base.static.content.xsmall}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1037,7 +1037,7 @@ export default {
   },
   "hpe.size.content.small": {
     "$type": "number",
-    "$value": "96px",
+    "$value": "192px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
     "$extensions": {
       "com.figma": {
@@ -1048,11 +1048,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.xsmall}",
+      "$value": "{base.static.content.small}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1078,7 +1078,7 @@ export default {
   },
   "hpe.size.content.smallPlus": {
     "$type": "number",
-    "$value": "12px",
+    "$value": "288px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1089,11 +1089,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.small}",
+      "$value": "{base.static.content.smallPlus}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1119,7 +1119,7 @@ export default {
   },
   "hpe.size.content.medium": {
     "$type": "number",
-    "$value": "192px",
+    "$value": "384px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
     "$extensions": {
       "com.figma": {
@@ -1130,11 +1130,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.small}",
+      "$value": "{base.static.content.medium}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1160,7 +1160,7 @@ export default {
   },
   "hpe.size.content.mediumPlus": {
     "$type": "number",
-    "$value": "384px",
+    "$value": "576px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1171,11 +1171,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.medium}",
+      "$value": "{base.static.content.mediumPlus}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1201,7 +1201,7 @@ export default {
   },
   "hpe.size.content.large": {
     "$type": "number",
-    "$value": "384px",
+    "$value": "768px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
     "$extensions": {
       "com.figma": {
@@ -1212,11 +1212,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.medium}",
+      "$value": "{base.static.content.large}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1242,7 +1242,7 @@ export default {
   },
   "hpe.size.content.xlarge": {
     "$type": "number",
-    "$value": "768px",
+    "$value": "1152px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
     "$extensions": {
       "com.figma": {
@@ -1253,11 +1253,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.large}",
+      "$value": "{base.static.content.xlarge}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1283,7 +1283,7 @@ export default {
   },
   "hpe.size.content.xxlarge": {
     "$type": "number",
-    "$value": "1152px",
+    "$value": "1536px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
     "$extensions": {
       "com.figma": {
@@ -1294,11 +1294,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.xlarge}",
+      "$value": "{base.static.content.xxlarge}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1335,7 +1335,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1376,7 +1376,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1417,7 +1417,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1458,7 +1458,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1499,7 +1499,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1540,7 +1540,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1570,7 +1570,7 @@ export default {
   },
   "hpe.display.medium.fontSize": {
     "$type": "number",
-    "$value": "2.25rem",
+    "$value": "4.5rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1581,11 +1581,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.fontSize.600}",
+      "$value": "{base.fontSize.900}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1611,7 +1611,7 @@ export default {
   },
   "hpe.display.medium.lineHeight": {
     "$type": "number",
-    "$value": "2.25rem",
+    "$value": "4.5rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1622,11 +1622,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.lineHeight.500}",
+      "$value": "{base.lineHeight.900}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1652,7 +1652,7 @@ export default {
   },
   "hpe.display.medium.fontWeight": {
     "$type": "number",
-    "$value": 400,
+    "$value": 300,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1663,11 +1663,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.regular}",
+      "$value": "{fontWeight.light}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1704,7 +1704,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1745,7 +1745,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1786,7 +1786,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1827,7 +1827,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1868,7 +1868,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1909,7 +1909,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1950,7 +1950,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1991,7 +1991,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2032,7 +2032,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2073,7 +2073,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2114,7 +2114,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2155,7 +2155,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2196,7 +2196,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2237,7 +2237,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2278,7 +2278,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2319,7 +2319,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2360,7 +2360,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2401,7 +2401,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2442,7 +2442,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2483,7 +2483,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2524,7 +2524,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2565,7 +2565,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2606,7 +2606,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2647,7 +2647,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2688,7 +2688,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2729,7 +2729,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2770,7 +2770,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2811,7 +2811,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2852,7 +2852,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2893,7 +2893,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2923,7 +2923,7 @@ export default {
   },
   "hpe.heading.xlarge.fontWeight": {
     "$type": "number",
-    "$value": 500,
+    "$value": 400,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2934,11 +2934,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2964,7 +2964,7 @@ export default {
   },
   "hpe.heading.xlarge.fontSize": {
     "$type": "number",
-    "$value": "1.5rem",
+    "$value": "2.25rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2975,11 +2975,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.fontSize.500}",
+      "$value": "{base.fontSize.600}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3005,7 +3005,7 @@ export default {
   },
   "hpe.heading.xlarge.lineHeight": {
     "$type": "number",
-    "$value": "1.5rem",
+    "$value": "2.625rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3016,11 +3016,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.lineHeight.200}",
+      "$value": 42,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3046,7 +3046,7 @@ export default {
   },
   "hpe.heading.large.fontWeight": {
     "$type": "number",
-    "$value": 500,
+    "$value": 400,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3057,11 +3057,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3087,7 +3087,7 @@ export default {
   },
   "hpe.heading.large.fontSize": {
     "$type": "number",
-    "$value": "1.25rem",
+    "$value": "1.75rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3098,11 +3098,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.fontSize.300}",
+      "$value": 28,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3128,7 +3128,7 @@ export default {
   },
   "hpe.heading.large.lineHeight": {
     "$type": "number",
-    "$value": "1.25rem",
+    "$value": "2.125rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3139,11 +3139,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.lineHeight.100}",
+      "$value": 34,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3169,7 +3169,7 @@ export default {
   },
   "hpe.heading.medium.fontSize": {
     "$type": "number",
-    "$value": "1rem",
+    "$value": "1.25rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3180,11 +3180,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.fontSize.100}",
+      "$value": "{base.fontSize.300}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3210,7 +3210,7 @@ export default {
   },
   "hpe.heading.medium.lineHeight": {
     "$type": "number",
-    "$value": "1rem",
+    "$value": "1.5rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3221,11 +3221,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.lineHeight.90}",
+      "$value": "{base.lineHeight.200}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3251,7 +3251,7 @@ export default {
   },
   "hpe.heading.medium.fontWeight": {
     "$type": "number",
-    "$value": 500,
+    "$value": 400,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3262,11 +3262,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3292,7 +3292,7 @@ export default {
   },
   "hpe.heading.small.fontSize": {
     "$type": "number",
-    "$value": "0.75rem",
+    "$value": "1.125rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3303,11 +3303,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.fontSize.80}",
+      "$value": "{base.fontSize.200}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3333,7 +3333,7 @@ export default {
   },
   "hpe.heading.small.lineHeight": {
     "$type": "number",
-    "$value": "0.75rem",
+    "$value": "1.5rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3344,11 +3344,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.lineHeight.80}",
+      "$value": "{base.lineHeight.200}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3374,7 +3374,7 @@ export default {
   },
   "hpe.heading.small.fontWeight": {
     "$type": "number",
-    "$value": 500,
+    "$value": 400,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3385,11 +3385,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3426,7 +3426,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3467,7 +3467,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3497,7 +3497,7 @@ export default {
   },
   "hpe.heading.xsmall.fontWeight": {
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3508,11 +3508,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.semibold}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3549,7 +3549,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3590,7 +3590,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3631,7 +3631,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3672,7 +3672,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3713,7 +3713,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3754,7 +3754,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -3795,7 +3795,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3836,7 +3836,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3877,7 +3877,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -3918,7 +3918,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3959,7 +3959,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -4000,7 +4000,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -4041,7 +4041,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -4082,7 +4082,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -4123,7 +4123,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -4164,7 +4164,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -4205,7 +4205,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -4246,7 +4246,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -4287,7 +4287,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -4328,7 +4328,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -4369,7 +4369,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.small.json",
+    "filePath": "tokens/semantic/dimension.medium.json",
     "isSource": true,
     "original": {
       "$type": "string",

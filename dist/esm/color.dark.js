@@ -1,161 +1,163 @@
 /**
- * Do not edit directly
- * Generated on Tue, 12 Nov 2024 20:55:32 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 export default {
-  hpe: {
-    color: {
-      background: {
-        default: "#1c1c1c",
-        hover: "#ffffff0f",
-        active: "#ffffff0f",
-        disabled: "#ffffff12",
-        back: "#1c1c1c",
-        front: "#222222",
-        floating: "#292929",
-        screenOverlay: "#0000001f",
-        contrast: "#ffffff1f",
-        info: "#00c8ff1f",
-        unknown: "#222222",
-        ok: "#17d0a64d",
-        critical: "#cc1f1a4d",
-        warning: "#fec9011f",
-        primary: {
-          default: "#008567",
-          hover: "#074b3b",
+  "hpe": {
+    "color": {
+      "background": {
+        "default": "#1c1c1c",
+        "hover": "rgba(255, 255, 255, 0.06)",
+        "active": "rgba(255, 255, 255, 0.06)",
+        "disabled": "rgba(255, 255, 255, 0.07)",
+        "back": "#1c1c1c",
+        "front": "#222222",
+        "floating": "#292929",
+        "screenOverlay": "rgba(0, 0, 0, 0.12)",
+        "contrast": "rgba(255, 255, 255, 0.12)",
+        "info": "rgba(0, 200, 255, 0.12)",
+        "unknown": "#222222",
+        "ok": "rgba(23, 208, 166, 0.3)",
+        "critical": "rgba(204, 31, 26, 0.3)",
+        "warning": "rgba(254, 201, 1, 0.12)",
+        "primary": {
+          "default": "#007c60",
+          "hover": "#00513f"
         },
-        selected: {
-          strong: {
-            enabled: "#01a982",
-            hover: "#01a982",
+        "selected": {
+          "strong": {
+            "enabled": "#007c60",
+            "hover": "#00513f"
           },
-          weak: {
-            enabled: "#093a2f",
-            hover: "#074b3b",
-          },
+          "weak": {
+            "enabled": "#093a2f",
+            "hover": "#074b3b"
+          }
         },
+        "neutral": {
+          "xstrong": "#f7f7f7"
+        }
       },
-      border: {
-        strong: "#ffffffb8",
-        default: "#ffffff5c",
-        weak: "#ffffff1f",
-        disabled: "#ffffff1f",
-        selected: "#01a982",
-        critical: "#fc5a5a",
-        info: "#ffffff5c",
-        ok: "#ffffff5c",
-        warning: "#ffffff5c",
-        unknown: "#ffffff5c",
+      "border": {
+        "strong": "rgba(255, 255, 255, 0.72)",
+        "default": "rgba(255, 255, 255, 0.36)",
+        "weak": "rgba(255, 255, 255, 0.12)",
+        "disabled": "rgba(255, 255, 255, 0.12)",
+        "selected": "#01a982",
+        "critical": "#fc5a5a",
+        "info": "rgba(255, 255, 255, 0.36)",
+        "ok": "rgba(255, 255, 255, 0.36)",
+        "warning": "rgba(255, 255, 255, 0.36)",
+        "unknown": "rgba(255, 255, 255, 0.36)"
       },
-      text: {
-        default: "#ffffff",
-        strong: "#ffffff",
-        weak: "#ffffff80",
-        xweak: "#ffffff33",
-        placeholder: "#ffffff80",
-        disabled: "#ffffff3d",
-        primary: "#01a982",
-        onPrimary: "#ffffff",
-        brand: "#01a982",
-        heading: {
-          default: "#ffffff",
+      "text": {
+        "default": "#ffffff",
+        "strong": "#ffffff",
+        "weak": "rgba(255, 255, 255, 0.5)",
+        "xweak": "rgba(255, 255, 255, 0.2)",
+        "placeholder": "rgba(255, 255, 255, 0.5)",
+        "disabled": "rgba(255, 255, 255, 0.24)",
+        "primary": "#01a982",
+        "onPrimary": "#ffffff",
+        "brand": "#01a982",
+        "onStrong": {
+          "default": "#222222"
         },
-        inverse: {
-          default: "#222222",
+        "heading": {
+          "default": "#ffffff"
         },
-        critical: "#fc5a5a",
-        info: "#ffffff",
-        ok: "#ffffff",
-        warning: "#ffffff",
-        unknown: "#ffffff",
-        onSelectedStrong: "#ffffff",
-        onSelectedWeak: "#ffffff",
-        onStatus: "#ffffff",
-        onCritical: {
-          strong: "#ffffff",
-          default: "#ffffff",
+        "critical": "#fc5a5a",
+        "info": "#ffffff",
+        "ok": "#ffffff",
+        "warning": "#ffffff",
+        "unknown": "#ffffff",
+        "onSelectedStrong": "#ffffff",
+        "onSelectedWeak": "#ffffff",
+        "onStatus": "#ffffff",
+        "onCritical": {
+          "strong": "#ffffff",
+          "default": "#ffffff"
         },
-        onInfo: {
-          strong: "#ffffff",
-          default: "#ffffff",
+        "onInfo": {
+          "strong": "#ffffff",
+          "default": "#ffffff"
         },
-        onOk: {
-          strong: "#ffffff",
-          default: "#ffffff",
+        "onOk": {
+          "strong": "#ffffff",
+          "default": "#ffffff"
         },
-        onUnknown: {
-          strong: "#ffffff",
-          default: "#ffffff",
+        "onUnknown": {
+          "strong": "#ffffff",
+          "default": "#ffffff"
         },
-        onWarning: {
-          strong: "#ffffff",
-          default: "#ffffff",
-        },
+        "onWarning": {
+          "strong": "#ffffff",
+          "default": "#ffffff"
+        }
       },
-      icon: {
-        default: "#ffffff",
-        strong: "#ffffff",
-        weak: "#ffffff80",
-        xweak: "#ffffff33",
-        disabled: "#ffffff3d",
-        critical: "#fc5a5a",
-        info: "#00739d",
-        ok: "#17d0a6",
-        warning: "#d36d00",
-        unknown: "#555555",
-        primary: "#01a982",
-        onPrimary: "#ffffff",
-        brand: "#01a982",
-        onSelectedStrong: "#ffffff",
-        onSelectedWeak: "#ffffff",
+      "icon": {
+        "default": "#ffffff",
+        "strong": "#ffffff",
+        "weak": "rgba(255, 255, 255, 0.5)",
+        "xweak": "rgba(255, 255, 255, 0.2)",
+        "disabled": "rgba(255, 255, 255, 0.24)",
+        "critical": "#fc5a5a",
+        "info": "#00739d",
+        "ok": "#17d0a6",
+        "warning": "#d36d00",
+        "unknown": "#555555",
+        "primary": "#01a982",
+        "onPrimary": "#ffffff",
+        "brand": "#01a982",
+        "onSelectedStrong": "#ffffff",
+        "onSelectedWeak": "#ffffff"
       },
-      decorative: {
-        green: "#008567",
-        purple: "#6633bc",
-        teal: "#117b82",
-        blue: "#00739d",
-        red: "#a2423d",
-        orange: "#9b6310",
-        yellow: "#8d741c",
+      "decorative": {
+        "green": "#008567",
+        "purple": "#6633bc",
+        "teal": "#117b82",
+        "blue": "#00739d",
+        "red": "#a2423d",
+        "orange": "#9b6310",
+        "yellow": "#8d741c",
         "purple!": "#7630ea",
         "green!": "#01a982",
         "teal!": "#00e8cf",
         "blue!": "#00739d",
         "red!": "#c54e4b",
         "orange!": "#ff8300",
-        "yellow!": "#fec901",
+        "yellow!": "#fec901"
       },
-      dataVis: {
-        categorical: {
+      "dataVis": {
+        "categorical": {
           "10": "#01a982",
-          "20": "#b3ebff",
-          "30": "#f5c542",
-          "40": "#6013dd",
-          "50": "#0074c5",
-          "60": "#ca319f",
-          "70": "#0099ff",
-          "80": "#a225d3",
-        },
+          "20": "#006f99",
+          "30": "#c0910e",
+          "40": "#803bee",
+          "50": "#78bff0",
+          "60": "#ba2880",
+          "70": "#1f95e4",
+          "80": "#9a3ac0"
+        }
       },
-      transparent: "#00000000",
-      focus: "#00e8cf",
-      foreground: {
-        primary: "#01a982",
-        critical: "#fc5a5a",
-        warning: "#d36d00",
-        unknown: "#757575",
+      "transparent": "rgba(0, 0, 0, 0)",
+      "focus": "#00e8cf",
+      "foreground": {
+        "primary": "#01a982",
+        "critical": "#fc5a5a",
+        "warning": "#d36d00",
+        "unknown": "#757575"
       },
-      shadow: {
-        weak: "#0000001f",
-        default: "#0000005c",
-        strong: "#00000080",
-      },
+      "shadow": {
+        "weak": "rgba(0, 0, 0, 0.12)",
+        "default": "rgba(0, 0, 0, 0.36)",
+        "strong": "rgba(0, 0, 0, 0.5)"
+      }
     },
-    shadow: {
-      small: "0 4px 4px 0 #0000001f",
-      medium: "0px 6px 12px 0px #0000005c",
-      large: "0px 12px 24px 0px #0000005c",
-    },
-  },
-};
+    "shadow": {
+      "small": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+      "medium": "0px 6px 12px 0px rgba(0, 0, 0, 0.36) ",
+      "large": "0px 12px 24px 0px rgba(0, 0, 0, 0.36) "
+    }
+  }
+}

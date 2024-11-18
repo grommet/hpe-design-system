@@ -1,17 +1,16 @@
 /**
- * Do not edit directly
- * Generated on Tue, 12 Nov 2024 20:55:32 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 export default {
   "hpe.focusIndicator.outline": {
     "$type": "border",
-    "value": {
+    "$value": {
       "style": "solid",
       "color": "#00e8cf",
       "width": "2px"
     },
-    "comment": "",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -23,12 +22,12 @@ export default {
     "isSource": true,
     "original": {
       "$type": "border",
-      "value": {
+      "$value": {
         "style": "solid",
         "color": "{color.focus}",
         "width": "{base.dimension.50}"
       },
-      "comment": "",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -49,8 +48,8 @@ export default {
   },
   "hpe.fontStack.primary": {
     "$type": "fontFamily",
-    "value": "'Metric', Arial, sans-serif",
-    "comment": "For dev use only.",
+    "$value": "'Metric', Arial, sans-serif",
+    "$description": "For dev use only.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -64,8 +63,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "fontFamily",
-      "value": "'Metric', Arial, sans-serif",
-      "comment": "For dev use only.",
+      "$value": "'Metric', Arial, sans-serif",
+      "$description": "For dev use only.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -88,8 +87,8 @@ export default {
   },
   "hpe.fontStack.code": {
     "$type": "fontFamily",
-    "value": "'Fira Mono', ui-monospace, monospace",
-    "comment": "For dev use only.",
+    "$value": "'Fira Mono', ui-monospace, monospace",
+    "$description": "For dev use only.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -103,8 +102,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "fontFamily",
-      "value": "'Fira Mono', ui-monospace, monospace",
-      "comment": "For dev use only.",
+      "$value": "'Fira Mono', ui-monospace, monospace",
+      "$description": "For dev use only.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -127,8 +126,8 @@ export default {
   },
   "hpe.breakpoint.xsmall": {
     "$type": "number",
-    "value": "576px",
-    "comment": "",
+    "$value": "576px",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -142,8 +141,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 576,
-      "comment": "",
+      "$value": 576,
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -166,8 +165,8 @@ export default {
   },
   "hpe.breakpoint.small": {
     "$type": "number",
-    "value": "768px",
-    "comment": "",
+    "$value": "768px",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -181,8 +180,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 768,
-      "comment": "",
+      "$value": 768,
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -205,8 +204,8 @@ export default {
   },
   "hpe.breakpoint.medium": {
     "$type": "number",
-    "value": "1080px",
-    "comment": "",
+    "$value": "1080px",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -220,8 +219,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 1080,
-      "comment": "",
+      "$value": 1080,
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -244,8 +243,8 @@ export default {
   },
   "hpe.breakpoint.large": {
     "$type": "number",
-    "value": "1440px",
-    "comment": "",
+    "$value": "1440px",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -259,8 +258,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 1440,
-      "comment": "",
+      "$value": 1440,
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -283,8 +282,8 @@ export default {
   },
   "hpe.fontWeight.thin": {
     "$type": "number",
-    "value": 100,
-    "comment": "",
+    "$value": 100,
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -298,8 +297,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 100,
-      "comment": "",
+      "$value": 100,
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -322,8 +321,8 @@ export default {
   },
   "hpe.fontWeight.light": {
     "$type": "number",
-    "value": 300,
-    "comment": "",
+    "$value": 300,
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -337,8 +336,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 300,
-      "comment": "",
+      "$value": 300,
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -361,8 +360,8 @@ export default {
   },
   "hpe.fontWeight.regular": {
     "$type": "number",
-    "value": 400,
-    "comment": "",
+    "$value": 400,
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -376,8 +375,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 400,
-      "comment": "",
+      "$value": 400,
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -400,8 +399,8 @@ export default {
   },
   "hpe.fontWeight.medium": {
     "$type": "number",
-    "value": 500,
-    "comment": "",
+    "$value": 500,
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -415,8 +414,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 500,
-      "comment": "",
+      "$value": 500,
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -439,8 +438,8 @@ export default {
   },
   "hpe.fontWeight.semibold": {
     "$type": "number",
-    "value": 600,
-    "comment": "",
+    "$value": 600,
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -454,8 +453,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 600,
-      "comment": "",
+      "$value": 600,
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -478,8 +477,8 @@ export default {
   },
   "hpe.fontWeight.bold": {
     "$type": "number",
-    "value": 700,
-    "comment": "",
+    "$value": 700,
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -493,8 +492,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 700,
-      "comment": "",
+      "$value": 700,
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -517,8 +516,8 @@ export default {
   },
   "hpe.fontWeight.black": {
     "$type": "number",
-    "value": 900,
-    "comment": "",
+    "$value": 900,
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -532,8 +531,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "value": 900,
-      "comment": "",
+      "$value": 900,
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,

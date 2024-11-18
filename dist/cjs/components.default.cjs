@@ -1,6 +1,5 @@
 /**
- * Do not edit directly
- * Generated on Tue, 12 Nov 2024 20:55:33 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 module.exports = {
@@ -145,14 +144,14 @@ module.exports = {
       "secondary": {
         "enabled": {
           "background": "background-contrast",
-          "borderColor": "#00000000",
+          "borderColor": "rgba(0, 0, 0, 0)",
           "textColor": "text-primary",
           "iconColor": "icon-primary",
           "fontWeight": 500
         },
         "hover": {
           "background": "#ebebeb",
-          "borderColor": "#00000000",
+          "borderColor": "rgba(0, 0, 0, 0)",
           "textColor": "text-primary",
           "iconColor": "icon-primary",
           "fontWeight": 500
@@ -300,7 +299,7 @@ module.exports = {
             "gapX": "3px"
           },
           "hover": {
-            "boxShadow": "0px 0px 0px 1px #00000000 inset"
+            "boxShadow": "0px 0px 0px 1px rgba(0, 0, 0, 0) inset"
           }
         },
         "default": {
@@ -408,7 +407,7 @@ module.exports = {
             "gapX": "6px"
           },
           "hover": {
-            "boxShadow": "0px 0px 0px 1px #00000000 inset"
+            "boxShadow": "0px 0px 0px 1px rgba(0, 0, 0, 0) inset"
           }
         },
         "toolbar": {
@@ -581,7 +580,7 @@ module.exports = {
             "paddingY": "12px"
           },
           "hover": {
-            "boxShadow": "0px 0px 0px 1px #00000000 inset"
+            "boxShadow": "0px 0px 0px 1px rgba(0, 0, 0, 0) inset"
           }
         },
         "toolbar": {
@@ -799,10 +798,6 @@ module.exports = {
           "background": "background-hover",
           "borderColor": "border-default"
         },
-        "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
-        },
         "selected": {
           "enabled": {
             "background": "background-selected-strong-enabled",
@@ -819,6 +814,10 @@ module.exports = {
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
+        },
+        "disabled": {
+          "background": "background-disabled",
+          "borderColor": "border-disabled"
         },
         "indeterminate": {
           "enabled": {
@@ -999,7 +998,7 @@ module.exports = {
       "selected": {
         "enabled": {
           "textColor": "text-onSelectedWeak",
-          "borderColor": "#00000000",
+          "borderColor": "rgba(0, 0, 0, 0)",
           "background": "background-selected-weak-enabled"
         }
       },
@@ -1104,32 +1103,32 @@ module.exports = {
             "textToElementX": "12px"
           }
         },
-        "labelText": {
+        "label": {
           "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "fontWeight": 400
         },
-        "placeholderText": {
+        "placeholder": {
           "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "fontWeight": 400
         },
-        "helpText": {
+        "help": {
           "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "fontWeight": 400
         },
-        "infoText": {
+        "info": {
           "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "fontWeight": 400
         },
-        "errorText": {
+        "error": {
           "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "fontWeight": 400
         },
-        "valueText": {
+        "value": {
           "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "fontWeight": 500
@@ -1158,7 +1157,7 @@ module.exports = {
           "item": {
             "enabled": {
               "background": "transparent",
-              "borderColor": "#00000000"
+              "borderColor": "rgba(0, 0, 0, 0)"
             },
             "status": {
               "critical": {
@@ -1209,7 +1208,7 @@ module.exports = {
           }
         }
       },
-      "labelText": {
+      "label": {
         "enabled": {
           "textColor": "text-strong"
         },
@@ -1231,7 +1230,7 @@ module.exports = {
           }
         }
       },
-      "placeholderText": {
+      "placeholder": {
         "disabled": {
           "textColor": "text-disabled"
         },
@@ -1253,7 +1252,7 @@ module.exports = {
           }
         }
       },
-      "helpText": {
+      "help": {
         "enabled": {
           "textColor": "text-default"
         },
@@ -1275,7 +1274,7 @@ module.exports = {
           }
         }
       },
-      "infoText": {
+      "info": {
         "enabled": {
           "textColor": "text-default"
         },
@@ -1297,7 +1296,7 @@ module.exports = {
           }
         }
       },
-      "errorText": {
+      "error": {
         "enabled": {
           "textColor": "text-critical",
           "iconColor": "icon-default"
@@ -1325,7 +1324,7 @@ module.exports = {
           }
         }
       },
-      "valueText": {
+      "value": {
         "enabled": {
           "textColor": "text-default"
         },
@@ -1462,28 +1461,8 @@ module.exports = {
           "textDecoration": "none"
         }
       },
-      "emphasized": {
-        "enabled": {
-          "textColor": "text-brand",
-          "fontWeight": 700
-        },
-        "hover": {
-          "textColor": "text-brand",
-          "fontWeight": 700,
-          "textDecoration": "none"
-        },
-        "disabled": {
-          "textColor": "text-brand",
-          "fontWeight": 700
-        }
-      },
       "small": {
         "default": {
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "6px"
-        },
-        "emphasized": {
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
           "gapX": "6px"
@@ -1494,20 +1473,10 @@ module.exports = {
           "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px"
-        },
-        "emphasized": {
-          "fontSize": "1.125rem",
-          "lineHeight": "1.5rem",
-          "gapX": "6px"
         }
       },
       "large": {
         "default": {
-          "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
-          "gapX": "6px"
-        },
-        "emphasized": {
           "fontSize": "1.375rem",
           "lineHeight": "1.75rem",
           "gapX": "6px"
@@ -1518,20 +1487,10 @@ module.exports = {
           "fontSize": "1.5rem",
           "lineHeight": "1.875rem",
           "gapX": "6px"
-        },
-        "emphasized": {
-          "fontSize": "1.5rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px"
         }
       },
       "xxlarge": {
         "default": {
-          "fontSize": "2.25rem",
-          "lineHeight": "2.5rem",
-          "gapX": "6px"
-        },
-        "emphasized": {
           "fontSize": "2.25rem",
           "lineHeight": "2.5rem",
           "gapX": "6px"
@@ -1542,20 +1501,10 @@ module.exports = {
           "fontSize": "2.625rem",
           "lineHeight": "2.875rem",
           "gapX": "6px"
-        },
-        "emphasized": {
-          "fontSize": "2.625rem",
-          "lineHeight": "2.875rem",
-          "gapX": "6px"
         }
       },
       "4xlarge": {
         "default": {
-          "fontSize": "3rem",
-          "lineHeight": "3rem",
-          "gapX": "6px"
-        },
-        "emphasized": {
           "fontSize": "3rem",
           "lineHeight": "3rem",
           "gapX": "6px"
@@ -1566,20 +1515,10 @@ module.exports = {
           "fontSize": "4.5rem",
           "lineHeight": "4.5rem",
           "gapX": "6px"
-        },
-        "emphasized": {
-          "fontSize": "4.5rem",
-          "lineHeight": "4.5rem",
-          "gapX": "6px"
         }
       },
       "6xlarge": {
         "default": {
-          "fontSize": "4.5rem",
-          "lineHeight": "4.5rem",
-          "gapX": "6px"
-        },
-        "emphasized": {
           "fontSize": "4.5rem",
           "lineHeight": "4.5rem",
           "gapX": "6px"

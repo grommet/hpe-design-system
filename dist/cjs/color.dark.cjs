@@ -1,6 +1,5 @@
 /**
- * Do not edit directly
- * Generated on Tue, 12 Nov 2024 20:55:32 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 module.exports = {
@@ -8,61 +7,64 @@ module.exports = {
     "color": {
       "background": {
         "default": "#1c1c1c",
-        "hover": "#ffffff0f",
-        "active": "#ffffff0f",
-        "disabled": "#ffffff12",
+        "hover": "rgba(255, 255, 255, 0.06)",
+        "active": "rgba(255, 255, 255, 0.06)",
+        "disabled": "rgba(255, 255, 255, 0.07)",
         "back": "#1c1c1c",
         "front": "#222222",
         "floating": "#292929",
-        "screenOverlay": "#0000001f",
-        "contrast": "#ffffff1f",
-        "info": "#00c8ff1f",
+        "screenOverlay": "rgba(0, 0, 0, 0.12)",
+        "contrast": "rgba(255, 255, 255, 0.12)",
+        "info": "rgba(0, 200, 255, 0.12)",
         "unknown": "#222222",
-        "ok": "#17d0a64d",
-        "critical": "#cc1f1a4d",
-        "warning": "#fec9011f",
+        "ok": "rgba(23, 208, 166, 0.3)",
+        "critical": "rgba(204, 31, 26, 0.3)",
+        "warning": "rgba(254, 201, 1, 0.12)",
         "primary": {
-          "default": "#008567",
-          "hover": "#074b3b"
+          "default": "#007c60",
+          "hover": "#00513f"
         },
         "selected": {
           "strong": {
-            "enabled": "#01a982",
-            "hover": "#01a982"
+            "enabled": "#007c60",
+            "hover": "#00513f"
           },
           "weak": {
             "enabled": "#093a2f",
             "hover": "#074b3b"
           }
+        },
+        "neutral": {
+          "xstrong": "#f7f7f7"
         }
       },
       "border": {
-        "strong": "#ffffffb8",
-        "default": "#ffffff5c",
-        "weak": "#ffffff1f",
-        "disabled": "#ffffff1f",
+        "strong": "rgba(255, 255, 255, 0.72)",
+        "default": "rgba(255, 255, 255, 0.36)",
+        "weak": "rgba(255, 255, 255, 0.12)",
+        "disabled": "rgba(255, 255, 255, 0.12)",
         "selected": "#01a982",
         "critical": "#fc5a5a",
-        "info": "#ffffff5c",
-        "ok": "#ffffff5c",
-        "warning": "#ffffff5c",
-        "unknown": "#ffffff5c"
+        "info": "rgba(255, 255, 255, 0.36)",
+        "ok": "rgba(255, 255, 255, 0.36)",
+        "warning": "rgba(255, 255, 255, 0.36)",
+        "unknown": "rgba(255, 255, 255, 0.36)"
       },
       "text": {
         "default": "#ffffff",
         "strong": "#ffffff",
-        "weak": "#ffffff80",
-        "xweak": "#ffffff33",
-        "placeholder": "#ffffff80",
-        "disabled": "#ffffff3d",
+        "weak": "rgba(255, 255, 255, 0.5)",
+        "xweak": "rgba(255, 255, 255, 0.2)",
+        "placeholder": "rgba(255, 255, 255, 0.5)",
+        "disabled": "rgba(255, 255, 255, 0.24)",
         "primary": "#01a982",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
+        "onStrong": {
+          "default": "#222222"
+        },
         "heading": {
           "default": "#ffffff"
-        },
-        "inverse": {
-          "default": "#222222"
         },
         "critical": "#fc5a5a",
         "info": "#ffffff",
@@ -96,9 +98,9 @@ module.exports = {
       "icon": {
         "default": "#ffffff",
         "strong": "#ffffff",
-        "weak": "#ffffff80",
-        "xweak": "#ffffff33",
-        "disabled": "#ffffff3d",
+        "weak": "rgba(255, 255, 255, 0.5)",
+        "xweak": "rgba(255, 255, 255, 0.2)",
+        "disabled": "rgba(255, 255, 255, 0.24)",
         "critical": "#fc5a5a",
         "info": "#00739d",
         "ok": "#17d0a6",
@@ -129,16 +131,16 @@ module.exports = {
       "dataVis": {
         "categorical": {
           "10": "#01a982",
-          "20": "#b3ebff",
-          "30": "#f5c542",
-          "40": "#6013dd",
-          "50": "#0074c5",
-          "60": "#ca319f",
-          "70": "#0099ff",
-          "80": "#a225d3"
+          "20": "#006f99",
+          "30": "#c0910e",
+          "40": "#803bee",
+          "50": "#78bff0",
+          "60": "#ba2880",
+          "70": "#1f95e4",
+          "80": "#9a3ac0"
         }
       },
-      "transparent": "#00000000",
+      "transparent": "rgba(0, 0, 0, 0)",
       "focus": "#00e8cf",
       "foreground": {
         "primary": "#01a982",
@@ -147,15 +149,15 @@ module.exports = {
         "unknown": "#757575"
       },
       "shadow": {
-        "weak": "#0000001f",
-        "default": "#0000005c",
-        "strong": "#00000080"
+        "weak": "rgba(0, 0, 0, 0.12)",
+        "default": "rgba(0, 0, 0, 0.36)",
+        "strong": "rgba(0, 0, 0, 0.5)"
       }
     },
     "shadow": {
-      "small": "0 4px 4px 0 #0000001f",
-      "medium": "0px 6px 12px 0px #0000005c",
-      "large": "0px 12px 24px 0px #0000005c"
+      "small": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+      "medium": "0px 6px 12px 0px rgba(0, 0, 0, 0.36) ",
+      "large": "0px 12px 24px 0px rgba(0, 0, 0, 0.36) "
     }
   }
 }
