@@ -15,6 +15,12 @@
   transition-timing-function: cubic-bezier(0.3, 0, 0.8, 0.15); */
 }
 
+:focus-visible {
+  outline: var(--hpe-focus-indicator-outline);
+  outline-offset: var(--hpe-focus-indicator-outline-offset);
+  box-shadow: var(--hpe-focus-indicator-box-shadow);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
