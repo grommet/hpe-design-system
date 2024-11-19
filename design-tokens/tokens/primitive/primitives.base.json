@@ -412,6 +412,18 @@
             }
           }
         },
+        "600": {
+          "$type": "color",
+          "$value": "#ec3331",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "700": {
           "$type": "color",
           "$value": "#d04f4e",
