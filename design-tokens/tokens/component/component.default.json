@@ -10474,6 +10474,20 @@
             }
           }
         }
+      },
+      "icon": {
+        "size": {
+          "$type": "number",
+          "$value": "{size.icon.xsmall}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["WIDTH_HEIGHT"],
+              "codeSyntax": {}
+            }
+          }
+        }
       }
     },
     "small": {
@@ -10594,6 +10608,20 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "icon": {
+        "size": {
+          "$type": "number",
+          "$value": "{size.icon.small}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["WIDTH_HEIGHT"],
               "codeSyntax": {}
             }
           }
@@ -10722,6 +10750,20 @@
             }
           }
         }
+      },
+      "icon": {
+        "size": {
+          "$type": "number",
+          "$value": "{size.icon.medium}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["WIDTH_HEIGHT"],
+              "codeSyntax": {}
+            }
+          }
+        }
       }
     },
     "large": {
@@ -10846,6 +10888,20 @@
             }
           }
         }
+      },
+      "icon": {
+        "size": {
+          "$type": "number",
+          "$value": "{size.icon.large}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["WIDTH_HEIGHT"],
+              "codeSyntax": {}
+            }
+          }
+        }
       }
     },
     "xlarge": {
@@ -10966,6 +11022,20 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["GAP"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "icon": {
+        "size": {
+          "$type": "number",
+          "$value": "{size.icon.xlarge}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["WIDTH_HEIGHT"],
               "codeSyntax": {}
             }
           }
