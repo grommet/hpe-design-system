@@ -23,7 +23,7 @@
     "sync-figma-to-tokens": "tsx src/scripts/sync_figma_to_tokens.ts",
     "build-style-dictionary": "tsx src/scripts/build-style-dictionary.js",
     "build": "rm -rf ./dist && yarn build-style-dictionary",
-    "release-stable": "node src/scripts/release-stable.js  --branch=hpe-design-tokensv0.2.0-stable",
+    "release-stable": "node src/scripts/release-stable.js  --branch=hpe-design-tokensv0.3.0-stable",
     "paddingY:verify": "tsx src/scripts/verify-paddingY.ts",
     "paddingY:update": "tsx src/scripts/update-paddingY.ts",
     "test": "jest"

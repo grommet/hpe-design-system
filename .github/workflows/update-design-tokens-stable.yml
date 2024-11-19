@@ -2,7 +2,7 @@ name: Update design-tokens-stable
 on:
   push:
     branches:
-      - hpe-design-tokensv0.2.0
+      - hpe-design-tokensv0.3.0
     paths:
       - design-tokens/**
 
