@@ -85,7 +85,7 @@
           }
         }
       },
-      "overlay": {
+      "screenOverlay": {
         "$type": "color",
         "$value": "{base.color.black.opacity12}",
         "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
