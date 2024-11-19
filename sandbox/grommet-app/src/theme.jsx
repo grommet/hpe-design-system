@@ -1231,6 +1231,7 @@ const buildTheme = tokens => {
     },
     checkBoxGroup: {
       container: {
+        cssGap: true,
         gap: 'xsmall', // TO DO missing token
         margin: 'none',
       },
@@ -1422,9 +1423,12 @@ const buildTheme = tokens => {
           }
         }
           [role="group"], [role="radiogroup"] {
-            gap: 0; // TO DO need checkboxgroup to use cssGap
+            gap: 0;
             padding-block: ${
               components.hpe.formField.medium.input.group.container.paddingY
+            };
+            padding-inline: ${
+              components.hpe.formField.medium.input.group.container.paddingX
             };
             label {
               padding-block: ${
@@ -1432,6 +1436,9 @@ const buildTheme = tokens => {
               };
               padding-inline: ${
                 components.hpe.formField.medium.input.group.item.paddingX
+              };
+              border-radius: ${
+                components.hpe.formField.medium.input.group.item.borderRadius
               };
               &:hover {
                 background: ${
@@ -2194,20 +2201,7 @@ const buildTheme = tokens => {
       },
       color: components.hpe.radioButton.control.selected.enabled.borderColor,
       container: {
-        extend: ({ theme }) => `
-        width: auto;
-        padding-inline: ${
-          components.hpe.formField.medium.input.group.item.paddingX
-        };
-        &:has(input[checked]) {
-          background: ${
-            // TO DO how to only do in FormField
-            theme.global.colors['background-selected-weak-enabled'][
-              theme.dark ? 'dark' : 'light'
-            ]
-          };
-        }
-      `,
+        extend: () => `width: auto;`,
       },
       extend: () => ``,
       gap: components.hpe.radioButton.medium.gapX,
@@ -2235,6 +2229,7 @@ const buildTheme = tokens => {
     },
     radioButtonGroup: {
       container: {
+        cssGap: true,
         gap: 'xsmall', // TO DO should be token?
         margin: 'none',
       },

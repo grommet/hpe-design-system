@@ -8115,7 +8115,7 @@
             },
             "borderRadius": {
               "$type": "number",
-              "$value": "{radius.none}",
+              "$value": "{base.static.radius.xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8153,7 +8153,7 @@
           "container": {
             "paddingX": {
               "$type": "number",
-              "$value": "{spacing.none}",
+              "$value": "{base.static.spacing.xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
