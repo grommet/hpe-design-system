@@ -6,7 +6,6 @@ import {
   DataFilters,
   DataSearch,
   DataSummary,
-  Grid,
   Heading,
   Page,
   PageContent,
@@ -35,19 +34,19 @@ export const FilteringCards = () => (
       <Heading level={2} margin="none">
         Users
       </Heading>
-      <Grid
+      {/* <Grid
         // Use Grid with height prop for sticky header and scrollable results
         height={{ min: 'medium' }}
-      >
-        <Data data={users} properties={properties}>
-          <Toolbar>
-            <DataSearch responsive />
-            <DataFilters layer />
-          </Toolbar>
-          <DataSummary />
-          <Users />
-        </Data>
-      </Grid>
+      > */}
+      <Data data={users} properties={properties}>
+        <Toolbar>
+          <DataSearch responsive />
+          <DataFilters layer />
+        </Toolbar>
+        <DataSummary />
+        <Users />
+      </Data>
+      {/* </Grid> */}
     </PageContent>
   </Page>
 );
@@ -56,13 +55,15 @@ const Users = () => {
   const breakpoint = useContext(ResponsiveContext);
 
   return (
-    <Box flex overflow="auto">
+    <Box flex overflow="auto" pad={{ bottom: 'medium' }}>
       <Cards
         columns={!['xsmall', 'small'].includes(breakpoint) ? 'small' : ['auto']}
         gap={!['xsmall', 'small'].includes(breakpoint) ? 'medium' : 'small'}
       >
         {datum => (
           <Card
+            as="li"
+            aria-label={`User card for ${datum.name}`}
             key={datum.id}
             // margin ensures focus on cards is not cutoff
             margin="xxsmall"
