@@ -624,24 +624,24 @@ const buildTheme = tokens => {
         light: {
           small: elevationlight
             ? elevationlight.hpe.elevation.small
-            : light.hpe.elevation.small,
+            : light.hpe.shadow.small,
           medium: elevationlight
             ? elevationlight.hpe.elevation.medium
-            : light.hpe.elevation.medium,
+            : light.hpe.shadow.medium,
           large: elevationlight
             ? elevationlight.hpe.elevation.large
-            : light.hpe.elevation.large,
+            : light.hpe.shadow.large,
         },
         dark: {
           small: elevationdark
             ? elevationdark.hpe.elevation.small
-            : dark.hpe.elevation.small,
+            : dark.hpe.shadow.small,
           medium: elevationdark
             ? elevationdark.hpe.elevation.medium
-            : dark.hpe.elevation.medium,
+            : dark.hpe.shadow.medium,
           large: elevationdark
             ? elevationdark.hpe.elevation.large
-            : dark.hpe.elevation.large,
+            : dark.hpe.shadow.large,
         },
       },
       hover: {

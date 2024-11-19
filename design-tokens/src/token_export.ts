@@ -48,8 +48,8 @@ export function tokenFilesFromLocalVariables(
     localVariablesResponse.meta.variableCollections;
   const localVariables = localVariablesResponse.meta.variables;
   const shadows: { [key: string]: any } = {};
-  shadows.elevation = {};
-  const root = shadows.elevation; // TO DO this hard codes the concept of "elevation" in shadow naming
+  shadows.shadow = {};
+  const root = shadows.shadow; // TO DO this hard codes the concept of "shadow" in shadow naming
 
   Object.values(localVariables).forEach(variable => {
     // Skip remote variables because we only want to generate tokens for local variables
@@ -152,7 +152,7 @@ export function tokenFilesFromLocalVariables(
             localVariables,
           );
         }
-      } else if (variable.name.includes('elevation')) {
+      } else if (/^shadow/.test(variable.name)) {
         const parts = variable.name.split('/');
         const shadow = parts.slice(1, 2).join('');
         const property = parts[parts.length - 1];
@@ -178,7 +178,7 @@ export function tokenFilesFromLocalVariables(
             },
           };
         else {
-          // elevation/small/2/offsetY --> need index 1
+          // shadow/small/2/offsetY --> need index 1
           const index =
             parseInt(parts[parts.length - 3], 10) >= 0
               ? parseInt(parts[parts.length - 3], 10)

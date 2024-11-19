@@ -1281,7 +1281,7 @@
       }
     }
   },
-  "elevation": {
+  "shadow": {
     "small": {
       "$type": "shadow",
       "$value": [
