@@ -16,7 +16,7 @@ export const featured = [
     url: '/foundation/developer-guidance',
   },
   {
-    name: 'Migrate',
+    name: 'Integrate',
     description: 'Bring your existing apps to the HPE design system',
     icon: <Star size="large" color="text-strong" />,
     label: 'Migration resources',

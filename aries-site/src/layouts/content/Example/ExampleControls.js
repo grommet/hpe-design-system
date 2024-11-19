@@ -28,11 +28,7 @@ export const ExampleControls = ({
 
   const boxProps = !horizontalLayout
     ? {
-        background:
-          figma || docs || grommetSource || guidance
-            ? 'background-contrast'
-            : 'background',
-        pad: { horizontal: 'medium', vertical: 'small' },
+        pad: { horizontal: undefined, vertical: 'small' },
       }
     : {
         pad: { vertical: 'small' },

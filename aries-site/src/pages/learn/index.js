@@ -71,7 +71,7 @@ const Learn = () => (
                       </Heading>
                       <Grid
                         columns="medium"
-                        gap="medium"
+                        gap="large"
                         rows={[['auto', 'full']]}
                       >
                         {type.data.map(item => (

@@ -8,13 +8,11 @@ export const ContentPreviewCard = forwardRef(({ ...rest }, ref) => (
       card: {
         container: {
           elevation: 'none',
-          border: {
-            color: 'border-weak',
-          },
         },
         hover: {
           container: {
-            elevation: 'medium',
+            background: 'background-contrast',
+            elevation: 'none',
           },
         },
       },

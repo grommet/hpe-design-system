@@ -109,7 +109,8 @@ export const Example = ({
     showResponsiveControls,
     template,
     overflow,
-    ...(bestPractice ? { border: { color: 'border' }, round: 'small' } : {}),
+    background: { color: 'background-contrast', opacity: 0.02 },
+    round: 'small',
   };
 
   // Affects how the Example can behave/display within the outer container
@@ -219,17 +220,9 @@ export const Example = ({
       />
     );
 
-  const generalProps =
-    !bestPractice && !plain
-      ? {
-          border: { color: 'border' },
-          round: 'small',
-        }
-      : {};
-
   if (!horizontalLayout)
     content = (
-      <Box {...generalProps}>
+      <Box>
         {content}
         {exampleControls}
       </Box>
