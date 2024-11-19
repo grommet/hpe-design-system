@@ -3,7 +3,7 @@ import { deepFreeze } from 'grommet/utils';
 import {
   dark as localDark,
   light as localLight,
-  large as localLarge,
+  medium as localMedium,
   small as localSmall,
   global as localGlobal,
   components as localComponents,
@@ -195,6 +195,8 @@ const buildTheme = tokens => {
     global,
     components,
   } = tokens;
+
+  const sd4 = 'valueText' in components.hpe.formField.medium ? false : true;
 
   const flatColors = flattenObject(light, '-');
   const tokenColors = {};
@@ -678,7 +680,9 @@ const buildTheme = tokens => {
       input: {
         font: {
           height: 'inherit',
-          weight: components.hpe.formField.medium.valueText.fontWeight,
+          weight:
+            components.hpe.formField.medium[!sd4 ? 'valueText' : 'value']
+              .fontWeight,
         },
         padding: {
           horizontal: components.hpe.formField.medium.input.container.paddingX,
@@ -694,15 +698,27 @@ const buildTheme = tokens => {
         },
         extend: `
           &::-webkit-input-placeholder {
-          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+          font-weight: ${
+            components.hpe.formField.medium[
+              !sd4 ? 'placeholderText' : 'placeholder'
+            ].fontWeight
+          };
         }
       
         &::-moz-placeholder {
-          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+          font-weight: ${
+            components.hpe.formField.medium[
+              !sd4 ? 'placeholderText' : 'placeholder'
+            ].fontWeight
+          };
         }
       
         &:-ms-input-placeholder {
-          font-weight: ${components.hpe.formField.medium.placeholderText.fontWeight};
+          font-weight: ${
+            components.hpe.formField.medium[
+              !sd4 ? 'placeholderText' : 'placeholder'
+            ].fontWeight
+          };
         }
         `,
       },
@@ -1150,10 +1166,11 @@ const buildTheme = tokens => {
       label: {
         align: 'start',
       },
-      pad: {
-        vertical: components.hpe.element?.medium.paddingY,
-        horizontal: components.hpe.formField.medium.input.container.paddingX, // TO DO is this correct usage?
-      },
+      // pad: {
+      //   vertical: components.hpe.element?.medium.paddingY,
+      //   horizontal: components.hpe.formField.medium.input.container.paddingX, // TO DO is this correct usage?
+      // },
+      pad: 'none',
       size: components.hpe.checkbox.medium.control.width, // TO DO should this token be called "size" instead?
       // Q is toggle and switch the same thing?
       // A: Yes, we can discuss if this name feels right or not.
@@ -1206,14 +1223,7 @@ const buildTheme = tokens => {
       // HPE Design System guidance states that pad="none" should be applied on CheckBox
       // when its used outside of a FormField. We will apply this hover treatment in
       // those instances.
-      extend: ({ disabled, pad }) => css`
-      ${
-        !disabled &&
-        pad === 'none' &&
-        `&:hover {
-        background-color: unset;
-      }`
-      }
+      extend: () => css`
       font-weight: ${components.hpe.checkbox.medium.label.fontWeight};
       width: auto;
     };
@@ -1221,11 +1231,8 @@ const buildTheme = tokens => {
     },
     checkBoxGroup: {
       container: {
-        gap: 'none', // TO DO missing token
-        margin: {
-          vertical:
-            components.hpe.formField.medium.input.group.container.paddingY,
-        },
+        gap: 'xsmall', // TO DO missing token
+        margin: 'none',
       },
     },
     data: {
@@ -1396,10 +1403,50 @@ const buildTheme = tokens => {
       extend: `border-radius: ${components.hpe.formField.medium.input.container.borderRadius};`,
     },
     formField: {
+      extend: ({ theme }) => `
+        // TO DO bad practice
+        [class*="ContentBox"] {
+          label {
+          padding-block: ${
+            components.hpe.formField.medium.input.group.item.paddingY
+          };
+          padding-inline: ${
+            components.hpe.formField.medium.input.group.item.paddingX
+          };
+          &:hover {
+            background: ${
+              theme.global.colors[
+                components.hpe.formField.input.group.item.hover.background
+              ][theme.dark ? 'dark' : 'light']
+            };
+          }
+        }
+          [role="group"], [role="radiogroup"] {
+            gap: 0; // TO DO need checkboxgroup to use cssGap
+            padding-block: ${
+              components.hpe.formField.medium.input.group.container.paddingY
+            };
+            label {
+              padding-block: ${
+                components.hpe.formField.medium.input.group.item.paddingY
+              };
+              padding-inline: ${
+                components.hpe.formField.medium.input.group.item.paddingX
+              };
+              &:hover {
+                background: ${
+                  theme.global.colors[
+                    components.hpe.formField.input.group.item.hover.background
+                  ][theme.dark ? 'dark' : 'light']
+                };
+              }
+          }
+        }
+      }`,
       content: {
         // Q: missing tokens
         margin: { vertical: 'xsmall' },
-        pad: 'none',
+        pad: 'none', // TO DO when we have a CheckBoxGroup or RadioButtonGroup, we want padding
       },
       border: {
         error: {
@@ -1410,9 +1457,12 @@ const buildTheme = tokens => {
         color: components.hpe.formField.input.container.enabled.borderColor,
         side: 'all',
       },
-      // checkBox: {
-      //   pad: 'large',
-      // },
+      checkBox: {
+        pad: {
+          horizontal: components.hpe.formField.medium.input.group.item.paddingX,
+          vertical: components.hpe.formField.medium.input.group.item.paddingY,
+        },
+      },
       disabled: {
         background:
           components.hpe.formField.input.group.container.disabled.background,
@@ -1420,7 +1470,9 @@ const buildTheme = tokens => {
           color: components.hpe.formField.input.container.disabled.borderColor,
         },
         label: {
-          color: components.hpe.formField.labelText.disabled.textColor,
+          color:
+            components.hpe.formField[!sd4 ? 'labelText' : 'label'].disabled
+              .textColor,
         },
       },
       error: {
@@ -1438,7 +1490,9 @@ const buildTheme = tokens => {
         // Q: confused why we have both hpe.formField.errorText.enabled.textColor
         // and hpe.formField.errorText.disabled.color
         // A: This is to be able to style text differently in different states
-        color: components.hpe.formField.errorText.enabled.textColor,
+        color:
+          components.hpe.formField[!sd4 ? 'errorText' : 'error'].enabled
+            .textColor,
         margin: {
           // Q: missing token
           bottom: 'xsmall',
@@ -1454,12 +1508,14 @@ const buildTheme = tokens => {
       },
       help: {
         size: 'xsmall',
-        color: components.hpe.formField.helpText.enabled.color,
+        color:
+          components.hpe.formField[!sd4 ? 'helpText' : 'help'].enabled.color,
         margin: 'none', // TO DO missing token
       },
       info: {
         size: 'xsmall',
-        color: components.hpe.formField.infoText.enabled.color,
+        color:
+          components.hpe.formField[!sd4 ? 'infoText' : 'info'].enabled.color,
         margin: {
           // Q: missing token
           bottom: 'xsmall',
@@ -1469,7 +1525,8 @@ const buildTheme = tokens => {
       },
       label: {
         size: 'xsmall', // TO DO how to capture this as token, currently we have "fontSize", "lineHeight", "..."
-        color: components.hpe.formField.labelText.enabled.color,
+        color:
+          components.hpe.formField[!sd4 ? 'labelText' : 'label'].enabled.color,
         margin: {
           // Q: missing token
           bottom: 'none',
@@ -1477,7 +1534,9 @@ const buildTheme = tokens => {
           horizontal: 'none',
         },
         requiredIndicator: true,
-        weight: components.hpe.formField.medium.labelText.fontWeight,
+        weight:
+          components.hpe.formField.medium[!sd4 ? 'labelText' : 'label']
+            .fontWeight,
       },
       margin: {
         bottom: 'none', // TO DO missing token
@@ -2150,14 +2209,10 @@ const buildTheme = tokens => {
         }
       `,
       },
-      extend: () => `
-        padding-block: ${components.hpe.formField.medium.input.group.item.paddingY};
-      `,
+      extend: () => ``,
       gap: components.hpe.radioButton.medium.gapX,
       hover: {
-        background: {
-          color: components.hpe.formField.input.group.item.hover.background,
-        },
+        background: 'transparent',
         border: {
           color: components.hpe.radioButton.control.hover.borderColor,
         },
@@ -2180,11 +2235,8 @@ const buildTheme = tokens => {
     },
     radioButtonGroup: {
       container: {
-        gap: 'none', // TO DO should be token?
-        margin: {
-          vertical:
-            components.hpe.formField.medium.input.group.container.paddingY,
-        },
+        gap: 'xsmall', // TO DO should be token?
+        margin: 'none',
       },
     },
     rangeInput: {
@@ -2530,7 +2582,7 @@ export const current = buildTheme({
   light: localLight,
   dark: localDark,
   small: localSmall,
-  large: localLarge,
+  large: localMedium,
   global: localGlobal,
   components: localComponents,
 });
@@ -2539,7 +2591,7 @@ export const warm = buildTheme({
   light: localLight,
   dark: localDark,
   small: localSmall,
-  large: localLarge,
+  large: localMedium,
   global: localGlobal,
   components: localComponents,
 });

@@ -369,6 +369,20 @@ const StickerSheet = () => {
                 />
               </FormField>
             </Compare>
+            <Compare guidingChild="last">
+              <RadioButtonGroup
+                options={['Option 1', 'Option 2', 'Option 3']}
+                value="Option 2"
+              />
+            </Compare>
+            <Compare>
+              <FormField label="Label">
+                <RadioButtonGroup
+                  options={['Option 1', 'Option 2', 'Option 3']}
+                  value="Option 2"
+                />
+              </FormField>
+            </Compare>
             <Compare>
               <DateInput
                 format="mm/dd/yyyy-mm/dd/yyyy"
@@ -388,12 +402,7 @@ const StickerSheet = () => {
             <Compare>
               <Pagination numberItems={100} size="large" />
             </Compare>
-            <Compare guidingChild="last">
-              <RadioButtonGroup
-                options={['Option 1', 'Option 2', 'Option 3']}
-                value="Option 2"
-              />
-            </Compare>
+
             <Compare>
               <RangeInput value={60} />
             </Compare>
