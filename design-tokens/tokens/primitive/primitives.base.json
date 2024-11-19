@@ -133,6 +133,18 @@
           }
         }
       },
+      "350": {
+        "$type": "number",
+        "$value": 14,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "400": {
         "$type": "number",
         "$value": 16,
