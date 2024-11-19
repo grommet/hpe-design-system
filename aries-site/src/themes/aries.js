@@ -18,6 +18,7 @@ export const aries = deepMerge(hpe, {
     },
     container: {
       pad: 'medium',
+      gap: 'small',
     },
     header: {
       align: 'start',
@@ -27,6 +28,7 @@ export const aries = deepMerge(hpe, {
     },
     heading: {
       level: 2,
+      size: 'small',
       margin: {
         vertical: 'none',
       },
@@ -49,12 +51,27 @@ export const aries = deepMerge(hpe, {
 
 export const ariesPop = deepMerge(aries, {
   ...hpePop,
-  anchor: {
-    // rely on base anchor styling to meet color contrast on background-back
-    size: {
-      large: undefined,
-      xlarge: undefined,
+  global: {
+    colors: {
+      brand: '#01A892',
     },
+  },
+  layer: {
+    border: {
+      radius: 'medium',
+    },
+  },
+  textInput: {
+    extend: ({ theme }) => `
+        svg {
+          fill: ${
+            theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']
+          };
+          stroke: ${
+            theme.global.colors['text-weak'][theme.dark ? 'dark' : 'light']
+          };
+        }
+      `,
   },
   // this is producing a console warning because it's not a supported status
   // proposing that notification should be more flexible to allow other statuses

@@ -109,6 +109,8 @@ export const Example = ({
     showResponsiveControls,
     template,
     overflow,
+    background: { color: 'background-contrast', opacity: 0.02 },
+    round: 'small',
   };
 
   // Affects how the Example can behave/display within the outer container
@@ -220,10 +222,10 @@ export const Example = ({
 
   if (!horizontalLayout)
     content = (
-      <>
+      <Box>
         {content}
         {exampleControls}
-      </>
+      </Box>
     );
 
   if (caption)

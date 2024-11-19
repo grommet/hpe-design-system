@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Box, Paragraph, Text } from 'grommet';
+import { Box, Paragraph, Grid, Text } from 'grommet';
 
 import { useContext } from 'react';
 import { getPageDetails } from '../../utils';
@@ -24,22 +24,19 @@ export const SearchResult = ({ query, result }) => {
   }
 
   return (
-    <Box gap="xsmall" pad={{ vertical: 'xxsmall' }} width="large">
-      <>
-        {parent && (
-          <Box align="center" direction="row" gap="xsmall">
-            {parent.icon && parent.icon('8px', parent.color)}
-            <Text size="small">
-              {result.name === result.title ? parent.name : result.name}
-            </Text>
-          </Box>
-        )}
+    <Grid
+      pad={{ vertical: 'medium' }}
+      align="start"
+      columns={['small', 'flex']}
+      gap="medium"
+    >
+      <Box gap="xsmall">
         {result.title && (
           <Box direction="row" gap="medium" align="center">
-            <Text size="large" color="text-strong">
-              <HighlightPhrase phrase={query} fade={false} size="large">
-                {result.title}
-              </HighlightPhrase>
+            <Text size="large" style={{ fontWeight: 500 }}>
+              {/* <HighlightPhrase phrase={query} fade={false} size="large"> */}
+              {result.title}
+              {/* </HighlightPhrase> */}
             </Text>
             {showUpdate && changeKind === 'New' && (
               <NotificationTag
@@ -59,7 +56,12 @@ export const SearchResult = ({ query, result }) => {
             )}
           </Box>
         )}
-      </>
+        <Text color="text-weak" size="small">
+          {result.name === result.title ? parent.name : result.name} /{' '}
+          {result.title}
+        </Text>
+      </Box>
+
       {result.matches?.length > 0 ? (
         <Paragraph margin="none" fill>
           <HighlightPhrase phrase={query} fade={false}>
@@ -75,8 +77,62 @@ export const SearchResult = ({ query, result }) => {
           </Paragraph>
         )
       )}
-    </Box>
+    </Grid>
   );
+  // return (
+  //   <Box gap="xsmall" pad={{ vertical: 'xxsmall' }} width="large">
+  //     <>
+  //       {parent && (
+  //         <Box align="center" direction="row" gap="xsmall">
+  //           {parent.icon && parent.icon('8px', parent.color)}
+  //           <Text size="small">
+  //             {result.name === result.title ? parent.name : result.name}
+  //           </Text>
+  //         </Box>
+  //       )}
+  //       {result.title && (
+  //         <Box direction="row" gap="medium" align="center">
+  //           <Text size="large" color="text-strong">
+  //             <HighlightPhrase phrase={query} fade={false} size="large">
+  //               {result.title}
+  //             </HighlightPhrase>
+  //           </Text>
+  //           {showUpdate && changeKind === 'New' && (
+  //             <NotificationTag
+  //               size="xsmall"
+  //               backgroundColor="purple"
+  //               value="New!"
+  //               a11yTitle={`There's a new item called ${result.title}`}
+  //             />
+  //           )}
+  //           {showUpdate && changeKind === 'Update' && (
+  //             <NotificationTag
+  //               size="xsmall"
+  //               backgroundColor="teal"
+  //               value="Updated"
+  //               a11yTitle={`There have been updates for ${result.title}`}
+  //             />
+  //           )}
+  //         </Box>
+  //       )}
+  //     </>
+  //     {result.matches?.length > 0 ? (
+  //       <Paragraph margin="none" fill>
+  //         <HighlightPhrase phrase={query} fade={false}>
+  //           {result.matches[0].preview}
+  //         </HighlightPhrase>
+  //       </Paragraph>
+  //     ) : (
+  //       result.description && (
+  //         <Paragraph margin="none" fill>
+  //           <HighlightPhrase phrase={query} fade={false}>
+  //             {result.description}
+  //           </HighlightPhrase>
+  //         </Paragraph>
+  //       )
+  //     )}
+  //   </Box>
+  // );
 };
 
 SearchResult.propTypes = {

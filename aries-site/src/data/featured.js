@@ -2,22 +2,24 @@ import { Brush, Code, Star } from 'grommet-icons';
 
 export const featured = [
   {
-    name: 'Designer guidance',
-    description: `Starter files to utilize our resources from HPE
-      Design System and HPE Brand.`,
+    name: 'Designer',
+    description: 'Access our Figma UI kits, components, and styles.',
     icon: <Brush size="large" color="text-strong" />,
+    label: 'Start designing',
+    url: '/foundation/designer-guidance',
   },
   {
-    name: 'Developer guidance',
-    description: `Resources for setting up your application with
-      the HPE Design System library and HPE theme.`,
+    name: 'Developer',
+    description: 'Find guides, tools, and docs to get your app running.',
     icon: <Code size="large" color="text-strong" />,
+    label: 'Get the code',
+    url: '/foundation/developer-guidance',
   },
   {
-    name: "What's new",
-    description: `Track announcements, new template patterns,
-      guidance, and released components.`,
+    name: 'Integrate',
+    description: 'Bring your existing apps to the HPE design system',
     icon: <Star size="large" color="text-strong" />,
-    url: '/whats-new',
+    label: 'Migration resources',
+    url: '/design-tokens',
   },
 ];
