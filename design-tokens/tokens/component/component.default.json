@@ -9156,6 +9156,18 @@
           }
         }
       },
+      "iconColor": {
+        "$type": "color",
+        "$value": "{dataCell.enabled.iconColor}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "borderColor": {
         "$type": "color",
         "$value": "{color.border.default}",
@@ -9194,6 +9206,18 @@
           }
         }
       },
+      "iconColor": {
+        "$type": "color",
+        "$value": "{footerCell.enabled.iconColor}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "borderColor": {
         "$type": "color",
         "$value": "{dataCell.hover.borderColor}",
@@ -9223,6 +9247,18 @@
       "textColor": {
         "$type": "color",
         "$value": "{dataCell.hover.textColor}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "iconColor": {
+        "$type": "color",
+        "$value": "{dataCell.enabled.iconColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
