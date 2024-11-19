@@ -1,14 +1,13 @@
 export const cssW3c: string[] = [
   'attribute/cti',
-  'name/cti/kebab',
+  'name/kebab',
   'time/seconds',
-  'content/icon',
+  'html/icon',
   'size/rem',
   'color/css',
   'cubicBezier/css',
-  'border/css',
-  'shadow/css',
-  'color/hex',
+  'border/css/shorthand',
+  'shadow/css/shorthand',
   'linearGradient/css',
   'numberToDimension',
 ];

@@ -1,10 +1,11 @@
-import StyleDictionary from 'style-dictionary-utils';
+import { StyleDictionary } from 'style-dictionary-utils';
 import {
   commonJs,
   commonJsGrommetRefs,
   cssColorModes,
   cssBreakpoints,
   esmGrommetRefs,
+  javascriptEsm,
   jsonFlat,
 } from './formats/index.js';
 import {
@@ -12,54 +13,64 @@ import {
   javascriptW3c,
   linearGradientCss,
   numberToDimension,
+  shadowCSS,
 } from './transforms/index.js';
 
-StyleDictionary.registerFormat({
+export const HPEStyleDictionary = new StyleDictionary({
+  log: {
+    verbosity: 'verbose',
+  },
+});
+
+HPEStyleDictionary.registerFormat({
   name: 'javascript/commonJs',
-  formatter: commonJs,
+  format: commonJs,
 });
-StyleDictionary.registerFormat({
+HPEStyleDictionary.registerFormat({
+  name: 'javascript/esm',
+  format: javascriptEsm,
+});
+HPEStyleDictionary.registerFormat({
   name: 'css/variables-themed',
-  formatter: cssColorModes,
+  format: cssColorModes,
 });
-StyleDictionary.registerFormat({
+HPEStyleDictionary.registerFormat({
   name: 'css/variables-breakpoints',
-  formatter: cssBreakpoints,
+  format: cssBreakpoints,
 });
-StyleDictionary.registerFormat({
+HPEStyleDictionary.registerFormat({
   name: `esmGrommetRefs`,
-  formatter: esmGrommetRefs,
+  format: esmGrommetRefs,
 });
-StyleDictionary.registerFormat({
+HPEStyleDictionary.registerFormat({
   name: `commonJsGrommetRefs`,
-  formatter: commonJsGrommetRefs,
+  format: commonJsGrommetRefs,
 });
-StyleDictionary.registerFormat({
+HPEStyleDictionary.registerFormat({
   name: `jsonFlat`,
-  formatter: jsonFlat,
+  format: jsonFlat,
 });
-StyleDictionary.registerTransform({
-  name: 'numberToDimension',
+HPEStyleDictionary.registerTransform({
   ...numberToDimension,
 });
-StyleDictionary.registerTransform({
+HPEStyleDictionary.registerTransform({
+  ...shadowCSS,
+});
+HPEStyleDictionary.registerTransform({
   name: 'name/dot',
   type: 'name',
-  transformer: (token, config) => {
+  transform: (token, config) => {
     return [config.prefix].concat(token.path).join('.');
   },
 });
-StyleDictionary.registerTransform({
-  name: 'linearGradient/css',
+HPEStyleDictionary.registerTransform({
   ...linearGradientCss,
 });
-StyleDictionary.registerTransformGroup({
+HPEStyleDictionary.registerTransformGroup({
   name: 'js/w3c',
   transforms: javascriptW3c,
 });
-StyleDictionary.registerTransformGroup({
+HPEStyleDictionary.registerTransformGroup({
   name: 'css/w3c',
   transforms: cssW3c,
 });
-
-export const HPEStyleDictionary: StyleDictionary.Core = StyleDictionary;
