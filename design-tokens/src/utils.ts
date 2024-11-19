@@ -48,7 +48,4 @@ export const nonComponentTokens: string[] = [
   'focusIndicator',
 ];
 
-/**
- * Convert a number to pixel value.
- */
 export const numberToPixel = (value: number): string => `${value}px`;
