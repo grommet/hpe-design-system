@@ -8230,7 +8230,7 @@
             "critical": {
               "background": {
                 "$type": "color",
-                "$value": "{color.background.status.critical}",
+                "$value": "{color.background.critical}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -8469,7 +8469,7 @@
           "critical": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.status.critical}",
+              "$value": "{color.background.critical}",
               "$description": "",
               "$extensions": {
                 "com.figma": {

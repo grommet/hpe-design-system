@@ -354,16 +354,16 @@ const buildTheme = tokens => {
     },
     'status-disabled': '#CCCCCC', // deprecated, does not support light and dark.hpe. use text-weak instead
     'validation-critical': {
-      light: light.hpe.color.background.status.critical,
-      dark: dark.hpe.color.background.status.critical,
+      light: light.hpe.color.background.critical,
+      dark: dark.hpe.color.background.critical,
     },
     'validation-ok': {
-      light: light.hpe.color.background.status.ok,
-      dark: dark.hpe.color.background.status.ok,
+      light: light.hpe.color.background.ok,
+      dark: dark.hpe.color.background.ok,
     },
     'validation-warning': {
-      light: light.hpe.color.background.status.warning,
-      dark: dark.hpe.color.background.status.critical,
+      light: light.hpe.color.background.warning,
+      dark: dark.hpe.color.background.critical,
     },
     icon: {
       light: light.hpe.color.icon.default,
