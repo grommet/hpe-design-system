@@ -6906,6 +6906,18 @@
           }
         }
       },
+      "iconColor": {
+        "$type": "color",
+        "$value": "{color.icon.default}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "borderColor": {
         "$type": "color",
         "$value": "#00000000",
@@ -6935,6 +6947,18 @@
       "textColor": {
         "$type": "color",
         "$value": "{dataCell.enabled.textColor}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "iconColor": {
+        "$type": "color",
+        "$value": "{dataCell.enabled.iconColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -6982,6 +7006,18 @@
           }
         }
       },
+      "iconColor": {
+        "$type": "color",
+        "$value": "{color.icon.disabled}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "borderColor": {
         "$type": "color",
         "$value": "{dataCell.enabled.borderColor}",
@@ -7011,6 +7047,18 @@
       "textColor": {
         "$type": "color",
         "$value": "{dataCell.enabled.textColor}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "iconColor": {
+        "$type": "color",
+        "$value": "{dataCell.enabled.iconColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7155,6 +7203,18 @@
             }
           }
         },
+        "iconColor": {
+          "$type": "color",
+          "$value": "{color.text.strong}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "borderColor": {
           "$type": "color",
           "$value": "{dataCell.enabled.borderColor}",
@@ -7184,6 +7244,18 @@
         "textColor": {
           "$type": "color",
           "$value": "{dataCell.hover.textColor}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "iconColor": {
+          "$type": "color",
+          "$value": "{dataCell.primary.enabled.iconColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -7231,6 +7303,18 @@
             }
           }
         },
+        "iconColor": {
+          "$type": "color",
+          "$value": "{dataCell.disabled.iconColor}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "borderColor": {
           "$type": "color",
           "$value": "{dataCell.disabled.borderColor}",
@@ -7260,6 +7344,18 @@
         "textColor": {
           "$type": "color",
           "$value": "{dataCell.pinned.textColor}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "iconColor": {
+          "$type": "color",
+          "$value": "{dataCell.primary.enabled.iconColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
