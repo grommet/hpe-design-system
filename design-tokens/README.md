@@ -13,7 +13,7 @@ yarn add hpe-design-tokens
 With npm:
 
 ```
-yarn add hpe-design-tokens
+npm i hpe-design-tokens
 ```
 
 ## Usage
