@@ -744,7 +744,7 @@
       "status": {
         "critical": {
           "$type": "color",
-          "$value": "{base.color.red.750}",
+          "$value": "{base.color.red.550}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -768,7 +768,7 @@
         },
         "ok": {
           "$type": "color",
-          "$value": "{base.color.green.700}",
+          "$value": "{base.color.green.500}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -780,7 +780,7 @@
         },
         "warning": {
           "$type": "color",
-          "$value": "{base.color.orange.700}",
+          "$value": "{base.color.orange.600}",
           "$description": "",
           "$extensions": {
             "com.figma": {
