@@ -9,13 +9,16 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  color: var(--hpe-color-text-default);
 }
 
 #root {
   width: 100%;
 }
 :focus-visible {
-  outline: 2px auto var(--hpe-focus-ring-color);
+  outline: var(--hpe-focus-indicator-outline);
+  outline-offset: 2px; /* TO DO token */
 }
 
 a {
@@ -90,7 +93,7 @@ button:hover {
 }
 
 button.hpe-button-primary {
-  --button-backgroundColor: var(--hpe-button-primary-enabled-background);
+  --button-backgroundColor: var(--hpe-button-primary-enabled-background-color);
   --button-borderColor: var(--hpe-button-primary-enabled-border-color);
   --button-label-color: var(--hpe-button-primary-enabled-text-color);
 
@@ -275,12 +278,262 @@ button.hpe-button-secondary:hover {
   cursor: default;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+th {
+  border: 1px solid var(--hpe-color-border-weak);
+  font-weight: var(--hpe-header-cell-font-weight);
+  font-size: var(--hpe-header-cell-font-size);
+  line-height: var(--hpe-header-cell-line-height);
+}
+td {
+  vertical-align: top;
+  border: 1px solid var(--hpe-color-border-weak);
+  padding-bottom: var(--hpe-data-cell-padding-bottom);
+  padding-top: var(--hpe-data-cell-padding-top);
+  padding-inline: var(--hpe-data-cell-padding-x);
+  font-weight: var(--hpe-data-cell-font-weight);
+  font-size: var(--hpe-data-cell-font-size);
+  line-height: var(--hpe-data-cell-line-height);
+}
+
+/** -----------------------------------
+ * Checkbox
+ * ----------------------------------- */
+.rt-BaseCheckboxRoot {
+	background: var(--hpe-checkbox-control-enabled-background);
+  border: var(--hpe-checkbox-medium-control-border-width) solid var(--hpe-checkbox-control-enabled-border-color);
+	width: var(--hpe-checkbox-medium-control-width);
+	height: var(--hpe-checkbox-medium-control-height);
+	border-radius: var(--hpe-checkbox-medium-control-border-radius);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  padding: 0;
+
+  svg {
+    width: var(--hpe-size-icon-medium); /* TO DO should this be from checkbox? */
+    height: var(--hpe-size-icon-medium);
   }
-  a:hover {
-    color: #747bff;
+}
+
+/** -----------------------------------
+ * Checkbox label
+ * ----------------------------------- */
+label.rt-Text {
+  color: var(--hpe-checkbox-label-enabled-text-color);
+  font-size: var(--hpe-checkbox-medium-label-font-size);
+  line-height: var(--hpe-checkbox-medium-label-line-height);
+  font-weight: var(--hpe-checkbox-medium-label-font-weight);
+}
+/** -----------------------------------
+ * Checkbox label hover
+ * ----------------------------------- */
+ label.rt-Text:has(.rt-BaseCheckboxRoot:where(:hover)) {
+  color: var(--hpe-checkbox-label-hover-text-color); /* TO DO this is affect formfield too */
+}
+/** -----------------------------------
+ * Checkbox label disabled
+ * ----------------------------------- */
+label.rt-Text:has(.rt-BaseCheckboxRoot:where(:disabled)) {
+  color: var(--hpe-checkbox-label-disabled-text-color); /* TO DO this is affect formfield too */
+}
+
+/** -----------------------------------
+ * Checkbox hover
+ * ----------------------------------- */
+.rt-BaseCheckboxRoot:hover {
+  background: var(--hpe-checkbox-control-hover-background);
+  border-color: var(--hpe-checkbox-control-hover-border-color);
+}
+/** -----------------------------------
+ * Checkbox focus
+ * ----------------------------------- */
+.rt-BaseCheckboxRoot:focus-visible {
+  background: var(--hpe-checkbox-control-focus-background);
+  border-color: var(--hpe-checkbox-control-focus-border-color);
+}
+/** -----------------------------------
+ * Checkbox selected
+ * ----------------------------------- */
+.rt-BaseCheckboxRoot[aria-checked="true"] {
+  background: var(--hpe-checkbox-control-selected-enabled-background);
+  border-color: var(--hpe-checkbox-control-selected-enabled-border-color);
+
+  .rt-BaseCheckboxIndicator {
+    color: var(--hpe-checkbox-control-selected-enabled-icon-color);
+  }
+}
+/** -----------------------------------
+ * Checkbox selected + hover
+ * ----------------------------------- */
+.rt-BaseCheckboxRoot[aria-checked="true"]:hover {
+  background: var(--hpe-checkbox-control-selected-hover-background);
+  border-color: var(--hpe-checkbox-control-selected-hover-border-color);
+
+  .rt-BaseCheckboxIndicator {
+    color: var(--hpe-checkbox-control-selected-hover-icon-color);
+  }
+}
+/** -----------------------------------
+ * Checkbox disabled
+ * ----------------------------------- */
+.rt-BaseCheckboxRoot:disabled {
+  background: var(--hpe-checkbox-control-disabled-background);
+  border-color: var(--hpe-checkbox-control-disabled-border-color);
+}
+/** -----------------------------------
+ * Checkbox selected + disabled
+ * ----------------------------------- */
+.rt-BaseCheckboxRoot[aria-checked="true"]:disabled {
+  background: var(--hpe-checkbox-control-selected-disabled-background);
+  border-color: var(--hpe-checkbox-control-selected-disabled-border-color);
+
+  .rt-BaseCheckboxIndicator {
+    color: var(--hpe-checkbox-control-selected-disabled-icon-color);
+  }
+}
+
+/** -----------------------------------
+ * CheckboxGroup
+ * ----------------------------------- */
+.rt-CheckboxGroupRoot {
+  display: flex;
+  gap: var(--hpe-spacing-xsmall); /* component token? */
+}
+
+/** -----------------------------------
+ * Radio
+ * ----------------------------------- */
+ .rt-BaseRadioRoot {
+	background: var(--hpe-radio-button-control-enabled-background);
+  border: var(--hpe-radio-button-medium-control-border-width) solid var(--hpe-radio-button-control-enabled-border-color);
+	width: var(--hpe-radio-button-medium-control-width);
+	height: var(--hpe-radio-button-medium-control-height);
+	border-radius: var(--hpe-radio-button-medium-control-border-radius);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  padding: 0;
+
+  svg {
+    width: var(--hpe-size-icon-medium); /* TO DO should this be from checkbox? */
+    height: var(--hpe-size-icon-medium);
+  }
+}
+
+/** -----------------------------------
+ * RadioGroup
+ * ----------------------------------- */
+ .rt-RadioGroupRoot {
+  display: flex;
+  gap: var(--hpe-spacing-xsmall); /* component token? */
+}
+
+/** -----------------------------------
+ * FormField
+ * ----------------------------------- */
+.hpe-formfield {
+  .hpe-input-container {
+    border-width: var(--hpe-form-field-medium-input-container-border-width);
+    border-style: solid;
+    border-radius: var(--hpe-form-field-medium-input-container-border-radius);
+
+    &:not(:has([class*="GroupItem"])) {
+      padding-block: var(--hpe-form-field-medium-input-container-padding-y);
+      padding-inline: var(--hpe-form-field-medium-input-container-padding-x);
+    }
+    /** -----------------------------------
+    * group container for CheckBoxGroup, RadioButtonGroup
+    * ----------------------------------- */
+    &:has([class*="GroupItem"]) {
+      padding-block: var(--hpe-form-field-medium-input-group-container-padding-y);
+    }
+  }
+
+  /** -----------------------------------
+  * label
+  * ----------------------------------- */
+  > label.rt-Text {
+    color: var(--hpe-form-field-label-text-enabled-text-color);
+    font-size: var(--hpe-form-field-medium-label-text-font-size);
+    line-height: var(--hpe-form-field-medium-label-text-line-height);
+    font-weight: var(--hpe-form-field-medium-label-text-font-weight);
+  }
+  
+  /** -----------------------------------
+    * help
+    * ----------------------------------- */
+  .hpe-help {
+    display: flex;
+    color: var(--hpe-form-field-help-text-enabled-text-color);
+    font-size: var(--hpe-form-field-medium-help-text-font-size);
+    line-height: var(--hpe-form-field-medium-help-text-line-height);
+    font-weight: var(--hpe-form-field-medium-help-text-font-weight);
+  }
+  
+  /** -----------------------------------
+    * error
+    * ----------------------------------- */
+  .hpe-error {
+    display: flex;
+    color: var(--hpe-form-field-error-text-enabled-text-color);
+    font-size: var(--hpe-form-field-medium-error-text-font-size);
+    line-height: var(--hpe-form-field-medium-error-text-line-height);
+    font-weight: var(--hpe-form-field-medium-error-text-font-weight);
+  }
+  &:not(:has(.hpe-error)) {
+    .hpe-input-container {
+      border-color:  var(--hpe-form-field-input-container-enabled-border-color);
+      /** -----------------------------------
+      * standard container for TextInput, CheckBox, etc.
+      * ----------------------------------- */
+
+      &:not(:has([class*="GroupItem"])):hover {
+        background: var(--hpe-form-field-input-group-item-hover-background); /* TO DO this feels awk */
+        border-color: var(--hpe-form-field-input-container-hover-border-color);
+      }
+      /* contains something disabled */
+      &:has(*:disabled):hover {
+        background: var(--hpe-form-field-input-group-item-disabled-background); /* TO DO this feels awk */
+        border-color: var(--hpe-form-field-input-container-disabled-border-color);
+      }
+    }
+  
+  }
+  &:has(.hpe-error) {
+    .hpe-input-container {
+      background: var(--hpe-form-field-input-container-status-critical-background);
+      border-color: var(--hpe-form-field-input-container-status-critical-border-color);
+    }
+
+    > label.rt-Text {
+      color: var(--hpe-form-field-label-text-status-critical-text-color);
+    }
+    .hpe-help {
+      color: var(--hpe-form-field-help-text-status-critical-text-color);
+    }
+    .hpe-error {
+      color: var(--hpe-form-field-error-text-status-critical-text-color);
+    }
+  }
+
+  /* TO DO is this reaching too deep? */
+  [class*="GroupRoot"] {
+    gap: 0;
+  }
+  /** -----------------------------------
+    * group item styles
+    * ----------------------------------- */
+  .rt-CheckboxGroupItem, .rt-RadioGroupItem {
+    padding-inline: var(--hpe-form-field-medium-input-group-item-padding-x);
+    padding-block: var(--hpe-form-field-medium-input-group-item-padding-y);
+    width: 100%;
+
+    background: var(--hpe-form-field-input-group-item-enabled-background);
+    border-color: var(--hpe-form-field-input-group-item-enabled-border-color);
+
+    &:hover:where(:not(:has(*:disabled))) {
+      background: var(--hpe-form-field-input-group-item-hover-background);
+      border-color: var(--hpe-form-field-input-group-item-hover-border-color);
+    }
   }
 }
