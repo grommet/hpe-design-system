@@ -213,10 +213,9 @@ export const Layout = ({
     nav = (
       <Collapsible open={showSidebar} direction="horizontal">
         <Box
-          background="background-front"
+          background="background-contrast"
           width="medium"
           pad={{ horizontal: 'medium', vertical: 'small' }}
-          border={{ side: 'right', color: 'border-weak' }}
           gap="medium"
           style={{ position: 'sticky', top: 0, bottom: 0 }}
           height="100vh"

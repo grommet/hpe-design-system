@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, CardBody, Text, ThemeContext } from 'grommet';
+import { Box, CardBody, Paragraph, ThemeContext } from 'grommet';
 import { Identifier } from 'aries-core';
 import { LinkCard } from './LinkCard';
 import { pageVisitTracker } from '../../utils/pageVisitTracker';
@@ -26,13 +26,11 @@ export const ContentCard = forwardRef(
           card: {
             container: {
               elevation: 'none',
-              border: {
-                color: 'border-weak',
-              },
             },
             hover: {
               container: {
-                elevation: 'medium',
+                background: 'background-contrast',
+                elevation: 'none',
               },
             },
           },
@@ -77,7 +75,11 @@ export const ContentCard = forwardRef(
                   </Box>
                 )}
               </Identifier>
-              {description && <Text size="small">{description}</Text>}
+              {description && (
+                <Paragraph maxLines={2} size="small">
+                  {description}
+                </Paragraph>
+              )}
             </Box>
           </CardBody>
         </LinkCard>

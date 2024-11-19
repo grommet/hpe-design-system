@@ -26,12 +26,7 @@ const HighlightsLayout = () => {
       {highlights.map(({ name, summary }) => {
         const href = nameToPath(name);
         return (
-          <ContentPreviewCard
-            key={name}
-            href={href}
-            pad="medium"
-            border={{ color: 'border-weak' }}
-          >
+          <ContentPreviewCard key={name} href={href} pad="medium">
             <Box direction="row" align="center" gap="medium">
               <Box gap="small">
                 <Heading level={3} margin="none">
