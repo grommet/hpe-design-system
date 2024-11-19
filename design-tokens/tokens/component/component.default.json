@@ -8870,6 +8870,18 @@
               "codeSyntax": {}
             }
           }
+        },
+        "iconColor": {
+          "$type": "color",
+          "$value": "{color.icon.default}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_FILLS", "STROKE_COLOR"],
+              "codeSyntax": {}
+            }
+          }
         }
       },
       "hover": {
@@ -8881,6 +8893,18 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "iconColor": {
+          "$type": "color",
+          "$value": "{color.icon.default}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_FILLS", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -8898,6 +8922,18 @@
               "codeSyntax": {}
             }
           }
+        },
+        "iconColor": {
+          "$type": "color",
+          "$value": "{color.icon.default}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_FILLS", "STROKE_COLOR"],
+              "codeSyntax": {}
+            }
+          }
         }
       },
       "disabled": {
@@ -8912,6 +8948,18 @@
               "codeSyntax": {}
             }
           }
+        },
+        "iconColor": {
+          "$type": "color",
+          "$value": "{color.icon.default}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_FILLS", "STROKE_COLOR"],
+              "codeSyntax": {}
+            }
+          }
         }
       },
       "readOnly": {
@@ -8923,6 +8971,18 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "iconColor": {
+          "$type": "color",
+          "$value": "{color.icon.default}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_FILLS", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
