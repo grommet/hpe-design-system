@@ -15,7 +15,9 @@
   width: 100%;
 }
 :focus-visible {
-  outline: 2px auto var(--hpe-focus-ring-color);
+  outline: var(--hpe-focus-indicator-outline);
+  outline-offset: var(--hpe-focus-indicator-outline-offset);
+  box-shadow: var(--hpe-focus-indicator-box-shadow);
 }
 
 a {
