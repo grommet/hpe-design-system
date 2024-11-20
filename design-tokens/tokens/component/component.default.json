@@ -8443,7 +8443,7 @@
           "enabled": {
             "background": {
               "$type": "color",
-              "$value": "#00000000",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8482,7 +8482,7 @@
               },
               "borderColor": {
                 "$type": "color",
-                "$value": "#00000000",
+                "$value": "{color.transparent}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -8509,7 +8509,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "#00000000",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8523,7 +8523,7 @@
           "readOnly": {
             "background": {
               "$type": "color",
-              "$value": "#00000000",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8535,7 +8535,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "#00000000",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8549,7 +8549,7 @@
           "disabled": {
             "background": {
               "$type": "color",
-              "$value": "#00000000",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8561,7 +8561,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "#00000000",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -9101,7 +9101,7 @@
       "enabled": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.default}",
+          "$value": "{color.text.critical}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9127,7 +9127,7 @@
       "hover": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.default}",
+          "$value": "{color.text.critical}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9153,7 +9153,7 @@
       "focus": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.default}",
+          "$value": "{color.text.critical}",
           "$description": "",
           "$extensions": {
             "com.figma": {
