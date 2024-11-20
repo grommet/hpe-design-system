@@ -1548,7 +1548,7 @@
             }
           }
         },
-        "purple3": {
+        "purple-2": {
           "$type": "color",
           "$value": "#9a3ac0",
           "$description": "",
