@@ -6011,7 +6011,7 @@
       "enabled": {
         "background": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{color.background.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6037,7 +6037,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{color.background.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6417,7 +6417,7 @@
       "control": {
         "height": {
           "$type": "number",
-          "$value": "{element.medium.lineHeight}",
+          "$value": "{base.dimension.600}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6429,7 +6429,7 @@
         },
         "width": {
           "$type": "number",
-          "$value": "{element.medium.lineHeight}",
+          "$value": "{base.dimension.600}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6936,7 +6936,7 @@
         "track": {
           "height": {
             "$type": "number",
-            "$value": "{element.medium.lineHeight}",
+            "$value": "{base.dimension.600}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6986,7 +6986,7 @@
         "handle": {
           "height": {
             "$type": "number",
-            "$value": "{element.medium.lineHeight}",
+            "$value": "{base.dimension.550}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6998,7 +6998,7 @@
           },
           "width": {
             "$type": "number",
-            "$value": "{element.medium.lineHeight}",
+            "$value": "{base.dimension.550}",
             "$description": "",
             "$extensions": {
               "com.figma": {
