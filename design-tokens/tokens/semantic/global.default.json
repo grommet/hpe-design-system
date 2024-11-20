@@ -15,38 +15,6 @@
           "codeSyntax": {}
         }
       }
-    },
-    "outlineOffset": {
-      "$type": "number",
-      "$value": 2,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "boxShadow": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "color": "white",
-          "offsetX": 0,
-          "offsetY": 0,
-          "blur": 0,
-          "spread": "{focusIndicator.outlineOffset}"
-        }
-      ],
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [],
-          "codeSyntax": {}
-        }
-      }
     }
   },
   "fontStack": {
