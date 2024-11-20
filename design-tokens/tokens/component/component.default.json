@@ -7160,7 +7160,7 @@
       },
       "borderColor": {
         "$type": "color",
-        "$value": "#00000000",
+        "$value": "{color.transparent}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7172,7 +7172,7 @@
       },
       "background": {
         "$type": "color",
-        "$value": "#00000000",
+        "$value": "{color.transparent}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7222,7 +7222,7 @@
       },
       "background": {
         "$type": "color",
-        "$value": "#00000000",
+        "$value": "{color.transparent}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7236,7 +7236,7 @@
     "disabled": {
       "textColor": {
         "$type": "color",
-        "$value": "{dataCell.enabled.textColor}",
+        "$value": "{color.text.disabled}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7483,7 +7483,7 @@
       "hover": {
         "textColor": {
           "$type": "color",
-          "$value": "{dataCell.hover.textColor}",
+          "$value": "{dataCell.primary.enabled.textColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -7583,7 +7583,7 @@
       "pinned": {
         "textColor": {
           "$type": "color",
-          "$value": "{dataCell.pinned.textColor}",
+          "$value": "{dataCell.primary.enabled.textColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -7756,7 +7756,7 @@
       },
       "background": {
         "$type": "color",
-        "$value": "#00000000",
+        "$value": "{color.transparent}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7770,7 +7770,7 @@
     "hover": {
       "textColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.textColor}",
+        "$value": "{headerCell.enabled.textColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7794,7 +7794,7 @@
       },
       "borderColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.borderColor}",
+        "$value": "{headerCell.enabled.borderColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7820,7 +7820,7 @@
     "pinned": {
       "textColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.textColor}",
+        "$value": "{dataCell.enabled.textColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7856,7 +7856,7 @@
       },
       "background": {
         "$type": "color",
-        "$value": "#00000000",
+        "$value": "{color.transparent}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -9494,7 +9494,7 @@
       },
       "background": {
         "$type": "color",
-        "$value": "#00000000",
+        "$value": "{color.transparent}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -9508,7 +9508,7 @@
     "hover": {
       "textColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.textColor}",
+        "$value": "{footerCell.enabled.textColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -9532,7 +9532,7 @@
       },
       "borderColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.borderColor}",
+        "$value": "{footerCell.enabled.borderColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -9544,7 +9544,7 @@
       },
       "background": {
         "$type": "color",
-        "$value": "#00000000",
+        "$value": "{color.transparent}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -9558,7 +9558,7 @@
     "pinned": {
       "textColor": {
         "$type": "color",
-        "$value": "{dataCell.hover.textColor}",
+        "$value": "{dataCell.enabled.textColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -9594,7 +9594,7 @@
       },
       "background": {
         "$type": "color",
-        "$value": "#00000000",
+        "$value": "{color.transparent}",
         "$description": "",
         "$extensions": {
           "com.figma": {
