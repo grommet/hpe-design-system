@@ -1966,7 +1966,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.default.small.iconOnly.minWidth}",
+            "$value": "{button.secondary.small.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2197,7 +2197,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.default.medium.iconOnly.minWidth}",
+            "$value": "{button.secondary.medium.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2404,7 +2404,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.default.large.iconOnly.minWidth}",
+            "$value": "{button.secondary.large.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2539,7 +2539,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.default.xlarge.iconOnly.minWidth}",
+            "$value": "{button.secondary.xlarge.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3633,7 +3633,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{base.static.radius.xlarge}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6836,54 +6836,6 @@
           }
         }
       },
-      "width": {
-        "$type": "number",
-        "$value": 48,
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "height": {
-        "$type": "number",
-        "$value": 24,
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "borderRadius": {
-        "$type": "number",
-        "$value": 9999,
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["CORNER_RADIUS"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "borderWidth": {
-        "$type": "number",
-        "$value": "{borderWidth.default}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "label": {
         "fontSize": {
           "$type": "number",
@@ -9596,7 +9548,7 @@
     "pinned": {
       "textColor": {
         "$type": "color",
-        "$value": "{dataCell.enabled.iconColor}",
+        "$value": "{dataCell.enabled.textColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
