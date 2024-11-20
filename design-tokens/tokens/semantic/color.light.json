@@ -248,6 +248,20 @@
             }
           }
         }
+      },
+      "neutral": {
+        "xstrong": {
+          "$type": "color",
+          "$value": "{base.color.grey.1000}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        }
       }
     },
     "border": {
