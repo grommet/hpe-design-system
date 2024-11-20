@@ -9611,7 +9611,7 @@
       "enabled": {
         "background": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9637,7 +9637,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9663,7 +9663,7 @@
       "focus": {
         "background": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9965,7 +9965,7 @@
       "control": {
         "height": {
           "$type": "number",
-          "$value": "{element.medium.lineHeight}",
+          "$value": "{base.dimension.600}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9977,7 +9977,7 @@
         },
         "width": {
           "$type": "number",
-          "$value": "{element.medium.lineHeight}",
+          "$value": "{base.dimension.600}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -10001,7 +10001,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{base.static.radius.full}",
           "$description": "",
           "$extensions": {
             "com.figma": {
