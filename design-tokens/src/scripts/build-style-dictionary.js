@@ -258,7 +258,7 @@ dimensionFiles.forEach(file => {
               outputReferences: true,
               mediaQuery:
                 parsedGlobal.breakpoint?.[mode] &&
-                !['large', 'xlarge'].includes(mode) &&
+                !['medium', 'large', 'xlarge'].includes(mode) &&
                 `max-width: ${numberToPixel(
                   parsedGlobal.breakpoint[mode].$value,
                 )}`,
@@ -288,7 +288,7 @@ HPEStyleDictionary.extend({
     `${TOKENS_DIR}/primitive/primitives.base.json`,
     `${TOKENS_DIR}/semantic/global.default.json`,
     `${TOKENS_DIR}/semantic/color.light.json`, // using light mode to have a reference name available
-    `${TOKENS_DIR}/semantic/dimension.large.json`, // using large mode to have a reference name available
+    `${TOKENS_DIR}/semantic/dimension.medium.json`, // using medium mode to have a reference name available
     `${TOKENS_DIR}/component/element.default.json`,
     `${TOKENS_DIR}/component/component.default.json`,
   ],

@@ -3,7 +3,7 @@ import { deepFreeze } from 'grommet/utils';
 import {
   dark as localDark,
   light as localLight,
-  large as localLarge,
+  medium as localMedium,
   small as localSmall,
   global as localGlobal,
   components as localComponents,
@@ -438,7 +438,7 @@ const buildTheme = tokens => {
           xxlarge: small.hpe.size.content.xxlarge,
           full: '100%',
         },
-        value: global.hpe.breakpoint.xsmall,
+        value: parseInt(global.hpe.breakpoint.xsmall, 10),
       },
       small: {
         borderSize: {
@@ -470,13 +470,13 @@ const buildTheme = tokens => {
           xxlarge: small.hpe.size.content.xxlarge,
           full: '100%',
         },
-        value: global.hpe.breakpoint.small,
+        value: parseInt(global.hpe.breakpoint.small, 10),
       },
       medium: {
-        value: global.hpe.breakpoint.medium,
+        value: parseInt(global.hpe.breakpoint.medium, 10),
       },
       large: {
-        value: global.hpe.breakpoint.large,
+        value: parseInt(global.hpe.breakpoint.large, 10),
       },
       xlarge: {},
     },
@@ -2618,7 +2618,7 @@ export const current = buildTheme({
   light: localLight,
   dark: localDark,
   small: localSmall,
-  large: localLarge,
+  large: localMedium,
   global: localGlobal,
   components: localComponents,
 });
@@ -2627,7 +2627,7 @@ export const warm = buildTheme({
   light: localLight,
   dark: localDark,
   small: localSmall,
-  large: localLarge,
+  large: localMedium,
   global: localGlobal,
   components: localComponents,
 });
