@@ -5753,7 +5753,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.none}",
+          "$value": "{base.static.radius.none}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5805,7 +5805,7 @@
       "enabled": {
         "background": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5817,7 +5817,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5867,7 +5867,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5917,7 +5917,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "#00000000",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5968,7 +5968,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "#00000000",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
