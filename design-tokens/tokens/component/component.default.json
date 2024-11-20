@@ -5353,7 +5353,7 @@
     },
     "margin": {
       "$type": "number",
-      "$value": "{spacing.xsmall}",
+      "$value": "{base.static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
