@@ -9241,6 +9241,18 @@
                 "codeSyntax": {}
               }
             }
+          },
+          "iconColor": {
+            "$type": "color",
+            "$value": "{color.icon.default}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       }
