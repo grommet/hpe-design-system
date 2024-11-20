@@ -1009,7 +1009,7 @@
       "categorical": {
         "10": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.green1}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1021,7 +1021,7 @@
         },
         "20": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.darkblue2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1033,7 +1033,7 @@
         },
         "30": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.gold2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1045,7 +1045,7 @@
         },
         "40": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.purple2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1057,7 +1057,7 @@
         },
         "50": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.lightblue2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1069,7 +1069,7 @@
         },
         "60": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.pink2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1081,7 +1081,7 @@
         },
         "70": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.blue2}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1093,7 +1093,7 @@
         },
         "80": {
           "$type": "color",
-          "$value": "{TBD}",
+          "$value": "{base.color.dataVis.purple3}",
           "$description": "",
           "$extensions": {
             "com.figma": {
