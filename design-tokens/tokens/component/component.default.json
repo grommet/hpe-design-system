@@ -7986,6 +7986,30 @@
                   "codeSyntax": {}
                 }
               }
+            },
+            "textToIconX": {
+              "$type": "number",
+              "$value": "{element.medium.textToIconX}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            },
+            "textToElementX": {
+              "$type": "number",
+              "$value": "{element.medium.textToElementX}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
             }
           },
           "container": {
@@ -8096,6 +8120,30 @@
               "com.figma": {
                 "hiddenFromPublishing": false,
                 "scopes": ["WIDTH_HEIGHT"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "textToIconX": {
+            "$type": "number",
+            "$value": "{element.medium.textToIconX}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "textToElementX": {
+            "$type": "number",
+            "$value": "{element.medium.textToElementX}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
                 "codeSyntax": {}
               }
             }
