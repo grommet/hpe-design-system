@@ -409,20 +409,6 @@
           }
         }
       },
-      "inverse": {
-        "default": {
-          "$type": "color",
-          "$value": "{base.color.white.100}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["TEXT_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        }
-      },
       "onStrong": {
         "default": {
           "$type": "color",
