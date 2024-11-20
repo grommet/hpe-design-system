@@ -121,6 +121,13 @@ nonComponentTokens.forEach(category => {
 });
 
 writeFileSync(
+  './tokens/component/element.default.json',
+  JSON.stringify({ element: updated.element }, null, 2),
+);
+
+delete updated.element;
+
+writeFileSync(
   './tokens/component/component.default.json',
   JSON.stringify(updated, null, 2),
 );
