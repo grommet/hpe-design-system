@@ -7862,7 +7862,7 @@
           }
         }
       },
-      "labelText": {
+      "label": {
         "fontSize": {
           "$type": "number",
           "$value": "{text.xsmall.fontSize}",
@@ -7900,7 +7900,7 @@
           }
         }
       },
-      "placeholderText": {
+      "placeholder": {
         "fontSize": {
           "$type": "number",
           "$value": "{element.medium.fontSize}",
@@ -7938,7 +7938,7 @@
           }
         }
       },
-      "helpText": {
+      "help": {
         "fontSize": {
           "$type": "number",
           "$value": "{text.xsmall.fontSize}",
@@ -7976,7 +7976,7 @@
           }
         }
       },
-      "infoText": {
+      "info": {
         "fontSize": {
           "$type": "number",
           "$value": "{text.xsmall.fontSize}",
@@ -8014,7 +8014,7 @@
           }
         }
       },
-      "errorText": {
+      "error": {
         "fontSize": {
           "$type": "number",
           "$value": "{text.xsmall.fontSize}",
@@ -8052,7 +8052,7 @@
           }
         }
       },
-      "valueText": {
+      "value": {
         "fontSize": {
           "$type": "number",
           "$value": "{element.medium.fontSize}",
@@ -8495,7 +8495,7 @@
         }
       }
     },
-    "labelText": {
+    "label": {
       "enabled": {
         "textColor": {
           "$type": "color",
@@ -8583,7 +8583,7 @@
         }
       }
     },
-    "placeholderText": {
+    "placeholder": {
       "disabled": {
         "$type": "color",
         "$value": "{color.text.disabled}",
@@ -8681,7 +8681,7 @@
         }
       }
     },
-    "helpText": {
+    "help": {
       "enabled": {
         "textColor": {
           "$type": "color",
@@ -8769,7 +8769,7 @@
         }
       }
     },
-    "infoText": {
+    "info": {
       "enabled": {
         "textColor": {
           "$type": "color",
@@ -8857,7 +8857,7 @@
         }
       }
     },
-    "errorText": {
+    "error": {
       "enabled": {
         "textColor": {
           "$type": "color",
@@ -9005,7 +9005,7 @@
         }
       }
     },
-    "valueText": {
+    "value": {
       "enabled": {
         "textColor": {
           "$type": "color",
