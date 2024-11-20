@@ -1107,7 +1107,7 @@
         },
         "80": {
           "$type": "color",
-          "$value": "{base.color.dataVis.blue325}",
+          "$value": "{base.color.dataVis.grape1}",
           "$description": "",
           "$extensions": {
             "com.figma": {
