@@ -3094,7 +3094,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 3,
+            "$value": 4,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4362,7 +4362,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": 5,
+            "$value": "{button.toolbar.xsmall.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4374,7 +4374,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 3,
+            "$value": 4,
             "$description": "",
             "$extensions": {
               "com.figma": {
