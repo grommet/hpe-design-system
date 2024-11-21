@@ -32,7 +32,7 @@
       "$type": "shadow",
       "$value": [
         {
-          "color": "white",
+          "color": "{base.color.white.100}",
           "offsetX": 0,
           "offsetY": 0,
           "blur": 0,
