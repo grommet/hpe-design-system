@@ -105,8 +105,8 @@
   --hpe-color-decorative-brand: var(--hpe-base-color-brand);
   --hpe-color-decorative-green: var(--hpe-base-color-brand); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-foreground-primary: var(--hpe-base-color-brand);
-  --hpe-shadow-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-base-color-black-opacity36) ;
-  --hpe-shadow-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-base-color-black-opacity36) ;
+  --hpe-shadow-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-base-color-black-opacity12) ;
+  --hpe-shadow-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-base-color-black-opacity24) ;
   --hpe-color-background-active: var(--hpe-color-background-hover); /* Standard active state color */
 }
 

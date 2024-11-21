@@ -4446,7 +4446,7 @@ export default {
   },
   "hpe.shadow.medium": {
     "$type": "shadow",
-    "$value": "0px 6px 12px 0px rgba(0, 0, 0, 0.36) ",
+    "$value": "0px 6px 12px 0px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4467,7 +4467,7 @@ export default {
           "offsetY": "{base.static.spacing.xsmall}",
           "blur": "{base.static.spacing.small}",
           "spread": "{base.static.spacing.none}",
-          "color": "{base.color.black.opacity36}"
+          "color": "{base.color.black.opacity12}"
         }
       ],
       "$description": "",
@@ -4493,7 +4493,7 @@ export default {
   },
   "hpe.shadow.large": {
     "$type": "shadow",
-    "$value": "0px 12px 24px 0px rgba(0, 0, 0, 0.36) ",
+    "$value": "0px 12px 24px 0px rgba(0, 0, 0, 0.24) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4514,7 +4514,7 @@ export default {
           "offsetY": "{base.static.spacing.small}",
           "blur": "{base.static.spacing.medium}",
           "spread": "{base.static.spacing.none}",
-          "color": "{base.color.black.opacity36}"
+          "color": "{base.color.black.opacity24}"
         }
       ],
       "$description": "",

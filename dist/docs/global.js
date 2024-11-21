@@ -87,8 +87,10 @@ export default {
     "$description": "",
     "$extensions": {
       "com.figma": {
-        "hiddenFromPublishing": true,
-        "scopes": [],
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
         "codeSyntax": {}
       }
     },
@@ -98,18 +100,20 @@ export default {
       "$type": "shadow",
       "$value": [
         {
-          "color": "{base.color.white.100}",
           "offsetX": 0,
           "offsetY": 0,
           "blur": 0,
-          "spread": "{focusIndicator.outlineOffset}"
+          "spread": "{focusIndicator.outlineOffset}",
+          "color": "{base.color.white.100}"
         }
       ],
       "$description": "",
       "$extensions": {
         "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [],
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
           "codeSyntax": {}
         }
       }
