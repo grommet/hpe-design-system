@@ -3,7 +3,7 @@ import 'hpe-design-tokens/dist/css/color.light.css';
 import 'hpe-design-tokens/dist/css/color.dark.css';
 import 'hpe-design-tokens/dist/css/components.css';
 import 'hpe-design-tokens/dist/css/global.css';
-import 'hpe-design-tokens/dist/css/dimension.large.css';
+import 'hpe-design-tokens/dist/css/dimension.medium.css';
 import 'hpe-design-tokens/dist/css/dimension.small.css';
 import './css/fonts.css';
 import './css/components.css';

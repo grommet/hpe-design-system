@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, Meter, Text } from 'grommet';
+import { Box, Meter, NameValueList, Text } from 'grommet';
 import { Calendar } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 import { ChartCard, Measure, MeterGroup } from '../../components';
@@ -88,15 +88,6 @@ export const RulesAudit = ({ period }) => {
     setAuditResults(nextAuditResults);
   }, [rules]);
 
-  const grid = {
-    columns: ['auto', 'auto', 'auto'],
-    rows: ['auto', 'auto'],
-    areas: [
-      ['rules', 'frameworks', 'audits'],
-      ['chart', 'chart', 'chart'],
-    ],
-  };
-
   const nextScheduledAudit = nextAudit && (
     <Box direction="row" gap="xsmall">
       {/* Placing the icon within a Text component ensures the icon is 
@@ -118,29 +109,30 @@ export const RulesAudit = ({ period }) => {
 
   return (
     <ChartCard title="Compliance" subtitle={period} footer={nextScheduledAudit}>
-      <Grid
-        columns={grid.columns}
-        rows={grid.rows}
-        areas={grid.areas}
-        gap="medium"
-      >
-        <Measure
-          gridArea="rules"
-          name={{ label: { label: 'Rules', size: 'medium' } }}
-          value={rules?.length}
-        />
-        <Measure
-          gridArea="frameworks"
-          name={{ label: { label: 'Frameworks', size: 'medium' } }}
-          value={frameworks?.length}
-        />
-        <Measure
-          gridArea="audits"
-          name={{ label: { label: 'Audits', size: 'medium' } }}
-          value={completedAudits?.length}
-        />
+      <Box gap="medium">
+        <NameValueList
+         valueProps={{ width: ['xsmall', 'auto'] }}
+         pairProps={{ direction: 'column' }}
+         layout="grid"
+        >
+          <Measure
+            gridArea="rules"
+            name={{ label: { label: 'Rules', size: 'medium' } }}
+            value={rules?.length}
+          />
+          <Measure
+            gridArea="frameworks"
+            name={{ label: { label: 'Frameworks', size: 'medium' } }}
+            value={frameworks?.length}
+          />
+          <Measure
+            gridArea="audits"
+            name={{ label: { label: 'Audits', size: 'medium' } }}
+            value={completedAudits?.length}
+          />
+        </NameValueList>
         <AuditResultsChart gridArea="chart" data={auditResults} />
-      </Grid>
+      </Box>
     </ChartCard>
   );
 };

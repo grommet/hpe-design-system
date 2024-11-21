@@ -36,6 +36,7 @@ export const ListOrderExample = () => {
           onClick={() => setAllowReorder(!allowReorder)}
         />
         <List
+          aria-label="Favorite movies"
           defaultItemProps={{
             align: 'start',
           }}

@@ -1,20 +1,21 @@
-import StyleDictionary from 'style-dictionary';
-import { FormatterArguments } from 'style-dictionary/types/Format.js';
+import { FormatFn, FormatFnArguments } from 'style-dictionary/types';
+import { fileHeader, formattedVariables } from 'style-dictionary/utils';
 
-export const cssBreakpoints = ({
+export const cssBreakpoints: FormatFn = async ({
   dictionary,
   file,
   options,
-}: FormatterArguments) => {
+}: FormatFnArguments) => {
   const { outputReferences, mediaQuery } = options;
-  let output = `:root {\n${StyleDictionary.formatHelpers.formattedVariables({
+  let output = `:root {\n${formattedVariables({
     format: 'css',
     dictionary,
     outputReferences,
+    usesDtcg: true,
   })}\n}`;
   if (mediaQuery) output = `@media (${mediaQuery}) {\n${output}\n}\n`;
 
-  return `${StyleDictionary.formatHelpers.fileHeader({
+  return `${await fileHeader({
     file,
   })}${output}`;
 };

@@ -63,6 +63,8 @@ const Users = () => {
       >
         {datum => (
           <Card
+            as="li"
+            aria-label={`User card for ${datum.name}`}
             key={datum.id}
             // margin ensures focus on cards is not cutoff
             margin="xxsmall"
