@@ -3,6 +3,7 @@
  */
 
 :root {
+  --hpe-focus-indicator-outline-offset: 2px;
   --hpe-font-stack-primary: 'Metric', Arial, sans-serif; /* For dev use only. */
   --hpe-font-stack-code: 'Fira Mono', ui-monospace, monospace; /* For dev use only. */
   --hpe-breakpoint-xsmall: 576px;
@@ -16,5 +17,6 @@
   --hpe-font-weight-semibold: 600;
   --hpe-font-weight-bold: 700;
   --hpe-font-weight-black: 900;
+  --hpe-focus-indicator-box-shadow: 0 0 0 var(--hpe-focus-indicator-outline-offset) white ;
   --hpe-focus-indicator-outline: var(--hpe-base-dimension-50) solid var(--hpe-color-focus);
 }

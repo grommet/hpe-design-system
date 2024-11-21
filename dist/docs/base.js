@@ -5284,7 +5284,7 @@ export default {
       "blue2"
     ]
   },
-  "hpe.base.color.dataVis.purple-2": {
+  "hpe.base.color.dataVis.purple3": {
     "$type": "color",
     "$value": "#9a3ac0",
     "$description": "",
@@ -5313,18 +5313,18 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.dataVis.purple-2",
+    "name": "hpe.base.color.dataVis.purple3",
     "attributes": {
       "category": "base",
       "type": "color",
       "item": "dataVis",
-      "subitem": "purple-2"
+      "subitem": "purple3"
     },
     "path": [
       "base",
       "color",
       "dataVis",
-      "purple-2"
+      "purple3"
     ]
   },
   "hpe.base.fontFamily.MetricHPEXS": {

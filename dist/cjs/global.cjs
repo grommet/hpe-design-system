@@ -9,7 +9,9 @@ module.exports = {
         "color": "focus",
         "width": "2px",
         "style": "solid"
-      }
+      },
+      "outlineOffset": "2px",
+      "boxShadow": "0 0 0 2px white "
     },
     "fontStack": {
       "primary": "'Metric', Arial, sans-serif",

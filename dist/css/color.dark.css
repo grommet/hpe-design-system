@@ -3,6 +3,7 @@
  */
 
 :root[data-mode=dark] {
+  --hpe-color-decorative-brand: #ffffff;
   --hpe-color-transparent: rgba(0, 0, 0, 0);
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
@@ -70,15 +71,12 @@
   --hpe-color-data-vis-categorical-50: var(--hpe-base-color-data-vis-lightblue2);
   --hpe-color-data-vis-categorical-60: var(--hpe-base-color-data-vis-pink2);
   --hpe-color-data-vis-categorical-70: var(--hpe-base-color-data-vis-blue2);
-  --hpe-color-data-vis-categorical-80: var(--hpe-base-color-data-vis-purple-2);
+  --hpe-color-data-vis-categorical-80: var(--hpe-base-color-data-vis-purple3);
   --hpe-color-focus: var(--hpe-base-color-teal-400);
   --hpe-color-foreground-critical: var(--hpe-base-color-red-550);
   --hpe-color-foreground-warning: var(--hpe-base-color-orange-600);
   --hpe-color-foreground-unknown: var(--hpe-base-color-grey-700);
-  --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
-  --hpe-color-shadow-default: var(--hpe-base-color-black-opacity36);
-  --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity50);
-  --hpe-shadow-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) var(--hpe-color-shadow-weak) ;
+  --hpe-shadow-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) var(--hpe-base-color-black-opacity12) ;
   --hpe-color-background-selected-strong-enabled: var(--hpe-base-color-brand); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-background-selected-strong-hover: var(--hpe-base-color-brand); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-border-critical: var(--hpe-color-border-default);
@@ -108,12 +106,13 @@
   --hpe-color-icon-on-selected-weak: var(--hpe-color-text-strong); /* Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-decorative-green: var(--hpe-base-color-brand); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-foreground-primary: var(--hpe-base-color-brand);
-  --hpe-shadow-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default) ;
-  --hpe-shadow-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default) ;
+  --hpe-shadow-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-base-color-black-opacity36) ;
+  --hpe-shadow-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-base-color-black-opacity36) ;
 }
 
 @media (prefers-color-scheme: dark) {
 :root[data-mode=dark] {
+  --hpe-color-decorative-brand: #ffffff;
   --hpe-color-transparent: rgba(0, 0, 0, 0);
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
@@ -181,15 +180,12 @@
   --hpe-color-data-vis-categorical-50: var(--hpe-base-color-data-vis-lightblue2);
   --hpe-color-data-vis-categorical-60: var(--hpe-base-color-data-vis-pink2);
   --hpe-color-data-vis-categorical-70: var(--hpe-base-color-data-vis-blue2);
-  --hpe-color-data-vis-categorical-80: var(--hpe-base-color-data-vis-purple-2);
+  --hpe-color-data-vis-categorical-80: var(--hpe-base-color-data-vis-purple3);
   --hpe-color-focus: var(--hpe-base-color-teal-400);
   --hpe-color-foreground-critical: var(--hpe-base-color-red-550);
   --hpe-color-foreground-warning: var(--hpe-base-color-orange-600);
   --hpe-color-foreground-unknown: var(--hpe-base-color-grey-700);
-  --hpe-color-shadow-weak: var(--hpe-base-color-black-opacity12);
-  --hpe-color-shadow-default: var(--hpe-base-color-black-opacity36);
-  --hpe-color-shadow-strong: var(--hpe-base-color-black-opacity50);
-  --hpe-shadow-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) var(--hpe-color-shadow-weak) ;
+  --hpe-shadow-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) var(--hpe-base-color-black-opacity12) ;
   --hpe-color-background-selected-strong-enabled: var(--hpe-base-color-brand); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-background-selected-strong-hover: var(--hpe-base-color-brand); /* Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-border-critical: var(--hpe-color-border-default);
@@ -219,8 +215,8 @@
   --hpe-color-icon-on-selected-weak: var(--hpe-color-text-strong); /* Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-decorative-green: var(--hpe-base-color-brand); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-foreground-primary: var(--hpe-base-color-brand);
-  --hpe-shadow-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default) ;
-  --hpe-shadow-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-color-shadow-default) ;
+  --hpe-shadow-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-base-color-black-opacity36) ;
+  --hpe-shadow-large: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-medium) var(--hpe-base-static-spacing-none) var(--hpe-base-color-black-opacity36) ;
 }
 }
 

@@ -59,11 +59,11 @@ export default {
         "disabled": "rgba(0, 0, 0, 0.24)",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
-        "onStrong": {
-          "default": "#ffffff"
-        },
         "heading": {
           "default": "#333333"
+        },
+        "onStrong": {
+          "default": "#ffffff"
         },
         "critical": "#555555",
         "info": "#555555",
@@ -111,6 +111,7 @@ export default {
         "onSelectedWeak": "#333333"
       },
       "decorative": {
+        "brand": "#01a982",
         "green": "#17eba0",
         "purple": "#f740ff",
         "teal": "#82fff2",
@@ -145,17 +146,12 @@ export default {
         "critical": "#ec3331",
         "warning": "#d36d00",
         "unknown": "#8c8c8c"
-      },
-      "shadow": {
-        "weak": "rgba(0, 0, 0, 0.12)",
-        "default": "rgba(0, 0, 0, 0.12)",
-        "strong": "rgba(0, 0, 0, 0.24)"
       }
     },
     "shadow": {
       "small": "0 4px 4px rgba(0, 0, 0, 0.12) ",
-      "medium": "0px 6px 12px 0px rgba(0, 0, 0, 0.12) ",
-      "large": "0px 12px 24px 0px rgba(0, 0, 0, 0.12) "
+      "medium": "0px 6px 12px 0px rgba(0, 0, 0, 0.36) ",
+      "large": "0px 12px 24px 0px rgba(0, 0, 0, 0.36) "
     }
   }
 }

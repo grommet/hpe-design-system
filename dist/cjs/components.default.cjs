@@ -133,6 +133,111 @@ module.exports = {
             "iconColor": "icon-strong",
             "fontWeight": 700
           }
+        },
+        "xsmall": {
+          "paddingX": "12px",
+          "paddingY": "3px",
+          "borderRadius": "384px",
+          "borderWidth": "default",
+          "minHeight": "24px",
+          "fontSize": "0.875rem",
+          "iconOnly": {
+            "paddingX": "3px",
+            "paddingY": "3px",
+            "borderRadius": "384px",
+            "borderWidth": "default",
+            "minHeight": "24px",
+            "minWidth": "24px",
+            "fontSize": "0.875rem",
+            "lineHeight": "1rem",
+            "gapX": "3px"
+          },
+          "lineHeight": "1rem",
+          "gapX": "3px"
+        },
+        "small": {
+          "paddingX": "12px",
+          "paddingY": "3px",
+          "borderRadius": "384px",
+          "borderWidth": "1px",
+          "minHeight": "28px",
+          "fontSize": "1rem",
+          "lineHeight": "1.25rem",
+          "gapX": "6px",
+          "iconOnly": {
+            "paddingX": "5px",
+            "paddingY": "5px",
+            "borderRadius": "384px",
+            "borderWidth": "1px",
+            "minHeight": "28px",
+            "minWidth": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
+          }
+        },
+        "medium": {
+          "paddingX": "18px",
+          "paddingY": "5px",
+          "borderRadius": "384px",
+          "borderWidth": "1px",
+          "minHeight": "36px",
+          "fontSize": "19px",
+          "lineHeight": "1.5rem",
+          "gapX": "6px",
+          "iconOnly": {
+            "paddingX": "8px",
+            "paddingY": "8px",
+            "borderRadius": "384px",
+            "borderWidth": "1px",
+            "minHeight": "36px",
+            "minWidth": "36px",
+            "fontSize": "19px",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
+          }
+        },
+        "large": {
+          "paddingX": "24px",
+          "paddingY": "9px",
+          "borderRadius": "384px",
+          "borderWidth": "1px",
+          "minHeight": "48px",
+          "fontSize": "1.375rem",
+          "lineHeight": "1.75rem",
+          "gapX": "6px",
+          "iconOnly": {
+            "borderRadius": "384px",
+            "borderWidth": "1px",
+            "minHeight": "48px",
+            "minWidth": "48px",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
+            "gapX": "6px",
+            "paddingX": "12px",
+            "paddingY": "12px"
+          }
+        },
+        "xlarge": {
+          "iconOnly": {
+            "borderRadius": "384px",
+            "borderWidth": "1px",
+            "minHeight": "72px",
+            "minWidth": "72px",
+            "fontSize": "1.5rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px",
+            "paddingX": "23px",
+            "paddingY": "23px"
+          },
+          "paddingX": "32px",
+          "paddingY": "20px",
+          "borderRadius": "384px",
+          "borderWidth": "1px",
+          "minHeight": "72px",
+          "fontSize": "1.5rem",
+          "lineHeight": "1.875rem",
+          "gapX": "6px"
         }
       },
       "secondary": {
@@ -164,6 +269,126 @@ module.exports = {
             "textColor": "text-strong",
             "iconColor": "icon-strong",
             "fontWeight": 600
+          }
+        },
+        "xsmall": {
+          "paddingX": "12px",
+          "paddingY": "3px",
+          "borderRadius": "384px",
+          "borderWidth": "default",
+          "minHeight": "24px",
+          "fontSize": "0.875rem",
+          "lineHeight": "1rem",
+          "gapX": "3px",
+          "iconOnly": {
+            "paddingX": "3px",
+            "paddingY": "3px",
+            "borderRadius": "384px",
+            "borderWidth": "default",
+            "minHeight": "24px",
+            "minWidth": "24px",
+            "fontSize": "0.875rem",
+            "lineHeight": "1rem",
+            "gapX": "3px"
+          },
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+          }
+        },
+        "small": {
+          "paddingX": "12px",
+          "paddingY": "3px",
+          "borderRadius": "384px",
+          "borderWidth": "1px",
+          "minHeight": "28px",
+          "fontSize": "1rem",
+          "lineHeight": "1.25rem",
+          "gapX": "6px",
+          "iconOnly": {
+            "paddingX": "5px",
+            "paddingY": "5px",
+            "borderRadius": "384px",
+            "borderWidth": "1px",
+            "minHeight": "28px",
+            "minWidth": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
+          },
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+          }
+        },
+        "medium": {
+          "paddingX": "18px",
+          "paddingY": "4px",
+          "borderRadius": "384px",
+          "borderWidth": "2px",
+          "minHeight": "36px",
+          "fontSize": "19px",
+          "lineHeight": "1.5rem",
+          "gapX": "6px",
+          "iconOnly": {
+            "paddingX": "7px",
+            "paddingY": "7px",
+            "borderRadius": "384px",
+            "borderWidth": "2px",
+            "minHeight": "36px",
+            "minWidth": "36px",
+            "fontSize": "19px",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
+          },
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+          }
+        },
+        "large": {
+          "paddingX": "24px",
+          "paddingY": "8px",
+          "borderRadius": "384px",
+          "borderWidth": "2px",
+          "minHeight": "48px",
+          "fontSize": "1.375rem",
+          "lineHeight": "1.75rem",
+          "gapX": "6px",
+          "iconOnly": {
+            "borderRadius": "384px",
+            "borderWidth": "2px",
+            "minHeight": "48px",
+            "minWidth": "48px",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
+            "gapX": "6px",
+            "paddingX": "12px",
+            "paddingY": "12px"
+          },
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+          }
+        },
+        "xlarge": {
+          "iconOnly": {
+            "borderRadius": "384px",
+            "borderWidth": "2px",
+            "minHeight": "72px",
+            "minWidth": "72px",
+            "fontSize": "1.5rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px",
+            "paddingX": "23px",
+            "paddingY": "23px"
+          },
+          "paddingX": "32px",
+          "paddingY": "19px",
+          "borderRadius": "384px",
+          "borderWidth": "2px",
+          "minHeight": "72px",
+          "fontSize": "1.5rem",
+          "lineHeight": "1.875rem",
+          "gapX": "6px",
+          "hover": {
+            "boxShadow": "0px 0px 0px 1px #01a982 inset"
           }
         }
       },
@@ -197,6 +422,111 @@ module.exports = {
             "iconColor": "icon-strong",
             "fontWeight": 600
           }
+        },
+        "xsmall": {
+          "paddingX": "12px",
+          "paddingY": "3px",
+          "borderRadius": "384px",
+          "borderWidth": "default",
+          "minHeight": "24px",
+          "fontSize": "0.875rem",
+          "lineHeight": "1rem",
+          "gapX": "3px",
+          "iconOnly": {
+            "paddingX": "3px",
+            "paddingY": "3px",
+            "borderRadius": "384px",
+            "borderWidth": "default",
+            "minHeight": "24px",
+            "minWidth": "24px",
+            "fontSize": "0.875rem",
+            "lineHeight": "1rem",
+            "gapX": "3px"
+          }
+        },
+        "small": {
+          "paddingX": "12px",
+          "paddingY": "3px",
+          "borderRadius": "384px",
+          "borderWidth": "1px",
+          "minHeight": "28px",
+          "fontSize": "1rem",
+          "lineHeight": "1.25rem",
+          "gapX": "6px",
+          "iconOnly": {
+            "paddingX": "5px",
+            "paddingY": "5px",
+            "borderRadius": "384px",
+            "borderWidth": "1px",
+            "minHeight": "28px",
+            "minWidth": "28px",
+            "fontSize": "1rem",
+            "lineHeight": "1.25rem",
+            "gapX": "6px"
+          }
+        },
+        "medium": {
+          "paddingX": "18px",
+          "paddingY": "5px",
+          "borderRadius": "384px",
+          "borderWidth": "1px",
+          "minHeight": "36px",
+          "fontSize": "19px",
+          "lineHeight": "1.5rem",
+          "gapX": "6px",
+          "iconOnly": {
+            "paddingX": "8px",
+            "paddingY": "8px",
+            "borderRadius": "384px",
+            "borderWidth": "1px",
+            "minHeight": "36px",
+            "minWidth": "36px",
+            "fontSize": "19px",
+            "lineHeight": "1.5rem",
+            "gapX": "6px"
+          }
+        },
+        "large": {
+          "paddingX": "24px",
+          "paddingY": "9px",
+          "borderRadius": "384px",
+          "borderWidth": "1px",
+          "minHeight": "48px",
+          "fontSize": "1.375rem",
+          "lineHeight": "1.75rem",
+          "gapX": "6px",
+          "iconOnly": {
+            "borderRadius": "384px",
+            "borderWidth": "1px",
+            "minHeight": "48px",
+            "minWidth": "48px",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
+            "gapX": "6px",
+            "paddingX": "12px",
+            "paddingY": "12px"
+          }
+        },
+        "xlarge": {
+          "iconOnly": {
+            "borderRadius": "384px",
+            "borderWidth": "1px",
+            "minHeight": "72px",
+            "minWidth": "72px",
+            "fontSize": "1.5rem",
+            "lineHeight": "1.875rem",
+            "gapX": "6px",
+            "paddingX": "23px",
+            "paddingY": "23px"
+          },
+          "paddingX": "32px",
+          "paddingY": "20px",
+          "borderRadius": "384px",
+          "borderWidth": "1px",
+          "minHeight": "72px",
+          "fontSize": "1.5rem",
+          "lineHeight": "1.875rem",
+          "gapX": "6px"
         }
       },
       "toolbar": {
@@ -229,73 +559,8 @@ module.exports = {
             "iconColor": "icon-strong",
             "fontWeight": 600
           }
-        }
-      },
-      "xsmall": {
-        "primary": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "default",
-          "minHeight": "24px",
-          "fontSize": "0.875rem",
-          "lineHeight": "1rem",
-          "gapX": "3px",
-          "iconOnly": {
-            "paddingX": "3px",
-            "paddingY": "3px",
-            "borderRadius": "384px",
-            "borderWidth": "default",
-            "minHeight": "24px",
-            "fontSize": "0.875rem",
-            "lineHeight": "1rem",
-            "gapX": "3px"
-          }
         },
-        "secondary": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "default",
-          "minHeight": "24px",
-          "fontSize": "0.875rem",
-          "lineHeight": "1rem",
-          "gapX": "3px",
-          "iconOnly": {
-            "paddingX": "3px",
-            "paddingY": "3px",
-            "borderRadius": "384px",
-            "borderWidth": "default",
-            "minHeight": "24px",
-            "fontSize": "0.875rem",
-            "lineHeight": "1rem",
-            "gapX": "3px"
-          },
-          "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
-          }
-        },
-        "default": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "default",
-          "minHeight": "24px",
-          "fontSize": "0.875rem",
-          "lineHeight": "1rem",
-          "gapX": "3px",
-          "iconOnly": {
-            "paddingX": "3px",
-            "paddingY": "3px",
-            "borderRadius": "384px",
-            "borderWidth": "default",
-            "minHeight": "24px",
-            "fontSize": "0.875rem",
-            "lineHeight": "1rem",
-            "gapX": "3px"
-          }
-        },
-        "toolbar": {
+        "xsmall": {
           "paddingX": "6px",
           "paddingY": "3px",
           "borderRadius": "6px",
@@ -303,87 +568,20 @@ module.exports = {
           "minHeight": "24px",
           "fontSize": "0.875rem",
           "lineHeight": "1rem",
-          "gapX": "3px",
           "iconOnly": {
             "paddingX": "5px",
             "paddingY": "3px",
             "borderRadius": "6px",
             "borderWidth": "1px",
             "minHeight": "24px",
+            "minWidth": "24px",
             "fontSize": "0.875rem",
             "lineHeight": "1rem",
             "gapX": "3px"
-          }
-        }
-      },
-      "small": {
-        "default": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "28px",
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "5px",
-            "paddingY": "5px",
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "28px",
-            "minWidth": "28px",
-            "fontSize": "1rem",
-            "lineHeight": "1.25rem",
-            "gapX": "6px"
-          }
-        },
-        "primary": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "28px",
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "5px",
-            "paddingY": "5px",
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "28px",
-            "minWidth": "28px",
-            "fontSize": "1rem",
-            "lineHeight": "1.25rem",
-            "gapX": "6px"
-          }
-        },
-        "secondary": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "28px",
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "5px",
-            "paddingY": "5px",
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "28px",
-            "minWidth": "28px",
-            "fontSize": "1rem",
-            "lineHeight": "1.25rem",
-            "gapX": "6px"
           },
-          "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
-          }
+          "gapX": "3px"
         },
-        "toolbar": {
+        "small": {
           "paddingX": "6px",
           "paddingY": "3px",
           "borderRadius": "6px",
@@ -403,76 +601,8 @@ module.exports = {
             "lineHeight": "1.25rem",
             "gapX": "3px"
           }
-        }
-      },
-      "medium": {
-        "default": {
-          "paddingX": "18px",
-          "paddingY": "5px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "36px",
-          "fontSize": "19px",
-          "lineHeight": "1.5rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "8px",
-            "paddingY": "8px",
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "36px",
-            "minWidth": "36px",
-            "fontSize": "19px",
-            "lineHeight": "1.5rem",
-            "gapX": "6px"
-          }
         },
-        "primary": {
-          "paddingX": "18px",
-          "paddingY": "5px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "36px",
-          "fontSize": "19px",
-          "lineHeight": "1.5rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "8px",
-            "paddingY": "8px",
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "36px",
-            "minWidth": "36px",
-            "fontSize": "19px",
-            "lineHeight": "1.5rem",
-            "gapX": "6px"
-          }
-        },
-        "secondary": {
-          "paddingX": "18px",
-          "paddingY": "4px",
-          "borderRadius": "384px",
-          "borderWidth": "2px",
-          "minHeight": "36px",
-          "fontSize": "19px",
-          "lineHeight": "1.5rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "paddingX": "7px",
-            "paddingY": "7px",
-            "borderRadius": "384px",
-            "borderWidth": "2px",
-            "minHeight": "36px",
-            "minWidth": "36px",
-            "fontSize": "19px",
-            "lineHeight": "1.5rem",
-            "gapX": "6px"
-          },
-          "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
-          }
-        },
-        "toolbar": {
+        "medium": {
           "paddingX": "10px",
           "paddingY": "5px",
           "borderRadius": "6px",
@@ -492,76 +622,8 @@ module.exports = {
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
-        }
-      },
-      "large": {
-        "default": {
-          "paddingX": "24px",
-          "paddingY": "9px",
-          "borderRadius": "96px",
-          "borderWidth": "1px",
-          "minHeight": "48px",
-          "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "borderRadius": "96px",
-            "borderWidth": "1px",
-            "minHeight": "48px",
-            "minWidth": "48px",
-            "fontSize": "1.375rem",
-            "lineHeight": "1.75rem",
-            "gapX": "6px",
-            "paddingX": "12px",
-            "paddingY": "12px"
-          }
         },
-        "primary": {
-          "paddingX": "24px",
-          "paddingY": "9px",
-          "borderRadius": "96px",
-          "borderWidth": "1px",
-          "minHeight": "48px",
-          "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "borderRadius": "96px",
-            "borderWidth": "1px",
-            "minHeight": "48px",
-            "minWidth": "48px",
-            "fontSize": "1.375rem",
-            "lineHeight": "1.75rem",
-            "gapX": "6px",
-            "paddingX": "12px",
-            "paddingY": "12px"
-          }
-        },
-        "secondary": {
-          "paddingX": "24px",
-          "paddingY": "8px",
-          "borderRadius": "96px",
-          "borderWidth": "2px",
-          "minHeight": "48px",
-          "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
-          "gapX": "6px",
-          "iconOnly": {
-            "borderRadius": "96px",
-            "borderWidth": "2px",
-            "minHeight": "48px",
-            "minWidth": "48px",
-            "fontSize": "1.375rem",
-            "lineHeight": "1.75rem",
-            "gapX": "6px",
-            "paddingX": "12px",
-            "paddingY": "12px"
-          },
-          "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
-          }
-        },
-        "toolbar": {
+        "large": {
           "paddingX": "10px",
           "paddingY": "9px",
           "borderRadius": "6px",
@@ -581,76 +643,8 @@ module.exports = {
             "paddingX": "14px",
             "paddingY": "12px"
           }
-        }
-      },
-      "xlarge": {
-        "default": {
-          "iconOnly": {
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "72px",
-            "minWidth": "72px",
-            "fontSize": "1.5rem",
-            "lineHeight": "1.875rem",
-            "gapX": "6px",
-            "paddingX": "23px",
-            "paddingY": "23px"
-          },
-          "paddingX": "32px",
-          "paddingY": "20px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "72px",
-          "fontSize": "1.5rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px"
         },
-        "primary": {
-          "iconOnly": {
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "72px",
-            "minWidth": "72px",
-            "fontSize": "1.5rem",
-            "lineHeight": "1.875rem",
-            "gapX": "6px",
-            "paddingX": "23px",
-            "paddingY": "23px"
-          },
-          "paddingX": "32px",
-          "paddingY": "20px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "72px",
-          "fontSize": "1.5rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px"
-        },
-        "secondary": {
-          "iconOnly": {
-            "borderRadius": "384px",
-            "borderWidth": "2px",
-            "minHeight": "72px",
-            "minWidth": "72px",
-            "fontSize": "1.5rem",
-            "lineHeight": "1.875rem",
-            "gapX": "6px",
-            "paddingX": "23px",
-            "paddingY": "23px"
-          },
-          "paddingX": "32px",
-          "paddingY": "19px",
-          "borderRadius": "384px",
-          "borderWidth": "2px",
-          "minHeight": "72px",
-          "fontSize": "1.5rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px",
-          "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
-          }
-        },
-        "toolbar": {
+        "xlarge": {
           "iconOnly": {
             "borderRadius": "12px",
             "borderWidth": "1px",
@@ -917,10 +911,6 @@ module.exports = {
       },
       "medium": {
         "gapX": "12px",
-        "width": "48px",
-        "height": "24px",
-        "borderRadius": "9999px",
-        "borderWidth": "default",
         "label": {
           "fontSize": "1.125rem",
           "lineHeight": "1.125rem",
@@ -1089,7 +1079,7 @@ module.exports = {
         },
         "help": {
           "fontSize": "0.875rem",
-          "lineHeight": "0.75rem",
+          "lineHeight": "1rem",
           "fontWeight": 400
         },
         "info": {
@@ -1342,7 +1332,7 @@ module.exports = {
         "background": "transparent"
       },
       "pinned": {
-        "textColor": "icon-default",
+        "textColor": "text-default",
         "iconColor": "icon-default",
         "borderColor": "transparent",
         "background": "transparent"

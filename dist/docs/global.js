@@ -46,6 +46,84 @@ export default {
       "outline"
     ]
   },
+  "hpe.focusIndicator.outlineOffset": {
+    "$type": "number",
+    "$value": "2px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": true,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/global.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 2,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.focusIndicator.outlineOffset",
+    "attributes": {
+      "category": "focusIndicator",
+      "type": "outlineOffset"
+    },
+    "path": [
+      "focusIndicator",
+      "outlineOffset"
+    ]
+  },
+  "hpe.focusIndicator.boxShadow": {
+    "$type": "shadow",
+    "$value": "0 0 0 2px white ",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": true,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/global.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "white",
+          "offsetX": 0,
+          "offsetY": 0,
+          "blur": 0,
+          "spread": "{focusIndicator.outlineOffset}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.focusIndicator.boxShadow",
+    "attributes": {
+      "category": "focusIndicator",
+      "type": "boxShadow"
+    },
+    "path": [
+      "focusIndicator",
+      "boxShadow"
+    ]
+  },
   "hpe.fontStack.primary": {
     "$type": "fontFamily",
     "$value": "'Metric', Arial, sans-serif",

@@ -59,11 +59,11 @@ module.exports = {
         "disabled": "rgba(255, 255, 255, 0.24)",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
-        "onStrong": {
-          "default": "#222222"
-        },
         "heading": {
           "default": "#ffffff"
+        },
+        "onStrong": {
+          "default": "#222222"
         },
         "critical": "#ffffff",
         "info": "#ffffff",
@@ -111,6 +111,7 @@ module.exports = {
         "onSelectedWeak": "#ffffff"
       },
       "decorative": {
+        "brand": "#ffffff",
         "green": "#008567",
         "purple": "#6633bc",
         "teal": "#117b82",
@@ -145,11 +146,6 @@ module.exports = {
         "critical": "#fc5a5a",
         "warning": "#d36d00",
         "unknown": "#757575"
-      },
-      "shadow": {
-        "weak": "rgba(0, 0, 0, 0.12)",
-        "default": "rgba(0, 0, 0, 0.36)",
-        "strong": "rgba(0, 0, 0, 0.5)"
       }
     },
     "shadow": {

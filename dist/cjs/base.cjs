@@ -156,7 +156,7 @@ module.exports = {
           "lightblue2": "#78bff0",
           "pink2": "#ba2880",
           "blue2": "#1f95e4",
-          "purple-2": "#9a3ac0"
+          "purple3": "#9a3ac0"
         }
       },
       "fontFamily": {
