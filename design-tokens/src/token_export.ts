@@ -68,7 +68,8 @@ export function tokenFilesFromLocalVariables(
 
       let obj: any = tokenFiles[fileName];
 
-      if (variable.name.includes('outline')) {
+      // specific to "outline" but not something like "outlineOffset"
+      if (/outline\//.test(variable.name)) {
         const parts = variable.name.split('/');
         const keyPath = parts.slice(0, -1);
         const property = parts[parts.length - 1];

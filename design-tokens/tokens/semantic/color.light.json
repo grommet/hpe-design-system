@@ -1294,7 +1294,7 @@
           "offsetY": "{base.static.spacing.xsmall}",
           "blur": "{base.static.spacing.small}",
           "spread": "{base.static.spacing.none}",
-          "color": "{base.color.black.opacity36}"
+          "color": "{base.color.black.opacity12}"
         }
       ],
       "$description": "",
@@ -1314,7 +1314,7 @@
           "offsetY": "{base.static.spacing.small}",
           "blur": "{base.static.spacing.medium}",
           "spread": "{base.static.spacing.none}",
-          "color": "{base.color.black.opacity36}"
+          "color": "{base.color.black.opacity24}"
         }
       ],
       "$description": "",
