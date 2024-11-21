@@ -32,8 +32,8 @@ export const descend = (
       // this is special use case for `iconOnly` buttons
       // could be improved in future if needed to be more dynamic
       if (key === 'iconOnly') {
-        // [component, size, kind...]
-        const size = keyPath[1];
+        // [component, kind, size...]
+        const size = keyPath[2];
         contentHeight = tokens.size?.icon?.[size];
       }
       if (
