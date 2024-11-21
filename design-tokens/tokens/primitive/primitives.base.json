@@ -2187,7 +2187,7 @@
           }
         }
       },
-      "content": {
+      "container": {
         "xxsmall": {
           "$type": "number",
           "$value": "{base.dimension.1200}",
