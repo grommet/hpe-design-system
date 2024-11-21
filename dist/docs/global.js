@@ -83,7 +83,7 @@ export default {
   },
   "hpe.focusIndicator.boxShadow": {
     "$type": "shadow",
-    "$value": "0 0 0 2px white ",
+    "$value": "0 0 0 2px #ffffff ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -98,7 +98,7 @@ export default {
       "$type": "shadow",
       "$value": [
         {
-          "color": "white",
+          "color": "{base.color.white.100}",
           "offsetX": 0,
           "offsetY": 0,
           "blur": 0,
