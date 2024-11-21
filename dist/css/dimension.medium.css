@@ -2,7 +2,6 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-@media (max-width: 1080px) {
 :root {
   --hpe-paragraph-xsmall-max-width: 25em;
   --hpe-paragraph-small-max-width: 25em;
@@ -112,5 +111,4 @@
   --hpe-size-content-large: var(--hpe-base-static-content-large); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
   --hpe-size-content-xlarge: var(--hpe-base-static-content-xlarge); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
   --hpe-size-content-xxlarge: var(--hpe-base-static-content-xxlarge); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-}
 }
