@@ -423,7 +423,7 @@ export default {
   },
   "hpe.element.xsmall.icon.size": {
     "$type": "number",
-    "$value": "16px",
+    "$value": "14px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3947,7 +3947,7 @@ export default {
   },
   "hpe.button.primary.xsmall.iconOnly.paddingX": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3992,7 +3992,7 @@ export default {
   },
   "hpe.button.primary.xsmall.iconOnly.paddingY": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -8700,7 +8700,7 @@ export default {
   },
   "hpe.button.secondary.xsmall.iconOnly.paddingX": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -8745,7 +8745,7 @@ export default {
   },
   "hpe.button.secondary.xsmall.iconOnly.paddingY": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13633,7 +13633,7 @@ export default {
   },
   "hpe.button.default.xsmall.iconOnly.paddingX": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13678,7 +13678,7 @@ export default {
   },
   "hpe.button.default.xsmall.iconOnly.paddingY": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13693,7 +13693,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 3,
+      "$value": 4,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18257,7 +18257,7 @@ export default {
   },
   "hpe.button.toolbar.xsmall.iconOnly.paddingX": {
     "$type": "number",
-    "$value": "5px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -18272,7 +18272,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 5,
+      "$value": "{button.toolbar.xsmall.iconOnly.paddingY}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18302,7 +18302,7 @@ export default {
   },
   "hpe.button.toolbar.xsmall.iconOnly.paddingY": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -18317,7 +18317,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 3,
+      "$value": 4,
       "$description": "",
       "$extensions": {
         "com.figma": {

@@ -17,14 +17,13 @@
   --hpe-button-secondary-xlarge-padding-y: 19px;
   --hpe-button-default-xsmall-padding-x: 12px;
   --hpe-button-default-xsmall-padding-y: 3px;
-  --hpe-button-default-xsmall-icon-only-padding-y: 3px;
+  --hpe-button-default-xsmall-icon-only-padding-y: 4px;
   --hpe-button-default-small-icon-only-padding-y: 5px;
   --hpe-button-default-medium-icon-only-padding-y: 8px;
   --hpe-button-default-large-icon-only-padding-y: 12px;
   --hpe-button-default-xlarge-icon-only-padding-y: 23px;
   --hpe-button-toolbar-xsmall-padding-y: 3px;
-  --hpe-button-toolbar-xsmall-icon-only-padding-x: 5px;
-  --hpe-button-toolbar-xsmall-icon-only-padding-y: 3px;
+  --hpe-button-toolbar-xsmall-icon-only-padding-y: 4px;
   --hpe-button-toolbar-small-icon-only-padding-x: 5px;
   --hpe-button-toolbar-small-icon-only-padding-y: 5px;
   --hpe-button-toolbar-large-padding-y: 9px;
@@ -92,6 +91,7 @@
   --hpe-button-default-xlarge-padding-x: var(--hpe-element-xlarge-padding-x-wide);
   --hpe-button-default-xlarge-padding-y: var(--hpe-element-xlarge-padding-y);
   --hpe-button-toolbar-enabled-background: var(--hpe-color-transparent);
+  --hpe-button-toolbar-xsmall-icon-only-padding-x: var(--hpe-button-toolbar-xsmall-icon-only-padding-y);
   --hpe-button-toolbar-medium-padding-x: var(--hpe-element-medium-padding-x-default);
   --hpe-button-toolbar-medium-icon-only-padding-y: var(--hpe-button-default-medium-icon-only-padding-y);
   --hpe-button-toolbar-large-padding-x: var(--hpe-base-dimension-250);

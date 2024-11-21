@@ -47,7 +47,7 @@ export default {
         "xxlarge": "1536px"
       },
       "icon": {
-        "xsmall": "16px",
+        "xsmall": "14px",
         "small": "16px",
         "medium": "18px",
         "large": "22px",

@@ -1324,7 +1324,7 @@ export default {
   },
   "hpe.size.icon.xsmall": {
     "$type": "number",
-    "$value": "16px",
+    "$value": "14px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1339,7 +1339,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.400}",
+      "$value": "{base.dimension.350}",
       "$description": "",
       "$extensions": {
         "com.figma": {

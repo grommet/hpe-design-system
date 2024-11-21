@@ -19,7 +19,7 @@ module.exports = {
           "wide": "9px"
         },
         "icon": {
-          "size": "16px"
+          "size": "14px"
         },
         "width": "24px",
         "height": "24px"
@@ -142,8 +142,8 @@ module.exports = {
           "minHeight": "24px",
           "fontSize": "0.875rem",
           "iconOnly": {
-            "paddingX": "3px",
-            "paddingY": "3px",
+            "paddingX": "4px",
+            "paddingY": "4px",
             "borderRadius": "384px",
             "borderWidth": "default",
             "minHeight": "24px",
@@ -281,8 +281,8 @@ module.exports = {
           "lineHeight": "1rem",
           "gapX": "3px",
           "iconOnly": {
-            "paddingX": "3px",
-            "paddingY": "3px",
+            "paddingX": "4px",
+            "paddingY": "4px",
             "borderRadius": "384px",
             "borderWidth": "default",
             "minHeight": "24px",
@@ -433,8 +433,8 @@ module.exports = {
           "lineHeight": "1rem",
           "gapX": "3px",
           "iconOnly": {
-            "paddingX": "3px",
-            "paddingY": "3px",
+            "paddingX": "4px",
+            "paddingY": "4px",
             "borderRadius": "384px",
             "borderWidth": "default",
             "minHeight": "24px",
@@ -569,8 +569,8 @@ module.exports = {
           "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "iconOnly": {
-            "paddingX": "5px",
-            "paddingY": "3px",
+            "paddingX": "4px",
+            "paddingY": "4px",
             "borderRadius": "6px",
             "borderWidth": "1px",
             "minHeight": "24px",
