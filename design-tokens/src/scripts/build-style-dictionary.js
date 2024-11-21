@@ -291,7 +291,7 @@ try {
                 outputReferences: true,
                 mediaQuery:
                   parsedGlobal.breakpoint?.[mode] &&
-                  !['large', 'xlarge'].includes(mode) &&
+                  !['medium', 'large', 'xlarge'].includes(mode) &&
                   `max-width: ${numberToPixel(
                     parsedGlobal.breakpoint[mode].$value,
                   )}`,
