@@ -183,13 +183,13 @@
   --hpe-base-static-border-width-large: var(--hpe-base-dimension-300);
   --hpe-base-static-border-width-xlarge: var(--hpe-base-dimension-600);
   --hpe-base-static-border-width-default: var(--hpe-base-dimension-25);
-  --hpe-base-static-content-xxsmall: var(--hpe-base-dimension-1200);
-  --hpe-base-static-content-xsmall: var(--hpe-base-dimension-2400);
-  --hpe-base-static-content-small: var(--hpe-base-dimension-4800);
-  --hpe-base-static-content-small-plus: var(--hpe-base-dimension-7200);
-  --hpe-base-static-content-medium: var(--hpe-base-dimension-9600);
-  --hpe-base-static-content-medium-plus: var(--hpe-base-dimension-14400);
-  --hpe-base-static-content-large: var(--hpe-base-dimension-19200);
-  --hpe-base-static-content-xlarge: var(--hpe-base-dimension-38400);
-  --hpe-base-static-content-xxlarge: var(--hpe-base-dimension-76800);
+  --hpe-base-static-container-xxsmall: var(--hpe-base-dimension-1200);
+  --hpe-base-static-container-xsmall: var(--hpe-base-dimension-2400);
+  --hpe-base-static-container-small: var(--hpe-base-dimension-4800);
+  --hpe-base-static-container-small-plus: var(--hpe-base-dimension-7200);
+  --hpe-base-static-container-medium: var(--hpe-base-dimension-9600);
+  --hpe-base-static-container-medium-plus: var(--hpe-base-dimension-14400);
+  --hpe-base-static-container-large: var(--hpe-base-dimension-19200);
+  --hpe-base-static-container-xlarge: var(--hpe-base-dimension-38400);
+  --hpe-base-static-container-xxlarge: var(--hpe-base-dimension-76800);
 }

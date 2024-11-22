@@ -953,7 +953,7 @@ export default {
       "default"
     ]
   },
-  "hpe.size.content.xxsmall": {
+  "hpe.size.container.xxsmall": {
     "$type": "number",
     "$value": "48px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -970,7 +970,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.xxsmall}",
+      "$value": "{base.static.container.xxsmall}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -982,19 +982,19 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.xxsmall",
+    "name": "hpe.size.container.xxsmall",
     "attributes": {
       "category": "size",
-      "type": "content",
+      "type": "container",
       "item": "xxsmall"
     },
     "path": [
       "size",
-      "content",
+      "container",
       "xxsmall"
     ]
   },
-  "hpe.size.content.xsmall": {
+  "hpe.size.container.xsmall": {
     "$type": "number",
     "$value": "96px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -1011,7 +1011,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.xsmall}",
+      "$value": "{base.static.container.xsmall}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1023,19 +1023,19 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.xsmall",
+    "name": "hpe.size.container.xsmall",
     "attributes": {
       "category": "size",
-      "type": "content",
+      "type": "container",
       "item": "xsmall"
     },
     "path": [
       "size",
-      "content",
+      "container",
       "xsmall"
     ]
   },
-  "hpe.size.content.small": {
+  "hpe.size.container.small": {
     "$type": "number",
     "$value": "192px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -1052,7 +1052,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.small}",
+      "$value": "{base.static.container.small}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1064,19 +1064,19 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.small",
+    "name": "hpe.size.container.small",
     "attributes": {
       "category": "size",
-      "type": "content",
+      "type": "container",
       "item": "small"
     },
     "path": [
       "size",
-      "content",
+      "container",
       "small"
     ]
   },
-  "hpe.size.content.smallPlus": {
+  "hpe.size.container.smallPlus": {
     "$type": "number",
     "$value": "288px",
     "$description": "",
@@ -1093,7 +1093,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.smallPlus}",
+      "$value": "{base.static.container.smallPlus}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1105,19 +1105,19 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.smallPlus",
+    "name": "hpe.size.container.smallPlus",
     "attributes": {
       "category": "size",
-      "type": "content",
+      "type": "container",
       "item": "smallPlus"
     },
     "path": [
       "size",
-      "content",
+      "container",
       "smallPlus"
     ]
   },
-  "hpe.size.content.medium": {
+  "hpe.size.container.medium": {
     "$type": "number",
     "$value": "384px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -1134,7 +1134,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.medium}",
+      "$value": "{base.static.container.medium}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1146,19 +1146,19 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.medium",
+    "name": "hpe.size.container.medium",
     "attributes": {
       "category": "size",
-      "type": "content",
+      "type": "container",
       "item": "medium"
     },
     "path": [
       "size",
-      "content",
+      "container",
       "medium"
     ]
   },
-  "hpe.size.content.mediumPlus": {
+  "hpe.size.container.mediumPlus": {
     "$type": "number",
     "$value": "576px",
     "$description": "",
@@ -1175,7 +1175,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.mediumPlus}",
+      "$value": "{base.static.container.mediumPlus}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1187,19 +1187,19 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.mediumPlus",
+    "name": "hpe.size.container.mediumPlus",
     "attributes": {
       "category": "size",
-      "type": "content",
+      "type": "container",
       "item": "mediumPlus"
     },
     "path": [
       "size",
-      "content",
+      "container",
       "mediumPlus"
     ]
   },
-  "hpe.size.content.large": {
+  "hpe.size.container.large": {
     "$type": "number",
     "$value": "768px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -1216,7 +1216,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.large}",
+      "$value": "{base.static.container.large}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1228,19 +1228,19 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.large",
+    "name": "hpe.size.container.large",
     "attributes": {
       "category": "size",
-      "type": "content",
+      "type": "container",
       "item": "large"
     },
     "path": [
       "size",
-      "content",
+      "container",
       "large"
     ]
   },
-  "hpe.size.content.xlarge": {
+  "hpe.size.container.xlarge": {
     "$type": "number",
     "$value": "1152px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -1257,7 +1257,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.xlarge}",
+      "$value": "{base.static.container.xlarge}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1269,19 +1269,19 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.xlarge",
+    "name": "hpe.size.container.xlarge",
     "attributes": {
       "category": "size",
-      "type": "content",
+      "type": "container",
       "item": "xlarge"
     },
     "path": [
       "size",
-      "content",
+      "container",
       "xlarge"
     ]
   },
-  "hpe.size.content.xxlarge": {
+  "hpe.size.container.xxlarge": {
     "$type": "number",
     "$value": "1536px",
     "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
@@ -1298,7 +1298,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.xxlarge}",
+      "$value": "{base.static.container.xxlarge}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1310,15 +1310,15 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.xxlarge",
+    "name": "hpe.size.container.xxlarge",
     "attributes": {
       "category": "size",
-      "type": "content",
+      "type": "container",
       "item": "xxlarge"
     },
     "path": [
       "size",
-      "content",
+      "container",
       "xxlarge"
     ]
   },

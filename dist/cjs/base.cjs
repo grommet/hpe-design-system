@@ -223,7 +223,7 @@ module.exports = {
           "xlarge": "24px",
           "default": "1px"
         },
-        "content": {
+        "container": {
           "xxsmall": "48px",
           "xsmall": "96px",
           "small": "192px",

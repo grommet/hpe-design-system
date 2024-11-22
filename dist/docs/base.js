@@ -7466,7 +7466,7 @@ export default {
       "default"
     ]
   },
-  "hpe.base.static.content.xxsmall": {
+  "hpe.base.static.container.xxsmall": {
     "$type": "number",
     "$value": "48px",
     "$description": "",
@@ -7497,21 +7497,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.xxsmall",
+    "name": "hpe.base.static.container.xxsmall",
     "attributes": {
       "category": "base",
       "type": "static",
-      "item": "content",
+      "item": "container",
       "subitem": "xxsmall"
     },
     "path": [
       "base",
       "static",
-      "content",
+      "container",
       "xxsmall"
     ]
   },
-  "hpe.base.static.content.xsmall": {
+  "hpe.base.static.container.xsmall": {
     "$type": "number",
     "$value": "96px",
     "$description": "",
@@ -7542,21 +7542,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.xsmall",
+    "name": "hpe.base.static.container.xsmall",
     "attributes": {
       "category": "base",
       "type": "static",
-      "item": "content",
+      "item": "container",
       "subitem": "xsmall"
     },
     "path": [
       "base",
       "static",
-      "content",
+      "container",
       "xsmall"
     ]
   },
-  "hpe.base.static.content.small": {
+  "hpe.base.static.container.small": {
     "$type": "number",
     "$value": "192px",
     "$description": "",
@@ -7587,21 +7587,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.small",
+    "name": "hpe.base.static.container.small",
     "attributes": {
       "category": "base",
       "type": "static",
-      "item": "content",
+      "item": "container",
       "subitem": "small"
     },
     "path": [
       "base",
       "static",
-      "content",
+      "container",
       "small"
     ]
   },
-  "hpe.base.static.content.smallPlus": {
+  "hpe.base.static.container.smallPlus": {
     "$type": "number",
     "$value": "288px",
     "$description": "",
@@ -7630,21 +7630,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.smallPlus",
+    "name": "hpe.base.static.container.smallPlus",
     "attributes": {
       "category": "base",
       "type": "static",
-      "item": "content",
+      "item": "container",
       "subitem": "smallPlus"
     },
     "path": [
       "base",
       "static",
-      "content",
+      "container",
       "smallPlus"
     ]
   },
-  "hpe.base.static.content.medium": {
+  "hpe.base.static.container.medium": {
     "$type": "number",
     "$value": "384px",
     "$description": "",
@@ -7675,21 +7675,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.medium",
+    "name": "hpe.base.static.container.medium",
     "attributes": {
       "category": "base",
       "type": "static",
-      "item": "content",
+      "item": "container",
       "subitem": "medium"
     },
     "path": [
       "base",
       "static",
-      "content",
+      "container",
       "medium"
     ]
   },
-  "hpe.base.static.content.mediumPlus": {
+  "hpe.base.static.container.mediumPlus": {
     "$type": "number",
     "$value": "576px",
     "$description": "",
@@ -7718,21 +7718,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.mediumPlus",
+    "name": "hpe.base.static.container.mediumPlus",
     "attributes": {
       "category": "base",
       "type": "static",
-      "item": "content",
+      "item": "container",
       "subitem": "mediumPlus"
     },
     "path": [
       "base",
       "static",
-      "content",
+      "container",
       "mediumPlus"
     ]
   },
-  "hpe.base.static.content.large": {
+  "hpe.base.static.container.large": {
     "$type": "number",
     "$value": "768px",
     "$description": "",
@@ -7763,21 +7763,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.large",
+    "name": "hpe.base.static.container.large",
     "attributes": {
       "category": "base",
       "type": "static",
-      "item": "content",
+      "item": "container",
       "subitem": "large"
     },
     "path": [
       "base",
       "static",
-      "content",
+      "container",
       "large"
     ]
   },
-  "hpe.base.static.content.xlarge": {
+  "hpe.base.static.container.xlarge": {
     "$type": "number",
     "$value": "1152px",
     "$description": "",
@@ -7808,21 +7808,21 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.xlarge",
+    "name": "hpe.base.static.container.xlarge",
     "attributes": {
       "category": "base",
       "type": "static",
-      "item": "content",
+      "item": "container",
       "subitem": "xlarge"
     },
     "path": [
       "base",
       "static",
-      "content",
+      "container",
       "xlarge"
     ]
   },
-  "hpe.base.static.content.xxlarge": {
+  "hpe.base.static.container.xxlarge": {
     "$type": "number",
     "$value": "1536px",
     "$description": "",
@@ -7853,17 +7853,17 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.xxlarge",
+    "name": "hpe.base.static.container.xxlarge",
     "attributes": {
       "category": "base",
       "type": "static",
-      "item": "content",
+      "item": "container",
       "subitem": "xxlarge"
     },
     "path": [
       "base",
       "static",
-      "content",
+      "container",
       "xxlarge"
     ]
   },

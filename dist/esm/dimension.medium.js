@@ -35,7 +35,7 @@ export default {
       "default": "1px"
     },
     "size": {
-      "content": {
+      "container": {
         "xxsmall": "48px",
         "xsmall": "96px",
         "small": "192px",

@@ -35,11 +35,11 @@ export default {
       "default": "1px"
     },
     "size": {
-      "content": {
+      "container": {
         "xxsmall": "48px",
         "xsmall": "48px",
         "small": "96px",
-        "smallPlus": "12px",
+        "smallPlus": "192px",
         "medium": "192px",
         "mediumPlus": "384px",
         "large": "384px",
