@@ -21,7 +21,7 @@ if (process.env.CI) {
     git()
       .clone(repoURL, localFolder)
       .then(() => git(localFolder).checkout(BRANCH))
-      // .then(() => del([`${localFolder}/**/*`]))
+      .then(() => del([`${localFolder}/**/*`]))
       .then(() => fs.copy(localDist, `${localFolder}/${BUILD_DIR}`))
       .then(() =>
         files.forEach(file =>
