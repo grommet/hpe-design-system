@@ -3,7 +3,6 @@
  */
 
 :root[data-mode=dark] {
-  --hpe-color-decorative-brand: #ffffff;
   --hpe-color-transparent: rgba(0, 0, 0, 0);
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
@@ -21,7 +20,7 @@
   --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-1000); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-900); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
-  --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
+  --hpe-color-background-primary-hover: var(--hpe-base-color-green-600); /* Hover color variant of the primary color. */
   --hpe-color-background-ok: var(--hpe-base-color-green-500-opacity30);
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-50);
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /* Stronger border color for added emphasis */
@@ -104,6 +103,7 @@
   --hpe-color-text-on-warning-strong: var(--hpe-color-text-strong); /* Text color to be used on status backgrounds. */
   --hpe-color-text-on-warning-default: var(--hpe-color-text-default); /* Text color to be used on status backgrounds. */
   --hpe-color-icon-on-selected-weak: var(--hpe-color-text-strong); /* Icon color to be used for icon sitting on background-selected-strong. */
+  --hpe-color-decorative-brand: var(--hpe-base-color-brand);
   --hpe-color-decorative-green: var(--hpe-base-color-brand); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-foreground-primary: var(--hpe-base-color-brand);
   --hpe-shadow-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-base-color-black-opacity36) ;
@@ -112,7 +112,6 @@
 
 @media (prefers-color-scheme: dark) {
 :root[data-mode=dark] {
-  --hpe-color-decorative-brand: #ffffff;
   --hpe-color-transparent: rgba(0, 0, 0, 0);
   --hpe-color-background-default: var(--hpe-base-color-grey-1300); /* Default color for component backgrounds in the default/enabled state. Can also be used for page background. */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /* Standard hover state color */
@@ -130,7 +129,7 @@
   --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-1000); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-900); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
-  --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
+  --hpe-color-background-primary-hover: var(--hpe-base-color-green-600); /* Hover color variant of the primary color. */
   --hpe-color-background-ok: var(--hpe-base-color-green-500-opacity30);
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-50);
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /* Stronger border color for added emphasis */
@@ -213,6 +212,7 @@
   --hpe-color-text-on-warning-strong: var(--hpe-color-text-strong); /* Text color to be used on status backgrounds. */
   --hpe-color-text-on-warning-default: var(--hpe-color-text-default); /* Text color to be used on status backgrounds. */
   --hpe-color-icon-on-selected-weak: var(--hpe-color-text-strong); /* Icon color to be used for icon sitting on background-selected-strong. */
+  --hpe-color-decorative-brand: var(--hpe-base-color-brand);
   --hpe-color-decorative-green: var(--hpe-base-color-brand); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-foreground-primary: var(--hpe-base-color-brand);
   --hpe-shadow-medium: var(--hpe-base-static-spacing-none) var(--hpe-base-static-spacing-xsmall) var(--hpe-base-static-spacing-small) var(--hpe-base-static-spacing-none) var(--hpe-base-color-black-opacity36) ;

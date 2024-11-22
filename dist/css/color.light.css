@@ -18,7 +18,7 @@
   --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-100); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-125); /* Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent. */
   --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy. */
-  --hpe-color-background-primary-hover: var(--hpe-tbd); /* Hover color variant of the primary color. */
+  --hpe-color-background-primary-hover: var(--hpe-base-color-green-600); /* Hover color variant of the primary color. */
   --hpe-color-background-ok: var(--hpe-base-color-green-400-opacity24);
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-1000);
   --hpe-color-border-strong: var(--hpe-base-color-black-opacity72); /* Stronger border color for added emphasis */

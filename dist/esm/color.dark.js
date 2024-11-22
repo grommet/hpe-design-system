@@ -31,7 +31,7 @@ export default {
         },
         "primary": {
           "default": "#01a982",
-          "hover": "rgba(0, 255, 10, 0)"
+          "hover": "#01a982"
         },
         "ok": "rgba(23, 208, 166, 0.3)",
         "neutral": {
@@ -111,7 +111,7 @@ export default {
         "onSelectedWeak": "#ffffff"
       },
       "decorative": {
-        "brand": "#ffffff",
+        "brand": "#01a982",
         "green": "#008567",
         "purple": "#6633bc",
         "teal": "#117b82",

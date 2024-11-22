@@ -799,7 +799,7 @@ export default {
   },
   "hpe.color.background.primary.hover": {
     "$type": "color",
-    "$value": "rgba(0, 255, 10, 0)",
+    "$value": "#01a982",
     "$description": "Hover color variant of the primary color.",
     "$extensions": {
       "com.figma": {
@@ -815,7 +815,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{TBD}",
+      "$value": "{base.color.green.600}",
       "$description": "Hover color variant of the primary color.",
       "$extensions": {
         "com.figma": {
@@ -3182,7 +3182,7 @@ export default {
   },
   "hpe.color.decorative.brand": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#01a982",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3197,7 +3197,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#ffffff",
+      "$value": "{base.color.brand}",
       "$description": "",
       "$extensions": {
         "com.figma": {

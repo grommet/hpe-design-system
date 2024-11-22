@@ -31,7 +31,7 @@ export default {
         },
         "primary": {
           "default": "#01a982",
-          "hover": "rgba(0, 255, 10, 0)"
+          "hover": "#01a982"
         },
         "ok": "rgba(23, 235, 160, 0.24)",
         "neutral": {
