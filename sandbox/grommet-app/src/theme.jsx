@@ -539,7 +539,7 @@ const buildTheme = tokens => {
     paragraphTheme[size] = {
       size: large.hpe.text?.[size]?.fontSize,
       height: large.hpe.text?.[size]?.lineHeight,
-      maxWidth: large.hpe.paragraph?.[size]?.maxWidth,
+      maxWidth: large.hpe.text?.[size]?.maxWidth,
     };
     textTheme[size] = {
       size: large.hpe.text?.[size].fontSize,
