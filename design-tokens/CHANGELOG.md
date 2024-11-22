@@ -4,4 +4,4 @@
 
 ### Minor Changes
 
-- 4acbe0e: Fixed CSS output for dimension.medium.css by removing incorrect media query.
+- 4acbe0e: Fixed CSS output for dimension.medium.css by removing incorrect media query
