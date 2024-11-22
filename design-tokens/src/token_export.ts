@@ -49,8 +49,6 @@ export function tokenFilesFromLocalVariables(
     localVariablesResponse.meta.variableCollections;
   const localVariables = localVariablesResponse.meta.variables;
   const shadows: { [key: string]: any } = {};
-  shadows.shadow = {};
-  const root = shadows.shadow; // TO DO this hard codes the concept of "shadow" in shadow naming
 
   Object.values(localVariables).forEach(variable => {
     // Skip remote variables because we only want to generate tokens for local variables
@@ -158,8 +156,11 @@ export function tokenFilesFromLocalVariables(
         const parts = variable.name.split('/');
         const shadow = parts.slice(1, 2).join('');
         const property = parts[parts.length - 1];
-        if (!(shadow in root))
-          root[shadow] = {
+        if (!(mode.modeId in shadows)) {
+          shadows[mode.modeId] = {};
+        }
+        if (!(shadow in shadows[mode.modeId])) {
+          shadows[mode.modeId][shadow] = {
             $type: 'shadow',
             $value: [
               {
@@ -179,20 +180,22 @@ export function tokenFilesFromLocalVariables(
               },
             },
           };
-        else {
+        } else {
           // shadow/small/2/offsetY --> need index 1
           const index =
             parseInt(parts[parts.length - 3], 10) >= 0
               ? parseInt(parts[parts.length - 3], 10)
               : 0;
-          const partialShadow = root[shadow].$value[index];
+          const partialShadow = shadows[mode.modeId][shadow].$value[index];
           partialShadow[property] = tokenValueFromVariable(
             variable,
             mode.modeId,
             localVariables,
           );
         }
-        Object.assign(tokenFiles[fileName], { ...shadows });
+        Object.assign(tokenFiles[fileName], {
+          ...{ shadow: shadows[mode.modeId] }, // TO DO this hard codes naming concept of "shadow"
+        });
       } else {
         variable.name.split('/').forEach(groupName => {
           obj[groupName] = obj[groupName] || {};
