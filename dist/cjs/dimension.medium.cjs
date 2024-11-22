@@ -66,52 +66,62 @@ module.exports = {
       "xsmall": {
         "fontSize": "0.875rem",
         "lineHeight": "1rem",
-        "fontWeight": 400
+        "fontWeight": 400,
+        "maxWidth": "25em"
       },
       "small": {
         "fontSize": "1rem",
         "lineHeight": "1.25rem",
-        "fontWeight": 400
+        "fontWeight": 400,
+        "maxWidth": "25em"
       },
       "medium": {
         "fontSize": "1.125rem",
         "lineHeight": "1.5rem",
-        "fontWeight": 400
+        "fontWeight": 400,
+        "maxWidth": "25em"
       },
       "large": {
         "fontSize": "1.375rem",
         "lineHeight": "1.75rem",
-        "fontWeight": 400
+        "fontWeight": 400,
+        "maxWidth": "25em"
       },
       "xlarge": {
         "fontSize": "1.5rem",
         "lineHeight": "1.875rem",
-        "fontWeight": 400
+        "fontWeight": 400,
+        "maxWidth": "25em"
       },
       "xxlarge": {
         "fontSize": "2.25rem",
         "lineHeight": "2.5rem",
-        "fontWeight": 300
+        "fontWeight": 300,
+        "maxWidth": "25em"
       },
       "3xl": {
         "fontSize": "2.625rem",
         "lineHeight": "2.875rem",
-        "fontWeight": 300
+        "fontWeight": 300,
+        "maxWidth": "25em"
       },
       "4xl": {
         "fontSize": "3rem",
         "lineHeight": "3rem",
-        "fontWeight": 300
+        "fontWeight": 300,
+        "maxWidth": "25em"
       },
       "5xl": {
         "fontSize": "4.5rem",
         "lineHeight": "4.5rem",
-        "fontWeight": 300
+        "fontWeight": 300,
+        "maxWidth": "25em"
       },
       "6xl": {
         "fontSize": "4.5rem",
         "lineHeight": "4.5rem",
-        "fontWeight": 300
+        "fontWeight": 300,
+        "maxWidth": "25em"
       }
     },
     "heading": {
@@ -144,38 +154,6 @@ module.exports = {
         "fontSize": "0.75rem",
         "lineHeight": "0.75rem",
         "fontWeight": 600
-      }
-    },
-    "paragraph": {
-      "xsmall": {
-        "fontSize": "0.875rem",
-        "lineHeight": "1rem",
-        "maxWidth": "25em"
-      },
-      "small": {
-        "fontSize": "1rem",
-        "lineHeight": "1.75rem",
-        "maxWidth": "25em"
-      },
-      "medium": {
-        "fontSize": "1.125rem",
-        "lineHeight": "1.5rem",
-        "maxWidth": "25em"
-      },
-      "large": {
-        "fontSize": "1.375rem",
-        "lineHeight": "1.75rem",
-        "maxWidth": "25em"
-      },
-      "xlarge": {
-        "fontSize": "1.5rem",
-        "lineHeight": "1.875rem",
-        "maxWidth": "25em"
-      },
-      "xxlarge": {
-        "fontSize": "2.25rem",
-        "lineHeight": "2.5rem",
-        "maxWidth": "25em"
       }
     }
   }

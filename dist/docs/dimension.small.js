@@ -1814,6 +1814,47 @@ export default {
       "fontWeight"
     ]
   },
+  "hpe.text.xsmall.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.xsmall.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "xsmall",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "xsmall",
+      "maxWidth"
+    ]
+  },
   "hpe.text.small.fontSize": {
     "$type": "number",
     "$value": "1rem",
@@ -1935,6 +1976,47 @@ export default {
       "text",
       "small",
       "fontWeight"
+    ]
+  },
+  "hpe.text.small.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.small.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "small",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "small",
+      "maxWidth"
     ]
   },
   "hpe.text.medium.fontSize": {
@@ -2060,6 +2142,47 @@ export default {
       "fontWeight"
     ]
   },
+  "hpe.text.medium.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.medium.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "medium",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "medium",
+      "maxWidth"
+    ]
+  },
   "hpe.text.large.fontSize": {
     "$type": "number",
     "$value": "1.375rem",
@@ -2181,6 +2304,47 @@ export default {
       "text",
       "large",
       "fontWeight"
+    ]
+  },
+  "hpe.text.large.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.large.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "large",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "large",
+      "maxWidth"
     ]
   },
   "hpe.text.xlarge.fontSize": {
@@ -2306,6 +2470,47 @@ export default {
       "fontWeight"
     ]
   },
+  "hpe.text.xlarge.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.xlarge.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "xlarge",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "xlarge",
+      "maxWidth"
+    ]
+  },
   "hpe.text.xxlarge.fontSize": {
     "$type": "number",
     "$value": "2.25rem",
@@ -2427,6 +2632,47 @@ export default {
       "text",
       "xxlarge",
       "fontWeight"
+    ]
+  },
+  "hpe.text.xxlarge.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.xxlarge.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "xxlarge",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "xxlarge",
+      "maxWidth"
     ]
   },
   "hpe.text.3xl.fontSize": {
@@ -2552,6 +2798,47 @@ export default {
       "fontWeight"
     ]
   },
+  "hpe.text.3xl.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.3xl.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "3xl",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "3xl",
+      "maxWidth"
+    ]
+  },
   "hpe.text.4xl.fontSize": {
     "$type": "number",
     "$value": "3rem",
@@ -2673,6 +2960,47 @@ export default {
       "text",
       "4xl",
       "fontWeight"
+    ]
+  },
+  "hpe.text.4xl.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.4xl.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "4xl",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "4xl",
+      "maxWidth"
     ]
   },
   "hpe.text.5xl.fontSize": {
@@ -2798,6 +3126,47 @@ export default {
       "fontWeight"
     ]
   },
+  "hpe.text.5xl.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.5xl.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "5xl",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "5xl",
+      "maxWidth"
+    ]
+  },
   "hpe.text.6xl.fontSize": {
     "$type": "number",
     "$value": "4.5rem",
@@ -2919,6 +3288,47 @@ export default {
       "text",
       "6xl",
       "fontWeight"
+    ]
+  },
+  "hpe.text.6xl.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.6xl.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "6xl",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "6xl",
+      "maxWidth"
     ]
   },
   "hpe.heading.xlarge.fontWeight": {
@@ -3657,744 +4067,6 @@ export default {
       "heading",
       "xxsmall",
       "fontWeight"
-    ]
-  },
-  "hpe.paragraph.xsmall.fontSize": {
-    "$type": "number",
-    "$value": "0.875rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xsmall.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xsmall",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "xsmall",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.xsmall.lineHeight": {
-    "$type": "number",
-    "$value": "1rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xsmall.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xsmall",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "xsmall",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.xsmall.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xsmall.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xsmall",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "xsmall",
-      "maxWidth"
-    ]
-  },
-  "hpe.paragraph.small.fontSize": {
-    "$type": "number",
-    "$value": "1rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.small.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "small",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "small",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.small.lineHeight": {
-    "$type": "number",
-    "$value": "1.75rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.small.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "small",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "small",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.small.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.small.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "small",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "small",
-      "maxWidth"
-    ]
-  },
-  "hpe.paragraph.medium.fontSize": {
-    "$type": "number",
-    "$value": "1.125rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.medium.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "medium",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "medium",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.medium.lineHeight": {
-    "$type": "number",
-    "$value": "1.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.medium.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "medium",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "medium",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.medium.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.medium.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "medium",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "medium",
-      "maxWidth"
-    ]
-  },
-  "hpe.paragraph.large.fontSize": {
-    "$type": "number",
-    "$value": "1.375rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.large.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "large",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "large",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.large.lineHeight": {
-    "$type": "number",
-    "$value": "1.75rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.large.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "large",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "large",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.large.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.large.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "large",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "large",
-      "maxWidth"
-    ]
-  },
-  "hpe.paragraph.xlarge.fontSize": {
-    "$type": "number",
-    "$value": "1.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xlarge.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xlarge",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "xlarge",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.xlarge.lineHeight": {
-    "$type": "number",
-    "$value": "1.875rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xlarge.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xlarge",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "xlarge",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.xlarge.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xlarge.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xlarge",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "xlarge",
-      "maxWidth"
-    ]
-  },
-  "hpe.paragraph.xxlarge.fontSize": {
-    "$type": "number",
-    "$value": "2.25rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xxlarge.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xxlarge",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "xxlarge",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.xxlarge.lineHeight": {
-    "$type": "number",
-    "$value": "2.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xxlarge.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xxlarge",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "xxlarge",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.xxlarge.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xxlarge.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xxlarge",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "xxlarge",
-      "maxWidth"
     ]
   }
 }

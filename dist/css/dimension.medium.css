@@ -3,12 +3,16 @@
  */
 
 :root {
-  --hpe-paragraph-xsmall-max-width: 25em;
-  --hpe-paragraph-small-max-width: 25em;
-  --hpe-paragraph-medium-max-width: 25em;
-  --hpe-paragraph-large-max-width: 25em;
-  --hpe-paragraph-xlarge-max-width: 25em;
-  --hpe-paragraph-xxlarge-max-width: 25em;
+  --hpe-text-xsmall-max-width: 25em;
+  --hpe-text-small-max-width: 25em;
+  --hpe-text-medium-max-width: 25em;
+  --hpe-text-large-max-width: 25em;
+  --hpe-text-xlarge-max-width: 25em;
+  --hpe-text-xxlarge-max-width: 25em;
+  --hpe-text-3xl-max-width: 25em;
+  --hpe-text-4xl-max-width: 25em;
+  --hpe-text-5xl-max-width: 25em;
+  --hpe-text-6xl-max-width: 25em;
   --hpe-radius-full: var(--hpe-base-dimension-9600);
   --hpe-size-icon-xsmall: var(--hpe-base-dimension-350);
   --hpe-size-icon-small: var(--hpe-base-dimension-400);
@@ -67,18 +71,6 @@
   --hpe-heading-xxsmall-font-size: var(--hpe-base-font-size-80);
   --hpe-heading-xxsmall-line-height: var(--hpe-base-line-height-80);
   --hpe-heading-xxsmall-font-weight: var(--hpe-font-weight-semibold);
-  --hpe-paragraph-xsmall-font-size: var(--hpe-base-font-size-90);
-  --hpe-paragraph-xsmall-line-height: var(--hpe-base-line-height-90);
-  --hpe-paragraph-small-font-size: var(--hpe-base-font-size-100);
-  --hpe-paragraph-small-line-height: var(--hpe-base-line-height-300);
-  --hpe-paragraph-medium-font-size: var(--hpe-base-font-size-200);
-  --hpe-paragraph-medium-line-height: var(--hpe-base-line-height-200);
-  --hpe-paragraph-large-font-size: var(--hpe-base-font-size-400);
-  --hpe-paragraph-large-line-height: var(--hpe-base-line-height-300);
-  --hpe-paragraph-xlarge-font-size: var(--hpe-base-font-size-500);
-  --hpe-paragraph-xlarge-line-height: var(--hpe-base-line-height-400);
-  --hpe-paragraph-xxlarge-font-size: var(--hpe-base-font-size-600);
-  --hpe-paragraph-xxlarge-line-height: var(--hpe-base-line-height-600);
   --hpe-spacing-none: var(--hpe-base-static-spacing-none);
   --hpe-spacing-hair: var(--hpe-base-static-spacing-hair);
   --hpe-spacing-xxsmall: var(--hpe-base-static-spacing-xxsmall);
