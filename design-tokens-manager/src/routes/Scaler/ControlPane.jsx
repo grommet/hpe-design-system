@@ -54,7 +54,7 @@ export const ControlPane = ({ defaultValues, values, setValues, ...rest }) => {
         <Form value={values} onChange={onChange}>
           <Box width={{ min: 'xsmall', max: 'small' }}>
             <FormField
-              htmlFor="base"
+              htmlFor="base__input"
               name="base"
               label="Base unit"
               help="Foundation unit for the scale"
@@ -62,14 +62,18 @@ export const ControlPane = ({ defaultValues, values, setValues, ...rest }) => {
               <Select id="base" name="base" options={BASE_OPTIONS} />
             </FormField>
             <FormField
-              htmlFor="nearest"
+              htmlFor="nearest__input"
               name="nearest"
               label="Grid unit"
               help="Scale steps will be rounded to the nearest grid unit"
             >
               <Select id="nearest" name="nearest" options={BASE_OPTIONS} />
             </FormField>
-            <FormField htmlFor="factor" name="factor" label="Scale ratio">
+            <FormField
+              htmlFor="factor__input"
+              name="factor"
+              label="Scale ratio"
+            >
               <Select
                 id="factor"
                 name="factor"
@@ -77,7 +81,7 @@ export const ControlPane = ({ defaultValues, values, setValues, ...rest }) => {
                 options={FACTOR_OPTIONS}
               />
             </FormField>
-            <FormField label="Steps" htmlFor="steps" name="steps">
+            <FormField label="Steps" htmlFor="steps__input" name="steps">
               <Select id="steps" name="steps" options={STEP_OPTIONS} />
             </FormField>
           </Box>
