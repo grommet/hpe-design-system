@@ -1,5 +1,5 @@
 ---
-"hpe-design-tokens": patch
+"hpe-design-tokens": minor
 ---
 
 Updated dark and light mode of `color.background.primary.hover`
