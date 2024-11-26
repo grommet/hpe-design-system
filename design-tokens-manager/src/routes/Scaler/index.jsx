@@ -5,7 +5,7 @@ import { Results } from './Results';
 
 const defaultValues = {
   base: 8,
-  steps: 10,
+  steps: 20,
   factor: 1.333,
   nearest: 4,
   'spacing-factor': 0,

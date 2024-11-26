@@ -36,7 +36,7 @@ export const ControlPane = ({ defaultValues, values, setValues, ...rest }) => {
 
   const BASE_OPTIONS = [4, 6, 8, 12, 16, 18, 24];
   const FACTOR_OPTIONS = [1.2, 1.25, 1.333, 1.414, 1.5, 1.618, 2];
-  const STEP_OPTIONS = [7, 8, 9, 10, 11, 12, 13, 14, 15];
+  const STEP_OPTIONS = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
   return (
     <Box
