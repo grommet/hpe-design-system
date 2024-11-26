@@ -49,7 +49,7 @@ export default {
   "hpe.color.background.hover": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "Standard hover state color",
+    "$description": "Generic hover state of components that have no fill in their default/enabled state. For example, unselected menu-items.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -65,7 +65,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.background.contrast}",
-      "$description": "Standard hover state color",
+      "$description": "Generic hover state of components that have no fill in their default/enabled state. For example, unselected menu-items.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -135,7 +135,7 @@ export default {
   "hpe.color.background.disabled": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+    "$description": "Disabled background color. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -151,7 +151,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.black.opacity4}",
-      "$description": "Disabled background color. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$description": "Disabled background color. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -178,7 +178,7 @@ export default {
   "hpe.color.background.back": {
     "$type": "color",
     "$value": "#f7f7f7",
-    "$description": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
+    "$description": "Elevation level 0. Typically used for the page color. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -194,7 +194,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.grey.50}",
-      "$description": "Elevation level 0. Typically used for the page colour. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
+      "$description": "Elevation level 0. Typically used for the page color. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -567,7 +567,7 @@ export default {
   "hpe.color.background.selected.strong.enabled": {
     "$type": "color",
     "$value": "#01a982",
-    "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+    "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -583,7 +583,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.brand}",
-      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+      "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -614,7 +614,7 @@ export default {
   "hpe.color.background.selected.strong.hover": {
     "$type": "color",
     "$value": "#01a982",
-    "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+    "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -630,7 +630,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.brand}",
-      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+      "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -661,7 +661,7 @@ export default {
   "hpe.color.background.selected.weak.enabled": {
     "$type": "color",
     "$value": "#cbfaeb",
-    "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+    "$description": "Lower emphasis variant of selected color. Use if selection color needs to be less prominent.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -677,7 +677,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.green.100}",
-      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+      "$description": "Lower emphasis variant of selected color. Use if selection color needs to be less prominent.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -708,7 +708,7 @@ export default {
   "hpe.color.background.selected.weak.hover": {
     "$type": "color",
     "$value": "#aef6df",
-    "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+    "$description": "Lower emphasis variant of selected color. Use if selection color needs to be less prominent.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -724,7 +724,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.green.125}",
-      "$description": "Lower emphasis variant of selected colour. Use if selection colour needs to be less prominent.",
+      "$description": "Lower emphasis variant of selected color. Use if selection color needs to be less prominent.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -972,7 +972,7 @@ export default {
   "hpe.color.border.default": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
-    "$description": "Default border colour",
+    "$description": "Default border color",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -988,7 +988,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.black.opacity36}",
-      "$description": "Default border colour",
+      "$description": "Default border color",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1058,7 +1058,7 @@ export default {
   "hpe.color.border.disabled": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+    "$description": "Disabled color for borders. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1074,7 +1074,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.black.opacity12}",
-      "$description": "Disabled colour for borders. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$description": "Disabled color for borders. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1101,7 +1101,7 @@ export default {
   "hpe.color.border.selected": {
     "$type": "color",
     "$value": "#01a982",
-    "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
+    "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1117,7 +1117,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.green.600}",
-      "$description": "Selected (or checked) colour. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
+      "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1570,7 +1570,7 @@ export default {
   "hpe.color.text.disabled": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
-    "$description": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+    "$description": "Disabled color for text. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1585,7 +1585,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.black.opacity24}",
-      "$description": "Disabled color for text. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$description": "Disabled color for text. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1611,7 +1611,7 @@ export default {
   "hpe.color.text.onPrimary": {
     "$type": "color",
     "$value": "#ffffff",
-    "$description": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+    "$description": "Text color to be used for text sitting on a primary color (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colors, where if the primary color changes, we can update color.text.onPrimary to be accessible on the new primary color.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1626,7 +1626,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.white.100}",
-      "$description": "Text color to be used for text sitting on a primary colour (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+      "$description": "Text color to be used for text sitting on a primary color (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colors, where if the primary color changes, we can update color.text.onPrimary to be accessible on the new primary color.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2557,7 +2557,7 @@ export default {
   "hpe.color.icon.default": {
     "$type": "color",
     "$value": "#555555",
-    "$description": "Default icon colour that is accessible on standard background colours",
+    "$description": "Default icon color that is accessible on standard background colors",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2574,7 +2574,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.grey.800}",
-      "$description": "Default icon colour that is accessible on standard background colours",
+      "$description": "Default icon color that is accessible on standard background colors",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2737,7 +2737,7 @@ export default {
   "hpe.color.icon.disabled": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
-    "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+    "$description": "Disabled color for icons. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2754,7 +2754,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.black.opacity24}",
-      "$description": "Disabled colour for icons. Using disabled colours ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colours at the token level, rather than the component build level.",
+      "$description": "Disabled color for icons. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3007,7 +3007,7 @@ export default {
   "hpe.color.icon.onPrimary": {
     "$type": "color",
     "$value": "#ffffff",
-    "$description": "Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+    "$description": "Icon color to be used when text sits on primary color (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colors, where if the primary color changes, we can update color.text.onPrimary to be accessible on the new primary color.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3024,7 +3024,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.white.100}",
-      "$description": "Icon colour to be used when text sits on primary colour (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colours, where if the primary colour changes, we can update color.text.onPrimary to be accessible on the new primary colour.",
+      "$description": "Icon color to be used when text sits on primary color (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colors, where if the primary color changes, we can update color.text.onPrimary to be accessible on the new primary color.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3224,7 +3224,7 @@ export default {
   "hpe.color.decorative.green": {
     "$type": "color",
     "$value": "#17eba0",
-    "$description": "Use for decorative purposes when colour has no specific meaning.",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3239,7 +3239,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.green.400}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3265,7 +3265,7 @@ export default {
   "hpe.color.decorative.purple": {
     "$type": "color",
     "$value": "#f740ff",
-    "$description": "Use for decorative purposes when colour has no specific meaning.",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3280,7 +3280,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.purple.500}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3306,7 +3306,7 @@ export default {
   "hpe.color.decorative.teal": {
     "$type": "color",
     "$value": "#82fff2",
-    "$description": "Use for decorative purposes when colour has no specific meaning.",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3321,7 +3321,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.teal.200}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3347,7 +3347,7 @@ export default {
   "hpe.color.decorative.blue": {
     "$type": "color",
     "$value": "#00c8ff",
-    "$description": "Use for decorative purposes when colour has no specific meaning.",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3362,7 +3362,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.blue.400}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3388,7 +3388,7 @@ export default {
   "hpe.color.decorative.red": {
     "$type": "color",
     "$value": "#fc6161",
-    "$description": "Use for decorative purposes when colour has no specific meaning.",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3403,7 +3403,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.red.500}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3429,7 +3429,7 @@ export default {
   "hpe.color.decorative.orange": {
     "$type": "color",
     "$value": "#ffbc44",
-    "$description": "Use for decorative purposes when colour has no specific meaning.",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3444,7 +3444,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.orange.400}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3470,7 +3470,7 @@ export default {
   "hpe.color.decorative.yellow": {
     "$type": "color",
     "$value": "#ffeb59",
-    "$description": "Use for decorative purposes when colour has no specific meaning.",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3485,7 +3485,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.yellow.200}",
-      "$description": "Use for decorative purposes when colour has no specific meaning.",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,

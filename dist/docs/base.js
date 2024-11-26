@@ -7870,7 +7870,7 @@ export default {
   "hpe.TBD": {
     "$type": "color",
     "$value": "rgba(0, 255, 10, 0)",
-    "$description": "Placeholder for colours that still need finalising.",
+    "$description": "Placeholder for colors that still need finalising.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -7885,7 +7885,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "#00ff0a00",
-      "$description": "Placeholder for colours that still need finalising.",
+      "$description": "Placeholder for colors that still need finalising.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,

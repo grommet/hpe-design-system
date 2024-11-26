@@ -157,7 +157,7 @@
   --hpe-base-line-height-800: 3rem;
   --hpe-base-line-height-900: 4.5rem;
   --hpe-base-line-height-1000: 4.5rem;
-  --hpe-tbd: rgba(0, 255, 10, 0); /* Placeholder for colours that still need finalising. */
+  --hpe-tbd: rgba(0, 255, 10, 0); /* Placeholder for colors that still need finalising. */
   --hpe-base-color-brand: var(--hpe-base-color-green-600);
   --hpe-base-static-spacing-none: var(--hpe-base-dimension-0);
   --hpe-base-static-spacing-hair: var(--hpe-base-dimension-25);
