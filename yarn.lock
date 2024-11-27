@@ -7809,7 +7809,7 @@ grommet-theme-hpe@5.7.0:
   resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-5.7.0.tgz#c2488c5ae88467a035129e71b608e0d59db1b8df"
   integrity sha512-P8n7wQt1QTWdgDCOV1zc0jOlnq9ml5bCCEgtdCsMKiWIQkbOGJVbOACsfiZOS+J6M7l9ur9QFoXtVkGO6a+HAA==
 
-grommet@^v2.42.0, "grommet@https://github.com/grommet/grommet/tarball/stable":
+grommet@^2.42.0, "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.42.0"
   resolved "https://github.com/grommet/grommet/tarball/stable#8d13ff4df2bf034b8d2e8350960adce4a681a251"
   dependencies:
