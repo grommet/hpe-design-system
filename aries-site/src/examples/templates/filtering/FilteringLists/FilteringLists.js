@@ -67,6 +67,7 @@ const Orders = () => {
       pad="xxsmall"
     >
       <List
+        aria-label="Orders"
         action={(item, index) => (
           <Box key={index} align="center" direction="row" gap="small">
             {!['xsmall', 'small'].includes(breakpoint) && (

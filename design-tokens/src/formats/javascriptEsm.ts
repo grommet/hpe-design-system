@@ -2,7 +2,7 @@ import { fileHeader, minifyDictionary } from 'style-dictionary/utils';
 import { FormatFn, FormatFnArguments } from 'style-dictionary/types';
 import { jsonToNestedValue } from './utils/jsonToNestedValue.js';
 
-export const commonJs: FormatFn = async ({
+export const javascriptEsm: FormatFn = async ({
   dictionary,
   file,
   platform = {},
@@ -10,13 +10,13 @@ export const commonJs: FormatFn = async ({
   const { prefix } = platform;
   const tokens = prefix ? { [prefix]: dictionary.tokens } : dictionary.tokens;
   //
-  const output = `${await fileHeader({
-    file,
-  })}module.exports = ${JSON.stringify(
-    jsonToNestedValue(minifyDictionary(tokens, true)), // build in minify
-    null,
-    2,
-  )}\n`;
+  const output =
+    (await fileHeader({ file })) +
+    `export default ${JSON.stringify(
+      jsonToNestedValue(minifyDictionary(tokens, true)), // Build in minified
+      null,
+      2,
+    )}\n`;
   // TO DO return prettified
   return output;
 };

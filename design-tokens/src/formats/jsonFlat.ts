@@ -1,12 +1,18 @@
-import StyleDictionary from 'style-dictionary';
-import type { Formatter, TransformedToken } from 'style-dictionary';
-const { fileHeader } = StyleDictionary.formatHelpers;
+import { fileHeader } from 'style-dictionary/utils';
+import {
+  TransformedToken,
+  FormatFn,
+  FormatFnArguments,
+} from 'style-dictionary/types';
 
 export const flattenJson = (tokens: TransformedToken[]) =>
   Object.fromEntries(tokens.map(token => [token.name, token]));
 
-export const jsonFlat: Formatter = ({ dictionary, file }) => {
-  const output = `${fileHeader({ file })}export default ${JSON.stringify(
+export const jsonFlat: FormatFn = async ({
+  dictionary,
+  file,
+}: FormatFnArguments) => {
+  const output = `${await fileHeader({ file })}export default ${JSON.stringify(
     flattenJson(dictionary.allTokens),
     null,
     2,

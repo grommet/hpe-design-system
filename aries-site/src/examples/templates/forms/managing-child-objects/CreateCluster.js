@@ -43,11 +43,11 @@ const INPUT_MAP = {
       name={`hosts[${index}].host`}
       label="Host address"
       required
-      aria-required="true"
     >
       <TextInput
         id={`hosts[${index}].host`}
         name={`hosts[${index}].host`}
+        aria-required="true"
         {...rest}
       />
     </FormField>
@@ -59,12 +59,12 @@ const INPUT_MAP = {
         name={`hosts[${index}].cpu`}
         label="CPU cores"
         required
-        aria-required="true"
       >
         <Select
           id={`hosts[${index}].cpu`}
           name={`hosts[${index}].cpu`}
           options={[2, 4, 6, 8]}
+          aria-required="true"
           {...rest}
         />
       </FormField>
@@ -78,12 +78,12 @@ const INPUT_MAP = {
         name={`hosts[${index}].memory`}
         label="Memory (GB)"
         required
-        aria-required="true"
       >
         <Select
           id={`hosts[${index}].memory`}
           name={`hosts[${index}].memory`}
           options={[32, 64, 128, 256, 512]}
+          aria-required="true"
           {...rest}
         />
       </FormField>
@@ -152,9 +152,12 @@ export const CreateCluster = () => {
               name="cluster-name"
               label="Cluster name"
               required
-              aria-required="true"
             >
-              <TextInput id="cluster-name" name="cluster-name" />
+              <TextInput
+                aria-required="true"
+                id="cluster-name"
+                name="cluster-name"
+              />
             </FormField>
             <FormField
               htmlFor="resource-manager"

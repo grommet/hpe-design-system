@@ -48,6 +48,8 @@ const data = [
 export const ListImageIdentifierExample = () => (
   <Box width={{ max: 'xxlarge' }} margin="auto" fill>
     <List
+      // eslint-disable-next-line max-len
+      aria-label="Locations of people and image showing the locations where people are currently situated"
       background="background-front"
       data={data}
       onClickItem={e => {
