@@ -139,9 +139,7 @@ export const components = {
       margin={{ bottom: 'medium' }}
       overflow="auto"
     >
-      <Box background="background-front" pad="medium" round="small">
-        <Table {...props} />
-      </Box>
+      <Table {...props} />
     </Box>
   ),
   tbody: props => <TableBody {...props} />,

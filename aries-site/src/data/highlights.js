@@ -1,7 +1,7 @@
 export const highlights = [
   {
     name: 'Color',
-    summary: 'Translated for code, light/dark themes, status, and more*',
+    summary: 'Translated for code, light/dark themes, status, and more',
     image: {
       src: {
         light: '/highlightImages/color.svg',

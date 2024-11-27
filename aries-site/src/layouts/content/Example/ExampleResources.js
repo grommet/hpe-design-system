@@ -103,7 +103,7 @@ export const ExampleResources = ({
     );
   }
   return (
-    <Box gap="medium" margin={{ top: 'large' }}>
+    <Box gap="medium">
       {details && (
         <CollapsibleSection
           label={{ closed: 'Show Details', open: 'Hide Details' }}
