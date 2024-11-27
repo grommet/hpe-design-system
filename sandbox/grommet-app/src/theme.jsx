@@ -380,6 +380,32 @@ const buildTheme = tokens => {
     },
   };
 
+  const containerTokens = 'container' in large.hpe.size;
+  const size = breakpoint => ({
+    xxsmall: containerTokens
+      ? breakpoint.hpe.size.container.xxsmall
+      : breakpoint.hpe.size.content.xxsmall,
+    xsmall: containerTokens
+      ? breakpoint.hpe.size.container.xsmall
+      : breakpoint.hpe.size.content.xsmall,
+    small: containerTokens
+      ? breakpoint.hpe.size.container.small
+      : breakpoint.hpe.size.content.small,
+    medium: containerTokens
+      ? breakpoint.hpe.size.container.medium
+      : breakpoint.hpe.size.content.medium,
+    large: containerTokens
+      ? breakpoint.hpe.size.container.large
+      : breakpoint.hpe.size.content.large,
+    xlarge: containerTokens
+      ? breakpoint.hpe.size.container.xlarge
+      : breakpoint.hpe.size.content.xlarge,
+    xxlarge: containerTokens
+      ? breakpoint.hpe.size.container.xxlarge
+      : breakpoint.hpe.size.content.xxlarge,
+    full: '100%',
+  });
+
   const dimensions = {
     borderSize: {
       xsmall: large.hpe.borderWidth.xsmall,
@@ -400,16 +426,7 @@ const buildTheme = tokens => {
       xlarge: large.hpe.spacing.xlarge,
       responsiveBreakpoint: 'small',
     },
-    size: {
-      xxsmall: large.hpe.size.content.xxsmall,
-      xsmall: large.hpe.size.content.xsmall,
-      small: large.hpe.size.content.small,
-      medium: large.hpe.size.content.medium,
-      large: large.hpe.size.content.large,
-      xlarge: large.hpe.size.content.xlarge,
-      xxlarge: large.hpe.size.content.xxlarge,
-      full: '100%',
-    },
+    size: size(large),
     breakpoints: {
       xsmall: {
         borderSize: {
@@ -431,16 +448,7 @@ const buildTheme = tokens => {
           xlarge: small.hpe.spacing.xlarge,
           responsiveBreakpoint: 'small',
         },
-        size: {
-          xxsmall: small.hpe.size.content.xxsmall,
-          xsmall: small.hpe.size.content.xsmall,
-          small: small.hpe.size.content.small,
-          medium: small.hpe.size.content.medium,
-          large: small.hpe.size.content.large,
-          xlarge: small.hpe.size.content.xlarge,
-          xxlarge: small.hpe.size.content.xxlarge,
-          full: '100%',
-        },
+        size: size(small),
         value: parseInt(global.hpe.breakpoint.xsmall, 10),
       },
       small: {
@@ -463,16 +471,7 @@ const buildTheme = tokens => {
           xlarge: small.hpe.spacing.xlarge,
           responsiveBreakpoint: 'small',
         },
-        size: {
-          xxsmall: small.hpe.size.content.xxsmall,
-          xsmall: small.hpe.size.content.xsmall,
-          small: small.hpe.size.content.small,
-          medium: small.hpe.size.content.medium,
-          large: small.hpe.size.content.large,
-          xlarge: small.hpe.size.content.xlarge,
-          xxlarge: small.hpe.size.content.xxlarge,
-          full: '100%',
-        },
+        size: size(small),
         value: parseInt(global.hpe.breakpoint.small, 10),
       },
       medium: {
