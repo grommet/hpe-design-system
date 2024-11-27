@@ -1,6 +1,7 @@
 import { hpe, hpePop } from 'grommet-theme-hpe';
 import { deepMerge } from 'grommet/utils';
 import { Info } from 'grommet-icons';
+import { Close } from 'grommet-icons/icons/Close';
 
 export const aries = deepMerge(hpe, {
   defaultMode: 'dark',
@@ -10,6 +11,99 @@ export const aries = deepMerge(hpe, {
   buttonGroup: {
     // any Box props
     gap: 'small',
+  },
+  button: {
+    size: {
+      xsmall: {
+        border: {
+          radius: '2em',
+        },
+        iconOnly: {
+          pad: '5px',
+        },
+      },
+    },
+  },
+  icon: {
+    size: {
+      xsmall: '14px',
+    },
+  },
+  tag: {
+    icons: {
+      remove: Close,
+    },
+    remove: {
+      kind: 'default',
+    },
+    size: {
+      xsmall: {
+        icon: {
+          size: undefined,
+        },
+        remove: {
+          size: 'xsmall',
+          margin: {
+            right: 'none',
+            left: '-5px', // shifting for button padding
+            top: '-1px', // account for border
+            bottom: '-1px', // account for border
+          },
+        },
+      },
+      small: {
+        icon: {
+          size: undefined,
+        },
+        remove: {
+          size: 'xsmall',
+          margin: {
+            right: '2px',
+            left: '-5px', // shifting for button padding
+          },
+        },
+      },
+      medium: {
+        icon: {
+          size: undefined,
+        },
+        remove: {
+          size: 'small',
+          margin: {
+            right: 'xxsmall',
+            left: '-7px', // shifting for button padding
+          },
+        },
+      },
+      large: {
+        icon: {
+          size: undefined,
+        },
+        remove: {
+          size: 'medium',
+          margin: {
+            right: '2px',
+            left: '-9px', // shifting for button padding
+          },
+        },
+      },
+      xlarge: {
+        icon: {
+          size: undefined,
+        },
+        pad: {
+          vertical: '21px',
+          horizontal: 'medium',
+        },
+        remove: {
+          size: 'large',
+          margin: {
+            right: 'xsmall',
+            left: '-13px', // shifting for button padding
+          },
+        },
+      },
+    },
   },
   feedback: {
     closeButton: {
