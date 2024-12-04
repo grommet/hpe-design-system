@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, Button, Text } from 'grommet';
+import { Box, Button, NameValueList, NameValuePair, Text } from 'grommet';
 import { Copy, Tasks } from 'grommet-icons';
 
 const roundToNearest = (value, nearest) => {
@@ -145,7 +145,7 @@ export const Results = ({ base, factor, steps, nearest, setOpen, ...rest }) => {
       height={{ min: 'medium' }}
       {...rest}
     >
-      <Box gap="large">
+      <Box gap="large" alignSelf="center">
         <Box
           direction="row"
           align="end"
@@ -208,6 +208,12 @@ export const Results = ({ base, factor, steps, nearest, setOpen, ...rest }) => {
               );
             })}
         </Box>
+        <NameValueList nameProps={{ width: 'max-content' }}>
+          {tshirtScale &&
+            tshirtScale.map(({ size, value }) => {
+              return <NameValuePair name={size}>{value}</NameValuePair>;
+            })}
+        </NameValueList>
       </Box>
       <Box gap="xsmall" flex={false}>
         <Button
