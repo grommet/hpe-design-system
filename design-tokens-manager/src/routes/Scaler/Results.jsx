@@ -161,7 +161,7 @@ export const Results = ({ base, factor, steps, nearest, setOpen, ...rest }) => {
                   <Box
                     background={
                       stops.includes(value)
-                        ? 'purple!'
+                        ? { color: 'purple!', opacity: 'strong' }
                         : { color: 'purple!', opacity: 'medium' }
                     }
                     border={
@@ -192,7 +192,7 @@ export const Results = ({ base, factor, steps, nearest, setOpen, ...rest }) => {
               return (
                 <Box key={value} align="center" gap="xsmall">
                   <Box
-                    background={stops.includes(value) ? 'purple!' : 'brand'}
+                    background={{ color: 'purple!', opacity: 'strong' }}
                     border={
                       value === base
                         ? { color: 'orange!', size: 'small' }
