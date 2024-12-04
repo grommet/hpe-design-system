@@ -145,11 +145,11 @@ export const Results = ({ base, factor, steps, nearest, setOpen, ...rest }) => {
       height={{ min: 'medium' }}
       {...rest}
     >
-      <Box>
+      <Box gap="large">
         <Box
           direction="row"
           align="end"
-          alignSelf="center"
+          alignSelf="start"
           cssGap
           gap="medium"
           wrap
@@ -160,11 +160,14 @@ export const Results = ({ base, factor, steps, nearest, setOpen, ...rest }) => {
                 <Box key={value} align="center" gap="xsmall">
                   <Box
                     background={
-                      value === base
-                        ? 'purple'
-                        : stops.includes(value)
+                      stops.includes(value)
                         ? 'purple!'
-                        : 'brand'
+                        : { color: 'purple!', opacity: 'medium' }
+                    }
+                    border={
+                      value === base
+                        ? { color: 'orange!', size: 'small' }
+                        : undefined
                     }
                     width={`${value}px`}
                     height={`${value}px`}
@@ -179,7 +182,7 @@ export const Results = ({ base, factor, steps, nearest, setOpen, ...rest }) => {
         <Box
           direction="row"
           align="end"
-          alignSelf="center"
+          alignSelf="start"
           cssGap
           gap="medium"
           wrap
@@ -190,6 +193,11 @@ export const Results = ({ base, factor, steps, nearest, setOpen, ...rest }) => {
                 <Box key={value} align="center" gap="xsmall">
                   <Box
                     background={stops.includes(value) ? 'purple!' : 'brand'}
+                    border={
+                      value === base
+                        ? { color: 'orange!', size: 'small' }
+                        : undefined
+                    }
                     width={`${value}px`}
                     height={`${value}px`}
                   />
