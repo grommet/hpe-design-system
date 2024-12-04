@@ -4,10 +4,10 @@ import { ControlPane } from './ControlPane';
 import { Results } from './Results';
 
 const defaultValues = {
-  base: 8,
-  steps: 20,
-  factor: 1.333,
-  nearest: 4,
+  base: 24,
+  steps: 7,
+  factor: 1.414,
+  nearest: 24,
   'spacing-factor': 0,
   'type-factor': 0,
 };

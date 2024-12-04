@@ -35,7 +35,8 @@ export const ControlPane = ({ defaultValues, values, setValues, ...rest }) => {
   };
 
   const BASE_OPTIONS = [4, 6, 8, 12, 16, 18, 24];
-  const FACTOR_OPTIONS = [1.2, 1.25, 1.333, 1.414, 1.5, 1.618, 2];
+  const GRID_OPTIONS = [1, 2, ...BASE_OPTIONS];
+  const FACTOR_OPTIONS = [1, 1.2, 1.25, 1.333, 1.414, 1.5, 1.618, 2];
   const STEP_OPTIONS = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
   return (
@@ -67,7 +68,7 @@ export const ControlPane = ({ defaultValues, values, setValues, ...rest }) => {
               label="Grid unit"
               help="Scale steps will be rounded to the nearest grid unit"
             >
-              <Select id="nearest" name="nearest" options={BASE_OPTIONS} />
+              <Select id="nearest" name="nearest" options={GRID_OPTIONS} />
             </FormField>
             <FormField
               htmlFor="factor__input"
