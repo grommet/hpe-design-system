@@ -3,7 +3,8 @@ import { Box, Button, Text } from 'grommet';
 import { Copy, Tasks } from 'grommet-icons';
 
 const roundToNearest = (value, nearest) => {
-  return Math.round(value / nearest) * nearest;
+  // return Math.round(value / nearest) * nearest;
+  return Math.ceil(value / nearest) * nearest;
 };
 
 const createScale = (base, factor, steps, gridUnit) => {
@@ -41,7 +42,10 @@ const createScale = (base, factor, steps, gridUnit) => {
   const stepsBelow = Math.ceil(steps / 2);
   const stepsAbove = Math.floor(steps / 2);
   const baseIndex = result.indexOf(base);
-  const below = result.slice(baseIndex + 1 - stepsBelow, baseIndex + 1);
+  const below = result.slice(
+    Math.max(baseIndex + 1 - stepsBelow, 0),
+    baseIndex + 1,
+  );
   const above = result.slice(baseIndex + 1, baseIndex + 1 + stepsAbove);
 
   return [...below, ...above];
@@ -111,7 +115,7 @@ export const Results = ({ base, factor, steps, nearest, setOpen, ...rest }) => {
         nextStops.unshift(scale[i]);
       }
     }
-    setStops(nextStops);
+    setStops(nextStops.sort((a, b) => a - b));
   }, [base, factor, steps, scale]);
 
   // Create t-shirt sizes
