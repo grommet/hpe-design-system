@@ -32,6 +32,7 @@ export const Scaler = () => {
             background="background-front"
             round="medium"
             pad="medium"
+            open={controlsOpen}
             setOpen={() => setControlsOpen(!controlsOpen)}
           />
           {controlsOpen && (
