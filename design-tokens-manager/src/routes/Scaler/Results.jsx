@@ -1,84 +1,17 @@
 import { useEffect, useState } from 'react';
-import { Box, Button, NameValueList, NameValuePair, Text } from 'grommet';
-import { Copy, Tasks } from 'grommet-icons';
-
-const roundToNearest = (value, nearest) => {
-  // return Math.round(value / nearest) * nearest;
-  return Math.ceil(value / nearest) * nearest;
-};
-
-const createScale = (base, factor, steps, gridUnit) => {
-  const values = [];
-  // above base
-  for (let i = 0; i < steps; i++) {
-    values.push(roundToNearest(base * Math.pow(factor, i), gridUnit || base));
-  }
-  // below base
-  for (let i = 0; i < steps; i++) {
-    const value = base / Math.pow(factor, i);
-    let nearest = gridUnit || base;
-
-    // round to nearest even number
-    if (value >= 4 && value < gridUnit) {
-      nearest = 2;
-    }
-    // round to nearest integer
-    else if (value < 4) {
-      nearest = 1;
-    }
-
-    values.push(roundToNearest(value, nearest));
-  }
-
-  const result = values
-    .reduce((acc, value) => {
-      if (!acc.includes(value)) {
-        acc.push(value);
-      }
-      return acc;
-    }, [])
-    .sort((a, b) => a - b);
-
-  const stepsBelow = Math.ceil(steps / 2);
-  const stepsAbove = Math.floor(steps / 2);
-  const baseIndex = result.indexOf(base);
-  const below = result.slice(
-    Math.max(baseIndex + 1 - stepsBelow, 0),
-    baseIndex + 1,
-  );
-  const above = result.slice(baseIndex + 1, baseIndex + 1 + stepsAbove);
-
-  return [...below, ...above];
-};
-
-const defaultCopyTip = 'Copy scale to clipboard';
-
-const CopyButton = ({ scale, ...rest }) => {
-  const [copyTip, setCopyTip] = useState(defaultCopyTip);
-
-  const onCopy = () => {
-    const duration = 2000;
-    navigator.clipboard.writeText(`${JSON.stringify(scale, null, 2)}`);
-    setCopyTip('Copied!');
-    const timer = setTimeout(() => {
-      setCopyTip(defaultCopyTip);
-    }, duration);
-    return () => clearTimeout(timer);
-  };
-
-  return (
-    <Button
-      a11yTitle={copyTip}
-      tip={copyTip}
-      icon={<Copy aria-hidden="true" />}
-      onClick={onCopy}
-      {...rest}
-    />
-  );
-};
+import { Box } from 'grommet';
+import {
+  ScaleLayout,
+  ScaleToolbar,
+  ScaleValue,
+  SpacingValues,
+} from './components';
+import { createScale } from './utils';
 
 const tshirtSizes = [
-  'xxxsmall',
+  '5xsmall',
+  '4xsmall',
+  '3xsmall',
   'xxsmall',
   'xsmall',
   'small',
@@ -86,21 +19,31 @@ const tshirtSizes = [
   'large',
   'xlarge',
   'xxlarge',
-  'xxxlarge',
+  '3xlarge',
+  '4xlarge',
+  '5xlarge',
 ];
 
-export const Results = ({ base, factor, steps, nearest, setOpen, ...rest }) => {
+export const Results = ({
+  base,
+  factor,
+  steps,
+  nearest,
+  open,
+  setOpen,
+  ...rest
+}) => {
   const [scale, setScale] = useState([]);
   const [stops, setStops] = useState([]);
   const [tshirtScale, setTshirtScale] = useState([]);
 
-  // Create scale
+  // Create full scale
   useEffect(() => {
     const nextScale = createScale(base, factor, steps, nearest);
     setScale(nextScale);
   }, [base, factor, steps, nearest]);
 
-  // Create stops
+  // Create major scale stops
   useEffect(() => {
     const nextStops = [base];
     const baseIndex = scale.indexOf(base);
@@ -146,83 +89,35 @@ export const Results = ({ base, factor, steps, nearest, setOpen, ...rest }) => {
       {...rest}
     >
       <Box gap="large" alignSelf="center">
-        <Box
-          direction="row"
-          align="end"
-          alignSelf="start"
-          cssGap
-          gap="medium"
-          wrap
-        >
+        <ScaleLayout>
           {scale &&
-            scale.map((value, index) => {
+            scale.map(value => {
               return (
-                <Box key={value} align="center" gap="xsmall">
-                  <Box
-                    background={
-                      stops.includes(value)
-                        ? { color: 'purple!', opacity: 'strong' }
-                        : { color: 'purple!', opacity: 'medium' }
-                    }
-                    border={
-                      value === base
-                        ? { color: 'orange!', size: 'small' }
-                        : undefined
-                    }
-                    width={`${value}px`}
-                    height={`${value}px`}
-                  />
-                  <Text key={index} size="small">
-                    {value}px
-                  </Text>
-                </Box>
+                <ScaleValue
+                  key={value}
+                  base={base}
+                  stops={stops}
+                  value={value}
+                />
               );
             })}
-        </Box>
-        <Box
-          direction="row"
-          align="end"
-          alignSelf="start"
-          cssGap
-          gap="medium"
-          wrap
-        >
+        </ScaleLayout>
+        <ScaleLayout>
           {stops &&
-            stops.map((value, index) => {
+            stops.map(value => {
               return (
-                <Box key={value} align="center" gap="xsmall">
-                  <Box
-                    background={{ color: 'purple!', opacity: 'strong' }}
-                    border={
-                      value === base
-                        ? { color: 'orange!', size: 'small' }
-                        : undefined
-                    }
-                    width={`${value}px`}
-                    height={`${value}px`}
-                  />
-                  <Text key={index} size="small">
-                    {value}px
-                  </Text>
-                </Box>
+                <ScaleValue
+                  key={value}
+                  base={base}
+                  stops={stops}
+                  value={value}
+                />
               );
             })}
-        </Box>
-        <NameValueList nameProps={{ width: 'max-content' }}>
-          {tshirtScale &&
-            tshirtScale.map(({ size, value }) => {
-              return <NameValuePair name={size}>{value}</NameValuePair>;
-            })}
-        </NameValueList>
+        </ScaleLayout>
+        <SpacingValues values={tshirtScale} />
       </Box>
-      <Box gap="xsmall" flex={false}>
-        <Button
-          tip="Open scale settings"
-          icon={<Tasks aria-hidden="true" />}
-          onClick={setOpen}
-        />
-        <CopyButton scale={scale} />
-      </Box>
+      <ScaleToolbar open={open} setOpen={setOpen} scale={scale} />
     </Box>
   );
 };
