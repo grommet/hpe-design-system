@@ -23,6 +23,11 @@ function App() {
       theme={hpe}
       themeMode={darkMode ? 'dark' : 'light'}
       full="min"
+      options={{
+        box: {
+          cssGap: true,
+        },
+      }}
     >
       <BrowserRouter>
         <Header
