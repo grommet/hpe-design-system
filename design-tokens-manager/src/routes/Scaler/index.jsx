@@ -29,9 +29,6 @@ export const Scaler = () => {
             factor={values.factor}
             steps={values.steps}
             nearest={values.nearest}
-            background="background-front"
-            round="medium"
-            pad="medium"
             open={controlsOpen}
             setOpen={() => setControlsOpen(!controlsOpen)}
           />

@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Box } from 'grommet';
+import { Box, Button } from 'grommet';
+import { Sidebar } from 'grommet-icons';
+import { ContentPane } from '../../components/ContentPane';
 import {
+  CopyButton,
   ScaleLayout,
   ScaleToolbar,
   ScaleValue,
@@ -81,43 +84,70 @@ export const Results = ({
   }, [base, scale]);
 
   return (
-    <Box
-      fill
-      direction="row"
-      justify="between"
-      height={{ min: 'medium' }}
-      {...rest}
-    >
-      <Box gap="large" alignSelf="center">
-        <ScaleLayout>
-          {scale &&
-            scale.map(value => {
-              return (
-                <ScaleValue
-                  key={value}
-                  base={base}
-                  stops={stops}
-                  value={value}
-                />
-              );
-            })}
-        </ScaleLayout>
-        <ScaleLayout>
-          {stops &&
-            stops.map(value => {
-              return (
-                <ScaleValue
-                  key={value}
-                  base={base}
-                  stops={stops}
-                  value={value}
-                />
-              );
-            })}
-        </ScaleLayout>
-        <SpacingValues values={tshirtScale} />
+    <Box fill align="start" gap="large" {...rest}>
+      <ContentPane
+        contain
+        actions={[
+          <ScaleToolbar
+            direction="row-reverse"
+            scale={scale}
+            open={open}
+            setOpen={setOpen}
+          />,
+        ]}
+        fill
+      >
+        <Box gap="large" alignSelf="center">
+          <ScaleLayout>
+            {scale &&
+              scale.map(value => {
+                return (
+                  <ScaleValue
+                    key={value}
+                    base={base}
+                    stops={stops}
+                    value={value}
+                  />
+                );
+              })}
+          </ScaleLayout>
+          <ScaleLayout>
+            {stops &&
+              stops.map(value => {
+                return (
+                  <ScaleValue
+                    key={value}
+                    base={base}
+                    stops={stops}
+                    value={value}
+                  />
+                );
+              })}
+          </ScaleLayout>
+        </Box>
+      </ContentPane>
+      <Box direction="row" gap="large">
+        <ContentPane
+          level={2}
+          heading="Spacing sizes"
+          contain
+          actions={[
+            <CopyButton content={tshirtScale} tip="Copy spacing values" />,
+          ]}
+        >
+          <SpacingValues values={tshirtScale} />
+        </ContentPane>
+        <ContentPane
+          level={2}
+          heading="Content sizes"
+          contain
+          actions={[
+            <CopyButton content={tshirtScale} tip="Copy content sizes" />,
+          ]}
+        >
+          <SpacingValues values={tshirtScale} />
+        </ContentPane>
       </Box>
-      <ScaleToolbar open={open} setOpen={setOpen} scale={scale} />
     </Box>
   );
 };
