@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, NameValueList, NameValuePair } from 'grommet';
+import { Box } from 'grommet';
 import {
   ScaleLayout,
   ScaleToolbar,
