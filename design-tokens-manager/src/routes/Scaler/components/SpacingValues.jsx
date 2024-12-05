@@ -4,8 +4,12 @@ export const SpacingValues = ({ values, ...rest }) => {
   return (
     <NameValueList nameProps={{ width: 'max-content' }} {...rest}>
       {values &&
-        values.map(({ size, value }) => {
-          return <NameValuePair name={size}>{value}</NameValuePair>;
+        values.map(({ key, value }) => {
+          return (
+            <NameValuePair key={`${key}-${value}`} name={key}>
+              {value}
+            </NameValuePair>
+          );
         })}
     </NameValueList>
   );
