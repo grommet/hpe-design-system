@@ -1,21 +1,17 @@
-import { createContext, useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Grommet, Box } from 'grommet';
 import { themes } from './theme';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
-import NextDashboard from './pages/next/index';
 import StickerSheet from './pages/sticker-sheet/index';
 import Refresh from './pages/refresh/index';
 import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
-import { FloatingActionButton } from './components';
 import { HPEGreenLakeBadge } from './components/HPEGreenLakeBadge';
+import { BackgroundContext, WorkspaceContext } from './contexts';
 // import { useLoading } from './utils/skeleton';
 import './app.css';
-
-export const BackgroundContext = createContext({});
-export const WorkspaceContext = createContext({});
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(
@@ -91,24 +87,12 @@ const App = () => {
               />
               <BrowserRouter>
                 <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      workspace === 'Acme Production' ? (
-                        <Home />
-                      ) : (
-                        <NextDashboard />
-                      )
-                    }
-                  />
+                  <Route path="/" element={<Home />} />
                   <Route path="/sustainability" element={<Sustainability />} />
                   <Route path="/sticker-sheet" element={<StickerSheet />} />
                   <Route path="/refresh" element={<Refresh />} />
                 </Routes>
               </BrowserRouter>
-              {window.location.pathname === '/next' ? (
-                <FloatingActionButton label="Ask HPE" />
-              ) : undefined}
             </WorkspaceContext.Provider>
           </BackgroundContext.Provider>
         )
