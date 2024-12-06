@@ -4,7 +4,7 @@ import {
   Card,
   CardBody,
   CardHeader,
-  NameValueList,
+  Grid,
   ThemeContext,
 } from 'grommet';
 import { DashboardCardHeader } from '.';
@@ -21,13 +21,14 @@ export const StatusBar = ({ children, title, menuItems, ...rest }) => {
         <DashboardCardHeader title={title} level={3} menuItems={menuItems} />
       </CardHeader>
       <CardBody>
-        <NameValueList
-          valueProps={{ width: ['xsmall', 'auto'] }}
-          pairProps={{ direction: 'column' }}
-          layout="grid"
+        <Grid
+          align={undefined}
+          columns={{ count: 'fit', size: ['xsmall', 'auto'] }}
+          gap={{ column: 'large', row: 'medium' }}
+          margin="none"
         >
           {children}
-        </NameValueList>
+        </Grid>
       </CardBody>
     </Card>
   );

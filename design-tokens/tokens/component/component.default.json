@@ -316,7 +316,7 @@
       "xsmall": {
         "paddingX": {
           "$type": "number",
-          "$value": "{button.xsmall.default.paddingX}",
+          "$value": "{button.default.xsmall.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -328,7 +328,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.xsmall.default.paddingY}",
+          "$value": "{button.default.xsmall.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -340,7 +340,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{button.xsmall.default.borderRadius}",
+          "$value": "{button.default.xsmall.borderRadius}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -352,7 +352,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.xsmall.default.borderWidth}",
+          "$value": "{button.default.xsmall.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -364,7 +364,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.xsmall.default.minHeight}",
+          "$value": "{button.default.xsmall.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -376,7 +376,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.xsmall.default.fontSize}",
+          "$value": "{button.default.xsmall.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -388,7 +388,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.xsmall.default.lineHeight}",
+          "$value": "{button.default.xsmall.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -400,7 +400,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.xsmall.default.gapX}",
+          "$value": "{button.default.xsmall.gapX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -413,7 +413,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.xsmall.default.iconOnly.paddingX}",
+            "$value": "{button.default.xsmall.iconOnly.paddingX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -425,7 +425,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.xsmall.default.iconOnly.paddingY}",
+            "$value": "{button.default.xsmall.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -437,7 +437,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.xsmall.primary.borderRadius}",
+            "$value": "{button.primary.xsmall.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -449,7 +449,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.xsmall.primary.borderWidth}",
+            "$value": "{button.primary.xsmall.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -461,7 +461,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.xsmall.primary.minHeight}",
+            "$value": "{button.primary.xsmall.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -473,7 +473,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.xsmall.primary.fontSize}",
+            "$value": "{button.primary.xsmall.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -485,7 +485,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.xsmall.primary.lineHeight}",
+            "$value": "{button.primary.xsmall.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -497,7 +497,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.xsmall.primary.gapX}",
+            "$value": "{button.primary.xsmall.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -512,7 +512,7 @@
       "small": {
         "paddingX": {
           "$type": "number",
-          "$value": "{button.small.default.paddingX}",
+          "$value": "{button.default.small.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -524,7 +524,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.small.default.paddingY}",
+          "$value": "{button.default.small.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -536,7 +536,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{button.small.default.borderRadius}",
+          "$value": "{button.default.small.borderRadius}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -548,7 +548,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.small.default.borderWidth}",
+          "$value": "{button.default.small.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -560,7 +560,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.small.default.minHeight}",
+          "$value": "{button.default.small.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -572,7 +572,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.small.default.fontSize}",
+          "$value": "{button.default.small.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -584,7 +584,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.small.default.lineHeight}",
+          "$value": "{button.default.small.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -596,7 +596,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.small.default.gapX}",
+          "$value": "{button.default.small.gapX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -609,7 +609,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.small.default.iconOnly.paddingX}",
+            "$value": "{button.default.small.iconOnly.paddingX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -621,7 +621,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.small.default.iconOnly.paddingY}",
+            "$value": "{button.default.small.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -633,7 +633,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.small.primary.borderRadius}",
+            "$value": "{button.primary.small.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -645,7 +645,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.small.primary.borderWidth}",
+            "$value": "{button.primary.small.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -657,7 +657,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.small.primary.minHeight}",
+            "$value": "{button.primary.small.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -669,7 +669,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.small.default.iconOnly.minWidth}",
+            "$value": "{button.default.small.iconOnly.minWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -681,7 +681,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.small.primary.fontSize}",
+            "$value": "{button.primary.small.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -693,7 +693,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.small.primary.lineHeight}",
+            "$value": "{button.primary.small.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -705,7 +705,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.small.primary.gapX}",
+            "$value": "{button.primary.small.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -720,7 +720,7 @@
       "medium": {
         "paddingX": {
           "$type": "number",
-          "$value": "{button.medium.default.paddingX}",
+          "$value": "{button.default.medium.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -732,7 +732,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.medium.default.paddingY}",
+          "$value": "{button.default.medium.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -744,7 +744,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{button.medium.default.borderRadius}",
+          "$value": "{button.default.medium.borderRadius}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -756,7 +756,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.medium.default.borderWidth}",
+          "$value": "{button.default.medium.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -768,7 +768,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.medium.default.minHeight}",
+          "$value": "{button.default.medium.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -780,7 +780,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.medium.default.fontSize}",
+          "$value": "{button.default.medium.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -792,7 +792,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.medium.default.lineHeight}",
+          "$value": "{button.default.medium.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -804,7 +804,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.medium.default.gapX}",
+          "$value": "{button.default.medium.gapX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -817,7 +817,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.medium.default.iconOnly.paddingX}",
+            "$value": "{button.default.medium.iconOnly.paddingX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -829,7 +829,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.medium.default.iconOnly.paddingY}",
+            "$value": "{button.default.medium.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -841,7 +841,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.medium.primary.borderRadius}",
+            "$value": "{button.primary.medium.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -853,7 +853,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.medium.primary.borderWidth}",
+            "$value": "{button.primary.medium.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -865,7 +865,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.medium.primary.minHeight}",
+            "$value": "{button.primary.medium.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -877,7 +877,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.medium.primary.fontSize}",
+            "$value": "{button.primary.medium.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -889,7 +889,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.medium.primary.lineHeight}",
+            "$value": "{button.primary.medium.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -901,7 +901,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.medium.primary.gapX}",
+            "$value": "{button.primary.medium.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -916,7 +916,7 @@
       "large": {
         "paddingX": {
           "$type": "number",
-          "$value": "{button.large.default.paddingX}",
+          "$value": "{button.default.large.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -928,7 +928,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.large.default.paddingY}",
+          "$value": "{button.default.large.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -940,7 +940,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{button.large.default.borderRadius}",
+          "$value": "{button.default.large.borderRadius}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -952,7 +952,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.large.default.borderWidth}",
+          "$value": "{button.default.large.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -964,7 +964,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.large.default.minHeight}",
+          "$value": "{button.default.large.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -976,7 +976,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.large.default.fontSize}",
+          "$value": "{button.default.large.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -988,7 +988,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.large.default.lineHeight}",
+          "$value": "{button.default.large.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1000,7 +1000,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.large.default.gapX}",
+          "$value": "{button.default.large.gapX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1013,7 +1013,7 @@
         "iconOnly": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.large.primary.borderRadius}",
+            "$value": "{button.primary.large.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1025,7 +1025,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.large.primary.borderWidth}",
+            "$value": "{button.primary.large.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1037,7 +1037,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.large.primary.minHeight}",
+            "$value": "{button.primary.large.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1049,7 +1049,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.large.primary.fontSize}",
+            "$value": "{button.primary.large.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1061,7 +1061,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.large.primary.lineHeight}",
+            "$value": "{button.primary.large.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1073,7 +1073,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.large.primary.gapX}",
+            "$value": "{button.primary.large.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1085,7 +1085,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{button.large.default.iconOnly.paddingX}",
+            "$value": "{button.default.large.iconOnly.paddingX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1097,7 +1097,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.large.default.iconOnly.paddingY}",
+            "$value": "{button.default.large.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1113,7 +1113,7 @@
         "iconOnly": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.xlarge.primary.borderRadius}",
+            "$value": "{button.primary.xlarge.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1125,7 +1125,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.xlarge.primary.borderWidth}",
+            "$value": "{button.primary.xlarge.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1137,7 +1137,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.xlarge.primary.minHeight}",
+            "$value": "{button.primary.xlarge.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1149,7 +1149,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.xlarge.default.iconOnly.minWidth}",
+            "$value": "{button.default.xlarge.iconOnly.minWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1161,7 +1161,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.xlarge.primary.fontSize}",
+            "$value": "{button.primary.xlarge.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1173,7 +1173,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.xlarge.primary.lineHeight}",
+            "$value": "{button.primary.xlarge.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1185,7 +1185,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.xlarge.primary.gapX}",
+            "$value": "{button.primary.xlarge.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1197,7 +1197,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{button.xlarge.default.iconOnly.paddingX}",
+            "$value": "{button.default.xlarge.iconOnly.paddingX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1209,7 +1209,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.xlarge.default.iconOnly.paddingY}",
+            "$value": "{button.default.xlarge.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1222,7 +1222,7 @@
         },
         "paddingX": {
           "$type": "number",
-          "$value": "{button.xlarge.default.paddingX}",
+          "$value": "{button.default.xlarge.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1234,7 +1234,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.xlarge.default.paddingY}",
+          "$value": "{button.default.xlarge.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1246,7 +1246,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{button.xlarge.default.borderRadius}",
+          "$value": "{button.default.xlarge.borderRadius}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1258,7 +1258,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.xlarge.default.borderWidth}",
+          "$value": "{button.default.xlarge.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1270,7 +1270,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.xlarge.default.minHeight}",
+          "$value": "{button.default.xlarge.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1282,7 +1282,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.xlarge.default.fontSize}",
+          "$value": "{button.default.xlarge.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1294,7 +1294,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.xlarge.default.lineHeight}",
+          "$value": "{button.default.xlarge.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1306,7 +1306,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.xlarge.default.gapX}",
+          "$value": "{button.default.xlarge.gapX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1634,7 +1634,7 @@
       "xsmall": {
         "paddingX": {
           "$type": "number",
-          "$value": "{button.xsmall.default.paddingX}",
+          "$value": "{button.default.xsmall.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1646,7 +1646,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.xsmall.default.paddingY}",
+          "$value": "{button.default.xsmall.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1658,7 +1658,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{button.xsmall.default.borderRadius}",
+          "$value": "{button.default.xsmall.borderRadius}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1670,7 +1670,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.xsmall.default.borderWidth}",
+          "$value": "{base.static.borderWidth.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1682,7 +1682,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.xsmall.default.minHeight}",
+          "$value": "{element.xsmall.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1694,7 +1694,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.xsmall.default.fontSize}",
+          "$value": "{element.xsmall.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1706,7 +1706,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.xsmall.default.lineHeight}",
+          "$value": "{element.xsmall.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1718,7 +1718,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.xsmall.default.gapX}",
+          "$value": "{element.xsmall.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1731,7 +1731,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.xsmall.default.iconOnly.paddingX}",
+            "$value": "{button.secondary.xsmall.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1743,7 +1743,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.xsmall.default.iconOnly.paddingY}",
+            "$value": 4,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1755,7 +1755,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.xsmall.secondary.borderRadius}",
+            "$value": "{button.secondary.xsmall.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1767,7 +1767,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.xsmall.secondary.borderWidth}",
+            "$value": "{button.secondary.xsmall.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1779,7 +1779,19 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.xsmall.secondary.minHeight}",
+            "$value": "{button.toolbar.xsmall.minHeight}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["WIDTH_HEIGHT"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "minWidth": {
+            "$type": "number",
+            "$value": "{button.default.xsmall.iconOnly.minWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1791,7 +1803,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.xsmall.secondary.fontSize}",
+            "$value": "{button.toolbar.xsmall.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1803,7 +1815,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.xsmall.secondary.lineHeight}",
+            "$value": "{button.secondary.xsmall.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1815,35 +1827,12 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.xsmall.secondary.gapX}",
+            "$value": "{button.secondary.xsmall.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
                 "scopes": ["GAP"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        },
-        "hover": {
-          "boxShadow": {
-            "$type": "shadow",
-            "$value": [
-              {
-                "offsetX": "{base.static.spacing.none}",
-                "offsetY": "{base.static.spacing.none}",
-                "blur": "{base.static.spacing.none}",
-                "spread": "{base.dimension.25}",
-                "color": "{button.secondary.hover.borderColor}",
-                "inset": true
-              }
-            ],
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["ALL_SCOPES"],
                 "codeSyntax": {}
               }
             }
@@ -1853,7 +1842,7 @@
       "small": {
         "paddingX": {
           "$type": "number",
-          "$value": "{button.small.default.paddingX}",
+          "$value": "{element.small.paddingX.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1865,7 +1854,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.small.default.paddingY}",
+          "$value": "{button.default.small.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1877,7 +1866,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{button.small.default.borderRadius}",
+          "$value": "{base.static.radius.xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1889,7 +1878,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.small.default.borderWidth}",
+          "$value": "{base.static.borderWidth.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1901,7 +1890,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.small.default.minHeight}",
+          "$value": "{element.small.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1913,7 +1902,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.small.default.fontSize}",
+          "$value": "{element.small.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1925,7 +1914,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.small.default.lineHeight}",
+          "$value": "{element.small.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1937,7 +1926,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.small.default.gapX}",
+          "$value": "{element.xsmall.textToIconX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1950,7 +1939,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.small.default.iconOnly.paddingX}",
+            "$value": 5,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1962,7 +1951,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.small.default.iconOnly.paddingY}",
+            "$value": 5,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1974,7 +1963,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.small.secondary.borderRadius}",
+            "$value": "{button.toolbar.small.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1986,7 +1975,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.small.secondary.borderWidth}",
+            "$value": "{button.toolbar.small.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1998,7 +1987,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.small.secondary.minHeight}",
+            "$value": "{button.toolbar.small.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2010,7 +1999,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.small.default.iconOnly.minWidth}",
+            "$value": "{button.default.small.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2022,7 +2011,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.small.secondary.fontSize}",
+            "$value": "{button.secondary.small.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2034,7 +2023,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.small.secondary.lineHeight}",
+            "$value": "{button.secondary.small.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2046,35 +2035,12 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.small.secondary.gapX}",
+            "$value": "{button.toolbar.small.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
                 "scopes": ["GAP"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        },
-        "hover": {
-          "boxShadow": {
-            "$type": "shadow",
-            "$value": [
-              {
-                "offsetX": "{base.static.spacing.none}",
-                "offsetY": "{base.static.spacing.none}",
-                "blur": "{base.static.spacing.none}",
-                "spread": "{base.dimension.25}",
-                "color": "{button.secondary.hover.borderColor}",
-                "inset": true
-              }
-            ],
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["ALL_SCOPES"],
                 "codeSyntax": {}
               }
             }
@@ -2084,7 +2050,7 @@
       "medium": {
         "paddingX": {
           "$type": "number",
-          "$value": "{button.medium.default.paddingX}",
+          "$value": "{button.default.medium.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2096,7 +2062,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.medium.default.paddingY}",
+          "$value": "{button.default.medium.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2108,7 +2074,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{button.medium.default.borderRadius}",
+          "$value": "{button.default.medium.borderRadius}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2120,7 +2086,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.medium.default.borderWidth}",
+          "$value": "{button.default.medium.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2132,7 +2098,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.medium.default.minHeight}",
+          "$value": "{button.default.medium.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2144,7 +2110,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.medium.default.fontSize}",
+          "$value": "{button.default.medium.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2156,7 +2122,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.medium.default.lineHeight}",
+          "$value": "{button.default.medium.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2168,7 +2134,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.medium.default.gapX}",
+          "$value": "{button.default.medium.gapX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2181,7 +2147,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.medium.default.iconOnly.paddingX}",
+            "$value": "{button.default.medium.iconOnly.paddingX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2193,7 +2159,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.medium.default.iconOnly.paddingY}",
+            "$value": "{button.default.medium.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2205,7 +2171,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.medium.primary.borderRadius}",
+            "$value": "{button.secondary.medium.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2217,7 +2183,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.medium.primary.borderWidth}",
+            "$value": "{button.secondary.medium.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2229,7 +2195,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.medium.primary.minHeight}",
+            "$value": "{button.secondary.medium.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2241,7 +2207,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.medium.default.iconOnly.minWidth}",
+            "$value": "{button.default.medium.iconOnly.minWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2253,7 +2219,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.medium.primary.fontSize}",
+            "$value": "{button.secondary.medium.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2265,7 +2231,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.medium.primary.lineHeight}",
+            "$value": "{button.secondary.medium.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2277,7 +2243,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.medium.primary.gapX}",
+            "$value": "{button.secondary.medium.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2292,7 +2258,7 @@
       "large": {
         "paddingX": {
           "$type": "number",
-          "$value": "{button.large.default.paddingX}",
+          "$value": "{button.default.large.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2316,7 +2282,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{button.large.default.borderRadius}",
+          "$value": "{button.default.large.borderRadius}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2340,7 +2306,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.large.default.minHeight}",
+          "$value": "{button.default.large.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2352,7 +2318,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.large.default.fontSize}",
+          "$value": "{button.default.large.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2364,7 +2330,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.large.default.lineHeight}",
+          "$value": "{button.default.large.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2376,7 +2342,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.large.default.gapX}",
+          "$value": "{button.default.large.gapX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2389,7 +2355,7 @@
         "iconOnly": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.large.secondary.borderRadius}",
+            "$value": "{button.secondary.large.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2401,7 +2367,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.large.secondary.borderWidth}",
+            "$value": "{button.secondary.large.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2413,7 +2379,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.large.secondary.minHeight}",
+            "$value": "{button.secondary.large.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2425,7 +2391,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.large.default.iconOnly.minWidth}",
+            "$value": "{button.default.large.iconOnly.minWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2437,7 +2403,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.large.secondary.fontSize}",
+            "$value": "{button.secondary.large.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2449,7 +2415,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.large.secondary.lineHeight}",
+            "$value": "{button.secondary.large.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2461,7 +2427,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.large.secondary.gapX}",
+            "$value": "{button.secondary.large.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2473,7 +2439,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{button.large.default.iconOnly.paddingX}",
+            "$value": "{button.default.large.iconOnly.paddingX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2485,7 +2451,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.large.default.iconOnly.paddingY}",
+            "$value": "{button.default.large.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2524,7 +2490,7 @@
         "iconOnly": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.xlarge.secondary.borderRadius}",
+            "$value": "{button.secondary.xlarge.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2536,7 +2502,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.xlarge.secondary.borderWidth}",
+            "$value": "{button.secondary.xlarge.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2548,7 +2514,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.xlarge.secondary.minHeight}",
+            "$value": "{button.secondary.xlarge.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2560,7 +2526,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.xlarge.secondary.fontSize}",
+            "$value": "{button.secondary.xlarge.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2572,7 +2538,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.xlarge.secondary.lineHeight}",
+            "$value": "{button.secondary.xlarge.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2584,7 +2550,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.xlarge.secondary.gapX}",
+            "$value": "{button.secondary.xlarge.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2596,7 +2562,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{button.xlarge.default.iconOnly.paddingX}",
+            "$value": "{button.default.xlarge.iconOnly.paddingX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2608,7 +2574,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.xlarge.default.iconOnly.paddingY}",
+            "$value": "{button.default.xlarge.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2621,7 +2587,7 @@
         },
         "paddingX": {
           "$type": "number",
-          "$value": "{button.xlarge.default.paddingX}",
+          "$value": "{button.default.xlarge.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2633,7 +2599,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.xlarge.default.paddingY}",
+          "$value": "{button.default.xlarge.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2645,7 +2611,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{button.xlarge.default.borderRadius}",
+          "$value": "{button.default.xlarge.borderRadius}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2657,7 +2623,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.xlarge.default.borderWidth}",
+          "$value": "{button.default.xlarge.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2669,7 +2635,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.xlarge.default.minHeight}",
+          "$value": "{button.default.xlarge.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2681,7 +2647,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.xlarge.default.fontSize}",
+          "$value": "{button.default.xlarge.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2693,7 +2659,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.xlarge.default.lineHeight}",
+          "$value": "{button.default.xlarge.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2705,7 +2671,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.xlarge.default.gapX}",
+          "$value": "{button.default.xlarge.gapX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3130,7 +3096,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.xsmall.default.iconOnly.paddingY}",
+            "$value": "{button.default.xsmall.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3142,7 +3108,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 3,
+            "$value": 4,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3154,7 +3120,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.xsmall.default.borderRadius}",
+            "$value": "{button.default.xsmall.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3166,7 +3132,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.xsmall.default.borderWidth}",
+            "$value": "{button.default.xsmall.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3178,7 +3144,19 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.xsmall.default.minHeight}",
+            "$value": "{button.default.xsmall.minHeight}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["WIDTH_HEIGHT"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "minWidth": {
+            "$type": "number",
+            "$value": "{button.default.xsmall.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3190,7 +3168,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.xsmall.default.fontSize}",
+            "$value": "{button.default.xsmall.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3202,7 +3180,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.xsmall.default.lineHeight}",
+            "$value": "{button.default.xsmall.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3214,7 +3192,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.xsmall.default.gapX}",
+            "$value": "{button.default.xsmall.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3326,7 +3304,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.small.default.iconOnly.paddingY}",
+            "$value": "{button.default.small.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3350,7 +3328,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.small.default.borderRadius}",
+            "$value": "{button.default.small.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3362,7 +3340,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.small.default.borderWidth}",
+            "$value": "{button.default.small.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3374,7 +3352,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.small.default.minHeight}",
+            "$value": "{button.default.small.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3386,7 +3364,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.small.default.iconOnly.minHeight}",
+            "$value": "{button.default.small.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3398,7 +3376,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.small.default.fontSize}",
+            "$value": "{button.default.small.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3410,7 +3388,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.small.default.lineHeight}",
+            "$value": "{button.default.small.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3422,7 +3400,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.small.default.gapX}",
+            "$value": "{button.default.small.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3534,7 +3512,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.medium.default.iconOnly.paddingY}",
+            "$value": "{button.default.medium.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3558,7 +3536,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.medium.default.borderRadius}",
+            "$value": "{button.default.medium.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3570,7 +3548,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.medium.default.borderWidth}",
+            "$value": "{button.default.medium.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3582,7 +3560,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.medium.default.minHeight}",
+            "$value": "{button.default.medium.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3594,7 +3572,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.medium.default.iconOnly.minHeight}",
+            "$value": "{button.default.medium.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3606,7 +3584,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.medium.default.fontSize}",
+            "$value": "{button.default.medium.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3618,7 +3596,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.medium.default.lineHeight}",
+            "$value": "{button.default.medium.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3630,7 +3608,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.medium.default.gapX}",
+            "$value": "{button.default.medium.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3742,7 +3720,7 @@
         "iconOnly": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.large.default.borderRadius}",
+            "$value": "{button.default.large.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3754,7 +3732,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.large.default.borderWidth}",
+            "$value": "{button.default.large.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3766,7 +3744,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.large.default.minHeight}",
+            "$value": "{button.default.large.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3778,7 +3756,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.large.default.iconOnly.minHeight}",
+            "$value": "{button.default.large.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3790,7 +3768,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.large.default.fontSize}",
+            "$value": "{button.default.large.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3802,7 +3780,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.large.default.lineHeight}",
+            "$value": "{button.default.large.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3814,7 +3792,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.large.default.gapX}",
+            "$value": "{button.default.large.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3826,7 +3804,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{button.large.default.iconOnly.paddingY}",
+            "$value": "{button.default.large.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3854,7 +3832,7 @@
         "iconOnly": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.xlarge.default.borderRadius}",
+            "$value": "{button.default.xlarge.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3866,7 +3844,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.xlarge.default.borderWidth}",
+            "$value": "{button.default.xlarge.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3878,7 +3856,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.xlarge.default.minHeight}",
+            "$value": "{button.default.xlarge.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3890,7 +3868,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.xlarge.default.iconOnly.minHeight}",
+            "$value": "{button.default.xlarge.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3902,7 +3880,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.xlarge.default.fontSize}",
+            "$value": "{button.default.xlarge.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3914,7 +3892,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.xlarge.default.lineHeight}",
+            "$value": "{button.default.xlarge.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3926,7 +3904,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.xlarge.default.gapX}",
+            "$value": "{button.default.xlarge.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3938,7 +3916,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{button.xlarge.default.iconOnly.paddingY}",
+            "$value": "{button.default.xlarge.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4484,7 +4462,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 3,
+            "$value": 4,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4496,7 +4474,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.xsmall.toolbar.borderRadius}",
+            "$value": "{button.toolbar.xsmall.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4508,7 +4486,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.xsmall.toolbar.borderWidth}",
+            "$value": "{button.toolbar.xsmall.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4520,7 +4498,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.xsmall.toolbar.minHeight}",
+            "$value": "{button.toolbar.xsmall.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4532,7 +4510,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.xsmall.toolbar.fontSize}",
+            "$value": "{button.toolbar.xsmall.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4544,7 +4522,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.xsmall.toolbar.lineHeight}",
+            "$value": "{button.toolbar.xsmall.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4556,7 +4534,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.xsmall.toolbar.gapX}",
+            "$value": "{button.toolbar.xsmall.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4583,7 +4561,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.small.default.paddingY}",
+          "$value": "{button.default.small.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4692,7 +4670,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.small.toolbar.borderRadius}",
+            "$value": "{button.toolbar.small.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4704,7 +4682,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.small.toolbar.borderWidth}",
+            "$value": "{button.toolbar.small.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4716,7 +4694,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.small.toolbar.minHeight}",
+            "$value": "{button.toolbar.small.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4728,7 +4706,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.small.default.iconOnly.minHeight}",
+            "$value": "{button.default.small.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4740,7 +4718,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.small.toolbar.fontSize}",
+            "$value": "{button.toolbar.small.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4752,7 +4730,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.small.toolbar.lineHeight}",
+            "$value": "{button.toolbar.small.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4764,7 +4742,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.small.toolbar.gapX}",
+            "$value": "{button.toolbar.small.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4827,7 +4805,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.medium.default.minHeight}",
+          "$value": "{button.default.medium.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4839,7 +4817,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.medium.default.fontSize}",
+          "$value": "{button.default.medium.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4851,7 +4829,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.medium.default.lineHeight}",
+          "$value": "{button.default.medium.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4863,7 +4841,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.medium.default.gapX}",
+          "$value": "{button.default.medium.gapX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4876,7 +4854,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.medium.default.iconOnly.paddingX}",
+            "$value": "{button.default.medium.iconOnly.paddingX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4888,7 +4866,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.medium.default.iconOnly.paddingY}",
+            "$value": "{button.default.medium.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4900,7 +4878,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.medium.toolbar.borderRadius}",
+            "$value": "{button.toolbar.medium.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4912,7 +4890,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.medium.toolbar.borderWidth}",
+            "$value": "{button.toolbar.medium.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4924,7 +4902,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.medium.toolbar.minHeight}",
+            "$value": "{button.toolbar.medium.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4936,7 +4914,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.medium.default.iconOnly.minWidth}",
+            "$value": "{button.default.medium.iconOnly.minWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4948,7 +4926,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.medium.toolbar.fontSize}",
+            "$value": "{button.toolbar.medium.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4960,7 +4938,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.medium.toolbar.lineHeight}",
+            "$value": "{button.toolbar.medium.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4972,7 +4950,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.medium.toolbar.gapX}",
+            "$value": "{button.toolbar.medium.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5035,7 +5013,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.large.default.minHeight}",
+          "$value": "{button.default.large.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5047,7 +5025,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.large.default.fontSize}",
+          "$value": "{button.default.large.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5059,7 +5037,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.large.default.lineHeight}",
+          "$value": "{button.default.large.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5071,7 +5049,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.large.default.gapX}",
+          "$value": "{button.default.large.gapX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5084,7 +5062,7 @@
         "iconOnly": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.large.toolbar.borderRadius}",
+            "$value": "{button.toolbar.large.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5096,7 +5074,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.large.toolbar.borderWidth}",
+            "$value": "{button.toolbar.large.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5108,7 +5086,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.large.toolbar.minHeight}",
+            "$value": "{button.toolbar.large.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5120,7 +5098,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.large.default.iconOnly.minWidth}",
+            "$value": "{button.default.large.iconOnly.minWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5132,7 +5110,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.large.toolbar.fontSize}",
+            "$value": "{button.toolbar.large.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5144,7 +5122,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.large.toolbar.lineHeight}",
+            "$value": "{button.toolbar.large.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5156,7 +5134,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.large.toolbar.gapX}",
+            "$value": "{button.toolbar.large.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5168,7 +5146,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{button.large.default.iconOnly.paddingX}",
+            "$value": "{button.default.large.iconOnly.paddingX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5180,7 +5158,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.large.default.iconOnly.paddingY}",
+            "$value": "{button.default.large.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5196,7 +5174,7 @@
         "iconOnly": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.xlarge.toolbar.borderRadius}",
+            "$value": "{button.toolbar.xlarge.borderRadius}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5208,7 +5186,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{button.xlarge.toolbar.borderWidth}",
+            "$value": "{button.toolbar.xlarge.borderWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5220,7 +5198,7 @@
           },
           "minHeight": {
             "$type": "number",
-            "$value": "{button.xlarge.toolbar.minHeight}",
+            "$value": "{button.toolbar.xlarge.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5232,7 +5210,7 @@
           },
           "minWidth": {
             "$type": "number",
-            "$value": "{button.xlarge.default.iconOnly.minWidth}",
+            "$value": "{button.default.xlarge.iconOnly.minWidth}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5244,7 +5222,7 @@
           },
           "fontSize": {
             "$type": "number",
-            "$value": "{button.xlarge.toolbar.fontSize}",
+            "$value": "{button.toolbar.xlarge.fontSize}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5256,7 +5234,7 @@
           },
           "lineHeight": {
             "$type": "number",
-            "$value": "{button.xlarge.toolbar.lineHeight}",
+            "$value": "{button.toolbar.xlarge.lineHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5268,7 +5246,7 @@
           },
           "gapX": {
             "$type": "number",
-            "$value": "{button.xlarge.toolbar.gapX}",
+            "$value": "{button.toolbar.xlarge.gapX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5280,7 +5258,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{button.xlarge.default.iconOnly.paddingX}",
+            "$value": "{button.default.xlarge.iconOnly.paddingX}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5292,7 +5270,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 23,
+            "$value": "{button.default.xlarge.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5305,7 +5283,7 @@
         },
         "paddingX": {
           "$type": "number",
-          "$value": "{element.xlarge.paddingX.default}",
+          "$value": "{button.default.xlarge.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5317,7 +5295,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.xlarge.default.paddingY}",
+          "$value": "{button.default.xlarge.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5341,7 +5319,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.xlarge.default.borderWidth}",
+          "$value": "{button.default.xlarge.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5353,7 +5331,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.xlarge.default.minHeight}",
+          "$value": "{button.default.xlarge.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5365,7 +5343,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.xlarge.default.fontSize}",
+          "$value": "{button.default.xlarge.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5377,7 +5355,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.xlarge.default.lineHeight}",
+          "$value": "{button.default.xlarge.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5389,7 +5367,7 @@
         },
         "gapX": {
           "$type": "number",
-          "$value": "{button.xlarge.default.gapX}",
+          "$value": "{button.default.xlarge.gapX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5661,7 +5639,7 @@
       "item": {
         "paddingX": {
           "$type": "number",
-          "$value": "{button.medium.default.paddingX}",
+          "$value": "{button.default.medium.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5673,7 +5651,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.medium.default.paddingY}",
+          "$value": "{button.default.medium.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5709,7 +5687,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{button.medium.default.minHeight}",
+          "$value": "{button.default.medium.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5721,7 +5699,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.medium.default.fontSize}",
+          "$value": "{button.default.medium.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5733,7 +5711,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.medium.default.lineHeight}",
+          "$value": "{button.default.medium.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5853,7 +5831,7 @@
         },
         "fontSize": {
           "$type": "number",
-          "$value": "{button.medium.default.fontSize}",
+          "$value": "{button.default.medium.fontSize}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5865,7 +5843,7 @@
         },
         "lineHeight": {
           "$type": "number",
-          "$value": "{button.medium.default.lineHeight}",
+          "$value": "{button.default.medium.lineHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6934,54 +6912,6 @@
           }
         }
       },
-      "width": {
-        "$type": "number",
-        "$value": "{base.dimension.900}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "height": {
-        "$type": "number",
-        "$value": 20,
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "borderRadius": {
-        "$type": "number",
-        "$value": 9999,
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["CORNER_RADIUS"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "borderWidth": {
-        "$type": "number",
-        "$value": "{borderWidth.default}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "label": {
         "fontSize": {
           "$type": "number",
@@ -7253,7 +7183,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -7303,7 +7233,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -7353,7 +7283,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -7403,7 +7333,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -7578,7 +7508,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["TEXT_FILL"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -7628,7 +7558,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["TEXT_FILL"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -7678,7 +7608,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["TEXT_FILL"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -7728,7 +7658,7 @@
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["TEXT_FILL"],
+              "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -7865,7 +7795,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -7915,7 +7845,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -7965,7 +7895,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -9641,7 +9571,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -9691,7 +9621,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -9724,7 +9654,7 @@
     "pinned": {
       "textColor": {
         "$type": "color",
-        "$value": "{dataCell.enabled.iconColor}",
+        "$value": "{dataCell.enabled.textColor}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -9741,7 +9671,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -9975,7 +9905,7 @@
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "scopes": ["STROKE_COLOR", "EFFECT_COLOR"],
                 "codeSyntax": {}
               }
             }

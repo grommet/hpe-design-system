@@ -15,7 +15,9 @@
   width: 100%;
 }
 :focus-visible {
-  outline: 2px auto var(--hpe-focus-ring-color);
+  outline: var(--hpe-focus-indicator-outline);
+  outline-offset: var(--hpe-focus-indicator-outline-offset);
+  box-shadow: var(--hpe-focus-indicator-box-shadow);
 }
 
 a {
@@ -60,13 +62,13 @@ button {
   --button-label-fontWeight: 600; /* where does font-weight go? */
 
   /* dimension tokens */
-  --button-borderRadius: var(--hpe-button-medium-default-border-radius);
-  --button-borderWidth: var(--hpe-button-medium-default-border-width);
-  --button-paddingVertical: var(--hpe-button-medium-default-padding-y);
-  --button-paddingHorizontal: var(--hpe-button-medium-default-padding-x);
-  --button-fontSize: var(--hpe-button-medium-default-font-size);
-  --button-lineHeight: var(--hpe-button-medium-default-line-height);
-  --button-gapX: var(--hpe-button-medium-default-gap-x);
+  --button-borderRadius: var(--hpe-button-default-medium-border-radius);
+  --button-borderWidth: var(--hpe-button-default-medium-border-width);
+  --button-paddingVertical: var(--hpe-button-default-medium-padding-y);
+  --button-paddingHorizontal: var(--hpe-button-default-medium-padding-x);
+  --button-fontSize: var(--hpe-button-default-medium-font-size);
+  --button-lineHeight: var(--hpe-button-default-medium-line-height);
+  --button-gapX: var(--hpe-button-default-medium-gap-x);
 
   display: flex;
   align-items: center;
@@ -90,16 +92,16 @@ button:hover {
 }
 
 button.hpe-button-primary {
-  --button-backgroundColor: var(--hpe-button-primary-enabled-background);
+  --button-backgroundColor: var(--hpe-button-primary-enabled-background-color);
   --button-borderColor: var(--hpe-button-primary-enabled-border-color);
   --button-label-color: var(--hpe-button-primary-enabled-text-color);
 
-  --button-borderRadius: var(--hpe-button-medium-primary-border-radius);
-  --button-borderWidth: var(--hpe-button-medium-primary-border-width);
-  --button-paddingVertical: var(--hpe-button-medium-primary-padding-y);
-  --button-paddingHorizontal: var(--hpe-button-medium-primary-padding-x);
-  --button-fontSize: var(--hpe-button-medium-primary-font-size);
-  --button-lineHeight: var(--hpe-button-medium-primary-line-height);
+  --button-borderRadius: var(--hpe-button-primary-medium-border-radius);
+  --button-borderWidth: var(--hpe-button-primary-medium-border-width);
+  --button-paddingVertical: var(--hpe-button-primary-medium-padding-y);
+  --button-paddingHorizontal: var(--hpe-button-primary-medium-padding-x);
+  --button-fontSize: var(--hpe-button-primary-medium-font-size);
+  --button-lineHeight: var(--hpe-button-primary-medium-line-height);
 }
 
 button.hpe-button-primary:hover {
@@ -113,12 +115,12 @@ button.hpe-button-secondary {
   --button-borderColor: var(--hpe-button-secondary-enabled-border-color);
   --button-label-color: var(--hpe-button-secondary-enabled-text-color);
 
-  --button-borderRadius: var(--hpe-button-medium-secondary-border-radius);
-  --button-borderWidth: var(--hpe-button-medium-secondary-border-width);
-  --button-paddingVertical: var(--hpe-button-medium-secondary-padding-y);
-  --button-paddingHorizontal: var(--hpe-button-medium-secondary-padding-x);
-  --button-fontSize: var(--hpe-button-medium-secondary-font-size);
-  --button-lineHeight: var(--hpe-button-medium-secondary-line-height);
+  --button-borderRadius: var(--hpe-button-secondary-medium-border-radius);
+  --button-borderWidth: var(--hpe-button-secondary-medium-border-width);
+  --button-paddingVertical: var(--hpe-button-secondary-medium-padding-y);
+  --button-paddingHorizontal: var(--hpe-button-secondary-medium-padding-x);
+  --button-fontSize: var(--hpe-button-secondary-medium-font-size);
+  --button-lineHeight: var(--hpe-button-secondary-medium-line-height);
 }
 
 button.hpe-button-secondary:hover {

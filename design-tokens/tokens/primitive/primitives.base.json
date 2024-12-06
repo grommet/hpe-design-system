@@ -1572,7 +1572,7 @@
             }
           }
         },
-        "purple-2": {
+        "purple3": {
           "$type": "color",
           "$value": "#9a3ac0",
           "$description": "",
@@ -2211,7 +2211,7 @@
           }
         }
       },
-      "content": {
+      "container": {
         "xxsmall": {
           "$type": "number",
           "$value": "{base.dimension.1200}",
@@ -2326,7 +2326,7 @@
   "TBD": {
     "$type": "color",
     "$value": "#00ff0a00",
-    "$description": "Placeholder for colours that still need finalising.",
+    "$description": "Placeholder for colors that still need finalising.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,

@@ -15,6 +15,38 @@
           "codeSyntax": {}
         }
       }
+    },
+    "outlineOffset": {
+      "$type": "number",
+      "$value": 2,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "boxShadow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": 0,
+          "offsetY": 0,
+          "blur": 0,
+          "spread": "{focusIndicator.outlineOffset}",
+          "color": "{base.color.white.100}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["ALL_SCOPES"],
+          "codeSyntax": {}
+        }
+      }
     }
   },
   "fontStack": {
