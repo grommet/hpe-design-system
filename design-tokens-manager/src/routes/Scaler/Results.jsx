@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Box } from 'grommet';
-import { ContentPane } from '../../components/ContentPane';
+import { ContentPane, CopyButton } from '../../components';
 import {
-  CopyButton,
   ScaleLayout,
   ScaleToolbar,
   ScaleValue,
@@ -168,6 +167,7 @@ export const Results = ({
           <SpacingValues values={tshirtContent} />
         </ContentPane>
       </Box>
+      <ScaleToolbar open={open} setOpen={setOpen} scale={scale} />
     </Box>
   );
 };
