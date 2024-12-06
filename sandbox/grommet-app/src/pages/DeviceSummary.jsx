@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { Box, Stack, Meter, Text } from 'grommet';
-import { DashboardCard } from '../../components';
-import { Legend } from '../../components';
-import { SkeletonContext } from '../../components';
+import { DashboardCard } from '../components';
+import { Legend } from '../components';
+import { SkeletonContext } from '../components';
 
 export const DeviceSummary = () => {
   const skeleton = useContext(SkeletonContext);

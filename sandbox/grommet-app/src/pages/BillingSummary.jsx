@@ -1,5 +1,5 @@
 import { Box, Notification } from 'grommet';
-import { DashboardCard, Metric } from '../../components';
+import { DashboardCard, Metric } from '../components';
 
 const currencyOptions = {
   style: 'currency',
