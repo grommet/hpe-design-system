@@ -2,6 +2,7 @@ import { useContext, useMemo, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import {
+  Anchor,
   Box,
   Button,
   Heading,
@@ -23,9 +24,11 @@ import {
   Catalog,
   HelpOption,
   Menu,
+  LinkNext,
 } from 'grommet-icons';
 import { themes } from '../../theme';
 import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
+import { Link } from 'react-router-dom';
 
 // TO DO fix animation once motion tokens are added
 const StyledDown = styled(Down)``;
@@ -159,6 +162,13 @@ export const GlobalHeader = ({
                       value={activeTheme}
                     />
                   </FormField>
+                  <Anchor
+                    as={Link}
+                    to="/sticker-sheet"
+                    label="View sticker sheet"
+                    icon={<LinkNext />}
+                    reverse
+                  />
                 </Box>
               }
               dropAlign={{ top: 'bottom', right: 'right' }}

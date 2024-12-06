@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import {
   Anchor,
   Box,
@@ -42,7 +43,7 @@ import {
   Meter,
   ToggleGroup,
 } from 'grommet';
-import { User, Table, List, MapLocation } from 'grommet-icons';
+import { User, Table, List, MapLocation, Previous } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../theme';
 
@@ -138,6 +139,9 @@ const StickerSheet = () => {
               title="Theme upgrade testing"
               subtitle={`To be used for visual regression comparisons from 
             current theme to the next.`}
+              parent={
+                <Anchor as={Link} to="/" label="Home" icon={<Previous />} />
+              }
               actions={
                 // eslint-disable-next-line max-len
                 <Box direction="row" gap="xsmall">

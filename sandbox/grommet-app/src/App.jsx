@@ -5,12 +5,12 @@ import { themes } from './theme';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import StickerSheet from './pages/sticker-sheet/index';
-import Refresh from './pages/refresh/index';
+// import Refresh from './pages/refresh/index';
 import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
 import { HPEGreenLakeBadge } from './components/HPEGreenLakeBadge';
 import { BackgroundContext, WorkspaceContext } from './contexts';
-// import { useLoading } from './utils/skeleton';
+import { useLoading } from './utils/skeleton';
 import './app.css';
 
 const App = () => {
@@ -44,8 +44,7 @@ const App = () => {
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
 
-  // const loading = useLoading(6000);
-  const loading = false; // Temp disabling for sticker sheet
+  const loading = useLoading(6000);
 
   return (
     <Grommet
@@ -75,22 +74,23 @@ const App = () => {
         ) : (
           <BackgroundContext.Provider value={contextValue}>
             <WorkspaceContext.Provider value={workspaceContextValue}>
-              <GlobalHeader
-                darkMode={darkMode}
-                setDarkMode={setDarkMode}
-                setActiveTheme={setActiveTheme}
-                activeTheme={activeTheme}
-                backgroundBack={backgroundBack}
-                setBackgroundBack={setBackgroundBack}
-                workspace={workspace}
-                setWorkspace={setWorkspace}
-              />
               <BrowserRouter>
+                <GlobalHeader
+                  darkMode={darkMode}
+                  setDarkMode={setDarkMode}
+                  setActiveTheme={setActiveTheme}
+                  activeTheme={activeTheme}
+                  backgroundBack={backgroundBack}
+                  setBackgroundBack={setBackgroundBack}
+                  workspace={workspace}
+                  setWorkspace={setWorkspace}
+                />
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/sustainability" element={<Sustainability />} />
                   <Route path="/sticker-sheet" element={<StickerSheet />} />
-                  <Route path="/refresh" element={<Refresh />} />
+                  {/* TO DO unfinished layout */}
+                  {/* <Route path="/refresh" element={<Refresh />} /> */}
                 </Routes>
               </BrowserRouter>
             </WorkspaceContext.Provider>
