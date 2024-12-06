@@ -6,7 +6,6 @@ export const ScaleLayout = ({ ...rest }) => {
       direction="row"
       align="end"
       alignSelf="start"
-      cssGap
       gap="medium"
       wrap
       {...rest}

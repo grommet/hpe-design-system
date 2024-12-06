@@ -23,6 +23,11 @@ function App() {
       theme={hpe}
       themeMode={darkMode ? 'dark' : 'light'}
       full="min"
+      options={{
+        box: {
+          cssGap: true,
+        },
+      }}
     >
       <BrowserRouter>
         <Header
@@ -49,7 +54,7 @@ function App() {
             <Button
               icon={darkMode ? <Moon /> : <Sun />}
               onClick={() => setDarkMode(!darkMode)}
-              tip={`Swith to ${darkMode ? 'light' : 'dark'} mode`}
+              tip={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
             />
           </Box>
         </Header>
