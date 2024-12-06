@@ -45,7 +45,7 @@ export const GetStarted = ({ kind, heading }) => {
               <Box {...kindStyles.container}>
                 <AppsRounded
                   size="xxlarge"
-                  color="icon-primary"
+                  color="brand"
                   {...kindStyles.icon}
                 />
               </Box>

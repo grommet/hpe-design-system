@@ -21,11 +21,6 @@ import {
 } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 
-const MISSING = {
-  color: 'red',
-  weight: 700,
-};
-
 // TO DO should these be added as tokens?
 const backgrounds = {
   'datawave-green-1':
@@ -206,16 +201,18 @@ const buildTheme = tokens => {
     'status-error': undefined,
 
     // ---- TO DO: Tokens do not exist, should they? ---- //
-    brand: MISSING.color,
-    control: MISSING.color,
-    'active-text': MISSING.color,
-    'disabled-text': MISSING.color, // deprecated, use text-weak instead
 
+    control: 'background-primary-default',
+    'active-text': 'text-strong',
     'text-primary-button': components.hpe.button.primary.enabled.textColor,
-    'background-cta-alternate': MISSING.color,
+    'background-cta-alternate': 'background-contrast',
 
     // ----------- These ones we need to map manually for backwards compatibility -----------
     // ----------- with current color namespace ---------------
+    brand: {
+      dark: dark.hpe.color.decorative.brand,
+      light: light.hpe.color.decorative.brand,
+    },
     'background-layer-overlay': {
       dark: dark.hpe.color.background.screenOverlay,
       light: light.hpe.color.background.screenOverlay,
@@ -359,6 +356,7 @@ const buildTheme = tokens => {
       light: light.hpe.color.text.placeholder,
       dark: dark.hpe.color.text.placeholder,
     },
+    'disabled-text': 'text-disabled', // deprecate
   };
 
   const dimensions = {
@@ -422,7 +420,7 @@ const buildTheme = tokens => {
           xxlarge: small.hpe.size.content.xxlarge,
           full: '100%',
         },
-        value: global.hpe.breakpoint.xsmall,
+        value: parseInt(global.hpe.breakpoint.xsmall, 10),
       },
       small: {
         borderSize: {
@@ -454,13 +452,13 @@ const buildTheme = tokens => {
           xxlarge: small.hpe.size.content.xxlarge,
           full: '100%',
         },
-        value: global.hpe.breakpoint.small,
+        value: parseInt(global.hpe.breakpoint.small, 10),
       },
       medium: {
-        value: global.hpe.breakpoint.medium,
+        value: parseInt(global.hpe.breakpoint.medium, 10),
       },
       large: {
-        value: global.hpe.breakpoint.large,
+        value: parseInt(global.hpe.breakpoint.large, 10),
       },
       xlarge: {},
     },
@@ -798,7 +796,7 @@ const buildTheme = tokens => {
       },
       hover: {
         background: 'background-hover',
-        color: MISSING.color, // TO DO
+        color: 'text-default',
       },
       selected: {
         background: 'background-selected-strong-enabled',
@@ -1360,7 +1358,7 @@ const buildTheme = tokens => {
         },
       },
       dragOver: {
-        background: MISSING.color,
+        background: 'background-hover',
         border: 'none',
       },
       hover: {
@@ -1532,7 +1530,7 @@ const buildTheme = tokens => {
         label: {
           margin: { bottom: 'none' },
           size: 'medium',
-          weight: MISSING.weight,
+          weight: 500,
         },
       },
     },
@@ -2393,7 +2391,7 @@ const buildTheme = tokens => {
       },
       footer: {
         extend: `
-          font-weight: ${MISSING.weight};
+          font-weight: ${components.hpe.footerCell.fontWeight};
         `,
       },
     },
@@ -2414,9 +2412,6 @@ const buildTheme = tokens => {
         kind: 'default',
       },
       value: {
-        // Q should this be a token?
-        // A: Good question..similar to other areas, we might want a weight.emphasis or something
-        // weight: MISSING.weight, // TO DO
         weight: global.hpe.fontWeight.medium,
       },
       round: 'xsmall',
