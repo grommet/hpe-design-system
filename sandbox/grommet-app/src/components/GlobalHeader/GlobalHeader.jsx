@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import {
@@ -15,6 +15,7 @@ import {
   Text,
   DropButton,
   TextInput,
+  ToggleGroup,
 } from 'grommet';
 import {
   Down,
@@ -27,7 +28,6 @@ import {
   LinkNext,
 } from 'grommet-icons';
 import { themes } from '../../theme';
-import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
 import { Link } from 'react-router-dom';
 
 // TO DO fix animation once motion tokens are added
@@ -45,53 +45,33 @@ export const GlobalHeader = ({
 }) => {
   const theme = useContext(ThemeContext);
   const [open, setOpen] = useState(false);
-  const boxProps = useMemo(
-    () =>
-      workspace === 'Acme Next'
-        ? {
-            elevation: 'small',
-            round: {
-              corner: 'bottom',
-              size: 'medium',
-            },
-          }
-        : {
-            border: { color: 'border-weak', side: 'bottom' },
-          },
-    [workspace],
-  );
 
   return (
-    <Page
-      // kind={window.location.pathname === '/' ? 'full' : 'wide'}
-      kind="full"
-    >
+    <Page kind="full">
       <PageContent pad="none">
         <Box
           direction="row"
           justify="between"
           align="center"
-          background={
-            activeTheme === 'refresh'
-              ? { color: 'background-primary-default', dark: true }
-              : 'background-front'
-          }
+          background="background-front"
           pad={{ horizontal: 'xsmall', vertical: 'small' }}
-          {...boxProps}
+          elevation="small"
         >
           <Box direction="row" gap="medium" flex>
             <Box direction="row" gap="xsmall">
               <Button icon={<Menu />} />
               <Box border={{ side: 'left', color: 'border-weak' }} />
             </Box>
-            <Box height="32px" width="90px" align="start">
-              <Image
-                src={`/hpe_greenlake_grn_${
-                  activeTheme === 'refresh' ? 'rev' : 'pos'
-                }_rgb.svg`}
-                fit="contain"
-              />
-            </Box>
+            <Link to="/">
+              <Box height="32px" width="90px" align="start">
+                <Image
+                  src={`/hpe_greenlake_grn_${
+                    activeTheme === 'refresh' ? 'rev' : 'pos'
+                  }_rgb.svg`}
+                  fit="contain"
+                />
+              </Box>
+            </Link>
             <Box width="large">
               <TextInput
                 icon={<Search />}
@@ -142,16 +122,16 @@ export const GlobalHeader = ({
                     border={{ side: 'bottom', color: 'border-weak' }}
                     width="100%"
                   />
-                  <FormField label="Mode">
+                  <FormField label="Mode" alignSelf="start">
                     <ToggleGroup
                       options={[
                         { label: 'Light', value: 'light' },
                         { label: 'Dark', value: 'dark' },
                       ]}
                       border={{ size: 'none' }}
-                      value={darkMode ? 'dark' : 'light'}
-                      onChange={e =>
-                        setDarkMode(e.target.value === 'light' ? false : true)
+                      value={darkMode ? ['dark'] : ['light']}
+                      onToggle={({ value }) =>
+                        setDarkMode(value === 'light' ? false : true)
                       }
                     />
                   </FormField>
