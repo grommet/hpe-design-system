@@ -10,11 +10,13 @@ const defaultValues = {
   nearest: 24,
   'spacing-factor': 0,
   'type-factor': 0,
+  'content-base': undefined,
 };
 
 export const Scaler = () => {
   const [values, setValues] = useState(defaultValues);
   const [controlsOpen, setControlsOpen] = useState(true);
+  const [scale, setScale] = useState([]);
 
   return (
     <Page pad={{ bottom: 'xlarge' }}>
@@ -26,17 +28,21 @@ export const Scaler = () => {
         <Box direction="row" gap="small">
           <Results
             base={values.base}
+            contentBase={values['content-base']}
             factor={values.factor}
             steps={values.steps}
             nearest={values.nearest}
             open={controlsOpen}
             setOpen={() => setControlsOpen(!controlsOpen)}
+            scale={scale}
+            setScale={setScale}
           />
           {controlsOpen && (
             <ControlPane
               defaultValues={defaultValues}
               values={values}
               setValues={setValues}
+              scale={scale}
               alignSelf="start"
               animation={
                 controlsOpen

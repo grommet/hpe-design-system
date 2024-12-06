@@ -1,35 +1,12 @@
-import {
-  Box,
-  Button,
-  Form,
-  FormField,
-  Heading,
-  RangeInput,
-  Select,
-  Text,
-} from 'grommet';
+import { Box, Button, Form, FormField, Heading, Select } from 'grommet';
 
-const RangeWrapper = ({ children, max, min }) => {
-  return (
-    <Box
-      direction="row"
-      gap="small"
-      align="center"
-      justify="between"
-      margin={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
-    >
-      <Text size="small" weight={500}>
-        {min}
-      </Text>
-      {children}
-      <Text size="small" weight={500}>
-        {max}
-      </Text>
-    </Box>
-  );
-};
-
-export const ControlPane = ({ defaultValues, values, setValues, ...rest }) => {
+export const ControlPane = ({
+  defaultValues,
+  values,
+  setValues,
+  scale,
+  ...rest
+}) => {
   const onChange = nextValues => {
     setValues(nextValues);
   };
@@ -85,37 +62,15 @@ export const ControlPane = ({ defaultValues, values, setValues, ...rest }) => {
             <FormField label="Steps" htmlFor="steps__input" name="steps">
               <Select id="steps" name="steps" options={STEP_OPTIONS} />
             </FormField>
+            <FormField
+              label="Content base"
+              htmlFor="content-base__input"
+              name="steps"
+              help="Choose a unit from the current scale to serve as 'medium' content size"
+            >
+              <Select id="content-base" name="content-base" options={scale} />
+            </FormField>
           </Box>
-          {/* <FormField
-            label="Spacing factor"
-            htmlFor="spacing-factor"
-            name="spacing-factor"
-          >
-            <RangeWrapper min={-5} max={5}>
-              <RangeInput
-                id="spacing-factor"
-                name="spacing-factor"
-                min={-5}
-                max={5}
-                step={1}
-              />
-            </RangeWrapper>
-          </FormField> */}
-          {/* <FormField
-            label="Type factor"
-            htmlFor="type-factor"
-            name="type-factor"
-          >
-            <RangeWrapper min={-5} max={5}>
-              <RangeInput
-                id="type-factor"
-                name="type-factor"
-                min={-5}
-                max={5}
-                step={1}
-              />
-            </RangeWrapper>
-          </FormField> */}
         </Form>
       </Box>
       <Button
