@@ -7858,7 +7858,7 @@
     "enabled": {
       "textColor": {
         "$type": "color",
-        "$value": "{dataCell.enabled.textColor}",
+        "$value": "{color.text.strong}",
         "$description": "",
         "$extensions": {
           "com.figma": {
