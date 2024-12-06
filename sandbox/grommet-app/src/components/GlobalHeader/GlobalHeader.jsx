@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import {
   Anchor,
@@ -12,13 +12,11 @@ import {
   Select,
   Page,
   PageContent,
-  Text,
   DropButton,
   TextInput,
   ToggleGroup,
 } from 'grommet';
 import {
-  Down,
   Search,
   User,
   Notification,
@@ -30,9 +28,6 @@ import {
 import { themes } from '../../theme';
 import { Link } from 'react-router-dom';
 
-// TO DO fix animation once motion tokens are added
-const StyledDown = styled(Down)``;
-
 export const GlobalHeader = ({
   darkMode,
   setDarkMode,
@@ -40,11 +35,8 @@ export const GlobalHeader = ({
   activeTheme,
   backgroundBack,
   setBackgroundBack,
-  workspace,
-  setWorkspace,
 }) => {
   const theme = useContext(ThemeContext);
-  const [open, setOpen] = useState(false);
 
   return (
     <Page kind="full">
@@ -66,7 +58,7 @@ export const GlobalHeader = ({
               <Box height="32px" width="90px" align="start">
                 <Image
                   src={`/hpe_greenlake_grn_${
-                    activeTheme === 'refresh' ? 'rev' : 'pos'
+                    theme.dark ? 'rev' : 'pos'
                   }_rgb.svg`}
                   fit="contain"
                 />
@@ -75,35 +67,19 @@ export const GlobalHeader = ({
             <Box width="large">
               <TextInput
                 icon={<Search />}
-                placeholder="Type / to search assets, docs, serices, hardware, and more"
+                placeholder="Type / to search assets, docs, services, hardware, and more"
               />
             </Box>
           </Box>
-          <Box direction="row" gap="small">
-            <Box direction="row" gap="xsmall">
-              <Button icon={<HelpOption />} />
-              <Button icon={<Catalog />} />
-              <Button icon={<Notification />} />
-            </Box>
-            <Select
-              options={['Acme Production', 'Acme Next']}
-              value={workspace}
-              valueLabel={label => (
-                <Box {...theme.global.input} pad={theme.global.input.padding}>
-                  <Text color="text-strong">{label}</Text>
-                </Box>
-              )}
-              onChange={({ value }) => setWorkspace(value)}
-              icon={<StyledDown open={open} />}
-              onOpen={() => setOpen(true)}
-              onClose={() => setOpen(false)}
-              dropProps={{ animate: 'select' }}
-            />
+          <Box direction="row" gap="xsmall">
+            <Button icon={<HelpOption />} />
+            <Button icon={<Catalog />} />
+            <Button icon={<Notification />} />
             <DropButton
               icon={<User />}
               dropContent={
                 <Box
-                  background={{ dark: false, color: 'background-floating' }}
+                  background="background-floating"
                   pad="medium"
                   gap="medium"
                   width="medium"
