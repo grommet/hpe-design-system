@@ -386,30 +386,6 @@
             }
           }
         },
-        "lineHeight": {
-          "$type": "number",
-          "$value": "{button.default.xsmall.lineHeight}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["LINE_HEIGHT"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "gapX": {
-          "$type": "number",
-          "$value": "{button.default.xsmall.gapX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["GAP"],
-              "codeSyntax": {}
-            }
-          }
-        },
         "iconOnly": {
           "paddingX": {
             "$type": "number",
@@ -471,6 +447,18 @@
               }
             }
           },
+          "minWidth": {
+            "$type": "number",
+            "$value": "{button.primary.xsmall.iconOnly.minHeight}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["WIDTH_HEIGHT"],
+                "codeSyntax": {}
+              }
+            }
+          },
           "fontSize": {
             "$type": "number",
             "$value": "{button.primary.xsmall.fontSize}",
@@ -505,6 +493,30 @@
                 "scopes": ["GAP"],
                 "codeSyntax": {}
               }
+            }
+          }
+        },
+        "lineHeight": {
+          "$type": "number",
+          "$value": "{button.default.xsmall.lineHeight}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["LINE_HEIGHT"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "gapX": {
+          "$type": "number",
+          "$value": "{button.default.xsmall.gapX}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["GAP"],
+              "codeSyntax": {}
             }
           }
         }
@@ -875,6 +887,18 @@
               }
             }
           },
+          "minWidth": {
+            "$type": "number",
+            "$value": "{button.primary.medium.iconOnly.minHeight}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["WIDTH_HEIGHT"],
+                "codeSyntax": {}
+              }
+            }
+          },
           "fontSize": {
             "$type": "number",
             "$value": "{button.primary.medium.fontSize}",
@@ -1038,6 +1062,18 @@
           "minHeight": {
             "$type": "number",
             "$value": "{button.primary.large.minHeight}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["WIDTH_HEIGHT"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "minWidth": {
+            "$type": "number",
+            "$value": "{button.primary.large.iconOnly.minHeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4508,6 +4544,18 @@
               }
             }
           },
+          "minWidth": {
+            "$type": "number",
+            "$value": "{button.toolbar.xsmall.iconOnly.minHeight}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["WIDTH_HEIGHT"],
+                "codeSyntax": {}
+              }
+            }
+          },
           "fontSize": {
             "$type": "number",
             "$value": "{button.toolbar.xsmall.fontSize}",
@@ -5771,7 +5819,7 @@
       "option": {
         "paddingX": {
           "$type": "number",
-          "$value": 11,
+          "$value": "{formField.medium.input.container.paddingX}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6034,7 +6082,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.strong}",
+            "$value": "{color.text.onSelectedWeak}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6130,7 +6178,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.background.selected.strong.enabled}",
+            "$value": "{color.border.selected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6142,7 +6190,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.onPrimary}",
+            "$value": "{color.icon.onSelectedStrong}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6495,7 +6543,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{element.medium.borderWidth}",
+          "$value": "{borderWidth.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6507,7 +6555,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{base.static.radius.xsmall}",
+          "$value": "{base.static.radius.xxsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8748,7 +8796,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "#ffffff",
+            "$value": "{color.border.default}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -8789,7 +8837,7 @@
           "critical": {
             "background": {
               "$type": "color",
-              "$value": "{color.transparent}",
+              "$value": "{color.background.critical}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8801,7 +8849,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.critical}",
+              "$value": "{color.border.strong}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8931,6 +8979,16 @@
     },
     "placeholder": {
       "disabled": {
+        "$type": "color",
+        "$value": "{color.text.disabled}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
+          }
+        },
         "textColor": {
           "$type": "color",
           "$value": "{color.text.disabled}",
@@ -8947,7 +9005,7 @@
       "enabled": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.placeholder}",
+          "$value": "{color.text.weak}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8961,7 +9019,7 @@
       "hover": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.placeholder}",
+          "$value": "{color.text.weak}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8975,7 +9033,7 @@
       "focus": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.placeholder}",
+          "$value": "{color.text.weak}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -8989,7 +9047,7 @@
       "readOnly": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.placeholder}",
+          "$value": "{color.text.weak}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9004,7 +9062,7 @@
         "critical": {
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.placeholder}",
+            "$value": "{color.text.weak}",
             "$description": "",
             "$extensions": {
               "com.figma": {
