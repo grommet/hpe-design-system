@@ -14,7 +14,7 @@ export const Login = ({ setAuthenticated }) => {
     <Page>
       <PageContent>
         <PageHeader
-          title="HPE Design Tokens Demo"
+          title="HPE Design System Demo"
           subtitle="Please log in to view the designs."
         />
         <Form
