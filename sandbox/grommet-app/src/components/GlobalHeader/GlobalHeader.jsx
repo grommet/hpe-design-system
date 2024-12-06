@@ -61,13 +61,15 @@ export const GlobalHeader = ({
                     theme.dark ? 'rev' : 'pos'
                   }_rgb.svg`}
                   fit="contain"
+                  alt="HPE GreenLake badge"
                 />
               </Box>
             </Link>
             <Box width="large">
               <TextInput
-                icon={<Search />}
+                icon={<Search id="global-header-search" />}
                 placeholder="Type / to search assets, docs, services, hardware, and more"
+                aria-labelledby="global-header-search"
               />
             </Box>
           </Box>

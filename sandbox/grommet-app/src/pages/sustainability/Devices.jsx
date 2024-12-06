@@ -1424,7 +1424,8 @@ export const Devices = () => {
             <DataView />
             <Toolbar>
               <DataTableColumns drop options={options} />
-              <DensityControl />
+              {/* TO DO add back when density tokens are added */}
+              {/* <DensityControl /> */}
             </Toolbar>
           </>
         ) : undefined}
@@ -1438,7 +1439,8 @@ export const Devices = () => {
                 <DataView />
                 <Toolbar>
                   <DataTableColumns drop options={options} />
-                  <DensityControl />
+                  {/* TO DO add back when density tokens are added */}
+                  {/* <DensityControl /> */}
                 </Toolbar>
               </Box>
             }
