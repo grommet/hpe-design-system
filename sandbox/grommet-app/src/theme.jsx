@@ -9,26 +9,6 @@ import {
   components as localComponents,
 } from 'hpe-design-tokens';
 import {
-  dark as oldDark,
-  light as oldLight,
-  large as oldLarge,
-  small as oldSmall,
-  global as oldGlobal,
-  components as oldComponents,
-  elevationdark as oldElevationDark,
-  elevationlight as oldElevationLight,
-} from 'hpe-design-tokens-old-theme';
-import {
-  dark as refreshDark,
-  light as refreshLight,
-  large as refreshLarge,
-  small as refreshSmall,
-  global as refreshGlobal,
-  components as refreshComponents,
-  elevationdark as refreshElevationDark,
-  elevationlight as refreshElevationLight,
-} from 'hpe-design-tokens-brand-refresh';
-import {
   Down,
   Blank,
   Close,
@@ -39,6 +19,7 @@ import {
   Descending,
   Unsorted,
 } from 'grommet-icons';
+import { hpe } from 'grommet-theme-hpe';
 
 const MISSING = {
   color: 'red',
@@ -1064,11 +1045,8 @@ const buildTheme = tokens => {
     card: {
       container: {
         background: 'background-front',
-        elevation: 'medium', // v5
-        // elevation: 'none', // Brand refresh change
-        // Q should this have a token?
-        // A yes, but we haven't filled in "motion" tokens yet
-        extend: 'transition: all 0.3s ease-in-out;',
+        elevation: 'none',
+        extend: 'transition: all 0.3s ease-in-out;', // TO DO motion tokens
       },
       body: {
         pad: 'medium',
@@ -1081,7 +1059,7 @@ const buildTheme = tokens => {
       },
       hover: {
         container: {
-          elevation: 'large', // v5
+          elevation: 'medium',
         },
       },
     },
@@ -1559,7 +1537,7 @@ const buildTheme = tokens => {
       },
     },
     heading: {
-      color: 'heading',
+      color: 'text-heading-default',
       weight: large.hpe.heading.xlarge.fontWeight, // Q: not sure what token to point to here
       level: {
         1: {
@@ -2582,40 +2560,78 @@ export const current = buildTheme({
   components: localComponents,
 });
 
-export const warm = buildTheme({
-  light: localLight,
-  dark: localDark,
-  small: localSmall,
-  large: localMedium,
-  global: localGlobal,
-  components: localComponents,
-});
+// need to extend hpe with new token namespace to "fill gaps" for sake of demo
+// when toggling between themes
+const newColors = {
+  'background-floating': 'background-front',
+  'background-screenOverlay': 'background-layer-overlay',
+  'background-unknown': 'background-contrast',
+  'background-info': 'background-contrast',
+  'background-critical': 'validation-critical',
+  'background-warning': 'validation-warning',
+  'background-ok': 'validation-ok',
+  'background-primary-default': 'brand',
+  'background-primary-hover': 'brand',
+  'background-selected-strong-enabled': 'background-primary-default',
+  'background-selected-strong-hover': 'background-primary-hover',
+  'background-neutral-xstrong': {},
+  'border-disabled': 'text-disabled',
+  'border-selected': 'brand',
+  'border-critical': 'border',
+  'border-warning': 'border',
+  'border-ok': 'border',
+  'border-info': 'border',
+  'border-unknown': 'border',
+  'text-placeholder': 'placeholder',
+  'text-onPrimary': 'text-primary-button',
+  'text-critical': 'text',
+  'text-warning': 'text',
+  'text-ok': 'text',
+  'text-info': 'text',
+  'text-unknown': 'text',
+  'text-onSelectedStrong': 'text-primary-button',
+  'text-onSelected': 'text',
+  'text-heading-default': 'text-strong',
+  'text-onStrong-default': 'text-primary-button',
+  'text-onCritical-default': 'text',
+  'text-onCritical-strong': 'text-strong',
+  'text-onWarning-default': 'text',
+  'text-onWarning-strong': 'text-strong',
+  'text-onOk-default': 'text',
+  'text-onOk-strong': 'text-strong',
+  'text-Info-default': 'text',
+  'text-Info-strong': 'text-strong',
+  'text-onUnknown-default': 'text',
+  'text-onUnknown-strong': 'text-strong',
+  'text-primary': {},
+  'icon-primary': 'brand',
+  'icon-default': 'text',
+  'icon-critical': 'status-critical',
+  'icon-warning': 'status-warning',
+  'icon-ok': 'status-ok',
+  'icon-info': 'text',
+  'icon-unknown': 'status-unknown',
+  'icon-onPrimary': 'text-primary-button',
+  'icon-onSelectedStrong': 'text-primary-button',
+  'icon-onSelected': 'icon-default',
+  'foreground-primary': 'brand',
+  'foreground-critical': 'status-critical',
+  'foreground-warning': 'status-warning',
+  'foreground-unknown': 'status-unknown',
+};
 
-export const old = buildTheme({
-  light: oldLight,
-  dark: oldDark,
-  small: oldSmall,
-  large: oldLarge,
-  elevationlight: oldElevationLight,
-  elevationdark: oldElevationDark,
-  global: oldGlobal,
-  components: oldComponents,
-});
-
-export const refresh = buildTheme({
-  light: refreshLight,
-  dark: refreshDark,
-  small: refreshSmall,
-  large: refreshLarge,
-  elevationlight: refreshElevationLight,
-  elevationdark: refreshElevationDark,
-  global: refreshGlobal,
-  components: refreshComponents,
-  refresh: true,
-});
+const v5 = {
+  ...hpe,
+  global: {
+    ...hpe.global,
+    colors: {
+      ...hpe.global.colors,
+      ...newColors,
+    },
+  },
+};
 
 export const themes = {
-  local: current,
-  v3: old,
-  refresh,
+  next: current,
+  v5,
 };
