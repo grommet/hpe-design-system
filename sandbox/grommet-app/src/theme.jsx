@@ -2172,7 +2172,7 @@ const buildTheme = tokens => {
                     ? components.hpe.button.medium.default.borderWidth
                     : components.hpe.button.default.medium.borderWidth
                 ] || oldTheme
-                  ? components.hpe.button.medium.default.borderWidth
+                  ? components.hpe.button.medium?.default.borderWidth
                   : components.hpe.button.default.medium.borderWidth,
             },
             pad: {
@@ -2197,7 +2197,7 @@ const buildTheme = tokens => {
                     ? components.hpe.button.large.default.borderWidth
                     : components.hpe.button.default.large.borderWidth
                 ] || oldTheme
-                  ? components.hpe.button.large.default.borderWidth
+                  ? components.hpe.button.large?.default.borderWidth
                   : components.hpe.button.default.large.borderWidth,
             },
             pad: {
