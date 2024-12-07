@@ -1,3 +1,5 @@
+export * from './AccessibilityTable';
+export * from './AccessibilityTestView';
 export * from './Annotation';
 export * from './ButtonRow';
 export * from './ColorRow';
