@@ -83,7 +83,9 @@ export const Results = ({
       return { size, value };
     });
 
-    if (contentBase) {
+    if (!contentIndex || contentIndex < 0) {
+      setTshirtContent([]);
+    } else {
       const content = tshirtSizes.reduce((acc, size, index) => {
         const value = scale[contentIndex - mediumIndex + index];
         if (value) {

@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import {
   Box,
   Button,
@@ -9,7 +10,6 @@ import {
   Text,
   ThemeContext,
 } from 'grommet';
-import { useContext } from 'react';
 
 export const ControlPane = ({
   defaultValues,
