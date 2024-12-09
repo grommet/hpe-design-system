@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Box } from 'grommet';
+import { ContentPane, CopyButton } from '../../components';
 import {
   ScaleLayout,
   ScaleToolbar,
@@ -26,22 +27,25 @@ const tshirtSizes = [
 
 export const Results = ({
   base,
+  contentBase,
   factor,
   steps,
   nearest,
   open,
   setOpen,
+  scale,
+  setScale,
   ...rest
 }) => {
-  const [scale, setScale] = useState([]);
   const [stops, setStops] = useState([]);
-  const [tshirtScale, setTshirtScale] = useState([]);
+  const [tshirtSpacing, setTshirtSpacing] = useState([]);
+  const [tshirtContent, setTshirtContent] = useState([]);
 
   // Create full scale
   useEffect(() => {
     const nextScale = createScale(base, factor, steps, nearest);
     setScale(nextScale);
-  }, [base, factor, steps, nearest]);
+  }, [base, factor, steps, nearest, setScale]);
 
   // Create major scale stops
   useEffect(() => {
@@ -64,9 +68,10 @@ export const Results = ({
   // Create t-shirt sizes
   useEffect(() => {
     const baseIndex = scale.indexOf(base);
+    const contentIndex = scale.indexOf(contentBase);
     const mediumIndex = tshirtSizes.indexOf('medium');
 
-    const tshirt = tshirtSizes.reduce((acc, size, index) => {
+    const space = tshirtSizes.reduce((acc, size, index) => {
       const value = scale[baseIndex - mediumIndex + index];
       if (value) {
         acc[size] = value;
@@ -74,50 +79,83 @@ export const Results = ({
       return acc;
     }, {});
 
-    const nextTshirtScale = Object.entries(tshirt).map(([size, value]) => {
+    const nextTshirtSpacing = Object.entries(space).map(([size, value]) => {
       return { size, value };
     });
-    setTshirtScale(nextTshirtScale);
-  }, [base, scale]);
+
+    if (!contentIndex || contentIndex < 0) {
+      setTshirtContent([]);
+    } else {
+      const content = tshirtSizes.reduce((acc, size, index) => {
+        const value = scale[contentIndex - mediumIndex + index];
+        if (value) {
+          acc[size] = value;
+        }
+        return acc;
+      }, {});
+
+      const nextTshirtContent = Object.entries(content).map(([size, value]) => {
+        return { size, value };
+      });
+
+      setTshirtContent(nextTshirtContent);
+    }
+
+    setTshirtSpacing(nextTshirtSpacing);
+  }, [base, contentBase, scale]);
 
   return (
-    <Box
-      fill
-      direction="row"
-      justify="between"
-      height={{ min: 'medium' }}
-      {...rest}
-    >
-      <Box gap="large" alignSelf="center">
-        <ScaleLayout>
-          {scale &&
-            scale.map(value => {
-              return (
-                <ScaleValue
-                  key={value}
-                  base={base}
-                  stops={stops}
-                  value={value}
-                />
-              );
-            })}
-        </ScaleLayout>
-        <ScaleLayout>
-          {stops &&
-            stops.map(value => {
-              return (
-                <ScaleValue
-                  key={value}
-                  base={base}
-                  stops={stops}
-                  value={value}
-                />
-              );
-            })}
-        </ScaleLayout>
-        <SpacingValues values={tshirtScale} />
+    <Box fill align="start" gap="large" {...rest}>
+      <ContentPane
+        contain
+        actions={
+          <ScaleToolbar
+            direction="row-reverse"
+            scale={scale}
+            open={open}
+            setOpen={setOpen}
+          />
+        }
+        fill
+      >
+        <Box gap="large" alignSelf="center">
+          <ScaleLayout>
+            {scale &&
+              scale.map(value => {
+                return (
+                  <ScaleValue
+                    key={value}
+                    base={base}
+                    stops={stops}
+                    value={value}
+                  />
+                );
+              })}
+          </ScaleLayout>
+        </Box>
+      </ContentPane>
+      <Box direction="row" gap="large">
+        <ContentPane
+          level={2}
+          heading="Spacing sizes"
+          contain
+          actions={
+            <CopyButton content={tshirtSpacing} tip="Copy spacing values" />
+          }
+        >
+          <SpacingValues values={tshirtSpacing} />
+        </ContentPane>
+        <ContentPane
+          level={2}
+          heading="Content sizes"
+          contain
+          actions={
+            <CopyButton content={tshirtContent} tip="Copy content sizes" />
+          }
+        >
+          <SpacingValues values={tshirtContent} />
+        </ContentPane>
       </Box>
-      <ScaleToolbar open={open} setOpen={setOpen} scale={scale} />
     </Box>
   );
 };
