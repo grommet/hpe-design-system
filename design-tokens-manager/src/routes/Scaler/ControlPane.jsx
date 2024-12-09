@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import {
   Box,
   Button,
@@ -7,29 +8,16 @@ import {
   RangeInput,
   Select,
   Text,
+  ThemeContext,
 } from 'grommet';
 
-const RangeWrapper = ({ children, max, min }) => {
-  return (
-    <Box
-      direction="row"
-      gap="small"
-      align="center"
-      justify="between"
-      margin={{ horizontal: 'xsmall', vertical: 'xxsmall' }}
-    >
-      <Text size="small" weight={500}>
-        {min}
-      </Text>
-      {children}
-      <Text size="small" weight={500}>
-        {max}
-      </Text>
-    </Box>
-  );
-};
-
-export const ControlPane = ({ defaultValues, values, setValues, ...rest }) => {
+export const ControlPane = ({
+  defaultValues,
+  values,
+  setValues,
+  scale,
+  ...rest
+}) => {
   const onChange = nextValues => {
     setValues(nextValues);
   };
@@ -37,7 +25,8 @@ export const ControlPane = ({ defaultValues, values, setValues, ...rest }) => {
   const BASE_OPTIONS = [4, 6, 8, 12, 16, 18, 24];
   const GRID_OPTIONS = [1, 2, ...BASE_OPTIONS];
   const FACTOR_OPTIONS = [1, 1.2, 1.25, 1.333, 1.414, 1.5, 1.618, 2];
-  const STEP_OPTIONS = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+  const theme = useContext(ThemeContext);
 
   return (
     <Box
@@ -83,39 +72,21 @@ export const ControlPane = ({ defaultValues, values, setValues, ...rest }) => {
               />
             </FormField>
             <FormField label="Steps" htmlFor="steps__input" name="steps">
-              <Select id="steps" name="steps" options={STEP_OPTIONS} />
+              {/* <Select id="steps" name="steps" options={STEP_OPTIONS} /> */}
+              <Box direction="row" gap="small" pad={theme.global.input.padding}>
+                <RangeInput id="steps" name="steps" min={5} max={30} />
+                <Text {...theme.global.input.font}>{values.steps}</Text>
+              </Box>
+            </FormField>
+            <FormField
+              label="Content base"
+              htmlFor="content-base__input"
+              name="steps"
+              help="Choose a unit from the current scale to serve as 'medium' content size"
+            >
+              <Select id="content-base" name="content-base" options={scale} />
             </FormField>
           </Box>
-          {/* <FormField
-            label="Spacing factor"
-            htmlFor="spacing-factor"
-            name="spacing-factor"
-          >
-            <RangeWrapper min={-5} max={5}>
-              <RangeInput
-                id="spacing-factor"
-                name="spacing-factor"
-                min={-5}
-                max={5}
-                step={1}
-              />
-            </RangeWrapper>
-          </FormField> */}
-          {/* <FormField
-            label="Type factor"
-            htmlFor="type-factor"
-            name="type-factor"
-          >
-            <RangeWrapper min={-5} max={5}>
-              <RangeInput
-                id="type-factor"
-                name="type-factor"
-                min={-5}
-                max={5}
-                step={1}
-              />
-            </RangeWrapper>
-          </FormField> */}
         </Form>
       </Box>
       <Button

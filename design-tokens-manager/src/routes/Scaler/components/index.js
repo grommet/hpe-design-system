@@ -1,4 +1,3 @@
-export * from './CopyButton';
 export * from './ScaleLayout';
 export * from './ScaleToolbar';
 export * from './ScaleValue';
