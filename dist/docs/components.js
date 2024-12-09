@@ -3685,6 +3685,239 @@ export default {
       "fontWeight"
     ]
   },
+  "hpe.button.primary.selected.hover.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.04)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.primary.selected.hover.background",
+    "attributes": {
+      "category": "button",
+      "type": "primary",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "background"
+    },
+    "path": [
+      "button",
+      "primary",
+      "selected",
+      "hover",
+      "background"
+    ]
+  },
+  "hpe.button.primary.selected.hover.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.primary.selected.hover.borderColor",
+    "attributes": {
+      "category": "button",
+      "type": "primary",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "borderColor"
+    },
+    "path": [
+      "button",
+      "primary",
+      "selected",
+      "hover",
+      "borderColor"
+    ]
+  },
+  "hpe.button.primary.selected.hover.textColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.primary.selected.hover.textColor",
+    "attributes": {
+      "category": "button",
+      "type": "primary",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "textColor"
+    },
+    "path": [
+      "button",
+      "primary",
+      "selected",
+      "hover",
+      "textColor"
+    ]
+  },
+  "hpe.button.primary.selected.hover.iconColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.iconColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.primary.selected.hover.iconColor",
+    "attributes": {
+      "category": "button",
+      "type": "primary",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "iconColor"
+    },
+    "path": [
+      "button",
+      "primary",
+      "selected",
+      "hover",
+      "iconColor"
+    ]
+  },
+  "hpe.button.primary.selected.hover.fontWeight": {
+    "$type": "number",
+    "$value": 700,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{button.primary.enabled.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.primary.selected.hover.fontWeight",
+    "attributes": {
+      "category": "button",
+      "type": "primary",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "fontWeight"
+    },
+    "path": [
+      "button",
+      "primary",
+      "selected",
+      "hover",
+      "fontWeight"
+    ]
+  },
   "hpe.button.primary.xsmall.paddingX": {
     "$type": "number",
     "$value": "12px",
@@ -8349,6 +8582,239 @@ export default {
       "secondary",
       "selected",
       "enabled",
+      "fontWeight"
+    ]
+  },
+  "hpe.button.secondary.selected.hover.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.04)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.secondary.selected.hover.background",
+    "attributes": {
+      "category": "button",
+      "type": "secondary",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "background"
+    },
+    "path": [
+      "button",
+      "secondary",
+      "selected",
+      "hover",
+      "background"
+    ]
+  },
+  "hpe.button.secondary.selected.hover.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.secondary.selected.hover.borderColor",
+    "attributes": {
+      "category": "button",
+      "type": "secondary",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "borderColor"
+    },
+    "path": [
+      "button",
+      "secondary",
+      "selected",
+      "hover",
+      "borderColor"
+    ]
+  },
+  "hpe.button.secondary.selected.hover.textColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.secondary.selected.hover.textColor",
+    "attributes": {
+      "category": "button",
+      "type": "secondary",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "textColor"
+    },
+    "path": [
+      "button",
+      "secondary",
+      "selected",
+      "hover",
+      "textColor"
+    ]
+  },
+  "hpe.button.secondary.selected.hover.iconColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.iconColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.secondary.selected.hover.iconColor",
+    "attributes": {
+      "category": "button",
+      "type": "secondary",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "iconColor"
+    },
+    "path": [
+      "button",
+      "secondary",
+      "selected",
+      "hover",
+      "iconColor"
+    ]
+  },
+  "hpe.button.secondary.selected.hover.fontWeight": {
+    "$type": "number",
+    "$value": 600,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{button.default.enabled.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.secondary.selected.hover.fontWeight",
+    "attributes": {
+      "category": "button",
+      "type": "secondary",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "fontWeight"
+    },
+    "path": [
+      "button",
+      "secondary",
+      "selected",
+      "hover",
       "fontWeight"
     ]
   },
@@ -13285,6 +13751,239 @@ export default {
       "fontWeight"
     ]
   },
+  "hpe.button.default.selected.hover.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.04)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.background.active}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.default.selected.hover.background",
+    "attributes": {
+      "category": "button",
+      "type": "default",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "background"
+    },
+    "path": [
+      "button",
+      "default",
+      "selected",
+      "hover",
+      "background"
+    ]
+  },
+  "hpe.button.default.selected.hover.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.transparent}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.default.selected.hover.borderColor",
+    "attributes": {
+      "category": "button",
+      "type": "default",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "borderColor"
+    },
+    "path": [
+      "button",
+      "default",
+      "selected",
+      "hover",
+      "borderColor"
+    ]
+  },
+  "hpe.button.default.selected.hover.textColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.enabled.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.default.selected.hover.textColor",
+    "attributes": {
+      "category": "button",
+      "type": "default",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "textColor"
+    },
+    "path": [
+      "button",
+      "default",
+      "selected",
+      "hover",
+      "textColor"
+    ]
+  },
+  "hpe.button.default.selected.hover.iconColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.enabled.iconColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.default.selected.hover.iconColor",
+    "attributes": {
+      "category": "button",
+      "type": "default",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "iconColor"
+    },
+    "path": [
+      "button",
+      "default",
+      "selected",
+      "hover",
+      "iconColor"
+    ]
+  },
+  "hpe.button.default.selected.hover.fontWeight": {
+    "$type": "number",
+    "$value": 600,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{button.default.enabled.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.default.selected.hover.fontWeight",
+    "attributes": {
+      "category": "button",
+      "type": "default",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "fontWeight"
+    },
+    "path": [
+      "button",
+      "default",
+      "selected",
+      "hover",
+      "fontWeight"
+    ]
+  },
   "hpe.button.default.xsmall.paddingX": {
     "$type": "number",
     "$value": "12px",
@@ -17949,6 +18648,239 @@ export default {
       "toolbar",
       "selected",
       "enabled",
+      "fontWeight"
+    ]
+  },
+  "hpe.button.toolbar.selected.hover.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.04)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.toolbar.selected.hover.background",
+    "attributes": {
+      "category": "button",
+      "type": "toolbar",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "background"
+    },
+    "path": [
+      "button",
+      "toolbar",
+      "selected",
+      "hover",
+      "background"
+    ]
+  },
+  "hpe.button.toolbar.selected.hover.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.toolbar.selected.hover.borderColor",
+    "attributes": {
+      "category": "button",
+      "type": "toolbar",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "borderColor"
+    },
+    "path": [
+      "button",
+      "toolbar",
+      "selected",
+      "hover",
+      "borderColor"
+    ]
+  },
+  "hpe.button.toolbar.selected.hover.textColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.toolbar.selected.hover.textColor",
+    "attributes": {
+      "category": "button",
+      "type": "toolbar",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "textColor"
+    },
+    "path": [
+      "button",
+      "toolbar",
+      "selected",
+      "hover",
+      "textColor"
+    ]
+  },
+  "hpe.button.toolbar.selected.hover.iconColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.enabled.iconColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.toolbar.selected.hover.iconColor",
+    "attributes": {
+      "category": "button",
+      "type": "toolbar",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "iconColor"
+    },
+    "path": [
+      "button",
+      "toolbar",
+      "selected",
+      "hover",
+      "iconColor"
+    ]
+  },
+  "hpe.button.toolbar.selected.hover.fontWeight": {
+    "$type": "number",
+    "$value": 600,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{button.default.enabled.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.toolbar.selected.hover.fontWeight",
+    "attributes": {
+      "category": "button",
+      "type": "toolbar",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "fontWeight"
+    },
+    "path": [
+      "button",
+      "toolbar",
+      "selected",
+      "hover",
       "fontWeight"
     ]
   },
@@ -23961,7 +24893,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.onSelectedWeak}",
+      "$value": "{color.text.onSelected}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -24211,6 +25143,96 @@ export default {
       "checkbox",
       "control",
       "hover",
+      "borderColor"
+    ]
+  },
+  "hpe.checkbox.control.disabled.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.04)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.background.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.control.disabled.background",
+    "attributes": {
+      "category": "checkbox",
+      "type": "control",
+      "item": "disabled",
+      "subitem": "background"
+    },
+    "path": [
+      "checkbox",
+      "control",
+      "disabled",
+      "background"
+    ]
+  },
+  "hpe.checkbox.control.disabled.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.12)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.border.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.control.disabled.borderColor",
+    "attributes": {
+      "category": "checkbox",
+      "type": "control",
+      "item": "disabled",
+      "subitem": "borderColor"
+    },
+    "path": [
+      "checkbox",
+      "control",
+      "disabled",
       "borderColor"
     ]
   },
@@ -24467,7 +25489,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onPrimary}",
+      "$value": "{color.icon.onSelectedStrong}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -24635,96 +25657,6 @@ export default {
       "selected",
       "disabled",
       "iconColor"
-    ]
-  },
-  "hpe.checkbox.control.disabled.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.disabled.background",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "disabled",
-      "subitem": "background"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "disabled",
-      "background"
-    ]
-  },
-  "hpe.checkbox.control.disabled.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.disabled.borderColor",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "disabled",
-      "subitem": "borderColor"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "disabled",
-      "borderColor"
     ]
   },
   "hpe.checkbox.control.indeterminate.enabled.background": {

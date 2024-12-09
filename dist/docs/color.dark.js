@@ -392,92 +392,6 @@ export default {
       "contrast"
     ]
   },
-  "hpe.color.background.info": {
-    "$type": "color",
-    "$value": "rgba(0, 200, 255, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.blue.400-Opacity12}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.info",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "info"
-    },
-    "path": [
-      "color",
-      "background",
-      "info"
-    ]
-  },
-  "hpe.color.background.unknown": {
-    "$type": "color",
-    "$value": "rgba(255, 255, 255, 0.06)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity6}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.unknown",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "unknown"
-    },
-    "path": [
-      "color",
-      "background",
-      "unknown"
-    ]
-  },
   "hpe.color.background.critical": {
     "$type": "color",
     "$value": "rgba(204, 31, 26, 0.3)",
@@ -521,9 +435,9 @@ export default {
       "critical"
     ]
   },
-  "hpe.color.background.warning": {
+  "hpe.color.background.ok": {
     "$type": "color",
-    "$value": "rgba(254, 201, 1, 0.12)",
+    "$value": "rgba(23, 208, 166, 0.3)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -539,7 +453,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.yellow.400-Opacity12}",
+      "$value": "{base.color.green.500-Opacity30}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -552,16 +466,106 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.warning",
+    "name": "hpe.color.background.ok",
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "warning"
+      "item": "ok"
     },
     "path": [
       "color",
       "background",
-      "warning"
+      "ok"
+    ]
+  },
+  "hpe.color.background.primary.default": {
+    "$type": "color",
+    "$value": "#01a982",
+    "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.primary.default",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "primary",
+      "subitem": "default"
+    },
+    "path": [
+      "color",
+      "background",
+      "primary",
+      "default"
+    ]
+  },
+  "hpe.color.background.primary.hover": {
+    "$type": "color",
+    "$value": "#01a982",
+    "$description": "Hover color variant of the primary color.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "Hover color variant of the primary color.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.primary.hover",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "primary",
+      "subitem": "hover"
+    },
+    "path": [
+      "color",
+      "background",
+      "primary",
+      "hover"
     ]
   },
   "hpe.color.background.selected.strong.enabled": {
@@ -752,99 +756,9 @@ export default {
       "hover"
     ]
   },
-  "hpe.color.background.primary.default": {
+  "hpe.color.background.unknown": {
     "$type": "color",
-    "$value": "#01a982",
-    "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.primary.default",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "primary",
-      "subitem": "default"
-    },
-    "path": [
-      "color",
-      "background",
-      "primary",
-      "default"
-    ]
-  },
-  "hpe.color.background.primary.hover": {
-    "$type": "color",
-    "$value": "#01a982",
-    "$description": "Hover color variant of the primary color.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "Hover color variant of the primary color.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.primary.hover",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "primary",
-      "subitem": "hover"
-    },
-    "path": [
-      "color",
-      "background",
-      "primary",
-      "hover"
-    ]
-  },
-  "hpe.color.background.ok": {
-    "$type": "color",
-    "$value": "rgba(23, 208, 166, 0.3)",
+    "$value": "rgba(255, 255, 255, 0.06)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -860,7 +774,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.500-Opacity30}",
+      "$value": "{base.color.white.opacity6}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -873,16 +787,102 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.ok",
+    "name": "hpe.color.background.unknown",
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "ok"
+      "item": "unknown"
     },
     "path": [
       "color",
       "background",
-      "ok"
+      "unknown"
+    ]
+  },
+  "hpe.color.background.warning": {
+    "$type": "color",
+    "$value": "rgba(254, 201, 1, 0.12)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.yellow.400-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.warning",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "warning"
+    },
+    "path": [
+      "color",
+      "background",
+      "warning"
+    ]
+  },
+  "hpe.color.background.info": {
+    "$type": "color",
+    "$value": "rgba(0, 200, 255, 0.12)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.blue.400-Opacity12}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.info",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "info"
+    },
+    "path": [
+      "color",
+      "background",
+      "info"
     ]
   },
   "hpe.color.background.neutral.xstrong": {
@@ -1733,6 +1733,47 @@ export default {
       "default"
     ]
   },
+  "hpe.color.text.primary": {
+    "$type": "color",
+    "$value": "#01a982",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.primary",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "primary"
+    },
+    "path": [
+      "color",
+      "text",
+      "primary"
+    ]
+  },
   "hpe.color.text.onStrong.default": {
     "$type": "color",
     "$value": "#222222",
@@ -2042,7 +2083,7 @@ export default {
       "onSelectedStrong"
     ]
   },
-  "hpe.color.text.onSelectedWeak": {
+  "hpe.color.text.onSelected": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "Text color to be used for text sitting on background-selected-strong.",
@@ -2071,57 +2112,16 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.onSelectedWeak",
+    "name": "hpe.color.text.onSelected",
     "attributes": {
       "category": "color",
       "type": "text",
-      "item": "onSelectedWeak"
+      "item": "onSelected"
     },
     "path": [
       "color",
       "text",
-      "onSelectedWeak"
-    ]
-  },
-  "hpe.color.text.onStatus": {
-    "$type": "color",
-    "$value": "#ffffff",
-    "$description": "Text color to be used on status backgrounds.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "Text color to be used on status backgrounds.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.onStatus",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "onStatus"
-    },
-    "path": [
-      "color",
-      "text",
-      "onStatus"
+      "onSelected"
     ]
   },
   "hpe.color.text.onCritical.strong": {
@@ -3004,6 +3004,51 @@ export default {
       "unknown"
     ]
   },
+  "hpe.color.icon.primary": {
+    "$type": "color",
+    "$value": "#01a982",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.green.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.icon.primary",
+    "attributes": {
+      "category": "color",
+      "type": "icon",
+      "item": "primary"
+    },
+    "path": [
+      "color",
+      "icon",
+      "primary"
+    ]
+  },
   "hpe.color.icon.onPrimary": {
     "$type": "color",
     "$value": "#ffffff",
@@ -3137,7 +3182,7 @@ export default {
       "onSelectedStrong"
     ]
   },
-  "hpe.color.icon.onSelectedWeak": {
+  "hpe.color.icon.onSelected": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "Icon color to be used for icon sitting on background-selected-strong.",
@@ -3168,16 +3213,16 @@ export default {
         }
       }
     },
-    "name": "hpe.color.icon.onSelectedWeak",
+    "name": "hpe.color.icon.onSelected",
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "onSelectedWeak"
+      "item": "onSelected"
     },
     "path": [
       "color",
       "icon",
-      "onSelectedWeak"
+      "onSelected"
     ]
   },
   "hpe.color.decorative.brand": {

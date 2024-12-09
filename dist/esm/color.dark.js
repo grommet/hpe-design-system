@@ -15,10 +15,12 @@ export default {
         "floating": "#292929",
         "screenOverlay": "rgba(0, 0, 0, 0.12)",
         "contrast": "rgba(255, 255, 255, 0.12)",
-        "info": "rgba(0, 200, 255, 0.12)",
-        "unknown": "rgba(255, 255, 255, 0.06)",
         "critical": "rgba(204, 31, 26, 0.3)",
-        "warning": "rgba(254, 201, 1, 0.12)",
+        "ok": "rgba(23, 208, 166, 0.3)",
+        "primary": {
+          "default": "#01a982",
+          "hover": "#01a982"
+        },
         "selected": {
           "strong": {
             "enabled": "#01a982",
@@ -29,11 +31,9 @@ export default {
             "hover": "#074b3b"
           }
         },
-        "primary": {
-          "default": "#01a982",
-          "hover": "#01a982"
-        },
-        "ok": "rgba(23, 208, 166, 0.3)",
+        "unknown": "rgba(255, 255, 255, 0.06)",
+        "warning": "rgba(254, 201, 1, 0.12)",
+        "info": "rgba(0, 200, 255, 0.12)",
         "neutral": {
           "xstrong": "#f7f7f7"
         }
@@ -62,6 +62,7 @@ export default {
         "heading": {
           "default": "#ffffff"
         },
+        "primary": "#01a982",
         "onStrong": {
           "default": "#222222"
         },
@@ -71,8 +72,7 @@ export default {
         "warning": "#ffffff",
         "unknown": "#ffffff",
         "onSelectedStrong": "#ffffff",
-        "onSelectedWeak": "#ffffff",
-        "onStatus": "#ffffff",
+        "onSelected": "#ffffff",
         "onCritical": {
           "strong": "#ffffff",
           "default": "#ffffff"
@@ -105,10 +105,11 @@ export default {
         "ok": "#17d0a6",
         "warning": "#d36d00",
         "unknown": "#757575",
+        "primary": "#01a982",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
         "onSelectedStrong": "#ffffff",
-        "onSelectedWeak": "#ffffff"
+        "onSelected": "#ffffff"
       },
       "decorative": {
         "brand": "#01a982",

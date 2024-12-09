@@ -132,6 +132,13 @@ module.exports = {
             "textColor": "text-strong",
             "iconColor": "icon-strong",
             "fontWeight": 700
+          },
+          "hover": {
+            "background": "background-active",
+            "borderColor": "transparent",
+            "textColor": "text-strong",
+            "iconColor": "icon-strong",
+            "fontWeight": 700
           }
         },
         "xsmall": {
@@ -264,6 +271,13 @@ module.exports = {
         },
         "selected": {
           "enabled": {
+            "background": "background-active",
+            "borderColor": "transparent",
+            "textColor": "text-strong",
+            "iconColor": "icon-strong",
+            "fontWeight": 600
+          },
+          "hover": {
             "background": "background-active",
             "borderColor": "transparent",
             "textColor": "text-strong",
@@ -421,6 +435,13 @@ module.exports = {
             "textColor": "text-strong",
             "iconColor": "icon-strong",
             "fontWeight": 600
+          },
+          "hover": {
+            "background": "background-active",
+            "borderColor": "transparent",
+            "textColor": "text-strong",
+            "iconColor": "icon-strong",
+            "fontWeight": 600
           }
         },
         "xsmall": {
@@ -553,6 +574,13 @@ module.exports = {
         },
         "selected": {
           "enabled": {
+            "background": "background-active",
+            "borderColor": "transparent",
+            "textColor": "text-strong",
+            "iconColor": "icon-strong",
+            "fontWeight": 600
+          },
+          "hover": {
             "background": "background-active",
             "borderColor": "transparent",
             "textColor": "text-strong",
@@ -758,7 +786,7 @@ module.exports = {
           "enabled": {
             "background": "background-selected-weak-enabled",
             "borderColor": "transparent",
-            "textColor": "text-onSelectedWeak",
+            "textColor": "text-onSelected",
             "fontWeight": 500
           }
         }
@@ -774,6 +802,10 @@ module.exports = {
           "background": "background-default",
           "borderColor": "border-strong"
         },
+        "disabled": {
+          "background": "background-disabled",
+          "borderColor": "border-disabled"
+        },
         "selected": {
           "enabled": {
             "background": "background-selected-strong-enabled",
@@ -783,17 +815,13 @@ module.exports = {
           "hover": {
             "background": "background-selected-strong-enabled",
             "borderColor": "border-strong",
-            "iconColor": "icon-onPrimary"
+            "iconColor": "icon-onSelectedStrong"
           },
           "disabled": {
             "background": "background-disabled",
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
-        },
-        "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
         },
         "indeterminate": {
           "enabled": {

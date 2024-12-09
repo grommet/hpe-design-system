@@ -15,10 +15,12 @@ module.exports = {
         "floating": "#ffffff",
         "screenOverlay": "rgba(0, 0, 0, 0.12)",
         "contrast": "rgba(0, 0, 0, 0.04)",
-        "info": "rgba(0, 200, 255, 0.24)",
-        "unknown": "rgba(0, 0, 0, 0.04)",
         "critical": "rgba(252, 97, 97, 0.24)",
-        "warning": "rgba(255, 188, 68, 0.24)",
+        "ok": "rgba(23, 235, 160, 0.24)",
+        "primary": {
+          "default": "#01a982",
+          "hover": "#01a982"
+        },
         "selected": {
           "strong": {
             "enabled": "#01a982",
@@ -29,11 +31,9 @@ module.exports = {
             "hover": "#aef6df"
           }
         },
-        "primary": {
-          "default": "#01a982",
-          "hover": "#01a982"
-        },
-        "ok": "rgba(23, 235, 160, 0.24)",
+        "unknown": "rgba(0, 0, 0, 0.04)",
+        "warning": "rgba(255, 188, 68, 0.24)",
+        "info": "rgba(0, 200, 255, 0.24)",
         "neutral": {
           "xstrong": "#333333"
         }
@@ -62,6 +62,7 @@ module.exports = {
         "heading": {
           "default": "#333333"
         },
+        "primary": "#01a982",
         "onStrong": {
           "default": "#ffffff"
         },
@@ -71,8 +72,7 @@ module.exports = {
         "warning": "#555555",
         "unknown": "#555555",
         "onSelectedStrong": "#ffffff",
-        "onSelectedWeak": "#333333",
-        "onStatus": "#555555",
+        "onSelected": "#333333",
         "onCritical": {
           "strong": "#333333",
           "default": "#555555"
@@ -105,10 +105,11 @@ module.exports = {
         "ok": "#009a71",
         "warning": "#d36d00",
         "unknown": "#8c8c8c",
+        "primary": "#01a982",
         "onPrimary": "#ffffff",
         "brand": "#01a982",
         "onSelectedStrong": "#ffffff",
-        "onSelectedWeak": "#333333"
+        "onSelected": "#333333"
       },
       "decorative": {
         "brand": "#01a982",

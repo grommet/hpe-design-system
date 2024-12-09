@@ -67,6 +67,7 @@
   --hpe-base-color-green-600: #01a982; /* HPE Brand */
   --hpe-base-color-green-650: #009a71;
   --hpe-base-color-green-700: #008567;
+  --hpe-base-color-green-800: #006750;
   --hpe-base-color-green-900: #074b3b;
   --hpe-base-color-green-1000: #093a2f;
   --hpe-base-color-green-400-opacity12: rgba(23, 235, 160, 0.12);
@@ -99,6 +100,7 @@
   --hpe-base-color-grey-50: #f7f7f7;
   --hpe-base-color-grey-400: #cccccc;
   --hpe-base-color-grey-500: #bbbbbb;
+  --hpe-base-color-grey-550: #ebebeb;
   --hpe-base-color-grey-600: #8c8c8c;
   --hpe-base-color-grey-700: #757575;
   --hpe-base-color-grey-800: #555555;

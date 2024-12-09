@@ -2618,6 +2618,49 @@ export default {
       "700"
     ]
   },
+  "hpe.base.color.green.800": {
+    "$type": "color",
+    "$value": "#006750",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#006750",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.green.800",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "green",
+      "subitem": "800"
+    },
+    "path": [
+      "base",
+      "color",
+      "green",
+      "800"
+    ]
+  },
   "hpe.base.color.green.900": {
     "$type": "color",
     "$value": "#074b3b",
@@ -3992,6 +4035,49 @@ export default {
       "color",
       "grey",
       "500"
+    ]
+  },
+  "hpe.base.color.grey.550": {
+    "$type": "color",
+    "$value": "#ebebeb",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.base.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#ebebeb",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.grey.550",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "grey",
+      "subitem": "550"
+    },
+    "path": [
+      "base",
+      "color",
+      "grey",
+      "550"
     ]
   },
   "hpe.base.color.grey.600": {
