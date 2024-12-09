@@ -130,19 +130,6 @@ export const Results = ({
                 );
               })}
           </ScaleLayout>
-          <ScaleLayout>
-            {stops &&
-              stops.map(value => {
-                return (
-                  <ScaleValue
-                    key={value}
-                    base={base}
-                    stops={stops}
-                    value={value}
-                  />
-                );
-              })}
-          </ScaleLayout>
         </Box>
       </ContentPane>
       <Box direction="row" gap="large">
