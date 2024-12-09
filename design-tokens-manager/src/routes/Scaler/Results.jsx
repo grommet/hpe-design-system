@@ -167,7 +167,6 @@ export const Results = ({
           <SpacingValues values={tshirtContent} />
         </ContentPane>
       </Box>
-      <ScaleToolbar open={open} setOpen={setOpen} scale={scale} />
     </Box>
   );
 };
