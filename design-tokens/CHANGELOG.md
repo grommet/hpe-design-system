@@ -1,5 +1,15 @@
 # hpe-design-tokens
 
+## 0.8.0
+
+### Minor Changes
+
+- c682b78: Added selected/hover state for buttons.
+- c682b78: Added `color.text.primary`.
+- c682b78: Added `base.color.green.800`.
+- c682b78: Added `base.color.grey.550`.
+- c682b78: Renamed `color.text.onSelectedWeak` to `color.text.onSelected`.
+
 ## 0.7.0
 
 ### Minor Changes
