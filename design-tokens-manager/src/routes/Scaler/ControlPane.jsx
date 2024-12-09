@@ -1,4 +1,15 @@
-import { Box, Button, Form, FormField, Heading, Select } from 'grommet';
+import {
+  Box,
+  Button,
+  Form,
+  FormField,
+  Heading,
+  RangeInput,
+  Select,
+  Text,
+  ThemeContext,
+} from 'grommet';
+import { useContext } from 'react';
 
 export const ControlPane = ({
   defaultValues,
@@ -14,7 +25,8 @@ export const ControlPane = ({
   const BASE_OPTIONS = [4, 6, 8, 12, 16, 18, 24];
   const GRID_OPTIONS = [1, 2, ...BASE_OPTIONS];
   const FACTOR_OPTIONS = [1, 1.2, 1.25, 1.333, 1.414, 1.5, 1.618, 2];
-  const STEP_OPTIONS = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+  const theme = useContext(ThemeContext);
 
   return (
     <Box
@@ -60,7 +72,11 @@ export const ControlPane = ({
               />
             </FormField>
             <FormField label="Steps" htmlFor="steps__input" name="steps">
-              <Select id="steps" name="steps" options={STEP_OPTIONS} />
+              {/* <Select id="steps" name="steps" options={STEP_OPTIONS} /> */}
+              <Box direction="row" gap="small" pad={theme.global.input.padding}>
+                <RangeInput id="steps" name="steps" min={5} max={30} />
+                <Text {...theme.global.input.font}>{values.steps}</Text>
+              </Box>
             </FormField>
             <FormField
               label="Content base"

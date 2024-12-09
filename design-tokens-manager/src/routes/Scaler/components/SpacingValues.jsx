@@ -4,14 +4,14 @@ export const SpacingValues = ({ values, ...rest }) => {
   return (
     <NameValueList
       nameProps={{ width: 'max-content' }}
-      valueProps={{ width: 'max-content' }}
+      valueProps={{ width: 'max-content', align: 'end' }}
       {...rest}
     >
       {values &&
         values.map(({ size, value }) => {
           return (
             <NameValuePair key={`${size}-${value}`} name={size}>
-              {value}px
+              {value} px
             </NameValuePair>
           );
         })}
