@@ -109,30 +109,6 @@
           }
         }
       },
-      "info": {
-        "$type": "color",
-        "$value": "{base.color.blue.400-Opacity12}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "unknown": {
-        "$type": "color",
-        "$value": "{base.color.grey.1200}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "critical": {
         "$type": "color",
         "$value": "{base.color.red.800-Opacity30}",
@@ -145,15 +121,41 @@
           }
         }
       },
-      "warning": {
+      "ok": {
         "$type": "color",
-        "$value": "{base.color.yellow.400-Opacity12}",
+        "$value": "{base.color.green.500-Opacity30}",
         "$description": "",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": ["FRAME_FILL", "SHAPE_FILL"],
             "codeSyntax": {}
+          }
+        }
+      },
+      "primary": {
+        "default": {
+          "$type": "color",
+          "$value": "#007C60",
+          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#00513F",
+          "$description": "Hover color variant of the primary color.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+              "codeSyntax": {}
+            }
           }
         }
       },
@@ -211,35 +213,33 @@
           }
         }
       },
-      "primary": {
-        "default": {
-          "$type": "color",
-          "$value": "#007C60",
-          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "#00513F",
-          "$description": "Hover color variant of the primary color.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
+      "unknown": {
+        "$type": "color",
+        "$value": "{base.color.white.opacity6}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
           }
         }
       },
-      "ok": {
+      "warning": {
         "$type": "color",
-        "$value": "{base.color.green.500-Opacity30}",
+        "$value": "{base.color.yellow.400-Opacity12}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{base.color.blue.400-Opacity12}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -459,18 +459,6 @@
           }
         }
       },
-      "primary": {
-        "$type": "color",
-        "$value": "{base.color.brand}",
-        "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "onPrimary": {
         "$type": "color",
         "$value": "{base.color.white.100}",
@@ -506,6 +494,18 @@
               "scopes": ["ALL_SCOPES"],
               "codeSyntax": {}
             }
+          }
+        }
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "{base.color.green.600}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
           }
         }
       },
@@ -595,22 +595,10 @@
           }
         }
       },
-      "onSelectedWeak": {
+      "onSelected": {
         "$type": "color",
         "$value": "{color.text.strong}",
         "$description": "Text color to be used for text sitting on background-selected-strong.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "onStatus": {
-        "$type": "color",
-        "$value": "{color.text.default}",
-        "$description": "Text color to be used on status backgrounds.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -873,12 +861,12 @@
       },
       "primary": {
         "$type": "color",
-        "$value": "{base.color.brand}",
-        "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+        "$value": "{base.color.green.600}",
+        "$description": "",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
             "codeSyntax": {}
           }
         }
@@ -919,7 +907,7 @@
           }
         }
       },
-      "onSelectedWeak": {
+      "onSelected": {
         "$type": "color",
         "$value": "{color.text.strong}",
         "$description": "Icon color to be used for icon sitting on background-selected-strong.",

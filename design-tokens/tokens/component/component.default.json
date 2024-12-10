@@ -215,7 +215,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedWeak}",
+            "$value": "{color.text.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -227,7 +227,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.onSelectedWeak}",
+            "$value": "{color.icon.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -277,7 +277,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedWeak}",
+            "$value": "{color.text.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -289,7 +289,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.onSelectedWeak}",
+            "$value": "{color.icon.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1569,7 +1569,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedWeak}",
+            "$value": "{color.text.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1581,7 +1581,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.onSelectedWeak}",
+            "$value": "{color.icon.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1631,7 +1631,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedWeak}",
+            "$value": "{color.text.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1643,7 +1643,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.onSelectedWeak}",
+            "$value": "{color.icon.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4288,7 +4288,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedWeak}",
+            "$value": "{color.text.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4300,7 +4300,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedWeak}",
+            "$value": "{color.text.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4350,7 +4350,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedWeak}",
+            "$value": "{color.text.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4362,7 +4362,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedWeak}",
+            "$value": "{color.text.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6082,7 +6082,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedWeak}",
+            "$value": "{color.text.onSelected}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6152,6 +6152,32 @@
         "borderColor": {
           "$type": "color",
           "$value": "{color.border.default}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["STROKE_COLOR", "EFFECT_COLOR"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "disabled": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.background.disabled}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "borderColor": {
+          "$type": "color",
+          "$value": "{color.border.disabled}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6274,32 +6300,6 @@
                 "scopes": ["SHAPE_FILL", "STROKE_COLOR"],
                 "codeSyntax": {}
               }
-            }
-          }
-        }
-      },
-      "disabled": {
-        "background": {
-          "$type": "color",
-          "$value": "{color.background.disabled}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "borderColor": {
-          "$type": "color",
-          "$value": "{color.border.disabled}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["STROKE_COLOR", "EFFECT_COLOR"],
-              "codeSyntax": {}
             }
           }
         }
@@ -7415,7 +7415,7 @@
       "enabled": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.onSelectedWeak}",
+          "$value": "{color.text.onSelected}",
           "$description": "",
           "$extensions": {
             "com.figma": {

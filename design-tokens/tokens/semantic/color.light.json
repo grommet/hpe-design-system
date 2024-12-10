@@ -109,30 +109,6 @@
           }
         }
       },
-      "info": {
-        "$type": "color",
-        "$value": "{base.color.blue.400-Opacity24}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "unknown": {
-        "$type": "color",
-        "$value": "{base.color.grey.50}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "critical": {
         "$type": "color",
         "$value": "{base.color.red.500-Opacity24}",
@@ -145,15 +121,41 @@
           }
         }
       },
-      "warning": {
+      "ok": {
         "$type": "color",
-        "$value": "{base.color.orange.400-Opacity24}",
+        "$value": "{base.color.green.400-Opacity24}",
         "$description": "",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": ["FRAME_FILL", "SHAPE_FILL"],
             "codeSyntax": {}
+          }
+        }
+      },
+      "primary": {
+        "default": {
+          "$type": "color",
+          "$value": "{base.color.green.700}",
+          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{base.color.green.600}",
+          "$description": "Hover color variant of the primary color.",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+              "codeSyntax": {}
+            }
           }
         }
       },
@@ -211,35 +213,33 @@
           }
         }
       },
-      "primary": {
-        "default": {
-          "$type": "color",
-          "$value": "{base.color.green.700}",
-          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{base.color.green.800}",
-          "$description": "Hover color variant of the primary color.",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-              "codeSyntax": {}
-            }
+      "unknown": {
+        "$type": "color",
+        "$value": "{base.color.black.opacity4}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
           }
         }
       },
-      "ok": {
+      "warning": {
         "$type": "color",
-        "$value": "{base.color.green.400-Opacity24}",
+        "$value": "{base.color.orange.400-Opacity24}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{base.color.blue.400-Opacity24}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -483,18 +483,6 @@
           }
         }
       },
-      "primary": {
-        "$type": "color",
-        "$value": "{base.color.green.800}",
-        "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "heading": {
         "default": {
           "$type": "color",
@@ -506,6 +494,18 @@
               "scopes": ["ALL_SCOPES"],
               "codeSyntax": {}
             }
+          }
+        }
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "{base.color.green.800}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["TEXT_FILL"],
+            "codeSyntax": {}
           }
         }
       },
@@ -595,22 +595,10 @@
           }
         }
       },
-      "onSelectedWeak": {
+      "onSelected": {
         "$type": "color",
         "$value": "{base.color.green.900}",
         "$description": "Text color to be used for text sitting on background-selected-strong.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "onStatus": {
-        "$type": "color",
-        "$value": "{color.text.default}",
-        "$description": "Text color to be used on status backgrounds.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -919,7 +907,7 @@
           }
         }
       },
-      "onSelectedWeak": {
+      "onSelected": {
         "$type": "color",
         "$value": "{color.text.strong}",
         "$description": "Icon color to be used for icon sitting on background-selected-strong.",

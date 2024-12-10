@@ -1000,7 +1000,7 @@ const buildTheme = tokens => {
           },
         },
         inRange: {
-          color: 'text-onSelectedWeak',
+          color: 'text-onSelected',
           hover: {
             background: 'background-selected-weak-hover',
           },
