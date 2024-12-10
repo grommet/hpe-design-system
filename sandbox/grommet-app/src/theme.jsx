@@ -1235,7 +1235,7 @@ const buildTheme = tokens => {
     checkBoxGroup: {
       container: {
         cssGap: true,
-        gap: 'xsmall', // TO DO missing token
+        gap: 'small', // TO DO missing token
         margin: 'none',
       },
     },
@@ -1733,7 +1733,7 @@ const buildTheme = tokens => {
     },
     icon: {
       disableScaleDown: true,
-      matchSize: true, // NOTE: Disabled this since concept didn't exist in v3
+      matchSize: true,
       size: {
         xsmall: large.hpe.size.icon.xsmall,
         small: large.hpe.size.icon.small,
@@ -2238,7 +2238,6 @@ const buildTheme = tokens => {
       container: {
         extend: () => `width: auto;`,
       },
-      extend: () => ``,
       gap: components.hpe.radioButton.medium.gapX,
       hover: {
         background: 'transparent',
@@ -2265,7 +2264,7 @@ const buildTheme = tokens => {
     radioButtonGroup: {
       container: {
         cssGap: true,
-        gap: 'xsmall', // TO DO should be token?
+        gap: 'small', // TO DO should be token?
         margin: 'none',
       },
     },

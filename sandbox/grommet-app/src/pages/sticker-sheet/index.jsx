@@ -183,7 +183,7 @@ const StickerSheet = () => {
             <ContentPane>
               <Box gap="small">
                 {textSizes.map(size => (
-                  <Compare>
+                  <Compare key={size}>
                     <Anchor size={size} key={size}>
                       Anchor {size}
                     </Anchor>
@@ -194,7 +194,7 @@ const StickerSheet = () => {
             <ContentPane>
               <Box gap="small">
                 {textSizes.map(size => (
-                  <Compare guidingChild="last">
+                  <Compare guidingChild="last" key={size}>
                     <Text size={size} key={size}>
                       Text {size}
                     </Text>
@@ -205,7 +205,7 @@ const StickerSheet = () => {
             <ContentPane>
               <Box gap="small">
                 {['small', 'medium', 'large', 'xlarge', 'xxlarge'].map(size => (
-                  <Compare>
+                  <Compare key={size}>
                     <Paragraph size={size} key={size} margin="none">
                       Paragraph {size} with some extra text so we can see how it
                       is when it wraps
@@ -217,7 +217,7 @@ const StickerSheet = () => {
             <ContentPane>
               <Box gap="medium">
                 {[1, 2, 3, 4, 5, 6].map(level => (
-                  <Box gap="small">
+                  <Box gap="small" key={level}>
                     {/* Heading sizes are not relevant to product teams because our guidance
                   discourages use of them. */}
                     {/* {['small', 'medium', 'large', 'xlarge'].map(size => ( */}
@@ -242,9 +242,8 @@ const StickerSheet = () => {
                 {kinds.map(kind =>
                   sizes.map(size =>
                     states.map(state => (
-                      <Compare>
+                      <Compare key={`${kind}${size}${state}`}>
                         <Button
-                          key={`${kind} ${size} ${state}`}
                           label={`${kind} ${size} ${state}`}
                           size={size}
                           kind={kind}
@@ -399,8 +398,8 @@ const StickerSheet = () => {
               <Compare guidingChild="last">
                 <CheckBoxGroup
                   options={[
-                    'Option 1',
-                    'Option 2',
+                    { label: 'Option 1' },
+                    { label: 'Option 2' },
                     { label: 'Option 3', disabled: true },
                   ]}
                   value={['Option 2']}
@@ -420,6 +419,7 @@ const StickerSheet = () => {
                 <RadioButtonGroup
                   options={['Option 1', 'Option 2', 'Option 3']}
                   value="Option 2"
+                  name="radio-group"
                 />
               </Compare>
               <Compare>
@@ -427,6 +427,7 @@ const StickerSheet = () => {
                   <RadioButtonGroup
                     options={['Option 1', 'Option 2', 'Option 3']}
                     value="Option 2"
+                    name="radio-group-form"
                   />
                 </FormField>
               </Compare>

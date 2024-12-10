@@ -6104,6 +6104,56 @@
               }
             }
           }
+        },
+        "hover": {
+          "background": {
+            "$type": "color",
+            "$value": "{color.background.selected.weak.hover}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "borderColor": {
+            "$type": "color",
+            "$value": "{color.transparent}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["STROKE_COLOR", "EFFECT_COLOR"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "textColor": {
+            "$type": "color",
+            "$value": "{color.text.onSelected}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "fontWeight": {
+            "$type": "number",
+            "$value": "{fontWeight.medium}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FONT_STYLE"],
+                "codeSyntax": {}
+              }
+            }
+          }
         }
       }
     }
@@ -8837,7 +8887,7 @@
           "critical": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.critical}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8849,7 +8899,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.strong}",
+              "$value": "{color.border.critical}",
               "$description": "",
               "$extensions": {
                 "com.figma": {

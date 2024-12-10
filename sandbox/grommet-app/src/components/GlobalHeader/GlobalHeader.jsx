@@ -15,6 +15,7 @@ import {
   DropButton,
   TextInput,
   ToggleGroup,
+  ResponsiveContext,
 } from 'grommet';
 import {
   Search,
@@ -37,7 +38,7 @@ export const GlobalHeader = ({
   setBackgroundBack,
 }) => {
   const theme = useContext(ThemeContext);
-
+  const breakpoint = useContext(ResponsiveContext);
   return (
     <Page kind="full">
       <PageContent pad="none">
@@ -65,13 +66,15 @@ export const GlobalHeader = ({
                 />
               </Box>
             </Link>
-            <Box width="large">
-              <TextInput
-                icon={<Search id="global-header-search" />}
-                placeholder="Type / to search assets, docs, services, hardware, and more"
-                aria-labelledby="global-header-search"
-              />
-            </Box>
+            {!['xsmall', 'small'].includes(breakpoint) ? (
+              <Box width={breakpoint === 'medium' ? 'medium' : 'large'}>
+                <TextInput
+                  icon={<Search id="global-header-search" />}
+                  placeholder="Type / to search assets, services, and more"
+                  aria-labelledby="global-header-search"
+                />
+              </Box>
+            ) : undefined}
           </Box>
           <Box direction="row" gap="xsmall">
             <Button icon={<HelpOption />} />
