@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { deepFreeze } from 'grommet/utils';
+import { deepFreeze, deepMerge } from 'grommet/utils';
 import {
   dark as localDark,
   light as localLight,
@@ -39,6 +39,7 @@ import {
   Descending,
   Unsorted,
 } from 'grommet-icons';
+import { v5scale, scale1613338, scale16133316 } from './scales';
 
 const MISSING = {
   color: 'red',
@@ -2612,4 +2613,7 @@ export const themes = {
   local: current,
   v3: old,
   refresh,
+  v5scale: deepMerge(current, v5scale),
+  scale16133316: deepMerge(current, scale16133316),
+  scale1613338: deepMerge(current, scale1613338),
 };
