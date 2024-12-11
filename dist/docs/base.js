@@ -38,7 +38,8 @@ export default {
       "base",
       "dimension",
       "0"
-    ]
+    ],
+    "key": "{base.dimension.0}"
   },
   "hpe.base.dimension.25": {
     "$type": "number",
@@ -75,7 +76,8 @@ export default {
       "base",
       "dimension",
       "25"
-    ]
+    ],
+    "key": "{base.dimension.25}"
   },
   "hpe.base.dimension.50": {
     "$type": "number",
@@ -112,7 +114,8 @@ export default {
       "base",
       "dimension",
       "50"
-    ]
+    ],
+    "key": "{base.dimension.50}"
   },
   "hpe.base.dimension.75": {
     "$type": "number",
@@ -149,7 +152,8 @@ export default {
       "base",
       "dimension",
       "75"
-    ]
+    ],
+    "key": "{base.dimension.75}"
   },
   "hpe.base.dimension.100": {
     "$type": "number",
@@ -186,7 +190,8 @@ export default {
       "base",
       "dimension",
       "100"
-    ]
+    ],
+    "key": "{base.dimension.100}"
   },
   "hpe.base.dimension.150": {
     "$type": "number",
@@ -223,7 +228,8 @@ export default {
       "base",
       "dimension",
       "150"
-    ]
+    ],
+    "key": "{base.dimension.150}"
   },
   "hpe.base.dimension.200": {
     "$type": "number",
@@ -260,7 +266,8 @@ export default {
       "base",
       "dimension",
       "200"
-    ]
+    ],
+    "key": "{base.dimension.200}"
   },
   "hpe.base.dimension.225": {
     "$type": "number",
@@ -297,7 +304,8 @@ export default {
       "base",
       "dimension",
       "225"
-    ]
+    ],
+    "key": "{base.dimension.225}"
   },
   "hpe.base.dimension.250": {
     "$type": "number",
@@ -334,7 +342,8 @@ export default {
       "base",
       "dimension",
       "250"
-    ]
+    ],
+    "key": "{base.dimension.250}"
   },
   "hpe.base.dimension.300": {
     "$type": "number",
@@ -371,7 +380,8 @@ export default {
       "base",
       "dimension",
       "300"
-    ]
+    ],
+    "key": "{base.dimension.300}"
   },
   "hpe.base.dimension.325": {
     "$type": "number",
@@ -412,7 +422,8 @@ export default {
       "base",
       "dimension",
       "325"
-    ]
+    ],
+    "key": "{base.dimension.325}"
   },
   "hpe.base.dimension.350": {
     "$type": "number",
@@ -453,7 +464,8 @@ export default {
       "base",
       "dimension",
       "350"
-    ]
+    ],
+    "key": "{base.dimension.350}"
   },
   "hpe.base.dimension.400": {
     "$type": "number",
@@ -490,7 +502,8 @@ export default {
       "base",
       "dimension",
       "400"
-    ]
+    ],
+    "key": "{base.dimension.400}"
   },
   "hpe.base.dimension.450": {
     "$type": "number",
@@ -527,7 +540,8 @@ export default {
       "base",
       "dimension",
       "450"
-    ]
+    ],
+    "key": "{base.dimension.450}"
   },
   "hpe.base.dimension.475": {
     "$type": "number",
@@ -564,7 +578,8 @@ export default {
       "base",
       "dimension",
       "475"
-    ]
+    ],
+    "key": "{base.dimension.475}"
   },
   "hpe.base.dimension.500": {
     "$type": "number",
@@ -601,7 +616,8 @@ export default {
       "base",
       "dimension",
       "500"
-    ]
+    ],
+    "key": "{base.dimension.500}"
   },
   "hpe.base.dimension.550": {
     "$type": "number",
@@ -638,7 +654,8 @@ export default {
       "base",
       "dimension",
       "550"
-    ]
+    ],
+    "key": "{base.dimension.550}"
   },
   "hpe.base.dimension.600": {
     "$type": "number",
@@ -675,7 +692,8 @@ export default {
       "base",
       "dimension",
       "600"
-    ]
+    ],
+    "key": "{base.dimension.600}"
   },
   "hpe.base.dimension.700": {
     "$type": "number",
@@ -712,7 +730,8 @@ export default {
       "base",
       "dimension",
       "700"
-    ]
+    ],
+    "key": "{base.dimension.700}"
   },
   "hpe.base.dimension.750": {
     "$type": "number",
@@ -749,7 +768,8 @@ export default {
       "base",
       "dimension",
       "750"
-    ]
+    ],
+    "key": "{base.dimension.750}"
   },
   "hpe.base.dimension.900": {
     "$type": "number",
@@ -786,7 +806,8 @@ export default {
       "base",
       "dimension",
       "900"
-    ]
+    ],
+    "key": "{base.dimension.900}"
   },
   "hpe.base.dimension.1200": {
     "$type": "number",
@@ -823,7 +844,8 @@ export default {
       "base",
       "dimension",
       "1200"
-    ]
+    ],
+    "key": "{base.dimension.1200}"
   },
   "hpe.base.dimension.1800": {
     "$type": "number",
@@ -860,7 +882,8 @@ export default {
       "base",
       "dimension",
       "1800"
-    ]
+    ],
+    "key": "{base.dimension.1800}"
   },
   "hpe.base.dimension.2400": {
     "$type": "number",
@@ -897,7 +920,8 @@ export default {
       "base",
       "dimension",
       "2400"
-    ]
+    ],
+    "key": "{base.dimension.2400}"
   },
   "hpe.base.dimension.4800": {
     "$type": "number",
@@ -934,7 +958,8 @@ export default {
       "base",
       "dimension",
       "4800"
-    ]
+    ],
+    "key": "{base.dimension.4800}"
   },
   "hpe.base.dimension.7200": {
     "$type": "number",
@@ -971,7 +996,8 @@ export default {
       "base",
       "dimension",
       "7200"
-    ]
+    ],
+    "key": "{base.dimension.7200}"
   },
   "hpe.base.dimension.9600": {
     "$type": "number",
@@ -1008,7 +1034,8 @@ export default {
       "base",
       "dimension",
       "9600"
-    ]
+    ],
+    "key": "{base.dimension.9600}"
   },
   "hpe.base.dimension.14400": {
     "$type": "number",
@@ -1045,7 +1072,8 @@ export default {
       "base",
       "dimension",
       "14400"
-    ]
+    ],
+    "key": "{base.dimension.14400}"
   },
   "hpe.base.dimension.19200": {
     "$type": "number",
@@ -1082,7 +1110,8 @@ export default {
       "base",
       "dimension",
       "19200"
-    ]
+    ],
+    "key": "{base.dimension.19200}"
   },
   "hpe.base.dimension.38400": {
     "$type": "number",
@@ -1119,7 +1148,8 @@ export default {
       "base",
       "dimension",
       "38400"
-    ]
+    ],
+    "key": "{base.dimension.38400}"
   },
   "hpe.base.dimension.76800": {
     "$type": "number",
@@ -1156,7 +1186,8 @@ export default {
       "base",
       "dimension",
       "76800"
-    ]
+    ],
+    "key": "{base.dimension.76800}"
   },
   "hpe.base.color.brand": {
     "$type": "color",
@@ -1197,7 +1228,8 @@ export default {
       "base",
       "color",
       "brand"
-    ]
+    ],
+    "key": "{base.color.brand}"
   },
   "hpe.base.color.red.500": {
     "$type": "color",
@@ -1240,7 +1272,8 @@ export default {
       "color",
       "red",
       "500"
-    ]
+    ],
+    "key": "{base.color.red.500}"
   },
   "hpe.base.color.red.550": {
     "$type": "color",
@@ -1283,7 +1316,8 @@ export default {
       "color",
       "red",
       "550"
-    ]
+    ],
+    "key": "{base.color.red.550}"
   },
   "hpe.base.color.red.600": {
     "$type": "color",
@@ -1326,7 +1360,8 @@ export default {
       "color",
       "red",
       "600"
-    ]
+    ],
+    "key": "{base.color.red.600}"
   },
   "hpe.base.color.red.700": {
     "$type": "color",
@@ -1369,7 +1404,8 @@ export default {
       "color",
       "red",
       "700"
-    ]
+    ],
+    "key": "{base.color.red.700}"
   },
   "hpe.base.color.red.750": {
     "$type": "color",
@@ -1412,7 +1448,8 @@ export default {
       "color",
       "red",
       "750"
-    ]
+    ],
+    "key": "{base.color.red.750}"
   },
   "hpe.base.color.red.800": {
     "$type": "color",
@@ -1455,7 +1492,8 @@ export default {
       "color",
       "red",
       "800"
-    ]
+    ],
+    "key": "{base.color.red.800}"
   },
   "hpe.base.color.red.850": {
     "$type": "color",
@@ -1498,7 +1536,8 @@ export default {
       "color",
       "red",
       "850"
-    ]
+    ],
+    "key": "{base.color.red.850}"
   },
   "hpe.base.color.red.500-Opacity12": {
     "$type": "color",
@@ -1541,7 +1580,8 @@ export default {
       "color",
       "red",
       "500-Opacity12"
-    ]
+    ],
+    "key": "{base.color.red.500-Opacity12}"
   },
   "hpe.base.color.red.500-Opacity24": {
     "$type": "color",
@@ -1584,7 +1624,8 @@ export default {
       "color",
       "red",
       "500-Opacity24"
-    ]
+    ],
+    "key": "{base.color.red.500-Opacity24}"
   },
   "hpe.base.color.red.800-Opacity30": {
     "$type": "color",
@@ -1627,7 +1668,8 @@ export default {
       "color",
       "red",
       "800-Opacity30"
-    ]
+    ],
+    "key": "{base.color.red.800-Opacity30}"
   },
   "hpe.base.color.orange.400": {
     "$type": "color",
@@ -1670,7 +1712,8 @@ export default {
       "color",
       "orange",
       "400"
-    ]
+    ],
+    "key": "{base.color.orange.400}"
   },
   "hpe.base.color.orange.500": {
     "$type": "color",
@@ -1713,7 +1756,8 @@ export default {
       "color",
       "orange",
       "500"
-    ]
+    ],
+    "key": "{base.color.orange.500}"
   },
   "hpe.base.color.orange.600": {
     "$type": "color",
@@ -1756,7 +1800,8 @@ export default {
       "color",
       "orange",
       "600"
-    ]
+    ],
+    "key": "{base.color.orange.600}"
   },
   "hpe.base.color.orange.700": {
     "$type": "color",
@@ -1799,7 +1844,8 @@ export default {
       "color",
       "orange",
       "700"
-    ]
+    ],
+    "key": "{base.color.orange.700}"
   },
   "hpe.base.color.orange.400-Opacity12": {
     "$type": "color",
@@ -1842,7 +1888,8 @@ export default {
       "color",
       "orange",
       "400-Opacity12"
-    ]
+    ],
+    "key": "{base.color.orange.400-Opacity12}"
   },
   "hpe.base.color.orange.400-Opacity24": {
     "$type": "color",
@@ -1885,7 +1932,8 @@ export default {
       "color",
       "orange",
       "400-Opacity24"
-    ]
+    ],
+    "key": "{base.color.orange.400-Opacity24}"
   },
   "hpe.base.color.orange.500-Opacity12": {
     "$type": "color",
@@ -1928,7 +1976,8 @@ export default {
       "color",
       "orange",
       "500-Opacity12"
-    ]
+    ],
+    "key": "{base.color.orange.500-Opacity12}"
   },
   "hpe.base.color.yellow.200": {
     "$type": "color",
@@ -1971,7 +2020,8 @@ export default {
       "color",
       "yellow",
       "200"
-    ]
+    ],
+    "key": "{base.color.yellow.200}"
   },
   "hpe.base.color.yellow.300": {
     "$type": "color",
@@ -2014,7 +2064,8 @@ export default {
       "color",
       "yellow",
       "300"
-    ]
+    ],
+    "key": "{base.color.yellow.300}"
   },
   "hpe.base.color.yellow.400": {
     "$type": "color",
@@ -2057,7 +2108,8 @@ export default {
       "color",
       "yellow",
       "400"
-    ]
+    ],
+    "key": "{base.color.yellow.400}"
   },
   "hpe.base.color.yellow.500": {
     "$type": "color",
@@ -2100,7 +2152,8 @@ export default {
       "color",
       "yellow",
       "500"
-    ]
+    ],
+    "key": "{base.color.yellow.500}"
   },
   "hpe.base.color.yellow.700": {
     "$type": "color",
@@ -2143,7 +2196,8 @@ export default {
       "color",
       "yellow",
       "700"
-    ]
+    ],
+    "key": "{base.color.yellow.700}"
   },
   "hpe.base.color.yellow.200-Opacity12": {
     "$type": "color",
@@ -2186,7 +2240,8 @@ export default {
       "color",
       "yellow",
       "200-Opacity12"
-    ]
+    ],
+    "key": "{base.color.yellow.200-Opacity12}"
   },
   "hpe.base.color.yellow.300-Opacity12": {
     "$type": "color",
@@ -2229,7 +2284,8 @@ export default {
       "color",
       "yellow",
       "300-Opacity12"
-    ]
+    ],
+    "key": "{base.color.yellow.300-Opacity12}"
   },
   "hpe.base.color.yellow.400-Opacity12": {
     "$type": "color",
@@ -2272,7 +2328,8 @@ export default {
       "color",
       "yellow",
       "400-Opacity12"
-    ]
+    ],
+    "key": "{base.color.yellow.400-Opacity12}"
   },
   "hpe.base.color.yellow.500-Opacity30": {
     "$type": "color",
@@ -2315,7 +2372,8 @@ export default {
       "color",
       "yellow",
       "500-Opacity30"
-    ]
+    ],
+    "key": "{base.color.yellow.500-Opacity30}"
   },
   "hpe.base.color.green.100": {
     "$type": "color",
@@ -2358,7 +2416,8 @@ export default {
       "color",
       "green",
       "100"
-    ]
+    ],
+    "key": "{base.color.green.100}"
   },
   "hpe.base.color.green.125": {
     "$type": "color",
@@ -2401,7 +2460,8 @@ export default {
       "color",
       "green",
       "125"
-    ]
+    ],
+    "key": "{base.color.green.125}"
   },
   "hpe.base.color.green.400": {
     "$type": "color",
@@ -2444,7 +2504,8 @@ export default {
       "color",
       "green",
       "400"
-    ]
+    ],
+    "key": "{base.color.green.400}"
   },
   "hpe.base.color.green.500": {
     "$type": "color",
@@ -2487,7 +2548,8 @@ export default {
       "color",
       "green",
       "500"
-    ]
+    ],
+    "key": "{base.color.green.500}"
   },
   "hpe.base.color.green.600": {
     "$type": "color",
@@ -2530,7 +2592,8 @@ export default {
       "color",
       "green",
       "600"
-    ]
+    ],
+    "key": "{base.color.green.600}"
   },
   "hpe.base.color.green.650": {
     "$type": "color",
@@ -2573,7 +2636,8 @@ export default {
       "color",
       "green",
       "650"
-    ]
+    ],
+    "key": "{base.color.green.650}"
   },
   "hpe.base.color.green.700": {
     "$type": "color",
@@ -2616,7 +2680,8 @@ export default {
       "color",
       "green",
       "700"
-    ]
+    ],
+    "key": "{base.color.green.700}"
   },
   "hpe.base.color.green.800": {
     "$type": "color",
@@ -2659,7 +2724,8 @@ export default {
       "color",
       "green",
       "800"
-    ]
+    ],
+    "key": "{base.color.green.800}"
   },
   "hpe.base.color.green.900": {
     "$type": "color",
@@ -2702,7 +2768,8 @@ export default {
       "color",
       "green",
       "900"
-    ]
+    ],
+    "key": "{base.color.green.900}"
   },
   "hpe.base.color.green.1000": {
     "$type": "color",
@@ -2745,7 +2812,8 @@ export default {
       "color",
       "green",
       "1000"
-    ]
+    ],
+    "key": "{base.color.green.1000}"
   },
   "hpe.base.color.green.400-Opacity12": {
     "$type": "color",
@@ -2788,7 +2856,8 @@ export default {
       "color",
       "green",
       "400-Opacity12"
-    ]
+    ],
+    "key": "{base.color.green.400-Opacity12}"
   },
   "hpe.base.color.green.400-Opacity24": {
     "$type": "color",
@@ -2831,7 +2900,8 @@ export default {
       "color",
       "green",
       "400-Opacity24"
-    ]
+    ],
+    "key": "{base.color.green.400-Opacity24}"
   },
   "hpe.base.color.green.500-Opacity30": {
     "$type": "color",
@@ -2874,7 +2944,8 @@ export default {
       "color",
       "green",
       "500-Opacity30"
-    ]
+    ],
+    "key": "{base.color.green.500-Opacity30}"
   },
   "hpe.base.color.teal.200": {
     "$type": "color",
@@ -2917,7 +2988,8 @@ export default {
       "color",
       "teal",
       "200"
-    ]
+    ],
+    "key": "{base.color.teal.200}"
   },
   "hpe.base.color.teal.300": {
     "$type": "color",
@@ -2960,7 +3032,8 @@ export default {
       "color",
       "teal",
       "300"
-    ]
+    ],
+    "key": "{base.color.teal.300}"
   },
   "hpe.base.color.teal.400": {
     "$type": "color",
@@ -3003,7 +3076,8 @@ export default {
       "color",
       "teal",
       "400"
-    ]
+    ],
+    "key": "{base.color.teal.400}"
   },
   "hpe.base.color.teal.700": {
     "$type": "color",
@@ -3046,7 +3120,8 @@ export default {
       "color",
       "teal",
       "700"
-    ]
+    ],
+    "key": "{base.color.teal.700}"
   },
   "hpe.base.color.teal.200-Opacity12": {
     "$type": "color",
@@ -3089,7 +3164,8 @@ export default {
       "color",
       "teal",
       "200-Opacity12"
-    ]
+    ],
+    "key": "{base.color.teal.200-Opacity12}"
   },
   "hpe.base.color.teal.300-Opacity12": {
     "$type": "color",
@@ -3132,7 +3208,8 @@ export default {
       "color",
       "teal",
       "300-Opacity12"
-    ]
+    ],
+    "key": "{base.color.teal.300-Opacity12}"
   },
   "hpe.base.color.blue.400": {
     "$type": "color",
@@ -3175,7 +3252,8 @@ export default {
       "color",
       "blue",
       "400"
-    ]
+    ],
+    "key": "{base.color.blue.400}"
   },
   "hpe.base.color.blue.700": {
     "$type": "color",
@@ -3218,7 +3296,8 @@ export default {
       "color",
       "blue",
       "700"
-    ]
+    ],
+    "key": "{base.color.blue.700}"
   },
   "hpe.base.color.blue.900": {
     "$type": "color",
@@ -3261,7 +3340,8 @@ export default {
       "color",
       "blue",
       "900"
-    ]
+    ],
+    "key": "{base.color.blue.900}"
   },
   "hpe.base.color.blue.400-Opacity12": {
     "$type": "color",
@@ -3304,7 +3384,8 @@ export default {
       "color",
       "blue",
       "400-Opacity12"
-    ]
+    ],
+    "key": "{base.color.blue.400-Opacity12}"
   },
   "hpe.base.color.blue.400-Opacity24": {
     "$type": "color",
@@ -3347,7 +3428,8 @@ export default {
       "color",
       "blue",
       "400-Opacity24"
-    ]
+    ],
+    "key": "{base.color.blue.400-Opacity24}"
   },
   "hpe.base.color.blue.700-Opacity12": {
     "$type": "color",
@@ -3390,7 +3472,8 @@ export default {
       "color",
       "blue",
       "700-Opacity12"
-    ]
+    ],
+    "key": "{base.color.blue.700-Opacity12}"
   },
   "hpe.base.color.purple.500": {
     "$type": "color",
@@ -3433,7 +3516,8 @@ export default {
       "color",
       "purple",
       "500"
-    ]
+    ],
+    "key": "{base.color.purple.500}"
   },
   "hpe.base.color.purple.800": {
     "$type": "color",
@@ -3476,7 +3560,8 @@ export default {
       "color",
       "purple",
       "800"
-    ]
+    ],
+    "key": "{base.color.purple.800}"
   },
   "hpe.base.color.purple.900": {
     "$type": "color",
@@ -3519,7 +3604,8 @@ export default {
       "color",
       "purple",
       "900"
-    ]
+    ],
+    "key": "{base.color.purple.900}"
   },
   "hpe.base.color.purple.500-Opacity12": {
     "$type": "color",
@@ -3562,7 +3648,8 @@ export default {
       "color",
       "purple",
       "500-Opacity12"
-    ]
+    ],
+    "key": "{base.color.purple.500-Opacity12}"
   },
   "hpe.base.color.purple.800-Opacity12": {
     "$type": "color",
@@ -3605,7 +3692,8 @@ export default {
       "color",
       "purple",
       "800-Opacity12"
-    ]
+    ],
+    "key": "{base.color.purple.800-Opacity12}"
   },
   "hpe.base.color.black.opacity4": {
     "$type": "color",
@@ -3648,7 +3736,8 @@ export default {
       "color",
       "black",
       "opacity4"
-    ]
+    ],
+    "key": "{base.color.black.opacity4}"
   },
   "hpe.base.color.black.opacity12": {
     "$type": "color",
@@ -3691,7 +3780,8 @@ export default {
       "color",
       "black",
       "opacity12"
-    ]
+    ],
+    "key": "{base.color.black.opacity12}"
   },
   "hpe.base.color.black.opacity24": {
     "$type": "color",
@@ -3734,7 +3824,8 @@ export default {
       "color",
       "black",
       "opacity24"
-    ]
+    ],
+    "key": "{base.color.black.opacity24}"
   },
   "hpe.base.color.black.opacity36": {
     "$type": "color",
@@ -3777,7 +3868,8 @@ export default {
       "color",
       "black",
       "opacity36"
-    ]
+    ],
+    "key": "{base.color.black.opacity36}"
   },
   "hpe.base.color.black.opacity50": {
     "$type": "color",
@@ -3820,7 +3912,8 @@ export default {
       "color",
       "black",
       "opacity50"
-    ]
+    ],
+    "key": "{base.color.black.opacity50}"
   },
   "hpe.base.color.black.opacity72": {
     "$type": "color",
@@ -3863,7 +3956,8 @@ export default {
       "color",
       "black",
       "opacity72"
-    ]
+    ],
+    "key": "{base.color.black.opacity72}"
   },
   "hpe.base.color.black.opacity100": {
     "$type": "color",
@@ -3906,7 +4000,8 @@ export default {
       "color",
       "black",
       "opacity100"
-    ]
+    ],
+    "key": "{base.color.black.opacity100}"
   },
   "hpe.base.color.grey.50": {
     "$type": "color",
@@ -3949,7 +4044,8 @@ export default {
       "color",
       "grey",
       "50"
-    ]
+    ],
+    "key": "{base.color.grey.50}"
   },
   "hpe.base.color.grey.400": {
     "$type": "color",
@@ -3992,7 +4088,8 @@ export default {
       "color",
       "grey",
       "400"
-    ]
+    ],
+    "key": "{base.color.grey.400}"
   },
   "hpe.base.color.grey.500": {
     "$type": "color",
@@ -4035,7 +4132,8 @@ export default {
       "color",
       "grey",
       "500"
-    ]
+    ],
+    "key": "{base.color.grey.500}"
   },
   "hpe.base.color.grey.550": {
     "$type": "color",
@@ -4078,7 +4176,8 @@ export default {
       "color",
       "grey",
       "550"
-    ]
+    ],
+    "key": "{base.color.grey.550}"
   },
   "hpe.base.color.grey.600": {
     "$type": "color",
@@ -4121,7 +4220,8 @@ export default {
       "color",
       "grey",
       "600"
-    ]
+    ],
+    "key": "{base.color.grey.600}"
   },
   "hpe.base.color.grey.700": {
     "$type": "color",
@@ -4164,7 +4264,8 @@ export default {
       "color",
       "grey",
       "700"
-    ]
+    ],
+    "key": "{base.color.grey.700}"
   },
   "hpe.base.color.grey.800": {
     "$type": "color",
@@ -4207,7 +4308,8 @@ export default {
       "color",
       "grey",
       "800"
-    ]
+    ],
+    "key": "{base.color.grey.800}"
   },
   "hpe.base.color.grey.1000": {
     "$type": "color",
@@ -4250,7 +4352,8 @@ export default {
       "color",
       "grey",
       "1000"
-    ]
+    ],
+    "key": "{base.color.grey.1000}"
   },
   "hpe.base.color.grey.1100": {
     "$type": "color",
@@ -4293,7 +4396,8 @@ export default {
       "color",
       "grey",
       "1100"
-    ]
+    ],
+    "key": "{base.color.grey.1100}"
   },
   "hpe.base.color.grey.1200": {
     "$type": "color",
@@ -4336,7 +4440,8 @@ export default {
       "color",
       "grey",
       "1200"
-    ]
+    ],
+    "key": "{base.color.grey.1200}"
   },
   "hpe.base.color.grey.1300": {
     "$type": "color",
@@ -4379,7 +4484,8 @@ export default {
       "color",
       "grey",
       "1300"
-    ]
+    ],
+    "key": "{base.color.grey.1300}"
   },
   "hpe.base.color.white.100": {
     "$type": "color",
@@ -4422,7 +4528,8 @@ export default {
       "color",
       "white",
       "100"
-    ]
+    ],
+    "key": "{base.color.white.100}"
   },
   "hpe.base.color.white.opacity6": {
     "$type": "color",
@@ -4465,7 +4572,8 @@ export default {
       "color",
       "white",
       "opacity6"
-    ]
+    ],
+    "key": "{base.color.white.opacity6}"
   },
   "hpe.base.color.white.opacity7": {
     "$type": "color",
@@ -4508,7 +4616,8 @@ export default {
       "color",
       "white",
       "opacity7"
-    ]
+    ],
+    "key": "{base.color.white.opacity7}"
   },
   "hpe.base.color.white.opacity12": {
     "$type": "color",
@@ -4551,7 +4660,8 @@ export default {
       "color",
       "white",
       "opacity12"
-    ]
+    ],
+    "key": "{base.color.white.opacity12}"
   },
   "hpe.base.color.white.opacity20": {
     "$type": "color",
@@ -4594,7 +4704,8 @@ export default {
       "color",
       "white",
       "opacity20"
-    ]
+    ],
+    "key": "{base.color.white.opacity20}"
   },
   "hpe.base.color.white.opacity24": {
     "$type": "color",
@@ -4637,7 +4748,8 @@ export default {
       "color",
       "white",
       "opacity24"
-    ]
+    ],
+    "key": "{base.color.white.opacity24}"
   },
   "hpe.base.color.white.opacity36": {
     "$type": "color",
@@ -4680,7 +4792,8 @@ export default {
       "color",
       "white",
       "opacity36"
-    ]
+    ],
+    "key": "{base.color.white.opacity36}"
   },
   "hpe.base.color.white.opacity50": {
     "$type": "color",
@@ -4723,7 +4836,8 @@ export default {
       "color",
       "white",
       "opacity50"
-    ]
+    ],
+    "key": "{base.color.white.opacity50}"
   },
   "hpe.base.color.white.opacity72": {
     "$type": "color",
@@ -4766,7 +4880,8 @@ export default {
       "color",
       "white",
       "opacity72"
-    ]
+    ],
+    "key": "{base.color.white.opacity72}"
   },
   "hpe.base.color.dataVis.green1": {
     "$type": "color",
@@ -4809,7 +4924,8 @@ export default {
       "color",
       "dataVis",
       "green1"
-    ]
+    ],
+    "key": "{base.color.dataVis.green1}"
   },
   "hpe.base.color.dataVis.darkblue1": {
     "$type": "color",
@@ -4852,7 +4968,8 @@ export default {
       "color",
       "dataVis",
       "darkblue1"
-    ]
+    ],
+    "key": "{base.color.dataVis.darkblue1}"
   },
   "hpe.base.color.dataVis.purple1": {
     "$type": "color",
@@ -4895,7 +5012,8 @@ export default {
       "color",
       "dataVis",
       "purple1"
-    ]
+    ],
+    "key": "{base.color.dataVis.purple1}"
   },
   "hpe.base.color.dataVis.gold1": {
     "$type": "color",
@@ -4938,7 +5056,8 @@ export default {
       "color",
       "dataVis",
       "gold1"
-    ]
+    ],
+    "key": "{base.color.dataVis.gold1}"
   },
   "hpe.base.color.dataVis.lightblue1": {
     "$type": "color",
@@ -4981,7 +5100,8 @@ export default {
       "color",
       "dataVis",
       "lightblue1"
-    ]
+    ],
+    "key": "{base.color.dataVis.lightblue1}"
   },
   "hpe.base.color.dataVis.pink1": {
     "$type": "color",
@@ -5024,7 +5144,8 @@ export default {
       "color",
       "dataVis",
       "pink1"
-    ]
+    ],
+    "key": "{base.color.dataVis.pink1}"
   },
   "hpe.base.color.dataVis.blue1": {
     "$type": "color",
@@ -5067,7 +5188,8 @@ export default {
       "color",
       "dataVis",
       "blue1"
-    ]
+    ],
+    "key": "{base.color.dataVis.blue1}"
   },
   "hpe.base.color.dataVis.grape1": {
     "$type": "color",
@@ -5110,7 +5232,8 @@ export default {
       "color",
       "dataVis",
       "grape1"
-    ]
+    ],
+    "key": "{base.color.dataVis.grape1}"
   },
   "hpe.base.color.dataVis.darkblue2": {
     "$type": "color",
@@ -5153,7 +5276,8 @@ export default {
       "color",
       "dataVis",
       "darkblue2"
-    ]
+    ],
+    "key": "{base.color.dataVis.darkblue2}"
   },
   "hpe.base.color.dataVis.purple2": {
     "$type": "color",
@@ -5196,7 +5320,8 @@ export default {
       "color",
       "dataVis",
       "purple2"
-    ]
+    ],
+    "key": "{base.color.dataVis.purple2}"
   },
   "hpe.base.color.dataVis.gold2": {
     "$type": "color",
@@ -5239,7 +5364,8 @@ export default {
       "color",
       "dataVis",
       "gold2"
-    ]
+    ],
+    "key": "{base.color.dataVis.gold2}"
   },
   "hpe.base.color.dataVis.lightblue2": {
     "$type": "color",
@@ -5282,7 +5408,8 @@ export default {
       "color",
       "dataVis",
       "lightblue2"
-    ]
+    ],
+    "key": "{base.color.dataVis.lightblue2}"
   },
   "hpe.base.color.dataVis.pink2": {
     "$type": "color",
@@ -5325,7 +5452,8 @@ export default {
       "color",
       "dataVis",
       "pink2"
-    ]
+    ],
+    "key": "{base.color.dataVis.pink2}"
   },
   "hpe.base.color.dataVis.blue2": {
     "$type": "color",
@@ -5368,7 +5496,8 @@ export default {
       "color",
       "dataVis",
       "blue2"
-    ]
+    ],
+    "key": "{base.color.dataVis.blue2}"
   },
   "hpe.base.color.dataVis.purple3": {
     "$type": "color",
@@ -5411,7 +5540,8 @@ export default {
       "color",
       "dataVis",
       "purple3"
-    ]
+    ],
+    "key": "{base.color.dataVis.purple3}"
   },
   "hpe.base.fontFamily.MetricHPEXS": {
     "$type": "string",
@@ -5452,7 +5582,8 @@ export default {
       "base",
       "fontFamily",
       "MetricHPEXS"
-    ]
+    ],
+    "key": "{base.fontFamily.MetricHPEXS}"
   },
   "hpe.base.fontFamily.code": {
     "$type": "string",
@@ -5493,7 +5624,8 @@ export default {
       "base",
       "fontFamily",
       "code"
-    ]
+    ],
+    "key": "{base.fontFamily.code}"
   },
   "hpe.base.fontFamily.primary": {
     "$type": "string",
@@ -5534,7 +5666,8 @@ export default {
       "base",
       "fontFamily",
       "primary"
-    ]
+    ],
+    "key": "{base.fontFamily.primary}"
   },
   "hpe.base.fontSize.80": {
     "$type": "number",
@@ -5575,7 +5708,8 @@ export default {
       "base",
       "fontSize",
       "80"
-    ]
+    ],
+    "key": "{base.fontSize.80}"
   },
   "hpe.base.fontSize.90": {
     "$type": "number",
@@ -5616,7 +5750,8 @@ export default {
       "base",
       "fontSize",
       "90"
-    ]
+    ],
+    "key": "{base.fontSize.90}"
   },
   "hpe.base.fontSize.100": {
     "$type": "number",
@@ -5657,7 +5792,8 @@ export default {
       "base",
       "fontSize",
       "100"
-    ]
+    ],
+    "key": "{base.fontSize.100}"
   },
   "hpe.base.fontSize.200": {
     "$type": "number",
@@ -5698,7 +5834,8 @@ export default {
       "base",
       "fontSize",
       "200"
-    ]
+    ],
+    "key": "{base.fontSize.200}"
   },
   "hpe.base.fontSize.300": {
     "$type": "number",
@@ -5739,7 +5876,8 @@ export default {
       "base",
       "fontSize",
       "300"
-    ]
+    ],
+    "key": "{base.fontSize.300}"
   },
   "hpe.base.fontSize.400": {
     "$type": "number",
@@ -5780,7 +5918,8 @@ export default {
       "base",
       "fontSize",
       "400"
-    ]
+    ],
+    "key": "{base.fontSize.400}"
   },
   "hpe.base.fontSize.500": {
     "$type": "number",
@@ -5821,7 +5960,8 @@ export default {
       "base",
       "fontSize",
       "500"
-    ]
+    ],
+    "key": "{base.fontSize.500}"
   },
   "hpe.base.fontSize.600": {
     "$type": "number",
@@ -5862,7 +6002,8 @@ export default {
       "base",
       "fontSize",
       "600"
-    ]
+    ],
+    "key": "{base.fontSize.600}"
   },
   "hpe.base.fontSize.700": {
     "$type": "number",
@@ -5903,7 +6044,8 @@ export default {
       "base",
       "fontSize",
       "700"
-    ]
+    ],
+    "key": "{base.fontSize.700}"
   },
   "hpe.base.fontSize.800": {
     "$type": "number",
@@ -5944,7 +6086,8 @@ export default {
       "base",
       "fontSize",
       "800"
-    ]
+    ],
+    "key": "{base.fontSize.800}"
   },
   "hpe.base.fontSize.900": {
     "$type": "number",
@@ -5985,7 +6128,8 @@ export default {
       "base",
       "fontSize",
       "900"
-    ]
+    ],
+    "key": "{base.fontSize.900}"
   },
   "hpe.base.fontSize.1000": {
     "$type": "number",
@@ -6026,7 +6170,8 @@ export default {
       "base",
       "fontSize",
       "1000"
-    ]
+    ],
+    "key": "{base.fontSize.1000}"
   },
   "hpe.base.lineHeight.80": {
     "$type": "number",
@@ -6067,7 +6212,8 @@ export default {
       "base",
       "lineHeight",
       "80"
-    ]
+    ],
+    "key": "{base.lineHeight.80}"
   },
   "hpe.base.lineHeight.90": {
     "$type": "number",
@@ -6108,7 +6254,8 @@ export default {
       "base",
       "lineHeight",
       "90"
-    ]
+    ],
+    "key": "{base.lineHeight.90}"
   },
   "hpe.base.lineHeight.100": {
     "$type": "number",
@@ -6149,7 +6296,8 @@ export default {
       "base",
       "lineHeight",
       "100"
-    ]
+    ],
+    "key": "{base.lineHeight.100}"
   },
   "hpe.base.lineHeight.200": {
     "$type": "number",
@@ -6190,7 +6338,8 @@ export default {
       "base",
       "lineHeight",
       "200"
-    ]
+    ],
+    "key": "{base.lineHeight.200}"
   },
   "hpe.base.lineHeight.300": {
     "$type": "number",
@@ -6231,7 +6380,8 @@ export default {
       "base",
       "lineHeight",
       "300"
-    ]
+    ],
+    "key": "{base.lineHeight.300}"
   },
   "hpe.base.lineHeight.400": {
     "$type": "number",
@@ -6272,7 +6422,8 @@ export default {
       "base",
       "lineHeight",
       "400"
-    ]
+    ],
+    "key": "{base.lineHeight.400}"
   },
   "hpe.base.lineHeight.500": {
     "$type": "number",
@@ -6313,7 +6464,8 @@ export default {
       "base",
       "lineHeight",
       "500"
-    ]
+    ],
+    "key": "{base.lineHeight.500}"
   },
   "hpe.base.lineHeight.600": {
     "$type": "number",
@@ -6354,7 +6506,8 @@ export default {
       "base",
       "lineHeight",
       "600"
-    ]
+    ],
+    "key": "{base.lineHeight.600}"
   },
   "hpe.base.lineHeight.700": {
     "$type": "number",
@@ -6395,7 +6548,8 @@ export default {
       "base",
       "lineHeight",
       "700"
-    ]
+    ],
+    "key": "{base.lineHeight.700}"
   },
   "hpe.base.lineHeight.800": {
     "$type": "number",
@@ -6436,7 +6590,8 @@ export default {
       "base",
       "lineHeight",
       "800"
-    ]
+    ],
+    "key": "{base.lineHeight.800}"
   },
   "hpe.base.lineHeight.900": {
     "$type": "number",
@@ -6477,7 +6632,8 @@ export default {
       "base",
       "lineHeight",
       "900"
-    ]
+    ],
+    "key": "{base.lineHeight.900}"
   },
   "hpe.base.lineHeight.1000": {
     "$type": "number",
@@ -6518,7 +6674,8 @@ export default {
       "base",
       "lineHeight",
       "1000"
-    ]
+    ],
+    "key": "{base.lineHeight.1000}"
   },
   "hpe.base.static.spacing.none": {
     "$type": "number",
@@ -6561,7 +6718,8 @@ export default {
       "static",
       "spacing",
       "none"
-    ]
+    ],
+    "key": "{base.static.spacing.none}"
   },
   "hpe.base.static.spacing.hair": {
     "$type": "number",
@@ -6604,7 +6762,8 @@ export default {
       "static",
       "spacing",
       "hair"
-    ]
+    ],
+    "key": "{base.static.spacing.hair}"
   },
   "hpe.base.static.spacing.xxsmall": {
     "$type": "number",
@@ -6647,7 +6806,8 @@ export default {
       "static",
       "spacing",
       "xxsmall"
-    ]
+    ],
+    "key": "{base.static.spacing.xxsmall}"
   },
   "hpe.base.static.spacing.xsmall": {
     "$type": "number",
@@ -6690,7 +6850,8 @@ export default {
       "static",
       "spacing",
       "xsmall"
-    ]
+    ],
+    "key": "{base.static.spacing.xsmall}"
   },
   "hpe.base.static.spacing.small": {
     "$type": "number",
@@ -6733,7 +6894,8 @@ export default {
       "static",
       "spacing",
       "small"
-    ]
+    ],
+    "key": "{base.static.spacing.small}"
   },
   "hpe.base.static.spacing.medium": {
     "$type": "number",
@@ -6776,7 +6938,8 @@ export default {
       "static",
       "spacing",
       "medium"
-    ]
+    ],
+    "key": "{base.static.spacing.medium}"
   },
   "hpe.base.static.spacing.large": {
     "$type": "number",
@@ -6819,7 +6982,8 @@ export default {
       "static",
       "spacing",
       "large"
-    ]
+    ],
+    "key": "{base.static.spacing.large}"
   },
   "hpe.base.static.spacing.xlarge": {
     "$type": "number",
@@ -6862,7 +7026,8 @@ export default {
       "static",
       "spacing",
       "xlarge"
-    ]
+    ],
+    "key": "{base.static.spacing.xlarge}"
   },
   "hpe.base.static.radius.none": {
     "$type": "number",
@@ -6905,7 +7070,8 @@ export default {
       "static",
       "radius",
       "none"
-    ]
+    ],
+    "key": "{base.static.radius.none}"
   },
   "hpe.base.static.radius.hair": {
     "$type": "number",
@@ -6948,7 +7114,8 @@ export default {
       "static",
       "radius",
       "hair"
-    ]
+    ],
+    "key": "{base.static.radius.hair}"
   },
   "hpe.base.static.radius.xxsmall": {
     "$type": "number",
@@ -6991,7 +7158,8 @@ export default {
       "static",
       "radius",
       "xxsmall"
-    ]
+    ],
+    "key": "{base.static.radius.xxsmall}"
   },
   "hpe.base.static.radius.xsmall": {
     "$type": "number",
@@ -7034,7 +7202,8 @@ export default {
       "static",
       "radius",
       "xsmall"
-    ]
+    ],
+    "key": "{base.static.radius.xsmall}"
   },
   "hpe.base.static.radius.small": {
     "$type": "number",
@@ -7077,7 +7246,8 @@ export default {
       "static",
       "radius",
       "small"
-    ]
+    ],
+    "key": "{base.static.radius.small}"
   },
   "hpe.base.static.radius.medium": {
     "$type": "number",
@@ -7120,7 +7290,8 @@ export default {
       "static",
       "radius",
       "medium"
-    ]
+    ],
+    "key": "{base.static.radius.medium}"
   },
   "hpe.base.static.radius.large": {
     "$type": "number",
@@ -7163,7 +7334,8 @@ export default {
       "static",
       "radius",
       "large"
-    ]
+    ],
+    "key": "{base.static.radius.large}"
   },
   "hpe.base.static.radius.xlarge": {
     "$type": "number",
@@ -7206,7 +7378,8 @@ export default {
       "static",
       "radius",
       "xlarge"
-    ]
+    ],
+    "key": "{base.static.radius.xlarge}"
   },
   "hpe.base.static.radius.full": {
     "$type": "number",
@@ -7249,7 +7422,8 @@ export default {
       "static",
       "radius",
       "full"
-    ]
+    ],
+    "key": "{base.static.radius.full}"
   },
   "hpe.base.static.borderWidth.none": {
     "$type": "number",
@@ -7292,7 +7466,8 @@ export default {
       "static",
       "borderWidth",
       "none"
-    ]
+    ],
+    "key": "{base.static.borderWidth.none}"
   },
   "hpe.base.static.borderWidth.xsmall": {
     "$type": "number",
@@ -7335,7 +7510,8 @@ export default {
       "static",
       "borderWidth",
       "xsmall"
-    ]
+    ],
+    "key": "{base.static.borderWidth.xsmall}"
   },
   "hpe.base.static.borderWidth.small": {
     "$type": "number",
@@ -7378,7 +7554,8 @@ export default {
       "static",
       "borderWidth",
       "small"
-    ]
+    ],
+    "key": "{base.static.borderWidth.small}"
   },
   "hpe.base.static.borderWidth.medium": {
     "$type": "number",
@@ -7421,7 +7598,8 @@ export default {
       "static",
       "borderWidth",
       "medium"
-    ]
+    ],
+    "key": "{base.static.borderWidth.medium}"
   },
   "hpe.base.static.borderWidth.large": {
     "$type": "number",
@@ -7464,7 +7642,8 @@ export default {
       "static",
       "borderWidth",
       "large"
-    ]
+    ],
+    "key": "{base.static.borderWidth.large}"
   },
   "hpe.base.static.borderWidth.xlarge": {
     "$type": "number",
@@ -7507,7 +7686,8 @@ export default {
       "static",
       "borderWidth",
       "xlarge"
-    ]
+    ],
+    "key": "{base.static.borderWidth.xlarge}"
   },
   "hpe.base.static.borderWidth.default": {
     "$type": "number",
@@ -7550,7 +7730,8 @@ export default {
       "static",
       "borderWidth",
       "default"
-    ]
+    ],
+    "key": "{base.static.borderWidth.default}"
   },
   "hpe.base.static.container.xxsmall": {
     "$type": "number",
@@ -7595,7 +7776,8 @@ export default {
       "static",
       "container",
       "xxsmall"
-    ]
+    ],
+    "key": "{base.static.container.xxsmall}"
   },
   "hpe.base.static.container.xsmall": {
     "$type": "number",
@@ -7640,7 +7822,8 @@ export default {
       "static",
       "container",
       "xsmall"
-    ]
+    ],
+    "key": "{base.static.container.xsmall}"
   },
   "hpe.base.static.container.small": {
     "$type": "number",
@@ -7685,7 +7868,8 @@ export default {
       "static",
       "container",
       "small"
-    ]
+    ],
+    "key": "{base.static.container.small}"
   },
   "hpe.base.static.container.smallPlus": {
     "$type": "number",
@@ -7728,7 +7912,8 @@ export default {
       "static",
       "container",
       "smallPlus"
-    ]
+    ],
+    "key": "{base.static.container.smallPlus}"
   },
   "hpe.base.static.container.medium": {
     "$type": "number",
@@ -7773,7 +7958,8 @@ export default {
       "static",
       "container",
       "medium"
-    ]
+    ],
+    "key": "{base.static.container.medium}"
   },
   "hpe.base.static.container.mediumPlus": {
     "$type": "number",
@@ -7816,7 +8002,8 @@ export default {
       "static",
       "container",
       "mediumPlus"
-    ]
+    ],
+    "key": "{base.static.container.mediumPlus}"
   },
   "hpe.base.static.container.large": {
     "$type": "number",
@@ -7861,7 +8048,8 @@ export default {
       "static",
       "container",
       "large"
-    ]
+    ],
+    "key": "{base.static.container.large}"
   },
   "hpe.base.static.container.xlarge": {
     "$type": "number",
@@ -7906,7 +8094,8 @@ export default {
       "static",
       "container",
       "xlarge"
-    ]
+    ],
+    "key": "{base.static.container.xlarge}"
   },
   "hpe.base.static.container.xxlarge": {
     "$type": "number",
@@ -7951,7 +8140,8 @@ export default {
       "static",
       "container",
       "xxlarge"
-    ]
+    ],
+    "key": "{base.static.container.xxlarge}"
   },
   "hpe.TBD": {
     "$type": "color",
@@ -7988,6 +8178,7 @@ export default {
     },
     "path": [
       "TBD"
-    ]
+    ],
+    "key": "{TBD}"
   }
 }

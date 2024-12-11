@@ -40,7 +40,8 @@ export default {
     "path": [
       "spacing",
       "none"
-    ]
+    ],
+    "key": "{spacing.none}"
   },
   "hpe.spacing.hair": {
     "$type": "number",
@@ -79,7 +80,8 @@ export default {
     "path": [
       "spacing",
       "hair"
-    ]
+    ],
+    "key": "{spacing.hair}"
   },
   "hpe.spacing.xxsmall": {
     "$type": "number",
@@ -118,7 +120,8 @@ export default {
     "path": [
       "spacing",
       "xxsmall"
-    ]
+    ],
+    "key": "{spacing.xxsmall}"
   },
   "hpe.spacing.xsmall": {
     "$type": "number",
@@ -157,7 +160,8 @@ export default {
     "path": [
       "spacing",
       "xsmall"
-    ]
+    ],
+    "key": "{spacing.xsmall}"
   },
   "hpe.spacing.small": {
     "$type": "number",
@@ -196,7 +200,8 @@ export default {
     "path": [
       "spacing",
       "small"
-    ]
+    ],
+    "key": "{spacing.small}"
   },
   "hpe.spacing.medium": {
     "$type": "number",
@@ -235,7 +240,8 @@ export default {
     "path": [
       "spacing",
       "medium"
-    ]
+    ],
+    "key": "{spacing.medium}"
   },
   "hpe.spacing.large": {
     "$type": "number",
@@ -274,7 +280,8 @@ export default {
     "path": [
       "spacing",
       "large"
-    ]
+    ],
+    "key": "{spacing.large}"
   },
   "hpe.spacing.xlarge": {
     "$type": "number",
@@ -313,7 +320,8 @@ export default {
     "path": [
       "spacing",
       "xlarge"
-    ]
+    ],
+    "key": "{spacing.xlarge}"
   },
   "hpe.radius.none": {
     "$type": "number",
@@ -352,7 +360,8 @@ export default {
     "path": [
       "radius",
       "none"
-    ]
+    ],
+    "key": "{radius.none}"
   },
   "hpe.radius.hair": {
     "$type": "number",
@@ -391,7 +400,8 @@ export default {
     "path": [
       "radius",
       "hair"
-    ]
+    ],
+    "key": "{radius.hair}"
   },
   "hpe.radius.xxsmall": {
     "$type": "number",
@@ -430,7 +440,8 @@ export default {
     "path": [
       "radius",
       "xxsmall"
-    ]
+    ],
+    "key": "{radius.xxsmall}"
   },
   "hpe.radius.xsmall": {
     "$type": "number",
@@ -469,7 +480,8 @@ export default {
     "path": [
       "radius",
       "xsmall"
-    ]
+    ],
+    "key": "{radius.xsmall}"
   },
   "hpe.radius.small": {
     "$type": "number",
@@ -508,7 +520,8 @@ export default {
     "path": [
       "radius",
       "small"
-    ]
+    ],
+    "key": "{radius.small}"
   },
   "hpe.radius.medium": {
     "$type": "number",
@@ -547,7 +560,8 @@ export default {
     "path": [
       "radius",
       "medium"
-    ]
+    ],
+    "key": "{radius.medium}"
   },
   "hpe.radius.large": {
     "$type": "number",
@@ -586,7 +600,8 @@ export default {
     "path": [
       "radius",
       "large"
-    ]
+    ],
+    "key": "{radius.large}"
   },
   "hpe.radius.xlarge": {
     "$type": "number",
@@ -625,7 +640,8 @@ export default {
     "path": [
       "radius",
       "xlarge"
-    ]
+    ],
+    "key": "{radius.xlarge}"
   },
   "hpe.radius.full": {
     "$type": "number",
@@ -664,7 +680,8 @@ export default {
     "path": [
       "radius",
       "full"
-    ]
+    ],
+    "key": "{radius.full}"
   },
   "hpe.borderWidth.none": {
     "$type": "number",
@@ -705,7 +722,8 @@ export default {
     "path": [
       "borderWidth",
       "none"
-    ]
+    ],
+    "key": "{borderWidth.none}"
   },
   "hpe.borderWidth.xsmall": {
     "$type": "number",
@@ -746,7 +764,8 @@ export default {
     "path": [
       "borderWidth",
       "xsmall"
-    ]
+    ],
+    "key": "{borderWidth.xsmall}"
   },
   "hpe.borderWidth.small": {
     "$type": "number",
@@ -787,7 +806,8 @@ export default {
     "path": [
       "borderWidth",
       "small"
-    ]
+    ],
+    "key": "{borderWidth.small}"
   },
   "hpe.borderWidth.medium": {
     "$type": "number",
@@ -828,7 +848,8 @@ export default {
     "path": [
       "borderWidth",
       "medium"
-    ]
+    ],
+    "key": "{borderWidth.medium}"
   },
   "hpe.borderWidth.large": {
     "$type": "number",
@@ -869,7 +890,8 @@ export default {
     "path": [
       "borderWidth",
       "large"
-    ]
+    ],
+    "key": "{borderWidth.large}"
   },
   "hpe.borderWidth.xlarge": {
     "$type": "number",
@@ -910,7 +932,8 @@ export default {
     "path": [
       "borderWidth",
       "xlarge"
-    ]
+    ],
+    "key": "{borderWidth.xlarge}"
   },
   "hpe.borderWidth.default": {
     "$type": "number",
@@ -951,7 +974,8 @@ export default {
     "path": [
       "borderWidth",
       "default"
-    ]
+    ],
+    "key": "{borderWidth.default}"
   },
   "hpe.size.container.xxsmall": {
     "$type": "number",
@@ -992,7 +1016,8 @@ export default {
       "size",
       "container",
       "xxsmall"
-    ]
+    ],
+    "key": "{size.container.xxsmall}"
   },
   "hpe.size.container.xsmall": {
     "$type": "number",
@@ -1033,7 +1058,8 @@ export default {
       "size",
       "container",
       "xsmall"
-    ]
+    ],
+    "key": "{size.container.xsmall}"
   },
   "hpe.size.container.small": {
     "$type": "number",
@@ -1074,7 +1100,8 @@ export default {
       "size",
       "container",
       "small"
-    ]
+    ],
+    "key": "{size.container.small}"
   },
   "hpe.size.container.smallPlus": {
     "$type": "number",
@@ -1115,7 +1142,8 @@ export default {
       "size",
       "container",
       "smallPlus"
-    ]
+    ],
+    "key": "{size.container.smallPlus}"
   },
   "hpe.size.container.medium": {
     "$type": "number",
@@ -1156,7 +1184,8 @@ export default {
       "size",
       "container",
       "medium"
-    ]
+    ],
+    "key": "{size.container.medium}"
   },
   "hpe.size.container.mediumPlus": {
     "$type": "number",
@@ -1197,7 +1226,8 @@ export default {
       "size",
       "container",
       "mediumPlus"
-    ]
+    ],
+    "key": "{size.container.mediumPlus}"
   },
   "hpe.size.container.large": {
     "$type": "number",
@@ -1238,7 +1268,8 @@ export default {
       "size",
       "container",
       "large"
-    ]
+    ],
+    "key": "{size.container.large}"
   },
   "hpe.size.container.xlarge": {
     "$type": "number",
@@ -1279,7 +1310,8 @@ export default {
       "size",
       "container",
       "xlarge"
-    ]
+    ],
+    "key": "{size.container.xlarge}"
   },
   "hpe.size.container.xxlarge": {
     "$type": "number",
@@ -1320,7 +1352,8 @@ export default {
       "size",
       "container",
       "xxlarge"
-    ]
+    ],
+    "key": "{size.container.xxlarge}"
   },
   "hpe.size.icon.xsmall": {
     "$type": "number",
@@ -1361,7 +1394,8 @@ export default {
       "size",
       "icon",
       "xsmall"
-    ]
+    ],
+    "key": "{size.icon.xsmall}"
   },
   "hpe.size.icon.small": {
     "$type": "number",
@@ -1402,7 +1436,8 @@ export default {
       "size",
       "icon",
       "small"
-    ]
+    ],
+    "key": "{size.icon.small}"
   },
   "hpe.size.icon.medium": {
     "$type": "number",
@@ -1443,7 +1478,8 @@ export default {
       "size",
       "icon",
       "medium"
-    ]
+    ],
+    "key": "{size.icon.medium}"
   },
   "hpe.size.icon.large": {
     "$type": "number",
@@ -1484,7 +1520,8 @@ export default {
       "size",
       "icon",
       "large"
-    ]
+    ],
+    "key": "{size.icon.large}"
   },
   "hpe.size.icon.xlarge": {
     "$type": "number",
@@ -1525,7 +1562,8 @@ export default {
       "size",
       "icon",
       "xlarge"
-    ]
+    ],
+    "key": "{size.icon.xlarge}"
   },
   "hpe.size.icon.xxlarge": {
     "$type": "number",
@@ -1566,7 +1604,8 @@ export default {
       "size",
       "icon",
       "xxlarge"
-    ]
+    ],
+    "key": "{size.icon.xxlarge}"
   },
   "hpe.display.medium.fontSize": {
     "$type": "number",
@@ -1607,7 +1646,8 @@ export default {
       "display",
       "medium",
       "fontSize"
-    ]
+    ],
+    "key": "{display.medium.fontSize}"
   },
   "hpe.display.medium.lineHeight": {
     "$type": "number",
@@ -1648,7 +1688,8 @@ export default {
       "display",
       "medium",
       "lineHeight"
-    ]
+    ],
+    "key": "{display.medium.lineHeight}"
   },
   "hpe.display.medium.fontWeight": {
     "$type": "number",
@@ -1689,7 +1730,8 @@ export default {
       "display",
       "medium",
       "fontWeight"
-    ]
+    ],
+    "key": "{display.medium.fontWeight}"
   },
   "hpe.text.xsmall.fontSize": {
     "$type": "number",
@@ -1730,7 +1772,8 @@ export default {
       "text",
       "xsmall",
       "fontSize"
-    ]
+    ],
+    "key": "{text.xsmall.fontSize}"
   },
   "hpe.text.xsmall.lineHeight": {
     "$type": "number",
@@ -1771,7 +1814,8 @@ export default {
       "text",
       "xsmall",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.xsmall.lineHeight}"
   },
   "hpe.text.xsmall.fontWeight": {
     "$type": "number",
@@ -1812,7 +1856,8 @@ export default {
       "text",
       "xsmall",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.xsmall.fontWeight}"
   },
   "hpe.text.xsmall.maxWidth": {
     "$type": "string",
@@ -1853,7 +1898,8 @@ export default {
       "text",
       "xsmall",
       "maxWidth"
-    ]
+    ],
+    "key": "{text.xsmall.maxWidth}"
   },
   "hpe.text.small.fontSize": {
     "$type": "number",
@@ -1894,7 +1940,8 @@ export default {
       "text",
       "small",
       "fontSize"
-    ]
+    ],
+    "key": "{text.small.fontSize}"
   },
   "hpe.text.small.lineHeight": {
     "$type": "number",
@@ -1935,7 +1982,8 @@ export default {
       "text",
       "small",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.small.lineHeight}"
   },
   "hpe.text.small.fontWeight": {
     "$type": "number",
@@ -1976,7 +2024,8 @@ export default {
       "text",
       "small",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.small.fontWeight}"
   },
   "hpe.text.small.maxWidth": {
     "$type": "string",
@@ -2017,7 +2066,8 @@ export default {
       "text",
       "small",
       "maxWidth"
-    ]
+    ],
+    "key": "{text.small.maxWidth}"
   },
   "hpe.text.medium.fontSize": {
     "$type": "number",
@@ -2058,7 +2108,8 @@ export default {
       "text",
       "medium",
       "fontSize"
-    ]
+    ],
+    "key": "{text.medium.fontSize}"
   },
   "hpe.text.medium.lineHeight": {
     "$type": "number",
@@ -2099,7 +2150,8 @@ export default {
       "text",
       "medium",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.medium.lineHeight}"
   },
   "hpe.text.medium.fontWeight": {
     "$type": "number",
@@ -2140,7 +2192,8 @@ export default {
       "text",
       "medium",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.medium.fontWeight}"
   },
   "hpe.text.medium.maxWidth": {
     "$type": "string",
@@ -2181,7 +2234,8 @@ export default {
       "text",
       "medium",
       "maxWidth"
-    ]
+    ],
+    "key": "{text.medium.maxWidth}"
   },
   "hpe.text.large.fontSize": {
     "$type": "number",
@@ -2222,7 +2276,8 @@ export default {
       "text",
       "large",
       "fontSize"
-    ]
+    ],
+    "key": "{text.large.fontSize}"
   },
   "hpe.text.large.lineHeight": {
     "$type": "number",
@@ -2263,7 +2318,8 @@ export default {
       "text",
       "large",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.large.lineHeight}"
   },
   "hpe.text.large.fontWeight": {
     "$type": "number",
@@ -2304,7 +2360,8 @@ export default {
       "text",
       "large",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.large.fontWeight}"
   },
   "hpe.text.large.maxWidth": {
     "$type": "string",
@@ -2345,7 +2402,8 @@ export default {
       "text",
       "large",
       "maxWidth"
-    ]
+    ],
+    "key": "{text.large.maxWidth}"
   },
   "hpe.text.xlarge.fontSize": {
     "$type": "number",
@@ -2386,7 +2444,8 @@ export default {
       "text",
       "xlarge",
       "fontSize"
-    ]
+    ],
+    "key": "{text.xlarge.fontSize}"
   },
   "hpe.text.xlarge.lineHeight": {
     "$type": "number",
@@ -2427,7 +2486,8 @@ export default {
       "text",
       "xlarge",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.xlarge.lineHeight}"
   },
   "hpe.text.xlarge.fontWeight": {
     "$type": "number",
@@ -2468,7 +2528,8 @@ export default {
       "text",
       "xlarge",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.xlarge.fontWeight}"
   },
   "hpe.text.xlarge.maxWidth": {
     "$type": "string",
@@ -2509,7 +2570,8 @@ export default {
       "text",
       "xlarge",
       "maxWidth"
-    ]
+    ],
+    "key": "{text.xlarge.maxWidth}"
   },
   "hpe.text.xxlarge.fontSize": {
     "$type": "number",
@@ -2550,7 +2612,8 @@ export default {
       "text",
       "xxlarge",
       "fontSize"
-    ]
+    ],
+    "key": "{text.xxlarge.fontSize}"
   },
   "hpe.text.xxlarge.lineHeight": {
     "$type": "number",
@@ -2591,7 +2654,8 @@ export default {
       "text",
       "xxlarge",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.xxlarge.lineHeight}"
   },
   "hpe.text.xxlarge.fontWeight": {
     "$type": "number",
@@ -2632,7 +2696,8 @@ export default {
       "text",
       "xxlarge",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.xxlarge.fontWeight}"
   },
   "hpe.text.xxlarge.maxWidth": {
     "$type": "string",
@@ -2673,7 +2738,8 @@ export default {
       "text",
       "xxlarge",
       "maxWidth"
-    ]
+    ],
+    "key": "{text.xxlarge.maxWidth}"
   },
   "hpe.text.3xl.fontSize": {
     "$type": "number",
@@ -2714,7 +2780,8 @@ export default {
       "text",
       "3xl",
       "fontSize"
-    ]
+    ],
+    "key": "{text.3xl.fontSize}"
   },
   "hpe.text.3xl.lineHeight": {
     "$type": "number",
@@ -2755,7 +2822,8 @@ export default {
       "text",
       "3xl",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.3xl.lineHeight}"
   },
   "hpe.text.3xl.fontWeight": {
     "$type": "number",
@@ -2796,7 +2864,8 @@ export default {
       "text",
       "3xl",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.3xl.fontWeight}"
   },
   "hpe.text.3xl.maxWidth": {
     "$type": "string",
@@ -2837,7 +2906,8 @@ export default {
       "text",
       "3xl",
       "maxWidth"
-    ]
+    ],
+    "key": "{text.3xl.maxWidth}"
   },
   "hpe.text.4xl.fontSize": {
     "$type": "number",
@@ -2878,7 +2948,8 @@ export default {
       "text",
       "4xl",
       "fontSize"
-    ]
+    ],
+    "key": "{text.4xl.fontSize}"
   },
   "hpe.text.4xl.lineHeight": {
     "$type": "number",
@@ -2919,7 +2990,8 @@ export default {
       "text",
       "4xl",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.4xl.lineHeight}"
   },
   "hpe.text.4xl.fontWeight": {
     "$type": "number",
@@ -2960,7 +3032,8 @@ export default {
       "text",
       "4xl",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.4xl.fontWeight}"
   },
   "hpe.text.4xl.maxWidth": {
     "$type": "string",
@@ -3001,7 +3074,8 @@ export default {
       "text",
       "4xl",
       "maxWidth"
-    ]
+    ],
+    "key": "{text.4xl.maxWidth}"
   },
   "hpe.text.5xl.fontSize": {
     "$type": "number",
@@ -3042,7 +3116,8 @@ export default {
       "text",
       "5xl",
       "fontSize"
-    ]
+    ],
+    "key": "{text.5xl.fontSize}"
   },
   "hpe.text.5xl.lineHeight": {
     "$type": "number",
@@ -3083,7 +3158,8 @@ export default {
       "text",
       "5xl",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.5xl.lineHeight}"
   },
   "hpe.text.5xl.fontWeight": {
     "$type": "number",
@@ -3124,7 +3200,8 @@ export default {
       "text",
       "5xl",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.5xl.fontWeight}"
   },
   "hpe.text.5xl.maxWidth": {
     "$type": "string",
@@ -3165,7 +3242,8 @@ export default {
       "text",
       "5xl",
       "maxWidth"
-    ]
+    ],
+    "key": "{text.5xl.maxWidth}"
   },
   "hpe.text.6xl.fontSize": {
     "$type": "number",
@@ -3206,7 +3284,8 @@ export default {
       "text",
       "6xl",
       "fontSize"
-    ]
+    ],
+    "key": "{text.6xl.fontSize}"
   },
   "hpe.text.6xl.lineHeight": {
     "$type": "number",
@@ -3247,7 +3326,8 @@ export default {
       "text",
       "6xl",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.6xl.lineHeight}"
   },
   "hpe.text.6xl.fontWeight": {
     "$type": "number",
@@ -3288,7 +3368,8 @@ export default {
       "text",
       "6xl",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.6xl.fontWeight}"
   },
   "hpe.text.6xl.maxWidth": {
     "$type": "string",
@@ -3329,7 +3410,8 @@ export default {
       "text",
       "6xl",
       "maxWidth"
-    ]
+    ],
+    "key": "{text.6xl.maxWidth}"
   },
   "hpe.heading.xlarge.fontWeight": {
     "$type": "number",
@@ -3370,7 +3452,8 @@ export default {
       "heading",
       "xlarge",
       "fontWeight"
-    ]
+    ],
+    "key": "{heading.xlarge.fontWeight}"
   },
   "hpe.heading.xlarge.fontSize": {
     "$type": "number",
@@ -3411,7 +3494,8 @@ export default {
       "heading",
       "xlarge",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.xlarge.fontSize}"
   },
   "hpe.heading.xlarge.lineHeight": {
     "$type": "number",
@@ -3452,7 +3536,8 @@ export default {
       "heading",
       "xlarge",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.xlarge.lineHeight}"
   },
   "hpe.heading.large.fontWeight": {
     "$type": "number",
@@ -3493,7 +3578,8 @@ export default {
       "heading",
       "large",
       "fontWeight"
-    ]
+    ],
+    "key": "{heading.large.fontWeight}"
   },
   "hpe.heading.large.fontSize": {
     "$type": "number",
@@ -3534,7 +3620,8 @@ export default {
       "heading",
       "large",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.large.fontSize}"
   },
   "hpe.heading.large.lineHeight": {
     "$type": "number",
@@ -3575,7 +3662,8 @@ export default {
       "heading",
       "large",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.large.lineHeight}"
   },
   "hpe.heading.medium.fontSize": {
     "$type": "number",
@@ -3616,7 +3704,8 @@ export default {
       "heading",
       "medium",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.medium.fontSize}"
   },
   "hpe.heading.medium.lineHeight": {
     "$type": "number",
@@ -3657,7 +3746,8 @@ export default {
       "heading",
       "medium",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.medium.lineHeight}"
   },
   "hpe.heading.medium.fontWeight": {
     "$type": "number",
@@ -3698,7 +3788,8 @@ export default {
       "heading",
       "medium",
       "fontWeight"
-    ]
+    ],
+    "key": "{heading.medium.fontWeight}"
   },
   "hpe.heading.small.fontSize": {
     "$type": "number",
@@ -3739,7 +3830,8 @@ export default {
       "heading",
       "small",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.small.fontSize}"
   },
   "hpe.heading.small.lineHeight": {
     "$type": "number",
@@ -3780,7 +3872,8 @@ export default {
       "heading",
       "small",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.small.lineHeight}"
   },
   "hpe.heading.small.fontWeight": {
     "$type": "number",
@@ -3821,7 +3914,8 @@ export default {
       "heading",
       "small",
       "fontWeight"
-    ]
+    ],
+    "key": "{heading.small.fontWeight}"
   },
   "hpe.heading.xsmall.fontSize": {
     "$type": "number",
@@ -3862,7 +3956,8 @@ export default {
       "heading",
       "xsmall",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.xsmall.fontSize}"
   },
   "hpe.heading.xsmall.lineHeight": {
     "$type": "number",
@@ -3903,7 +3998,8 @@ export default {
       "heading",
       "xsmall",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.xsmall.lineHeight}"
   },
   "hpe.heading.xsmall.fontWeight": {
     "$type": "number",
@@ -3944,7 +4040,8 @@ export default {
       "heading",
       "xsmall",
       "fontWeight"
-    ]
+    ],
+    "key": "{heading.xsmall.fontWeight}"
   },
   "hpe.heading.xxsmall.fontSize": {
     "$type": "number",
@@ -3985,7 +4082,8 @@ export default {
       "heading",
       "xxsmall",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.xxsmall.fontSize}"
   },
   "hpe.heading.xxsmall.lineHeight": {
     "$type": "number",
@@ -4026,7 +4124,8 @@ export default {
       "heading",
       "xxsmall",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.xxsmall.lineHeight}"
   },
   "hpe.heading.xxsmall.fontWeight": {
     "$type": "number",
@@ -4067,6 +4166,7 @@ export default {
       "heading",
       "xxsmall",
       "fontWeight"
-    ]
+    ],
+    "key": "{heading.xxsmall.fontWeight}"
   }
 }

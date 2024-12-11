@@ -142,6 +142,8 @@
   --hpe-form-field-input-group-item-read-only-border-color: var(--hpe-color-transparent);
   --hpe-form-field-input-group-item-disabled-background: var(--hpe-color-transparent);
   --hpe-form-field-input-group-item-disabled-border-color: var(--hpe-color-transparent);
+  --hpe-form-field-input-container-enabled-background: var(--hpe-color-transparent);
+  --hpe-form-field-input-container-hover-background: var(--hpe-color-transparent);
   --hpe-form-field-input-container-focus-background: var(--hpe-color-transparent);
   --hpe-footer-cell-font-weight: var(--hpe-font-weight-medium);
   --hpe-footer-cell-padding-top: var(--hpe-data-cell-padding-bottom); /* This intentionally uses paddingBottom because the border side is switched from dataCell. */
@@ -416,12 +418,11 @@
   --hpe-form-field-medium-info-line-height: var(--hpe-text-xsmall-line-height);
   --hpe-form-field-medium-error-font-size: var(--hpe-text-xsmall-font-size);
   --hpe-form-field-medium-error-line-height: var(--hpe-text-xsmall-line-height);
+  --hpe-form-field-input-group-container-enabled-background: var(--hpe-form-field-input-container-enabled-background);
   --hpe-form-field-input-group-container-disabled-background: var(--hpe-color-background-default);
   --hpe-form-field-input-group-container-disabled-border-color: var(--hpe-color-border-disabled);
   --hpe-form-field-input-group-item-status-critical-background: var(--hpe-color-background-critical);
-  --hpe-form-field-input-container-enabled-background: var(--hpe-color-background-default);
   --hpe-form-field-input-container-enabled-border-color: var(--hpe-color-border-default);
-  --hpe-form-field-input-container-hover-background: var(--hpe-color-background-default);
   --hpe-form-field-input-container-hover-border-color: var(--hpe-color-border-default);
   --hpe-form-field-input-container-focus-border-color: var(--hpe-color-border-default);
   --hpe-form-field-input-container-read-only-background: var(--hpe-color-background-back);
@@ -684,8 +685,8 @@
   --hpe-form-field-medium-placeholder-line-height: var(--hpe-element-medium-line-height);
   --hpe-form-field-medium-value-font-size: var(--hpe-element-medium-font-size);
   --hpe-form-field-medium-value-line-height: var(--hpe-element-medium-line-height);
-  --hpe-form-field-input-group-container-enabled-background: var(--hpe-form-field-input-container-enabled-background);
   --hpe-form-field-input-group-container-enabled-border-color: var(--hpe-form-field-input-container-enabled-border-color);
+  --hpe-form-field-input-group-container-hover-background: var(--hpe-form-field-input-group-container-enabled-background);
   --hpe-form-field-input-group-container-read-only-background: var(--hpe-form-field-input-container-read-only-background);
   --hpe-form-field-input-group-container-read-only-border-color: var(--hpe-form-field-input-container-read-only-border-color);
   --hpe-form-field-input-group-item-hover-background: var(--hpe-color-background-hover);
@@ -844,7 +845,6 @@
   --hpe-data-cell-primary-line-height: var(--hpe-data-cell-line-height);
   --hpe-header-cell-font-size: var(--hpe-data-cell-font-size);
   --hpe-header-cell-line-height: var(--hpe-data-cell-line-height);
-  --hpe-form-field-input-group-container-hover-background: var(--hpe-form-field-input-group-container-enabled-background);
   --hpe-form-field-input-group-container-hover-border-color: var(--hpe-form-field-input-group-container-enabled-border-color);
   --hpe-footer-cell-font-size: var(--hpe-data-cell-font-size);
   --hpe-footer-cell-line-height: var(--hpe-data-cell-line-height);

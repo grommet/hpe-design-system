@@ -44,7 +44,8 @@ export default {
       "color",
       "background",
       "default"
-    ]
+    ],
+    "key": "{color.background.default}"
   },
   "hpe.color.background.hover": {
     "$type": "color",
@@ -87,7 +88,8 @@ export default {
       "color",
       "background",
       "hover"
-    ]
+    ],
+    "key": "{color.background.hover}"
   },
   "hpe.color.background.active": {
     "$type": "color",
@@ -130,7 +132,8 @@ export default {
       "color",
       "background",
       "active"
-    ]
+    ],
+    "key": "{color.background.active}"
   },
   "hpe.color.background.disabled": {
     "$type": "color",
@@ -173,7 +176,8 @@ export default {
       "color",
       "background",
       "disabled"
-    ]
+    ],
+    "key": "{color.background.disabled}"
   },
   "hpe.color.background.back": {
     "$type": "color",
@@ -216,7 +220,8 @@ export default {
       "color",
       "background",
       "back"
-    ]
+    ],
+    "key": "{color.background.back}"
   },
   "hpe.color.background.front": {
     "$type": "color",
@@ -259,7 +264,8 @@ export default {
       "color",
       "background",
       "front"
-    ]
+    ],
+    "key": "{color.background.front}"
   },
   "hpe.color.background.floating": {
     "$type": "color",
@@ -302,7 +308,8 @@ export default {
       "color",
       "background",
       "floating"
-    ]
+    ],
+    "key": "{color.background.floating}"
   },
   "hpe.color.background.screenOverlay": {
     "$type": "color",
@@ -345,7 +352,8 @@ export default {
       "color",
       "background",
       "screenOverlay"
-    ]
+    ],
+    "key": "{color.background.screenOverlay}"
   },
   "hpe.color.background.contrast": {
     "$type": "color",
@@ -390,7 +398,8 @@ export default {
       "color",
       "background",
       "contrast"
-    ]
+    ],
+    "key": "{color.background.contrast}"
   },
   "hpe.color.background.critical": {
     "$type": "color",
@@ -433,7 +442,8 @@ export default {
       "color",
       "background",
       "critical"
-    ]
+    ],
+    "key": "{color.background.critical}"
   },
   "hpe.color.background.ok": {
     "$type": "color",
@@ -476,7 +486,8 @@ export default {
       "color",
       "background",
       "ok"
-    ]
+    ],
+    "key": "{color.background.ok}"
   },
   "hpe.color.background.primary.default": {
     "$type": "color",
@@ -521,7 +532,8 @@ export default {
       "background",
       "primary",
       "default"
-    ]
+    ],
+    "key": "{color.background.primary.default}"
   },
   "hpe.color.background.primary.hover": {
     "$type": "color",
@@ -566,7 +578,8 @@ export default {
       "background",
       "primary",
       "hover"
-    ]
+    ],
+    "key": "{color.background.primary.hover}"
   },
   "hpe.color.background.selected.strong.enabled": {
     "$type": "color",
@@ -613,7 +626,8 @@ export default {
       "selected",
       "strong",
       "enabled"
-    ]
+    ],
+    "key": "{color.background.selected.strong.enabled}"
   },
   "hpe.color.background.selected.strong.hover": {
     "$type": "color",
@@ -660,7 +674,8 @@ export default {
       "selected",
       "strong",
       "hover"
-    ]
+    ],
+    "key": "{color.background.selected.strong.hover}"
   },
   "hpe.color.background.selected.weak.enabled": {
     "$type": "color",
@@ -707,7 +722,8 @@ export default {
       "selected",
       "weak",
       "enabled"
-    ]
+    ],
+    "key": "{color.background.selected.weak.enabled}"
   },
   "hpe.color.background.selected.weak.hover": {
     "$type": "color",
@@ -754,7 +770,8 @@ export default {
       "selected",
       "weak",
       "hover"
-    ]
+    ],
+    "key": "{color.background.selected.weak.hover}"
   },
   "hpe.color.background.unknown": {
     "$type": "color",
@@ -797,7 +814,8 @@ export default {
       "color",
       "background",
       "unknown"
-    ]
+    ],
+    "key": "{color.background.unknown}"
   },
   "hpe.color.background.warning": {
     "$type": "color",
@@ -840,7 +858,8 @@ export default {
       "color",
       "background",
       "warning"
-    ]
+    ],
+    "key": "{color.background.warning}"
   },
   "hpe.color.background.info": {
     "$type": "color",
@@ -883,7 +902,8 @@ export default {
       "color",
       "background",
       "info"
-    ]
+    ],
+    "key": "{color.background.info}"
   },
   "hpe.color.background.neutral.xstrong": {
     "$type": "color",
@@ -926,7 +946,8 @@ export default {
       "background",
       "neutral",
       "xstrong"
-    ]
+    ],
+    "key": "{color.background.neutral.xstrong}"
   },
   "hpe.color.border.strong": {
     "$type": "color",
@@ -967,7 +988,8 @@ export default {
       "color",
       "border",
       "strong"
-    ]
+    ],
+    "key": "{color.border.strong}"
   },
   "hpe.color.border.default": {
     "$type": "color",
@@ -1010,7 +1032,8 @@ export default {
       "color",
       "border",
       "default"
-    ]
+    ],
+    "key": "{color.border.default}"
   },
   "hpe.color.border.weak": {
     "$type": "color",
@@ -1053,7 +1076,8 @@ export default {
       "color",
       "border",
       "weak"
-    ]
+    ],
+    "key": "{color.border.weak}"
   },
   "hpe.color.border.disabled": {
     "$type": "color",
@@ -1096,7 +1120,8 @@ export default {
       "color",
       "border",
       "disabled"
-    ]
+    ],
+    "key": "{color.border.disabled}"
   },
   "hpe.color.border.selected": {
     "$type": "color",
@@ -1139,7 +1164,8 @@ export default {
       "color",
       "border",
       "selected"
-    ]
+    ],
+    "key": "{color.border.selected}"
   },
   "hpe.color.border.critical": {
     "$type": "color",
@@ -1180,7 +1206,8 @@ export default {
       "color",
       "border",
       "critical"
-    ]
+    ],
+    "key": "{color.border.critical}"
   },
   "hpe.color.border.info": {
     "$type": "color",
@@ -1225,7 +1252,8 @@ export default {
       "color",
       "border",
       "info"
-    ]
+    ],
+    "key": "{color.border.info}"
   },
   "hpe.color.border.ok": {
     "$type": "color",
@@ -1270,7 +1298,8 @@ export default {
       "color",
       "border",
       "ok"
-    ]
+    ],
+    "key": "{color.border.ok}"
   },
   "hpe.color.border.warning": {
     "$type": "color",
@@ -1315,7 +1344,8 @@ export default {
       "color",
       "border",
       "warning"
-    ]
+    ],
+    "key": "{color.border.warning}"
   },
   "hpe.color.border.unknown": {
     "$type": "color",
@@ -1360,7 +1390,8 @@ export default {
       "color",
       "border",
       "unknown"
-    ]
+    ],
+    "key": "{color.border.unknown}"
   },
   "hpe.color.text.default": {
     "$type": "color",
@@ -1401,7 +1432,8 @@ export default {
       "color",
       "text",
       "default"
-    ]
+    ],
+    "key": "{color.text.default}"
   },
   "hpe.color.text.strong": {
     "$type": "color",
@@ -1442,7 +1474,8 @@ export default {
       "color",
       "text",
       "strong"
-    ]
+    ],
+    "key": "{color.text.strong}"
   },
   "hpe.color.text.weak": {
     "$type": "color",
@@ -1483,7 +1516,8 @@ export default {
       "color",
       "text",
       "weak"
-    ]
+    ],
+    "key": "{color.text.weak}"
   },
   "hpe.color.text.xweak": {
     "$type": "color",
@@ -1524,7 +1558,8 @@ export default {
       "color",
       "text",
       "xweak"
-    ]
+    ],
+    "key": "{color.text.xweak}"
   },
   "hpe.color.text.placeholder": {
     "$type": "color",
@@ -1565,7 +1600,8 @@ export default {
       "color",
       "text",
       "placeholder"
-    ]
+    ],
+    "key": "{color.text.placeholder}"
   },
   "hpe.color.text.disabled": {
     "$type": "color",
@@ -1606,7 +1642,8 @@ export default {
       "color",
       "text",
       "disabled"
-    ]
+    ],
+    "key": "{color.text.disabled}"
   },
   "hpe.color.text.onPrimary": {
     "$type": "color",
@@ -1647,7 +1684,8 @@ export default {
       "color",
       "text",
       "onPrimary"
-    ]
+    ],
+    "key": "{color.text.onPrimary}"
   },
   "hpe.color.text.brand": {
     "$type": "color",
@@ -1688,7 +1726,8 @@ export default {
       "color",
       "text",
       "brand"
-    ]
+    ],
+    "key": "{color.text.brand}"
   },
   "hpe.color.text.heading.default": {
     "$type": "color",
@@ -1731,7 +1770,8 @@ export default {
       "text",
       "heading",
       "default"
-    ]
+    ],
+    "key": "{color.text.heading.default}"
   },
   "hpe.color.text.primary": {
     "$type": "color",
@@ -1772,7 +1812,8 @@ export default {
       "color",
       "text",
       "primary"
-    ]
+    ],
+    "key": "{color.text.primary}"
   },
   "hpe.color.text.onStrong.default": {
     "$type": "color",
@@ -1815,7 +1856,8 @@ export default {
       "text",
       "onStrong",
       "default"
-    ]
+    ],
+    "key": "{color.text.onStrong.default}"
   },
   "hpe.color.text.critical": {
     "$type": "color",
@@ -1860,7 +1902,8 @@ export default {
       "color",
       "text",
       "critical"
-    ]
+    ],
+    "key": "{color.text.critical}"
   },
   "hpe.color.text.info": {
     "$type": "color",
@@ -1905,7 +1948,8 @@ export default {
       "color",
       "text",
       "info"
-    ]
+    ],
+    "key": "{color.text.info}"
   },
   "hpe.color.text.ok": {
     "$type": "color",
@@ -1950,7 +1994,8 @@ export default {
       "color",
       "text",
       "ok"
-    ]
+    ],
+    "key": "{color.text.ok}"
   },
   "hpe.color.text.warning": {
     "$type": "color",
@@ -1995,7 +2040,8 @@ export default {
       "color",
       "text",
       "warning"
-    ]
+    ],
+    "key": "{color.text.warning}"
   },
   "hpe.color.text.unknown": {
     "$type": "color",
@@ -2040,7 +2086,8 @@ export default {
       "color",
       "text",
       "unknown"
-    ]
+    ],
+    "key": "{color.text.unknown}"
   },
   "hpe.color.text.onSelectedStrong": {
     "$type": "color",
@@ -2081,7 +2128,8 @@ export default {
       "color",
       "text",
       "onSelectedStrong"
-    ]
+    ],
+    "key": "{color.text.onSelectedStrong}"
   },
   "hpe.color.text.onSelected": {
     "$type": "color",
@@ -2122,7 +2170,8 @@ export default {
       "color",
       "text",
       "onSelected"
-    ]
+    ],
+    "key": "{color.text.onSelected}"
   },
   "hpe.color.text.onCritical.strong": {
     "$type": "color",
@@ -2165,7 +2214,8 @@ export default {
       "text",
       "onCritical",
       "strong"
-    ]
+    ],
+    "key": "{color.text.onCritical.strong}"
   },
   "hpe.color.text.onCritical.default": {
     "$type": "color",
@@ -2208,7 +2258,8 @@ export default {
       "text",
       "onCritical",
       "default"
-    ]
+    ],
+    "key": "{color.text.onCritical.default}"
   },
   "hpe.color.text.onInfo.strong": {
     "$type": "color",
@@ -2251,7 +2302,8 @@ export default {
       "text",
       "onInfo",
       "strong"
-    ]
+    ],
+    "key": "{color.text.onInfo.strong}"
   },
   "hpe.color.text.onInfo.default": {
     "$type": "color",
@@ -2294,7 +2346,8 @@ export default {
       "text",
       "onInfo",
       "default"
-    ]
+    ],
+    "key": "{color.text.onInfo.default}"
   },
   "hpe.color.text.onOk.strong": {
     "$type": "color",
@@ -2337,7 +2390,8 @@ export default {
       "text",
       "onOk",
       "strong"
-    ]
+    ],
+    "key": "{color.text.onOk.strong}"
   },
   "hpe.color.text.onOk.default": {
     "$type": "color",
@@ -2380,7 +2434,8 @@ export default {
       "text",
       "onOk",
       "default"
-    ]
+    ],
+    "key": "{color.text.onOk.default}"
   },
   "hpe.color.text.onUnknown.strong": {
     "$type": "color",
@@ -2423,7 +2478,8 @@ export default {
       "text",
       "onUnknown",
       "strong"
-    ]
+    ],
+    "key": "{color.text.onUnknown.strong}"
   },
   "hpe.color.text.onUnknown.default": {
     "$type": "color",
@@ -2466,7 +2522,8 @@ export default {
       "text",
       "onUnknown",
       "default"
-    ]
+    ],
+    "key": "{color.text.onUnknown.default}"
   },
   "hpe.color.text.onWarning.strong": {
     "$type": "color",
@@ -2509,7 +2566,8 @@ export default {
       "text",
       "onWarning",
       "strong"
-    ]
+    ],
+    "key": "{color.text.onWarning.strong}"
   },
   "hpe.color.text.onWarning.default": {
     "$type": "color",
@@ -2552,7 +2610,8 @@ export default {
       "text",
       "onWarning",
       "default"
-    ]
+    ],
+    "key": "{color.text.onWarning.default}"
   },
   "hpe.color.icon.default": {
     "$type": "color",
@@ -2597,7 +2656,8 @@ export default {
       "color",
       "icon",
       "default"
-    ]
+    ],
+    "key": "{color.icon.default}"
   },
   "hpe.color.icon.strong": {
     "$type": "color",
@@ -2642,7 +2702,8 @@ export default {
       "color",
       "icon",
       "strong"
-    ]
+    ],
+    "key": "{color.icon.strong}"
   },
   "hpe.color.icon.weak": {
     "$type": "color",
@@ -2687,7 +2748,8 @@ export default {
       "color",
       "icon",
       "weak"
-    ]
+    ],
+    "key": "{color.icon.weak}"
   },
   "hpe.color.icon.xweak": {
     "$type": "color",
@@ -2732,7 +2794,8 @@ export default {
       "color",
       "icon",
       "xweak"
-    ]
+    ],
+    "key": "{color.icon.xweak}"
   },
   "hpe.color.icon.disabled": {
     "$type": "color",
@@ -2777,7 +2840,8 @@ export default {
       "color",
       "icon",
       "disabled"
-    ]
+    ],
+    "key": "{color.icon.disabled}"
   },
   "hpe.color.icon.critical": {
     "$type": "color",
@@ -2822,7 +2886,8 @@ export default {
       "color",
       "icon",
       "critical"
-    ]
+    ],
+    "key": "{color.icon.critical}"
   },
   "hpe.color.icon.info": {
     "$type": "color",
@@ -2867,7 +2932,8 @@ export default {
       "color",
       "icon",
       "info"
-    ]
+    ],
+    "key": "{color.icon.info}"
   },
   "hpe.color.icon.ok": {
     "$type": "color",
@@ -2912,7 +2978,8 @@ export default {
       "color",
       "icon",
       "ok"
-    ]
+    ],
+    "key": "{color.icon.ok}"
   },
   "hpe.color.icon.warning": {
     "$type": "color",
@@ -2957,7 +3024,8 @@ export default {
       "color",
       "icon",
       "warning"
-    ]
+    ],
+    "key": "{color.icon.warning}"
   },
   "hpe.color.icon.unknown": {
     "$type": "color",
@@ -3002,7 +3070,8 @@ export default {
       "color",
       "icon",
       "unknown"
-    ]
+    ],
+    "key": "{color.icon.unknown}"
   },
   "hpe.color.icon.primary": {
     "$type": "color",
@@ -3047,7 +3116,8 @@ export default {
       "color",
       "icon",
       "primary"
-    ]
+    ],
+    "key": "{color.icon.primary}"
   },
   "hpe.color.icon.onPrimary": {
     "$type": "color",
@@ -3092,7 +3162,8 @@ export default {
       "color",
       "icon",
       "onPrimary"
-    ]
+    ],
+    "key": "{color.icon.onPrimary}"
   },
   "hpe.color.icon.brand": {
     "$type": "color",
@@ -3137,7 +3208,8 @@ export default {
       "color",
       "icon",
       "brand"
-    ]
+    ],
+    "key": "{color.icon.brand}"
   },
   "hpe.color.icon.onSelectedStrong": {
     "$type": "color",
@@ -3180,7 +3252,8 @@ export default {
       "color",
       "icon",
       "onSelectedStrong"
-    ]
+    ],
+    "key": "{color.icon.onSelectedStrong}"
   },
   "hpe.color.icon.onSelected": {
     "$type": "color",
@@ -3223,7 +3296,8 @@ export default {
       "color",
       "icon",
       "onSelected"
-    ]
+    ],
+    "key": "{color.icon.onSelected}"
   },
   "hpe.color.decorative.brand": {
     "$type": "color",
@@ -3264,7 +3338,8 @@ export default {
       "color",
       "decorative",
       "brand"
-    ]
+    ],
+    "key": "{color.decorative.brand}"
   },
   "hpe.color.decorative.green": {
     "$type": "color",
@@ -3305,7 +3380,8 @@ export default {
       "color",
       "decorative",
       "green"
-    ]
+    ],
+    "key": "{color.decorative.green}"
   },
   "hpe.color.decorative.purple": {
     "$type": "color",
@@ -3346,7 +3422,8 @@ export default {
       "color",
       "decorative",
       "purple"
-    ]
+    ],
+    "key": "{color.decorative.purple}"
   },
   "hpe.color.decorative.teal": {
     "$type": "color",
@@ -3387,7 +3464,8 @@ export default {
       "color",
       "decorative",
       "teal"
-    ]
+    ],
+    "key": "{color.decorative.teal}"
   },
   "hpe.color.decorative.blue": {
     "$type": "color",
@@ -3428,7 +3506,8 @@ export default {
       "color",
       "decorative",
       "blue"
-    ]
+    ],
+    "key": "{color.decorative.blue}"
   },
   "hpe.color.decorative.red": {
     "$type": "color",
@@ -3469,7 +3548,8 @@ export default {
       "color",
       "decorative",
       "red"
-    ]
+    ],
+    "key": "{color.decorative.red}"
   },
   "hpe.color.decorative.orange": {
     "$type": "color",
@@ -3510,7 +3590,8 @@ export default {
       "color",
       "decorative",
       "orange"
-    ]
+    ],
+    "key": "{color.decorative.orange}"
   },
   "hpe.color.decorative.yellow": {
     "$type": "color",
@@ -3551,7 +3632,8 @@ export default {
       "color",
       "decorative",
       "yellow"
-    ]
+    ],
+    "key": "{color.decorative.yellow}"
   },
   "hpe.color.decorative.purple!": {
     "$type": "color",
@@ -3592,7 +3674,8 @@ export default {
       "color",
       "decorative",
       "purple!"
-    ]
+    ],
+    "key": "{color.decorative.purple!}"
   },
   "hpe.color.decorative.green!": {
     "$type": "color",
@@ -3633,7 +3716,8 @@ export default {
       "color",
       "decorative",
       "green!"
-    ]
+    ],
+    "key": "{color.decorative.green!}"
   },
   "hpe.color.decorative.teal!": {
     "$type": "color",
@@ -3674,7 +3758,8 @@ export default {
       "color",
       "decorative",
       "teal!"
-    ]
+    ],
+    "key": "{color.decorative.teal!}"
   },
   "hpe.color.decorative.blue!": {
     "$type": "color",
@@ -3715,7 +3800,8 @@ export default {
       "color",
       "decorative",
       "blue!"
-    ]
+    ],
+    "key": "{color.decorative.blue!}"
   },
   "hpe.color.decorative.red!": {
     "$type": "color",
@@ -3756,7 +3842,8 @@ export default {
       "color",
       "decorative",
       "red!"
-    ]
+    ],
+    "key": "{color.decorative.red!}"
   },
   "hpe.color.decorative.orange!": {
     "$type": "color",
@@ -3797,7 +3884,8 @@ export default {
       "color",
       "decorative",
       "orange!"
-    ]
+    ],
+    "key": "{color.decorative.orange!}"
   },
   "hpe.color.decorative.yellow!": {
     "$type": "color",
@@ -3838,7 +3926,8 @@ export default {
       "color",
       "decorative",
       "yellow!"
-    ]
+    ],
+    "key": "{color.decorative.yellow!}"
   },
   "hpe.color.dataVis.categorical.10": {
     "$type": "color",
@@ -3881,7 +3970,8 @@ export default {
       "dataVis",
       "categorical",
       "10"
-    ]
+    ],
+    "key": "{color.dataVis.categorical.10}"
   },
   "hpe.color.dataVis.categorical.20": {
     "$type": "color",
@@ -3924,7 +4014,8 @@ export default {
       "dataVis",
       "categorical",
       "20"
-    ]
+    ],
+    "key": "{color.dataVis.categorical.20}"
   },
   "hpe.color.dataVis.categorical.30": {
     "$type": "color",
@@ -3967,7 +4058,8 @@ export default {
       "dataVis",
       "categorical",
       "30"
-    ]
+    ],
+    "key": "{color.dataVis.categorical.30}"
   },
   "hpe.color.dataVis.categorical.40": {
     "$type": "color",
@@ -4010,7 +4102,8 @@ export default {
       "dataVis",
       "categorical",
       "40"
-    ]
+    ],
+    "key": "{color.dataVis.categorical.40}"
   },
   "hpe.color.dataVis.categorical.50": {
     "$type": "color",
@@ -4053,7 +4146,8 @@ export default {
       "dataVis",
       "categorical",
       "50"
-    ]
+    ],
+    "key": "{color.dataVis.categorical.50}"
   },
   "hpe.color.dataVis.categorical.60": {
     "$type": "color",
@@ -4096,7 +4190,8 @@ export default {
       "dataVis",
       "categorical",
       "60"
-    ]
+    ],
+    "key": "{color.dataVis.categorical.60}"
   },
   "hpe.color.dataVis.categorical.70": {
     "$type": "color",
@@ -4139,7 +4234,8 @@ export default {
       "dataVis",
       "categorical",
       "70"
-    ]
+    ],
+    "key": "{color.dataVis.categorical.70}"
   },
   "hpe.color.dataVis.categorical.80": {
     "$type": "color",
@@ -4182,7 +4278,8 @@ export default {
       "dataVis",
       "categorical",
       "80"
-    ]
+    ],
+    "key": "{color.dataVis.categorical.80}"
   },
   "hpe.color.transparent": {
     "$type": "color",
@@ -4221,7 +4318,8 @@ export default {
     "path": [
       "color",
       "transparent"
-    ]
+    ],
+    "key": "{color.transparent}"
   },
   "hpe.color.focus": {
     "$type": "color",
@@ -4260,7 +4358,8 @@ export default {
     "path": [
       "color",
       "focus"
-    ]
+    ],
+    "key": "{color.focus}"
   },
   "hpe.color.foreground.primary": {
     "$type": "color",
@@ -4305,7 +4404,8 @@ export default {
       "color",
       "foreground",
       "primary"
-    ]
+    ],
+    "key": "{color.foreground.primary}"
   },
   "hpe.color.foreground.critical": {
     "$type": "color",
@@ -4350,7 +4450,8 @@ export default {
       "color",
       "foreground",
       "critical"
-    ]
+    ],
+    "key": "{color.foreground.critical}"
   },
   "hpe.color.foreground.warning": {
     "$type": "color",
@@ -4395,7 +4496,8 @@ export default {
       "color",
       "foreground",
       "warning"
-    ]
+    ],
+    "key": "{color.foreground.warning}"
   },
   "hpe.color.foreground.unknown": {
     "$type": "color",
@@ -4440,7 +4542,8 @@ export default {
       "color",
       "foreground",
       "unknown"
-    ]
+    ],
+    "key": "{color.foreground.unknown}"
   },
   "hpe.shadow.small": {
     "$type": "shadow",
@@ -4487,7 +4590,8 @@ export default {
     "path": [
       "shadow",
       "small"
-    ]
+    ],
+    "key": "{shadow.small}"
   },
   "hpe.shadow.medium": {
     "$type": "shadow",
@@ -4534,7 +4638,8 @@ export default {
     "path": [
       "shadow",
       "medium"
-    ]
+    ],
+    "key": "{shadow.medium}"
   },
   "hpe.shadow.large": {
     "$type": "shadow",
@@ -4581,6 +4686,7 @@ export default {
     "path": [
       "shadow",
       "large"
-    ]
+    ],
+    "key": "{shadow.large}"
   }
 }

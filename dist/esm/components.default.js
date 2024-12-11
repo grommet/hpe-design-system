@@ -1130,11 +1130,11 @@ export default {
         "group": {
           "container": {
             "enabled": {
-              "background": "background-default",
+              "background": "transparent",
               "borderColor": "border-default"
             },
             "hover": {
-              "background": "background-default",
+              "background": "transparent",
               "borderColor": "border-default"
             },
             "readOnly": {
@@ -1173,11 +1173,11 @@ export default {
         },
         "container": {
           "enabled": {
-            "background": "background-default",
+            "background": "transparent",
             "borderColor": "border-default"
           },
           "hover": {
-            "background": "background-default",
+            "background": "transparent",
             "borderColor": "border-default"
           },
           "focus": {

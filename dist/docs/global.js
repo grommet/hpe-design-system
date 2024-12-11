@@ -44,7 +44,8 @@ export default {
     "path": [
       "focusIndicator",
       "outline"
-    ]
+    ],
+    "key": "{focusIndicator.outline}"
   },
   "hpe.focusIndicator.outlineOffset": {
     "$type": "number",
@@ -79,7 +80,8 @@ export default {
     "path": [
       "focusIndicator",
       "outlineOffset"
-    ]
+    ],
+    "key": "{focusIndicator.outlineOffset}"
   },
   "hpe.focusIndicator.boxShadow": {
     "$type": "shadow",
@@ -126,7 +128,8 @@ export default {
     "path": [
       "focusIndicator",
       "boxShadow"
-    ]
+    ],
+    "key": "{focusIndicator.boxShadow}"
   },
   "hpe.fontStack.primary": {
     "$type": "fontFamily",
@@ -165,7 +168,8 @@ export default {
     "path": [
       "fontStack",
       "primary"
-    ]
+    ],
+    "key": "{fontStack.primary}"
   },
   "hpe.fontStack.code": {
     "$type": "fontFamily",
@@ -204,7 +208,8 @@ export default {
     "path": [
       "fontStack",
       "code"
-    ]
+    ],
+    "key": "{fontStack.code}"
   },
   "hpe.breakpoint.xsmall": {
     "$type": "number",
@@ -243,7 +248,8 @@ export default {
     "path": [
       "breakpoint",
       "xsmall"
-    ]
+    ],
+    "key": "{breakpoint.xsmall}"
   },
   "hpe.breakpoint.small": {
     "$type": "number",
@@ -282,7 +288,8 @@ export default {
     "path": [
       "breakpoint",
       "small"
-    ]
+    ],
+    "key": "{breakpoint.small}"
   },
   "hpe.breakpoint.medium": {
     "$type": "number",
@@ -321,7 +328,8 @@ export default {
     "path": [
       "breakpoint",
       "medium"
-    ]
+    ],
+    "key": "{breakpoint.medium}"
   },
   "hpe.breakpoint.large": {
     "$type": "number",
@@ -360,7 +368,8 @@ export default {
     "path": [
       "breakpoint",
       "large"
-    ]
+    ],
+    "key": "{breakpoint.large}"
   },
   "hpe.fontWeight.thin": {
     "$type": "number",
@@ -399,7 +408,8 @@ export default {
     "path": [
       "fontWeight",
       "thin"
-    ]
+    ],
+    "key": "{fontWeight.thin}"
   },
   "hpe.fontWeight.light": {
     "$type": "number",
@@ -438,7 +448,8 @@ export default {
     "path": [
       "fontWeight",
       "light"
-    ]
+    ],
+    "key": "{fontWeight.light}"
   },
   "hpe.fontWeight.regular": {
     "$type": "number",
@@ -477,7 +488,8 @@ export default {
     "path": [
       "fontWeight",
       "regular"
-    ]
+    ],
+    "key": "{fontWeight.regular}"
   },
   "hpe.fontWeight.medium": {
     "$type": "number",
@@ -516,7 +528,8 @@ export default {
     "path": [
       "fontWeight",
       "medium"
-    ]
+    ],
+    "key": "{fontWeight.medium}"
   },
   "hpe.fontWeight.semibold": {
     "$type": "number",
@@ -555,7 +568,8 @@ export default {
     "path": [
       "fontWeight",
       "semibold"
-    ]
+    ],
+    "key": "{fontWeight.semibold}"
   },
   "hpe.fontWeight.bold": {
     "$type": "number",
@@ -594,7 +608,8 @@ export default {
     "path": [
       "fontWeight",
       "bold"
-    ]
+    ],
+    "key": "{fontWeight.bold}"
   },
   "hpe.fontWeight.black": {
     "$type": "number",
@@ -633,6 +648,7 @@ export default {
     "path": [
       "fontWeight",
       "black"
-    ]
+    ],
+    "key": "{fontWeight.black}"
   }
 }

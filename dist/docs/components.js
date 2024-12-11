@@ -42,7 +42,8 @@ export default {
       "element",
       "xsmall",
       "minHeight"
-    ]
+    ],
+    "key": "{element.xsmall.minHeight}"
   },
   "hpe.element.xsmall.textToElementX": {
     "$type": "number",
@@ -83,7 +84,8 @@ export default {
       "element",
       "xsmall",
       "textToElementX"
-    ]
+    ],
+    "key": "{element.xsmall.textToElementX}"
   },
   "hpe.element.xsmall.textToIconX": {
     "$type": "number",
@@ -124,7 +126,8 @@ export default {
       "element",
       "xsmall",
       "textToIconX"
-    ]
+    ],
+    "key": "{element.xsmall.textToIconX}"
   },
   "hpe.element.xsmall.fontSize": {
     "$type": "number",
@@ -165,7 +168,8 @@ export default {
       "element",
       "xsmall",
       "fontSize"
-    ]
+    ],
+    "key": "{element.xsmall.fontSize}"
   },
   "hpe.element.xsmall.lineHeight": {
     "$type": "number",
@@ -206,7 +210,8 @@ export default {
       "element",
       "xsmall",
       "lineHeight"
-    ]
+    ],
+    "key": "{element.xsmall.lineHeight}"
   },
   "hpe.element.xsmall.borderWidth": {
     "$type": "number",
@@ -249,7 +254,8 @@ export default {
       "element",
       "xsmall",
       "borderWidth"
-    ]
+    ],
+    "key": "{element.xsmall.borderWidth}"
   },
   "hpe.element.xsmall.paddingY": {
     "$type": "number",
@@ -290,7 +296,8 @@ export default {
       "element",
       "xsmall",
       "paddingY"
-    ]
+    ],
+    "key": "{element.xsmall.paddingY}"
   },
   "hpe.element.xsmall.paddingX.narrow": {
     "$type": "number",
@@ -333,7 +340,8 @@ export default {
       "xsmall",
       "paddingX",
       "narrow"
-    ]
+    ],
+    "key": "{element.xsmall.paddingX.narrow}"
   },
   "hpe.element.xsmall.paddingX.default": {
     "$type": "number",
@@ -376,7 +384,8 @@ export default {
       "xsmall",
       "paddingX",
       "default"
-    ]
+    ],
+    "key": "{element.xsmall.paddingX.default}"
   },
   "hpe.element.xsmall.paddingX.wide": {
     "$type": "number",
@@ -419,7 +428,8 @@ export default {
       "xsmall",
       "paddingX",
       "wide"
-    ]
+    ],
+    "key": "{element.xsmall.paddingX.wide}"
   },
   "hpe.element.xsmall.icon.size": {
     "$type": "number",
@@ -462,7 +472,8 @@ export default {
       "xsmall",
       "icon",
       "size"
-    ]
+    ],
+    "key": "{element.xsmall.icon.size}"
   },
   "hpe.element.xsmall.width": {
     "$type": "number",
@@ -503,7 +514,8 @@ export default {
       "element",
       "xsmall",
       "width"
-    ]
+    ],
+    "key": "{element.xsmall.width}"
   },
   "hpe.element.xsmall.height": {
     "$type": "number",
@@ -544,7 +556,8 @@ export default {
       "element",
       "xsmall",
       "height"
-    ]
+    ],
+    "key": "{element.xsmall.height}"
   },
   "hpe.element.small.borderWidth": {
     "$type": "number",
@@ -587,7 +600,8 @@ export default {
       "element",
       "small",
       "borderWidth"
-    ]
+    ],
+    "key": "{element.small.borderWidth}"
   },
   "hpe.element.small.paddingY": {
     "$type": "number",
@@ -628,7 +642,8 @@ export default {
       "element",
       "small",
       "paddingY"
-    ]
+    ],
+    "key": "{element.small.paddingY}"
   },
   "hpe.element.small.fontSize": {
     "$type": "number",
@@ -669,7 +684,8 @@ export default {
       "element",
       "small",
       "fontSize"
-    ]
+    ],
+    "key": "{element.small.fontSize}"
   },
   "hpe.element.small.lineHeight": {
     "$type": "number",
@@ -710,7 +726,8 @@ export default {
       "element",
       "small",
       "lineHeight"
-    ]
+    ],
+    "key": "{element.small.lineHeight}"
   },
   "hpe.element.small.minHeight": {
     "$type": "number",
@@ -751,7 +768,8 @@ export default {
       "element",
       "small",
       "minHeight"
-    ]
+    ],
+    "key": "{element.small.minHeight}"
   },
   "hpe.element.small.width": {
     "$type": "number",
@@ -792,7 +810,8 @@ export default {
       "element",
       "small",
       "width"
-    ]
+    ],
+    "key": "{element.small.width}"
   },
   "hpe.element.small.height": {
     "$type": "number",
@@ -833,7 +852,8 @@ export default {
       "element",
       "small",
       "height"
-    ]
+    ],
+    "key": "{element.small.height}"
   },
   "hpe.element.small.textToElementX": {
     "$type": "number",
@@ -874,7 +894,8 @@ export default {
       "element",
       "small",
       "textToElementX"
-    ]
+    ],
+    "key": "{element.small.textToElementX}"
   },
   "hpe.element.small.textToIconX": {
     "$type": "number",
@@ -915,7 +936,8 @@ export default {
       "element",
       "small",
       "textToIconX"
-    ]
+    ],
+    "key": "{element.small.textToIconX}"
   },
   "hpe.element.small.paddingX.narrow": {
     "$type": "number",
@@ -958,7 +980,8 @@ export default {
       "small",
       "paddingX",
       "narrow"
-    ]
+    ],
+    "key": "{element.small.paddingX.narrow}"
   },
   "hpe.element.small.paddingX.default": {
     "$type": "number",
@@ -1001,7 +1024,8 @@ export default {
       "small",
       "paddingX",
       "default"
-    ]
+    ],
+    "key": "{element.small.paddingX.default}"
   },
   "hpe.element.small.paddingX.wide": {
     "$type": "number",
@@ -1044,7 +1068,8 @@ export default {
       "small",
       "paddingX",
       "wide"
-    ]
+    ],
+    "key": "{element.small.paddingX.wide}"
   },
   "hpe.element.small.icon.size": {
     "$type": "number",
@@ -1087,7 +1112,8 @@ export default {
       "small",
       "icon",
       "size"
-    ]
+    ],
+    "key": "{element.small.icon.size}"
   },
   "hpe.element.medium.fontSize": {
     "$type": "number",
@@ -1128,7 +1154,8 @@ export default {
       "element",
       "medium",
       "fontSize"
-    ]
+    ],
+    "key": "{element.medium.fontSize}"
   },
   "hpe.element.medium.lineHeight": {
     "$type": "number",
@@ -1169,7 +1196,8 @@ export default {
       "element",
       "medium",
       "lineHeight"
-    ]
+    ],
+    "key": "{element.medium.lineHeight}"
   },
   "hpe.element.medium.minHeight": {
     "$type": "number",
@@ -1210,7 +1238,8 @@ export default {
       "element",
       "medium",
       "minHeight"
-    ]
+    ],
+    "key": "{element.medium.minHeight}"
   },
   "hpe.element.medium.width": {
     "$type": "number",
@@ -1251,7 +1280,8 @@ export default {
       "element",
       "medium",
       "width"
-    ]
+    ],
+    "key": "{element.medium.width}"
   },
   "hpe.element.medium.height": {
     "$type": "number",
@@ -1292,7 +1322,8 @@ export default {
       "element",
       "medium",
       "height"
-    ]
+    ],
+    "key": "{element.medium.height}"
   },
   "hpe.element.medium.textToElementX": {
     "$type": "number",
@@ -1333,7 +1364,8 @@ export default {
       "element",
       "medium",
       "textToElementX"
-    ]
+    ],
+    "key": "{element.medium.textToElementX}"
   },
   "hpe.element.medium.textToIconX": {
     "$type": "number",
@@ -1374,7 +1406,8 @@ export default {
       "element",
       "medium",
       "textToIconX"
-    ]
+    ],
+    "key": "{element.medium.textToIconX}"
   },
   "hpe.element.medium.borderWidth": {
     "$type": "number",
@@ -1417,7 +1450,8 @@ export default {
       "element",
       "medium",
       "borderWidth"
-    ]
+    ],
+    "key": "{element.medium.borderWidth}"
   },
   "hpe.element.medium.paddingY": {
     "$type": "number",
@@ -1458,7 +1492,8 @@ export default {
       "element",
       "medium",
       "paddingY"
-    ]
+    ],
+    "key": "{element.medium.paddingY}"
   },
   "hpe.element.medium.paddingX.narrow": {
     "$type": "number",
@@ -1501,7 +1536,8 @@ export default {
       "medium",
       "paddingX",
       "narrow"
-    ]
+    ],
+    "key": "{element.medium.paddingX.narrow}"
   },
   "hpe.element.medium.paddingX.default": {
     "$type": "number",
@@ -1544,7 +1580,8 @@ export default {
       "medium",
       "paddingX",
       "default"
-    ]
+    ],
+    "key": "{element.medium.paddingX.default}"
   },
   "hpe.element.medium.paddingX.wide": {
     "$type": "number",
@@ -1587,7 +1624,8 @@ export default {
       "medium",
       "paddingX",
       "wide"
-    ]
+    ],
+    "key": "{element.medium.paddingX.wide}"
   },
   "hpe.element.medium.icon.size": {
     "$type": "number",
@@ -1630,7 +1668,8 @@ export default {
       "medium",
       "icon",
       "size"
-    ]
+    ],
+    "key": "{element.medium.icon.size}"
   },
   "hpe.element.large.fontSize": {
     "$type": "number",
@@ -1671,7 +1710,8 @@ export default {
       "element",
       "large",
       "fontSize"
-    ]
+    ],
+    "key": "{element.large.fontSize}"
   },
   "hpe.element.large.lineHeight": {
     "$type": "number",
@@ -1712,7 +1752,8 @@ export default {
       "element",
       "large",
       "lineHeight"
-    ]
+    ],
+    "key": "{element.large.lineHeight}"
   },
   "hpe.element.large.minHeight": {
     "$type": "number",
@@ -1753,7 +1794,8 @@ export default {
       "element",
       "large",
       "minHeight"
-    ]
+    ],
+    "key": "{element.large.minHeight}"
   },
   "hpe.element.large.width": {
     "$type": "number",
@@ -1794,7 +1836,8 @@ export default {
       "element",
       "large",
       "width"
-    ]
+    ],
+    "key": "{element.large.width}"
   },
   "hpe.element.large.height": {
     "$type": "number",
@@ -1835,7 +1878,8 @@ export default {
       "element",
       "large",
       "height"
-    ]
+    ],
+    "key": "{element.large.height}"
   },
   "hpe.element.large.textToElementX": {
     "$type": "number",
@@ -1876,7 +1920,8 @@ export default {
       "element",
       "large",
       "textToElementX"
-    ]
+    ],
+    "key": "{element.large.textToElementX}"
   },
   "hpe.element.large.textToIconX": {
     "$type": "number",
@@ -1917,7 +1962,8 @@ export default {
       "element",
       "large",
       "textToIconX"
-    ]
+    ],
+    "key": "{element.large.textToIconX}"
   },
   "hpe.element.large.borderWidth": {
     "$type": "number",
@@ -1960,7 +2006,8 @@ export default {
       "element",
       "large",
       "borderWidth"
-    ]
+    ],
+    "key": "{element.large.borderWidth}"
   },
   "hpe.element.large.paddingY": {
     "$type": "number",
@@ -2001,7 +2048,8 @@ export default {
       "element",
       "large",
       "paddingY"
-    ]
+    ],
+    "key": "{element.large.paddingY}"
   },
   "hpe.element.large.paddingX.narrow": {
     "$type": "number",
@@ -2044,7 +2092,8 @@ export default {
       "large",
       "paddingX",
       "narrow"
-    ]
+    ],
+    "key": "{element.large.paddingX.narrow}"
   },
   "hpe.element.large.paddingX.default": {
     "$type": "number",
@@ -2087,7 +2136,8 @@ export default {
       "large",
       "paddingX",
       "default"
-    ]
+    ],
+    "key": "{element.large.paddingX.default}"
   },
   "hpe.element.large.paddingX.wide": {
     "$type": "number",
@@ -2130,7 +2180,8 @@ export default {
       "large",
       "paddingX",
       "wide"
-    ]
+    ],
+    "key": "{element.large.paddingX.wide}"
   },
   "hpe.element.large.icon.size": {
     "$type": "number",
@@ -2173,7 +2224,8 @@ export default {
       "large",
       "icon",
       "size"
-    ]
+    ],
+    "key": "{element.large.icon.size}"
   },
   "hpe.element.xlarge.fontSize": {
     "$type": "number",
@@ -2214,7 +2266,8 @@ export default {
       "element",
       "xlarge",
       "fontSize"
-    ]
+    ],
+    "key": "{element.xlarge.fontSize}"
   },
   "hpe.element.xlarge.lineHeight": {
     "$type": "number",
@@ -2255,7 +2308,8 @@ export default {
       "element",
       "xlarge",
       "lineHeight"
-    ]
+    ],
+    "key": "{element.xlarge.lineHeight}"
   },
   "hpe.element.xlarge.minHeight": {
     "$type": "number",
@@ -2296,7 +2350,8 @@ export default {
       "element",
       "xlarge",
       "minHeight"
-    ]
+    ],
+    "key": "{element.xlarge.minHeight}"
   },
   "hpe.element.xlarge.width": {
     "$type": "number",
@@ -2337,7 +2392,8 @@ export default {
       "element",
       "xlarge",
       "width"
-    ]
+    ],
+    "key": "{element.xlarge.width}"
   },
   "hpe.element.xlarge.height": {
     "$type": "number",
@@ -2378,7 +2434,8 @@ export default {
       "element",
       "xlarge",
       "height"
-    ]
+    ],
+    "key": "{element.xlarge.height}"
   },
   "hpe.element.xlarge.textToElementX": {
     "$type": "number",
@@ -2419,7 +2476,8 @@ export default {
       "element",
       "xlarge",
       "textToElementX"
-    ]
+    ],
+    "key": "{element.xlarge.textToElementX}"
   },
   "hpe.element.xlarge.textToIconX": {
     "$type": "number",
@@ -2460,7 +2518,8 @@ export default {
       "element",
       "xlarge",
       "textToIconX"
-    ]
+    ],
+    "key": "{element.xlarge.textToIconX}"
   },
   "hpe.element.xlarge.borderWidth": {
     "$type": "number",
@@ -2503,7 +2562,8 @@ export default {
       "element",
       "xlarge",
       "borderWidth"
-    ]
+    ],
+    "key": "{element.xlarge.borderWidth}"
   },
   "hpe.element.xlarge.paddingY": {
     "$type": "number",
@@ -2544,7 +2604,8 @@ export default {
       "element",
       "xlarge",
       "paddingY"
-    ]
+    ],
+    "key": "{element.xlarge.paddingY}"
   },
   "hpe.element.xlarge.paddingX.narrow": {
     "$type": "number",
@@ -2587,7 +2648,8 @@ export default {
       "xlarge",
       "paddingX",
       "narrow"
-    ]
+    ],
+    "key": "{element.xlarge.paddingX.narrow}"
   },
   "hpe.element.xlarge.paddingX.default": {
     "$type": "number",
@@ -2630,7 +2692,8 @@ export default {
       "xlarge",
       "paddingX",
       "default"
-    ]
+    ],
+    "key": "{element.xlarge.paddingX.default}"
   },
   "hpe.element.xlarge.paddingX.wide": {
     "$type": "number",
@@ -2673,7 +2736,8 @@ export default {
       "xlarge",
       "paddingX",
       "wide"
-    ]
+    ],
+    "key": "{element.xlarge.paddingX.wide}"
   },
   "hpe.element.xlarge.icon.size": {
     "$type": "number",
@@ -2716,7 +2780,8 @@ export default {
       "xlarge",
       "icon",
       "size"
-    ]
+    ],
+    "key": "{element.xlarge.icon.size}"
   },
   "hpe.button.primary.enabled.background": {
     "$type": "gradient",
@@ -2781,7 +2846,8 @@ export default {
       "primary",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{button.primary.enabled.background}"
   },
   "hpe.button.primary.enabled.borderColor": {
     "$type": "color",
@@ -2826,7 +2892,8 @@ export default {
       "primary",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.primary.enabled.borderColor}"
   },
   "hpe.button.primary.enabled.textColor": {
     "$type": "color",
@@ -2869,7 +2936,8 @@ export default {
       "primary",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.primary.enabled.textColor}"
   },
   "hpe.button.primary.enabled.iconColor": {
     "$type": "color",
@@ -2916,7 +2984,8 @@ export default {
       "primary",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.primary.enabled.iconColor}"
   },
   "hpe.button.primary.enabled.fontWeight": {
     "$type": "number",
@@ -2959,7 +3028,8 @@ export default {
       "primary",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.primary.enabled.fontWeight}"
   },
   "hpe.button.primary.enabled.backgroundColor": {
     "$type": "color",
@@ -3004,7 +3074,8 @@ export default {
       "primary",
       "enabled",
       "backgroundColor"
-    ]
+    ],
+    "key": "{button.primary.enabled.backgroundColor}"
   },
   "hpe.button.primary.disabled.background": {
     "$type": "color",
@@ -3049,7 +3120,8 @@ export default {
       "primary",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{button.primary.disabled.background}"
   },
   "hpe.button.primary.disabled.borderColor": {
     "$type": "color",
@@ -3094,7 +3166,8 @@ export default {
       "primary",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.primary.disabled.borderColor}"
   },
   "hpe.button.primary.disabled.textColor": {
     "$type": "color",
@@ -3137,7 +3210,8 @@ export default {
       "primary",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.primary.disabled.textColor}"
   },
   "hpe.button.primary.disabled.iconColor": {
     "$type": "color",
@@ -3184,7 +3258,8 @@ export default {
       "primary",
       "disabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.primary.disabled.iconColor}"
   },
   "hpe.button.primary.disabled.fontWeight": {
     "$type": "number",
@@ -3227,7 +3302,8 @@ export default {
       "primary",
       "disabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.primary.disabled.fontWeight}"
   },
   "hpe.button.primary.hover.background": {
     "$type": "color",
@@ -3272,7 +3348,8 @@ export default {
       "primary",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{button.primary.hover.background}"
   },
   "hpe.button.primary.hover.borderColor": {
     "$type": "color",
@@ -3317,7 +3394,8 @@ export default {
       "primary",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{button.primary.hover.borderColor}"
   },
   "hpe.button.primary.hover.textColor": {
     "$type": "color",
@@ -3360,7 +3438,8 @@ export default {
       "primary",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{button.primary.hover.textColor}"
   },
   "hpe.button.primary.hover.iconColor": {
     "$type": "color",
@@ -3407,7 +3486,8 @@ export default {
       "primary",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{button.primary.hover.iconColor}"
   },
   "hpe.button.primary.hover.fontWeight": {
     "$type": "number",
@@ -3450,7 +3530,8 @@ export default {
       "primary",
       "hover",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.primary.hover.fontWeight}"
   },
   "hpe.button.primary.selected.enabled.background": {
     "$type": "color",
@@ -3497,7 +3578,8 @@ export default {
       "selected",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{button.primary.selected.enabled.background}"
   },
   "hpe.button.primary.selected.enabled.borderColor": {
     "$type": "color",
@@ -3544,7 +3626,8 @@ export default {
       "selected",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.primary.selected.enabled.borderColor}"
   },
   "hpe.button.primary.selected.enabled.textColor": {
     "$type": "color",
@@ -3589,7 +3672,8 @@ export default {
       "selected",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.primary.selected.enabled.textColor}"
   },
   "hpe.button.primary.selected.enabled.iconColor": {
     "$type": "color",
@@ -3638,7 +3722,8 @@ export default {
       "selected",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.primary.selected.enabled.iconColor}"
   },
   "hpe.button.primary.selected.enabled.fontWeight": {
     "$type": "number",
@@ -3683,7 +3768,8 @@ export default {
       "selected",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.primary.selected.enabled.fontWeight}"
   },
   "hpe.button.primary.selected.hover.background": {
     "$type": "color",
@@ -3730,7 +3816,8 @@ export default {
       "selected",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{button.primary.selected.hover.background}"
   },
   "hpe.button.primary.selected.hover.borderColor": {
     "$type": "color",
@@ -3777,7 +3864,8 @@ export default {
       "selected",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{button.primary.selected.hover.borderColor}"
   },
   "hpe.button.primary.selected.hover.textColor": {
     "$type": "color",
@@ -3822,7 +3910,8 @@ export default {
       "selected",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{button.primary.selected.hover.textColor}"
   },
   "hpe.button.primary.selected.hover.iconColor": {
     "$type": "color",
@@ -3871,7 +3960,8 @@ export default {
       "selected",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{button.primary.selected.hover.iconColor}"
   },
   "hpe.button.primary.selected.hover.fontWeight": {
     "$type": "number",
@@ -3916,7 +4006,8 @@ export default {
       "selected",
       "hover",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.primary.selected.hover.fontWeight}"
   },
   "hpe.button.primary.xsmall.paddingX": {
     "$type": "number",
@@ -3959,7 +4050,8 @@ export default {
       "primary",
       "xsmall",
       "paddingX"
-    ]
+    ],
+    "key": "{button.primary.xsmall.paddingX}"
   },
   "hpe.button.primary.xsmall.paddingY": {
     "$type": "number",
@@ -4002,7 +4094,8 @@ export default {
       "primary",
       "xsmall",
       "paddingY"
-    ]
+    ],
+    "key": "{button.primary.xsmall.paddingY}"
   },
   "hpe.button.primary.xsmall.borderRadius": {
     "$type": "number",
@@ -4045,7 +4138,8 @@ export default {
       "primary",
       "xsmall",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.primary.xsmall.borderRadius}"
   },
   "hpe.button.primary.xsmall.borderWidth": {
     "$type": "number",
@@ -4090,7 +4184,8 @@ export default {
       "primary",
       "xsmall",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.primary.xsmall.borderWidth}"
   },
   "hpe.button.primary.xsmall.minHeight": {
     "$type": "number",
@@ -4133,7 +4228,8 @@ export default {
       "primary",
       "xsmall",
       "minHeight"
-    ]
+    ],
+    "key": "{button.primary.xsmall.minHeight}"
   },
   "hpe.button.primary.xsmall.fontSize": {
     "$type": "number",
@@ -4176,7 +4272,8 @@ export default {
       "primary",
       "xsmall",
       "fontSize"
-    ]
+    ],
+    "key": "{button.primary.xsmall.fontSize}"
   },
   "hpe.button.primary.xsmall.iconOnly.paddingX": {
     "$type": "number",
@@ -4221,7 +4318,8 @@ export default {
       "xsmall",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.primary.xsmall.iconOnly.paddingX}"
   },
   "hpe.button.primary.xsmall.iconOnly.paddingY": {
     "$type": "number",
@@ -4266,7 +4364,8 @@ export default {
       "xsmall",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.primary.xsmall.iconOnly.paddingY}"
   },
   "hpe.button.primary.xsmall.iconOnly.borderRadius": {
     "$type": "number",
@@ -4311,7 +4410,8 @@ export default {
       "xsmall",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.primary.xsmall.iconOnly.borderRadius}"
   },
   "hpe.button.primary.xsmall.iconOnly.borderWidth": {
     "$type": "number",
@@ -4358,7 +4458,8 @@ export default {
       "xsmall",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.primary.xsmall.iconOnly.borderWidth}"
   },
   "hpe.button.primary.xsmall.iconOnly.minHeight": {
     "$type": "number",
@@ -4403,7 +4504,8 @@ export default {
       "xsmall",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.primary.xsmall.iconOnly.minHeight}"
   },
   "hpe.button.primary.xsmall.iconOnly.minWidth": {
     "$type": "number",
@@ -4448,7 +4550,8 @@ export default {
       "xsmall",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.primary.xsmall.iconOnly.minWidth}"
   },
   "hpe.button.primary.xsmall.iconOnly.fontSize": {
     "$type": "number",
@@ -4493,7 +4596,8 @@ export default {
       "xsmall",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.primary.xsmall.iconOnly.fontSize}"
   },
   "hpe.button.primary.xsmall.iconOnly.lineHeight": {
     "$type": "number",
@@ -4538,7 +4642,8 @@ export default {
       "xsmall",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.primary.xsmall.iconOnly.lineHeight}"
   },
   "hpe.button.primary.xsmall.iconOnly.gapX": {
     "$type": "number",
@@ -4583,7 +4688,8 @@ export default {
       "xsmall",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.primary.xsmall.iconOnly.gapX}"
   },
   "hpe.button.primary.xsmall.lineHeight": {
     "$type": "number",
@@ -4626,7 +4732,8 @@ export default {
       "primary",
       "xsmall",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.primary.xsmall.lineHeight}"
   },
   "hpe.button.primary.xsmall.gapX": {
     "$type": "number",
@@ -4669,7 +4776,8 @@ export default {
       "primary",
       "xsmall",
       "gapX"
-    ]
+    ],
+    "key": "{button.primary.xsmall.gapX}"
   },
   "hpe.button.primary.small.paddingX": {
     "$type": "number",
@@ -4712,7 +4820,8 @@ export default {
       "primary",
       "small",
       "paddingX"
-    ]
+    ],
+    "key": "{button.primary.small.paddingX}"
   },
   "hpe.button.primary.small.paddingY": {
     "$type": "number",
@@ -4755,7 +4864,8 @@ export default {
       "primary",
       "small",
       "paddingY"
-    ]
+    ],
+    "key": "{button.primary.small.paddingY}"
   },
   "hpe.button.primary.small.borderRadius": {
     "$type": "number",
@@ -4798,7 +4908,8 @@ export default {
       "primary",
       "small",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.primary.small.borderRadius}"
   },
   "hpe.button.primary.small.borderWidth": {
     "$type": "number",
@@ -4843,7 +4954,8 @@ export default {
       "primary",
       "small",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.primary.small.borderWidth}"
   },
   "hpe.button.primary.small.minHeight": {
     "$type": "number",
@@ -4886,7 +4998,8 @@ export default {
       "primary",
       "small",
       "minHeight"
-    ]
+    ],
+    "key": "{button.primary.small.minHeight}"
   },
   "hpe.button.primary.small.fontSize": {
     "$type": "number",
@@ -4929,7 +5042,8 @@ export default {
       "primary",
       "small",
       "fontSize"
-    ]
+    ],
+    "key": "{button.primary.small.fontSize}"
   },
   "hpe.button.primary.small.lineHeight": {
     "$type": "number",
@@ -4972,7 +5086,8 @@ export default {
       "primary",
       "small",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.primary.small.lineHeight}"
   },
   "hpe.button.primary.small.gapX": {
     "$type": "number",
@@ -5015,7 +5130,8 @@ export default {
       "primary",
       "small",
       "gapX"
-    ]
+    ],
+    "key": "{button.primary.small.gapX}"
   },
   "hpe.button.primary.small.iconOnly.paddingX": {
     "$type": "number",
@@ -5060,7 +5176,8 @@ export default {
       "small",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.primary.small.iconOnly.paddingX}"
   },
   "hpe.button.primary.small.iconOnly.paddingY": {
     "$type": "number",
@@ -5105,7 +5222,8 @@ export default {
       "small",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.primary.small.iconOnly.paddingY}"
   },
   "hpe.button.primary.small.iconOnly.borderRadius": {
     "$type": "number",
@@ -5150,7 +5268,8 @@ export default {
       "small",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.primary.small.iconOnly.borderRadius}"
   },
   "hpe.button.primary.small.iconOnly.borderWidth": {
     "$type": "number",
@@ -5197,7 +5316,8 @@ export default {
       "small",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.primary.small.iconOnly.borderWidth}"
   },
   "hpe.button.primary.small.iconOnly.minHeight": {
     "$type": "number",
@@ -5242,7 +5362,8 @@ export default {
       "small",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.primary.small.iconOnly.minHeight}"
   },
   "hpe.button.primary.small.iconOnly.minWidth": {
     "$type": "number",
@@ -5287,7 +5408,8 @@ export default {
       "small",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.primary.small.iconOnly.minWidth}"
   },
   "hpe.button.primary.small.iconOnly.fontSize": {
     "$type": "number",
@@ -5332,7 +5454,8 @@ export default {
       "small",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.primary.small.iconOnly.fontSize}"
   },
   "hpe.button.primary.small.iconOnly.lineHeight": {
     "$type": "number",
@@ -5377,7 +5500,8 @@ export default {
       "small",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.primary.small.iconOnly.lineHeight}"
   },
   "hpe.button.primary.small.iconOnly.gapX": {
     "$type": "number",
@@ -5422,7 +5546,8 @@ export default {
       "small",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.primary.small.iconOnly.gapX}"
   },
   "hpe.button.primary.medium.paddingX": {
     "$type": "number",
@@ -5465,7 +5590,8 @@ export default {
       "primary",
       "medium",
       "paddingX"
-    ]
+    ],
+    "key": "{button.primary.medium.paddingX}"
   },
   "hpe.button.primary.medium.paddingY": {
     "$type": "number",
@@ -5508,7 +5634,8 @@ export default {
       "primary",
       "medium",
       "paddingY"
-    ]
+    ],
+    "key": "{button.primary.medium.paddingY}"
   },
   "hpe.button.primary.medium.borderRadius": {
     "$type": "number",
@@ -5551,7 +5678,8 @@ export default {
       "primary",
       "medium",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.primary.medium.borderRadius}"
   },
   "hpe.button.primary.medium.borderWidth": {
     "$type": "number",
@@ -5596,7 +5724,8 @@ export default {
       "primary",
       "medium",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.primary.medium.borderWidth}"
   },
   "hpe.button.primary.medium.minHeight": {
     "$type": "number",
@@ -5639,7 +5768,8 @@ export default {
       "primary",
       "medium",
       "minHeight"
-    ]
+    ],
+    "key": "{button.primary.medium.minHeight}"
   },
   "hpe.button.primary.medium.fontSize": {
     "$type": "number",
@@ -5682,7 +5812,8 @@ export default {
       "primary",
       "medium",
       "fontSize"
-    ]
+    ],
+    "key": "{button.primary.medium.fontSize}"
   },
   "hpe.button.primary.medium.lineHeight": {
     "$type": "number",
@@ -5725,7 +5856,8 @@ export default {
       "primary",
       "medium",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.primary.medium.lineHeight}"
   },
   "hpe.button.primary.medium.gapX": {
     "$type": "number",
@@ -5768,7 +5900,8 @@ export default {
       "primary",
       "medium",
       "gapX"
-    ]
+    ],
+    "key": "{button.primary.medium.gapX}"
   },
   "hpe.button.primary.medium.iconOnly.paddingX": {
     "$type": "number",
@@ -5813,7 +5946,8 @@ export default {
       "medium",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.primary.medium.iconOnly.paddingX}"
   },
   "hpe.button.primary.medium.iconOnly.paddingY": {
     "$type": "number",
@@ -5858,7 +5992,8 @@ export default {
       "medium",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.primary.medium.iconOnly.paddingY}"
   },
   "hpe.button.primary.medium.iconOnly.borderRadius": {
     "$type": "number",
@@ -5903,7 +6038,8 @@ export default {
       "medium",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.primary.medium.iconOnly.borderRadius}"
   },
   "hpe.button.primary.medium.iconOnly.borderWidth": {
     "$type": "number",
@@ -5950,7 +6086,8 @@ export default {
       "medium",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.primary.medium.iconOnly.borderWidth}"
   },
   "hpe.button.primary.medium.iconOnly.minHeight": {
     "$type": "number",
@@ -5995,7 +6132,8 @@ export default {
       "medium",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.primary.medium.iconOnly.minHeight}"
   },
   "hpe.button.primary.medium.iconOnly.minWidth": {
     "$type": "number",
@@ -6040,7 +6178,8 @@ export default {
       "medium",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.primary.medium.iconOnly.minWidth}"
   },
   "hpe.button.primary.medium.iconOnly.fontSize": {
     "$type": "number",
@@ -6085,7 +6224,8 @@ export default {
       "medium",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.primary.medium.iconOnly.fontSize}"
   },
   "hpe.button.primary.medium.iconOnly.lineHeight": {
     "$type": "number",
@@ -6130,7 +6270,8 @@ export default {
       "medium",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.primary.medium.iconOnly.lineHeight}"
   },
   "hpe.button.primary.medium.iconOnly.gapX": {
     "$type": "number",
@@ -6175,7 +6316,8 @@ export default {
       "medium",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.primary.medium.iconOnly.gapX}"
   },
   "hpe.button.primary.large.paddingX": {
     "$type": "number",
@@ -6218,7 +6360,8 @@ export default {
       "primary",
       "large",
       "paddingX"
-    ]
+    ],
+    "key": "{button.primary.large.paddingX}"
   },
   "hpe.button.primary.large.paddingY": {
     "$type": "number",
@@ -6261,7 +6404,8 @@ export default {
       "primary",
       "large",
       "paddingY"
-    ]
+    ],
+    "key": "{button.primary.large.paddingY}"
   },
   "hpe.button.primary.large.borderRadius": {
     "$type": "number",
@@ -6304,7 +6448,8 @@ export default {
       "primary",
       "large",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.primary.large.borderRadius}"
   },
   "hpe.button.primary.large.borderWidth": {
     "$type": "number",
@@ -6349,7 +6494,8 @@ export default {
       "primary",
       "large",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.primary.large.borderWidth}"
   },
   "hpe.button.primary.large.minHeight": {
     "$type": "number",
@@ -6392,7 +6538,8 @@ export default {
       "primary",
       "large",
       "minHeight"
-    ]
+    ],
+    "key": "{button.primary.large.minHeight}"
   },
   "hpe.button.primary.large.fontSize": {
     "$type": "number",
@@ -6435,7 +6582,8 @@ export default {
       "primary",
       "large",
       "fontSize"
-    ]
+    ],
+    "key": "{button.primary.large.fontSize}"
   },
   "hpe.button.primary.large.lineHeight": {
     "$type": "number",
@@ -6478,7 +6626,8 @@ export default {
       "primary",
       "large",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.primary.large.lineHeight}"
   },
   "hpe.button.primary.large.gapX": {
     "$type": "number",
@@ -6521,7 +6670,8 @@ export default {
       "primary",
       "large",
       "gapX"
-    ]
+    ],
+    "key": "{button.primary.large.gapX}"
   },
   "hpe.button.primary.large.iconOnly.borderRadius": {
     "$type": "number",
@@ -6566,7 +6716,8 @@ export default {
       "large",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.primary.large.iconOnly.borderRadius}"
   },
   "hpe.button.primary.large.iconOnly.borderWidth": {
     "$type": "number",
@@ -6613,7 +6764,8 @@ export default {
       "large",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.primary.large.iconOnly.borderWidth}"
   },
   "hpe.button.primary.large.iconOnly.minHeight": {
     "$type": "number",
@@ -6658,7 +6810,8 @@ export default {
       "large",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.primary.large.iconOnly.minHeight}"
   },
   "hpe.button.primary.large.iconOnly.minWidth": {
     "$type": "number",
@@ -6703,7 +6856,8 @@ export default {
       "large",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.primary.large.iconOnly.minWidth}"
   },
   "hpe.button.primary.large.iconOnly.fontSize": {
     "$type": "number",
@@ -6748,7 +6902,8 @@ export default {
       "large",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.primary.large.iconOnly.fontSize}"
   },
   "hpe.button.primary.large.iconOnly.lineHeight": {
     "$type": "number",
@@ -6793,7 +6948,8 @@ export default {
       "large",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.primary.large.iconOnly.lineHeight}"
   },
   "hpe.button.primary.large.iconOnly.gapX": {
     "$type": "number",
@@ -6838,7 +6994,8 @@ export default {
       "large",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.primary.large.iconOnly.gapX}"
   },
   "hpe.button.primary.large.iconOnly.paddingX": {
     "$type": "number",
@@ -6883,7 +7040,8 @@ export default {
       "large",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.primary.large.iconOnly.paddingX}"
   },
   "hpe.button.primary.large.iconOnly.paddingY": {
     "$type": "number",
@@ -6928,7 +7086,8 @@ export default {
       "large",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.primary.large.iconOnly.paddingY}"
   },
   "hpe.button.primary.xlarge.iconOnly.borderRadius": {
     "$type": "number",
@@ -6973,7 +7132,8 @@ export default {
       "xlarge",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.primary.xlarge.iconOnly.borderRadius}"
   },
   "hpe.button.primary.xlarge.iconOnly.borderWidth": {
     "$type": "number",
@@ -7020,7 +7180,8 @@ export default {
       "xlarge",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.primary.xlarge.iconOnly.borderWidth}"
   },
   "hpe.button.primary.xlarge.iconOnly.minHeight": {
     "$type": "number",
@@ -7065,7 +7226,8 @@ export default {
       "xlarge",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.primary.xlarge.iconOnly.minHeight}"
   },
   "hpe.button.primary.xlarge.iconOnly.minWidth": {
     "$type": "number",
@@ -7110,7 +7272,8 @@ export default {
       "xlarge",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.primary.xlarge.iconOnly.minWidth}"
   },
   "hpe.button.primary.xlarge.iconOnly.fontSize": {
     "$type": "number",
@@ -7155,7 +7318,8 @@ export default {
       "xlarge",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.primary.xlarge.iconOnly.fontSize}"
   },
   "hpe.button.primary.xlarge.iconOnly.lineHeight": {
     "$type": "number",
@@ -7200,7 +7364,8 @@ export default {
       "xlarge",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.primary.xlarge.iconOnly.lineHeight}"
   },
   "hpe.button.primary.xlarge.iconOnly.gapX": {
     "$type": "number",
@@ -7245,7 +7410,8 @@ export default {
       "xlarge",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.primary.xlarge.iconOnly.gapX}"
   },
   "hpe.button.primary.xlarge.iconOnly.paddingX": {
     "$type": "number",
@@ -7290,7 +7456,8 @@ export default {
       "xlarge",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.primary.xlarge.iconOnly.paddingX}"
   },
   "hpe.button.primary.xlarge.iconOnly.paddingY": {
     "$type": "number",
@@ -7335,7 +7502,8 @@ export default {
       "xlarge",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.primary.xlarge.iconOnly.paddingY}"
   },
   "hpe.button.primary.xlarge.paddingX": {
     "$type": "number",
@@ -7378,7 +7546,8 @@ export default {
       "primary",
       "xlarge",
       "paddingX"
-    ]
+    ],
+    "key": "{button.primary.xlarge.paddingX}"
   },
   "hpe.button.primary.xlarge.paddingY": {
     "$type": "number",
@@ -7421,7 +7590,8 @@ export default {
       "primary",
       "xlarge",
       "paddingY"
-    ]
+    ],
+    "key": "{button.primary.xlarge.paddingY}"
   },
   "hpe.button.primary.xlarge.borderRadius": {
     "$type": "number",
@@ -7464,7 +7634,8 @@ export default {
       "primary",
       "xlarge",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.primary.xlarge.borderRadius}"
   },
   "hpe.button.primary.xlarge.borderWidth": {
     "$type": "number",
@@ -7509,7 +7680,8 @@ export default {
       "primary",
       "xlarge",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.primary.xlarge.borderWidth}"
   },
   "hpe.button.primary.xlarge.minHeight": {
     "$type": "number",
@@ -7552,7 +7724,8 @@ export default {
       "primary",
       "xlarge",
       "minHeight"
-    ]
+    ],
+    "key": "{button.primary.xlarge.minHeight}"
   },
   "hpe.button.primary.xlarge.fontSize": {
     "$type": "number",
@@ -7595,7 +7768,8 @@ export default {
       "primary",
       "xlarge",
       "fontSize"
-    ]
+    ],
+    "key": "{button.primary.xlarge.fontSize}"
   },
   "hpe.button.primary.xlarge.lineHeight": {
     "$type": "number",
@@ -7638,7 +7812,8 @@ export default {
       "primary",
       "xlarge",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.primary.xlarge.lineHeight}"
   },
   "hpe.button.primary.xlarge.gapX": {
     "$type": "number",
@@ -7681,7 +7856,8 @@ export default {
       "primary",
       "xlarge",
       "gapX"
-    ]
+    ],
+    "key": "{button.primary.xlarge.gapX}"
   },
   "hpe.button.secondary.enabled.background": {
     "$type": "color",
@@ -7726,7 +7902,8 @@ export default {
       "secondary",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{button.secondary.enabled.background}"
   },
   "hpe.button.secondary.enabled.borderColor": {
     "$type": "color",
@@ -7771,7 +7948,8 @@ export default {
       "secondary",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.secondary.enabled.borderColor}"
   },
   "hpe.button.secondary.enabled.textColor": {
     "$type": "color",
@@ -7814,7 +7992,8 @@ export default {
       "secondary",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.secondary.enabled.textColor}"
   },
   "hpe.button.secondary.enabled.iconColor": {
     "$type": "color",
@@ -7861,7 +8040,8 @@ export default {
       "secondary",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.secondary.enabled.iconColor}"
   },
   "hpe.button.secondary.enabled.fontWeight": {
     "$type": "number",
@@ -7904,7 +8084,8 @@ export default {
       "secondary",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.secondary.enabled.fontWeight}"
   },
   "hpe.button.secondary.hover.background": {
     "$type": "color",
@@ -7949,7 +8130,8 @@ export default {
       "secondary",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{button.secondary.hover.background}"
   },
   "hpe.button.secondary.hover.borderColor": {
     "$type": "color",
@@ -7994,7 +8176,8 @@ export default {
       "secondary",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{button.secondary.hover.borderColor}"
   },
   "hpe.button.secondary.hover.textColor": {
     "$type": "color",
@@ -8037,7 +8220,8 @@ export default {
       "secondary",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{button.secondary.hover.textColor}"
   },
   "hpe.button.secondary.hover.iconColor": {
     "$type": "color",
@@ -8084,7 +8268,8 @@ export default {
       "secondary",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{button.secondary.hover.iconColor}"
   },
   "hpe.button.secondary.hover.fontWeight": {
     "$type": "number",
@@ -8127,7 +8312,8 @@ export default {
       "secondary",
       "hover",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.secondary.hover.fontWeight}"
   },
   "hpe.button.secondary.disabled.background": {
     "$type": "color",
@@ -8172,7 +8358,8 @@ export default {
       "secondary",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{button.secondary.disabled.background}"
   },
   "hpe.button.secondary.disabled.borderColor": {
     "$type": "color",
@@ -8217,7 +8404,8 @@ export default {
       "secondary",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.secondary.disabled.borderColor}"
   },
   "hpe.button.secondary.disabled.textColor": {
     "$type": "color",
@@ -8260,7 +8448,8 @@ export default {
       "secondary",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.secondary.disabled.textColor}"
   },
   "hpe.button.secondary.disabled.iconColor": {
     "$type": "color",
@@ -8307,7 +8496,8 @@ export default {
       "secondary",
       "disabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.secondary.disabled.iconColor}"
   },
   "hpe.button.secondary.disabled.fontWeight": {
     "$type": "number",
@@ -8350,7 +8540,8 @@ export default {
       "secondary",
       "disabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.secondary.disabled.fontWeight}"
   },
   "hpe.button.secondary.selected.enabled.background": {
     "$type": "color",
@@ -8397,7 +8588,8 @@ export default {
       "selected",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{button.secondary.selected.enabled.background}"
   },
   "hpe.button.secondary.selected.enabled.borderColor": {
     "$type": "color",
@@ -8444,7 +8636,8 @@ export default {
       "selected",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.secondary.selected.enabled.borderColor}"
   },
   "hpe.button.secondary.selected.enabled.textColor": {
     "$type": "color",
@@ -8489,7 +8682,8 @@ export default {
       "selected",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.secondary.selected.enabled.textColor}"
   },
   "hpe.button.secondary.selected.enabled.iconColor": {
     "$type": "color",
@@ -8538,7 +8732,8 @@ export default {
       "selected",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.secondary.selected.enabled.iconColor}"
   },
   "hpe.button.secondary.selected.enabled.fontWeight": {
     "$type": "number",
@@ -8583,7 +8778,8 @@ export default {
       "selected",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.secondary.selected.enabled.fontWeight}"
   },
   "hpe.button.secondary.selected.hover.background": {
     "$type": "color",
@@ -8630,7 +8826,8 @@ export default {
       "selected",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{button.secondary.selected.hover.background}"
   },
   "hpe.button.secondary.selected.hover.borderColor": {
     "$type": "color",
@@ -8677,7 +8874,8 @@ export default {
       "selected",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{button.secondary.selected.hover.borderColor}"
   },
   "hpe.button.secondary.selected.hover.textColor": {
     "$type": "color",
@@ -8722,7 +8920,8 @@ export default {
       "selected",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{button.secondary.selected.hover.textColor}"
   },
   "hpe.button.secondary.selected.hover.iconColor": {
     "$type": "color",
@@ -8771,7 +8970,8 @@ export default {
       "selected",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{button.secondary.selected.hover.iconColor}"
   },
   "hpe.button.secondary.selected.hover.fontWeight": {
     "$type": "number",
@@ -8816,7 +9016,8 @@ export default {
       "selected",
       "hover",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.secondary.selected.hover.fontWeight}"
   },
   "hpe.button.secondary.xsmall.paddingX": {
     "$type": "number",
@@ -8859,7 +9060,8 @@ export default {
       "secondary",
       "xsmall",
       "paddingX"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.paddingX}"
   },
   "hpe.button.secondary.xsmall.paddingY": {
     "$type": "number",
@@ -8902,7 +9104,8 @@ export default {
       "secondary",
       "xsmall",
       "paddingY"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.paddingY}"
   },
   "hpe.button.secondary.xsmall.borderRadius": {
     "$type": "number",
@@ -8945,7 +9148,8 @@ export default {
       "secondary",
       "xsmall",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.borderRadius}"
   },
   "hpe.button.secondary.xsmall.borderWidth": {
     "$type": "number",
@@ -8990,7 +9194,8 @@ export default {
       "secondary",
       "xsmall",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.borderWidth}"
   },
   "hpe.button.secondary.xsmall.minHeight": {
     "$type": "number",
@@ -9033,7 +9238,8 @@ export default {
       "secondary",
       "xsmall",
       "minHeight"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.minHeight}"
   },
   "hpe.button.secondary.xsmall.fontSize": {
     "$type": "number",
@@ -9076,7 +9282,8 @@ export default {
       "secondary",
       "xsmall",
       "fontSize"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.fontSize}"
   },
   "hpe.button.secondary.xsmall.lineHeight": {
     "$type": "number",
@@ -9119,7 +9326,8 @@ export default {
       "secondary",
       "xsmall",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.lineHeight}"
   },
   "hpe.button.secondary.xsmall.gapX": {
     "$type": "number",
@@ -9162,7 +9370,8 @@ export default {
       "secondary",
       "xsmall",
       "gapX"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.gapX}"
   },
   "hpe.button.secondary.xsmall.iconOnly.paddingX": {
     "$type": "number",
@@ -9207,7 +9416,8 @@ export default {
       "xsmall",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.iconOnly.paddingX}"
   },
   "hpe.button.secondary.xsmall.iconOnly.paddingY": {
     "$type": "number",
@@ -9252,7 +9462,8 @@ export default {
       "xsmall",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.iconOnly.paddingY}"
   },
   "hpe.button.secondary.xsmall.iconOnly.borderRadius": {
     "$type": "number",
@@ -9297,7 +9508,8 @@ export default {
       "xsmall",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.iconOnly.borderRadius}"
   },
   "hpe.button.secondary.xsmall.iconOnly.borderWidth": {
     "$type": "number",
@@ -9344,7 +9556,8 @@ export default {
       "xsmall",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.iconOnly.borderWidth}"
   },
   "hpe.button.secondary.xsmall.iconOnly.minHeight": {
     "$type": "number",
@@ -9389,7 +9602,8 @@ export default {
       "xsmall",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.iconOnly.minHeight}"
   },
   "hpe.button.secondary.xsmall.iconOnly.minWidth": {
     "$type": "number",
@@ -9434,7 +9648,8 @@ export default {
       "xsmall",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.iconOnly.minWidth}"
   },
   "hpe.button.secondary.xsmall.iconOnly.fontSize": {
     "$type": "number",
@@ -9479,7 +9694,8 @@ export default {
       "xsmall",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.iconOnly.fontSize}"
   },
   "hpe.button.secondary.xsmall.iconOnly.lineHeight": {
     "$type": "number",
@@ -9524,7 +9740,8 @@ export default {
       "xsmall",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.iconOnly.lineHeight}"
   },
   "hpe.button.secondary.xsmall.iconOnly.gapX": {
     "$type": "number",
@@ -9569,7 +9786,8 @@ export default {
       "xsmall",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.iconOnly.gapX}"
   },
   "hpe.button.secondary.xsmall.hover.boxShadow": {
     "$type": "shadow",
@@ -9623,7 +9841,8 @@ export default {
       "xsmall",
       "hover",
       "boxShadow"
-    ]
+    ],
+    "key": "{button.secondary.xsmall.hover.boxShadow}"
   },
   "hpe.button.secondary.small.paddingX": {
     "$type": "number",
@@ -9666,7 +9885,8 @@ export default {
       "secondary",
       "small",
       "paddingX"
-    ]
+    ],
+    "key": "{button.secondary.small.paddingX}"
   },
   "hpe.button.secondary.small.paddingY": {
     "$type": "number",
@@ -9709,7 +9929,8 @@ export default {
       "secondary",
       "small",
       "paddingY"
-    ]
+    ],
+    "key": "{button.secondary.small.paddingY}"
   },
   "hpe.button.secondary.small.borderRadius": {
     "$type": "number",
@@ -9752,7 +9973,8 @@ export default {
       "secondary",
       "small",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.secondary.small.borderRadius}"
   },
   "hpe.button.secondary.small.borderWidth": {
     "$type": "number",
@@ -9797,7 +10019,8 @@ export default {
       "secondary",
       "small",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.secondary.small.borderWidth}"
   },
   "hpe.button.secondary.small.minHeight": {
     "$type": "number",
@@ -9840,7 +10063,8 @@ export default {
       "secondary",
       "small",
       "minHeight"
-    ]
+    ],
+    "key": "{button.secondary.small.minHeight}"
   },
   "hpe.button.secondary.small.fontSize": {
     "$type": "number",
@@ -9883,7 +10107,8 @@ export default {
       "secondary",
       "small",
       "fontSize"
-    ]
+    ],
+    "key": "{button.secondary.small.fontSize}"
   },
   "hpe.button.secondary.small.lineHeight": {
     "$type": "number",
@@ -9926,7 +10151,8 @@ export default {
       "secondary",
       "small",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.secondary.small.lineHeight}"
   },
   "hpe.button.secondary.small.gapX": {
     "$type": "number",
@@ -9969,7 +10195,8 @@ export default {
       "secondary",
       "small",
       "gapX"
-    ]
+    ],
+    "key": "{button.secondary.small.gapX}"
   },
   "hpe.button.secondary.small.iconOnly.paddingX": {
     "$type": "number",
@@ -10014,7 +10241,8 @@ export default {
       "small",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.secondary.small.iconOnly.paddingX}"
   },
   "hpe.button.secondary.small.iconOnly.paddingY": {
     "$type": "number",
@@ -10059,7 +10287,8 @@ export default {
       "small",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.secondary.small.iconOnly.paddingY}"
   },
   "hpe.button.secondary.small.iconOnly.borderRadius": {
     "$type": "number",
@@ -10104,7 +10333,8 @@ export default {
       "small",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.secondary.small.iconOnly.borderRadius}"
   },
   "hpe.button.secondary.small.iconOnly.borderWidth": {
     "$type": "number",
@@ -10151,7 +10381,8 @@ export default {
       "small",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.secondary.small.iconOnly.borderWidth}"
   },
   "hpe.button.secondary.small.iconOnly.minHeight": {
     "$type": "number",
@@ -10196,7 +10427,8 @@ export default {
       "small",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.secondary.small.iconOnly.minHeight}"
   },
   "hpe.button.secondary.small.iconOnly.minWidth": {
     "$type": "number",
@@ -10241,7 +10473,8 @@ export default {
       "small",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.secondary.small.iconOnly.minWidth}"
   },
   "hpe.button.secondary.small.iconOnly.fontSize": {
     "$type": "number",
@@ -10286,7 +10519,8 @@ export default {
       "small",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.secondary.small.iconOnly.fontSize}"
   },
   "hpe.button.secondary.small.iconOnly.lineHeight": {
     "$type": "number",
@@ -10331,7 +10565,8 @@ export default {
       "small",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.secondary.small.iconOnly.lineHeight}"
   },
   "hpe.button.secondary.small.iconOnly.gapX": {
     "$type": "number",
@@ -10376,7 +10611,8 @@ export default {
       "small",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.secondary.small.iconOnly.gapX}"
   },
   "hpe.button.secondary.small.hover.boxShadow": {
     "$type": "shadow",
@@ -10430,7 +10666,8 @@ export default {
       "small",
       "hover",
       "boxShadow"
-    ]
+    ],
+    "key": "{button.secondary.small.hover.boxShadow}"
   },
   "hpe.button.secondary.medium.paddingX": {
     "$type": "number",
@@ -10473,7 +10710,8 @@ export default {
       "secondary",
       "medium",
       "paddingX"
-    ]
+    ],
+    "key": "{button.secondary.medium.paddingX}"
   },
   "hpe.button.secondary.medium.paddingY": {
     "$type": "number",
@@ -10516,7 +10754,8 @@ export default {
       "secondary",
       "medium",
       "paddingY"
-    ]
+    ],
+    "key": "{button.secondary.medium.paddingY}"
   },
   "hpe.button.secondary.medium.borderRadius": {
     "$type": "number",
@@ -10559,7 +10798,8 @@ export default {
       "secondary",
       "medium",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.secondary.medium.borderRadius}"
   },
   "hpe.button.secondary.medium.borderWidth": {
     "$type": "number",
@@ -10604,7 +10844,8 @@ export default {
       "secondary",
       "medium",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.secondary.medium.borderWidth}"
   },
   "hpe.button.secondary.medium.minHeight": {
     "$type": "number",
@@ -10647,7 +10888,8 @@ export default {
       "secondary",
       "medium",
       "minHeight"
-    ]
+    ],
+    "key": "{button.secondary.medium.minHeight}"
   },
   "hpe.button.secondary.medium.fontSize": {
     "$type": "number",
@@ -10690,7 +10932,8 @@ export default {
       "secondary",
       "medium",
       "fontSize"
-    ]
+    ],
+    "key": "{button.secondary.medium.fontSize}"
   },
   "hpe.button.secondary.medium.lineHeight": {
     "$type": "number",
@@ -10733,7 +10976,8 @@ export default {
       "secondary",
       "medium",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.secondary.medium.lineHeight}"
   },
   "hpe.button.secondary.medium.gapX": {
     "$type": "number",
@@ -10776,7 +11020,8 @@ export default {
       "secondary",
       "medium",
       "gapX"
-    ]
+    ],
+    "key": "{button.secondary.medium.gapX}"
   },
   "hpe.button.secondary.medium.iconOnly.paddingX": {
     "$type": "number",
@@ -10821,7 +11066,8 @@ export default {
       "medium",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.secondary.medium.iconOnly.paddingX}"
   },
   "hpe.button.secondary.medium.iconOnly.paddingY": {
     "$type": "number",
@@ -10866,7 +11112,8 @@ export default {
       "medium",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.secondary.medium.iconOnly.paddingY}"
   },
   "hpe.button.secondary.medium.iconOnly.borderRadius": {
     "$type": "number",
@@ -10911,7 +11158,8 @@ export default {
       "medium",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.secondary.medium.iconOnly.borderRadius}"
   },
   "hpe.button.secondary.medium.iconOnly.borderWidth": {
     "$type": "number",
@@ -10958,7 +11206,8 @@ export default {
       "medium",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.secondary.medium.iconOnly.borderWidth}"
   },
   "hpe.button.secondary.medium.iconOnly.minHeight": {
     "$type": "number",
@@ -11003,7 +11252,8 @@ export default {
       "medium",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.secondary.medium.iconOnly.minHeight}"
   },
   "hpe.button.secondary.medium.iconOnly.minWidth": {
     "$type": "number",
@@ -11048,7 +11298,8 @@ export default {
       "medium",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.secondary.medium.iconOnly.minWidth}"
   },
   "hpe.button.secondary.medium.iconOnly.fontSize": {
     "$type": "number",
@@ -11093,7 +11344,8 @@ export default {
       "medium",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.secondary.medium.iconOnly.fontSize}"
   },
   "hpe.button.secondary.medium.iconOnly.lineHeight": {
     "$type": "number",
@@ -11138,7 +11390,8 @@ export default {
       "medium",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.secondary.medium.iconOnly.lineHeight}"
   },
   "hpe.button.secondary.medium.iconOnly.gapX": {
     "$type": "number",
@@ -11183,7 +11436,8 @@ export default {
       "medium",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.secondary.medium.iconOnly.gapX}"
   },
   "hpe.button.secondary.medium.hover.boxShadow": {
     "$type": "shadow",
@@ -11237,7 +11491,8 @@ export default {
       "medium",
       "hover",
       "boxShadow"
-    ]
+    ],
+    "key": "{button.secondary.medium.hover.boxShadow}"
   },
   "hpe.button.secondary.large.paddingX": {
     "$type": "number",
@@ -11280,7 +11535,8 @@ export default {
       "secondary",
       "large",
       "paddingX"
-    ]
+    ],
+    "key": "{button.secondary.large.paddingX}"
   },
   "hpe.button.secondary.large.paddingY": {
     "$type": "number",
@@ -11323,7 +11579,8 @@ export default {
       "secondary",
       "large",
       "paddingY"
-    ]
+    ],
+    "key": "{button.secondary.large.paddingY}"
   },
   "hpe.button.secondary.large.borderRadius": {
     "$type": "number",
@@ -11366,7 +11623,8 @@ export default {
       "secondary",
       "large",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.secondary.large.borderRadius}"
   },
   "hpe.button.secondary.large.borderWidth": {
     "$type": "number",
@@ -11411,7 +11669,8 @@ export default {
       "secondary",
       "large",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.secondary.large.borderWidth}"
   },
   "hpe.button.secondary.large.minHeight": {
     "$type": "number",
@@ -11454,7 +11713,8 @@ export default {
       "secondary",
       "large",
       "minHeight"
-    ]
+    ],
+    "key": "{button.secondary.large.minHeight}"
   },
   "hpe.button.secondary.large.fontSize": {
     "$type": "number",
@@ -11497,7 +11757,8 @@ export default {
       "secondary",
       "large",
       "fontSize"
-    ]
+    ],
+    "key": "{button.secondary.large.fontSize}"
   },
   "hpe.button.secondary.large.lineHeight": {
     "$type": "number",
@@ -11540,7 +11801,8 @@ export default {
       "secondary",
       "large",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.secondary.large.lineHeight}"
   },
   "hpe.button.secondary.large.gapX": {
     "$type": "number",
@@ -11583,7 +11845,8 @@ export default {
       "secondary",
       "large",
       "gapX"
-    ]
+    ],
+    "key": "{button.secondary.large.gapX}"
   },
   "hpe.button.secondary.large.iconOnly.borderRadius": {
     "$type": "number",
@@ -11628,7 +11891,8 @@ export default {
       "large",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.secondary.large.iconOnly.borderRadius}"
   },
   "hpe.button.secondary.large.iconOnly.borderWidth": {
     "$type": "number",
@@ -11675,7 +11939,8 @@ export default {
       "large",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.secondary.large.iconOnly.borderWidth}"
   },
   "hpe.button.secondary.large.iconOnly.minHeight": {
     "$type": "number",
@@ -11720,7 +11985,8 @@ export default {
       "large",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.secondary.large.iconOnly.minHeight}"
   },
   "hpe.button.secondary.large.iconOnly.minWidth": {
     "$type": "number",
@@ -11765,7 +12031,8 @@ export default {
       "large",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.secondary.large.iconOnly.minWidth}"
   },
   "hpe.button.secondary.large.iconOnly.fontSize": {
     "$type": "number",
@@ -11810,7 +12077,8 @@ export default {
       "large",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.secondary.large.iconOnly.fontSize}"
   },
   "hpe.button.secondary.large.iconOnly.lineHeight": {
     "$type": "number",
@@ -11855,7 +12123,8 @@ export default {
       "large",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.secondary.large.iconOnly.lineHeight}"
   },
   "hpe.button.secondary.large.iconOnly.gapX": {
     "$type": "number",
@@ -11900,7 +12169,8 @@ export default {
       "large",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.secondary.large.iconOnly.gapX}"
   },
   "hpe.button.secondary.large.iconOnly.paddingX": {
     "$type": "number",
@@ -11945,7 +12215,8 @@ export default {
       "large",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.secondary.large.iconOnly.paddingX}"
   },
   "hpe.button.secondary.large.iconOnly.paddingY": {
     "$type": "number",
@@ -11990,7 +12261,8 @@ export default {
       "large",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.secondary.large.iconOnly.paddingY}"
   },
   "hpe.button.secondary.large.hover.boxShadow": {
     "$type": "shadow",
@@ -12044,7 +12316,8 @@ export default {
       "large",
       "hover",
       "boxShadow"
-    ]
+    ],
+    "key": "{button.secondary.large.hover.boxShadow}"
   },
   "hpe.button.secondary.xlarge.iconOnly.borderRadius": {
     "$type": "number",
@@ -12089,7 +12362,8 @@ export default {
       "xlarge",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.iconOnly.borderRadius}"
   },
   "hpe.button.secondary.xlarge.iconOnly.borderWidth": {
     "$type": "number",
@@ -12136,7 +12410,8 @@ export default {
       "xlarge",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.iconOnly.borderWidth}"
   },
   "hpe.button.secondary.xlarge.iconOnly.minHeight": {
     "$type": "number",
@@ -12181,7 +12456,8 @@ export default {
       "xlarge",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.iconOnly.minHeight}"
   },
   "hpe.button.secondary.xlarge.iconOnly.minWidth": {
     "$type": "number",
@@ -12226,7 +12502,8 @@ export default {
       "xlarge",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.iconOnly.minWidth}"
   },
   "hpe.button.secondary.xlarge.iconOnly.fontSize": {
     "$type": "number",
@@ -12271,7 +12548,8 @@ export default {
       "xlarge",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.iconOnly.fontSize}"
   },
   "hpe.button.secondary.xlarge.iconOnly.lineHeight": {
     "$type": "number",
@@ -12316,7 +12594,8 @@ export default {
       "xlarge",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.iconOnly.lineHeight}"
   },
   "hpe.button.secondary.xlarge.iconOnly.gapX": {
     "$type": "number",
@@ -12361,7 +12640,8 @@ export default {
       "xlarge",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.iconOnly.gapX}"
   },
   "hpe.button.secondary.xlarge.iconOnly.paddingX": {
     "$type": "number",
@@ -12406,7 +12686,8 @@ export default {
       "xlarge",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.iconOnly.paddingX}"
   },
   "hpe.button.secondary.xlarge.iconOnly.paddingY": {
     "$type": "number",
@@ -12451,7 +12732,8 @@ export default {
       "xlarge",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.iconOnly.paddingY}"
   },
   "hpe.button.secondary.xlarge.paddingX": {
     "$type": "number",
@@ -12494,7 +12776,8 @@ export default {
       "secondary",
       "xlarge",
       "paddingX"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.paddingX}"
   },
   "hpe.button.secondary.xlarge.paddingY": {
     "$type": "number",
@@ -12537,7 +12820,8 @@ export default {
       "secondary",
       "xlarge",
       "paddingY"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.paddingY}"
   },
   "hpe.button.secondary.xlarge.borderRadius": {
     "$type": "number",
@@ -12580,7 +12864,8 @@ export default {
       "secondary",
       "xlarge",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.borderRadius}"
   },
   "hpe.button.secondary.xlarge.borderWidth": {
     "$type": "number",
@@ -12625,7 +12910,8 @@ export default {
       "secondary",
       "xlarge",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.borderWidth}"
   },
   "hpe.button.secondary.xlarge.minHeight": {
     "$type": "number",
@@ -12668,7 +12954,8 @@ export default {
       "secondary",
       "xlarge",
       "minHeight"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.minHeight}"
   },
   "hpe.button.secondary.xlarge.fontSize": {
     "$type": "number",
@@ -12711,7 +12998,8 @@ export default {
       "secondary",
       "xlarge",
       "fontSize"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.fontSize}"
   },
   "hpe.button.secondary.xlarge.lineHeight": {
     "$type": "number",
@@ -12754,7 +13042,8 @@ export default {
       "secondary",
       "xlarge",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.lineHeight}"
   },
   "hpe.button.secondary.xlarge.gapX": {
     "$type": "number",
@@ -12797,7 +13086,8 @@ export default {
       "secondary",
       "xlarge",
       "gapX"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.gapX}"
   },
   "hpe.button.secondary.xlarge.hover.boxShadow": {
     "$type": "shadow",
@@ -12851,7 +13141,8 @@ export default {
       "xlarge",
       "hover",
       "boxShadow"
-    ]
+    ],
+    "key": "{button.secondary.xlarge.hover.boxShadow}"
   },
   "hpe.button.default.enabled.background": {
     "$type": "color",
@@ -12896,7 +13187,8 @@ export default {
       "default",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{button.default.enabled.background}"
   },
   "hpe.button.default.enabled.borderColor": {
     "$type": "color",
@@ -12939,7 +13231,8 @@ export default {
       "default",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.default.enabled.borderColor}"
   },
   "hpe.button.default.enabled.textColor": {
     "$type": "color",
@@ -12982,7 +13275,8 @@ export default {
       "default",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.default.enabled.textColor}"
   },
   "hpe.button.default.enabled.iconColor": {
     "$type": "color",
@@ -13029,7 +13323,8 @@ export default {
       "default",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.default.enabled.iconColor}"
   },
   "hpe.button.default.enabled.fontWeight": {
     "$type": "number",
@@ -13072,7 +13367,8 @@ export default {
       "default",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.default.enabled.fontWeight}"
   },
   "hpe.button.default.disabled.background": {
     "$type": "color",
@@ -13117,7 +13413,8 @@ export default {
       "default",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{button.default.disabled.background}"
   },
   "hpe.button.default.disabled.borderColor": {
     "$type": "color",
@@ -13160,7 +13457,8 @@ export default {
       "default",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.default.disabled.borderColor}"
   },
   "hpe.button.default.disabled.textColor": {
     "$type": "color",
@@ -13203,7 +13501,8 @@ export default {
       "default",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.default.disabled.textColor}"
   },
   "hpe.button.default.disabled.iconColor": {
     "$type": "color",
@@ -13250,7 +13549,8 @@ export default {
       "default",
       "disabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.default.disabled.iconColor}"
   },
   "hpe.button.default.disabled.fontWeight": {
     "$type": "number",
@@ -13293,7 +13593,8 @@ export default {
       "default",
       "disabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.default.disabled.fontWeight}"
   },
   "hpe.button.default.hover.background": {
     "$type": "color",
@@ -13338,7 +13639,8 @@ export default {
       "default",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{button.default.hover.background}"
   },
   "hpe.button.default.hover.borderColor": {
     "$type": "color",
@@ -13383,7 +13685,8 @@ export default {
       "default",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{button.default.hover.borderColor}"
   },
   "hpe.button.default.hover.textColor": {
     "$type": "color",
@@ -13426,7 +13729,8 @@ export default {
       "default",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{button.default.hover.textColor}"
   },
   "hpe.button.default.hover.iconColor": {
     "$type": "color",
@@ -13473,7 +13777,8 @@ export default {
       "default",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{button.default.hover.iconColor}"
   },
   "hpe.button.default.hover.fontWeight": {
     "$type": "number",
@@ -13516,7 +13821,8 @@ export default {
       "default",
       "hover",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.default.hover.fontWeight}"
   },
   "hpe.button.default.selected.enabled.background": {
     "$type": "color",
@@ -13563,7 +13869,8 @@ export default {
       "selected",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{button.default.selected.enabled.background}"
   },
   "hpe.button.default.selected.enabled.borderColor": {
     "$type": "color",
@@ -13610,7 +13917,8 @@ export default {
       "selected",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.default.selected.enabled.borderColor}"
   },
   "hpe.button.default.selected.enabled.textColor": {
     "$type": "color",
@@ -13655,7 +13963,8 @@ export default {
       "selected",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.default.selected.enabled.textColor}"
   },
   "hpe.button.default.selected.enabled.iconColor": {
     "$type": "color",
@@ -13704,7 +14013,8 @@ export default {
       "selected",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.default.selected.enabled.iconColor}"
   },
   "hpe.button.default.selected.enabled.fontWeight": {
     "$type": "number",
@@ -13749,7 +14059,8 @@ export default {
       "selected",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.default.selected.enabled.fontWeight}"
   },
   "hpe.button.default.selected.hover.background": {
     "$type": "color",
@@ -13796,7 +14107,8 @@ export default {
       "selected",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{button.default.selected.hover.background}"
   },
   "hpe.button.default.selected.hover.borderColor": {
     "$type": "color",
@@ -13843,7 +14155,8 @@ export default {
       "selected",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{button.default.selected.hover.borderColor}"
   },
   "hpe.button.default.selected.hover.textColor": {
     "$type": "color",
@@ -13888,7 +14201,8 @@ export default {
       "selected",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{button.default.selected.hover.textColor}"
   },
   "hpe.button.default.selected.hover.iconColor": {
     "$type": "color",
@@ -13937,7 +14251,8 @@ export default {
       "selected",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{button.default.selected.hover.iconColor}"
   },
   "hpe.button.default.selected.hover.fontWeight": {
     "$type": "number",
@@ -13982,7 +14297,8 @@ export default {
       "selected",
       "hover",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.default.selected.hover.fontWeight}"
   },
   "hpe.button.default.xsmall.paddingX": {
     "$type": "number",
@@ -14025,7 +14341,8 @@ export default {
       "default",
       "xsmall",
       "paddingX"
-    ]
+    ],
+    "key": "{button.default.xsmall.paddingX}"
   },
   "hpe.button.default.xsmall.paddingY": {
     "$type": "number",
@@ -14068,7 +14385,8 @@ export default {
       "default",
       "xsmall",
       "paddingY"
-    ]
+    ],
+    "key": "{button.default.xsmall.paddingY}"
   },
   "hpe.button.default.xsmall.borderRadius": {
     "$type": "number",
@@ -14111,7 +14429,8 @@ export default {
       "default",
       "xsmall",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.default.xsmall.borderRadius}"
   },
   "hpe.button.default.xsmall.borderWidth": {
     "$type": "number",
@@ -14156,7 +14475,8 @@ export default {
       "default",
       "xsmall",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.default.xsmall.borderWidth}"
   },
   "hpe.button.default.xsmall.minHeight": {
     "$type": "number",
@@ -14199,7 +14519,8 @@ export default {
       "default",
       "xsmall",
       "minHeight"
-    ]
+    ],
+    "key": "{button.default.xsmall.minHeight}"
   },
   "hpe.button.default.xsmall.fontSize": {
     "$type": "number",
@@ -14242,7 +14563,8 @@ export default {
       "default",
       "xsmall",
       "fontSize"
-    ]
+    ],
+    "key": "{button.default.xsmall.fontSize}"
   },
   "hpe.button.default.xsmall.lineHeight": {
     "$type": "number",
@@ -14285,7 +14607,8 @@ export default {
       "default",
       "xsmall",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.default.xsmall.lineHeight}"
   },
   "hpe.button.default.xsmall.gapX": {
     "$type": "number",
@@ -14328,7 +14651,8 @@ export default {
       "default",
       "xsmall",
       "gapX"
-    ]
+    ],
+    "key": "{button.default.xsmall.gapX}"
   },
   "hpe.button.default.xsmall.iconOnly.paddingX": {
     "$type": "number",
@@ -14373,7 +14697,8 @@ export default {
       "xsmall",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.default.xsmall.iconOnly.paddingX}"
   },
   "hpe.button.default.xsmall.iconOnly.paddingY": {
     "$type": "number",
@@ -14418,7 +14743,8 @@ export default {
       "xsmall",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.default.xsmall.iconOnly.paddingY}"
   },
   "hpe.button.default.xsmall.iconOnly.borderRadius": {
     "$type": "number",
@@ -14463,7 +14789,8 @@ export default {
       "xsmall",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.default.xsmall.iconOnly.borderRadius}"
   },
   "hpe.button.default.xsmall.iconOnly.borderWidth": {
     "$type": "number",
@@ -14510,7 +14837,8 @@ export default {
       "xsmall",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.default.xsmall.iconOnly.borderWidth}"
   },
   "hpe.button.default.xsmall.iconOnly.minHeight": {
     "$type": "number",
@@ -14555,7 +14883,8 @@ export default {
       "xsmall",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.default.xsmall.iconOnly.minHeight}"
   },
   "hpe.button.default.xsmall.iconOnly.minWidth": {
     "$type": "number",
@@ -14600,7 +14929,8 @@ export default {
       "xsmall",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.default.xsmall.iconOnly.minWidth}"
   },
   "hpe.button.default.xsmall.iconOnly.fontSize": {
     "$type": "number",
@@ -14645,7 +14975,8 @@ export default {
       "xsmall",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.default.xsmall.iconOnly.fontSize}"
   },
   "hpe.button.default.xsmall.iconOnly.lineHeight": {
     "$type": "number",
@@ -14690,7 +15021,8 @@ export default {
       "xsmall",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.default.xsmall.iconOnly.lineHeight}"
   },
   "hpe.button.default.xsmall.iconOnly.gapX": {
     "$type": "number",
@@ -14735,7 +15067,8 @@ export default {
       "xsmall",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.default.xsmall.iconOnly.gapX}"
   },
   "hpe.button.default.small.paddingX": {
     "$type": "number",
@@ -14778,7 +15111,8 @@ export default {
       "default",
       "small",
       "paddingX"
-    ]
+    ],
+    "key": "{button.default.small.paddingX}"
   },
   "hpe.button.default.small.paddingY": {
     "$type": "number",
@@ -14821,7 +15155,8 @@ export default {
       "default",
       "small",
       "paddingY"
-    ]
+    ],
+    "key": "{button.default.small.paddingY}"
   },
   "hpe.button.default.small.borderRadius": {
     "$type": "number",
@@ -14864,7 +15199,8 @@ export default {
       "default",
       "small",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.default.small.borderRadius}"
   },
   "hpe.button.default.small.borderWidth": {
     "$type": "number",
@@ -14909,7 +15245,8 @@ export default {
       "default",
       "small",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.default.small.borderWidth}"
   },
   "hpe.button.default.small.minHeight": {
     "$type": "number",
@@ -14952,7 +15289,8 @@ export default {
       "default",
       "small",
       "minHeight"
-    ]
+    ],
+    "key": "{button.default.small.minHeight}"
   },
   "hpe.button.default.small.fontSize": {
     "$type": "number",
@@ -14995,7 +15333,8 @@ export default {
       "default",
       "small",
       "fontSize"
-    ]
+    ],
+    "key": "{button.default.small.fontSize}"
   },
   "hpe.button.default.small.lineHeight": {
     "$type": "number",
@@ -15038,7 +15377,8 @@ export default {
       "default",
       "small",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.default.small.lineHeight}"
   },
   "hpe.button.default.small.gapX": {
     "$type": "number",
@@ -15081,7 +15421,8 @@ export default {
       "default",
       "small",
       "gapX"
-    ]
+    ],
+    "key": "{button.default.small.gapX}"
   },
   "hpe.button.default.small.iconOnly.paddingX": {
     "$type": "number",
@@ -15126,7 +15467,8 @@ export default {
       "small",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.default.small.iconOnly.paddingX}"
   },
   "hpe.button.default.small.iconOnly.paddingY": {
     "$type": "number",
@@ -15171,7 +15513,8 @@ export default {
       "small",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.default.small.iconOnly.paddingY}"
   },
   "hpe.button.default.small.iconOnly.borderRadius": {
     "$type": "number",
@@ -15216,7 +15559,8 @@ export default {
       "small",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.default.small.iconOnly.borderRadius}"
   },
   "hpe.button.default.small.iconOnly.borderWidth": {
     "$type": "number",
@@ -15263,7 +15607,8 @@ export default {
       "small",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.default.small.iconOnly.borderWidth}"
   },
   "hpe.button.default.small.iconOnly.minHeight": {
     "$type": "number",
@@ -15308,7 +15653,8 @@ export default {
       "small",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.default.small.iconOnly.minHeight}"
   },
   "hpe.button.default.small.iconOnly.minWidth": {
     "$type": "number",
@@ -15353,7 +15699,8 @@ export default {
       "small",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.default.small.iconOnly.minWidth}"
   },
   "hpe.button.default.small.iconOnly.fontSize": {
     "$type": "number",
@@ -15398,7 +15745,8 @@ export default {
       "small",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.default.small.iconOnly.fontSize}"
   },
   "hpe.button.default.small.iconOnly.lineHeight": {
     "$type": "number",
@@ -15443,7 +15791,8 @@ export default {
       "small",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.default.small.iconOnly.lineHeight}"
   },
   "hpe.button.default.small.iconOnly.gapX": {
     "$type": "number",
@@ -15488,7 +15837,8 @@ export default {
       "small",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.default.small.iconOnly.gapX}"
   },
   "hpe.button.default.medium.paddingX": {
     "$type": "number",
@@ -15531,7 +15881,8 @@ export default {
       "default",
       "medium",
       "paddingX"
-    ]
+    ],
+    "key": "{button.default.medium.paddingX}"
   },
   "hpe.button.default.medium.paddingY": {
     "$type": "number",
@@ -15574,7 +15925,8 @@ export default {
       "default",
       "medium",
       "paddingY"
-    ]
+    ],
+    "key": "{button.default.medium.paddingY}"
   },
   "hpe.button.default.medium.borderRadius": {
     "$type": "number",
@@ -15617,7 +15969,8 @@ export default {
       "default",
       "medium",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.default.medium.borderRadius}"
   },
   "hpe.button.default.medium.borderWidth": {
     "$type": "number",
@@ -15662,7 +16015,8 @@ export default {
       "default",
       "medium",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.default.medium.borderWidth}"
   },
   "hpe.button.default.medium.minHeight": {
     "$type": "number",
@@ -15705,7 +16059,8 @@ export default {
       "default",
       "medium",
       "minHeight"
-    ]
+    ],
+    "key": "{button.default.medium.minHeight}"
   },
   "hpe.button.default.medium.fontSize": {
     "$type": "number",
@@ -15748,7 +16103,8 @@ export default {
       "default",
       "medium",
       "fontSize"
-    ]
+    ],
+    "key": "{button.default.medium.fontSize}"
   },
   "hpe.button.default.medium.lineHeight": {
     "$type": "number",
@@ -15791,7 +16147,8 @@ export default {
       "default",
       "medium",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.default.medium.lineHeight}"
   },
   "hpe.button.default.medium.gapX": {
     "$type": "number",
@@ -15834,7 +16191,8 @@ export default {
       "default",
       "medium",
       "gapX"
-    ]
+    ],
+    "key": "{button.default.medium.gapX}"
   },
   "hpe.button.default.medium.iconOnly.paddingX": {
     "$type": "number",
@@ -15879,7 +16237,8 @@ export default {
       "medium",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.default.medium.iconOnly.paddingX}"
   },
   "hpe.button.default.medium.iconOnly.paddingY": {
     "$type": "number",
@@ -15924,7 +16283,8 @@ export default {
       "medium",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.default.medium.iconOnly.paddingY}"
   },
   "hpe.button.default.medium.iconOnly.borderRadius": {
     "$type": "number",
@@ -15969,7 +16329,8 @@ export default {
       "medium",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.default.medium.iconOnly.borderRadius}"
   },
   "hpe.button.default.medium.iconOnly.borderWidth": {
     "$type": "number",
@@ -16016,7 +16377,8 @@ export default {
       "medium",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.default.medium.iconOnly.borderWidth}"
   },
   "hpe.button.default.medium.iconOnly.minHeight": {
     "$type": "number",
@@ -16061,7 +16423,8 @@ export default {
       "medium",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.default.medium.iconOnly.minHeight}"
   },
   "hpe.button.default.medium.iconOnly.minWidth": {
     "$type": "number",
@@ -16106,7 +16469,8 @@ export default {
       "medium",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.default.medium.iconOnly.minWidth}"
   },
   "hpe.button.default.medium.iconOnly.fontSize": {
     "$type": "number",
@@ -16151,7 +16515,8 @@ export default {
       "medium",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.default.medium.iconOnly.fontSize}"
   },
   "hpe.button.default.medium.iconOnly.lineHeight": {
     "$type": "number",
@@ -16196,7 +16561,8 @@ export default {
       "medium",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.default.medium.iconOnly.lineHeight}"
   },
   "hpe.button.default.medium.iconOnly.gapX": {
     "$type": "number",
@@ -16241,7 +16607,8 @@ export default {
       "medium",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.default.medium.iconOnly.gapX}"
   },
   "hpe.button.default.large.paddingX": {
     "$type": "number",
@@ -16284,7 +16651,8 @@ export default {
       "default",
       "large",
       "paddingX"
-    ]
+    ],
+    "key": "{button.default.large.paddingX}"
   },
   "hpe.button.default.large.paddingY": {
     "$type": "number",
@@ -16327,7 +16695,8 @@ export default {
       "default",
       "large",
       "paddingY"
-    ]
+    ],
+    "key": "{button.default.large.paddingY}"
   },
   "hpe.button.default.large.borderRadius": {
     "$type": "number",
@@ -16370,7 +16739,8 @@ export default {
       "default",
       "large",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.default.large.borderRadius}"
   },
   "hpe.button.default.large.borderWidth": {
     "$type": "number",
@@ -16415,7 +16785,8 @@ export default {
       "default",
       "large",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.default.large.borderWidth}"
   },
   "hpe.button.default.large.minHeight": {
     "$type": "number",
@@ -16458,7 +16829,8 @@ export default {
       "default",
       "large",
       "minHeight"
-    ]
+    ],
+    "key": "{button.default.large.minHeight}"
   },
   "hpe.button.default.large.fontSize": {
     "$type": "number",
@@ -16501,7 +16873,8 @@ export default {
       "default",
       "large",
       "fontSize"
-    ]
+    ],
+    "key": "{button.default.large.fontSize}"
   },
   "hpe.button.default.large.lineHeight": {
     "$type": "number",
@@ -16544,7 +16917,8 @@ export default {
       "default",
       "large",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.default.large.lineHeight}"
   },
   "hpe.button.default.large.gapX": {
     "$type": "number",
@@ -16587,7 +16961,8 @@ export default {
       "default",
       "large",
       "gapX"
-    ]
+    ],
+    "key": "{button.default.large.gapX}"
   },
   "hpe.button.default.large.iconOnly.borderRadius": {
     "$type": "number",
@@ -16632,7 +17007,8 @@ export default {
       "large",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.default.large.iconOnly.borderRadius}"
   },
   "hpe.button.default.large.iconOnly.borderWidth": {
     "$type": "number",
@@ -16679,7 +17055,8 @@ export default {
       "large",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.default.large.iconOnly.borderWidth}"
   },
   "hpe.button.default.large.iconOnly.minHeight": {
     "$type": "number",
@@ -16724,7 +17101,8 @@ export default {
       "large",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.default.large.iconOnly.minHeight}"
   },
   "hpe.button.default.large.iconOnly.minWidth": {
     "$type": "number",
@@ -16769,7 +17147,8 @@ export default {
       "large",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.default.large.iconOnly.minWidth}"
   },
   "hpe.button.default.large.iconOnly.fontSize": {
     "$type": "number",
@@ -16814,7 +17193,8 @@ export default {
       "large",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.default.large.iconOnly.fontSize}"
   },
   "hpe.button.default.large.iconOnly.lineHeight": {
     "$type": "number",
@@ -16859,7 +17239,8 @@ export default {
       "large",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.default.large.iconOnly.lineHeight}"
   },
   "hpe.button.default.large.iconOnly.gapX": {
     "$type": "number",
@@ -16904,7 +17285,8 @@ export default {
       "large",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.default.large.iconOnly.gapX}"
   },
   "hpe.button.default.large.iconOnly.paddingX": {
     "$type": "number",
@@ -16949,7 +17331,8 @@ export default {
       "large",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.default.large.iconOnly.paddingX}"
   },
   "hpe.button.default.large.iconOnly.paddingY": {
     "$type": "number",
@@ -16994,7 +17377,8 @@ export default {
       "large",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.default.large.iconOnly.paddingY}"
   },
   "hpe.button.default.xlarge.iconOnly.borderRadius": {
     "$type": "number",
@@ -17039,7 +17423,8 @@ export default {
       "xlarge",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.default.xlarge.iconOnly.borderRadius}"
   },
   "hpe.button.default.xlarge.iconOnly.borderWidth": {
     "$type": "number",
@@ -17086,7 +17471,8 @@ export default {
       "xlarge",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.default.xlarge.iconOnly.borderWidth}"
   },
   "hpe.button.default.xlarge.iconOnly.minHeight": {
     "$type": "number",
@@ -17131,7 +17517,8 @@ export default {
       "xlarge",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.default.xlarge.iconOnly.minHeight}"
   },
   "hpe.button.default.xlarge.iconOnly.minWidth": {
     "$type": "number",
@@ -17176,7 +17563,8 @@ export default {
       "xlarge",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.default.xlarge.iconOnly.minWidth}"
   },
   "hpe.button.default.xlarge.iconOnly.fontSize": {
     "$type": "number",
@@ -17221,7 +17609,8 @@ export default {
       "xlarge",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.default.xlarge.iconOnly.fontSize}"
   },
   "hpe.button.default.xlarge.iconOnly.lineHeight": {
     "$type": "number",
@@ -17266,7 +17655,8 @@ export default {
       "xlarge",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.default.xlarge.iconOnly.lineHeight}"
   },
   "hpe.button.default.xlarge.iconOnly.gapX": {
     "$type": "number",
@@ -17311,7 +17701,8 @@ export default {
       "xlarge",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.default.xlarge.iconOnly.gapX}"
   },
   "hpe.button.default.xlarge.iconOnly.paddingX": {
     "$type": "number",
@@ -17356,7 +17747,8 @@ export default {
       "xlarge",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.default.xlarge.iconOnly.paddingX}"
   },
   "hpe.button.default.xlarge.iconOnly.paddingY": {
     "$type": "number",
@@ -17401,7 +17793,8 @@ export default {
       "xlarge",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.default.xlarge.iconOnly.paddingY}"
   },
   "hpe.button.default.xlarge.paddingX": {
     "$type": "number",
@@ -17444,7 +17837,8 @@ export default {
       "default",
       "xlarge",
       "paddingX"
-    ]
+    ],
+    "key": "{button.default.xlarge.paddingX}"
   },
   "hpe.button.default.xlarge.paddingY": {
     "$type": "number",
@@ -17487,7 +17881,8 @@ export default {
       "default",
       "xlarge",
       "paddingY"
-    ]
+    ],
+    "key": "{button.default.xlarge.paddingY}"
   },
   "hpe.button.default.xlarge.borderRadius": {
     "$type": "number",
@@ -17530,7 +17925,8 @@ export default {
       "default",
       "xlarge",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.default.xlarge.borderRadius}"
   },
   "hpe.button.default.xlarge.borderWidth": {
     "$type": "number",
@@ -17575,7 +17971,8 @@ export default {
       "default",
       "xlarge",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.default.xlarge.borderWidth}"
   },
   "hpe.button.default.xlarge.minHeight": {
     "$type": "number",
@@ -17618,7 +18015,8 @@ export default {
       "default",
       "xlarge",
       "minHeight"
-    ]
+    ],
+    "key": "{button.default.xlarge.minHeight}"
   },
   "hpe.button.default.xlarge.fontSize": {
     "$type": "number",
@@ -17661,7 +18059,8 @@ export default {
       "default",
       "xlarge",
       "fontSize"
-    ]
+    ],
+    "key": "{button.default.xlarge.fontSize}"
   },
   "hpe.button.default.xlarge.lineHeight": {
     "$type": "number",
@@ -17704,7 +18103,8 @@ export default {
       "default",
       "xlarge",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.default.xlarge.lineHeight}"
   },
   "hpe.button.default.xlarge.gapX": {
     "$type": "number",
@@ -17747,7 +18147,8 @@ export default {
       "default",
       "xlarge",
       "gapX"
-    ]
+    ],
+    "key": "{button.default.xlarge.gapX}"
   },
   "hpe.button.toolbar.enabled.background": {
     "$type": "color",
@@ -17792,7 +18193,8 @@ export default {
       "toolbar",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{button.toolbar.enabled.background}"
   },
   "hpe.button.toolbar.enabled.borderColor": {
     "$type": "color",
@@ -17837,7 +18239,8 @@ export default {
       "toolbar",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.toolbar.enabled.borderColor}"
   },
   "hpe.button.toolbar.enabled.textColor": {
     "$type": "color",
@@ -17880,7 +18283,8 @@ export default {
       "toolbar",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.toolbar.enabled.textColor}"
   },
   "hpe.button.toolbar.enabled.iconColor": {
     "$type": "color",
@@ -17927,7 +18331,8 @@ export default {
       "toolbar",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.toolbar.enabled.iconColor}"
   },
   "hpe.button.toolbar.enabled.fontWeight": {
     "$type": "number",
@@ -17970,7 +18375,8 @@ export default {
       "toolbar",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.toolbar.enabled.fontWeight}"
   },
   "hpe.button.toolbar.disabled.background": {
     "$type": "color",
@@ -18015,7 +18421,8 @@ export default {
       "toolbar",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{button.toolbar.disabled.background}"
   },
   "hpe.button.toolbar.disabled.borderColor": {
     "$type": "color",
@@ -18060,7 +18467,8 @@ export default {
       "toolbar",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.toolbar.disabled.borderColor}"
   },
   "hpe.button.toolbar.disabled.textColor": {
     "$type": "color",
@@ -18103,7 +18511,8 @@ export default {
       "toolbar",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.toolbar.disabled.textColor}"
   },
   "hpe.button.toolbar.disabled.iconColor": {
     "$type": "color",
@@ -18150,7 +18559,8 @@ export default {
       "toolbar",
       "disabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.toolbar.disabled.iconColor}"
   },
   "hpe.button.toolbar.disabled.fontWeight": {
     "$type": "number",
@@ -18193,7 +18603,8 @@ export default {
       "toolbar",
       "disabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.toolbar.disabled.fontWeight}"
   },
   "hpe.button.toolbar.hover.background": {
     "$type": "color",
@@ -18238,7 +18649,8 @@ export default {
       "toolbar",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{button.toolbar.hover.background}"
   },
   "hpe.button.toolbar.hover.borderColor": {
     "$type": "color",
@@ -18283,7 +18695,8 @@ export default {
       "toolbar",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{button.toolbar.hover.borderColor}"
   },
   "hpe.button.toolbar.hover.textColor": {
     "$type": "color",
@@ -18326,7 +18739,8 @@ export default {
       "toolbar",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{button.toolbar.hover.textColor}"
   },
   "hpe.button.toolbar.hover.iconColor": {
     "$type": "color",
@@ -18373,7 +18787,8 @@ export default {
       "toolbar",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{button.toolbar.hover.iconColor}"
   },
   "hpe.button.toolbar.hover.fontWeight": {
     "$type": "number",
@@ -18416,7 +18831,8 @@ export default {
       "toolbar",
       "hover",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.toolbar.hover.fontWeight}"
   },
   "hpe.button.toolbar.selected.enabled.background": {
     "$type": "color",
@@ -18463,7 +18879,8 @@ export default {
       "selected",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{button.toolbar.selected.enabled.background}"
   },
   "hpe.button.toolbar.selected.enabled.borderColor": {
     "$type": "color",
@@ -18510,7 +18927,8 @@ export default {
       "selected",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{button.toolbar.selected.enabled.borderColor}"
   },
   "hpe.button.toolbar.selected.enabled.textColor": {
     "$type": "color",
@@ -18555,7 +18973,8 @@ export default {
       "selected",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{button.toolbar.selected.enabled.textColor}"
   },
   "hpe.button.toolbar.selected.enabled.iconColor": {
     "$type": "color",
@@ -18604,7 +19023,8 @@ export default {
       "selected",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{button.toolbar.selected.enabled.iconColor}"
   },
   "hpe.button.toolbar.selected.enabled.fontWeight": {
     "$type": "number",
@@ -18649,7 +19069,8 @@ export default {
       "selected",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.toolbar.selected.enabled.fontWeight}"
   },
   "hpe.button.toolbar.selected.hover.background": {
     "$type": "color",
@@ -18696,7 +19117,8 @@ export default {
       "selected",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{button.toolbar.selected.hover.background}"
   },
   "hpe.button.toolbar.selected.hover.borderColor": {
     "$type": "color",
@@ -18743,7 +19165,8 @@ export default {
       "selected",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{button.toolbar.selected.hover.borderColor}"
   },
   "hpe.button.toolbar.selected.hover.textColor": {
     "$type": "color",
@@ -18788,7 +19211,8 @@ export default {
       "selected",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{button.toolbar.selected.hover.textColor}"
   },
   "hpe.button.toolbar.selected.hover.iconColor": {
     "$type": "color",
@@ -18837,7 +19261,8 @@ export default {
       "selected",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{button.toolbar.selected.hover.iconColor}"
   },
   "hpe.button.toolbar.selected.hover.fontWeight": {
     "$type": "number",
@@ -18882,7 +19307,8 @@ export default {
       "selected",
       "hover",
       "fontWeight"
-    ]
+    ],
+    "key": "{button.toolbar.selected.hover.fontWeight}"
   },
   "hpe.button.toolbar.xsmall.paddingX": {
     "$type": "number",
@@ -18925,7 +19351,8 @@ export default {
       "toolbar",
       "xsmall",
       "paddingX"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.paddingX}"
   },
   "hpe.button.toolbar.xsmall.paddingY": {
     "$type": "number",
@@ -18968,7 +19395,8 @@ export default {
       "toolbar",
       "xsmall",
       "paddingY"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.paddingY}"
   },
   "hpe.button.toolbar.xsmall.borderRadius": {
     "$type": "number",
@@ -19011,7 +19439,8 @@ export default {
       "toolbar",
       "xsmall",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.borderRadius}"
   },
   "hpe.button.toolbar.xsmall.borderWidth": {
     "$type": "number",
@@ -19056,7 +19485,8 @@ export default {
       "toolbar",
       "xsmall",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.borderWidth}"
   },
   "hpe.button.toolbar.xsmall.minHeight": {
     "$type": "number",
@@ -19099,7 +19529,8 @@ export default {
       "toolbar",
       "xsmall",
       "minHeight"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.minHeight}"
   },
   "hpe.button.toolbar.xsmall.fontSize": {
     "$type": "number",
@@ -19142,7 +19573,8 @@ export default {
       "toolbar",
       "xsmall",
       "fontSize"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.fontSize}"
   },
   "hpe.button.toolbar.xsmall.lineHeight": {
     "$type": "number",
@@ -19185,7 +19617,8 @@ export default {
       "toolbar",
       "xsmall",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.lineHeight}"
   },
   "hpe.button.toolbar.xsmall.iconOnly.paddingX": {
     "$type": "number",
@@ -19230,7 +19663,8 @@ export default {
       "xsmall",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.iconOnly.paddingX}"
   },
   "hpe.button.toolbar.xsmall.iconOnly.paddingY": {
     "$type": "number",
@@ -19275,7 +19709,8 @@ export default {
       "xsmall",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.iconOnly.paddingY}"
   },
   "hpe.button.toolbar.xsmall.iconOnly.borderRadius": {
     "$type": "number",
@@ -19320,7 +19755,8 @@ export default {
       "xsmall",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.iconOnly.borderRadius}"
   },
   "hpe.button.toolbar.xsmall.iconOnly.borderWidth": {
     "$type": "number",
@@ -19367,7 +19803,8 @@ export default {
       "xsmall",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.iconOnly.borderWidth}"
   },
   "hpe.button.toolbar.xsmall.iconOnly.minHeight": {
     "$type": "number",
@@ -19412,7 +19849,8 @@ export default {
       "xsmall",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.iconOnly.minHeight}"
   },
   "hpe.button.toolbar.xsmall.iconOnly.minWidth": {
     "$type": "number",
@@ -19457,7 +19895,8 @@ export default {
       "xsmall",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.iconOnly.minWidth}"
   },
   "hpe.button.toolbar.xsmall.iconOnly.fontSize": {
     "$type": "number",
@@ -19502,7 +19941,8 @@ export default {
       "xsmall",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.iconOnly.fontSize}"
   },
   "hpe.button.toolbar.xsmall.iconOnly.lineHeight": {
     "$type": "number",
@@ -19547,7 +19987,8 @@ export default {
       "xsmall",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.iconOnly.lineHeight}"
   },
   "hpe.button.toolbar.xsmall.iconOnly.gapX": {
     "$type": "number",
@@ -19592,7 +20033,8 @@ export default {
       "xsmall",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.iconOnly.gapX}"
   },
   "hpe.button.toolbar.xsmall.gapX": {
     "$type": "number",
@@ -19635,7 +20077,8 @@ export default {
       "toolbar",
       "xsmall",
       "gapX"
-    ]
+    ],
+    "key": "{button.toolbar.xsmall.gapX}"
   },
   "hpe.button.toolbar.small.paddingX": {
     "$type": "number",
@@ -19678,7 +20121,8 @@ export default {
       "toolbar",
       "small",
       "paddingX"
-    ]
+    ],
+    "key": "{button.toolbar.small.paddingX}"
   },
   "hpe.button.toolbar.small.paddingY": {
     "$type": "number",
@@ -19721,7 +20165,8 @@ export default {
       "toolbar",
       "small",
       "paddingY"
-    ]
+    ],
+    "key": "{button.toolbar.small.paddingY}"
   },
   "hpe.button.toolbar.small.borderRadius": {
     "$type": "number",
@@ -19764,7 +20209,8 @@ export default {
       "toolbar",
       "small",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.toolbar.small.borderRadius}"
   },
   "hpe.button.toolbar.small.borderWidth": {
     "$type": "number",
@@ -19809,7 +20255,8 @@ export default {
       "toolbar",
       "small",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.toolbar.small.borderWidth}"
   },
   "hpe.button.toolbar.small.minHeight": {
     "$type": "number",
@@ -19852,7 +20299,8 @@ export default {
       "toolbar",
       "small",
       "minHeight"
-    ]
+    ],
+    "key": "{button.toolbar.small.minHeight}"
   },
   "hpe.button.toolbar.small.fontSize": {
     "$type": "number",
@@ -19895,7 +20343,8 @@ export default {
       "toolbar",
       "small",
       "fontSize"
-    ]
+    ],
+    "key": "{button.toolbar.small.fontSize}"
   },
   "hpe.button.toolbar.small.lineHeight": {
     "$type": "number",
@@ -19938,7 +20387,8 @@ export default {
       "toolbar",
       "small",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.toolbar.small.lineHeight}"
   },
   "hpe.button.toolbar.small.gapX": {
     "$type": "number",
@@ -19981,7 +20431,8 @@ export default {
       "toolbar",
       "small",
       "gapX"
-    ]
+    ],
+    "key": "{button.toolbar.small.gapX}"
   },
   "hpe.button.toolbar.small.iconOnly.paddingX": {
     "$type": "number",
@@ -20026,7 +20477,8 @@ export default {
       "small",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.toolbar.small.iconOnly.paddingX}"
   },
   "hpe.button.toolbar.small.iconOnly.paddingY": {
     "$type": "number",
@@ -20071,7 +20523,8 @@ export default {
       "small",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.toolbar.small.iconOnly.paddingY}"
   },
   "hpe.button.toolbar.small.iconOnly.borderRadius": {
     "$type": "number",
@@ -20116,7 +20569,8 @@ export default {
       "small",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.toolbar.small.iconOnly.borderRadius}"
   },
   "hpe.button.toolbar.small.iconOnly.borderWidth": {
     "$type": "number",
@@ -20163,7 +20617,8 @@ export default {
       "small",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.toolbar.small.iconOnly.borderWidth}"
   },
   "hpe.button.toolbar.small.iconOnly.minHeight": {
     "$type": "number",
@@ -20208,7 +20663,8 @@ export default {
       "small",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.toolbar.small.iconOnly.minHeight}"
   },
   "hpe.button.toolbar.small.iconOnly.minWidth": {
     "$type": "number",
@@ -20253,7 +20709,8 @@ export default {
       "small",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.toolbar.small.iconOnly.minWidth}"
   },
   "hpe.button.toolbar.small.iconOnly.fontSize": {
     "$type": "number",
@@ -20298,7 +20755,8 @@ export default {
       "small",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.toolbar.small.iconOnly.fontSize}"
   },
   "hpe.button.toolbar.small.iconOnly.lineHeight": {
     "$type": "number",
@@ -20343,7 +20801,8 @@ export default {
       "small",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.toolbar.small.iconOnly.lineHeight}"
   },
   "hpe.button.toolbar.small.iconOnly.gapX": {
     "$type": "number",
@@ -20388,7 +20847,8 @@ export default {
       "small",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.toolbar.small.iconOnly.gapX}"
   },
   "hpe.button.toolbar.medium.paddingX": {
     "$type": "number",
@@ -20431,7 +20891,8 @@ export default {
       "toolbar",
       "medium",
       "paddingX"
-    ]
+    ],
+    "key": "{button.toolbar.medium.paddingX}"
   },
   "hpe.button.toolbar.medium.paddingY": {
     "$type": "number",
@@ -20474,7 +20935,8 @@ export default {
       "toolbar",
       "medium",
       "paddingY"
-    ]
+    ],
+    "key": "{button.toolbar.medium.paddingY}"
   },
   "hpe.button.toolbar.medium.borderRadius": {
     "$type": "number",
@@ -20517,7 +20979,8 @@ export default {
       "toolbar",
       "medium",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.toolbar.medium.borderRadius}"
   },
   "hpe.button.toolbar.medium.borderWidth": {
     "$type": "number",
@@ -20562,7 +21025,8 @@ export default {
       "toolbar",
       "medium",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.toolbar.medium.borderWidth}"
   },
   "hpe.button.toolbar.medium.minHeight": {
     "$type": "number",
@@ -20605,7 +21069,8 @@ export default {
       "toolbar",
       "medium",
       "minHeight"
-    ]
+    ],
+    "key": "{button.toolbar.medium.minHeight}"
   },
   "hpe.button.toolbar.medium.fontSize": {
     "$type": "number",
@@ -20648,7 +21113,8 @@ export default {
       "toolbar",
       "medium",
       "fontSize"
-    ]
+    ],
+    "key": "{button.toolbar.medium.fontSize}"
   },
   "hpe.button.toolbar.medium.lineHeight": {
     "$type": "number",
@@ -20691,7 +21157,8 @@ export default {
       "toolbar",
       "medium",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.toolbar.medium.lineHeight}"
   },
   "hpe.button.toolbar.medium.gapX": {
     "$type": "number",
@@ -20734,7 +21201,8 @@ export default {
       "toolbar",
       "medium",
       "gapX"
-    ]
+    ],
+    "key": "{button.toolbar.medium.gapX}"
   },
   "hpe.button.toolbar.medium.iconOnly.paddingX": {
     "$type": "number",
@@ -20779,7 +21247,8 @@ export default {
       "medium",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.toolbar.medium.iconOnly.paddingX}"
   },
   "hpe.button.toolbar.medium.iconOnly.paddingY": {
     "$type": "number",
@@ -20824,7 +21293,8 @@ export default {
       "medium",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.toolbar.medium.iconOnly.paddingY}"
   },
   "hpe.button.toolbar.medium.iconOnly.borderRadius": {
     "$type": "number",
@@ -20869,7 +21339,8 @@ export default {
       "medium",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.toolbar.medium.iconOnly.borderRadius}"
   },
   "hpe.button.toolbar.medium.iconOnly.borderWidth": {
     "$type": "number",
@@ -20916,7 +21387,8 @@ export default {
       "medium",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.toolbar.medium.iconOnly.borderWidth}"
   },
   "hpe.button.toolbar.medium.iconOnly.minHeight": {
     "$type": "number",
@@ -20961,7 +21433,8 @@ export default {
       "medium",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.toolbar.medium.iconOnly.minHeight}"
   },
   "hpe.button.toolbar.medium.iconOnly.minWidth": {
     "$type": "number",
@@ -21006,7 +21479,8 @@ export default {
       "medium",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.toolbar.medium.iconOnly.minWidth}"
   },
   "hpe.button.toolbar.medium.iconOnly.fontSize": {
     "$type": "number",
@@ -21051,7 +21525,8 @@ export default {
       "medium",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.toolbar.medium.iconOnly.fontSize}"
   },
   "hpe.button.toolbar.medium.iconOnly.lineHeight": {
     "$type": "number",
@@ -21096,7 +21571,8 @@ export default {
       "medium",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.toolbar.medium.iconOnly.lineHeight}"
   },
   "hpe.button.toolbar.medium.iconOnly.gapX": {
     "$type": "number",
@@ -21141,7 +21617,8 @@ export default {
       "medium",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.toolbar.medium.iconOnly.gapX}"
   },
   "hpe.button.toolbar.large.paddingX": {
     "$type": "number",
@@ -21184,7 +21661,8 @@ export default {
       "toolbar",
       "large",
       "paddingX"
-    ]
+    ],
+    "key": "{button.toolbar.large.paddingX}"
   },
   "hpe.button.toolbar.large.paddingY": {
     "$type": "number",
@@ -21227,7 +21705,8 @@ export default {
       "toolbar",
       "large",
       "paddingY"
-    ]
+    ],
+    "key": "{button.toolbar.large.paddingY}"
   },
   "hpe.button.toolbar.large.borderRadius": {
     "$type": "number",
@@ -21270,7 +21749,8 @@ export default {
       "toolbar",
       "large",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.toolbar.large.borderRadius}"
   },
   "hpe.button.toolbar.large.borderWidth": {
     "$type": "number",
@@ -21315,7 +21795,8 @@ export default {
       "toolbar",
       "large",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.toolbar.large.borderWidth}"
   },
   "hpe.button.toolbar.large.minHeight": {
     "$type": "number",
@@ -21358,7 +21839,8 @@ export default {
       "toolbar",
       "large",
       "minHeight"
-    ]
+    ],
+    "key": "{button.toolbar.large.minHeight}"
   },
   "hpe.button.toolbar.large.fontSize": {
     "$type": "number",
@@ -21401,7 +21883,8 @@ export default {
       "toolbar",
       "large",
       "fontSize"
-    ]
+    ],
+    "key": "{button.toolbar.large.fontSize}"
   },
   "hpe.button.toolbar.large.lineHeight": {
     "$type": "number",
@@ -21444,7 +21927,8 @@ export default {
       "toolbar",
       "large",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.toolbar.large.lineHeight}"
   },
   "hpe.button.toolbar.large.gapX": {
     "$type": "number",
@@ -21487,7 +21971,8 @@ export default {
       "toolbar",
       "large",
       "gapX"
-    ]
+    ],
+    "key": "{button.toolbar.large.gapX}"
   },
   "hpe.button.toolbar.large.iconOnly.borderRadius": {
     "$type": "number",
@@ -21532,7 +22017,8 @@ export default {
       "large",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.toolbar.large.iconOnly.borderRadius}"
   },
   "hpe.button.toolbar.large.iconOnly.borderWidth": {
     "$type": "number",
@@ -21579,7 +22065,8 @@ export default {
       "large",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.toolbar.large.iconOnly.borderWidth}"
   },
   "hpe.button.toolbar.large.iconOnly.minHeight": {
     "$type": "number",
@@ -21624,7 +22111,8 @@ export default {
       "large",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.toolbar.large.iconOnly.minHeight}"
   },
   "hpe.button.toolbar.large.iconOnly.minWidth": {
     "$type": "number",
@@ -21669,7 +22157,8 @@ export default {
       "large",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.toolbar.large.iconOnly.minWidth}"
   },
   "hpe.button.toolbar.large.iconOnly.fontSize": {
     "$type": "number",
@@ -21714,7 +22203,8 @@ export default {
       "large",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.toolbar.large.iconOnly.fontSize}"
   },
   "hpe.button.toolbar.large.iconOnly.lineHeight": {
     "$type": "number",
@@ -21759,7 +22249,8 @@ export default {
       "large",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.toolbar.large.iconOnly.lineHeight}"
   },
   "hpe.button.toolbar.large.iconOnly.gapX": {
     "$type": "number",
@@ -21804,7 +22295,8 @@ export default {
       "large",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.toolbar.large.iconOnly.gapX}"
   },
   "hpe.button.toolbar.large.iconOnly.paddingX": {
     "$type": "number",
@@ -21849,7 +22341,8 @@ export default {
       "large",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.toolbar.large.iconOnly.paddingX}"
   },
   "hpe.button.toolbar.large.iconOnly.paddingY": {
     "$type": "number",
@@ -21894,7 +22387,8 @@ export default {
       "large",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.toolbar.large.iconOnly.paddingY}"
   },
   "hpe.button.toolbar.xlarge.iconOnly.borderRadius": {
     "$type": "number",
@@ -21939,7 +22433,8 @@ export default {
       "xlarge",
       "iconOnly",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.iconOnly.borderRadius}"
   },
   "hpe.button.toolbar.xlarge.iconOnly.borderWidth": {
     "$type": "number",
@@ -21986,7 +22481,8 @@ export default {
       "xlarge",
       "iconOnly",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.iconOnly.borderWidth}"
   },
   "hpe.button.toolbar.xlarge.iconOnly.minHeight": {
     "$type": "number",
@@ -22031,7 +22527,8 @@ export default {
       "xlarge",
       "iconOnly",
       "minHeight"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.iconOnly.minHeight}"
   },
   "hpe.button.toolbar.xlarge.iconOnly.minWidth": {
     "$type": "number",
@@ -22076,7 +22573,8 @@ export default {
       "xlarge",
       "iconOnly",
       "minWidth"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.iconOnly.minWidth}"
   },
   "hpe.button.toolbar.xlarge.iconOnly.fontSize": {
     "$type": "number",
@@ -22121,7 +22619,8 @@ export default {
       "xlarge",
       "iconOnly",
       "fontSize"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.iconOnly.fontSize}"
   },
   "hpe.button.toolbar.xlarge.iconOnly.lineHeight": {
     "$type": "number",
@@ -22166,7 +22665,8 @@ export default {
       "xlarge",
       "iconOnly",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.iconOnly.lineHeight}"
   },
   "hpe.button.toolbar.xlarge.iconOnly.gapX": {
     "$type": "number",
@@ -22211,7 +22711,8 @@ export default {
       "xlarge",
       "iconOnly",
       "gapX"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.iconOnly.gapX}"
   },
   "hpe.button.toolbar.xlarge.iconOnly.paddingX": {
     "$type": "number",
@@ -22256,7 +22757,8 @@ export default {
       "xlarge",
       "iconOnly",
       "paddingX"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.iconOnly.paddingX}"
   },
   "hpe.button.toolbar.xlarge.iconOnly.paddingY": {
     "$type": "number",
@@ -22301,7 +22803,8 @@ export default {
       "xlarge",
       "iconOnly",
       "paddingY"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.iconOnly.paddingY}"
   },
   "hpe.button.toolbar.xlarge.paddingX": {
     "$type": "number",
@@ -22344,7 +22847,8 @@ export default {
       "toolbar",
       "xlarge",
       "paddingX"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.paddingX}"
   },
   "hpe.button.toolbar.xlarge.paddingY": {
     "$type": "number",
@@ -22387,7 +22891,8 @@ export default {
       "toolbar",
       "xlarge",
       "paddingY"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.paddingY}"
   },
   "hpe.button.toolbar.xlarge.borderRadius": {
     "$type": "number",
@@ -22430,7 +22935,8 @@ export default {
       "toolbar",
       "xlarge",
       "borderRadius"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.borderRadius}"
   },
   "hpe.button.toolbar.xlarge.borderWidth": {
     "$type": "number",
@@ -22475,7 +22981,8 @@ export default {
       "toolbar",
       "xlarge",
       "borderWidth"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.borderWidth}"
   },
   "hpe.button.toolbar.xlarge.minHeight": {
     "$type": "number",
@@ -22518,7 +23025,8 @@ export default {
       "toolbar",
       "xlarge",
       "minHeight"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.minHeight}"
   },
   "hpe.button.toolbar.xlarge.fontSize": {
     "$type": "number",
@@ -22561,7 +23069,8 @@ export default {
       "toolbar",
       "xlarge",
       "fontSize"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.fontSize}"
   },
   "hpe.button.toolbar.xlarge.lineHeight": {
     "$type": "number",
@@ -22604,7 +23113,8 @@ export default {
       "toolbar",
       "xlarge",
       "lineHeight"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.lineHeight}"
   },
   "hpe.button.toolbar.xlarge.gapX": {
     "$type": "number",
@@ -22647,7 +23157,8 @@ export default {
       "toolbar",
       "xlarge",
       "gapX"
-    ]
+    ],
+    "key": "{button.toolbar.xlarge.gapX}"
   },
   "hpe.drop.background": {
     "$type": "color",
@@ -22686,7 +23197,8 @@ export default {
     "path": [
       "drop",
       "background"
-    ]
+    ],
+    "key": "{drop.background}"
   },
   "hpe.drop.borderRadius": {
     "$type": "number",
@@ -22725,7 +23237,8 @@ export default {
     "path": [
       "drop",
       "borderRadius"
-    ]
+    ],
+    "key": "{drop.borderRadius}"
   },
   "hpe.drop.margin": {
     "$type": "number",
@@ -22764,7 +23277,8 @@ export default {
     "path": [
       "drop",
       "margin"
-    ]
+    ],
+    "key": "{drop.margin}"
   },
   "hpe.drop.zIndex": {
     "$type": "number",
@@ -22799,7 +23313,8 @@ export default {
     "path": [
       "drop",
       "zIndex"
-    ]
+    ],
+    "key": "{drop.zIndex}"
   },
   "hpe.menu.item.enabled.background": {
     "$type": "color",
@@ -22844,7 +23359,8 @@ export default {
       "item",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{menu.item.enabled.background}"
   },
   "hpe.menu.item.enabled.borderColor": {
     "$type": "color",
@@ -22889,7 +23405,8 @@ export default {
       "item",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{menu.item.enabled.borderColor}"
   },
   "hpe.menu.item.enabled.textColor": {
     "$type": "color",
@@ -22932,7 +23449,8 @@ export default {
       "item",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{menu.item.enabled.textColor}"
   },
   "hpe.menu.item.enabled.iconColor": {
     "$type": "color",
@@ -22977,7 +23495,8 @@ export default {
       "item",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{menu.item.enabled.iconColor}"
   },
   "hpe.menu.item.enabled.fontWeight": {
     "$type": "number",
@@ -23020,7 +23539,8 @@ export default {
       "item",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{menu.item.enabled.fontWeight}"
   },
   "hpe.menu.item.hover.background": {
     "$type": "color",
@@ -23065,7 +23585,8 @@ export default {
       "item",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{menu.item.hover.background}"
   },
   "hpe.menu.item.hover.borderColor": {
     "$type": "color",
@@ -23110,7 +23631,8 @@ export default {
       "item",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{menu.item.hover.borderColor}"
   },
   "hpe.menu.item.hover.textColor": {
     "$type": "color",
@@ -23153,7 +23675,8 @@ export default {
       "item",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{menu.item.hover.textColor}"
   },
   "hpe.menu.item.hover.iconColor": {
     "$type": "color",
@@ -23198,7 +23721,8 @@ export default {
       "item",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{menu.item.hover.iconColor}"
   },
   "hpe.menu.item.hover.fontWeight": {
     "$type": "number",
@@ -23241,7 +23765,8 @@ export default {
       "item",
       "hover",
       "fontWeight"
-    ]
+    ],
+    "key": "{menu.item.hover.fontWeight}"
   },
   "hpe.menu.item.disabled.background": {
     "$type": "color",
@@ -23286,7 +23811,8 @@ export default {
       "item",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{menu.item.disabled.background}"
   },
   "hpe.menu.item.disabled.borderColor": {
     "$type": "color",
@@ -23331,7 +23857,8 @@ export default {
       "item",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{menu.item.disabled.borderColor}"
   },
   "hpe.menu.item.disabled.textColor": {
     "$type": "color",
@@ -23374,7 +23901,8 @@ export default {
       "item",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{menu.item.disabled.textColor}"
   },
   "hpe.menu.item.disabled.iconColor": {
     "$type": "color",
@@ -23419,7 +23947,8 @@ export default {
       "item",
       "disabled",
       "iconColor"
-    ]
+    ],
+    "key": "{menu.item.disabled.iconColor}"
   },
   "hpe.menu.item.disabled.fontWeight": {
     "$type": "number",
@@ -23462,7 +23991,8 @@ export default {
       "item",
       "disabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{menu.item.disabled.fontWeight}"
   },
   "hpe.menu.group.separator.background": {
     "$type": "color",
@@ -23509,7 +24039,8 @@ export default {
       "group",
       "separator",
       "background"
-    ]
+    ],
+    "key": "{menu.group.separator.background}"
   },
   "hpe.menu.medium.item.paddingX": {
     "$type": "number",
@@ -23552,7 +24083,8 @@ export default {
       "medium",
       "item",
       "paddingX"
-    ]
+    ],
+    "key": "{menu.medium.item.paddingX}"
   },
   "hpe.menu.medium.item.paddingY": {
     "$type": "number",
@@ -23595,7 +24127,8 @@ export default {
       "medium",
       "item",
       "paddingY"
-    ]
+    ],
+    "key": "{menu.medium.item.paddingY}"
   },
   "hpe.menu.medium.item.borderRadius": {
     "$type": "number",
@@ -23638,7 +24171,8 @@ export default {
       "medium",
       "item",
       "borderRadius"
-    ]
+    ],
+    "key": "{menu.medium.item.borderRadius}"
   },
   "hpe.menu.medium.item.borderWidth": {
     "$type": "number",
@@ -23683,7 +24217,8 @@ export default {
       "medium",
       "item",
       "borderWidth"
-    ]
+    ],
+    "key": "{menu.medium.item.borderWidth}"
   },
   "hpe.menu.medium.item.minHeight": {
     "$type": "number",
@@ -23726,7 +24261,8 @@ export default {
       "medium",
       "item",
       "minHeight"
-    ]
+    ],
+    "key": "{menu.medium.item.minHeight}"
   },
   "hpe.menu.medium.item.fontSize": {
     "$type": "number",
@@ -23769,7 +24305,8 @@ export default {
       "medium",
       "item",
       "fontSize"
-    ]
+    ],
+    "key": "{menu.medium.item.fontSize}"
   },
   "hpe.menu.medium.item.lineHeight": {
     "$type": "number",
@@ -23812,7 +24349,8 @@ export default {
       "medium",
       "item",
       "lineHeight"
-    ]
+    ],
+    "key": "{menu.medium.item.lineHeight}"
   },
   "hpe.menu.medium.item.gapX": {
     "$type": "number",
@@ -23855,7 +24393,8 @@ export default {
       "medium",
       "item",
       "gapX"
-    ]
+    ],
+    "key": "{menu.medium.item.gapX}"
   },
   "hpe.menu.medium.group.container.paddingY": {
     "$type": "number",
@@ -23900,7 +24439,8 @@ export default {
       "group",
       "container",
       "paddingY"
-    ]
+    ],
+    "key": "{menu.medium.group.container.paddingY}"
   },
   "hpe.menu.medium.group.separator.height": {
     "$type": "number",
@@ -23949,7 +24489,8 @@ export default {
       "group",
       "separator",
       "height"
-    ]
+    ],
+    "key": "{menu.medium.group.separator.height}"
   },
   "hpe.select.medium.option.paddingX": {
     "$type": "number",
@@ -23992,7 +24533,8 @@ export default {
       "medium",
       "option",
       "paddingX"
-    ]
+    ],
+    "key": "{select.medium.option.paddingX}"
   },
   "hpe.select.medium.option.paddingY": {
     "$type": "number",
@@ -24035,7 +24577,8 @@ export default {
       "medium",
       "option",
       "paddingY"
-    ]
+    ],
+    "key": "{select.medium.option.paddingY}"
   },
   "hpe.select.medium.option.minHeight": {
     "$type": "number",
@@ -24078,7 +24621,8 @@ export default {
       "medium",
       "option",
       "minHeight"
-    ]
+    ],
+    "key": "{select.medium.option.minHeight}"
   },
   "hpe.select.medium.option.borderRadius": {
     "$type": "number",
@@ -24121,7 +24665,8 @@ export default {
       "medium",
       "option",
       "borderRadius"
-    ]
+    ],
+    "key": "{select.medium.option.borderRadius}"
   },
   "hpe.select.medium.option.borderWidth": {
     "$type": "number",
@@ -24166,7 +24711,8 @@ export default {
       "medium",
       "option",
       "borderWidth"
-    ]
+    ],
+    "key": "{select.medium.option.borderWidth}"
   },
   "hpe.select.medium.option.fontSize": {
     "$type": "number",
@@ -24209,7 +24755,8 @@ export default {
       "medium",
       "option",
       "fontSize"
-    ]
+    ],
+    "key": "{select.medium.option.fontSize}"
   },
   "hpe.select.medium.option.lineHeight": {
     "$type": "number",
@@ -24252,7 +24799,8 @@ export default {
       "medium",
       "option",
       "lineHeight"
-    ]
+    ],
+    "key": "{select.medium.option.lineHeight}"
   },
   "hpe.select.option.enabled.background": {
     "$type": "color",
@@ -24297,7 +24845,8 @@ export default {
       "option",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{select.option.enabled.background}"
   },
   "hpe.select.option.enabled.borderColor": {
     "$type": "color",
@@ -24342,7 +24891,8 @@ export default {
       "option",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{select.option.enabled.borderColor}"
   },
   "hpe.select.option.enabled.textColor": {
     "$type": "color",
@@ -24385,7 +24935,8 @@ export default {
       "option",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{select.option.enabled.textColor}"
   },
   "hpe.select.option.enabled.fontWeight": {
     "$type": "number",
@@ -24428,7 +24979,8 @@ export default {
       "option",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{select.option.enabled.fontWeight}"
   },
   "hpe.select.option.hover.background": {
     "$type": "color",
@@ -24473,7 +25025,8 @@ export default {
       "option",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{select.option.hover.background}"
   },
   "hpe.select.option.hover.borderColor": {
     "$type": "color",
@@ -24518,7 +25071,8 @@ export default {
       "option",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{select.option.hover.borderColor}"
   },
   "hpe.select.option.hover.textColor": {
     "$type": "color",
@@ -24561,7 +25115,8 @@ export default {
       "option",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{select.option.hover.textColor}"
   },
   "hpe.select.option.hover.fontWeight": {
     "$type": "number",
@@ -24604,7 +25159,8 @@ export default {
       "option",
       "hover",
       "fontWeight"
-    ]
+    ],
+    "key": "{select.option.hover.fontWeight}"
   },
   "hpe.select.option.disabled.background": {
     "$type": "color",
@@ -24649,7 +25205,8 @@ export default {
       "option",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{select.option.disabled.background}"
   },
   "hpe.select.option.disabled.borderColor": {
     "$type": "color",
@@ -24694,7 +25251,8 @@ export default {
       "option",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{select.option.disabled.borderColor}"
   },
   "hpe.select.option.disabled.textColor": {
     "$type": "color",
@@ -24737,7 +25295,8 @@ export default {
       "option",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{select.option.disabled.textColor}"
   },
   "hpe.select.option.disabled.fontWeight": {
     "$type": "number",
@@ -24780,7 +25339,8 @@ export default {
       "option",
       "disabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{select.option.disabled.fontWeight}"
   },
   "hpe.select.option.selected.enabled.background": {
     "$type": "color",
@@ -24827,7 +25387,8 @@ export default {
       "selected",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{select.option.selected.enabled.background}"
   },
   "hpe.select.option.selected.enabled.borderColor": {
     "$type": "color",
@@ -24874,7 +25435,8 @@ export default {
       "selected",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{select.option.selected.enabled.borderColor}"
   },
   "hpe.select.option.selected.enabled.textColor": {
     "$type": "color",
@@ -24919,7 +25481,8 @@ export default {
       "selected",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{select.option.selected.enabled.textColor}"
   },
   "hpe.select.option.selected.enabled.fontWeight": {
     "$type": "number",
@@ -24964,7 +25527,8 @@ export default {
       "selected",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{select.option.selected.enabled.fontWeight}"
   },
   "hpe.checkbox.control.enabled.background": {
     "$type": "color",
@@ -25009,7 +25573,8 @@ export default {
       "control",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{checkbox.control.enabled.background}"
   },
   "hpe.checkbox.control.enabled.borderColor": {
     "$type": "color",
@@ -25054,7 +25619,8 @@ export default {
       "control",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{checkbox.control.enabled.borderColor}"
   },
   "hpe.checkbox.control.hover.background": {
     "$type": "color",
@@ -25099,7 +25665,8 @@ export default {
       "control",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{checkbox.control.hover.background}"
   },
   "hpe.checkbox.control.hover.borderColor": {
     "$type": "color",
@@ -25144,7 +25711,8 @@ export default {
       "control",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{checkbox.control.hover.borderColor}"
   },
   "hpe.checkbox.control.disabled.background": {
     "$type": "color",
@@ -25189,7 +25757,8 @@ export default {
       "control",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{checkbox.control.disabled.background}"
   },
   "hpe.checkbox.control.disabled.borderColor": {
     "$type": "color",
@@ -25234,7 +25803,8 @@ export default {
       "control",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{checkbox.control.disabled.borderColor}"
   },
   "hpe.checkbox.control.selected.enabled.background": {
     "$type": "color",
@@ -25281,7 +25851,8 @@ export default {
       "selected",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{checkbox.control.selected.enabled.background}"
   },
   "hpe.checkbox.control.selected.enabled.borderColor": {
     "$type": "color",
@@ -25328,7 +25899,8 @@ export default {
       "selected",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{checkbox.control.selected.enabled.borderColor}"
   },
   "hpe.checkbox.control.selected.enabled.iconColor": {
     "$type": "color",
@@ -25375,7 +25947,8 @@ export default {
       "selected",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{checkbox.control.selected.enabled.iconColor}"
   },
   "hpe.checkbox.control.selected.hover.background": {
     "$type": "color",
@@ -25422,7 +25995,8 @@ export default {
       "selected",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{checkbox.control.selected.hover.background}"
   },
   "hpe.checkbox.control.selected.hover.borderColor": {
     "$type": "color",
@@ -25469,7 +26043,8 @@ export default {
       "selected",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{checkbox.control.selected.hover.borderColor}"
   },
   "hpe.checkbox.control.selected.hover.iconColor": {
     "$type": "color",
@@ -25516,7 +26091,8 @@ export default {
       "selected",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{checkbox.control.selected.hover.iconColor}"
   },
   "hpe.checkbox.control.selected.disabled.background": {
     "$type": "color",
@@ -25563,7 +26139,8 @@ export default {
       "selected",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{checkbox.control.selected.disabled.background}"
   },
   "hpe.checkbox.control.selected.disabled.borderColor": {
     "$type": "color",
@@ -25610,7 +26187,8 @@ export default {
       "selected",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{checkbox.control.selected.disabled.borderColor}"
   },
   "hpe.checkbox.control.selected.disabled.iconColor": {
     "$type": "color",
@@ -25657,7 +26235,8 @@ export default {
       "selected",
       "disabled",
       "iconColor"
-    ]
+    ],
+    "key": "{checkbox.control.selected.disabled.iconColor}"
   },
   "hpe.checkbox.control.indeterminate.enabled.background": {
     "$type": "color",
@@ -25704,7 +26283,8 @@ export default {
       "indeterminate",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{checkbox.control.indeterminate.enabled.background}"
   },
   "hpe.checkbox.control.indeterminate.enabled.borderColor": {
     "$type": "color",
@@ -25751,7 +26331,8 @@ export default {
       "indeterminate",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{checkbox.control.indeterminate.enabled.borderColor}"
   },
   "hpe.checkbox.control.indeterminate.enabled.iconColor": {
     "$type": "color",
@@ -25798,7 +26379,8 @@ export default {
       "indeterminate",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{checkbox.control.indeterminate.enabled.iconColor}"
   },
   "hpe.checkbox.control.indeterminate.hover.background": {
     "$type": "color",
@@ -25845,7 +26427,8 @@ export default {
       "indeterminate",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{checkbox.control.indeterminate.hover.background}"
   },
   "hpe.checkbox.control.indeterminate.hover.borderColor": {
     "$type": "color",
@@ -25892,7 +26475,8 @@ export default {
       "indeterminate",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{checkbox.control.indeterminate.hover.borderColor}"
   },
   "hpe.checkbox.control.indeterminate.hover.iconColor": {
     "$type": "color",
@@ -25939,7 +26523,8 @@ export default {
       "indeterminate",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{checkbox.control.indeterminate.hover.iconColor}"
   },
   "hpe.checkbox.control.indeterminate.disabled.background": {
     "$type": "color",
@@ -25986,7 +26571,8 @@ export default {
       "indeterminate",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{checkbox.control.indeterminate.disabled.background}"
   },
   "hpe.checkbox.control.indeterminate.disabled.borderColor": {
     "$type": "color",
@@ -26033,7 +26619,8 @@ export default {
       "indeterminate",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{checkbox.control.indeterminate.disabled.borderColor}"
   },
   "hpe.checkbox.control.indeterminate.disabled.iconColor": {
     "$type": "color",
@@ -26080,7 +26667,8 @@ export default {
       "indeterminate",
       "disabled",
       "iconColor"
-    ]
+    ],
+    "key": "{checkbox.control.indeterminate.disabled.iconColor}"
   },
   "hpe.checkbox.label.enabled.textColor": {
     "$type": "color",
@@ -26123,7 +26711,8 @@ export default {
       "label",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{checkbox.label.enabled.textColor}"
   },
   "hpe.checkbox.label.hover.textColor": {
     "$type": "color",
@@ -26166,7 +26755,8 @@ export default {
       "label",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{checkbox.label.hover.textColor}"
   },
   "hpe.checkbox.label.disabled.textColor": {
     "$type": "color",
@@ -26209,7 +26799,8 @@ export default {
       "label",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{checkbox.label.disabled.textColor}"
   },
   "hpe.checkbox.medium.gapX": {
     "$type": "number",
@@ -26250,7 +26841,8 @@ export default {
       "checkbox",
       "medium",
       "gapX"
-    ]
+    ],
+    "key": "{checkbox.medium.gapX}"
   },
   "hpe.checkbox.medium.label.fontSize": {
     "$type": "number",
@@ -26293,7 +26885,8 @@ export default {
       "medium",
       "label",
       "fontSize"
-    ]
+    ],
+    "key": "{checkbox.medium.label.fontSize}"
   },
   "hpe.checkbox.medium.label.lineHeight": {
     "$type": "number",
@@ -26336,7 +26929,8 @@ export default {
       "medium",
       "label",
       "lineHeight"
-    ]
+    ],
+    "key": "{checkbox.medium.label.lineHeight}"
   },
   "hpe.checkbox.medium.label.fontWeight": {
     "$type": "number",
@@ -26379,7 +26973,8 @@ export default {
       "medium",
       "label",
       "fontWeight"
-    ]
+    ],
+    "key": "{checkbox.medium.label.fontWeight}"
   },
   "hpe.checkbox.medium.control.height": {
     "$type": "number",
@@ -26422,7 +27017,8 @@ export default {
       "medium",
       "control",
       "height"
-    ]
+    ],
+    "key": "{checkbox.medium.control.height}"
   },
   "hpe.checkbox.medium.control.width": {
     "$type": "number",
@@ -26465,7 +27061,8 @@ export default {
       "medium",
       "control",
       "width"
-    ]
+    ],
+    "key": "{checkbox.medium.control.width}"
   },
   "hpe.checkbox.medium.control.borderWidth": {
     "$type": "number",
@@ -26510,7 +27107,8 @@ export default {
       "medium",
       "control",
       "borderWidth"
-    ]
+    ],
+    "key": "{checkbox.medium.control.borderWidth}"
   },
   "hpe.checkbox.medium.control.borderRadius": {
     "$type": "number",
@@ -26553,7 +27151,8 @@ export default {
       "medium",
       "control",
       "borderRadius"
-    ]
+    ],
+    "key": "{checkbox.medium.control.borderRadius}"
   },
   "hpe.switch.control.track.enabled.background": {
     "$type": "color",
@@ -26600,7 +27199,8 @@ export default {
       "track",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{switch.control.track.enabled.background}"
   },
   "hpe.switch.control.track.enabled.borderColor": {
     "$type": "color",
@@ -26647,7 +27247,8 @@ export default {
       "track",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.track.enabled.borderColor}"
   },
   "hpe.switch.control.track.hover.background": {
     "$type": "color",
@@ -26694,7 +27295,8 @@ export default {
       "track",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{switch.control.track.hover.background}"
   },
   "hpe.switch.control.track.hover.borderColor": {
     "$type": "color",
@@ -26741,7 +27343,8 @@ export default {
       "track",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.track.hover.borderColor}"
   },
   "hpe.switch.control.track.disabled.background": {
     "$type": "color",
@@ -26788,7 +27391,8 @@ export default {
       "track",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{switch.control.track.disabled.background}"
   },
   "hpe.switch.control.track.disabled.borderColor": {
     "$type": "color",
@@ -26835,7 +27439,8 @@ export default {
       "track",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.track.disabled.borderColor}"
   },
   "hpe.switch.control.track.selected.enabled.background": {
     "$type": "color",
@@ -26883,7 +27488,8 @@ export default {
       "selected",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{switch.control.track.selected.enabled.background}"
   },
   "hpe.switch.control.track.selected.enabled.borderColor": {
     "$type": "color",
@@ -26931,7 +27537,8 @@ export default {
       "selected",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.track.selected.enabled.borderColor}"
   },
   "hpe.switch.control.track.selected.hover.background": {
     "$type": "color",
@@ -26979,7 +27586,8 @@ export default {
       "selected",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{switch.control.track.selected.hover.background}"
   },
   "hpe.switch.control.track.selected.hover.borderColor": {
     "$type": "color",
@@ -27027,7 +27635,8 @@ export default {
       "selected",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.track.selected.hover.borderColor}"
   },
   "hpe.switch.control.track.selected.disabled.background": {
     "$type": "color",
@@ -27075,7 +27684,8 @@ export default {
       "selected",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{switch.control.track.selected.disabled.background}"
   },
   "hpe.switch.control.track.selected.disabled.borderColor": {
     "$type": "color",
@@ -27123,7 +27733,8 @@ export default {
       "selected",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.track.selected.disabled.borderColor}"
   },
   "hpe.switch.control.handle.enabled.background": {
     "$type": "color",
@@ -27170,7 +27781,8 @@ export default {
       "handle",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{switch.control.handle.enabled.background}"
   },
   "hpe.switch.control.handle.enabled.borderColor": {
     "$type": "color",
@@ -27217,7 +27829,8 @@ export default {
       "handle",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.handle.enabled.borderColor}"
   },
   "hpe.switch.control.handle.hover.background": {
     "$type": "color",
@@ -27264,7 +27877,8 @@ export default {
       "handle",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{switch.control.handle.hover.background}"
   },
   "hpe.switch.control.handle.hover.borderColor": {
     "$type": "color",
@@ -27311,7 +27925,8 @@ export default {
       "handle",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.handle.hover.borderColor}"
   },
   "hpe.switch.control.handle.disabled.background": {
     "$type": "color",
@@ -27358,7 +27973,8 @@ export default {
       "handle",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{switch.control.handle.disabled.background}"
   },
   "hpe.switch.control.handle.disabled.borderColor": {
     "$type": "color",
@@ -27405,7 +28021,8 @@ export default {
       "handle",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.handle.disabled.borderColor}"
   },
   "hpe.switch.control.handle.selected.enabled.background": {
     "$type": "color",
@@ -27453,7 +28070,8 @@ export default {
       "selected",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{switch.control.handle.selected.enabled.background}"
   },
   "hpe.switch.control.handle.selected.enabled.borderColor": {
     "$type": "color",
@@ -27501,7 +28119,8 @@ export default {
       "selected",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.handle.selected.enabled.borderColor}"
   },
   "hpe.switch.control.handle.selected.hover.background": {
     "$type": "color",
@@ -27549,7 +28168,8 @@ export default {
       "selected",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{switch.control.handle.selected.hover.background}"
   },
   "hpe.switch.control.handle.selected.hover.borderColor": {
     "$type": "color",
@@ -27597,7 +28217,8 @@ export default {
       "selected",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.handle.selected.hover.borderColor}"
   },
   "hpe.switch.control.handle.selected.disabled.background": {
     "$type": "color",
@@ -27645,7 +28266,8 @@ export default {
       "selected",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{switch.control.handle.selected.disabled.background}"
   },
   "hpe.switch.control.handle.selected.disabled.borderColor": {
     "$type": "color",
@@ -27693,7 +28315,8 @@ export default {
       "selected",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{switch.control.handle.selected.disabled.borderColor}"
   },
   "hpe.switch.label.enabled.textColor": {
     "$type": "color",
@@ -27736,7 +28359,8 @@ export default {
       "label",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{switch.label.enabled.textColor}"
   },
   "hpe.switch.label.hover.textColor": {
     "$type": "color",
@@ -27779,7 +28403,8 @@ export default {
       "label",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{switch.label.hover.textColor}"
   },
   "hpe.switch.label.disabled.textColor": {
     "$type": "color",
@@ -27822,7 +28447,8 @@ export default {
       "label",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{switch.label.disabled.textColor}"
   },
   "hpe.switch.medium.gapX": {
     "$type": "number",
@@ -27863,7 +28489,8 @@ export default {
       "switch",
       "medium",
       "gapX"
-    ]
+    ],
+    "key": "{switch.medium.gapX}"
   },
   "hpe.switch.medium.label.fontSize": {
     "$type": "number",
@@ -27906,7 +28533,8 @@ export default {
       "medium",
       "label",
       "fontSize"
-    ]
+    ],
+    "key": "{switch.medium.label.fontSize}"
   },
   "hpe.switch.medium.label.lineHeight": {
     "$type": "number",
@@ -27949,7 +28577,8 @@ export default {
       "medium",
       "label",
       "lineHeight"
-    ]
+    ],
+    "key": "{switch.medium.label.lineHeight}"
   },
   "hpe.switch.medium.label.fontWeight": {
     "$type": "number",
@@ -27992,7 +28621,8 @@ export default {
       "medium",
       "label",
       "fontWeight"
-    ]
+    ],
+    "key": "{switch.medium.label.fontWeight}"
   },
   "hpe.switch.medium.control.track.height": {
     "$type": "number",
@@ -28037,7 +28667,8 @@ export default {
       "control",
       "track",
       "height"
-    ]
+    ],
+    "key": "{switch.medium.control.track.height}"
   },
   "hpe.switch.medium.control.track.width": {
     "$type": "number",
@@ -28082,7 +28713,8 @@ export default {
       "control",
       "track",
       "width"
-    ]
+    ],
+    "key": "{switch.medium.control.track.width}"
   },
   "hpe.switch.medium.control.track.borderWidth": {
     "$type": "number",
@@ -28129,7 +28761,8 @@ export default {
       "control",
       "track",
       "borderWidth"
-    ]
+    ],
+    "key": "{switch.medium.control.track.borderWidth}"
   },
   "hpe.switch.medium.control.track.borderRadius": {
     "$type": "number",
@@ -28174,7 +28807,8 @@ export default {
       "control",
       "track",
       "borderRadius"
-    ]
+    ],
+    "key": "{switch.medium.control.track.borderRadius}"
   },
   "hpe.switch.medium.control.handle.height": {
     "$type": "number",
@@ -28219,7 +28853,8 @@ export default {
       "control",
       "handle",
       "height"
-    ]
+    ],
+    "key": "{switch.medium.control.handle.height}"
   },
   "hpe.switch.medium.control.handle.width": {
     "$type": "number",
@@ -28264,7 +28899,8 @@ export default {
       "control",
       "handle",
       "width"
-    ]
+    ],
+    "key": "{switch.medium.control.handle.width}"
   },
   "hpe.switch.medium.control.handle.borderWidth": {
     "$type": "number",
@@ -28311,7 +28947,8 @@ export default {
       "control",
       "handle",
       "borderWidth"
-    ]
+    ],
+    "key": "{switch.medium.control.handle.borderWidth}"
   },
   "hpe.switch.medium.control.handle.borderRadius": {
     "$type": "number",
@@ -28356,7 +28993,8 @@ export default {
       "control",
       "handle",
       "borderRadius"
-    ]
+    ],
+    "key": "{switch.medium.control.handle.borderRadius}"
   },
   "hpe.dataCell.paddingX": {
     "$type": "number",
@@ -28395,7 +29033,8 @@ export default {
     "path": [
       "dataCell",
       "paddingX"
-    ]
+    ],
+    "key": "{dataCell.paddingX}"
   },
   "hpe.dataCell.fontSize": {
     "$type": "number",
@@ -28434,7 +29073,8 @@ export default {
     "path": [
       "dataCell",
       "fontSize"
-    ]
+    ],
+    "key": "{dataCell.fontSize}"
   },
   "hpe.dataCell.lineHeight": {
     "$type": "number",
@@ -28473,7 +29113,8 @@ export default {
     "path": [
       "dataCell",
       "lineHeight"
-    ]
+    ],
+    "key": "{dataCell.lineHeight}"
   },
   "hpe.dataCell.fontWeight": {
     "$type": "number",
@@ -28512,7 +29153,8 @@ export default {
     "path": [
       "dataCell",
       "fontWeight"
-    ]
+    ],
+    "key": "{dataCell.fontWeight}"
   },
   "hpe.dataCell.borderBottomWidth": {
     "$type": "number",
@@ -28553,7 +29195,8 @@ export default {
     "path": [
       "dataCell",
       "borderBottomWidth"
-    ]
+    ],
+    "key": "{dataCell.borderBottomWidth}"
   },
   "hpe.dataCell.paddingTop": {
     "$type": "number",
@@ -28592,7 +29235,8 @@ export default {
     "path": [
       "dataCell",
       "paddingTop"
-    ]
+    ],
+    "key": "{dataCell.paddingTop}"
   },
   "hpe.dataCell.paddingBottom": {
     "$type": "number",
@@ -28631,7 +29275,8 @@ export default {
     "path": [
       "dataCell",
       "paddingBottom"
-    ]
+    ],
+    "key": "{dataCell.paddingBottom}"
   },
   "hpe.dataCell.minHeight": {
     "$type": "number",
@@ -28670,7 +29315,8 @@ export default {
     "path": [
       "dataCell",
       "minHeight"
-    ]
+    ],
+    "key": "{dataCell.minHeight}"
   },
   "hpe.dataCell.enabled.textColor": {
     "$type": "color",
@@ -28711,7 +29357,8 @@ export default {
       "dataCell",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{dataCell.enabled.textColor}"
   },
   "hpe.dataCell.enabled.iconColor": {
     "$type": "color",
@@ -28756,7 +29403,8 @@ export default {
       "dataCell",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{dataCell.enabled.iconColor}"
   },
   "hpe.dataCell.enabled.borderColor": {
     "$type": "color",
@@ -28799,7 +29447,8 @@ export default {
       "dataCell",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{dataCell.enabled.borderColor}"
   },
   "hpe.dataCell.enabled.background": {
     "$type": "color",
@@ -28842,7 +29491,8 @@ export default {
       "dataCell",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{dataCell.enabled.background}"
   },
   "hpe.dataCell.hover.textColor": {
     "$type": "color",
@@ -28883,7 +29533,8 @@ export default {
       "dataCell",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{dataCell.hover.textColor}"
   },
   "hpe.dataCell.hover.iconColor": {
     "$type": "color",
@@ -28928,7 +29579,8 @@ export default {
       "dataCell",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{dataCell.hover.iconColor}"
   },
   "hpe.dataCell.hover.borderColor": {
     "$type": "color",
@@ -28971,7 +29623,8 @@ export default {
       "dataCell",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{dataCell.hover.borderColor}"
   },
   "hpe.dataCell.hover.background": {
     "$type": "color",
@@ -29014,7 +29667,8 @@ export default {
       "dataCell",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{dataCell.hover.background}"
   },
   "hpe.dataCell.disabled.textColor": {
     "$type": "color",
@@ -29055,7 +29709,8 @@ export default {
       "dataCell",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{dataCell.disabled.textColor}"
   },
   "hpe.dataCell.disabled.iconColor": {
     "$type": "color",
@@ -29100,7 +29755,8 @@ export default {
       "dataCell",
       "disabled",
       "iconColor"
-    ]
+    ],
+    "key": "{dataCell.disabled.iconColor}"
   },
   "hpe.dataCell.disabled.borderColor": {
     "$type": "color",
@@ -29143,7 +29799,8 @@ export default {
       "dataCell",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{dataCell.disabled.borderColor}"
   },
   "hpe.dataCell.disabled.background": {
     "$type": "color",
@@ -29186,7 +29843,8 @@ export default {
       "dataCell",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{dataCell.disabled.background}"
   },
   "hpe.dataCell.pinned.textColor": {
     "$type": "color",
@@ -29227,7 +29885,8 @@ export default {
       "dataCell",
       "pinned",
       "textColor"
-    ]
+    ],
+    "key": "{dataCell.pinned.textColor}"
   },
   "hpe.dataCell.pinned.iconColor": {
     "$type": "color",
@@ -29272,7 +29931,8 @@ export default {
       "dataCell",
       "pinned",
       "iconColor"
-    ]
+    ],
+    "key": "{dataCell.pinned.iconColor}"
   },
   "hpe.dataCell.pinned.borderColor": {
     "$type": "color",
@@ -29315,7 +29975,8 @@ export default {
       "dataCell",
       "pinned",
       "borderColor"
-    ]
+    ],
+    "key": "{dataCell.pinned.borderColor}"
   },
   "hpe.dataCell.pinned.backgroundColor": {
     "$type": "color",
@@ -29358,7 +30019,8 @@ export default {
       "dataCell",
       "pinned",
       "backgroundColor"
-    ]
+    ],
+    "key": "{dataCell.pinned.backgroundColor}"
   },
   "hpe.dataCell.pinned.background": {
     "$type": "color",
@@ -29401,7 +30063,8 @@ export default {
       "dataCell",
       "pinned",
       "background"
-    ]
+    ],
+    "key": "{dataCell.pinned.background}"
   },
   "hpe.dataCell.primary.paddingX": {
     "$type": "number",
@@ -29442,7 +30105,8 @@ export default {
       "dataCell",
       "primary",
       "paddingX"
-    ]
+    ],
+    "key": "{dataCell.primary.paddingX}"
   },
   "hpe.dataCell.primary.fontSize": {
     "$type": "number",
@@ -29483,7 +30147,8 @@ export default {
       "dataCell",
       "primary",
       "fontSize"
-    ]
+    ],
+    "key": "{dataCell.primary.fontSize}"
   },
   "hpe.dataCell.primary.lineHeight": {
     "$type": "number",
@@ -29524,7 +30189,8 @@ export default {
       "dataCell",
       "primary",
       "lineHeight"
-    ]
+    ],
+    "key": "{dataCell.primary.lineHeight}"
   },
   "hpe.dataCell.primary.fontWeight": {
     "$type": "number",
@@ -29565,7 +30231,8 @@ export default {
       "dataCell",
       "primary",
       "fontWeight"
-    ]
+    ],
+    "key": "{dataCell.primary.fontWeight}"
   },
   "hpe.dataCell.primary.borderBottomWidth": {
     "$type": "number",
@@ -29608,7 +30275,8 @@ export default {
       "dataCell",
       "primary",
       "borderBottomWidth"
-    ]
+    ],
+    "key": "{dataCell.primary.borderBottomWidth}"
   },
   "hpe.dataCell.primary.paddingTop": {
     "$type": "number",
@@ -29649,7 +30317,8 @@ export default {
       "dataCell",
       "primary",
       "paddingTop"
-    ]
+    ],
+    "key": "{dataCell.primary.paddingTop}"
   },
   "hpe.dataCell.primary.paddingBottom": {
     "$type": "number",
@@ -29690,7 +30359,8 @@ export default {
       "dataCell",
       "primary",
       "paddingBottom"
-    ]
+    ],
+    "key": "{dataCell.primary.paddingBottom}"
   },
   "hpe.dataCell.primary.enabled.textColor": {
     "$type": "color",
@@ -29733,7 +30403,8 @@ export default {
       "primary",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{dataCell.primary.enabled.textColor}"
   },
   "hpe.dataCell.primary.enabled.iconColor": {
     "$type": "color",
@@ -29780,7 +30451,8 @@ export default {
       "primary",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{dataCell.primary.enabled.iconColor}"
   },
   "hpe.dataCell.primary.enabled.borderColor": {
     "$type": "color",
@@ -29825,7 +30497,8 @@ export default {
       "primary",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{dataCell.primary.enabled.borderColor}"
   },
   "hpe.dataCell.primary.enabled.background": {
     "$type": "color",
@@ -29870,7 +30543,8 @@ export default {
       "primary",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{dataCell.primary.enabled.background}"
   },
   "hpe.dataCell.primary.hover.textColor": {
     "$type": "color",
@@ -29913,7 +30587,8 @@ export default {
       "primary",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{dataCell.primary.hover.textColor}"
   },
   "hpe.dataCell.primary.hover.iconColor": {
     "$type": "color",
@@ -29960,7 +30635,8 @@ export default {
       "primary",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{dataCell.primary.hover.iconColor}"
   },
   "hpe.dataCell.primary.hover.borderColor": {
     "$type": "color",
@@ -30005,7 +30681,8 @@ export default {
       "primary",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{dataCell.primary.hover.borderColor}"
   },
   "hpe.dataCell.primary.hover.background": {
     "$type": "color",
@@ -30050,7 +30727,8 @@ export default {
       "primary",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{dataCell.primary.hover.background}"
   },
   "hpe.dataCell.primary.disabled.textColor": {
     "$type": "color",
@@ -30093,7 +30771,8 @@ export default {
       "primary",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{dataCell.primary.disabled.textColor}"
   },
   "hpe.dataCell.primary.disabled.iconColor": {
     "$type": "color",
@@ -30140,7 +30819,8 @@ export default {
       "primary",
       "disabled",
       "iconColor"
-    ]
+    ],
+    "key": "{dataCell.primary.disabled.iconColor}"
   },
   "hpe.dataCell.primary.disabled.borderColor": {
     "$type": "color",
@@ -30185,7 +30865,8 @@ export default {
       "primary",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{dataCell.primary.disabled.borderColor}"
   },
   "hpe.dataCell.primary.disabled.background": {
     "$type": "color",
@@ -30230,7 +30911,8 @@ export default {
       "primary",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{dataCell.primary.disabled.background}"
   },
   "hpe.dataCell.primary.pinned.textColor": {
     "$type": "color",
@@ -30273,7 +30955,8 @@ export default {
       "primary",
       "pinned",
       "textColor"
-    ]
+    ],
+    "key": "{dataCell.primary.pinned.textColor}"
   },
   "hpe.dataCell.primary.pinned.iconColor": {
     "$type": "color",
@@ -30320,7 +31003,8 @@ export default {
       "primary",
       "pinned",
       "iconColor"
-    ]
+    ],
+    "key": "{dataCell.primary.pinned.iconColor}"
   },
   "hpe.dataCell.primary.pinned.borderColor": {
     "$type": "color",
@@ -30365,7 +31049,8 @@ export default {
       "primary",
       "pinned",
       "borderColor"
-    ]
+    ],
+    "key": "{dataCell.primary.pinned.borderColor}"
   },
   "hpe.dataCell.primary.pinned.background": {
     "$type": "color",
@@ -30410,7 +31095,8 @@ export default {
       "primary",
       "pinned",
       "background"
-    ]
+    ],
+    "key": "{dataCell.primary.pinned.background}"
   },
   "hpe.headerCell.paddingX": {
     "$type": "number",
@@ -30449,7 +31135,8 @@ export default {
     "path": [
       "headerCell",
       "paddingX"
-    ]
+    ],
+    "key": "{headerCell.paddingX}"
   },
   "hpe.headerCell.fontSize": {
     "$type": "number",
@@ -30488,7 +31175,8 @@ export default {
     "path": [
       "headerCell",
       "fontSize"
-    ]
+    ],
+    "key": "{headerCell.fontSize}"
   },
   "hpe.headerCell.lineHeight": {
     "$type": "number",
@@ -30527,7 +31215,8 @@ export default {
     "path": [
       "headerCell",
       "lineHeight"
-    ]
+    ],
+    "key": "{headerCell.lineHeight}"
   },
   "hpe.headerCell.fontWeight": {
     "$type": "number",
@@ -30566,7 +31255,8 @@ export default {
     "path": [
       "headerCell",
       "fontWeight"
-    ]
+    ],
+    "key": "{headerCell.fontWeight}"
   },
   "hpe.headerCell.borderBottomWidth": {
     "$type": "number",
@@ -30607,7 +31297,8 @@ export default {
     "path": [
       "headerCell",
       "borderBottomWidth"
-    ]
+    ],
+    "key": "{headerCell.borderBottomWidth}"
   },
   "hpe.headerCell.paddingTop": {
     "$type": "number",
@@ -30646,7 +31337,8 @@ export default {
     "path": [
       "headerCell",
       "paddingTop"
-    ]
+    ],
+    "key": "{headerCell.paddingTop}"
   },
   "hpe.headerCell.paddingBottom": {
     "$type": "number",
@@ -30685,7 +31377,8 @@ export default {
     "path": [
       "headerCell",
       "paddingBottom"
-    ]
+    ],
+    "key": "{headerCell.paddingBottom}"
   },
   "hpe.headerCell.enabled.textColor": {
     "$type": "color",
@@ -30726,7 +31419,8 @@ export default {
       "headerCell",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{headerCell.enabled.textColor}"
   },
   "hpe.headerCell.enabled.iconColor": {
     "$type": "color",
@@ -30771,7 +31465,8 @@ export default {
       "headerCell",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{headerCell.enabled.iconColor}"
   },
   "hpe.headerCell.enabled.borderColor": {
     "$type": "color",
@@ -30814,7 +31509,8 @@ export default {
       "headerCell",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{headerCell.enabled.borderColor}"
   },
   "hpe.headerCell.enabled.background": {
     "$type": "color",
@@ -30857,7 +31553,8 @@ export default {
       "headerCell",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{headerCell.enabled.background}"
   },
   "hpe.headerCell.hover.textColor": {
     "$type": "color",
@@ -30898,7 +31595,8 @@ export default {
       "headerCell",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{headerCell.hover.textColor}"
   },
   "hpe.headerCell.hover.iconColor": {
     "$type": "color",
@@ -30943,7 +31641,8 @@ export default {
       "headerCell",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{headerCell.hover.iconColor}"
   },
   "hpe.headerCell.hover.borderColor": {
     "$type": "color",
@@ -30986,7 +31685,8 @@ export default {
       "headerCell",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{headerCell.hover.borderColor}"
   },
   "hpe.headerCell.hover.background": {
     "$type": "color",
@@ -31029,7 +31729,8 @@ export default {
       "headerCell",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{headerCell.hover.background}"
   },
   "hpe.headerCell.pinned.textColor": {
     "$type": "color",
@@ -31070,7 +31771,8 @@ export default {
       "headerCell",
       "pinned",
       "textColor"
-    ]
+    ],
+    "key": "{headerCell.pinned.textColor}"
   },
   "hpe.headerCell.pinned.iconColor": {
     "$type": "color",
@@ -31115,7 +31817,8 @@ export default {
       "headerCell",
       "pinned",
       "iconColor"
-    ]
+    ],
+    "key": "{headerCell.pinned.iconColor}"
   },
   "hpe.headerCell.pinned.borderColor": {
     "$type": "color",
@@ -31158,7 +31861,8 @@ export default {
       "headerCell",
       "pinned",
       "borderColor"
-    ]
+    ],
+    "key": "{headerCell.pinned.borderColor}"
   },
   "hpe.headerCell.pinned.background": {
     "$type": "color",
@@ -31201,7 +31905,8 @@ export default {
       "headerCell",
       "pinned",
       "background"
-    ]
+    ],
+    "key": "{headerCell.pinned.background}"
   },
   "hpe.headerCell.gapX": {
     "$type": "number",
@@ -31240,7 +31945,8 @@ export default {
     "path": [
       "headerCell",
       "gapX"
-    ]
+    ],
+    "key": "{headerCell.gapX}"
   },
   "hpe.headerCell.minHeight": {
     "$type": "number",
@@ -31279,7 +31985,8 @@ export default {
     "path": [
       "headerCell",
       "minHeight"
-    ]
+    ],
+    "key": "{headerCell.minHeight}"
   },
   "hpe.headerCell.units.enabled.textColor": {
     "$type": "color",
@@ -31322,7 +32029,8 @@ export default {
       "units",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{headerCell.units.enabled.textColor}"
   },
   "hpe.headerCell.units.hover.textColor": {
     "$type": "color",
@@ -31365,7 +32073,8 @@ export default {
       "units",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{headerCell.units.hover.textColor}"
   },
   "hpe.formField.medium.input.group.item.paddingX": {
     "$type": "number",
@@ -31411,7 +32120,8 @@ export default {
       "group",
       "item",
       "paddingX"
-    ]
+    ],
+    "key": "{formField.medium.input.group.item.paddingX}"
   },
   "hpe.formField.medium.input.group.item.paddingY": {
     "$type": "number",
@@ -31457,7 +32167,8 @@ export default {
       "group",
       "item",
       "paddingY"
-    ]
+    ],
+    "key": "{formField.medium.input.group.item.paddingY}"
   },
   "hpe.formField.medium.input.group.item.borderWidth": {
     "$type": "number",
@@ -31505,7 +32216,8 @@ export default {
       "group",
       "item",
       "borderWidth"
-    ]
+    ],
+    "key": "{formField.medium.input.group.item.borderWidth}"
   },
   "hpe.formField.medium.input.group.item.minHeight": {
     "$type": "number",
@@ -31551,7 +32263,8 @@ export default {
       "group",
       "item",
       "minHeight"
-    ]
+    ],
+    "key": "{formField.medium.input.group.item.minHeight}"
   },
   "hpe.formField.medium.input.group.item.borderRadius": {
     "$type": "number",
@@ -31597,7 +32310,8 @@ export default {
       "group",
       "item",
       "borderRadius"
-    ]
+    ],
+    "key": "{formField.medium.input.group.item.borderRadius}"
   },
   "hpe.formField.medium.input.group.item.textToIconX": {
     "$type": "number",
@@ -31643,7 +32357,8 @@ export default {
       "group",
       "item",
       "textToIconX"
-    ]
+    ],
+    "key": "{formField.medium.input.group.item.textToIconX}"
   },
   "hpe.formField.medium.input.group.item.textToElementX": {
     "$type": "number",
@@ -31689,7 +32404,8 @@ export default {
       "group",
       "item",
       "textToElementX"
-    ]
+    ],
+    "key": "{formField.medium.input.group.item.textToElementX}"
   },
   "hpe.formField.medium.input.group.container.paddingX": {
     "$type": "number",
@@ -31735,7 +32451,8 @@ export default {
       "group",
       "container",
       "paddingX"
-    ]
+    ],
+    "key": "{formField.medium.input.group.container.paddingX}"
   },
   "hpe.formField.medium.input.group.container.paddingY": {
     "$type": "number",
@@ -31781,7 +32498,8 @@ export default {
       "group",
       "container",
       "paddingY"
-    ]
+    ],
+    "key": "{formField.medium.input.group.container.paddingY}"
   },
   "hpe.formField.medium.input.group.container.borderWidth": {
     "$type": "number",
@@ -31829,7 +32547,8 @@ export default {
       "group",
       "container",
       "borderWidth"
-    ]
+    ],
+    "key": "{formField.medium.input.group.container.borderWidth}"
   },
   "hpe.formField.medium.input.group.container.borderRadius": {
     "$type": "number",
@@ -31875,7 +32594,8 @@ export default {
       "group",
       "container",
       "borderRadius"
-    ]
+    ],
+    "key": "{formField.medium.input.group.container.borderRadius}"
   },
   "hpe.formField.medium.input.container.paddingX": {
     "$type": "number",
@@ -31920,7 +32640,8 @@ export default {
       "input",
       "container",
       "paddingX"
-    ]
+    ],
+    "key": "{formField.medium.input.container.paddingX}"
   },
   "hpe.formField.medium.input.container.paddingY": {
     "$type": "number",
@@ -31965,7 +32686,8 @@ export default {
       "input",
       "container",
       "paddingY"
-    ]
+    ],
+    "key": "{formField.medium.input.container.paddingY}"
   },
   "hpe.formField.medium.input.container.borderWidth": {
     "$type": "number",
@@ -32012,7 +32734,8 @@ export default {
       "input",
       "container",
       "borderWidth"
-    ]
+    ],
+    "key": "{formField.medium.input.container.borderWidth}"
   },
   "hpe.formField.medium.input.container.borderRadius": {
     "$type": "number",
@@ -32057,7 +32780,8 @@ export default {
       "input",
       "container",
       "borderRadius"
-    ]
+    ],
+    "key": "{formField.medium.input.container.borderRadius}"
   },
   "hpe.formField.medium.input.container.minHeight": {
     "$type": "number",
@@ -32102,7 +32826,8 @@ export default {
       "input",
       "container",
       "minHeight"
-    ]
+    ],
+    "key": "{formField.medium.input.container.minHeight}"
   },
   "hpe.formField.medium.input.container.textToIconX": {
     "$type": "number",
@@ -32147,7 +32872,8 @@ export default {
       "input",
       "container",
       "textToIconX"
-    ]
+    ],
+    "key": "{formField.medium.input.container.textToIconX}"
   },
   "hpe.formField.medium.input.container.textToElementX": {
     "$type": "number",
@@ -32192,7 +32918,8 @@ export default {
       "input",
       "container",
       "textToElementX"
-    ]
+    ],
+    "key": "{formField.medium.input.container.textToElementX}"
   },
   "hpe.formField.medium.label.fontSize": {
     "$type": "number",
@@ -32235,7 +32962,8 @@ export default {
       "medium",
       "label",
       "fontSize"
-    ]
+    ],
+    "key": "{formField.medium.label.fontSize}"
   },
   "hpe.formField.medium.label.lineHeight": {
     "$type": "number",
@@ -32278,7 +33006,8 @@ export default {
       "medium",
       "label",
       "lineHeight"
-    ]
+    ],
+    "key": "{formField.medium.label.lineHeight}"
   },
   "hpe.formField.medium.label.fontWeight": {
     "$type": "number",
@@ -32321,7 +33050,8 @@ export default {
       "medium",
       "label",
       "fontWeight"
-    ]
+    ],
+    "key": "{formField.medium.label.fontWeight}"
   },
   "hpe.formField.medium.placeholder.fontSize": {
     "$type": "number",
@@ -32364,7 +33094,8 @@ export default {
       "medium",
       "placeholder",
       "fontSize"
-    ]
+    ],
+    "key": "{formField.medium.placeholder.fontSize}"
   },
   "hpe.formField.medium.placeholder.lineHeight": {
     "$type": "number",
@@ -32407,7 +33138,8 @@ export default {
       "medium",
       "placeholder",
       "lineHeight"
-    ]
+    ],
+    "key": "{formField.medium.placeholder.lineHeight}"
   },
   "hpe.formField.medium.placeholder.fontWeight": {
     "$type": "number",
@@ -32450,7 +33182,8 @@ export default {
       "medium",
       "placeholder",
       "fontWeight"
-    ]
+    ],
+    "key": "{formField.medium.placeholder.fontWeight}"
   },
   "hpe.formField.medium.help.fontSize": {
     "$type": "number",
@@ -32493,7 +33226,8 @@ export default {
       "medium",
       "help",
       "fontSize"
-    ]
+    ],
+    "key": "{formField.medium.help.fontSize}"
   },
   "hpe.formField.medium.help.lineHeight": {
     "$type": "number",
@@ -32536,7 +33270,8 @@ export default {
       "medium",
       "help",
       "lineHeight"
-    ]
+    ],
+    "key": "{formField.medium.help.lineHeight}"
   },
   "hpe.formField.medium.help.fontWeight": {
     "$type": "number",
@@ -32579,7 +33314,8 @@ export default {
       "medium",
       "help",
       "fontWeight"
-    ]
+    ],
+    "key": "{formField.medium.help.fontWeight}"
   },
   "hpe.formField.medium.info.fontSize": {
     "$type": "number",
@@ -32622,7 +33358,8 @@ export default {
       "medium",
       "info",
       "fontSize"
-    ]
+    ],
+    "key": "{formField.medium.info.fontSize}"
   },
   "hpe.formField.medium.info.lineHeight": {
     "$type": "number",
@@ -32665,7 +33402,8 @@ export default {
       "medium",
       "info",
       "lineHeight"
-    ]
+    ],
+    "key": "{formField.medium.info.lineHeight}"
   },
   "hpe.formField.medium.info.fontWeight": {
     "$type": "number",
@@ -32708,7 +33446,8 @@ export default {
       "medium",
       "info",
       "fontWeight"
-    ]
+    ],
+    "key": "{formField.medium.info.fontWeight}"
   },
   "hpe.formField.medium.error.fontSize": {
     "$type": "number",
@@ -32751,7 +33490,8 @@ export default {
       "medium",
       "error",
       "fontSize"
-    ]
+    ],
+    "key": "{formField.medium.error.fontSize}"
   },
   "hpe.formField.medium.error.lineHeight": {
     "$type": "number",
@@ -32794,7 +33534,8 @@ export default {
       "medium",
       "error",
       "lineHeight"
-    ]
+    ],
+    "key": "{formField.medium.error.lineHeight}"
   },
   "hpe.formField.medium.error.fontWeight": {
     "$type": "number",
@@ -32837,7 +33578,8 @@ export default {
       "medium",
       "error",
       "fontWeight"
-    ]
+    ],
+    "key": "{formField.medium.error.fontWeight}"
   },
   "hpe.formField.medium.value.fontSize": {
     "$type": "number",
@@ -32880,7 +33622,8 @@ export default {
       "medium",
       "value",
       "fontSize"
-    ]
+    ],
+    "key": "{formField.medium.value.fontSize}"
   },
   "hpe.formField.medium.value.lineHeight": {
     "$type": "number",
@@ -32923,7 +33666,8 @@ export default {
       "medium",
       "value",
       "lineHeight"
-    ]
+    ],
+    "key": "{formField.medium.value.lineHeight}"
   },
   "hpe.formField.medium.value.fontWeight": {
     "$type": "number",
@@ -32966,11 +33710,12 @@ export default {
       "medium",
       "value",
       "fontWeight"
-    ]
+    ],
+    "key": "{formField.medium.value.fontWeight}"
   },
   "hpe.formField.input.group.container.enabled.background": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -33014,7 +33759,8 @@ export default {
       "container",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{formField.input.group.container.enabled.background}"
   },
   "hpe.formField.input.group.container.enabled.borderColor": {
     "$type": "color",
@@ -33060,11 +33806,12 @@ export default {
       "container",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.group.container.enabled.borderColor}"
   },
   "hpe.formField.input.group.container.hover.background": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -33108,7 +33855,8 @@ export default {
       "container",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{formField.input.group.container.hover.background}"
   },
   "hpe.formField.input.group.container.hover.borderColor": {
     "$type": "color",
@@ -33156,7 +33904,8 @@ export default {
       "container",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.group.container.hover.borderColor}"
   },
   "hpe.formField.input.group.container.readOnly.background": {
     "$type": "color",
@@ -33204,7 +33953,8 @@ export default {
       "container",
       "readOnly",
       "background"
-    ]
+    ],
+    "key": "{formField.input.group.container.readOnly.background}"
   },
   "hpe.formField.input.group.container.readOnly.borderColor": {
     "$type": "color",
@@ -33252,7 +34002,8 @@ export default {
       "container",
       "readOnly",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.group.container.readOnly.borderColor}"
   },
   "hpe.formField.input.group.container.disabled.background": {
     "$type": "color",
@@ -33300,7 +34051,8 @@ export default {
       "container",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{formField.input.group.container.disabled.background}"
   },
   "hpe.formField.input.group.container.disabled.borderColor": {
     "$type": "color",
@@ -33348,7 +34100,8 @@ export default {
       "container",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.group.container.disabled.borderColor}"
   },
   "hpe.formField.input.group.item.enabled.background": {
     "$type": "color",
@@ -33396,7 +34149,8 @@ export default {
       "item",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{formField.input.group.item.enabled.background}"
   },
   "hpe.formField.input.group.item.enabled.borderColor": {
     "$type": "color",
@@ -33444,7 +34198,8 @@ export default {
       "item",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.group.item.enabled.borderColor}"
   },
   "hpe.formField.input.group.item.status.critical.background": {
     "$type": "color",
@@ -33493,7 +34248,8 @@ export default {
       "status",
       "critical",
       "background"
-    ]
+    ],
+    "key": "{formField.input.group.item.status.critical.background}"
   },
   "hpe.formField.input.group.item.status.critical.borderColor": {
     "$type": "color",
@@ -33542,7 +34298,8 @@ export default {
       "status",
       "critical",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.group.item.status.critical.borderColor}"
   },
   "hpe.formField.input.group.item.hover.background": {
     "$type": "color",
@@ -33590,7 +34347,8 @@ export default {
       "item",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{formField.input.group.item.hover.background}"
   },
   "hpe.formField.input.group.item.hover.borderColor": {
     "$type": "color",
@@ -33638,7 +34396,8 @@ export default {
       "item",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.group.item.hover.borderColor}"
   },
   "hpe.formField.input.group.item.readOnly.background": {
     "$type": "color",
@@ -33686,7 +34445,8 @@ export default {
       "item",
       "readOnly",
       "background"
-    ]
+    ],
+    "key": "{formField.input.group.item.readOnly.background}"
   },
   "hpe.formField.input.group.item.readOnly.borderColor": {
     "$type": "color",
@@ -33734,7 +34494,8 @@ export default {
       "item",
       "readOnly",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.group.item.readOnly.borderColor}"
   },
   "hpe.formField.input.group.item.disabled.background": {
     "$type": "color",
@@ -33782,7 +34543,8 @@ export default {
       "item",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{formField.input.group.item.disabled.background}"
   },
   "hpe.formField.input.group.item.disabled.borderColor": {
     "$type": "color",
@@ -33830,11 +34592,12 @@ export default {
       "item",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.group.item.disabled.borderColor}"
   },
   "hpe.formField.input.container.enabled.background": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -33850,7 +34613,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.transparent}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -33877,7 +34640,8 @@ export default {
       "container",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{formField.input.container.enabled.background}"
   },
   "hpe.formField.input.container.enabled.borderColor": {
     "$type": "color",
@@ -33924,11 +34688,12 @@ export default {
       "container",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.container.enabled.borderColor}"
   },
   "hpe.formField.input.container.hover.background": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -33944,7 +34709,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.transparent}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -33971,7 +34736,8 @@ export default {
       "container",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{formField.input.container.hover.background}"
   },
   "hpe.formField.input.container.hover.borderColor": {
     "$type": "color",
@@ -34018,7 +34784,8 @@ export default {
       "container",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.container.hover.borderColor}"
   },
   "hpe.formField.input.container.focus.background": {
     "$type": "color",
@@ -34065,7 +34832,8 @@ export default {
       "container",
       "focus",
       "background"
-    ]
+    ],
+    "key": "{formField.input.container.focus.background}"
   },
   "hpe.formField.input.container.focus.borderColor": {
     "$type": "color",
@@ -34112,7 +34880,8 @@ export default {
       "container",
       "focus",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.container.focus.borderColor}"
   },
   "hpe.formField.input.container.readOnly.background": {
     "$type": "color",
@@ -34159,7 +34928,8 @@ export default {
       "container",
       "readOnly",
       "background"
-    ]
+    ],
+    "key": "{formField.input.container.readOnly.background}"
   },
   "hpe.formField.input.container.readOnly.borderColor": {
     "$type": "color",
@@ -34206,7 +34976,8 @@ export default {
       "container",
       "readOnly",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.container.readOnly.borderColor}"
   },
   "hpe.formField.input.container.disabled.background": {
     "$type": "color",
@@ -34253,7 +35024,8 @@ export default {
       "container",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{formField.input.container.disabled.background}"
   },
   "hpe.formField.input.container.disabled.borderColor": {
     "$type": "color",
@@ -34300,7 +35072,8 @@ export default {
       "container",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.container.disabled.borderColor}"
   },
   "hpe.formField.input.container.status.critical.background": {
     "$type": "color",
@@ -34348,7 +35121,8 @@ export default {
       "status",
       "critical",
       "background"
-    ]
+    ],
+    "key": "{formField.input.container.status.critical.background}"
   },
   "hpe.formField.input.container.status.critical.borderColor": {
     "$type": "color",
@@ -34396,7 +35170,8 @@ export default {
       "status",
       "critical",
       "borderColor"
-    ]
+    ],
+    "key": "{formField.input.container.status.critical.borderColor}"
   },
   "hpe.formField.label.enabled.textColor": {
     "$type": "color",
@@ -34439,7 +35214,8 @@ export default {
       "label",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{formField.label.enabled.textColor}"
   },
   "hpe.formField.label.hover.textColor": {
     "$type": "color",
@@ -34482,7 +35258,8 @@ export default {
       "label",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{formField.label.hover.textColor}"
   },
   "hpe.formField.label.focus.textColor": {
     "$type": "color",
@@ -34525,7 +35302,8 @@ export default {
       "label",
       "focus",
       "textColor"
-    ]
+    ],
+    "key": "{formField.label.focus.textColor}"
   },
   "hpe.formField.label.disabled.textColor": {
     "$type": "color",
@@ -34568,7 +35346,8 @@ export default {
       "label",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{formField.label.disabled.textColor}"
   },
   "hpe.formField.label.readOnly.textColor": {
     "$type": "color",
@@ -34611,7 +35390,8 @@ export default {
       "label",
       "readOnly",
       "textColor"
-    ]
+    ],
+    "key": "{formField.label.readOnly.textColor}"
   },
   "hpe.formField.label.status.critical.textColor": {
     "$type": "color",
@@ -34656,7 +35436,8 @@ export default {
       "status",
       "critical",
       "textColor"
-    ]
+    ],
+    "key": "{formField.label.status.critical.textColor}"
   },
   "hpe.formField.placeholder.disabled": {
     "$type": "color",
@@ -34729,7 +35510,8 @@ export default {
       "formField",
       "placeholder",
       "disabled"
-    ]
+    ],
+    "key": "{formField.placeholder.disabled}"
   },
   "hpe.formField.placeholder.enabled.textColor": {
     "$type": "color",
@@ -34772,7 +35554,8 @@ export default {
       "placeholder",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{formField.placeholder.enabled.textColor}"
   },
   "hpe.formField.placeholder.hover.textColor": {
     "$type": "color",
@@ -34815,7 +35598,8 @@ export default {
       "placeholder",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{formField.placeholder.hover.textColor}"
   },
   "hpe.formField.placeholder.focus.textColor": {
     "$type": "color",
@@ -34858,7 +35642,8 @@ export default {
       "placeholder",
       "focus",
       "textColor"
-    ]
+    ],
+    "key": "{formField.placeholder.focus.textColor}"
   },
   "hpe.formField.placeholder.readOnly.textColor": {
     "$type": "color",
@@ -34901,7 +35686,8 @@ export default {
       "placeholder",
       "readOnly",
       "textColor"
-    ]
+    ],
+    "key": "{formField.placeholder.readOnly.textColor}"
   },
   "hpe.formField.placeholder.status.critical.textColor": {
     "$type": "color",
@@ -34946,7 +35732,8 @@ export default {
       "status",
       "critical",
       "textColor"
-    ]
+    ],
+    "key": "{formField.placeholder.status.critical.textColor}"
   },
   "hpe.formField.help.enabled.textColor": {
     "$type": "color",
@@ -34989,7 +35776,8 @@ export default {
       "help",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{formField.help.enabled.textColor}"
   },
   "hpe.formField.help.hover.textColor": {
     "$type": "color",
@@ -35032,7 +35820,8 @@ export default {
       "help",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{formField.help.hover.textColor}"
   },
   "hpe.formField.help.focus.textColor": {
     "$type": "color",
@@ -35075,7 +35864,8 @@ export default {
       "help",
       "focus",
       "textColor"
-    ]
+    ],
+    "key": "{formField.help.focus.textColor}"
   },
   "hpe.formField.help.disabled.color": {
     "$type": "color",
@@ -35118,7 +35908,8 @@ export default {
       "help",
       "disabled",
       "color"
-    ]
+    ],
+    "key": "{formField.help.disabled.color}"
   },
   "hpe.formField.help.readOnly.textColor": {
     "$type": "color",
@@ -35161,7 +35952,8 @@ export default {
       "help",
       "readOnly",
       "textColor"
-    ]
+    ],
+    "key": "{formField.help.readOnly.textColor}"
   },
   "hpe.formField.help.status.critical.textColor": {
     "$type": "color",
@@ -35206,7 +35998,8 @@ export default {
       "status",
       "critical",
       "textColor"
-    ]
+    ],
+    "key": "{formField.help.status.critical.textColor}"
   },
   "hpe.formField.info.enabled.textColor": {
     "$type": "color",
@@ -35249,7 +36042,8 @@ export default {
       "info",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{formField.info.enabled.textColor}"
   },
   "hpe.formField.info.hover.textColor": {
     "$type": "color",
@@ -35292,7 +36086,8 @@ export default {
       "info",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{formField.info.hover.textColor}"
   },
   "hpe.formField.info.focus.textColor": {
     "$type": "color",
@@ -35335,7 +36130,8 @@ export default {
       "info",
       "focus",
       "textColor"
-    ]
+    ],
+    "key": "{formField.info.focus.textColor}"
   },
   "hpe.formField.info.disabled.textColor": {
     "$type": "color",
@@ -35378,7 +36174,8 @@ export default {
       "info",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{formField.info.disabled.textColor}"
   },
   "hpe.formField.info.readOnly.textColor": {
     "$type": "color",
@@ -35421,7 +36218,8 @@ export default {
       "info",
       "readOnly",
       "textColor"
-    ]
+    ],
+    "key": "{formField.info.readOnly.textColor}"
   },
   "hpe.formField.info.status.critical.textColor": {
     "$type": "color",
@@ -35466,7 +36264,8 @@ export default {
       "status",
       "critical",
       "textColor"
-    ]
+    ],
+    "key": "{formField.info.status.critical.textColor}"
   },
   "hpe.formField.error.enabled.textColor": {
     "$type": "color",
@@ -35509,7 +36308,8 @@ export default {
       "error",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{formField.error.enabled.textColor}"
   },
   "hpe.formField.error.enabled.iconColor": {
     "$type": "color",
@@ -35554,7 +36354,8 @@ export default {
       "error",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{formField.error.enabled.iconColor}"
   },
   "hpe.formField.error.hover.iconColor": {
     "$type": "color",
@@ -35599,7 +36400,8 @@ export default {
       "error",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{formField.error.hover.iconColor}"
   },
   "hpe.formField.error.hover.textColor": {
     "$type": "color",
@@ -35642,7 +36444,8 @@ export default {
       "error",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{formField.error.hover.textColor}"
   },
   "hpe.formField.error.focus.iconColor": {
     "$type": "color",
@@ -35687,7 +36490,8 @@ export default {
       "error",
       "focus",
       "iconColor"
-    ]
+    ],
+    "key": "{formField.error.focus.iconColor}"
   },
   "hpe.formField.error.focus.textColor": {
     "$type": "color",
@@ -35730,7 +36534,8 @@ export default {
       "error",
       "focus",
       "textColor"
-    ]
+    ],
+    "key": "{formField.error.focus.textColor}"
   },
   "hpe.formField.error.disabled.iconColor": {
     "$type": "color",
@@ -35775,7 +36580,8 @@ export default {
       "error",
       "disabled",
       "iconColor"
-    ]
+    ],
+    "key": "{formField.error.disabled.iconColor}"
   },
   "hpe.formField.error.disabled.textColor": {
     "$type": "color",
@@ -35818,7 +36624,8 @@ export default {
       "error",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{formField.error.disabled.textColor}"
   },
   "hpe.formField.error.readOnly.iconColor": {
     "$type": "color",
@@ -35863,7 +36670,8 @@ export default {
       "error",
       "readOnly",
       "iconColor"
-    ]
+    ],
+    "key": "{formField.error.readOnly.iconColor}"
   },
   "hpe.formField.error.readOnly.textColor": {
     "$type": "color",
@@ -35906,7 +36714,8 @@ export default {
       "error",
       "readOnly",
       "textColor"
-    ]
+    ],
+    "key": "{formField.error.readOnly.textColor}"
   },
   "hpe.formField.error.status.critical.iconColor": {
     "$type": "color",
@@ -35953,7 +36762,8 @@ export default {
       "status",
       "critical",
       "iconColor"
-    ]
+    ],
+    "key": "{formField.error.status.critical.iconColor}"
   },
   "hpe.formField.error.status.critical.textColor": {
     "$type": "color",
@@ -35998,7 +36808,8 @@ export default {
       "status",
       "critical",
       "textColor"
-    ]
+    ],
+    "key": "{formField.error.status.critical.textColor}"
   },
   "hpe.formField.value.enabled.textColor": {
     "$type": "color",
@@ -36041,7 +36852,8 @@ export default {
       "value",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{formField.value.enabled.textColor}"
   },
   "hpe.formField.value.hover.textColor": {
     "$type": "color",
@@ -36084,7 +36896,8 @@ export default {
       "value",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{formField.value.hover.textColor}"
   },
   "hpe.formField.value.focus.textColor": {
     "$type": "color",
@@ -36127,7 +36940,8 @@ export default {
       "value",
       "focus",
       "textColor"
-    ]
+    ],
+    "key": "{formField.value.focus.textColor}"
   },
   "hpe.formField.value.disabled.textColor": {
     "$type": "color",
@@ -36170,7 +36984,8 @@ export default {
       "value",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{formField.value.disabled.textColor}"
   },
   "hpe.formField.value.readOnly.textColor": {
     "$type": "color",
@@ -36213,7 +37028,8 @@ export default {
       "value",
       "readOnly",
       "textColor"
-    ]
+    ],
+    "key": "{formField.value.readOnly.textColor}"
   },
   "hpe.formField.value.status.critical.textColor": {
     "$type": "color",
@@ -36258,7 +37074,8 @@ export default {
       "status",
       "critical",
       "textColor"
-    ]
+    ],
+    "key": "{formField.value.status.critical.textColor}"
   },
   "hpe.footerCell.paddingX": {
     "$type": "number",
@@ -36297,7 +37114,8 @@ export default {
     "path": [
       "footerCell",
       "paddingX"
-    ]
+    ],
+    "key": "{footerCell.paddingX}"
   },
   "hpe.footerCell.fontSize": {
     "$type": "number",
@@ -36336,7 +37154,8 @@ export default {
     "path": [
       "footerCell",
       "fontSize"
-    ]
+    ],
+    "key": "{footerCell.fontSize}"
   },
   "hpe.footerCell.lineHeight": {
     "$type": "number",
@@ -36375,7 +37194,8 @@ export default {
     "path": [
       "footerCell",
       "lineHeight"
-    ]
+    ],
+    "key": "{footerCell.lineHeight}"
   },
   "hpe.footerCell.fontWeight": {
     "$type": "number",
@@ -36414,7 +37234,8 @@ export default {
     "path": [
       "footerCell",
       "fontWeight"
-    ]
+    ],
+    "key": "{footerCell.fontWeight}"
   },
   "hpe.footerCell.borderTopWidth": {
     "$type": "number",
@@ -36455,7 +37276,8 @@ export default {
     "path": [
       "footerCell",
       "borderTopWidth"
-    ]
+    ],
+    "key": "{footerCell.borderTopWidth}"
   },
   "hpe.footerCell.paddingTop": {
     "$type": "number",
@@ -36494,7 +37316,8 @@ export default {
     "path": [
       "footerCell",
       "paddingTop"
-    ]
+    ],
+    "key": "{footerCell.paddingTop}"
   },
   "hpe.footerCell.paddingBottom": {
     "$type": "number",
@@ -36533,7 +37356,8 @@ export default {
     "path": [
       "footerCell",
       "paddingBottom"
-    ]
+    ],
+    "key": "{footerCell.paddingBottom}"
   },
   "hpe.footerCell.gapX": {
     "$type": "number",
@@ -36572,7 +37396,8 @@ export default {
     "path": [
       "footerCell",
       "gapX"
-    ]
+    ],
+    "key": "{footerCell.gapX}"
   },
   "hpe.footerCell.minHeight": {
     "$type": "number",
@@ -36611,7 +37436,8 @@ export default {
     "path": [
       "footerCell",
       "minHeight"
-    ]
+    ],
+    "key": "{footerCell.minHeight}"
   },
   "hpe.footerCell.enabled.textColor": {
     "$type": "color",
@@ -36652,7 +37478,8 @@ export default {
       "footerCell",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{footerCell.enabled.textColor}"
   },
   "hpe.footerCell.enabled.iconColor": {
     "$type": "color",
@@ -36697,7 +37524,8 @@ export default {
       "footerCell",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{footerCell.enabled.iconColor}"
   },
   "hpe.footerCell.enabled.borderColor": {
     "$type": "color",
@@ -36740,7 +37568,8 @@ export default {
       "footerCell",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{footerCell.enabled.borderColor}"
   },
   "hpe.footerCell.enabled.background": {
     "$type": "color",
@@ -36783,7 +37612,8 @@ export default {
       "footerCell",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{footerCell.enabled.background}"
   },
   "hpe.footerCell.hover.textColor": {
     "$type": "color",
@@ -36824,7 +37654,8 @@ export default {
       "footerCell",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{footerCell.hover.textColor}"
   },
   "hpe.footerCell.hover.iconColor": {
     "$type": "color",
@@ -36869,7 +37700,8 @@ export default {
       "footerCell",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{footerCell.hover.iconColor}"
   },
   "hpe.footerCell.hover.borderColor": {
     "$type": "color",
@@ -36912,7 +37744,8 @@ export default {
       "footerCell",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{footerCell.hover.borderColor}"
   },
   "hpe.footerCell.hover.background": {
     "$type": "color",
@@ -36955,7 +37788,8 @@ export default {
       "footerCell",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{footerCell.hover.background}"
   },
   "hpe.footerCell.pinned.textColor": {
     "$type": "color",
@@ -36996,7 +37830,8 @@ export default {
       "footerCell",
       "pinned",
       "textColor"
-    ]
+    ],
+    "key": "{footerCell.pinned.textColor}"
   },
   "hpe.footerCell.pinned.iconColor": {
     "$type": "color",
@@ -37041,7 +37876,8 @@ export default {
       "footerCell",
       "pinned",
       "iconColor"
-    ]
+    ],
+    "key": "{footerCell.pinned.iconColor}"
   },
   "hpe.footerCell.pinned.borderColor": {
     "$type": "color",
@@ -37084,7 +37920,8 @@ export default {
       "footerCell",
       "pinned",
       "borderColor"
-    ]
+    ],
+    "key": "{footerCell.pinned.borderColor}"
   },
   "hpe.footerCell.pinned.background": {
     "$type": "color",
@@ -37127,7 +37964,8 @@ export default {
       "footerCell",
       "pinned",
       "background"
-    ]
+    ],
+    "key": "{footerCell.pinned.background}"
   },
   "hpe.radioButton.control.enabled.background": {
     "$type": "color",
@@ -37172,7 +38010,8 @@ export default {
       "control",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{radioButton.control.enabled.background}"
   },
   "hpe.radioButton.control.enabled.borderColor": {
     "$type": "color",
@@ -37217,7 +38056,8 @@ export default {
       "control",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{radioButton.control.enabled.borderColor}"
   },
   "hpe.radioButton.control.hover.background": {
     "$type": "color",
@@ -37262,7 +38102,8 @@ export default {
       "control",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{radioButton.control.hover.background}"
   },
   "hpe.radioButton.control.hover.borderColor": {
     "$type": "color",
@@ -37307,7 +38148,8 @@ export default {
       "control",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{radioButton.control.hover.borderColor}"
   },
   "hpe.radioButton.control.focus.background": {
     "$type": "color",
@@ -37352,7 +38194,8 @@ export default {
       "control",
       "focus",
       "background"
-    ]
+    ],
+    "key": "{radioButton.control.focus.background}"
   },
   "hpe.radioButton.control.focus.borderColor": {
     "$type": "color",
@@ -37397,7 +38240,8 @@ export default {
       "control",
       "focus",
       "borderColor"
-    ]
+    ],
+    "key": "{radioButton.control.focus.borderColor}"
   },
   "hpe.radioButton.control.disabled.background": {
     "$type": "color",
@@ -37442,7 +38286,8 @@ export default {
       "control",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{radioButton.control.disabled.background}"
   },
   "hpe.radioButton.control.disabled.borderColor": {
     "$type": "color",
@@ -37487,7 +38332,8 @@ export default {
       "control",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{radioButton.control.disabled.borderColor}"
   },
   "hpe.radioButton.control.selected.enabled.background": {
     "$type": "color",
@@ -37534,7 +38380,8 @@ export default {
       "selected",
       "enabled",
       "background"
-    ]
+    ],
+    "key": "{radioButton.control.selected.enabled.background}"
   },
   "hpe.radioButton.control.selected.enabled.borderColor": {
     "$type": "color",
@@ -37581,7 +38428,8 @@ export default {
       "selected",
       "enabled",
       "borderColor"
-    ]
+    ],
+    "key": "{radioButton.control.selected.enabled.borderColor}"
   },
   "hpe.radioButton.control.selected.enabled.iconColor": {
     "$type": "color",
@@ -37628,7 +38476,8 @@ export default {
       "selected",
       "enabled",
       "iconColor"
-    ]
+    ],
+    "key": "{radioButton.control.selected.enabled.iconColor}"
   },
   "hpe.radioButton.control.selected.hover.background": {
     "$type": "color",
@@ -37675,7 +38524,8 @@ export default {
       "selected",
       "hover",
       "background"
-    ]
+    ],
+    "key": "{radioButton.control.selected.hover.background}"
   },
   "hpe.radioButton.control.selected.hover.borderColor": {
     "$type": "color",
@@ -37722,7 +38572,8 @@ export default {
       "selected",
       "hover",
       "borderColor"
-    ]
+    ],
+    "key": "{radioButton.control.selected.hover.borderColor}"
   },
   "hpe.radioButton.control.selected.hover.iconColor": {
     "$type": "color",
@@ -37769,7 +38620,8 @@ export default {
       "selected",
       "hover",
       "iconColor"
-    ]
+    ],
+    "key": "{radioButton.control.selected.hover.iconColor}"
   },
   "hpe.radioButton.control.selected.focus.background": {
     "$type": "color",
@@ -37816,7 +38668,8 @@ export default {
       "selected",
       "focus",
       "background"
-    ]
+    ],
+    "key": "{radioButton.control.selected.focus.background}"
   },
   "hpe.radioButton.control.selected.focus.borderColor": {
     "$type": "color",
@@ -37863,7 +38716,8 @@ export default {
       "selected",
       "focus",
       "borderColor"
-    ]
+    ],
+    "key": "{radioButton.control.selected.focus.borderColor}"
   },
   "hpe.radioButton.control.selected.focus.iconColor": {
     "$type": "color",
@@ -37910,7 +38764,8 @@ export default {
       "selected",
       "focus",
       "iconColor"
-    ]
+    ],
+    "key": "{radioButton.control.selected.focus.iconColor}"
   },
   "hpe.radioButton.control.selected.disabled.background": {
     "$type": "color",
@@ -37957,7 +38812,8 @@ export default {
       "selected",
       "disabled",
       "background"
-    ]
+    ],
+    "key": "{radioButton.control.selected.disabled.background}"
   },
   "hpe.radioButton.control.selected.disabled.borderColor": {
     "$type": "color",
@@ -38004,7 +38860,8 @@ export default {
       "selected",
       "disabled",
       "borderColor"
-    ]
+    ],
+    "key": "{radioButton.control.selected.disabled.borderColor}"
   },
   "hpe.radioButton.control.selected.disabled.iconColor": {
     "$type": "color",
@@ -38051,7 +38908,8 @@ export default {
       "selected",
       "disabled",
       "iconColor"
-    ]
+    ],
+    "key": "{radioButton.control.selected.disabled.iconColor}"
   },
   "hpe.radioButton.label.enabled.textColor": {
     "$type": "color",
@@ -38094,7 +38952,8 @@ export default {
       "label",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{radioButton.label.enabled.textColor}"
   },
   "hpe.radioButton.label.hover.textColor": {
     "$type": "color",
@@ -38137,7 +38996,8 @@ export default {
       "label",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{radioButton.label.hover.textColor}"
   },
   "hpe.radioButton.label.disabled.textColor": {
     "$type": "color",
@@ -38180,7 +39040,8 @@ export default {
       "label",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{radioButton.label.disabled.textColor}"
   },
   "hpe.radioButton.medium.gapX": {
     "$type": "number",
@@ -38221,7 +39082,8 @@ export default {
       "radioButton",
       "medium",
       "gapX"
-    ]
+    ],
+    "key": "{radioButton.medium.gapX}"
   },
   "hpe.radioButton.medium.label.fontSize": {
     "$type": "number",
@@ -38264,7 +39126,8 @@ export default {
       "medium",
       "label",
       "fontSize"
-    ]
+    ],
+    "key": "{radioButton.medium.label.fontSize}"
   },
   "hpe.radioButton.medium.label.lineHeight": {
     "$type": "number",
@@ -38307,7 +39170,8 @@ export default {
       "medium",
       "label",
       "lineHeight"
-    ]
+    ],
+    "key": "{radioButton.medium.label.lineHeight}"
   },
   "hpe.radioButton.medium.label.fontWeight": {
     "$type": "number",
@@ -38350,7 +39214,8 @@ export default {
       "medium",
       "label",
       "fontWeight"
-    ]
+    ],
+    "key": "{radioButton.medium.label.fontWeight}"
   },
   "hpe.radioButton.medium.control.height": {
     "$type": "number",
@@ -38393,7 +39258,8 @@ export default {
       "medium",
       "control",
       "height"
-    ]
+    ],
+    "key": "{radioButton.medium.control.height}"
   },
   "hpe.radioButton.medium.control.width": {
     "$type": "number",
@@ -38436,7 +39302,8 @@ export default {
       "medium",
       "control",
       "width"
-    ]
+    ],
+    "key": "{radioButton.medium.control.width}"
   },
   "hpe.radioButton.medium.control.borderWidth": {
     "$type": "number",
@@ -38481,7 +39348,8 @@ export default {
       "medium",
       "control",
       "borderWidth"
-    ]
+    ],
+    "key": "{radioButton.medium.control.borderWidth}"
   },
   "hpe.radioButton.medium.control.borderRadius": {
     "$type": "number",
@@ -38524,7 +39392,8 @@ export default {
       "medium",
       "control",
       "borderRadius"
-    ]
+    ],
+    "key": "{radioButton.medium.control.borderRadius}"
   },
   "hpe.anchor.default.enabled.textColor": {
     "$type": "color",
@@ -38567,7 +39436,8 @@ export default {
       "default",
       "enabled",
       "textColor"
-    ]
+    ],
+    "key": "{anchor.default.enabled.textColor}"
   },
   "hpe.anchor.default.enabled.fontWeight": {
     "$type": "number",
@@ -38610,7 +39480,8 @@ export default {
       "default",
       "enabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{anchor.default.enabled.fontWeight}"
   },
   "hpe.anchor.default.enabled.textDecoration": {
     "$type": "string",
@@ -38649,7 +39520,8 @@ export default {
       "default",
       "enabled",
       "textDecoration"
-    ]
+    ],
+    "key": "{anchor.default.enabled.textDecoration}"
   },
   "hpe.anchor.default.hover.textColor": {
     "$type": "color",
@@ -38692,7 +39564,8 @@ export default {
       "default",
       "hover",
       "textColor"
-    ]
+    ],
+    "key": "{anchor.default.hover.textColor}"
   },
   "hpe.anchor.default.hover.fontWeight": {
     "$type": "number",
@@ -38731,7 +39604,8 @@ export default {
       "default",
       "hover",
       "fontWeight"
-    ]
+    ],
+    "key": "{anchor.default.hover.fontWeight}"
   },
   "hpe.anchor.default.hover.textDecoration": {
     "$type": "string",
@@ -38770,7 +39644,8 @@ export default {
       "default",
       "hover",
       "textDecoration"
-    ]
+    ],
+    "key": "{anchor.default.hover.textDecoration}"
   },
   "hpe.anchor.default.disabled.textColor": {
     "$type": "color",
@@ -38813,7 +39688,8 @@ export default {
       "default",
       "disabled",
       "textColor"
-    ]
+    ],
+    "key": "{anchor.default.disabled.textColor}"
   },
   "hpe.anchor.default.disabled.fontWeight": {
     "$type": "number",
@@ -38852,7 +39728,8 @@ export default {
       "default",
       "disabled",
       "fontWeight"
-    ]
+    ],
+    "key": "{anchor.default.disabled.fontWeight}"
   },
   "hpe.anchor.default.disabled.textDecoration": {
     "$type": "string",
@@ -38891,7 +39768,8 @@ export default {
       "default",
       "disabled",
       "textDecoration"
-    ]
+    ],
+    "key": "{anchor.default.disabled.textDecoration}"
   },
   "hpe.anchor.small.default.fontSize": {
     "$type": "number",
@@ -38934,7 +39812,8 @@ export default {
       "small",
       "default",
       "fontSize"
-    ]
+    ],
+    "key": "{anchor.small.default.fontSize}"
   },
   "hpe.anchor.small.default.lineHeight": {
     "$type": "number",
@@ -38977,7 +39856,8 @@ export default {
       "small",
       "default",
       "lineHeight"
-    ]
+    ],
+    "key": "{anchor.small.default.lineHeight}"
   },
   "hpe.anchor.small.default.gapX": {
     "$type": "number",
@@ -39020,7 +39900,8 @@ export default {
       "small",
       "default",
       "gapX"
-    ]
+    ],
+    "key": "{anchor.small.default.gapX}"
   },
   "hpe.anchor.medium.default.fontSize": {
     "$type": "number",
@@ -39063,7 +39944,8 @@ export default {
       "medium",
       "default",
       "fontSize"
-    ]
+    ],
+    "key": "{anchor.medium.default.fontSize}"
   },
   "hpe.anchor.medium.default.lineHeight": {
     "$type": "number",
@@ -39106,7 +39988,8 @@ export default {
       "medium",
       "default",
       "lineHeight"
-    ]
+    ],
+    "key": "{anchor.medium.default.lineHeight}"
   },
   "hpe.anchor.medium.default.gapX": {
     "$type": "number",
@@ -39149,7 +40032,8 @@ export default {
       "medium",
       "default",
       "gapX"
-    ]
+    ],
+    "key": "{anchor.medium.default.gapX}"
   },
   "hpe.anchor.large.default.fontSize": {
     "$type": "number",
@@ -39192,7 +40076,8 @@ export default {
       "large",
       "default",
       "fontSize"
-    ]
+    ],
+    "key": "{anchor.large.default.fontSize}"
   },
   "hpe.anchor.large.default.lineHeight": {
     "$type": "number",
@@ -39235,7 +40120,8 @@ export default {
       "large",
       "default",
       "lineHeight"
-    ]
+    ],
+    "key": "{anchor.large.default.lineHeight}"
   },
   "hpe.anchor.large.default.gapX": {
     "$type": "number",
@@ -39278,7 +40164,8 @@ export default {
       "large",
       "default",
       "gapX"
-    ]
+    ],
+    "key": "{anchor.large.default.gapX}"
   },
   "hpe.anchor.xlarge.default.fontSize": {
     "$type": "number",
@@ -39321,7 +40208,8 @@ export default {
       "xlarge",
       "default",
       "fontSize"
-    ]
+    ],
+    "key": "{anchor.xlarge.default.fontSize}"
   },
   "hpe.anchor.xlarge.default.lineHeight": {
     "$type": "number",
@@ -39364,7 +40252,8 @@ export default {
       "xlarge",
       "default",
       "lineHeight"
-    ]
+    ],
+    "key": "{anchor.xlarge.default.lineHeight}"
   },
   "hpe.anchor.xlarge.default.gapX": {
     "$type": "number",
@@ -39407,7 +40296,8 @@ export default {
       "xlarge",
       "default",
       "gapX"
-    ]
+    ],
+    "key": "{anchor.xlarge.default.gapX}"
   },
   "hpe.anchor.xxlarge.default.fontSize": {
     "$type": "number",
@@ -39450,7 +40340,8 @@ export default {
       "xxlarge",
       "default",
       "fontSize"
-    ]
+    ],
+    "key": "{anchor.xxlarge.default.fontSize}"
   },
   "hpe.anchor.xxlarge.default.lineHeight": {
     "$type": "number",
@@ -39493,7 +40384,8 @@ export default {
       "xxlarge",
       "default",
       "lineHeight"
-    ]
+    ],
+    "key": "{anchor.xxlarge.default.lineHeight}"
   },
   "hpe.anchor.xxlarge.default.gapX": {
     "$type": "number",
@@ -39536,7 +40428,8 @@ export default {
       "xxlarge",
       "default",
       "gapX"
-    ]
+    ],
+    "key": "{anchor.xxlarge.default.gapX}"
   },
   "hpe.anchor.3xlarge.default.fontSize": {
     "$type": "number",
@@ -39579,7 +40472,8 @@ export default {
       "3xlarge",
       "default",
       "fontSize"
-    ]
+    ],
+    "key": "{anchor.3xlarge.default.fontSize}"
   },
   "hpe.anchor.3xlarge.default.lineHeight": {
     "$type": "number",
@@ -39622,7 +40516,8 @@ export default {
       "3xlarge",
       "default",
       "lineHeight"
-    ]
+    ],
+    "key": "{anchor.3xlarge.default.lineHeight}"
   },
   "hpe.anchor.3xlarge.default.gapX": {
     "$type": "number",
@@ -39665,7 +40560,8 @@ export default {
       "3xlarge",
       "default",
       "gapX"
-    ]
+    ],
+    "key": "{anchor.3xlarge.default.gapX}"
   },
   "hpe.anchor.4xlarge.default.fontSize": {
     "$type": "number",
@@ -39708,7 +40604,8 @@ export default {
       "4xlarge",
       "default",
       "fontSize"
-    ]
+    ],
+    "key": "{anchor.4xlarge.default.fontSize}"
   },
   "hpe.anchor.4xlarge.default.lineHeight": {
     "$type": "number",
@@ -39751,7 +40648,8 @@ export default {
       "4xlarge",
       "default",
       "lineHeight"
-    ]
+    ],
+    "key": "{anchor.4xlarge.default.lineHeight}"
   },
   "hpe.anchor.4xlarge.default.gapX": {
     "$type": "number",
@@ -39794,7 +40692,8 @@ export default {
       "4xlarge",
       "default",
       "gapX"
-    ]
+    ],
+    "key": "{anchor.4xlarge.default.gapX}"
   },
   "hpe.anchor.5xlarge.default.fontSize": {
     "$type": "number",
@@ -39837,7 +40736,8 @@ export default {
       "5xlarge",
       "default",
       "fontSize"
-    ]
+    ],
+    "key": "{anchor.5xlarge.default.fontSize}"
   },
   "hpe.anchor.5xlarge.default.lineHeight": {
     "$type": "number",
@@ -39880,7 +40780,8 @@ export default {
       "5xlarge",
       "default",
       "lineHeight"
-    ]
+    ],
+    "key": "{anchor.5xlarge.default.lineHeight}"
   },
   "hpe.anchor.5xlarge.default.gapX": {
     "$type": "number",
@@ -39923,7 +40824,8 @@ export default {
       "5xlarge",
       "default",
       "gapX"
-    ]
+    ],
+    "key": "{anchor.5xlarge.default.gapX}"
   },
   "hpe.anchor.6xlarge.default.fontSize": {
     "$type": "number",
@@ -39966,7 +40868,8 @@ export default {
       "6xlarge",
       "default",
       "fontSize"
-    ]
+    ],
+    "key": "{anchor.6xlarge.default.fontSize}"
   },
   "hpe.anchor.6xlarge.default.lineHeight": {
     "$type": "number",
@@ -40009,7 +40912,8 @@ export default {
       "6xlarge",
       "default",
       "lineHeight"
-    ]
+    ],
+    "key": "{anchor.6xlarge.default.lineHeight}"
   },
   "hpe.anchor.6xlarge.default.gapX": {
     "$type": "number",
@@ -40052,6 +40956,7 @@ export default {
       "6xlarge",
       "default",
       "gapX"
-    ]
+    ],
+    "key": "{anchor.6xlarge.default.gapX}"
   }
 }
