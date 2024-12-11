@@ -1,34 +1,34 @@
-export const scale2413338 = {
-  name: '24-1.333-8-30',
+export const scale16141408 = {
+  name: '16-1.414-8-28',
   description:
-    '24px based scale at 1.333 factor. Rounded to 8px grid unit with 30 steps',
+    '16px based scale at 1.414 factor. Rounded to 8px grid unit with 28 steps',
   settings: {
-    base: 24,
-    contentBase: 320,
-    factor: 1.333,
-    steps: '30',
+    base: 16,
+    contentBase: 368,
+    factor: 1.414,
+    steps: '28',
     nearest: 8,
   },
   scale: [
-    1, 2, 3, 4, 6, 8, 16, 24, 32, 48, 64, 80, 104, 136, 184, 240, 320, 432, 568,
-    760, 1008, 1344, 1792,
+    1, 2, 3, 6, 16, 24, 32, 48, 64, 96, 128, 184, 256, 368, 512, 728, 1024,
+    1448, 2048,
   ],
   content: [
     {
       size: '5xsmall',
-      value: 64,
+      value: 48,
     },
     {
       size: '4xsmall',
-      value: 80,
+      value: 64,
     },
     {
       size: '3xsmall',
-      value: 104,
+      value: 96,
     },
     {
       size: 'xxsmall',
-      value: 136,
+      value: 128,
     },
     {
       size: 'xsmall',
@@ -36,89 +36,77 @@ export const scale2413338 = {
     },
     {
       size: 'small',
-      value: 240,
+      value: 256,
     },
     {
       size: 'medium',
-      value: 320,
+      value: 368,
     },
     {
       size: 'large',
-      value: 432,
+      value: 512,
     },
     {
       size: 'xlarge',
-      value: 568,
+      value: 728,
     },
     {
       size: 'xxlarge',
-      value: 760,
+      value: 1024,
     },
     {
       size: '3xlarge',
-      value: 1008,
+      value: 1448,
     },
     {
       size: '4xlarge',
-      value: 1344,
-    },
-    {
-      size: '5xlarge',
-      value: 1792,
+      value: 2048,
     },
   ],
   spacing: [
     {
-      size: '5xsmall',
-      value: 2,
-    },
-    {
-      size: '4xsmall',
-      value: 3,
-    },
-    {
       size: '3xsmall',
-      value: 4,
+      value: 1,
     },
     {
       size: 'xxsmall',
-      value: 6,
+      value: 2,
     },
     {
       size: 'xsmall',
-      value: 8,
+      value: 3,
     },
     {
       size: 'small',
-      value: 16,
+      value: 6,
     },
     {
       size: 'medium',
-      value: 24,
+      value: 16,
     },
     {
       size: 'large',
-      value: 32,
+      value: 24,
     },
     {
       size: 'xlarge',
-      value: 48,
+      value: 32,
     },
     {
       size: 'xxlarge',
-      value: 64,
+      value: 48,
     },
     {
       size: '3xlarge',
-      value: 80,
+      value: 64,
     },
     {
       size: '4xlarge',
-      value: 104,
+      value: 96,
     },
     {
       size: '5xlarge',
-      value: 136,
+      value: 128,
     },
   ],
 };

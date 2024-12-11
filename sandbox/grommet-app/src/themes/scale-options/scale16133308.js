@@ -1,4 +1,4 @@
-export const scale1613338 = {
+export const scale16133308 = {
   name: '16-1.333-8-30',
   description:
     '16px based scale at 1.333 factor. Rounded to 8px grid unit with 30 steps',

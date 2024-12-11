@@ -1,30 +1,30 @@
-export const scale2414148 = {
-  name: '24-1.414-8-27',
+export const scale24133308 = {
+  name: '24-1.333-8-30',
   description:
-    '24px based scale at 1.414 factor. Rounded to 8px grid unit with 27 steps',
+    '24px based scale at 1.333 factor. Rounded to 8px grid unit with 30 steps',
   settings: {
     base: 24,
-    contentBase: 384,
-    factor: 1.414,
-    steps: '27',
+    contentBase: 320,
+    factor: 1.333,
+    steps: '30',
     nearest: 8,
   },
   scale: [
-    1, 2, 3, 4, 6, 8, 16, 24, 40, 48, 72, 96, 136, 192, 272, 384, 544, 768,
-    1088, 1536, 2168,
+    1, 2, 3, 4, 6, 8, 16, 24, 32, 48, 64, 80, 104, 136, 184, 240, 320, 432, 568,
+    760, 1008, 1344, 1792,
   ],
   content: [
     {
       size: '5xsmall',
-      value: 48,
+      value: 64,
     },
     {
       size: '4xsmall',
-      value: 72,
+      value: 80,
     },
     {
       size: '3xsmall',
-      value: 96,
+      value: 104,
     },
     {
       size: 'xxsmall',
@@ -32,35 +32,39 @@ export const scale2414148 = {
     },
     {
       size: 'xsmall',
-      value: 192,
+      value: 184,
     },
     {
       size: 'small',
-      value: 272,
+      value: 240,
     },
     {
       size: 'medium',
-      value: 384,
+      value: 320,
     },
     {
       size: 'large',
-      value: 544,
+      value: 432,
     },
     {
       size: 'xlarge',
-      value: 768,
+      value: 568,
     },
     {
       size: 'xxlarge',
-      value: 1088,
+      value: 760,
     },
     {
       size: '3xlarge',
-      value: 1536,
+      value: 1008,
     },
     {
       size: '4xlarge',
-      value: 2168,
+      value: 1344,
+    },
+    {
+      size: '5xlarge',
+      value: 1792,
     },
   ],
   spacing: [
@@ -94,7 +98,7 @@ export const scale2414148 = {
     },
     {
       size: 'large',
-      value: 40,
+      value: 32,
     },
     {
       size: 'xlarge',
@@ -102,19 +106,19 @@ export const scale2414148 = {
     },
     {
       size: 'xxlarge',
-      value: 72,
+      value: 64,
     },
     {
       size: '3xlarge',
-      value: 96,
+      value: 80,
     },
     {
       size: '4xlarge',
-      value: 136,
+      value: 104,
     },
     {
       size: '5xlarge',
-      value: 192,
+      value: 136,
     },
   ],
 };
