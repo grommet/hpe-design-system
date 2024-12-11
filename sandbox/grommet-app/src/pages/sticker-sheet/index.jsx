@@ -48,6 +48,14 @@ import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../theme';
 import ContentPane from '../../components/ContentPane';
 
+const StyleInProgress = () => (
+  <Notification
+    status="warning"
+    message="This component style is still being refined."
+    margin={{ bottom: 'medium' }}
+  />
+);
+
 const textSizes = [
   'xsmall',
   'small',
@@ -388,6 +396,7 @@ const StickerSheet = () => {
               </Compare>
             </ContentPane>
             <ContentPane>
+              <StyleInProgress />
               <Compare>
                 <CheckBox label="Switch label" toggle />
                 <CheckBox label="Switch label" toggle checked />
@@ -415,6 +424,7 @@ const StickerSheet = () => {
               </Compare>
             </ContentPane>
             <ContentPane>
+              <StyleInProgress />
               <Compare guidingChild="last">
                 <RadioButtonGroup
                   options={['Option 1', 'Option 2', 'Option 3']}

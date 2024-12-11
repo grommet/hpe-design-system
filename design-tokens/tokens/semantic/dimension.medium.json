@@ -797,7 +797,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -847,7 +847,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -897,7 +897,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -947,7 +947,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -997,7 +997,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1101,7 +1101,7 @@
     "medium": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.300}",
+        "$value": "{base.fontSize.500}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1139,7 +1139,7 @@
     "small": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.200}",
+        "$value": "{base.fontSize.300}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1177,7 +1177,7 @@
     "xsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$value": "{base.fontSize.200}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1189,7 +1189,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.80}",
+        "$value": "{base.lineHeight.200}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1215,7 +1215,7 @@
     "xxsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$value": "{base.fontSize.100}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1227,7 +1227,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.80}",
+        "$value": "{base.lineHeight.90}",
         "$description": "",
         "$extensions": {
           "com.figma": {
