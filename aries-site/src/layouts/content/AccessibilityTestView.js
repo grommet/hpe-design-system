@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { Anchor, Box, Button, Heading, Tag, Text } from 'grommet';
+import { Anchor, Box, Button, Tag, Text } from 'grommet';
 import {
   Up,
   Down,
   StatusGoodSmall,
   StatusCriticalSmall,
   StatusWarningSmall,
+  CircleInformation,
 } from 'grommet-icons';
 import anchorData from '../../data/wcag/anchor.json';
 
@@ -25,6 +26,8 @@ const AccessibilityCardView = ({
     statusIcon = <StatusWarningSmall color="status-warning" />;
   } else if (status === 'failed') {
     statusIcon = <StatusCriticalSmall color="status-critical" />;
+  } else if (status === 'conditional') {
+    statusIcon = <CircleInformation />;
   }
 
   return (
@@ -43,12 +46,17 @@ const AccessibilityCardView = ({
         </Text>
         <Box alignSelf="start" direction="row" align="center" gap="small">
           <Tag size="small" value={tagValue} />
-          <Anchor size="xsmall" href={linkHref} label={linkTitle} />
+          <Anchor
+            target="_blank"
+            size="xsmall"
+            href={linkHref}
+            label={linkTitle}
+          />
         </Box>
       </Box>
       <Box alignSelf="start" align="center" direction="row" gap="xsmall">
         {statusIcon}
-        <Text>{status}</Text>
+        <Text>{status.charAt(0).toUpperCase() + status.slice(1)}</Text>
       </Box>
     </Box>
   );
@@ -56,10 +64,10 @@ const AccessibilityCardView = ({
 
 export const AccessibilityTestView = () => {
   const [expandedSections, setExpandedSections] = useState({
-    perceivable: true,
-    operable: true,
-    understandable: true,
-    robust: true,
+    perceivable: false,
+    operable: false,
+    understandable: false,
+    robust: false,
   });
 
   const toggleSection = category => {
@@ -70,14 +78,12 @@ export const AccessibilityTestView = () => {
   };
   return (
     <Box gap="medium">
-      <Heading margin={{ top: 'medium', bottom: 'none' }} level={3}>
-        Tests
-      </Heading>
-      <Box direction="row">
-        <Text level={3}>Grouped by</Text>
+      <Box gap="xsmall" pad={{ vertical: 'medium' }} direction="row">
+        <Text size="large">Grouped by</Text>
         <Anchor
           label="Accessibility principles:"
           href="https://www.w3.org/TR/WCAG22/"
+          size="large"
         />
       </Box>
       <Box gap="medium">
@@ -92,7 +98,12 @@ export const AccessibilityTestView = () => {
                   <Down />
                 )
               }
-              label={category.category}
+              label={
+                <Box gap="xsmall" direction="row" align="center">
+                  <StatusGoodSmall color="status-ok" />
+                  <Text>{category.category}</Text>
+                </Box>
+              }
               reverse
               alignSelf="start"
             />

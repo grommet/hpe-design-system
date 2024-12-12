@@ -65,38 +65,6 @@ It is important that your anchor clearly states to what content the anchor leads
   </Example>
 </BestPracticeGroup>
 
-## Accessibility Guidance
-
-**Use 'target' and 'rel' props when linking externally:**
-
-If clicking an Anchor leads to an external URL, apply these props to the anchor:
-
-- target="\_blank"
-- rel="noopener"
-
-The distinction is important to screen reader users to know what's going to happen next. Will I navigate somewhere or will something happen on the page?
-
-The "\_blank" target causes the link to open in a new tab, so the user doesn't lose their place on the application. Adding the "noopener" property prevents the newly opened page from gaining access to the original page which helps maintain the security of your application.
-
-**Use clear Anchor labels:**
-
-It is important to make sure the label of the anchor will allow screen reader users to know where the anchor will lead.
-
-Unhelpful Anchor label:
-
-- Read more <GrommetAnchor label="here" />
-
-The word "here" is vague. A screen reader user may not know the context of "here".
-
-Helpful Anchor label:
-
-- Read more <GrommetAnchor label="Anchor documentation" />
-
-This clearly states the type of content to which the Anchor relates.
-
-## Accessibility status
-<AccessibilityTable />
-<AccessibilityTestView />
 ## Variants
 
 Anchors are used primarily in text heavy contexts. Here are some ways
@@ -158,3 +126,40 @@ Used to indicate that an anchor cannot be interacted with.
 >
   <AnchorDisabledExample />
 </Example>
+
+## Accessibility
+
+### Guidance
+**To be implemented:**
+
+**Use 'target' and 'rel' props when linking externally:**
+
+If clicking an Anchor leads to an external URL, apply these props to the anchor:
+
+- target="\_blank"
+- rel="noopener"
+
+The distinction is important to screen reader users to know what's going to happen next. Will I navigate somewhere or will something happen on the page?
+
+The "\_blank" target causes the link to open in a new tab, so the user doesn't lose their place on the application. Adding the "noopener" property prevents the newly opened page from gaining access to the original page which helps maintain the security of your application.
+
+**Use clear Anchor labels:**
+
+It is important to make sure the label of the anchor will allow screen reader users to know where the anchor will lead.
+
+Unhelpful Anchor label:
+
+- Read more <GrommetAnchor label="here" />
+
+The word "here" is vague. A screen reader user may not know the context of "here".
+
+Helpful Anchor label:
+
+- Read more <GrommetAnchor label="Anchor documentation" />
+
+This clearly states the type of content to which the Anchor relates.
+
+## Status
+**Accessibility Testing: WCAG Compliance Overview**
+<AccessibilityTable />
+<AccessibilityTestView />
