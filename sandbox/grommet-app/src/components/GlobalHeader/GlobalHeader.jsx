@@ -103,8 +103,16 @@ export const GlobalHeader = ({
                     border={{ side: 'bottom', color: 'border-weak' }}
                     width="100%"
                   />
-                  <FormField label="Mode" alignSelf="start">
+                  <FormField
+                    label="Mode"
+                    alignSelf="start"
+                    contentProps={{ border: false }}
+                    htmlFor="theme-mode-toggle"
+                    name="theme-mode-toggle"
+                  >
                     <ToggleGroup
+                      id="theme-mode-toggle"
+                      name="theme-mode-toggle"
                       options={[
                         { label: 'Light', value: 'light' },
                         { label: 'Dark', value: 'dark' },
@@ -116,8 +124,14 @@ export const GlobalHeader = ({
                       }
                     />
                   </FormField>
-                  <FormField label="Theme">
+                  <FormField
+                    label="Theme"
+                    htmlFor="theme-select__input"
+                    name="theme-select"
+                  >
                     <Select
+                      id="theme-select"
+                      name="theme-select"
                       options={Object.keys(themes).map(theme => theme)}
                       onChange={({ option }) => setActiveTheme(option)}
                       value={activeTheme}

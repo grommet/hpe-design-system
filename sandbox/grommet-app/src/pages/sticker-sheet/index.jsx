@@ -177,8 +177,14 @@ const StickerSheet = () => {
                       toggle
                     />
                   </FormField>
-                  <FormField label="View mode">
+                  <FormField
+                    label="View mode"
+                    htmlFor="view-mode__input"
+                    name="view-mode"
+                  >
                     <Select
+                      id="view-mode"
+                      name="view-mode"
                       options={['v5', 'next', 'Compare diffs']}
                       value={mode}
                       onChange={({ option }) => setMode(option)}
