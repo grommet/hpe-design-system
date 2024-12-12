@@ -7,7 +7,6 @@ import {
   StatusWarningSmall,
   CircleInformation,
 } from 'grommet-icons';
-import anchorData from '../../data/wcag/anchor.json';
 
 const Name = ({ label, icon }) => {
   return (
@@ -24,30 +23,30 @@ const Name = ({ label, icon }) => {
 };
 
 const Value = ({ value }) => {
-  return <TextEmphasis size="xxlarge">{value}</TextEmphasis>;
+  return (
+    <TextEmphasis alignSelf="end" size="xxlarge">
+      {value}
+    </TextEmphasis>
+  );
 };
 
-export const AccessibilityTable1 = () => {
-  const allData = anchorData; // Add more components here
-
+export const AccessibilityTable1 = ({ statuses = [] }) => {
   const calculateAccessibilityTestCounts = () => {
     let conditional = 0;
     let passed = 0;
     let passedWithExceptions = 0;
     let failed = 0;
 
-    allData.forEach(category => {
-      category.items.forEach(item => {
-        if (item.status === 'passed') {
-          passed += 1;
-        } else if (item.status === 'passed with exceptions') {
-          passedWithExceptions += 1;
-        } else if (item.status === 'failed') {
-          failed += 1;
-        } else if (item.status === 'conditional') {
-          conditional += 1;
-        }
-      });
+    statuses.forEach(status => {
+      if (status === 'passed') {
+        passed += 1;
+      } else if (status === 'passed with exceptions') {
+        passedWithExceptions += 1;
+      } else if (status === 'failed') {
+        failed += 1;
+      } else if (status === 'conditional') {
+        conditional += 1;
+      }
     });
 
     return { conditional, passed, passedWithExceptions, failed };
@@ -82,8 +81,7 @@ export const AccessibilityTable1 = () => {
       round="small"
       direction="row"
       gap="large"
-      margin={{ vertical: 'medium' }}
-      width="672px"
+      width="fit-content"
     >
       {Object.keys(STATUS_MAP).map(key => {
         const status = STATUS_MAP[key];

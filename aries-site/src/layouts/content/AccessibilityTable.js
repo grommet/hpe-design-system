@@ -6,7 +6,6 @@ import {
   StatusWarningSmall,
   CircleInformation,
 } from 'grommet-icons';
-import anchorData from '../../data/wcag/anchor.json';
 
 const StatusLabel = ({ icon: Icon, color, label }) => (
   <Box align="center" direction="row" gap="xsmall">
@@ -15,26 +14,25 @@ const StatusLabel = ({ icon: Icon, color, label }) => (
   </Box>
 );
 
-export const AccessibilityTable = () => {
-  const allData = anchorData; // Add more components here
+export const AccessibilityTable = ({ statuses = [] }) => {
+  // Calculate counts of each status
+  // revisit to clean up the code here
   const calculateAccessibilityTestCounts = () => {
     let conditional = 0;
     let passed = 0;
     let passedWithExceptions = 0;
     let failed = 0;
 
-    allData.forEach(category => {
-      category.items.forEach(item => {
-        if (item.status === 'passed') {
-          passed += 1;
-        } else if (item.status === 'passed with exceptions') {
-          passedWithExceptions += 1;
-        } else if (item.status === 'failed') {
-          failed += 1;
-        } else if (item.status === 'conditional') {
-          conditional += 1;
-        }
-      });
+    statuses.forEach(status => {
+      if (status === 'passed') {
+        passed += 1;
+      } else if (status === 'passed with exceptions') {
+        passedWithExceptions += 1;
+      } else if (status === 'failed') {
+        failed += 1;
+      } else if (status === 'conditional') {
+        conditional += 1;
+      }
     });
 
     return { conditional, passed, passedWithExceptions, failed };
@@ -44,6 +42,7 @@ export const AccessibilityTable = () => {
     calculateAccessibilityTestCounts();
 
   return (
+    // room to clean up the code here
     <Box margin={{ top: 'medium' }} gap="medium">
       <Box
         pad={{ vertical: 'small', horizontal: 'medium' }}
@@ -51,7 +50,10 @@ export const AccessibilityTable = () => {
         background="background-front"
         round="small"
       >
-        <NameValueList>
+        <NameValueList
+          nameProps={{ width: 'max-content' }}
+          valueProps={{ width: 'max-content' }}
+        >
           <NameValuePair name="Passed">
             <StatusLabel
               icon={StatusGoodSmall}

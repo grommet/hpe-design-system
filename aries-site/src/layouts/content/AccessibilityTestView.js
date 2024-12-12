@@ -5,6 +5,7 @@ import {
   Anchor,
   Box,
   Heading,
+  Paragraph,
   Tag,
   Text,
 } from 'grommet';
@@ -14,8 +15,8 @@ import {
   StatusWarningSmall,
   CircleInformation,
 } from 'grommet-icons';
-import anchorData from '../../data/wcag/anchor.json';
 
+// COME BACK TO CLEAN UP CODE
 const getWorstStatusIcon = items => {
   const statusPriority = {
     failed: 0,
@@ -37,15 +38,15 @@ const getWorstStatusIcon = items => {
 
   switch (worstStatus.status) {
     case 'failed':
-      return <StatusCriticalSmall size="large" color="status-critical" />;
+      return <StatusCriticalSmall color="status-critical" />;
     case 'conditional':
-      return <CircleInformation size="large" />;
+      return <CircleInformation />;
     case 'passed with exceptions':
-      return <StatusWarningSmall size="large" color="status-warning" />;
+      return <StatusWarningSmall color="status-warning" />;
     case 'passed':
-      return <StatusGoodSmall size="large" color="status-ok" />;
+      return <StatusGoodSmall color="status-ok" />;
     default:
-      return <StatusGoodSmall size="large" color="status-ok" />;
+      return <StatusGoodSmall color="status-ok" />;
   }
 };
 
@@ -56,6 +57,7 @@ const AccessibilityCardView = ({
   tagValue,
   linkHref,
   linkTitle,
+  level,
 }) => {
   let statusIcon;
   if (status === 'passed') {
@@ -78,27 +80,62 @@ const AccessibilityCardView = ({
       gap="small"
     >
       <Box flex gap="small">
-        <Text>
-          <strong>{title}.</strong> {description}
-        </Text>
+        <Paragraph margin="none">
+          <strong>{description}.</strong> {title}
+        </Paragraph>
         <Box alignSelf="start" direction="row" align="center" gap="small">
-          <Tag size="small" value={tagValue} />
-          <Anchor size="xsmall" href={linkHref} label={linkTitle} />
+          <Tag size="small" value={`WCAG ${tagValue}${' '}${level}`} />
+          <Anchor
+            target="_blank"
+            size="small"
+            href={linkHref}
+            label={`${tagValue}${' '}${description} `}
+          />
         </Box>
       </Box>
       <Box alignSelf="start" align="center" direction="row" gap="xsmall">
         {statusIcon}
-        <Text>{status}</Text>
+        <Text>{status.charAt(0).toUpperCase() + status.slice(1)}</Text>
       </Box>
     </Box>
   );
 };
 
-export const AccessibilityTestView = () => {
+export const AccessibilityTestView = ({ rules }) => {
+  const groupRulesByPrinciple = (rules = []) => {
+    const grouped = {};
+
+    // Mapping of principle numbers to human-readable names
+    const principleMapping = {
+      1: 'Perceivable',
+      2: 'Operable',
+      3: 'Understandable',
+      4: 'Robust',
+    };
+
+    if (Array.isArray(rules) && rules.length > 0) {
+      rules.forEach(rule => {
+        const principleNum = parseInt(rule.num.split('.')[0]);
+
+        const principleName =
+          principleMapping[principleNum] || 'Unknown Principle'; // Fallback to 'Unknown Principle' if not found
+
+        if (!grouped[principleName]) {
+          grouped[principleName] = [];
+        }
+
+        grouped[principleName].push(rule);
+      });
+    }
+
+    return grouped;
+  };
+
+  const groupedRules = groupRulesByPrinciple(rules);
   return (
     <Box gap="medium">
       <Heading margin={{ top: 'medium', bottom: 'none' }} level={3}>
-        Tests
+        WCAG compliance
       </Heading>
       <Box gap="xsmall" direction="row">
         <Text size="large">Grouped by</Text>
@@ -108,9 +145,9 @@ export const AccessibilityTestView = () => {
           size="large"
         />
       </Box>
-      <Box>
-        {anchorData.map(category => (
-          <Accordion multiple>
+      <Box width="large">
+        {Object.keys(groupedRules).map(group => (
+          <Accordion key={group} multiple>
             <AccordionPanel
               label={
                 <Box
@@ -119,24 +156,26 @@ export const AccessibilityTestView = () => {
                   alignSelf="center"
                   direction="row"
                 >
-                  <Heading level={3}>{category.category}</Heading>
-                  {getWorstStatusIcon(category.items)}
+                  <Heading margin={{ vertical: 'medium' }} level={4}>
+                    {group}
+                  </Heading>
+                  {getWorstStatusIcon(groupedRules[group])}
                 </Box>
               }
             >
-              <Box gap="medium">
-                {[category.category.toLowerCase()] &&
-                  category.items.map((item, index) => (
-                    <AccessibilityCardView
-                      key={index}
-                      title={item.title}
-                      description={item.description}
-                      status={item.status}
-                      tagValue={item.tagValue}
-                      linkHref={item.linkHref}
-                      linkTitle={item.linkTitle}
-                    />
-                  ))}
+              <Box pad={{ vertical: 'small' }} gap="small">
+                {groupedRules[group].map((item, index) => (
+                  <AccessibilityCardView
+                    key={item.num} // Assuming `num` is unique for each rule
+                    title={item.title}
+                    description={item.description || item.handle} // Assuming you want to show `handle` or `description`
+                    status={item.status}
+                    tagValue={item.num} // Display the rule number
+                    linkHref={`https://www.w3.org/TR/WCAG22/#${item.id}`}
+                    linkTitle={item.id}
+                    level={item.level}
+                  />
+                ))}
               </Box>
             </AccordionPanel>
           </Accordion>
