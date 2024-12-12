@@ -1,3 +1,4 @@
+export * from './AccessibilitySection';
 export * from './AccessibilityTable';
 export * from './AccessibilityTable1';
 export * from './AccessibilityTestView';

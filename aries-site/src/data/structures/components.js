@@ -30,7 +30,7 @@ import { TagPreview } from '../../examples/cardPreviews/tag';
 export const components = [
   {
     name: 'Anchor',
-    accessibility: 'Passed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Controls',
     description:
       'Hyperlinks used with text-based navigation, such as inline text.',
@@ -90,6 +90,7 @@ export const components = [
   },
   {
     name: 'Button',
+    accessibility: 'Passed WCAG 2.2 A',
     category: 'Controls',
     description:
       'Buttons are graphic elements that indicate to users that actions can be performed.',

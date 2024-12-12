@@ -17,15 +17,16 @@ export const Meta = ({
   const segment = 'corporate';
   const lifecycle = 'support';
   const pageContent = 'products';
-  const csp = `default-src 'self' 'unsafe-eval'; 
+  const csp = `default-src 'self' 'unsafe-eval';
   style-src 'self' *.hpe.com/hfws-static/5/css/ 'unsafe-inline';
-  connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://api.github.com/repos/grommet/hpe-design-system/pulls https://api.github.com/repos/grommet/hpe-design-system/commits https://www.google-analytics.com https://www.github.com/grommet/ https://eyes.applitools.com *.hpe.com/hpe/api/ https://iad1.qualtrics.com/API/v3/surveys/ https://api.spacexdata.com/;
+  connect-src 'self' *.githubusercontent.com/grommet/hpe-design-system/ https://api.github.com/repos/grommet/hpe-design-system/pulls https://api.github.com/repos/grommet/hpe-design-system/commits https://www.google-analytics.com https://www.github.com/grommet/ https://eyes.applitools.com *.hpe.com/hpe/api/ https://iad1.qualtrics.com/API/v3/surveys/ https://api.spacexdata.com/ https://raw.githubusercontent.com;
   media-src 'self' https://d3hq6blov2iije.cloudfront.net/media/;
   img-src 'self' data: https://www.google-analytics.com https://images.unsplash.com/ http://s.gravatar.com/avatar/ *.hpe.com/hfws-static/5/ https://d3hq6blov2iije.cloudfront.net/images/textures/ https://d3hq6blov2iije.cloudfront.net/images/gradients/ https://d3hq6blov2iije.cloudfront.net/images/hpe-greenlake/;
-  script-src 'self' *.hpe.com https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://netlify-cdp-loader.netlify.app/netlify.js ${
-    // in dev mode, we allow unsafe-eval to work with react hot reloader
-    process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''
-  };
+  script-src 'self' *.hpe.com https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://netlify-cdp-loader.netlify.app/netlify.js https://consent.trustarc.com;
+ ${
+   // in dev mode, we allow unsafe-eval to work with react hot reloader
+   process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''
+ };
   font-src *.hpe.com hpefonts.s3.amazonaws.com https://d3hq6blov2iije.cloudfront.net/fonts/;
   object-src 'none';`;
 
