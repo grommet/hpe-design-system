@@ -6,6 +6,7 @@ import { Github, Moon, Sun } from 'grommet-icons';
 import { Visualizer } from './routes/Visualizer';
 // import { Builder } from './routes/Builder';
 import { Docs } from './routes/Docs';
+import { Scaler } from './routes/Scaler/index';
 
 function App() {
   const [darkMode, setDarkMode] = useState(
@@ -22,6 +23,11 @@ function App() {
       theme={hpe}
       themeMode={darkMode ? 'dark' : 'light'}
       full="min"
+      options={{
+        box: {
+          cssGap: true,
+        },
+      }}
     >
       <BrowserRouter>
         <Header
@@ -36,6 +42,7 @@ function App() {
           </Button>
           <Box direction="row" gap="xsmall">
             <Button as={Link} to="/visualizer" label="Token Visualizer" />
+            <Button as={Link} to="/scaler" label="Scale generator" />
             {/* <Button as={Link} to="/builder" label="Token builder" /> */}
             <Button
               icon={<Github />}
@@ -47,7 +54,7 @@ function App() {
             <Button
               icon={darkMode ? <Moon /> : <Sun />}
               onClick={() => setDarkMode(!darkMode)}
-              tip={`Swith to ${darkMode ? 'light' : 'dark'} mode`}
+              tip={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
             />
           </Box>
         </Header>
@@ -55,6 +62,7 @@ function App() {
           <Route path="/" element={<Docs />} />
           {/* <Route path="/builder" element={<Builder />} /> */}
           <Route path="/visualizer" element={<Visualizer />} />
+          <Route path="/scaler" element={<Scaler />} />
         </Routes>
       </BrowserRouter>
     </Grommet>

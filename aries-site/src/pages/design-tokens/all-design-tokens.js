@@ -153,7 +153,7 @@ const getTokens = (tokenObj, mode) =>
       token: key,
       type: tokenObj[key]?.modes[mode]?.$type,
       description: tokenObj[key]?.modes[mode]?.comment,
-      value: tokenObj[key]?.modes[mode].value,
+      value: tokenObj[key]?.modes[mode].$value,
     };
   });
 
