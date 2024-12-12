@@ -124,6 +124,7 @@ export const GlobalHeader = ({
                     />
                   </FormField>
                   <Anchor
+                    alignSelf="start"
                     as={Link}
                     to="/sticker-sheet"
                     label="View sticker sheet"

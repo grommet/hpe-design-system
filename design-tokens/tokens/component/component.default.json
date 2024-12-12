@@ -3035,7 +3035,7 @@
       "xsmall": {
         "paddingX": {
           "$type": "number",
-          "$value": 12,
+          "$value": 3,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5831,7 +5831,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 5,
+          "$value": 6,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5867,7 +5867,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{base.static.borderWidth.xsmall}",
+          "$value": "{base.static.borderWidth.none}",
           "$description": "",
           "$extensions": {
             "com.figma": {

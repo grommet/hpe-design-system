@@ -946,20 +946,41 @@ const buildTheme = tokens => {
           extend: '', // TO DO can remove when merging, temp to override extend
         },
         ...buttonStatesTheme.hover,
+        option: {
+          extend: props =>
+            props['aria-selected'] &&
+            `
+          background: ${
+            props.theme.global.colors[
+              components.hpe.select.option.selected.hover.background
+            ][props.theme.dark ? 'dark' : 'light']
+          };
+          box-shadow: ${
+            props.theme.global.elevation[props.theme.dark ? 'dark' : 'light'][
+              'inset-selected'
+            ]
+          };
+          &:focus:not(:focus-visible) {
+           box-shadow: ${
+             props.theme.global.elevation[props.theme.dark ? 'dark' : 'light'][
+               'inset-selected'
+             ]
+           };
+          }
+          `,
+        },
       },
       size: {
-        xsmall: {
-          border: {
-            radius: '2em',
-          },
-          iconOnly: {
+        ...buttonSizesTheme,
+        medium: {
+          ...buttonSizesTheme.medium,
+          option: {
             pad: {
-              vertical: '3px',
-              horizontal: '3px',
+              horizontal: components.hpe.select.medium.option.paddingX,
+              vertical: components.hpe.select.medium.option.paddingY,
             },
           },
         },
-        ...buttonSizesTheme,
       },
       extend: ({ active, kind, sizeProp, theme }) => {
         let style = '';
