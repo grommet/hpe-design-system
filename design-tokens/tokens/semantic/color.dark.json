@@ -45,7 +45,9 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
+            "codeSyntax": {
+              "WEB": "var(--hpe-color-background-disabled)"
+            }
           }
         }
       },
@@ -406,7 +408,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["SHAPE_FILL", "TEXT_FILL"],
             "codeSyntax": {}
           }
         }
