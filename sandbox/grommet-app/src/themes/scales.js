@@ -23,6 +23,22 @@ const scaleToThemeObject = ({ scale, index = 0 }) => {
   return result;
 };
 
+const pageThemeObject = ({ scale, target }) => {
+  const max = scale.reduce(
+    (acc, { size, value }) => {
+      // Minimizing the difference between the target and the value
+      const test =
+        !acc.value || Math.abs(target - value) < Math.abs(target - acc.value);
+      acc.size = test ? size : acc.size;
+      acc.value = test ? value : acc.value;
+      return acc;
+    },
+    { size: undefined, value: undefined },
+  );
+
+  return { width: { max: max.size } };
+};
+
 const createTheme = ({ spacing, content }) => {
   return {
     global: {
@@ -50,6 +66,10 @@ const createTheme = ({ spacing, content }) => {
       size: {
         ...scaleToThemeObject({ scale: content }),
       },
+    },
+    page: {
+      wide: { ...pageThemeObject({ scale: content, target: 1536 }) },
+      narrow: { ...pageThemeObject({ scale: content, target: 768 }) },
     },
   };
 };
