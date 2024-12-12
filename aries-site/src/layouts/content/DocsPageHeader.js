@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Anchor, PageHeader } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { getPageDetails, nameToPath } from '../../utils';
-import { Status, SubsectionText } from '../../components';
+import { SubsectionText } from '../../components';
 
 export const DocsPageHeader = ({ title, topic, render }) => {
   const page = getPageDetails(title);
@@ -27,11 +27,13 @@ export const DocsPageHeader = ({ title, topic, render }) => {
           </Link>
         )
       }
-      subtitle={<SubsectionText>{page.description}</SubsectionText>}
+      subtitle={
+        <SubsectionText accessibility={page.accessibility}>
+          {page.description}
+        </SubsectionText>
+      }
       margin={{ bottom: 'small' }}
-    >
-      {page.status && <Status status={page.status} />}
-    </PageHeader>
+    />
   );
 };
 
