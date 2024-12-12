@@ -148,7 +148,7 @@
         },
         "hover": {
           "$type": "color",
-          "$value": "{base.color.green.600}",
+          "$value": "{base.color.green.800}",
           "$description": "Hover color variant of the primary color.",
           "$extensions": {
             "com.figma": {

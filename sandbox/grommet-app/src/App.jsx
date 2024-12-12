@@ -30,7 +30,7 @@ const App = () => {
   }, [darkMode]);
 
   const [backgroundBack, setBackgroundBack] = useState(
-    localStorage.getItem('backgroundBack') === 'true' || false,
+    localStorage.getItem('backgroundBack') === 'true' || true,
   );
   useEffect(() => {
     if (backgroundBack) localStorage.setItem('backgroundBack', 'true');
@@ -44,7 +44,7 @@ const App = () => {
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
 
-  const loading = useLoading(6000);
+  const loading = useLoading(0);
 
   return (
     <Grommet

@@ -1460,6 +1460,7 @@ export const Devices = () => {
           onSelect={() => {}}
           sortable
           verticalAlign={{ body: 'top' }}
+          onClickRow="select"
           id="devices-table"
         />
       </Box>

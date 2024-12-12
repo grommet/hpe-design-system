@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { deepFreeze } from 'grommet/utils';
+import { deepFreeze, deepMerge } from 'grommet/utils';
 import {
   dark as localDark,
   light as localLight,
@@ -2671,20 +2671,19 @@ const newColors = {
   'foreground-critical': 'status-critical',
   'foreground-warning': 'status-warning',
   'foreground-unknown': 'status-unknown',
+  'graph-5': 'graph-0',
+  'graph-6': 'graph-1',
 };
 
-const v5 = {
-  ...hpe,
+const v5 = deepMerge(hpe, {
   global: {
-    ...hpe.global,
     colors: {
-      ...hpe.global.colors,
       ...newColors,
     },
   },
-};
+});
 
 export const themes = {
   next: current,
-  v5,
+  current: v5,
 };
