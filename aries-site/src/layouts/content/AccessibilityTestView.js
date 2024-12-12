@@ -1,14 +1,53 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
-import { Anchor, Box, Button, Heading, Tag, Text } from 'grommet';
 import {
-  Up,
-  Down,
+  Accordion,
+  AccordionPanel,
+  Anchor,
+  Box,
+  Heading,
+  Tag,
+  Text,
+} from 'grommet';
+import {
   StatusGoodSmall,
   StatusCriticalSmall,
   StatusWarningSmall,
+  CircleInformation,
 } from 'grommet-icons';
 import anchorData from '../../data/wcag/anchor.json';
+
+const getWorstStatusIcon = items => {
+  const statusPriority = {
+    failed: 0,
+    conditional: 1,
+    'passed with exceptions': 2,
+    passed: 3,
+  };
+
+  // Find the item with the worst status
+  const worstStatus = items.reduce(
+    (worst, item) => {
+      if (statusPriority[item.status] < statusPriority[worst.status]) {
+        return item;
+      }
+      return worst;
+    },
+    { status: 'passed' },
+  );
+
+  switch (worstStatus.status) {
+    case 'failed':
+      return <StatusCriticalSmall size="large" color="status-critical" />;
+    case 'conditional':
+      return <CircleInformation size="large" />;
+    case 'passed with exceptions':
+      return <StatusWarningSmall size="large" color="status-warning" />;
+    case 'passed':
+      return <StatusGoodSmall size="large" color="status-ok" />;
+    default:
+      return <StatusGoodSmall size="large" color="status-ok" />;
+  }
+};
 
 const AccessibilityCardView = ({
   title,
@@ -25,6 +64,8 @@ const AccessibilityCardView = ({
     statusIcon = <StatusWarningSmall color="status-warning" />;
   } else if (status === 'failed') {
     statusIcon = <StatusCriticalSmall color="status-critical" />;
+  } else if (status === 'conditional') {
+    statusIcon = <CircleInformation />;
   }
 
   return (
@@ -34,7 +75,6 @@ const AccessibilityCardView = ({
       round="small"
       justify="between"
       direction="row"
-      flex="grow"
       gap="small"
     >
       <Box flex gap="small">
@@ -55,62 +95,51 @@ const AccessibilityCardView = ({
 };
 
 export const AccessibilityTestView = () => {
-  const [expandedSections, setExpandedSections] = useState({
-    perceivable: true,
-    operable: true,
-    understandable: true,
-    robust: true,
-  });
-
-  const toggleSection = category => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [category]: !prev[category],
-    }));
-  };
   return (
     <Box gap="medium">
       <Heading margin={{ top: 'medium', bottom: 'none' }} level={3}>
         Tests
       </Heading>
-      <Box direction="row">
-        <Text level={3}>Grouped by</Text>
+      <Box gap="xsmall" direction="row">
+        <Text size="large">Grouped by</Text>
         <Anchor
           label="Accessibility principles:"
           href="https://www.w3.org/TR/WCAG22/"
+          size="large"
         />
       </Box>
-      <Box gap="medium">
+      <Box>
         {anchorData.map(category => (
-          <Box gap="medium" key={category.category}>
-            <Button
-              onClick={() => toggleSection(category.category.toLowerCase())}
-              icon={
-                expandedSections[category.category.toLowerCase()] ? (
-                  <Up />
-                ) : (
-                  <Down />
-                )
+          <Accordion multiple>
+            <AccordionPanel
+              label={
+                <Box
+                  gap="small"
+                  align="center"
+                  alignSelf="center"
+                  direction="row"
+                >
+                  <Heading level={3}>{category.category}</Heading>
+                  {getWorstStatusIcon(category.items)}
+                </Box>
               }
-              label={category.category}
-              reverse
-              alignSelf="start"
-            />
-            <Box gap="medium">
-              {expandedSections[category.category.toLowerCase()] &&
-                category.items.map((item, index) => (
-                  <AccessibilityCardView
-                    key={index}
-                    title={item.title}
-                    description={item.description}
-                    status={item.status}
-                    tagValue={item.tagValue}
-                    linkHref={item.linkHref}
-                    linkTitle={item.linkTitle}
-                  />
-                ))}
-            </Box>
-          </Box>
+            >
+              <Box gap="medium">
+                {[category.category.toLowerCase()] &&
+                  category.items.map((item, index) => (
+                    <AccessibilityCardView
+                      key={index}
+                      title={item.title}
+                      description={item.description}
+                      status={item.status}
+                      tagValue={item.tagValue}
+                      linkHref={item.linkHref}
+                      linkTitle={item.linkTitle}
+                    />
+                  ))}
+              </Box>
+            </AccordionPanel>
+          </Accordion>
         ))}
       </Box>
     </Box>
