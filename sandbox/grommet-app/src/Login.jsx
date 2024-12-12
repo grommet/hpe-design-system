@@ -31,7 +31,6 @@ export const Login = ({ setAuthenticated }) => {
                   setAuthenticated(true);
                 }
               }}
-              onValidate={p => console.log(p)}
             >
               <FormField
                 label="Password"
