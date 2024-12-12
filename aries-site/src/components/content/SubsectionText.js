@@ -39,6 +39,9 @@ export const SubsectionText = ({
         alignSelf="start"
         border={{ color: 'brand' }}
         value={accessibility}
+        onClick={() =>
+          document.getElementById('status').scrollIntoView({ behavior: 'auto' })
+        }
       />
     )}
   </StyledBox>
