@@ -112,6 +112,9 @@ export const Results = ({
           <ScaleToolbar
             direction="row-reverse"
             scale={scale}
+            settings={{ base, contentBase, factor, steps, nearest }}
+            contentSizes={tshirtContent}
+            spacingSizes={tshirtSpacing}
             open={open}
             setOpen={setOpen}
           />
