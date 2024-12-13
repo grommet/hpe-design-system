@@ -8,26 +8,26 @@ import {
   global as localGlobal,
   components as localComponents,
 } from 'hpe-design-tokens';
-import {
-  dark as oldDark,
-  light as oldLight,
-  large as oldLarge,
-  small as oldSmall,
-  global as oldGlobal,
-  components as oldComponents,
-  elevationdark as oldElevationDark,
-  elevationlight as oldElevationLight,
-} from 'hpe-design-tokens-old-theme';
-import {
-  dark as refreshDark,
-  light as refreshLight,
-  large as refreshLarge,
-  small as refreshSmall,
-  global as refreshGlobal,
-  components as refreshComponents,
-  elevationdark as refreshElevationDark,
-  elevationlight as refreshElevationLight,
-} from 'hpe-design-tokens-brand-refresh';
+// import {
+//   dark as oldDark,
+//   light as oldLight,
+//   large as oldLarge,
+//   small as oldSmall,
+//   global as oldGlobal,
+//   components as oldComponents,
+//   elevationdark as oldElevationDark,
+//   elevationlight as oldElevationLight,
+// } from 'hpe-design-tokens-old-theme';
+// import {
+//   dark as refreshDark,
+//   light as refreshLight,
+//   large as refreshLarge,
+//   small as refreshSmall,
+//   global as refreshGlobal,
+//   components as refreshComponents,
+//   elevationdark as refreshElevationDark,
+//   elevationlight as refreshElevationLight,
+// } from 'hpe-design-tokens-brand-refresh';
 import {
   Down,
   Blank,
@@ -230,7 +230,7 @@ const buildTheme = tokens => {
     'active-text': MISSING.color,
     'disabled-text': MISSING.color, // deprecated, use text-weak instead
 
-    'text-primary-button': components.hpe.button.primary.enabled.textColor,
+    'text-primary-button': components.hpe.button.primary.rest.textColor,
     'background-cta-alternate': MISSING.color,
 
     // ----------- These ones we need to map manually for backwards compatibility -----------
@@ -487,7 +487,7 @@ const buildTheme = tokens => {
   // option button kind styles. abstracted so select.emptySearchMessage
   // can reference pad value
   const option = {
-    color: components.hpe.select.option.enabled.textColor,
+    color: components.hpe.select.option.rest.textColor,
     border: {
       radius:
         dimensions.edgeSize[components.hpe.select.medium.option.borderRadius] ||
@@ -496,14 +496,14 @@ const buildTheme = tokens => {
         dimensions.borderSize[
           components.hpe.select.medium.option.borderWidth
         ] || components.hpe.select.medium.option.borderWidth,
-      color: components.hpe.select.option.enabled.borderColor,
+      color: components.hpe.select.option.rest.borderColor,
     },
     pad: {
       horizontal: components.hpe.select.medium.option.paddingX,
       vertical: components.hpe.select.medium.option.paddingY,
     },
     font: {
-      weight: components.hpe.select.option.enabled.fontWeight,
+      weight: components.hpe.select.option.rest.fontWeight,
     },
   };
 
@@ -526,9 +526,9 @@ const buildTheme = tokens => {
   const anchorSizeTheme = {};
   textSizes.forEach(size => {
     anchorSizeTheme[size] = {
-      color: components.hpe.anchor.default.enabled.textColor,
-      textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-      fontWeight: components.hpe.anchor.default.enabled.fontWeight,
+      color: components.hpe.anchor.default.rest.textColor,
+      textDecoration: components.hpe.anchor.default.rest.textDecoration,
+      fontWeight: components.hpe.anchor.default.rest.fontWeight,
     };
   });
 
@@ -555,15 +555,15 @@ const buildTheme = tokens => {
       ? components.hpe.button.medium?.[kind].borderRadius
       : components.hpe.button[kind]?.medium.borderRadius;
     buttonKindTheme[kind] = {
-      background: components.hpe.button?.[kind].enabled.background,
+      background: components.hpe.button?.[kind].rest.background,
       border: {
         width: dimensions.borderSize[borderWidth] || borderWidth,
-        color: components.hpe.button?.[kind].enabled.borderColor,
+        color: components.hpe.button?.[kind].rest.borderColor,
         radius: dimensions.borderSize[borderRadius] || borderRadius,
       },
-      color: components.hpe.button?.[kind].enabled.textColor,
+      color: components.hpe.button?.[kind].rest.textColor,
       font: {
-        weight: components.hpe.button?.[kind].enabled.fontWeight,
+        weight: components.hpe.button?.[kind].rest.fontWeight,
       },
     };
   });
@@ -578,19 +578,17 @@ const buildTheme = tokens => {
         buttonStatesTheme[state][kind] = {
           background: {
             color:
-              components.hpe.button?.[kind]?.[adjustedState].enabled.background,
+              components.hpe.button?.[kind]?.[adjustedState].rest.background,
           },
           border: {
             // Q: this token isn't correct
             color:
-              components.hpe.button?.[kind]?.[adjustedState].enabled
-                .borderColor,
+              components.hpe.button?.[kind]?.[adjustedState].rest.borderColor,
           },
-          color:
-            components.hpe.button?.[kind]?.[adjustedState].enabled.textColor,
+          color: components.hpe.button?.[kind]?.[adjustedState].rest.textColor,
           font: {
             weight:
-              components.hpe.button?.[kind]?.[adjustedState].enabled.fontWeight,
+              components.hpe.button?.[kind]?.[adjustedState].rest.fontWeight,
           },
         };
       } else if (kind === 'option') {
@@ -598,12 +596,29 @@ const buildTheme = tokens => {
         buttonStatesTheme[state][kind] = {
           background: {
             color:
-              components.hpe.select.option?.[adjustedState].enabled.background,
+              components.hpe.select.option?.[adjustedState].rest.background,
           },
           border: {
             color: components.hpe.select.option?.[adjustedState].borderColor,
           },
           color: components.hpe.select.option?.[adjustedState].textColor,
+        };
+      } else if (state === 'disabled') {
+        buttonStatesTheme[state][kind] = {
+          background: {
+            color:
+              components.hpe.button?.[kind]?.[adjustedState].rest.background,
+          },
+          border: {
+            width: '',
+            color:
+              components.hpe.button?.[kind]?.[adjustedState].rest.borderColor,
+          },
+          color: components.hpe.button?.[kind]?.[adjustedState].rest.textColor,
+          font: {
+            weight:
+              components.hpe.button?.[kind]?.[adjustedState].rest.fontWeight,
+          },
         };
       } else {
         buttonStatesTheme[state][kind] = {
@@ -853,10 +868,10 @@ const buildTheme = tokens => {
       },
     },
     anchor: {
-      color: components.hpe.anchor.default.enabled.textColor,
-      textDecoration: components.hpe.anchor.default.enabled.textDecoration,
-      fontWeight: components.hpe.anchor.default.enabled.fontWeight,
-      gap: components.hpe.anchor.medium.default.gapX, // TO DO not size specific
+      color: components.hpe.anchor.default.rest.textColor,
+      textDecoration: components.hpe.anchor.default.rest.textDecoration,
+      fontWeight: components.hpe.anchor.default.rest.fontWeight,
+      gap: components.hpe.anchor.default.medium.gapX, // TO DO not size specific
       hover: {
         textDecoration: components.hpe.anchor.default.hover.textDecoration,
       },
@@ -890,7 +905,7 @@ const buildTheme = tokens => {
     },
     button: {
       intelligentPad: false,
-      color: components.hpe.button.default.enabled.textColor,
+      color: components.hpe.button.default.rest.textColor,
       gap: oldTheme
         ? components.hpe.button.medium.default.gapX
         : components.hpe.button.default.medium.gapX,
@@ -931,10 +946,10 @@ const buildTheme = tokens => {
       },
       selected: {
         option: {
-          background: components.hpe.select.option.selected.enabled.background,
+          background: components.hpe.select.option.selected.rest.background,
           color: components.hpe.select.option.selected.textColor,
           font: {
-            weight: components.hpe.select.option.selected.enabled.fontWeight,
+            weight: components.hpe.select.option.selected.rest.fontWeight,
           },
         },
       },
@@ -1105,9 +1120,9 @@ const buildTheme = tokens => {
           };`}
         `, // Q: missing token for hover borderWidth? this falls into similar boat as secondary button
       },
-      color: components.hpe.switch.control.handle.enabled.background,
+      color: components.hpe.switch.control.handle.rest.background,
       border: {
-        color: components.hpe.checkbox.control.enabled.borderColor,
+        color: components.hpe.checkbox.control.rest.borderColor,
         width:
           dimensions.borderSize[
             components.hpe.checkbox.medium.control.borderWidth
@@ -1124,13 +1139,13 @@ const buildTheme = tokens => {
         }px;
         background: ${
           theme.global.colors[
-            components.hpe.checkbox.control.enabled.background
+            components.hpe.checkbox.control.rest.background
           ]?.[theme.dark ? 'dark' : 'light']
         };
         background-color: ${
           checked || indeterminate
             ? theme.global.colors[
-                components.hpe.checkbox.control.selected.enabled.background
+                components.hpe.checkbox.control.selected.rest.background
               ]?.[theme.dark ? 'dark' : 'light']
             : ''
         };
@@ -1152,7 +1167,7 @@ const buildTheme = tokens => {
         extend: ({ theme }) => `stroke-width: 2px;
         stroke: ${
           theme.global.colors[
-            components.hpe.checkbox.control.selected.enabled.iconColor
+            components.hpe.checkbox.control.selected.rest.iconColor
           ]?.[theme.dark ? 'dark' : 'light']
         }`,
       },
@@ -1171,8 +1186,8 @@ const buildTheme = tokens => {
       // Q is toggle and switch the same thing?
       // A: Yes, we can discuss if this name feels right or not.
       toggle: {
-        background: components.hpe.switch.control.track.enabled.background,
-        color: components.hpe.switch.control.handle.enabled.background,
+        background: components.hpe.switch.control.track.rest.background,
+        color: components.hpe.switch.control.handle.rest.background,
         size: components.hpe.switch.medium.control.track.width,
         // TO DO need token for handle elevation
         knob: {
@@ -1186,7 +1201,7 @@ const buildTheme = tokens => {
                ]
              } solid ${
             theme.global.colors[
-              components.hpe.switch.control.handle.enabled.borderColor
+              components.hpe.switch.control.handle.rest.borderColor
             ][theme.dark ? 'dark' : 'light']
           };
           width: ${components.hpe.switch.medium.control.handle.width};
@@ -1198,7 +1213,7 @@ const buildTheme = tokens => {
             checked &&
             `background-color: ${
               theme.global.colors[
-                components.hpe.switch.control.track.selected.enabled.background
+                components.hpe.switch.control.track.selected.rest.background
               ]?.[theme.dark ? 'dark' : 'light']
             };`
           }
@@ -1209,7 +1224,7 @@ const buildTheme = tokens => {
            }px;
            border-color: ${
              theme.global.colors[
-               components.hpe.switch.control.track.enabled.borderColor
+               components.hpe.switch.control.track.rest.borderColor
              ]?.[theme.dark ? 'dark' : 'light']
            };
         `,
@@ -1261,7 +1276,7 @@ const buildTheme = tokens => {
           padding: 0px ${theme.global.edgeSize.xxsmall};
         `,
         selected: {
-          background: components.hpe.dataCell.selected?.enabled?.background,
+          background: components.hpe.dataCell.selected?.rest?.background,
         },
       },
       groupHeader: {
@@ -1274,7 +1289,7 @@ const buildTheme = tokens => {
       },
       header: {
         border: { side: 'bottom' },
-        color: components.hpe.headerCell.enabled.textColor,
+        color: components.hpe.headerCell.rest.textColor,
         extend: ({ column, sort, sortable, theme }) =>
           `
             ${
@@ -1314,7 +1329,7 @@ const buildTheme = tokens => {
           },
         },
         units: {
-          color: components.hpe.headerCell.units.enabled.textColor, // Q: missing token
+          color: components.hpe.headerCell.units.rest.textColor, // Q: missing token
         },
       },
       icons: {
@@ -1340,7 +1355,7 @@ const buildTheme = tokens => {
       },
       primary: {
         weight: components.hpe.dataCell.primary.fontWeight,
-        color: components.hpe.dataCell.primary.enabled.textColor,
+        color: components.hpe.dataCell.primary.rest.textColor,
       },
       resize: {
         // Q: missing tokens
@@ -1365,7 +1380,7 @@ const buildTheme = tokens => {
         size: components.hpe.formField.medium.input.container.borderWidth,
       },
       button: {
-        background: components.hpe.button.default.enabled.background,
+        background: components.hpe.button.default.rest.background,
         border: {
           // Q: is this the correct value?
           // A: yes
@@ -1381,9 +1396,9 @@ const buildTheme = tokens => {
             ? components.hpe.button.medium.default.paddingX
             : components.hpe.button.default.medium.paddingX,
         },
-        color: components.hpe.button.default.enabled.textColor,
+        color: components.hpe.button.default.rest.textColor,
         font: {
-          weight: components.hpe.button.default.enabled.fontWeight,
+          weight: components.hpe.button.default.rest.fontWeight,
         },
         hover: {
           background: components.hpe.button.default.hover.background,
@@ -1452,7 +1467,7 @@ const buildTheme = tokens => {
         },
         icon: <CircleAlert size="small" color={light.hpe.color.icon.strong} />, // TO DO need to handle modes
         size: 'xsmall', // Q: missing token
-        // Q: confused why we have both hpe.formField.errorText.enabled.textColor
+        // Q: confused why we have both hpe.formField.errorText.rest.textColor
         // and hpe.formField.errorText.disabled.color
         // A: This is to be able to style text differently in different states
         color:
@@ -1765,7 +1780,7 @@ const buildTheme = tokens => {
         },
       },
       icons: {
-        color: components.hpe.menu.item.enabled.iconColor,
+        color: components.hpe.menu.item.rest.iconColor,
         down: Down,
       },
       item: {
@@ -2039,25 +2054,25 @@ const buildTheme = tokens => {
     },
     pagination: {
       button: {
-        color: components.hpe.button.default.enabled.textColor,
+        color: components.hpe.button.default.rest.textColor,
         border: {
           radius: oldTheme
             ? components.hpe.button.medium.default.borderRadius
             : components.hpe.button.default.medium.borderRadius,
         },
         font: {
-          weight: components.hpe.button.default.enabled.fontWeight,
+          weight: components.hpe.button.default.rest.fontWeight,
         },
         active: {
-          background: components.hpe.button.default.selected.enabled.background,
+          background: components.hpe.button.default.selected.rest.background,
           border: {
             radius: oldTheme
               ? components.hpe.button.medium.default.borderRadius
               : components.hpe.button.default.medium.borderRadius,
           },
-          color: components.hpe.button.default.selected.enabled.textColor,
+          color: components.hpe.button.default.selected.rest.textColor,
           font: {
-            weight: components.hpe.button.default.selected.enabled.fontWeight,
+            weight: components.hpe.button.default.selected.rest.fontWeight,
           },
         },
         hover: {
@@ -2073,15 +2088,15 @@ const buildTheme = tokens => {
           },
         },
         disabled: {
-          background: components.hpe.button.default.disabled.background,
+          background: components.hpe.button.default.disabled.rest.background,
           border: {
             radius: oldTheme
               ? components.hpe.button.medium.default.borderRadius
               : components.hpe.button.default.medium.borderRadius,
           },
-          color: components.hpe.button.default.disabled.textColor,
+          color: components.hpe.button.default.disabled.rest.textColor,
           font: {
-            weight: components.hpe.button.default.disabled.fontWeight,
+            weight: components.hpe.button.default.disabled.rest.fontWeight,
           },
         },
         size: {
@@ -2180,10 +2195,10 @@ const buildTheme = tokens => {
     },
     radioButton: {
       border: {
-        color: components.hpe.radioButton.control.enabled.borderColor,
+        color: components.hpe.radioButton.control.rest.borderColor,
         width: components.hpe.radioButton.medium.control.borderWidth, // TO DO want this narrower when not checked
       },
-      color: components.hpe.radioButton.control.selected.enabled.borderColor,
+      color: components.hpe.radioButton.control.selected.rest.borderColor,
       container: {
         extend: () => `
         width: auto;
@@ -2209,9 +2224,7 @@ const buildTheme = tokens => {
       icons: {
         circle: () => (
           <Blank
-            color={
-              components.hpe.radioButton.control.selected.enabled.iconColor
-            }
+            color={components.hpe.radioButton.control.selected.rest.iconColor}
           >
             <circle cx="12" cy="12" r="8" />
           </Blank>
@@ -2374,7 +2387,7 @@ const buildTheme = tokens => {
         },
         border: {
           side: 'bottom', // TO DO this causes issues on the last row with the footer border
-          color: components.hpe.dataCell.enabled.borderColor,
+          color: components.hpe.dataCell.rest.borderColor,
         },
         extend: ({ theme }) =>
           `
@@ -2549,7 +2562,7 @@ const buildTheme = tokens => {
       },
       container: {
         border: {
-          color: components.hpe.button.toolbar.enabled.borderColor,
+          color: components.hpe.button.toolbar.rest.borderColor,
           size: oldTheme
             ? components.hpe.button.medium.toolbar.borderWidth
             : components.hpe.button.toolbar.medium.borderWidth,
@@ -2585,31 +2598,31 @@ export const warm = buildTheme({
   components: localComponents,
 });
 
-export const old = buildTheme({
-  light: oldLight,
-  dark: oldDark,
-  small: oldSmall,
-  large: oldLarge,
-  elevationlight: oldElevationLight,
-  elevationdark: oldElevationDark,
-  global: oldGlobal,
-  components: oldComponents,
-});
+// export const old = buildTheme({
+//   light: oldLight,
+//   dark: oldDark,
+//   small: oldSmall,
+//   large: oldLarge,
+//   elevationlight: oldElevationLight,
+//   elevationdark: oldElevationDark,
+//   global: oldGlobal,
+//   components: oldComponents,
+// });
 
-export const refresh = buildTheme({
-  light: refreshLight,
-  dark: refreshDark,
-  small: refreshSmall,
-  large: refreshLarge,
-  elevationlight: refreshElevationLight,
-  elevationdark: refreshElevationDark,
-  global: refreshGlobal,
-  components: refreshComponents,
-  refresh: true,
-});
+// export const refresh = buildTheme({
+//   light: refreshLight,
+//   dark: refreshDark,
+//   small: refreshSmall,
+//   large: refreshLarge,
+//   elevationlight: refreshElevationLight,
+//   elevationdark: refreshElevationDark,
+//   global: refreshGlobal,
+//   components: refreshComponents,
+//   refresh: true,
+// });
 
 export const themes = {
   local: current,
-  v3: old,
-  refresh,
+  // v3: old,
+  // refresh,
 };
