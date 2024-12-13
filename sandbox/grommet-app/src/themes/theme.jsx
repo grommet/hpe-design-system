@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { deepFreeze, deepMerge } from 'grommet/utils';
+import { deepFreeze } from 'grommet/utils';
 import {
   dark as localDark,
   light as localLight,
