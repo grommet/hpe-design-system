@@ -56,7 +56,6 @@ const AccessibilityCardView = ({
   status,
   tagValue,
   linkHref,
-  linkTitle,
   level,
 }) => {
   let statusIcon;
@@ -102,7 +101,7 @@ const AccessibilityCardView = ({
 };
 
 export const AccessibilityTestView = ({ rules }) => {
-  const groupRulesByPrinciple = (rules = []) => {
+  const groupRulesByPrinciple = (ruleList = []) => {
     const grouped = {};
 
     // Mapping of principle numbers to human-readable names
@@ -113,12 +112,11 @@ export const AccessibilityTestView = ({ rules }) => {
       4: 'Robust',
     };
 
-    if (Array.isArray(rules) && rules.length > 0) {
-      rules.forEach(rule => {
-        const principleNum = parseInt(rule.num.split('.')[0]);
+    if (Array.isArray(ruleList) && ruleList.length > 0) {
+      ruleList.forEach(rule => {
+        const principleNum = parseInt(rule.num.split('.')[0], 10);
 
-        const principleName =
-          principleMapping[principleNum] || 'Unknown Principle'; // Fallback to 'Unknown Principle' if not found
+        const principleName = principleMapping[principleNum];
 
         if (!grouped[principleName]) {
           grouped[principleName] = [];
@@ -164,13 +162,13 @@ export const AccessibilityTestView = ({ rules }) => {
               }
             >
               <Box pad={{ vertical: 'small' }} gap="small">
-                {groupedRules[group].map((item, index) => (
+                {groupedRules[group].map(item => (
                   <AccessibilityCardView
-                    key={item.num} // Assuming `num` is unique for each rule
+                    key={item.num}
                     title={item.title}
-                    description={item.description || item.handle} // Assuming you want to show `handle` or `description`
+                    description={item.description || item.handle}
                     status={item.status}
-                    tagValue={item.num} // Display the rule number
+                    tagValue={item.num}
                     linkHref={`https://www.w3.org/TR/WCAG22/#${item.id}`}
                     linkTitle={item.id}
                     level={item.level}
