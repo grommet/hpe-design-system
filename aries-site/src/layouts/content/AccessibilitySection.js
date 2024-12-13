@@ -13,8 +13,10 @@ import componentData from '../../data/wcag/components.json';
 export const AccessibilitySection = ({ title }) => {
   const [data, setData] = useState(null);
   // need to decide how to handle the error
-  const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [componentInfo, setComponentInfo] = useState(null);
+
+  console.log(errorMessage);
 
   useEffect(() => {
     if (title && componentData) {
@@ -33,7 +35,7 @@ export const AccessibilitySection = ({ title }) => {
         setData(response.data);
       })
       .catch(error => {
-        setError(error.message);
+        setErrorMessage(error.message);
       });
   }, []);
 
@@ -41,9 +43,9 @@ export const AccessibilitySection = ({ title }) => {
     if (!componentInfo || !data) return [];
 
     const comparisons = componentInfo.map(rule => {
-      const [principleNum, guidelineNum, successCriterionNum] = rule.rule
+      const [principleNum, guidelineNum] = rule.rule
         .split('.')
-        .map(num => parseInt(num));
+        .map(num => parseInt(num, 10));
 
       const principleIndex = principleNum - 1;
       const principle = data.principles[principleIndex];
@@ -78,12 +80,11 @@ export const AccessibilitySection = ({ title }) => {
           ...extractedData,
           status,
         };
-      } 
-        return {
-          rule: rule.rule,
-          message: `Success criterion with num ${rule.rule} not found`,
-        };
-      
+      }
+      return {
+        rule: rule.rule,
+        message: `Success criterion with num ${rule.rule} not found`,
+      };
     });
 
     return comparisons;
