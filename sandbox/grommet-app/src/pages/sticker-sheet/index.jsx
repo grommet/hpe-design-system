@@ -672,6 +672,42 @@ const StickerSheet = () => {
                 />
               </Compare>
             </ContentPane>
+            <ContentPane>
+              <Box gap="small">
+                {Object.keys(hpeCurrent.global.edgeSize).map(
+                  size =>
+                    size !== 'responsiveBreakpoint' && (
+                      <Compare key={size}>
+                        <Box
+                          alignSelf="start"
+                          background={{ color: 'blue', opacity: 'medium' }}
+                          pad={{ left: size }}
+                          height="xxsmall"
+                          flex={false}
+                        />
+                      </Compare>
+                    ),
+                )}
+              </Box>
+            </ContentPane>
+            <ContentPane overflow={{ horizontal: 'auto' }}>
+              <Box gap="small">
+                {Object.keys(hpeCurrent.global.size).map(
+                  size =>
+                    size !== 'responsiveBreakpoint' && (
+                      <Compare key={size}>
+                        <Box
+                          alignSelf="start"
+                          background={{ color: 'blue', opacity: 'medium' }}
+                          width={size}
+                          height={size}
+                          flex={false}
+                        />
+                      </Compare>
+                    ),
+                )}
+              </Box>
+            </ContentPane>
           </PageContent>
         </Page>
       </ModeContext.Provider>
