@@ -9,7 +9,7 @@ export const commonJs: FormatFn = async ({
 }: FormatFnArguments) => {
   const { prefix } = platform;
   const tokens = prefix ? { [prefix]: dictionary.tokens } : dictionary.tokens;
-  //
+
   const output = `${await fileHeader({
     file,
   })}module.exports = ${JSON.stringify(
