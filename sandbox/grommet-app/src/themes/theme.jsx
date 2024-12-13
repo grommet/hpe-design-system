@@ -39,16 +39,6 @@ import {
   Descending,
   Unsorted,
 } from 'grommet-icons';
-import {
-  v5scale,
-  scale16133308,
-  scale16133316,
-  scale16141408,
-  scale24133308,
-  scale24141408,
-  scale24141424,
-  scale24150024,
-} from './theme-utils/scales';
 
 const MISSING = {
   color: 'red',
@@ -2635,12 +2625,4 @@ export const themes = {
   local: current,
   // v3: old,
   // refresh,
-  v5scale: deepMerge(current, v5scale),
-  scale16133316: deepMerge(current, scale16133316),
-  scale16133308: deepMerge(current, scale16133308),
-  scale16141408: deepMerge(current, scale16141408),
-  scale24133308: deepMerge(current, scale24133308),
-  scale24141408: deepMerge(current, scale24141408),
-  scale24141424: deepMerge(current, scale24141424),
-  scale24150024: deepMerge(current, scale24150024),
 };
