@@ -205,10 +205,7 @@ export const Layout = ({
                           {children}
                         </ContentSection>
                         {accessibilityInfo && (
-                          <AccessibilitySection
-                            title={title}
-                            accessibilityContent={accessibilityInfo}
-                          />
+                          <AccessibilitySection title={title} />
                         )}
                         {relatedContent.length > 0 && (
                           <RelatedContent

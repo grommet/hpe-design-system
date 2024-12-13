@@ -40,7 +40,9 @@ export const SubsectionText = ({
         border={{ color: 'brand' }}
         value={accessibility}
         onClick={() =>
-          document.getElementById('status').scrollIntoView({ behavior: 'auto' })
+          document
+            .getElementById('wcag-compliance')
+            .scrollIntoView({ behavior: 'auto' })
         }
       />
     )}

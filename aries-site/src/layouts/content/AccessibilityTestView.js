@@ -16,27 +16,8 @@ import {
   CircleInformation,
 } from 'grommet-icons';
 
-// COME BACK TO CLEAN UP CODE
-const getWorstStatusIcon = items => {
-  const statusPriority = {
-    failed: 0,
-    conditional: 1,
-    'passed with exceptions': 2,
-    passed: 3,
-  };
-
-  // Find the item with the worst status
-  const worstStatus = items.reduce(
-    (worst, item) => {
-      if (statusPriority[item.status] < statusPriority[worst.status]) {
-        return item;
-      }
-      return worst;
-    },
-    { status: 'passed' },
-  );
-
-  switch (worstStatus.status) {
+const getStatusIcon = status => {
+  switch (status) {
     case 'failed':
       return <StatusCriticalSmall color="status-critical" />;
     case 'conditional':
@@ -45,65 +26,55 @@ const getWorstStatusIcon = items => {
       return <StatusWarningSmall color="status-warning" />;
     case 'passed':
       return <StatusGoodSmall color="status-ok" />;
+    // should not reach here but just in case or
+    // should we do failed as default?
     default:
       return <StatusGoodSmall color="status-ok" />;
   }
 };
 
+// AccessibilityCardView Component
 const AccessibilityCardView = ({
-  title,
-  description,
-  status,
-  tagValue,
-  linkHref,
   level,
-}) => {
-  let statusIcon;
-  if (status === 'passed') {
-    statusIcon = <StatusGoodSmall color="status-ok" />;
-  } else if (status === 'passed with exceptions') {
-    statusIcon = <StatusWarningSmall color="status-warning" />;
-  } else if (status === 'failed') {
-    statusIcon = <StatusCriticalSmall color="status-critical" />;
-  } else if (status === 'conditional') {
-    statusIcon = <CircleInformation />;
-  }
-
-  return (
-    <Box
-      pad={{ vertical: 'small', horizontal: 'medium' }}
-      background="background-front"
-      round="small"
-      justify="between"
-      direction="row"
-      gap="small"
-    >
-      <Box flex gap="small">
-        <Paragraph margin="none">
-          <strong>{description}.</strong> {title}
-        </Paragraph>
-        <Box alignSelf="start" direction="row" align="center" gap="small">
-          <Tag size="small" value={`WCAG ${tagValue}${' '}${level}`} />
-          <Anchor
-            target="_blank"
-            size="small"
-            href={linkHref}
-            label={`${tagValue}${' '}${description} `}
-          />
-        </Box>
-      </Box>
-      <Box alignSelf="start" align="center" direction="row" gap="xsmall">
-        {statusIcon}
-        <Text>{status.charAt(0).toUpperCase() + status.slice(1)}</Text>
+  link,
+  ruleDescription,
+  ruleName,
+  ruleNumber,
+  status,
+  version,
+}) => (
+  <Box
+    pad={{ vertical: 'small', horizontal: 'medium' }}
+    background="background-front"
+    round="small"
+    justify="between"
+    direction="row"
+    gap="small"
+  >
+    <Box flex gap="small">
+      <Paragraph margin="none">
+        <strong>{ruleName}.</strong> {ruleDescription}
+      </Paragraph>
+      <Box alignSelf="start" direction="row" align="center" gap="small">
+        <Tag size="small" value={`WCAG ${version} ${level}`} />
+        <Anchor
+          target="_blank"
+          size="small"
+          href={link}
+          label={`${ruleNumber} ${ruleName}`}
+        />
       </Box>
     </Box>
-  );
-};
+    <Box alignSelf="start" align="center" direction="row" gap="xsmall">
+      {getStatusIcon(status)}
+      <Text>{status.charAt(0).toUpperCase() + status.slice(1)}</Text>
+    </Box>
+  </Box>
+);
 
 export const AccessibilityTestView = ({ rules }) => {
-  const groupRulesByPrinciple = (ruleList = []) => {
-    const grouped = {};
-
+  // Group rules by accessibility principle
+  const groupRulesByAccessibilityPrinciple = (ruleList = []) => {
     const principleMapping = {
       1: 'Perceivable',
       2: 'Operable',
@@ -111,29 +82,20 @@ export const AccessibilityTestView = ({ rules }) => {
       4: 'Robust',
     };
 
-    if (Array.isArray(ruleList) && ruleList.length > 0) {
-      ruleList.forEach(rule => {
-        const principleNum = parseInt(rule.num.split('.')[0], 10);
-
-        const principleName = principleMapping[principleNum];
-
-        if (!grouped[principleName]) {
-          grouped[principleName] = [];
-        }
-
-        grouped[principleName].push(rule);
-      });
-    }
-
-    return grouped;
+    return ruleList.reduce((grouped, rule) => {
+      const principleName =
+        principleMapping[parseInt(rule.num.split('.')[0], 10)];
+      return {
+        ...grouped,
+        [principleName]: [...(grouped[principleName] || []), rule],
+      };
+    }, {});
   };
 
-  const groupedRules = groupRulesByPrinciple(rules);
+  const groupedRules = groupRulesByAccessibilityPrinciple(rules);
+
   return (
     <Box gap="medium">
-      <Heading margin={{ top: 'medium', bottom: 'none' }} level={3}>
-        WCAG compliance
-      </Heading>
       <Box gap="xsmall" direction="row">
         <Text size="large">Grouped by</Text>
         <Anchor
@@ -147,16 +109,17 @@ export const AccessibilityTestView = ({ rules }) => {
           <Accordion key={group} multiple>
             <AccordionPanel
               label={
-                <Box
-                  gap="small"
-                  align="center"
-                  alignSelf="center"
-                  direction="row"
-                >
+                <Box gap="small" align="center" direction="row">
                   <Heading margin={{ vertical: 'medium' }} level={4}>
                     {group}
                   </Heading>
-                  {getWorstStatusIcon(groupedRules[group])}
+                  {getStatusIcon(
+                    groupedRules[group].reduce(
+                      (worst, item) =>
+                        item.status < worst.status ? item : worst,
+                      { status: 'passed' },
+                    ).status,
+                  )}
                 </Box>
               }
             >
@@ -164,13 +127,13 @@ export const AccessibilityTestView = ({ rules }) => {
                 {groupedRules[group].map(item => (
                   <AccessibilityCardView
                     key={item.num}
-                    title={item.title}
-                    description={item.description || item.handle}
                     status={item.status}
-                    tagValue={item.num}
-                    linkHref={`https://www.w3.org/TR/WCAG22/#${item.id}`}
-                    linkTitle={item.id}
                     level={item.level}
+                    link={`https://www.w3.org/TR/WCAG22/#${item.id}`}
+                    ruleNumber={item.num}
+                    version={item.version}
+                    ruleName={item.handle}
+                    ruleDescription={item.title}
                   />
                 ))}
               </Box>

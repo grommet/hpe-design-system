@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import {
   AccessibilityTable,
   AccessibilityTable1,
@@ -11,36 +10,45 @@ import {
 import componentData from '../../data/wcag/components.json';
 
 export const AccessibilitySection = ({ title }) => {
-  const [data, setData] = useState(null);
-  // need to decide how to handle the error
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [componentInfo, setComponentInfo] = useState(null);
-
-  console.log(errorMessage);
+  const [data, setData] = useState();
+  const [setErrorMessage] = useState();
+  const [componentInfo, setComponentInfo] = useState();
 
   useEffect(() => {
     if (title && componentData) {
-      // what if there isn't a component?
       const component = componentData.find(item => item[title.toLowerCase()]);
       setComponentInfo(component[title.toLowerCase()]);
     }
   }, [title]);
 
   useEffect(() => {
-    axios
-      .get(
-        'https://raw.githubusercontent.com/w3c/wcag/refs/heads/main/guidelines/wcag.json',
-      )
+    fetch(
+      'https://raw.githubusercontent.com/w3c/wcag/refs/heads/main/guidelines/wcag.json',
+    )
       .then(response => {
-        setData(response.data);
+        if (!response.ok) {
+          throw new Error('Error fetching data');
+        }
+        return response.json();
+      })
+      .then(fetchedData => {
+        setData(fetchedData);
       })
       .catch(error => {
         setErrorMessage(error.message);
       });
-  }, []);
+  }, [setErrorMessage]);
 
   const compareRules = () => {
     if (!componentInfo || !data) return [];
+
+    // when comparing rules we need to find the rule in the data
+    // then look at the first number in the rule to find the principle
+    // we do this by always subtracting 1 from the rule number
+    // then we find the guideline by splitting the rule number by '.'
+    // and taking the second number and subtracting 1
+    // this gives us the index of the guideline in the principles array
+    // then we find the data in successcriteria array with the rule number
 
     const comparisons = componentInfo.map(rule => {
       const [principleNum, guidelineNum] = rule.rule
@@ -49,10 +57,8 @@ export const AccessibilitySection = ({ title }) => {
 
       const principleIndex = principleNum - 1;
       const principle = data.principles[principleIndex];
-      // need to handle the case where the principle doesn't exist
 
       const guideline = principle.guidelines[guidelineNum - 1];
-      // need to handle the case where the guideline doesn't exist
 
       const successCriterion = guideline.successcriteria.find(
         criterion => criterion.num === rule.rule,
@@ -69,18 +75,18 @@ export const AccessibilitySection = ({ title }) => {
                   parseFloat(version),
                 ),
               )
-            : null,
+            : undefined,
           level: successCriterion.level,
           handle: successCriterion.handle,
           title: successCriterion.title,
         };
         const { status } = rule;
-        console.log('Extracted Data:', extractedData);
         return {
           ...extractedData,
           status,
         };
       }
+      // error
       return {
         rule: rule.rule,
         message: `Success criterion with num ${rule.rule} not found`,
@@ -94,8 +100,12 @@ export const AccessibilitySection = ({ title }) => {
   const statusData = comparisons.map(item => item.status);
 
   return (
-    <ContentSection>
-      <Subsection name="Accessibility Status">
+    // not sure about this padding but without there is a huge
+    // space from the last section on guidance accessibility
+    // and this section. also if I use subsection with level 3
+    // it renders the title as small
+    <ContentSection pad={{ top: 'small' }}>
+      <Subsection name="WCAG compliance">
         <AccessibilityTable1 statuses={statusData} />
         <AccessibilityTable statuses={statusData} />
         <AccessibilityTestView rules={comparisons} />

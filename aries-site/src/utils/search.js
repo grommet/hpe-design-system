@@ -149,7 +149,5 @@ export const getPageAccessibility = pageName => {
   const accessibilityContent = structure.find(
     page => page.name.toLowerCase() === pageName.toLowerCase(),
   );
-
-  // Return the accessibility info only if it's defined
-  return accessibilityContent?.accessibility || null;
+  return accessibilityContent?.accessibility;
 };
