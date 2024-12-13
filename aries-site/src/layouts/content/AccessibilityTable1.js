@@ -89,7 +89,7 @@ export const AccessibilityTable1 = ({ statuses = [] }) => {
           key
         ];
         return (
-          <Box>
+          <Box key={key}>
             <Name label={status.label} icon={status.icon} />
             <Value value={count} />
           </Box>

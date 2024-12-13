@@ -42,8 +42,9 @@ export const AccessibilityTable = ({ statuses = [] }) => {
     calculateAccessibilityTestCounts();
 
   return (
-    // room to clean up the code here
-    <Box margin={{ top: 'medium' }} gap="medium">
+    // room to clean up the code here can come back to this
+    // once we have the final design
+    <Box pad={{ vertical: 'medium' }} gap="medium">
       <Box
         pad={{ vertical: 'small', horizontal: 'medium' }}
         alignSelf="start"
