@@ -104,7 +104,6 @@ export const AccessibilityTestView = ({ rules }) => {
   const groupRulesByPrinciple = (ruleList = []) => {
     const grouped = {};
 
-    // Mapping of principle numbers to human-readable names
     const principleMapping = {
       1: 'Perceivable',
       2: 'Operable',
