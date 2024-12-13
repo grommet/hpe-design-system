@@ -24,16 +24,11 @@ const getStatusIcon = status => {
       return <CircleInformation />;
     case 'passed with exceptions':
       return <StatusWarningSmall color="status-warning" />;
-    case 'passed':
-      return <StatusGoodSmall color="status-ok" />;
-    // should not reach here but just in case or
-    // should we do failed as default?
     default:
       return <StatusGoodSmall color="status-ok" />;
   }
 };
 
-// AccessibilityCardView Component
 const AccessibilityCardView = ({
   level,
   link,
@@ -52,6 +47,8 @@ const AccessibilityCardView = ({
     gap="small"
   >
     <Box flex gap="small">
+      {/* // ignore bold rule name should be text strong
+       and the desc should be text */}
       <Paragraph margin="none">
         <strong>{ruleName}.</strong> {ruleDescription}
       </Paragraph>

@@ -5,7 +5,6 @@ import {
   AccessibilityTable1,
   AccessibilityTestView,
   ContentSection,
-  Subsection,
 } from '.';
 import componentData from '../../data/wcag/components.json';
 
@@ -105,11 +104,11 @@ export const AccessibilitySection = ({ title }) => {
     // and this section. also if I use subsection with level 3
     // it renders the title as small
     <ContentSection pad={{ top: 'small' }}>
-      <Subsection name="WCAG compliance">
-        <AccessibilityTable1 statuses={statusData} />
-        <AccessibilityTable statuses={statusData} />
-        <AccessibilityTestView rules={comparisons} />
-      </Subsection>
+      {/* <Subsection level={3} name="WCAG compliance"> */}
+      <AccessibilityTable1 statuses={statusData} />
+      <AccessibilityTable statuses={statusData} />
+      <AccessibilityTestView rules={comparisons} />
+      {/* </Subsection> */}
     </ContentSection>
   );
 };
