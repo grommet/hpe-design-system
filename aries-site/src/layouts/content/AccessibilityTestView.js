@@ -107,9 +107,6 @@ export const AccessibilityTestView = ({ rules }) => {
             <AccordionPanel
               label={
                 <Box gap="small" align="center" direction="row">
-                  <Heading margin={{ vertical: 'medium' }} level={4}>
-                    {group}
-                  </Heading>
                   {getStatusIcon(
                     groupedRules[group].reduce(
                       (worst, item) =>
@@ -117,6 +114,9 @@ export const AccessibilityTestView = ({ rules }) => {
                       { status: 'passed' },
                     ).status,
                   )}
+                  <Heading margin={{ vertical: 'small' }} level={4}>
+                    {group}
+                  </Heading>
                 </Box>
               }
             >

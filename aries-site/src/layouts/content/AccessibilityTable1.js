@@ -13,7 +13,7 @@ const Name = ({ label, icon }) => {
     <Box
       direction="row"
       align="center"
-      gap="small"
+      gap="xsmall"
       margin={{ bottom: 'xxsmall' }}
     >
       {icon}
@@ -77,7 +77,6 @@ export const AccessibilityTable1 = ({ statuses = [] }) => {
   return (
     <Box
       pad={{ vertical: 'small', horizontal: 'medium' }}
-      background="background-front"
       round="small"
       direction="row"
       gap="large"
