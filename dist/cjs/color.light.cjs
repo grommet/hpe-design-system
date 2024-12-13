@@ -15,12 +15,15 @@ module.exports = {
         "floating": "#ffffff",
         "screenOverlay": "rgba(0, 0, 0, 0.12)",
         "contrast": "rgba(0, 0, 0, 0.04)",
+        "warning": "rgba(255, 188, 68, 0.24)",
+        "info": "rgba(0, 200, 255, 0.24)",
         "critical": "rgba(252, 97, 97, 0.24)",
-        "ok": "rgba(23, 235, 160, 0.24)",
         "primary": {
           "default": "#01a982",
           "hover": "#01a982"
         },
+        "unknown": "rgba(0, 0, 0, 0.04)",
+        "ok": "rgba(23, 235, 160, 0.24)",
         "selected": {
           "strong": {
             "enabled": "#01a982",
@@ -31,9 +34,6 @@ module.exports = {
             "hover": "#aef6df"
           }
         },
-        "unknown": "rgba(0, 0, 0, 0.04)",
-        "warning": "rgba(255, 188, 68, 0.24)",
-        "info": "rgba(0, 200, 255, 0.24)",
         "neutral": {
           "xstrong": "#333333"
         }
@@ -54,18 +54,16 @@ module.exports = {
         "default": "#555555",
         "strong": "#333333",
         "weak": "#757575",
-        "xweak": "#bbbbbb",
         "placeholder": "#757575",
         "disabled": "rgba(0, 0, 0, 0.24)",
         "onPrimary": "#ffffff",
-        "brand": "#01a982",
-        "heading": {
-          "default": "#333333"
-        },
-        "primary": "#01a982",
         "onStrong": {
           "default": "#ffffff"
         },
+        "heading": {
+          "default": "#333333"
+        },
+        "primary": "#006750",
         "critical": "#555555",
         "info": "#555555",
         "ok": "#555555",
@@ -98,7 +96,6 @@ module.exports = {
         "default": "#555555",
         "strong": "#333333",
         "weak": "#757575",
-        "xweak": "#bbbbbb",
         "disabled": "rgba(0, 0, 0, 0.24)",
         "critical": "#ec3331",
         "info": "#00c8ff",
@@ -107,7 +104,6 @@ module.exports = {
         "unknown": "#8c8c8c",
         "primary": "#01a982",
         "onPrimary": "#ffffff",
-        "brand": "#01a982",
         "onSelectedStrong": "#ffffff",
         "onSelected": "#333333"
       },

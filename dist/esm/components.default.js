@@ -103,7 +103,7 @@ export default {
     },
     "button": {
       "primary": {
-        "enabled": {
+        "rest": {
           "background": "linear-gradient(70deg, rgba(0, 0, 0, 0), #01a982 35%, rgba(0, 0, 0, 0) 70%, #01a982 100%)",
           "borderColor": "transparent",
           "textColor": "text-onPrimary",
@@ -112,11 +112,13 @@ export default {
           "backgroundColor": "background-primary-default"
         },
         "disabled": {
-          "background": "background-disabled",
-          "borderColor": "transparent",
-          "textColor": "text-disabled",
-          "iconColor": "icon-disabled",
-          "fontWeight": 700
+          "rest": {
+            "background": "background-disabled",
+            "borderColor": "transparent",
+            "textColor": "text-disabled",
+            "iconColor": "icon-disabled",
+            "fontWeight": 700
+          }
         },
         "hover": {
           "background": "#008567",
@@ -126,7 +128,7 @@ export default {
           "fontWeight": 700
         },
         "selected": {
-          "enabled": {
+          "rest": {
             "background": "background-active",
             "borderColor": "transparent",
             "textColor": "text-strong",
@@ -248,7 +250,7 @@ export default {
         }
       },
       "secondary": {
-        "enabled": {
+        "rest": {
           "background": "transparent",
           "borderColor": "background-primary-default",
           "textColor": "text-strong",
@@ -263,14 +265,16 @@ export default {
           "fontWeight": 600
         },
         "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled",
-          "textColor": "text-disabled",
-          "iconColor": "icon-disabled",
-          "fontWeight": 600
+          "rest": {
+            "background": "background-disabled",
+            "borderColor": "border-disabled",
+            "textColor": "text-disabled",
+            "iconColor": "icon-disabled",
+            "fontWeight": 600
+          }
         },
         "selected": {
-          "enabled": {
+          "rest": {
             "background": "background-active",
             "borderColor": "transparent",
             "textColor": "text-strong",
@@ -407,7 +411,7 @@ export default {
         }
       },
       "default": {
-        "enabled": {
+        "rest": {
           "background": "transparent",
           "borderColor": "transparent",
           "textColor": "text-strong",
@@ -415,11 +419,13 @@ export default {
           "fontWeight": 600
         },
         "disabled": {
-          "background": "transparent",
-          "borderColor": "transparent",
-          "textColor": "text-disabled",
-          "iconColor": "icon-disabled",
-          "fontWeight": 600
+          "rest": {
+            "background": "transparent",
+            "borderColor": "transparent",
+            "textColor": "text-disabled",
+            "iconColor": "icon-disabled",
+            "fontWeight": 600
+          }
         },
         "hover": {
           "background": "background-hover",
@@ -429,7 +435,7 @@ export default {
           "fontWeight": 600
         },
         "selected": {
-          "enabled": {
+          "rest": {
             "background": "background-active",
             "borderColor": "transparent",
             "textColor": "text-strong",
@@ -551,18 +557,11 @@ export default {
         }
       },
       "toolbar": {
-        "enabled": {
+        "rest": {
           "background": "transparent",
           "borderColor": "border-default",
           "textColor": "text-strong",
           "iconColor": "icon-strong",
-          "fontWeight": 600
-        },
-        "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled",
-          "textColor": "text-disabled",
-          "iconColor": "icon-disabled",
           "fontWeight": 600
         },
         "hover": {
@@ -572,8 +571,17 @@ export default {
           "iconColor": "icon-strong",
           "fontWeight": 600
         },
+        "disabled": {
+          "rest": {
+            "background": "background-disabled",
+            "borderColor": "border-disabled",
+            "textColor": "text-disabled",
+            "iconColor": "icon-disabled",
+            "fontWeight": 600
+          }
+        },
         "selected": {
-          "enabled": {
+          "rest": {
             "background": "background-active",
             "borderColor": "transparent",
             "textColor": "text-strong",
@@ -703,7 +711,7 @@ export default {
     },
     "menu": {
       "item": {
-        "enabled": {
+        "rest": {
           "background": "transparent",
           "borderColor": "transparent",
           "textColor": "text-strong",
@@ -718,11 +726,13 @@ export default {
           "fontWeight": 600
         },
         "disabled": {
-          "background": "transparent",
-          "borderColor": "transparent",
-          "textColor": "text-disabled",
-          "iconColor": "icon-disabled",
-          "fontWeight": 600
+          "rest": {
+            "background": "transparent",
+            "borderColor": "transparent",
+            "textColor": "text-disabled",
+            "iconColor": "icon-disabled",
+            "fontWeight": 600
+          }
         }
       },
       "group": {
@@ -764,7 +774,7 @@ export default {
         }
       },
       "option": {
-        "enabled": {
+        "rest": {
           "background": "transparent",
           "borderColor": "transparent",
           "textColor": "text-strong",
@@ -777,14 +787,22 @@ export default {
           "fontWeight": 500
         },
         "disabled": {
-          "background": "background-disabled",
-          "borderColor": "transparent",
-          "textColor": "text-disabled",
-          "fontWeight": 500
+          "rest": {
+            "background": "background-disabled",
+            "borderColor": "transparent",
+            "textColor": "text-disabled",
+            "fontWeight": 500
+          }
         },
         "selected": {
-          "enabled": {
+          "rest": {
             "background": "background-selected-weak-enabled",
+            "borderColor": "transparent",
+            "textColor": "text-onSelected",
+            "fontWeight": 500
+          },
+          "hover": {
+            "background": "background-selected-weak-hover",
             "borderColor": "transparent",
             "textColor": "text-onSelected",
             "fontWeight": 500
@@ -794,7 +812,7 @@ export default {
     },
     "checkbox": {
       "control": {
-        "enabled": {
+        "rest": {
           "background": "background-default",
           "borderColor": "border-default"
         },
@@ -803,28 +821,26 @@ export default {
           "borderColor": "border-strong"
         },
         "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
-        },
-        "selected": {
-          "enabled": {
-            "background": "background-selected-strong-enabled",
-            "borderColor": "border-selected",
-            "iconColor": "icon-onSelectedStrong"
-          },
-          "hover": {
-            "background": "background-selected-strong-enabled",
-            "borderColor": "border-strong",
-            "iconColor": "icon-onSelectedStrong"
-          },
-          "disabled": {
+          "rest": {
             "background": "background-disabled",
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
         },
+        "selected": {
+          "rest": {
+            "background": "background-selected-strong-enabled",
+            "borderColor": "border-selected",
+            "iconColor": "icon-onSelectedStrong"
+          },
+          "hover": {
+            "background": "background-selected-strong-enabled",
+            "borderColor": "border-strong",
+            "iconColor": "icon-onSelectedStrong"
+          }
+        },
         "indeterminate": {
-          "enabled": {
+          "rest": {
             "background": "background-selected-strong-enabled",
             "borderColor": "border-selected",
             "iconColor": "icon-onPrimary"
@@ -833,23 +849,20 @@ export default {
             "background": "background-selected-strong-enabled",
             "borderColor": "border-strong",
             "iconColor": "icon-onPrimary"
-          },
-          "disabled": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled",
-            "iconColor": "icon-disabled"
           }
         }
       },
       "label": {
-        "enabled": {
+        "rest": {
           "textColor": "text-default"
         },
         "hover": {
           "textColor": "text-default"
         },
         "disabled": {
-          "textColor": "text-disabled"
+          "rest": {
+            "textColor": "text-disabled"
+          }
         }
       },
       "medium": {
@@ -870,7 +883,7 @@ export default {
     "switch": {
       "control": {
         "track": {
-          "enabled": {
+          "rest": {
             "background": "background-default",
             "borderColor": "border-default"
           },
@@ -879,26 +892,24 @@ export default {
             "borderColor": "border-strong"
           },
           "disabled": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled"
+            "rest": {
+              "background": "background-disabled",
+              "borderColor": "border-disabled"
+            }
           },
           "selected": {
-            "enabled": {
+            "rest": {
               "background": "background-selected-strong-enabled",
               "borderColor": "border-default"
             },
             "hover": {
               "background": "background-selected-strong-enabled",
               "borderColor": "border-strong"
-            },
-            "disabled": {
-              "background": "background-disabled",
-              "borderColor": "border-disabled"
             }
           }
         },
         "handle": {
-          "enabled": {
+          "rest": {
             "background": "background-front",
             "borderColor": "border-default"
           },
@@ -907,34 +918,34 @@ export default {
             "borderColor": "border-default"
           },
           "disabled": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled"
+            "rest": {
+              "background": "background-disabled",
+              "borderColor": "border-disabled"
+            }
           },
           "selected": {
-            "enabled": {
+            "rest": {
               "background": "background-default",
               "borderColor": "border-default"
             },
             "hover": {
               "background": "background-default",
               "borderColor": "border-default"
-            },
-            "disabled": {
-              "background": "background-disabled",
-              "borderColor": "border-disabled"
             }
           }
         }
       },
       "label": {
-        "enabled": {
+        "rest": {
           "textColor": "text-default"
         },
         "hover": {
           "textColor": "text-default"
         },
         "disabled": {
-          "textColor": "text-disabled"
+          "rest": {
+            "textColor": "text-disabled"
+          }
         }
       },
       "medium": {
@@ -969,7 +980,7 @@ export default {
       "paddingTop": "6px",
       "paddingBottom": "5px",
       "minHeight": "36px",
-      "enabled": {
+      "rest": {
         "textColor": "text-default",
         "iconColor": "icon-default",
         "borderColor": "transparent",
@@ -982,17 +993,26 @@ export default {
         "background": "transparent"
       },
       "disabled": {
-        "textColor": "text-disabled",
-        "iconColor": "icon-disabled",
-        "borderColor": "transparent",
-        "background": "transparent"
+        "rest": {
+          "textColor": "text-disabled",
+          "iconColor": "icon-disabled",
+          "borderColor": "transparent",
+          "background": "transparent"
+        }
       },
-      "pinned": {
-        "textColor": "text-default",
-        "iconColor": "icon-default",
-        "borderColor": "transparent",
-        "backgroundColor": "transparent",
-        "background": "transparent"
+      "selected": {
+        "rest": {
+          "textColor": "text-onSelected",
+          "iconColor": "icon-onSelected",
+          "borderColor": "transparent",
+          "background": "background-selected-weak-enabled"
+        },
+        "hover": {
+          "textColor": "text-onSelected",
+          "iconColor": "icon-onSelected",
+          "borderColor": "transparent",
+          "background": "background-selected-weak-hover"
+        }
       },
       "primary": {
         "paddingX": "12px",
@@ -1002,7 +1022,7 @@ export default {
         "borderBottomWidth": "1px",
         "paddingTop": "6px",
         "paddingBottom": "5px",
-        "enabled": {
+        "rest": {
           "textColor": "text-strong",
           "iconColor": "text-strong",
           "borderColor": "transparent",
@@ -1019,11 +1039,21 @@ export default {
           "iconColor": "icon-disabled",
           "borderColor": "transparent",
           "background": "transparent"
-        },
-        "pinned": {
-          "textColor": "text-strong",
-          "iconColor": "text-strong",
+        }
+      },
+      "pinned": {
+        "rest": {
+          "textColor": "text-default",
+          "iconColor": "icon-default",
           "borderColor": "transparent",
+          "backgroundColor": "transparent",
+          "background": "transparent"
+        },
+        "hover": {
+          "textColor": "text-default",
+          "iconColor": "icon-default",
+          "borderColor": "transparent",
+          "backgroundColor": "transparent",
           "background": "transparent"
         }
       }
@@ -1036,7 +1066,7 @@ export default {
       "borderBottomWidth": "1px",
       "paddingTop": "6px",
       "paddingBottom": "5px",
-      "enabled": {
+      "rest": {
         "textColor": "text-strong",
         "iconColor": "icon-strong",
         "borderColor": "border-default",
@@ -1057,11 +1087,19 @@ export default {
       "gapX": "6px",
       "minHeight": "36px",
       "units": {
-        "enabled": {
+        "rest": {
           "textColor": "text-weak"
         },
         "hover": {
           "textColor": "text-weak"
+        },
+        "pinned": {
+          "rest": {
+            "textColor": "text-weak"
+          },
+          "hover": {
+            "textColor": "text-weak"
+          }
         }
       }
     },
@@ -1149,7 +1187,7 @@ export default {
           "item": {
             "enabled": {
               "background": "transparent",
-              "borderColor": "#ffffff"
+              "borderColor": "transparent"
             },
             "status": {
               "critical": {
@@ -1158,6 +1196,10 @@ export default {
               }
             },
             "hover": {
+              "background": "background-hover",
+              "borderColor": "transparent"
+            },
+            "focus": {
               "background": "background-hover",
               "borderColor": "transparent"
             },
@@ -1177,7 +1219,7 @@ export default {
             "borderColor": "border-default"
           },
           "hover": {
-            "background": "transparent",
+            "background": "background-hover",
             "borderColor": "border-default"
           },
           "focus": {
@@ -1347,7 +1389,7 @@ export default {
       "paddingBottom": "6px",
       "gapX": "6px",
       "minHeight": "36px",
-      "enabled": {
+      "rest": {
         "textColor": "text-default",
         "iconColor": "icon-default",
         "borderColor": "border-default",
@@ -1360,15 +1402,23 @@ export default {
         "background": "transparent"
       },
       "pinned": {
-        "textColor": "text-default",
-        "iconColor": "icon-default",
-        "borderColor": "transparent",
-        "background": "transparent"
+        "rest": {
+          "textColor": "text-default",
+          "iconColor": "icon-default",
+          "borderColor": "transparent",
+          "background": "transparent"
+        },
+        "hover": {
+          "textColor": "text-default",
+          "iconColor": "icon-default",
+          "borderColor": "transparent",
+          "background": "transparent"
+        }
       }
     },
     "radioButton": {
       "control": {
-        "enabled": {
+        "rest": {
           "background": "transparent",
           "borderColor": "border-default"
         },
@@ -1381,41 +1431,48 @@ export default {
           "borderColor": "border-default"
         },
         "disabled": {
-          "background": "background-disabled",
-          "borderColor": "border-disabled"
+          "rest": {
+            "background": "background-disabled",
+            "borderColor": "border-disabled"
+          }
         },
         "selected": {
-          "enabled": {
+          "rest": {
             "background": "background-default",
             "borderColor": "border-selected",
-            "iconColor": "icon-brand"
+            "iconColor": "decorative-brand"
           },
           "hover": {
             "background": "background-default",
             "borderColor": "border-strong",
-            "iconColor": "icon-brand"
+            "iconColor": "decorative-brand"
           },
           "focus": {
             "background": "background-default",
             "borderColor": "border-selected",
-            "iconColor": "icon-brand"
-          },
-          "disabled": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled",
-            "iconColor": "icon-disabled"
+            "iconColor": "decorative-brand"
           }
         }
       },
       "label": {
-        "enabled": {
+        "rest": {
           "textColor": "text-default"
         },
         "hover": {
           "textColor": "text-default"
         },
         "disabled": {
-          "textColor": "text-disabled"
+          "rest": {
+            "textColor": "text-disabled"
+          }
+        },
+        "selected": {
+          "rest": {
+            "textColor": "text-default"
+          },
+          "hover": {
+            "textColor": "text-default"
+          }
         }
       },
       "medium": {
@@ -1435,7 +1492,7 @@ export default {
     },
     "anchor": {
       "default": {
-        "enabled": {
+        "rest": {
           "textColor": "text-strong",
           "fontWeight": 500,
           "textDecoration": "underline"
@@ -1449,66 +1506,48 @@ export default {
           "textColor": "text-strong",
           "fontWeight": 500,
           "textDecoration": "underline"
-        }
-      },
-      "small": {
-        "default": {
+        },
+        "small": {
           "fontSize": "1rem",
           "lineHeight": "1.25rem",
           "gapX": "6px"
-        }
-      },
-      "medium": {
-        "default": {
+        },
+        "medium": {
           "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px"
-        }
-      },
-      "large": {
-        "default": {
+        },
+        "large": {
           "fontSize": "1.375rem",
           "lineHeight": "1.75rem",
           "gapX": "6px"
-        }
-      },
-      "xlarge": {
-        "default": {
+        },
+        "xlarge": {
           "fontSize": "1.5rem",
           "lineHeight": "1.875rem",
           "gapX": "6px"
-        }
-      },
-      "xxlarge": {
-        "default": {
+        },
+        "xxlarge": {
           "fontSize": "2.25rem",
           "lineHeight": "2.5rem",
           "gapX": "6px"
-        }
-      },
-      "3xlarge": {
-        "default": {
+        },
+        "3xlarge": {
           "fontSize": "2.625rem",
           "lineHeight": "2.875rem",
           "gapX": "6px"
-        }
-      },
-      "4xlarge": {
-        "default": {
+        },
+        "4xlarge": {
           "fontSize": "3rem",
           "lineHeight": "3rem",
           "gapX": "6px"
-        }
-      },
-      "5xlarge": {
-        "default": {
+        },
+        "5xlarge": {
           "fontSize": "4.5rem",
           "lineHeight": "4.5rem",
           "gapX": "6px"
-        }
-      },
-      "6xlarge": {
-        "default": {
+        },
+        "6xlarge": {
           "fontSize": "4.5rem",
           "lineHeight": "4.5rem",
           "gapX": "6px"

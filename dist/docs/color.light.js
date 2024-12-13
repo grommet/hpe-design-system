@@ -401,6 +401,94 @@ export default {
     ],
     "key": "{color.background.contrast}"
   },
+  "hpe.color.background.warning": {
+    "$type": "color",
+    "$value": "rgba(255, 188, 68, 0.24)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.orange.400-Opacity24}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.warning",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "warning"
+    },
+    "path": [
+      "color",
+      "background",
+      "warning"
+    ],
+    "key": "{color.background.warning}"
+  },
+  "hpe.color.background.info": {
+    "$type": "color",
+    "$value": "rgba(0, 200, 255, 0.24)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.blue.400-Opacity24}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.info",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "info"
+    },
+    "path": [
+      "color",
+      "background",
+      "info"
+    ],
+    "key": "{color.background.info}"
+  },
   "hpe.color.background.critical": {
     "$type": "color",
     "$value": "rgba(252, 97, 97, 0.24)",
@@ -444,50 +532,6 @@ export default {
       "critical"
     ],
     "key": "{color.background.critical}"
-  },
-  "hpe.color.background.ok": {
-    "$type": "color",
-    "$value": "rgba(23, 235, 160, 0.24)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.green.400-Opacity24}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.ok",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "ok"
-    },
-    "path": [
-      "color",
-      "background",
-      "ok"
-    ],
-    "key": "{color.background.ok}"
   },
   "hpe.color.background.primary.default": {
     "$type": "color",
@@ -580,6 +624,94 @@ export default {
       "hover"
     ],
     "key": "{color.background.primary.hover}"
+  },
+  "hpe.color.background.unknown": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.04)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity4}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.unknown",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "unknown"
+    },
+    "path": [
+      "color",
+      "background",
+      "unknown"
+    ],
+    "key": "{color.background.unknown}"
+  },
+  "hpe.color.background.ok": {
+    "$type": "color",
+    "$value": "rgba(23, 235, 160, 0.24)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.green.400-Opacity24}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.ok",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "ok"
+    },
+    "path": [
+      "color",
+      "background",
+      "ok"
+    ],
+    "key": "{color.background.ok}"
   },
   "hpe.color.background.selected.strong.enabled": {
     "$type": "color",
@@ -772,138 +904,6 @@ export default {
       "hover"
     ],
     "key": "{color.background.selected.weak.hover}"
-  },
-  "hpe.color.background.unknown": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity4}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.unknown",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "unknown"
-    },
-    "path": [
-      "color",
-      "background",
-      "unknown"
-    ],
-    "key": "{color.background.unknown}"
-  },
-  "hpe.color.background.warning": {
-    "$type": "color",
-    "$value": "rgba(255, 188, 68, 0.24)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.orange.400-Opacity24}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.warning",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "warning"
-    },
-    "path": [
-      "color",
-      "background",
-      "warning"
-    ],
-    "key": "{color.background.warning}"
-  },
-  "hpe.color.background.info": {
-    "$type": "color",
-    "$value": "rgba(0, 200, 255, 0.24)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.blue.400-Opacity24}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.info",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "info"
-    },
-    "path": [
-      "color",
-      "background",
-      "info"
-    ],
-    "key": "{color.background.info}"
   },
   "hpe.color.background.neutral.xstrong": {
     "$type": "color",
@@ -1443,6 +1443,7 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
+          "SHAPE_FILL",
           "TEXT_FILL"
         ],
         "codeSyntax": {}
@@ -1458,6 +1459,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
+            "SHAPE_FILL",
             "TEXT_FILL"
           ],
           "codeSyntax": {}
@@ -1518,48 +1520,6 @@ export default {
       "weak"
     ],
     "key": "{color.text.weak}"
-  },
-  "hpe.color.text.xweak": {
-    "$type": "color",
-    "$value": "#bbbbbb",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.grey.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.xweak",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "xweak"
-    },
-    "path": [
-      "color",
-      "text",
-      "xweak"
-    ],
-    "key": "{color.text.xweak}"
   },
   "hpe.color.text.placeholder": {
     "$type": "color",
@@ -1687,10 +1647,10 @@ export default {
     ],
     "key": "{color.text.onPrimary}"
   },
-  "hpe.color.text.brand": {
+  "hpe.color.text.onStrong.default": {
     "$type": "color",
-    "$value": "#01a982",
-    "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+    "$value": "#ffffff",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1704,8 +1664,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
+      "$value": "{base.color.white.100}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1716,18 +1676,20 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.brand",
+    "name": "hpe.color.text.onStrong.default",
     "attributes": {
       "category": "color",
       "type": "text",
-      "item": "brand"
+      "item": "onStrong",
+      "subitem": "default"
     },
     "path": [
       "color",
       "text",
-      "brand"
+      "onStrong",
+      "default"
     ],
-    "key": "{color.text.brand}"
+    "key": "{color.text.onStrong.default}"
   },
   "hpe.color.text.heading.default": {
     "$type": "color",
@@ -1775,7 +1737,7 @@ export default {
   },
   "hpe.color.text.primary": {
     "$type": "color",
-    "$value": "#01a982",
+    "$value": "#006750",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1790,7 +1752,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.600}",
+      "$value": "{base.color.green.800}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1814,50 +1776,6 @@ export default {
       "primary"
     ],
     "key": "{color.text.primary}"
-  },
-  "hpe.color.text.onStrong.default": {
-    "$type": "color",
-    "$value": "#ffffff",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.onStrong.default",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "onStrong",
-      "subitem": "default"
-    },
-    "path": [
-      "color",
-      "text",
-      "onStrong",
-      "default"
-    ],
-    "key": "{color.text.onStrong.default}"
   },
   "hpe.color.text.critical": {
     "$type": "color",
@@ -2751,52 +2669,6 @@ export default {
     ],
     "key": "{color.icon.weak}"
   },
-  "hpe.color.icon.xweak": {
-    "$type": "color",
-    "$value": "#bbbbbb",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.grey.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.icon.xweak",
-    "attributes": {
-      "category": "color",
-      "type": "icon",
-      "item": "xweak"
-    },
-    "path": [
-      "color",
-      "icon",
-      "xweak"
-    ],
-    "key": "{color.icon.xweak}"
-  },
   "hpe.color.icon.disabled": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
@@ -3164,52 +3036,6 @@ export default {
       "onPrimary"
     ],
     "key": "{color.icon.onPrimary}"
-  },
-  "hpe.color.icon.brand": {
-    "$type": "color",
-    "$value": "#01a982",
-    "$description": "Brand color for icons.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.green.600}",
-      "$description": "Brand color for icons.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.icon.brand",
-    "attributes": {
-      "category": "color",
-      "type": "icon",
-      "item": "brand"
-    },
-    "path": [
-      "color",
-      "icon",
-      "brand"
-    ],
-    "key": "{color.icon.brand}"
   },
   "hpe.color.icon.onSelectedStrong": {
     "$type": "color",

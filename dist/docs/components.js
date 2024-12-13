@@ -2783,7 +2783,7 @@ export default {
     ],
     "key": "{element.xlarge.icon.size}"
   },
-  "hpe.button.primary.enabled.background": {
+  "hpe.button.primary.rest.background": {
     "$type": "gradient",
     "$value": "linear-gradient(70deg, rgba(0, 0, 0, 0), #01a982 35%, rgba(0, 0, 0, 0) 70%, #01a982 100%)",
     "$description": "For dev use.",
@@ -2834,22 +2834,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.enabled.background",
+    "name": "hpe.button.primary.rest.background",
     "attributes": {
       "category": "button",
       "type": "primary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "background"
     },
     "path": [
       "button",
       "primary",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{button.primary.enabled.background}"
+    "key": "{button.primary.rest.background}"
   },
-  "hpe.button.primary.enabled.borderColor": {
+  "hpe.button.primary.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -2867,7 +2867,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.borderColor}",
+      "$value": "{button.default.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2880,22 +2880,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.enabled.borderColor",
+    "name": "hpe.button.primary.rest.borderColor",
     "attributes": {
       "category": "button",
       "type": "primary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "borderColor"
     },
     "path": [
       "button",
       "primary",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{button.primary.enabled.borderColor}"
+    "key": "{button.primary.rest.borderColor}"
   },
-  "hpe.button.primary.enabled.textColor": {
+  "hpe.button.primary.rest.textColor": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "",
@@ -2924,22 +2924,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.enabled.textColor",
+    "name": "hpe.button.primary.rest.textColor",
     "attributes": {
       "category": "button",
       "type": "primary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "button",
       "primary",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{button.primary.enabled.textColor}"
+    "key": "{button.primary.rest.textColor}"
   },
-  "hpe.button.primary.enabled.iconColor": {
+  "hpe.button.primary.rest.iconColor": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "",
@@ -2972,22 +2972,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.enabled.iconColor",
+    "name": "hpe.button.primary.rest.iconColor",
     "attributes": {
       "category": "button",
       "type": "primary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "iconColor"
     },
     "path": [
       "button",
       "primary",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{button.primary.enabled.iconColor}"
+    "key": "{button.primary.rest.iconColor}"
   },
-  "hpe.button.primary.enabled.fontWeight": {
+  "hpe.button.primary.rest.fontWeight": {
     "$type": "number",
     "$value": 700,
     "$description": "",
@@ -3016,22 +3016,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.enabled.fontWeight",
+    "name": "hpe.button.primary.rest.fontWeight",
     "attributes": {
       "category": "button",
       "type": "primary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "fontWeight"
     },
     "path": [
       "button",
       "primary",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{button.primary.enabled.fontWeight}"
+    "key": "{button.primary.rest.fontWeight}"
   },
-  "hpe.button.primary.enabled.backgroundColor": {
+  "hpe.button.primary.rest.backgroundColor": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "",
@@ -3062,22 +3062,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.enabled.backgroundColor",
+    "name": "hpe.button.primary.rest.backgroundColor",
     "attributes": {
       "category": "button",
       "type": "primary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "backgroundColor"
     },
     "path": [
       "button",
       "primary",
-      "enabled",
+      "rest",
       "backgroundColor"
     ],
-    "key": "{button.primary.enabled.backgroundColor}"
+    "key": "{button.primary.rest.backgroundColor}"
   },
-  "hpe.button.primary.disabled.background": {
+  "hpe.button.primary.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
@@ -3108,22 +3108,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.disabled.background",
+    "name": "hpe.button.primary.disabled.rest.background",
     "attributes": {
       "category": "button",
       "type": "primary",
       "item": "disabled",
-      "subitem": "background"
+      "subitem": "rest",
+      "state": "background"
     },
     "path": [
       "button",
       "primary",
       "disabled",
+      "rest",
       "background"
     ],
-    "key": "{button.primary.disabled.background}"
+    "key": "{button.primary.disabled.rest.background}"
   },
-  "hpe.button.primary.disabled.borderColor": {
+  "hpe.button.primary.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -3141,7 +3143,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.borderColor}",
+      "$value": "{button.default.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3154,22 +3156,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.disabled.borderColor",
+    "name": "hpe.button.primary.disabled.rest.borderColor",
     "attributes": {
       "category": "button",
       "type": "primary",
       "item": "disabled",
-      "subitem": "borderColor"
+      "subitem": "rest",
+      "state": "borderColor"
     },
     "path": [
       "button",
       "primary",
       "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{button.primary.disabled.borderColor}"
+    "key": "{button.primary.disabled.rest.borderColor}"
   },
-  "hpe.button.primary.disabled.textColor": {
+  "hpe.button.primary.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -3198,22 +3202,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.disabled.textColor",
+    "name": "hpe.button.primary.disabled.rest.textColor",
     "attributes": {
       "category": "button",
       "type": "primary",
       "item": "disabled",
-      "subitem": "textColor"
+      "subitem": "rest",
+      "state": "textColor"
     },
     "path": [
       "button",
       "primary",
       "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{button.primary.disabled.textColor}"
+    "key": "{button.primary.disabled.rest.textColor}"
   },
-  "hpe.button.primary.disabled.iconColor": {
+  "hpe.button.primary.disabled.rest.iconColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -3246,22 +3252,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.disabled.iconColor",
+    "name": "hpe.button.primary.disabled.rest.iconColor",
     "attributes": {
       "category": "button",
       "type": "primary",
       "item": "disabled",
-      "subitem": "iconColor"
+      "subitem": "rest",
+      "state": "iconColor"
     },
     "path": [
       "button",
       "primary",
       "disabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{button.primary.disabled.iconColor}"
+    "key": "{button.primary.disabled.rest.iconColor}"
   },
-  "hpe.button.primary.disabled.fontWeight": {
+  "hpe.button.primary.disabled.rest.fontWeight": {
     "$type": "number",
     "$value": 700,
     "$description": "",
@@ -3278,7 +3286,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.primary.enabled.fontWeight}",
+      "$value": "{button.primary.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3290,20 +3298,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.disabled.fontWeight",
+    "name": "hpe.button.primary.disabled.rest.fontWeight",
     "attributes": {
       "category": "button",
       "type": "primary",
       "item": "disabled",
-      "subitem": "fontWeight"
+      "subitem": "rest",
+      "state": "fontWeight"
     },
     "path": [
       "button",
       "primary",
       "disabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{button.primary.disabled.fontWeight}"
+    "key": "{button.primary.disabled.rest.fontWeight}"
   },
   "hpe.button.primary.hover.background": {
     "$type": "color",
@@ -3369,7 +3379,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.primary.enabled.borderColor}",
+      "$value": "{button.primary.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3506,7 +3516,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.primary.enabled.fontWeight}",
+      "$value": "{button.primary.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3533,7 +3543,7 @@ export default {
     ],
     "key": "{button.primary.hover.fontWeight}"
   },
-  "hpe.button.primary.selected.enabled.background": {
+  "hpe.button.primary.selected.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
@@ -3551,7 +3561,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.background}",
+      "$value": "{button.default.selected.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3564,24 +3574,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.selected.enabled.background",
+    "name": "hpe.button.primary.selected.rest.background",
     "attributes": {
       "category": "button",
       "type": "primary",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "background"
     },
     "path": [
       "button",
       "primary",
       "selected",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{button.primary.selected.enabled.background}"
+    "key": "{button.primary.selected.rest.background}"
   },
-  "hpe.button.primary.selected.enabled.borderColor": {
+  "hpe.button.primary.selected.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -3599,7 +3609,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.borderColor}",
+      "$value": "{button.default.selected.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3612,24 +3622,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.selected.enabled.borderColor",
+    "name": "hpe.button.primary.selected.rest.borderColor",
     "attributes": {
       "category": "button",
       "type": "primary",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "borderColor"
     },
     "path": [
       "button",
       "primary",
       "selected",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{button.primary.selected.enabled.borderColor}"
+    "key": "{button.primary.selected.rest.borderColor}"
   },
-  "hpe.button.primary.selected.enabled.textColor": {
+  "hpe.button.primary.selected.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -3646,7 +3656,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.textColor}",
+      "$value": "{button.default.selected.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3658,24 +3668,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.selected.enabled.textColor",
+    "name": "hpe.button.primary.selected.rest.textColor",
     "attributes": {
       "category": "button",
       "type": "primary",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "textColor"
     },
     "path": [
       "button",
       "primary",
       "selected",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{button.primary.selected.enabled.textColor}"
+    "key": "{button.primary.selected.rest.textColor}"
   },
-  "hpe.button.primary.selected.enabled.iconColor": {
+  "hpe.button.primary.selected.rest.iconColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -3694,7 +3704,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.iconColor}",
+      "$value": "{button.default.selected.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3708,24 +3718,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.selected.enabled.iconColor",
+    "name": "hpe.button.primary.selected.rest.iconColor",
     "attributes": {
       "category": "button",
       "type": "primary",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "iconColor"
     },
     "path": [
       "button",
       "primary",
       "selected",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{button.primary.selected.enabled.iconColor}"
+    "key": "{button.primary.selected.rest.iconColor}"
   },
-  "hpe.button.primary.selected.enabled.fontWeight": {
+  "hpe.button.primary.selected.rest.fontWeight": {
     "$type": "number",
     "$value": 700,
     "$description": "",
@@ -3742,7 +3752,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.primary.enabled.fontWeight}",
+      "$value": "{button.primary.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3754,22 +3764,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.primary.selected.enabled.fontWeight",
+    "name": "hpe.button.primary.selected.rest.fontWeight",
     "attributes": {
       "category": "button",
       "type": "primary",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "fontWeight"
     },
     "path": [
       "button",
       "primary",
       "selected",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{button.primary.selected.enabled.fontWeight}"
+    "key": "{button.primary.selected.rest.fontWeight}"
   },
   "hpe.button.primary.selected.hover.background": {
     "$type": "color",
@@ -3789,7 +3799,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.background}",
+      "$value": "{button.default.selected.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3837,7 +3847,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.borderColor}",
+      "$value": "{button.default.selected.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3884,7 +3894,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.textColor}",
+      "$value": "{button.default.selected.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3932,7 +3942,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.iconColor}",
+      "$value": "{button.default.selected.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3980,7 +3990,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.primary.enabled.fontWeight}",
+      "$value": "{button.primary.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7859,7 +7869,7 @@ export default {
     ],
     "key": "{button.primary.xlarge.gapX}"
   },
-  "hpe.button.secondary.enabled.background": {
+  "hpe.button.secondary.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -7877,7 +7887,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.background}",
+      "$value": "{button.default.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7890,22 +7900,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.enabled.background",
+    "name": "hpe.button.secondary.rest.background",
     "attributes": {
       "category": "button",
       "type": "secondary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "background"
     },
     "path": [
       "button",
       "secondary",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{button.secondary.enabled.background}"
+    "key": "{button.secondary.rest.background}"
   },
-  "hpe.button.secondary.enabled.borderColor": {
+  "hpe.button.secondary.rest.borderColor": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "",
@@ -7936,22 +7946,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.enabled.borderColor",
+    "name": "hpe.button.secondary.rest.borderColor",
     "attributes": {
       "category": "button",
       "type": "secondary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "borderColor"
     },
     "path": [
       "button",
       "secondary",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{button.secondary.enabled.borderColor}"
+    "key": "{button.secondary.rest.borderColor}"
   },
-  "hpe.button.secondary.enabled.textColor": {
+  "hpe.button.secondary.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -7968,7 +7978,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.textColor}",
+      "$value": "{button.default.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7980,22 +7990,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.enabled.textColor",
+    "name": "hpe.button.secondary.rest.textColor",
     "attributes": {
       "category": "button",
       "type": "secondary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "button",
       "secondary",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{button.secondary.enabled.textColor}"
+    "key": "{button.secondary.rest.textColor}"
   },
-  "hpe.button.secondary.enabled.iconColor": {
+  "hpe.button.secondary.rest.iconColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -8014,7 +8024,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.iconColor}",
+      "$value": "{button.default.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8028,22 +8038,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.enabled.iconColor",
+    "name": "hpe.button.secondary.rest.iconColor",
     "attributes": {
       "category": "button",
       "type": "secondary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "iconColor"
     },
     "path": [
       "button",
       "secondary",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{button.secondary.enabled.iconColor}"
+    "key": "{button.secondary.rest.iconColor}"
   },
-  "hpe.button.secondary.enabled.fontWeight": {
+  "hpe.button.secondary.rest.fontWeight": {
     "$type": "number",
     "$value": 600,
     "$description": "",
@@ -8060,7 +8070,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8072,20 +8082,20 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.enabled.fontWeight",
+    "name": "hpe.button.secondary.rest.fontWeight",
     "attributes": {
       "category": "button",
       "type": "secondary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "fontWeight"
     },
     "path": [
       "button",
       "secondary",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{button.secondary.enabled.fontWeight}"
+    "key": "{button.secondary.rest.fontWeight}"
   },
   "hpe.button.secondary.hover.background": {
     "$type": "color",
@@ -8105,7 +8115,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.background}",
+      "$value": "{button.default.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8196,7 +8206,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.textColor}",
+      "$value": "{button.default.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8242,7 +8252,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.iconColor}",
+      "$value": "{button.default.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8288,7 +8298,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8315,7 +8325,7 @@ export default {
     ],
     "key": "{button.secondary.hover.fontWeight}"
   },
-  "hpe.button.secondary.disabled.background": {
+  "hpe.button.secondary.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
@@ -8346,22 +8356,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.disabled.background",
+    "name": "hpe.button.secondary.disabled.rest.background",
     "attributes": {
       "category": "button",
       "type": "secondary",
       "item": "disabled",
-      "subitem": "background"
+      "subitem": "rest",
+      "state": "background"
     },
     "path": [
       "button",
       "secondary",
       "disabled",
+      "rest",
       "background"
     ],
-    "key": "{button.secondary.disabled.background}"
+    "key": "{button.secondary.disabled.rest.background}"
   },
-  "hpe.button.secondary.disabled.borderColor": {
+  "hpe.button.secondary.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.12)",
     "$description": "",
@@ -8392,22 +8404,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.disabled.borderColor",
+    "name": "hpe.button.secondary.disabled.rest.borderColor",
     "attributes": {
       "category": "button",
       "type": "secondary",
       "item": "disabled",
-      "subitem": "borderColor"
+      "subitem": "rest",
+      "state": "borderColor"
     },
     "path": [
       "button",
       "secondary",
       "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{button.secondary.disabled.borderColor}"
+    "key": "{button.secondary.disabled.rest.borderColor}"
   },
-  "hpe.button.secondary.disabled.textColor": {
+  "hpe.button.secondary.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -8436,22 +8450,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.disabled.textColor",
+    "name": "hpe.button.secondary.disabled.rest.textColor",
     "attributes": {
       "category": "button",
       "type": "secondary",
       "item": "disabled",
-      "subitem": "textColor"
+      "subitem": "rest",
+      "state": "textColor"
     },
     "path": [
       "button",
       "secondary",
       "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{button.secondary.disabled.textColor}"
+    "key": "{button.secondary.disabled.rest.textColor}"
   },
-  "hpe.button.secondary.disabled.iconColor": {
+  "hpe.button.secondary.disabled.rest.iconColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -8484,22 +8500,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.disabled.iconColor",
+    "name": "hpe.button.secondary.disabled.rest.iconColor",
     "attributes": {
       "category": "button",
       "type": "secondary",
       "item": "disabled",
-      "subitem": "iconColor"
+      "subitem": "rest",
+      "state": "iconColor"
     },
     "path": [
       "button",
       "secondary",
       "disabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{button.secondary.disabled.iconColor}"
+    "key": "{button.secondary.disabled.rest.iconColor}"
   },
-  "hpe.button.secondary.disabled.fontWeight": {
+  "hpe.button.secondary.disabled.rest.fontWeight": {
     "$type": "number",
     "$value": 600,
     "$description": "",
@@ -8516,7 +8534,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8528,22 +8546,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.disabled.fontWeight",
+    "name": "hpe.button.secondary.disabled.rest.fontWeight",
     "attributes": {
       "category": "button",
       "type": "secondary",
       "item": "disabled",
-      "subitem": "fontWeight"
+      "subitem": "rest",
+      "state": "fontWeight"
     },
     "path": [
       "button",
       "secondary",
       "disabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{button.secondary.disabled.fontWeight}"
+    "key": "{button.secondary.disabled.rest.fontWeight}"
   },
-  "hpe.button.secondary.selected.enabled.background": {
+  "hpe.button.secondary.selected.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
@@ -8561,7 +8581,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.background}",
+      "$value": "{button.default.selected.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8574,24 +8594,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.selected.enabled.background",
+    "name": "hpe.button.secondary.selected.rest.background",
     "attributes": {
       "category": "button",
       "type": "secondary",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "background"
     },
     "path": [
       "button",
       "secondary",
       "selected",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{button.secondary.selected.enabled.background}"
+    "key": "{button.secondary.selected.rest.background}"
   },
-  "hpe.button.secondary.selected.enabled.borderColor": {
+  "hpe.button.secondary.selected.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -8609,7 +8629,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.borderColor}",
+      "$value": "{button.default.selected.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8622,24 +8642,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.selected.enabled.borderColor",
+    "name": "hpe.button.secondary.selected.rest.borderColor",
     "attributes": {
       "category": "button",
       "type": "secondary",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "borderColor"
     },
     "path": [
       "button",
       "secondary",
       "selected",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{button.secondary.selected.enabled.borderColor}"
+    "key": "{button.secondary.selected.rest.borderColor}"
   },
-  "hpe.button.secondary.selected.enabled.textColor": {
+  "hpe.button.secondary.selected.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -8656,7 +8676,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.textColor}",
+      "$value": "{button.default.selected.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8668,24 +8688,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.selected.enabled.textColor",
+    "name": "hpe.button.secondary.selected.rest.textColor",
     "attributes": {
       "category": "button",
       "type": "secondary",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "textColor"
     },
     "path": [
       "button",
       "secondary",
       "selected",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{button.secondary.selected.enabled.textColor}"
+    "key": "{button.secondary.selected.rest.textColor}"
   },
-  "hpe.button.secondary.selected.enabled.iconColor": {
+  "hpe.button.secondary.selected.rest.iconColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -8704,7 +8724,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.iconColor}",
+      "$value": "{button.default.selected.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8718,24 +8738,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.selected.enabled.iconColor",
+    "name": "hpe.button.secondary.selected.rest.iconColor",
     "attributes": {
       "category": "button",
       "type": "secondary",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "iconColor"
     },
     "path": [
       "button",
       "secondary",
       "selected",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{button.secondary.selected.enabled.iconColor}"
+    "key": "{button.secondary.selected.rest.iconColor}"
   },
-  "hpe.button.secondary.selected.enabled.fontWeight": {
+  "hpe.button.secondary.selected.rest.fontWeight": {
     "$type": "number",
     "$value": 600,
     "$description": "",
@@ -8752,7 +8772,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8764,22 +8784,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.secondary.selected.enabled.fontWeight",
+    "name": "hpe.button.secondary.selected.rest.fontWeight",
     "attributes": {
       "category": "button",
       "type": "secondary",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "fontWeight"
     },
     "path": [
       "button",
       "secondary",
       "selected",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{button.secondary.selected.enabled.fontWeight}"
+    "key": "{button.secondary.selected.rest.fontWeight}"
   },
   "hpe.button.secondary.selected.hover.background": {
     "$type": "color",
@@ -8799,7 +8819,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.background}",
+      "$value": "{button.default.selected.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8847,7 +8867,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.borderColor}",
+      "$value": "{button.default.selected.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8894,7 +8914,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.textColor}",
+      "$value": "{button.default.selected.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8942,7 +8962,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.iconColor}",
+      "$value": "{button.default.selected.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8990,7 +9010,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13144,7 +13164,7 @@ export default {
     ],
     "key": "{button.secondary.xlarge.hover.boxShadow}"
   },
-  "hpe.button.default.enabled.background": {
+  "hpe.button.default.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -13175,22 +13195,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.enabled.background",
+    "name": "hpe.button.default.rest.background",
     "attributes": {
       "category": "button",
       "type": "default",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "background"
     },
     "path": [
       "button",
       "default",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{button.default.enabled.background}"
+    "key": "{button.default.rest.background}"
   },
-  "hpe.button.default.enabled.borderColor": {
+  "hpe.button.default.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -13219,22 +13239,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.enabled.borderColor",
+    "name": "hpe.button.default.rest.borderColor",
     "attributes": {
       "category": "button",
       "type": "default",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "borderColor"
     },
     "path": [
       "button",
       "default",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{button.default.enabled.borderColor}"
+    "key": "{button.default.rest.borderColor}"
   },
-  "hpe.button.default.enabled.textColor": {
+  "hpe.button.default.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -13263,22 +13283,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.enabled.textColor",
+    "name": "hpe.button.default.rest.textColor",
     "attributes": {
       "category": "button",
       "type": "default",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "button",
       "default",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{button.default.enabled.textColor}"
+    "key": "{button.default.rest.textColor}"
   },
-  "hpe.button.default.enabled.iconColor": {
+  "hpe.button.default.rest.iconColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -13311,22 +13331,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.enabled.iconColor",
+    "name": "hpe.button.default.rest.iconColor",
     "attributes": {
       "category": "button",
       "type": "default",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "iconColor"
     },
     "path": [
       "button",
       "default",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{button.default.enabled.iconColor}"
+    "key": "{button.default.rest.iconColor}"
   },
-  "hpe.button.default.enabled.fontWeight": {
+  "hpe.button.default.rest.fontWeight": {
     "$type": "number",
     "$value": 600,
     "$description": "",
@@ -13355,22 +13375,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.enabled.fontWeight",
+    "name": "hpe.button.default.rest.fontWeight",
     "attributes": {
       "category": "button",
       "type": "default",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "fontWeight"
     },
     "path": [
       "button",
       "default",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{button.default.enabled.fontWeight}"
+    "key": "{button.default.rest.fontWeight}"
   },
-  "hpe.button.default.disabled.background": {
+  "hpe.button.default.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -13388,7 +13408,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.background}",
+      "$value": "{button.default.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13401,22 +13421,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.disabled.background",
+    "name": "hpe.button.default.disabled.rest.background",
     "attributes": {
       "category": "button",
       "type": "default",
       "item": "disabled",
-      "subitem": "background"
+      "subitem": "rest",
+      "state": "background"
     },
     "path": [
       "button",
       "default",
       "disabled",
+      "rest",
       "background"
     ],
-    "key": "{button.default.disabled.background}"
+    "key": "{button.default.disabled.rest.background}"
   },
-  "hpe.button.default.disabled.borderColor": {
+  "hpe.button.default.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -13433,7 +13455,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.borderColor}",
+      "$value": "{button.default.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13445,22 +13467,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.disabled.borderColor",
+    "name": "hpe.button.default.disabled.rest.borderColor",
     "attributes": {
       "category": "button",
       "type": "default",
       "item": "disabled",
-      "subitem": "borderColor"
+      "subitem": "rest",
+      "state": "borderColor"
     },
     "path": [
       "button",
       "default",
       "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{button.default.disabled.borderColor}"
+    "key": "{button.default.disabled.rest.borderColor}"
   },
-  "hpe.button.default.disabled.textColor": {
+  "hpe.button.default.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -13489,22 +13513,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.disabled.textColor",
+    "name": "hpe.button.default.disabled.rest.textColor",
     "attributes": {
       "category": "button",
       "type": "default",
       "item": "disabled",
-      "subitem": "textColor"
+      "subitem": "rest",
+      "state": "textColor"
     },
     "path": [
       "button",
       "default",
       "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{button.default.disabled.textColor}"
+    "key": "{button.default.disabled.rest.textColor}"
   },
-  "hpe.button.default.disabled.iconColor": {
+  "hpe.button.default.disabled.rest.iconColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -13537,22 +13563,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.disabled.iconColor",
+    "name": "hpe.button.default.disabled.rest.iconColor",
     "attributes": {
       "category": "button",
       "type": "default",
       "item": "disabled",
-      "subitem": "iconColor"
+      "subitem": "rest",
+      "state": "iconColor"
     },
     "path": [
       "button",
       "default",
       "disabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{button.default.disabled.iconColor}"
+    "key": "{button.default.disabled.rest.iconColor}"
   },
-  "hpe.button.default.disabled.fontWeight": {
+  "hpe.button.default.disabled.rest.fontWeight": {
     "$type": "number",
     "$value": 600,
     "$description": "",
@@ -13569,7 +13597,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13581,20 +13609,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.disabled.fontWeight",
+    "name": "hpe.button.default.disabled.rest.fontWeight",
     "attributes": {
       "category": "button",
       "type": "default",
       "item": "disabled",
-      "subitem": "fontWeight"
+      "subitem": "rest",
+      "state": "fontWeight"
     },
     "path": [
       "button",
       "default",
       "disabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{button.default.disabled.fontWeight}"
+    "key": "{button.default.disabled.rest.fontWeight}"
   },
   "hpe.button.default.hover.background": {
     "$type": "color",
@@ -13660,7 +13690,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.borderColor}",
+      "$value": "{button.default.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13705,7 +13735,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.textColor}",
+      "$value": "{button.default.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13751,7 +13781,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.iconColor}",
+      "$value": "{button.default.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13797,7 +13827,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13824,7 +13854,7 @@ export default {
     ],
     "key": "{button.default.hover.fontWeight}"
   },
-  "hpe.button.default.selected.enabled.background": {
+  "hpe.button.default.selected.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
@@ -13855,24 +13885,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.selected.enabled.background",
+    "name": "hpe.button.default.selected.rest.background",
     "attributes": {
       "category": "button",
       "type": "default",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "background"
     },
     "path": [
       "button",
       "default",
       "selected",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{button.default.selected.enabled.background}"
+    "key": "{button.default.selected.rest.background}"
   },
-  "hpe.button.default.selected.enabled.borderColor": {
+  "hpe.button.default.selected.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -13903,24 +13933,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.selected.enabled.borderColor",
+    "name": "hpe.button.default.selected.rest.borderColor",
     "attributes": {
       "category": "button",
       "type": "default",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "borderColor"
     },
     "path": [
       "button",
       "default",
       "selected",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{button.default.selected.enabled.borderColor}"
+    "key": "{button.default.selected.rest.borderColor}"
   },
-  "hpe.button.default.selected.enabled.textColor": {
+  "hpe.button.default.selected.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -13937,7 +13967,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.textColor}",
+      "$value": "{button.default.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13949,24 +13979,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.selected.enabled.textColor",
+    "name": "hpe.button.default.selected.rest.textColor",
     "attributes": {
       "category": "button",
       "type": "default",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "textColor"
     },
     "path": [
       "button",
       "default",
       "selected",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{button.default.selected.enabled.textColor}"
+    "key": "{button.default.selected.rest.textColor}"
   },
-  "hpe.button.default.selected.enabled.iconColor": {
+  "hpe.button.default.selected.rest.iconColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -13985,7 +14015,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.iconColor}",
+      "$value": "{button.default.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13999,24 +14029,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.selected.enabled.iconColor",
+    "name": "hpe.button.default.selected.rest.iconColor",
     "attributes": {
       "category": "button",
       "type": "default",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "iconColor"
     },
     "path": [
       "button",
       "default",
       "selected",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{button.default.selected.enabled.iconColor}"
+    "key": "{button.default.selected.rest.iconColor}"
   },
-  "hpe.button.default.selected.enabled.fontWeight": {
+  "hpe.button.default.selected.rest.fontWeight": {
     "$type": "number",
     "$value": 600,
     "$description": "",
@@ -14033,7 +14063,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14045,22 +14075,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.default.selected.enabled.fontWeight",
+    "name": "hpe.button.default.selected.rest.fontWeight",
     "attributes": {
       "category": "button",
       "type": "default",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "fontWeight"
     },
     "path": [
       "button",
       "default",
       "selected",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{button.default.selected.enabled.fontWeight}"
+    "key": "{button.default.selected.rest.fontWeight}"
   },
   "hpe.button.default.selected.hover.background": {
     "$type": "color",
@@ -14175,7 +14205,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.textColor}",
+      "$value": "{button.default.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14223,7 +14253,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.iconColor}",
+      "$value": "{button.default.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14271,7 +14301,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18150,7 +18180,7 @@ export default {
     ],
     "key": "{button.default.xlarge.gapX}"
   },
-  "hpe.button.toolbar.enabled.background": {
+  "hpe.button.toolbar.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -18181,22 +18211,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.toolbar.enabled.background",
+    "name": "hpe.button.toolbar.rest.background",
     "attributes": {
       "category": "button",
       "type": "toolbar",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "background"
     },
     "path": [
       "button",
       "toolbar",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{button.toolbar.enabled.background}"
+    "key": "{button.toolbar.rest.background}"
   },
-  "hpe.button.toolbar.enabled.borderColor": {
+  "hpe.button.toolbar.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
     "$description": "",
@@ -18227,22 +18257,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.toolbar.enabled.borderColor",
+    "name": "hpe.button.toolbar.rest.borderColor",
     "attributes": {
       "category": "button",
       "type": "toolbar",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "borderColor"
     },
     "path": [
       "button",
       "toolbar",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{button.toolbar.enabled.borderColor}"
+    "key": "{button.toolbar.rest.borderColor}"
   },
-  "hpe.button.toolbar.enabled.textColor": {
+  "hpe.button.toolbar.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -18259,7 +18289,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.textColor}",
+      "$value": "{button.default.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18271,22 +18301,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.toolbar.enabled.textColor",
+    "name": "hpe.button.toolbar.rest.textColor",
     "attributes": {
       "category": "button",
       "type": "toolbar",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "button",
       "toolbar",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{button.toolbar.enabled.textColor}"
+    "key": "{button.toolbar.rest.textColor}"
   },
-  "hpe.button.toolbar.enabled.iconColor": {
+  "hpe.button.toolbar.rest.iconColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -18305,7 +18335,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.iconColor}",
+      "$value": "{button.default.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18319,22 +18349,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.toolbar.enabled.iconColor",
+    "name": "hpe.button.toolbar.rest.iconColor",
     "attributes": {
       "category": "button",
       "type": "toolbar",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "iconColor"
     },
     "path": [
       "button",
       "toolbar",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{button.toolbar.enabled.iconColor}"
+    "key": "{button.toolbar.rest.iconColor}"
   },
-  "hpe.button.toolbar.enabled.fontWeight": {
+  "hpe.button.toolbar.rest.fontWeight": {
     "$type": "number",
     "$value": 600,
     "$description": "",
@@ -18351,7 +18381,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18363,248 +18393,20 @@ export default {
         }
       }
     },
-    "name": "hpe.button.toolbar.enabled.fontWeight",
+    "name": "hpe.button.toolbar.rest.fontWeight",
     "attributes": {
       "category": "button",
       "type": "toolbar",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "fontWeight"
     },
     "path": [
       "button",
       "toolbar",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{button.toolbar.enabled.fontWeight}"
-  },
-  "hpe.button.toolbar.disabled.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.button.toolbar.disabled.background",
-    "attributes": {
-      "category": "button",
-      "type": "toolbar",
-      "item": "disabled",
-      "subitem": "background"
-    },
-    "path": [
-      "button",
-      "toolbar",
-      "disabled",
-      "background"
-    ],
-    "key": "{button.toolbar.disabled.background}"
-  },
-  "hpe.button.toolbar.disabled.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.button.toolbar.disabled.borderColor",
-    "attributes": {
-      "category": "button",
-      "type": "toolbar",
-      "item": "disabled",
-      "subitem": "borderColor"
-    },
-    "path": [
-      "button",
-      "toolbar",
-      "disabled",
-      "borderColor"
-    ],
-    "key": "{button.toolbar.disabled.borderColor}"
-  },
-  "hpe.button.toolbar.disabled.textColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.24)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.button.toolbar.disabled.textColor",
-    "attributes": {
-      "category": "button",
-      "type": "toolbar",
-      "item": "disabled",
-      "subitem": "textColor"
-    },
-    "path": [
-      "button",
-      "toolbar",
-      "disabled",
-      "textColor"
-    ],
-    "key": "{button.toolbar.disabled.textColor}"
-  },
-  "hpe.button.toolbar.disabled.iconColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.24)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.icon.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.button.toolbar.disabled.iconColor",
-    "attributes": {
-      "category": "button",
-      "type": "toolbar",
-      "item": "disabled",
-      "subitem": "iconColor"
-    },
-    "path": [
-      "button",
-      "toolbar",
-      "disabled",
-      "iconColor"
-    ],
-    "key": "{button.toolbar.disabled.iconColor}"
-  },
-  "hpe.button.toolbar.disabled.fontWeight": {
-    "$type": "number",
-    "$value": 600,
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_STYLE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.button.toolbar.disabled.fontWeight",
-    "attributes": {
-      "category": "button",
-      "type": "toolbar",
-      "item": "disabled",
-      "subitem": "fontWeight"
-    },
-    "path": [
-      "button",
-      "toolbar",
-      "disabled",
-      "fontWeight"
-    ],
-    "key": "{button.toolbar.disabled.fontWeight}"
+    "key": "{button.toolbar.rest.fontWeight}"
   },
   "hpe.button.toolbar.hover.background": {
     "$type": "color",
@@ -18670,7 +18472,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.toolbar.enabled.borderColor}",
+      "$value": "{button.toolbar.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18715,7 +18517,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.toolbar.enabled.textColor}",
+      "$value": "{button.toolbar.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18761,7 +18563,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.toolbar.enabled.iconColor}",
+      "$value": "{button.toolbar.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18807,7 +18609,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18834,7 +18636,7 @@ export default {
     ],
     "key": "{button.toolbar.hover.fontWeight}"
   },
-  "hpe.button.toolbar.selected.enabled.background": {
+  "hpe.button.toolbar.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
@@ -18852,7 +18654,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.background}",
+      "$value": "{color.background.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18865,24 +18667,262 @@ export default {
         }
       }
     },
-    "name": "hpe.button.toolbar.selected.enabled.background",
+    "name": "hpe.button.toolbar.disabled.rest.background",
+    "attributes": {
+      "category": "button",
+      "type": "toolbar",
+      "item": "disabled",
+      "subitem": "rest",
+      "state": "background"
+    },
+    "path": [
+      "button",
+      "toolbar",
+      "disabled",
+      "rest",
+      "background"
+    ],
+    "key": "{button.toolbar.disabled.rest.background}"
+  },
+  "hpe.button.toolbar.disabled.rest.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.12)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.border.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.toolbar.disabled.rest.borderColor",
+    "attributes": {
+      "category": "button",
+      "type": "toolbar",
+      "item": "disabled",
+      "subitem": "rest",
+      "state": "borderColor"
+    },
+    "path": [
+      "button",
+      "toolbar",
+      "disabled",
+      "rest",
+      "borderColor"
+    ],
+    "key": "{button.toolbar.disabled.rest.borderColor}"
+  },
+  "hpe.button.toolbar.disabled.rest.textColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.24)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.toolbar.disabled.rest.textColor",
+    "attributes": {
+      "category": "button",
+      "type": "toolbar",
+      "item": "disabled",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "button",
+      "toolbar",
+      "disabled",
+      "rest",
+      "textColor"
+    ],
+    "key": "{button.toolbar.disabled.rest.textColor}"
+  },
+  "hpe.button.toolbar.disabled.rest.iconColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.24)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.icon.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.toolbar.disabled.rest.iconColor",
+    "attributes": {
+      "category": "button",
+      "type": "toolbar",
+      "item": "disabled",
+      "subitem": "rest",
+      "state": "iconColor"
+    },
+    "path": [
+      "button",
+      "toolbar",
+      "disabled",
+      "rest",
+      "iconColor"
+    ],
+    "key": "{button.toolbar.disabled.rest.iconColor}"
+  },
+  "hpe.button.toolbar.disabled.rest.fontWeight": {
+    "$type": "number",
+    "$value": 600,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{button.default.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.toolbar.disabled.rest.fontWeight",
+    "attributes": {
+      "category": "button",
+      "type": "toolbar",
+      "item": "disabled",
+      "subitem": "rest",
+      "state": "fontWeight"
+    },
+    "path": [
+      "button",
+      "toolbar",
+      "disabled",
+      "rest",
+      "fontWeight"
+    ],
+    "key": "{button.toolbar.disabled.rest.fontWeight}"
+  },
+  "hpe.button.toolbar.selected.rest.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.04)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{button.default.selected.rest.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.button.toolbar.selected.rest.background",
     "attributes": {
       "category": "button",
       "type": "toolbar",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "background"
     },
     "path": [
       "button",
       "toolbar",
       "selected",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{button.toolbar.selected.enabled.background}"
+    "key": "{button.toolbar.selected.rest.background}"
   },
-  "hpe.button.toolbar.selected.enabled.borderColor": {
+  "hpe.button.toolbar.selected.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -18900,7 +18940,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.borderColor}",
+      "$value": "{button.default.selected.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18913,24 +18953,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.toolbar.selected.enabled.borderColor",
+    "name": "hpe.button.toolbar.selected.rest.borderColor",
     "attributes": {
       "category": "button",
       "type": "toolbar",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "borderColor"
     },
     "path": [
       "button",
       "toolbar",
       "selected",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{button.toolbar.selected.enabled.borderColor}"
+    "key": "{button.toolbar.selected.rest.borderColor}"
   },
-  "hpe.button.toolbar.selected.enabled.textColor": {
+  "hpe.button.toolbar.selected.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -18947,7 +18987,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.textColor}",
+      "$value": "{button.default.selected.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18959,24 +18999,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.toolbar.selected.enabled.textColor",
+    "name": "hpe.button.toolbar.selected.rest.textColor",
     "attributes": {
       "category": "button",
       "type": "toolbar",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "textColor"
     },
     "path": [
       "button",
       "toolbar",
       "selected",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{button.toolbar.selected.enabled.textColor}"
+    "key": "{button.toolbar.selected.rest.textColor}"
   },
-  "hpe.button.toolbar.selected.enabled.iconColor": {
+  "hpe.button.toolbar.selected.rest.iconColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -18995,7 +19035,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.iconColor}",
+      "$value": "{button.default.selected.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19009,24 +19049,24 @@ export default {
         }
       }
     },
-    "name": "hpe.button.toolbar.selected.enabled.iconColor",
+    "name": "hpe.button.toolbar.selected.rest.iconColor",
     "attributes": {
       "category": "button",
       "type": "toolbar",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "iconColor"
     },
     "path": [
       "button",
       "toolbar",
       "selected",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{button.toolbar.selected.enabled.iconColor}"
+    "key": "{button.toolbar.selected.rest.iconColor}"
   },
-  "hpe.button.toolbar.selected.enabled.fontWeight": {
+  "hpe.button.toolbar.selected.rest.fontWeight": {
     "$type": "number",
     "$value": 600,
     "$description": "",
@@ -19043,7 +19083,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19055,22 +19095,22 @@ export default {
         }
       }
     },
-    "name": "hpe.button.toolbar.selected.enabled.fontWeight",
+    "name": "hpe.button.toolbar.selected.rest.fontWeight",
     "attributes": {
       "category": "button",
       "type": "toolbar",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "fontWeight"
     },
     "path": [
       "button",
       "toolbar",
       "selected",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{button.toolbar.selected.enabled.fontWeight}"
+    "key": "{button.toolbar.selected.rest.fontWeight}"
   },
   "hpe.button.toolbar.selected.hover.background": {
     "$type": "color",
@@ -19090,7 +19130,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.background}",
+      "$value": "{button.default.selected.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19138,7 +19178,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.borderColor}",
+      "$value": "{button.default.selected.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19185,7 +19225,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.textColor}",
+      "$value": "{button.default.selected.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19233,7 +19273,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.selected.enabled.iconColor}",
+      "$value": "{button.default.selected.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19281,7 +19321,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -23316,7 +23356,7 @@ export default {
     ],
     "key": "{drop.zIndex}"
   },
-  "hpe.menu.item.enabled.background": {
+  "hpe.menu.item.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -23347,22 +23387,22 @@ export default {
         }
       }
     },
-    "name": "hpe.menu.item.enabled.background",
+    "name": "hpe.menu.item.rest.background",
     "attributes": {
       "category": "menu",
       "type": "item",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "background"
     },
     "path": [
       "menu",
       "item",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{menu.item.enabled.background}"
+    "key": "{menu.item.rest.background}"
   },
-  "hpe.menu.item.enabled.borderColor": {
+  "hpe.menu.item.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -23393,22 +23433,22 @@ export default {
         }
       }
     },
-    "name": "hpe.menu.item.enabled.borderColor",
+    "name": "hpe.menu.item.rest.borderColor",
     "attributes": {
       "category": "menu",
       "type": "item",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "borderColor"
     },
     "path": [
       "menu",
       "item",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{menu.item.enabled.borderColor}"
+    "key": "{menu.item.rest.borderColor}"
   },
-  "hpe.menu.item.enabled.textColor": {
+  "hpe.menu.item.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -23425,7 +23465,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.textColor}",
+      "$value": "{button.default.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -23437,22 +23477,22 @@ export default {
         }
       }
     },
-    "name": "hpe.menu.item.enabled.textColor",
+    "name": "hpe.menu.item.rest.textColor",
     "attributes": {
       "category": "menu",
       "type": "item",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "menu",
       "item",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{menu.item.enabled.textColor}"
+    "key": "{menu.item.rest.textColor}"
   },
-  "hpe.menu.item.enabled.iconColor": {
+  "hpe.menu.item.rest.iconColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -23470,7 +23510,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.enabled.iconColor}",
+      "$value": "{button.default.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -23483,22 +23523,22 @@ export default {
         }
       }
     },
-    "name": "hpe.menu.item.enabled.iconColor",
+    "name": "hpe.menu.item.rest.iconColor",
     "attributes": {
       "category": "menu",
       "type": "item",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "iconColor"
     },
     "path": [
       "menu",
       "item",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{menu.item.enabled.iconColor}"
+    "key": "{menu.item.rest.iconColor}"
   },
-  "hpe.menu.item.enabled.fontWeight": {
+  "hpe.menu.item.rest.fontWeight": {
     "$type": "number",
     "$value": 600,
     "$description": "",
@@ -23515,7 +23555,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.enabled.fontWeight}",
+      "$value": "{button.default.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -23527,20 +23567,20 @@ export default {
         }
       }
     },
-    "name": "hpe.menu.item.enabled.fontWeight",
+    "name": "hpe.menu.item.rest.fontWeight",
     "attributes": {
       "category": "menu",
       "type": "item",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "fontWeight"
     },
     "path": [
       "menu",
       "item",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{menu.item.enabled.fontWeight}"
+    "key": "{menu.item.rest.fontWeight}"
   },
   "hpe.menu.item.hover.background": {
     "$type": "color",
@@ -23768,7 +23808,7 @@ export default {
     ],
     "key": "{menu.item.hover.fontWeight}"
   },
-  "hpe.menu.item.disabled.background": {
+  "hpe.menu.item.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -23799,22 +23839,24 @@ export default {
         }
       }
     },
-    "name": "hpe.menu.item.disabled.background",
+    "name": "hpe.menu.item.disabled.rest.background",
     "attributes": {
       "category": "menu",
       "type": "item",
       "item": "disabled",
-      "subitem": "background"
+      "subitem": "rest",
+      "state": "background"
     },
     "path": [
       "menu",
       "item",
       "disabled",
+      "rest",
       "background"
     ],
-    "key": "{menu.item.disabled.background}"
+    "key": "{menu.item.disabled.rest.background}"
   },
-  "hpe.menu.item.disabled.borderColor": {
+  "hpe.menu.item.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -23845,22 +23887,24 @@ export default {
         }
       }
     },
-    "name": "hpe.menu.item.disabled.borderColor",
+    "name": "hpe.menu.item.disabled.rest.borderColor",
     "attributes": {
       "category": "menu",
       "type": "item",
       "item": "disabled",
-      "subitem": "borderColor"
+      "subitem": "rest",
+      "state": "borderColor"
     },
     "path": [
       "menu",
       "item",
       "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{menu.item.disabled.borderColor}"
+    "key": "{menu.item.disabled.rest.borderColor}"
   },
-  "hpe.menu.item.disabled.textColor": {
+  "hpe.menu.item.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -23877,7 +23921,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.disabled.textColor}",
+      "$value": "{button.default.disabled.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -23889,22 +23933,24 @@ export default {
         }
       }
     },
-    "name": "hpe.menu.item.disabled.textColor",
+    "name": "hpe.menu.item.disabled.rest.textColor",
     "attributes": {
       "category": "menu",
       "type": "item",
       "item": "disabled",
-      "subitem": "textColor"
+      "subitem": "rest",
+      "state": "textColor"
     },
     "path": [
       "menu",
       "item",
       "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{menu.item.disabled.textColor}"
+    "key": "{menu.item.disabled.rest.textColor}"
   },
-  "hpe.menu.item.disabled.iconColor": {
+  "hpe.menu.item.disabled.rest.iconColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -23922,7 +23968,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{button.default.disabled.iconColor}",
+      "$value": "{button.default.disabled.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -23935,22 +23981,24 @@ export default {
         }
       }
     },
-    "name": "hpe.menu.item.disabled.iconColor",
+    "name": "hpe.menu.item.disabled.rest.iconColor",
     "attributes": {
       "category": "menu",
       "type": "item",
       "item": "disabled",
-      "subitem": "iconColor"
+      "subitem": "rest",
+      "state": "iconColor"
     },
     "path": [
       "menu",
       "item",
       "disabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{menu.item.disabled.iconColor}"
+    "key": "{menu.item.disabled.rest.iconColor}"
   },
-  "hpe.menu.item.disabled.fontWeight": {
+  "hpe.menu.item.disabled.rest.fontWeight": {
     "$type": "number",
     "$value": 600,
     "$description": "",
@@ -23967,7 +24015,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.disabled.fontWeight}",
+      "$value": "{button.default.disabled.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -23979,20 +24027,22 @@ export default {
         }
       }
     },
-    "name": "hpe.menu.item.disabled.fontWeight",
+    "name": "hpe.menu.item.disabled.rest.fontWeight",
     "attributes": {
       "category": "menu",
       "type": "item",
       "item": "disabled",
-      "subitem": "fontWeight"
+      "subitem": "rest",
+      "state": "fontWeight"
     },
     "path": [
       "menu",
       "item",
       "disabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{menu.item.disabled.fontWeight}"
+    "key": "{menu.item.disabled.rest.fontWeight}"
   },
   "hpe.menu.group.separator.background": {
     "$type": "color",
@@ -24802,7 +24852,7 @@ export default {
     ],
     "key": "{select.medium.option.lineHeight}"
   },
-  "hpe.select.option.enabled.background": {
+  "hpe.select.option.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -24833,22 +24883,22 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.enabled.background",
+    "name": "hpe.select.option.rest.background",
     "attributes": {
       "category": "select",
       "type": "option",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "background"
     },
     "path": [
       "select",
       "option",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{select.option.enabled.background}"
+    "key": "{select.option.rest.background}"
   },
-  "hpe.select.option.enabled.borderColor": {
+  "hpe.select.option.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -24879,22 +24929,22 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.enabled.borderColor",
+    "name": "hpe.select.option.rest.borderColor",
     "attributes": {
       "category": "select",
       "type": "option",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "borderColor"
     },
     "path": [
       "select",
       "option",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{select.option.enabled.borderColor}"
+    "key": "{select.option.rest.borderColor}"
   },
-  "hpe.select.option.enabled.textColor": {
+  "hpe.select.option.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -24923,22 +24973,22 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.enabled.textColor",
+    "name": "hpe.select.option.rest.textColor",
     "attributes": {
       "category": "select",
       "type": "option",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "select",
       "option",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{select.option.enabled.textColor}"
+    "key": "{select.option.rest.textColor}"
   },
-  "hpe.select.option.enabled.fontWeight": {
+  "hpe.select.option.rest.fontWeight": {
     "$type": "number",
     "$value": 500,
     "$description": "",
@@ -24967,20 +25017,20 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.enabled.fontWeight",
+    "name": "hpe.select.option.rest.fontWeight",
     "attributes": {
       "category": "select",
       "type": "option",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "fontWeight"
     },
     "path": [
       "select",
       "option",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{select.option.enabled.fontWeight}"
+    "key": "{select.option.rest.fontWeight}"
   },
   "hpe.select.option.hover.background": {
     "$type": "color",
@@ -25135,7 +25185,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{select.option.enabled.fontWeight}",
+      "$value": "{select.option.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25162,7 +25212,7 @@ export default {
     ],
     "key": "{select.option.hover.fontWeight}"
   },
-  "hpe.select.option.disabled.background": {
+  "hpe.select.option.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
@@ -25193,22 +25243,24 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.disabled.background",
+    "name": "hpe.select.option.disabled.rest.background",
     "attributes": {
       "category": "select",
       "type": "option",
       "item": "disabled",
-      "subitem": "background"
+      "subitem": "rest",
+      "state": "background"
     },
     "path": [
       "select",
       "option",
       "disabled",
+      "rest",
       "background"
     ],
-    "key": "{select.option.disabled.background}"
+    "key": "{select.option.disabled.rest.background}"
   },
-  "hpe.select.option.disabled.borderColor": {
+  "hpe.select.option.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -25239,22 +25291,24 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.disabled.borderColor",
+    "name": "hpe.select.option.disabled.rest.borderColor",
     "attributes": {
       "category": "select",
       "type": "option",
       "item": "disabled",
-      "subitem": "borderColor"
+      "subitem": "rest",
+      "state": "borderColor"
     },
     "path": [
       "select",
       "option",
       "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{select.option.disabled.borderColor}"
+    "key": "{select.option.disabled.rest.borderColor}"
   },
-  "hpe.select.option.disabled.textColor": {
+  "hpe.select.option.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -25283,22 +25337,24 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.disabled.textColor",
+    "name": "hpe.select.option.disabled.rest.textColor",
     "attributes": {
       "category": "select",
       "type": "option",
       "item": "disabled",
-      "subitem": "textColor"
+      "subitem": "rest",
+      "state": "textColor"
     },
     "path": [
       "select",
       "option",
       "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{select.option.disabled.textColor}"
+    "key": "{select.option.disabled.rest.textColor}"
   },
-  "hpe.select.option.disabled.fontWeight": {
+  "hpe.select.option.disabled.rest.fontWeight": {
     "$type": "number",
     "$value": 500,
     "$description": "",
@@ -25315,7 +25371,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{select.option.enabled.fontWeight}",
+      "$value": "{select.option.rest.fontWeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25327,22 +25383,24 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.disabled.fontWeight",
+    "name": "hpe.select.option.disabled.rest.fontWeight",
     "attributes": {
       "category": "select",
       "type": "option",
       "item": "disabled",
-      "subitem": "fontWeight"
+      "subitem": "rest",
+      "state": "fontWeight"
     },
     "path": [
       "select",
       "option",
       "disabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{select.option.disabled.fontWeight}"
+    "key": "{select.option.disabled.rest.fontWeight}"
   },
-  "hpe.select.option.selected.enabled.background": {
+  "hpe.select.option.selected.rest.background": {
     "$type": "color",
     "$value": "#cbfaeb",
     "$description": "",
@@ -25373,24 +25431,24 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.selected.enabled.background",
+    "name": "hpe.select.option.selected.rest.background",
     "attributes": {
       "category": "select",
       "type": "option",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "background"
     },
     "path": [
       "select",
       "option",
       "selected",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{select.option.selected.enabled.background}"
+    "key": "{select.option.selected.rest.background}"
   },
-  "hpe.select.option.selected.enabled.borderColor": {
+  "hpe.select.option.selected.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -25421,24 +25479,24 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.selected.enabled.borderColor",
+    "name": "hpe.select.option.selected.rest.borderColor",
     "attributes": {
       "category": "select",
       "type": "option",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "borderColor"
     },
     "path": [
       "select",
       "option",
       "selected",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{select.option.selected.enabled.borderColor}"
+    "key": "{select.option.selected.rest.borderColor}"
   },
-  "hpe.select.option.selected.enabled.textColor": {
+  "hpe.select.option.selected.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -25467,24 +25525,24 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.selected.enabled.textColor",
+    "name": "hpe.select.option.selected.rest.textColor",
     "attributes": {
       "category": "select",
       "type": "option",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "textColor"
     },
     "path": [
       "select",
       "option",
       "selected",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{select.option.selected.enabled.textColor}"
+    "key": "{select.option.selected.rest.textColor}"
   },
-  "hpe.select.option.selected.enabled.fontWeight": {
+  "hpe.select.option.selected.rest.fontWeight": {
     "$type": "number",
     "$value": 500,
     "$description": "",
@@ -25513,24 +25571,212 @@ export default {
         }
       }
     },
-    "name": "hpe.select.option.selected.enabled.fontWeight",
+    "name": "hpe.select.option.selected.rest.fontWeight",
     "attributes": {
       "category": "select",
       "type": "option",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "fontWeight"
     },
     "path": [
       "select",
       "option",
       "selected",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{select.option.selected.enabled.fontWeight}"
+    "key": "{select.option.selected.rest.fontWeight}"
   },
-  "hpe.checkbox.control.enabled.background": {
+  "hpe.select.option.selected.hover.background": {
+    "$type": "color",
+    "$value": "#aef6df",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.background.selected.weak.hover}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.select.option.selected.hover.background",
+    "attributes": {
+      "category": "select",
+      "type": "option",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "background"
+    },
+    "path": [
+      "select",
+      "option",
+      "selected",
+      "hover",
+      "background"
+    ],
+    "key": "{select.option.selected.hover.background}"
+  },
+  "hpe.select.option.selected.hover.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.transparent}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.select.option.selected.hover.borderColor",
+    "attributes": {
+      "category": "select",
+      "type": "option",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "borderColor"
+    },
+    "path": [
+      "select",
+      "option",
+      "selected",
+      "hover",
+      "borderColor"
+    ],
+    "key": "{select.option.selected.hover.borderColor}"
+  },
+  "hpe.select.option.selected.hover.textColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.onSelected}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.select.option.selected.hover.textColor",
+    "attributes": {
+      "category": "select",
+      "type": "option",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "textColor"
+    },
+    "path": [
+      "select",
+      "option",
+      "selected",
+      "hover",
+      "textColor"
+    ],
+    "key": "{select.option.selected.hover.textColor}"
+  },
+  "hpe.select.option.selected.hover.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.select.option.selected.hover.fontWeight",
+    "attributes": {
+      "category": "select",
+      "type": "option",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "fontWeight"
+    },
+    "path": [
+      "select",
+      "option",
+      "selected",
+      "hover",
+      "fontWeight"
+    ],
+    "key": "{select.option.selected.hover.fontWeight}"
+  },
+  "hpe.checkbox.control.rest.background": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "",
@@ -25561,22 +25807,22 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.control.enabled.background",
+    "name": "hpe.checkbox.control.rest.background",
     "attributes": {
       "category": "checkbox",
       "type": "control",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "background"
     },
     "path": [
       "checkbox",
       "control",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{checkbox.control.enabled.background}"
+    "key": "{checkbox.control.rest.background}"
   },
-  "hpe.checkbox.control.enabled.borderColor": {
+  "hpe.checkbox.control.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
     "$description": "",
@@ -25607,20 +25853,20 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.control.enabled.borderColor",
+    "name": "hpe.checkbox.control.rest.borderColor",
     "attributes": {
       "category": "checkbox",
       "type": "control",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "borderColor"
     },
     "path": [
       "checkbox",
       "control",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{checkbox.control.enabled.borderColor}"
+    "key": "{checkbox.control.rest.borderColor}"
   },
   "hpe.checkbox.control.hover.background": {
     "$type": "color",
@@ -25714,7 +25960,7 @@ export default {
     ],
     "key": "{checkbox.control.hover.borderColor}"
   },
-  "hpe.checkbox.control.disabled.background": {
+  "hpe.checkbox.control.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
@@ -25745,22 +25991,24 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.control.disabled.background",
+    "name": "hpe.checkbox.control.disabled.rest.background",
     "attributes": {
       "category": "checkbox",
       "type": "control",
       "item": "disabled",
-      "subitem": "background"
+      "subitem": "rest",
+      "state": "background"
     },
     "path": [
       "checkbox",
       "control",
       "disabled",
+      "rest",
       "background"
     ],
-    "key": "{checkbox.control.disabled.background}"
+    "key": "{checkbox.control.disabled.rest.background}"
   },
-  "hpe.checkbox.control.disabled.borderColor": {
+  "hpe.checkbox.control.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.12)",
     "$description": "",
@@ -25791,22 +26039,72 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.control.disabled.borderColor",
+    "name": "hpe.checkbox.control.disabled.rest.borderColor",
     "attributes": {
       "category": "checkbox",
       "type": "control",
       "item": "disabled",
-      "subitem": "borderColor"
+      "subitem": "rest",
+      "state": "borderColor"
     },
     "path": [
       "checkbox",
       "control",
       "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{checkbox.control.disabled.borderColor}"
+    "key": "{checkbox.control.disabled.rest.borderColor}"
   },
-  "hpe.checkbox.control.selected.enabled.background": {
+  "hpe.checkbox.control.disabled.rest.iconColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.24)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.icon.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.control.disabled.rest.iconColor",
+    "attributes": {
+      "category": "checkbox",
+      "type": "control",
+      "item": "disabled",
+      "subitem": "rest",
+      "state": "iconColor"
+    },
+    "path": [
+      "checkbox",
+      "control",
+      "disabled",
+      "rest",
+      "iconColor"
+    ],
+    "key": "{checkbox.control.disabled.rest.iconColor}"
+  },
+  "hpe.checkbox.control.selected.rest.background": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "",
@@ -25837,24 +26135,24 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.control.selected.enabled.background",
+    "name": "hpe.checkbox.control.selected.rest.background",
     "attributes": {
       "category": "checkbox",
       "type": "control",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "background"
     },
     "path": [
       "checkbox",
       "control",
       "selected",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{checkbox.control.selected.enabled.background}"
+    "key": "{checkbox.control.selected.rest.background}"
   },
-  "hpe.checkbox.control.selected.enabled.borderColor": {
+  "hpe.checkbox.control.selected.rest.borderColor": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "",
@@ -25885,24 +26183,24 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.control.selected.enabled.borderColor",
+    "name": "hpe.checkbox.control.selected.rest.borderColor",
     "attributes": {
       "category": "checkbox",
       "type": "control",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "borderColor"
     },
     "path": [
       "checkbox",
       "control",
       "selected",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{checkbox.control.selected.enabled.borderColor}"
+    "key": "{checkbox.control.selected.rest.borderColor}"
   },
-  "hpe.checkbox.control.selected.enabled.iconColor": {
+  "hpe.checkbox.control.selected.rest.iconColor": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "",
@@ -25933,22 +26231,22 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.control.selected.enabled.iconColor",
+    "name": "hpe.checkbox.control.selected.rest.iconColor",
     "attributes": {
       "category": "checkbox",
       "type": "control",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "iconColor"
     },
     "path": [
       "checkbox",
       "control",
       "selected",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{checkbox.control.selected.enabled.iconColor}"
+    "key": "{checkbox.control.selected.rest.iconColor}"
   },
   "hpe.checkbox.control.selected.hover.background": {
     "$type": "color",
@@ -26094,151 +26392,7 @@ export default {
     ],
     "key": "{checkbox.control.selected.hover.iconColor}"
   },
-  "hpe.checkbox.control.selected.disabled.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.selected.disabled.background",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "selected",
-      "subitem": "disabled",
-      "state": "background"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "selected",
-      "disabled",
-      "background"
-    ],
-    "key": "{checkbox.control.selected.disabled.background}"
-  },
-  "hpe.checkbox.control.selected.disabled.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.selected.disabled.borderColor",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "selected",
-      "subitem": "disabled",
-      "state": "borderColor"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "selected",
-      "disabled",
-      "borderColor"
-    ],
-    "key": "{checkbox.control.selected.disabled.borderColor}"
-  },
-  "hpe.checkbox.control.selected.disabled.iconColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.24)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.icon.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.selected.disabled.iconColor",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "selected",
-      "subitem": "disabled",
-      "state": "iconColor"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "selected",
-      "disabled",
-      "iconColor"
-    ],
-    "key": "{checkbox.control.selected.disabled.iconColor}"
-  },
-  "hpe.checkbox.control.indeterminate.enabled.background": {
+  "hpe.checkbox.control.indeterminate.rest.background": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "",
@@ -26269,24 +26423,24 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.control.indeterminate.enabled.background",
+    "name": "hpe.checkbox.control.indeterminate.rest.background",
     "attributes": {
       "category": "checkbox",
       "type": "control",
       "item": "indeterminate",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "background"
     },
     "path": [
       "checkbox",
       "control",
       "indeterminate",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{checkbox.control.indeterminate.enabled.background}"
+    "key": "{checkbox.control.indeterminate.rest.background}"
   },
-  "hpe.checkbox.control.indeterminate.enabled.borderColor": {
+  "hpe.checkbox.control.indeterminate.rest.borderColor": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "",
@@ -26317,24 +26471,24 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.control.indeterminate.enabled.borderColor",
+    "name": "hpe.checkbox.control.indeterminate.rest.borderColor",
     "attributes": {
       "category": "checkbox",
       "type": "control",
       "item": "indeterminate",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "borderColor"
     },
     "path": [
       "checkbox",
       "control",
       "indeterminate",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{checkbox.control.indeterminate.enabled.borderColor}"
+    "key": "{checkbox.control.indeterminate.rest.borderColor}"
   },
-  "hpe.checkbox.control.indeterminate.enabled.iconColor": {
+  "hpe.checkbox.control.indeterminate.rest.iconColor": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "",
@@ -26365,22 +26519,22 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.control.indeterminate.enabled.iconColor",
+    "name": "hpe.checkbox.control.indeterminate.rest.iconColor",
     "attributes": {
       "category": "checkbox",
       "type": "control",
       "item": "indeterminate",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "iconColor"
     },
     "path": [
       "checkbox",
       "control",
       "indeterminate",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{checkbox.control.indeterminate.enabled.iconColor}"
+    "key": "{checkbox.control.indeterminate.rest.iconColor}"
   },
   "hpe.checkbox.control.indeterminate.hover.background": {
     "$type": "color",
@@ -26526,151 +26680,7 @@ export default {
     ],
     "key": "{checkbox.control.indeterminate.hover.iconColor}"
   },
-  "hpe.checkbox.control.indeterminate.disabled.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.indeterminate.disabled.background",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "indeterminate",
-      "subitem": "disabled",
-      "state": "background"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "indeterminate",
-      "disabled",
-      "background"
-    ],
-    "key": "{checkbox.control.indeterminate.disabled.background}"
-  },
-  "hpe.checkbox.control.indeterminate.disabled.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.indeterminate.disabled.borderColor",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "indeterminate",
-      "subitem": "disabled",
-      "state": "borderColor"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "indeterminate",
-      "disabled",
-      "borderColor"
-    ],
-    "key": "{checkbox.control.indeterminate.disabled.borderColor}"
-  },
-  "hpe.checkbox.control.indeterminate.disabled.iconColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.24)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.icon.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.control.indeterminate.disabled.iconColor",
-    "attributes": {
-      "category": "checkbox",
-      "type": "control",
-      "item": "indeterminate",
-      "subitem": "disabled",
-      "state": "iconColor"
-    },
-    "path": [
-      "checkbox",
-      "control",
-      "indeterminate",
-      "disabled",
-      "iconColor"
-    ],
-    "key": "{checkbox.control.indeterminate.disabled.iconColor}"
-  },
-  "hpe.checkbox.label.enabled.textColor": {
+  "hpe.checkbox.label.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -26699,20 +26709,20 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.label.enabled.textColor",
+    "name": "hpe.checkbox.label.rest.textColor",
     "attributes": {
       "category": "checkbox",
       "type": "label",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "checkbox",
       "label",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{checkbox.label.enabled.textColor}"
+    "key": "{checkbox.label.rest.textColor}"
   },
   "hpe.checkbox.label.hover.textColor": {
     "$type": "color",
@@ -26758,7 +26768,7 @@ export default {
     ],
     "key": "{checkbox.label.hover.textColor}"
   },
-  "hpe.checkbox.label.disabled.textColor": {
+  "hpe.checkbox.label.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -26787,20 +26797,22 @@ export default {
         }
       }
     },
-    "name": "hpe.checkbox.label.disabled.textColor",
+    "name": "hpe.checkbox.label.disabled.rest.textColor",
     "attributes": {
       "category": "checkbox",
       "type": "label",
       "item": "disabled",
-      "subitem": "textColor"
+      "subitem": "rest",
+      "state": "textColor"
     },
     "path": [
       "checkbox",
       "label",
       "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{checkbox.label.disabled.textColor}"
+    "key": "{checkbox.label.disabled.rest.textColor}"
   },
   "hpe.checkbox.medium.gapX": {
     "$type": "number",
@@ -27154,7 +27166,7 @@ export default {
     ],
     "key": "{checkbox.medium.control.borderRadius}"
   },
-  "hpe.switch.control.track.enabled.background": {
+  "hpe.switch.control.track.rest.background": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "",
@@ -27185,24 +27197,24 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.track.enabled.background",
+    "name": "hpe.switch.control.track.rest.background",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "track",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "background"
     },
     "path": [
       "switch",
       "control",
       "track",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{switch.control.track.enabled.background}"
+    "key": "{switch.control.track.rest.background}"
   },
-  "hpe.switch.control.track.enabled.borderColor": {
+  "hpe.switch.control.track.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
     "$description": "",
@@ -27233,22 +27245,22 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.track.enabled.borderColor",
+    "name": "hpe.switch.control.track.rest.borderColor",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "track",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "borderColor"
     },
     "path": [
       "switch",
       "control",
       "track",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{switch.control.track.enabled.borderColor}"
+    "key": "{switch.control.track.rest.borderColor}"
   },
   "hpe.switch.control.track.hover.background": {
     "$type": "color",
@@ -27346,7 +27358,7 @@ export default {
     ],
     "key": "{switch.control.track.hover.borderColor}"
   },
-  "hpe.switch.control.track.disabled.background": {
+  "hpe.switch.control.track.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
@@ -27377,24 +27389,25 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.track.disabled.background",
+    "name": "hpe.switch.control.track.disabled.rest.background",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "track",
       "subitem": "disabled",
-      "state": "background"
+      "state": "rest"
     },
     "path": [
       "switch",
       "control",
       "track",
       "disabled",
+      "rest",
       "background"
     ],
-    "key": "{switch.control.track.disabled.background}"
+    "key": "{switch.control.track.disabled.rest.background}"
   },
-  "hpe.switch.control.track.disabled.borderColor": {
+  "hpe.switch.control.track.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.12)",
     "$description": "",
@@ -27425,24 +27438,25 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.track.disabled.borderColor",
+    "name": "hpe.switch.control.track.disabled.rest.borderColor",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "track",
       "subitem": "disabled",
-      "state": "borderColor"
+      "state": "rest"
     },
     "path": [
       "switch",
       "control",
       "track",
       "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{switch.control.track.disabled.borderColor}"
+    "key": "{switch.control.track.disabled.rest.borderColor}"
   },
-  "hpe.switch.control.track.selected.enabled.background": {
+  "hpe.switch.control.track.selected.rest.background": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "",
@@ -27473,25 +27487,25 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.track.selected.enabled.background",
+    "name": "hpe.switch.control.track.selected.rest.background",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "track",
       "subitem": "selected",
-      "state": "enabled"
+      "state": "rest"
     },
     "path": [
       "switch",
       "control",
       "track",
       "selected",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{switch.control.track.selected.enabled.background}"
+    "key": "{switch.control.track.selected.rest.background}"
   },
-  "hpe.switch.control.track.selected.enabled.borderColor": {
+  "hpe.switch.control.track.selected.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
     "$description": "",
@@ -27522,23 +27536,23 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.track.selected.enabled.borderColor",
+    "name": "hpe.switch.control.track.selected.rest.borderColor",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "track",
       "subitem": "selected",
-      "state": "enabled"
+      "state": "rest"
     },
     "path": [
       "switch",
       "control",
       "track",
       "selected",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{switch.control.track.selected.enabled.borderColor}"
+    "key": "{switch.control.track.selected.rest.borderColor}"
   },
   "hpe.switch.control.track.selected.hover.background": {
     "$type": "color",
@@ -27638,105 +27652,7 @@ export default {
     ],
     "key": "{switch.control.track.selected.hover.borderColor}"
   },
-  "hpe.switch.control.track.selected.disabled.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.switch.control.track.selected.disabled.background",
-    "attributes": {
-      "category": "switch",
-      "type": "control",
-      "item": "track",
-      "subitem": "selected",
-      "state": "disabled"
-    },
-    "path": [
-      "switch",
-      "control",
-      "track",
-      "selected",
-      "disabled",
-      "background"
-    ],
-    "key": "{switch.control.track.selected.disabled.background}"
-  },
-  "hpe.switch.control.track.selected.disabled.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.switch.control.track.selected.disabled.borderColor",
-    "attributes": {
-      "category": "switch",
-      "type": "control",
-      "item": "track",
-      "subitem": "selected",
-      "state": "disabled"
-    },
-    "path": [
-      "switch",
-      "control",
-      "track",
-      "selected",
-      "disabled",
-      "borderColor"
-    ],
-    "key": "{switch.control.track.selected.disabled.borderColor}"
-  },
-  "hpe.switch.control.handle.enabled.background": {
+  "hpe.switch.control.handle.rest.background": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "",
@@ -27767,24 +27683,24 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.handle.enabled.background",
+    "name": "hpe.switch.control.handle.rest.background",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "handle",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "background"
     },
     "path": [
       "switch",
       "control",
       "handle",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{switch.control.handle.enabled.background}"
+    "key": "{switch.control.handle.rest.background}"
   },
-  "hpe.switch.control.handle.enabled.borderColor": {
+  "hpe.switch.control.handle.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
     "$description": "",
@@ -27815,22 +27731,22 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.handle.enabled.borderColor",
+    "name": "hpe.switch.control.handle.rest.borderColor",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "handle",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "borderColor"
     },
     "path": [
       "switch",
       "control",
       "handle",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{switch.control.handle.enabled.borderColor}"
+    "key": "{switch.control.handle.rest.borderColor}"
   },
   "hpe.switch.control.handle.hover.background": {
     "$type": "color",
@@ -27928,7 +27844,7 @@ export default {
     ],
     "key": "{switch.control.handle.hover.borderColor}"
   },
-  "hpe.switch.control.handle.disabled.background": {
+  "hpe.switch.control.handle.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
@@ -27959,24 +27875,25 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.handle.disabled.background",
+    "name": "hpe.switch.control.handle.disabled.rest.background",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "handle",
       "subitem": "disabled",
-      "state": "background"
+      "state": "rest"
     },
     "path": [
       "switch",
       "control",
       "handle",
       "disabled",
+      "rest",
       "background"
     ],
-    "key": "{switch.control.handle.disabled.background}"
+    "key": "{switch.control.handle.disabled.rest.background}"
   },
-  "hpe.switch.control.handle.disabled.borderColor": {
+  "hpe.switch.control.handle.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.12)",
     "$description": "",
@@ -28007,24 +27924,25 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.handle.disabled.borderColor",
+    "name": "hpe.switch.control.handle.disabled.rest.borderColor",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "handle",
       "subitem": "disabled",
-      "state": "borderColor"
+      "state": "rest"
     },
     "path": [
       "switch",
       "control",
       "handle",
       "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{switch.control.handle.disabled.borderColor}"
+    "key": "{switch.control.handle.disabled.rest.borderColor}"
   },
-  "hpe.switch.control.handle.selected.enabled.background": {
+  "hpe.switch.control.handle.selected.rest.background": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "",
@@ -28055,25 +27973,25 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.handle.selected.enabled.background",
+    "name": "hpe.switch.control.handle.selected.rest.background",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "handle",
       "subitem": "selected",
-      "state": "enabled"
+      "state": "rest"
     },
     "path": [
       "switch",
       "control",
       "handle",
       "selected",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{switch.control.handle.selected.enabled.background}"
+    "key": "{switch.control.handle.selected.rest.background}"
   },
-  "hpe.switch.control.handle.selected.enabled.borderColor": {
+  "hpe.switch.control.handle.selected.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
     "$description": "",
@@ -28104,23 +28022,23 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.control.handle.selected.enabled.borderColor",
+    "name": "hpe.switch.control.handle.selected.rest.borderColor",
     "attributes": {
       "category": "switch",
       "type": "control",
       "item": "handle",
       "subitem": "selected",
-      "state": "enabled"
+      "state": "rest"
     },
     "path": [
       "switch",
       "control",
       "handle",
       "selected",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{switch.control.handle.selected.enabled.borderColor}"
+    "key": "{switch.control.handle.selected.rest.borderColor}"
   },
   "hpe.switch.control.handle.selected.hover.background": {
     "$type": "color",
@@ -28220,105 +28138,7 @@ export default {
     ],
     "key": "{switch.control.handle.selected.hover.borderColor}"
   },
-  "hpe.switch.control.handle.selected.disabled.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.switch.control.handle.selected.disabled.background",
-    "attributes": {
-      "category": "switch",
-      "type": "control",
-      "item": "handle",
-      "subitem": "selected",
-      "state": "disabled"
-    },
-    "path": [
-      "switch",
-      "control",
-      "handle",
-      "selected",
-      "disabled",
-      "background"
-    ],
-    "key": "{switch.control.handle.selected.disabled.background}"
-  },
-  "hpe.switch.control.handle.selected.disabled.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.switch.control.handle.selected.disabled.borderColor",
-    "attributes": {
-      "category": "switch",
-      "type": "control",
-      "item": "handle",
-      "subitem": "selected",
-      "state": "disabled"
-    },
-    "path": [
-      "switch",
-      "control",
-      "handle",
-      "selected",
-      "disabled",
-      "borderColor"
-    ],
-    "key": "{switch.control.handle.selected.disabled.borderColor}"
-  },
-  "hpe.switch.label.enabled.textColor": {
+  "hpe.switch.label.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -28347,20 +28167,20 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.label.enabled.textColor",
+    "name": "hpe.switch.label.rest.textColor",
     "attributes": {
       "category": "switch",
       "type": "label",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "switch",
       "label",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{switch.label.enabled.textColor}"
+    "key": "{switch.label.rest.textColor}"
   },
   "hpe.switch.label.hover.textColor": {
     "$type": "color",
@@ -28406,7 +28226,7 @@ export default {
     ],
     "key": "{switch.label.hover.textColor}"
   },
-  "hpe.switch.label.disabled.textColor": {
+  "hpe.switch.label.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -28435,20 +28255,22 @@ export default {
         }
       }
     },
-    "name": "hpe.switch.label.disabled.textColor",
+    "name": "hpe.switch.label.disabled.rest.textColor",
     "attributes": {
       "category": "switch",
       "type": "label",
       "item": "disabled",
-      "subitem": "textColor"
+      "subitem": "rest",
+      "state": "textColor"
     },
     "path": [
       "switch",
       "label",
       "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{switch.label.disabled.textColor}"
+    "key": "{switch.label.disabled.rest.textColor}"
   },
   "hpe.switch.medium.gapX": {
     "$type": "number",
@@ -29318,7 +29140,7 @@ export default {
     ],
     "key": "{dataCell.minHeight}"
   },
-  "hpe.dataCell.enabled.textColor": {
+  "hpe.dataCell.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -29347,20 +29169,20 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.enabled.textColor",
+    "name": "hpe.dataCell.rest.textColor",
     "attributes": {
       "category": "dataCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "textColor"
     },
     "path": [
       "dataCell",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{dataCell.enabled.textColor}"
+    "key": "{dataCell.rest.textColor}"
   },
-  "hpe.dataCell.enabled.iconColor": {
+  "hpe.dataCell.rest.iconColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -29393,20 +29215,20 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.enabled.iconColor",
+    "name": "hpe.dataCell.rest.iconColor",
     "attributes": {
       "category": "dataCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "iconColor"
     },
     "path": [
       "dataCell",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{dataCell.enabled.iconColor}"
+    "key": "{dataCell.rest.iconColor}"
   },
-  "hpe.dataCell.enabled.borderColor": {
+  "hpe.dataCell.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -29437,20 +29259,20 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.enabled.borderColor",
+    "name": "hpe.dataCell.rest.borderColor",
     "attributes": {
       "category": "dataCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "borderColor"
     },
     "path": [
       "dataCell",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{dataCell.enabled.borderColor}"
+    "key": "{dataCell.rest.borderColor}"
   },
-  "hpe.dataCell.enabled.background": {
+  "hpe.dataCell.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -29481,18 +29303,18 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.enabled.background",
+    "name": "hpe.dataCell.rest.background",
     "attributes": {
       "category": "dataCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "background"
     },
     "path": [
       "dataCell",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{dataCell.enabled.background}"
+    "key": "{dataCell.rest.background}"
   },
   "hpe.dataCell.hover.textColor": {
     "$type": "color",
@@ -29511,7 +29333,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.textColor}",
+      "$value": "{dataCell.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29555,7 +29377,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.iconColor}",
+      "$value": "{dataCell.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29600,7 +29422,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.borderColor}",
+      "$value": "{dataCell.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29670,7 +29492,7 @@ export default {
     ],
     "key": "{dataCell.hover.background}"
   },
-  "hpe.dataCell.disabled.textColor": {
+  "hpe.dataCell.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -29699,20 +29521,22 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.disabled.textColor",
+    "name": "hpe.dataCell.disabled.rest.textColor",
     "attributes": {
       "category": "dataCell",
       "type": "disabled",
-      "item": "textColor"
+      "item": "rest",
+      "subitem": "textColor"
     },
     "path": [
       "dataCell",
       "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{dataCell.disabled.textColor}"
+    "key": "{dataCell.disabled.rest.textColor}"
   },
-  "hpe.dataCell.disabled.iconColor": {
+  "hpe.dataCell.disabled.rest.iconColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -29745,20 +29569,22 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.disabled.iconColor",
+    "name": "hpe.dataCell.disabled.rest.iconColor",
     "attributes": {
       "category": "dataCell",
       "type": "disabled",
-      "item": "iconColor"
+      "item": "rest",
+      "subitem": "iconColor"
     },
     "path": [
       "dataCell",
       "disabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{dataCell.disabled.iconColor}"
+    "key": "{dataCell.disabled.rest.iconColor}"
   },
-  "hpe.dataCell.disabled.borderColor": {
+  "hpe.dataCell.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -29776,7 +29602,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.borderColor}",
+      "$value": "{dataCell.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29789,20 +29615,22 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.disabled.borderColor",
+    "name": "hpe.dataCell.disabled.rest.borderColor",
     "attributes": {
       "category": "dataCell",
       "type": "disabled",
-      "item": "borderColor"
+      "item": "rest",
+      "subitem": "borderColor"
     },
     "path": [
       "dataCell",
       "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{dataCell.disabled.borderColor}"
+    "key": "{dataCell.disabled.rest.borderColor}"
   },
-  "hpe.dataCell.disabled.background": {
+  "hpe.dataCell.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -29820,7 +29648,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.background}",
+      "$value": "{dataCell.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29833,22 +29661,24 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.disabled.background",
+    "name": "hpe.dataCell.disabled.rest.background",
     "attributes": {
       "category": "dataCell",
       "type": "disabled",
-      "item": "background"
+      "item": "rest",
+      "subitem": "background"
     },
     "path": [
       "dataCell",
       "disabled",
+      "rest",
       "background"
     ],
-    "key": "{dataCell.disabled.background}"
+    "key": "{dataCell.disabled.rest.background}"
   },
-  "hpe.dataCell.pinned.textColor": {
+  "hpe.dataCell.selected.rest.textColor": {
     "$type": "color",
-    "$value": "#555555",
+    "$value": "#333333",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29863,7 +29693,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.textColor}",
+      "$value": "{color.text.onSelected}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29875,22 +29705,24 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.pinned.textColor",
+    "name": "hpe.dataCell.selected.rest.textColor",
     "attributes": {
       "category": "dataCell",
-      "type": "pinned",
-      "item": "textColor"
+      "type": "selected",
+      "item": "rest",
+      "subitem": "textColor"
     },
     "path": [
       "dataCell",
-      "pinned",
+      "selected",
+      "rest",
       "textColor"
     ],
-    "key": "{dataCell.pinned.textColor}"
+    "key": "{dataCell.selected.rest.textColor}"
   },
-  "hpe.dataCell.pinned.iconColor": {
+  "hpe.dataCell.selected.rest.iconColor": {
     "$type": "color",
-    "$value": "#555555",
+    "$value": "#333333",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29907,7 +29739,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.iconColor}",
+      "$value": "{color.icon.onSelected}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29921,20 +29753,22 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.pinned.iconColor",
+    "name": "hpe.dataCell.selected.rest.iconColor",
     "attributes": {
       "category": "dataCell",
-      "type": "pinned",
-      "item": "iconColor"
+      "type": "selected",
+      "item": "rest",
+      "subitem": "iconColor"
     },
     "path": [
       "dataCell",
-      "pinned",
+      "selected",
+      "rest",
       "iconColor"
     ],
-    "key": "{dataCell.pinned.iconColor}"
+    "key": "{dataCell.selected.rest.iconColor}"
   },
-  "hpe.dataCell.pinned.borderColor": {
+  "hpe.dataCell.selected.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -29952,7 +29786,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.borderColor}",
+      "$value": "{dataCell.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29965,22 +29799,24 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.pinned.borderColor",
+    "name": "hpe.dataCell.selected.rest.borderColor",
     "attributes": {
       "category": "dataCell",
-      "type": "pinned",
-      "item": "borderColor"
+      "type": "selected",
+      "item": "rest",
+      "subitem": "borderColor"
     },
     "path": [
       "dataCell",
-      "pinned",
+      "selected",
+      "rest",
       "borderColor"
     ],
-    "key": "{dataCell.pinned.borderColor}"
+    "key": "{dataCell.selected.rest.borderColor}"
   },
-  "hpe.dataCell.pinned.backgroundColor": {
+  "hpe.dataCell.selected.rest.background": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#cbfaeb",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29996,7 +29832,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.background}",
+      "$value": "{color.background.selected.weak.enabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30009,62 +29845,204 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.pinned.backgroundColor",
+    "name": "hpe.dataCell.selected.rest.background",
     "attributes": {
       "category": "dataCell",
-      "type": "pinned",
-      "item": "backgroundColor"
+      "type": "selected",
+      "item": "rest",
+      "subitem": "background"
     },
     "path": [
       "dataCell",
-      "pinned",
-      "backgroundColor"
-    ],
-    "key": "{dataCell.pinned.backgroundColor}"
-  },
-  "hpe.dataCell.pinned.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{dataCell.enabled.background}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.dataCell.pinned.background",
-    "attributes": {
-      "category": "dataCell",
-      "type": "pinned",
-      "item": "background"
-    },
-    "path": [
-      "dataCell",
-      "pinned",
+      "selected",
+      "rest",
       "background"
     ],
-    "key": "{dataCell.pinned.background}"
+    "key": "{dataCell.selected.rest.background}"
+  },
+  "hpe.dataCell.selected.hover.textColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.onSelected}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.dataCell.selected.hover.textColor",
+    "attributes": {
+      "category": "dataCell",
+      "type": "selected",
+      "item": "hover",
+      "subitem": "textColor"
+    },
+    "path": [
+      "dataCell",
+      "selected",
+      "hover",
+      "textColor"
+    ],
+    "key": "{dataCell.selected.hover.textColor}"
+  },
+  "hpe.dataCell.selected.hover.iconColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.icon.onSelected}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.dataCell.selected.hover.iconColor",
+    "attributes": {
+      "category": "dataCell",
+      "type": "selected",
+      "item": "hover",
+      "subitem": "iconColor"
+    },
+    "path": [
+      "dataCell",
+      "selected",
+      "hover",
+      "iconColor"
+    ],
+    "key": "{dataCell.selected.hover.iconColor}"
+  },
+  "hpe.dataCell.selected.hover.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{dataCell.rest.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.dataCell.selected.hover.borderColor",
+    "attributes": {
+      "category": "dataCell",
+      "type": "selected",
+      "item": "hover",
+      "subitem": "borderColor"
+    },
+    "path": [
+      "dataCell",
+      "selected",
+      "hover",
+      "borderColor"
+    ],
+    "key": "{dataCell.selected.hover.borderColor}"
+  },
+  "hpe.dataCell.selected.hover.background": {
+    "$type": "color",
+    "$value": "#aef6df",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.background.selected.weak.hover}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.dataCell.selected.hover.background",
+    "attributes": {
+      "category": "dataCell",
+      "type": "selected",
+      "item": "hover",
+      "subitem": "background"
+    },
+    "path": [
+      "dataCell",
+      "selected",
+      "hover",
+      "background"
+    ],
+    "key": "{dataCell.selected.hover.background}"
   },
   "hpe.dataCell.primary.paddingX": {
     "$type": "number",
@@ -30362,7 +30340,7 @@ export default {
     ],
     "key": "{dataCell.primary.paddingBottom}"
   },
-  "hpe.dataCell.primary.enabled.textColor": {
+  "hpe.dataCell.primary.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -30391,22 +30369,22 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.enabled.textColor",
+    "name": "hpe.dataCell.primary.rest.textColor",
     "attributes": {
       "category": "dataCell",
       "type": "primary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "dataCell",
       "primary",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{dataCell.primary.enabled.textColor}"
+    "key": "{dataCell.primary.rest.textColor}"
   },
-  "hpe.dataCell.primary.enabled.iconColor": {
+  "hpe.dataCell.primary.rest.iconColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -30439,22 +30417,22 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.enabled.iconColor",
+    "name": "hpe.dataCell.primary.rest.iconColor",
     "attributes": {
       "category": "dataCell",
       "type": "primary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "iconColor"
     },
     "path": [
       "dataCell",
       "primary",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{dataCell.primary.enabled.iconColor}"
+    "key": "{dataCell.primary.rest.iconColor}"
   },
-  "hpe.dataCell.primary.enabled.borderColor": {
+  "hpe.dataCell.primary.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -30472,7 +30450,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.borderColor}",
+      "$value": "{dataCell.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30485,22 +30463,22 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.enabled.borderColor",
+    "name": "hpe.dataCell.primary.rest.borderColor",
     "attributes": {
       "category": "dataCell",
       "type": "primary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "borderColor"
     },
     "path": [
       "dataCell",
       "primary",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{dataCell.primary.enabled.borderColor}"
+    "key": "{dataCell.primary.rest.borderColor}"
   },
-  "hpe.dataCell.primary.enabled.background": {
+  "hpe.dataCell.primary.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -30518,7 +30496,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.background}",
+      "$value": "{dataCell.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30531,20 +30509,20 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.enabled.background",
+    "name": "hpe.dataCell.primary.rest.background",
     "attributes": {
       "category": "dataCell",
       "type": "primary",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "background"
     },
     "path": [
       "dataCell",
       "primary",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{dataCell.primary.enabled.background}"
+    "key": "{dataCell.primary.rest.background}"
   },
   "hpe.dataCell.primary.hover.textColor": {
     "$type": "color",
@@ -30563,7 +30541,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.primary.enabled.textColor}",
+      "$value": "{dataCell.primary.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30609,7 +30587,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.primary.enabled.iconColor}",
+      "$value": "{dataCell.primary.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30747,7 +30725,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.disabled.textColor}",
+      "$value": "{dataCell.disabled.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30793,7 +30771,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.disabled.iconColor}",
+      "$value": "{dataCell.disabled.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30840,7 +30818,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.disabled.borderColor}",
+      "$value": "{dataCell.disabled.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30886,7 +30864,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.disabled.background}",
+      "$value": "{dataCell.disabled.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30914,9 +30892,9 @@ export default {
     ],
     "key": "{dataCell.primary.disabled.background}"
   },
-  "hpe.dataCell.primary.pinned.textColor": {
+  "hpe.dataCell.pinned.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#555555",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -30931,7 +30909,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.primary.enabled.textColor}",
+      "$value": "{dataCell.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30943,24 +30921,24 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.pinned.textColor",
+    "name": "hpe.dataCell.pinned.rest.textColor",
     "attributes": {
       "category": "dataCell",
-      "type": "primary",
-      "item": "pinned",
+      "type": "pinned",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "dataCell",
-      "primary",
       "pinned",
+      "rest",
       "textColor"
     ],
-    "key": "{dataCell.primary.pinned.textColor}"
+    "key": "{dataCell.pinned.rest.textColor}"
   },
-  "hpe.dataCell.primary.pinned.iconColor": {
+  "hpe.dataCell.pinned.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#555555",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -30977,7 +30955,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.primary.enabled.iconColor}",
+      "$value": "{dataCell.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30991,22 +30969,22 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.pinned.iconColor",
+    "name": "hpe.dataCell.pinned.rest.iconColor",
     "attributes": {
       "category": "dataCell",
-      "type": "primary",
-      "item": "pinned",
+      "type": "pinned",
+      "item": "rest",
       "subitem": "iconColor"
     },
     "path": [
       "dataCell",
-      "primary",
       "pinned",
+      "rest",
       "iconColor"
     ],
-    "key": "{dataCell.primary.pinned.iconColor}"
+    "key": "{dataCell.pinned.rest.iconColor}"
   },
-  "hpe.dataCell.primary.pinned.borderColor": {
+  "hpe.dataCell.pinned.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -31024,7 +31002,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.pinned.borderColor}",
+      "$value": "{dataCell.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -31037,22 +31015,22 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.pinned.borderColor",
+    "name": "hpe.dataCell.pinned.rest.borderColor",
     "attributes": {
       "category": "dataCell",
-      "type": "primary",
-      "item": "pinned",
+      "type": "pinned",
+      "item": "rest",
       "subitem": "borderColor"
     },
     "path": [
       "dataCell",
-      "primary",
       "pinned",
+      "rest",
       "borderColor"
     ],
-    "key": "{dataCell.primary.pinned.borderColor}"
+    "key": "{dataCell.pinned.rest.borderColor}"
   },
-  "hpe.dataCell.primary.pinned.background": {
+  "hpe.dataCell.pinned.rest.backgroundColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -31070,7 +31048,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.pinned.background}",
+      "$value": "{dataCell.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -31083,20 +31061,296 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.pinned.background",
+    "name": "hpe.dataCell.pinned.rest.backgroundColor",
     "attributes": {
       "category": "dataCell",
-      "type": "primary",
-      "item": "pinned",
+      "type": "pinned",
+      "item": "rest",
+      "subitem": "backgroundColor"
+    },
+    "path": [
+      "dataCell",
+      "pinned",
+      "rest",
+      "backgroundColor"
+    ],
+    "key": "{dataCell.pinned.rest.backgroundColor}"
+  },
+  "hpe.dataCell.pinned.rest.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{dataCell.rest.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.dataCell.pinned.rest.background",
+    "attributes": {
+      "category": "dataCell",
+      "type": "pinned",
+      "item": "rest",
       "subitem": "background"
     },
     "path": [
       "dataCell",
-      "primary",
       "pinned",
+      "rest",
       "background"
     ],
-    "key": "{dataCell.primary.pinned.background}"
+    "key": "{dataCell.pinned.rest.background}"
+  },
+  "hpe.dataCell.pinned.hover.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{dataCell.rest.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.dataCell.pinned.hover.textColor",
+    "attributes": {
+      "category": "dataCell",
+      "type": "pinned",
+      "item": "hover",
+      "subitem": "textColor"
+    },
+    "path": [
+      "dataCell",
+      "pinned",
+      "hover",
+      "textColor"
+    ],
+    "key": "{dataCell.pinned.hover.textColor}"
+  },
+  "hpe.dataCell.pinned.hover.iconColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{dataCell.rest.iconColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.dataCell.pinned.hover.iconColor",
+    "attributes": {
+      "category": "dataCell",
+      "type": "pinned",
+      "item": "hover",
+      "subitem": "iconColor"
+    },
+    "path": [
+      "dataCell",
+      "pinned",
+      "hover",
+      "iconColor"
+    ],
+    "key": "{dataCell.pinned.hover.iconColor}"
+  },
+  "hpe.dataCell.pinned.hover.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{dataCell.rest.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.dataCell.pinned.hover.borderColor",
+    "attributes": {
+      "category": "dataCell",
+      "type": "pinned",
+      "item": "hover",
+      "subitem": "borderColor"
+    },
+    "path": [
+      "dataCell",
+      "pinned",
+      "hover",
+      "borderColor"
+    ],
+    "key": "{dataCell.pinned.hover.borderColor}"
+  },
+  "hpe.dataCell.pinned.hover.backgroundColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{dataCell.rest.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.dataCell.pinned.hover.backgroundColor",
+    "attributes": {
+      "category": "dataCell",
+      "type": "pinned",
+      "item": "hover",
+      "subitem": "backgroundColor"
+    },
+    "path": [
+      "dataCell",
+      "pinned",
+      "hover",
+      "backgroundColor"
+    ],
+    "key": "{dataCell.pinned.hover.backgroundColor}"
+  },
+  "hpe.dataCell.pinned.hover.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{dataCell.rest.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.dataCell.pinned.hover.background",
+    "attributes": {
+      "category": "dataCell",
+      "type": "pinned",
+      "item": "hover",
+      "subitem": "background"
+    },
+    "path": [
+      "dataCell",
+      "pinned",
+      "hover",
+      "background"
+    ],
+    "key": "{dataCell.pinned.hover.background}"
   },
   "hpe.headerCell.paddingX": {
     "$type": "number",
@@ -31380,7 +31634,7 @@ export default {
     ],
     "key": "{headerCell.paddingBottom}"
   },
-  "hpe.headerCell.enabled.textColor": {
+  "hpe.headerCell.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -31409,20 +31663,20 @@ export default {
         }
       }
     },
-    "name": "hpe.headerCell.enabled.textColor",
+    "name": "hpe.headerCell.rest.textColor",
     "attributes": {
       "category": "headerCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "textColor"
     },
     "path": [
       "headerCell",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{headerCell.enabled.textColor}"
+    "key": "{headerCell.rest.textColor}"
   },
-  "hpe.headerCell.enabled.iconColor": {
+  "hpe.headerCell.rest.iconColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -31455,20 +31709,20 @@ export default {
         }
       }
     },
-    "name": "hpe.headerCell.enabled.iconColor",
+    "name": "hpe.headerCell.rest.iconColor",
     "attributes": {
       "category": "headerCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "iconColor"
     },
     "path": [
       "headerCell",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{headerCell.enabled.iconColor}"
+    "key": "{headerCell.rest.iconColor}"
   },
-  "hpe.headerCell.enabled.borderColor": {
+  "hpe.headerCell.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
     "$description": "",
@@ -31499,20 +31753,20 @@ export default {
         }
       }
     },
-    "name": "hpe.headerCell.enabled.borderColor",
+    "name": "hpe.headerCell.rest.borderColor",
     "attributes": {
       "category": "headerCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "borderColor"
     },
     "path": [
       "headerCell",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{headerCell.enabled.borderColor}"
+    "key": "{headerCell.rest.borderColor}"
   },
-  "hpe.headerCell.enabled.background": {
+  "hpe.headerCell.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -31543,18 +31797,18 @@ export default {
         }
       }
     },
-    "name": "hpe.headerCell.enabled.background",
+    "name": "hpe.headerCell.rest.background",
     "attributes": {
       "category": "headerCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "background"
     },
     "path": [
       "headerCell",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{headerCell.enabled.background}"
+    "key": "{headerCell.rest.background}"
   },
   "hpe.headerCell.hover.textColor": {
     "$type": "color",
@@ -31573,7 +31827,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{headerCell.enabled.textColor}",
+      "$value": "{headerCell.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -31617,7 +31871,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{headerCell.enabled.iconColor}",
+      "$value": "{headerCell.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -31662,7 +31916,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{headerCell.enabled.borderColor}",
+      "$value": "{headerCell.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -31749,7 +32003,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.textColor}",
+      "$value": "{dataCell.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -31793,7 +32047,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.iconColor}",
+      "$value": "{dataCell.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -31988,7 +32242,7 @@ export default {
     ],
     "key": "{headerCell.minHeight}"
   },
-  "hpe.headerCell.units.enabled.textColor": {
+  "hpe.headerCell.units.rest.textColor": {
     "$type": "color",
     "$value": "#757575",
     "$description": "",
@@ -32017,20 +32271,20 @@ export default {
         }
       }
     },
-    "name": "hpe.headerCell.units.enabled.textColor",
+    "name": "hpe.headerCell.units.rest.textColor",
     "attributes": {
       "category": "headerCell",
       "type": "units",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "headerCell",
       "units",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{headerCell.units.enabled.textColor}"
+    "key": "{headerCell.units.rest.textColor}"
   },
   "hpe.headerCell.units.hover.textColor": {
     "$type": "color",
@@ -32075,6 +32329,98 @@ export default {
       "textColor"
     ],
     "key": "{headerCell.units.hover.textColor}"
+  },
+  "hpe.headerCell.units.pinned.rest.textColor": {
+    "$type": "color",
+    "$value": "#757575",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{headerCell.units.rest.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.headerCell.units.pinned.rest.textColor",
+    "attributes": {
+      "category": "headerCell",
+      "type": "units",
+      "item": "pinned",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "headerCell",
+      "units",
+      "pinned",
+      "rest",
+      "textColor"
+    ],
+    "key": "{headerCell.units.pinned.rest.textColor}"
+  },
+  "hpe.headerCell.units.pinned.hover.textColor": {
+    "$type": "color",
+    "$value": "#757575",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{headerCell.units.rest.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.headerCell.units.pinned.hover.textColor",
+    "attributes": {
+      "category": "headerCell",
+      "type": "units",
+      "item": "pinned",
+      "subitem": "hover",
+      "state": "textColor"
+    },
+    "path": [
+      "headerCell",
+      "units",
+      "pinned",
+      "hover",
+      "textColor"
+    ],
+    "key": "{headerCell.units.pinned.hover.textColor}"
   },
   "hpe.formField.medium.input.group.item.paddingX": {
     "$type": "number",
@@ -34154,7 +34500,7 @@ export default {
   },
   "hpe.formField.input.group.item.enabled.borderColor": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -34170,7 +34516,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#ffffff",
+      "$value": "{color.transparent}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34398,6 +34744,104 @@ export default {
       "borderColor"
     ],
     "key": "{formField.input.group.item.hover.borderColor}"
+  },
+  "hpe.formField.input.group.item.focus.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.04)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.background.hover}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.group.item.focus.background",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "group",
+      "subitem": "item",
+      "state": "focus"
+    },
+    "path": [
+      "formField",
+      "input",
+      "group",
+      "item",
+      "focus",
+      "background"
+    ],
+    "key": "{formField.input.group.item.focus.background}"
+  },
+  "hpe.formField.input.group.item.focus.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.transparent}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.group.item.focus.borderColor",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "group",
+      "subitem": "item",
+      "state": "focus"
+    },
+    "path": [
+      "formField",
+      "input",
+      "group",
+      "item",
+      "focus",
+      "borderColor"
+    ],
+    "key": "{formField.input.group.item.focus.borderColor}"
   },
   "hpe.formField.input.group.item.readOnly.background": {
     "$type": "color",
@@ -34693,7 +35137,7 @@ export default {
   },
   "hpe.formField.input.container.hover.background": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -34709,7 +35153,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.transparent}",
+      "$value": "{color.background.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37439,7 +37883,7 @@ export default {
     ],
     "key": "{footerCell.minHeight}"
   },
-  "hpe.footerCell.enabled.textColor": {
+  "hpe.footerCell.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -37456,7 +37900,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.textColor}",
+      "$value": "{dataCell.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37468,20 +37912,20 @@ export default {
         }
       }
     },
-    "name": "hpe.footerCell.enabled.textColor",
+    "name": "hpe.footerCell.rest.textColor",
     "attributes": {
       "category": "footerCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "textColor"
     },
     "path": [
       "footerCell",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{footerCell.enabled.textColor}"
+    "key": "{footerCell.rest.textColor}"
   },
-  "hpe.footerCell.enabled.iconColor": {
+  "hpe.footerCell.rest.iconColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -37500,7 +37944,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.iconColor}",
+      "$value": "{dataCell.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37514,20 +37958,20 @@ export default {
         }
       }
     },
-    "name": "hpe.footerCell.enabled.iconColor",
+    "name": "hpe.footerCell.rest.iconColor",
     "attributes": {
       "category": "footerCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "iconColor"
     },
     "path": [
       "footerCell",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{footerCell.enabled.iconColor}"
+    "key": "{footerCell.rest.iconColor}"
   },
-  "hpe.footerCell.enabled.borderColor": {
+  "hpe.footerCell.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
     "$description": "",
@@ -37558,20 +38002,20 @@ export default {
         }
       }
     },
-    "name": "hpe.footerCell.enabled.borderColor",
+    "name": "hpe.footerCell.rest.borderColor",
     "attributes": {
       "category": "footerCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "borderColor"
     },
     "path": [
       "footerCell",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{footerCell.enabled.borderColor}"
+    "key": "{footerCell.rest.borderColor}"
   },
-  "hpe.footerCell.enabled.background": {
+  "hpe.footerCell.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -37602,18 +38046,18 @@ export default {
         }
       }
     },
-    "name": "hpe.footerCell.enabled.background",
+    "name": "hpe.footerCell.rest.background",
     "attributes": {
       "category": "footerCell",
-      "type": "enabled",
+      "type": "rest",
       "item": "background"
     },
     "path": [
       "footerCell",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{footerCell.enabled.background}"
+    "key": "{footerCell.rest.background}"
   },
   "hpe.footerCell.hover.textColor": {
     "$type": "color",
@@ -37632,7 +38076,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{footerCell.enabled.textColor}",
+      "$value": "{footerCell.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37676,7 +38120,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{footerCell.enabled.iconColor}",
+      "$value": "{footerCell.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37721,7 +38165,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{footerCell.enabled.borderColor}",
+      "$value": "{footerCell.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37791,7 +38235,7 @@ export default {
     ],
     "key": "{footerCell.hover.background}"
   },
-  "hpe.footerCell.pinned.textColor": {
+  "hpe.footerCell.pinned.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -37808,7 +38252,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.textColor}",
+      "$value": "{dataCell.rest.textColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37820,20 +38264,22 @@ export default {
         }
       }
     },
-    "name": "hpe.footerCell.pinned.textColor",
+    "name": "hpe.footerCell.pinned.rest.textColor",
     "attributes": {
       "category": "footerCell",
       "type": "pinned",
-      "item": "textColor"
+      "item": "rest",
+      "subitem": "textColor"
     },
     "path": [
       "footerCell",
       "pinned",
+      "rest",
       "textColor"
     ],
-    "key": "{footerCell.pinned.textColor}"
+    "key": "{footerCell.pinned.rest.textColor}"
   },
-  "hpe.footerCell.pinned.iconColor": {
+  "hpe.footerCell.pinned.rest.iconColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -37852,7 +38298,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.enabled.iconColor}",
+      "$value": "{dataCell.rest.iconColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37866,20 +38312,22 @@ export default {
         }
       }
     },
-    "name": "hpe.footerCell.pinned.iconColor",
+    "name": "hpe.footerCell.pinned.rest.iconColor",
     "attributes": {
       "category": "footerCell",
       "type": "pinned",
-      "item": "iconColor"
+      "item": "rest",
+      "subitem": "iconColor"
     },
     "path": [
       "footerCell",
       "pinned",
+      "rest",
       "iconColor"
     ],
-    "key": "{footerCell.pinned.iconColor}"
+    "key": "{footerCell.pinned.rest.iconColor}"
   },
-  "hpe.footerCell.pinned.borderColor": {
+  "hpe.footerCell.pinned.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -37910,20 +38358,22 @@ export default {
         }
       }
     },
-    "name": "hpe.footerCell.pinned.borderColor",
+    "name": "hpe.footerCell.pinned.rest.borderColor",
     "attributes": {
       "category": "footerCell",
       "type": "pinned",
-      "item": "borderColor"
+      "item": "rest",
+      "subitem": "borderColor"
     },
     "path": [
       "footerCell",
       "pinned",
+      "rest",
       "borderColor"
     ],
-    "key": "{footerCell.pinned.borderColor}"
+    "key": "{footerCell.pinned.rest.borderColor}"
   },
-  "hpe.footerCell.pinned.background": {
+  "hpe.footerCell.pinned.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -37954,20 +38404,160 @@ export default {
         }
       }
     },
-    "name": "hpe.footerCell.pinned.background",
+    "name": "hpe.footerCell.pinned.rest.background",
     "attributes": {
       "category": "footerCell",
       "type": "pinned",
-      "item": "background"
+      "item": "rest",
+      "subitem": "background"
     },
     "path": [
       "footerCell",
       "pinned",
+      "rest",
       "background"
     ],
-    "key": "{footerCell.pinned.background}"
+    "key": "{footerCell.pinned.rest.background}"
   },
-  "hpe.radioButton.control.enabled.background": {
+  "hpe.footerCell.pinned.hover.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{dataCell.rest.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.footerCell.pinned.hover.textColor",
+    "attributes": {
+      "category": "footerCell",
+      "type": "pinned",
+      "item": "hover",
+      "subitem": "textColor"
+    },
+    "path": [
+      "footerCell",
+      "pinned",
+      "hover",
+      "textColor"
+    ],
+    "key": "{footerCell.pinned.hover.textColor}"
+  },
+  "hpe.footerCell.pinned.hover.iconColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{dataCell.rest.iconColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.footerCell.pinned.hover.iconColor",
+    "attributes": {
+      "category": "footerCell",
+      "type": "pinned",
+      "item": "hover",
+      "subitem": "iconColor"
+    },
+    "path": [
+      "footerCell",
+      "pinned",
+      "hover",
+      "iconColor"
+    ],
+    "key": "{footerCell.pinned.hover.iconColor}"
+  },
+  "hpe.footerCell.pinned.hover.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{dataCell.hover.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.footerCell.pinned.hover.borderColor",
+    "attributes": {
+      "category": "footerCell",
+      "type": "pinned",
+      "item": "hover",
+      "subitem": "borderColor"
+    },
+    "path": [
+      "footerCell",
+      "pinned",
+      "hover",
+      "borderColor"
+    ],
+    "key": "{footerCell.pinned.hover.borderColor}"
+  },
+  "hpe.footerCell.pinned.hover.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -37998,22 +38588,68 @@ export default {
         }
       }
     },
-    "name": "hpe.radioButton.control.enabled.background",
+    "name": "hpe.footerCell.pinned.hover.background",
+    "attributes": {
+      "category": "footerCell",
+      "type": "pinned",
+      "item": "hover",
+      "subitem": "background"
+    },
+    "path": [
+      "footerCell",
+      "pinned",
+      "hover",
+      "background"
+    ],
+    "key": "{footerCell.pinned.hover.background}"
+  },
+  "hpe.radioButton.control.rest.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.transparent}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.radioButton.control.rest.background",
     "attributes": {
       "category": "radioButton",
       "type": "control",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "background"
     },
     "path": [
       "radioButton",
       "control",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{radioButton.control.enabled.background}"
+    "key": "{radioButton.control.rest.background}"
   },
-  "hpe.radioButton.control.enabled.borderColor": {
+  "hpe.radioButton.control.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
     "$description": "",
@@ -38044,20 +38680,20 @@ export default {
         }
       }
     },
-    "name": "hpe.radioButton.control.enabled.borderColor",
+    "name": "hpe.radioButton.control.rest.borderColor",
     "attributes": {
       "category": "radioButton",
       "type": "control",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "borderColor"
     },
     "path": [
       "radioButton",
       "control",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{radioButton.control.enabled.borderColor}"
+    "key": "{radioButton.control.rest.borderColor}"
   },
   "hpe.radioButton.control.hover.background": {
     "$type": "color",
@@ -38243,7 +38879,7 @@ export default {
     ],
     "key": "{radioButton.control.focus.borderColor}"
   },
-  "hpe.radioButton.control.disabled.background": {
+  "hpe.radioButton.control.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
@@ -38274,22 +38910,24 @@ export default {
         }
       }
     },
-    "name": "hpe.radioButton.control.disabled.background",
+    "name": "hpe.radioButton.control.disabled.rest.background",
     "attributes": {
       "category": "radioButton",
       "type": "control",
       "item": "disabled",
-      "subitem": "background"
+      "subitem": "rest",
+      "state": "background"
     },
     "path": [
       "radioButton",
       "control",
       "disabled",
+      "rest",
       "background"
     ],
-    "key": "{radioButton.control.disabled.background}"
+    "key": "{radioButton.control.disabled.rest.background}"
   },
-  "hpe.radioButton.control.disabled.borderColor": {
+  "hpe.radioButton.control.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.12)",
     "$description": "",
@@ -38320,22 +38958,24 @@ export default {
         }
       }
     },
-    "name": "hpe.radioButton.control.disabled.borderColor",
+    "name": "hpe.radioButton.control.disabled.rest.borderColor",
     "attributes": {
       "category": "radioButton",
       "type": "control",
       "item": "disabled",
-      "subitem": "borderColor"
+      "subitem": "rest",
+      "state": "borderColor"
     },
     "path": [
       "radioButton",
       "control",
       "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{radioButton.control.disabled.borderColor}"
+    "key": "{radioButton.control.disabled.rest.borderColor}"
   },
-  "hpe.radioButton.control.selected.enabled.background": {
+  "hpe.radioButton.control.selected.rest.background": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "",
@@ -38366,24 +39006,24 @@ export default {
         }
       }
     },
-    "name": "hpe.radioButton.control.selected.enabled.background",
+    "name": "hpe.radioButton.control.selected.rest.background",
     "attributes": {
       "category": "radioButton",
       "type": "control",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "background"
     },
     "path": [
       "radioButton",
       "control",
       "selected",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{radioButton.control.selected.enabled.background}"
+    "key": "{radioButton.control.selected.rest.background}"
   },
-  "hpe.radioButton.control.selected.enabled.borderColor": {
+  "hpe.radioButton.control.selected.rest.borderColor": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "",
@@ -38414,24 +39054,24 @@ export default {
         }
       }
     },
-    "name": "hpe.radioButton.control.selected.enabled.borderColor",
+    "name": "hpe.radioButton.control.selected.rest.borderColor",
     "attributes": {
       "category": "radioButton",
       "type": "control",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "borderColor"
     },
     "path": [
       "radioButton",
       "control",
       "selected",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{radioButton.control.selected.enabled.borderColor}"
+    "key": "{radioButton.control.selected.rest.borderColor}"
   },
-  "hpe.radioButton.control.selected.enabled.iconColor": {
+  "hpe.radioButton.control.selected.rest.iconColor": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "",
@@ -38449,7 +39089,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.brand}",
+      "$value": "{color.decorative.brand}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38462,22 +39102,22 @@ export default {
         }
       }
     },
-    "name": "hpe.radioButton.control.selected.enabled.iconColor",
+    "name": "hpe.radioButton.control.selected.rest.iconColor",
     "attributes": {
       "category": "radioButton",
       "type": "control",
       "item": "selected",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "iconColor"
     },
     "path": [
       "radioButton",
       "control",
       "selected",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{radioButton.control.selected.enabled.iconColor}"
+    "key": "{radioButton.control.selected.rest.iconColor}"
   },
   "hpe.radioButton.control.selected.hover.background": {
     "$type": "color",
@@ -38593,7 +39233,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.brand}",
+      "$value": "{color.decorative.brand}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38737,7 +39377,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.brand}",
+      "$value": "{color.decorative.brand}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38767,151 +39407,7 @@ export default {
     ],
     "key": "{radioButton.control.selected.focus.iconColor}"
   },
-  "hpe.radioButton.control.selected.disabled.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.radioButton.control.selected.disabled.background",
-    "attributes": {
-      "category": "radioButton",
-      "type": "control",
-      "item": "selected",
-      "subitem": "disabled",
-      "state": "background"
-    },
-    "path": [
-      "radioButton",
-      "control",
-      "selected",
-      "disabled",
-      "background"
-    ],
-    "key": "{radioButton.control.selected.disabled.background}"
-  },
-  "hpe.radioButton.control.selected.disabled.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.radioButton.control.selected.disabled.borderColor",
-    "attributes": {
-      "category": "radioButton",
-      "type": "control",
-      "item": "selected",
-      "subitem": "disabled",
-      "state": "borderColor"
-    },
-    "path": [
-      "radioButton",
-      "control",
-      "selected",
-      "disabled",
-      "borderColor"
-    ],
-    "key": "{radioButton.control.selected.disabled.borderColor}"
-  },
-  "hpe.radioButton.control.selected.disabled.iconColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.24)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.icon.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.radioButton.control.selected.disabled.iconColor",
-    "attributes": {
-      "category": "radioButton",
-      "type": "control",
-      "item": "selected",
-      "subitem": "disabled",
-      "state": "iconColor"
-    },
-    "path": [
-      "radioButton",
-      "control",
-      "selected",
-      "disabled",
-      "iconColor"
-    ],
-    "key": "{radioButton.control.selected.disabled.iconColor}"
-  },
-  "hpe.radioButton.label.enabled.textColor": {
+  "hpe.radioButton.label.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -38940,20 +39436,20 @@ export default {
         }
       }
     },
-    "name": "hpe.radioButton.label.enabled.textColor",
+    "name": "hpe.radioButton.label.rest.textColor",
     "attributes": {
       "category": "radioButton",
       "type": "label",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "radioButton",
       "label",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{radioButton.label.enabled.textColor}"
+    "key": "{radioButton.label.rest.textColor}"
   },
   "hpe.radioButton.label.hover.textColor": {
     "$type": "color",
@@ -38999,7 +39495,7 @@ export default {
     ],
     "key": "{radioButton.label.hover.textColor}"
   },
-  "hpe.radioButton.label.disabled.textColor": {
+  "hpe.radioButton.label.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -39028,20 +39524,114 @@ export default {
         }
       }
     },
-    "name": "hpe.radioButton.label.disabled.textColor",
+    "name": "hpe.radioButton.label.disabled.rest.textColor",
     "attributes": {
       "category": "radioButton",
       "type": "label",
       "item": "disabled",
-      "subitem": "textColor"
+      "subitem": "rest",
+      "state": "textColor"
     },
     "path": [
       "radioButton",
       "label",
       "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{radioButton.label.disabled.textColor}"
+    "key": "{radioButton.label.disabled.rest.textColor}"
+  },
+  "hpe.radioButton.label.selected.rest.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.radioButton.label.selected.rest.textColor",
+    "attributes": {
+      "category": "radioButton",
+      "type": "label",
+      "item": "selected",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "radioButton",
+      "label",
+      "selected",
+      "rest",
+      "textColor"
+    ],
+    "key": "{radioButton.label.selected.rest.textColor}"
+  },
+  "hpe.radioButton.label.selected.hover.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.radioButton.label.selected.hover.textColor",
+    "attributes": {
+      "category": "radioButton",
+      "type": "label",
+      "item": "selected",
+      "subitem": "hover",
+      "state": "textColor"
+    },
+    "path": [
+      "radioButton",
+      "label",
+      "selected",
+      "hover",
+      "textColor"
+    ],
+    "key": "{radioButton.label.selected.hover.textColor}"
   },
   "hpe.radioButton.medium.gapX": {
     "$type": "number",
@@ -39395,7 +39985,7 @@ export default {
     ],
     "key": "{radioButton.medium.control.borderRadius}"
   },
-  "hpe.anchor.default.enabled.textColor": {
+  "hpe.anchor.default.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -39424,22 +40014,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.enabled.textColor",
+    "name": "hpe.anchor.default.rest.textColor",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "anchor",
       "default",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{anchor.default.enabled.textColor}"
+    "key": "{anchor.default.rest.textColor}"
   },
-  "hpe.anchor.default.enabled.fontWeight": {
+  "hpe.anchor.default.rest.fontWeight": {
     "$type": "number",
     "$value": 500,
     "$description": "",
@@ -39468,22 +40058,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.enabled.fontWeight",
+    "name": "hpe.anchor.default.rest.fontWeight",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "fontWeight"
     },
     "path": [
       "anchor",
       "default",
-      "enabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{anchor.default.enabled.fontWeight}"
+    "key": "{anchor.default.rest.fontWeight}"
   },
-  "hpe.anchor.default.enabled.textDecoration": {
+  "hpe.anchor.default.rest.textDecoration": {
     "$type": "string",
     "$value": "underline",
     "$description": "",
@@ -39508,20 +40098,20 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.enabled.textDecoration",
+    "name": "hpe.anchor.default.rest.textDecoration",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textDecoration"
     },
     "path": [
       "anchor",
       "default",
-      "enabled",
+      "rest",
       "textDecoration"
     ],
-    "key": "{anchor.default.enabled.textDecoration}"
+    "key": "{anchor.default.rest.textDecoration}"
   },
   "hpe.anchor.default.hover.textColor": {
     "$type": "color",
@@ -39771,7 +40361,7 @@ export default {
     ],
     "key": "{anchor.default.disabled.textDecoration}"
   },
-  "hpe.anchor.small.default.fontSize": {
+  "hpe.anchor.default.small.fontSize": {
     "$type": "number",
     "$value": "1rem",
     "$description": "",
@@ -39800,22 +40390,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.small.default.fontSize",
+    "name": "hpe.anchor.default.small.fontSize",
     "attributes": {
       "category": "anchor",
-      "type": "small",
-      "item": "default",
+      "type": "default",
+      "item": "small",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
-      "small",
       "default",
+      "small",
       "fontSize"
     ],
-    "key": "{anchor.small.default.fontSize}"
+    "key": "{anchor.default.small.fontSize}"
   },
-  "hpe.anchor.small.default.lineHeight": {
+  "hpe.anchor.default.small.lineHeight": {
     "$type": "number",
     "$value": "1.25rem",
     "$description": "",
@@ -39844,22 +40434,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.small.default.lineHeight",
+    "name": "hpe.anchor.default.small.lineHeight",
     "attributes": {
       "category": "anchor",
-      "type": "small",
-      "item": "default",
+      "type": "default",
+      "item": "small",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
-      "small",
       "default",
+      "small",
       "lineHeight"
     ],
-    "key": "{anchor.small.default.lineHeight}"
+    "key": "{anchor.default.small.lineHeight}"
   },
-  "hpe.anchor.small.default.gapX": {
+  "hpe.anchor.default.small.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -39888,22 +40478,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.small.default.gapX",
+    "name": "hpe.anchor.default.small.gapX",
     "attributes": {
       "category": "anchor",
-      "type": "small",
-      "item": "default",
+      "type": "default",
+      "item": "small",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
-      "small",
       "default",
+      "small",
       "gapX"
     ],
-    "key": "{anchor.small.default.gapX}"
+    "key": "{anchor.default.small.gapX}"
   },
-  "hpe.anchor.medium.default.fontSize": {
+  "hpe.anchor.default.medium.fontSize": {
     "$type": "number",
     "$value": "1.125rem",
     "$description": "",
@@ -39932,22 +40522,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.medium.default.fontSize",
+    "name": "hpe.anchor.default.medium.fontSize",
     "attributes": {
       "category": "anchor",
-      "type": "medium",
-      "item": "default",
+      "type": "default",
+      "item": "medium",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
-      "medium",
       "default",
+      "medium",
       "fontSize"
     ],
-    "key": "{anchor.medium.default.fontSize}"
+    "key": "{anchor.default.medium.fontSize}"
   },
-  "hpe.anchor.medium.default.lineHeight": {
+  "hpe.anchor.default.medium.lineHeight": {
     "$type": "number",
     "$value": "1.5rem",
     "$description": "",
@@ -39976,22 +40566,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.medium.default.lineHeight",
+    "name": "hpe.anchor.default.medium.lineHeight",
     "attributes": {
       "category": "anchor",
-      "type": "medium",
-      "item": "default",
+      "type": "default",
+      "item": "medium",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
-      "medium",
       "default",
+      "medium",
       "lineHeight"
     ],
-    "key": "{anchor.medium.default.lineHeight}"
+    "key": "{anchor.default.medium.lineHeight}"
   },
-  "hpe.anchor.medium.default.gapX": {
+  "hpe.anchor.default.medium.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -40020,22 +40610,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.medium.default.gapX",
+    "name": "hpe.anchor.default.medium.gapX",
     "attributes": {
       "category": "anchor",
-      "type": "medium",
-      "item": "default",
+      "type": "default",
+      "item": "medium",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
-      "medium",
       "default",
+      "medium",
       "gapX"
     ],
-    "key": "{anchor.medium.default.gapX}"
+    "key": "{anchor.default.medium.gapX}"
   },
-  "hpe.anchor.large.default.fontSize": {
+  "hpe.anchor.default.large.fontSize": {
     "$type": "number",
     "$value": "1.375rem",
     "$description": "",
@@ -40064,22 +40654,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.large.default.fontSize",
+    "name": "hpe.anchor.default.large.fontSize",
     "attributes": {
       "category": "anchor",
-      "type": "large",
-      "item": "default",
+      "type": "default",
+      "item": "large",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
-      "large",
       "default",
+      "large",
       "fontSize"
     ],
-    "key": "{anchor.large.default.fontSize}"
+    "key": "{anchor.default.large.fontSize}"
   },
-  "hpe.anchor.large.default.lineHeight": {
+  "hpe.anchor.default.large.lineHeight": {
     "$type": "number",
     "$value": "1.75rem",
     "$description": "",
@@ -40108,22 +40698,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.large.default.lineHeight",
+    "name": "hpe.anchor.default.large.lineHeight",
     "attributes": {
       "category": "anchor",
-      "type": "large",
-      "item": "default",
+      "type": "default",
+      "item": "large",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
-      "large",
       "default",
+      "large",
       "lineHeight"
     ],
-    "key": "{anchor.large.default.lineHeight}"
+    "key": "{anchor.default.large.lineHeight}"
   },
-  "hpe.anchor.large.default.gapX": {
+  "hpe.anchor.default.large.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -40152,22 +40742,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.large.default.gapX",
+    "name": "hpe.anchor.default.large.gapX",
     "attributes": {
       "category": "anchor",
-      "type": "large",
-      "item": "default",
+      "type": "default",
+      "item": "large",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
-      "large",
       "default",
+      "large",
       "gapX"
     ],
-    "key": "{anchor.large.default.gapX}"
+    "key": "{anchor.default.large.gapX}"
   },
-  "hpe.anchor.xlarge.default.fontSize": {
+  "hpe.anchor.default.xlarge.fontSize": {
     "$type": "number",
     "$value": "1.5rem",
     "$description": "",
@@ -40196,22 +40786,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.xlarge.default.fontSize",
+    "name": "hpe.anchor.default.xlarge.fontSize",
     "attributes": {
       "category": "anchor",
-      "type": "xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "xlarge",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
-      "xlarge",
       "default",
+      "xlarge",
       "fontSize"
     ],
-    "key": "{anchor.xlarge.default.fontSize}"
+    "key": "{anchor.default.xlarge.fontSize}"
   },
-  "hpe.anchor.xlarge.default.lineHeight": {
+  "hpe.anchor.default.xlarge.lineHeight": {
     "$type": "number",
     "$value": "1.875rem",
     "$description": "",
@@ -40240,22 +40830,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.xlarge.default.lineHeight",
+    "name": "hpe.anchor.default.xlarge.lineHeight",
     "attributes": {
       "category": "anchor",
-      "type": "xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "xlarge",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
-      "xlarge",
       "default",
+      "xlarge",
       "lineHeight"
     ],
-    "key": "{anchor.xlarge.default.lineHeight}"
+    "key": "{anchor.default.xlarge.lineHeight}"
   },
-  "hpe.anchor.xlarge.default.gapX": {
+  "hpe.anchor.default.xlarge.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -40284,22 +40874,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.xlarge.default.gapX",
+    "name": "hpe.anchor.default.xlarge.gapX",
     "attributes": {
       "category": "anchor",
-      "type": "xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "xlarge",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
-      "xlarge",
       "default",
+      "xlarge",
       "gapX"
     ],
-    "key": "{anchor.xlarge.default.gapX}"
+    "key": "{anchor.default.xlarge.gapX}"
   },
-  "hpe.anchor.xxlarge.default.fontSize": {
+  "hpe.anchor.default.xxlarge.fontSize": {
     "$type": "number",
     "$value": "2.25rem",
     "$description": "",
@@ -40328,22 +40918,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.xxlarge.default.fontSize",
+    "name": "hpe.anchor.default.xxlarge.fontSize",
     "attributes": {
       "category": "anchor",
-      "type": "xxlarge",
-      "item": "default",
+      "type": "default",
+      "item": "xxlarge",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
-      "xxlarge",
       "default",
+      "xxlarge",
       "fontSize"
     ],
-    "key": "{anchor.xxlarge.default.fontSize}"
+    "key": "{anchor.default.xxlarge.fontSize}"
   },
-  "hpe.anchor.xxlarge.default.lineHeight": {
+  "hpe.anchor.default.xxlarge.lineHeight": {
     "$type": "number",
     "$value": "2.5rem",
     "$description": "",
@@ -40372,22 +40962,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.xxlarge.default.lineHeight",
+    "name": "hpe.anchor.default.xxlarge.lineHeight",
     "attributes": {
       "category": "anchor",
-      "type": "xxlarge",
-      "item": "default",
+      "type": "default",
+      "item": "xxlarge",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
-      "xxlarge",
       "default",
+      "xxlarge",
       "lineHeight"
     ],
-    "key": "{anchor.xxlarge.default.lineHeight}"
+    "key": "{anchor.default.xxlarge.lineHeight}"
   },
-  "hpe.anchor.xxlarge.default.gapX": {
+  "hpe.anchor.default.xxlarge.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -40416,22 +41006,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.xxlarge.default.gapX",
+    "name": "hpe.anchor.default.xxlarge.gapX",
     "attributes": {
       "category": "anchor",
-      "type": "xxlarge",
-      "item": "default",
+      "type": "default",
+      "item": "xxlarge",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
-      "xxlarge",
       "default",
+      "xxlarge",
       "gapX"
     ],
-    "key": "{anchor.xxlarge.default.gapX}"
+    "key": "{anchor.default.xxlarge.gapX}"
   },
-  "hpe.anchor.3xlarge.default.fontSize": {
+  "hpe.anchor.default.3xlarge.fontSize": {
     "$type": "number",
     "$value": "2.625rem",
     "$description": "",
@@ -40460,22 +41050,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.3xlarge.default.fontSize",
+    "name": "hpe.anchor.default.3xlarge.fontSize",
     "attributes": {
       "category": "anchor",
-      "type": "3xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "3xlarge",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
-      "3xlarge",
       "default",
+      "3xlarge",
       "fontSize"
     ],
-    "key": "{anchor.3xlarge.default.fontSize}"
+    "key": "{anchor.default.3xlarge.fontSize}"
   },
-  "hpe.anchor.3xlarge.default.lineHeight": {
+  "hpe.anchor.default.3xlarge.lineHeight": {
     "$type": "number",
     "$value": "2.875rem",
     "$description": "",
@@ -40504,22 +41094,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.3xlarge.default.lineHeight",
+    "name": "hpe.anchor.default.3xlarge.lineHeight",
     "attributes": {
       "category": "anchor",
-      "type": "3xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "3xlarge",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
-      "3xlarge",
       "default",
+      "3xlarge",
       "lineHeight"
     ],
-    "key": "{anchor.3xlarge.default.lineHeight}"
+    "key": "{anchor.default.3xlarge.lineHeight}"
   },
-  "hpe.anchor.3xlarge.default.gapX": {
+  "hpe.anchor.default.3xlarge.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -40548,22 +41138,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.3xlarge.default.gapX",
+    "name": "hpe.anchor.default.3xlarge.gapX",
     "attributes": {
       "category": "anchor",
-      "type": "3xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "3xlarge",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
-      "3xlarge",
       "default",
+      "3xlarge",
       "gapX"
     ],
-    "key": "{anchor.3xlarge.default.gapX}"
+    "key": "{anchor.default.3xlarge.gapX}"
   },
-  "hpe.anchor.4xlarge.default.fontSize": {
+  "hpe.anchor.default.4xlarge.fontSize": {
     "$type": "number",
     "$value": "3rem",
     "$description": "",
@@ -40592,22 +41182,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.4xlarge.default.fontSize",
+    "name": "hpe.anchor.default.4xlarge.fontSize",
     "attributes": {
       "category": "anchor",
-      "type": "4xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "4xlarge",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
-      "4xlarge",
       "default",
+      "4xlarge",
       "fontSize"
     ],
-    "key": "{anchor.4xlarge.default.fontSize}"
+    "key": "{anchor.default.4xlarge.fontSize}"
   },
-  "hpe.anchor.4xlarge.default.lineHeight": {
+  "hpe.anchor.default.4xlarge.lineHeight": {
     "$type": "number",
     "$value": "3rem",
     "$description": "",
@@ -40636,22 +41226,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.4xlarge.default.lineHeight",
+    "name": "hpe.anchor.default.4xlarge.lineHeight",
     "attributes": {
       "category": "anchor",
-      "type": "4xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "4xlarge",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
-      "4xlarge",
       "default",
+      "4xlarge",
       "lineHeight"
     ],
-    "key": "{anchor.4xlarge.default.lineHeight}"
+    "key": "{anchor.default.4xlarge.lineHeight}"
   },
-  "hpe.anchor.4xlarge.default.gapX": {
+  "hpe.anchor.default.4xlarge.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -40680,22 +41270,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.4xlarge.default.gapX",
+    "name": "hpe.anchor.default.4xlarge.gapX",
     "attributes": {
       "category": "anchor",
-      "type": "4xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "4xlarge",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
-      "4xlarge",
       "default",
+      "4xlarge",
       "gapX"
     ],
-    "key": "{anchor.4xlarge.default.gapX}"
+    "key": "{anchor.default.4xlarge.gapX}"
   },
-  "hpe.anchor.5xlarge.default.fontSize": {
+  "hpe.anchor.default.5xlarge.fontSize": {
     "$type": "number",
     "$value": "4.5rem",
     "$description": "",
@@ -40724,22 +41314,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.5xlarge.default.fontSize",
+    "name": "hpe.anchor.default.5xlarge.fontSize",
     "attributes": {
       "category": "anchor",
-      "type": "5xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "5xlarge",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
-      "5xlarge",
       "default",
+      "5xlarge",
       "fontSize"
     ],
-    "key": "{anchor.5xlarge.default.fontSize}"
+    "key": "{anchor.default.5xlarge.fontSize}"
   },
-  "hpe.anchor.5xlarge.default.lineHeight": {
+  "hpe.anchor.default.5xlarge.lineHeight": {
     "$type": "number",
     "$value": "4.5rem",
     "$description": "",
@@ -40768,22 +41358,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.5xlarge.default.lineHeight",
+    "name": "hpe.anchor.default.5xlarge.lineHeight",
     "attributes": {
       "category": "anchor",
-      "type": "5xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "5xlarge",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
-      "5xlarge",
       "default",
+      "5xlarge",
       "lineHeight"
     ],
-    "key": "{anchor.5xlarge.default.lineHeight}"
+    "key": "{anchor.default.5xlarge.lineHeight}"
   },
-  "hpe.anchor.5xlarge.default.gapX": {
+  "hpe.anchor.default.5xlarge.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -40812,22 +41402,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.5xlarge.default.gapX",
+    "name": "hpe.anchor.default.5xlarge.gapX",
     "attributes": {
       "category": "anchor",
-      "type": "5xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "5xlarge",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
-      "5xlarge",
       "default",
+      "5xlarge",
       "gapX"
     ],
-    "key": "{anchor.5xlarge.default.gapX}"
+    "key": "{anchor.default.5xlarge.gapX}"
   },
-  "hpe.anchor.6xlarge.default.fontSize": {
+  "hpe.anchor.default.6xlarge.fontSize": {
     "$type": "number",
     "$value": "4.5rem",
     "$description": "",
@@ -40856,22 +41446,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.6xlarge.default.fontSize",
+    "name": "hpe.anchor.default.6xlarge.fontSize",
     "attributes": {
       "category": "anchor",
-      "type": "6xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "6xlarge",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
-      "6xlarge",
       "default",
+      "6xlarge",
       "fontSize"
     ],
-    "key": "{anchor.6xlarge.default.fontSize}"
+    "key": "{anchor.default.6xlarge.fontSize}"
   },
-  "hpe.anchor.6xlarge.default.lineHeight": {
+  "hpe.anchor.default.6xlarge.lineHeight": {
     "$type": "number",
     "$value": "4.5rem",
     "$description": "",
@@ -40900,22 +41490,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.6xlarge.default.lineHeight",
+    "name": "hpe.anchor.default.6xlarge.lineHeight",
     "attributes": {
       "category": "anchor",
-      "type": "6xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "6xlarge",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
-      "6xlarge",
       "default",
+      "6xlarge",
       "lineHeight"
     ],
-    "key": "{anchor.6xlarge.default.lineHeight}"
+    "key": "{anchor.default.6xlarge.lineHeight}"
   },
-  "hpe.anchor.6xlarge.default.gapX": {
+  "hpe.anchor.default.6xlarge.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -40944,19 +41534,19 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.6xlarge.default.gapX",
+    "name": "hpe.anchor.default.6xlarge.gapX",
     "attributes": {
       "category": "anchor",
-      "type": "6xlarge",
-      "item": "default",
+      "type": "default",
+      "item": "6xlarge",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
-      "6xlarge",
       "default",
+      "6xlarge",
       "gapX"
     ],
-    "key": "{anchor.6xlarge.default.gapX}"
+    "key": "{anchor.default.6xlarge.gapX}"
   }
 }

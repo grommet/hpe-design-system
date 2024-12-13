@@ -15,12 +15,15 @@ export default {
         "floating": "#292929",
         "screenOverlay": "rgba(0, 0, 0, 0.12)",
         "contrast": "rgba(255, 255, 255, 0.12)",
+        "warning": "rgba(254, 201, 1, 0.12)",
+        "info": "rgba(0, 200, 255, 0.12)",
         "critical": "rgba(204, 31, 26, 0.3)",
-        "ok": "rgba(23, 208, 166, 0.3)",
         "primary": {
           "default": "#01a982",
           "hover": "#01a982"
         },
+        "unknown": "rgba(255, 255, 255, 0.06)",
+        "ok": "rgba(23, 208, 166, 0.3)",
         "selected": {
           "strong": {
             "enabled": "#01a982",
@@ -31,9 +34,6 @@ export default {
             "hover": "#074b3b"
           }
         },
-        "unknown": "rgba(255, 255, 255, 0.06)",
-        "warning": "rgba(254, 201, 1, 0.12)",
-        "info": "rgba(0, 200, 255, 0.12)",
         "neutral": {
           "xstrong": "#f7f7f7"
         }
@@ -54,18 +54,16 @@ export default {
         "default": "#ffffff",
         "strong": "#ffffff",
         "weak": "rgba(255, 255, 255, 0.5)",
-        "xweak": "rgba(255, 255, 255, 0.2)",
         "placeholder": "rgba(255, 255, 255, 0.5)",
         "disabled": "rgba(255, 255, 255, 0.24)",
         "onPrimary": "#ffffff",
-        "brand": "#01a982",
+        "onStrong": {
+          "default": "#222222"
+        },
         "heading": {
           "default": "#ffffff"
         },
         "primary": "#01a982",
-        "onStrong": {
-          "default": "#222222"
-        },
         "critical": "#ffffff",
         "info": "#ffffff",
         "ok": "#ffffff",
@@ -98,7 +96,6 @@ export default {
         "default": "#ffffff",
         "strong": "#ffffff",
         "weak": "rgba(255, 255, 255, 0.5)",
-        "xweak": "rgba(255, 255, 255, 0.2)",
         "disabled": "rgba(255, 255, 255, 0.24)",
         "critical": "#fc5a5a",
         "info": "#00739d",
@@ -107,7 +104,6 @@ export default {
         "unknown": "#757575",
         "primary": "#01a982",
         "onPrimary": "#ffffff",
-        "brand": "#01a982",
         "onSelectedStrong": "#ffffff",
         "onSelected": "#ffffff"
       },
