@@ -48,7 +48,7 @@ import {
   scale24141408,
   scale24141424,
   scale24150024,
-} from './scales';
+} from './theme-utils/scales';
 
 const MISSING = {
   color: 'red',

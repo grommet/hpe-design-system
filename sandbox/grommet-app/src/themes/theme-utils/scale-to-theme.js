@@ -1,3 +1,20 @@
+// scale-to-theme.js
+// Utility functions to convert scale definitions and t-shirt sizes to theme objects
+// Scale definition example:
+// {
+//   name: string,
+//   description: string,
+//   settings: {
+//     base: integer,
+//     contentBase: integer,
+//     factor: number,
+//     steps: integer,
+//     nearest: integer,
+//   },
+//   scale: integer[];
+//   content: { size: string, value: integer }[];
+// }
+
 import {
   v5scale as v5,
   scale16133308 as option1,
@@ -7,7 +24,7 @@ import {
   scale24141408 as option5,
   scale24141424 as option6,
   scale24150024 as option7,
-} from './scale-options';
+} from '../scale-options';
 
 const scaleToThemeObject = ({ scale, index = 0 }) => {
   const result = {};
