@@ -205,12 +205,12 @@ export function tokenFilesFromLocalVariables(
         let token: Token;
         // TO DO this is temp way of handling the gradient on the primary button background
         // which is only stored in code but handled as a solid color in Figma
-        if (variable.name === 'button/primary/enabled/background') {
+        if (variable.name === 'button/primary/rest/background') {
           const componentTokens = fs.readFileSync(
             'tokens/component/component.default.json',
           );
           const parsed = JSON.parse(componentTokens.toString());
-          token = parsed.button.primary.enabled.background;
+          token = parsed.button.primary.rest.background;
         } else {
           token = {
             $type: tokenTypeFromVariable(variable),
