@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-key */
 import React, { useContext, useMemo } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {
   Anchor,
@@ -16,7 +15,6 @@ import {
   PageContent,
   PageHeader,
   Text,
-  Stack,
   ThemeContext,
   Paragraph,
   Accordion,
@@ -47,14 +45,7 @@ import { User, Table, List, MapLocation, Previous } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../themes/theme';
 import ContentPane from '../../components/ContentPane';
-
-const StyleInProgress = () => (
-  <Notification
-    status="warning"
-    message="This component style is still being refined."
-    margin={{ bottom: 'medium' }}
-  />
-);
+import { Compare, ModeContext, StyleInProgress } from './components';
 
 const textSizes = [
   'xsmall',
@@ -72,71 +63,6 @@ const textSizes = [
 const kinds = ['default', 'toolbar', 'secondary', 'primary'];
 const states = ['enabled', 'active', 'disabled'];
 const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
-
-const ModeContext = React.createContext({});
-
-const Compare = ({ children, ...rest }) => {
-  const { mode, direction } = React.useContext(ModeContext);
-  const theme = useContext(ThemeContext);
-
-  if (direction === 'row') {
-    return (
-      <Box direction="row" gap="medium">
-        <Grommet
-          theme={hpe}
-          themeMode={theme.dark ? 'dark' : 'light'}
-          background="background-front"
-        >
-          <Box align="start">{children}</Box>
-        </Grommet>
-        <Grommet
-          theme={hpeCurrent}
-          themeMode={theme.dark ? 'dark' : 'light'}
-          background="background-front"
-        >
-          <Box align="start">{children}</Box>
-        </Grommet>
-      </Box>
-    );
-  }
-
-  return (
-    <Stack {...rest}>
-      <ThemeContext.Extend value={hpe}>
-        <Box
-          align="start"
-          style={
-            // eslint-disable-next-line no-nested-ternary
-            mode === 'Compare diffs'
-              ? { opacity: 0.5, filter: 'invert(1)', color: 'green' }
-              : mode === 'next'
-              ? { visibility: 'hidden' }
-              : {}
-          }
-        >
-          {children}
-        </Box>
-      </ThemeContext.Extend>
-
-      <ThemeContext.Extend value={hpeCurrent}>
-        <Box
-          align="start"
-          style={mode === 'v5' ? { visibility: 'hidden' } : {}}
-        >
-          {children}
-        </Box>
-      </ThemeContext.Extend>
-    </Stack>
-  );
-};
-
-Compare.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.element,
-  ]),
-};
 
 const StickerSheet = () => {
   const [mode, setMode] = React.useState('Compare diffs');
@@ -165,7 +91,6 @@ const StickerSheet = () => {
                 <Anchor as={Link} to="/" label="Home" icon={<Previous />} />
               }
               actions={
-                // eslint-disable-next-line max-len
                 <Box direction="row" gap="xsmall">
                   <FormField label="Layout">
                     <CheckBox
