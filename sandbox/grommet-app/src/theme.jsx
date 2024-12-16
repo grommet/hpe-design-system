@@ -695,7 +695,7 @@ const buildTheme = tokens => {
       control: {
         border: {
           radius: components.hpe.formField.medium.input.container.borderRadius,
-          color: components.hpe.formField.input.container.enabled.borderColor,
+          color: components.hpe.formField.input.container.rest.borderColor,
         },
       },
       input: {
@@ -711,10 +711,11 @@ const buildTheme = tokens => {
         },
         readOnly: {
           background:
-            components.hpe.formField.input.container.readOnly.background,
+            components.hpe.formField.input.container.readOnly.rest.background,
           border: {
             color:
-              components.hpe.formField.input.container.readOnly.borderColor,
+              components.hpe.formField.input.container.readOnly.rest
+                .borderColor,
           },
         },
         extend: `
@@ -1374,7 +1375,7 @@ const buildTheme = tokens => {
     fileInput: {
       border: {
         // Q: confused on which token to use here formfield.medium.input.group.item.borderWidth?
-        color: components.hpe.formField.input.container.enabled.borderColor,
+        color: components.hpe.formField.input.container.rest.borderColor,
         side: 'all',
         style: 'dashed',
         size: components.hpe.formField.medium.input.container.borderWidth,
@@ -1436,10 +1437,9 @@ const buildTheme = tokens => {
       border: {
         error: {
           color:
-            components.hpe.formField.input.container.status.critical
-              .borderColor,
+            components.hpe.formField.input.container.error.rest.borderColor,
         },
-        color: components.hpe.formField.input.container.enabled.borderColor,
+        color: components.hpe.formField.input.container.rest.borderColor,
         side: 'all',
       },
       // checkBox: {
@@ -1447,20 +1447,21 @@ const buildTheme = tokens => {
       // },
       disabled: {
         background:
-          components.hpe.formField.input.group.container.disabled.background,
+          components.hpe.formField.input.group.container.disabled.rest
+            .background,
         border: {
-          color: components.hpe.formField.input.container.disabled.borderColor,
+          color:
+            components.hpe.formField.input.container.disabled.rest.borderColor,
         },
         label: {
           color:
-            components.hpe.formField[!sd4 ? 'labelText' : 'label'].disabled
+            components.hpe.formField[!sd4 ? 'labelText' : 'label'].disabled.rest
               .textColor,
         },
       },
       error: {
         background: {
-          color:
-            components.hpe.formField.input.container.status.critical.background,
+          color: components.hpe.formField.input.container.error.rest.background,
         },
         container: {
           gap: 'xsmall', // Q: missing token
@@ -1471,8 +1472,7 @@ const buildTheme = tokens => {
         // and hpe.formField.errorText.disabled.color
         // A: This is to be able to style text differently in different states
         color:
-          components.hpe.formField[!sd4 ? 'errorText' : 'error'].enabled
-            .textColor,
+          components.hpe.formField[!sd4 ? 'errorText' : 'error'].rest.textColor,
         margin: {
           // Q: missing token
           bottom: 'xsmall',
@@ -1488,14 +1488,12 @@ const buildTheme = tokens => {
       },
       help: {
         size: 'xsmall',
-        color:
-          components.hpe.formField[!sd4 ? 'helpText' : 'help'].enabled.color,
+        color: components.hpe.formField[!sd4 ? 'helpText' : 'help'].rest.color,
         margin: 'none', // TO DO missing token
       },
       info: {
         size: 'xsmall',
-        color:
-          components.hpe.formField[!sd4 ? 'infoText' : 'info'].enabled.color,
+        color: components.hpe.formField[!sd4 ? 'infoText' : 'info'].rest.color,
         margin: {
           // Q: missing token
           bottom: 'xsmall',
@@ -1506,7 +1504,7 @@ const buildTheme = tokens => {
       label: {
         size: 'xsmall', // TO DO how to capture this as token, currently we have "fontSize", "lineHeight", "..."
         color:
-          components.hpe.formField[!sd4 ? 'labelText' : 'label'].enabled.color,
+          components.hpe.formField[!sd4 ? 'labelText' : 'label'].rest.color,
         margin: {
           // Q: missing token
           bottom: 'none',
