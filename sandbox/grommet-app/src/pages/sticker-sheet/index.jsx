@@ -45,7 +45,7 @@ import {
 } from 'grommet';
 import { User, Table, List, MapLocation, Previous } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
-import { current as hpeCurrent } from '../../theme';
+import { current as hpeCurrent } from '../../themes/theme';
 import ContentPane from '../../components/ContentPane';
 
 const StyleInProgress = () => (
