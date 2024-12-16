@@ -1,5 +1,5 @@
 ---
-"hpe-design-tokens": minor
+'hpe-design-tokens': minor
 ---
 
 - Added `formField.input.group.container.error.rest` tokens
@@ -9,3 +9,4 @@
 - Renamed formField "status.critical" tokens to "error.rest"
 - Renamed formField "disabled" tokens to "disabled.rest"
 - Renamed formField "readOnly" tokens to "readOnly.rest"
+- Renamed `base.static` tokens to `static`.
