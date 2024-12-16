@@ -193,49 +193,49 @@ export default {
         "800": "3rem",
         "900": "4.5rem",
         "1000": "4.5rem"
+      }
+    },
+    "static": {
+      "spacing": {
+        "none": "0px",
+        "hair": "1px",
+        "xxsmall": "3px",
+        "xsmall": "6px",
+        "small": "12px",
+        "medium": "24px",
+        "large": "48px",
+        "xlarge": "96px"
       },
-      "static": {
-        "spacing": {
-          "none": "0px",
-          "hair": "1px",
-          "xxsmall": "3px",
-          "xsmall": "6px",
-          "small": "12px",
-          "medium": "24px",
-          "large": "48px",
-          "xlarge": "96px"
-        },
-        "radius": {
-          "none": "0px",
-          "hair": "1px",
-          "xxsmall": "3px",
-          "xsmall": "6px",
-          "small": "12px",
-          "medium": "24px",
-          "large": "48px",
-          "xlarge": "96px",
-          "full": "384px"
-        },
-        "borderWidth": {
-          "none": "0px",
-          "xsmall": "1px",
-          "small": "2px",
-          "medium": "4px",
-          "large": "12px",
-          "xlarge": "24px",
-          "default": "1px"
-        },
-        "container": {
-          "xxsmall": "48px",
-          "xsmall": "96px",
-          "small": "192px",
-          "smallPlus": "288px",
-          "medium": "384px",
-          "mediumPlus": "576px",
-          "large": "768px",
-          "xlarge": "1152px",
-          "xxlarge": "1536px"
-        }
+      "radius": {
+        "none": "0px",
+        "hair": "1px",
+        "xxsmall": "3px",
+        "xsmall": "6px",
+        "small": "12px",
+        "medium": "24px",
+        "large": "48px",
+        "xlarge": "96px",
+        "full": "384px"
+      },
+      "borderWidth": {
+        "none": "0px",
+        "xsmall": "1px",
+        "small": "2px",
+        "medium": "4px",
+        "large": "12px",
+        "xlarge": "24px",
+        "default": "1px"
+      },
+      "container": {
+        "xxsmall": "48px",
+        "xsmall": "96px",
+        "small": "192px",
+        "smallPlus": "288px",
+        "medium": "384px",
+        "mediumPlus": "576px",
+        "large": "768px",
+        "xlarge": "1152px",
+        "xxlarge": "1536px"
       }
     },
     "TBD": "rgba(0, 255, 10, 0)"

@@ -1167,7 +1167,7 @@ export default {
       "input": {
         "group": {
           "container": {
-            "enabled": {
+            "rest": {
               "background": "transparent",
               "borderColor": "border-default"
             },
@@ -1175,25 +1175,29 @@ export default {
               "background": "transparent",
               "borderColor": "border-default"
             },
-            "readOnly": {
-              "background": "background-back",
-              "borderColor": "border-weak"
-            },
-            "disabled": {
-              "background": "background-default",
-              "borderColor": "border-disabled"
-            }
-          },
-          "item": {
-            "enabled": {
-              "background": "transparent",
-              "borderColor": "transparent"
-            },
-            "status": {
-              "critical": {
+            "error": {
+              "rest": {
                 "background": "background-critical",
                 "borderColor": "transparent"
               }
+            },
+            "disabled": {
+              "rest": {
+                "background": "background-default",
+                "borderColor": "border-disabled"
+              }
+            },
+            "readOnly": {
+              "rest": {
+                "background": "background-back",
+                "borderColor": "border-weak"
+              }
+            }
+          },
+          "item": {
+            "rest": {
+              "background": "transparent",
+              "borderColor": "transparent"
             },
             "hover": {
               "background": "background-hover",
@@ -1203,18 +1207,22 @@ export default {
               "background": "background-hover",
               "borderColor": "transparent"
             },
-            "readOnly": {
-              "background": "transparent",
-              "borderColor": "transparent"
-            },
             "disabled": {
-              "background": "transparent",
-              "borderColor": "transparent"
+              "rest": {
+                "background": "transparent",
+                "borderColor": "transparent"
+              }
+            },
+            "readOnly": {
+              "rest": {
+                "background": "transparent",
+                "borderColor": "transparent"
+              }
             }
           }
         },
         "container": {
-          "enabled": {
+          "rest": {
             "background": "transparent",
             "borderColor": "border-default"
           },
@@ -1226,24 +1234,28 @@ export default {
             "background": "transparent",
             "borderColor": "border-default"
           },
-          "readOnly": {
-            "background": "background-back",
-            "borderColor": "border-weak"
-          },
-          "disabled": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled"
-          },
-          "status": {
-            "critical": {
+          "error": {
+            "rest": {
               "background": "background-critical",
               "borderColor": "border-strong"
+            }
+          },
+          "disabled": {
+            "rest": {
+              "background": "background-disabled",
+              "borderColor": "border-disabled"
+            }
+          },
+          "readOnly": {
+            "rest": {
+              "background": "background-back",
+              "borderColor": "border-weak"
             }
           }
         }
       },
       "label": {
-        "enabled": {
+        "rest": {
           "textColor": "text-strong"
         },
         "hover": {
@@ -1252,21 +1264,25 @@ export default {
         "focus": {
           "textColor": "text-strong"
         },
+        "error": {
+          "rest": {
+            "textColor": "text-strong"
+          }
+        },
         "disabled": {
-          "textColor": "text-disabled"
+          "rest": {
+            "textColor": "text-disabled"
+          }
         },
         "readOnly": {
-          "textColor": "text-strong"
-        },
-        "status": {
-          "critical": {
+          "rest": {
             "textColor": "text-strong"
           }
         }
       },
       "placeholder": {
         "disabled": "text-disabled",
-        "enabled": {
+        "rest": {
           "textColor": "text-weak"
         },
         "hover": {
@@ -1275,17 +1291,19 @@ export default {
         "focus": {
           "textColor": "text-weak"
         },
-        "readOnly": {
-          "textColor": "text-weak"
+        "error": {
+          "rest": {
+            "textColor": "text-weak"
+          }
         },
-        "status": {
-          "critical": {
+        "readOnly": {
+          "rest": {
             "textColor": "text-weak"
           }
         }
       },
       "help": {
-        "enabled": {
+        "rest": {
           "textColor": "text-default"
         },
         "hover": {
@@ -1294,20 +1312,24 @@ export default {
         "focus": {
           "textColor": "text-default"
         },
+        "error": {
+          "rest": {
+            "textColor": "text-default"
+          }
+        },
         "disabled": {
-          "color": "text-default"
+          "rest": {
+            "color": "text-default"
+          }
         },
         "readOnly": {
-          "textColor": "text-default"
-        },
-        "status": {
-          "critical": {
+          "rest": {
             "textColor": "text-default"
           }
         }
       },
       "info": {
-        "enabled": {
+        "rest": {
           "textColor": "text-default"
         },
         "hover": {
@@ -1316,20 +1338,24 @@ export default {
         "focus": {
           "textColor": "text-default"
         },
+        "error": {
+          "rest": {
+            "textColor": "text-default"
+          }
+        },
         "disabled": {
-          "textColor": "text-disabled"
+          "rest": {
+            "textColor": "text-disabled"
+          }
         },
         "readOnly": {
-          "textColor": "text-default"
-        },
-        "status": {
-          "critical": {
+          "rest": {
             "textColor": "text-default"
           }
         }
       },
       "error": {
-        "enabled": {
+        "rest": {
           "textColor": "text-critical",
           "iconColor": "icon-default"
         },
@@ -1340,24 +1366,10 @@ export default {
         "focus": {
           "iconColor": "icon-default",
           "textColor": "text-critical"
-        },
-        "disabled": {
-          "iconColor": "icon-default",
-          "textColor": "text-default"
-        },
-        "readOnly": {
-          "iconColor": "icon-default",
-          "textColor": "text-default"
-        },
-        "status": {
-          "critical": {
-            "iconColor": "icon-default",
-            "textColor": "text-default"
-          }
         }
       },
       "value": {
-        "enabled": {
+        "rest": {
           "textColor": "text-default"
         },
         "hover": {
@@ -1366,14 +1378,18 @@ export default {
         "focus": {
           "textColor": "text-default"
         },
+        "error": {
+          "rest": {
+            "textColor": "text-default"
+          }
+        },
         "disabled": {
-          "textColor": "text-disabled"
+          "rest": {
+            "textColor": "text-disabled"
+          }
         },
         "readOnly": {
-          "textColor": "text-default"
-        },
-        "status": {
-          "critical": {
+          "rest": {
             "textColor": "text-default"
           }
         }

@@ -4438,10 +4438,10 @@ export default {
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.xsmall}",
-          "blur": "{base.static.spacing.small}",
-          "spread": "{base.static.spacing.none}",
+          "offsetX": "{static.spacing.none}",
+          "offsetY": "{static.spacing.xsmall}",
+          "blur": "{static.spacing.small}",
+          "spread": "{static.spacing.none}",
           "color": "{base.color.black.opacity36}"
         }
       ],
@@ -4486,10 +4486,10 @@ export default {
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.small}",
-          "blur": "{base.static.spacing.medium}",
-          "spread": "{base.static.spacing.none}",
+          "offsetX": "{static.spacing.none}",
+          "offsetY": "{static.spacing.small}",
+          "blur": "{static.spacing.medium}",
+          "spread": "{static.spacing.none}",
           "color": "{base.color.black.opacity36}"
         }
       ],

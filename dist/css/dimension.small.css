@@ -72,37 +72,37 @@
   --hpe-heading-xxsmall-font-size: var(--hpe-base-font-size-80);
   --hpe-heading-xxsmall-line-height: var(--hpe-base-line-height-80);
   --hpe-heading-xxsmall-font-weight: var(--hpe-font-weight-semibold);
-  --hpe-spacing-none: var(--hpe-base-static-spacing-none);
-  --hpe-spacing-hair: var(--hpe-base-static-spacing-hair);
-  --hpe-spacing-xxsmall: var(--hpe-base-static-spacing-xxsmall);
-  --hpe-spacing-xsmall: var(--hpe-base-static-spacing-xxsmall);
-  --hpe-spacing-small: var(--hpe-base-static-spacing-xsmall);
-  --hpe-spacing-medium: var(--hpe-base-static-spacing-small);
-  --hpe-spacing-large: var(--hpe-base-static-spacing-medium);
-  --hpe-spacing-xlarge: var(--hpe-base-static-spacing-large);
-  --hpe-radius-none: var(--hpe-base-static-radius-none);
-  --hpe-radius-hair: var(--hpe-base-static-radius-hair);
-  --hpe-radius-xxsmall: var(--hpe-base-static-radius-hair);
-  --hpe-radius-xsmall: var(--hpe-base-static-radius-xxsmall);
-  --hpe-radius-small: var(--hpe-base-static-radius-xsmall);
-  --hpe-radius-medium: var(--hpe-base-static-radius-small);
-  --hpe-radius-large: var(--hpe-base-static-radius-medium);
-  --hpe-radius-xlarge: var(--hpe-base-static-radius-large);
-  --hpe-border-width-none: var(--hpe-base-static-border-width-none);
-  --hpe-border-width-xsmall: var(--hpe-base-static-border-width-xsmall);
-  --hpe-border-width-small: var(--hpe-base-static-border-width-xsmall);
-  --hpe-border-width-medium: var(--hpe-base-static-border-width-small);
-  --hpe-border-width-large: var(--hpe-base-static-border-width-medium);
-  --hpe-border-width-xlarge: var(--hpe-base-static-border-width-large);
-  --hpe-border-width-default: var(--hpe-base-static-border-width-xsmall);
-  --hpe-size-container-xxsmall: var(--hpe-base-static-container-xxsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-size-container-xsmall: var(--hpe-base-static-container-xxsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-size-container-small: var(--hpe-base-static-container-xsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-size-container-small-plus: var(--hpe-base-static-container-small);
-  --hpe-size-container-medium: var(--hpe-base-static-container-small); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-size-container-medium-plus: var(--hpe-base-static-container-medium);
-  --hpe-size-container-large: var(--hpe-base-static-container-medium); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-size-container-xlarge: var(--hpe-base-static-container-large); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-size-container-xxlarge: var(--hpe-base-static-container-xlarge); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-spacing-none: var(--hpe-static-spacing-none);
+  --hpe-spacing-hair: var(--hpe-static-spacing-hair);
+  --hpe-spacing-xxsmall: var(--hpe-static-spacing-xxsmall);
+  --hpe-spacing-xsmall: var(--hpe-static-spacing-xxsmall);
+  --hpe-spacing-small: var(--hpe-static-spacing-xsmall);
+  --hpe-spacing-medium: var(--hpe-static-spacing-small);
+  --hpe-spacing-large: var(--hpe-static-spacing-medium);
+  --hpe-spacing-xlarge: var(--hpe-static-spacing-large);
+  --hpe-radius-none: var(--hpe-static-radius-none);
+  --hpe-radius-hair: var(--hpe-static-radius-hair);
+  --hpe-radius-xxsmall: var(--hpe-static-radius-hair);
+  --hpe-radius-xsmall: var(--hpe-static-radius-xxsmall);
+  --hpe-radius-small: var(--hpe-static-radius-xsmall);
+  --hpe-radius-medium: var(--hpe-static-radius-small);
+  --hpe-radius-large: var(--hpe-static-radius-medium);
+  --hpe-radius-xlarge: var(--hpe-static-radius-large);
+  --hpe-border-width-none: var(--hpe-static-border-width-none);
+  --hpe-border-width-xsmall: var(--hpe-static-border-width-xsmall);
+  --hpe-border-width-small: var(--hpe-static-border-width-xsmall);
+  --hpe-border-width-medium: var(--hpe-static-border-width-small);
+  --hpe-border-width-large: var(--hpe-static-border-width-medium);
+  --hpe-border-width-xlarge: var(--hpe-static-border-width-large);
+  --hpe-border-width-default: var(--hpe-static-border-width-xsmall);
+  --hpe-size-container-xxsmall: var(--hpe-static-container-xxsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-container-xsmall: var(--hpe-static-container-xxsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-container-small: var(--hpe-static-container-xsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-container-small-plus: var(--hpe-static-container-small);
+  --hpe-size-container-medium: var(--hpe-static-container-small); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-container-medium-plus: var(--hpe-static-container-medium);
+  --hpe-size-container-large: var(--hpe-static-container-medium); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-container-xlarge: var(--hpe-static-container-large); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-container-xxlarge: var(--hpe-static-container-xlarge); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
 }
 }

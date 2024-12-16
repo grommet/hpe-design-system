@@ -20,7 +20,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.none}",
+      "$value": "{static.spacing.none}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -60,7 +60,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.hair}",
+      "$value": "{static.spacing.hair}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -100,7 +100,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
+      "$value": "{static.spacing.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -140,7 +140,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -180,7 +180,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -220,7 +220,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.medium}",
+      "$value": "{static.spacing.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -260,7 +260,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.large}",
+      "$value": "{static.spacing.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -300,7 +300,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xlarge}",
+      "$value": "{static.spacing.xlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -340,7 +340,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.none}",
+      "$value": "{static.radius.none}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -380,7 +380,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.hair}",
+      "$value": "{static.radius.hair}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -420,7 +420,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xxsmall}",
+      "$value": "{static.radius.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -460,7 +460,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xsmall}",
+      "$value": "{static.radius.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -500,7 +500,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.small}",
+      "$value": "{static.radius.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -540,7 +540,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.medium}",
+      "$value": "{static.radius.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -580,7 +580,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.large}",
+      "$value": "{static.radius.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -620,7 +620,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xlarge}",
+      "$value": "{static.radius.xlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -701,7 +701,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.none}",
+      "$value": "{static.borderWidth.none}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -743,7 +743,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
+      "$value": "{static.borderWidth.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -785,7 +785,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.small}",
+      "$value": "{static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -827,7 +827,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.medium}",
+      "$value": "{static.borderWidth.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -869,7 +869,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.large}",
+      "$value": "{static.borderWidth.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -911,7 +911,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.xlarge}",
+      "$value": "{static.borderWidth.xlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -953,7 +953,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
+      "$value": "{static.borderWidth.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -994,7 +994,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.container.xxsmall}",
+      "$value": "{static.container.xxsmall}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1036,7 +1036,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.container.xsmall}",
+      "$value": "{static.container.xsmall}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1078,7 +1078,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.container.small}",
+      "$value": "{static.container.small}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1120,7 +1120,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.container.smallPlus}",
+      "$value": "{static.container.smallPlus}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1162,7 +1162,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.container.medium}",
+      "$value": "{static.container.medium}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1204,7 +1204,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.container.mediumPlus}",
+      "$value": "{static.container.mediumPlus}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1246,7 +1246,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.container.large}",
+      "$value": "{static.container.large}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1288,7 +1288,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.container.xlarge}",
+      "$value": "{static.container.xlarge}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {
@@ -1330,7 +1330,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.container.xxlarge}",
+      "$value": "{static.container.xxlarge}",
       "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
       "$extensions": {
         "com.figma": {

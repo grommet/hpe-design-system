@@ -6677,7 +6677,7 @@ export default {
     ],
     "key": "{base.lineHeight.1000}"
   },
-  "hpe.base.static.spacing.none": {
+  "hpe.static.spacing.none": {
     "$type": "number",
     "$value": "0px",
     "$description": "",
@@ -6706,22 +6706,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.spacing.none",
+    "name": "hpe.static.spacing.none",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "none"
+      "category": "static",
+      "type": "spacing",
+      "item": "none"
     },
     "path": [
-      "base",
       "static",
       "spacing",
       "none"
     ],
-    "key": "{base.static.spacing.none}"
+    "key": "{static.spacing.none}"
   },
-  "hpe.base.static.spacing.hair": {
+  "hpe.static.spacing.hair": {
     "$type": "number",
     "$value": "1px",
     "$description": "",
@@ -6750,22 +6748,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.spacing.hair",
+    "name": "hpe.static.spacing.hair",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "hair"
+      "category": "static",
+      "type": "spacing",
+      "item": "hair"
     },
     "path": [
-      "base",
       "static",
       "spacing",
       "hair"
     ],
-    "key": "{base.static.spacing.hair}"
+    "key": "{static.spacing.hair}"
   },
-  "hpe.base.static.spacing.xxsmall": {
+  "hpe.static.spacing.xxsmall": {
     "$type": "number",
     "$value": "3px",
     "$description": "",
@@ -6794,22 +6790,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.spacing.xxsmall",
+    "name": "hpe.static.spacing.xxsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "xxsmall"
+      "category": "static",
+      "type": "spacing",
+      "item": "xxsmall"
     },
     "path": [
-      "base",
       "static",
       "spacing",
       "xxsmall"
     ],
-    "key": "{base.static.spacing.xxsmall}"
+    "key": "{static.spacing.xxsmall}"
   },
-  "hpe.base.static.spacing.xsmall": {
+  "hpe.static.spacing.xsmall": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -6838,22 +6832,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.spacing.xsmall",
+    "name": "hpe.static.spacing.xsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "xsmall"
+      "category": "static",
+      "type": "spacing",
+      "item": "xsmall"
     },
     "path": [
-      "base",
       "static",
       "spacing",
       "xsmall"
     ],
-    "key": "{base.static.spacing.xsmall}"
+    "key": "{static.spacing.xsmall}"
   },
-  "hpe.base.static.spacing.small": {
+  "hpe.static.spacing.small": {
     "$type": "number",
     "$value": "12px",
     "$description": "",
@@ -6882,22 +6874,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.spacing.small",
+    "name": "hpe.static.spacing.small",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "small"
+      "category": "static",
+      "type": "spacing",
+      "item": "small"
     },
     "path": [
-      "base",
       "static",
       "spacing",
       "small"
     ],
-    "key": "{base.static.spacing.small}"
+    "key": "{static.spacing.small}"
   },
-  "hpe.base.static.spacing.medium": {
+  "hpe.static.spacing.medium": {
     "$type": "number",
     "$value": "24px",
     "$description": "",
@@ -6926,22 +6916,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.spacing.medium",
+    "name": "hpe.static.spacing.medium",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "medium"
+      "category": "static",
+      "type": "spacing",
+      "item": "medium"
     },
     "path": [
-      "base",
       "static",
       "spacing",
       "medium"
     ],
-    "key": "{base.static.spacing.medium}"
+    "key": "{static.spacing.medium}"
   },
-  "hpe.base.static.spacing.large": {
+  "hpe.static.spacing.large": {
     "$type": "number",
     "$value": "48px",
     "$description": "",
@@ -6970,22 +6958,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.spacing.large",
+    "name": "hpe.static.spacing.large",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "large"
+      "category": "static",
+      "type": "spacing",
+      "item": "large"
     },
     "path": [
-      "base",
       "static",
       "spacing",
       "large"
     ],
-    "key": "{base.static.spacing.large}"
+    "key": "{static.spacing.large}"
   },
-  "hpe.base.static.spacing.xlarge": {
+  "hpe.static.spacing.xlarge": {
     "$type": "number",
     "$value": "96px",
     "$description": "",
@@ -7014,22 +7000,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.spacing.xlarge",
+    "name": "hpe.static.spacing.xlarge",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "xlarge"
+      "category": "static",
+      "type": "spacing",
+      "item": "xlarge"
     },
     "path": [
-      "base",
       "static",
       "spacing",
       "xlarge"
     ],
-    "key": "{base.static.spacing.xlarge}"
+    "key": "{static.spacing.xlarge}"
   },
-  "hpe.base.static.radius.none": {
+  "hpe.static.radius.none": {
     "$type": "number",
     "$value": "0px",
     "$description": "",
@@ -7058,22 +7042,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.radius.none",
+    "name": "hpe.static.radius.none",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "none"
+      "category": "static",
+      "type": "radius",
+      "item": "none"
     },
     "path": [
-      "base",
       "static",
       "radius",
       "none"
     ],
-    "key": "{base.static.radius.none}"
+    "key": "{static.radius.none}"
   },
-  "hpe.base.static.radius.hair": {
+  "hpe.static.radius.hair": {
     "$type": "number",
     "$value": "1px",
     "$description": "",
@@ -7102,22 +7084,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.radius.hair",
+    "name": "hpe.static.radius.hair",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "hair"
+      "category": "static",
+      "type": "radius",
+      "item": "hair"
     },
     "path": [
-      "base",
       "static",
       "radius",
       "hair"
     ],
-    "key": "{base.static.radius.hair}"
+    "key": "{static.radius.hair}"
   },
-  "hpe.base.static.radius.xxsmall": {
+  "hpe.static.radius.xxsmall": {
     "$type": "number",
     "$value": "3px",
     "$description": "",
@@ -7146,22 +7126,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.radius.xxsmall",
+    "name": "hpe.static.radius.xxsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "xxsmall"
+      "category": "static",
+      "type": "radius",
+      "item": "xxsmall"
     },
     "path": [
-      "base",
       "static",
       "radius",
       "xxsmall"
     ],
-    "key": "{base.static.radius.xxsmall}"
+    "key": "{static.radius.xxsmall}"
   },
-  "hpe.base.static.radius.xsmall": {
+  "hpe.static.radius.xsmall": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -7190,22 +7168,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.radius.xsmall",
+    "name": "hpe.static.radius.xsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "xsmall"
+      "category": "static",
+      "type": "radius",
+      "item": "xsmall"
     },
     "path": [
-      "base",
       "static",
       "radius",
       "xsmall"
     ],
-    "key": "{base.static.radius.xsmall}"
+    "key": "{static.radius.xsmall}"
   },
-  "hpe.base.static.radius.small": {
+  "hpe.static.radius.small": {
     "$type": "number",
     "$value": "12px",
     "$description": "",
@@ -7234,22 +7210,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.radius.small",
+    "name": "hpe.static.radius.small",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "small"
+      "category": "static",
+      "type": "radius",
+      "item": "small"
     },
     "path": [
-      "base",
       "static",
       "radius",
       "small"
     ],
-    "key": "{base.static.radius.small}"
+    "key": "{static.radius.small}"
   },
-  "hpe.base.static.radius.medium": {
+  "hpe.static.radius.medium": {
     "$type": "number",
     "$value": "24px",
     "$description": "",
@@ -7278,22 +7252,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.radius.medium",
+    "name": "hpe.static.radius.medium",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "medium"
+      "category": "static",
+      "type": "radius",
+      "item": "medium"
     },
     "path": [
-      "base",
       "static",
       "radius",
       "medium"
     ],
-    "key": "{base.static.radius.medium}"
+    "key": "{static.radius.medium}"
   },
-  "hpe.base.static.radius.large": {
+  "hpe.static.radius.large": {
     "$type": "number",
     "$value": "48px",
     "$description": "",
@@ -7322,22 +7294,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.radius.large",
+    "name": "hpe.static.radius.large",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "large"
+      "category": "static",
+      "type": "radius",
+      "item": "large"
     },
     "path": [
-      "base",
       "static",
       "radius",
       "large"
     ],
-    "key": "{base.static.radius.large}"
+    "key": "{static.radius.large}"
   },
-  "hpe.base.static.radius.xlarge": {
+  "hpe.static.radius.xlarge": {
     "$type": "number",
     "$value": "96px",
     "$description": "",
@@ -7366,22 +7336,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.radius.xlarge",
+    "name": "hpe.static.radius.xlarge",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "xlarge"
+      "category": "static",
+      "type": "radius",
+      "item": "xlarge"
     },
     "path": [
-      "base",
       "static",
       "radius",
       "xlarge"
     ],
-    "key": "{base.static.radius.xlarge}"
+    "key": "{static.radius.xlarge}"
   },
-  "hpe.base.static.radius.full": {
+  "hpe.static.radius.full": {
     "$type": "number",
     "$value": "384px",
     "$description": "",
@@ -7410,22 +7378,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.radius.full",
+    "name": "hpe.static.radius.full",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "full"
+      "category": "static",
+      "type": "radius",
+      "item": "full"
     },
     "path": [
-      "base",
       "static",
       "radius",
       "full"
     ],
-    "key": "{base.static.radius.full}"
+    "key": "{static.radius.full}"
   },
-  "hpe.base.static.borderWidth.none": {
+  "hpe.static.borderWidth.none": {
     "$type": "number",
     "$value": "0px",
     "$description": "",
@@ -7454,22 +7420,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.none",
+    "name": "hpe.static.borderWidth.none",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "none"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "none"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "none"
     ],
-    "key": "{base.static.borderWidth.none}"
+    "key": "{static.borderWidth.none}"
   },
-  "hpe.base.static.borderWidth.xsmall": {
+  "hpe.static.borderWidth.xsmall": {
     "$type": "number",
     "$value": "1px",
     "$description": "",
@@ -7498,22 +7462,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.xsmall",
+    "name": "hpe.static.borderWidth.xsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "xsmall"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "xsmall"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "xsmall"
     ],
-    "key": "{base.static.borderWidth.xsmall}"
+    "key": "{static.borderWidth.xsmall}"
   },
-  "hpe.base.static.borderWidth.small": {
+  "hpe.static.borderWidth.small": {
     "$type": "number",
     "$value": "2px",
     "$description": "",
@@ -7542,22 +7504,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.small",
+    "name": "hpe.static.borderWidth.small",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "small"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "small"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "small"
     ],
-    "key": "{base.static.borderWidth.small}"
+    "key": "{static.borderWidth.small}"
   },
-  "hpe.base.static.borderWidth.medium": {
+  "hpe.static.borderWidth.medium": {
     "$type": "number",
     "$value": "4px",
     "$description": "",
@@ -7586,22 +7546,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.medium",
+    "name": "hpe.static.borderWidth.medium",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "medium"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "medium"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "medium"
     ],
-    "key": "{base.static.borderWidth.medium}"
+    "key": "{static.borderWidth.medium}"
   },
-  "hpe.base.static.borderWidth.large": {
+  "hpe.static.borderWidth.large": {
     "$type": "number",
     "$value": "12px",
     "$description": "",
@@ -7630,22 +7588,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.large",
+    "name": "hpe.static.borderWidth.large",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "large"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "large"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "large"
     ],
-    "key": "{base.static.borderWidth.large}"
+    "key": "{static.borderWidth.large}"
   },
-  "hpe.base.static.borderWidth.xlarge": {
+  "hpe.static.borderWidth.xlarge": {
     "$type": "number",
     "$value": "24px",
     "$description": "",
@@ -7674,22 +7630,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.xlarge",
+    "name": "hpe.static.borderWidth.xlarge",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "xlarge"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "xlarge"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "xlarge"
     ],
-    "key": "{base.static.borderWidth.xlarge}"
+    "key": "{static.borderWidth.xlarge}"
   },
-  "hpe.base.static.borderWidth.default": {
+  "hpe.static.borderWidth.default": {
     "$type": "number",
     "$value": "1px",
     "$description": "",
@@ -7718,22 +7672,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.default",
+    "name": "hpe.static.borderWidth.default",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "default"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "default"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "default"
     ],
-    "key": "{base.static.borderWidth.default}"
+    "key": "{static.borderWidth.default}"
   },
-  "hpe.base.static.container.xxsmall": {
+  "hpe.static.container.xxsmall": {
     "$type": "number",
     "$value": "48px",
     "$description": "",
@@ -7764,22 +7716,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.container.xxsmall",
+    "name": "hpe.static.container.xxsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "container",
-      "subitem": "xxsmall"
+      "category": "static",
+      "type": "container",
+      "item": "xxsmall"
     },
     "path": [
-      "base",
       "static",
       "container",
       "xxsmall"
     ],
-    "key": "{base.static.container.xxsmall}"
+    "key": "{static.container.xxsmall}"
   },
-  "hpe.base.static.container.xsmall": {
+  "hpe.static.container.xsmall": {
     "$type": "number",
     "$value": "96px",
     "$description": "",
@@ -7810,22 +7760,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.container.xsmall",
+    "name": "hpe.static.container.xsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "container",
-      "subitem": "xsmall"
+      "category": "static",
+      "type": "container",
+      "item": "xsmall"
     },
     "path": [
-      "base",
       "static",
       "container",
       "xsmall"
     ],
-    "key": "{base.static.container.xsmall}"
+    "key": "{static.container.xsmall}"
   },
-  "hpe.base.static.container.small": {
+  "hpe.static.container.small": {
     "$type": "number",
     "$value": "192px",
     "$description": "",
@@ -7856,22 +7804,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.container.small",
+    "name": "hpe.static.container.small",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "container",
-      "subitem": "small"
+      "category": "static",
+      "type": "container",
+      "item": "small"
     },
     "path": [
-      "base",
       "static",
       "container",
       "small"
     ],
-    "key": "{base.static.container.small}"
+    "key": "{static.container.small}"
   },
-  "hpe.base.static.container.smallPlus": {
+  "hpe.static.container.smallPlus": {
     "$type": "number",
     "$value": "288px",
     "$description": "",
@@ -7900,22 +7846,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.container.smallPlus",
+    "name": "hpe.static.container.smallPlus",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "container",
-      "subitem": "smallPlus"
+      "category": "static",
+      "type": "container",
+      "item": "smallPlus"
     },
     "path": [
-      "base",
       "static",
       "container",
       "smallPlus"
     ],
-    "key": "{base.static.container.smallPlus}"
+    "key": "{static.container.smallPlus}"
   },
-  "hpe.base.static.container.medium": {
+  "hpe.static.container.medium": {
     "$type": "number",
     "$value": "384px",
     "$description": "",
@@ -7946,22 +7890,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.container.medium",
+    "name": "hpe.static.container.medium",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "container",
-      "subitem": "medium"
+      "category": "static",
+      "type": "container",
+      "item": "medium"
     },
     "path": [
-      "base",
       "static",
       "container",
       "medium"
     ],
-    "key": "{base.static.container.medium}"
+    "key": "{static.container.medium}"
   },
-  "hpe.base.static.container.mediumPlus": {
+  "hpe.static.container.mediumPlus": {
     "$type": "number",
     "$value": "576px",
     "$description": "",
@@ -7990,22 +7932,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.container.mediumPlus",
+    "name": "hpe.static.container.mediumPlus",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "container",
-      "subitem": "mediumPlus"
+      "category": "static",
+      "type": "container",
+      "item": "mediumPlus"
     },
     "path": [
-      "base",
       "static",
       "container",
       "mediumPlus"
     ],
-    "key": "{base.static.container.mediumPlus}"
+    "key": "{static.container.mediumPlus}"
   },
-  "hpe.base.static.container.large": {
+  "hpe.static.container.large": {
     "$type": "number",
     "$value": "768px",
     "$description": "",
@@ -8036,22 +7976,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.container.large",
+    "name": "hpe.static.container.large",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "container",
-      "subitem": "large"
+      "category": "static",
+      "type": "container",
+      "item": "large"
     },
     "path": [
-      "base",
       "static",
       "container",
       "large"
     ],
-    "key": "{base.static.container.large}"
+    "key": "{static.container.large}"
   },
-  "hpe.base.static.container.xlarge": {
+  "hpe.static.container.xlarge": {
     "$type": "number",
     "$value": "1152px",
     "$description": "",
@@ -8082,22 +8020,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.container.xlarge",
+    "name": "hpe.static.container.xlarge",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "container",
-      "subitem": "xlarge"
+      "category": "static",
+      "type": "container",
+      "item": "xlarge"
     },
     "path": [
-      "base",
       "static",
       "container",
       "xlarge"
     ],
-    "key": "{base.static.container.xlarge}"
+    "key": "{static.container.xlarge}"
   },
-  "hpe.base.static.container.xxlarge": {
+  "hpe.static.container.xxlarge": {
     "$type": "number",
     "$value": "1536px",
     "$description": "",
@@ -8128,20 +8064,18 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.container.xxlarge",
+    "name": "hpe.static.container.xxlarge",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "container",
-      "subitem": "xxlarge"
+      "category": "static",
+      "type": "container",
+      "item": "xxlarge"
     },
     "path": [
-      "base",
       "static",
       "container",
       "xxlarge"
     ],
-    "key": "{base.static.container.xxlarge}"
+    "key": "{static.container.xxlarge}"
   },
   "hpe.TBD": {
     "$type": "color",

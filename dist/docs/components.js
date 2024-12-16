@@ -62,7 +62,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
+      "$value": "{static.spacing.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -104,7 +104,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
+      "$value": "{static.spacing.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -316,7 +316,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
+      "$value": "{static.spacing.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -360,7 +360,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -577,7 +577,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.default}",
+      "$value": "{static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -872,7 +872,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -914,7 +914,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -956,7 +956,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
+      "$value": "{static.spacing.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1000,7 +1000,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1044,7 +1044,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1342,7 +1342,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1384,7 +1384,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1898,7 +1898,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1940,7 +1940,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2454,7 +2454,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2496,7 +2496,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -9828,9 +9828,9 @@ export default {
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.none}",
-          "blur": "{base.static.spacing.none}",
+          "offsetX": "{static.spacing.none}",
+          "offsetY": "{static.spacing.none}",
+          "blur": "{static.spacing.none}",
           "spread": "{base.dimension.25}",
           "color": "{button.secondary.hover.borderColor}",
           "inset": true
@@ -10653,9 +10653,9 @@ export default {
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.none}",
-          "blur": "{base.static.spacing.none}",
+          "offsetX": "{static.spacing.none}",
+          "offsetY": "{static.spacing.none}",
+          "blur": "{static.spacing.none}",
           "spread": "{base.dimension.25}",
           "color": "{button.secondary.hover.borderColor}",
           "inset": true
@@ -10839,7 +10839,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.small}",
+      "$value": "{static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11478,9 +11478,9 @@ export default {
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.none}",
-          "blur": "{base.static.spacing.none}",
+          "offsetX": "{static.spacing.none}",
+          "offsetY": "{static.spacing.none}",
+          "blur": "{static.spacing.none}",
           "spread": "{base.dimension.25}",
           "color": "{button.secondary.hover.borderColor}",
           "inset": true
@@ -11664,7 +11664,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.small}",
+      "$value": "{static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12303,9 +12303,9 @@ export default {
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.none}",
-          "blur": "{base.static.spacing.none}",
+          "offsetX": "{static.spacing.none}",
+          "offsetY": "{static.spacing.none}",
+          "blur": "{static.spacing.none}",
           "spread": "{base.dimension.25}",
           "color": "{button.secondary.hover.borderColor}",
           "inset": true
@@ -12905,7 +12905,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.small}",
+      "$value": "{static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13128,9 +13128,9 @@ export default {
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.none}",
-          "blur": "{base.static.spacing.none}",
+          "offsetX": "{static.spacing.none}",
+          "offsetY": "{static.spacing.none}",
+          "blur": "{static.spacing.none}",
           "spread": "{base.dimension.25}",
           "color": "{button.secondary.hover.borderColor}",
           "inset": true
@@ -14435,7 +14435,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.full}",
+      "$value": "{static.radius.full}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -15205,7 +15205,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.full}",
+      "$value": "{static.radius.full}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -15250,7 +15250,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.default}",
+      "$value": "{static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -15975,7 +15975,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.full}",
+      "$value": "{static.radius.full}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16020,7 +16020,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.default}",
+      "$value": "{static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16745,7 +16745,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.full}",
+      "$value": "{static.radius.full}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -16790,7 +16790,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.default}",
+      "$value": "{static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -17931,7 +17931,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.full}",
+      "$value": "{static.radius.full}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -17976,7 +17976,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.default}",
+      "$value": "{static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19455,7 +19455,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xsmall}",
+      "$value": "{static.radius.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -19500,7 +19500,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.default}",
+      "$value": "{static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -20225,7 +20225,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xsmall}",
+      "$value": "{static.radius.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -20270,7 +20270,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.default}",
+      "$value": "{static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -20995,7 +20995,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -21765,7 +21765,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xsmall}",
+      "$value": "{static.radius.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -22951,7 +22951,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.small}",
+      "$value": "{static.radius.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -23297,7 +23297,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -24242,7 +24242,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.default}",
+      "$value": "{static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -24463,7 +24463,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -24511,7 +24511,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
+      "$value": "{static.borderWidth.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -24691,7 +24691,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.none}",
+      "$value": "{static.radius.none}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -24736,7 +24736,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
+      "$value": "{static.borderWidth.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26831,7 +26831,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "Space between checkbox control and value (label)",
       "$extensions": {
         "com.figma": {
@@ -27139,7 +27139,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xxsmall}",
+      "$value": "{static.radius.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28289,7 +28289,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28556,7 +28556,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.default}",
+      "$value": "{static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28603,7 +28603,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.medium}",
+      "$value": "{static.radius.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28789,7 +28789,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.medium}",
+      "$value": "{static.radius.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28835,7 +28835,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28996,7 +28996,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
+      "$value": "{static.borderWidth.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29037,7 +29037,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -32439,7 +32439,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -32817,7 +32817,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -32960,7 +32960,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -33053,7 +33053,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.default}",
+      "$value": "{static.borderWidth.default}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -33100,7 +33100,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xsmall}",
+      "$value": "{static.radius.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34059,7 +34059,7 @@ export default {
     ],
     "key": "{formField.medium.value.fontWeight}"
   },
-  "hpe.formField.input.group.container.enabled.background": {
+  "hpe.formField.input.group.container.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -34077,7 +34077,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{formField.input.container.enabled.background}",
+      "$value": "{formField.input.container.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34090,25 +34090,25 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.group.container.enabled.background",
+    "name": "hpe.formField.input.group.container.rest.background",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "group",
       "subitem": "container",
-      "state": "enabled"
+      "state": "rest"
     },
     "path": [
       "formField",
       "input",
       "group",
       "container",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{formField.input.group.container.enabled.background}"
+    "key": "{formField.input.group.container.rest.background}"
   },
-  "hpe.formField.input.group.container.enabled.borderColor": {
+  "hpe.formField.input.group.container.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
     "$description": "",
@@ -34125,7 +34125,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{formField.input.container.enabled.borderColor}",
+      "$value": "{formField.input.container.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34137,23 +34137,23 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.group.container.enabled.borderColor",
+    "name": "hpe.formField.input.group.container.rest.borderColor",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "group",
       "subitem": "container",
-      "state": "enabled"
+      "state": "rest"
     },
     "path": [
       "formField",
       "input",
       "group",
       "container",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{formField.input.group.container.enabled.borderColor}"
+    "key": "{formField.input.group.container.rest.borderColor}"
   },
   "hpe.formField.input.group.container.hover.background": {
     "$type": "color",
@@ -34173,7 +34173,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{formField.input.group.container.enabled.background}",
+      "$value": "{formField.input.group.container.rest.background}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34222,7 +34222,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{formField.input.group.container.enabled.borderColor}",
+      "$value": "{formField.input.group.container.rest.borderColor}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34253,301 +34253,7 @@ export default {
     ],
     "key": "{formField.input.group.container.hover.borderColor}"
   },
-  "hpe.formField.input.group.container.readOnly.background": {
-    "$type": "color",
-    "$value": "#f7f7f7",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{formField.input.container.readOnly.background}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.group.container.readOnly.background",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "group",
-      "subitem": "container",
-      "state": "readOnly"
-    },
-    "path": [
-      "formField",
-      "input",
-      "group",
-      "container",
-      "readOnly",
-      "background"
-    ],
-    "key": "{formField.input.group.container.readOnly.background}"
-  },
-  "hpe.formField.input.group.container.readOnly.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{formField.input.container.readOnly.borderColor}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.group.container.readOnly.borderColor",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "group",
-      "subitem": "container",
-      "state": "readOnly"
-    },
-    "path": [
-      "formField",
-      "input",
-      "group",
-      "container",
-      "readOnly",
-      "borderColor"
-    ],
-    "key": "{formField.input.group.container.readOnly.borderColor}"
-  },
-  "hpe.formField.input.group.container.disabled.background": {
-    "$type": "color",
-    "$value": "#ffffff",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.group.container.disabled.background",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "group",
-      "subitem": "container",
-      "state": "disabled"
-    },
-    "path": [
-      "formField",
-      "input",
-      "group",
-      "container",
-      "disabled",
-      "background"
-    ],
-    "key": "{formField.input.group.container.disabled.background}"
-  },
-  "hpe.formField.input.group.container.disabled.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.group.container.disabled.borderColor",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "group",
-      "subitem": "container",
-      "state": "disabled"
-    },
-    "path": [
-      "formField",
-      "input",
-      "group",
-      "container",
-      "disabled",
-      "borderColor"
-    ],
-    "key": "{formField.input.group.container.disabled.borderColor}"
-  },
-  "hpe.formField.input.group.item.enabled.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.transparent}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.group.item.enabled.background",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "group",
-      "subitem": "item",
-      "state": "enabled"
-    },
-    "path": [
-      "formField",
-      "input",
-      "group",
-      "item",
-      "enabled",
-      "background"
-    ],
-    "key": "{formField.input.group.item.enabled.background}"
-  },
-  "hpe.formField.input.group.item.enabled.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.transparent}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.group.item.enabled.borderColor",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "group",
-      "subitem": "item",
-      "state": "enabled"
-    },
-    "path": [
-      "formField",
-      "input",
-      "group",
-      "item",
-      "enabled",
-      "borderColor"
-    ],
-    "key": "{formField.input.group.item.enabled.borderColor}"
-  },
-  "hpe.formField.input.group.item.status.critical.background": {
+  "hpe.formField.input.group.container.error.rest.background": {
     "$type": "color",
     "$value": "rgba(252, 97, 97, 0.24)",
     "$description": "",
@@ -34578,26 +34284,26 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.group.item.status.critical.background",
+    "name": "hpe.formField.input.group.container.error.rest.background",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "group",
-      "subitem": "item",
-      "state": "status"
+      "subitem": "container",
+      "state": "error"
     },
     "path": [
       "formField",
       "input",
       "group",
-      "item",
-      "status",
-      "critical",
+      "container",
+      "error",
+      "rest",
       "background"
     ],
-    "key": "{formField.input.group.item.status.critical.background}"
+    "key": "{formField.input.group.container.error.rest.background}"
   },
-  "hpe.formField.input.group.item.status.critical.borderColor": {
+  "hpe.formField.input.group.container.error.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -34628,24 +34334,322 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.group.item.status.critical.borderColor",
+    "name": "hpe.formField.input.group.container.error.rest.borderColor",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "group",
+      "subitem": "container",
+      "state": "error"
+    },
+    "path": [
+      "formField",
+      "input",
+      "group",
+      "container",
+      "error",
+      "rest",
+      "borderColor"
+    ],
+    "key": "{formField.input.group.container.error.rest.borderColor}"
+  },
+  "hpe.formField.input.group.container.disabled.rest.background": {
+    "$type": "color",
+    "$value": "#ffffff",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.background.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.group.container.disabled.rest.background",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "group",
+      "subitem": "container",
+      "state": "disabled"
+    },
+    "path": [
+      "formField",
+      "input",
+      "group",
+      "container",
+      "disabled",
+      "rest",
+      "background"
+    ],
+    "key": "{formField.input.group.container.disabled.rest.background}"
+  },
+  "hpe.formField.input.group.container.disabled.rest.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.12)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.border.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.group.container.disabled.rest.borderColor",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "group",
+      "subitem": "container",
+      "state": "disabled"
+    },
+    "path": [
+      "formField",
+      "input",
+      "group",
+      "container",
+      "disabled",
+      "rest",
+      "borderColor"
+    ],
+    "key": "{formField.input.group.container.disabled.rest.borderColor}"
+  },
+  "hpe.formField.input.group.container.readOnly.rest.background": {
+    "$type": "color",
+    "$value": "#f7f7f7",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{formField.input.container.readOnly.rest.background}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.group.container.readOnly.rest.background",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "group",
+      "subitem": "container",
+      "state": "readOnly"
+    },
+    "path": [
+      "formField",
+      "input",
+      "group",
+      "container",
+      "readOnly",
+      "rest",
+      "background"
+    ],
+    "key": "{formField.input.group.container.readOnly.rest.background}"
+  },
+  "hpe.formField.input.group.container.readOnly.rest.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.12)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{formField.input.container.readOnly.rest.borderColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.group.container.readOnly.rest.borderColor",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "group",
+      "subitem": "container",
+      "state": "readOnly"
+    },
+    "path": [
+      "formField",
+      "input",
+      "group",
+      "container",
+      "readOnly",
+      "rest",
+      "borderColor"
+    ],
+    "key": "{formField.input.group.container.readOnly.rest.borderColor}"
+  },
+  "hpe.formField.input.group.item.rest.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.transparent}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.group.item.rest.background",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "group",
       "subitem": "item",
-      "state": "status"
+      "state": "rest"
     },
     "path": [
       "formField",
       "input",
       "group",
       "item",
-      "status",
-      "critical",
+      "rest",
+      "background"
+    ],
+    "key": "{formField.input.group.item.rest.background}"
+  },
+  "hpe.formField.input.group.item.rest.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.transparent}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.group.item.rest.borderColor",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "group",
+      "subitem": "item",
+      "state": "rest"
+    },
+    "path": [
+      "formField",
+      "input",
+      "group",
+      "item",
+      "rest",
       "borderColor"
     ],
-    "key": "{formField.input.group.item.status.critical.borderColor}"
+    "key": "{formField.input.group.item.rest.borderColor}"
   },
   "hpe.formField.input.group.item.hover.background": {
     "$type": "color",
@@ -34843,7 +34847,7 @@ export default {
     ],
     "key": "{formField.input.group.item.focus.borderColor}"
   },
-  "hpe.formField.input.group.item.readOnly.background": {
+  "hpe.formField.input.group.item.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -34874,25 +34878,26 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.group.item.readOnly.background",
+    "name": "hpe.formField.input.group.item.disabled.rest.background",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "group",
       "subitem": "item",
-      "state": "readOnly"
+      "state": "disabled"
     },
     "path": [
       "formField",
       "input",
       "group",
       "item",
-      "readOnly",
+      "disabled",
+      "rest",
       "background"
     ],
-    "key": "{formField.input.group.item.readOnly.background}"
+    "key": "{formField.input.group.item.disabled.rest.background}"
   },
-  "hpe.formField.input.group.item.readOnly.borderColor": {
+  "hpe.formField.input.group.item.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -34923,25 +34928,26 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.group.item.readOnly.borderColor",
+    "name": "hpe.formField.input.group.item.disabled.rest.borderColor",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "group",
       "subitem": "item",
-      "state": "readOnly"
+      "state": "disabled"
     },
     "path": [
       "formField",
       "input",
       "group",
       "item",
-      "readOnly",
+      "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{formField.input.group.item.readOnly.borderColor}"
+    "key": "{formField.input.group.item.disabled.rest.borderColor}"
   },
-  "hpe.formField.input.group.item.disabled.background": {
+  "hpe.formField.input.group.item.readOnly.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -34972,25 +34978,26 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.group.item.disabled.background",
+    "name": "hpe.formField.input.group.item.readOnly.rest.background",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "group",
       "subitem": "item",
-      "state": "disabled"
+      "state": "readOnly"
     },
     "path": [
       "formField",
       "input",
       "group",
       "item",
-      "disabled",
+      "readOnly",
+      "rest",
       "background"
     ],
-    "key": "{formField.input.group.item.disabled.background}"
+    "key": "{formField.input.group.item.readOnly.rest.background}"
   },
-  "hpe.formField.input.group.item.disabled.borderColor": {
+  "hpe.formField.input.group.item.readOnly.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -35021,25 +35028,26 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.group.item.disabled.borderColor",
+    "name": "hpe.formField.input.group.item.readOnly.rest.borderColor",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "group",
       "subitem": "item",
-      "state": "disabled"
+      "state": "readOnly"
     },
     "path": [
       "formField",
       "input",
       "group",
       "item",
-      "disabled",
+      "readOnly",
+      "rest",
       "borderColor"
     ],
-    "key": "{formField.input.group.item.disabled.borderColor}"
+    "key": "{formField.input.group.item.readOnly.rest.borderColor}"
   },
-  "hpe.formField.input.container.enabled.background": {
+  "hpe.formField.input.container.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -35070,24 +35078,24 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.container.enabled.background",
+    "name": "hpe.formField.input.container.rest.background",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "container",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "background"
     },
     "path": [
       "formField",
       "input",
       "container",
-      "enabled",
+      "rest",
       "background"
     ],
-    "key": "{formField.input.container.enabled.background}"
+    "key": "{formField.input.container.rest.background}"
   },
-  "hpe.formField.input.container.enabled.borderColor": {
+  "hpe.formField.input.container.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.36)",
     "$description": "",
@@ -35118,22 +35126,22 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.container.enabled.borderColor",
+    "name": "hpe.formField.input.container.rest.borderColor",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "container",
-      "subitem": "enabled",
+      "subitem": "rest",
       "state": "borderColor"
     },
     "path": [
       "formField",
       "input",
       "container",
-      "enabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{formField.input.container.enabled.borderColor}"
+    "key": "{formField.input.container.rest.borderColor}"
   },
   "hpe.formField.input.container.hover.background": {
     "$type": "color",
@@ -35327,199 +35335,7 @@ export default {
     ],
     "key": "{formField.input.container.focus.borderColor}"
   },
-  "hpe.formField.input.container.readOnly.background": {
-    "$type": "color",
-    "$value": "#f7f7f7",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.back}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.container.readOnly.background",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "container",
-      "subitem": "readOnly",
-      "state": "background"
-    },
-    "path": [
-      "formField",
-      "input",
-      "container",
-      "readOnly",
-      "background"
-    ],
-    "key": "{formField.input.container.readOnly.background}"
-  },
-  "hpe.formField.input.container.readOnly.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.border.weak}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.container.readOnly.borderColor",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "container",
-      "subitem": "readOnly",
-      "state": "borderColor"
-    },
-    "path": [
-      "formField",
-      "input",
-      "container",
-      "readOnly",
-      "borderColor"
-    ],
-    "key": "{formField.input.container.readOnly.borderColor}"
-  },
-  "hpe.formField.input.container.disabled.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.container.disabled.background",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "container",
-      "subitem": "disabled",
-      "state": "background"
-    },
-    "path": [
-      "formField",
-      "input",
-      "container",
-      "disabled",
-      "background"
-    ],
-    "key": "{formField.input.container.disabled.background}"
-  },
-  "hpe.formField.input.container.disabled.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.border.disabled}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.input.container.disabled.borderColor",
-    "attributes": {
-      "category": "formField",
-      "type": "input",
-      "item": "container",
-      "subitem": "disabled",
-      "state": "borderColor"
-    },
-    "path": [
-      "formField",
-      "input",
-      "container",
-      "disabled",
-      "borderColor"
-    ],
-    "key": "{formField.input.container.disabled.borderColor}"
-  },
-  "hpe.formField.input.container.status.critical.background": {
+  "hpe.formField.input.container.error.rest.background": {
     "$type": "color",
     "$value": "rgba(252, 97, 97, 0.24)",
     "$description": "",
@@ -35550,25 +35366,25 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.container.status.critical.background",
+    "name": "hpe.formField.input.container.error.rest.background",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "container",
-      "subitem": "status",
-      "state": "critical"
+      "subitem": "error",
+      "state": "rest"
     },
     "path": [
       "formField",
       "input",
       "container",
-      "status",
-      "critical",
+      "error",
+      "rest",
       "background"
     ],
-    "key": "{formField.input.container.status.critical.background}"
+    "key": "{formField.input.container.error.rest.background}"
   },
-  "hpe.formField.input.container.status.critical.borderColor": {
+  "hpe.formField.input.container.error.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.72)",
     "$description": "",
@@ -35599,25 +35415,221 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.input.container.status.critical.borderColor",
+    "name": "hpe.formField.input.container.error.rest.borderColor",
     "attributes": {
       "category": "formField",
       "type": "input",
       "item": "container",
-      "subitem": "status",
-      "state": "critical"
+      "subitem": "error",
+      "state": "rest"
     },
     "path": [
       "formField",
       "input",
       "container",
-      "status",
-      "critical",
+      "error",
+      "rest",
       "borderColor"
     ],
-    "key": "{formField.input.container.status.critical.borderColor}"
+    "key": "{formField.input.container.error.rest.borderColor}"
   },
-  "hpe.formField.label.enabled.textColor": {
+  "hpe.formField.input.container.disabled.rest.background": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.04)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.background.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.container.disabled.rest.background",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "container",
+      "subitem": "disabled",
+      "state": "rest"
+    },
+    "path": [
+      "formField",
+      "input",
+      "container",
+      "disabled",
+      "rest",
+      "background"
+    ],
+    "key": "{formField.input.container.disabled.rest.background}"
+  },
+  "hpe.formField.input.container.disabled.rest.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.12)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.border.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.container.disabled.rest.borderColor",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "container",
+      "subitem": "disabled",
+      "state": "rest"
+    },
+    "path": [
+      "formField",
+      "input",
+      "container",
+      "disabled",
+      "rest",
+      "borderColor"
+    ],
+    "key": "{formField.input.container.disabled.rest.borderColor}"
+  },
+  "hpe.formField.input.container.readOnly.rest.background": {
+    "$type": "color",
+    "$value": "#f7f7f7",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.background.back}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.container.readOnly.rest.background",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "container",
+      "subitem": "readOnly",
+      "state": "rest"
+    },
+    "path": [
+      "formField",
+      "input",
+      "container",
+      "readOnly",
+      "rest",
+      "background"
+    ],
+    "key": "{formField.input.container.readOnly.rest.background}"
+  },
+  "hpe.formField.input.container.readOnly.rest.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.12)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.border.weak}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR",
+            "EFFECT_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.input.container.readOnly.rest.borderColor",
+    "attributes": {
+      "category": "formField",
+      "type": "input",
+      "item": "container",
+      "subitem": "readOnly",
+      "state": "rest"
+    },
+    "path": [
+      "formField",
+      "input",
+      "container",
+      "readOnly",
+      "rest",
+      "borderColor"
+    ],
+    "key": "{formField.input.container.readOnly.rest.borderColor}"
+  },
+  "hpe.formField.label.rest.textColor": {
     "$type": "color",
     "$value": "#333333",
     "$description": "",
@@ -35646,20 +35658,20 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.label.enabled.textColor",
+    "name": "hpe.formField.label.rest.textColor",
     "attributes": {
       "category": "formField",
       "type": "label",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "formField",
       "label",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{formField.label.enabled.textColor}"
+    "key": "{formField.label.rest.textColor}"
   },
   "hpe.formField.label.hover.textColor": {
     "$type": "color",
@@ -35749,7 +35761,53 @@ export default {
     ],
     "key": "{formField.label.focus.textColor}"
   },
-  "hpe.formField.label.disabled.textColor": {
+  "hpe.formField.label.error.rest.textColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.label.error.rest.textColor",
+    "attributes": {
+      "category": "formField",
+      "type": "label",
+      "item": "error",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "formField",
+      "label",
+      "error",
+      "rest",
+      "textColor"
+    ],
+    "key": "{formField.label.error.rest.textColor}"
+  },
+  "hpe.formField.label.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -35778,110 +35836,68 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.label.disabled.textColor",
+    "name": "hpe.formField.label.disabled.rest.textColor",
     "attributes": {
       "category": "formField",
       "type": "label",
       "item": "disabled",
-      "subitem": "textColor"
-    },
-    "path": [
-      "formField",
-      "label",
-      "disabled",
-      "textColor"
-    ],
-    "key": "{formField.label.disabled.textColor}"
-  },
-  "hpe.formField.label.readOnly.textColor": {
-    "$type": "color",
-    "$value": "#333333",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.label.readOnly.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "label",
-      "item": "readOnly",
-      "subitem": "textColor"
-    },
-    "path": [
-      "formField",
-      "label",
-      "readOnly",
-      "textColor"
-    ],
-    "key": "{formField.label.readOnly.textColor}"
-  },
-  "hpe.formField.label.status.critical.textColor": {
-    "$type": "color",
-    "$value": "#333333",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.label.status.critical.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "label",
-      "item": "status",
-      "subitem": "critical",
+      "subitem": "rest",
       "state": "textColor"
     },
     "path": [
       "formField",
       "label",
-      "status",
-      "critical",
+      "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{formField.label.status.critical.textColor}"
+    "key": "{formField.label.disabled.rest.textColor}"
+  },
+  "hpe.formField.label.readOnly.rest.textColor": {
+    "$type": "color",
+    "$value": "#333333",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.label.readOnly.rest.textColor",
+    "attributes": {
+      "category": "formField",
+      "type": "label",
+      "item": "readOnly",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "formField",
+      "label",
+      "readOnly",
+      "rest",
+      "textColor"
+    ],
+    "key": "{formField.label.readOnly.rest.textColor}"
   },
   "hpe.formField.placeholder.disabled": {
     "$type": "color",
@@ -35896,21 +35912,23 @@ export default {
         "codeSyntax": {}
       }
     },
-    "textColor": {
-      "$type": "color",
-      "$value": "rgba(0, 0, 0, 0.24)",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      },
-      "filePath": "tokens/component/component.default.json",
-      "isSource": true
+    "rest": {
+      "textColor": {
+        "$type": "color",
+        "$value": "rgba(0, 0, 0, 0.24)",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {}
+          }
+        },
+        "filePath": "tokens/component/component.default.json",
+        "isSource": true
+      }
     },
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
@@ -35927,21 +35945,23 @@ export default {
           "codeSyntax": {}
         }
       },
-      "textColor": {
-        "$type": "color",
-        "$value": "{color.text.disabled}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "TEXT_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        },
-        "filePath": "tokens/component/component.default.json",
-        "isSource": true
+      "rest": {
+        "textColor": {
+          "$type": "color",
+          "$value": "{color.text.disabled}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {}
+            }
+          },
+          "filePath": "tokens/component/component.default.json",
+          "isSource": true
+        }
       }
     },
     "name": "hpe.formField.placeholder.disabled",
@@ -35957,7 +35977,7 @@ export default {
     ],
     "key": "{formField.placeholder.disabled}"
   },
-  "hpe.formField.placeholder.enabled.textColor": {
+  "hpe.formField.placeholder.rest.textColor": {
     "$type": "color",
     "$value": "#757575",
     "$description": "",
@@ -35986,20 +36006,20 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.placeholder.enabled.textColor",
+    "name": "hpe.formField.placeholder.rest.textColor",
     "attributes": {
       "category": "formField",
       "type": "placeholder",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "formField",
       "placeholder",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{formField.placeholder.enabled.textColor}"
+    "key": "{formField.placeholder.rest.textColor}"
   },
   "hpe.formField.placeholder.hover.textColor": {
     "$type": "color",
@@ -36089,7 +36109,7 @@ export default {
     ],
     "key": "{formField.placeholder.focus.textColor}"
   },
-  "hpe.formField.placeholder.readOnly.textColor": {
+  "hpe.formField.placeholder.error.rest.textColor": {
     "$type": "color",
     "$value": "#757575",
     "$description": "",
@@ -36118,68 +36138,70 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.placeholder.readOnly.textColor",
+    "name": "hpe.formField.placeholder.error.rest.textColor",
     "attributes": {
       "category": "formField",
       "type": "placeholder",
-      "item": "readOnly",
-      "subitem": "textColor"
-    },
-    "path": [
-      "formField",
-      "placeholder",
-      "readOnly",
-      "textColor"
-    ],
-    "key": "{formField.placeholder.readOnly.textColor}"
-  },
-  "hpe.formField.placeholder.status.critical.textColor": {
-    "$type": "color",
-    "$value": "#757575",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.weak}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.placeholder.status.critical.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "placeholder",
-      "item": "status",
-      "subitem": "critical",
+      "item": "error",
+      "subitem": "rest",
       "state": "textColor"
     },
     "path": [
       "formField",
       "placeholder",
-      "status",
-      "critical",
+      "error",
+      "rest",
       "textColor"
     ],
-    "key": "{formField.placeholder.status.critical.textColor}"
+    "key": "{formField.placeholder.error.rest.textColor}"
   },
-  "hpe.formField.help.enabled.textColor": {
+  "hpe.formField.placeholder.readOnly.rest.textColor": {
+    "$type": "color",
+    "$value": "#757575",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.weak}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.placeholder.readOnly.rest.textColor",
+    "attributes": {
+      "category": "formField",
+      "type": "placeholder",
+      "item": "readOnly",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "formField",
+      "placeholder",
+      "readOnly",
+      "rest",
+      "textColor"
+    ],
+    "key": "{formField.placeholder.readOnly.rest.textColor}"
+  },
+  "hpe.formField.help.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -36208,20 +36230,20 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.help.enabled.textColor",
+    "name": "hpe.formField.help.rest.textColor",
     "attributes": {
       "category": "formField",
       "type": "help",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "formField",
       "help",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{formField.help.enabled.textColor}"
+    "key": "{formField.help.rest.textColor}"
   },
   "hpe.formField.help.hover.textColor": {
     "$type": "color",
@@ -36311,7 +36333,7 @@ export default {
     ],
     "key": "{formField.help.focus.textColor}"
   },
-  "hpe.formField.help.disabled.color": {
+  "hpe.formField.help.error.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -36340,112 +36362,24 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.help.disabled.color",
+    "name": "hpe.formField.help.error.rest.textColor",
     "attributes": {
       "category": "formField",
       "type": "help",
-      "item": "disabled",
-      "subitem": "color"
-    },
-    "path": [
-      "formField",
-      "help",
-      "disabled",
-      "color"
-    ],
-    "key": "{formField.help.disabled.color}"
-  },
-  "hpe.formField.help.readOnly.textColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.help.readOnly.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "help",
-      "item": "readOnly",
-      "subitem": "textColor"
-    },
-    "path": [
-      "formField",
-      "help",
-      "readOnly",
-      "textColor"
-    ],
-    "key": "{formField.help.readOnly.textColor}"
-  },
-  "hpe.formField.help.status.critical.textColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.help.status.critical.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "help",
-      "item": "status",
-      "subitem": "critical",
+      "item": "error",
+      "subitem": "rest",
       "state": "textColor"
     },
     "path": [
       "formField",
       "help",
-      "status",
-      "critical",
+      "error",
+      "rest",
       "textColor"
     ],
-    "key": "{formField.help.status.critical.textColor}"
+    "key": "{formField.help.error.rest.textColor}"
   },
-  "hpe.formField.info.enabled.textColor": {
+  "hpe.formField.help.disabled.rest.color": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -36474,20 +36408,112 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.info.enabled.textColor",
+    "name": "hpe.formField.help.disabled.rest.color",
+    "attributes": {
+      "category": "formField",
+      "type": "help",
+      "item": "disabled",
+      "subitem": "rest",
+      "state": "color"
+    },
+    "path": [
+      "formField",
+      "help",
+      "disabled",
+      "rest",
+      "color"
+    ],
+    "key": "{formField.help.disabled.rest.color}"
+  },
+  "hpe.formField.help.readOnly.rest.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.help.readOnly.rest.textColor",
+    "attributes": {
+      "category": "formField",
+      "type": "help",
+      "item": "readOnly",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "formField",
+      "help",
+      "readOnly",
+      "rest",
+      "textColor"
+    ],
+    "key": "{formField.help.readOnly.rest.textColor}"
+  },
+  "hpe.formField.info.rest.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.info.rest.textColor",
     "attributes": {
       "category": "formField",
       "type": "info",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "formField",
       "info",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{formField.info.enabled.textColor}"
+    "key": "{formField.info.rest.textColor}"
   },
   "hpe.formField.info.hover.textColor": {
     "$type": "color",
@@ -36577,7 +36603,53 @@ export default {
     ],
     "key": "{formField.info.focus.textColor}"
   },
-  "hpe.formField.info.disabled.textColor": {
+  "hpe.formField.info.error.rest.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.info.error.rest.textColor",
+    "attributes": {
+      "category": "formField",
+      "type": "info",
+      "item": "error",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "formField",
+      "info",
+      "error",
+      "rest",
+      "textColor"
+    ],
+    "key": "{formField.info.error.rest.textColor}"
+  },
+  "hpe.formField.info.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -36606,112 +36678,70 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.info.disabled.textColor",
+    "name": "hpe.formField.info.disabled.rest.textColor",
     "attributes": {
       "category": "formField",
       "type": "info",
       "item": "disabled",
-      "subitem": "textColor"
-    },
-    "path": [
-      "formField",
-      "info",
-      "disabled",
-      "textColor"
-    ],
-    "key": "{formField.info.disabled.textColor}"
-  },
-  "hpe.formField.info.readOnly.textColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.info.readOnly.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "info",
-      "item": "readOnly",
-      "subitem": "textColor"
-    },
-    "path": [
-      "formField",
-      "info",
-      "readOnly",
-      "textColor"
-    ],
-    "key": "{formField.info.readOnly.textColor}"
-  },
-  "hpe.formField.info.status.critical.textColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.info.status.critical.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "info",
-      "item": "status",
-      "subitem": "critical",
+      "subitem": "rest",
       "state": "textColor"
     },
     "path": [
       "formField",
       "info",
-      "status",
-      "critical",
+      "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{formField.info.status.critical.textColor}"
+    "key": "{formField.info.disabled.rest.textColor}"
   },
-  "hpe.formField.error.enabled.textColor": {
+  "hpe.formField.info.readOnly.rest.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.info.readOnly.rest.textColor",
+    "attributes": {
+      "category": "formField",
+      "type": "info",
+      "item": "readOnly",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "formField",
+      "info",
+      "readOnly",
+      "rest",
+      "textColor"
+    ],
+    "key": "{formField.info.readOnly.rest.textColor}"
+  },
+  "hpe.formField.error.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -36740,22 +36770,22 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.error.enabled.textColor",
+    "name": "hpe.formField.error.rest.textColor",
     "attributes": {
       "category": "formField",
       "type": "error",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "formField",
       "error",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{formField.error.enabled.textColor}"
+    "key": "{formField.error.rest.textColor}"
   },
-  "hpe.formField.error.enabled.iconColor": {
+  "hpe.formField.error.rest.iconColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -36786,20 +36816,20 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.error.enabled.iconColor",
+    "name": "hpe.formField.error.rest.iconColor",
     "attributes": {
       "category": "formField",
       "type": "error",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "iconColor"
     },
     "path": [
       "formField",
       "error",
-      "enabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{formField.error.enabled.iconColor}"
+    "key": "{formField.error.rest.iconColor}"
   },
   "hpe.formField.error.hover.iconColor": {
     "$type": "color",
@@ -36981,53 +37011,7 @@ export default {
     ],
     "key": "{formField.error.focus.textColor}"
   },
-  "hpe.formField.error.disabled.iconColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_FILLS",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.icon.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_FILLS",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.error.disabled.iconColor",
-    "attributes": {
-      "category": "formField",
-      "type": "error",
-      "item": "disabled",
-      "subitem": "iconColor"
-    },
-    "path": [
-      "formField",
-      "error",
-      "disabled",
-      "iconColor"
-    ],
-    "key": "{formField.error.disabled.iconColor}"
-  },
-  "hpe.formField.error.disabled.textColor": {
+  "hpe.formField.value.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -37056,248 +37040,20 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.error.disabled.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "error",
-      "item": "disabled",
-      "subitem": "textColor"
-    },
-    "path": [
-      "formField",
-      "error",
-      "disabled",
-      "textColor"
-    ],
-    "key": "{formField.error.disabled.textColor}"
-  },
-  "hpe.formField.error.readOnly.iconColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_FILLS",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.icon.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_FILLS",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.error.readOnly.iconColor",
-    "attributes": {
-      "category": "formField",
-      "type": "error",
-      "item": "readOnly",
-      "subitem": "iconColor"
-    },
-    "path": [
-      "formField",
-      "error",
-      "readOnly",
-      "iconColor"
-    ],
-    "key": "{formField.error.readOnly.iconColor}"
-  },
-  "hpe.formField.error.readOnly.textColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.error.readOnly.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "error",
-      "item": "readOnly",
-      "subitem": "textColor"
-    },
-    "path": [
-      "formField",
-      "error",
-      "readOnly",
-      "textColor"
-    ],
-    "key": "{formField.error.readOnly.textColor}"
-  },
-  "hpe.formField.error.status.critical.iconColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_FILLS",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.icon.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_FILLS",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.error.status.critical.iconColor",
-    "attributes": {
-      "category": "formField",
-      "type": "error",
-      "item": "status",
-      "subitem": "critical",
-      "state": "iconColor"
-    },
-    "path": [
-      "formField",
-      "error",
-      "status",
-      "critical",
-      "iconColor"
-    ],
-    "key": "{formField.error.status.critical.iconColor}"
-  },
-  "hpe.formField.error.status.critical.textColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.error.status.critical.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "error",
-      "item": "status",
-      "subitem": "critical",
-      "state": "textColor"
-    },
-    "path": [
-      "formField",
-      "error",
-      "status",
-      "critical",
-      "textColor"
-    ],
-    "key": "{formField.error.status.critical.textColor}"
-  },
-  "hpe.formField.value.enabled.textColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.value.enabled.textColor",
+    "name": "hpe.formField.value.rest.textColor",
     "attributes": {
       "category": "formField",
       "type": "value",
-      "item": "enabled",
+      "item": "rest",
       "subitem": "textColor"
     },
     "path": [
       "formField",
       "value",
-      "enabled",
+      "rest",
       "textColor"
     ],
-    "key": "{formField.value.enabled.textColor}"
+    "key": "{formField.value.rest.textColor}"
   },
   "hpe.formField.value.hover.textColor": {
     "$type": "color",
@@ -37387,7 +37143,53 @@ export default {
     ],
     "key": "{formField.value.focus.textColor}"
   },
-  "hpe.formField.value.disabled.textColor": {
+  "hpe.formField.value.error.rest.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.value.error.rest.textColor",
+    "attributes": {
+      "category": "formField",
+      "type": "value",
+      "item": "error",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "formField",
+      "value",
+      "error",
+      "rest",
+      "textColor"
+    ],
+    "key": "{formField.value.error.rest.textColor}"
+  },
+  "hpe.formField.value.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -37416,110 +37218,68 @@ export default {
         }
       }
     },
-    "name": "hpe.formField.value.disabled.textColor",
+    "name": "hpe.formField.value.disabled.rest.textColor",
     "attributes": {
       "category": "formField",
       "type": "value",
       "item": "disabled",
-      "subitem": "textColor"
-    },
-    "path": [
-      "formField",
-      "value",
-      "disabled",
-      "textColor"
-    ],
-    "key": "{formField.value.disabled.textColor}"
-  },
-  "hpe.formField.value.readOnly.textColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.value.readOnly.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "value",
-      "item": "readOnly",
-      "subitem": "textColor"
-    },
-    "path": [
-      "formField",
-      "value",
-      "readOnly",
-      "textColor"
-    ],
-    "key": "{formField.value.readOnly.textColor}"
-  },
-  "hpe.formField.value.status.critical.textColor": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.formField.value.status.critical.textColor",
-    "attributes": {
-      "category": "formField",
-      "type": "value",
-      "item": "status",
-      "subitem": "critical",
+      "subitem": "rest",
       "state": "textColor"
     },
     "path": [
       "formField",
       "value",
-      "status",
-      "critical",
+      "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{formField.value.status.critical.textColor}"
+    "key": "{formField.value.disabled.rest.textColor}"
+  },
+  "hpe.formField.value.readOnly.rest.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.value.readOnly.rest.textColor",
+    "attributes": {
+      "category": "formField",
+      "type": "value",
+      "item": "readOnly",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "formField",
+      "value",
+      "readOnly",
+      "rest",
+      "textColor"
+    ],
+    "key": "{formField.value.readOnly.rest.textColor}"
   },
   "hpe.footerCell.paddingX": {
     "$type": "number",
@@ -39650,7 +39410,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.small}",
       "$description": "Space between checkbox control and value (label)",
       "$extensions": {
         "com.figma": {
@@ -39958,7 +39718,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.full}",
+      "$value": "{static.radius.full}",
       "$description": "",
       "$extensions": {
         "com.figma": {
