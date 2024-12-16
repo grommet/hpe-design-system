@@ -24,7 +24,7 @@ import {
   HelpOption,
   Menu,
 } from 'grommet-icons';
-import { themes } from '../../theme';
+import { themes } from '../../themes/theme';
 import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
 
 // TO DO fix animation once motion tokens are added
