@@ -4,13 +4,10 @@ import { Link } from 'react-router-dom';
 import {
   Anchor,
   Box,
-  Button,
   CheckBox,
   RangeInput,
-  Menu,
   Grommet,
   Page,
-  Tab,
   PageContent,
   PageHeader,
   ThemeContext,
@@ -27,7 +24,6 @@ import {
   RadioButtonGroup,
   TextInput,
   SelectMultiple,
-  Tabs,
   TextArea,
   NameValueList,
   NameValuePair,
@@ -36,14 +32,25 @@ import {
   ThumbsRating,
   DataTable,
   Meter,
-  ToggleGroup,
+  Text,
 } from 'grommet';
-import { User, Table, List, MapLocation, Previous } from 'grommet-icons';
+import { User, Previous } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../themes/theme';
 import ContentPane from '../../components/ContentPane';
 import { Compare, ModeContext, StyleInProgress } from './components';
-import { Anchors, Headings, Paragraphs, Texts } from './content';
+import {
+  Accordions,
+  Anchors,
+  Buttons,
+  Headings,
+  Menus,
+  Paginations,
+  Paragraphs,
+  Tabs,
+  Texts,
+  ToggleGroups,
+} from './content';
 
 const textSizes = [
   'xsmall',
@@ -57,10 +64,6 @@ const textSizes = [
   '5xl',
   '6xl',
 ];
-
-const kinds = ['default', 'toolbar', 'secondary', 'primary'];
-const states = ['enabled', 'active', 'disabled'];
-const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 const StickerSheet = () => {
   const [mode, setMode] = React.useState('Compare diffs');
@@ -121,113 +124,12 @@ const StickerSheet = () => {
             <Texts textSizes={textSizes} />
             <Paragraphs />
             <Headings />
-            <ContentPane>
-              <Box gap="small">
-                {kinds.map(kind =>
-                  sizes.map(size =>
-                    states.map(state => (
-                      <Compare key={`${kind}${size}${state}`}>
-                        <Button
-                          label={`${kind} ${size} ${state}`}
-                          size={size}
-                          kind={kind}
-                          active={state === 'active'}
-                          disabled={state === 'disabled'}
-                        />
-                      </Compare>
-                    )),
-                  ),
-                )}
-              </Box>
-              <Box gap="small">
-                <Compare>
-                  <Button secondary icon={<User />} size="small" />
-                </Compare>
-                <Compare>
-                  <Button secondary icon={<User />} />
-                </Compare>
-                <Compare>
-                  <Button secondary icon={<User />} size="large" />
-                </Compare>
-                <Compare>
-                  <Button secondary icon={<User />} size="xlarge" />
-                </Compare>
-              </Box>
-            </ContentPane>
-            <ContentPane>
-              <Compare>
-                <Menu
-                  label="Menu"
-                  items={[
-                    [{ label: 'Item 1' }, { label: 'Item 2' }],
-                    [{ label: 'Delete' }],
-                  ]}
-                />
-              </Compare>
-              <Compare>
-                <Menu
-                  label="Menu"
-                  kind="toolbar"
-                  items={[
-                    [{ label: 'Item 1' }, { label: 'Item 2' }],
-                    [{ label: 'Delete' }],
-                  ]}
-                />
-              </Compare>
-            </ContentPane>
-            <ContentPane>
-              <Box gap="small">
-                <Compare>
-                  <ToggleGroup
-                    a11yTitle="Choose view"
-                    options={[
-                      {
-                        icon: <List a11yTitle="List view" />,
-                        value: 'list',
-                        tip: 'List',
-                      },
-                      {
-                        icon: <Table a11yTitle="Map view" />,
-                        value: 'table',
-                        tip: 'Table',
-                      },
-                      {
-                        icon: <MapLocation a11yTitle="Map view" />,
-                        value: 'map',
-                        tip: 'Map',
-                      },
-                    ]}
-                    defaultValue="list"
-                  />
-                </Compare>
-              </Box>
-            </ContentPane>
-            <ContentPane>
-              <Compare>
-                <Pagination numberItems={100} size="small" />
-              </Compare>
-              <Compare>
-                <Pagination numberItems={100} />
-              </Compare>
-            </ContentPane>
-            <ContentPane>
-              <Compare>
-                <Tabs>
-                  <Tab title="Tab 1" active />
-                  <Tab title="Tab 2" />
-                  <Tab title="Tab 3 (disabled)" disabled />
-                  <Tab title="Tab 4" />
-                </Tabs>
-              </Compare>
-            </ContentPane>
-            <ContentPane>
-              <Compare guidingChild="last">
-                <Accordion>
-                  <AccordionPanel label="Panel 1">hi</AccordionPanel>
-                  <AccordionPanel label="Panel 2">hi</AccordionPanel>
-                </Accordion>
-              </Compare>
-            </ContentPane>
+            <Buttons />
+            <Menus />
+            <ToggleGroups />
+            <Paginations />
+            <Tabs />
+            <Accordions />
             <ContentPane>
               <Box gap="small">
                 <Compare>
