@@ -8,71 +8,62 @@ import {
   CircleInformation,
 } from 'grommet-icons';
 
-const Name = ({ label, icon }) => {
-  return (
-    <Box
-      direction="row"
-      align="center"
-      gap="xsmall"
-      margin={{ bottom: 'xxsmall' }}
-    >
-      {icon}
-      <Text size="small">{label}</Text>
-    </Box>
-  );
+const STATUS_MAP = {
+  passed: {
+    label: 'Passed',
+    icon: <StatusGoodSmall color="status-ok" />,
+  },
+  passedWithExceptions: {
+    label: 'Passed with Exceptions',
+    icon: <StatusWarningSmall color="status-warning" />,
+  },
+  failed: {
+    label: 'Failed',
+    icon: <StatusCriticalSmall color="status-critical" />,
+  },
+  conditional: {
+    label: 'Conditional',
+    icon: <CircleInformation />,
+  },
 };
 
-const Value = ({ value }) => {
-  return (
-    <TextEmphasis alignSelf="end" size="xxlarge">
-      {value}
-    </TextEmphasis>
-  );
+const Name = ({ label, icon }) => (
+  <Box
+    direction="row"
+    align="center"
+    gap="xsmall"
+    margin={{ bottom: 'xxsmall' }}
+  >
+    {icon}
+    <Text size="small">{label}</Text>
+  </Box>
+);
+
+const Value = ({ value }) => (
+  <TextEmphasis alignSelf="end" size="xxlarge">
+    {value}
+  </TextEmphasis>
+);
+
+const calculateAccessibilityTestCounts = statuses => {
+  const counts = {
+    passed: 0,
+    passedWithExceptions: 0,
+    failed: 0,
+    conditional: 0,
+  };
+
+  statuses.forEach(status => {
+    if (Object.prototype.hasOwnProperty.call(counts, status)) {
+      counts[status] += 1;
+    }
+  });
+
+  return counts;
 };
 
 export const AccessibilityTable1 = ({ statuses = [] }) => {
-  const calculateAccessibilityTestCounts = () => {
-    let conditional = 0;
-    let passed = 0;
-    let passedWithExceptions = 0;
-    let failed = 0;
-
-    statuses.forEach(status => {
-      if (status === 'passed') {
-        passed += 1;
-      } else if (status === 'passed with exceptions') {
-        passedWithExceptions += 1;
-      } else if (status === 'failed') {
-        failed += 1;
-      } else if (status === 'conditional') {
-        conditional += 1;
-      }
-    });
-
-    return { conditional, passed, passedWithExceptions, failed };
-  };
-
-  const { conditional, passed, passedWithExceptions, failed } =
-    calculateAccessibilityTestCounts();
-
-  const STATUS_MAP = {
-    passed: {
-      label: 'Passed',
-      icon: <StatusGoodSmall color="status-ok" />,
-    },
-    passedWithExceptions: {
-      label: 'Passed with Exceptions',
-      icon: <StatusWarningSmall color="status-warning" />,
-    },
-    failed: {
-      label: 'Failed',
-      icon: <StatusCriticalSmall color="status-critical" />,
-    },
-    conditional: {
-      label: 'Conditional',
-      icon: <CircleInformation />,
-    },
-  };
+  const testCounts = calculateAccessibilityTestCounts(statuses);
 
   return (
     <Box
@@ -84,9 +75,7 @@ export const AccessibilityTable1 = ({ statuses = [] }) => {
     >
       {Object.keys(STATUS_MAP).map(key => {
         const status = STATUS_MAP[key];
-        const count = { passed, passedWithExceptions, failed, conditional }[
-          key
-        ];
+        const count = testCounts[key];
         return (
           <Box key={key}>
             <Name label={status.label} icon={status.icon} />
