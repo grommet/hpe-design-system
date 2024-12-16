@@ -10,13 +10,10 @@ import {
   Menu,
   Grommet,
   Page,
-  Heading,
   Tab,
   PageContent,
   PageHeader,
-  Text,
   ThemeContext,
-  Paragraph,
   Accordion,
   AccordionPanel,
   Notification,
@@ -46,6 +43,7 @@ import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../themes/theme';
 import ContentPane from '../../components/ContentPane';
 import { Compare, ModeContext, StyleInProgress } from './components';
+import { Anchors, Headings, Paragraphs, Texts } from './content';
 
 const textSizes = [
   'xsmall',
@@ -119,63 +117,10 @@ const StickerSheet = () => {
               }
               width="100%"
             />
-            <ContentPane>
-              <Box gap="small">
-                {textSizes.map(size => (
-                  <Compare key={size}>
-                    <Anchor size={size} key={size}>
-                      Anchor {size}
-                    </Anchor>
-                  </Compare>
-                ))}
-              </Box>
-            </ContentPane>
-            <ContentPane>
-              <Box gap="small">
-                {textSizes.map(size => (
-                  <Compare guidingChild="last" key={size}>
-                    <Text size={size} key={size}>
-                      Text {size}
-                    </Text>
-                  </Compare>
-                ))}
-              </Box>
-            </ContentPane>
-            <ContentPane>
-              <Box gap="small">
-                {['small', 'medium', 'large', 'xlarge', 'xxlarge'].map(size => (
-                  <Compare key={size}>
-                    <Paragraph size={size} key={size} margin="none">
-                      Paragraph {size} with some extra text so we can see how it
-                      is when it wraps
-                    </Paragraph>
-                  </Compare>
-                ))}
-              </Box>
-            </ContentPane>
-            <ContentPane>
-              <Box gap="medium">
-                {[1, 2, 3, 4, 5, 6].map(level => (
-                  <Box gap="small" key={level}>
-                    {/* Heading sizes are not relevant to product teams because our guidance
-                  discourages use of them. */}
-                    {/* {['small', 'medium', 'large', 'xlarge'].map(size => ( */}
-                    <Compare guidingChild="last">
-                      <Heading
-                        // size={size}
-                        key={`${level}`}
-                        level={level}
-                        margin="none"
-                        style={{ color: 'inherit' }}
-                      >
-                        Heading {level}
-                      </Heading>
-                    </Compare>
-                    {/* ))} */}
-                  </Box>
-                ))}
-              </Box>
-            </ContentPane>
+            <Anchors textSizes={textSizes} />
+            <Texts textSizes={textSizes} />
+            <Paragraphs />
+            <Headings />
             <ContentPane>
               <Box gap="small">
                 {kinds.map(kind =>
