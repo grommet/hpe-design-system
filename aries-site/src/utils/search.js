@@ -144,3 +144,10 @@ export const getRelatedContent = pageName => {
     ? relatedContent.map(page => structure.find(obj => obj.name === page))
     : [];
 };
+
+export const getPageAccessibility = pageName => {
+  const accessibilityContent = structure.find(
+    page => page.name.toLowerCase() === pageName.toLowerCase(),
+  );
+  return accessibilityContent?.accessibility;
+};
