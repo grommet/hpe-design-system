@@ -10,10 +10,7 @@ import componentData from '../../data/wcag/components.json';
 
 export const AccessibilitySection = ({ title }) => {
   const [data, setData] = useState();
-  const [errorMessage, setErrorMessage] = useState();
   const [componentInfo, setComponentInfo] = useState();
-
-  console.log(errorMessage);
 
   useEffect(() => {
     if (title && componentData) {
@@ -36,7 +33,7 @@ export const AccessibilitySection = ({ title }) => {
         setData(fetchedData);
       })
       .catch(error => {
-        setErrorMessage(error.message);
+        console.error('Error:', error);
       });
   }, []);
 
@@ -103,14 +100,11 @@ export const AccessibilitySection = ({ title }) => {
   return (
     // not sure about this padding but without there is a huge
     // space from the last section on guidance accessibility
-    // and this section. also if I use subsection with level 3
-    // it renders the title as small
+    // and this section.
     <ContentSection pad={{ top: 'small' }}>
-      {/* <Subsection level={3} name="WCAG compliance"> */}
       <AccessibilityTable1 statuses={statusData} />
       <AccessibilityTable statuses={statusData} />
       <AccessibilityTestView rules={comparisons} />
-      {/* </Subsection> */}
     </ContentSection>
   );
 };
