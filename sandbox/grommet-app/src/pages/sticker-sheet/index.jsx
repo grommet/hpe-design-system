@@ -12,21 +12,14 @@ import {
   PageHeader,
   ThemeContext,
   Notification,
-  DateInput,
   Spinner,
   Tag,
   Select,
   FormField,
-  CheckBoxGroup,
-  RadioButtonGroup,
-  TextInput,
   SelectMultiple,
-  TextArea,
   NameValueList,
   NameValuePair,
   FileInput,
-  StarRating,
-  ThumbsRating,
   DataTable,
   Meter,
   Tab,
@@ -36,23 +29,30 @@ import { User, Previous } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../themes/theme';
 import ContentPane from '../../components/ContentPane';
-import {
-  Compare,
-  ModeContext,
-  TabContent,
-  StyleInProgress,
-} from './components';
+import { Compare, ModeContext, TabContent } from './components';
 import {
   Accordions,
   Anchors,
   Buttons,
   Checkboxes,
+  CheckboxGroups,
+  DateInputs,
+  FileInputs,
   Headings,
   Menus,
   Paginations,
   Paragraphs,
+  RadioButtonGroups,
+  RangeInputs,
+  SelectMultiples,
+  Selects,
+  StarRatings,
+  Switches,
   Tabs as TabsContent,
+  TextAreas,
+  TextInputs,
   Texts,
+  ThumbsRatings,
   ToggleGroups,
 } from './content';
 
@@ -158,6 +158,18 @@ const StickerSheet = () => {
               <Tab title="Inputs">
                 <TabContent>
                   <Checkboxes />
+                  <Switches />
+                  <CheckboxGroups />
+                  <RadioButtonGroups />
+                  <StarRatings />
+                  <ThumbsRatings />
+                  <TextInputs />
+                  <DateInputs />
+                  <TextAreas />
+                  <Selects />
+                  <SelectMultiples />
+                  <FileInputs />
+                  <RangeInputs />
                 </TabContent>
               </Tab>
               <Tab title="Others">
@@ -191,123 +203,6 @@ const StickerSheet = () => {
           </Avatar>
         </Box> */}
 
-                  <ContentPane>
-                    <StyleInProgress />
-                    <Compare>
-                      <CheckBox label="Switch label" toggle />
-                      <CheckBox label="Switch label" toggle checked />
-                      <CheckBox label="Switch label" toggle disabled />
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare guidingChild="last">
-                      <CheckBoxGroup
-                        options={[
-                          { label: 'Option 1' },
-                          { label: 'Option 2' },
-                          { label: 'Option 3', disabled: true },
-                        ]}
-                        value={['Option 2']}
-                      />
-                    </Compare>
-                    <Compare>
-                      <FormField label="Label">
-                        <CheckBoxGroup
-                          options={['Option 1', 'Option 2', 'Option 3']}
-                          value={['Option 2']}
-                        />
-                      </FormField>
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <StyleInProgress />
-                    <Compare guidingChild="last">
-                      <RadioButtonGroup
-                        options={['Option 1', 'Option 2', 'Option 3']}
-                        value="Option 2"
-                        name="radio-group"
-                      />
-                    </Compare>
-                    <Compare>
-                      <FormField label="Label">
-                        <RadioButtonGroup
-                          options={['Option 1', 'Option 2', 'Option 3']}
-                          value="Option 2"
-                          name="radio-group-form"
-                        />
-                      </FormField>
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <StarRating name="rating" value={2} />
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <ThumbsRating name="like-dislike" value="like" />
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare guidingChild="last">
-                      <FormField
-                        label="Label"
-                        help="Here is help text"
-                        info="Here is info text"
-                      >
-                        <TextInput value="Value" />
-                      </FormField>
-                    </Compare>
-                    <Compare guidingChild="last">
-                      <FormField label="Disabled input" disabled>
-                        <TextInput value="Value" disabled />
-                      </FormField>
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <DateInput
-                        format="mm/dd/yyyy-mm/dd/yyyy"
-                        inline
-                        value={[
-                          new Date().toISOString(),
-                          new Date(+new Date() + 86400000 * 9).toISOString(),
-                        ]}
-                      />
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <TextArea placeholder="Type something" />
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <Select
-                        options={['Option 1', 'Option 2', 'Option 3']}
-                        placeholder="Select option"
-                      />
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <SelectMultiple
-                        options={['Option 1', 'Option 2', 'Option 3']}
-                        value={['Option 1', 'Option 2']}
-                        showSelectedInline
-                      />
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <FileInput />
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <RangeInput value={60} />
-                    </Compare>
-                  </ContentPane>
                   <ContentPane>
                     <Box gap="medium">
                       <Compare>
