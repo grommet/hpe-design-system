@@ -109,9 +109,9 @@
           }
         }
       },
-      "critical": {
+      "warning": {
         "$type": "color",
-        "$value": "{base.color.red.800-Opacity30}",
+        "$value": "{base.color.yellow.400-Opacity12}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -121,9 +121,21 @@
           }
         }
       },
-      "ok": {
+      "info": {
         "$type": "color",
-        "$value": "{base.color.green.500-Opacity30}",
+        "$value": "{base.color.blue.400-Opacity12}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "critical": {
+        "$type": "color",
+        "$value": "{base.color.red.800-Opacity30}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -156,6 +168,30 @@
               "scopes": ["FRAME_FILL", "SHAPE_FILL"],
               "codeSyntax": {}
             }
+          }
+        }
+      },
+      "unknown": {
+        "$type": "color",
+        "$value": "{base.color.white.opacity6}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "ok": {
+        "$type": "color",
+        "$value": "{base.color.green.500-Opacity30}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
           }
         }
       },
@@ -210,42 +246,6 @@
                 "codeSyntax": {}
               }
             }
-          }
-        }
-      },
-      "unknown": {
-        "$type": "color",
-        "$value": "{base.color.white.opacity6}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "warning": {
-        "$type": "color",
-        "$value": "{base.color.yellow.400-Opacity12}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "info": {
-        "$type": "color",
-        "$value": "{base.color.blue.400-Opacity12}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
           }
         }
       },
@@ -406,7 +406,7 @@
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
+            "scopes": ["SHAPE_FILL", "TEXT_FILL"],
             "codeSyntax": {}
           }
         }
@@ -415,18 +415,6 @@
         "$type": "color",
         "$value": "{base.color.white.opacity50}",
         "$description": "Weaker text color for reduced emphasis",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "xweak": {
-        "$type": "color",
-        "$value": "{base.color.white.opacity20}",
-        "$description": "",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -471,15 +459,17 @@
           }
         }
       },
-      "brand": {
-        "$type": "color",
-        "$value": "{base.color.green.600}",
-        "$description": "Brand text color. Use with caution. Currently not accessible for text that is below a bold weight and below 19px.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
+      "onStrong": {
+        "default": {
+          "$type": "color",
+          "$value": "{base.color.grey.1200}",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["TEXT_FILL"],
+              "codeSyntax": {}
+            }
           }
         }
       },
@@ -506,20 +496,6 @@
             "hiddenFromPublishing": false,
             "scopes": ["TEXT_FILL"],
             "codeSyntax": {}
-          }
-        }
-      },
-      "onStrong": {
-        "default": {
-          "$type": "color",
-          "$value": "{base.color.grey.1200}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["TEXT_FILL"],
-              "codeSyntax": {}
-            }
           }
         }
       },
@@ -775,18 +751,6 @@
           }
         }
       },
-      "xweak": {
-        "$type": "color",
-        "$value": "{base.color.white.opacity20}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "disabled": {
         "$type": "color",
         "$value": "{base.color.white.opacity24}",
@@ -875,18 +839,6 @@
         "$type": "color",
         "$value": "{base.color.white.100}",
         "$description": "Icon color to be used when text sits on primary color (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colors, where if the primary color changes, we can update color.text.onPrimary to be accessible on the new primary color.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "brand": {
-        "$type": "color",
-        "$value": "{base.color.green.600}",
-        "$description": "Brand color for icons.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1302,10 +1254,10 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.xsmall}",
-          "blur": "{base.static.spacing.small}",
-          "spread": "{base.static.spacing.none}",
+          "offsetX": "{static.spacing.none}",
+          "offsetY": "{static.spacing.xsmall}",
+          "blur": "{static.spacing.small}",
+          "spread": "{static.spacing.none}",
           "color": "{base.color.black.opacity36}"
         }
       ],
@@ -1322,10 +1274,10 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "{base.static.spacing.none}",
-          "offsetY": "{base.static.spacing.small}",
-          "blur": "{base.static.spacing.medium}",
-          "spread": "{base.static.spacing.none}",
+          "offsetX": "{static.spacing.none}",
+          "offsetY": "{static.spacing.small}",
+          "blur": "{static.spacing.medium}",
+          "spread": "{static.spacing.none}",
           "color": "{base.color.black.opacity36}"
         }
       ],
