@@ -37,30 +37,33 @@ export const AccessibilitySection = ({ title }) => {
       });
   }, []);
 
-  // when comparing rules we need to find the rule in the data
-  // then look at the first number in the rule to find the principle
-  // we do this by always subtracting 1 from the rule number
-  // then we find the guideline by splitting the rule number by '.'
-  // and taking the second number and subtracting 1
-  // this gives us the index of the guideline in the principles array
-  // then we find the data in successcriteria array with the rule number
+  // create a map of each of the successCriteria ->
+  // num to make it way easier and faster over time.
+  // This will be used to
+  // look up the success criteria by rule number
+  const createSuccessCriteriaMap = wcagData => {
+    const successCriteriaMap = new Map();
+    wcagData.principles.forEach(principle => {
+      principle.guidelines.forEach(guideline => {
+        guideline.successcriteria.forEach(criterion => {
+          successCriteriaMap.set(criterion.num, criterion);
+        });
+      });
+    });
+
+    return successCriteriaMap;
+  };
+
+  // Compare the component info with the success criteria
+  // and return the status of each rule.
   const comparisons = useMemo(() => {
     const compareRules = () => {
       if (!componentInfo || !data) return [];
+      const successCriteriaMap = createSuccessCriteriaMap(data);
 
       const calculatedComparisons = componentInfo.map(rule => {
-        const [principleNum, guidelineNum] = rule.rule
-          .split('.')
-          .map(num => parseInt(num, 10));
-
-        const principleIndex = principleNum - 1;
-        const principle = data.principles[principleIndex];
-
-        const guideline = principle.guidelines[guidelineNum - 1];
-
-        const successCriterion = guideline.successcriteria.find(
-          criterion => criterion.num === rule.rule,
-        );
+        const ruleNum = rule.rule;
+        const successCriterion = successCriteriaMap.get(ruleNum);
 
         if (successCriterion) {
           const extractedData = {
