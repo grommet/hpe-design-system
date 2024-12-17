@@ -1,4 +1,16 @@
 import React from 'react';
-import { Tag } from 'grommet';
+import { Box, Tag } from 'grommet';
 
-export const TagSimple = () => <Tag name="Location" value="San Jose" />;
+export const TagSimple = () => (
+  <Box gap="small">
+    {['xsmall', 'small', 'medium', 'large', 'xlarge'].map(size => (
+      <Tag
+        alignSelf="start"
+        name="Location"
+        value="San Jose"
+        size={size}
+        onRemove={() => {}}
+      />
+    ))}
+  </Box>
+);
