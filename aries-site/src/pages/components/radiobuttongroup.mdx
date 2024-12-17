@@ -29,9 +29,11 @@ import {
 
 ### When to use
 
-RadioButtonGroup is used to lay out a discreet list of mutually related options that are easily visible. RadioButtonGroup requires an input choice, so it is important to be clear with what is being asked of the user on the label.
+RadioButtonGroup is used to lay out a list of distinct, mutually exclusive options that are easily visible. Since a selection is required, it’s important to be clear with what is being asked of the user on the label.
 
-When users should be able to select more than one option, use [CheckBoxGroup](/components/checkboxgroup) instead.
+### When not to use
+
+Avoid using RadioButtonGroup in filtering scenarios as once an option is selected, it does not allow for deselection. Instead, consider [Select](/components/select) for single selection and [CheckBoxGroup](/components/checkboxgroup) or [SelectMultiple](/components/selectmultiple) for multiple selection.
 
 ## Variants
 
