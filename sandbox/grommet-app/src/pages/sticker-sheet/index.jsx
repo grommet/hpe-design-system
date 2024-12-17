@@ -12,21 +12,20 @@ import {
   ThemeContext,
   Select,
   FormField,
-  Meter,
   Tab,
   Tabs,
 } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../themes/theme';
-import ContentPane from '../../components/ContentPane';
-import { Compare, ModeContext, TabContent } from './components';
+import { ModeContext, TabContent } from './components';
 import {
   Accordions,
   Anchors,
   Buttons,
   Checkboxes,
   CheckboxGroups,
+  ContentSizes,
   DataTables,
   DateInputs,
   FileInputs,
@@ -36,12 +35,14 @@ import {
   Meters,
   NameValueLists,
   Notifications,
+  PageHeaders,
   Paginations,
   Paragraphs,
   RadioButtonGroups,
   RangeInputs,
   SelectMultiples,
   Selects,
+  Spacing,
   Spinners,
   StarRatings,
   Switches,
@@ -181,9 +182,15 @@ const StickerSheet = () => {
                   <Meters />
                 </TabContent>
               </Tab>
-              <Tab title="Others">
+              <Tab title="Layout">
                 <TabContent>
-                  {/* <Box>
+                  <PageHeaders />
+                  <Spacing theme={hpeCurrent} />
+                  <ContentSizes theme={hpeCurrent} />
+                </TabContent>
+              </Tab>
+
+              {/* <Box>
           <Avatar background="blue!" size="small">
             <Text weight={500}>TS</Text>
           </Avatar>
@@ -194,60 +201,6 @@ const StickerSheet = () => {
             <Text weight={500}>TS</Text>
           </Avatar>
         </Box> */}
-
-                  <ContentPane>
-                    <Compare>
-                      <PageHeader
-                        title="Page title"
-                        subtitle="Here is a subtitle for the page."
-                      />
-                    </Compare>
-                  </ContentPane>
-
-                  <ContentPane>
-                    <Box gap="small">
-                      {Object.keys(hpeCurrent.global.edgeSize).map(
-                        size =>
-                          size !== 'responsiveBreakpoint' && (
-                            <Compare key={size}>
-                              <Box
-                                alignSelf="start"
-                                background={{
-                                  color: 'blue',
-                                  opacity: 'medium',
-                                }}
-                                pad={{ left: size }}
-                                height="xxsmall"
-                                flex={false}
-                              />
-                            </Compare>
-                          ),
-                      )}
-                    </Box>
-                  </ContentPane>
-                  <ContentPane overflow={{ horizontal: 'auto' }}>
-                    <Box gap="small">
-                      {Object.keys(hpeCurrent.global.size).map(
-                        size =>
-                          size !== 'responsiveBreakpoint' && (
-                            <Compare key={size}>
-                              <Box
-                                alignSelf="start"
-                                background={{
-                                  color: 'blue',
-                                  opacity: 'medium',
-                                }}
-                                width={size}
-                                height={size}
-                                flex={false}
-                              />
-                            </Compare>
-                          ),
-                      )}
-                    </Box>
-                  </ContentPane>
-                </TabContent>
-              </Tab>
             </Tabs>
           </PageContent>
         </Page>
