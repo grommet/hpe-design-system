@@ -1,17 +1,14 @@
 import PropTypes from 'prop-types';
-import { Box, Tab } from 'grommet';
+import { Box } from 'grommet';
 
-export const TabContent = ({ children, title }) => {
+export const TabContent = ({ children }) => {
   return (
-    <Tab title={title}>
-      <Box gap="medium" pad={{ vertical: 'small' }} align="start">
-        {children}
-      </Box>
-    </Tab>
+    <Box gap="medium" pad={{ vertical: 'small' }} align="start">
+      {children}
+    </Box>
   );
 };
 
 TabContent.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
 };
