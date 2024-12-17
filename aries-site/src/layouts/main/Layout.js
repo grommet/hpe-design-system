@@ -203,10 +203,10 @@ export const Layout = ({
                             <UpdateNotification name={title} />
                           )}
                           {children}
+                          {accessibilityInfo && (
+                            <AccessibilitySection title={title} />
+                          )}
                         </ContentSection>
-                        {accessibilityInfo && (
-                          <AccessibilitySection title={title} />
-                        )}
                         {relatedContent.length > 0 && (
                           <RelatedContent
                             relatedContent={relatedContent}

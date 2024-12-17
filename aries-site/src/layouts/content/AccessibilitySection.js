@@ -4,7 +4,6 @@ import {
   AccessibilityTable,
   AccessibilityTable1,
   AccessibilityTestView,
-  ContentSection,
 } from '.';
 import componentData from '../../data/wcag/components.json';
 
@@ -13,10 +12,17 @@ export const AccessibilitySection = ({ title }) => {
   const [componentInfo, setComponentInfo] = useState();
 
   useEffect(() => {
-    if (title && componentData) {
-      const component = componentData.find(item => item[title.toLowerCase()]);
-      setComponentInfo(component[title.toLowerCase()]);
+    if (!title || !componentData) {
+      return;
     }
+
+    const component = componentData.find(item => item[title.toLowerCase()]);
+
+    if (!component || !component[title.toLowerCase()]) {
+      return;
+    }
+
+    setComponentInfo(component[title.toLowerCase()]);
   }, [title]);
 
   useEffect(() => {
@@ -101,13 +107,10 @@ export const AccessibilitySection = ({ title }) => {
   const statusData = comparisons.map(item => item.status);
 
   return (
-    // not sure about this padding but without there is a huge
-    // space from the last section on guidance accessibility
-    // and this section.
-    <ContentSection pad={{ top: 'small' }}>
+    <>
       <AccessibilityTable1 statuses={statusData} />
       <AccessibilityTable statuses={statusData} />
       <AccessibilityTestView rules={comparisons} />
-    </ContentSection>
+    </>
   );
 };
