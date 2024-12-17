@@ -5,27 +5,18 @@ import {
   Anchor,
   Box,
   CheckBox,
-  RangeInput,
   Grommet,
   Page,
   PageContent,
   PageHeader,
   ThemeContext,
-  Notification,
-  Spinner,
-  Tag,
   Select,
   FormField,
-  SelectMultiple,
-  NameValueList,
-  NameValuePair,
-  FileInput,
-  DataTable,
   Meter,
   Tab,
   Tabs,
 } from 'grommet';
-import { User, Previous } from 'grommet-icons';
+import { Previous } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../themes/theme';
 import ContentPane from '../../components/ContentPane';
@@ -36,19 +27,26 @@ import {
   Buttons,
   Checkboxes,
   CheckboxGroups,
+  DataTables,
   DateInputs,
   FileInputs,
   Headings,
+  Icons,
   Menus,
+  Meters,
+  NameValueLists,
+  Notifications,
   Paginations,
   Paragraphs,
   RadioButtonGroups,
   RangeInputs,
   SelectMultiples,
   Selects,
+  Spinners,
   StarRatings,
   Switches,
   Tabs as TabsContent,
+  Tags,
   TextAreas,
   TextInputs,
   Texts,
@@ -143,6 +141,7 @@ const StickerSheet = () => {
                   <Texts textSizes={textSizes} />
                   <Paragraphs />
                   <Headings />
+                  <Tags />
                 </TabContent>
               </Tab>
               <Tab title="Controls">
@@ -172,25 +171,18 @@ const StickerSheet = () => {
                   <RangeInputs />
                 </TabContent>
               </Tab>
+              <Tab title="Visualizations">
+                <TabContent>
+                  <Icons />
+                  <Spinners />
+                  <NameValueLists />
+                  <Notifications />
+                  <DataTables />
+                  <Meters />
+                </TabContent>
+              </Tab>
               <Tab title="Others">
                 <TabContent>
-                  <ContentPane>
-                    <Box gap="small">
-                      <Compare>
-                        <User size="small" />
-                      </Compare>
-                      <Compare>
-                        <User />
-                      </Compare>
-                      <Compare>
-                        <User size="large" />
-                      </Compare>
-                      <Compare>
-                        <User size="xlarge" />
-                      </Compare>
-                    </Box>
-                  </ContentPane>
-
                   {/* <Box>
           <Avatar background="blue!" size="small">
             <Text weight={500}>TS</Text>
@@ -204,81 +196,6 @@ const StickerSheet = () => {
         </Box> */}
 
                   <ContentPane>
-                    <Box gap="medium">
-                      <Compare>
-                        <Spinner size="xsmall" />
-                      </Compare>
-                      <Compare>
-                        <Spinner size="small" />
-                      </Compare>
-                      <Compare>
-                        <Spinner size="medium" />
-                      </Compare>
-                      <Compare>
-                        <Spinner size="large" />
-                      </Compare>
-                    </Box>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <Box align="start" gap="small">
-                        <Tag value="Value" name="Name" />
-                        <Tag value="Value" name="Name" onRemove={() => {}} />
-                      </Box>
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <NameValueList>
-                        <NameValuePair name="City">San Francisco</NameValuePair>
-                        <NameValuePair name="State">California</NameValuePair>
-                      </NameValueList>
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Box gap="medium">
-                      <Compare>
-                        <Notification
-                          status="critical"
-                          message="this is a message"
-                          title="this is a title"
-                        />
-                      </Compare>
-                      <Compare>
-                        <Notification
-                          status="warning"
-                          message="this is a message"
-                          title="this is a title"
-                          onClose={() => {}}
-                        />
-                      </Compare>
-                      <Compare>
-                        <Notification
-                          status="normal"
-                          message="this is a message"
-                          title="this is a title"
-                          onClose={() => {}}
-                        />
-                      </Compare>
-                      <Compare>
-                        <Notification
-                          status="info"
-                          message="this is a message"
-                          title="this is a title"
-                          onClose={() => {}}
-                        />
-                      </Compare>
-                      <Compare>
-                        <Notification
-                          status="unknown"
-                          message="this is a message"
-                          title="this is a title"
-                          onClose={() => {}}
-                        />
-                      </Compare>
-                    </Box>
-                  </ContentPane>
-                  <ContentPane>
                     <Compare>
                       <PageHeader
                         title="Page title"
@@ -286,77 +203,7 @@ const StickerSheet = () => {
                       />
                     </Compare>
                   </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <DataTable
-                        onSelect={() => {}}
-                        select={['4352351']}
-                        columns={[
-                          {
-                            property: 'id',
-                            header: 'ID',
-                          },
-                          {
-                            property: 'firstName',
-                            header: 'First name',
-                          },
-                          {
-                            property: 'lastName',
-                            header: 'Last name',
-                            units: 'GB',
-                          },
-                        ]}
-                        data={[
-                          {
-                            id: '2341234',
-                            firstName: 'Taylor',
-                            lastName: 'Seamans',
-                          },
-                          {
-                            id: '4352351',
-                            firstName: 'Oliver',
-                            lastName: 'Plunkett',
-                          },
-                          {
-                            id: '6439201',
-                            firstName: 'Joelle',
-                            lastName: 'Gregory',
-                          },
-                        ]}
-                        sort={{
-                          property: 'firstName',
-                          direction: 'asc',
-                        }}
-                      />
-                    </Compare>
-                  </ContentPane>
-                  <ContentPane>
-                    <Compare>
-                      <Meter
-                        type="circle"
-                        values={[
-                          {
-                            value: 40,
-                          },
-                          {
-                            value: 30,
-                          },
-                          {
-                            value: 10,
-                          },
-                          {
-                            value: 10,
-                          },
-                          {
-                            value: 10,
-                          },
-                        ]}
-                        max={100}
-                        size="small"
-                        thickness="medium"
-                      />
-                    </Compare>
-                  </ContentPane>
+
                   <ContentPane>
                     <Box gap="small">
                       {Object.keys(hpeCurrent.global.edgeSize).map(
