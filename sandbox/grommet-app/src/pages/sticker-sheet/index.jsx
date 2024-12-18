@@ -56,7 +56,6 @@ import {
   ThumbsRatings,
   ToggleGroups,
 } from './content';
-import ContentPane from '../../components/ContentPane';
 
 const themeOptions = Object.entries(allThemes).map(([key, value]) => ({
   label: key,
