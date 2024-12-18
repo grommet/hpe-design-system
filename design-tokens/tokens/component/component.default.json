@@ -8085,7 +8085,7 @@
           "item": {
             "paddingX": {
               "$type": "number",
-              "$value": "{base.static.spacing.small}",
+              "$value": "{base.static.spacing.xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
