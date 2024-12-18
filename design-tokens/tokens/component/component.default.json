@@ -9372,7 +9372,7 @@
         "rest": {
           "color": {
             "$type": "color",
-            "$value": "{color.text.default}",
+            "$value": "{color.text.disabled}",
             "$description": "",
             "$extensions": {
               "com.figma": {
