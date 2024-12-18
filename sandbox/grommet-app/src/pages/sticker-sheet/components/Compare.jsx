@@ -6,21 +6,21 @@ import { current as hpeCurrent } from '../../../themes/theme';
 import { ModeContext } from './ModeContext';
 
 export const Compare = ({ children, ...rest }) => {
-  const { mode, direction } = React.useContext(ModeContext);
+  const { mode, direction, themes } = React.useContext(ModeContext);
   const theme = useContext(ThemeContext);
 
   if (direction === 'row') {
     return (
       <Box direction="row" gap="medium">
         <Grommet
-          theme={hpe}
+          theme={themes[0]?.value}
           themeMode={theme.dark ? 'dark' : 'light'}
           background="background-front"
         >
           <Box align="start">{children}</Box>
         </Grommet>
         <Grommet
-          theme={hpeCurrent}
+          theme={themes[1]?.value}
           themeMode={theme.dark ? 'dark' : 'light'}
           background="background-front"
         >

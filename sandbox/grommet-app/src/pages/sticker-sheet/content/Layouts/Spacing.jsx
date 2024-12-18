@@ -19,7 +19,7 @@ export const Spacing = ({ theme }) => {
                       opacity: 'medium',
                     }}
                     pad={{ left: size }}
-                    height="xxsmall"
+                    height={theme.global.edgeSize.large}
                     flex={false}
                   />
                   <Text size="small">{size}</Text>

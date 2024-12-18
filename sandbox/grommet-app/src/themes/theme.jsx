@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { deepFreeze } from 'grommet/utils';
+import { deepFreeze, deepMerge } from 'grommet/utils';
 import {
   dark as localDark,
   light as localLight,
@@ -39,6 +39,18 @@ import {
   Descending,
   Unsorted,
 } from 'grommet-icons';
+
+import {
+  v5scale,
+  scale16133308,
+  scale16133316,
+  scale16141408,
+  scale24133308,
+  scale24141408,
+  scale24141424,
+  scale24150024,
+} from './scale-options';
+import { createTheme } from './theme-utils/scale-to-theme';
 
 const MISSING = {
   color: 'red',
@@ -2619,8 +2631,44 @@ export const warm = buildTheme({
 //   refresh: true,
 // });
 
+const scales = {
+  v5scale,
+  scale16133308,
+  scale16133316,
+  scale16141408,
+  scale24133308,
+  scale24141408,
+  scale24141424,
+  scale24150024,
+};
+
+const scaleOptions = {};
+
+Object.entries(scales).forEach(([key, value]) => {
+  scaleOptions[key] = deepMerge(
+    current,
+    createTheme({
+      spacing: value.spacing,
+      content: value.content,
+    }),
+  );
+});
+
+// const option1 = createTheme({
+//   spacing: v5scale.spacing,
+//   content: v5scale.content,
+// });
+
+// const option2 = createTheme({
+//   spacing: scale24141408.spacing,
+//   content: scale24141408.content,
+// });
+
 export const themes = {
   local: current,
   // v3: old,
   // refresh,
+  // v5scale: deepMerge(current, option1),
+  // 24141408: deepMerge(current, option2),
+  ...scaleOptions,
 };
