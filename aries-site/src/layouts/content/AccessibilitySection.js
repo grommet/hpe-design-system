@@ -75,6 +75,8 @@ export const AccessibilitySection = ({ title }) => {
           const extractedData = {
             id: successCriterion.id.split(':')[1],
             num: successCriterion.num,
+            // There are multiple versions of the success criteria
+            // we want to get the highest version number
             version: successCriterion.versions
               ? Math.max(
                   ...successCriterion.versions.map(version =>
