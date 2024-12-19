@@ -16,7 +16,7 @@ Design tokens represent these states in a systematic, scalable way to ensure:
 
 ## Interaction vs application state
 
-A component should be styled based on the combination of what state the application has put it in and how the user is interacting with it. These states can be separated out into two types: interaction and application.
+A component should be styled based on the application state and interaction state.
 
 | State type      | Description                                                                    |
 | --------------- | ------------------------------------------------------------------------------ |
@@ -38,13 +38,13 @@ Interaction states use the CSS pseudo-class terminology (hover, focus, active). 
 
 ### Application state naming
 
-Some of application states correspond directly to CSS pseudo-classes (e.g., disabled), while others are named more generic to apply across components (e.g., “selected” can refer to a selected dropdown item or checked checkbox).
+Some application states correspond directly to CSS pseudo-classes (e.g., disabled), while others are named more generically to apply across components (e.g., “selected” can refer to a selected dropdown item or checked checkbox).
 
 Application states that have use cases within the design system are represented in the table below.
 
 ## Supported states
 
-In this table, “interaction” states are represented as column headings and “application” states are the rows. Green cells represent valid combinations.
+In this table, “interaction” states are represented as column headings and “application” states are the rows. Checked cells represent valid combinations.
 
 If two application states exist at once, the component should be styled based on the top-most row in the table. For example, if a component is both “readonly” and "selected", it should be styled as "readonly".
 
