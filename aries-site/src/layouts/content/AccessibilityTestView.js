@@ -50,7 +50,10 @@ const AccessibilityCardView = ({
       {/* // ignore bold rule name should be text strong
        and the desc should be text */}
       <Paragraph margin="none">
-        <Text color="text-strong">{ruleName}.</Text> {ruleDescription}
+        <Text weight={500} color="text-strong">
+          {ruleName}.
+        </Text>{' '}
+        {ruleDescription}
       </Paragraph>
       <Box alignSelf="start" direction="row" align="center" gap="small">
         <Tag size="small" value={`WCAG ${version} ${level}`} />
