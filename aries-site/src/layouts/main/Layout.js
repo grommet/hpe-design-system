@@ -27,6 +27,7 @@ import {
   FeedbackSection,
   InPageNavigation,
   RelatedContent,
+  AccessibilitySection,
 } from '..';
 import {
   Meta,
@@ -36,7 +37,11 @@ import {
   Question,
 } from '../../components';
 import { Config } from '../../../config';
-import { getRelatedContent, getPageDetails } from '../../utils';
+import {
+  getRelatedContent,
+  getPageDetails,
+  getPageAccessibility,
+} from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateNotification } from '../content/UpdateNotification';
 import { ViewContext } from '../../pages/_app';
@@ -58,6 +63,7 @@ export const Layout = ({
   const router = useRouter();
   // const announce = useContext(AnnounceContext);
   const relatedContent = titleProp && getRelatedContent(titleProp);
+  const accessibilityInfo = getPageAccessibility(titleProp);
   // Allow proper capitalization to be used
   const {
     name: title,
@@ -197,6 +203,9 @@ export const Layout = ({
                             <UpdateNotification name={title} />
                           )}
                           {children}
+                          {accessibilityInfo && (
+                            <AccessibilitySection title={title} />
+                          )}
                         </ContentSection>
                         {relatedContent.length > 0 && (
                           <RelatedContent
