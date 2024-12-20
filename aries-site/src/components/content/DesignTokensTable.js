@@ -43,7 +43,7 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
   const currentData = data || hookData;
 
   return (
-    <Data data={currentData} pad={{ vertical: 'medium' }}>
+    <Data data={currentData}>
       {toolbar ? (
         <>
           <Toolbar
