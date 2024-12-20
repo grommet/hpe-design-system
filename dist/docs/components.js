@@ -3641,7 +3641,7 @@ export default {
   },
   "hpe.button.primary.selected.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3687,7 +3687,7 @@ export default {
   },
   "hpe.button.primary.selected.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3879,7 +3879,7 @@ export default {
   },
   "hpe.button.primary.selected.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3925,7 +3925,7 @@ export default {
   },
   "hpe.button.primary.selected.hover.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -7963,7 +7963,7 @@ export default {
   },
   "hpe.button.secondary.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -8007,7 +8007,7 @@ export default {
   },
   "hpe.button.secondary.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -8191,7 +8191,7 @@ export default {
   },
   "hpe.button.secondary.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -8235,7 +8235,7 @@ export default {
   },
   "hpe.button.secondary.hover.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -8661,7 +8661,7 @@ export default {
   },
   "hpe.button.secondary.selected.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -8707,7 +8707,7 @@ export default {
   },
   "hpe.button.secondary.selected.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -8899,7 +8899,7 @@ export default {
   },
   "hpe.button.secondary.selected.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -8945,7 +8945,7 @@ export default {
   },
   "hpe.button.secondary.selected.hover.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13256,7 +13256,7 @@ export default {
   },
   "hpe.button.default.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13300,7 +13300,7 @@ export default {
   },
   "hpe.button.default.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13720,7 +13720,7 @@ export default {
   },
   "hpe.button.default.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13764,7 +13764,7 @@ export default {
   },
   "hpe.button.default.hover.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13952,7 +13952,7 @@ export default {
   },
   "hpe.button.default.selected.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13998,7 +13998,7 @@ export default {
   },
   "hpe.button.default.selected.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -14190,7 +14190,7 @@ export default {
   },
   "hpe.button.default.selected.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -14236,7 +14236,7 @@ export default {
   },
   "hpe.button.default.selected.hover.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -18274,7 +18274,7 @@ export default {
   },
   "hpe.button.toolbar.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -18318,7 +18318,7 @@ export default {
   },
   "hpe.button.toolbar.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -18502,7 +18502,7 @@ export default {
   },
   "hpe.button.toolbar.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -18546,7 +18546,7 @@ export default {
   },
   "hpe.button.toolbar.hover.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -18972,7 +18972,7 @@ export default {
   },
   "hpe.button.toolbar.selected.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -19018,7 +19018,7 @@ export default {
   },
   "hpe.button.toolbar.selected.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -19210,7 +19210,7 @@ export default {
   },
   "hpe.button.toolbar.selected.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -19256,7 +19256,7 @@ export default {
   },
   "hpe.button.toolbar.selected.hover.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -23450,7 +23450,7 @@ export default {
   },
   "hpe.menu.item.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -23494,7 +23494,7 @@ export default {
   },
   "hpe.menu.item.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -23676,7 +23676,7 @@ export default {
   },
   "hpe.menu.item.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -23720,7 +23720,7 @@ export default {
   },
   "hpe.menu.item.hover.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -24946,7 +24946,7 @@ export default {
   },
   "hpe.select.option.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -25126,7 +25126,7 @@ export default {
   },
   "hpe.select.option.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -25498,7 +25498,7 @@ export default {
   },
   "hpe.select.option.selected.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -25686,7 +25686,7 @@ export default {
   },
   "hpe.select.option.selected.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -28360,7 +28360,7 @@ export default {
   },
   "hpe.switch.medium.label.lineHeight": {
     "$type": "number",
-    "$value": "1.125rem",
+    "$value": "1.5rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -28375,7 +28375,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.medium.fontSize}",
+      "$value": "{element.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29678,7 +29678,7 @@ export default {
   },
   "hpe.dataCell.selected.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29722,7 +29722,7 @@ export default {
   },
   "hpe.dataCell.selected.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29862,7 +29862,7 @@ export default {
   },
   "hpe.dataCell.selected.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29906,7 +29906,7 @@ export default {
   },
   "hpe.dataCell.selected.hover.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -30342,7 +30342,7 @@ export default {
   },
   "hpe.dataCell.primary.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -30386,7 +30386,7 @@ export default {
   },
   "hpe.dataCell.primary.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -30526,7 +30526,7 @@ export default {
   },
   "hpe.dataCell.primary.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -30570,7 +30570,7 @@ export default {
   },
   "hpe.dataCell.primary.hover.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -31636,7 +31636,7 @@ export default {
   },
   "hpe.headerCell.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -31678,7 +31678,7 @@ export default {
   },
   "hpe.headerCell.rest.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -31812,7 +31812,7 @@ export default {
   },
   "hpe.headerCell.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -31854,7 +31854,7 @@ export default {
   },
   "hpe.headerCell.hover.iconColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -34305,7 +34305,7 @@ export default {
   },
   "hpe.formField.input.group.container.error.rest.borderColor": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "rgba(0, 0, 0, 0.72)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -34321,7 +34321,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.transparent}",
+      "$value": "{color.border.strong}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34355,7 +34355,7 @@ export default {
   },
   "hpe.formField.input.group.container.disabled.rest.background": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "rgba(0, 0, 0, 0.04)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -34371,7 +34371,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35631,7 +35631,7 @@ export default {
   },
   "hpe.formField.label.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -35673,9 +35673,53 @@ export default {
     ],
     "key": "{formField.label.rest.textColor}"
   },
+  "hpe.formField.label.rest.iconColor": {
+    "$type": "color",
+    "$value": "#2e2e2e",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.icon.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.label.rest.iconColor",
+    "attributes": {
+      "category": "formField",
+      "type": "label",
+      "item": "rest",
+      "subitem": "iconColor"
+    },
+    "path": [
+      "formField",
+      "label",
+      "rest",
+      "iconColor"
+    ],
+    "key": "{formField.label.rest.iconColor}"
+  },
   "hpe.formField.label.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -35717,9 +35761,53 @@ export default {
     ],
     "key": "{formField.label.hover.textColor}"
   },
+  "hpe.formField.label.hover.iconColor": {
+    "$type": "color",
+    "$value": "#2e2e2e",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.icon.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.label.hover.iconColor",
+    "attributes": {
+      "category": "formField",
+      "type": "label",
+      "item": "hover",
+      "subitem": "iconColor"
+    },
+    "path": [
+      "formField",
+      "label",
+      "hover",
+      "iconColor"
+    ],
+    "key": "{formField.label.hover.iconColor}"
+  },
   "hpe.formField.label.focus.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -35761,9 +35849,53 @@ export default {
     ],
     "key": "{formField.label.focus.textColor}"
   },
+  "hpe.formField.label.focus.iconColor": {
+    "$type": "color",
+    "$value": "#2e2e2e",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.icon.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.label.focus.iconColor",
+    "attributes": {
+      "category": "formField",
+      "type": "label",
+      "item": "focus",
+      "subitem": "iconColor"
+    },
+    "path": [
+      "formField",
+      "label",
+      "focus",
+      "iconColor"
+    ],
+    "key": "{formField.label.focus.iconColor}"
+  },
   "hpe.formField.label.error.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -35806,6 +35938,52 @@ export default {
       "textColor"
     ],
     "key": "{formField.label.error.rest.textColor}"
+  },
+  "hpe.formField.label.error.rest.iconColor": {
+    "$type": "color",
+    "$value": "#2e2e2e",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.icon.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.label.error.rest.iconColor",
+    "attributes": {
+      "category": "formField",
+      "type": "label",
+      "item": "error",
+      "subitem": "rest",
+      "state": "iconColor"
+    },
+    "path": [
+      "formField",
+      "label",
+      "error",
+      "rest",
+      "iconColor"
+    ],
+    "key": "{formField.label.error.rest.iconColor}"
   },
   "hpe.formField.label.disabled.rest.textColor": {
     "$type": "color",
@@ -35853,9 +36031,55 @@ export default {
     ],
     "key": "{formField.label.disabled.rest.textColor}"
   },
+  "hpe.formField.label.disabled.rest.iconColor": {
+    "$type": "color",
+    "$value": "#2e2e2e",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.icon.strong}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.label.disabled.rest.iconColor",
+    "attributes": {
+      "category": "formField",
+      "type": "label",
+      "item": "disabled",
+      "subitem": "rest",
+      "state": "iconColor"
+    },
+    "path": [
+      "formField",
+      "label",
+      "disabled",
+      "rest",
+      "iconColor"
+    ],
+    "key": "{formField.label.disabled.rest.iconColor}"
+  },
   "hpe.formField.label.readOnly.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -35899,9 +36123,9 @@ export default {
     ],
     "key": "{formField.label.readOnly.rest.textColor}"
   },
-  "hpe.formField.placeholder.disabled": {
+  "hpe.formField.label.readOnly.rest.iconColor": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.24)",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -35912,29 +36136,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "rest": {
-      "textColor": {
-        "$type": "color",
-        "$value": "rgba(0, 0, 0, 0.24)",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [
-              "TEXT_FILL"
-            ],
-            "codeSyntax": {}
-          }
-        },
-        "filePath": "tokens/component/component.default.json",
-        "isSource": true
-      }
-    },
     "filePath": "tokens/component/component.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.icon.strong}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35944,38 +36150,24 @@ export default {
           ],
           "codeSyntax": {}
         }
-      },
-      "rest": {
-        "textColor": {
-          "$type": "color",
-          "$value": "{color.text.disabled}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": [
-                "TEXT_FILL"
-              ],
-              "codeSyntax": {}
-            }
-          },
-          "filePath": "tokens/component/component.default.json",
-          "isSource": true
-        }
       }
     },
-    "name": "hpe.formField.placeholder.disabled",
+    "name": "hpe.formField.label.readOnly.rest.iconColor",
     "attributes": {
       "category": "formField",
-      "type": "placeholder",
-      "item": "disabled"
+      "type": "label",
+      "item": "readOnly",
+      "subitem": "rest",
+      "state": "iconColor"
     },
     "path": [
       "formField",
-      "placeholder",
-      "disabled"
+      "label",
+      "readOnly",
+      "rest",
+      "iconColor"
     ],
-    "key": "{formField.placeholder.disabled}"
+    "key": "{formField.label.readOnly.rest.iconColor}"
   },
   "hpe.formField.placeholder.rest.textColor": {
     "$type": "color",
@@ -36154,6 +36346,52 @@ export default {
       "textColor"
     ],
     "key": "{formField.placeholder.error.rest.textColor}"
+  },
+  "hpe.formField.placeholder.disabled.rest.textColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.24)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.disabled}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.formField.placeholder.disabled.rest.textColor",
+    "attributes": {
+      "category": "formField",
+      "type": "placeholder",
+      "item": "disabled",
+      "subitem": "rest",
+      "state": "textColor"
+    },
+    "path": [
+      "formField",
+      "placeholder",
+      "disabled",
+      "rest",
+      "textColor"
+    ],
+    "key": "{formField.placeholder.disabled.rest.textColor}"
   },
   "hpe.formField.placeholder.readOnly.rest.textColor": {
     "$type": "color",
@@ -36381,7 +36619,7 @@ export default {
   },
   "hpe.formField.help.disabled.rest.color": {
     "$type": "color",
-    "$value": "#555555",
+    "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -36396,7 +36634,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.disabled}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39747,7 +39985,7 @@ export default {
   },
   "hpe.anchor.default.rest.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -39875,7 +40113,7 @@ export default {
   },
   "hpe.anchor.default.hover.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -39999,7 +40237,7 @@ export default {
   },
   "hpe.anchor.default.disabled.textColor": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {

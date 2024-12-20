@@ -952,7 +952,7 @@ module.exports = {
         "gapX": "12px",
         "label": {
           "fontSize": "1.125rem",
-          "lineHeight": "1.125rem",
+          "lineHeight": "1.5rem",
           "fontWeight": 500
         },
         "control": {
@@ -1178,12 +1178,12 @@ module.exports = {
             "error": {
               "rest": {
                 "background": "background-critical",
-                "borderColor": "transparent"
+                "borderColor": "border-strong"
               }
             },
             "disabled": {
               "rest": {
-                "background": "background-default",
+                "background": "background-disabled",
                 "borderColor": "border-disabled"
               }
             },
@@ -1256,32 +1256,37 @@ module.exports = {
       },
       "label": {
         "rest": {
-          "textColor": "text-strong"
+          "textColor": "text-strong",
+          "iconColor": "icon-strong"
         },
         "hover": {
-          "textColor": "text-strong"
+          "textColor": "text-strong",
+          "iconColor": "icon-strong"
         },
         "focus": {
-          "textColor": "text-strong"
+          "textColor": "text-strong",
+          "iconColor": "icon-strong"
         },
         "error": {
           "rest": {
-            "textColor": "text-strong"
+            "textColor": "text-strong",
+            "iconColor": "icon-strong"
           }
         },
         "disabled": {
           "rest": {
-            "textColor": "text-disabled"
+            "textColor": "text-disabled",
+            "iconColor": "icon-strong"
           }
         },
         "readOnly": {
           "rest": {
-            "textColor": "text-strong"
+            "textColor": "text-strong",
+            "iconColor": "icon-strong"
           }
         }
       },
       "placeholder": {
-        "disabled": "text-disabled",
         "rest": {
           "textColor": "text-weak"
         },
@@ -1294,6 +1299,11 @@ module.exports = {
         "error": {
           "rest": {
             "textColor": "text-weak"
+          }
+        },
+        "disabled": {
+          "rest": {
+            "textColor": "text-disabled"
           }
         },
         "readOnly": {
@@ -1319,7 +1329,7 @@ module.exports = {
         },
         "disabled": {
           "rest": {
-            "color": "text-default"
+            "color": "text-disabled"
           }
         },
         "readOnly": {

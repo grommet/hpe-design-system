@@ -35,7 +35,7 @@ module.exports = {
           }
         },
         "neutral": {
-          "xstrong": "#333333"
+          "xstrong": "#2e2e2e"
         }
       },
       "border": {
@@ -52,7 +52,7 @@ module.exports = {
       },
       "text": {
         "default": "#555555",
-        "strong": "#333333",
+        "strong": "#2e2e2e",
         "weak": "#757575",
         "placeholder": "#757575",
         "disabled": "rgba(0, 0, 0, 0.24)",
@@ -61,7 +61,7 @@ module.exports = {
           "default": "#ffffff"
         },
         "heading": {
-          "default": "#333333"
+          "default": "#2e2e2e"
         },
         "primary": "#006750",
         "critical": "#555555",
@@ -70,31 +70,31 @@ module.exports = {
         "warning": "#555555",
         "unknown": "#555555",
         "onSelectedStrong": "#ffffff",
-        "onSelected": "#333333",
+        "onSelected": "#2e2e2e",
         "onCritical": {
-          "strong": "#333333",
+          "strong": "#2e2e2e",
           "default": "#555555"
         },
         "onInfo": {
-          "strong": "#333333",
+          "strong": "#2e2e2e",
           "default": "#555555"
         },
         "onOk": {
-          "strong": "#333333",
+          "strong": "#2e2e2e",
           "default": "#555555"
         },
         "onUnknown": {
-          "strong": "#333333",
+          "strong": "#2e2e2e",
           "default": "#555555"
         },
         "onWarning": {
-          "strong": "#333333",
+          "strong": "#2e2e2e",
           "default": "#555555"
         }
       },
       "icon": {
         "default": "#555555",
-        "strong": "#333333",
+        "strong": "#2e2e2e",
         "weak": "#757575",
         "disabled": "rgba(0, 0, 0, 0.24)",
         "critical": "#ec3331",
@@ -105,7 +105,7 @@ module.exports = {
         "primary": "#01a982",
         "onPrimary": "#ffffff",
         "onSelectedStrong": "#ffffff",
-        "onSelected": "#333333"
+        "onSelected": "#2e2e2e"
       },
       "decorative": {
         "brand": "#01a982",

@@ -4313,7 +4313,7 @@ export default {
   },
   "hpe.base.color.grey.1000": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4328,7 +4328,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#333333",
+      "$value": "#2e2e2e",
       "$description": "",
       "$extensions": {
         "com.figma": {

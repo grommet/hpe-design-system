@@ -907,7 +907,7 @@ export default {
   },
   "hpe.color.background.neutral.xstrong": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1437,7 +1437,7 @@ export default {
   },
   "hpe.color.text.strong": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "Stronger text color for added prominence",
     "$extensions": {
       "com.figma": {
@@ -1693,7 +1693,7 @@ export default {
   },
   "hpe.color.text.heading.default": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2051,7 +2051,7 @@ export default {
   },
   "hpe.color.text.onSelected": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "Text color to be used for text sitting on background-selected-strong.",
     "$extensions": {
       "com.figma": {
@@ -2093,7 +2093,7 @@ export default {
   },
   "hpe.color.text.onCritical.strong": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
@@ -2181,7 +2181,7 @@ export default {
   },
   "hpe.color.text.onInfo.strong": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
@@ -2269,7 +2269,7 @@ export default {
   },
   "hpe.color.text.onOk.strong": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
@@ -2357,7 +2357,7 @@ export default {
   },
   "hpe.color.text.onUnknown.strong": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
@@ -2445,7 +2445,7 @@ export default {
   },
   "hpe.color.text.onWarning.strong": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "Text color to be used on status backgrounds.",
     "$extensions": {
       "com.figma": {
@@ -2579,7 +2579,7 @@ export default {
   },
   "hpe.color.icon.strong": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "Stronger icon color for added prominence",
     "$extensions": {
       "com.figma": {
@@ -3083,7 +3083,7 @@ export default {
   },
   "hpe.color.icon.onSelected": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "Icon color to be used for icon sitting on background-selected-strong.",
     "$extensions": {
       "com.figma": {
