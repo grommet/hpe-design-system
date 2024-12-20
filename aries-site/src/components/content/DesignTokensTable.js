@@ -40,14 +40,18 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
   const handleData = setData || setHookData;
   const mode = selectedMode || hookSelectedMode;
   const modeOptions = modes || hookModes;
+  const currentData = data || hookData;
 
   return (
-    <Data data={data || hookData} pad={{ vertical: 'medium' }}>
+    <Data data={currentData} pad={{ vertical: 'medium' }}>
       {toolbar ? (
         <>
-          <Toolbar align="end">
-            <DataSearch />
-            {modes?.length > 1 ? (
+          <Toolbar
+            align="end"
+            margin={{ bottom: currentData?.length <= 10 ? 'medium' : 'none' }}
+          >
+            {currentData?.length > 10 ? <DataSearch /> : undefined}
+            {modeOptions?.length > 1 ? (
               // eslint-disable-next-line grommet/formfield-htmlfor-id
               <FormField
                 label="Mode"
@@ -74,7 +78,7 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
               </FormField>
             ) : undefined}
           </Toolbar>
-          <DataSummary />
+          {currentData?.length > 10 ? <DataSummary /> : undefined}
         </>
       ) : undefined}
       <Box
