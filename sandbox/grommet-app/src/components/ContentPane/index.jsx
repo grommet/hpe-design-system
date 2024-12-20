@@ -55,10 +55,4 @@ ContentPane.propTypes = {
   ]),
 };
 
-ContentPane.defaultProps = {
-  actions: undefined,
-  contain: undefined,
-  skeleton: undefined,
-};
-
 export default ContentPane;

@@ -4,7 +4,7 @@
       "default": {
         "$type": "color",
         "$value": "{base.color.white.100}",
-        "$description": "Default color for component backgrounds in the default/enabled state. Can also be used for page background.",
+        "$description": "Default background color to be used on containers.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -13,10 +13,58 @@
           }
         }
       },
+      "back": {
+        "$type": "color",
+        "$value": "{base.color.grey.50}",
+        "$description": "Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "front": {
+        "$type": "color",
+        "$value": "{base.color.white.100}",
+        "$description": "Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "floating": {
+        "$type": "color",
+        "$value": "{base.color.white.100}",
+        "$description": "Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "contrast": {
+        "$type": "color",
+        "$value": "{base.color.black.opacity4}",
+        "$description": "Use to create a subtle differentiation between a component or container and the region it sits on.",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+            "codeSyntax": {}
+          }
+        }
+      },
       "hover": {
         "$type": "color",
         "$value": "{color.background.contrast}",
-        "$description": "Generic hover state of components that have no fill in their default/enabled state. For example, unselected menu-items.",
+        "$description": "Generic hover state of components that have no fill in their resting state. For example, menu items.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -40,43 +88,7 @@
       "disabled": {
         "$type": "color",
         "$value": "{base.color.black.opacity4}",
-        "$description": "Disabled background color. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "back": {
-        "$type": "color",
-        "$value": "{base.color.grey.50}",
-        "$description": "Elevation level 0. Typically used for the page color. color.background.back creates a contrasted page backdrop for components to sit on. It’s useful to make components stand out on pages that use it. The nature of back is that it forms a contrast with any foreground component.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "front": {
-        "$type": "color",
-        "$value": "{base.color.white.100}",
-        "$description": "Elevation level 1. Lowest level of elevation for container/surfaces that sit directly on top of the page. Example: container that houses a data table.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "floating": {
-        "$type": "color",
-        "$value": "{base.color.white.100}",
-        "$description": "Elevation level 3. The highest level of elevation for elements that sit above everything else. Example: dropdowns, layer, side drawers and floating buttons.",
+        "$description": "Disabled background color. Using disabled colors ensures that disabled components are consistently styled.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -88,7 +100,7 @@
       "screenOverlay": {
         "$type": "color",
         "$value": "{base.color.black.opacity12}",
-        "$description": "Use for the backdrop overlay that sits behind dialogues, modals or layers.",
+        "$description": "The background color for the overlay that sits behind modal layers.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -97,22 +109,10 @@
           }
         }
       },
-      "contrast": {
-        "$type": "color",
-        "$value": "{base.color.black.opacity4}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "warning": {
         "$type": "color",
         "$value": "{base.color.orange.400-Opacity24}",
-        "$description": "",
+        "$description": "Use for borders communicating warning or caution.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -124,7 +124,7 @@
       "info": {
         "$type": "color",
         "$value": "{base.color.blue.400-Opacity24}",
-        "$description": "",
+        "$description": "Use for backgrounds communicating neutral information.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -136,7 +136,7 @@
       "critical": {
         "$type": "color",
         "$value": "{base.color.red.500-Opacity24}",
-        "$description": "",
+        "$description": "Use for backgrounds communicating errors or danger.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -149,7 +149,7 @@
         "default": {
           "$type": "color",
           "$value": "{base.color.green.600}",
-          "$description": "The default primary color of components at a rest/ enabled state. The term ‘primary’ denoting hierarchy - the most important thing. Use to style components prominently and give greater visual hierarchy.",
+          "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -161,7 +161,7 @@
         "hover": {
           "$type": "color",
           "$value": "{base.color.green.600}",
-          "$description": "Hover color variant of the primary color.",
+          "$description": "Hover variant of background-primary.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -174,7 +174,7 @@
       "unknown": {
         "$type": "color",
         "$value": "{base.color.black.opacity4}",
-        "$description": "",
+        "$description": "Use for backgrounds communicating an unknown status.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -186,7 +186,7 @@
       "ok": {
         "$type": "color",
         "$value": "{base.color.green.400-Opacity24}",
-        "$description": "",
+        "$description": "Use for backgrounds communicating success.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -226,7 +226,7 @@
           "enabled": {
             "$type": "color",
             "$value": "{base.color.green.100}",
-            "$description": "Lower emphasis variant of selected color. Use if selection color needs to be less prominent.",
+            "$description": "Lower emphasis variant of background-selected-strong.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -238,7 +238,7 @@
           "hover": {
             "$type": "color",
             "$value": "{base.color.green.125}",
-            "$description": "Lower emphasis variant of selected color. Use if selection color needs to be less prominent.",
+            "$description": "Hover variant of background-selected-weak.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -253,7 +253,7 @@
         "xstrong": {
           "$type": "color",
           "$value": "{base.color.grey.1000}",
-          "$description": "",
+          "$description": "Highest emphasis variant of neutral palette.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -268,7 +268,7 @@
       "strong": {
         "$type": "color",
         "$value": "{base.color.black.opacity72}",
-        "$description": "Stronger border color for added emphasis",
+        "$description": "Emphasized variant of border color.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -280,7 +280,7 @@
       "default": {
         "$type": "color",
         "$value": "{base.color.black.opacity36}",
-        "$description": "Default border color",
+        "$description": "Default border color.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -292,7 +292,7 @@
       "weak": {
         "$type": "color",
         "$value": "{base.color.black.opacity12}",
-        "$description": "Weaker border color for reduced emphasis",
+        "$description": "Subtle variant of border color for reduced visual emphasis.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -304,7 +304,7 @@
       "disabled": {
         "$type": "color",
         "$value": "{base.color.black.opacity12}",
-        "$description": "Disabled color for borders. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
+        "$description": "Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -316,7 +316,7 @@
       "selected": {
         "$type": "color",
         "$value": "{base.color.green.600}",
-        "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggles, active tabs.",
+        "$description": "Selected border color. Used for ‘selected’ state.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -328,7 +328,7 @@
       "critical": {
         "$type": "color",
         "$value": "{color.border.default}",
-        "$description": "",
+        "$description": "Use for borders communicating errors or danger.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -340,7 +340,7 @@
       "info": {
         "$type": "color",
         "$value": "{color.border.default}",
-        "$description": "",
+        "$description": "Use for borders communicating neutral information.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -352,7 +352,7 @@
       "ok": {
         "$type": "color",
         "$value": "{color.border.default}",
-        "$description": "",
+        "$description": "Use for borders communicating success.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -364,7 +364,7 @@
       "warning": {
         "$type": "color",
         "$value": "{color.border.default}",
-        "$description": "",
+        "$description": "Use for backgrounds communicating warning or caution.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -376,7 +376,7 @@
       "unknown": {
         "$type": "color",
         "$value": "{color.border.default}",
-        "$description": "",
+        "$description": "Use for borders communicating an unknown status.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -390,7 +390,7 @@
       "default": {
         "$type": "color",
         "$value": "{base.color.grey.800}",
-        "$description": "Default text color that is accessible on standard background colors",
+        "$description": "Default text color that is accessible on standard background colors.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -402,7 +402,7 @@
       "strong": {
         "$type": "color",
         "$value": "{base.color.grey.1000}",
-        "$description": "Stronger text color for added prominence",
+        "$description": "Emphasized text color for increased visual prominence.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -414,7 +414,7 @@
       "weak": {
         "$type": "color",
         "$value": "{base.color.grey.700}",
-        "$description": "Weaker text color for reduced emphasis",
+        "$description": "Subtle text color for reduced visual prominence. Often used for supporting text.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -426,7 +426,7 @@
       "placeholder": {
         "$type": "color",
         "$value": "{color.text.weak}",
-        "$description": "",
+        "$description": "Placeholder text color.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -438,7 +438,7 @@
       "disabled": {
         "$type": "color",
         "$value": "{base.color.black.opacity24}",
-        "$description": "Disabled color for text. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
+        "$description": "Disabled color for text. Using disabled colors ensures that disabled components are consistently styled.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -450,7 +450,7 @@
       "onPrimary": {
         "$type": "color",
         "$value": "{base.color.white.100}",
-        "$description": "Text color to be used for text sitting on a primary color (for example a background styled with the primary color). This text and background pairing helps ensure accessibility. Furthermore, it enables precise theming updates and allows easier maintenance of colors, where if the primary color changes, we can update color.text.onPrimary to be accessible on the new primary color.",
+        "$description": "Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -463,7 +463,7 @@
         "default": {
           "$type": "color",
           "$value": "{base.color.white.100}",
-          "$description": "",
+          "$description": "Text color to be used on strong backgrounds. For example, background-neutral-xstrong.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -477,7 +477,7 @@
         "default": {
           "$type": "color",
           "$value": "{color.text.strong}",
-          "$description": "",
+          "$description": "Text color for headings.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -502,7 +502,7 @@
       "critical": {
         "$type": "color",
         "$value": "{color.text.default}",
-        "$description": "",
+        "$description": "Use for text on standard backgrounds communicating errors or danger.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -514,7 +514,7 @@
       "info": {
         "$type": "color",
         "$value": "{color.text.default}",
-        "$description": "",
+        "$description": "Use for text on standard backgrounds communicating neutral information.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -526,7 +526,7 @@
       "ok": {
         "$type": "color",
         "$value": "{color.text.default}",
-        "$description": "",
+        "$description": "Use for text on standard backgrounds communicating success.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -538,7 +538,7 @@
       "warning": {
         "$type": "color",
         "$value": "{color.text.default}",
-        "$description": "",
+        "$description": "Use for text on standard backgrounds communicating warning or caution.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -550,7 +550,7 @@
       "unknown": {
         "$type": "color",
         "$value": "{color.text.default}",
-        "$description": "",
+        "$description": "Use for text on standard backgrounds communicating an unknown status.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -574,7 +574,7 @@
       "onSelected": {
         "$type": "color",
         "$value": "{color.text.strong}",
-        "$description": "Text color to be used for text sitting on background-selected-strong.",
+        "$description": "Text color to be used for text sitting on non-strong variants of background-selected.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -587,7 +587,7 @@
         "strong": {
           "$type": "color",
           "$value": "{color.text.strong}",
-          "$description": "Text color to be used on status backgrounds.",
+          "$description": "Emphasized variant of text color to be used on background-critical.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -599,7 +599,7 @@
         "default": {
           "$type": "color",
           "$value": "{color.text.default}",
-          "$description": "Text color to be used on status backgrounds.",
+          "$description": "Text color to be used on background-critical.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -613,7 +613,7 @@
         "strong": {
           "$type": "color",
           "$value": "{color.text.strong}",
-          "$description": "Text color to be used on status backgrounds.",
+          "$description": "Emphasized variant of text color to be used on background-info.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -625,7 +625,7 @@
         "default": {
           "$type": "color",
           "$value": "{color.text.default}",
-          "$description": "Text color to be used on status backgrounds.",
+          "$description": "Text color to be used on background-info.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -639,7 +639,7 @@
         "strong": {
           "$type": "color",
           "$value": "{color.text.strong}",
-          "$description": "Text color to be used on status backgrounds.",
+          "$description": "Emphasized variant of text color to be used on background-ok.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -651,7 +651,7 @@
         "default": {
           "$type": "color",
           "$value": "{color.text.default}",
-          "$description": "Text color to be used on status backgrounds.",
+          "$description": "Text color to be used on background-ok.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -665,7 +665,7 @@
         "strong": {
           "$type": "color",
           "$value": "{color.text.strong}",
-          "$description": "Text color to be used on status backgrounds.",
+          "$description": "Emphasized variant of text color to be used on background-unknown.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -677,7 +677,7 @@
         "default": {
           "$type": "color",
           "$value": "{color.text.default}",
-          "$description": "Text color to be used on status backgrounds.",
+          "$description": "Text color to be used on background-unknown.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -691,7 +691,7 @@
         "strong": {
           "$type": "color",
           "$value": "{color.text.strong}",
-          "$description": "Text color to be used on status backgrounds.",
+          "$description": "Emphasized variant of text color to be used on background-warning.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -703,7 +703,7 @@
         "default": {
           "$type": "color",
           "$value": "{color.text.default}",
-          "$description": "Text color to be used on status backgrounds.",
+          "$description": "Text color to be used on background-warning.",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -718,7 +718,7 @@
       "default": {
         "$type": "color",
         "$value": "{base.color.grey.800}",
-        "$description": "Default icon color that is accessible on standard background colors",
+        "$description": "Default icon color that is accessible on standard background colors.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -730,7 +730,7 @@
       "strong": {
         "$type": "color",
         "$value": "{base.color.grey.1000}",
-        "$description": "Stronger icon color for added prominence",
+        "$description": "Emphasized icon color for increased visual prominence.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -742,7 +742,7 @@
       "weak": {
         "$type": "color",
         "$value": "{base.color.grey.700}",
-        "$description": "Weaker icon color for reduced emphasis",
+        "$description": "Subtle icon color for reduced visual prominence.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -754,7 +754,7 @@
       "disabled": {
         "$type": "color",
         "$value": "{base.color.black.opacity24}",
-        "$description": "Disabled color for icons. Using disabled colors ensures that disabled components are similarly styled and consistent. Furthermore, it allows us to control disabled colors at the token level, rather than the component build level.",
+        "$description": "Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -766,7 +766,7 @@
       "critical": {
         "$type": "color",
         "$value": "{base.color.red.600}",
-        "$description": "",
+        "$description": "Use for icons communicating errors or danger.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -778,7 +778,7 @@
       "info": {
         "$type": "color",
         "$value": "{base.color.blue.400}",
-        "$description": "",
+        "$description": "Use for icons communicating neutral information.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -790,7 +790,7 @@
       "ok": {
         "$type": "color",
         "$value": "{base.color.green.650}",
-        "$description": "",
+        "$description": "Use for icons communicating success.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -802,7 +802,7 @@
       "warning": {
         "$type": "color",
         "$value": "{base.color.orange.600}",
-        "$description": "",
+        "$description": "Use for icons communicating warning or caution.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -814,7 +814,7 @@
       "unknown": {
         "$type": "color",
         "$value": "{base.color.grey.600}",
-        "$description": "",
+        "$description": "Use for icons communicating unknown status.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -826,7 +826,7 @@
       "primary": {
         "$type": "color",
         "$value": "{base.color.green.600}",
-        "$description": "",
+        "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -838,7 +838,7 @@
       "onPrimary": {
         "$type": "color",
         "$value": "{base.color.white.100}",
-        "$description": "Icon color to be used when text sits on primary color (for example a background styled with the primary color). This text and background pairing ensures text used on primary is accessible. Furthermore, it enables precise theming updates and allows for easier maintenance of colors, where if the primary color changes, we can update color.text.onPrimary to be accessible on the new primary color.",
+        "$description": "Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -850,7 +850,7 @@
       "onSelectedStrong": {
         "$type": "color",
         "$value": "{base.color.white.100}",
-        "$description": "Icon color to be used for Icon sitting on background-selected-strong.",
+        "$description": "Icon color to be used for icon sitting on background-selected-strong.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -861,8 +861,8 @@
       },
       "onSelected": {
         "$type": "color",
-        "$value": "{color.text.strong}",
-        "$description": "Icon color to be used for icon sitting on background-selected-strong.",
+        "$value": "{color.icon.strong}",
+        "$description": "Icon color to be used for icon sitting on non-strong background-selected variants.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -876,7 +876,7 @@
       "brand": {
         "$type": "color",
         "$value": "{base.color.brand}",
-        "$description": "",
+        "$description": "The brand color.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1194,7 +1194,7 @@
       "critical": {
         "$type": "color",
         "$value": "{base.color.red.600}",
-        "$description": "",
+        "$description": "Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1206,7 +1206,7 @@
       "warning": {
         "$type": "color",
         "$value": "{base.color.orange.600}",
-        "$description": "",
+        "$description": "Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1218,7 +1218,7 @@
       "unknown": {
         "$type": "color",
         "$value": "{base.color.grey.600}",
-        "$description": "",
+        "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
