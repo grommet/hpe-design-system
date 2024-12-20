@@ -134,7 +134,7 @@ export default {
   "hpe.fontStack.primary": {
     "$type": "fontFamily",
     "$value": "'Metric', Arial, sans-serif",
-    "$description": "For dev use only.",
+    "$description": "The main font stack for an application.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -149,7 +149,7 @@ export default {
     "original": {
       "$type": "fontFamily",
       "$value": "'Metric', Arial, sans-serif",
-      "$description": "For dev use only.",
+      "$description": "The main font stack for an application.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -174,7 +174,7 @@ export default {
   "hpe.fontStack.code": {
     "$type": "fontFamily",
     "$value": "'Fira Mono', ui-monospace, monospace",
-    "$description": "For dev use only.",
+    "$description": "A monospace font stack for code blocks.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -189,7 +189,7 @@ export default {
     "original": {
       "$type": "fontFamily",
       "$value": "'Fira Mono', ui-monospace, monospace",
-      "$description": "For dev use only.",
+      "$description": "A monospace font stack for code blocks.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -254,7 +254,7 @@ export default {
   "hpe.breakpoint.small": {
     "$type": "number",
     "$value": "768px",
-    "$description": "",
+    "$description": "The breakpoint where spacing and typography sizes shift down to accommodate smaller screen sizes.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -269,7 +269,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 768,
-      "$description": "",
+      "$description": "The breakpoint where spacing and typography sizes shift down to accommodate smaller screen sizes.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -374,7 +374,7 @@ export default {
   "hpe.fontWeight.thin": {
     "$type": "number",
     "$value": 100,
-    "$description": "",
+    "$description": "Thin is rarely, if at all, used.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -389,7 +389,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 100,
-      "$description": "",
+      "$description": "Thin is rarely, if at all, used.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -454,7 +454,7 @@ export default {
   "hpe.fontWeight.regular": {
     "$type": "number",
     "$value": 400,
-    "$description": "",
+    "$description": "The default font-weight for most text.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -469,7 +469,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 400,
-      "$description": "",
+      "$description": "The default font-weight for most text.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -494,7 +494,7 @@ export default {
   "hpe.fontWeight.medium": {
     "$type": "number",
     "$value": 500,
-    "$description": "",
+    "$description": "The font-weight generally used when increased emphasis is desired.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -509,7 +509,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 500,
-      "$description": "",
+      "$description": "The font-weight generally used when increased emphasis is desired.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -574,7 +574,7 @@ export default {
   "hpe.fontWeight.bold": {
     "$type": "number",
     "$value": 700,
-    "$description": "",
+    "$description": "Bold is used sparingly because it has reduced readability especially at smaller font sizes.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -589,7 +589,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 700,
-      "$description": "",
+      "$description": "Bold is used sparingly because it has reduced readability especially at smaller font sizes.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -614,7 +614,7 @@ export default {
   "hpe.fontWeight.black": {
     "$type": "number",
     "$value": 900,
-    "$description": "",
+    "$description": "Black is rarely, if at all, used.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -629,7 +629,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 900,
-      "$description": "",
+      "$description": "Black is rarely, if at all, used.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,

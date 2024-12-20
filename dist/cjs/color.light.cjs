@@ -7,14 +7,14 @@ module.exports = {
     "color": {
       "background": {
         "default": "#ffffff",
-        "hover": "rgba(0, 0, 0, 0.04)",
-        "active": "rgba(0, 0, 0, 0.04)",
-        "disabled": "rgba(0, 0, 0, 0.04)",
         "back": "#f7f7f7",
         "front": "#ffffff",
         "floating": "#ffffff",
-        "screenOverlay": "rgba(0, 0, 0, 0.12)",
         "contrast": "rgba(0, 0, 0, 0.04)",
+        "hover": "rgba(0, 0, 0, 0.04)",
+        "active": "rgba(0, 0, 0, 0.04)",
+        "disabled": "rgba(0, 0, 0, 0.04)",
+        "screenOverlay": "rgba(0, 0, 0, 0.12)",
         "warning": "rgba(255, 188, 68, 0.24)",
         "info": "rgba(0, 200, 255, 0.24)",
         "critical": "rgba(252, 97, 97, 0.24)",

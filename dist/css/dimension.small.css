@@ -54,24 +54,24 @@
   --hpe-text-6xl-font-size: var(--hpe-base-font-size-1000);
   --hpe-text-6xl-line-height: var(--hpe-base-line-height-1000);
   --hpe-text-6xl-font-weight: var(--hpe-font-weight-light);
-  --hpe-heading-xlarge-font-weight: var(--hpe-font-weight-medium);
-  --hpe-heading-xlarge-font-size: var(--hpe-base-font-size-500);
-  --hpe-heading-xlarge-line-height: var(--hpe-base-line-height-200);
-  --hpe-heading-large-font-weight: var(--hpe-font-weight-medium);
-  --hpe-heading-large-font-size: var(--hpe-base-font-size-300);
-  --hpe-heading-large-line-height: var(--hpe-base-line-height-100);
-  --hpe-heading-medium-font-size: var(--hpe-base-font-size-100);
-  --hpe-heading-medium-line-height: var(--hpe-base-line-height-90);
-  --hpe-heading-medium-font-weight: var(--hpe-font-weight-medium);
-  --hpe-heading-small-font-size: var(--hpe-base-font-size-80);
-  --hpe-heading-small-line-height: var(--hpe-base-line-height-80);
-  --hpe-heading-small-font-weight: var(--hpe-font-weight-medium);
-  --hpe-heading-xsmall-font-size: var(--hpe-base-font-size-80);
-  --hpe-heading-xsmall-line-height: var(--hpe-base-line-height-80);
-  --hpe-heading-xsmall-font-weight: var(--hpe-font-weight-semibold);
-  --hpe-heading-xxsmall-font-size: var(--hpe-base-font-size-80);
-  --hpe-heading-xxsmall-line-height: var(--hpe-base-line-height-80);
-  --hpe-heading-xxsmall-font-weight: var(--hpe-font-weight-semibold);
+  --hpe-heading-xlarge-font-weight: var(--hpe-font-weight-medium); /* Font weight typically used on h1. */
+  --hpe-heading-xlarge-font-size: var(--hpe-base-font-size-500); /* Font size typically used on h1. */
+  --hpe-heading-xlarge-line-height: var(--hpe-base-line-height-200); /* Line height typically used on h1. */
+  --hpe-heading-large-font-weight: var(--hpe-font-weight-medium); /* Font weight typically used on h2. */
+  --hpe-heading-large-font-size: var(--hpe-base-font-size-300); /* Font size typically used on h2. */
+  --hpe-heading-large-line-height: var(--hpe-base-line-height-100); /* Line height typically used on h2. */
+  --hpe-heading-medium-font-size: var(--hpe-base-font-size-100); /* Font size typically used on h3. */
+  --hpe-heading-medium-line-height: var(--hpe-base-line-height-90); /* Line height typically used on h3. */
+  --hpe-heading-medium-font-weight: var(--hpe-font-weight-medium); /* Font weight typically used on h3. */
+  --hpe-heading-small-font-size: var(--hpe-base-font-size-80); /* Font size typically used on h4. */
+  --hpe-heading-small-line-height: var(--hpe-base-line-height-80); /* Line height typically used on h4. */
+  --hpe-heading-small-font-weight: var(--hpe-font-weight-medium); /* Font weight typically used on h4. */
+  --hpe-heading-xsmall-font-size: var(--hpe-base-font-size-80); /* Font size typically used on h5. */
+  --hpe-heading-xsmall-line-height: var(--hpe-base-line-height-80); /* Line height typically used on h5. */
+  --hpe-heading-xsmall-font-weight: var(--hpe-font-weight-semibold); /* Font weight typically used on h5. */
+  --hpe-heading-xxsmall-font-size: var(--hpe-base-font-size-80); /* Font size typically used on h6. */
+  --hpe-heading-xxsmall-line-height: var(--hpe-base-line-height-80); /* Line height typically used on h6. */
+  --hpe-heading-xxsmall-font-weight: var(--hpe-font-weight-semibold); /* Font weight typically used on h6. */
   --hpe-spacing-none: var(--hpe-static-spacing-none);
   --hpe-spacing-hair: var(--hpe-static-spacing-hair);
   --hpe-spacing-xxsmall: var(--hpe-static-spacing-xxsmall);
@@ -95,14 +95,14 @@
   --hpe-border-width-large: var(--hpe-static-border-width-medium);
   --hpe-border-width-xlarge: var(--hpe-static-border-width-large);
   --hpe-border-width-default: var(--hpe-static-border-width-xsmall);
-  --hpe-size-container-xxsmall: var(--hpe-static-container-xxsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-size-container-xsmall: var(--hpe-static-container-xxsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-size-container-small: var(--hpe-static-container-xsmall); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-container-xxsmall: var(--hpe-static-container-xxsmall); /* Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-size-container-xsmall: var(--hpe-static-container-xxsmall); /* Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-size-container-small: var(--hpe-static-container-xsmall); /* Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
   --hpe-size-container-small-plus: var(--hpe-static-container-small);
-  --hpe-size-container-medium: var(--hpe-static-container-small); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-container-medium: var(--hpe-static-container-small); /* Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
   --hpe-size-container-medium-plus: var(--hpe-static-container-medium);
-  --hpe-size-container-large: var(--hpe-static-container-medium); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-size-container-xlarge: var(--hpe-static-container-large); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
-  --hpe-size-container-xxlarge: var(--hpe-static-container-xlarge); /* Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids. */
+  --hpe-size-container-large: var(--hpe-static-container-medium); /* Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-size-container-xlarge: var(--hpe-static-container-large); /* Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-size-container-xxlarge: var(--hpe-static-container-xlarge); /* Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
 }
 }
