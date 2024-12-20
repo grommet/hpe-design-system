@@ -1,0 +1,89 @@
+import { medium } from 'hpe-design-tokens';
+import { Box, Text } from 'grommet';
+import { Checkmark } from 'grommet-icons';
+import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
+import { DesignTokensTable } from '../../components';
+import { SpacingBestPractices } from '../../examples';
+
+The proximity and grouping of elements establish a clear content hierarchy that facilitates a user in accomplishing their goals, without additional distractions.
+
+Layouts should be:
+
+- **Responsive**: They should adapt to different screen sizes and device types.
+- **Consistent**: They should maintain a predictable structure across the application.
+- **Semantic**: They should be designed with HTML semantics in mind to ensure accessibility.
+
+## Foundations
+
+### 4px base unit
+
+Our sizing system is based off of a 4px base unit. Each dimension-related design token is a multiple of this base unit, which ensures alignment as elements are composed alongside each other into layouts.
+
+### Sizing system
+
+TO DO: Insert information here about formula to derive and select "core" sizes for each category below.
+
+## Spacing
+
+Spacing uses proximity principles to create a rhythm and hierarchy within a page. Spacing design tokens define the padding within, margin around, or gap between content.
+
+Rather than relying heavily on borders to separate content, spacing creates a visual hierarchy that guides the user’s eye through the page and helps them understand the relationships between different elements.
+
+There are 12 spacing tokens to provide flexibility to cater to various design needs ranging from dense data-rich experiences to more spacious layouts.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.spacing" toolbar />
+</ContentPane>
+
+### Spacing best practices
+
+<BestPracticeGroup>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'do',
+      message:
+        'Use spacing design tokens to style compositional or layout components like cards, layers, and grid spacing.',
+    }}
+    width="100%"
+  >
+    <SpacingBestPractices />
+  </Example>
+  <Example
+    height="none"
+    bestPractice={{
+      type: 'dont',
+      message: `Use spacing design tokens to style element-level components. Instead use component-specific tokens or element tokens which will ensure correct sizing of elements across screen sizes.`,
+    }}
+  >
+    <SpacingBestPractices bestPractice={false} />
+  </Example>
+</BestPracticeGroup>
+
+## Containers
+
+Containers define the minimum/maximum width or height of a page section.
+
+Container tokens are particularly useful when defining grid layouts. In other cases, consider the approach of [content-driven layouts](/templates/content-layouts#content-driven-layouts) to avoid artificially constraining content.
+
+There are TBD container tokens to provide flexibility to cater to various design needs.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.size" />
+</ContentPane>
+
+## Radius
+
+Radius tokens define the rounding of corners on elements. Radius can be used as a tool to further emphasize the shape or relationship between certain elements as well as reinforce page hierarchy.
+
+Larger elements, like page sections, may have a larger radius while elements nested within may have smaller radii.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.radius" toolbar />
+</ContentPane>
+
+## Responsiveness
+
+The values of spacing and radius tokens automatically step down one t-shirt size at the `small` [breakpoint](/design-tokens/global#breakpoint). This retains appropriate proportions between shape, spacing, and content as the screen size decreases.
+
+When utilizing the CSS files, a media query is included in the "dimension.small.css" file to adjust the token values at the `small` breakpoint.
