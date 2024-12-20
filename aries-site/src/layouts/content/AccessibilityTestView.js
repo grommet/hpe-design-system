@@ -47,8 +47,6 @@ const AccessibilityCardView = ({
     gap="small"
   >
     <Box flex gap="small">
-      {/* // ignore bold rule name should be text strong
-       and the desc should be text */}
       <Paragraph margin="none">
         <Text weight={500} color="text-strong">
           {ruleName}.
