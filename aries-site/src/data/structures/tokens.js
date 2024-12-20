@@ -40,6 +40,24 @@ export const tokens = [
     tags: [],
   },
   {
+    name: 'Global',
+    type: 'Getting started',
+    description: `Global tokens are a set of design tokens that are used across the entire design 
+    system and don't change as a result of screen size or color mode.`,
+    preview: {
+      component: () => <Text size="large">hpe.fontStack.primary</Text>,
+    },
+    seoDescription: `Global tokens are a set of design tokens that are used across the entire design 
+    system and don't change as a result of screen size or color mode.`,
+    sections: [],
+    relatedContent: [
+      'All design tokens',
+      'Using design tokens in code',
+      'Using design tokens in Figma',
+    ],
+    tags: [],
+  },
+  {
     name: 'Component states',
     type: 'Getting started',
     description:
