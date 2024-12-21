@@ -13,7 +13,7 @@ import {
 import { LinkNext, ShareRounded } from 'grommet-icons';
 import { useContext } from 'react';
 import { SkeletonContext } from '../SkeletonContext';
-import { WorkspaceContext } from '../../App';
+import { WorkspaceContext } from '../../contexts';
 
 export const DashboardCard = ({
   icon,

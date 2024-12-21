@@ -5,23 +5,10 @@ import { AppsRounded, UserAdd } from 'grommet-icons';
 import { useContext } from 'react';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
 
-export const GetStarted = ({ kind, heading }) => {
+export const GetStarted = ({ heading }) => {
   const size = useContext(ResponsiveContext);
   const skeleton = useLoading(150);
-  let kindStyles = {};
-  if (kind === 'next')
-    kindStyles = {
-      container: {
-        background: { color: 'background-primary-weak-default' },
-        pad: 'xsmall',
-        border: true,
-        round: 'xsmall',
-      },
-      icon: {
-        size: 'xlarge',
-        color: 'icon-primary',
-      },
-    };
+
   return (
     <Box gap="medium" skeleton={skeleton ? skeletonAnimation : undefined}>
       {heading ? (
@@ -42,12 +29,8 @@ export const GetStarted = ({ kind, heading }) => {
           subtitle="Discover and launch services from our catalog."
           icon={
             !skeleton ? (
-              <Box {...kindStyles.container}>
-                <AppsRounded
-                  size="xxlarge"
-                  color="icon-primary"
-                  {...kindStyles.icon}
-                />
+              <Box>
+                <AppsRounded size="xlarge" color="icon-primary" />
               </Box>
             ) : undefined
           }
@@ -59,8 +42,8 @@ export const GetStarted = ({ kind, heading }) => {
           subtitle="Set up this workspace, users, access, and more."
           icon={
             !skeleton ? (
-              <Box {...kindStyles.container}>
-                <UserAdd color="purple" size="xxlarge" {...kindStyles.icon} />
+              <Box>
+                <UserAdd color="icon-primary" size="xlarge" />
               </Box>
             ) : undefined
           }
@@ -72,5 +55,4 @@ export const GetStarted = ({ kind, heading }) => {
 
 GetStarted.propTypes = {
   heading: PropTypes.bool,
-  kind: PropTypes.oneOf(['next', 'push']),
 };

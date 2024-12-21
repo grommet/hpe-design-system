@@ -8760,7 +8760,7 @@
             "rest": {
               "background": {
                 "$type": "color",
-                "$value": "{color.background.disabled}",
+                "$value": "{color.transparent}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -9061,7 +9061,7 @@
           "rest": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.disabled}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {

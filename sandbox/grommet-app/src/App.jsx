@@ -1,21 +1,17 @@
-import { createContext, useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Grommet, Box } from 'grommet';
 import { themes } from './themes/theme';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
-import NextDashboard from './pages/next/index';
 import StickerSheet from './pages/sticker-sheet/index';
-import Refresh from './pages/refresh/index';
+// import Refresh from './pages/refresh/index';
 import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
-import { FloatingActionButton } from './components';
 import { HPEGreenLakeBadge } from './components/HPEGreenLakeBadge';
-// import { useLoading } from './utils/skeleton';
+import { BackgroundContext, WorkspaceContext } from './contexts';
+import { useLoading } from './utils/skeleton';
 import './app.css';
-
-export const BackgroundContext = createContext({});
-export const WorkspaceContext = createContext({});
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(
@@ -34,7 +30,7 @@ const App = () => {
   }, [darkMode]);
 
   const [backgroundBack, setBackgroundBack] = useState(
-    localStorage.getItem('backgroundBack') === 'true' || false,
+    localStorage.getItem('backgroundBack') === 'true' || true,
   );
   useEffect(() => {
     if (backgroundBack) localStorage.setItem('backgroundBack', 'true');
@@ -48,8 +44,7 @@ const App = () => {
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
 
-  // const loading = useLoading(6000);
-  const loading = false; // Temp disabling for sticker sheet
+  const loading = useLoading(6000);
 
   return (
     <Grommet
@@ -79,36 +74,25 @@ const App = () => {
         ) : (
           <BackgroundContext.Provider value={contextValue}>
             <WorkspaceContext.Provider value={workspaceContextValue}>
-              <GlobalHeader
-                darkMode={darkMode}
-                setDarkMode={setDarkMode}
-                setActiveTheme={setActiveTheme}
-                activeTheme={activeTheme}
-                backgroundBack={backgroundBack}
-                setBackgroundBack={setBackgroundBack}
-                workspace={workspace}
-                setWorkspace={setWorkspace}
-              />
               <BrowserRouter>
+                <GlobalHeader
+                  darkMode={darkMode}
+                  setDarkMode={setDarkMode}
+                  setActiveTheme={setActiveTheme}
+                  activeTheme={activeTheme}
+                  backgroundBack={backgroundBack}
+                  setBackgroundBack={setBackgroundBack}
+                  workspace={workspace}
+                  setWorkspace={setWorkspace}
+                />
                 <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      workspace === 'Acme Production' ? (
-                        <Home />
-                      ) : (
-                        <NextDashboard />
-                      )
-                    }
-                  />
+                  <Route path="/" element={<Home />} />
                   <Route path="/sustainability" element={<Sustainability />} />
                   <Route path="/sticker-sheet" element={<StickerSheet />} />
-                  <Route path="/refresh" element={<Refresh />} />
+                  {/* TO DO unfinished layout */}
+                  {/* <Route path="/refresh" element={<Refresh />} /> */}
                 </Routes>
               </BrowserRouter>
-              {window.location.pathname === '/next' ? (
-                <FloatingActionButton label="Ask HPE" />
-              ) : undefined}
             </WorkspaceContext.Provider>
           </BackgroundContext.Provider>
         )
