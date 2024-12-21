@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Grommet, Box } from 'grommet';
 import { themes } from './themes/theme';
+import { useThemes } from './themes/theme-utils/useThemes';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import StickerSheet from './pages/sticker-sheet/index';
@@ -38,7 +39,9 @@ const App = () => {
   }, [backgroundBack]);
 
   const contextValue = useMemo(() => ({ backgroundBack }), [backgroundBack]);
-  const [activeTheme, setActiveTheme] = useState(Object.keys(themes)[0]);
+  const url = window.location.href;
+  const availableThemes = useThemes(url);
+  const [activeTheme, setActiveTheme] = useState(availableThemes[0]);
   const theme = useMemo(() => themes[activeTheme], [activeTheme]);
 
   const [workspace, setWorkspace] = useState('Acme Production');

@@ -26,8 +26,8 @@ import {
   Menu,
   LinkNext,
 } from 'grommet-icons';
-import { themes } from '../../themes/theme';
 import { Link } from 'react-router-dom';
+import { useThemes } from '../../themes/theme-utils/useThemes';
 
 export const GlobalHeader = ({
   darkMode,
@@ -39,6 +39,9 @@ export const GlobalHeader = ({
 }) => {
   const theme = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
+  const url = window.location.href;
+  const themes = useThemes(url);
+
   return (
     <Page kind="full">
       <PageContent pad="none">
@@ -123,7 +126,7 @@ export const GlobalHeader = ({
                     <Select
                       id="theme-select"
                       name="theme-select"
-                      options={Object.keys(themes).map(theme => theme)}
+                      options={themes}
                       onChange={({ option }) => setActiveTheme(option)}
                       value={activeTheme}
                     />

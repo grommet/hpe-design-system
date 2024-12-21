@@ -2694,5 +2694,5 @@ export const current = buildTheme({
 
 export const themes = {
   next: current,
-  current,
+  current: current,
 };
