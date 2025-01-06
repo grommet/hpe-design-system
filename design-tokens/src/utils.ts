@@ -105,7 +105,7 @@ export const verifyReferences = (
           invalidVariables.includes(modeValue.id)
         ) {
           console.error(
-            `🛑 Invalid color collection reference for value of: ${variable.name}`,
+            `🛑 Invalid collection reference for value of: ${variable.name}`,
           );
         }
       });
