@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 import FigmaApi from '../figma_api.js';
 
-import { green } from '../utils.js';
+import { green, verifyReferences } from '../utils.js';
 import {
   generatePostVariablesPayload,
   readJsonFiles,
@@ -31,6 +31,10 @@ async function main() {
     .readdirSync(TOKENS_DIR, { withFileTypes: true })
     .filter(dir => dir.isDirectory())
     .map(dir => dir.name);
+
+  const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
+  const componentTokens = await api.getLocalVariables(fileKeys.component);
+  verifyReferences(componentTokens);
 
   tokenDirs.forEach(async dir => {
     const tokensFiles = fs
