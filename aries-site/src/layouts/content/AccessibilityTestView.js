@@ -98,7 +98,7 @@ export const AccessibilityTestView = ({ rules }) => {
         <Text size="large">Grouped by</Text>
         <Anchor
           label="Accessibility principles:"
-          href="https://www.w3.org/TR/WCAG22/"
+          href="https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility"
           size="large"
         />
       </Box>
