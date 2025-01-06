@@ -15,9 +15,4 @@
     ]
   },
   {
-    "Box": [
-      { "rule": "1.4.1", "status": "passed" },
-      { "rule": "1.4.6", "status": "passed" }
-    ]
-  }
 ]
