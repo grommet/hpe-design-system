@@ -34,7 +34,8 @@ async function main() {
 
   const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
   const componentTokens = await api.getLocalVariables(fileKeys.component);
-  verifyReferences(componentTokens);
+  const semanticTokens = await api.getLocalVariables(fileKeys.semantic);
+  verifyReferences([componentTokens, semanticTokens]);
 
   tokenDirs.forEach(async dir => {
     const tokensFiles = fs
