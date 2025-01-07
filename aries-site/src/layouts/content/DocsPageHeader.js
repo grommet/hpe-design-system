@@ -35,7 +35,6 @@ export const DocsPageHeader = ({ title, topic, render }) => {
       margin={{ bottom: 'small' }}
     >
       {page.status && <Status status={page.status} />}
-      Member
     </PageHeader>
   );
 };
