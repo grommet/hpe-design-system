@@ -49,9 +49,9 @@ export const AccessibilitySection = ({ title }) => {
   // look up the success criteria by rule number
   const createSuccessCriteriaMap = wcagData => {
     const successCriteriaMap = new Map();
-    wcagData.principles.forEach(principle => {
-      principle.guidelines.forEach(guideline => {
-        guideline.successcriteria.forEach(criterion => {
+    wcagData?.principles?.forEach(principle => {
+      principle.guidelines?.forEach(guideline => {
+        guideline.successcriteria?.forEach(criterion => {
           successCriteriaMap.set(criterion.num, criterion);
         });
       });
