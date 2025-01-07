@@ -95,8 +95,8 @@ export const AccessibilitySection = ({ title }) => {
           };
         }
         return {
-          rule: rule.rule,
-          message: `Success criterion with num ${rule.rule} not found`,
+          rule: ruleNum,
+          message: `Success criterion with num ${ruleNum} not found`,
         };
       });
 
