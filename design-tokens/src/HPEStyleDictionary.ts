@@ -12,6 +12,7 @@ import {
   cssW3c,
   javascriptW3c,
   linearGradientCss,
+  nameCSS,
   numberToDimension,
   shadowCSS,
 } from './transforms/index.js';
@@ -49,6 +50,9 @@ HPEStyleDictionary.registerFormat({
 HPEStyleDictionary.registerFormat({
   name: `jsonFlat`,
   format: jsonFlat,
+});
+HPEStyleDictionary.registerTransform({
+  ...nameCSS,
 });
 HPEStyleDictionary.registerTransform({
   ...numberToDimension,
