@@ -14,6 +14,7 @@ import {
   StatusCriticalSmall,
   StatusWarningSmall,
   CircleInformation,
+  ShareRounded,
 } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 
@@ -96,9 +97,11 @@ export const WCAGRuleDetail = ({ rules, version }) => {
       <Box gap="xxsmall" direction="row">
         <Text>Grouped by</Text>
         <Anchor
-          label="Accessibility principles:"
+          label="Accessibility principles"
           href="https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility"
           target="_blank"
+          icon={<ShareRounded />}
+          reverse
           rel="noopener noreferrer"
         />
       </Box>
