@@ -13,7 +13,7 @@ import {
   cssW3c,
   javascriptW3c,
   linearGradientCss,
-  nameKebab,
+  nameCSS,
   numberToDimension,
   shadowCSS,
 } from './transforms/index.js';
@@ -57,7 +57,7 @@ HPEStyleDictionary.registerFormat({
   format: jsonFlat,
 });
 HPEStyleDictionary.registerTransform({
-  ...nameKebab,
+  ...nameCSS,
 });
 HPEStyleDictionary.registerTransform({
   ...numberToDimension,
