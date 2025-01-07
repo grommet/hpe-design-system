@@ -5,22 +5,17 @@ import componentData from '../../data/wcag/components.json';
 
 export const AccessibilitySection = ({ title }) => {
   const [data, setData] = useState();
-  const [componentInfo, setComponentInfo] = useState();
 
-  useEffect(() => {
+  const componentInfo = useMemo(() => {
     if (!title || !componentData) {
-      return;
+      return [];
     }
 
     const component = componentData.find(item => item[title.toLowerCase()]);
-
-    if (!component || !component[title.toLowerCase()]) {
-      return;
-    }
-
-    setComponentInfo(component[title.toLowerCase()]);
+    return component ? component[title.toLowerCase()] : [];
   }, [title]);
 
+  // Fetch WCAG data on mount (or when needed)
   useEffect(() => {
     fetch(
       'https://raw.githubusercontent.com/w3c/wcag/refs/heads/main/guidelines/wcag.json',
@@ -43,63 +38,56 @@ export const AccessibilitySection = ({ title }) => {
   // num to make it way easier and faster over time.
   // This will be used to
   // look up the success criteria by rule number
-  const createSuccessCriteriaMap = wcagData => {
-    const successCriteriaMap = new Map();
-    wcagData?.principles?.forEach(principle => {
+  const successCriteriaMap = useMemo(() => {
+    if (!data) return new Map();
+
+    const map = new Map();
+    data.principles?.forEach(principle => {
       principle.guidelines?.forEach(guideline => {
         guideline.successcriteria?.forEach(criterion => {
-          successCriteriaMap.set(criterion.num, criterion);
+          map.set(criterion.num, criterion);
         });
       });
     });
-
-    return successCriteriaMap;
-  };
+    return map;
+  }, [data]);
 
   // Compare the component info with the success criteria
   // and return the status of each rule.
   const comparisons = useMemo(() => {
-    const compareRules = () => {
-      if (!componentInfo || !data) return [];
-      const successCriteriaMap = createSuccessCriteriaMap(data);
+    return componentInfo.map(rule => {
+      const ruleNum = rule.rule;
+      const successCriterion = successCriteriaMap.get(ruleNum);
 
-      const calculatedComparisons = componentInfo.map(rule => {
-        const ruleNum = rule.rule;
-        const successCriterion = successCriteriaMap.get(ruleNum);
-
-        if (successCriterion) {
-          const extractedData = {
-            id: successCriterion.id.split(':')[1],
-            num: successCriterion.num,
-            // There are multiple versions of the success criteria
-            // we want to get the highest version number
-            version: successCriterion.versions
-              ? successCriterion.versions.reduce((max, version) => {
-                  const parsedVersion = parseFloat(version);
-                  return Math.max(max, parsedVersion);
-                }, 0)
-              : undefined,
-            level: successCriterion.level,
-            handle: successCriterion.handle,
-            title: successCriterion.title,
-          };
-          const { status } = rule;
-          return {
-            ...extractedData,
-            status,
-          };
-        }
-        return {
-          rule: ruleNum,
-          message: `Success criterion with num ${ruleNum} not found`,
+      if (successCriterion) {
+        const extractedData = {
+          id: successCriterion.id.split(':')[1],
+          num: successCriterion.num,
+          // There are multiple versions of the success criteria
+          // we want to get the highest version number
+          version: successCriterion.versions
+            ? successCriterion.versions.reduce(
+                (max, version) => Math.max(max, parseFloat(version)),
+                0,
+              )
+            : undefined,
+          level: successCriterion.level,
+          handle: successCriterion.handle,
+          title: successCriterion.title,
         };
-      });
 
-      return calculatedComparisons;
-    };
+        return {
+          ...extractedData,
+          status: rule.status,
+        };
+      }
 
-    return compareRules();
-  }, [componentInfo, data]);
+      return {
+        rule: ruleNum,
+        message: `Success criterion with num ${ruleNum} not found`,
+      };
+    });
+  }, [componentInfo, successCriteriaMap]);
 
   const statusData = comparisons.map(item => item.status);
 
