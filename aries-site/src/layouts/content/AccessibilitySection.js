@@ -63,14 +63,15 @@ export const AccessibilitySection = ({ title }) => {
         const extractedData = {
           id: successCriterion.id.split(':')[1],
           num: successCriterion.num,
-          // There are multiple versions of the success criteria
-          // we want to get the highest version number
-          version: successCriterion.versions
-            ? successCriterion.versions.reduce(
-                (max, version) => Math.max(max, parseFloat(version)),
-                0,
-              )
-            : undefined,
+          // WCAG 2.2 is the latest version, so grab that if available
+          version: (() => {
+            if (successCriterion.versions) {
+              return successCriterion.versions.includes('2.2')
+                ? '2.2'
+                : undefined;
+            }
+            return undefined;
+          })(),
           level: successCriterion.level,
           handle: successCriterion.handle,
           title: successCriterion.title,
