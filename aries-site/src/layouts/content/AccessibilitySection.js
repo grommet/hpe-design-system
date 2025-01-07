@@ -3,7 +3,10 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { WCAGRuleDetail, WCAGRuleSummary } from '.';
 import componentData from '../../data/wcag/components.json';
 
-export const AccessibilitySection = ({ title }) => {
+// title prop is the name of the component that will be passed in mdx file
+// version will be used so if we need to update the version of WCAG we can do it
+// easily component by component.
+export const AccessibilitySection = ({ title, version }) => {
   const [data, setData] = useState();
 
   const componentInfo = useMemo(() => {
@@ -62,15 +65,6 @@ export const AccessibilitySection = ({ title }) => {
         const extractedData = {
           id: successCriterion.id.split(':')[1],
           num: successCriterion.num,
-          // WCAG 2.2 is the latest version, so grab that if available
-          version: (() => {
-            if (successCriterion.versions) {
-              return successCriterion.versions.includes('2.2')
-                ? '2.2'
-                : undefined;
-            }
-            return undefined;
-          })(),
           level: successCriterion.level,
           handle: successCriterion.handle,
           title: successCriterion.title,
@@ -94,7 +88,7 @@ export const AccessibilitySection = ({ title }) => {
   return (
     <>
       <WCAGRuleSummary statuses={statusData} />
-      <WCAGRuleDetail rules={comparisons} />
+      <WCAGRuleDetail version={version || '2.2'} rules={comparisons} />
     </>
   );
 };

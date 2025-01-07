@@ -68,7 +68,7 @@ const WCAGAccessibilityCardView = ({
   </Box>
 );
 
-export const WCAGRuleDetail = ({ rules }) => {
+export const WCAGRuleDetail = ({ rules, version }) => {
   // Group rules by accessibility principle
   const groupRulesByAccessibilityPrinciple = (ruleList = []) => {
     const principleMapping = {
@@ -129,7 +129,7 @@ export const WCAGRuleDetail = ({ rules }) => {
                     level={item.level}
                     link={`https://www.w3.org/TR/WCAG22/#${item.id}`}
                     ruleNumber={item.num}
-                    version={item.version}
+                    version={version}
                     ruleName={item.handle}
                     ruleDescription={item.title}
                   />
