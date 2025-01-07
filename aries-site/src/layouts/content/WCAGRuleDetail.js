@@ -69,6 +69,7 @@ const WCAGAccessibilityCardView = ({
 );
 
 export const WCAGRuleDetail = ({ rules }) => {
+  console.log('rules', rules);
   // Group rules by accessibility principle
   const groupRulesByAccessibilityPrinciple = (ruleList = []) => {
     const principleMapping = {
@@ -79,8 +80,9 @@ export const WCAGRuleDetail = ({ rules }) => {
     };
 
     return ruleList.reduce((grouped, rule) => {
-      const principleName =
-        principleMapping[parseInt(rule.num.split('.')[0], 10)];
+      const principleName = rule.num
+        ? principleMapping[parseInt(rule.num.split('.')[0], 10)]
+        : undefined;
       return {
         ...grouped,
         [principleName]: [...(grouped[principleName] || []), rule],
@@ -92,7 +94,7 @@ export const WCAGRuleDetail = ({ rules }) => {
 
   return (
     <Box pad={{ vertical: 'medium' }} gap="medium">
-      <Box gap="xsmall" direction="row">
+      <Box gap="xxsmall" direction="row">
         <Text>Grouped by</Text>
         <Anchor
           label="Accessibility principles:"
