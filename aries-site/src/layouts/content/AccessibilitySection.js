@@ -15,7 +15,6 @@ export const AccessibilitySection = ({ title }) => {
     return component ? component[title.toLowerCase()] : [];
   }, [title]);
 
-  // Fetch WCAG data on mount (or when needed)
   useEffect(() => {
     fetch(
       'https://raw.githubusercontent.com/w3c/wcag/refs/heads/main/guidelines/wcag.json',
