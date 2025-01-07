@@ -10,19 +10,19 @@ import {
 const STATUS_MAP = {
   passed: {
     label: 'Passed',
-    icon: <StatusGoodSmall color="status-ok" />,
+    icon: <StatusGoodSmall alt="" color="status-ok" />,
   },
   passedWithExceptions: {
     label: 'Passed with Exceptions',
-    icon: <StatusWarningSmall color="status-warning" />,
+    icon: <StatusWarningSmall alt="" color="status-warning" />,
   },
   failed: {
     label: 'Failed',
-    icon: <StatusCriticalSmall color="status-critical" />,
+    icon: <StatusCriticalSmall alt="" color="status-critical" />,
   },
   conditional: {
     label: 'Conditional',
-    icon: <CircleInformation />,
+    icon: <CircleInformation alt="" />,
   },
 };
 

@@ -20,13 +20,13 @@ import { TextEmphasis } from 'aries-core';
 const getStatusIcon = status => {
   switch (status) {
     case 'failed':
-      return <StatusCriticalSmall color="status-critical" />;
+      return <StatusCriticalSmall alt="" color="status-critical" />;
     case 'conditional':
-      return <CircleInformation />;
+      return <CircleInformation alt="" />;
     case 'passed with exceptions':
-      return <StatusWarningSmall color="status-warning" />;
+      return <StatusWarningSmall alt="" color="status-warning" />;
     default:
-      return <StatusGoodSmall color="status-ok" />;
+      return <StatusGoodSmall alt="" color="status-ok" />;
   }
 };
 
