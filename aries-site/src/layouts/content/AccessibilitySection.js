@@ -1,10 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useMemo, useEffect } from 'react';
-import {
-  AccessibilityTable,
-  AccessibilityTable1,
-  AccessibilityTestView,
-} from '.';
+import { WCAGRuleDetail, WCAGRuleSummary } from '.';
 import componentData from '../../data/wcag/components.json';
 
 export const AccessibilitySection = ({ title }) => {
@@ -78,11 +74,12 @@ export const AccessibilitySection = ({ title }) => {
             // There are multiple versions of the success criteria
             // we want to get the highest version number
             version: successCriterion.versions
-              ? Math.max(
-                  ...successCriterion.versions.map(version =>
-                    parseFloat(version),
-                  ),
-                )
+              ? successCriterion.versions.reduce((max, version) => {
+                  const parsedVersion = parseFloat(version);
+                  return max === undefined
+                    ? parsedVersion
+                    : Math.max(max, parsedVersion);
+                }, undefined)
               : undefined,
             level: successCriterion.level,
             handle: successCriterion.handle,
@@ -110,9 +107,8 @@ export const AccessibilitySection = ({ title }) => {
 
   return (
     <>
-      <AccessibilityTable1 statuses={statusData} />
-      <AccessibilityTable statuses={statusData} />
-      <AccessibilityTestView rules={comparisons} />
+      <WCAGRuleSummary statuses={statusData} />
+      <WCAGRuleDetail rules={comparisons} />
     </>
   );
 };

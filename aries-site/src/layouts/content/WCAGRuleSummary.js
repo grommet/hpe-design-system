@@ -49,28 +49,26 @@ const calculateAccessibilityTestCounts = statuses =>
     },
   );
 
-export const AccessibilityTable = ({ statuses = [] }) => {
+export const WCAGRuleSummary = ({ statuses = [] }) => {
   const testCounts = calculateAccessibilityTestCounts(statuses);
 
   return (
-    <Box pad={{ vertical: 'medium' }} gap="medium">
-      <Box
-        pad={{ vertical: 'small', horizontal: 'medium' }}
-        alignSelf="start"
-        background="background-front"
-        round="small"
+    <Box
+      pad={{ vertical: 'small', horizontal: 'medium' }}
+      alignSelf="start"
+      background="background-front"
+      round="small"
+    >
+      <NameValueList
+        nameProps={{ width: 'max-content' }}
+        valueProps={{ width: 'max-content' }}
       >
-        <NameValueList
-          nameProps={{ width: 'max-content' }}
-          valueProps={{ width: 'max-content' }}
-        >
-          {Object.entries(STATUS_MAP).map(([key, { label, icon }]) => (
-            <NameValuePair key={key} name={label}>
-              <StatusLabel icon={icon} label={testCounts[key]} />
-            </NameValuePair>
-          ))}
-        </NameValueList>
-      </Box>
+        {Object.entries(STATUS_MAP).map(([key, { label, icon }]) => (
+          <NameValuePair key={key} name={label}>
+            <StatusLabel icon={icon} label={testCounts[key]} />
+          </NameValuePair>
+        ))}
+      </NameValueList>
     </Box>
   );
 };
