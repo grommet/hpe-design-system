@@ -13,8 +13,11 @@ const createScale = (base, factor, steps, gridUnit) => {
     const value = base / Math.pow(factor, i);
     let nearest = gridUnit || base;
 
+    if (value >= gridUnit && value < gridUnit * 2) {
+      nearest = gridUnit / 2;
+    }
     // round to nearest even number
-    if (value >= 4 && value < gridUnit) {
+    else if (value >= 4 && value < gridUnit) {
       nearest = 2;
     }
     // round to nearest integer
