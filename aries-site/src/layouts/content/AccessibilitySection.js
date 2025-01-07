@@ -76,10 +76,8 @@ export const AccessibilitySection = ({ title }) => {
             version: successCriterion.versions
               ? successCriterion.versions.reduce((max, version) => {
                   const parsedVersion = parseFloat(version);
-                  return max === undefined
-                    ? parsedVersion
-                    : Math.max(max, parsedVersion);
-                }, undefined)
+                  return Math.max(max, parsedVersion);
+                }, 0)
               : undefined,
             level: successCriterion.level,
             handle: successCriterion.handle,
