@@ -69,7 +69,6 @@ const WCAGAccessibilityCardView = ({
 );
 
 export const WCAGRuleDetail = ({ rules }) => {
-  console.log('rules', rules);
   // Group rules by accessibility principle
   const groupRulesByAccessibilityPrinciple = (ruleList = []) => {
     const principleMapping = {
