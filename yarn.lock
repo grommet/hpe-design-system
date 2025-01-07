@@ -701,7 +701,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
-"@babel/plugin-syntax-typescript@^7.7.2":
+"@babel/plugin-syntax-typescript@^7.25.9", "@babel/plugin-syntax-typescript@^7.7.2":
   version "7.25.9"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-typescript/-/plugin-syntax-typescript-7.25.9.tgz#67dda2b74da43727cf21d46cf9afef23f4365399"
   integrity sha512-hjMgRy5hb8uJJjUcdWunWVcoi9bGpJp8p5Ol1229PoN6aytsLwNMgmdftO23wnCLMfVmTwZDWMPNq/D1SY60JQ==
@@ -1139,6 +1139,17 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.25.9"
 
+"@babel/plugin-transform-typescript@^7.25.9":
+  version "7.26.3"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typescript/-/plugin-transform-typescript-7.26.3.tgz#3d6add9c78735623317387ee26d5ada540eee3fd"
+  integrity sha512-6+5hpdr6mETwSKjmJUdYw0EIkATiQhnELWlE3kJFBwSg/BGIVwVaVbX+gOXBCdc7Ln1RXZxyWGecIXhUfnl7oA==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.25.9"
+    "@babel/helper-create-class-features-plugin" "^7.25.9"
+    "@babel/helper-plugin-utils" "^7.25.9"
+    "@babel/helper-skip-transparent-expression-wrappers" "^7.25.9"
+    "@babel/plugin-syntax-typescript" "^7.25.9"
+
 "@babel/plugin-transform-unicode-escapes@^7.25.9":
   version "7.25.9"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-unicode-escapes/-/plugin-transform-unicode-escapes-7.25.9.tgz#a75ef3947ce15363fccaa38e2dd9bc70b2788b82"
@@ -1170,7 +1181,7 @@
     "@babel/helper-create-regexp-features-plugin" "^7.25.9"
     "@babel/helper-plugin-utils" "^7.25.9"
 
-"@babel/preset-env@^7.20.2", "@babel/preset-env@^7.23.2":
+"@babel/preset-env@^7.20.2", "@babel/preset-env@^7.23.2", "@babel/preset-env@^7.26.0":
   version "7.26.0"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.26.0.tgz#30e5c6bc1bcc54865bff0c5a30f6d4ccdc7fa8b1"
   integrity sha512-H84Fxq0CQJNdPFT2DrfnylZ3cf5K43rGfWK4LJGPpjKHiZlk0/RzwEus3PDDZZg+/Er7lCA03MVacueUuXdzfw==
@@ -1274,6 +1285,17 @@
     "@babel/plugin-transform-react-jsx" "^7.25.9"
     "@babel/plugin-transform-react-jsx-development" "^7.25.9"
     "@babel/plugin-transform-react-pure-annotations" "^7.25.9"
+
+"@babel/preset-typescript@^7.26.0":
+  version "7.26.0"
+  resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-7.26.0.tgz#4a570f1b8d104a242d923957ffa1eaff142a106d"
+  integrity sha512-NMk1IGZ5I/oHhoXEElcm+xUnL/szL6xflkFZmoEU9xj1qSJXpiS7rsspYo92B4DRCDvZn2erT5LdsCeXAKNCkg==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.25.9"
+    "@babel/helper-validator-option" "^7.25.9"
+    "@babel/plugin-syntax-jsx" "^7.25.9"
+    "@babel/plugin-transform-modules-commonjs" "^7.25.9"
+    "@babel/plugin-transform-typescript" "^7.25.9"
 
 "@babel/register@^7.25.9":
   version "7.25.9"
@@ -7822,12 +7844,7 @@ graphlib@^2.1.5:
   dependencies:
     lodash "^4.17.15"
 
-grommet-icons@^4.12.1:
-  version "4.12.1"
-  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.12.1.tgz#780aa7cd59c5586f642f221bdb5c6becd04ad000"
-  integrity sha512-LhOP6BkDAGiSNcUOfsGGRo+AKD6zWOXeNeusY1WYvKplAR6mKCAQfH7Nig2Buc/v5zadKSko2NDtCQqwJaME0Q==
-
-"grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
+grommet-icons@^4.12.1, "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.12.1"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#71bd354fe44dfd6544cb8b67af22f06067d93f78"
 

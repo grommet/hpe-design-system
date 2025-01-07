@@ -29,6 +29,8 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.4.5",
     "axios": "^1.6.0",
