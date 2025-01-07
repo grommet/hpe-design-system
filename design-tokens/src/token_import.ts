@@ -201,10 +201,6 @@ function traverseCollection({
       Object.keys(borderTokens).forEach(borderToken => {
         tokens[borderToken] = borderTokens[borderToken];
       });
-      fs.writeFileSync(
-        './dist/mine.json',
-        JSON.stringify(borderTokens, null, 2),
-      );
     } else tokens[key] = object;
   } else {
     Object.entries<TokenOrTokenGroup>(object).forEach(([key2, object2]) => {
@@ -503,8 +499,30 @@ export function generatePostVariablesPayload(
       localVariablesByCollectionAndName[variableCollection?.id] || {};
 
     Object.entries(tokens).forEach(([tokenName, token]) => {
-      const variable = localVariablesByName[tokenName];
-      const variableId = variable ? variable.id : tokenName;
+      const isColor = /^color/.test(tokenName);
+      let type;
+      let role;
+      let prominence;
+      let interaction;
+      // When pushing to Figma, we should strip off "DEFAULT" and "REST"
+      // to match simplified token outputs
+      // e.g. color/background/critical/DEFAULT/REST --> color/background/critical
+      let adjustedName = tokenName;
+      if (isColor) {
+        // slice(1) removes "color"
+        let parts = tokenName.split('/');
+        [type, role, prominence, interaction] = parts.slice(1);
+        if (interaction === 'REST') {
+          parts.pop();
+        }
+        if (prominence === 'DEFAULT') {
+          parts.pop();
+        }
+        adjustedName = parts.join('/');
+      }
+
+      const variable = localVariablesByName[adjustedName];
+      const variableId = variable ? variable.id : adjustedName;
       const variableInPayload = postVariablesPayload.variables!.find(
         v =>
           v.id === variableId &&

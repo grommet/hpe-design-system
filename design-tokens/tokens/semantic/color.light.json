@@ -74,14 +74,18 @@
         }
       },
       "active": {
-        "$type": "color",
-        "$value": "{color.background.hover}",
-        "$description": "Standard active state color",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{color.background.hover.DEFAULT.REST}",
+            "$description": "Standard active state color",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
@@ -560,14 +564,18 @@
         }
       },
       "onSelectedStrong": {
-        "$type": "color",
-        "$value": "{base.color.white.100}",
-        "$description": "Text color to be used for text sitting on background-selected-strong.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["TEXT_FILL"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.white.100}",
+            "$description": "Text color to be used for text sitting on background-selected-strong.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
@@ -886,170 +894,226 @@
         }
       },
       "green": {
-        "$type": "color",
-        "$value": "{base.color.green.400}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.green.400}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "purple": {
-        "$type": "color",
-        "$value": "{base.color.purple.500}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.purple.500}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "teal": {
-        "$type": "color",
-        "$value": "{base.color.teal.200}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.teal.200}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "blue": {
-        "$type": "color",
-        "$value": "{base.color.blue.400}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.blue.400}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "red": {
-        "$type": "color",
-        "$value": "{base.color.red.500}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.red.500}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "orange": {
-        "$type": "color",
-        "$value": "{base.color.orange.400}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.orange.400}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "yellow": {
-        "$type": "color",
-        "$value": "{base.color.yellow.200}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.yellow.200}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "purple!": {
-        "$type": "color",
-        "$value": "{base.color.purple.800}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.purple.800}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "green!": {
-        "$type": "color",
-        "$value": "{base.color.brand}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.brand}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "teal!": {
-        "$type": "color",
-        "$value": "{base.color.teal.400}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.teal.400}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "blue!": {
-        "$type": "color",
-        "$value": "{base.color.blue.700}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.blue.700}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "red!": {
-        "$type": "color",
-        "$value": "{base.color.red.750}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.red.750}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "orange!": {
-        "$type": "color",
-        "$value": "{base.color.orange.500}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.orange.500}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
       "yellow!": {
-        "$type": "color",
-        "$value": "{base.color.yellow.400}",
-        "$description": "Use for decorative purposes when color has no specific meaning.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.yellow.400}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       }
@@ -1057,137 +1121,169 @@
     "dataVis": {
       "categorical": {
         "10": {
-          "$type": "color",
-          "$value": "{base.color.dataVis.green1}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.dataVis.green1}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
             }
           }
         },
         "20": {
-          "$type": "color",
-          "$value": "{base.color.dataVis.darkblue1}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.dataVis.darkblue1}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
             }
           }
         },
         "30": {
-          "$type": "color",
-          "$value": "{base.color.dataVis.gold1}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.dataVis.gold1}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
             }
           }
         },
         "40": {
-          "$type": "color",
-          "$value": "{base.color.dataVis.purple1}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.dataVis.purple1}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
             }
           }
         },
         "50": {
-          "$type": "color",
-          "$value": "{base.color.dataVis.lightblue1}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.dataVis.lightblue1}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
             }
           }
         },
         "60": {
-          "$type": "color",
-          "$value": "{base.color.dataVis.pink1}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.dataVis.pink1}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
             }
           }
         },
         "70": {
-          "$type": "color",
-          "$value": "{base.color.dataVis.blue1}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.dataVis.blue1}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
             }
           }
         },
         "80": {
-          "$type": "color",
-          "$value": "{base.color.dataVis.grape1}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.dataVis.grape1}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
             }
           }
         }
       }
     },
     "transparent": {
-      "$type": "color",
-      "$value": "#00000000",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["ALL_SCOPES"],
-          "codeSyntax": {}
+      "undefined": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "#00000000",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
         }
       }
     },
     "focus": {
-      "$type": "color",
-      "$value": "{base.color.teal.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["STROKE_COLOR"],
-          "codeSyntax": {}
+      "undefined": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.teal.400}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["STROKE_COLOR"],
+                "codeSyntax": {}
+              }
+            }
+          }
         }
       }
     },
     "foreground": {
       "primary": {
-        "$type": "color",
-        "$value": "{base.color.brand}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
-            "codeSyntax": {}
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.brand}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },

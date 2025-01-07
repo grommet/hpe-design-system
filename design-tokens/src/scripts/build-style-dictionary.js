@@ -368,7 +368,7 @@ try {
         files: [
           {
             destination: 'components.css',
-            format: 'css/variables',
+            format: 'css/variables-hpe',
             filter: token =>
               token.filePath.includes(`${TOKENS_DIR}/component/`),
             options: {

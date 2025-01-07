@@ -4,6 +4,7 @@ import {
   commonJsGrommetRefs,
   cssColorModes,
   cssBreakpoints,
+  cssVariables,
   esmGrommetRefs,
   javascriptEsm,
   jsonFlat,
@@ -12,6 +13,7 @@ import {
   cssW3c,
   javascriptW3c,
   linearGradientCss,
+  nameKebab,
   numberToDimension,
   shadowCSS,
 } from './transforms/index.js';
@@ -39,6 +41,10 @@ HPEStyleDictionary.registerFormat({
   format: cssBreakpoints,
 });
 HPEStyleDictionary.registerFormat({
+  name: 'css/variables-hpe',
+  format: cssVariables,
+});
+HPEStyleDictionary.registerFormat({
   name: `esmGrommetRefs`,
   format: esmGrommetRefs,
 });
@@ -49,6 +55,9 @@ HPEStyleDictionary.registerFormat({
 HPEStyleDictionary.registerFormat({
   name: `jsonFlat`,
   format: jsonFlat,
+});
+HPEStyleDictionary.registerTransform({
+  ...nameKebab,
 });
 HPEStyleDictionary.registerTransform({
   ...numberToDimension,

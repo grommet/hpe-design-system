@@ -50,61 +50,62 @@ async function main() {
       localVariables,
     );
 
-    if (
-      Object.values(postVariablesPayload).every(value => value.length === 0)
-    ) {
-      console.log(
-        green(`✅ "${dir}" tokens are already up to date with the Figma file`),
-      );
-      return;
-    }
+    console.log(postVariablesPayload);
+    // if (
+    //   Object.values(postVariablesPayload).every(value => value.length === 0)
+    // ) {
+    //   console.log(
+    //     green(`✅ "${dir}" tokens are already up to date with the Figma file`),
+    //   );
+    //   return;
+    // }
 
-    const apiResp = await api.postVariables(
-      fileKeys[dir],
-      postVariablesPayload,
-    );
+    // const apiResp = await api.postVariables(
+    //   fileKeys[dir],
+    //   postVariablesPayload,
+    // );
 
-    console.log(`"${dir}" POST variables API response:`, apiResp);
+    // console.log(`"${dir}" POST variables API response:`, apiResp);
 
-    if (
-      postVariablesPayload.variableCollections &&
-      postVariablesPayload.variableCollections.length
-    ) {
-      console.log(
-        `Updated "${dir}" variable collections`,
-        postVariablesPayload.variableCollections,
-      );
-    }
+    // if (
+    //   postVariablesPayload.variableCollections &&
+    //   postVariablesPayload.variableCollections.length
+    // ) {
+    //   console.log(
+    //     `Updated "${dir}" variable collections`,
+    //     postVariablesPayload.variableCollections,
+    //   );
+    // }
 
-    if (
-      postVariablesPayload.variableModes &&
-      postVariablesPayload.variableModes.length
-    ) {
-      console.log(
-        `Updated "${dir}" variable modes`,
-        postVariablesPayload.variableModes,
-      );
-    }
+    // if (
+    //   postVariablesPayload.variableModes &&
+    //   postVariablesPayload.variableModes.length
+    // ) {
+    //   console.log(
+    //     `Updated "${dir}" variable modes`,
+    //     postVariablesPayload.variableModes,
+    //   );
+    // }
 
-    if (
-      postVariablesPayload.variables &&
-      postVariablesPayload.variables.length
-    ) {
-      console.log(`Updated "${dir}" variables`, postVariablesPayload.variables);
-    }
+    // if (
+    //   postVariablesPayload.variables &&
+    //   postVariablesPayload.variables.length
+    // ) {
+    //   console.log(`Updated "${dir}" variables`, postVariablesPayload.variables);
+    // }
 
-    if (
-      postVariablesPayload.variableModeValues &&
-      postVariablesPayload.variableModeValues.length
-    ) {
-      console.log(
-        `Updated "${dir}" variable mode values`,
-        postVariablesPayload.variableModeValues,
-      );
-    }
-    console.log(
-      green(`✅ Figma files have been updated with the new ${dir} tokens`),
-    );
+    // if (
+    //   postVariablesPayload.variableModeValues &&
+    //   postVariablesPayload.variableModeValues.length
+    // ) {
+    //   console.log(
+    //     `Updated "${dir}" variable mode values`,
+    //     postVariablesPayload.variableModeValues,
+    //   );
+    // }
+    // console.log(
+    //   green(`✅ Figma files have been updated with the new ${dir} tokens`),
+    // );
   });
 }
 

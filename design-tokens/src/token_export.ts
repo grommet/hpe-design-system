@@ -30,7 +30,19 @@ function tokenValueFromVariable(
   if (typeof value === 'object') {
     if ('type' in value && value.type === 'VARIABLE_ALIAS') {
       const aliasedVariable = localVariables[value.id];
-      return `{${aliasedVariable.name.replace(/\//g, '.')}}`;
+      let aliasedName = aliasedVariable.name;
+      if (
+        aliasedVariable.resolvedType === 'COLOR' &&
+        /^color/.test(aliasedName)
+      ) {
+        const [type, role, prominence, interaction] = aliasedName
+          .split('/')
+          .slice(1);
+        aliasedName = `color/${type}/${role}/${prominence || 'DEFAULT'}/${
+          interaction || 'REST'
+        }`;
+      }
+      return `{${aliasedName.replace(/\//g, '.')}}`;
     } else if ('r' in value) {
       return rgbToHex(value);
     }
@@ -197,7 +209,27 @@ export function tokenFilesFromLocalVariables(
           ...{ shadow: shadows[mode.modeId] }, // TO DO this hard codes naming concept of "shadow"
         });
       } else {
-        variable.name.split('/').forEach(groupName => {
+        const isColor = /^color/.test(variable.name);
+        let type;
+        let role;
+        let prominence;
+        let interaction;
+        let adjustedName = variable.name;
+        // When pulling from Figma, we should fill out "DEFAULT" and "REST"
+        // to align to design token spec
+        // e.g. color/background/critical --> color/background/critical/DEFAULT/REST
+        // TO DO how does this work with exploration of term "moderate"?
+        if (isColor) {
+          // slice(1) removes "color"
+          [type, role, prominence, interaction] = variable.name
+            .split('/')
+            .slice(1);
+          adjustedName = `color/${type}/${role}/${prominence || 'DEFAULT'}/${
+            interaction || 'REST'
+          }`;
+        }
+
+        adjustedName.split('/').forEach(groupName => {
           obj[groupName] = obj[groupName] || {};
           obj = obj[groupName];
         });

@@ -2,18 +2,13 @@ import { FormatFn, FormatFnArguments } from 'style-dictionary/types';
 import { fileHeader } from 'style-dictionary/utils';
 import { formatCssVariables } from './utils/formatCssVariables.js';
 
-export const cssBreakpoints: FormatFn = async ({
+export const cssVariables: FormatFn = async ({
   dictionary,
   file,
   options,
   platform,
 }: FormatFnArguments) => {
-  const { mediaQuery } = options;
   const tokens = formatCssVariables({ dictionary, file, options, platform });
-  let output = `:root {\n${tokens}\n}`;
-  if (mediaQuery) output = `@media (${mediaQuery}) {\n${output}\n}\n`;
 
-  return `${await fileHeader({
-    file,
-  })}${output}`;
+  return `${await fileHeader({ file })}:root {\n${tokens}\n}`;
 };

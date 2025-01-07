@@ -4,7 +4,7 @@
       "$type": "border",
       "$value": {
         "style": "solid",
-        "color": "{color.focus}",
+        "color": "{color.focus.undefined.DEFAULT.REST}",
         "width": "{base.dimension.50}"
       },
       "$description": "",
