@@ -15,6 +15,7 @@ import {
   StatusWarningSmall,
   CircleInformation,
 } from 'grommet-icons';
+import { TextEmphasis } from 'aries-core';
 
 const getStatusIcon = status => {
   switch (status) {
@@ -29,7 +30,7 @@ const getStatusIcon = status => {
   }
 };
 
-const AccessibilityCardView = ({
+const WCAGAccessibilityCardView = ({
   level,
   link,
   ruleDescription,
@@ -48,10 +49,7 @@ const AccessibilityCardView = ({
   >
     <Box flex gap="small">
       <Paragraph margin="none">
-        <Text weight={500} color="text-strong">
-          {ruleName}.
-        </Text>{' '}
-        {ruleDescription}
+        <TextEmphasis>{ruleName}.</TextEmphasis> {ruleDescription}
       </Paragraph>
       <Box alignSelf="start" direction="row" align="center" gap="small">
         <Tag size="small" value={`WCAG ${version} ${level}`} />
@@ -70,7 +68,7 @@ const AccessibilityCardView = ({
   </Box>
 );
 
-export const AccessibilityTestView = ({ rules }) => {
+export const WCAGRuleDetail = ({ rules }) => {
   // Group rules by accessibility principle
   const groupRulesByAccessibilityPrinciple = (ruleList = []) => {
     const principleMapping = {
@@ -93,13 +91,15 @@ export const AccessibilityTestView = ({ rules }) => {
   const groupedRules = groupRulesByAccessibilityPrinciple(rules);
 
   return (
-    <Box gap="medium">
+    <Box pad={{ vertical: 'medium' }} gap="medium">
       <Box gap="xsmall" direction="row">
         <Text size="large">Grouped by</Text>
         <Anchor
           label="Accessibility principles:"
           href="https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility"
           size="large"
+          target="_blank"
+          rel="noopener noreferrer"
         />
       </Box>
       <Box width="large">
@@ -123,7 +123,7 @@ export const AccessibilityTestView = ({ rules }) => {
             >
               <Box pad={{ vertical: 'small' }} gap="small">
                 {groupedRules[group].map(item => (
-                  <AccessibilityCardView
+                  <WCAGAccessibilityCardView
                     key={item.num}
                     status={item.status}
                     level={item.level}

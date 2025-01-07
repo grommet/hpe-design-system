@@ -1,7 +1,4 @@
 export * from './AccessibilitySection';
-export * from './AccessibilityTable';
-export * from './AccessibilityTable1';
-export * from './AccessibilityTestView';
 export * from './Annotation';
 export * from './ButtonRow';
 export * from './ColorRow';
@@ -17,3 +14,5 @@ export * from './StyleTable';
 export * from './Subsection';
 export * from './SubsectionHeader';
 export * from './UsageExample';
+export * from './WCAGRuleDetail';
+export * from './WCAGRuleSummary';
