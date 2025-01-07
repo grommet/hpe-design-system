@@ -49,6 +49,7 @@ import {
   scale24141408,
   scale24141424,
   scale24150024,
+  scaleDuelDoubling,
 } from './scale-options';
 import { createTheme } from './theme-utils/scale-to-theme';
 
@@ -2640,6 +2641,7 @@ const scales = {
   scale24141408,
   scale24141424,
   scale24150024,
+  scaleDuelDoubling,
 };
 
 const scaleOptions = {};

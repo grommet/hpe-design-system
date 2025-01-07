@@ -10,8 +10,8 @@ export const scale16133308 = {
     nearest: 8,
   },
   scale: [
-    1, 2, 3, 4, 6, 8, 16, 24, 32, 40, 56, 72, 96, 120, 160, 216, 288, 384, 504,
-    672, 896, 1200,
+    1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 40, 56, 72, 96, 120, 160, 216, 288, 384,
+    504, 672, 896, 1200,
   ],
   content: [
     {
@@ -62,27 +62,27 @@ export const scale16133308 = {
   spacing: [
     {
       size: '5xsmall',
-      value: 1,
-    },
-    {
-      size: '4xsmall',
       value: 2,
     },
     {
-      size: '3xsmall',
+      size: '4xsmall',
       value: 3,
     },
     {
-      size: 'xxsmall',
+      size: '3xsmall',
       value: 4,
     },
     {
-      size: 'xsmall',
+      size: 'xxsmall',
       value: 6,
     },
     {
-      size: 'small',
+      size: 'xsmall',
       value: 8,
+    },
+    {
+      size: 'small',
+      value: 12,
     },
     {
       size: 'medium',

@@ -1,17 +1,17 @@
-export const scale16141408 = {
-  name: '16-1.414-8-28',
+export const scaleDuelDoubling = {
+  name: 'Duel-Doubling',
   description:
-    '16px based scale at 1.414 factor. Rounded to 8px grid unit with 28 steps',
+    '24px based scale at 2.0 factor + 16px based scale at 2.0. Rounded to 8px grid unit with 30 steps',
   settings: {
-    base: 16,
-    contentBase: 368,
-    factor: 1.414,
-    steps: '28',
+    base: '24 & 16',
+    contentBase: 384,
+    factor: 2.0,
+    steps: '22',
     nearest: 8,
   },
   scale: [
-    1, 2, 3, 6, 12, 16, 24, 32, 48, 64, 96, 128, 184, 256, 368, 512, 728, 1024,
-    1448, 2048,
+    1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768,
+    1024, 1536, 2048,
   ],
   content: [
     {
@@ -32,7 +32,7 @@ export const scale16141408 = {
     },
     {
       size: 'xsmall',
-      value: 184,
+      value: 192,
     },
     {
       size: 'small',
@@ -40,7 +40,7 @@ export const scale16141408 = {
     },
     {
       size: 'medium',
-      value: 368,
+      value: 384,
     },
     {
       size: 'large',
@@ -48,7 +48,7 @@ export const scale16141408 = {
     },
     {
       size: 'xlarge',
-      value: 728,
+      value: 768,
     },
     {
       size: 'xxlarge',
@@ -56,7 +56,7 @@ export const scale16141408 = {
     },
     {
       size: '3xlarge',
-      value: 1448,
+      value: 1536,
     },
     {
       size: '4xlarge',
@@ -65,52 +65,56 @@ export const scale16141408 = {
   ],
   spacing: [
     {
-      size: '4xsmall',
-      value: 1,
-    },
-    {
-      size: '3xsmall',
-      value: 2,
-    },
-    {
-      size: 'xxsmall',
+      size: '5xsmall',
       value: 3,
     },
     {
-      size: 'xsmall',
+      size: '4xsmall',
+      value: 4,
+    },
+    {
+      size: '3xsmall',
       value: 6,
     },
     {
-      size: 'small',
+      size: 'xxsmall',
+      value: 8,
+    },
+    {
+      size: 'xsmall',
       value: 12,
     },
     {
-      size: 'medium',
+      size: 'small',
       value: 16,
     },
     {
-      size: 'large',
+      size: 'medium',
       value: 24,
     },
     {
-      size: 'xlarge',
+      size: 'large',
       value: 32,
     },
     {
-      size: 'xxlarge',
+      size: 'xlarge',
       value: 48,
     },
     {
-      size: '3xlarge',
+      size: 'xxlarge',
       value: 64,
     },
     {
-      size: '4xlarge',
+      size: '3xlarge',
       value: 96,
     },
     {
-      size: '5xlarge',
+      size: '4xlarge',
       value: 128,
+    },
+    {
+      size: '5xlarge',
+      value: 192,
     },
   ],
 };

@@ -5,4 +5,5 @@ export * from './scale24133308';
 export * from './scale24141408';
 export * from './scale24141424';
 export * from './scale24150024';
+export * from './scaleDualDoubling';
 export * from './v5scale';
