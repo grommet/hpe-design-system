@@ -93,11 +93,10 @@ export const WCAGRuleDetail = ({ rules }) => {
   return (
     <Box pad={{ vertical: 'medium' }} gap="medium">
       <Box gap="xsmall" direction="row">
-        <Text size="large">Grouped by</Text>
+        <Text>Grouped by</Text>
         <Anchor
           label="Accessibility principles:"
           href="https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility"
-          size="large"
           target="_blank"
           rel="noopener noreferrer"
         />
