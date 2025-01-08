@@ -1,14 +1,7 @@
 import React from "react";
 import { Link, Route } from 'react-router-dom';
-import { Anchor, List, Page, PageContent, PageHeader } from "grommet";
-
-interface RoutedAnchorProps extends React.ComponentProps<typeof Anchor> {
-  to: string;
-}
-
-const RoutedAnchor = ({ ...rest }: RoutedAnchorProps) => (
-  <Anchor {...rest} />
-);
+import { List, Page, PageContent, PageHeader } from "grommet";
+import { RoutedAnchor } from '../../components';
 
 const layouts = ['Collection', 'Dashboard', 'Detail', 'Form', 'Home', 'List', 'Login', 'Main', 'NotFound', 'Settings', 'Splash', 'Wizard'];
 
