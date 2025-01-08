@@ -33,6 +33,7 @@ import {
   FileInputs,
   Headings,
   Icons,
+  LayoutGrid,
   Menus,
   Meters,
   NameValueLists,
@@ -217,6 +218,7 @@ const StickerSheet = () => {
               </Tab>
               <Tab title="Layout">
                 <TabContent>
+                  <LayoutGrid />
                   <PageHeaders />
                   <Spacing theme={hpeCurrent} />
                   <ContentSizes theme={hpeCurrent} />
