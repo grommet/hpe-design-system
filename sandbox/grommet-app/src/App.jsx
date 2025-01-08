@@ -7,6 +7,7 @@ import Home from './pages/index';
 import NextDashboard from './pages/next/index';
 import StickerSheet from './pages/sticker-sheet/index';
 import Refresh from './pages/refresh/index';
+import { Layouts, routes as layoutRoutes } from './pages/layouts';
 import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
 import { FloatingActionButton } from './components';
@@ -104,6 +105,8 @@ const App = () => {
                   <Route path="/sustainability" element={<Sustainability />} />
                   <Route path="/sticker-sheet" element={<StickerSheet />} />
                   <Route path="/refresh" element={<Refresh />} />
+                  <Route path="/layouts" element={<Layouts />} />
+                  {layoutRoutes}
                 </Routes>
               </BrowserRouter>
               {window.location.pathname === '/next' ? (
