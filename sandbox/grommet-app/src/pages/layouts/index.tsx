@@ -2,12 +2,13 @@ import React from "react";
 import { Link, Route } from 'react-router-dom';
 import { List, Page, PageContent, PageHeader } from "grommet";
 import { RoutedAnchor } from '../../components';
+import { Collection } from './kinds';
 
 const layouts = ['Collection', 'Dashboard', 'Detail', 'Form', 'Home', 'List', 'Login', 'Main', 'NotFound', 'Settings', 'Splash', 'Wizard'];
 
 const Layouts = () => {
   return (
-    <Page pad={{ vertical: "large" }}>
+    <Page pad={{ bottom: "xlarge" }}>
       <PageContent>
         <PageHeader title="Layouts" />
         <List data={layouts} defaultItemProps={{ pad: { vertical: 'xxsmall' } }}>
@@ -21,8 +22,8 @@ const Layouts = () => {
 };
 
 const routes = [
-  <Route path="/layouts/collection" element={<div>Collection</div>} />,
-  <Route path="/layouts/dashboard" element={<div>Dashboard</div>} />
+  <Route key="collection" path="/layouts/collection" element={<Collection />} />,
+  <Route key="dashboard" path="/layouts/dashboard" element={<div>Dashboard</div>} />
 ]
 
 export { Layouts, routes };
