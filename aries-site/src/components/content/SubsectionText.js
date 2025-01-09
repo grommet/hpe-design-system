@@ -23,7 +23,7 @@ const StyledBox = styled(Box)`
 
 const AccessibilityColorMap = accessibility => {
   if (accessibility.includes('Passed')) return 'status-ok';
-  else if (accessibility.includes('Failed')) return 'status-critical';
+  if (accessibility.includes('Failed')) return 'status-critical';
   return 'status-warning';
 };
 
