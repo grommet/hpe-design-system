@@ -1,24 +1,23 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Box,
-  Button,
   Grid,
-  Menu,
   Page,
   PageContent,
   PageHeader,
   Tab,
   Tabs,
 } from 'grommet';
-import { MoreVertical, Refresh, Share } from "grommet-icons";
 import ContentPane from "../../../../components/ContentPane";
 import { DataView } from "./DataView";
 import { CollectionMenu } from "./CollectionMenu";
+import { DataTableActions } from "./DataTableActions";
+import { PageActions } from "./PageActions";
 import virtualMachines from '../../../../mockData/virtualMachines.json';
 
 const dataSets = {
-  "Vegas cluster": virtualMachines["Vegas cluster"],
-  "EXSi Cluster 321": virtualMachines["EXSi Cluster 321"],
+  "Vegas cluster": virtualMachines["private cloud"]["Vegas cluster"],
+  "EXSi Cluster 321": virtualMachines["private cloud"]["EXSi Cluster 321"],
 };
 
 const menuItems = {
@@ -63,36 +62,7 @@ export const Collection = ({ ...rest }) => {
             <Box>Content for tab 2</Box>
           </Tab>
         </Tabs>
-
       </PageContent>
     </Page >
-  );
-}
-
-const DataTableActions = () => {
-  return (
-    <Box direction="row">
-      <Menu label="Actions" items={[]} />
-    </Box>
-  );
-}
-
-const PageActions = () => {
-  const menuItems = [
-    { label: 'Edit', onClick: () => { } },
-    { label: 'Delete', onClick: () => { } },
-  ];
-
-  return (
-    <Box direction="row">
-      <Button a11yTitle="Refresh" icon={<Refresh />} onClick={() => { }} />
-      <Button a11yTitle="Share" icon={<Share />} onClick={() => { }} />
-      <Menu
-        a11yTitle="Actions"
-        icon={<MoreVertical />}
-        items={menuItems}
-        dropAlign={{ top: 'bottom', right: 'right' }}
-      />
-    </Box>
   );
 }

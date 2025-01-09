@@ -4,7 +4,7 @@ import { columns } from './tableColumns';
 
 export const DataView = ({ data, ...rest }) => {
   return (
-    <Data data={data} toolbar>
+    <Data data={data} toolbar {...rest}>
       <DataTable columns={columns} onSelect={() => { }} />
       <Pagination
         summary
