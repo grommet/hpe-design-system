@@ -5,6 +5,10 @@ interface VirtualMachine {
   cpu: number;
   memory: string;
   disk: string;
+  'power state': string;
+  state: string;
+  protection: string;
+  cluster: string;
 }
 
 interface Column {
@@ -19,22 +23,10 @@ interface Column {
 const columns: Column[] = [
   { property: 'name', header: 'Name', primary: true },
   { property: 'status', header: 'Status' },
-  { property: 'os', header: 'OS' },
-  { property: 'cpu', header: 'vCPUs', align: 'end' },
-  {
-    property: 'memory',
-    header: 'Memory',
-    align: 'end',
-    render: (datum: VirtualMachine) => `${datum.memory.replace('GB', '')}`,
-    units: 'GB',
-  },
-  {
-    property: 'disk',
-    header: 'Disk',
-    align: 'end',
-    render: (datum: VirtualMachine) => `${datum.disk.replace('GB', '')}`,
-    units: 'GB',
-  },
+  { property: 'state', header: 'State' },
+  { property: 'power state', header: 'Power state' },
+  { property: 'protection', header: 'Protection' },
+  { property: 'cluster', header: 'Cluster' },
 ];
 
 export { columns }

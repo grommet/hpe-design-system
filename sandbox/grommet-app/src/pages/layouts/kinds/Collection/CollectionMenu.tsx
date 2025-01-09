@@ -2,19 +2,26 @@ import React from 'react';
 import { Box, Button, Collapsible, Text } from 'grommet';
 import { Down, Next } from 'grommet-icons';
 
-const menuItems = {
-  "HPE Private Cloud Las Vegas": ["Vegas cluster"],
-  "vCenter 1": ["EXSi Cluster 321"]
-};
+interface CollectionItem {
+  name: string;
+  count: number;
+}
 
-export const CollectionMenu = ({ selected, onSelect, ...rest }) => {
-  const [expanded, setExpanded] = React.useState<string[]>([]);
+interface CollectionMenuProps {
+  items: { [key: string]: CollectionItem[] };
+  selected: string;
+  onSelect: (name: string) => void;
+  [key: string]: any;
+}
+
+export const CollectionMenu: React.FC<CollectionMenuProps> = ({ items, selected, onSelect, ...rest }) => {
+  const [expanded, setExpanded] = React.useState<string[]>(Object.keys(items));
 
   return (
     <Box width={{ max: 'medium' }} {...rest} >
-      {Object.entries(menuItems).map(([item, value]) => {
-        const open = expanded.includes(item) || value.includes(selected);
-        value.includes(selected) && !expanded.includes(item) && setExpanded([...expanded, item]);
+      {Object.entries(items).map(([item, value]) => {
+        const open = expanded.includes(item) || value.some(item => item.name === (selected));
+        value.some(item => item.name === (selected)) && !expanded.includes(item) && setExpanded([...expanded, item]);
 
         return (
           <React.Fragment key={item}>
@@ -31,12 +38,12 @@ export const CollectionMenu = ({ selected, onSelect, ...rest }) => {
               }}
             />
             <Collapsible open={open} >
-              {value.map((subItem) => (
+              {value.map(({ name, count }) => (
                 <Button
-                  key={subItem}
-                  label={<Box direction="row" justify="between"><Text>{subItem}</Text><Text>8</Text></Box>}
-                  onClick={() => { onSelect(subItem) }}
-                  active={selected === subItem}
+                  key={name}
+                  label={<Box direction="row" justify="between"><Text>{name}</Text><Text>{count}</Text></Box>}
+                  onClick={() => { onSelect(name) }}
+                  active={selected === name}
                 />
               ))}
             </Collapsible>

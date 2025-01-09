@@ -17,8 +17,13 @@ import { CollectionMenu } from "./CollectionMenu";
 import virtualMachines from '../../../../mockData/virtualMachines.json';
 
 const dataSets = {
-  "Vegas cluster": virtualMachines,
-  "EXSi Cluster 321": undefined,
+  "Vegas cluster": virtualMachines["Vegas cluster"],
+  "EXSi Cluster 321": virtualMachines["EXSi Cluster 321"],
+};
+
+const menuItems = {
+  "HPE Private Cloud Las Vegas": [{ name: "Vegas cluster", count: dataSets["Vegas cluster"].length }],
+  "vCenter 1": [{ name: "EXSi Cluster 321", count: dataSets["EXSi Cluster 321"].length }],
 };
 
 export const Collection = ({ ...rest }) => {
@@ -41,7 +46,7 @@ export const Collection = ({ ...rest }) => {
                 skeleton={undefined}
                 round="small"
               >
-                <CollectionMenu selected={dataSet} onSelect={setDataSet} />
+                <CollectionMenu items={menuItems} selected={dataSet} onSelect={setDataSet} />
               </ContentPane>
               <ContentPane
                 heading={dataSet}
