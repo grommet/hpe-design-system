@@ -49,3 +49,5 @@ export const nonComponentTokens: string[] = [
 ];
 
 export const numberToPixel = (value: number): string => `${value}px`;
+
+export const excludedNameParts = ['DEFAULT', 'REST'];
