@@ -20,7 +20,7 @@ interface Column {
   units?: string;
 }
 
-const columns: Column[] = [
+const privateCloudColumns: Column[] = [
   { property: 'name', header: 'Name', primary: true },
   { property: 'status', header: 'Status' },
   { property: 'state', header: 'State' },
@@ -29,4 +29,13 @@ const columns: Column[] = [
   { property: 'cluster', header: 'Cluster' },
 ];
 
-export { columns }
+const publicCloudColumns: Column[] = [
+  { property: 'name', header: 'Name', primary: true },
+  { property: 'status', header: 'Status' },
+  { property: 'state', header: 'State' },
+  { property: 'account', header: 'Account' },
+  { property: 'region', header: 'Region' },
+  { property: 'type', header: 'Type' },
+];
+
+export { privateCloudColumns, publicCloudColumns };

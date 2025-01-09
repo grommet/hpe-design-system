@@ -18,7 +18,7 @@ export const CollectionMenu: React.FC<CollectionMenuProps> = ({ items, selected,
   const [expanded, setExpanded] = React.useState<string[]>(Object.keys(items));
 
   return (
-    <Box width={{ max: 'medium' }} {...rest} >
+    <Box width={{ min: "small", max: 'medium' }} {...rest} >
       {Object.entries(items).map(([item, value]) => {
         const open = expanded.includes(item) || value.some(item => item.name === (selected));
         value.some(item => item.name === (selected)) && !expanded.includes(item) && setExpanded([...expanded, item]);

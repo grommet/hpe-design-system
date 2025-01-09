@@ -1,8 +1,7 @@
 import React from 'react';
 import { Data, DataTable, Pagination } from 'grommet';
-import { columns } from './tableColumns';
 
-export const DataView = ({ data, ...rest }) => {
+export const DataView = ({ data, columns, ...rest }) => {
   return (
     <Data data={data} toolbar {...rest}>
       <DataTable columns={columns} onSelect={() => { }} />
