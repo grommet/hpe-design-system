@@ -97,7 +97,7 @@ export const WCAGRuleDetail = ({ rules, version }) => {
       <Box gap="xxsmall" direction="row">
         <Text>Grouped by</Text>
         <Anchor
-          label="Accessibility principles"
+          label="accessibility principles"
           href="https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility"
           target="_blank"
           icon={<ShareRounded />}
