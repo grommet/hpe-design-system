@@ -12,6 +12,7 @@ export const esmGrommetRefs: FormatFn = async ({
   const { prefix } = platform;
   let tokens = dictionary.tokens;
   dictionary.allTokens.forEach((token: any) => {
+    if (token.$type === 'gradient') console.log(token);
     const value = getGrommetValue(token, dictionary);
     const originalToken = access(token.path.join('.'), tokens);
     originalToken.$value = value;

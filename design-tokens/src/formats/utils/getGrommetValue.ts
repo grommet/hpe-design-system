@@ -1,8 +1,11 @@
 import { usesReferences, getReferences } from 'style-dictionary/utils';
-import { isReference } from '../../utils.js';
+import { excludedNameParts, isReference } from '../../utils.js';
 
 const tokenToGrommetRef = (value: string): string => {
-  const temp: string[] = value.slice(1, -1).split('.');
+  const temp: string[] = value
+    .slice(1, -1)
+    .split('.')
+    .filter(part => !excludedNameParts.includes(part));
   temp.shift();
   return temp.join('-');
 };

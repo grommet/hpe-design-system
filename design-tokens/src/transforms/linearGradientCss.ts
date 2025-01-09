@@ -14,6 +14,7 @@ export const linearGradientCss: Transform = {
   transitive: true,
   filter: (token: TransformedToken): boolean => token?.$type === 'gradient',
   transform: (token: TransformedToken) => {
+    console.log('hello', token);
     const stops = token.$value.stops
       .map(
         (stop: GradientStop) =>

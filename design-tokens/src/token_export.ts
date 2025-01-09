@@ -4,6 +4,16 @@ import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';
 import { Token, TokensFile } from './token_types.js';
 import { access } from './utils.js';
 
+/**
+ * Supported color interaction states
+ */
+const interactions = ['hover', 'focus', 'active'];
+/**
+ * Supported color prominence modifiers
+ */
+const prominences = ['xweak', 'weak', 'default', 'strong', 'xstrong'];
+const exceptionColors = ['color/focus', 'color/transparent'];
+
 function tokenTypeFromVariable(variable: Variable) {
   if (variable.resolvedType === 'STRING' && variable.name.includes('fontStack'))
     return 'fontFamily';
@@ -35,12 +45,18 @@ function tokenValueFromVariable(
         aliasedVariable.resolvedType === 'COLOR' &&
         /^color/.test(aliasedName)
       ) {
-        const [type, role, prominence, interaction] = aliasedName
-          .split('/')
-          .slice(1);
-        aliasedName = `color/${type}/${role}/${prominence || 'DEFAULT'}/${
-          interaction || 'REST'
-        }`;
+        const temp = aliasedName.replaceAll('-', '/').split('/');
+        if (!exceptionColors.includes(temp.join('/'))) {
+          // last element of name should be interaction
+          if (!interactions.includes(temp[temp.length - 1])) {
+            temp.push('REST');
+          }
+          // second to last element of name should be prominence
+          if (!prominences.includes(temp[temp.length - 2])) {
+            temp.splice(temp.length - 1, 0, 'DEFAULT');
+          }
+        }
+        aliasedName = temp.join('/');
       }
       return `{${aliasedName.replace(/\//g, '.')}}`;
     } else if ('r' in value) {
@@ -210,23 +226,23 @@ export function tokenFilesFromLocalVariables(
         });
       } else {
         const isColor = /^color/.test(variable.name);
-        let type;
-        let role;
-        let prominence;
-        let interaction;
         let adjustedName = variable.name;
         // When pulling from Figma, we should fill out "DEFAULT" and "REST"
         // to align to design token spec
         // e.g. color/background/critical --> color/background/critical/DEFAULT/REST
-        // TO DO how does this work with exploration of term "moderate"?
         if (isColor) {
-          // slice(1) removes "color"
-          [type, role, prominence, interaction] = variable.name
-            .split('/')
-            .slice(1);
-          adjustedName = `color/${type}/${role}/${prominence || 'DEFAULT'}/${
-            interaction || 'REST'
-          }`;
+          const temp = variable.name.replaceAll('-', '/').split('/');
+          if (!exceptionColors.includes(temp.join('/'))) {
+            // last element of name should be interaction
+            if (!interactions.includes(temp[temp.length - 1])) {
+              temp.push('REST');
+            }
+            // second to last element of name should be prominence
+            if (!prominences.includes(temp[temp.length - 2])) {
+              temp.splice(temp.length - 1, 0, 'DEFAULT');
+            }
+          }
+          adjustedName = temp.join('/');
         }
 
         adjustedName.split('/').forEach(groupName => {

@@ -4,9 +4,18 @@ import {
   FormatFn,
   FormatFnArguments,
 } from 'style-dictionary/types';
+import { excludedNameParts } from '../utils.js';
 
 export const flattenJson = (tokens: TransformedToken[]) =>
-  Object.fromEntries(tokens.map(token => [token.name, token]));
+  Object.fromEntries(
+    tokens.map(token => [
+      token.name
+        .split('.')
+        .filter(part => !excludedNameParts.includes(part))
+        .join('.'),
+      token,
+    ]),
+  );
 
 export const jsonFlat: FormatFn = async ({
   dictionary,

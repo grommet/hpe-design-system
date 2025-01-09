@@ -11,7 +11,7 @@ import {
   VariableCodeSyntax,
 } from './figma_api.js';
 import { colorApproximatelyEqual, parseColor } from './color.js';
-import { areSetsEqual } from './utils.js';
+import { areSetsEqual, excludedNameParts } from './utils.js';
 import { Token, TokenOrTokenGroup, TokensFile } from './token_types.js';
 
 const shadowToVariables = (name: any, values: any) => {
@@ -500,25 +500,18 @@ export function generatePostVariablesPayload(
 
     Object.entries(tokens).forEach(([tokenName, token]) => {
       const isColor = /^color/.test(tokenName);
-      let type;
-      let role;
-      let prominence;
-      let interaction;
       // When pushing to Figma, we should strip off "DEFAULT" and "REST"
       // to match simplified token outputs
-      // e.g. color/background/critical/DEFAULT/REST --> color/background/critical
+      // we should also format nested roles, prominence, or interaction to hyphenated ("-") approach
+      // e.g. color/background/critical/weak/DEFAULT/REST --> color/background/critical-weak
       let adjustedName = tokenName;
       if (isColor) {
-        // slice(1) removes "color"
         let parts = tokenName.split('/');
-        [type, role, prominence, interaction] = parts.slice(1);
-        if (interaction === 'REST') {
-          parts.pop();
-        }
-        if (prominence === 'DEFAULT') {
-          parts.pop();
-        }
-        adjustedName = parts.join('/');
+        // color/background/critical/weak/DEFAULT/REST --> color/background/critical/weak
+        parts = parts.filter(part => !excludedNameParts.includes(part));
+        const section = parts.slice(0, 2).join('/');
+        const name = parts.slice(2).join('-');
+        adjustedName = `${section}${name ? `/${name}` : ''}`;
       }
 
       const variable = localVariablesByName[adjustedName];

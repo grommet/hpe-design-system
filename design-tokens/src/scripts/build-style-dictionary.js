@@ -5,6 +5,7 @@ import { getThemeAndMode, numberToPixel } from '../utils.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
+const GROMMET_DIR = 'dist/grommet/';
 const CJS_DIR = 'dist/cjs/';
 const CSS_DIR = 'dist/css/';
 const DOCS_DIR = 'dist/docs/';
@@ -21,8 +22,19 @@ try {
   extendedDictionary = await HPEStyleDictionary.extend({
     source: [`${TOKENS_DIR}/primitive/primitives.base.json`],
     platforms: {
-      js: {
+      grommet: {
         transformGroup: 'js/w3c',
+        buildPath: GROMMET_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: 'base.js',
+            format: 'javascript/esm',
+          },
+        ],
+      },
+      js: {
+        transformGroup: 'js/obj-css',
         buildPath: ESM_DIR,
         prefix: PREFIX,
         files: [
@@ -33,7 +45,7 @@ try {
         ],
       },
       'js/cjs': {
-        transformGroup: 'js/w3c',
+        transformGroup: 'js/obj-css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
         files: [
@@ -82,8 +94,21 @@ try {
     ],
     platforms: {
       js: {
-        transformGroup: 'js/w3c',
+        transformGroup: 'js/obj-css',
         buildPath: ESM_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: 'global.js',
+            format: 'javascript/esm',
+            filter: token =>
+              token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
+          },
+        ],
+      },
+      grommet: {
+        transformGroup: 'js/w3c',
+        buildPath: GROMMET_DIR,
         prefix: PREFIX,
         files: [
           {
@@ -95,13 +120,13 @@ try {
         ],
       },
       'js/cjs': {
-        transformGroup: 'js/w3c',
+        transformGroup: 'js/obj-css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
         files: [
           {
             destination: 'global.cjs',
-            format: 'commonJsGrommetRefs',
+            format: 'javascript/commonJs',
             filter: token =>
               token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
           },
@@ -164,8 +189,20 @@ try {
       source: [`${TOKENS_DIR}/primitive/primitives.base.json`, file],
       platforms: {
         js: {
-          transformGroup: 'js/w3c',
+          transformGroup: 'js/obj-css',
           buildPath: ESM_DIR,
+          prefix: PREFIX,
+          files: [
+            {
+              destination: 'color.js',
+              format: 'javascript/esm',
+              filter: token => token.filePath === file,
+            },
+          ],
+        },
+        grommet: {
+          transformGroup: 'js/w3c',
+          buildPath: GROMMET_DIR,
           prefix: PREFIX,
           files: [
             {
@@ -178,14 +215,12 @@ try {
           ],
         },
         'js/cjs': {
-          transformGroup: 'js/w3c',
+          transformGroup: 'js/obj-css',
           buildPath: CJS_DIR,
           prefix: PREFIX,
           files: [
             {
-              destination: `color.${
-                theme ? `${theme}-${mode}` : `${mode || ''}`
-              }.cjs`,
+              destination: 'color.cjs',
               format: 'javascript/commonJs',
               filter: token => token.filePath === file,
             },
@@ -255,9 +290,9 @@ try {
         file,
       ],
       platforms: {
-        js: {
+        grommet: {
           transformGroup: 'js/w3c',
-          buildPath: ESM_DIR,
+          buildPath: GROMMET_DIR,
           prefix: PREFIX,
           files: [
             {
@@ -267,20 +302,32 @@ try {
             },
           ],
         },
+        js: {
+          transformGroup: 'js/obj-css',
+          buildPath: ESM_DIR,
+          prefix: PREFIX,
+          files: [
+            {
+              destination: 'dimension.js',
+              format: 'javascript/esm',
+              filter: token => token.filePath === file,
+            },
+          ],
+        },
         'js/cjs': {
-          transformGroup: 'js/w3c',
+          transformGroup: 'js/obj-css',
           buildPath: CJS_DIR,
           prefix: PREFIX,
           files: [
             {
-              destination: `dimension.${mode}.cjs`,
+              destination: 'dimension.cjs',
               format: 'javascript/commonJs',
               filter: token => token.filePath === file,
             },
           ],
         },
         css: {
-          transformGroup: 'css',
+          transformGroup: 'css/w3c',
           buildPath: CSS_DIR,
           prefix: PREFIX,
           files: [
@@ -335,9 +382,9 @@ try {
       `${TOKENS_DIR}/component/component.default.json`,
     ],
     platforms: {
-      js: {
+      grommet: {
         transformGroup: 'js/w3c',
-        buildPath: ESM_DIR,
+        buildPath: GROMMET_DIR,
         prefix: PREFIX,
         files: [
           {
@@ -348,8 +395,21 @@ try {
           },
         ],
       },
+      js: {
+        transformGroup: 'js/obj-css',
+        buildPath: ESM_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: 'component.js',
+            filter: token =>
+              token.filePath.includes(`${TOKENS_DIR}/component/`),
+            format: 'javascript/esm',
+          },
+        ],
+      },
       'js/cjs': {
-        transformGroup: 'js/w3c',
+        transformGroup: 'js/obj-css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
         files: [
@@ -357,7 +417,7 @@ try {
             destination: 'components.default.cjs',
             filter: token =>
               token.filePath.includes(`${TOKENS_DIR}/component/`),
-            format: 'commonJsGrommetRefs',
+            format: 'javascript/commonJs',
           },
         ],
       },
@@ -368,7 +428,7 @@ try {
         files: [
           {
             destination: 'components.css',
-            format: 'css/variables-hpe',
+            format: 'css/variables',
             filter: token =>
               token.filePath.includes(`${TOKENS_DIR}/component/`),
             options: {
@@ -442,6 +502,27 @@ fs.readdirSync(ESM_DIR)
         `export { default as ${mode} } from './${filename}.js';\n`,
       );
       esmCollections.push(mode);
+    }
+  });
+
+/** -----------------------------------
+ * Create grommet index.js
+ * ----------------------------------- */
+const grommetCollections = [];
+fs.readdirSync(GROMMET_DIR)
+  .filter(file => file !== 'index.js')
+  .forEach(file => {
+    if (file.toLowerCase().endsWith('.js')) {
+      const filename = file.replace('.js', '');
+      const parts = filename.split('.');
+      let mode = parts[1];
+      // special case for base.js and components
+      if (mode === 'default' || !mode) [mode] = parts;
+      fs.appendFileSync(
+        `${GROMMET_DIR}index.js`,
+        `export { default as ${mode} } from './${filename}.js';\n`,
+      );
+      grommetCollections.push(mode);
     }
   });
 

@@ -50,7 +50,7 @@ async function main() {
       localVariables,
     );
 
-    console.log(postVariablesPayload);
+    console.log(postVariablesPayload.variableCollections);
     // if (
     //   Object.values(postVariablesPayload).every(value => value.length === 0)
     // ) {

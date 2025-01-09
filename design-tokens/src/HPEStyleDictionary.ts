@@ -4,13 +4,14 @@ import {
   commonJsGrommetRefs,
   cssColorModes,
   cssBreakpoints,
-  cssVariables,
   esmGrommetRefs,
   javascriptEsm,
   jsonFlat,
 } from './formats/index.js';
 import {
   cssW3c,
+  valueToCssVar,
+  javascriptCss,
   javascriptW3c,
   linearGradientCss,
   nameCSS,
@@ -41,10 +42,6 @@ HPEStyleDictionary.registerFormat({
   format: cssBreakpoints,
 });
 HPEStyleDictionary.registerFormat({
-  name: 'css/variables-hpe',
-  format: cssVariables,
-});
-HPEStyleDictionary.registerFormat({
   name: `esmGrommetRefs`,
   format: esmGrommetRefs,
 });
@@ -63,6 +60,9 @@ HPEStyleDictionary.registerTransform({
   ...numberToDimension,
 });
 HPEStyleDictionary.registerTransform({
+  ...valueToCssVar,
+});
+HPEStyleDictionary.registerTransform({
   ...shadowCSS,
 });
 HPEStyleDictionary.registerTransform({
@@ -74,6 +74,10 @@ HPEStyleDictionary.registerTransform({
 });
 HPEStyleDictionary.registerTransform({
   ...linearGradientCss,
+});
+HPEStyleDictionary.registerTransformGroup({
+  name: 'js/obj-css',
+  transforms: javascriptCss,
 });
 HPEStyleDictionary.registerTransformGroup({
   name: 'js/w3c',

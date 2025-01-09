@@ -1,15 +1,18 @@
 import { FormatFn, FormatFnArguments } from 'style-dictionary/types';
-import { fileHeader } from 'style-dictionary/utils';
-import { formatCssVariables } from './utils/formatCssVariables.js';
+import { fileHeader, formattedVariables } from 'style-dictionary/utils';
 
 export const cssBreakpoints: FormatFn = async ({
   dictionary,
   file,
   options,
-  platform,
 }: FormatFnArguments) => {
-  const { mediaQuery } = options;
-  const tokens = formatCssVariables({ dictionary, file, options, platform });
+  const { outputReferences, mediaQuery } = options;
+  const tokens = formattedVariables({
+    format: 'css',
+    dictionary,
+    outputReferences,
+    usesDtcg: true,
+  });
   let output = `:root {\n${tokens}\n}`;
   if (mediaQuery) output = `@media (${mediaQuery}) {\n${output}\n}\n`;
 
