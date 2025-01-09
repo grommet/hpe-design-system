@@ -34,7 +34,7 @@ try {
         ],
       },
       js: {
-        transformGroup: 'js/w3c',
+        transformGroup: 'js/css',
         buildPath: ESM_DIR,
         prefix: PREFIX,
         files: [
@@ -45,7 +45,7 @@ try {
         ],
       },
       'js/cjs': {
-        transformGroup: 'js/w3c',
+        transformGroup: 'js/css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
         files: [
@@ -107,7 +107,7 @@ try {
         ],
       },
       js: {
-        transformGroup: 'js/w3c',
+        transformGroup: 'js/css',
         buildPath: ESM_DIR,
         prefix: PREFIX,
         files: [
@@ -120,13 +120,13 @@ try {
         ],
       },
       'js/cjs': {
-        transformGroup: 'js/w3c',
+        transformGroup: 'js/css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
         files: [
           {
             destination: 'global.cjs',
-            format: 'commonJsGrommetRefs',
+            format: 'javascript/commonJs',
             filter: token =>
               token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
           },
@@ -203,7 +203,7 @@ try {
           ],
         },
         js: {
-          transformGroup: 'js/w3c',
+          transformGroup: 'js/css',
           buildPath: ESM_DIR,
           prefix: PREFIX,
           files: [
@@ -217,7 +217,7 @@ try {
           ],
         },
         'js/cjs': {
-          transformGroup: 'js/w3c',
+          transformGroup: 'js/css',
           buildPath: CJS_DIR,
           prefix: PREFIX,
           files: [
@@ -307,7 +307,7 @@ try {
           ],
         },
         js: {
-          transformGroup: 'js/w3c',
+          transformGroup: 'js/css',
           buildPath: ESM_DIR,
           prefix: PREFIX,
           files: [
@@ -319,7 +319,7 @@ try {
           ],
         },
         'js/cjs': {
-          transformGroup: 'js/w3c',
+          transformGroup: 'js/css',
           buildPath: CJS_DIR,
           prefix: PREFIX,
           files: [
@@ -400,7 +400,7 @@ try {
         ],
       },
       js: {
-        transformGroup: 'js/w3c',
+        transformGroup: 'js/css',
         buildPath: ESM_DIR,
         prefix: PREFIX,
         files: [
@@ -413,7 +413,7 @@ try {
         ],
       },
       'js/cjs': {
-        transformGroup: 'js/w3c',
+        transformGroup: 'js/css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
         files: [
@@ -421,7 +421,7 @@ try {
             destination: 'components.default.cjs',
             filter: token =>
               token.filePath.includes(`${TOKENS_DIR}/component/`),
-            format: 'commonJsGrommetRefs',
+            format: 'javascript/commonJs',
           },
         ],
       },
