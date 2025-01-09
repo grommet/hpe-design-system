@@ -30,6 +30,7 @@ import { TagPreview } from '../../examples/cardPreviews/tag';
 export const components = [
   {
     name: 'Anchor',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Controls',
     description:
       'Hyperlinks used with text-based navigation, such as inline text.',
