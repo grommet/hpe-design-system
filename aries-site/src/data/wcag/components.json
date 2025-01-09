@@ -1,0 +1,17 @@
+[
+  {
+    "anchor": [
+      { "rule": "1.4.1", "status": "passed" },
+      { "rule": "1.4.6", "status": "passed" },
+      { "rule": "1.4.3", "status": "passed" },
+      { "rule": "2.1.1", "status": "passed" },
+      { "rule": "2.1.2", "status": "passed" },
+      { "rule": "2.1.3", "status": "passed" },
+      { "rule": "2.4.4", "status": "conditional" },
+      { "rule": "2.4.7", "status": "passed" },
+      { "rule": "2.4.9", "status": "conditional" },
+      { "rule": "3.2.1", "status": "passed" },
+      { "rule": "4.1.2", "status": "passed" }
+    ]
+  }
+]
