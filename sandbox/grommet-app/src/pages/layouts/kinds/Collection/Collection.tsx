@@ -15,6 +15,9 @@ import { DataTableActions } from "./DataTableActions";
 import { PageActions } from "./PageActions";
 import { privateCloudColumns, publicCloudColumns } from "./tableColumns";
 import virtualMachines from '../../../../mockData/virtualMachines.json';
+import { RoutedAnchor } from "../../../../components";
+import { Previous } from "grommet-icons";
+import { Link } from "react-router-dom";
 
 const formatData = (environment: 'public cloud' | 'private cloud') => {
   return Object.keys(virtualMachines[environment]).reduce((acc, cloud) => {
@@ -61,6 +64,7 @@ export const Collection = ({ ...rest }) => {
         <PageHeader
           title="Virtual Machines"
           actions={<PageActions />}
+          parent={<RoutedAnchor as={Link} label="Layouts" to="/layouts" icon={<Previous />} />}
         />
         <Tabs
           alignControls="start"
