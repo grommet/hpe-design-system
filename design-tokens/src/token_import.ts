@@ -507,7 +507,6 @@ export function generatePostVariablesPayload(
       let adjustedName = tokenName;
       if (isColor) {
         let parts = tokenName.split('/');
-        // color/background/critical/weak/DEFAULT/REST --> color/background/critical/weak
         parts = parts.filter(part => !excludedNameParts.includes(part));
         const section = parts.slice(0, 2).join('/');
         const name = parts.slice(2).join('-');
