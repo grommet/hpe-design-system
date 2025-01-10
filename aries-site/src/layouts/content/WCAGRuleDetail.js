@@ -31,6 +31,13 @@ const getStatusIcon = status => {
   }
 };
 
+const statusRank = {
+  passed: 0,
+  'passed with exceptions': 1,
+  warning: 2,
+  failed: 3,
+};
+
 const WCAGAccessibilityCardView = ({
   level,
   link,
@@ -114,7 +121,9 @@ export const WCAGRuleDetail = ({ rules, version }) => {
                   {getStatusIcon(
                     groupedRules[group].reduce(
                       (worst, item) =>
-                        item.status < worst.status ? item : worst,
+                        statusRank[item.status] > statusRank[worst.status]
+                          ? item
+                          : worst,
                       { status: 'passed' },
                     ).status,
                   )}
