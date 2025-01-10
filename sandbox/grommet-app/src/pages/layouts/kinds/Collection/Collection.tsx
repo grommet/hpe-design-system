@@ -41,12 +41,12 @@ const dataSets = {
 const cloudTypes = ["Private cloud", "Public cloud"];
 const defaultPrivate = dataSets["Private cloud"]["HPE Private Cloud Las Vegas"][0];
 const defaultPublic = dataSets["Public cloud"]["AWS"][0];
-console.log(defaultPublic);
 
 export const Collection = ({ ...rest }) => {
   const [cloudType, setCloudType] = React.useState("Private cloud");
   const [dataSet, setDataSet] = React.useState(defaultPrivate);
 
+  // Set the default data set based on the cloud type
   useEffect(() => {
     if (cloudType === "Public cloud") {
       setDataSet(defaultPublic);
@@ -68,7 +68,7 @@ export const Collection = ({ ...rest }) => {
           onActive={index => setCloudType(cloudTypes[index])}
         >
           <Tab title="Private cloud">
-            <Grid columns={['auto', 'flex']} gap="large" pad={{ top: 'medium' }}>
+            <Grid columns={['auto', 'flex']} gap="large" pad={{ top: 'medium' }} align="start">
               <ContentPane
                 heading={undefined}
                 level={2}
