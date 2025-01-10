@@ -331,7 +331,7 @@ try {
           ],
         },
         css: {
-          transformGroup: 'css',
+          transformGroup: 'css/w3c',
           buildPath: CSS_DIR,
           prefix: PREFIX,
           files: [
