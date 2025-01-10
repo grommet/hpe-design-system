@@ -5,6 +5,8 @@ import {
 } from 'style-dictionary/types';
 import { excludedNameParts } from '../utils.js';
 
+const SPECIAL_CHARACTERS = new RegExp('[!]', 'g');
+
 export const nameCSS: Transform = {
   name: 'name/css',
   type: 'name',
@@ -12,6 +14,7 @@ export const nameCSS: Transform = {
     const { prefix } = config;
     return `${prefix}-${token.path
       .filter(part => !excludedNameParts.includes(part))
-      .join('-')}`;
+      .join('-')
+      .replaceAll(SPECIAL_CHARACTERS, '')}`;
   },
 };
