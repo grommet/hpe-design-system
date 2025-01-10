@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Grid,
@@ -16,37 +16,44 @@ import { PageActions } from "./PageActions";
 import { privateCloudColumns, publicCloudColumns } from "./tableColumns";
 import virtualMachines from '../../../../mockData/virtualMachines.json';
 
-const dataSets = {
-  "Vegas cluster": virtualMachines["private cloud"]["HPE Private Cloud Las Vegas"]["Vegas cluster"],
-  "EXSi Cluster 321": virtualMachines["private cloud"]["vCenter"]["EXSi Cluster 321"],
-  "engineering": virtualMachines["public cloud"]["AWS"]["engineering"],
-  "marketing": virtualMachines["public cloud"]["AWS"]["marketing"],
-  "sales": virtualMachines["public cloud"]["AWS"]["sales"],
-  "engineering-2": virtualMachines["public cloud"]["Azure"]["engineering"],
-  "marketing-2": virtualMachines["public cloud"]["Azure"]["marketing"],
-  "sales-2": virtualMachines["public cloud"]["Azure"]["sales"],
-};
+const formatData = (environment: 'public cloud' | 'private cloud') => {
+  return Object.keys(virtualMachines[environment]).reduce((acc, cloud) => {
+    acc[cloud] = Object.keys(virtualMachines[environment][cloud]).map((dataSet) => {
+      return {
+        key: `${cloud}-${dataSet}`,
+        name: dataSet,
+        count: virtualMachines[environment][cloud][dataSet].length,
+        data: virtualMachines[environment][cloud][dataSet]
+      };
+    });
+    return acc;
+  }, {});
+}
 
-const menuItems = {
-  "Private cloud": Object.keys(virtualMachines["private cloud"]).reduce((acc, cluster) => {
-    acc[cluster] = Object.keys(virtualMachines["private cloud"][cluster]).map((dataSet) => {
-      return { name: dataSet, count: virtualMachines["private cloud"][cluster][dataSet].length };
-    });
-    return acc;
-  }, {}),
-  "Public cloud": Object.keys(virtualMachines["public cloud"]).reduce((acc, cloud) => {
-    acc[cloud] = Object.keys(virtualMachines["public cloud"][cloud]).map((dataSet) => {
-      return { name: dataSet, count: virtualMachines["public cloud"][cloud][dataSet].length };
-    });
-    return acc;
-  }, {}),
+const publicCloud = formatData("public cloud");
+const privateCloud = formatData("private cloud");
+
+const dataSets = {
+  "Private cloud": privateCloud,
+  "Public cloud": publicCloud,
 };
 
 const cloudTypes = ["Private cloud", "Public cloud"];
+const defaultPrivate = dataSets["Private cloud"]["HPE Private Cloud Las Vegas"][0];
+const defaultPublic = dataSets["Public cloud"]["AWS"][0];
+console.log(defaultPublic);
 
 export const Collection = ({ ...rest }) => {
   const [cloudType, setCloudType] = React.useState("Private cloud");
-  const [dataSet, setDataSet] = React.useState("Vegas cluster");
+  const [dataSet, setDataSet] = React.useState(defaultPrivate);
+
+  useEffect(() => {
+    if (cloudType === "Public cloud") {
+      setDataSet(defaultPublic);
+    } else {
+      setDataSet(defaultPrivate);
+    }
+  }, [cloudType]);
 
   return (
     <Page pad={{ bottom: "xlarge" }} {...rest}>
@@ -69,16 +76,16 @@ export const Collection = ({ ...rest }) => {
                 skeleton={undefined}
                 round="small"
               >
-                <CollectionMenu items={menuItems[cloudType]} selected={dataSet} onSelect={setDataSet} />
+                <CollectionMenu items={dataSets[cloudType]} selected={dataSet} onSelect={setDataSet} />
               </ContentPane>
               <ContentPane
-                heading={dataSet}
+                heading={dataSet.name}
                 level={2}
                 actions={<DataTableActions />}
                 skeleton={undefined}
                 round="small"
               >
-                <DataView data={dataSets[dataSet]} columns={privateCloudColumns} />
+                <DataView data={dataSet.data} columns={privateCloudColumns} />
               </ContentPane>
             </Grid>
           </Tab>
@@ -91,16 +98,16 @@ export const Collection = ({ ...rest }) => {
                 skeleton={undefined}
                 round="small"
               >
-                <CollectionMenu items={menuItems[cloudType]} selected={dataSet} onSelect={setDataSet} />
+                <CollectionMenu items={dataSets[cloudType]} selected={dataSet} onSelect={setDataSet} />
               </ContentPane>
               <ContentPane
-                heading={dataSet}
+                heading={dataSet.name}
                 level={2}
                 actions={<DataTableActions />}
                 skeleton={undefined}
                 round="small"
               >
-                <DataView data={dataSets[dataSet]} columns={publicCloudColumns} />
+                <DataView data={dataSet.data} columns={publicCloudColumns} />
               </ContentPane>
             </Grid>
           </Tab>

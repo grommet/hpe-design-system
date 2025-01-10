@@ -3,14 +3,16 @@ import { Box, Button, Collapsible, Text } from 'grommet';
 import { Down, Next } from 'grommet-icons';
 
 interface CollectionItem {
+  key: string;
   name: string;
   count: number;
+  data: object;
 }
 
 interface CollectionMenuProps {
   items: { [key: string]: CollectionItem[] };
-  selected: string;
-  onSelect: (name: string) => void;
+  selected: CollectionItem;
+  onSelect: (data: object) => void;
   [key: string]: any;
 }
 
@@ -20,8 +22,8 @@ export const CollectionMenu: React.FC<CollectionMenuProps> = ({ items, selected,
   return (
     <Box width={{ min: "small", max: 'medium' }} {...rest} >
       {Object.entries(items).map(([item, value]) => {
-        const open = expanded.includes(item) || value.some(item => item.name === (selected));
-        value.some(item => item.name === (selected)) && !expanded.includes(item) && setExpanded([...expanded, item]);
+        const open = expanded.includes(item) || value.some(item => item === (selected));
+        value.some(item => item === (selected)) && !expanded.includes(item) && setExpanded([...expanded, item]);
 
         return (
           <React.Fragment key={item}>
@@ -38,12 +40,12 @@ export const CollectionMenu: React.FC<CollectionMenuProps> = ({ items, selected,
               }}
             />
             <Collapsible open={open} >
-              {value.map(({ name, count }) => (
+              {value.map((dataSet) => (
                 <Button
-                  key={name}
-                  label={<Box direction="row" justify="between"><Text>{name}</Text><Text>{count}</Text></Box>}
-                  onClick={() => { onSelect(name) }}
-                  active={selected === name}
+                  key={dataSet.key}
+                  label={<Box direction="row" justify="between"><Text>{dataSet.name}</Text><Text>{dataSet.count}</Text></Box>}
+                  onClick={() => { onSelect(dataSet) }}
+                  active={selected.key === dataSet.key}
                 />
               ))}
             </Collapsible>
