@@ -1,5 +1,6 @@
 export { javascriptCss } from './javascriptCss.js';
 export { javascriptW3c } from './javascriptW3c.js';
+export { colorNameJs } from './colorNameJs.js';
 export { cssW3c } from './cssW3c.js';
 export { linearGradientCss } from './linearGradientCss.js';
 export { nameCSS } from './nameCss.js';

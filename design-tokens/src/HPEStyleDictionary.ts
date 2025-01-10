@@ -8,6 +8,7 @@ import {
   jsonFlat,
 } from './formats/index.js';
 import {
+  colorNameJs,
   cssW3c,
   javascriptCss,
   javascriptW3c,
@@ -47,6 +48,9 @@ HPEStyleDictionary.registerFormat({
 HPEStyleDictionary.registerFormat({
   name: `jsonFlat`,
   format: jsonFlat,
+});
+HPEStyleDictionary.registerTransform({
+  ...colorNameJs,
 });
 HPEStyleDictionary.registerTransform({
   ...nameCSS,
