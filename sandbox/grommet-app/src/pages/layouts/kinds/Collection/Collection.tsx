@@ -58,6 +58,8 @@ export const Collection = ({ ...rest }) => {
     }
   }, [cloudType]);
 
+  const collectionMenu = <CollectionMenu items={dataSets[cloudType]} selected={dataSet} onSelect={setDataSet} />;
+
   return (
     <Page pad={{ bottom: "xlarge" }} {...rest}>
       <PageContent>
@@ -72,7 +74,9 @@ export const Collection = ({ ...rest }) => {
           onActive={index => setCloudType(cloudTypes[index])}
         >
           <Tab title="Private cloud">
-            <Grid columns={['auto', 'flex']} gap="large" pad={{ top: 'medium' }} align="start">
+            <Grid
+              columns={['auto', 'flex']}
+              gap="large" pad={{ top: 'medium' }} align="start">
               <ContentPane
                 heading={undefined}
                 level={2}
@@ -80,7 +84,7 @@ export const Collection = ({ ...rest }) => {
                 skeleton={undefined}
                 round="small"
               >
-                <CollectionMenu items={dataSets[cloudType]} selected={dataSet} onSelect={setDataSet} />
+                {collectionMenu}
               </ContentPane>
               <ContentPane
                 heading={dataSet.name}
@@ -102,7 +106,7 @@ export const Collection = ({ ...rest }) => {
                 skeleton={undefined}
                 round="small"
               >
-                <CollectionMenu items={dataSets[cloudType]} selected={dataSet} onSelect={setDataSet} />
+                {collectionMenu}
               </ContentPane>
               <ContentPane
                 heading={dataSet.name}
