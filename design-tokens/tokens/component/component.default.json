@@ -6175,7 +6175,7 @@
       "rest": {
         "background": {
           "$type": "color",
-          "$value": "{color.background.default}",
+          "$value": "{base.color.grey.500}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6187,7 +6187,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{color.border.default}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6201,7 +6201,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "{color.background.hover}",
+          "$value": "{base.color.black.opacity36}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6213,7 +6213,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{color.border.default}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9897,7 +9897,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{color.border.default}",
+          "$value": "{base.color.grey.500}",
           "$description": "",
           "$extensions": {
             "com.figma": {

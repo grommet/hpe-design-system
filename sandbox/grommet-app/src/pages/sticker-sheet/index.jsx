@@ -387,6 +387,7 @@ const StickerSheet = () => {
           </Avatar>
         </Box> */}
             <ContentPane>
+              <StyleInProgress />
               <Compare>
                 <CheckBox label="Checkbox label" />
               </Compare>
