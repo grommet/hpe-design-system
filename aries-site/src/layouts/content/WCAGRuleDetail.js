@@ -34,7 +34,7 @@ const getStatusIcon = status => {
 const statusRank = {
   passed: 0,
   'passed with exceptions': 1,
-  warning: 2,
+  conditional: 2,
   failed: 3,
 };
 
