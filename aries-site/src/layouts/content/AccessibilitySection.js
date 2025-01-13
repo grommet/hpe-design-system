@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useMemo, useEffect } from 'react';
+import { Notification } from 'grommet';
 import { WCAGRuleDetail, WCAGRuleSummary } from '.';
 import componentData from '../../data/wcag/components.json';
 
@@ -87,6 +88,13 @@ export const AccessibilitySection = ({ title, version }) => {
 
   return (
     <>
+      <Notification
+        status="info"
+        margin={{ bottom: 'medium' }}
+        width="large"
+        // eslint-disable-next-line max-len
+        message="WCAG rules marked as conditional indicate that the implementer must take additional actions to ensure full compliance."
+      />
       <WCAGRuleSummary statuses={statusData} />
       <WCAGRuleDetail version={version || '2.2'} rules={comparisons} />
     </>
