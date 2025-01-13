@@ -1,9 +1,18 @@
 import React from 'react';
-import { Data, DataTable, Pagination } from 'grommet';
+import { Data, DataFilters, DataSearch, DataSummary, DataTable, Pagination, Toolbar } from 'grommet';
+import { DataTableActions } from './DataTableActions';
 
 export const DataView = ({ data, columns, ...rest }) => {
   return (
-    <Data data={data} toolbar {...rest}>
+    <Data data={data} {...rest}>
+      <Toolbar>
+        <Toolbar>
+          <DataSearch />
+          <DataFilters drop />
+        </Toolbar>
+        <DataTableActions flex justify="end" />
+      </Toolbar>
+      <DataSummary />
       <DataTable columns={columns} onSelect={() => { }} />
       <Pagination
         summary

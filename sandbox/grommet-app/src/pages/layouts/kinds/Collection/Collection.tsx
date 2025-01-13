@@ -89,7 +89,7 @@ export const Collection = ({ ...rest }) => {
               <ContentPane
                 heading={dataSet.name}
                 level={2}
-                actions={<DataTableActions />}
+                actions={undefined}
                 skeleton={undefined}
                 round="small"
               >
@@ -111,7 +111,7 @@ export const Collection = ({ ...rest }) => {
               <ContentPane
                 heading={dataSet.name}
                 level={2}
-                actions={<DataTableActions />}
+                actions={undefined}
                 skeleton={undefined}
                 round="small"
               >

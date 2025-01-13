@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Menu } from 'grommet';
 
-export const DataTableActions = () => {
+export const DataTableActions = ({ ...rest }) => {
   const tableActions = [
     [
       {
@@ -27,7 +27,7 @@ export const DataTableActions = () => {
 
 
   return (
-    <Box direction="row">
+    <Box direction="row" {...rest}>
       <Menu label="Actions" items={tableActions} />
     </Box>
   );
