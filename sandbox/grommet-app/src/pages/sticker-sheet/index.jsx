@@ -203,6 +203,13 @@ const StickerSheet = () => {
                     </Anchor>
                   </Compare>
                 ))}
+                <Compare>
+                  <Paragraph>
+                    Here is a bit of text with a{' '}
+                    <Anchor label="medium anchor" /> within it. This is another
+                    sentence of text that follows.
+                  </Paragraph>
+                </Compare>
               </Box>
             </ContentPane>
             <ContentPane>
