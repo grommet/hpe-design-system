@@ -120,10 +120,16 @@ export const WCAGRuleDetail = ({ rules, version }) => {
                 <Box gap="small" align="center" direction="row">
                   {getStatusIcon(
                     groupedRules[group].reduce(
-                      (worst, item) =>
-                        statusRank[item.status] > statusRank[worst.status]
+                      (worst, item) => {
+                        // Ignore rules with level "AAA"
+                        if (item.level === 'AAA' && item.status === 'failed') {
+                          return worst;
+                        }
+                        return statusRank[item.status] >
+                          statusRank[worst.status]
                           ? item
-                          : worst,
+                          : worst;
+                      },
                       { status: 'passed' },
                     ).status,
                   )}
