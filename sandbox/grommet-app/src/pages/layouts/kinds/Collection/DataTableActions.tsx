@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Menu } from 'grommet';
+import { MoreVertical } from 'grommet-icons';
 
-export const DataTableActions = ({ ...rest }) => {
+export const DataTableActions = ({ responsive, ...rest }) => {
   const tableActions = [
     [
       {
@@ -25,10 +26,17 @@ export const DataTableActions = ({ ...rest }) => {
     ]
   ]
 
+  const label = "Actions";
+
 
   return (
     <Box direction="row" {...rest}>
-      <Menu label="Actions" items={tableActions} />
+      <Menu
+        label={responsive ? undefined : label}
+        items={tableActions}
+        kind='toolbar'
+        icon={responsive ? <MoreVertical /> : undefined}
+      />
     </Box>
   );
 }

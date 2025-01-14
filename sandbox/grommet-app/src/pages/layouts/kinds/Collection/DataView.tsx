@@ -1,19 +1,33 @@
-import React from 'react';
-import { Data, DataFilters, DataSearch, DataSummary, DataTable, Pagination, Toolbar } from 'grommet';
+import React, { useContext } from 'react';
+import {
+  Box,
+  Data,
+  DataFilters,
+  DataSearch,
+  DataSummary,
+  DataTable,
+  Pagination,
+  ResponsiveContext,
+  Toolbar
+} from 'grommet';
 import { DataTableActions } from './DataTableActions';
 
 export const DataView = ({ data, columns, ...rest }) => {
+  const breakpoint = useContext(ResponsiveContext);
+
   return (
     <Data data={data} {...rest}>
       <Toolbar>
         <Toolbar>
-          <DataSearch />
+          <DataSearch drop={['xsmall', 'small'].includes(breakpoint)} />
           <DataFilters drop />
         </Toolbar>
-        <DataTableActions flex justify="end" />
+        <DataTableActions responsive={breakpoint === 'xsmall'} flex justify="end" />
       </Toolbar>
       <DataSummary />
-      <DataTable columns={columns} onSelect={() => { }} />
+      <Box overflow={{ horizontal: 'auto' }}>
+        <DataTable columns={columns} onSelect={() => { }} />
+      </Box>
       <Pagination
         summary
         stepOptions
