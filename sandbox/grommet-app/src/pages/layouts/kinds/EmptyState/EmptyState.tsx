@@ -52,7 +52,7 @@ const EmptyStatePage = ({ ...rest }) => {
               placeholder={data.length === 0 &&
                 <Box pad="xlarge">
                   <EmptyState
-                    title="No Bare Metal instances."
+                    title="No Bare Metal instances"
                     level={3}
                     actions={<Button label="Add an instance" primary />}
                     icon={<DriveCage size="xxlarge" />}
