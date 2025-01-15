@@ -90,6 +90,7 @@ export const components = [
   },
   {
     name: 'Button',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Buttons are graphic elements that indicate to users that actions can be performed.',
