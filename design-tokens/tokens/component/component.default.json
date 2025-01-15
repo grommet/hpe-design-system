@@ -10863,44 +10863,6 @@
             }
           }
         }
-      },
-      "6xl": {
-        "fontSize": {
-          "$type": "number",
-          "$value": "{text.6xl.fontSize}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["FONT_SIZE"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "lineHeight": {
-          "$type": "number",
-          "$value": "{text.6xl.lineHeight}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["LINE_HEIGHT"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "gapX": {
-          "$type": "number",
-          "$value": "{element.xlarge.textToIconX}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["GAP"],
-              "codeSyntax": {}
-            }
-          }
-        }
       }
     }
   }
