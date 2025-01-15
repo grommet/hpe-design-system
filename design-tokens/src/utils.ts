@@ -53,7 +53,7 @@ export const nonComponentTokens: string[] = [
 export const numberToPixel = (value: number): string => `${value}px`;
 
 /**
- * Ensure variable references are to valid collections. Log errors for any variables that are referencing invalid Figma files.
+ * Ensure variable references are to valid collections. Log errors for any variables that reference invalid Figma files.
  */
 export const verifyReferences = (
   localTokens: ApiGetLocalVariablesResponse[],
