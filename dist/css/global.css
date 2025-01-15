@@ -5,7 +5,6 @@
 :root {
   --hpe-focus-indicator-outline-offset: 2px;
   --hpe-font-stack-primary: 'Metric', Arial, sans-serif; /* The main font stack for an application. */
-  --hpe-font-stack-code: 'Fira Mono', ui-monospace, monospace; /* A monospace font stack for code blocks. */
   --hpe-breakpoint-xsmall: 576px;
   --hpe-breakpoint-small: 768px; /* The breakpoint where spacing and typography sizes shift down to accommodate smaller screen sizes. */
   --hpe-breakpoint-medium: 1080px;

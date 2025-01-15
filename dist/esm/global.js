@@ -14,8 +14,7 @@ export default {
       "boxShadow": "0 0 0 2px #ffffff "
     },
     "fontStack": {
-      "primary": "'Metric', Arial, sans-serif",
-      "code": "'Fira Mono', ui-monospace, monospace"
+      "primary": "'Metric', Arial, sans-serif"
     },
     "breakpoint": {
       "xsmall": "576px",

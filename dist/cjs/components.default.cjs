@@ -1558,22 +1558,17 @@ module.exports = {
           "lineHeight": "2.5rem",
           "gapX": "6px"
         },
-        "3xlarge": {
+        "3xl": {
           "fontSize": "2.625rem",
           "lineHeight": "2.875rem",
           "gapX": "6px"
         },
-        "4xlarge": {
+        "4xl": {
           "fontSize": "3rem",
           "lineHeight": "3rem",
           "gapX": "6px"
         },
-        "5xlarge": {
-          "fontSize": "4.5rem",
-          "lineHeight": "4.5rem",
-          "gapX": "6px"
-        },
-        "6xlarge": {
+        "5xl": {
           "fontSize": "4.5rem",
           "lineHeight": "4.5rem",
           "gapX": "6px"

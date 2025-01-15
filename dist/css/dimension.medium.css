@@ -12,7 +12,6 @@
   --hpe-text-3xl-max-width: 25em;
   --hpe-text-4xl-max-width: 25em;
   --hpe-text-5xl-max-width: 25em;
-  --hpe-text-6xl-max-width: 25em;
   --hpe-radius-full: var(--hpe-base-dimension-9600);
   --hpe-size-icon-xsmall: var(--hpe-base-dimension-350);
   --hpe-size-icon-small: var(--hpe-base-dimension-400);
@@ -20,9 +19,6 @@
   --hpe-size-icon-large: var(--hpe-base-dimension-550);
   --hpe-size-icon-xlarge: var(--hpe-base-dimension-600);
   --hpe-size-icon-xxlarge: var(--hpe-base-dimension-900);
-  --hpe-display-medium-font-size: var(--hpe-base-font-size-900);
-  --hpe-display-medium-line-height: var(--hpe-base-line-height-900);
-  --hpe-display-medium-font-weight: var(--hpe-font-weight-light);
   --hpe-text-xsmall-font-size: var(--hpe-base-font-size-90);
   --hpe-text-xsmall-line-height: var(--hpe-base-line-height-90);
   --hpe-text-xsmall-font-weight: var(--hpe-font-weight-regular);
@@ -50,9 +46,6 @@
   --hpe-text-5xl-font-size: var(--hpe-base-font-size-900);
   --hpe-text-5xl-line-height: var(--hpe-base-line-height-900);
   --hpe-text-5xl-font-weight: var(--hpe-font-weight-light);
-  --hpe-text-6xl-font-size: var(--hpe-base-font-size-1000);
-  --hpe-text-6xl-line-height: var(--hpe-base-line-height-1000);
-  --hpe-text-6xl-font-weight: var(--hpe-font-weight-light);
   --hpe-heading-xlarge-font-weight: var(--hpe-font-weight-medium); /* Font weight typically used on h1. */
   --hpe-heading-xlarge-font-size: var(--hpe-base-font-size-600); /* Font size typically used on h1. */
   --hpe-heading-xlarge-line-height: var(--hpe-base-line-height-500); /* Line height typically used on h1. */

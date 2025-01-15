@@ -171,46 +171,6 @@ export default {
     ],
     "key": "{fontStack.primary}"
   },
-  "hpe.fontStack.code": {
-    "$type": "fontFamily",
-    "$value": "'Fira Mono', ui-monospace, monospace",
-    "$description": "A monospace font stack for code blocks.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": true,
-        "scopes": [
-          "FONT_FAMILY"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/global.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "fontFamily",
-      "$value": "'Fira Mono', ui-monospace, monospace",
-      "$description": "A monospace font stack for code blocks.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_FAMILY"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.fontStack.code",
-    "attributes": {
-      "category": "fontStack",
-      "type": "code"
-    },
-    "path": [
-      "fontStack",
-      "code"
-    ],
-    "key": "{fontStack.code}"
-  },
   "hpe.breakpoint.xsmall": {
     "$type": "number",
     "$value": "576px",

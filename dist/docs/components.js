@@ -40376,7 +40376,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.small.fontSize}",
+      "$value": "{text.small.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40420,7 +40420,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.small.lineHeight}",
+      "$value": "{text.small.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40508,7 +40508,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.medium.fontSize}",
+      "$value": "{text.medium.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40552,7 +40552,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.medium.lineHeight}",
+      "$value": "{text.medium.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40640,7 +40640,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.large.fontSize}",
+      "$value": "{text.large.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40684,7 +40684,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.large.lineHeight}",
+      "$value": "{text.large.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40772,7 +40772,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.xlarge.fontSize}",
+      "$value": "{text.xlarge.fontSize}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40816,7 +40816,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.xlarge.lineHeight}",
+      "$value": "{text.xlarge.lineHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -41019,7 +41019,7 @@ export default {
     ],
     "key": "{anchor.default.xxlarge.gapX}"
   },
-  "hpe.anchor.default.3xlarge.fontSize": {
+  "hpe.anchor.default.3xl.fontSize": {
     "$type": "number",
     "$value": "2.625rem",
     "$description": "",
@@ -41048,22 +41048,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.3xlarge.fontSize",
+    "name": "hpe.anchor.default.3xl.fontSize",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "3xlarge",
+      "item": "3xl",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
       "default",
-      "3xlarge",
+      "3xl",
       "fontSize"
     ],
-    "key": "{anchor.default.3xlarge.fontSize}"
+    "key": "{anchor.default.3xl.fontSize}"
   },
-  "hpe.anchor.default.3xlarge.lineHeight": {
+  "hpe.anchor.default.3xl.lineHeight": {
     "$type": "number",
     "$value": "2.875rem",
     "$description": "",
@@ -41092,22 +41092,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.3xlarge.lineHeight",
+    "name": "hpe.anchor.default.3xl.lineHeight",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "3xlarge",
+      "item": "3xl",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
       "default",
-      "3xlarge",
+      "3xl",
       "lineHeight"
     ],
-    "key": "{anchor.default.3xlarge.lineHeight}"
+    "key": "{anchor.default.3xl.lineHeight}"
   },
-  "hpe.anchor.default.3xlarge.gapX": {
+  "hpe.anchor.default.3xl.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -41136,22 +41136,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.3xlarge.gapX",
+    "name": "hpe.anchor.default.3xl.gapX",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "3xlarge",
+      "item": "3xl",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
       "default",
-      "3xlarge",
+      "3xl",
       "gapX"
     ],
-    "key": "{anchor.default.3xlarge.gapX}"
+    "key": "{anchor.default.3xl.gapX}"
   },
-  "hpe.anchor.default.4xlarge.fontSize": {
+  "hpe.anchor.default.4xl.fontSize": {
     "$type": "number",
     "$value": "3rem",
     "$description": "",
@@ -41180,22 +41180,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.4xlarge.fontSize",
+    "name": "hpe.anchor.default.4xl.fontSize",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "4xlarge",
+      "item": "4xl",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
       "default",
-      "4xlarge",
+      "4xl",
       "fontSize"
     ],
-    "key": "{anchor.default.4xlarge.fontSize}"
+    "key": "{anchor.default.4xl.fontSize}"
   },
-  "hpe.anchor.default.4xlarge.lineHeight": {
+  "hpe.anchor.default.4xl.lineHeight": {
     "$type": "number",
     "$value": "3rem",
     "$description": "",
@@ -41224,22 +41224,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.4xlarge.lineHeight",
+    "name": "hpe.anchor.default.4xl.lineHeight",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "4xlarge",
+      "item": "4xl",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
       "default",
-      "4xlarge",
+      "4xl",
       "lineHeight"
     ],
-    "key": "{anchor.default.4xlarge.lineHeight}"
+    "key": "{anchor.default.4xl.lineHeight}"
   },
-  "hpe.anchor.default.4xlarge.gapX": {
+  "hpe.anchor.default.4xl.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -41268,22 +41268,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.4xlarge.gapX",
+    "name": "hpe.anchor.default.4xl.gapX",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "4xlarge",
+      "item": "4xl",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
       "default",
-      "4xlarge",
+      "4xl",
       "gapX"
     ],
-    "key": "{anchor.default.4xlarge.gapX}"
+    "key": "{anchor.default.4xl.gapX}"
   },
-  "hpe.anchor.default.5xlarge.fontSize": {
+  "hpe.anchor.default.5xl.fontSize": {
     "$type": "number",
     "$value": "4.5rem",
     "$description": "",
@@ -41312,22 +41312,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.5xlarge.fontSize",
+    "name": "hpe.anchor.default.5xl.fontSize",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "5xlarge",
+      "item": "5xl",
       "subitem": "fontSize"
     },
     "path": [
       "anchor",
       "default",
-      "5xlarge",
+      "5xl",
       "fontSize"
     ],
-    "key": "{anchor.default.5xlarge.fontSize}"
+    "key": "{anchor.default.5xl.fontSize}"
   },
-  "hpe.anchor.default.5xlarge.lineHeight": {
+  "hpe.anchor.default.5xl.lineHeight": {
     "$type": "number",
     "$value": "4.5rem",
     "$description": "",
@@ -41356,22 +41356,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.5xlarge.lineHeight",
+    "name": "hpe.anchor.default.5xl.lineHeight",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "5xlarge",
+      "item": "5xl",
       "subitem": "lineHeight"
     },
     "path": [
       "anchor",
       "default",
-      "5xlarge",
+      "5xl",
       "lineHeight"
     ],
-    "key": "{anchor.default.5xlarge.lineHeight}"
+    "key": "{anchor.default.5xl.lineHeight}"
   },
-  "hpe.anchor.default.5xlarge.gapX": {
+  "hpe.anchor.default.5xl.gapX": {
     "$type": "number",
     "$value": "6px",
     "$description": "",
@@ -41400,151 +41400,19 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.5xlarge.gapX",
+    "name": "hpe.anchor.default.5xl.gapX",
     "attributes": {
       "category": "anchor",
       "type": "default",
-      "item": "5xlarge",
+      "item": "5xl",
       "subitem": "gapX"
     },
     "path": [
       "anchor",
       "default",
-      "5xlarge",
+      "5xl",
       "gapX"
     ],
-    "key": "{anchor.default.5xlarge.gapX}"
-  },
-  "hpe.anchor.default.6xlarge.fontSize": {
-    "$type": "number",
-    "$value": "4.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{text.6xl.fontSize}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.anchor.default.6xlarge.fontSize",
-    "attributes": {
-      "category": "anchor",
-      "type": "default",
-      "item": "6xlarge",
-      "subitem": "fontSize"
-    },
-    "path": [
-      "anchor",
-      "default",
-      "6xlarge",
-      "fontSize"
-    ],
-    "key": "{anchor.default.6xlarge.fontSize}"
-  },
-  "hpe.anchor.default.6xlarge.lineHeight": {
-    "$type": "number",
-    "$value": "4.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{text.6xl.lineHeight}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.anchor.default.6xlarge.lineHeight",
-    "attributes": {
-      "category": "anchor",
-      "type": "default",
-      "item": "6xlarge",
-      "subitem": "lineHeight"
-    },
-    "path": [
-      "anchor",
-      "default",
-      "6xlarge",
-      "lineHeight"
-    ],
-    "key": "{anchor.default.6xlarge.lineHeight}"
-  },
-  "hpe.anchor.default.6xlarge.gapX": {
-    "$type": "number",
-    "$value": "6px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "GAP"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{element.xlarge.textToIconX}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.anchor.default.6xlarge.gapX",
-    "attributes": {
-      "category": "anchor",
-      "type": "default",
-      "item": "6xlarge",
-      "subitem": "gapX"
-    },
-    "path": [
-      "anchor",
-      "default",
-      "6xlarge",
-      "gapX"
-    ],
-    "key": "{anchor.default.6xlarge.gapX}"
+    "key": "{anchor.default.5xl.gapX}"
   }
 }

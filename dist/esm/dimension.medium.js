@@ -55,13 +55,6 @@ export default {
         "xxlarge": "36px"
       }
     },
-    "display": {
-      "medium": {
-        "fontSize": "4.5rem",
-        "lineHeight": "4.5rem",
-        "fontWeight": 300
-      }
-    },
     "text": {
       "xsmall": {
         "fontSize": "0.875rem",
@@ -112,12 +105,6 @@ export default {
         "maxWidth": "25em"
       },
       "5xl": {
-        "fontSize": "4.5rem",
-        "lineHeight": "4.5rem",
-        "fontWeight": 300,
-        "maxWidth": "25em"
-      },
-      "6xl": {
         "fontSize": "4.5rem",
         "lineHeight": "4.5rem",
         "fontWeight": 300,
