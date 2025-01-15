@@ -258,6 +258,25 @@ function isAlias(value: string) {
   return value.toString().trim().charAt(0) === '{';
 }
 
+/**
+ * When pushing to Figma, we should strip off "DEFAULT" and "REST" to match simplified token outputs.
+ * Also, format nested roles, prominence, or interaction to hyphenated ("-") approach
+ * e.g. color/background/critical/weak/DEFAULT/REST --> color/background/critical-weak
+ * @param alias
+ */
+const tokenAliasToFigmaAlias = (alias: string): string => {
+  const isColor = /^color/.test(alias);
+  let adjustedName = alias;
+  if (isColor) {
+    let parts = adjustedName.split('/');
+    parts = parts.filter(part => !excludedNameParts.includes(part));
+    const section = parts.slice(0, 2).join('/');
+    const name = parts.slice(2).join('-');
+    adjustedName = `${section}${name ? `/${name}` : ''}`;
+  }
+  return adjustedName;
+};
+
 function variableValueFromToken(
   token: Token,
   localVariablesByCollectionAndName: {
@@ -267,14 +286,12 @@ function variableValueFromToken(
   if (typeof token.$value === 'string' && isAlias(token.$value)) {
     // Assume aliases are in the format {group.subgroup.token} with any number of optional groups/subgroups
     // The Figma syntax for variable names is: group/subgroup/token
-    const value = token.$value
+    let value = token.$value
       .trim()
       .replace(/\./g, '/')
-      .replace(/[\{\}]/g, '')
-      .split('/')
-      .filter(part => !excludedNameParts.includes(part))
-      .join('/');
+      .replace(/[\{\}]/g, '');
 
+    value = tokenAliasToFigmaAlias(value);
     // When mapping aliases to existing local variables, we assume that variable names
     // are unique *across all collections* in the Figma file
     // TO DO how will this work with our density token concept is there are repeated
@@ -502,19 +519,7 @@ export function generatePostVariablesPayload(
       localVariablesByCollectionAndName[variableCollection?.id] || {};
 
     Object.entries(tokens).forEach(([tokenName, token]) => {
-      const isColor = /^color/.test(tokenName);
-      // When pushing to Figma, we should strip off "DEFAULT" and "REST"
-      // to match simplified token outputs
-      // we should also format nested roles, prominence, or interaction to hyphenated ("-") approach
-      // e.g. color/background/critical/weak/DEFAULT/REST --> color/background/critical-weak
-      let adjustedName = tokenName;
-      if (isColor) {
-        let parts = tokenName.split('/');
-        parts = parts.filter(part => !excludedNameParts.includes(part));
-        const section = parts.slice(0, 2).join('/');
-        const name = parts.slice(2).join('-');
-        adjustedName = `${section}${name ? `/${name}` : ''}`;
-      }
+      const adjustedName = tokenAliasToFigmaAlias(tokenName);
 
       const variable = localVariablesByName[adjustedName];
       const variableId = variable ? variable.id : adjustedName;
