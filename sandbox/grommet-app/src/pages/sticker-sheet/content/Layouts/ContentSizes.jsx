@@ -3,11 +3,25 @@ import { Box, Text } from 'grommet';
 import { Compare } from '../../components';
 import ContentPane from '../../../../components/ContentPane';
 
-export const ContentSizes = ({ theme }) => {
+const tshirtSizes = [
+  '4xsmall',
+  '3xsmall',
+  'xxsmall',
+  'xsmall',
+  'small',
+  'medium',
+  'large',
+  'xlarge',
+  'xxlarge',
+  '3xlarge',
+  '4xlarge',
+];
+
+export const ContentSizes = () => {
   return (
     <ContentPane overflow={{ horizontal: 'auto' }}>
       <Box gap="small">
-        {Object.keys(theme.global.size).map(
+        {tshirtSizes.map(
           size =>
             size !== 'responsiveBreakpoint' && (
               <Compare key={size}>

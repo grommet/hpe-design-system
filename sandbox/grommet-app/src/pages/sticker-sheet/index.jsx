@@ -14,10 +14,12 @@ import {
   FormField,
   Tab,
   Tabs,
+  SelectMultiple,
 } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { current as hpeCurrent } from '../../themes/theme';
+import { themes as allThemes } from '../../themes/theme';
 import { ModeContext, TabContent } from './components';
 import {
   Accordions,
@@ -31,6 +33,7 @@ import {
   FileInputs,
   Headings,
   Icons,
+  LayoutGrid,
   Menus,
   Meters,
   NameValueLists,
@@ -55,6 +58,12 @@ import {
   ToggleGroups,
 } from './content';
 
+const themeOptions = Object.entries(allThemes).map(([key, value]) => ({
+  label: key,
+  value,
+}));
+themeOptions.splice(0, 0, { label: 'hpe', value: hpe });
+
 const textSizes = [
   'xsmall',
   'small',
@@ -71,6 +80,9 @@ const textSizes = [
 const StickerSheet = () => {
   const [mode, setMode] = React.useState('Compare diffs');
   const [direction, setDirection] = React.useState('row');
+  const [themes, setThemes] = React.useState(
+    JSON.parse(sessionStorage.getItem('themes')) || [],
+  );
   const [activeIndex, setActiveIndex] = React.useState(
     Number.parseInt(sessionStorage.getItem('activeIndex'), 10) || 0,
   );
@@ -79,12 +91,17 @@ const StickerSheet = () => {
     return {
       mode,
       direction,
+      themes,
     };
-  }, [mode, direction]);
+  }, [mode, direction, themes]);
 
   useEffect(() => {
     sessionStorage.setItem('activeIndex', activeIndex);
   }, [activeIndex]);
+
+  useEffect(() => {
+    sessionStorage.setItem('themes', JSON.stringify(themes));
+  }, [themes]);
 
   return (
     <Grommet
@@ -125,6 +142,23 @@ const StickerSheet = () => {
                       options={['v5', 'next', 'Compare diffs']}
                       value={mode}
                       onChange={({ option }) => setMode(option)}
+                    />
+                  </FormField>
+                  <FormField
+                    label="Themes"
+                    htmlFor="themes__input"
+                    name="themes"
+                  >
+                    <SelectMultiple
+                      id="themes"
+                      name="themes"
+                      options={themeOptions}
+                      value={themes}
+                      onChange={({ value: nextValue }) => {
+                        setThemes(nextValue);
+                      }}
+                      limit={2}
+                      showSelectedInline
                     />
                   </FormField>
                 </Box>
@@ -184,6 +218,7 @@ const StickerSheet = () => {
               </Tab>
               <Tab title="Layout">
                 <TabContent>
+                  <LayoutGrid />
                   <PageHeaders />
                   <Spacing theme={hpeCurrent} />
                   <ContentSizes theme={hpeCurrent} />
