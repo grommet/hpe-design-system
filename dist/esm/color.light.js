@@ -6,149 +6,123 @@ export default {
   "hpe": {
     "color": {
       "background": {
-        "default": "#ffffff",
-        "back": "#f7f7f7",
-        "front": "#ffffff",
-        "floating": "#ffffff",
-        "contrast": "rgba(0, 0, 0, 0.04)",
-        "hover": "rgba(0, 0, 0, 0.04)",
-        "active": "rgba(0, 0, 0, 0.04)",
-        "disabled": "rgba(0, 0, 0, 0.04)",
-        "screenOverlay": "rgba(0, 0, 0, 0.12)",
-        "warning": "rgba(255, 188, 68, 0.24)",
-        "info": "rgba(0, 200, 255, 0.24)",
-        "critical": "rgba(252, 97, 97, 0.24)",
-        "primary": {
-          "default": "#01a982",
-          "hover": "#01a982"
-        },
-        "unknown": "rgba(0, 0, 0, 0.04)",
-        "ok": "rgba(23, 235, 160, 0.24)",
-        "selected": {
-          "strong": {
-            "enabled": "#01a982",
-            "hover": "#01a982"
-          },
-          "weak": {
-            "enabled": "#cbfaeb",
-            "hover": "#aef6df"
-          }
-        },
-        "neutral": {
-          "xstrong": "#2e2e2e"
-        }
+        "default": "var(--hpe-color-background-default)",
+        "back": "var(--hpe-color-background-back)",
+        "front": "var(--hpe-color-background-front)",
+        "floating": "var(--hpe-color-background-floating)",
+        "contrast": "var(--hpe-color-background-contrast)",
+        "hover": "var(--hpe-color-background-hover)",
+        "active": "var(--hpe-color-background-active)",
+        "disabled": "var(--hpe-color-background-disabled)",
+        "screenOverlay": "var(--hpe-color-background-screenOverlay)",
+        "ok": "var(--hpe-color-background-ok)",
+        "critical": "var(--hpe-color-background-critical)",
+        "unknown": "var(--hpe-color-background-unknown)",
+        "info": "var(--hpe-color-background-info)",
+        "warning": "var(--hpe-color-background-warning)",
+        "primary-default": "var(--hpe-color-background-primary-default)",
+        "primary-hover": "var(--hpe-color-background-primary-hover)",
+        "selected-strong-enabled": "var(--hpe-color-background-selected-strong-enabled)",
+        "selected-strong-hover": "var(--hpe-color-background-selected-strong-hover)",
+        "selected-weak-enabled": "var(--hpe-color-background-selected-weak-enabled)",
+        "selected-weak-hover": "var(--hpe-color-background-selected-weak-hover)",
+        "neutral-xstrong": "var(--hpe-color-background-neutral-xstrong)"
       },
       "border": {
-        "strong": "rgba(0, 0, 0, 0.72)",
-        "default": "rgba(0, 0, 0, 0.36)",
-        "weak": "rgba(0, 0, 0, 0.12)",
-        "disabled": "rgba(0, 0, 0, 0.12)",
-        "selected": "#01a982",
-        "critical": "rgba(0, 0, 0, 0.36)",
-        "info": "rgba(0, 0, 0, 0.36)",
-        "ok": "rgba(0, 0, 0, 0.36)",
-        "warning": "rgba(0, 0, 0, 0.36)",
-        "unknown": "rgba(0, 0, 0, 0.36)"
+        "strong": "var(--hpe-color-border-strong)",
+        "default": "var(--hpe-color-border-default)",
+        "weak": "var(--hpe-color-border-weak)",
+        "disabled": "var(--hpe-color-border-disabled)",
+        "selected": "var(--hpe-color-border-selected)",
+        "critical": "var(--hpe-color-border-critical)",
+        "info": "var(--hpe-color-border-info)",
+        "ok": "var(--hpe-color-border-ok)",
+        "warning": "var(--hpe-color-border-warning)",
+        "unknown": "var(--hpe-color-border-unknown)"
       },
       "text": {
-        "default": "#555555",
-        "strong": "#2e2e2e",
-        "weak": "#757575",
-        "placeholder": "#757575",
-        "disabled": "rgba(0, 0, 0, 0.24)",
-        "onPrimary": "#ffffff",
-        "onStrong": {
-          "default": "#ffffff"
-        },
-        "heading": {
-          "default": "#2e2e2e"
-        },
-        "primary": "#006750",
-        "critical": "#555555",
-        "info": "#555555",
-        "ok": "#555555",
-        "warning": "#555555",
-        "unknown": "#555555",
-        "onSelectedStrong": "#ffffff",
-        "onSelected": "#2e2e2e",
-        "onCritical": {
-          "strong": "#2e2e2e",
-          "default": "#555555"
-        },
-        "onInfo": {
-          "strong": "#2e2e2e",
-          "default": "#555555"
-        },
-        "onOk": {
-          "strong": "#2e2e2e",
-          "default": "#555555"
-        },
-        "onUnknown": {
-          "strong": "#2e2e2e",
-          "default": "#555555"
-        },
-        "onWarning": {
-          "strong": "#2e2e2e",
-          "default": "#555555"
-        }
+        "default": "var(--hpe-color-text-default)",
+        "strong": "var(--hpe-color-text-strong)",
+        "weak": "var(--hpe-color-text-weak)",
+        "placeholder": "var(--hpe-color-text-placeholder)",
+        "disabled": "var(--hpe-color-text-disabled)",
+        "onPrimary": "var(--hpe-color-text-onPrimary)",
+        "primary": "var(--hpe-color-text-primary)",
+        "critical": "var(--hpe-color-text-critical)",
+        "info": "var(--hpe-color-text-info)",
+        "ok": "var(--hpe-color-text-ok)",
+        "warning": "var(--hpe-color-text-warning)",
+        "unknown": "var(--hpe-color-text-unknown)",
+        "heading-default": "var(--hpe-color-text-heading-default)",
+        "onSelectedStrong": "var(--hpe-color-text-onSelectedStrong)",
+        "onSelected": "var(--hpe-color-text-onSelected)",
+        "onStrong-default": "var(--hpe-color-text-onStrong-default)",
+        "onCritical-strong": "var(--hpe-color-text-onCritical-strong)",
+        "onCritical-default": "var(--hpe-color-text-onCritical-default)",
+        "onInfo-strong": "var(--hpe-color-text-onInfo-strong)",
+        "onInfo-default": "var(--hpe-color-text-onInfo-default)",
+        "onOk-strong": "var(--hpe-color-text-onOk-strong)",
+        "onOk-default": "var(--hpe-color-text-onOk-default)",
+        "onUnknown-strong": "var(--hpe-color-text-onUnknown-strong)",
+        "onUnknown-default": "var(--hpe-color-text-onUnknown-default)",
+        "onWarning-strong": "var(--hpe-color-text-onWarning-strong)",
+        "onWarning-default": "var(--hpe-color-text-onWarning-default)"
       },
       "icon": {
-        "default": "#555555",
-        "strong": "#2e2e2e",
-        "weak": "#757575",
-        "disabled": "rgba(0, 0, 0, 0.24)",
-        "critical": "#ec3331",
-        "info": "#00c8ff",
-        "ok": "#009a71",
-        "warning": "#d36d00",
-        "unknown": "#8c8c8c",
-        "primary": "#01a982",
-        "onPrimary": "#ffffff",
-        "onSelectedStrong": "#ffffff",
-        "onSelected": "#2e2e2e"
+        "default": "var(--hpe-color-icon-default)",
+        "strong": "var(--hpe-color-icon-strong)",
+        "weak": "var(--hpe-color-icon-weak)",
+        "disabled": "var(--hpe-color-icon-disabled)",
+        "critical": "var(--hpe-color-icon-critical)",
+        "info": "var(--hpe-color-icon-info)",
+        "ok": "var(--hpe-color-icon-ok)",
+        "warning": "var(--hpe-color-icon-warning)",
+        "unknown": "var(--hpe-color-icon-unknown)",
+        "primary": "var(--hpe-color-icon-primary)",
+        "onPrimary": "var(--hpe-color-icon-onPrimary)",
+        "onSelectedStrong": "var(--hpe-color-icon-onSelectedStrong)",
+        "onSelected": "var(--hpe-color-icon-onSelected)"
       },
       "decorative": {
-        "brand": "#01a982",
-        "green": "#17eba0",
-        "purple": "#f740ff",
-        "teal": "#82fff2",
-        "blue": "#00c8ff",
-        "red": "#fc6161",
-        "orange": "#ffbc44",
-        "yellow": "#ffeb59",
-        "purple!": "#7630ea",
-        "green!": "#01a982",
-        "teal!": "#00e8cf",
-        "blue!": "#00739d",
-        "red!": "#c54e4b",
-        "orange!": "#ff8300",
-        "yellow!": "#fec901"
+        "brand": "var(--hpe-color-decorative-brand)",
+        "green": "var(--hpe-color-decorative-green)",
+        "purple": "var(--hpe-color-decorative-purple)",
+        "teal": "var(--hpe-color-decorative-teal)",
+        "blue": "var(--hpe-color-decorative-blue)",
+        "red": "var(--hpe-color-decorative-red)",
+        "orange": "var(--hpe-color-decorative-orange)",
+        "yellow": "var(--hpe-color-decorative-yellow)",
+        "purple!": "var(--hpe-color-decorative-purple!)",
+        "green!": "var(--hpe-color-decorative-green!)",
+        "teal!": "var(--hpe-color-decorative-teal!)",
+        "blue!": "var(--hpe-color-decorative-blue!)",
+        "red!": "var(--hpe-color-decorative-red!)",
+        "orange!": "var(--hpe-color-decorative-orange!)",
+        "yellow!": "var(--hpe-color-decorative-yellow!)"
       },
       "dataVis": {
-        "categorical": {
-          "10": "#01a982",
-          "20": "#00384d",
-          "30": "#bd8d09",
-          "40": "#7022ec",
-          "50": "#3e92cc",
-          "60": "#a70179",
-          "70": "#01609f",
-          "80": "#7800a7"
-        }
+        "categorical-10": "var(--hpe-color-dataVis-categorical-10)",
+        "categorical-20": "var(--hpe-color-dataVis-categorical-20)",
+        "categorical-30": "var(--hpe-color-dataVis-categorical-30)",
+        "categorical-40": "var(--hpe-color-dataVis-categorical-40)",
+        "categorical-50": "var(--hpe-color-dataVis-categorical-50)",
+        "categorical-60": "var(--hpe-color-dataVis-categorical-60)",
+        "categorical-70": "var(--hpe-color-dataVis-categorical-70)",
+        "categorical-80": "var(--hpe-color-dataVis-categorical-80)"
       },
-      "transparent": "rgba(0, 0, 0, 0)",
-      "focus": "#00e8cf",
+      "transparent": "var(--hpe-color-transparent)",
+      "focus": "var(--hpe-color-focus)",
       "foreground": {
-        "primary": "#01a982",
-        "critical": "#ec3331",
-        "warning": "#d36d00",
-        "unknown": "#8c8c8c"
+        "primary": "var(--hpe-color-foreground-primary)",
+        "critical": "var(--hpe-color-foreground-critical)",
+        "warning": "var(--hpe-color-foreground-warning)",
+        "unknown": "var(--hpe-color-foreground-unknown)"
       }
     },
     "shadow": {
-      "small": "0 4px 4px rgba(0, 0, 0, 0.12) ",
-      "medium": "0px 6px 12px 0px rgba(0, 0, 0, 0.12) ",
-      "large": "0px 12px 24px 0px rgba(0, 0, 0, 0.24) "
+      "small": "var(--hpe-shadow-small)",
+      "medium": "var(--hpe-shadow-medium)",
+      "large": "var(--hpe-shadow-large)"
     }
   }
 }

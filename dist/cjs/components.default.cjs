@@ -6,757 +6,757 @@ module.exports = {
   "hpe": {
     "element": {
       "xsmall": {
-        "minHeight": "24px",
-        "textToElementX": "3px",
-        "textToIconX": "3px",
-        "fontSize": "0.875rem",
-        "lineHeight": "1rem",
-        "borderWidth": "default",
-        "paddingY": "3px",
+        "minHeight": "var(--hpe-element-xsmall-minHeight)",
+        "textToElementX": "var(--hpe-element-xsmall-textToElementX)",
+        "textToIconX": "var(--hpe-element-xsmall-textToIconX)",
+        "fontSize": "var(--hpe-element-xsmall-fontSize)",
+        "lineHeight": "var(--hpe-element-xsmall-lineHeight)",
+        "borderWidth": "var(--hpe-element-xsmall-borderWidth)",
+        "paddingY": "var(--hpe-element-xsmall-paddingY)",
         "paddingX": {
-          "narrow": "3px",
-          "default": "6px",
-          "wide": "9px"
+          "narrow": "var(--hpe-element-xsmall-paddingX-narrow)",
+          "default": "var(--hpe-element-xsmall-paddingX-default)",
+          "wide": "var(--hpe-element-xsmall-paddingX-wide)"
         },
         "icon": {
-          "size": "14px"
+          "size": "var(--hpe-element-xsmall-icon-size)"
         },
-        "width": "24px",
-        "height": "24px"
+        "width": "var(--hpe-element-xsmall-width)",
+        "height": "var(--hpe-element-xsmall-height)"
       },
       "small": {
-        "borderWidth": "1px",
-        "paddingY": "3px",
-        "fontSize": "1rem",
-        "lineHeight": "1.25rem",
-        "minHeight": "28px",
-        "width": "28px",
-        "height": "28px",
-        "textToElementX": "12px",
-        "textToIconX": "6px",
+        "borderWidth": "var(--hpe-element-small-borderWidth)",
+        "paddingY": "var(--hpe-element-small-paddingY)",
+        "fontSize": "var(--hpe-element-small-fontSize)",
+        "lineHeight": "var(--hpe-element-small-lineHeight)",
+        "minHeight": "var(--hpe-element-small-minHeight)",
+        "width": "var(--hpe-element-small-width)",
+        "height": "var(--hpe-element-small-height)",
+        "textToElementX": "var(--hpe-element-small-textToElementX)",
+        "textToIconX": "var(--hpe-element-small-textToIconX)",
         "paddingX": {
-          "narrow": "3px",
-          "default": "6px",
-          "wide": "12px"
+          "narrow": "var(--hpe-element-small-paddingX-narrow)",
+          "default": "var(--hpe-element-small-paddingX-default)",
+          "wide": "var(--hpe-element-small-paddingX-wide)"
         },
         "icon": {
-          "size": "16px"
+          "size": "var(--hpe-element-small-icon-size)"
         }
       },
       "medium": {
-        "fontSize": "1.125rem",
-        "lineHeight": "1.5rem",
-        "minHeight": "36px",
-        "width": "36px",
-        "height": "36px",
-        "textToElementX": "12px",
-        "textToIconX": "6px",
-        "borderWidth": "default",
-        "paddingY": "5px",
+        "fontSize": "var(--hpe-element-medium-fontSize)",
+        "lineHeight": "var(--hpe-element-medium-lineHeight)",
+        "minHeight": "var(--hpe-element-medium-minHeight)",
+        "width": "var(--hpe-element-medium-width)",
+        "height": "var(--hpe-element-medium-height)",
+        "textToElementX": "var(--hpe-element-medium-textToElementX)",
+        "textToIconX": "var(--hpe-element-medium-textToIconX)",
+        "borderWidth": "var(--hpe-element-medium-borderWidth)",
+        "paddingY": "var(--hpe-element-medium-paddingY)",
         "paddingX": {
-          "narrow": "5px",
-          "default": "10px",
-          "wide": "18px"
+          "narrow": "var(--hpe-element-medium-paddingX-narrow)",
+          "default": "var(--hpe-element-medium-paddingX-default)",
+          "wide": "var(--hpe-element-medium-paddingX-wide)"
         },
         "icon": {
-          "size": "18px"
+          "size": "var(--hpe-element-medium-icon-size)"
         }
       },
       "large": {
-        "fontSize": "1.375rem",
-        "lineHeight": "1.75rem",
-        "minHeight": "48px",
-        "width": "48px",
-        "height": "48px",
-        "textToElementX": "12px",
-        "textToIconX": "6px",
-        "borderWidth": "default",
-        "paddingY": "9px",
+        "fontSize": "var(--hpe-element-large-fontSize)",
+        "lineHeight": "var(--hpe-element-large-lineHeight)",
+        "minHeight": "var(--hpe-element-large-minHeight)",
+        "width": "var(--hpe-element-large-width)",
+        "height": "var(--hpe-element-large-height)",
+        "textToElementX": "var(--hpe-element-large-textToElementX)",
+        "textToIconX": "var(--hpe-element-large-textToIconX)",
+        "borderWidth": "var(--hpe-element-large-borderWidth)",
+        "paddingY": "var(--hpe-element-large-paddingY)",
         "paddingX": {
-          "narrow": "9px",
-          "default": "18px",
-          "wide": "24px"
+          "narrow": "var(--hpe-element-large-paddingX-narrow)",
+          "default": "var(--hpe-element-large-paddingX-default)",
+          "wide": "var(--hpe-element-large-paddingX-wide)"
         },
         "icon": {
-          "size": "22px"
+          "size": "var(--hpe-element-large-icon-size)"
         }
       },
       "xlarge": {
-        "fontSize": "1.5rem",
-        "lineHeight": "1.875rem",
-        "minHeight": "72px",
-        "width": "72px",
-        "height": "72px",
-        "textToElementX": "12px",
-        "textToIconX": "6px",
-        "borderWidth": "default",
-        "paddingY": "20px",
+        "fontSize": "var(--hpe-element-xlarge-fontSize)",
+        "lineHeight": "var(--hpe-element-xlarge-lineHeight)",
+        "minHeight": "var(--hpe-element-xlarge-minHeight)",
+        "width": "var(--hpe-element-xlarge-width)",
+        "height": "var(--hpe-element-xlarge-height)",
+        "textToElementX": "var(--hpe-element-xlarge-textToElementX)",
+        "textToIconX": "var(--hpe-element-xlarge-textToIconX)",
+        "borderWidth": "var(--hpe-element-xlarge-borderWidth)",
+        "paddingY": "var(--hpe-element-xlarge-paddingY)",
         "paddingX": {
-          "narrow": "20px",
-          "default": "24px",
-          "wide": "32px"
+          "narrow": "var(--hpe-element-xlarge-paddingX-narrow)",
+          "default": "var(--hpe-element-xlarge-paddingX-default)",
+          "wide": "var(--hpe-element-xlarge-paddingX-wide)"
         },
         "icon": {
-          "size": "24px"
+          "size": "var(--hpe-element-xlarge-icon-size)"
         }
       }
     },
     "button": {
       "primary": {
         "rest": {
-          "background": "linear-gradient(70deg, rgba(0, 0, 0, 0), #01a982 35%, rgba(0, 0, 0, 0) 70%, #01a982 100%)",
-          "borderColor": "transparent",
-          "textColor": "text-onPrimary",
-          "iconColor": "icon-onPrimary",
-          "fontWeight": 700,
-          "backgroundColor": "background-primary-default"
+          "background": "var(--hpe-button-primary-rest-background)",
+          "borderColor": "var(--hpe-button-primary-rest-borderColor)",
+          "textColor": "var(--hpe-button-primary-rest-textColor)",
+          "iconColor": "var(--hpe-button-primary-rest-iconColor)",
+          "fontWeight": "var(--hpe-button-primary-rest-fontWeight)",
+          "backgroundColor": "var(--hpe-button-primary-rest-backgroundColor)"
         },
         "disabled": {
           "rest": {
-            "background": "background-disabled",
-            "borderColor": "transparent",
-            "textColor": "text-disabled",
-            "iconColor": "icon-disabled",
-            "fontWeight": 700
+            "background": "var(--hpe-button-primary-disabled-rest-background)",
+            "borderColor": "var(--hpe-button-primary-disabled-rest-borderColor)",
+            "textColor": "var(--hpe-button-primary-disabled-rest-textColor)",
+            "iconColor": "var(--hpe-button-primary-disabled-rest-iconColor)",
+            "fontWeight": "var(--hpe-button-primary-disabled-rest-fontWeight)"
           }
         },
         "hover": {
-          "background": "#008567",
-          "borderColor": "transparent",
-          "textColor": "text-onPrimary",
-          "iconColor": "icon-onPrimary",
-          "fontWeight": 700
+          "background": "var(--hpe-button-primary-hover-background)",
+          "borderColor": "var(--hpe-button-primary-hover-borderColor)",
+          "textColor": "var(--hpe-button-primary-hover-textColor)",
+          "iconColor": "var(--hpe-button-primary-hover-iconColor)",
+          "fontWeight": "var(--hpe-button-primary-hover-fontWeight)"
         },
         "selected": {
           "rest": {
-            "background": "background-active",
-            "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 700
+            "background": "var(--hpe-button-primary-selected-rest-background)",
+            "borderColor": "var(--hpe-button-primary-selected-rest-borderColor)",
+            "textColor": "var(--hpe-button-primary-selected-rest-textColor)",
+            "iconColor": "var(--hpe-button-primary-selected-rest-iconColor)",
+            "fontWeight": "var(--hpe-button-primary-selected-rest-fontWeight)"
           },
           "hover": {
-            "background": "background-active",
-            "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 700
+            "background": "var(--hpe-button-primary-selected-hover-background)",
+            "borderColor": "var(--hpe-button-primary-selected-hover-borderColor)",
+            "textColor": "var(--hpe-button-primary-selected-hover-textColor)",
+            "iconColor": "var(--hpe-button-primary-selected-hover-iconColor)",
+            "fontWeight": "var(--hpe-button-primary-selected-hover-fontWeight)"
           }
         },
         "xsmall": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "default",
-          "minHeight": "24px",
-          "fontSize": "0.875rem",
+          "paddingX": "var(--hpe-button-primary-xsmall-paddingX)",
+          "paddingY": "var(--hpe-button-primary-xsmall-paddingY)",
+          "borderRadius": "var(--hpe-button-primary-xsmall-borderRadius)",
+          "borderWidth": "var(--hpe-button-primary-xsmall-borderWidth)",
+          "minHeight": "var(--hpe-button-primary-xsmall-minHeight)",
+          "fontSize": "var(--hpe-button-primary-xsmall-fontSize)",
           "iconOnly": {
-            "paddingX": "4px",
-            "paddingY": "4px",
-            "borderRadius": "384px",
-            "borderWidth": "default",
-            "minHeight": "24px",
-            "minWidth": "24px",
-            "fontSize": "0.875rem",
-            "lineHeight": "1rem",
-            "gapX": "3px"
+            "paddingX": "var(--hpe-button-primary-xsmall-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-primary-xsmall-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-primary-xsmall-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-primary-xsmall-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-primary-xsmall-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-primary-xsmall-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-primary-xsmall-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-primary-xsmall-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-primary-xsmall-iconOnly-gapX)"
           },
-          "lineHeight": "1rem",
-          "gapX": "3px"
+          "lineHeight": "var(--hpe-button-primary-xsmall-lineHeight)",
+          "gapX": "var(--hpe-button-primary-xsmall-gapX)"
         },
         "small": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "28px",
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-primary-small-paddingX)",
+          "paddingY": "var(--hpe-button-primary-small-paddingY)",
+          "borderRadius": "var(--hpe-button-primary-small-borderRadius)",
+          "borderWidth": "var(--hpe-button-primary-small-borderWidth)",
+          "minHeight": "var(--hpe-button-primary-small-minHeight)",
+          "fontSize": "var(--hpe-button-primary-small-fontSize)",
+          "lineHeight": "var(--hpe-button-primary-small-lineHeight)",
+          "gapX": "var(--hpe-button-primary-small-gapX)",
           "iconOnly": {
-            "paddingX": "5px",
-            "paddingY": "5px",
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "28px",
-            "minWidth": "28px",
-            "fontSize": "1rem",
-            "lineHeight": "1.25rem",
-            "gapX": "6px"
+            "paddingX": "var(--hpe-button-primary-small-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-primary-small-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-primary-small-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-primary-small-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-primary-small-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-primary-small-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-primary-small-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-primary-small-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-primary-small-iconOnly-gapX)"
           }
         },
         "medium": {
-          "paddingX": "18px",
-          "paddingY": "5px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "36px",
-          "fontSize": "19px",
-          "lineHeight": "1.5rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-primary-medium-paddingX)",
+          "paddingY": "var(--hpe-button-primary-medium-paddingY)",
+          "borderRadius": "var(--hpe-button-primary-medium-borderRadius)",
+          "borderWidth": "var(--hpe-button-primary-medium-borderWidth)",
+          "minHeight": "var(--hpe-button-primary-medium-minHeight)",
+          "fontSize": "var(--hpe-button-primary-medium-fontSize)",
+          "lineHeight": "var(--hpe-button-primary-medium-lineHeight)",
+          "gapX": "var(--hpe-button-primary-medium-gapX)",
           "iconOnly": {
-            "paddingX": "8px",
-            "paddingY": "8px",
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "36px",
-            "minWidth": "36px",
-            "fontSize": "19px",
-            "lineHeight": "1.5rem",
-            "gapX": "6px"
+            "paddingX": "var(--hpe-button-primary-medium-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-primary-medium-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-primary-medium-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-primary-medium-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-primary-medium-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-primary-medium-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-primary-medium-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-primary-medium-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-primary-medium-iconOnly-gapX)"
           }
         },
         "large": {
-          "paddingX": "24px",
-          "paddingY": "9px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "48px",
-          "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-primary-large-paddingX)",
+          "paddingY": "var(--hpe-button-primary-large-paddingY)",
+          "borderRadius": "var(--hpe-button-primary-large-borderRadius)",
+          "borderWidth": "var(--hpe-button-primary-large-borderWidth)",
+          "minHeight": "var(--hpe-button-primary-large-minHeight)",
+          "fontSize": "var(--hpe-button-primary-large-fontSize)",
+          "lineHeight": "var(--hpe-button-primary-large-lineHeight)",
+          "gapX": "var(--hpe-button-primary-large-gapX)",
           "iconOnly": {
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "48px",
-            "minWidth": "48px",
-            "fontSize": "1.375rem",
-            "lineHeight": "1.75rem",
-            "gapX": "6px",
-            "paddingX": "12px",
-            "paddingY": "12px"
+            "borderRadius": "var(--hpe-button-primary-large-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-primary-large-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-primary-large-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-primary-large-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-primary-large-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-primary-large-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-primary-large-iconOnly-gapX)",
+            "paddingX": "var(--hpe-button-primary-large-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-primary-large-iconOnly-paddingY)"
           }
         },
         "xlarge": {
           "iconOnly": {
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "72px",
-            "minWidth": "72px",
-            "fontSize": "1.5rem",
-            "lineHeight": "1.875rem",
-            "gapX": "6px",
-            "paddingX": "23px",
-            "paddingY": "23px"
+            "borderRadius": "var(--hpe-button-primary-xlarge-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-primary-xlarge-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-primary-xlarge-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-primary-xlarge-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-primary-xlarge-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-primary-xlarge-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-primary-xlarge-iconOnly-gapX)",
+            "paddingX": "var(--hpe-button-primary-xlarge-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-primary-xlarge-iconOnly-paddingY)"
           },
-          "paddingX": "32px",
-          "paddingY": "20px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "72px",
-          "fontSize": "1.5rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px"
+          "paddingX": "var(--hpe-button-primary-xlarge-paddingX)",
+          "paddingY": "var(--hpe-button-primary-xlarge-paddingY)",
+          "borderRadius": "var(--hpe-button-primary-xlarge-borderRadius)",
+          "borderWidth": "var(--hpe-button-primary-xlarge-borderWidth)",
+          "minHeight": "var(--hpe-button-primary-xlarge-minHeight)",
+          "fontSize": "var(--hpe-button-primary-xlarge-fontSize)",
+          "lineHeight": "var(--hpe-button-primary-xlarge-lineHeight)",
+          "gapX": "var(--hpe-button-primary-xlarge-gapX)"
         }
       },
       "secondary": {
         "rest": {
-          "background": "transparent",
-          "borderColor": "background-primary-default",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "background": "var(--hpe-button-secondary-rest-background)",
+          "borderColor": "var(--hpe-button-secondary-rest-borderColor)",
+          "textColor": "var(--hpe-button-secondary-rest-textColor)",
+          "iconColor": "var(--hpe-button-secondary-rest-iconColor)",
+          "fontWeight": "var(--hpe-button-secondary-rest-fontWeight)"
         },
         "hover": {
-          "background": "transparent",
-          "borderColor": "border-selected",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "background": "var(--hpe-button-secondary-hover-background)",
+          "borderColor": "var(--hpe-button-secondary-hover-borderColor)",
+          "textColor": "var(--hpe-button-secondary-hover-textColor)",
+          "iconColor": "var(--hpe-button-secondary-hover-iconColor)",
+          "fontWeight": "var(--hpe-button-secondary-hover-fontWeight)"
         },
         "disabled": {
           "rest": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled",
-            "textColor": "text-disabled",
-            "iconColor": "icon-disabled",
-            "fontWeight": 600
+            "background": "var(--hpe-button-secondary-disabled-rest-background)",
+            "borderColor": "var(--hpe-button-secondary-disabled-rest-borderColor)",
+            "textColor": "var(--hpe-button-secondary-disabled-rest-textColor)",
+            "iconColor": "var(--hpe-button-secondary-disabled-rest-iconColor)",
+            "fontWeight": "var(--hpe-button-secondary-disabled-rest-fontWeight)"
           }
         },
         "selected": {
           "rest": {
-            "background": "background-active",
-            "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 600
+            "background": "var(--hpe-button-secondary-selected-rest-background)",
+            "borderColor": "var(--hpe-button-secondary-selected-rest-borderColor)",
+            "textColor": "var(--hpe-button-secondary-selected-rest-textColor)",
+            "iconColor": "var(--hpe-button-secondary-selected-rest-iconColor)",
+            "fontWeight": "var(--hpe-button-secondary-selected-rest-fontWeight)"
           },
           "hover": {
-            "background": "background-active",
-            "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 600
+            "background": "var(--hpe-button-secondary-selected-hover-background)",
+            "borderColor": "var(--hpe-button-secondary-selected-hover-borderColor)",
+            "textColor": "var(--hpe-button-secondary-selected-hover-textColor)",
+            "iconColor": "var(--hpe-button-secondary-selected-hover-iconColor)",
+            "fontWeight": "var(--hpe-button-secondary-selected-hover-fontWeight)"
           }
         },
         "xsmall": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "default",
-          "minHeight": "24px",
-          "fontSize": "0.875rem",
-          "lineHeight": "1rem",
-          "gapX": "3px",
+          "paddingX": "var(--hpe-button-secondary-xsmall-paddingX)",
+          "paddingY": "var(--hpe-button-secondary-xsmall-paddingY)",
+          "borderRadius": "var(--hpe-button-secondary-xsmall-borderRadius)",
+          "borderWidth": "var(--hpe-button-secondary-xsmall-borderWidth)",
+          "minHeight": "var(--hpe-button-secondary-xsmall-minHeight)",
+          "fontSize": "var(--hpe-button-secondary-xsmall-fontSize)",
+          "lineHeight": "var(--hpe-button-secondary-xsmall-lineHeight)",
+          "gapX": "var(--hpe-button-secondary-xsmall-gapX)",
           "iconOnly": {
-            "paddingX": "4px",
-            "paddingY": "4px",
-            "borderRadius": "384px",
-            "borderWidth": "default",
-            "minHeight": "24px",
-            "minWidth": "24px",
-            "fontSize": "0.875rem",
-            "lineHeight": "1rem",
-            "gapX": "3px"
+            "paddingX": "var(--hpe-button-secondary-xsmall-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-secondary-xsmall-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-secondary-xsmall-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-secondary-xsmall-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-secondary-xsmall-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-secondary-xsmall-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-secondary-xsmall-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-secondary-xsmall-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-secondary-xsmall-iconOnly-gapX)"
           },
           "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+            "boxShadow": "var(--hpe-button-secondary-xsmall-hover-boxShadow)"
           }
         },
         "small": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "28px",
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-secondary-small-paddingX)",
+          "paddingY": "var(--hpe-button-secondary-small-paddingY)",
+          "borderRadius": "var(--hpe-button-secondary-small-borderRadius)",
+          "borderWidth": "var(--hpe-button-secondary-small-borderWidth)",
+          "minHeight": "var(--hpe-button-secondary-small-minHeight)",
+          "fontSize": "var(--hpe-button-secondary-small-fontSize)",
+          "lineHeight": "var(--hpe-button-secondary-small-lineHeight)",
+          "gapX": "var(--hpe-button-secondary-small-gapX)",
           "iconOnly": {
-            "paddingX": "5px",
-            "paddingY": "5px",
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "28px",
-            "minWidth": "28px",
-            "fontSize": "1rem",
-            "lineHeight": "1.25rem",
-            "gapX": "6px"
+            "paddingX": "var(--hpe-button-secondary-small-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-secondary-small-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-secondary-small-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-secondary-small-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-secondary-small-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-secondary-small-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-secondary-small-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-secondary-small-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-secondary-small-iconOnly-gapX)"
           },
           "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+            "boxShadow": "var(--hpe-button-secondary-small-hover-boxShadow)"
           }
         },
         "medium": {
-          "paddingX": "18px",
-          "paddingY": "4px",
-          "borderRadius": "384px",
-          "borderWidth": "2px",
-          "minHeight": "36px",
-          "fontSize": "19px",
-          "lineHeight": "1.5rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-secondary-medium-paddingX)",
+          "paddingY": "var(--hpe-button-secondary-medium-paddingY)",
+          "borderRadius": "var(--hpe-button-secondary-medium-borderRadius)",
+          "borderWidth": "var(--hpe-button-secondary-medium-borderWidth)",
+          "minHeight": "var(--hpe-button-secondary-medium-minHeight)",
+          "fontSize": "var(--hpe-button-secondary-medium-fontSize)",
+          "lineHeight": "var(--hpe-button-secondary-medium-lineHeight)",
+          "gapX": "var(--hpe-button-secondary-medium-gapX)",
           "iconOnly": {
-            "paddingX": "7px",
-            "paddingY": "7px",
-            "borderRadius": "384px",
-            "borderWidth": "2px",
-            "minHeight": "36px",
-            "minWidth": "36px",
-            "fontSize": "19px",
-            "lineHeight": "1.5rem",
-            "gapX": "6px"
+            "paddingX": "var(--hpe-button-secondary-medium-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-secondary-medium-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-secondary-medium-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-secondary-medium-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-secondary-medium-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-secondary-medium-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-secondary-medium-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-secondary-medium-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-secondary-medium-iconOnly-gapX)"
           },
           "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+            "boxShadow": "var(--hpe-button-secondary-medium-hover-boxShadow)"
           }
         },
         "large": {
-          "paddingX": "24px",
-          "paddingY": "8px",
-          "borderRadius": "384px",
-          "borderWidth": "2px",
-          "minHeight": "48px",
-          "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-secondary-large-paddingX)",
+          "paddingY": "var(--hpe-button-secondary-large-paddingY)",
+          "borderRadius": "var(--hpe-button-secondary-large-borderRadius)",
+          "borderWidth": "var(--hpe-button-secondary-large-borderWidth)",
+          "minHeight": "var(--hpe-button-secondary-large-minHeight)",
+          "fontSize": "var(--hpe-button-secondary-large-fontSize)",
+          "lineHeight": "var(--hpe-button-secondary-large-lineHeight)",
+          "gapX": "var(--hpe-button-secondary-large-gapX)",
           "iconOnly": {
-            "borderRadius": "384px",
-            "borderWidth": "2px",
-            "minHeight": "48px",
-            "minWidth": "48px",
-            "fontSize": "1.375rem",
-            "lineHeight": "1.75rem",
-            "gapX": "6px",
-            "paddingX": "12px",
-            "paddingY": "12px"
+            "borderRadius": "var(--hpe-button-secondary-large-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-secondary-large-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-secondary-large-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-secondary-large-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-secondary-large-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-secondary-large-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-secondary-large-iconOnly-gapX)",
+            "paddingX": "var(--hpe-button-secondary-large-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-secondary-large-iconOnly-paddingY)"
           },
           "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+            "boxShadow": "var(--hpe-button-secondary-large-hover-boxShadow)"
           }
         },
         "xlarge": {
           "iconOnly": {
-            "borderRadius": "384px",
-            "borderWidth": "2px",
-            "minHeight": "72px",
-            "minWidth": "72px",
-            "fontSize": "1.5rem",
-            "lineHeight": "1.875rem",
-            "gapX": "6px",
-            "paddingX": "23px",
-            "paddingY": "23px"
+            "borderRadius": "var(--hpe-button-secondary-xlarge-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-secondary-xlarge-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-secondary-xlarge-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-secondary-xlarge-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-secondary-xlarge-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-secondary-xlarge-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-secondary-xlarge-iconOnly-gapX)",
+            "paddingX": "var(--hpe-button-secondary-xlarge-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-secondary-xlarge-iconOnly-paddingY)"
           },
-          "paddingX": "32px",
-          "paddingY": "19px",
-          "borderRadius": "384px",
-          "borderWidth": "2px",
-          "minHeight": "72px",
-          "fontSize": "1.5rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-secondary-xlarge-paddingX)",
+          "paddingY": "var(--hpe-button-secondary-xlarge-paddingY)",
+          "borderRadius": "var(--hpe-button-secondary-xlarge-borderRadius)",
+          "borderWidth": "var(--hpe-button-secondary-xlarge-borderWidth)",
+          "minHeight": "var(--hpe-button-secondary-xlarge-minHeight)",
+          "fontSize": "var(--hpe-button-secondary-xlarge-fontSize)",
+          "lineHeight": "var(--hpe-button-secondary-xlarge-lineHeight)",
+          "gapX": "var(--hpe-button-secondary-xlarge-gapX)",
           "hover": {
-            "boxShadow": "0px 0px 0px 1px #01a982 inset"
+            "boxShadow": "var(--hpe-button-secondary-xlarge-hover-boxShadow)"
           }
         }
       },
       "default": {
         "rest": {
-          "background": "transparent",
-          "borderColor": "transparent",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "background": "var(--hpe-button-default-rest-background)",
+          "borderColor": "var(--hpe-button-default-rest-borderColor)",
+          "textColor": "var(--hpe-button-default-rest-textColor)",
+          "iconColor": "var(--hpe-button-default-rest-iconColor)",
+          "fontWeight": "var(--hpe-button-default-rest-fontWeight)"
         },
         "disabled": {
           "rest": {
-            "background": "transparent",
-            "borderColor": "transparent",
-            "textColor": "text-disabled",
-            "iconColor": "icon-disabled",
-            "fontWeight": 600
+            "background": "var(--hpe-button-default-disabled-rest-background)",
+            "borderColor": "var(--hpe-button-default-disabled-rest-borderColor)",
+            "textColor": "var(--hpe-button-default-disabled-rest-textColor)",
+            "iconColor": "var(--hpe-button-default-disabled-rest-iconColor)",
+            "fontWeight": "var(--hpe-button-default-disabled-rest-fontWeight)"
           }
         },
         "hover": {
-          "background": "background-hover",
-          "borderColor": "transparent",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "background": "var(--hpe-button-default-hover-background)",
+          "borderColor": "var(--hpe-button-default-hover-borderColor)",
+          "textColor": "var(--hpe-button-default-hover-textColor)",
+          "iconColor": "var(--hpe-button-default-hover-iconColor)",
+          "fontWeight": "var(--hpe-button-default-hover-fontWeight)"
         },
         "selected": {
           "rest": {
-            "background": "background-active",
-            "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 600
+            "background": "var(--hpe-button-default-selected-rest-background)",
+            "borderColor": "var(--hpe-button-default-selected-rest-borderColor)",
+            "textColor": "var(--hpe-button-default-selected-rest-textColor)",
+            "iconColor": "var(--hpe-button-default-selected-rest-iconColor)",
+            "fontWeight": "var(--hpe-button-default-selected-rest-fontWeight)"
           },
           "hover": {
-            "background": "background-active",
-            "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 600
+            "background": "var(--hpe-button-default-selected-hover-background)",
+            "borderColor": "var(--hpe-button-default-selected-hover-borderColor)",
+            "textColor": "var(--hpe-button-default-selected-hover-textColor)",
+            "iconColor": "var(--hpe-button-default-selected-hover-iconColor)",
+            "fontWeight": "var(--hpe-button-default-selected-hover-fontWeight)"
           }
         },
         "xsmall": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "default",
-          "minHeight": "24px",
-          "fontSize": "0.875rem",
-          "lineHeight": "1rem",
-          "gapX": "3px",
+          "paddingX": "var(--hpe-button-default-xsmall-paddingX)",
+          "paddingY": "var(--hpe-button-default-xsmall-paddingY)",
+          "borderRadius": "var(--hpe-button-default-xsmall-borderRadius)",
+          "borderWidth": "var(--hpe-button-default-xsmall-borderWidth)",
+          "minHeight": "var(--hpe-button-default-xsmall-minHeight)",
+          "fontSize": "var(--hpe-button-default-xsmall-fontSize)",
+          "lineHeight": "var(--hpe-button-default-xsmall-lineHeight)",
+          "gapX": "var(--hpe-button-default-xsmall-gapX)",
           "iconOnly": {
-            "paddingX": "4px",
-            "paddingY": "4px",
-            "borderRadius": "384px",
-            "borderWidth": "default",
-            "minHeight": "24px",
-            "minWidth": "24px",
-            "fontSize": "0.875rem",
-            "lineHeight": "1rem",
-            "gapX": "3px"
+            "paddingX": "var(--hpe-button-default-xsmall-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-default-xsmall-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-default-xsmall-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-default-xsmall-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-default-xsmall-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-default-xsmall-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-default-xsmall-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-default-xsmall-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-default-xsmall-iconOnly-gapX)"
           }
         },
         "small": {
-          "paddingX": "12px",
-          "paddingY": "3px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "28px",
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-default-small-paddingX)",
+          "paddingY": "var(--hpe-button-default-small-paddingY)",
+          "borderRadius": "var(--hpe-button-default-small-borderRadius)",
+          "borderWidth": "var(--hpe-button-default-small-borderWidth)",
+          "minHeight": "var(--hpe-button-default-small-minHeight)",
+          "fontSize": "var(--hpe-button-default-small-fontSize)",
+          "lineHeight": "var(--hpe-button-default-small-lineHeight)",
+          "gapX": "var(--hpe-button-default-small-gapX)",
           "iconOnly": {
-            "paddingX": "5px",
-            "paddingY": "5px",
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "28px",
-            "minWidth": "28px",
-            "fontSize": "1rem",
-            "lineHeight": "1.25rem",
-            "gapX": "6px"
+            "paddingX": "var(--hpe-button-default-small-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-default-small-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-default-small-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-default-small-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-default-small-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-default-small-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-default-small-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-default-small-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-default-small-iconOnly-gapX)"
           }
         },
         "medium": {
-          "paddingX": "18px",
-          "paddingY": "5px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "36px",
-          "fontSize": "19px",
-          "lineHeight": "1.5rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-default-medium-paddingX)",
+          "paddingY": "var(--hpe-button-default-medium-paddingY)",
+          "borderRadius": "var(--hpe-button-default-medium-borderRadius)",
+          "borderWidth": "var(--hpe-button-default-medium-borderWidth)",
+          "minHeight": "var(--hpe-button-default-medium-minHeight)",
+          "fontSize": "var(--hpe-button-default-medium-fontSize)",
+          "lineHeight": "var(--hpe-button-default-medium-lineHeight)",
+          "gapX": "var(--hpe-button-default-medium-gapX)",
           "iconOnly": {
-            "paddingX": "8px",
-            "paddingY": "8px",
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "36px",
-            "minWidth": "36px",
-            "fontSize": "19px",
-            "lineHeight": "1.5rem",
-            "gapX": "6px"
+            "paddingX": "var(--hpe-button-default-medium-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-default-medium-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-default-medium-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-default-medium-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-default-medium-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-default-medium-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-default-medium-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-default-medium-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-default-medium-iconOnly-gapX)"
           }
         },
         "large": {
-          "paddingX": "24px",
-          "paddingY": "9px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "48px",
-          "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-default-large-paddingX)",
+          "paddingY": "var(--hpe-button-default-large-paddingY)",
+          "borderRadius": "var(--hpe-button-default-large-borderRadius)",
+          "borderWidth": "var(--hpe-button-default-large-borderWidth)",
+          "minHeight": "var(--hpe-button-default-large-minHeight)",
+          "fontSize": "var(--hpe-button-default-large-fontSize)",
+          "lineHeight": "var(--hpe-button-default-large-lineHeight)",
+          "gapX": "var(--hpe-button-default-large-gapX)",
           "iconOnly": {
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "48px",
-            "minWidth": "48px",
-            "fontSize": "1.375rem",
-            "lineHeight": "1.75rem",
-            "gapX": "6px",
-            "paddingX": "12px",
-            "paddingY": "12px"
+            "borderRadius": "var(--hpe-button-default-large-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-default-large-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-default-large-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-default-large-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-default-large-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-default-large-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-default-large-iconOnly-gapX)",
+            "paddingX": "var(--hpe-button-default-large-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-default-large-iconOnly-paddingY)"
           }
         },
         "xlarge": {
           "iconOnly": {
-            "borderRadius": "384px",
-            "borderWidth": "1px",
-            "minHeight": "72px",
-            "minWidth": "72px",
-            "fontSize": "1.5rem",
-            "lineHeight": "1.875rem",
-            "gapX": "6px",
-            "paddingX": "23px",
-            "paddingY": "23px"
+            "borderRadius": "var(--hpe-button-default-xlarge-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-default-xlarge-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-default-xlarge-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-default-xlarge-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-default-xlarge-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-default-xlarge-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-default-xlarge-iconOnly-gapX)",
+            "paddingX": "var(--hpe-button-default-xlarge-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-default-xlarge-iconOnly-paddingY)"
           },
-          "paddingX": "32px",
-          "paddingY": "20px",
-          "borderRadius": "384px",
-          "borderWidth": "1px",
-          "minHeight": "72px",
-          "fontSize": "1.5rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px"
+          "paddingX": "var(--hpe-button-default-xlarge-paddingX)",
+          "paddingY": "var(--hpe-button-default-xlarge-paddingY)",
+          "borderRadius": "var(--hpe-button-default-xlarge-borderRadius)",
+          "borderWidth": "var(--hpe-button-default-xlarge-borderWidth)",
+          "minHeight": "var(--hpe-button-default-xlarge-minHeight)",
+          "fontSize": "var(--hpe-button-default-xlarge-fontSize)",
+          "lineHeight": "var(--hpe-button-default-xlarge-lineHeight)",
+          "gapX": "var(--hpe-button-default-xlarge-gapX)"
         }
       },
       "toolbar": {
         "rest": {
-          "background": "transparent",
-          "borderColor": "border-default",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "background": "var(--hpe-button-toolbar-rest-background)",
+          "borderColor": "var(--hpe-button-toolbar-rest-borderColor)",
+          "textColor": "var(--hpe-button-toolbar-rest-textColor)",
+          "iconColor": "var(--hpe-button-toolbar-rest-iconColor)",
+          "fontWeight": "var(--hpe-button-toolbar-rest-fontWeight)"
         },
         "hover": {
-          "background": "background-hover",
-          "borderColor": "border-default",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "background": "var(--hpe-button-toolbar-hover-background)",
+          "borderColor": "var(--hpe-button-toolbar-hover-borderColor)",
+          "textColor": "var(--hpe-button-toolbar-hover-textColor)",
+          "iconColor": "var(--hpe-button-toolbar-hover-iconColor)",
+          "fontWeight": "var(--hpe-button-toolbar-hover-fontWeight)"
         },
         "disabled": {
           "rest": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled",
-            "textColor": "text-disabled",
-            "iconColor": "icon-disabled",
-            "fontWeight": 600
+            "background": "var(--hpe-button-toolbar-disabled-rest-background)",
+            "borderColor": "var(--hpe-button-toolbar-disabled-rest-borderColor)",
+            "textColor": "var(--hpe-button-toolbar-disabled-rest-textColor)",
+            "iconColor": "var(--hpe-button-toolbar-disabled-rest-iconColor)",
+            "fontWeight": "var(--hpe-button-toolbar-disabled-rest-fontWeight)"
           }
         },
         "selected": {
           "rest": {
-            "background": "background-active",
-            "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 600
+            "background": "var(--hpe-button-toolbar-selected-rest-background)",
+            "borderColor": "var(--hpe-button-toolbar-selected-rest-borderColor)",
+            "textColor": "var(--hpe-button-toolbar-selected-rest-textColor)",
+            "iconColor": "var(--hpe-button-toolbar-selected-rest-iconColor)",
+            "fontWeight": "var(--hpe-button-toolbar-selected-rest-fontWeight)"
           },
           "hover": {
-            "background": "background-active",
-            "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 600
+            "background": "var(--hpe-button-toolbar-selected-hover-background)",
+            "borderColor": "var(--hpe-button-toolbar-selected-hover-borderColor)",
+            "textColor": "var(--hpe-button-toolbar-selected-hover-textColor)",
+            "iconColor": "var(--hpe-button-toolbar-selected-hover-iconColor)",
+            "fontWeight": "var(--hpe-button-toolbar-selected-hover-fontWeight)"
           }
         },
         "xsmall": {
-          "paddingX": "6px",
-          "paddingY": "3px",
-          "borderRadius": "6px",
-          "borderWidth": "1px",
-          "minHeight": "24px",
-          "fontSize": "0.875rem",
-          "lineHeight": "1rem",
+          "paddingX": "var(--hpe-button-toolbar-xsmall-paddingX)",
+          "paddingY": "var(--hpe-button-toolbar-xsmall-paddingY)",
+          "borderRadius": "var(--hpe-button-toolbar-xsmall-borderRadius)",
+          "borderWidth": "var(--hpe-button-toolbar-xsmall-borderWidth)",
+          "minHeight": "var(--hpe-button-toolbar-xsmall-minHeight)",
+          "fontSize": "var(--hpe-button-toolbar-xsmall-fontSize)",
+          "lineHeight": "var(--hpe-button-toolbar-xsmall-lineHeight)",
           "iconOnly": {
-            "paddingX": "4px",
-            "paddingY": "4px",
-            "borderRadius": "6px",
-            "borderWidth": "1px",
-            "minHeight": "24px",
-            "minWidth": "24px",
-            "fontSize": "0.875rem",
-            "lineHeight": "1rem",
-            "gapX": "3px"
+            "paddingX": "var(--hpe-button-toolbar-xsmall-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-toolbar-xsmall-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-toolbar-xsmall-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-toolbar-xsmall-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-toolbar-xsmall-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-toolbar-xsmall-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-toolbar-xsmall-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-toolbar-xsmall-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-toolbar-xsmall-iconOnly-gapX)"
           },
-          "gapX": "3px"
+          "gapX": "var(--hpe-button-toolbar-xsmall-gapX)"
         },
         "small": {
-          "paddingX": "6px",
-          "paddingY": "3px",
-          "borderRadius": "6px",
-          "borderWidth": "1px",
-          "minHeight": "28px",
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "3px",
+          "paddingX": "var(--hpe-button-toolbar-small-paddingX)",
+          "paddingY": "var(--hpe-button-toolbar-small-paddingY)",
+          "borderRadius": "var(--hpe-button-toolbar-small-borderRadius)",
+          "borderWidth": "var(--hpe-button-toolbar-small-borderWidth)",
+          "minHeight": "var(--hpe-button-toolbar-small-minHeight)",
+          "fontSize": "var(--hpe-button-toolbar-small-fontSize)",
+          "lineHeight": "var(--hpe-button-toolbar-small-lineHeight)",
+          "gapX": "var(--hpe-button-toolbar-small-gapX)",
           "iconOnly": {
-            "paddingX": "5px",
-            "paddingY": "5px",
-            "borderRadius": "6px",
-            "borderWidth": "1px",
-            "minHeight": "28px",
-            "minWidth": "28px",
-            "fontSize": "1rem",
-            "lineHeight": "1.25rem",
-            "gapX": "3px"
+            "paddingX": "var(--hpe-button-toolbar-small-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-toolbar-small-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-toolbar-small-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-toolbar-small-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-toolbar-small-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-toolbar-small-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-toolbar-small-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-toolbar-small-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-toolbar-small-iconOnly-gapX)"
           }
         },
         "medium": {
-          "paddingX": "10px",
-          "paddingY": "5px",
-          "borderRadius": "6px",
-          "borderWidth": "default",
-          "minHeight": "36px",
-          "fontSize": "19px",
-          "lineHeight": "1.5rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-toolbar-medium-paddingX)",
+          "paddingY": "var(--hpe-button-toolbar-medium-paddingY)",
+          "borderRadius": "var(--hpe-button-toolbar-medium-borderRadius)",
+          "borderWidth": "var(--hpe-button-toolbar-medium-borderWidth)",
+          "minHeight": "var(--hpe-button-toolbar-medium-minHeight)",
+          "fontSize": "var(--hpe-button-toolbar-medium-fontSize)",
+          "lineHeight": "var(--hpe-button-toolbar-medium-lineHeight)",
+          "gapX": "var(--hpe-button-toolbar-medium-gapX)",
           "iconOnly": {
-            "paddingX": "8px",
-            "paddingY": "8px",
-            "borderRadius": "6px",
-            "borderWidth": "default",
-            "minHeight": "36px",
-            "minWidth": "36px",
-            "fontSize": "19px",
-            "lineHeight": "1.5rem",
-            "gapX": "6px"
+            "paddingX": "var(--hpe-button-toolbar-medium-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-toolbar-medium-iconOnly-paddingY)",
+            "borderRadius": "var(--hpe-button-toolbar-medium-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-toolbar-medium-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-toolbar-medium-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-toolbar-medium-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-toolbar-medium-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-toolbar-medium-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-toolbar-medium-iconOnly-gapX)"
           }
         },
         "large": {
-          "paddingX": "10px",
-          "paddingY": "9px",
-          "borderRadius": "6px",
-          "borderWidth": "default",
-          "minHeight": "48px",
-          "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
-          "gapX": "6px",
+          "paddingX": "var(--hpe-button-toolbar-large-paddingX)",
+          "paddingY": "var(--hpe-button-toolbar-large-paddingY)",
+          "borderRadius": "var(--hpe-button-toolbar-large-borderRadius)",
+          "borderWidth": "var(--hpe-button-toolbar-large-borderWidth)",
+          "minHeight": "var(--hpe-button-toolbar-large-minHeight)",
+          "fontSize": "var(--hpe-button-toolbar-large-fontSize)",
+          "lineHeight": "var(--hpe-button-toolbar-large-lineHeight)",
+          "gapX": "var(--hpe-button-toolbar-large-gapX)",
           "iconOnly": {
-            "borderRadius": "6px",
-            "borderWidth": "default",
-            "minHeight": "48px",
-            "minWidth": "48px",
-            "fontSize": "1.375rem",
-            "lineHeight": "1.75rem",
-            "gapX": "6px",
-            "paddingX": "14px",
-            "paddingY": "12px"
+            "borderRadius": "var(--hpe-button-toolbar-large-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-toolbar-large-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-toolbar-large-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-toolbar-large-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-toolbar-large-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-toolbar-large-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-toolbar-large-iconOnly-gapX)",
+            "paddingX": "var(--hpe-button-toolbar-large-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-toolbar-large-iconOnly-paddingY)"
           }
         },
         "xlarge": {
           "iconOnly": {
-            "borderRadius": "12px",
-            "borderWidth": "1px",
-            "minHeight": "72px",
-            "minWidth": "72px",
-            "fontSize": "1.5rem",
-            "lineHeight": "1.875rem",
-            "gapX": "6px",
-            "paddingX": "23px",
-            "paddingY": "23px"
+            "borderRadius": "var(--hpe-button-toolbar-xlarge-iconOnly-borderRadius)",
+            "borderWidth": "var(--hpe-button-toolbar-xlarge-iconOnly-borderWidth)",
+            "minHeight": "var(--hpe-button-toolbar-xlarge-iconOnly-minHeight)",
+            "minWidth": "var(--hpe-button-toolbar-xlarge-iconOnly-minWidth)",
+            "fontSize": "var(--hpe-button-toolbar-xlarge-iconOnly-fontSize)",
+            "lineHeight": "var(--hpe-button-toolbar-xlarge-iconOnly-lineHeight)",
+            "gapX": "var(--hpe-button-toolbar-xlarge-iconOnly-gapX)",
+            "paddingX": "var(--hpe-button-toolbar-xlarge-iconOnly-paddingX)",
+            "paddingY": "var(--hpe-button-toolbar-xlarge-iconOnly-paddingY)"
           },
-          "paddingX": "32px",
-          "paddingY": "20px",
-          "borderRadius": "12px",
-          "borderWidth": "1px",
-          "minHeight": "72px",
-          "fontSize": "1.5rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px"
+          "paddingX": "var(--hpe-button-toolbar-xlarge-paddingX)",
+          "paddingY": "var(--hpe-button-toolbar-xlarge-paddingY)",
+          "borderRadius": "var(--hpe-button-toolbar-xlarge-borderRadius)",
+          "borderWidth": "var(--hpe-button-toolbar-xlarge-borderWidth)",
+          "minHeight": "var(--hpe-button-toolbar-xlarge-minHeight)",
+          "fontSize": "var(--hpe-button-toolbar-xlarge-fontSize)",
+          "lineHeight": "var(--hpe-button-toolbar-xlarge-lineHeight)",
+          "gapX": "var(--hpe-button-toolbar-xlarge-gapX)"
         }
       }
     },
     "drop": {
-      "background": "background-floating",
-      "borderRadius": "xsmall",
-      "margin": "6px",
-      "zIndex": 110
+      "background": "var(--hpe-drop-background)",
+      "borderRadius": "var(--hpe-drop-borderRadius)",
+      "margin": "var(--hpe-drop-margin)",
+      "zIndex": "var(--hpe-drop-zIndex)"
     },
     "menu": {
       "item": {
         "rest": {
-          "background": "transparent",
-          "borderColor": "transparent",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "background": "var(--hpe-menu-item-rest-background)",
+          "borderColor": "var(--hpe-menu-item-rest-borderColor)",
+          "textColor": "var(--hpe-menu-item-rest-textColor)",
+          "iconColor": "var(--hpe-menu-item-rest-iconColor)",
+          "fontWeight": "var(--hpe-menu-item-rest-fontWeight)"
         },
         "hover": {
-          "background": "background-hover",
-          "borderColor": "transparent",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "background": "var(--hpe-menu-item-hover-background)",
+          "borderColor": "var(--hpe-menu-item-hover-borderColor)",
+          "textColor": "var(--hpe-menu-item-hover-textColor)",
+          "iconColor": "var(--hpe-menu-item-hover-iconColor)",
+          "fontWeight": "var(--hpe-menu-item-hover-fontWeight)"
         },
         "disabled": {
           "rest": {
-            "background": "transparent",
-            "borderColor": "transparent",
-            "textColor": "text-disabled",
-            "iconColor": "icon-disabled",
-            "fontWeight": 600
+            "background": "var(--hpe-menu-item-disabled-rest-background)",
+            "borderColor": "var(--hpe-menu-item-disabled-rest-borderColor)",
+            "textColor": "var(--hpe-menu-item-disabled-rest-textColor)",
+            "iconColor": "var(--hpe-menu-item-disabled-rest-iconColor)",
+            "fontWeight": "var(--hpe-menu-item-disabled-rest-fontWeight)"
           }
         }
       },
       "group": {
         "separator": {
-          "background": "border-default"
+          "background": "var(--hpe-menu-group-separator-background)"
         }
       },
       "medium": {
         "item": {
-          "paddingX": "18px",
-          "paddingY": "5px",
-          "borderRadius": "none",
-          "borderWidth": "1px",
-          "minHeight": "36px",
-          "fontSize": "19px",
-          "lineHeight": "1.5rem",
-          "gapX": "6px"
+          "paddingX": "var(--hpe-menu-medium-item-paddingX)",
+          "paddingY": "var(--hpe-menu-medium-item-paddingY)",
+          "borderRadius": "var(--hpe-menu-medium-item-borderRadius)",
+          "borderWidth": "var(--hpe-menu-medium-item-borderWidth)",
+          "minHeight": "var(--hpe-menu-medium-item-minHeight)",
+          "fontSize": "var(--hpe-menu-medium-item-fontSize)",
+          "lineHeight": "var(--hpe-menu-medium-item-lineHeight)",
+          "gapX": "var(--hpe-menu-medium-item-gapX)"
         },
         "group": {
           "container": {
-            "paddingY": "6px"
+            "paddingY": "var(--hpe-menu-medium-group-container-paddingY)"
           },
           "separator": {
-            "height": "1px"
+            "height": "var(--hpe-menu-medium-group-separator-height)"
           }
         }
       }
@@ -764,48 +764,48 @@ module.exports = {
     "select": {
       "medium": {
         "option": {
-          "paddingX": "12px",
-          "paddingY": "5px",
-          "minHeight": "36px",
-          "borderRadius": "0px",
-          "borderWidth": "1px",
-          "fontSize": "19px",
-          "lineHeight": "1.5rem"
+          "paddingX": "var(--hpe-select-medium-option-paddingX)",
+          "paddingY": "var(--hpe-select-medium-option-paddingY)",
+          "minHeight": "var(--hpe-select-medium-option-minHeight)",
+          "borderRadius": "var(--hpe-select-medium-option-borderRadius)",
+          "borderWidth": "var(--hpe-select-medium-option-borderWidth)",
+          "fontSize": "var(--hpe-select-medium-option-fontSize)",
+          "lineHeight": "var(--hpe-select-medium-option-lineHeight)"
         }
       },
       "option": {
         "rest": {
-          "background": "transparent",
-          "borderColor": "transparent",
-          "textColor": "text-strong",
-          "fontWeight": 500
+          "background": "var(--hpe-select-option-rest-background)",
+          "borderColor": "var(--hpe-select-option-rest-borderColor)",
+          "textColor": "var(--hpe-select-option-rest-textColor)",
+          "fontWeight": "var(--hpe-select-option-rest-fontWeight)"
         },
         "hover": {
-          "background": "background-hover",
-          "borderColor": "transparent",
-          "textColor": "text-strong",
-          "fontWeight": 500
+          "background": "var(--hpe-select-option-hover-background)",
+          "borderColor": "var(--hpe-select-option-hover-borderColor)",
+          "textColor": "var(--hpe-select-option-hover-textColor)",
+          "fontWeight": "var(--hpe-select-option-hover-fontWeight)"
         },
         "disabled": {
           "rest": {
-            "background": "background-disabled",
-            "borderColor": "transparent",
-            "textColor": "text-disabled",
-            "fontWeight": 500
+            "background": "var(--hpe-select-option-disabled-rest-background)",
+            "borderColor": "var(--hpe-select-option-disabled-rest-borderColor)",
+            "textColor": "var(--hpe-select-option-disabled-rest-textColor)",
+            "fontWeight": "var(--hpe-select-option-disabled-rest-fontWeight)"
           }
         },
         "selected": {
           "rest": {
-            "background": "background-selected-weak-enabled",
-            "borderColor": "transparent",
-            "textColor": "text-onSelected",
-            "fontWeight": 500
+            "background": "var(--hpe-select-option-selected-rest-background)",
+            "borderColor": "var(--hpe-select-option-selected-rest-borderColor)",
+            "textColor": "var(--hpe-select-option-selected-rest-textColor)",
+            "fontWeight": "var(--hpe-select-option-selected-rest-fontWeight)"
           },
           "hover": {
-            "background": "background-selected-weak-hover",
-            "borderColor": "transparent",
-            "textColor": "text-onSelected",
-            "fontWeight": 500
+            "background": "var(--hpe-select-option-selected-hover-background)",
+            "borderColor": "var(--hpe-select-option-selected-hover-borderColor)",
+            "textColor": "var(--hpe-select-option-selected-hover-textColor)",
+            "fontWeight": "var(--hpe-select-option-selected-hover-fontWeight)"
           }
         }
       }
@@ -813,70 +813,70 @@ module.exports = {
     "checkbox": {
       "control": {
         "rest": {
-          "background": "background-default",
-          "borderColor": "border-default"
+          "background": "var(--hpe-checkbox-control-rest-background)",
+          "borderColor": "var(--hpe-checkbox-control-rest-borderColor)"
         },
         "hover": {
-          "background": "background-default",
-          "borderColor": "border-strong"
+          "background": "var(--hpe-checkbox-control-hover-background)",
+          "borderColor": "var(--hpe-checkbox-control-hover-borderColor)"
         },
         "disabled": {
           "rest": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled",
-            "iconColor": "icon-disabled"
+            "background": "var(--hpe-checkbox-control-disabled-rest-background)",
+            "borderColor": "var(--hpe-checkbox-control-disabled-rest-borderColor)",
+            "iconColor": "var(--hpe-checkbox-control-disabled-rest-iconColor)"
           }
         },
         "selected": {
           "rest": {
-            "background": "background-selected-strong-enabled",
-            "borderColor": "border-selected",
-            "iconColor": "icon-onSelectedStrong"
+            "background": "var(--hpe-checkbox-control-selected-rest-background)",
+            "borderColor": "var(--hpe-checkbox-control-selected-rest-borderColor)",
+            "iconColor": "var(--hpe-checkbox-control-selected-rest-iconColor)"
           },
           "hover": {
-            "background": "background-selected-strong-enabled",
-            "borderColor": "border-strong",
-            "iconColor": "icon-onSelectedStrong"
+            "background": "var(--hpe-checkbox-control-selected-hover-background)",
+            "borderColor": "var(--hpe-checkbox-control-selected-hover-borderColor)",
+            "iconColor": "var(--hpe-checkbox-control-selected-hover-iconColor)"
           }
         },
         "indeterminate": {
           "rest": {
-            "background": "background-selected-strong-enabled",
-            "borderColor": "border-selected",
-            "iconColor": "icon-onPrimary"
+            "background": "var(--hpe-checkbox-control-indeterminate-rest-background)",
+            "borderColor": "var(--hpe-checkbox-control-indeterminate-rest-borderColor)",
+            "iconColor": "var(--hpe-checkbox-control-indeterminate-rest-iconColor)"
           },
           "hover": {
-            "background": "background-selected-strong-enabled",
-            "borderColor": "border-strong",
-            "iconColor": "icon-onPrimary"
+            "background": "var(--hpe-checkbox-control-indeterminate-hover-background)",
+            "borderColor": "var(--hpe-checkbox-control-indeterminate-hover-borderColor)",
+            "iconColor": "var(--hpe-checkbox-control-indeterminate-hover-iconColor)"
           }
         }
       },
       "label": {
         "rest": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-checkbox-label-rest-textColor)"
         },
         "hover": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-checkbox-label-hover-textColor)"
         },
         "disabled": {
           "rest": {
-            "textColor": "text-disabled"
+            "textColor": "var(--hpe-checkbox-label-disabled-rest-textColor)"
           }
         }
       },
       "medium": {
-        "gapX": "12px",
+        "gapX": "var(--hpe-checkbox-medium-gapX)",
         "label": {
-          "fontSize": "1.125rem",
-          "lineHeight": "1.5rem",
-          "fontWeight": 500
+          "fontSize": "var(--hpe-checkbox-medium-label-fontSize)",
+          "lineHeight": "var(--hpe-checkbox-medium-label-lineHeight)",
+          "fontWeight": "var(--hpe-checkbox-medium-label-fontWeight)"
         },
         "control": {
-          "height": "24px",
-          "width": "24px",
-          "borderWidth": "default",
-          "borderRadius": "3px"
+          "height": "var(--hpe-checkbox-medium-control-height)",
+          "width": "var(--hpe-checkbox-medium-control-width)",
+          "borderWidth": "var(--hpe-checkbox-medium-control-borderWidth)",
+          "borderRadius": "var(--hpe-checkbox-medium-control-borderRadius)"
         }
       }
     },
@@ -884,221 +884,221 @@ module.exports = {
       "control": {
         "track": {
           "rest": {
-            "background": "background-default",
-            "borderColor": "border-default"
+            "background": "var(--hpe-switch-control-track-rest-background)",
+            "borderColor": "var(--hpe-switch-control-track-rest-borderColor)"
           },
           "hover": {
-            "background": "background-default",
-            "borderColor": "border-strong"
+            "background": "var(--hpe-switch-control-track-hover-background)",
+            "borderColor": "var(--hpe-switch-control-track-hover-borderColor)"
           },
           "disabled": {
             "rest": {
-              "background": "background-disabled",
-              "borderColor": "border-disabled"
+              "background": "var(--hpe-switch-control-track-disabled-rest-background)",
+              "borderColor": "var(--hpe-switch-control-track-disabled-rest-borderColor)"
             }
           },
           "selected": {
             "rest": {
-              "background": "background-selected-strong-enabled",
-              "borderColor": "border-default"
+              "background": "var(--hpe-switch-control-track-selected-rest-background)",
+              "borderColor": "var(--hpe-switch-control-track-selected-rest-borderColor)"
             },
             "hover": {
-              "background": "background-selected-strong-enabled",
-              "borderColor": "border-strong"
+              "background": "var(--hpe-switch-control-track-selected-hover-background)",
+              "borderColor": "var(--hpe-switch-control-track-selected-hover-borderColor)"
             }
           }
         },
         "handle": {
           "rest": {
-            "background": "background-front",
-            "borderColor": "border-default"
+            "background": "var(--hpe-switch-control-handle-rest-background)",
+            "borderColor": "var(--hpe-switch-control-handle-rest-borderColor)"
           },
           "hover": {
-            "background": "background-default",
-            "borderColor": "border-default"
+            "background": "var(--hpe-switch-control-handle-hover-background)",
+            "borderColor": "var(--hpe-switch-control-handle-hover-borderColor)"
           },
           "disabled": {
             "rest": {
-              "background": "background-disabled",
-              "borderColor": "border-disabled"
+              "background": "var(--hpe-switch-control-handle-disabled-rest-background)",
+              "borderColor": "var(--hpe-switch-control-handle-disabled-rest-borderColor)"
             }
           },
           "selected": {
             "rest": {
-              "background": "background-default",
-              "borderColor": "border-default"
+              "background": "var(--hpe-switch-control-handle-selected-rest-background)",
+              "borderColor": "var(--hpe-switch-control-handle-selected-rest-borderColor)"
             },
             "hover": {
-              "background": "background-default",
-              "borderColor": "border-default"
+              "background": "var(--hpe-switch-control-handle-selected-hover-background)",
+              "borderColor": "var(--hpe-switch-control-handle-selected-hover-borderColor)"
             }
           }
         }
       },
       "label": {
         "rest": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-switch-label-rest-textColor)"
         },
         "hover": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-switch-label-hover-textColor)"
         },
         "disabled": {
           "rest": {
-            "textColor": "text-disabled"
+            "textColor": "var(--hpe-switch-label-disabled-rest-textColor)"
           }
         }
       },
       "medium": {
-        "gapX": "12px",
+        "gapX": "var(--hpe-switch-medium-gapX)",
         "label": {
-          "fontSize": "1.125rem",
-          "lineHeight": "1.5rem",
-          "fontWeight": 500
+          "fontSize": "var(--hpe-switch-medium-label-fontSize)",
+          "lineHeight": "var(--hpe-switch-medium-label-lineHeight)",
+          "fontWeight": "var(--hpe-switch-medium-label-fontWeight)"
         },
         "control": {
           "track": {
-            "height": "24px",
-            "width": "48px",
-            "borderWidth": "1px",
-            "borderRadius": "24px"
+            "height": "var(--hpe-switch-medium-control-track-height)",
+            "width": "var(--hpe-switch-medium-control-track-width)",
+            "borderWidth": "var(--hpe-switch-medium-control-track-borderWidth)",
+            "borderRadius": "var(--hpe-switch-medium-control-track-borderRadius)"
           },
           "handle": {
-            "height": "22px",
-            "width": "22px",
-            "borderWidth": "default",
-            "borderRadius": "24px"
+            "height": "var(--hpe-switch-medium-control-handle-height)",
+            "width": "var(--hpe-switch-medium-control-handle-width)",
+            "borderWidth": "var(--hpe-switch-medium-control-handle-borderWidth)",
+            "borderRadius": "var(--hpe-switch-medium-control-handle-borderRadius)"
           }
         }
       }
     },
     "dataCell": {
-      "paddingX": "12px",
-      "fontSize": "1.125rem",
-      "lineHeight": "1.5rem",
-      "fontWeight": 400,
-      "borderBottomWidth": "1px",
-      "paddingTop": "6px",
-      "paddingBottom": "5px",
-      "minHeight": "36px",
+      "paddingX": "var(--hpe-dataCell-paddingX)",
+      "fontSize": "var(--hpe-dataCell-fontSize)",
+      "lineHeight": "var(--hpe-dataCell-lineHeight)",
+      "fontWeight": "var(--hpe-dataCell-fontWeight)",
+      "borderBottomWidth": "var(--hpe-dataCell-borderBottomWidth)",
+      "paddingTop": "var(--hpe-dataCell-paddingTop)",
+      "paddingBottom": "var(--hpe-dataCell-paddingBottom)",
+      "minHeight": "var(--hpe-dataCell-minHeight)",
       "rest": {
-        "textColor": "text-default",
-        "iconColor": "icon-default",
-        "borderColor": "transparent",
-        "background": "transparent"
+        "textColor": "var(--hpe-dataCell-rest-textColor)",
+        "iconColor": "var(--hpe-dataCell-rest-iconColor)",
+        "borderColor": "var(--hpe-dataCell-rest-borderColor)",
+        "background": "var(--hpe-dataCell-rest-background)"
       },
       "hover": {
-        "textColor": "text-default",
-        "iconColor": "icon-default",
-        "borderColor": "transparent",
-        "background": "transparent"
+        "textColor": "var(--hpe-dataCell-hover-textColor)",
+        "iconColor": "var(--hpe-dataCell-hover-iconColor)",
+        "borderColor": "var(--hpe-dataCell-hover-borderColor)",
+        "background": "var(--hpe-dataCell-hover-background)"
       },
       "disabled": {
         "rest": {
-          "textColor": "text-disabled",
-          "iconColor": "icon-disabled",
-          "borderColor": "transparent",
-          "background": "transparent"
+          "textColor": "var(--hpe-dataCell-disabled-rest-textColor)",
+          "iconColor": "var(--hpe-dataCell-disabled-rest-iconColor)",
+          "borderColor": "var(--hpe-dataCell-disabled-rest-borderColor)",
+          "background": "var(--hpe-dataCell-disabled-rest-background)"
         }
       },
       "selected": {
         "rest": {
-          "textColor": "text-onSelected",
-          "iconColor": "icon-onSelected",
-          "borderColor": "transparent",
-          "background": "background-selected-weak-enabled"
+          "textColor": "var(--hpe-dataCell-selected-rest-textColor)",
+          "iconColor": "var(--hpe-dataCell-selected-rest-iconColor)",
+          "borderColor": "var(--hpe-dataCell-selected-rest-borderColor)",
+          "background": "var(--hpe-dataCell-selected-rest-background)"
         },
         "hover": {
-          "textColor": "text-onSelected",
-          "iconColor": "icon-onSelected",
-          "borderColor": "transparent",
-          "background": "background-selected-weak-hover"
+          "textColor": "var(--hpe-dataCell-selected-hover-textColor)",
+          "iconColor": "var(--hpe-dataCell-selected-hover-iconColor)",
+          "borderColor": "var(--hpe-dataCell-selected-hover-borderColor)",
+          "background": "var(--hpe-dataCell-selected-hover-background)"
         }
       },
       "primary": {
-        "paddingX": "12px",
-        "fontSize": "1.125rem",
-        "lineHeight": "1.5rem",
-        "fontWeight": 500,
-        "borderBottomWidth": "1px",
-        "paddingTop": "6px",
-        "paddingBottom": "5px",
+        "paddingX": "var(--hpe-dataCell-primary-paddingX)",
+        "fontSize": "var(--hpe-dataCell-primary-fontSize)",
+        "lineHeight": "var(--hpe-dataCell-primary-lineHeight)",
+        "fontWeight": "var(--hpe-dataCell-primary-fontWeight)",
+        "borderBottomWidth": "var(--hpe-dataCell-primary-borderBottomWidth)",
+        "paddingTop": "var(--hpe-dataCell-primary-paddingTop)",
+        "paddingBottom": "var(--hpe-dataCell-primary-paddingBottom)",
         "rest": {
-          "textColor": "text-strong",
-          "iconColor": "text-strong",
-          "borderColor": "transparent",
-          "background": "transparent"
+          "textColor": "var(--hpe-dataCell-primary-rest-textColor)",
+          "iconColor": "var(--hpe-dataCell-primary-rest-iconColor)",
+          "borderColor": "var(--hpe-dataCell-primary-rest-borderColor)",
+          "background": "var(--hpe-dataCell-primary-rest-background)"
         },
         "hover": {
-          "textColor": "text-strong",
-          "iconColor": "text-strong",
-          "borderColor": "transparent",
-          "background": "transparent"
+          "textColor": "var(--hpe-dataCell-primary-hover-textColor)",
+          "iconColor": "var(--hpe-dataCell-primary-hover-iconColor)",
+          "borderColor": "var(--hpe-dataCell-primary-hover-borderColor)",
+          "background": "var(--hpe-dataCell-primary-hover-background)"
         },
         "disabled": {
-          "textColor": "text-disabled",
-          "iconColor": "icon-disabled",
-          "borderColor": "transparent",
-          "background": "transparent"
+          "textColor": "var(--hpe-dataCell-primary-disabled-textColor)",
+          "iconColor": "var(--hpe-dataCell-primary-disabled-iconColor)",
+          "borderColor": "var(--hpe-dataCell-primary-disabled-borderColor)",
+          "background": "var(--hpe-dataCell-primary-disabled-background)"
         }
       },
       "pinned": {
         "rest": {
-          "textColor": "text-default",
-          "iconColor": "icon-default",
-          "borderColor": "transparent",
-          "backgroundColor": "transparent",
-          "background": "transparent"
+          "textColor": "var(--hpe-dataCell-pinned-rest-textColor)",
+          "iconColor": "var(--hpe-dataCell-pinned-rest-iconColor)",
+          "borderColor": "var(--hpe-dataCell-pinned-rest-borderColor)",
+          "backgroundColor": "var(--hpe-dataCell-pinned-rest-backgroundColor)",
+          "background": "var(--hpe-dataCell-pinned-rest-background)"
         },
         "hover": {
-          "textColor": "text-default",
-          "iconColor": "icon-default",
-          "borderColor": "transparent",
-          "backgroundColor": "transparent",
-          "background": "transparent"
+          "textColor": "var(--hpe-dataCell-pinned-hover-textColor)",
+          "iconColor": "var(--hpe-dataCell-pinned-hover-iconColor)",
+          "borderColor": "var(--hpe-dataCell-pinned-hover-borderColor)",
+          "backgroundColor": "var(--hpe-dataCell-pinned-hover-backgroundColor)",
+          "background": "var(--hpe-dataCell-pinned-hover-background)"
         }
       }
     },
     "headerCell": {
-      "paddingX": "12px",
-      "fontSize": "1.125rem",
-      "lineHeight": "1.5rem",
-      "fontWeight": 500,
-      "borderBottomWidth": "1px",
-      "paddingTop": "6px",
-      "paddingBottom": "5px",
+      "paddingX": "var(--hpe-headerCell-paddingX)",
+      "fontSize": "var(--hpe-headerCell-fontSize)",
+      "lineHeight": "var(--hpe-headerCell-lineHeight)",
+      "fontWeight": "var(--hpe-headerCell-fontWeight)",
+      "borderBottomWidth": "var(--hpe-headerCell-borderBottomWidth)",
+      "paddingTop": "var(--hpe-headerCell-paddingTop)",
+      "paddingBottom": "var(--hpe-headerCell-paddingBottom)",
       "rest": {
-        "textColor": "text-strong",
-        "iconColor": "icon-strong",
-        "borderColor": "border-default",
-        "background": "transparent"
+        "textColor": "var(--hpe-headerCell-rest-textColor)",
+        "iconColor": "var(--hpe-headerCell-rest-iconColor)",
+        "borderColor": "var(--hpe-headerCell-rest-borderColor)",
+        "background": "var(--hpe-headerCell-rest-background)"
       },
       "hover": {
-        "textColor": "text-strong",
-        "iconColor": "icon-strong",
-        "borderColor": "border-default",
-        "background": "background-hover"
+        "textColor": "var(--hpe-headerCell-hover-textColor)",
+        "iconColor": "var(--hpe-headerCell-hover-iconColor)",
+        "borderColor": "var(--hpe-headerCell-hover-borderColor)",
+        "background": "var(--hpe-headerCell-hover-background)"
       },
       "pinned": {
-        "textColor": "text-default",
-        "iconColor": "icon-default",
-        "borderColor": "transparent",
-        "background": "transparent"
+        "textColor": "var(--hpe-headerCell-pinned-textColor)",
+        "iconColor": "var(--hpe-headerCell-pinned-iconColor)",
+        "borderColor": "var(--hpe-headerCell-pinned-borderColor)",
+        "background": "var(--hpe-headerCell-pinned-background)"
       },
-      "gapX": "6px",
-      "minHeight": "36px",
+      "gapX": "var(--hpe-headerCell-gapX)",
+      "minHeight": "var(--hpe-headerCell-minHeight)",
       "units": {
         "rest": {
-          "textColor": "text-weak"
+          "textColor": "var(--hpe-headerCell-units-rest-textColor)"
         },
         "hover": {
-          "textColor": "text-weak"
+          "textColor": "var(--hpe-headerCell-units-hover-textColor)"
         },
         "pinned": {
           "rest": {
-            "textColor": "text-weak"
+            "textColor": "var(--hpe-headerCell-units-pinned-rest-textColor)"
           },
           "hover": {
-            "textColor": "text-weak"
+            "textColor": "var(--hpe-headerCell-units-pinned-hover-textColor)"
           }
         }
       }
@@ -1108,470 +1108,470 @@ module.exports = {
         "input": {
           "group": {
             "item": {
-              "paddingX": "12px",
-              "paddingY": "5px",
-              "borderWidth": "default",
-              "minHeight": "36px",
-              "borderRadius": "none",
-              "textToIconX": "6px",
-              "textToElementX": "12px"
+              "paddingX": "var(--hpe-formField-medium-input-group-item-paddingX)",
+              "paddingY": "var(--hpe-formField-medium-input-group-item-paddingY)",
+              "borderWidth": "var(--hpe-formField-medium-input-group-item-borderWidth)",
+              "minHeight": "var(--hpe-formField-medium-input-group-item-minHeight)",
+              "borderRadius": "var(--hpe-formField-medium-input-group-item-borderRadius)",
+              "textToIconX": "var(--hpe-formField-medium-input-group-item-textToIconX)",
+              "textToElementX": "var(--hpe-formField-medium-input-group-item-textToElementX)"
             },
             "container": {
-              "paddingX": "none",
-              "paddingY": "6px",
-              "borderWidth": "default",
-              "borderRadius": "6px"
+              "paddingX": "var(--hpe-formField-medium-input-group-container-paddingX)",
+              "paddingY": "var(--hpe-formField-medium-input-group-container-paddingY)",
+              "borderWidth": "var(--hpe-formField-medium-input-group-container-borderWidth)",
+              "borderRadius": "var(--hpe-formField-medium-input-group-container-borderRadius)"
             }
           },
           "container": {
-            "paddingX": "12px",
-            "paddingY": "5px",
-            "borderWidth": "1px",
-            "borderRadius": "6px",
-            "minHeight": "36px",
-            "textToIconX": "6px",
-            "textToElementX": "12px"
+            "paddingX": "var(--hpe-formField-medium-input-container-paddingX)",
+            "paddingY": "var(--hpe-formField-medium-input-container-paddingY)",
+            "borderWidth": "var(--hpe-formField-medium-input-container-borderWidth)",
+            "borderRadius": "var(--hpe-formField-medium-input-container-borderRadius)",
+            "minHeight": "var(--hpe-formField-medium-input-container-minHeight)",
+            "textToIconX": "var(--hpe-formField-medium-input-container-textToIconX)",
+            "textToElementX": "var(--hpe-formField-medium-input-container-textToElementX)"
           }
         },
         "label": {
-          "fontSize": "0.875rem",
-          "lineHeight": "1rem",
-          "fontWeight": 500
+          "fontSize": "var(--hpe-formField-medium-label-fontSize)",
+          "lineHeight": "var(--hpe-formField-medium-label-lineHeight)",
+          "fontWeight": "var(--hpe-formField-medium-label-fontWeight)"
         },
         "placeholder": {
-          "fontSize": "1.125rem",
-          "lineHeight": "1.5rem",
-          "fontWeight": 400
+          "fontSize": "var(--hpe-formField-medium-placeholder-fontSize)",
+          "lineHeight": "var(--hpe-formField-medium-placeholder-lineHeight)",
+          "fontWeight": "var(--hpe-formField-medium-placeholder-fontWeight)"
         },
         "help": {
-          "fontSize": "0.875rem",
-          "lineHeight": "1rem",
-          "fontWeight": 400
+          "fontSize": "var(--hpe-formField-medium-help-fontSize)",
+          "lineHeight": "var(--hpe-formField-medium-help-lineHeight)",
+          "fontWeight": "var(--hpe-formField-medium-help-fontWeight)"
         },
         "info": {
-          "fontSize": "0.875rem",
-          "lineHeight": "1rem",
-          "fontWeight": 400
+          "fontSize": "var(--hpe-formField-medium-info-fontSize)",
+          "lineHeight": "var(--hpe-formField-medium-info-lineHeight)",
+          "fontWeight": "var(--hpe-formField-medium-info-fontWeight)"
         },
         "error": {
-          "fontSize": "0.875rem",
-          "lineHeight": "1rem",
-          "fontWeight": 400
+          "fontSize": "var(--hpe-formField-medium-error-fontSize)",
+          "lineHeight": "var(--hpe-formField-medium-error-lineHeight)",
+          "fontWeight": "var(--hpe-formField-medium-error-fontWeight)"
         },
         "value": {
-          "fontSize": "1.125rem",
-          "lineHeight": "1.5rem",
-          "fontWeight": 500
+          "fontSize": "var(--hpe-formField-medium-value-fontSize)",
+          "lineHeight": "var(--hpe-formField-medium-value-lineHeight)",
+          "fontWeight": "var(--hpe-formField-medium-value-fontWeight)"
         }
       },
       "input": {
         "group": {
           "container": {
             "rest": {
-              "background": "transparent",
-              "borderColor": "border-default"
+              "background": "var(--hpe-formField-input-group-container-rest-background)",
+              "borderColor": "var(--hpe-formField-input-group-container-rest-borderColor)"
             },
             "hover": {
-              "background": "transparent",
-              "borderColor": "border-default"
+              "background": "var(--hpe-formField-input-group-container-hover-background)",
+              "borderColor": "var(--hpe-formField-input-group-container-hover-borderColor)"
             },
             "error": {
               "rest": {
-                "background": "background-critical",
-                "borderColor": "border-strong"
+                "background": "var(--hpe-formField-input-group-container-error-rest-background)",
+                "borderColor": "var(--hpe-formField-input-group-container-error-rest-borderColor)"
               }
             },
             "disabled": {
               "rest": {
-                "background": "background-disabled",
-                "borderColor": "border-disabled"
+                "background": "var(--hpe-formField-input-group-container-disabled-rest-background)",
+                "borderColor": "var(--hpe-formField-input-group-container-disabled-rest-borderColor)"
               }
             },
             "readOnly": {
               "rest": {
-                "background": "background-back",
-                "borderColor": "border-weak"
+                "background": "var(--hpe-formField-input-group-container-readOnly-rest-background)",
+                "borderColor": "var(--hpe-formField-input-group-container-readOnly-rest-borderColor)"
               }
             }
           },
           "item": {
             "rest": {
-              "background": "transparent",
-              "borderColor": "transparent"
+              "background": "var(--hpe-formField-input-group-item-rest-background)",
+              "borderColor": "var(--hpe-formField-input-group-item-rest-borderColor)"
             },
             "hover": {
-              "background": "background-hover",
-              "borderColor": "transparent"
+              "background": "var(--hpe-formField-input-group-item-hover-background)",
+              "borderColor": "var(--hpe-formField-input-group-item-hover-borderColor)"
             },
             "focus": {
-              "background": "background-hover",
-              "borderColor": "transparent"
+              "background": "var(--hpe-formField-input-group-item-focus-background)",
+              "borderColor": "var(--hpe-formField-input-group-item-focus-borderColor)"
             },
             "disabled": {
               "rest": {
-                "background": "transparent",
-                "borderColor": "transparent"
+                "background": "var(--hpe-formField-input-group-item-disabled-rest-background)",
+                "borderColor": "var(--hpe-formField-input-group-item-disabled-rest-borderColor)"
               }
             },
             "readOnly": {
               "rest": {
-                "background": "transparent",
-                "borderColor": "transparent"
+                "background": "var(--hpe-formField-input-group-item-readOnly-rest-background)",
+                "borderColor": "var(--hpe-formField-input-group-item-readOnly-rest-borderColor)"
               }
             }
           }
         },
         "container": {
           "rest": {
-            "background": "transparent",
-            "borderColor": "border-default"
+            "background": "var(--hpe-formField-input-container-rest-background)",
+            "borderColor": "var(--hpe-formField-input-container-rest-borderColor)"
           },
           "hover": {
-            "background": "background-hover",
-            "borderColor": "border-default"
+            "background": "var(--hpe-formField-input-container-hover-background)",
+            "borderColor": "var(--hpe-formField-input-container-hover-borderColor)"
           },
           "focus": {
-            "background": "transparent",
-            "borderColor": "border-default"
+            "background": "var(--hpe-formField-input-container-focus-background)",
+            "borderColor": "var(--hpe-formField-input-container-focus-borderColor)"
           },
           "error": {
             "rest": {
-              "background": "background-critical",
-              "borderColor": "border-strong"
+              "background": "var(--hpe-formField-input-container-error-rest-background)",
+              "borderColor": "var(--hpe-formField-input-container-error-rest-borderColor)"
             }
           },
           "disabled": {
             "rest": {
-              "background": "background-disabled",
-              "borderColor": "border-disabled"
+              "background": "var(--hpe-formField-input-container-disabled-rest-background)",
+              "borderColor": "var(--hpe-formField-input-container-disabled-rest-borderColor)"
             }
           },
           "readOnly": {
             "rest": {
-              "background": "background-back",
-              "borderColor": "border-weak"
+              "background": "var(--hpe-formField-input-container-readOnly-rest-background)",
+              "borderColor": "var(--hpe-formField-input-container-readOnly-rest-borderColor)"
             }
           }
         }
       },
       "label": {
         "rest": {
-          "textColor": "text-strong",
-          "iconColor": "icon-strong"
+          "textColor": "var(--hpe-formField-label-rest-textColor)",
+          "iconColor": "var(--hpe-formField-label-rest-iconColor)"
         },
         "hover": {
-          "textColor": "text-strong",
-          "iconColor": "icon-strong"
+          "textColor": "var(--hpe-formField-label-hover-textColor)",
+          "iconColor": "var(--hpe-formField-label-hover-iconColor)"
         },
         "focus": {
-          "textColor": "text-strong",
-          "iconColor": "icon-strong"
+          "textColor": "var(--hpe-formField-label-focus-textColor)",
+          "iconColor": "var(--hpe-formField-label-focus-iconColor)"
         },
         "error": {
           "rest": {
-            "textColor": "text-strong",
-            "iconColor": "icon-strong"
+            "textColor": "var(--hpe-formField-label-error-rest-textColor)",
+            "iconColor": "var(--hpe-formField-label-error-rest-iconColor)"
           }
         },
         "disabled": {
           "rest": {
-            "textColor": "text-disabled",
-            "iconColor": "icon-strong"
+            "textColor": "var(--hpe-formField-label-disabled-rest-textColor)",
+            "iconColor": "var(--hpe-formField-label-disabled-rest-iconColor)"
           }
         },
         "readOnly": {
           "rest": {
-            "textColor": "text-strong",
-            "iconColor": "icon-strong"
+            "textColor": "var(--hpe-formField-label-readOnly-rest-textColor)",
+            "iconColor": "var(--hpe-formField-label-readOnly-rest-iconColor)"
           }
         }
       },
       "placeholder": {
         "rest": {
-          "textColor": "text-weak"
+          "textColor": "var(--hpe-formField-placeholder-rest-textColor)"
         },
         "hover": {
-          "textColor": "text-weak"
+          "textColor": "var(--hpe-formField-placeholder-hover-textColor)"
         },
         "focus": {
-          "textColor": "text-weak"
+          "textColor": "var(--hpe-formField-placeholder-focus-textColor)"
         },
         "error": {
           "rest": {
-            "textColor": "text-weak"
+            "textColor": "var(--hpe-formField-placeholder-error-rest-textColor)"
           }
         },
         "disabled": {
           "rest": {
-            "textColor": "text-disabled"
+            "textColor": "var(--hpe-formField-placeholder-disabled-rest-textColor)"
           }
         },
         "readOnly": {
           "rest": {
-            "textColor": "text-weak"
+            "textColor": "var(--hpe-formField-placeholder-readOnly-rest-textColor)"
           }
         }
       },
       "help": {
         "rest": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-formField-help-rest-textColor)"
         },
         "hover": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-formField-help-hover-textColor)"
         },
         "focus": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-formField-help-focus-textColor)"
         },
         "error": {
           "rest": {
-            "textColor": "text-default"
+            "textColor": "var(--hpe-formField-help-error-rest-textColor)"
           }
         },
         "disabled": {
           "rest": {
-            "color": "text-disabled"
+            "color": "var(--hpe-formField-help-disabled-rest-color)"
           }
         },
         "readOnly": {
           "rest": {
-            "textColor": "text-default"
+            "textColor": "var(--hpe-formField-help-readOnly-rest-textColor)"
           }
         }
       },
       "info": {
         "rest": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-formField-info-rest-textColor)"
         },
         "hover": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-formField-info-hover-textColor)"
         },
         "focus": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-formField-info-focus-textColor)"
         },
         "error": {
           "rest": {
-            "textColor": "text-default"
+            "textColor": "var(--hpe-formField-info-error-rest-textColor)"
           }
         },
         "disabled": {
           "rest": {
-            "textColor": "text-disabled"
+            "textColor": "var(--hpe-formField-info-disabled-rest-textColor)"
           }
         },
         "readOnly": {
           "rest": {
-            "textColor": "text-default"
+            "textColor": "var(--hpe-formField-info-readOnly-rest-textColor)"
           }
         }
       },
       "error": {
         "rest": {
-          "textColor": "text-critical",
-          "iconColor": "icon-default"
+          "textColor": "var(--hpe-formField-error-rest-textColor)",
+          "iconColor": "var(--hpe-formField-error-rest-iconColor)"
         },
         "hover": {
-          "iconColor": "icon-default",
-          "textColor": "text-critical"
+          "iconColor": "var(--hpe-formField-error-hover-iconColor)",
+          "textColor": "var(--hpe-formField-error-hover-textColor)"
         },
         "focus": {
-          "iconColor": "icon-default",
-          "textColor": "text-critical"
+          "iconColor": "var(--hpe-formField-error-focus-iconColor)",
+          "textColor": "var(--hpe-formField-error-focus-textColor)"
         }
       },
       "value": {
         "rest": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-formField-value-rest-textColor)"
         },
         "hover": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-formField-value-hover-textColor)"
         },
         "focus": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-formField-value-focus-textColor)"
         },
         "error": {
           "rest": {
-            "textColor": "text-default"
+            "textColor": "var(--hpe-formField-value-error-rest-textColor)"
           }
         },
         "disabled": {
           "rest": {
-            "textColor": "text-disabled"
+            "textColor": "var(--hpe-formField-value-disabled-rest-textColor)"
           }
         },
         "readOnly": {
           "rest": {
-            "textColor": "text-default"
+            "textColor": "var(--hpe-formField-value-readOnly-rest-textColor)"
           }
         }
       }
     },
     "footerCell": {
-      "paddingX": "12px",
-      "fontSize": "1.125rem",
-      "lineHeight": "1.5rem",
-      "fontWeight": 500,
-      "borderTopWidth": "1px",
-      "paddingTop": "5px",
-      "paddingBottom": "6px",
-      "gapX": "6px",
-      "minHeight": "36px",
+      "paddingX": "var(--hpe-footerCell-paddingX)",
+      "fontSize": "var(--hpe-footerCell-fontSize)",
+      "lineHeight": "var(--hpe-footerCell-lineHeight)",
+      "fontWeight": "var(--hpe-footerCell-fontWeight)",
+      "borderTopWidth": "var(--hpe-footerCell-borderTopWidth)",
+      "paddingTop": "var(--hpe-footerCell-paddingTop)",
+      "paddingBottom": "var(--hpe-footerCell-paddingBottom)",
+      "gapX": "var(--hpe-footerCell-gapX)",
+      "minHeight": "var(--hpe-footerCell-minHeight)",
       "rest": {
-        "textColor": "text-default",
-        "iconColor": "icon-default",
-        "borderColor": "border-default",
-        "background": "transparent"
+        "textColor": "var(--hpe-footerCell-rest-textColor)",
+        "iconColor": "var(--hpe-footerCell-rest-iconColor)",
+        "borderColor": "var(--hpe-footerCell-rest-borderColor)",
+        "background": "var(--hpe-footerCell-rest-background)"
       },
       "hover": {
-        "textColor": "text-default",
-        "iconColor": "icon-default",
-        "borderColor": "border-default",
-        "background": "transparent"
+        "textColor": "var(--hpe-footerCell-hover-textColor)",
+        "iconColor": "var(--hpe-footerCell-hover-iconColor)",
+        "borderColor": "var(--hpe-footerCell-hover-borderColor)",
+        "background": "var(--hpe-footerCell-hover-background)"
       },
       "pinned": {
         "rest": {
-          "textColor": "text-default",
-          "iconColor": "icon-default",
-          "borderColor": "transparent",
-          "background": "transparent"
+          "textColor": "var(--hpe-footerCell-pinned-rest-textColor)",
+          "iconColor": "var(--hpe-footerCell-pinned-rest-iconColor)",
+          "borderColor": "var(--hpe-footerCell-pinned-rest-borderColor)",
+          "background": "var(--hpe-footerCell-pinned-rest-background)"
         },
         "hover": {
-          "textColor": "text-default",
-          "iconColor": "icon-default",
-          "borderColor": "transparent",
-          "background": "transparent"
+          "textColor": "var(--hpe-footerCell-pinned-hover-textColor)",
+          "iconColor": "var(--hpe-footerCell-pinned-hover-iconColor)",
+          "borderColor": "var(--hpe-footerCell-pinned-hover-borderColor)",
+          "background": "var(--hpe-footerCell-pinned-hover-background)"
         }
       }
     },
     "radioButton": {
       "control": {
         "rest": {
-          "background": "transparent",
-          "borderColor": "border-default"
+          "background": "var(--hpe-radioButton-control-rest-background)",
+          "borderColor": "var(--hpe-radioButton-control-rest-borderColor)"
         },
         "hover": {
-          "background": "transparent",
-          "borderColor": "border-strong"
+          "background": "var(--hpe-radioButton-control-hover-background)",
+          "borderColor": "var(--hpe-radioButton-control-hover-borderColor)"
         },
         "focus": {
-          "background": "transparent",
-          "borderColor": "border-default"
+          "background": "var(--hpe-radioButton-control-focus-background)",
+          "borderColor": "var(--hpe-radioButton-control-focus-borderColor)"
         },
         "disabled": {
           "rest": {
-            "background": "background-disabled",
-            "borderColor": "border-disabled"
+            "background": "var(--hpe-radioButton-control-disabled-rest-background)",
+            "borderColor": "var(--hpe-radioButton-control-disabled-rest-borderColor)"
           }
         },
         "selected": {
           "rest": {
-            "background": "background-default",
-            "borderColor": "border-selected",
-            "iconColor": "decorative-brand"
+            "background": "var(--hpe-radioButton-control-selected-rest-background)",
+            "borderColor": "var(--hpe-radioButton-control-selected-rest-borderColor)",
+            "iconColor": "var(--hpe-radioButton-control-selected-rest-iconColor)"
           },
           "hover": {
-            "background": "background-default",
-            "borderColor": "border-strong",
-            "iconColor": "decorative-brand"
+            "background": "var(--hpe-radioButton-control-selected-hover-background)",
+            "borderColor": "var(--hpe-radioButton-control-selected-hover-borderColor)",
+            "iconColor": "var(--hpe-radioButton-control-selected-hover-iconColor)"
           },
           "focus": {
-            "background": "background-default",
-            "borderColor": "border-selected",
-            "iconColor": "decorative-brand"
+            "background": "var(--hpe-radioButton-control-selected-focus-background)",
+            "borderColor": "var(--hpe-radioButton-control-selected-focus-borderColor)",
+            "iconColor": "var(--hpe-radioButton-control-selected-focus-iconColor)"
           }
         }
       },
       "label": {
         "rest": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-radioButton-label-rest-textColor)"
         },
         "hover": {
-          "textColor": "text-default"
+          "textColor": "var(--hpe-radioButton-label-hover-textColor)"
         },
         "disabled": {
           "rest": {
-            "textColor": "text-disabled"
+            "textColor": "var(--hpe-radioButton-label-disabled-rest-textColor)"
           }
         },
         "selected": {
           "rest": {
-            "textColor": "text-default"
+            "textColor": "var(--hpe-radioButton-label-selected-rest-textColor)"
           },
           "hover": {
-            "textColor": "text-default"
+            "textColor": "var(--hpe-radioButton-label-selected-hover-textColor)"
           }
         }
       },
       "medium": {
-        "gapX": "12px",
+        "gapX": "var(--hpe-radioButton-medium-gapX)",
         "label": {
-          "fontSize": "1.125rem",
-          "lineHeight": "1.5rem",
-          "fontWeight": 500
+          "fontSize": "var(--hpe-radioButton-medium-label-fontSize)",
+          "lineHeight": "var(--hpe-radioButton-medium-label-lineHeight)",
+          "fontWeight": "var(--hpe-radioButton-medium-label-fontWeight)"
         },
         "control": {
-          "height": "24px",
-          "width": "24px",
-          "borderWidth": "default",
-          "borderRadius": "384px"
+          "height": "var(--hpe-radioButton-medium-control-height)",
+          "width": "var(--hpe-radioButton-medium-control-width)",
+          "borderWidth": "var(--hpe-radioButton-medium-control-borderWidth)",
+          "borderRadius": "var(--hpe-radioButton-medium-control-borderRadius)"
         }
       }
     },
     "anchor": {
       "default": {
         "rest": {
-          "textColor": "text-strong",
-          "fontWeight": 500,
-          "textDecoration": "underline"
+          "textColor": "var(--hpe-anchor-default-rest-textColor)",
+          "fontWeight": "var(--hpe-anchor-default-rest-fontWeight)",
+          "textDecoration": "var(--hpe-anchor-default-rest-textDecoration)"
         },
         "hover": {
-          "textColor": "text-strong",
-          "fontWeight": 500,
-          "textDecoration": "underline"
+          "textColor": "var(--hpe-anchor-default-hover-textColor)",
+          "fontWeight": "var(--hpe-anchor-default-hover-fontWeight)",
+          "textDecoration": "var(--hpe-anchor-default-hover-textDecoration)"
         },
         "disabled": {
-          "textColor": "text-strong",
-          "fontWeight": 500,
-          "textDecoration": "underline"
+          "textColor": "var(--hpe-anchor-default-disabled-textColor)",
+          "fontWeight": "var(--hpe-anchor-default-disabled-fontWeight)",
+          "textDecoration": "var(--hpe-anchor-default-disabled-textDecoration)"
         },
         "small": {
-          "fontSize": "1rem",
-          "lineHeight": "1.25rem",
-          "gapX": "6px"
+          "fontSize": "var(--hpe-anchor-default-small-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-small-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-small-gapX)"
         },
         "medium": {
-          "fontSize": "1.125rem",
-          "lineHeight": "1.5rem",
-          "gapX": "6px"
+          "fontSize": "var(--hpe-anchor-default-medium-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-medium-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-medium-gapX)"
         },
         "large": {
-          "fontSize": "1.375rem",
-          "lineHeight": "1.75rem",
-          "gapX": "6px"
+          "fontSize": "var(--hpe-anchor-default-large-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-large-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-large-gapX)"
         },
         "xlarge": {
-          "fontSize": "1.5rem",
-          "lineHeight": "1.875rem",
-          "gapX": "6px"
+          "fontSize": "var(--hpe-anchor-default-xlarge-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-xlarge-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-xlarge-gapX)"
         },
         "xxlarge": {
-          "fontSize": "2.25rem",
-          "lineHeight": "2.5rem",
-          "gapX": "6px"
+          "fontSize": "var(--hpe-anchor-default-xxlarge-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-xxlarge-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-xxlarge-gapX)"
         },
         "3xl": {
-          "fontSize": "2.625rem",
-          "lineHeight": "2.875rem",
-          "gapX": "6px"
+          "fontSize": "var(--hpe-anchor-default-3xl-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-3xl-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-3xl-gapX)"
         },
         "4xl": {
-          "fontSize": "3rem",
-          "lineHeight": "3rem",
-          "gapX": "6px"
+          "fontSize": "var(--hpe-anchor-default-4xl-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-4xl-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-4xl-gapX)"
         },
         "5xl": {
-          "fontSize": "4.5rem",
-          "lineHeight": "4.5rem",
-          "gapX": "6px"
+          "fontSize": "var(--hpe-anchor-default-5xl-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-5xl-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-5xl-gapX)"
         }
       }
     }

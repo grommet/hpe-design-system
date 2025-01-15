@@ -38,14 +38,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "default"
+      "item": "default",
+      "subitem": "REST"
     },
     "path": [
       "color",
       "background",
-      "default"
+      "default",
+      "REST"
     ],
-    "key": "{color.background.default}"
+    "key": "{color.background.default.REST}"
   },
   "hpe.color.background.back": {
     "$type": "color",
@@ -82,14 +84,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "back"
+      "item": "back",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "back"
+      "back",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.background.back}"
+    "key": "{color.background.back.DEFAULT.REST}"
   },
   "hpe.color.background.front": {
     "$type": "color",
@@ -126,14 +132,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "front"
+      "item": "front",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "front"
+      "front",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.background.front}"
+    "key": "{color.background.front.DEFAULT.REST}"
   },
   "hpe.color.background.floating": {
     "$type": "color",
@@ -170,14 +180,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "floating"
+      "item": "floating",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "floating"
+      "floating",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.background.floating}"
+    "key": "{color.background.floating.DEFAULT.REST}"
   },
   "hpe.color.background.contrast": {
     "$type": "color",
@@ -216,14 +230,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "contrast"
+      "item": "contrast",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "contrast"
+      "contrast",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.background.contrast}"
+    "key": "{color.background.contrast.DEFAULT.REST}"
   },
   "hpe.color.background.hover": {
     "$type": "color",
@@ -243,7 +261,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.contrast}",
+      "$value": "{color.background.contrast.DEFAULT.REST}",
       "$description": "Generic hover state of components that have no fill in their resting state. For example, menu items.",
       "$extensions": {
         "com.figma": {
@@ -260,14 +278,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "hover"
+      "item": "DEFAULT",
+      "subitem": "hover"
     },
     "path": [
       "color",
       "background",
+      "DEFAULT",
       "hover"
     ],
-    "key": "{color.background.hover}"
+    "key": "{color.background.DEFAULT.hover}"
   },
   "hpe.color.background.active": {
     "$type": "color",
@@ -287,7 +307,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.hover}",
+      "$value": "{color.background.DEFAULT.hover}",
       "$description": "Standard active state color",
       "$extensions": {
         "com.figma": {
@@ -304,14 +324,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "active"
+      "item": "DEFAULT",
+      "subitem": "active"
     },
     "path": [
       "color",
       "background",
+      "DEFAULT",
       "active"
     ],
-    "key": "{color.background.active}"
+    "key": "{color.background.DEFAULT.active}"
   },
   "hpe.color.background.disabled": {
     "$type": "color",
@@ -348,14 +370,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "disabled"
+      "item": "disabled",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "disabled"
+      "disabled",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.background.disabled}"
+    "key": "{color.background.disabled.DEFAULT.REST}"
   },
   "hpe.color.background.screenOverlay": {
     "$type": "color",
@@ -392,19 +418,23 @@ export default {
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "screenOverlay"
+      "item": "screenOverlay",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "screenOverlay"
+      "screenOverlay",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.background.screenOverlay}"
+    "key": "{color.background.screenOverlay.DEFAULT.REST}"
   },
-  "hpe.color.background.warning": {
+  "hpe.color.background.ok": {
     "$type": "color",
-    "$value": "rgba(255, 188, 68, 0.24)",
-    "$description": "Use for borders communicating warning or caution.",
+    "$value": "rgba(23, 235, 160, 0.24)",
+    "$description": "Use for backgrounds communicating success.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -419,8 +449,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.orange.400-Opacity24}",
-      "$description": "Use for borders communicating warning or caution.",
+      "$value": "{base.color.green.400-Opacity24}",
+      "$description": "Use for backgrounds communicating success.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -432,62 +462,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.warning",
+    "name": "hpe.color.background.ok",
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "warning"
+      "item": "ok",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "warning"
+      "ok",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.background.warning}"
-  },
-  "hpe.color.background.info": {
-    "$type": "color",
-    "$value": "rgba(0, 200, 255, 0.24)",
-    "$description": "Use for backgrounds communicating neutral information.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.blue.400-Opacity24}",
-      "$description": "Use for backgrounds communicating neutral information.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.info",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "info"
-    },
-    "path": [
-      "color",
-      "background",
-      "info"
-    ],
-    "key": "{color.background.info}"
+    "key": "{color.background.ok.DEFAULT.REST}"
   },
   "hpe.color.background.critical": {
     "$type": "color",
@@ -524,14 +514,162 @@ export default {
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "critical"
+      "item": "critical",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "critical"
+      "critical",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.background.critical}"
+    "key": "{color.background.critical.DEFAULT.REST}"
+  },
+  "hpe.color.background.unknown": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.04)",
+    "$description": "Use for backgrounds communicating an unknown status.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.black.opacity4}",
+      "$description": "Use for backgrounds communicating an unknown status.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.unknown",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "unknown",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "unknown",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.unknown.DEFAULT.REST}"
+  },
+  "hpe.color.background.info": {
+    "$type": "color",
+    "$value": "rgba(0, 200, 255, 0.24)",
+    "$description": "Use for backgrounds communicating neutral information.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.blue.400-Opacity24}",
+      "$description": "Use for backgrounds communicating neutral information.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.info",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "info",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "info",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.info.DEFAULT.REST}"
+  },
+  "hpe.color.background.warning": {
+    "$type": "color",
+    "$value": "rgba(255, 188, 68, 0.24)",
+    "$description": "Use for borders communicating warning or caution.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.orange.400-Opacity24}",
+      "$description": "Use for borders communicating warning or caution.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.warning",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "warning",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "warning",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.warning.DEFAULT.REST}"
   },
   "hpe.color.background.primary.default": {
     "$type": "color",
@@ -569,15 +707,17 @@ export default {
       "category": "color",
       "type": "background",
       "item": "primary",
-      "subitem": "default"
+      "subitem": "default",
+      "state": "REST"
     },
     "path": [
       "color",
       "background",
       "primary",
-      "default"
+      "default",
+      "REST"
     ],
-    "key": "{color.background.primary.default}"
+    "key": "{color.background.primary.default.REST}"
   },
   "hpe.color.background.primary.hover": {
     "$type": "color",
@@ -615,103 +755,17 @@ export default {
       "category": "color",
       "type": "background",
       "item": "primary",
-      "subitem": "hover"
+      "subitem": "DEFAULT",
+      "state": "hover"
     },
     "path": [
       "color",
       "background",
       "primary",
+      "DEFAULT",
       "hover"
     ],
-    "key": "{color.background.primary.hover}"
-  },
-  "hpe.color.background.unknown": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "Use for backgrounds communicating an unknown status.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity4}",
-      "$description": "Use for backgrounds communicating an unknown status.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.unknown",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "unknown"
-    },
-    "path": [
-      "color",
-      "background",
-      "unknown"
-    ],
-    "key": "{color.background.unknown}"
-  },
-  "hpe.color.background.ok": {
-    "$type": "color",
-    "$value": "rgba(23, 235, 160, 0.24)",
-    "$description": "Use for backgrounds communicating success.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.green.400-Opacity24}",
-      "$description": "Use for backgrounds communicating success.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.ok",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "ok"
-    },
-    "path": [
-      "color",
-      "background",
-      "ok"
-    ],
-    "key": "{color.background.ok}"
+    "key": "{color.background.primary.DEFAULT.hover}"
   },
   "hpe.color.background.selected.strong.enabled": {
     "$type": "color",
@@ -757,9 +811,11 @@ export default {
       "background",
       "selected",
       "strong",
-      "enabled"
+      "enabled",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.background.selected.strong.enabled}"
+    "key": "{color.background.selected.strong.enabled.DEFAULT.REST}"
   },
   "hpe.color.background.selected.strong.hover": {
     "$type": "color",
@@ -853,9 +909,11 @@ export default {
       "background",
       "selected",
       "weak",
-      "enabled"
+      "enabled",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.background.selected.weak.enabled}"
+    "key": "{color.background.selected.weak.enabled.DEFAULT.REST}"
   },
   "hpe.color.background.selected.weak.hover": {
     "$type": "color",
@@ -939,15 +997,17 @@ export default {
       "category": "color",
       "type": "background",
       "item": "neutral",
-      "subitem": "xstrong"
+      "subitem": "xstrong",
+      "state": "REST"
     },
     "path": [
       "color",
       "background",
       "neutral",
-      "xstrong"
+      "xstrong",
+      "REST"
     ],
-    "key": "{color.background.neutral.xstrong}"
+    "key": "{color.background.neutral.xstrong.REST}"
   },
   "hpe.color.border.strong": {
     "$type": "color",
@@ -982,14 +1042,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "border",
-      "item": "strong"
+      "item": "strong",
+      "subitem": "REST"
     },
     "path": [
       "color",
       "border",
-      "strong"
+      "strong",
+      "REST"
     ],
-    "key": "{color.border.strong}"
+    "key": "{color.border.strong.REST}"
   },
   "hpe.color.border.default": {
     "$type": "color",
@@ -1026,14 +1088,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "border",
-      "item": "default"
+      "item": "default",
+      "subitem": "REST"
     },
     "path": [
       "color",
       "border",
-      "default"
+      "default",
+      "REST"
     ],
-    "key": "{color.border.default}"
+    "key": "{color.border.default.REST}"
   },
   "hpe.color.border.weak": {
     "$type": "color",
@@ -1070,14 +1134,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "border",
-      "item": "weak"
+      "item": "weak",
+      "subitem": "REST"
     },
     "path": [
       "color",
       "border",
-      "weak"
+      "weak",
+      "REST"
     ],
-    "key": "{color.border.weak}"
+    "key": "{color.border.weak.REST}"
   },
   "hpe.color.border.disabled": {
     "$type": "color",
@@ -1114,14 +1180,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "border",
-      "item": "disabled"
+      "item": "disabled",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "border",
-      "disabled"
+      "disabled",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.border.disabled}"
+    "key": "{color.border.disabled.DEFAULT.REST}"
   },
   "hpe.color.border.selected": {
     "$type": "color",
@@ -1158,14 +1228,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "border",
-      "item": "selected"
+      "item": "selected",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "border",
-      "selected"
+      "selected",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.border.selected}"
+    "key": "{color.border.selected.DEFAULT.REST}"
   },
   "hpe.color.border.critical": {
     "$type": "color",
@@ -1184,7 +1258,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "Use for borders communicating errors or danger.",
       "$extensions": {
         "com.figma": {
@@ -1200,14 +1274,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "border",
-      "item": "critical"
+      "item": "critical",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "border",
-      "critical"
+      "critical",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.border.critical}"
+    "key": "{color.border.critical.DEFAULT.REST}"
   },
   "hpe.color.border.info": {
     "$type": "color",
@@ -1228,7 +1306,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "Use for borders communicating neutral information.",
       "$extensions": {
         "com.figma": {
@@ -1246,14 +1324,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "border",
-      "item": "info"
+      "item": "info",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "border",
-      "info"
+      "info",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.border.info}"
+    "key": "{color.border.info.DEFAULT.REST}"
   },
   "hpe.color.border.ok": {
     "$type": "color",
@@ -1274,7 +1356,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "Use for borders communicating success.",
       "$extensions": {
         "com.figma": {
@@ -1292,14 +1374,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "border",
-      "item": "ok"
+      "item": "ok",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "border",
-      "ok"
+      "ok",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.border.ok}"
+    "key": "{color.border.ok.DEFAULT.REST}"
   },
   "hpe.color.border.warning": {
     "$type": "color",
@@ -1320,7 +1406,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "Use for backgrounds communicating warning or caution.",
       "$extensions": {
         "com.figma": {
@@ -1338,14 +1424,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "border",
-      "item": "warning"
+      "item": "warning",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "border",
-      "warning"
+      "warning",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.border.warning}"
+    "key": "{color.border.warning.DEFAULT.REST}"
   },
   "hpe.color.border.unknown": {
     "$type": "color",
@@ -1366,7 +1456,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "Use for borders communicating an unknown status.",
       "$extensions": {
         "com.figma": {
@@ -1384,14 +1474,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "border",
-      "item": "unknown"
+      "item": "unknown",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "border",
-      "unknown"
+      "unknown",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.border.unknown}"
+    "key": "{color.border.unknown.DEFAULT.REST}"
   },
   "hpe.color.text.default": {
     "$type": "color",
@@ -1426,14 +1520,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "text",
-      "item": "default"
+      "item": "default",
+      "subitem": "REST"
     },
     "path": [
       "color",
       "text",
-      "default"
+      "default",
+      "REST"
     ],
-    "key": "{color.text.default}"
+    "key": "{color.text.default.REST}"
   },
   "hpe.color.text.strong": {
     "$type": "color",
@@ -1470,14 +1566,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "text",
-      "item": "strong"
+      "item": "strong",
+      "subitem": "REST"
     },
     "path": [
       "color",
       "text",
-      "strong"
+      "strong",
+      "REST"
     ],
-    "key": "{color.text.strong}"
+    "key": "{color.text.strong.REST}"
   },
   "hpe.color.text.weak": {
     "$type": "color",
@@ -1512,14 +1610,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "text",
-      "item": "weak"
+      "item": "weak",
+      "subitem": "REST"
     },
     "path": [
       "color",
       "text",
-      "weak"
+      "weak",
+      "REST"
     ],
-    "key": "{color.text.weak}"
+    "key": "{color.text.weak.REST}"
   },
   "hpe.color.text.placeholder": {
     "$type": "color",
@@ -1538,7 +1638,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.weak}",
+      "$value": "{color.text.weak.REST}",
       "$description": "Placeholder text color.",
       "$extensions": {
         "com.figma": {
@@ -1554,14 +1654,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "text",
-      "item": "placeholder"
+      "item": "placeholder",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
-      "placeholder"
+      "placeholder",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.text.placeholder}"
+    "key": "{color.text.placeholder.DEFAULT.REST}"
   },
   "hpe.color.text.disabled": {
     "$type": "color",
@@ -1596,14 +1700,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "text",
-      "item": "disabled"
+      "item": "disabled",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
-      "disabled"
+      "disabled",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.text.disabled}"
+    "key": "{color.text.disabled.DEFAULT.REST}"
   },
   "hpe.color.text.onPrimary": {
     "$type": "color",
@@ -1638,14 +1746,452 @@ export default {
     "attributes": {
       "category": "color",
       "type": "text",
-      "item": "onPrimary"
+      "item": "onPrimary",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
-      "onPrimary"
+      "onPrimary",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.text.onPrimary}"
+    "key": "{color.text.onPrimary.DEFAULT.REST}"
+  },
+  "hpe.color.text.primary": {
+    "$type": "color",
+    "$value": "#006750",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.green.800}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.primary",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "primary",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "text",
+      "primary",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.text.primary.DEFAULT.REST}"
+  },
+  "hpe.color.text.critical": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "Use for text on standard backgrounds communicating errors or danger.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default.REST}",
+      "$description": "Use for text on standard backgrounds communicating errors or danger.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.critical",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "critical",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "text",
+      "critical",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.text.critical.DEFAULT.REST}"
+  },
+  "hpe.color.text.info": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "Use for text on standard backgrounds communicating neutral information.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default.REST}",
+      "$description": "Use for text on standard backgrounds communicating neutral information.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.info",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "info",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "text",
+      "info",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.text.info.DEFAULT.REST}"
+  },
+  "hpe.color.text.ok": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "Use for text on standard backgrounds communicating success.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default.REST}",
+      "$description": "Use for text on standard backgrounds communicating success.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.ok",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "ok",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "text",
+      "ok",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.text.ok.DEFAULT.REST}"
+  },
+  "hpe.color.text.warning": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "Use for text on standard backgrounds communicating warning or caution.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default.REST}",
+      "$description": "Use for text on standard backgrounds communicating warning or caution.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.warning",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "warning",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "text",
+      "warning",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.text.warning.DEFAULT.REST}"
+  },
+  "hpe.color.text.unknown": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "Use for text on standard backgrounds communicating an unknown status.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.default.REST}",
+      "$description": "Use for text on standard backgrounds communicating an unknown status.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.unknown",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "unknown",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "text",
+      "unknown",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.text.unknown.DEFAULT.REST}"
+  },
+  "hpe.color.text.heading.default": {
+    "$type": "color",
+    "$value": "#2e2e2e",
+    "$description": "Text color for headings.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.strong.REST}",
+      "$description": "Text color for headings.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.heading.default",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "heading",
+      "subitem": "default",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "text",
+      "heading",
+      "default",
+      "REST"
+    ],
+    "key": "{color.text.heading.default.REST}"
+  },
+  "hpe.color.text.onSelectedStrong": {
+    "$type": "color",
+    "$value": "#ffffff",
+    "$description": "Text color to be used for text sitting on background-selected-strong.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "Text color to be used for text sitting on background-selected-strong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onSelectedStrong",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onSelectedStrong",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "text",
+      "onSelectedStrong",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.text.onSelectedStrong.DEFAULT.REST}"
+  },
+  "hpe.color.text.onSelected": {
+    "$type": "color",
+    "$value": "#2e2e2e",
+    "$description": "Text color to be used for text sitting on non-strong variants of background-selected.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.text.strong.REST}",
+      "$description": "Text color to be used for text sitting on non-strong variants of background-selected.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.onSelected",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "onSelected",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "text",
+      "onSelected",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.text.onSelected.DEFAULT.REST}"
   },
   "hpe.color.text.onStrong.default": {
     "$type": "color",
@@ -1681,415 +2227,17 @@ export default {
       "category": "color",
       "type": "text",
       "item": "onStrong",
-      "subitem": "default"
+      "subitem": "default",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onStrong",
-      "default"
+      "default",
+      "REST"
     ],
-    "key": "{color.text.onStrong.default}"
-  },
-  "hpe.color.text.heading.default": {
-    "$type": "color",
-    "$value": "#2e2e2e",
-    "$description": "Text color for headings.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "Text color for headings.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.heading.default",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "heading",
-      "subitem": "default"
-    },
-    "path": [
-      "color",
-      "text",
-      "heading",
-      "default"
-    ],
-    "key": "{color.text.heading.default}"
-  },
-  "hpe.color.text.primary": {
-    "$type": "color",
-    "$value": "#006750",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.green.800}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.primary",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "primary"
-    },
-    "path": [
-      "color",
-      "text",
-      "primary"
-    ],
-    "key": "{color.text.primary}"
-  },
-  "hpe.color.text.critical": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "Use for text on standard backgrounds communicating errors or danger.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "Use for text on standard backgrounds communicating errors or danger.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.critical",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "critical"
-    },
-    "path": [
-      "color",
-      "text",
-      "critical"
-    ],
-    "key": "{color.text.critical}"
-  },
-  "hpe.color.text.info": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "Use for text on standard backgrounds communicating neutral information.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "Use for text on standard backgrounds communicating neutral information.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.info",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "info"
-    },
-    "path": [
-      "color",
-      "text",
-      "info"
-    ],
-    "key": "{color.text.info}"
-  },
-  "hpe.color.text.ok": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "Use for text on standard backgrounds communicating success.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "Use for text on standard backgrounds communicating success.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.ok",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "ok"
-    },
-    "path": [
-      "color",
-      "text",
-      "ok"
-    ],
-    "key": "{color.text.ok}"
-  },
-  "hpe.color.text.warning": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "Use for text on standard backgrounds communicating warning or caution.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "Use for text on standard backgrounds communicating warning or caution.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.warning",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "warning"
-    },
-    "path": [
-      "color",
-      "text",
-      "warning"
-    ],
-    "key": "{color.text.warning}"
-  },
-  "hpe.color.text.unknown": {
-    "$type": "color",
-    "$value": "#555555",
-    "$description": "Use for text on standard backgrounds communicating an unknown status.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.default}",
-      "$description": "Use for text on standard backgrounds communicating an unknown status.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.unknown",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "unknown"
-    },
-    "path": [
-      "color",
-      "text",
-      "unknown"
-    ],
-    "key": "{color.text.unknown}"
-  },
-  "hpe.color.text.onSelectedStrong": {
-    "$type": "color",
-    "$value": "#ffffff",
-    "$description": "Text color to be used for text sitting on background-selected-strong.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Text color to be used for text sitting on background-selected-strong.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.onSelectedStrong",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "onSelectedStrong"
-    },
-    "path": [
-      "color",
-      "text",
-      "onSelectedStrong"
-    ],
-    "key": "{color.text.onSelectedStrong}"
-  },
-  "hpe.color.text.onSelected": {
-    "$type": "color",
-    "$value": "#2e2e2e",
-    "$description": "Text color to be used for text sitting on non-strong variants of background-selected.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.strong}",
-      "$description": "Text color to be used for text sitting on non-strong variants of background-selected.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.onSelected",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "onSelected"
-    },
-    "path": [
-      "color",
-      "text",
-      "onSelected"
-    ],
-    "key": "{color.text.onSelected}"
+    "key": "{color.text.onStrong.default.REST}"
   },
   "hpe.color.text.onCritical.strong": {
     "$type": "color",
@@ -2108,7 +2256,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "Emphasized variant of text color to be used on background-critical.",
       "$extensions": {
         "com.figma": {
@@ -2125,15 +2273,17 @@ export default {
       "category": "color",
       "type": "text",
       "item": "onCritical",
-      "subitem": "strong"
+      "subitem": "strong",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onCritical",
-      "strong"
+      "strong",
+      "REST"
     ],
-    "key": "{color.text.onCritical.strong}"
+    "key": "{color.text.onCritical.strong.REST}"
   },
   "hpe.color.text.onCritical.default": {
     "$type": "color",
@@ -2152,7 +2302,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "Text color to be used on background-critical.",
       "$extensions": {
         "com.figma": {
@@ -2169,15 +2319,17 @@ export default {
       "category": "color",
       "type": "text",
       "item": "onCritical",
-      "subitem": "default"
+      "subitem": "default",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onCritical",
-      "default"
+      "default",
+      "REST"
     ],
-    "key": "{color.text.onCritical.default}"
+    "key": "{color.text.onCritical.default.REST}"
   },
   "hpe.color.text.onInfo.strong": {
     "$type": "color",
@@ -2196,7 +2348,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "Emphasized variant of text color to be used on background-info.",
       "$extensions": {
         "com.figma": {
@@ -2213,15 +2365,17 @@ export default {
       "category": "color",
       "type": "text",
       "item": "onInfo",
-      "subitem": "strong"
+      "subitem": "strong",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onInfo",
-      "strong"
+      "strong",
+      "REST"
     ],
-    "key": "{color.text.onInfo.strong}"
+    "key": "{color.text.onInfo.strong.REST}"
   },
   "hpe.color.text.onInfo.default": {
     "$type": "color",
@@ -2240,7 +2394,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "Text color to be used on background-info.",
       "$extensions": {
         "com.figma": {
@@ -2257,15 +2411,17 @@ export default {
       "category": "color",
       "type": "text",
       "item": "onInfo",
-      "subitem": "default"
+      "subitem": "default",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onInfo",
-      "default"
+      "default",
+      "REST"
     ],
-    "key": "{color.text.onInfo.default}"
+    "key": "{color.text.onInfo.default.REST}"
   },
   "hpe.color.text.onOk.strong": {
     "$type": "color",
@@ -2284,7 +2440,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "Emphasized variant of text color to be used on background-ok.",
       "$extensions": {
         "com.figma": {
@@ -2301,15 +2457,17 @@ export default {
       "category": "color",
       "type": "text",
       "item": "onOk",
-      "subitem": "strong"
+      "subitem": "strong",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onOk",
-      "strong"
+      "strong",
+      "REST"
     ],
-    "key": "{color.text.onOk.strong}"
+    "key": "{color.text.onOk.strong.REST}"
   },
   "hpe.color.text.onOk.default": {
     "$type": "color",
@@ -2328,7 +2486,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "Text color to be used on background-ok.",
       "$extensions": {
         "com.figma": {
@@ -2345,15 +2503,17 @@ export default {
       "category": "color",
       "type": "text",
       "item": "onOk",
-      "subitem": "default"
+      "subitem": "default",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onOk",
-      "default"
+      "default",
+      "REST"
     ],
-    "key": "{color.text.onOk.default}"
+    "key": "{color.text.onOk.default.REST}"
   },
   "hpe.color.text.onUnknown.strong": {
     "$type": "color",
@@ -2372,7 +2532,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "Emphasized variant of text color to be used on background-unknown.",
       "$extensions": {
         "com.figma": {
@@ -2389,15 +2549,17 @@ export default {
       "category": "color",
       "type": "text",
       "item": "onUnknown",
-      "subitem": "strong"
+      "subitem": "strong",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onUnknown",
-      "strong"
+      "strong",
+      "REST"
     ],
-    "key": "{color.text.onUnknown.strong}"
+    "key": "{color.text.onUnknown.strong.REST}"
   },
   "hpe.color.text.onUnknown.default": {
     "$type": "color",
@@ -2416,7 +2578,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "Text color to be used on background-unknown.",
       "$extensions": {
         "com.figma": {
@@ -2433,15 +2595,17 @@ export default {
       "category": "color",
       "type": "text",
       "item": "onUnknown",
-      "subitem": "default"
+      "subitem": "default",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onUnknown",
-      "default"
+      "default",
+      "REST"
     ],
-    "key": "{color.text.onUnknown.default}"
+    "key": "{color.text.onUnknown.default.REST}"
   },
   "hpe.color.text.onWarning.strong": {
     "$type": "color",
@@ -2460,7 +2624,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "Emphasized variant of text color to be used on background-warning.",
       "$extensions": {
         "com.figma": {
@@ -2477,15 +2641,17 @@ export default {
       "category": "color",
       "type": "text",
       "item": "onWarning",
-      "subitem": "strong"
+      "subitem": "strong",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onWarning",
-      "strong"
+      "strong",
+      "REST"
     ],
-    "key": "{color.text.onWarning.strong}"
+    "key": "{color.text.onWarning.strong.REST}"
   },
   "hpe.color.text.onWarning.default": {
     "$type": "color",
@@ -2504,7 +2670,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "Text color to be used on background-warning.",
       "$extensions": {
         "com.figma": {
@@ -2521,15 +2687,17 @@ export default {
       "category": "color",
       "type": "text",
       "item": "onWarning",
-      "subitem": "default"
+      "subitem": "default",
+      "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onWarning",
-      "default"
+      "default",
+      "REST"
     ],
-    "key": "{color.text.onWarning.default}"
+    "key": "{color.text.onWarning.default.REST}"
   },
   "hpe.color.icon.default": {
     "$type": "color",
@@ -2568,14 +2736,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "default"
+      "item": "default",
+      "subitem": "REST"
     },
     "path": [
       "color",
       "icon",
-      "default"
+      "default",
+      "REST"
     ],
-    "key": "{color.icon.default}"
+    "key": "{color.icon.default.REST}"
   },
   "hpe.color.icon.strong": {
     "$type": "color",
@@ -2614,14 +2784,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "strong"
+      "item": "strong",
+      "subitem": "REST"
     },
     "path": [
       "color",
       "icon",
-      "strong"
+      "strong",
+      "REST"
     ],
-    "key": "{color.icon.strong}"
+    "key": "{color.icon.strong.REST}"
   },
   "hpe.color.icon.weak": {
     "$type": "color",
@@ -2660,14 +2832,16 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "weak"
+      "item": "weak",
+      "subitem": "REST"
     },
     "path": [
       "color",
       "icon",
-      "weak"
+      "weak",
+      "REST"
     ],
-    "key": "{color.icon.weak}"
+    "key": "{color.icon.weak.REST}"
   },
   "hpe.color.icon.disabled": {
     "$type": "color",
@@ -2706,14 +2880,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "disabled"
+      "item": "disabled",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "disabled"
+      "disabled",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.icon.disabled}"
+    "key": "{color.icon.disabled.DEFAULT.REST}"
   },
   "hpe.color.icon.critical": {
     "$type": "color",
@@ -2752,14 +2930,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "critical"
+      "item": "critical",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "critical"
+      "critical",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.icon.critical}"
+    "key": "{color.icon.critical.DEFAULT.REST}"
   },
   "hpe.color.icon.info": {
     "$type": "color",
@@ -2798,14 +2980,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "info"
+      "item": "info",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "info"
+      "info",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.icon.info}"
+    "key": "{color.icon.info.DEFAULT.REST}"
   },
   "hpe.color.icon.ok": {
     "$type": "color",
@@ -2844,14 +3030,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "ok"
+      "item": "ok",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "ok"
+      "ok",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.icon.ok}"
+    "key": "{color.icon.ok.DEFAULT.REST}"
   },
   "hpe.color.icon.warning": {
     "$type": "color",
@@ -2890,14 +3080,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "warning"
+      "item": "warning",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "warning"
+      "warning",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.icon.warning}"
+    "key": "{color.icon.warning.DEFAULT.REST}"
   },
   "hpe.color.icon.unknown": {
     "$type": "color",
@@ -2936,14 +3130,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "unknown"
+      "item": "unknown",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "unknown"
+      "unknown",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.icon.unknown}"
+    "key": "{color.icon.unknown.DEFAULT.REST}"
   },
   "hpe.color.icon.primary": {
     "$type": "color",
@@ -2982,14 +3180,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "primary"
+      "item": "primary",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "primary"
+      "primary",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.icon.primary}"
+    "key": "{color.icon.primary.DEFAULT.REST}"
   },
   "hpe.color.icon.onPrimary": {
     "$type": "color",
@@ -3028,14 +3230,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "onPrimary"
+      "item": "onPrimary",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "onPrimary"
+      "onPrimary",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.icon.onPrimary}"
+    "key": "{color.icon.onPrimary.DEFAULT.REST}"
   },
   "hpe.color.icon.onSelectedStrong": {
     "$type": "color",
@@ -3072,14 +3278,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "onSelectedStrong"
+      "item": "onSelectedStrong",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "onSelectedStrong"
+      "onSelectedStrong",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.icon.onSelectedStrong}"
+    "key": "{color.icon.onSelectedStrong.DEFAULT.REST}"
   },
   "hpe.color.icon.onSelected": {
     "$type": "color",
@@ -3099,7 +3309,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.strong}",
+      "$value": "{color.icon.strong.REST}",
       "$description": "Icon color to be used for icon sitting on non-strong background-selected variants.",
       "$extensions": {
         "com.figma": {
@@ -3116,14 +3326,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "onSelected"
+      "item": "onSelected",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "onSelected"
+      "onSelected",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.icon.onSelected}"
+    "key": "{color.icon.onSelected.DEFAULT.REST}"
   },
   "hpe.color.decorative.brand": {
     "$type": "color",
@@ -3158,14 +3372,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "brand"
+      "item": "brand",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "brand"
+      "brand",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.brand}"
+    "key": "{color.decorative.brand.DEFAULT.REST}"
   },
   "hpe.color.decorative.green": {
     "$type": "color",
@@ -3200,14 +3418,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "green"
+      "item": "green",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "green"
+      "green",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.green}"
+    "key": "{color.decorative.green.DEFAULT.REST}"
   },
   "hpe.color.decorative.purple": {
     "$type": "color",
@@ -3242,14 +3464,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "purple"
+      "item": "purple",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "purple"
+      "purple",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.purple}"
+    "key": "{color.decorative.purple.DEFAULT.REST}"
   },
   "hpe.color.decorative.teal": {
     "$type": "color",
@@ -3284,14 +3510,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "teal"
+      "item": "teal",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "teal"
+      "teal",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.teal}"
+    "key": "{color.decorative.teal.DEFAULT.REST}"
   },
   "hpe.color.decorative.blue": {
     "$type": "color",
@@ -3326,14 +3556,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "blue"
+      "item": "blue",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "blue"
+      "blue",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.blue}"
+    "key": "{color.decorative.blue.DEFAULT.REST}"
   },
   "hpe.color.decorative.red": {
     "$type": "color",
@@ -3368,14 +3602,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "red"
+      "item": "red",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "red"
+      "red",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.red}"
+    "key": "{color.decorative.red.DEFAULT.REST}"
   },
   "hpe.color.decorative.orange": {
     "$type": "color",
@@ -3410,14 +3648,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "orange"
+      "item": "orange",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "orange"
+      "orange",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.orange}"
+    "key": "{color.decorative.orange.DEFAULT.REST}"
   },
   "hpe.color.decorative.yellow": {
     "$type": "color",
@@ -3452,14 +3694,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "yellow"
+      "item": "yellow",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "yellow"
+      "yellow",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.yellow}"
+    "key": "{color.decorative.yellow.DEFAULT.REST}"
   },
   "hpe.color.decorative.purple!": {
     "$type": "color",
@@ -3494,14 +3740,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "purple!"
+      "item": "purple!",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "purple!"
+      "purple!",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.purple!}"
+    "key": "{color.decorative.purple!.DEFAULT.REST}"
   },
   "hpe.color.decorative.green!": {
     "$type": "color",
@@ -3536,14 +3786,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "green!"
+      "item": "green!",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "green!"
+      "green!",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.green!}"
+    "key": "{color.decorative.green!.DEFAULT.REST}"
   },
   "hpe.color.decorative.teal!": {
     "$type": "color",
@@ -3578,14 +3832,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "teal!"
+      "item": "teal!",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "teal!"
+      "teal!",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.teal!}"
+    "key": "{color.decorative.teal!.DEFAULT.REST}"
   },
   "hpe.color.decorative.blue!": {
     "$type": "color",
@@ -3620,14 +3878,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "blue!"
+      "item": "blue!",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "blue!"
+      "blue!",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.blue!}"
+    "key": "{color.decorative.blue!.DEFAULT.REST}"
   },
   "hpe.color.decorative.red!": {
     "$type": "color",
@@ -3662,14 +3924,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "red!"
+      "item": "red!",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "red!"
+      "red!",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.red!}"
+    "key": "{color.decorative.red!.DEFAULT.REST}"
   },
   "hpe.color.decorative.orange!": {
     "$type": "color",
@@ -3704,14 +3970,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "orange!"
+      "item": "orange!",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "orange!"
+      "orange!",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.orange!}"
+    "key": "{color.decorative.orange!.DEFAULT.REST}"
   },
   "hpe.color.decorative.yellow!": {
     "$type": "color",
@@ -3746,14 +4016,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "decorative",
-      "item": "yellow!"
+      "item": "yellow!",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "decorative",
-      "yellow!"
+      "yellow!",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.decorative.yellow!}"
+    "key": "{color.decorative.yellow!.DEFAULT.REST}"
   },
   "hpe.color.dataVis.categorical.10": {
     "$type": "color",
@@ -3789,15 +4063,18 @@ export default {
       "category": "color",
       "type": "dataVis",
       "item": "categorical",
-      "subitem": "10"
+      "subitem": "10",
+      "state": "DEFAULT"
     },
     "path": [
       "color",
       "dataVis",
       "categorical",
-      "10"
+      "10",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.dataVis.categorical.10}"
+    "key": "{color.dataVis.categorical.10.DEFAULT.REST}"
   },
   "hpe.color.dataVis.categorical.20": {
     "$type": "color",
@@ -3833,15 +4110,18 @@ export default {
       "category": "color",
       "type": "dataVis",
       "item": "categorical",
-      "subitem": "20"
+      "subitem": "20",
+      "state": "DEFAULT"
     },
     "path": [
       "color",
       "dataVis",
       "categorical",
-      "20"
+      "20",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.dataVis.categorical.20}"
+    "key": "{color.dataVis.categorical.20.DEFAULT.REST}"
   },
   "hpe.color.dataVis.categorical.30": {
     "$type": "color",
@@ -3877,15 +4157,18 @@ export default {
       "category": "color",
       "type": "dataVis",
       "item": "categorical",
-      "subitem": "30"
+      "subitem": "30",
+      "state": "DEFAULT"
     },
     "path": [
       "color",
       "dataVis",
       "categorical",
-      "30"
+      "30",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.dataVis.categorical.30}"
+    "key": "{color.dataVis.categorical.30.DEFAULT.REST}"
   },
   "hpe.color.dataVis.categorical.40": {
     "$type": "color",
@@ -3921,15 +4204,18 @@ export default {
       "category": "color",
       "type": "dataVis",
       "item": "categorical",
-      "subitem": "40"
+      "subitem": "40",
+      "state": "DEFAULT"
     },
     "path": [
       "color",
       "dataVis",
       "categorical",
-      "40"
+      "40",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.dataVis.categorical.40}"
+    "key": "{color.dataVis.categorical.40.DEFAULT.REST}"
   },
   "hpe.color.dataVis.categorical.50": {
     "$type": "color",
@@ -3965,15 +4251,18 @@ export default {
       "category": "color",
       "type": "dataVis",
       "item": "categorical",
-      "subitem": "50"
+      "subitem": "50",
+      "state": "DEFAULT"
     },
     "path": [
       "color",
       "dataVis",
       "categorical",
-      "50"
+      "50",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.dataVis.categorical.50}"
+    "key": "{color.dataVis.categorical.50.DEFAULT.REST}"
   },
   "hpe.color.dataVis.categorical.60": {
     "$type": "color",
@@ -4009,15 +4298,18 @@ export default {
       "category": "color",
       "type": "dataVis",
       "item": "categorical",
-      "subitem": "60"
+      "subitem": "60",
+      "state": "DEFAULT"
     },
     "path": [
       "color",
       "dataVis",
       "categorical",
-      "60"
+      "60",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.dataVis.categorical.60}"
+    "key": "{color.dataVis.categorical.60.DEFAULT.REST}"
   },
   "hpe.color.dataVis.categorical.70": {
     "$type": "color",
@@ -4053,15 +4345,18 @@ export default {
       "category": "color",
       "type": "dataVis",
       "item": "categorical",
-      "subitem": "70"
+      "subitem": "70",
+      "state": "DEFAULT"
     },
     "path": [
       "color",
       "dataVis",
       "categorical",
-      "70"
+      "70",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.dataVis.categorical.70}"
+    "key": "{color.dataVis.categorical.70.DEFAULT.REST}"
   },
   "hpe.color.dataVis.categorical.80": {
     "$type": "color",
@@ -4097,15 +4392,18 @@ export default {
       "category": "color",
       "type": "dataVis",
       "item": "categorical",
-      "subitem": "80"
+      "subitem": "80",
+      "state": "DEFAULT"
     },
     "path": [
       "color",
       "dataVis",
       "categorical",
-      "80"
+      "80",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.dataVis.categorical.80}"
+    "key": "{color.dataVis.categorical.80.DEFAULT.REST}"
   },
   "hpe.color.transparent": {
     "$type": "color",
@@ -4224,14 +4522,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "foreground",
-      "item": "primary"
+      "item": "primary",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "foreground",
-      "primary"
+      "primary",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.foreground.primary}"
+    "key": "{color.foreground.primary.DEFAULT.REST}"
   },
   "hpe.color.foreground.critical": {
     "$type": "color",
@@ -4270,14 +4572,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "foreground",
-      "item": "critical"
+      "item": "critical",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "foreground",
-      "critical"
+      "critical",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.foreground.critical}"
+    "key": "{color.foreground.critical.DEFAULT.REST}"
   },
   "hpe.color.foreground.warning": {
     "$type": "color",
@@ -4316,14 +4622,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "foreground",
-      "item": "warning"
+      "item": "warning",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "foreground",
-      "warning"
+      "warning",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.foreground.warning}"
+    "key": "{color.foreground.warning.DEFAULT.REST}"
   },
   "hpe.color.foreground.unknown": {
     "$type": "color",
@@ -4362,14 +4672,18 @@ export default {
     "attributes": {
       "category": "color",
       "type": "foreground",
-      "item": "unknown"
+      "item": "unknown",
+      "subitem": "DEFAULT",
+      "state": "REST"
     },
     "path": [
       "color",
       "foreground",
-      "unknown"
+      "unknown",
+      "DEFAULT",
+      "REST"
     ],
-    "key": "{color.foreground.unknown}"
+    "key": "{color.foreground.unknown.DEFAULT.REST}"
   },
   "hpe.shadow.small": {
     "$type": "shadow",

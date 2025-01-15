@@ -5,142 +5,142 @@
 export default {
   "hpe": {
     "spacing": {
-      "none": "0px",
-      "hair": "1px",
-      "xxsmall": "3px",
-      "xsmall": "6px",
-      "small": "12px",
-      "medium": "24px",
-      "large": "48px",
-      "xlarge": "96px"
+      "none": "var(--hpe-spacing-none)",
+      "hair": "var(--hpe-spacing-hair)",
+      "xxsmall": "var(--hpe-spacing-xxsmall)",
+      "xsmall": "var(--hpe-spacing-xsmall)",
+      "small": "var(--hpe-spacing-small)",
+      "medium": "var(--hpe-spacing-medium)",
+      "large": "var(--hpe-spacing-large)",
+      "xlarge": "var(--hpe-spacing-xlarge)"
     },
     "radius": {
-      "none": "0px",
-      "hair": "1px",
-      "xxsmall": "3px",
-      "xsmall": "6px",
-      "small": "12px",
-      "medium": "24px",
-      "large": "48px",
-      "xlarge": "96px",
-      "full": "384px"
+      "none": "var(--hpe-radius-none)",
+      "hair": "var(--hpe-radius-hair)",
+      "xxsmall": "var(--hpe-radius-xxsmall)",
+      "xsmall": "var(--hpe-radius-xsmall)",
+      "small": "var(--hpe-radius-small)",
+      "medium": "var(--hpe-radius-medium)",
+      "large": "var(--hpe-radius-large)",
+      "xlarge": "var(--hpe-radius-xlarge)",
+      "full": "var(--hpe-radius-full)"
     },
     "borderWidth": {
-      "none": "0px",
-      "xsmall": "1px",
-      "small": "2px",
-      "medium": "4px",
-      "large": "12px",
-      "xlarge": "24px",
-      "default": "1px"
+      "none": "var(--hpe-borderWidth-none)",
+      "xsmall": "var(--hpe-borderWidth-xsmall)",
+      "small": "var(--hpe-borderWidth-small)",
+      "medium": "var(--hpe-borderWidth-medium)",
+      "large": "var(--hpe-borderWidth-large)",
+      "xlarge": "var(--hpe-borderWidth-xlarge)",
+      "default": "var(--hpe-borderWidth-default)"
     },
     "size": {
       "container": {
-        "xxsmall": "48px",
-        "xsmall": "96px",
-        "small": "192px",
-        "smallPlus": "288px",
-        "medium": "384px",
-        "mediumPlus": "576px",
-        "large": "768px",
-        "xlarge": "1152px",
-        "xxlarge": "1536px"
+        "xxsmall": "var(--hpe-size-container-xxsmall)",
+        "xsmall": "var(--hpe-size-container-xsmall)",
+        "small": "var(--hpe-size-container-small)",
+        "smallPlus": "var(--hpe-size-container-smallPlus)",
+        "medium": "var(--hpe-size-container-medium)",
+        "mediumPlus": "var(--hpe-size-container-mediumPlus)",
+        "large": "var(--hpe-size-container-large)",
+        "xlarge": "var(--hpe-size-container-xlarge)",
+        "xxlarge": "var(--hpe-size-container-xxlarge)"
       },
       "icon": {
-        "xsmall": "14px",
-        "small": "16px",
-        "medium": "18px",
-        "large": "22px",
-        "xlarge": "24px",
-        "xxlarge": "36px"
+        "xsmall": "var(--hpe-size-icon-xsmall)",
+        "small": "var(--hpe-size-icon-small)",
+        "medium": "var(--hpe-size-icon-medium)",
+        "large": "var(--hpe-size-icon-large)",
+        "xlarge": "var(--hpe-size-icon-xlarge)",
+        "xxlarge": "var(--hpe-size-icon-xxlarge)"
       }
     },
     "text": {
       "xsmall": {
-        "fontSize": "0.875rem",
-        "lineHeight": "1rem",
-        "fontWeight": 400,
-        "maxWidth": "25em"
+        "fontSize": "var(--hpe-text-xsmall-fontSize)",
+        "lineHeight": "var(--hpe-text-xsmall-lineHeight)",
+        "fontWeight": "var(--hpe-text-xsmall-fontWeight)",
+        "maxWidth": "var(--hpe-text-xsmall-maxWidth)"
       },
       "small": {
-        "fontSize": "1rem",
-        "lineHeight": "1.25rem",
-        "fontWeight": 400,
-        "maxWidth": "25em"
+        "fontSize": "var(--hpe-text-small-fontSize)",
+        "lineHeight": "var(--hpe-text-small-lineHeight)",
+        "fontWeight": "var(--hpe-text-small-fontWeight)",
+        "maxWidth": "var(--hpe-text-small-maxWidth)"
       },
       "medium": {
-        "fontSize": "1.125rem",
-        "lineHeight": "1.5rem",
-        "fontWeight": 400,
-        "maxWidth": "25em"
+        "fontSize": "var(--hpe-text-medium-fontSize)",
+        "lineHeight": "var(--hpe-text-medium-lineHeight)",
+        "fontWeight": "var(--hpe-text-medium-fontWeight)",
+        "maxWidth": "var(--hpe-text-medium-maxWidth)"
       },
       "large": {
-        "fontSize": "1.375rem",
-        "lineHeight": "1.75rem",
-        "fontWeight": 400,
-        "maxWidth": "25em"
+        "fontSize": "var(--hpe-text-large-fontSize)",
+        "lineHeight": "var(--hpe-text-large-lineHeight)",
+        "fontWeight": "var(--hpe-text-large-fontWeight)",
+        "maxWidth": "var(--hpe-text-large-maxWidth)"
       },
       "xlarge": {
-        "fontSize": "1.5rem",
-        "lineHeight": "1.875rem",
-        "fontWeight": 400,
-        "maxWidth": "25em"
+        "fontSize": "var(--hpe-text-xlarge-fontSize)",
+        "lineHeight": "var(--hpe-text-xlarge-lineHeight)",
+        "fontWeight": "var(--hpe-text-xlarge-fontWeight)",
+        "maxWidth": "var(--hpe-text-xlarge-maxWidth)"
       },
       "xxlarge": {
-        "fontSize": "2.25rem",
-        "lineHeight": "2.5rem",
-        "fontWeight": 300,
-        "maxWidth": "25em"
+        "fontSize": "var(--hpe-text-xxlarge-fontSize)",
+        "lineHeight": "var(--hpe-text-xxlarge-lineHeight)",
+        "fontWeight": "var(--hpe-text-xxlarge-fontWeight)",
+        "maxWidth": "var(--hpe-text-xxlarge-maxWidth)"
       },
       "3xl": {
-        "fontSize": "2.625rem",
-        "lineHeight": "2.875rem",
-        "fontWeight": 300,
-        "maxWidth": "25em"
+        "fontSize": "var(--hpe-text-3xl-fontSize)",
+        "lineHeight": "var(--hpe-text-3xl-lineHeight)",
+        "fontWeight": "var(--hpe-text-3xl-fontWeight)",
+        "maxWidth": "var(--hpe-text-3xl-maxWidth)"
       },
       "4xl": {
-        "fontSize": "3rem",
-        "lineHeight": "3rem",
-        "fontWeight": 300,
-        "maxWidth": "25em"
+        "fontSize": "var(--hpe-text-4xl-fontSize)",
+        "lineHeight": "var(--hpe-text-4xl-lineHeight)",
+        "fontWeight": "var(--hpe-text-4xl-fontWeight)",
+        "maxWidth": "var(--hpe-text-4xl-maxWidth)"
       },
       "5xl": {
-        "fontSize": "4.5rem",
-        "lineHeight": "4.5rem",
-        "fontWeight": 300,
-        "maxWidth": "25em"
+        "fontSize": "var(--hpe-text-5xl-fontSize)",
+        "lineHeight": "var(--hpe-text-5xl-lineHeight)",
+        "fontWeight": "var(--hpe-text-5xl-fontWeight)",
+        "maxWidth": "var(--hpe-text-5xl-maxWidth)"
       }
     },
     "heading": {
       "xlarge": {
-        "fontWeight": 500,
-        "fontSize": "2.25rem",
-        "lineHeight": "2.25rem"
+        "fontWeight": "var(--hpe-heading-xlarge-fontWeight)",
+        "fontSize": "var(--hpe-heading-xlarge-fontSize)",
+        "lineHeight": "var(--hpe-heading-xlarge-lineHeight)"
       },
       "large": {
-        "fontWeight": 500,
-        "fontSize": "1.5rem",
-        "lineHeight": "1.5rem"
+        "fontWeight": "var(--hpe-heading-large-fontWeight)",
+        "fontSize": "var(--hpe-heading-large-fontSize)",
+        "lineHeight": "var(--hpe-heading-large-lineHeight)"
       },
       "medium": {
-        "fontSize": "1.25rem",
-        "lineHeight": "1.25rem",
-        "fontWeight": 500
+        "fontSize": "var(--hpe-heading-medium-fontSize)",
+        "lineHeight": "var(--hpe-heading-medium-lineHeight)",
+        "fontWeight": "var(--hpe-heading-medium-fontWeight)"
       },
       "small": {
-        "fontSize": "1rem",
-        "lineHeight": "1rem",
-        "fontWeight": 500
+        "fontSize": "var(--hpe-heading-small-fontSize)",
+        "lineHeight": "var(--hpe-heading-small-lineHeight)",
+        "fontWeight": "var(--hpe-heading-small-fontWeight)"
       },
       "xsmall": {
-        "fontSize": "0.75rem",
-        "lineHeight": "0.75rem",
-        "fontWeight": 600
+        "fontSize": "var(--hpe-heading-xsmall-fontSize)",
+        "lineHeight": "var(--hpe-heading-xsmall-lineHeight)",
+        "fontWeight": "var(--hpe-heading-xsmall-fontWeight)"
       },
       "xxsmall": {
-        "fontSize": "0.75rem",
-        "lineHeight": "0.75rem",
-        "fontWeight": 600
+        "fontSize": "var(--hpe-heading-xxsmall-fontSize)",
+        "lineHeight": "var(--hpe-heading-xxsmall-lineHeight)",
+        "fontWeight": "var(--hpe-heading-xxsmall-fontWeight)"
       }
     }
   }

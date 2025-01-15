@@ -2809,7 +2809,7 @@ export default {
             "position": 0
           },
           {
-            "color": "{color.background.primary.default}",
+            "color": "{color.background.primary.default.REST}",
             "position": 0.35
           },
           {
@@ -2817,7 +2817,7 @@ export default {
             "position": 0.7
           },
           {
-            "color": "{color.background.primary.default}",
+            "color": "{color.background.primary.default.REST}",
             "position": 1
           }
         ]
@@ -2912,7 +2912,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.onPrimary}",
+      "$value": "{color.text.onPrimary.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2958,7 +2958,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onPrimary}",
+      "$value": "{color.icon.onPrimary.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3049,7 +3049,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.primary.default}",
+      "$value": "{color.background.primary.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3095,7 +3095,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.disabled}",
+      "$value": "{color.background.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3190,7 +3190,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3238,7 +3238,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.disabled}",
+      "$value": "{color.icon.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3424,7 +3424,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.onPrimary}",
+      "$value": "{color.text.onPrimary.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3470,7 +3470,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onPrimary}",
+      "$value": "{color.icon.onPrimary.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7933,7 +7933,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.primary.default}",
+      "$value": "{color.background.primary.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8161,7 +8161,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.selected}",
+      "$value": "{color.border.selected.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8343,7 +8343,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.disabled}",
+      "$value": "{color.background.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8391,7 +8391,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.disabled}",
+      "$value": "{color.border.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8438,7 +8438,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8486,7 +8486,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.disabled}",
+      "$value": "{color.icon.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13271,7 +13271,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13317,7 +13317,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.strong}",
+      "$value": "{color.icon.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13501,7 +13501,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13549,7 +13549,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.disabled}",
+      "$value": "{color.icon.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13644,7 +13644,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.hover}",
+      "$value": "{color.background.DEFAULT.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13872,7 +13872,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.active}",
+      "$value": "{color.background.DEFAULT.active}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14110,7 +14110,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.active}",
+      "$value": "{color.background.DEFAULT.active}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18244,7 +18244,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18426,7 +18426,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.hover}",
+      "$value": "{color.background.DEFAULT.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18654,7 +18654,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.disabled}",
+      "$value": "{color.background.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18702,7 +18702,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.disabled}",
+      "$value": "{color.border.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18749,7 +18749,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -18797,7 +18797,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.disabled}",
+      "$value": "{color.icon.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -23217,7 +23217,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.floating}",
+      "$value": "{color.background.floating.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -23600,7 +23600,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.hover}",
+      "$value": "{color.background.DEFAULT.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -24063,7 +24063,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -24961,7 +24961,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25050,7 +25050,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.hover}",
+      "$value": "{color.background.DEFAULT.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25141,7 +25141,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25230,7 +25230,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.disabled}",
+      "$value": "{color.background.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25325,7 +25325,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25418,7 +25418,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.selected.weak.enabled}",
+      "$value": "{color.background.selected.weak.enabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25513,7 +25513,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.onSelected}",
+      "$value": "{color.text.onSelected.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25701,7 +25701,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.onSelected}",
+      "$value": "{color.text.onSelected.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25794,7 +25794,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25840,7 +25840,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25886,7 +25886,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25932,7 +25932,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "{color.border.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -25978,7 +25978,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.disabled}",
+      "$value": "{color.background.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26026,7 +26026,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.disabled}",
+      "$value": "{color.border.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26074,7 +26074,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.disabled}",
+      "$value": "{color.icon.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26122,7 +26122,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.selected.strong.enabled}",
+      "$value": "{color.background.selected.strong.enabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26170,7 +26170,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.selected}",
+      "$value": "{color.border.selected.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26218,7 +26218,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onSelectedStrong}",
+      "$value": "{color.icon.onSelectedStrong.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26266,7 +26266,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.selected.strong.enabled}",
+      "$value": "{color.background.selected.strong.enabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26314,7 +26314,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "{color.border.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26362,7 +26362,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onSelectedStrong}",
+      "$value": "{color.icon.onSelectedStrong.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26410,7 +26410,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.selected.strong.enabled}",
+      "$value": "{color.background.selected.strong.enabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26458,7 +26458,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.selected}",
+      "$value": "{color.border.selected.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26506,7 +26506,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onPrimary}",
+      "$value": "{color.icon.onPrimary.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26554,7 +26554,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.selected.strong.enabled}",
+      "$value": "{color.background.selected.strong.enabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26602,7 +26602,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "{color.border.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26650,7 +26650,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onPrimary}",
+      "$value": "{color.icon.onPrimary.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26697,7 +26697,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26741,7 +26741,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26785,7 +26785,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27184,7 +27184,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27232,7 +27232,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27280,7 +27280,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27328,7 +27328,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "{color.border.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27376,7 +27376,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.disabled}",
+      "$value": "{color.background.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27425,7 +27425,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.disabled}",
+      "$value": "{color.border.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27474,7 +27474,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.selected.strong.enabled}",
+      "$value": "{color.background.selected.strong.enabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27523,7 +27523,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27572,7 +27572,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.selected.strong.enabled}",
+      "$value": "{color.background.selected.strong.enabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27621,7 +27621,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "{color.border.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27670,7 +27670,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.front}",
+      "$value": "{color.background.front.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27718,7 +27718,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27766,7 +27766,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27814,7 +27814,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27862,7 +27862,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.disabled}",
+      "$value": "{color.background.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27911,7 +27911,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.disabled}",
+      "$value": "{color.border.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27960,7 +27960,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28009,7 +28009,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28058,7 +28058,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28107,7 +28107,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28155,7 +28155,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28199,7 +28199,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28243,7 +28243,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29157,7 +29157,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29201,7 +29201,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.default}",
+      "$value": "{color.icon.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29509,7 +29509,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29555,7 +29555,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.disabled}",
+      "$value": "{color.icon.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29693,7 +29693,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.onSelected}",
+      "$value": "{color.text.onSelected.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29739,7 +29739,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onSelected}",
+      "$value": "{color.icon.onSelected.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29832,7 +29832,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.selected.weak.enabled}",
+      "$value": "{color.background.selected.weak.enabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29877,7 +29877,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.onSelected}",
+      "$value": "{color.text.onSelected.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29923,7 +29923,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onSelected}",
+      "$value": "{color.icon.onSelected.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30357,7 +30357,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30403,7 +30403,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -31651,7 +31651,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -31695,7 +31695,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.strong}",
+      "$value": "{color.icon.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -31740,7 +31740,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -31960,7 +31960,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.hover}",
+      "$value": "{color.background.DEFAULT.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -32259,7 +32259,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.weak}",
+      "$value": "{color.text.weak.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -32303,7 +32303,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.weak}",
+      "$value": "{color.text.weak.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34271,7 +34271,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.critical}",
+      "$value": "{color.background.critical.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34321,7 +34321,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "{color.border.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34371,7 +34371,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.disabled}",
+      "$value": "{color.background.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34421,7 +34421,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.disabled}",
+      "$value": "{color.border.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34669,7 +34669,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.hover}",
+      "$value": "{color.background.DEFAULT.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -34767,7 +34767,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.hover}",
+      "$value": "{color.background.DEFAULT.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35113,7 +35113,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35161,7 +35161,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.hover}",
+      "$value": "{color.background.DEFAULT.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35209,7 +35209,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35305,7 +35305,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35353,7 +35353,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.critical}",
+      "$value": "{color.background.critical.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35402,7 +35402,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "{color.border.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35451,7 +35451,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.disabled}",
+      "$value": "{color.background.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35500,7 +35500,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.disabled}",
+      "$value": "{color.border.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35549,7 +35549,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.back}",
+      "$value": "{color.background.back.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35598,7 +35598,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.weak}",
+      "$value": "{color.border.weak.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35646,7 +35646,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35690,7 +35690,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.strong}",
+      "$value": "{color.icon.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35734,7 +35734,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35778,7 +35778,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.strong}",
+      "$value": "{color.icon.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35822,7 +35822,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35866,7 +35866,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.strong}",
+      "$value": "{color.icon.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35910,7 +35910,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35956,7 +35956,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.strong}",
+      "$value": "{color.icon.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36002,7 +36002,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36048,7 +36048,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.strong}",
+      "$value": "{color.icon.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36094,7 +36094,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36140,7 +36140,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.strong}",
+      "$value": "{color.icon.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36186,7 +36186,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.weak}",
+      "$value": "{color.text.weak.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36230,7 +36230,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.weak}",
+      "$value": "{color.text.weak.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36274,7 +36274,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.weak}",
+      "$value": "{color.text.weak.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36318,7 +36318,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.weak}",
+      "$value": "{color.text.weak.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36364,7 +36364,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36410,7 +36410,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.weak}",
+      "$value": "{color.text.weak.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36456,7 +36456,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36500,7 +36500,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36544,7 +36544,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36588,7 +36588,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36634,7 +36634,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36680,7 +36680,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36726,7 +36726,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36770,7 +36770,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36814,7 +36814,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36858,7 +36858,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36904,7 +36904,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36950,7 +36950,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36996,7 +36996,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.critical}",
+      "$value": "{color.text.critical.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37041,7 +37041,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.default}",
+      "$value": "{color.icon.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37087,7 +37087,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.default}",
+      "$value": "{color.icon.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37132,7 +37132,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.critical}",
+      "$value": "{color.text.critical.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37177,7 +37177,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.default}",
+      "$value": "{color.icon.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37222,7 +37222,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.critical}",
+      "$value": "{color.text.critical.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37266,7 +37266,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37310,7 +37310,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37354,7 +37354,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37398,7 +37398,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37444,7 +37444,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37490,7 +37490,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -37987,7 +37987,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38665,7 +38665,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38757,7 +38757,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "{color.border.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38849,7 +38849,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default}",
+      "$value": "{color.border.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38895,7 +38895,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.disabled}",
+      "$value": "{color.background.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38943,7 +38943,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.disabled}",
+      "$value": "{color.border.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38991,7 +38991,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39039,7 +39039,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.selected}",
+      "$value": "{color.border.selected.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39087,7 +39087,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.decorative.brand}",
+      "$value": "{color.decorative.brand.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39135,7 +39135,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39183,7 +39183,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.strong}",
+      "$value": "{color.border.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39231,7 +39231,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.decorative.brand}",
+      "$value": "{color.decorative.brand.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39279,7 +39279,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.default}",
+      "$value": "{color.background.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39327,7 +39327,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.selected}",
+      "$value": "{color.border.selected.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39375,7 +39375,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.decorative.brand}",
+      "$value": "{color.decorative.brand.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39422,7 +39422,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39466,7 +39466,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39510,7 +39510,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.disabled}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39556,7 +39556,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39602,7 +39602,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default}",
+      "$value": "{color.text.default.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40000,7 +40000,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40128,7 +40128,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40252,7 +40252,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
