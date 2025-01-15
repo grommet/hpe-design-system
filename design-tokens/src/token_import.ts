@@ -270,7 +270,10 @@ function variableValueFromToken(
     const value = token.$value
       .trim()
       .replace(/\./g, '/')
-      .replace(/[\{\}]/g, '');
+      .replace(/[\{\}]/g, '')
+      .split('/')
+      .filter(part => !excludedNameParts.includes(part))
+      .join('/');
 
     // When mapping aliases to existing local variables, we assume that variable names
     // are unique *across all collections* in the Figma file
