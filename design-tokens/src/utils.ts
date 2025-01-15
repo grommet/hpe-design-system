@@ -58,6 +58,16 @@ export const numberToPixel = (value: number): string => `${value}px`;
 export const verifyReferences = (
   localTokens: ApiGetLocalVariablesResponse[],
 ) => {
+  if (
+    !process.env.FIGMA_PRIMITIVES_COLLECTION_KEY ||
+    !process.env.FIGMA_GLOBAL_COLLECTION_KEY ||
+    !process.env.FIGMA_COLOR_COLLECTION_KEY ||
+    !process.env.FIGMA_DIMENSION_COLLECTION_KEY
+  ) {
+    throw new Error(
+      'FIGMA_PRIMITIVES_COLLECTION_KEY, FIGMA_GLOBAL_COLLECTION_KEY, FIGMA_COLOR_COLLECTION_KEY, and FIGMA_DIMENSION_COLLECTION_KEY environment variables are required',
+    );
+  }
   const invalidVariables: string[] = [];
   localTokens.forEach(tokens => {
     Object.keys(tokens.meta.variableCollections).forEach(key => {
@@ -79,7 +89,7 @@ export const verifyReferences = (
           );
         } else if (
           collection.name === 'primitives' &&
-          collection.key !== process.env['FIGMA_PRIMITIVE_COLLECTION_KEY']
+          collection.key !== process.env['FIGMA_PRIMITIVES_COLLECTION_KEY']
         ) {
           collection.variableIds.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
