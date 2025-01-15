@@ -11,7 +11,7 @@ import {
   VariableCodeSyntax,
 } from './figma_api.js';
 import { colorApproximatelyEqual, parseColor } from './color.js';
-import { areSetsEqual } from './utils.js';
+import { areSetsEqual, excludedNameParts } from './utils.js';
 import { Token, TokenOrTokenGroup, TokensFile } from './token_types.js';
 
 const shadowToVariables = (name: any, values: any) => {
@@ -201,10 +201,6 @@ function traverseCollection({
       Object.keys(borderTokens).forEach(borderToken => {
         tokens[borderToken] = borderTokens[borderToken];
       });
-      fs.writeFileSync(
-        './dist/mine.json',
-        JSON.stringify(borderTokens, null, 2),
-      );
     } else tokens[key] = object;
   } else {
     Object.entries<TokenOrTokenGroup>(object).forEach(([key2, object2]) => {
@@ -503,8 +499,22 @@ export function generatePostVariablesPayload(
       localVariablesByCollectionAndName[variableCollection?.id] || {};
 
     Object.entries(tokens).forEach(([tokenName, token]) => {
-      const variable = localVariablesByName[tokenName];
-      const variableId = variable ? variable.id : tokenName;
+      const isColor = /^color/.test(tokenName);
+      // When pushing to Figma, we should strip off "DEFAULT" and "REST"
+      // to match simplified token outputs
+      // we should also format nested roles, prominence, or interaction to hyphenated ("-") approach
+      // e.g. color/background/critical/weak/DEFAULT/REST --> color/background/critical-weak
+      let adjustedName = tokenName;
+      if (isColor) {
+        let parts = tokenName.split('/');
+        parts = parts.filter(part => !excludedNameParts.includes(part));
+        const section = parts.slice(0, 2).join('/');
+        const name = parts.slice(2).join('-');
+        adjustedName = `${section}${name ? `/${name}` : ''}`;
+      }
+
+      const variable = localVariablesByName[adjustedName];
+      const variableId = variable ? variable.id : adjustedName;
       const variableInPayload = postVariablesPayload.variables!.find(
         v =>
           v.id === variableId &&

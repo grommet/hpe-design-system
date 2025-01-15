@@ -1,7 +1,6 @@
 import { StyleDictionary } from 'style-dictionary-utils';
 import {
   commonJs,
-  commonJsGrommetRefs,
   cssColorModes,
   cssBreakpoints,
   esmGrommetRefs,
@@ -9,11 +8,15 @@ import {
   jsonFlat,
 } from './formats/index.js';
 import {
+  colorNameJs,
   cssW3c,
+  javascriptCss,
   javascriptW3c,
   linearGradientCss,
+  nameCSS,
   numberToDimension,
   shadowCSS,
+  valueToCssVar,
 } from './transforms/index.js';
 
 export const HPEStyleDictionary = new StyleDictionary({
@@ -43,12 +46,14 @@ HPEStyleDictionary.registerFormat({
   format: esmGrommetRefs,
 });
 HPEStyleDictionary.registerFormat({
-  name: `commonJsGrommetRefs`,
-  format: commonJsGrommetRefs,
-});
-HPEStyleDictionary.registerFormat({
   name: `jsonFlat`,
   format: jsonFlat,
+});
+HPEStyleDictionary.registerTransform({
+  ...colorNameJs,
+});
+HPEStyleDictionary.registerTransform({
+  ...nameCSS,
 });
 HPEStyleDictionary.registerTransform({
   ...numberToDimension,
@@ -65,6 +70,13 @@ HPEStyleDictionary.registerTransform({
 });
 HPEStyleDictionary.registerTransform({
   ...linearGradientCss,
+});
+HPEStyleDictionary.registerTransform({
+  ...valueToCssVar,
+});
+HPEStyleDictionary.registerTransformGroup({
+  name: 'js/css',
+  transforms: javascriptCss,
 });
 HPEStyleDictionary.registerTransformGroup({
   name: 'js/w3c',

@@ -7,7 +7,7 @@ import {
   small as localSmall,
   global as localGlobal,
   components as localComponents,
-} from 'hpe-design-tokens';
+} from 'hpe-design-tokens/grommet';
 // import {
 //   dark as oldDark,
 //   light as oldLight,
@@ -202,10 +202,17 @@ const buildTheme = tokens => {
   const tokenColors = {};
   Object.keys(flatColors).forEach(color => {
     if (!color.includes('shadow')) {
-      const adjustedColor = color.split('-').join('.');
+      const [category] = color.split('-');
+      const flatName = color.split('-').slice(1).join('-');
       tokenColors[color] = {
-        light: access(`hpe.color.${adjustedColor}`, light),
-        dark: access(`hpe.color.${adjustedColor}`, dark),
+        light: access(
+          `hpe.color.${category}${flatName ? `.${flatName}` : ''}`,
+          light,
+        ),
+        dark: access(
+          `hpe.color.${category}${flatName ? `.${flatName}` : ''}`,
+          dark,
+        ),
       };
     }
   });
@@ -312,32 +319,32 @@ const buildTheme = tokens => {
       light: light.hpe.color.decorative['yellow!'],
     },
     'graph-0': {
-      light: light.hpe.color.dataVis.categorical[10],
-      dark: dark.hpe.color.dataVis.categorical[10],
+      light: light.hpe.color.dataVis['categorical-10'],
+      dark: dark.hpe.color.dataVis['categorical-10'],
     },
     'graph-1': {
-      light: light.hpe.color.dataVis.categorical[20],
-      dark: dark.hpe.color.dataVis.categorical[20],
+      light: light.hpe.color.dataVis['categorical-20'],
+      dark: dark.hpe.color.dataVis['categorical-20'],
     },
     'graph-2': {
-      light: light.hpe.color.dataVis.categorical[30],
-      dark: dark.hpe.color.dataVis.categorical[30],
+      light: light.hpe.color.dataVis['categorical-30'],
+      dark: dark.hpe.color.dataVis['categorical-30'],
     },
     'graph-3': {
-      light: light.hpe.color.dataVis.categorical[40],
-      dark: dark.hpe.color.dataVis.categorical[40],
+      light: light.hpe.color.dataVis['categorical-40'],
+      dark: dark.hpe.color.dataVis['categorical-40'],
     },
     'graph-4': {
-      light: light.hpe.color.dataVis.categorical[50],
-      dark: dark.hpe.color.dataVis.categorical[50],
+      light: light.hpe.color.dataVis['categorical-50'],
+      dark: dark.hpe.color.dataVis['categorical-50'],
     },
     'graph-5': {
-      light: light.hpe.color.dataVis.categorical[60],
-      dark: dark.hpe.color.dataVis.categorical[60],
+      light: light.hpe.color.dataVis['categorical-60'],
+      dark: dark.hpe.color.dataVis['categorical-60'],
     },
     'graph-6': {
-      light: light.hpe.color.dataVis.categorical[70],
-      dark: dark.hpe.color.dataVis.categorical[70],
+      light: light.hpe.color.dataVis['categorical-70'],
+      dark: dark.hpe.color.dataVis['categorical-70'],
     },
     'status-critical': {
       dark: dark.hpe.color.icon.critical,

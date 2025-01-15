@@ -4,6 +4,16 @@ import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';
 import { Token, TokensFile } from './token_types.js';
 import { access } from './utils.js';
 
+/**
+ * Supported color interaction states
+ */
+const interactions = ['hover', 'focus', 'active'];
+/**
+ * Supported color prominence modifiers
+ */
+const prominences = ['xweak', 'weak', 'default', 'strong', 'xstrong'];
+const exceptionColors = ['color/focus', 'color/transparent'];
+
 function tokenTypeFromVariable(variable: Variable) {
   if (variable.resolvedType === 'STRING' && variable.name.includes('fontStack'))
     return 'fontFamily';
@@ -30,7 +40,25 @@ function tokenValueFromVariable(
   if (typeof value === 'object') {
     if ('type' in value && value.type === 'VARIABLE_ALIAS') {
       const aliasedVariable = localVariables[value.id];
-      return `{${aliasedVariable.name.replace(/\//g, '.')}}`;
+      let aliasedName = aliasedVariable.name;
+      if (
+        aliasedVariable.resolvedType === 'COLOR' &&
+        /^color/.test(aliasedName)
+      ) {
+        const temp = aliasedName.replaceAll('-', '/').split('/');
+        if (!exceptionColors.includes(temp.join('/'))) {
+          // last element of name should be interaction
+          if (!interactions.includes(temp[temp.length - 1])) {
+            temp.push('REST');
+          }
+          // second to last element of name should be prominence
+          if (!prominences.includes(temp[temp.length - 2])) {
+            temp.splice(temp.length - 1, 0, 'DEFAULT');
+          }
+        }
+        aliasedName = temp.join('/');
+      }
+      return `{${aliasedName.replace(/\//g, '.')}}`;
     } else if ('r' in value) {
       return rgbToHex(value);
     }
@@ -197,7 +225,27 @@ export function tokenFilesFromLocalVariables(
           ...{ shadow: shadows[mode.modeId] }, // TO DO this hard codes naming concept of "shadow"
         });
       } else {
-        variable.name.split('/').forEach(groupName => {
+        const isColor = /^color/.test(variable.name);
+        let adjustedName = variable.name;
+        // When pulling from Figma, we should fill out "DEFAULT" and "REST"
+        // to align to design token spec
+        // e.g. color/background/critical --> color/background/critical/DEFAULT/REST
+        if (isColor) {
+          const temp = variable.name.replaceAll('-', '/').split('/');
+          if (!exceptionColors.includes(temp.join('/'))) {
+            // last element of name should be interaction
+            if (!interactions.includes(temp[temp.length - 1])) {
+              temp.push('REST');
+            }
+            // second to last element of name should be prominence
+            if (!prominences.includes(temp[temp.length - 2])) {
+              temp.splice(temp.length - 1, 0, 'DEFAULT');
+            }
+          }
+          adjustedName = temp.join('/');
+        }
+
+        adjustedName.split('/').forEach(groupName => {
           obj[groupName] = obj[groupName] || {};
           obj = obj[groupName];
         });

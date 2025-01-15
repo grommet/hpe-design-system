@@ -1,6 +1,6 @@
 export const cssW3c: string[] = [
   'attribute/cti',
-  'name/kebab',
+  'name/css',
   'time/seconds',
   'html/icon',
   'size/rem',

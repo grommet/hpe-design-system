@@ -52,6 +52,7 @@ export const nonComponentTokens: string[] = [
 
 export const numberToPixel = (value: number): string => `${value}px`;
 
+export const excludedNameParts = ['DEFAULT', 'REST'];
 /**
  * Ensure variable references are to valid collections. Log errors for any variables that are referencing invalid Figma files.
  */
