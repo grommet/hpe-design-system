@@ -1,3 +1,5 @@
+import { ColumnConfig } from "grommet";
+
 interface VirtualMachine {
   name: string;
   status: string;
@@ -11,17 +13,8 @@ interface VirtualMachine {
   cluster: string;
 }
 
-interface Column {
-  property: string;
-  header: string;
-  primary?: boolean;
-  align?: 'start' | 'center' | 'end';
-  render?: (datum: VirtualMachine) => string;
-  units?: string;
-}
-
-const privateCloudColumns: Column[] = [
-  { property: 'name', header: 'Name', primary: true },
+const privateCloudColumns: ColumnConfig<VirtualMachine>[] = [
+  { property: 'name', header: 'Name', primary: true, pin: true },
   { property: 'status', header: 'Status' },
   { property: 'state', header: 'State' },
   { property: 'power state', header: 'Power state' },
@@ -29,8 +22,8 @@ const privateCloudColumns: Column[] = [
   { property: 'cluster', header: 'Cluster' },
 ];
 
-const publicCloudColumns: Column[] = [
-  { property: 'name', header: 'Name', primary: true },
+const publicCloudColumns: ColumnConfig<VirtualMachine>[] = [
+  { property: 'name', header: 'Name', primary: true, pin: true },
   { property: 'status', header: 'Status' },
   { property: 'state', header: 'State' },
   { property: 'account', header: 'Account' },
