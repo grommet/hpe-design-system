@@ -30,7 +30,7 @@ import { TagPreview } from '../../examples/cardPreviews/tag';
 export const components = [
   {
     name: 'Anchor',
-    accessibility: 'Passed WCAG 2.2 AAA',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Hyperlinks used with text-based navigation, such as inline text.',
@@ -850,7 +850,7 @@ export const components = [
   },
   {
     name: 'Menu',
-    accessibility: 'Passed WCAG 2.2 AAA',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Menu is a component that contains a list of actions. When a user clicks an item in the menu, the menu closes and the action is executed.',
