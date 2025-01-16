@@ -20,7 +20,7 @@ let extendedDictionary = HPEStyleDictionary;
  * ----------------------------------- */
 try {
   extendedDictionary = await HPEStyleDictionary.extend({
-    source: [`${TOKENS_DIR}/primitive/primitives.base.json`],
+    source: [`${TOKENS_DIR}/primitive/primitives.default.json`],
     platforms: {
       grommet: {
         transformGroup: 'js/w3c',
@@ -28,7 +28,7 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'base.js',
+            destination: 'primitives.js',
             format: 'javascript/esm',
           },
         ],
@@ -39,7 +39,7 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'base.js',
+            destination: 'primitives.js',
             format: 'javascript/esm',
           },
         ],
@@ -50,7 +50,7 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'base.cjs',
+            destination: 'primitives.cjs',
             format: 'javascript/commonJs',
           },
         ],
@@ -61,7 +61,7 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'base.css',
+            destination: 'primitives.css',
             format: 'css/variables',
             options: {
               outputReferences: true,
@@ -73,7 +73,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: DOCS_DIR,
         prefix: PREFIX,
-        files: [{ destination: 'base.js', format: 'jsonFlat' }],
+        files: [{ destination: 'primitives.js', format: 'jsonFlat' }],
       },
     },
   });
@@ -88,7 +88,7 @@ try {
 try {
   extendedDictionary = await HPEStyleDictionary.extend({
     source: [
-      `${TOKENS_DIR}/primitive/primitives.base.json`,
+      `${TOKENS_DIR}/primitive/primitives.default.json`,
       `${TOKENS_DIR}/semantic/color.light.json`, // using light mode to have a reference name available
       `${TOKENS_DIR}/semantic/global.default.json`,
     ],
@@ -186,7 +186,7 @@ try {
   colorModeFiles.forEach(async file => {
     const [theme, mode] = getThemeAndMode(file);
     extendedDictionary = await HPEStyleDictionary.extend({
-      source: [`${TOKENS_DIR}/primitive/primitives.base.json`, file],
+      source: [`${TOKENS_DIR}/primitive/primitives.default.json`, file],
       platforms: {
         grommet: {
           transformGroup: 'js/w3c',
@@ -288,7 +288,7 @@ try {
     const mode = res[1];
     extendedDictionary = await HPEStyleDictionary.extend({
       source: [
-        `${TOKENS_DIR}/primitive/primitives.base.json`,
+        `${TOKENS_DIR}/primitive/primitives.default.json`,
         `${TOKENS_DIR}/semantic/color.light.json`,
         `${TOKENS_DIR}/semantic/global.default.json`,
         file,
@@ -378,7 +378,7 @@ try {
 try {
   extendedDictionary = await HPEStyleDictionary.extend({
     source: [
-      `${TOKENS_DIR}/primitive/primitives.base.json`,
+      `${TOKENS_DIR}/primitive/primitives.default.json`,
       `${TOKENS_DIR}/semantic/global.default.json`,
       `${TOKENS_DIR}/semantic/color.light.json`, // using light mode to have a reference name available
       `${TOKENS_DIR}/semantic/dimension.medium.json`, // using medium mode to have a reference name available
