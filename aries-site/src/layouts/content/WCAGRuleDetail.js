@@ -24,7 +24,7 @@ const getStatusIcon = status => {
       return <StatusCriticalSmall alt="" color="status-critical" />;
     case 'conditional':
       return <CircleInformation alt="" />;
-    case 'passed with exceptions':
+    case 'exceptions':
       return <StatusWarningSmall alt="" color="status-warning" />;
     default:
       return <StatusGoodSmall alt="" color="status-ok" />;
