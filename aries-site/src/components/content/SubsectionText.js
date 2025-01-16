@@ -21,6 +21,12 @@ const StyledBox = styled(Box)`
   }
 `;
 
+const AccessibilityColorMap = accessibility => {
+  if (accessibility.includes('Passed')) return 'status-ok';
+  if (accessibility.includes('Failed')) return 'status-critical';
+  return 'status-warning';
+};
+
 export const SubsectionText = ({
   children,
   level,
@@ -37,7 +43,7 @@ export const SubsectionText = ({
     {accessibility && (
       <Tag
         alignSelf="start"
-        border={{ color: 'brand' }}
+        border={{ color: AccessibilityColorMap(accessibility) }}
         value={accessibility}
         onClick={() =>
           document

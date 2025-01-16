@@ -12,7 +12,7 @@ const STATUS_MAP = {
     label: 'Passed',
     icon: <StatusGoodSmall alt="" color="status-ok" />,
   },
-  passedWithExceptions: {
+  exceptions: {
     label: 'Passed with Exceptions',
     icon: <StatusWarningSmall alt="" color="status-warning" />,
   },
@@ -43,7 +43,7 @@ const calculateAccessibilityTestCounts = statuses =>
     },
     {
       passed: 0,
-      passedWithExceptions: 0,
+      exceptions: 0,
       failed: 0,
       conditional: 0,
     },
