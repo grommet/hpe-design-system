@@ -1,5 +1,8 @@
 import { css } from 'styled-components';
-import { deepFreeze } from 'grommet/utils';
+import {
+  deepFreeze,
+  // deepMerge
+} from 'grommet/utils';
 import {
   dark as localDark,
   light as localLight,
@@ -8,26 +11,6 @@ import {
   global as localGlobal,
   components as localComponents,
 } from 'hpe-design-tokens/grommet';
-// import {
-//   dark as oldDark,
-//   light as oldLight,
-//   large as oldLarge,
-//   small as oldSmall,
-//   global as oldGlobal,
-//   components as oldComponents,
-//   elevationdark as oldElevationDark,
-//   elevationlight as oldElevationLight,
-// } from 'hpe-design-tokens-old-theme';
-// import {
-//   dark as refreshDark,
-//   light as refreshLight,
-//   large as refreshLarge,
-//   small as refreshSmall,
-//   global as refreshGlobal,
-//   components as refreshComponents,
-//   elevationdark as refreshElevationDark,
-//   elevationlight as refreshElevationLight,
-// } from 'hpe-design-tokens-brand-refresh';
 import {
   Down,
   Blank,
@@ -39,11 +22,7 @@ import {
   Descending,
   Unsorted,
 } from 'grommet-icons';
-
-const MISSING = {
-  color: 'red',
-  weight: 700,
-};
+import { hpe } from 'grommet-theme-hpe';
 
 // TO DO should these be added as tokens?
 const backgrounds = {
@@ -169,7 +148,7 @@ const access = (path, object) => {
 
 const componentSizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
 const buttonKinds = ['default', 'secondary', 'primary', 'toolbar'];
-const buttonStates = ['active', 'hover', 'disabled'];
+const buttonStates = ['hover', 'active', 'disabled'];
 
 const textSizes = [
   'xsmall',
@@ -232,16 +211,18 @@ const buildTheme = tokens => {
     'status-error': undefined,
 
     // ---- TO DO: Tokens do not exist, should they? ---- //
-    brand: MISSING.color,
-    control: MISSING.color,
-    'active-text': MISSING.color,
-    'disabled-text': MISSING.color, // deprecated, use text-weak instead
 
+    control: 'background-primary-strong',
+    'active-text': 'text-strong',
     'text-primary-button': components.hpe.button.primary.rest.textColor,
-    'background-cta-alternate': MISSING.color,
+    'background-cta-alternate': 'background-contrast',
 
     // ----------- These ones we need to map manually for backwards compatibility -----------
     // ----------- with current color namespace ---------------
+    brand: {
+      dark: dark.hpe.color.decorative.brand,
+      light: light.hpe.color.decorative.brand,
+    },
     'background-layer-overlay': {
       dark: dark.hpe.color.background.screenOverlay,
       light: light.hpe.color.background.screenOverlay,
@@ -380,15 +361,15 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.icon.default,
     },
     'selected-background': 'background-selected-strong-enabled',
-    'selected-text': 'text-onSelectedStrong',
+    'selected-text': 'text-onSelectedPrimaryStrong',
     placeholder: {
       light: light.hpe.color.text.placeholder,
       dark: dark.hpe.color.text.placeholder,
     },
+    'disabled-text': 'text-disabled', // deprecate
   };
 
-  const containerTokens = 'container' in large.hpe.size;
-  // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
+  const containerTokens = 'container' in large.hpe.size; // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
   // with old t-shirt sizes
   const size = breakpoint => ({
     xxsmall: containerTokens
@@ -602,6 +583,25 @@ const buildTheme = tokens => {
           font: {
             weight:
               components.hpe.button?.[kind]?.[adjustedState].rest.fontWeight,
+          },
+        };
+        if (!('active' in buttonStatesTheme.hover))
+          buttonStatesTheme.hover.active = {};
+        buttonStatesTheme.hover[state][kind] = {
+          background: {
+            color:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover?.background,
+          },
+          border: {
+            color:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover
+                ?.borderColor,
+          },
+          color:
+            components.hpe.button?.[kind]?.[adjustedState]?.hover?.textColor,
+          font: {
+            weight:
+              components.hpe.button?.[kind]?.[adjustedState]?.hover?.fontWeight,
           },
         };
       } else if (kind === 'option') {
@@ -835,6 +835,7 @@ const buildTheme = tokens => {
           large: elevationlight
             ? elevationlight.hpe.elevation.large
             : light.hpe.shadow.large,
+          'inset-selected': `inset 3px 0 ${light.hpe.color.border.selected}`,
         },
         dark: {
           small: elevationdark
@@ -846,15 +847,16 @@ const buildTheme = tokens => {
           large: elevationdark
             ? elevationdark.hpe.elevation.large
             : dark.hpe.shadow.large,
+          'inset-selected': `inset 3px 0 ${dark.hpe.color.border.selected}`,
         },
       },
       hover: {
         background: 'background-hover',
-        color: MISSING.color, // TO DO
+        color: 'text-default',
       },
       selected: {
-        background: 'background-selected-strong-enabled',
-        color: 'text-onSelectedStrong',
+        background: 'background-selected-primary-strong',
+        color: 'text-onSelectedPrimaryStrong',
       },
     },
     accordion: {
@@ -965,6 +967,7 @@ const buildTheme = tokens => {
           font: {
             weight: components.hpe.select.option.selected.rest.fontWeight,
           },
+          elevation: 'inset-selected',
         },
       },
       hover: {
@@ -974,20 +977,41 @@ const buildTheme = tokens => {
           extend: '', // TO DO can remove when merging, temp to override extend
         },
         ...buttonStatesTheme.hover,
+        option: {
+          extend: props =>
+            props['aria-selected'] &&
+            `
+          background: ${
+            props.theme.global.colors[
+              components.hpe.select.option.selected.hover.background
+            ][props.theme.dark ? 'dark' : 'light']
+          };
+          box-shadow: ${
+            props.theme.global.elevation[props.theme.dark ? 'dark' : 'light'][
+              'inset-selected'
+            ]
+          };
+          &:focus:not(:focus-visible) {
+           box-shadow: ${
+             props.theme.global.elevation[props.theme.dark ? 'dark' : 'light'][
+               'inset-selected'
+             ]
+           };
+          }
+          `,
+        },
       },
       size: {
-        xsmall: {
-          border: {
-            radius: '2em',
-          },
-          iconOnly: {
+        ...buttonSizesTheme,
+        medium: {
+          ...buttonSizesTheme.medium,
+          option: {
             pad: {
-              vertical: '3px',
-              horizontal: '3px',
+              horizontal: components.hpe.select.medium.option.paddingX,
+              vertical: components.hpe.select.medium.option.paddingY,
             },
           },
         },
-        ...buttonSizesTheme,
       },
       extend: ({ active, kind, sizeProp, theme }) => {
         let style = '';
@@ -1052,8 +1076,8 @@ const buildTheme = tokens => {
         daySize: '27.43px',
         title: {
           size: 'medium',
-          weight: MISSING.weight,
-          color: MISSING.color,
+          weight: global.hpe.fontWeight.medium,
+          color: 'text-strong',
         },
       },
       medium: {
@@ -1082,19 +1106,16 @@ const buildTheme = tokens => {
         daySize: '109.71px',
         title: {
           size: 'xlarge',
-          weight: MISSING.weight,
-          color: MISSING.color,
+          weight: global.hpe.fontWeight.medium,
+          color: 'text-strong',
         },
       },
     },
     card: {
       container: {
         background: 'background-front',
-        elevation: 'medium', // v5
-        // elevation: 'none', // Brand refresh change
-        // Q should this have a token?
-        // A yes, but we haven't filled in "motion" tokens yet
-        extend: 'transition: all 0.3s ease-in-out;',
+        elevation: 'medium',
+        extend: 'transition: all 0.3s ease-in-out;', // TO DO motion tokens
       },
       body: {
         pad: 'medium',
@@ -1107,7 +1128,7 @@ const buildTheme = tokens => {
       },
       hover: {
         container: {
-          elevation: 'large', // v5
+          elevation: 'large',
         },
       },
     },
@@ -1145,16 +1166,18 @@ const buildTheme = tokens => {
       check: {
         radius: components.hpe.checkbox.medium.control.borderRadius,
         thickness: components.hpe.checkbox.control.hover.borderWidth,
-        extend: ({ theme, checked, indeterminate }) => `
+        extend: ({ theme, checked, indeterminate, disabled }) => `
         margin-block: ${
           dimensions.borderSize[
             components.hpe.checkbox.medium.control.marginY
           ] || components.hpe.checkbox.medium.control.marginY
         }px;
         background: ${
-          theme.global.colors[
-            components.hpe.checkbox.control.rest.background
-          ]?.[theme.dark ? 'dark' : 'light']
+          theme.global.colors[components.hpe.checkbox.control.rest.background]
+            ? theme.global.colors[
+                components.hpe.checkbox.control.rest.background
+              ]?.[theme.dark ? 'dark' : 'light']
+            : components.hpe.checkbox.control.rest.background
         };
         background-color: ${
           checked || indeterminate
@@ -1164,6 +1187,18 @@ const buildTheme = tokens => {
             : ''
         };
         &:hover {
+          ${
+            !disabled &&
+            `
+            background: ${
+              theme.global.colors[
+                components.hpe.checkbox.control.hover.background
+              ]
+                ? theme.global.colors[
+                    components.hpe.checkbox.control.hover.background
+                  ]?.[theme.dark ? 'dark' : 'light']
+                : components.hpe.checkbox.control.hover.background
+            };
           background: ${
             checked || indeterminate
               ? theme.global.colors[
@@ -1173,6 +1208,9 @@ const buildTheme = tokens => {
                   components.hpe.checkbox.control.hover.background
                 ]?.[theme.dark ? 'dark' : 'light']
           };
+            `
+          }
+          
         }
         ${(checked || indeterminate) && 'border: none;'}
           `,
@@ -1185,10 +1223,7 @@ const buildTheme = tokens => {
           ]?.[theme.dark ? 'dark' : 'light']
         }`,
       },
-      // Q make sure this is 12px is small
       gap: components.hpe.checkbox.medium.gapX,
-      // Q do we need a token here?
-      // A good question, not sure if this a grommet-ism?
       label: {
         align: 'start',
       },
@@ -1205,7 +1240,7 @@ const buildTheme = tokens => {
         size: components.hpe.switch.medium.control.track.width,
         // TO DO need token for handle elevation
         knob: {
-          extend: ({ theme }) => `
+          extend: ({ theme, checked }) => `
              box-shadow: ${
                theme.global.elevation[theme.dark ? 'dark' : 'light'].small
              };
@@ -1220,6 +1255,8 @@ const buildTheme = tokens => {
           };
           width: ${components.hpe.switch.medium.control.handle.width};
           height: ${components.hpe.switch.medium.control.handle.height};
+          // top: 1px; // TO DO token?
+          // ${!checked ? 'left: 1px;' : ''} // TO DO token?
           `,
         },
         extend: ({ checked, theme }) => `
@@ -1420,7 +1457,7 @@ const buildTheme = tokens => {
         },
       },
       dragOver: {
-        background: MISSING.color,
+        background: 'background-hover',
         border: 'none',
       },
       hover: {
@@ -1538,12 +1575,12 @@ const buildTheme = tokens => {
         label: {
           margin: { bottom: 'none' },
           size: 'medium',
-          weight: MISSING.weight,
+          weight: 500,
         },
       },
     },
     heading: {
-      color: 'heading',
+      color: 'text-heading',
       weight: large.hpe.heading.xlarge.fontWeight, // Q: not sure what token to point to here
       level: {
         1: {
@@ -1708,7 +1745,7 @@ const buildTheme = tokens => {
     },
     icon: {
       disableScaleDown: true,
-      matchSize: true, // NOTE: Disabled this since concept didn't exist in v3
+      matchSize: true,
       size: {
         xsmall: large.hpe.size.icon.xsmall,
         small: large.hpe.size.icon.small,
@@ -1834,7 +1871,7 @@ const buildTheme = tokens => {
       critical: {
         background: 'background-critical',
         message: {
-          color: 'text-onCritical-default',
+          color: 'text-onCritical',
         },
         title: {
           color: 'text-onCritical-strong',
@@ -1842,7 +1879,7 @@ const buildTheme = tokens => {
         global: {
           background: 'background-critical',
           message: {
-            color: 'text-onCritical-default',
+            color: 'text-onCritical',
           },
           title: {
             color: 'text-onCritical-strong',
@@ -1861,7 +1898,7 @@ const buildTheme = tokens => {
       warning: {
         background: 'background-warning',
         message: {
-          color: 'text-onWarning-default',
+          color: 'text-onWarning',
         },
         title: {
           color: 'text-onWarning-strong',
@@ -1869,7 +1906,7 @@ const buildTheme = tokens => {
         global: {
           background: 'background-warning',
           message: {
-            color: 'text-onWarning-default',
+            color: 'text-onWarning',
           },
           title: {
             color: 'text-onWarning-strong',
@@ -1888,7 +1925,7 @@ const buildTheme = tokens => {
       normal: {
         background: 'background-ok',
         message: {
-          color: 'text-onOk-default',
+          color: 'text-onOk',
         },
         title: {
           color: 'text-onOk-strong',
@@ -1896,7 +1933,7 @@ const buildTheme = tokens => {
         global: {
           background: 'background-ok',
           message: {
-            color: 'text-onOk-default',
+            color: 'text-onOk',
           },
           title: {
             color: 'text-onOk-strong',
@@ -1915,7 +1952,7 @@ const buildTheme = tokens => {
       unknown: {
         background: 'background-unknown',
         message: {
-          color: 'text-onUnknown-default',
+          color: 'text-onUnknown',
         },
         title: {
           color: 'text-onUnknown-strong',
@@ -1923,7 +1960,7 @@ const buildTheme = tokens => {
         global: {
           background: 'background-unknown',
           message: {
-            color: 'text-onUnknown-default',
+            color: 'text-onUnknown',
           },
           title: {
             color: 'text-onUnknown-strong',
@@ -1969,7 +2006,7 @@ const buildTheme = tokens => {
       undefined: {
         background: 'background-unknown',
         message: {
-          color: 'text-onUnknown-default',
+          color: 'text-onUnknown',
         },
         title: {
           color: 'text-onUnknown-strong',
@@ -1977,7 +2014,7 @@ const buildTheme = tokens => {
         global: {
           background: 'background-ok',
           message: {
-            color: 'text-onUnknown-default',
+            color: 'text-onUnknown',
           },
           title: {
             color: 'text-onUnknown-strong',
@@ -2147,7 +2184,7 @@ const buildTheme = tokens => {
                     ? components.hpe.button.medium.default.borderWidth
                     : components.hpe.button.default.medium.borderWidth
                 ] || oldTheme
-                  ? components.hpe.button.medium.default.borderWidth
+                  ? components.hpe.button.medium?.default.borderWidth
                   : components.hpe.button.default.medium.borderWidth,
             },
             pad: {
@@ -2172,7 +2209,7 @@ const buildTheme = tokens => {
                     ? components.hpe.button.large.default.borderWidth
                     : components.hpe.button.default.large.borderWidth
                 ] || oldTheme
-                  ? components.hpe.button.large.default.borderWidth
+                  ? components.hpe.button.large?.default.borderWidth
                   : components.hpe.button.default.large.borderWidth,
             },
             pad: {
@@ -2217,8 +2254,8 @@ const buildTheme = tokens => {
       `,
       },
       extend: () => `
-        padding-block: ${components.hpe.formField.medium.input.group.item.paddingY};
-      `,
+      padding-block: ${components.hpe.formField.medium.input.group.item.paddingY};
+    `,
       gap: components.hpe.radioButton.medium.gapX,
       hover: {
         background: {
@@ -2253,12 +2290,12 @@ const buildTheme = tokens => {
     },
     rangeInput: {
       thumb: {
-        color: 'background-primary-default', // Should this instead be "control"?
+        color: 'background-primary-strong', // Should this instead be "control"?
       },
       track: {
         lower: {
           // TO DO is this the right token for here?
-          color: 'background-primary-default',
+          color: 'background-primary-strong',
         },
         upper: {
           color: 'border',
@@ -2348,7 +2385,7 @@ const buildTheme = tokens => {
         },
       },
       disabled: {
-        color: 'text-xweak',
+        color: 'text-disabled',
       },
       pad: {
         // top and bottom pad need to be defined individually, specifying
@@ -2420,7 +2457,7 @@ const buildTheme = tokens => {
       },
       footer: {
         extend: `
-          font-weight: ${MISSING.weight};
+          font-weight: ${components.hpe.footerCell.fontWeight};
         `,
       },
     },
@@ -2441,9 +2478,6 @@ const buildTheme = tokens => {
         kind: 'default',
       },
       value: {
-        // Q should this be a token?
-        // A: Good question..similar to other areas, we might want a weight.emphasis or something
-        // weight: MISSING.weight, // TO DO
         weight: global.hpe.fontWeight.medium,
       },
       round: 'large',
@@ -2600,40 +2634,77 @@ export const current = buildTheme({
   components: localComponents,
 });
 
-export const warm = buildTheme({
-  light: localLight,
-  dark: localDark,
-  small: localSmall,
-  large: localMedium,
-  global: localGlobal,
-  components: localComponents,
-});
+// need to extend hpe with new token namespace to "fill gaps" for sake of demo
+// when toggling between themes
+// const newColors = {
+//   'background-floating': 'background-front',
+//   'background-screenOverlay': 'background-layer-overlay',
+//   'background-unknown': 'background-contrast',
+//   'background-info': 'background-contrast',
+//   'background-critical': 'validation-critical',
+//   'background-warning': 'validation-warning',
+//   'background-ok': 'validation-ok',
+//   'background-primary-strong': 'brand',
+//   'background-primary-strong-hover': 'brand',
+//   'background-selected-strong-enabled': 'background-primary-strong',
+//   'background-selected-strong-hover': 'background-primary-strong-hover',
+//   'background-neutral-xstrong': {},
+//   'border-disabled': 'text-disabled',
+//   'border-selected': 'brand',
+//   'border-critical': 'border',
+//   'border-warning': 'border',
+//   'border-ok': 'border',
+//   'border-info': 'border',
+//   'border-unknown': 'border',
+//   'text-placeholder': 'placeholder',
+//   'text-onPrimary': 'text-primary-button',
+//   'text-critical': 'text',
+//   'text-warning': 'text',
+//   'text-ok': 'text',
+//   'text-info': 'text',
+//   'text-unknown': 'text',
+//   'text-onSelectedPrimaryStrong': 'text-primary-button',
+//   'text-onSelectedPrimary': 'text',
+//   'text-heading': 'text-strong',
+//   'text-onStrong': 'text-primary-button',
+//   'text-onCritical': 'text',
+//   'text-onCritical-strong': 'text-strong',
+//   'text-onWarning': 'text',
+//   'text-onWarning-strong': 'text-strong',
+//   'text-onOk': 'text',
+//   'text-onOk-strong': 'text-strong',
+//   'text-onInfo': 'text',
+//   'text-Info-strong': 'text-strong',
+//   'text-onUnknown': 'text',
+//   'text-onUnknown-strong': 'text-strong',
+//   'text-primary': {},
+//   'icon-primary': 'brand',
+//   'icon-default': 'text',
+//   'icon-critical': 'status-critical',
+//   'icon-warning': 'status-warning',
+//   'icon-ok': 'status-ok',
+//   'icon-info': 'text',
+//   'icon-unknown': 'status-unknown',
+//   'icon-onPrimaryStrong': 'text-primary-button',
+//   'icon-onSelectedPrimaryStrong': 'text-primary-button',
+//   'icon-onSelectedPrimary': 'icon-default',
+//   'foreground-primary': 'brand',
+//   'foreground-critical': 'status-critical',
+//   'foreground-warning': 'status-warning',
+//   'foreground-unknown': 'status-unknown',
+//   'graph-5': 'graph-0',
+//   'graph-6': 'graph-1',
+// };
 
-// export const old = buildTheme({
-//   light: oldLight,
-//   dark: oldDark,
-//   small: oldSmall,
-//   large: oldLarge,
-//   elevationlight: oldElevationLight,
-//   elevationdark: oldElevationDark,
-//   global: oldGlobal,
-//   components: oldComponents,
-// });
-
-// export const refresh = buildTheme({
-//   light: refreshLight,
-//   dark: refreshDark,
-//   small: refreshSmall,
-//   large: refreshLarge,
-//   elevationlight: refreshElevationLight,
-//   elevationdark: refreshElevationDark,
-//   global: refreshGlobal,
-//   components: refreshComponents,
-//   refresh: true,
+// const v5 = deepMerge(hpe, {
+//   global: {
+//     colors: {
+//       ...newColors,
+//     },
+//   },
 // });
 
 export const themes = {
-  local: current,
-  // v3: old,
-  // refresh,
+  // next: current,
+  current: current,
 };
