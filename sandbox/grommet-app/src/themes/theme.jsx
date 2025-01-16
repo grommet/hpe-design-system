@@ -388,31 +388,35 @@ const buildTheme = tokens => {
   };
 
   const containerTokens = 'container' in large.hpe.size;
+  // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
+  // with old t-shirt sizes
   const size = breakpoint => ({
     xxsmall: containerTokens
-      ? breakpoint.hpe.size.container.xxsmall
+      ? breakpoint.hpe.size.container['5xsmall']
       : breakpoint.hpe.size.content.xxsmall,
     xsmall: containerTokens
-      ? breakpoint.hpe.size.container.xsmall
+      ? breakpoint.hpe.size.container['3xsmall']
       : breakpoint.hpe.size.content.xsmall,
     small: containerTokens
-      ? breakpoint.hpe.size.container.small
+      ? breakpoint.hpe.size.container.xsmall
       : breakpoint.hpe.size.content.small,
     medium: containerTokens
       ? breakpoint.hpe.size.container.medium
       : breakpoint.hpe.size.content.medium,
     large: containerTokens
-      ? breakpoint.hpe.size.container.large
+      ? breakpoint.hpe.size.container.xlarge
       : breakpoint.hpe.size.content.large,
     xlarge: containerTokens
-      ? breakpoint.hpe.size.container.xlarge
+      ? breakpoint.hpe.size.container['3xlarge']
       : breakpoint.hpe.size.content.xlarge,
     xxlarge: containerTokens
-      ? breakpoint.hpe.size.container.xxlarge
+      ? breakpoint.hpe.size.container['4xlarge']
       : breakpoint.hpe.size.content.xxlarge,
     full: '100%',
   });
 
+  // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
+  // with old t-shirt sizes
   const dimensions = {
     borderSize: {
       xsmall: large.hpe.borderWidth.xsmall,
@@ -425,12 +429,12 @@ const buildTheme = tokens => {
     edgeSize: {
       none: large.hpe.spacing.none,
       hair: large.hpe.spacing.hair,
-      xxsmall: large.hpe.spacing.xxsmall,
-      xsmall: large.hpe.spacing.xsmall,
-      small: large.hpe.spacing.small,
+      xxsmall: large.hpe.spacing['5xsmall'],
+      xsmall: large.hpe.spacing['3xsmall'],
+      small: large.hpe.spacing['xsmall'],
       medium: large.hpe.spacing.medium,
-      large: large.hpe.spacing.large,
-      xlarge: large.hpe.spacing.xlarge,
+      large: large.hpe.spacing.xlarge,
+      xlarge: large.hpe.spacing['3xlarge'],
       responsiveBreakpoint: 'small',
     },
     size: size(large),
@@ -531,7 +535,8 @@ const buildTheme = tokens => {
   };
 
   const anchorSizeTheme = {};
-  textSizes.forEach(size => {
+  textSizes.forEach(sizeArg => {
+    const size = sizeArg === '6xl' ? '5xl' : sizeArg;
     anchorSizeTheme[size] = {
       color: components.hpe.anchor.default.rest.textColor,
       textDecoration: components.hpe.anchor.default.rest.textDecoration,
@@ -541,7 +546,8 @@ const buildTheme = tokens => {
 
   const paragraphTheme = {};
   const textTheme = {};
-  textSizes.forEach(size => {
+  textSizes.forEach(sizeArg => {
+    const size = sizeArg === '6xl' ? '5xl' : sizeArg;
     paragraphTheme[size] = {
       size: large.hpe.text?.[size]?.fontSize,
       height: large.hpe.text?.[size]?.lineHeight,
@@ -1012,19 +1018,19 @@ const buildTheme = tokens => {
           color: 'text-strong',
         },
         selected: {
-          background: 'background-selected-strong-enabled',
-          color: 'text-onSelectedStrong',
+          background: 'background-selected-primary-strong',
+          color: 'text-onSelectedPrimaryStrong',
           hover: {
-            background: 'background-selected-strong-hover',
+            background: 'background-selected-primary-strong-hover',
           },
           font: {
             weight: global.hpe.fontWeight.bold,
           },
         },
         inRange: {
-          color: 'text-onSelected',
+          color: 'text-onSelectedPrimary',
           hover: {
-            background: 'background-selected-weak-hover',
+            background: 'background-selected-primary-weak-hover',
           },
           font: {
             weight: global.hpe.fontWeight.medium,
@@ -1033,7 +1039,7 @@ const buildTheme = tokens => {
         extend: '',
       },
       range: {
-        background: 'background-selected-weak-enabled',
+        background: 'background-selected-primary-weak',
       },
       icons: {
         // next: Next,
@@ -1992,7 +1998,7 @@ const buildTheme = tokens => {
       wide: {
         width: {
           min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
-          max: 'xxlarge',
+          max: 'xlarge',
         },
         xsmall: {
           pad: { horizontal: 'large' },
@@ -2295,8 +2301,8 @@ const buildTheme = tokens => {
     },
     spinner: {
       container: {
-        pad: 'none', // Should we have universal token here for none?
-        color: 'background-primary-default', // Is this the right token for here?
+        pad: 'none',
+        color: 'foreground-primary',
         // tokens?
         border: [
           { color: 'border-weak', side: 'all', size: 'medium' },
@@ -2307,14 +2313,14 @@ const buildTheme = tokens => {
       },
       size: {
         xsmall: components.hpe.element?.xsmall.minHeight,
-        small: components.hpe.element?.small.minHeight, // TO DO should these align? this was before we standardized on component sizes
+        small: components.hpe.element?.small.minHeight,
         medium: components.hpe.element?.medium.minHeight,
         large: components.hpe.element?.large.minHeight,
         xlarge: components.hpe.element?.xlarge.minHeight,
       },
     },
     starRating: {
-      color: 'background-selected-strong-enabled',
+      color: 'background-selected-primary-strong',
     },
     tab: {
       color: 'text',
@@ -2544,10 +2550,10 @@ const buildTheme = tokens => {
     },
     thumbsRating: {
       like: {
-        color: 'background-selected-strong-enabled',
+        color: 'background-selected-primary-strong',
       },
       dislike: {
-        color: 'background-selected-strong-enabled',
+        color: 'background-selected-primary-strong',
       },
     },
     toggleGroup: {
