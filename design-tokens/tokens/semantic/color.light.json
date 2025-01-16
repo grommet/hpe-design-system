@@ -245,6 +245,20 @@
               }
             }
           }
+        },
+        "xstrong": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.green.1000}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
         }
       },
       "selected": {
