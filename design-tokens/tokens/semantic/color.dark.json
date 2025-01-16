@@ -218,7 +218,7 @@
         }
       },
       "primary": {
-        "default": {
+        "strong": {
           "REST": {
             "$type": "color",
             "$value": "{base.color.green.600}",
@@ -230,9 +230,7 @@
                 "codeSyntax": {}
               }
             }
-          }
-        },
-        "DEFAULT": {
+          },
           "hover": {
             "$type": "color",
             "$value": "{base.color.green.600}",
@@ -248,62 +246,56 @@
         }
       },
       "selected": {
-        "strong": {
-          "enabled": {
-            "DEFAULT": {
-              "REST": {
-                "$type": "color",
-                "$value": "{base.color.brand}",
-                "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
-                "$extensions": {
-                  "com.figma": {
-                    "hiddenFromPublishing": false,
-                    "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                    "codeSyntax": {}
-                  }
+        "primary": {
+          "strong": {
+            "REST": {
+              "$type": "color",
+              "$value": "{base.color.brand}",
+              "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                  "codeSyntax": {}
+                }
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{base.color.brand}",
+              "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                  "codeSyntax": {}
                 }
               }
             }
           },
-          "hover": {
-            "$type": "color",
-            "$value": "{base.color.brand}",
-            "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        },
-        "weak": {
-          "enabled": {
-            "DEFAULT": {
-              "REST": {
-                "$type": "color",
-                "$value": "{base.color.green.1000}",
-                "$description": "Lower emphasis variant of background-selected-strong.",
-                "$extensions": {
-                  "com.figma": {
-                    "hiddenFromPublishing": false,
-                    "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                    "codeSyntax": {}
-                  }
+          "weak": {
+            "REST": {
+              "$type": "color",
+              "$value": "{base.color.green.1000}",
+              "$description": "Lower emphasis variant of background-selected-strong.",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                  "codeSyntax": {}
                 }
               }
-            }
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{base.color.green.900}",
-            "$description": "Hover variant of background-selected-weak.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{base.color.green.900}",
+              "$description": "Hover variant of background-selected-weak.",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                  "codeSyntax": {}
+                }
               }
             }
           }
@@ -557,7 +549,7 @@
           }
         }
       },
-      "onPrimary": {
+      "onPrimaryStrong": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
@@ -670,7 +662,7 @@
         }
       },
       "heading": {
-        "default": {
+        "DEFAULT": {
           "REST": {
             "$type": "color",
             "$value": "{color.text.strong.REST}",
@@ -685,7 +677,7 @@
           }
         }
       },
-      "onSelectedStrong": {
+      "onSelectedPrimaryStrong": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
@@ -701,7 +693,7 @@
           }
         }
       },
-      "onSelected": {
+      "onSelectedPrimary": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
@@ -718,7 +710,7 @@
         }
       },
       "onStrong": {
-        "default": {
+        "DEFAULT": {
           "REST": {
             "$type": "color",
             "$value": "{base.color.grey.1200}",
@@ -748,7 +740,7 @@
             }
           }
         },
-        "default": {
+        "DEFAULT": {
           "REST": {
             "$type": "color",
             "$value": "{color.text.default.REST}",
@@ -778,7 +770,7 @@
             }
           }
         },
-        "default": {
+        "DEFAULT": {
           "REST": {
             "$type": "color",
             "$value": "{color.text.default.REST}",
@@ -808,7 +800,7 @@
             }
           }
         },
-        "default": {
+        "DEFAULT": {
           "REST": {
             "$type": "color",
             "$value": "{color.text.default.REST}",
@@ -838,7 +830,7 @@
             }
           }
         },
-        "default": {
+        "DEFAULT": {
           "REST": {
             "$type": "color",
             "$value": "{color.text.default.REST}",
@@ -868,7 +860,7 @@
             }
           }
         },
-        "default": {
+        "DEFAULT": {
           "REST": {
             "$type": "color",
             "$value": "{color.text.default.REST}",
@@ -1039,7 +1031,7 @@
           }
         }
       },
-      "onPrimary": {
+      "onPrimaryStrong": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
@@ -1055,7 +1047,7 @@
           }
         }
       },
-      "onSelectedStrong": {
+      "onSelectedPrimaryStrong": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
@@ -1071,7 +1063,7 @@
           }
         }
       },
-      "onSelected": {
+      "onSelectedPrimary": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
