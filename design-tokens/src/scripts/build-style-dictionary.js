@@ -392,7 +392,7 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'components.default.js',
+            destination: 'components.js',
             filter: token =>
               token.filePath.includes(`${TOKENS_DIR}/component/`),
             format: 'esmGrommetRefs',
@@ -405,7 +405,7 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'components.default.js',
+            destination: 'components.js',
             filter: token =>
               token.filePath.includes(`${TOKENS_DIR}/component/`),
             format: 'esmGrommetRefs',
@@ -418,7 +418,7 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'components.default.cjs',
+            destination: 'components.cjs',
             filter: token =>
               token.filePath.includes(`${TOKENS_DIR}/component/`),
             format: 'javascript/commonJs',
