@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 import FigmaApi from '../figma_api.js';
 
-import { green } from '../utils.js';
+import { green, verifyReferences } from '../utils.js';
 import { tokenFilesFromLocalVariables } from '../token_export.js';
 
 /**
@@ -40,6 +40,11 @@ async function main() {
     .map(dir => dir.name);
 
   let outputDir = 'tokens_new';
+
+  const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
+  const componentTokens = await api.getLocalVariables(fileKeys.component);
+  const semanticTokens = await api.getLocalVariables(fileKeys.semantic);
+  verifyReferences([componentTokens, semanticTokens]);
 
   tokenDirs.forEach(async dir => {
     const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
