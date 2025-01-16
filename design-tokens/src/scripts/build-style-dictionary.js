@@ -208,9 +208,7 @@ try {
           prefix: PREFIX,
           files: [
             {
-              destination: `color.${
-                theme ? `${theme}-${mode}` : `${mode || ''}`
-              }.js`,
+              destination: 'color.js',
               format: 'javascript/esm',
               filter: token => token.filePath === file,
             },
@@ -222,9 +220,7 @@ try {
           prefix: PREFIX,
           files: [
             {
-              destination: `color.${
-                theme ? `${theme}-${mode}` : `${mode || ''}`
-              }.cjs`,
+              destination: 'color.cjs',
               format: 'javascript/commonJs',
               filter: token => token.filePath === file,
             },
@@ -312,7 +308,7 @@ try {
           prefix: PREFIX,
           files: [
             {
-              destination: `dimension.${mode}.js`,
+              destination: 'dimension.js',
               format: 'javascript/esm',
               filter: token => token.filePath === file,
             },
@@ -324,7 +320,7 @@ try {
           prefix: PREFIX,
           files: [
             {
-              destination: `dimension.${mode}.cjs`,
+              destination: 'dimension.cjs',
               format: 'javascript/commonJs',
               filter: token => token.filePath === file,
             },
