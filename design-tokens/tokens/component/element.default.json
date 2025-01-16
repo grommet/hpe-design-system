@@ -15,7 +15,7 @@
       },
       "textToElementX": {
         "$type": "number",
-        "$value": "{base.static.spacing.xxsmall}",
+        "$value": "{static.spacing.xxsmall}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -27,7 +27,7 @@
       },
       "textToIconX": {
         "$type": "number",
-        "$value": "{base.static.spacing.xxsmall}",
+        "$value": "{static.spacing.xxsmall}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -88,7 +88,7 @@
       "paddingX": {
         "narrow": {
           "$type": "number",
-          "$value": "{base.static.spacing.xxsmall}",
+          "$value": "{static.spacing.xxsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -100,7 +100,7 @@
         },
         "default": {
           "$type": "number",
-          "$value": "{base.static.spacing.xsmall}",
+          "$value": "{static.spacing.xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -165,7 +165,7 @@
     "small": {
       "borderWidth": {
         "$type": "number",
-        "$value": "{base.static.borderWidth.default}",
+        "$value": "{static.borderWidth.default}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -249,7 +249,7 @@
       },
       "textToElementX": {
         "$type": "number",
-        "$value": "{base.static.spacing.small}",
+        "$value": "{static.spacing.small}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -261,7 +261,7 @@
       },
       "textToIconX": {
         "$type": "number",
-        "$value": "{base.static.spacing.xsmall}",
+        "$value": "{static.spacing.xsmall}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -274,7 +274,7 @@
       "paddingX": {
         "narrow": {
           "$type": "number",
-          "$value": "{base.static.spacing.xxsmall}",
+          "$value": "{static.spacing.xxsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -286,7 +286,7 @@
         },
         "default": {
           "$type": "number",
-          "$value": "{base.static.spacing.xsmall}",
+          "$value": "{static.spacing.xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -298,7 +298,7 @@
         },
         "wide": {
           "$type": "number",
-          "$value": "{base.static.spacing.small}",
+          "$value": "{static.spacing.small}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -387,7 +387,7 @@
       },
       "textToElementX": {
         "$type": "number",
-        "$value": "{base.static.spacing.small}",
+        "$value": "{static.spacing.small}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -399,7 +399,7 @@
       },
       "textToIconX": {
         "$type": "number",
-        "$value": "{base.static.spacing.xsmall}",
+        "$value": "{static.spacing.xsmall}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -549,7 +549,7 @@
       },
       "textToElementX": {
         "$type": "number",
-        "$value": "{base.static.spacing.small}",
+        "$value": "{static.spacing.small}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -561,7 +561,7 @@
       },
       "textToIconX": {
         "$type": "number",
-        "$value": "{base.static.spacing.xsmall}",
+        "$value": "{static.spacing.xsmall}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -711,7 +711,7 @@
       },
       "textToElementX": {
         "$type": "number",
-        "$value": "{base.static.spacing.small}",
+        "$value": "{static.spacing.small}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -723,7 +723,7 @@
       },
       "textToIconX": {
         "$type": "number",
-        "$value": "{base.static.spacing.xsmall}",
+        "$value": "{static.spacing.xsmall}",
         "$description": "",
         "$extensions": {
           "com.figma": {

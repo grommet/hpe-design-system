@@ -26,8 +26,8 @@ import {
   Menu,
   LinkNext,
 } from 'grommet-icons';
-import { themes } from '../../theme';
 import { Link } from 'react-router-dom';
+import { themes } from '../../themes/theme';
 
 export const GlobalHeader = ({
   darkMode,

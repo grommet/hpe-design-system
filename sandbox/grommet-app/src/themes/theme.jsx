@@ -8,7 +8,7 @@ import {
   small as localSmall,
   global as localGlobal,
   components as localComponents,
-} from 'hpe-design-tokens';
+} from 'hpe-design-tokens/grommet';
 import {
   Down,
   Blank,
@@ -158,7 +158,7 @@ const textSizes = [
   '3xl',
   '4xl',
   '5xl',
-  '6xl',
+  // '6xl',
 ];
 
 const buildTheme = tokens => {
@@ -179,10 +179,17 @@ const buildTheme = tokens => {
   const tokenColors = {};
   Object.keys(flatColors).forEach(color => {
     if (!color.includes('shadow')) {
-      const adjustedColor = color.split('-').join('.');
+      const [category] = color.split('-');
+      const flatName = color.split('-').slice(1).join('-');
       tokenColors[color] = {
-        light: access(`hpe.color.${adjustedColor}`, light),
-        dark: access(`hpe.color.${adjustedColor}`, dark),
+        light: access(
+          `hpe.color.${category}${flatName ? `.${flatName}` : ''}`,
+          light,
+        ),
+        dark: access(
+          `hpe.color.${category}${flatName ? `.${flatName}` : ''}`,
+          dark,
+        ),
       };
     }
   });
@@ -291,32 +298,32 @@ const buildTheme = tokens => {
       light: light.hpe.color.decorative['yellow!'],
     },
     'graph-0': {
-      light: light.hpe.color.dataVis.categorical[10],
-      dark: dark.hpe.color.dataVis.categorical[10],
+      light: light.hpe.color.dataVis['categorical-10'],
+      dark: dark.hpe.color.dataVis['categorical-10'],
     },
     'graph-1': {
-      light: light.hpe.color.dataVis.categorical[20],
-      dark: dark.hpe.color.dataVis.categorical[20],
+      light: light.hpe.color.dataVis['categorical-20'],
+      dark: dark.hpe.color.dataVis['categorical-20'],
     },
     'graph-2': {
-      light: light.hpe.color.dataVis.categorical[30],
-      dark: dark.hpe.color.dataVis.categorical[30],
+      light: light.hpe.color.dataVis['categorical-30'],
+      dark: dark.hpe.color.dataVis['categorical-30'],
     },
     'graph-3': {
-      light: light.hpe.color.dataVis.categorical[40],
-      dark: dark.hpe.color.dataVis.categorical[40],
+      light: light.hpe.color.dataVis['categorical-40'],
+      dark: dark.hpe.color.dataVis['categorical-40'],
     },
     'graph-4': {
-      light: light.hpe.color.dataVis.categorical[50],
-      dark: dark.hpe.color.dataVis.categorical[50],
+      light: light.hpe.color.dataVis['categorical-50'],
+      dark: dark.hpe.color.dataVis['categorical-50'],
     },
     'graph-5': {
-      light: light.hpe.color.dataVis.categorical[60],
-      dark: dark.hpe.color.dataVis.categorical[60],
+      light: light.hpe.color.dataVis['categorical-60'],
+      dark: dark.hpe.color.dataVis['categorical-60'],
     },
     'graph-6': {
-      light: light.hpe.color.dataVis.categorical[70],
-      dark: dark.hpe.color.dataVis.categorical[70],
+      light: light.hpe.color.dataVis['categorical-70'],
+      dark: dark.hpe.color.dataVis['categorical-70'],
     },
     'status-critical': {
       dark: dark.hpe.color.icon.critical,
@@ -602,6 +609,23 @@ const buildTheme = tokens => {
           },
           color: components.hpe.select.option?.[adjustedState].textColor,
         };
+      } else if (state === 'disabled') {
+        buttonStatesTheme[state][kind] = {
+          background: {
+            color:
+              components.hpe.button?.[kind]?.[adjustedState].rest.background,
+          },
+          border: {
+            width: '',
+            color:
+              components.hpe.button?.[kind]?.[adjustedState].rest.borderColor,
+          },
+          color: components.hpe.button?.[kind]?.[adjustedState].rest.textColor,
+          font: {
+            weight:
+              components.hpe.button?.[kind]?.[adjustedState].rest.fontWeight,
+          },
+        };
       } else {
         buttonStatesTheme[state][kind] = {
           background: {
@@ -693,10 +717,11 @@ const buildTheme = tokens => {
         },
         readOnly: {
           background:
-            components.hpe.formField.input.container.readOnly.background,
+            components.hpe.formField.input.container.readOnly.rest.background,
           border: {
             color:
-              components.hpe.formField.input.container.readOnly.borderColor,
+              components.hpe.formField.input.container.readOnly.rest
+                .borderColor,
           },
         },
         extend: `
@@ -855,7 +880,7 @@ const buildTheme = tokens => {
       color: components.hpe.anchor.default.rest.textColor,
       textDecoration: components.hpe.anchor.default.rest.textDecoration,
       fontWeight: components.hpe.anchor.default.rest.fontWeight,
-      gap: components.hpe.anchor.medium.default.gapX, // TO DO not size specific
+      gap: components.hpe.anchor.default.medium.gapX, // TO DO not size specific
       hover: {
         textDecoration: components.hpe.anchor.default.hover.textDecoration,
       },
@@ -1517,13 +1542,15 @@ const buildTheme = tokens => {
       },
       disabled: {
         background:
-          components.hpe.formField.input.group.container.disabled.background,
+          components.hpe.formField.input.group.container.disabled.rest
+            .background,
         border: {
-          color: components.hpe.formField.input.container.disabled.borderColor,
+          color:
+            components.hpe.formField.input.container.disabled.rest.borderColor,
         },
         label: {
           color:
-            components.hpe.formField[!sd4 ? 'labelText' : 'label'].disabled
+            components.hpe.formField[!sd4 ? 'labelText' : 'label'].disabled.rest
               .textColor,
         },
       },
@@ -2156,15 +2183,15 @@ const buildTheme = tokens => {
           },
         },
         disabled: {
-          background: components.hpe.button.default.disabled.background,
+          background: components.hpe.button.default.disabled.rest.background,
           border: {
             radius: oldTheme
               ? components.hpe.button.medium.default.borderRadius
               : components.hpe.button.default.medium.borderRadius,
           },
-          color: components.hpe.button.default.disabled.textColor,
+          color: components.hpe.button.default.disabled.rest.textColor,
           font: {
-            weight: components.hpe.button.default.disabled.fontWeight,
+            weight: components.hpe.button.default.disabled.rest.fontWeight,
           },
         },
         size: {
@@ -2308,7 +2335,7 @@ const buildTheme = tokens => {
           color: 'background-primary-default',
         },
         upper: {
-          color: base.hpe.base.color.grey[500],
+          color: base.hpe.base.color['grey-500'],
         },
       },
     },
