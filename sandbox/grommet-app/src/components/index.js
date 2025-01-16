@@ -1,4 +1,5 @@
 export * from './Card';
+export * from './CollapsibleMenu';
 export * from './ContentPane';
 export * from './DashboardCard';
 export * from './FloatingActionButton';
