@@ -671,7 +671,7 @@ export default {
     ],
     "key": "{color.background.warning.DEFAULT.REST}"
   },
-  "hpe.color.background.primary.default": {
+  "hpe.color.background.primary.strong": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
@@ -702,24 +702,24 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.primary.default",
+    "name": "hpe.color.background.primary.strong",
     "attributes": {
       "category": "color",
       "type": "background",
       "item": "primary",
-      "subitem": "default",
+      "subitem": "strong",
       "state": "REST"
     },
     "path": [
       "color",
       "background",
       "primary",
-      "default",
+      "strong",
       "REST"
     ],
-    "key": "{color.background.primary.default.REST}"
+    "key": "{color.background.primary.strong.REST}"
   },
-  "hpe.color.background.primary.hover": {
+  "hpe.color.background.primary.strong.hover": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "Hover variant of background-primary.",
@@ -750,24 +750,24 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.primary.hover",
+    "name": "hpe.color.background.primary.strong.hover",
     "attributes": {
       "category": "color",
       "type": "background",
       "item": "primary",
-      "subitem": "DEFAULT",
+      "subitem": "strong",
       "state": "hover"
     },
     "path": [
       "color",
       "background",
       "primary",
-      "DEFAULT",
+      "strong",
       "hover"
     ],
-    "key": "{color.background.primary.DEFAULT.hover}"
+    "key": "{color.background.primary.strong.hover}"
   },
-  "hpe.color.background.selected.strong.enabled": {
+  "hpe.color.background.selected.primary.strong": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
@@ -798,26 +798,25 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.selected.strong.enabled",
+    "name": "hpe.color.background.selected.primary.strong",
     "attributes": {
       "category": "color",
       "type": "background",
       "item": "selected",
-      "subitem": "strong",
-      "state": "enabled"
+      "subitem": "primary",
+      "state": "strong"
     },
     "path": [
       "color",
       "background",
       "selected",
+      "primary",
       "strong",
-      "enabled",
-      "DEFAULT",
       "REST"
     ],
-    "key": "{color.background.selected.strong.enabled.DEFAULT.REST}"
+    "key": "{color.background.selected.primary.strong.REST}"
   },
-  "hpe.color.background.selected.strong.hover": {
+  "hpe.color.background.selected.primary.strong.hover": {
     "$type": "color",
     "$value": "#01a982",
     "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
@@ -848,24 +847,25 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.selected.strong.hover",
+    "name": "hpe.color.background.selected.primary.strong.hover",
     "attributes": {
       "category": "color",
       "type": "background",
       "item": "selected",
-      "subitem": "strong",
-      "state": "hover"
+      "subitem": "primary",
+      "state": "strong"
     },
     "path": [
       "color",
       "background",
       "selected",
+      "primary",
       "strong",
       "hover"
     ],
-    "key": "{color.background.selected.strong.hover}"
+    "key": "{color.background.selected.primary.strong.hover}"
   },
-  "hpe.color.background.selected.weak.enabled": {
+  "hpe.color.background.selected.primary.weak": {
     "$type": "color",
     "$value": "#cbfaeb",
     "$description": "Lower emphasis variant of background-selected-strong.",
@@ -896,26 +896,25 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.selected.weak.enabled",
+    "name": "hpe.color.background.selected.primary.weak",
     "attributes": {
       "category": "color",
       "type": "background",
       "item": "selected",
-      "subitem": "weak",
-      "state": "enabled"
+      "subitem": "primary",
+      "state": "weak"
     },
     "path": [
       "color",
       "background",
       "selected",
+      "primary",
       "weak",
-      "enabled",
-      "DEFAULT",
       "REST"
     ],
-    "key": "{color.background.selected.weak.enabled.DEFAULT.REST}"
+    "key": "{color.background.selected.primary.weak.REST}"
   },
-  "hpe.color.background.selected.weak.hover": {
+  "hpe.color.background.selected.primary.weak.hover": {
     "$type": "color",
     "$value": "#aef6df",
     "$description": "Hover variant of background-selected-weak.",
@@ -946,22 +945,23 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.selected.weak.hover",
+    "name": "hpe.color.background.selected.primary.weak.hover",
     "attributes": {
       "category": "color",
       "type": "background",
       "item": "selected",
-      "subitem": "weak",
-      "state": "hover"
+      "subitem": "primary",
+      "state": "weak"
     },
     "path": [
       "color",
       "background",
       "selected",
+      "primary",
       "weak",
       "hover"
     ],
-    "key": "{color.background.selected.weak.hover}"
+    "key": "{color.background.selected.primary.weak.hover}"
   },
   "hpe.color.background.neutral.xstrong": {
     "$type": "color",
@@ -1713,7 +1713,7 @@ export default {
     ],
     "key": "{color.text.disabled.DEFAULT.REST}"
   },
-  "hpe.color.text.onPrimary": {
+  "hpe.color.text.onPrimaryStrong": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility.",
@@ -1742,22 +1742,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.onPrimary",
+    "name": "hpe.color.text.onPrimaryStrong",
     "attributes": {
       "category": "color",
       "type": "text",
-      "item": "onPrimary",
+      "item": "onPrimaryStrong",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "text",
-      "onPrimary",
+      "onPrimaryStrong",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.text.onPrimary.DEFAULT.REST}"
+    "key": "{color.text.onPrimaryStrong.DEFAULT.REST}"
   },
   "hpe.color.text.primary": {
     "$type": "color",
@@ -2055,7 +2055,7 @@ export default {
     ],
     "key": "{color.text.unknown.DEFAULT.REST}"
   },
-  "hpe.color.text.heading.default": {
+  "hpe.color.text.heading": {
     "$type": "color",
     "$value": "#2e2e2e",
     "$description": "Text color for headings.",
@@ -2084,24 +2084,24 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.heading.default",
+    "name": "hpe.color.text.heading",
     "attributes": {
       "category": "color",
       "type": "text",
       "item": "heading",
-      "subitem": "default",
+      "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "text",
       "heading",
-      "default",
+      "DEFAULT",
       "REST"
     ],
-    "key": "{color.text.heading.default.REST}"
+    "key": "{color.text.heading.DEFAULT.REST}"
   },
-  "hpe.color.text.onSelectedStrong": {
+  "hpe.color.text.onSelectedPrimaryStrong": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "Text color to be used for text sitting on background-selected-strong.",
@@ -2130,24 +2130,24 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.onSelectedStrong",
+    "name": "hpe.color.text.onSelectedPrimaryStrong",
     "attributes": {
       "category": "color",
       "type": "text",
-      "item": "onSelectedStrong",
+      "item": "onSelectedPrimaryStrong",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "text",
-      "onSelectedStrong",
+      "onSelectedPrimaryStrong",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.text.onSelectedStrong.DEFAULT.REST}"
+    "key": "{color.text.onSelectedPrimaryStrong.DEFAULT.REST}"
   },
-  "hpe.color.text.onSelected": {
+  "hpe.color.text.onSelectedPrimary": {
     "$type": "color",
     "$value": "#2e2e2e",
     "$description": "Text color to be used for text sitting on non-strong variants of background-selected.",
@@ -2176,24 +2176,24 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.onSelected",
+    "name": "hpe.color.text.onSelectedPrimary",
     "attributes": {
       "category": "color",
       "type": "text",
-      "item": "onSelected",
+      "item": "onSelectedPrimary",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "text",
-      "onSelected",
+      "onSelectedPrimary",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.text.onSelected.DEFAULT.REST}"
+    "key": "{color.text.onSelectedPrimary.DEFAULT.REST}"
   },
-  "hpe.color.text.onStrong.default": {
+  "hpe.color.text.onStrong": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "Text color to be used on strong backgrounds. For example, background-neutral-xstrong.",
@@ -2222,22 +2222,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.onStrong.default",
+    "name": "hpe.color.text.onStrong",
     "attributes": {
       "category": "color",
       "type": "text",
       "item": "onStrong",
-      "subitem": "default",
+      "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onStrong",
-      "default",
+      "DEFAULT",
       "REST"
     ],
-    "key": "{color.text.onStrong.default.REST}"
+    "key": "{color.text.onStrong.DEFAULT.REST}"
   },
   "hpe.color.text.onCritical.strong": {
     "$type": "color",
@@ -2285,7 +2285,7 @@ export default {
     ],
     "key": "{color.text.onCritical.strong.REST}"
   },
-  "hpe.color.text.onCritical.default": {
+  "hpe.color.text.onCritical": {
     "$type": "color",
     "$value": "#555555",
     "$description": "Text color to be used on background-critical.",
@@ -2314,22 +2314,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.onCritical.default",
+    "name": "hpe.color.text.onCritical",
     "attributes": {
       "category": "color",
       "type": "text",
       "item": "onCritical",
-      "subitem": "default",
+      "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onCritical",
-      "default",
+      "DEFAULT",
       "REST"
     ],
-    "key": "{color.text.onCritical.default.REST}"
+    "key": "{color.text.onCritical.DEFAULT.REST}"
   },
   "hpe.color.text.onInfo.strong": {
     "$type": "color",
@@ -2377,7 +2377,7 @@ export default {
     ],
     "key": "{color.text.onInfo.strong.REST}"
   },
-  "hpe.color.text.onInfo.default": {
+  "hpe.color.text.onInfo": {
     "$type": "color",
     "$value": "#555555",
     "$description": "Text color to be used on background-info.",
@@ -2406,22 +2406,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.onInfo.default",
+    "name": "hpe.color.text.onInfo",
     "attributes": {
       "category": "color",
       "type": "text",
       "item": "onInfo",
-      "subitem": "default",
+      "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onInfo",
-      "default",
+      "DEFAULT",
       "REST"
     ],
-    "key": "{color.text.onInfo.default.REST}"
+    "key": "{color.text.onInfo.DEFAULT.REST}"
   },
   "hpe.color.text.onOk.strong": {
     "$type": "color",
@@ -2469,7 +2469,7 @@ export default {
     ],
     "key": "{color.text.onOk.strong.REST}"
   },
-  "hpe.color.text.onOk.default": {
+  "hpe.color.text.onOk": {
     "$type": "color",
     "$value": "#555555",
     "$description": "Text color to be used on background-ok.",
@@ -2498,22 +2498,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.onOk.default",
+    "name": "hpe.color.text.onOk",
     "attributes": {
       "category": "color",
       "type": "text",
       "item": "onOk",
-      "subitem": "default",
+      "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onOk",
-      "default",
+      "DEFAULT",
       "REST"
     ],
-    "key": "{color.text.onOk.default.REST}"
+    "key": "{color.text.onOk.DEFAULT.REST}"
   },
   "hpe.color.text.onUnknown.strong": {
     "$type": "color",
@@ -2561,7 +2561,7 @@ export default {
     ],
     "key": "{color.text.onUnknown.strong.REST}"
   },
-  "hpe.color.text.onUnknown.default": {
+  "hpe.color.text.onUnknown": {
     "$type": "color",
     "$value": "#555555",
     "$description": "Text color to be used on background-unknown.",
@@ -2590,22 +2590,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.onUnknown.default",
+    "name": "hpe.color.text.onUnknown",
     "attributes": {
       "category": "color",
       "type": "text",
       "item": "onUnknown",
-      "subitem": "default",
+      "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onUnknown",
-      "default",
+      "DEFAULT",
       "REST"
     ],
-    "key": "{color.text.onUnknown.default.REST}"
+    "key": "{color.text.onUnknown.DEFAULT.REST}"
   },
   "hpe.color.text.onWarning.strong": {
     "$type": "color",
@@ -2653,7 +2653,7 @@ export default {
     ],
     "key": "{color.text.onWarning.strong.REST}"
   },
-  "hpe.color.text.onWarning.default": {
+  "hpe.color.text.onWarning": {
     "$type": "color",
     "$value": "#555555",
     "$description": "Text color to be used on background-warning.",
@@ -2682,22 +2682,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.text.onWarning.default",
+    "name": "hpe.color.text.onWarning",
     "attributes": {
       "category": "color",
       "type": "text",
       "item": "onWarning",
-      "subitem": "default",
+      "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "text",
       "onWarning",
-      "default",
+      "DEFAULT",
       "REST"
     ],
-    "key": "{color.text.onWarning.default.REST}"
+    "key": "{color.text.onWarning.DEFAULT.REST}"
   },
   "hpe.color.icon.default": {
     "$type": "color",
@@ -3193,7 +3193,7 @@ export default {
     ],
     "key": "{color.icon.primary.DEFAULT.REST}"
   },
-  "hpe.color.icon.onPrimary": {
+  "hpe.color.icon.onPrimaryStrong": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios.",
@@ -3226,24 +3226,24 @@ export default {
         }
       }
     },
-    "name": "hpe.color.icon.onPrimary",
+    "name": "hpe.color.icon.onPrimaryStrong",
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "onPrimary",
+      "item": "onPrimaryStrong",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "onPrimary",
+      "onPrimaryStrong",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.icon.onPrimary.DEFAULT.REST}"
+    "key": "{color.icon.onPrimaryStrong.DEFAULT.REST}"
   },
-  "hpe.color.icon.onSelectedStrong": {
+  "hpe.color.icon.onSelectedPrimaryStrong": {
     "$type": "color",
     "$value": "#ffffff",
     "$description": "Icon color to be used for icon sitting on background-selected-strong.",
@@ -3274,24 +3274,24 @@ export default {
         }
       }
     },
-    "name": "hpe.color.icon.onSelectedStrong",
+    "name": "hpe.color.icon.onSelectedPrimaryStrong",
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "onSelectedStrong",
+      "item": "onSelectedPrimaryStrong",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "onSelectedStrong",
+      "onSelectedPrimaryStrong",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.icon.onSelectedStrong.DEFAULT.REST}"
+    "key": "{color.icon.onSelectedPrimaryStrong.DEFAULT.REST}"
   },
-  "hpe.color.icon.onSelected": {
+  "hpe.color.icon.onSelectedPrimary": {
     "$type": "color",
     "$value": "#2e2e2e",
     "$description": "Icon color to be used for icon sitting on non-strong background-selected variants.",
@@ -3322,22 +3322,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.icon.onSelected",
+    "name": "hpe.color.icon.onSelectedPrimary",
     "attributes": {
       "category": "color",
       "type": "icon",
-      "item": "onSelected",
+      "item": "onSelectedPrimary",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "icon",
-      "onSelected",
+      "onSelectedPrimary",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.icon.onSelected.DEFAULT.REST}"
+    "key": "{color.icon.onSelectedPrimary.DEFAULT.REST}"
   },
   "hpe.color.decorative.brand": {
     "$type": "color",

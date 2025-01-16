@@ -18,10 +18,10 @@
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6); /* Use for backgrounds communicating an unknown status. */
   --hpe-color-background-info: var(--hpe-base-color-blue-400-Opacity12); /* Use for backgrounds communicating neutral information. */
   --hpe-color-background-warning: var(--hpe-base-color-yellow-400-Opacity12); /* Use for borders communicating warning or caution. */
-  --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
-  --hpe-color-background-primary-hover: var(--hpe-base-color-green-600); /* Hover variant of background-primary. */
-  --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-1000); /* Lower emphasis variant of background-selected-strong. */
-  --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-900); /* Hover variant of background-selected-weak. */
+  --hpe-color-background-primary-strong: var(--hpe-base-color-green-600); /* The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
+  --hpe-color-background-primary-strong-hover: var(--hpe-base-color-green-600); /* Hover variant of background-primary. */
+  --hpe-color-background-selected-primary-weak: var(--hpe-base-color-green-1000); /* Lower emphasis variant of background-selected-strong. */
+  --hpe-color-background-selected-primary-weak-hover: var(--hpe-base-color-green-900); /* Hover variant of background-selected-weak. */
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-50); /* Highest emphasis variant of neutral palette. */
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /* Emphasized variant of border color. */
   --hpe-color-border-default: var(--hpe-base-color-white-opacity36); /* Default border color. */
@@ -32,10 +32,10 @@
   --hpe-color-text-strong: var(--hpe-base-color-white-100); /* Emphasized text color for increased visual prominence. */
   --hpe-color-text-weak: var(--hpe-base-color-white-opacity50); /* Subtle text color for reduced visual prominence. Often used for supporting text. */
   --hpe-color-text-disabled: var(--hpe-base-color-white-opacity24); /* Disabled color for text. Using disabled colors ensures that disabled components are consistently styled. */
-  --hpe-color-text-onPrimary: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
+  --hpe-color-text-onPrimaryStrong: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
   --hpe-color-text-primary: var(--hpe-base-color-green-600);
-  --hpe-color-text-onSelectedStrong: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on background-selected-strong. */
-  --hpe-color-text-onStrong-default: var(--hpe-base-color-grey-1200); /* Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
+  --hpe-color-text-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on background-selected-strong. */
+  --hpe-color-text-onStrong: var(--hpe-base-color-grey-1200); /* Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
   --hpe-color-icon-default: var(--hpe-base-color-white-100); /* Default icon color that is accessible on standard background colors. */
   --hpe-color-icon-strong: var(--hpe-base-color-white-100); /* Emphasized icon color for increased visual prominence. */
   --hpe-color-icon-weak: var(--hpe-base-color-white-opacity50); /* Subtle icon color for reduced visual prominence. */
@@ -46,8 +46,8 @@
   --hpe-color-icon-warning: var(--hpe-base-color-orange-600); /* Use for icons communicating warning or caution. */
   --hpe-color-icon-unknown: var(--hpe-base-color-grey-700); /* Use for icons communicating unknown status. */
   --hpe-color-icon-primary: var(--hpe-base-color-green-600); /* High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action. */
-  --hpe-color-icon-onPrimary: var(--hpe-base-color-white-100); /* Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
-  --hpe-color-icon-onSelectedStrong: var(--hpe-base-color-white-100); /* Icon color to be used for icon sitting on background-selected-strong. */
+  --hpe-color-icon-onPrimaryStrong: var(--hpe-base-color-white-100); /* Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
+  --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /* Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-decorative-green: var(--hpe-base-color-green-700); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-purple: var(--hpe-base-color-purple-900); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-teal: var(--hpe-base-color-teal-700); /* Use for decorative purposes when color has no specific meaning. */
@@ -74,8 +74,8 @@
   --hpe-color-foreground-warning: var(--hpe-base-color-orange-600); /* Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. */
   --hpe-color-foreground-unknown: var(--hpe-base-color-grey-700); /* Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. */
   --hpe-shadow-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) var(--hpe-base-color-black-opacity24) ;
-  --hpe-color-background-selected-strong-enabled: var(--hpe-base-color-brand); /* Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
-  --hpe-color-background-selected-strong-hover: var(--hpe-base-color-brand); /* Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-primary-strong: var(--hpe-base-color-brand); /* Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-primary-strong-hover: var(--hpe-base-color-brand); /* Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-border-critical: var(--hpe-color-border-default); /* Use for borders communicating errors or danger. */
   --hpe-color-border-info: var(--hpe-color-border-default); /* Use for borders communicating neutral information. */
   --hpe-color-border-ok: var(--hpe-color-border-default); /* Use for borders communicating success. */
@@ -87,19 +87,19 @@
   --hpe-color-text-ok: var(--hpe-color-text-default); /* Use for text on standard backgrounds communicating success. */
   --hpe-color-text-warning: var(--hpe-color-text-default); /* Use for text on standard backgrounds communicating warning or caution. */
   --hpe-color-text-unknown: var(--hpe-color-text-default); /* Use for text on standard backgrounds communicating an unknown status. */
-  --hpe-color-text-heading-default: var(--hpe-color-text-strong); /* Text color for headings. */
-  --hpe-color-text-onSelected: var(--hpe-color-text-strong); /* Text color to be used for text sitting on non-strong variants of background-selected. */
+  --hpe-color-text-heading: var(--hpe-color-text-strong); /* Text color for headings. */
+  --hpe-color-text-onSelectedPrimary: var(--hpe-color-text-strong); /* Text color to be used for text sitting on non-strong variants of background-selected. */
   --hpe-color-text-onCritical-strong: var(--hpe-color-text-strong); /* Emphasized variant of text color to be used on background-critical. */
-  --hpe-color-text-onCritical-default: var(--hpe-color-text-default); /* Text color to be used on background-critical. */
+  --hpe-color-text-onCritical: var(--hpe-color-text-default); /* Text color to be used on background-critical. */
   --hpe-color-text-onInfo-strong: var(--hpe-color-text-strong); /* Emphasized variant of text color to be used on background-info. */
-  --hpe-color-text-onInfo-default: var(--hpe-color-text-default); /* Text color to be used on background-info. */
+  --hpe-color-text-onInfo: var(--hpe-color-text-default); /* Text color to be used on background-info. */
   --hpe-color-text-onOk-strong: var(--hpe-color-text-strong); /* Emphasized variant of text color to be used on background-ok. */
-  --hpe-color-text-onOk-default: var(--hpe-color-text-default); /* Text color to be used on background-ok. */
+  --hpe-color-text-onOk: var(--hpe-color-text-default); /* Text color to be used on background-ok. */
   --hpe-color-text-onUnknown-strong: var(--hpe-color-text-strong); /* Emphasized variant of text color to be used on background-unknown. */
-  --hpe-color-text-onUnknown-default: var(--hpe-color-text-default); /* Text color to be used on background-unknown. */
+  --hpe-color-text-onUnknown: var(--hpe-color-text-default); /* Text color to be used on background-unknown. */
   --hpe-color-text-onWarning-strong: var(--hpe-color-text-strong); /* Emphasized variant of text color to be used on background-warning. */
-  --hpe-color-text-onWarning-default: var(--hpe-color-text-default); /* Text color to be used on background-warning. */
-  --hpe-color-icon-onSelected: var(--hpe-color-icon-strong); /* Icon color to be used for icon sitting on non-strong background-selected variants. */
+  --hpe-color-text-onWarning: var(--hpe-color-text-default); /* Text color to be used on background-warning. */
+  --hpe-color-icon-onSelectedPrimary: var(--hpe-color-icon-strong); /* Icon color to be used for icon sitting on non-strong background-selected variants. */
   --hpe-color-decorative-brand: var(--hpe-base-color-brand); /* The brand color. */
   --hpe-color-decorative-green: var(--hpe-base-color-brand); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-foreground-primary: var(--hpe-base-color-brand);
@@ -124,10 +124,10 @@
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6); /* Use for backgrounds communicating an unknown status. */
   --hpe-color-background-info: var(--hpe-base-color-blue-400-Opacity12); /* Use for backgrounds communicating neutral information. */
   --hpe-color-background-warning: var(--hpe-base-color-yellow-400-Opacity12); /* Use for borders communicating warning or caution. */
-  --hpe-color-background-primary-default: var(--hpe-base-color-green-600); /* The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
-  --hpe-color-background-primary-hover: var(--hpe-base-color-green-600); /* Hover variant of background-primary. */
-  --hpe-color-background-selected-weak-enabled: var(--hpe-base-color-green-1000); /* Lower emphasis variant of background-selected-strong. */
-  --hpe-color-background-selected-weak-hover: var(--hpe-base-color-green-900); /* Hover variant of background-selected-weak. */
+  --hpe-color-background-primary-strong: var(--hpe-base-color-green-600); /* The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
+  --hpe-color-background-primary-strong-hover: var(--hpe-base-color-green-600); /* Hover variant of background-primary. */
+  --hpe-color-background-selected-primary-weak: var(--hpe-base-color-green-1000); /* Lower emphasis variant of background-selected-strong. */
+  --hpe-color-background-selected-primary-weak-hover: var(--hpe-base-color-green-900); /* Hover variant of background-selected-weak. */
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-50); /* Highest emphasis variant of neutral palette. */
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /* Emphasized variant of border color. */
   --hpe-color-border-default: var(--hpe-base-color-white-opacity36); /* Default border color. */
@@ -138,10 +138,10 @@
   --hpe-color-text-strong: var(--hpe-base-color-white-100); /* Emphasized text color for increased visual prominence. */
   --hpe-color-text-weak: var(--hpe-base-color-white-opacity50); /* Subtle text color for reduced visual prominence. Often used for supporting text. */
   --hpe-color-text-disabled: var(--hpe-base-color-white-opacity24); /* Disabled color for text. Using disabled colors ensures that disabled components are consistently styled. */
-  --hpe-color-text-onPrimary: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
+  --hpe-color-text-onPrimaryStrong: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
   --hpe-color-text-primary: var(--hpe-base-color-green-600);
-  --hpe-color-text-onSelectedStrong: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on background-selected-strong. */
-  --hpe-color-text-onStrong-default: var(--hpe-base-color-grey-1200); /* Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
+  --hpe-color-text-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on background-selected-strong. */
+  --hpe-color-text-onStrong: var(--hpe-base-color-grey-1200); /* Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
   --hpe-color-icon-default: var(--hpe-base-color-white-100); /* Default icon color that is accessible on standard background colors. */
   --hpe-color-icon-strong: var(--hpe-base-color-white-100); /* Emphasized icon color for increased visual prominence. */
   --hpe-color-icon-weak: var(--hpe-base-color-white-opacity50); /* Subtle icon color for reduced visual prominence. */
@@ -152,8 +152,8 @@
   --hpe-color-icon-warning: var(--hpe-base-color-orange-600); /* Use for icons communicating warning or caution. */
   --hpe-color-icon-unknown: var(--hpe-base-color-grey-700); /* Use for icons communicating unknown status. */
   --hpe-color-icon-primary: var(--hpe-base-color-green-600); /* High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action. */
-  --hpe-color-icon-onPrimary: var(--hpe-base-color-white-100); /* Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
-  --hpe-color-icon-onSelectedStrong: var(--hpe-base-color-white-100); /* Icon color to be used for icon sitting on background-selected-strong. */
+  --hpe-color-icon-onPrimaryStrong: var(--hpe-base-color-white-100); /* Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
+  --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /* Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-decorative-green: var(--hpe-base-color-green-700); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-purple: var(--hpe-base-color-purple-900); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-teal: var(--hpe-base-color-teal-700); /* Use for decorative purposes when color has no specific meaning. */
@@ -180,8 +180,8 @@
   --hpe-color-foreground-warning: var(--hpe-base-color-orange-600); /* Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. */
   --hpe-color-foreground-unknown: var(--hpe-base-color-grey-700); /* Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. */
   --hpe-shadow-small: 0 var(--hpe-base-dimension-100) var(--hpe-base-dimension-100) var(--hpe-base-color-black-opacity24) ;
-  --hpe-color-background-selected-strong-enabled: var(--hpe-base-color-brand); /* Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
-  --hpe-color-background-selected-strong-hover: var(--hpe-base-color-brand); /* Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-primary-strong: var(--hpe-base-color-brand); /* Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-primary-strong-hover: var(--hpe-base-color-brand); /* Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-border-critical: var(--hpe-color-border-default); /* Use for borders communicating errors or danger. */
   --hpe-color-border-info: var(--hpe-color-border-default); /* Use for borders communicating neutral information. */
   --hpe-color-border-ok: var(--hpe-color-border-default); /* Use for borders communicating success. */
@@ -193,19 +193,19 @@
   --hpe-color-text-ok: var(--hpe-color-text-default); /* Use for text on standard backgrounds communicating success. */
   --hpe-color-text-warning: var(--hpe-color-text-default); /* Use for text on standard backgrounds communicating warning or caution. */
   --hpe-color-text-unknown: var(--hpe-color-text-default); /* Use for text on standard backgrounds communicating an unknown status. */
-  --hpe-color-text-heading-default: var(--hpe-color-text-strong); /* Text color for headings. */
-  --hpe-color-text-onSelected: var(--hpe-color-text-strong); /* Text color to be used for text sitting on non-strong variants of background-selected. */
+  --hpe-color-text-heading: var(--hpe-color-text-strong); /* Text color for headings. */
+  --hpe-color-text-onSelectedPrimary: var(--hpe-color-text-strong); /* Text color to be used for text sitting on non-strong variants of background-selected. */
   --hpe-color-text-onCritical-strong: var(--hpe-color-text-strong); /* Emphasized variant of text color to be used on background-critical. */
-  --hpe-color-text-onCritical-default: var(--hpe-color-text-default); /* Text color to be used on background-critical. */
+  --hpe-color-text-onCritical: var(--hpe-color-text-default); /* Text color to be used on background-critical. */
   --hpe-color-text-onInfo-strong: var(--hpe-color-text-strong); /* Emphasized variant of text color to be used on background-info. */
-  --hpe-color-text-onInfo-default: var(--hpe-color-text-default); /* Text color to be used on background-info. */
+  --hpe-color-text-onInfo: var(--hpe-color-text-default); /* Text color to be used on background-info. */
   --hpe-color-text-onOk-strong: var(--hpe-color-text-strong); /* Emphasized variant of text color to be used on background-ok. */
-  --hpe-color-text-onOk-default: var(--hpe-color-text-default); /* Text color to be used on background-ok. */
+  --hpe-color-text-onOk: var(--hpe-color-text-default); /* Text color to be used on background-ok. */
   --hpe-color-text-onUnknown-strong: var(--hpe-color-text-strong); /* Emphasized variant of text color to be used on background-unknown. */
-  --hpe-color-text-onUnknown-default: var(--hpe-color-text-default); /* Text color to be used on background-unknown. */
+  --hpe-color-text-onUnknown: var(--hpe-color-text-default); /* Text color to be used on background-unknown. */
   --hpe-color-text-onWarning-strong: var(--hpe-color-text-strong); /* Emphasized variant of text color to be used on background-warning. */
-  --hpe-color-text-onWarning-default: var(--hpe-color-text-default); /* Text color to be used on background-warning. */
-  --hpe-color-icon-onSelected: var(--hpe-color-icon-strong); /* Icon color to be used for icon sitting on non-strong background-selected variants. */
+  --hpe-color-text-onWarning: var(--hpe-color-text-default); /* Text color to be used on background-warning. */
+  --hpe-color-icon-onSelectedPrimary: var(--hpe-color-icon-strong); /* Icon color to be used for icon sitting on non-strong background-selected variants. */
   --hpe-color-decorative-brand: var(--hpe-base-color-brand); /* The brand color. */
   --hpe-color-decorative-green: var(--hpe-base-color-brand); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-foreground-primary: var(--hpe-base-color-brand);

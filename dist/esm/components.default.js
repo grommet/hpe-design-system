@@ -106,10 +106,10 @@ export default {
         "rest": {
           "background": "var(--hpe-button-primary-rest-background)",
           "borderColor": "transparent",
-          "textColor": "text-onPrimary",
-          "iconColor": "icon-onPrimary",
+          "textColor": "text-onPrimaryStrong",
+          "iconColor": "icon-onPrimaryStrong",
           "fontWeight": "var(--hpe-button-primary-rest-fontWeight)",
-          "backgroundColor": "background-primary-default"
+          "backgroundColor": "background-primary-strong"
         },
         "disabled": {
           "rest": {
@@ -123,8 +123,8 @@ export default {
         "hover": {
           "background": "var(--hpe-button-primary-hover-background)",
           "borderColor": "transparent",
-          "textColor": "text-onPrimary",
-          "iconColor": "icon-onPrimary",
+          "textColor": "text-onPrimaryStrong",
+          "iconColor": "icon-onPrimaryStrong",
           "fontWeight": "var(--hpe-button-primary-rest-fontWeight)"
         },
         "selected": {
@@ -252,7 +252,7 @@ export default {
       "secondary": {
         "rest": {
           "background": "transparent",
-          "borderColor": "background-primary-default",
+          "borderColor": "background-primary-strong",
           "textColor": "text-strong",
           "iconColor": "icon-strong",
           "fontWeight": "var(--hpe-button-default-rest-fontWeight)"
@@ -796,15 +796,15 @@ export default {
         },
         "selected": {
           "rest": {
-            "background": "background-selected-weak-enabled",
+            "background": "background-selected-primary-weak",
             "borderColor": "transparent",
-            "textColor": "text-onSelected",
+            "textColor": "text-onSelectedPrimary",
             "fontWeight": "var(--hpe-select-option-selected-rest-fontWeight)"
           },
           "hover": {
-            "background": "background-selected-weak-hover",
+            "background": "background-selected-primary-weak-hover",
             "borderColor": "transparent",
-            "textColor": "text-onSelected",
+            "textColor": "text-onSelectedPrimary",
             "fontWeight": "var(--hpe-select-option-selected-hover-fontWeight)"
           }
         }
@@ -829,26 +829,26 @@ export default {
         },
         "selected": {
           "rest": {
-            "background": "background-selected-strong-enabled",
+            "background": "background-selected-primary-strong",
             "borderColor": "border-selected",
-            "iconColor": "icon-onSelectedStrong"
+            "iconColor": "icon-onSelectedPrimaryStrong"
           },
           "hover": {
-            "background": "background-selected-strong-enabled",
+            "background": "background-selected-primary-strong",
             "borderColor": "border-strong",
-            "iconColor": "icon-onSelectedStrong"
+            "iconColor": "icon-onSelectedPrimaryStrong"
           }
         },
         "indeterminate": {
           "rest": {
-            "background": "background-selected-strong-enabled",
+            "background": "background-selected-primary-strong",
             "borderColor": "border-selected",
-            "iconColor": "icon-onPrimary"
+            "iconColor": "icon-onPrimaryStrong"
           },
           "hover": {
-            "background": "background-selected-strong-enabled",
+            "background": "background-selected-primary-strong",
             "borderColor": "border-strong",
-            "iconColor": "icon-onPrimary"
+            "iconColor": "icon-onPrimaryStrong"
           }
         }
       },
@@ -899,11 +899,11 @@ export default {
           },
           "selected": {
             "rest": {
-              "background": "background-selected-strong-enabled",
+              "background": "background-selected-primary-strong",
               "borderColor": "border-default"
             },
             "hover": {
-              "background": "background-selected-strong-enabled",
+              "background": "background-selected-primary-strong",
               "borderColor": "border-strong"
             }
           }
@@ -1002,16 +1002,16 @@ export default {
       },
       "selected": {
         "rest": {
-          "textColor": "text-onSelected",
-          "iconColor": "icon-onSelected",
+          "textColor": "text-onSelectedPrimary",
+          "iconColor": "icon-onSelectedPrimary",
           "borderColor": "transparent",
-          "background": "background-selected-weak-enabled"
+          "background": "background-selected-primary-weak"
         },
         "hover": {
-          "textColor": "text-onSelected",
-          "iconColor": "icon-onSelected",
+          "textColor": "text-onSelectedPrimary",
+          "iconColor": "icon-onSelectedPrimary",
           "borderColor": "transparent",
-          "background": "background-selected-weak-hover"
+          "background": "background-selected-primary-weak-hover"
         }
       },
       "primary": {
