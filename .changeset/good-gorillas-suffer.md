@@ -1,0 +1,22 @@
+---
+"hpe-design-tokens": minor
+---
+
+- Renamed `color.background.primary.default` --> `color.background.primary.strong`
+- Renamed `color.background.selected.strong.enabled` --> `color.background.selected.primary.strong`
+- Renamed `color.background.selected.strong.hover` --> `color.background.selected.primary.strong.hover`
+- Renamed `color.background.selected.weak.enabled` --> `color.background.selected.primary.weak`
+- Renamed `color.background.selected.weak.hover` --> `color.background.selected.primary.weak.hover`
+- Renamed `color.text.onPrimary` --> `color.text.onPrimaryStrong`
+- Renamed `color.text.heading.default` --> `color.text.heading`
+- Renamed `color.text.onSelectedStrong` --> `color.text.onSelectedPrimaryStrong`
+- Renamed `color.text.onSelected` --> `color.text.onSelectedPrimary`
+- Renamed `color.text.onStrong.default` --> `color.text.onStrong`
+- Renamed `color.text.onCritical.default` --> `color.text.onCritical`
+- Renamed `color.text.onWarning.default` --> `color.text.onWarning`
+- Renamed `color.text.onOk.default` --> `color.text.onOk`
+- Renamed `color.text.onInfo.default` --> `color.text.onInfo`
+- Renamed `color.text.onUnknown.default` --> `color.text.onUnknown`
+- Renamed `color.icon.onPrimary` --> `color.icon.onPrimaryStrong`
+- Renamed `color.icon.onSelectedStrong` --> `color.icon.onSelectedPrimaryStrong`
+- Renamed `color.icon.onSelected` --> `color.icon.onSelectedPrimary`

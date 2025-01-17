@@ -7,7 +7,7 @@ import {
   small as localSmall,
   global as localGlobal,
   components as localComponents,
-} from 'hpe-design-tokens';
+} from 'hpe-design-tokens/grommet';
 // import {
 //   dark as oldDark,
 //   light as oldLight,
@@ -202,10 +202,17 @@ const buildTheme = tokens => {
   const tokenColors = {};
   Object.keys(flatColors).forEach(color => {
     if (!color.includes('shadow')) {
-      const adjustedColor = color.split('-').join('.');
+      const [category] = color.split('-');
+      const flatName = color.split('-').slice(1).join('-');
       tokenColors[color] = {
-        light: access(`hpe.color.${adjustedColor}`, light),
-        dark: access(`hpe.color.${adjustedColor}`, dark),
+        light: access(
+          `hpe.color.${category}${flatName ? `.${flatName}` : ''}`,
+          light,
+        ),
+        dark: access(
+          `hpe.color.${category}${flatName ? `.${flatName}` : ''}`,
+          dark,
+        ),
       };
     }
   });
@@ -312,32 +319,32 @@ const buildTheme = tokens => {
       light: light.hpe.color.decorative['yellow!'],
     },
     'graph-0': {
-      light: light.hpe.color.dataVis.categorical[10],
-      dark: dark.hpe.color.dataVis.categorical[10],
+      light: light.hpe.color.dataVis['categorical-10'],
+      dark: dark.hpe.color.dataVis['categorical-10'],
     },
     'graph-1': {
-      light: light.hpe.color.dataVis.categorical[20],
-      dark: dark.hpe.color.dataVis.categorical[20],
+      light: light.hpe.color.dataVis['categorical-20'],
+      dark: dark.hpe.color.dataVis['categorical-20'],
     },
     'graph-2': {
-      light: light.hpe.color.dataVis.categorical[30],
-      dark: dark.hpe.color.dataVis.categorical[30],
+      light: light.hpe.color.dataVis['categorical-30'],
+      dark: dark.hpe.color.dataVis['categorical-30'],
     },
     'graph-3': {
-      light: light.hpe.color.dataVis.categorical[40],
-      dark: dark.hpe.color.dataVis.categorical[40],
+      light: light.hpe.color.dataVis['categorical-40'],
+      dark: dark.hpe.color.dataVis['categorical-40'],
     },
     'graph-4': {
-      light: light.hpe.color.dataVis.categorical[50],
-      dark: dark.hpe.color.dataVis.categorical[50],
+      light: light.hpe.color.dataVis['categorical-50'],
+      dark: dark.hpe.color.dataVis['categorical-50'],
     },
     'graph-5': {
-      light: light.hpe.color.dataVis.categorical[60],
-      dark: dark.hpe.color.dataVis.categorical[60],
+      light: light.hpe.color.dataVis['categorical-60'],
+      dark: dark.hpe.color.dataVis['categorical-60'],
     },
     'graph-6': {
-      light: light.hpe.color.dataVis.categorical[70],
-      dark: dark.hpe.color.dataVis.categorical[70],
+      light: light.hpe.color.dataVis['categorical-70'],
+      dark: dark.hpe.color.dataVis['categorical-70'],
     },
     'status-critical': {
       dark: dark.hpe.color.icon.critical,
@@ -534,17 +541,45 @@ const buildTheme = tokens => {
 
   const paragraphTheme = {};
   const textTheme = {};
+  const fontWeights = {};
+  // Keep track of the largest text size to use as a fallback
+  // because grommet theme has a max size of 6xl, but design tokens
+  // only supports up to 5xl.
+  const fallback = {
+    size: '0rem',
+    height: '0rem',
+    maxWidth: '0rem',
+    weight: 0,
+  };
   textSizes.forEach(size => {
+    if (
+      parseInt(large.hpe.text?.[size]?.fontSize.replace('rem', ''), 10) >
+      parseInt(fallback.size.replace('rem', ''), 10)
+    ) {
+      fallback.size = large.hpe.text?.[size]?.fontSize;
+      fallback.height = large.hpe.text?.[size]?.lineHeight;
+      fallback.maxWidth = large.hpe.text?.[size]?.maxWidth;
+      fallback.weight = large.hpe.text?.[size]?.fontWeight;
+    }
     paragraphTheme[size] = {
-      size: large.hpe.text?.[size]?.fontSize,
-      height: large.hpe.text?.[size]?.lineHeight,
-      maxWidth: large.hpe.text?.[size]?.maxWidth,
+      size: large.hpe.text?.[size]?.fontSize || fallback.size,
+      height: large.hpe.text?.[size]?.lineHeight || fallback.height,
+      maxWidth: large.hpe.text?.[size]?.maxWidth || fallback.maxWidth,
     };
     textTheme[size] = {
-      size: large.hpe.text?.[size].fontSize,
-      height: large.hpe.text?.[size].lineHeight,
+      size: large.hpe.text?.[size]?.fontSize || fallback.size,
+      height: large.hpe.text?.[size]?.lineHeight || fallback.height,
     };
+    fontWeights[size] = large.hpe.text?.[size]?.fontWeight || fallback.weight;
   });
+
+  textTheme.extend = ({ size }) => {
+    return `font-weight: ${fontWeights[size]};`;
+  };
+
+  paragraphTheme.extend = ({ size }) => {
+    return `font-weight: ${fontWeights[size]};`;
+  };
 
   const buttonKindTheme = {};
   buttonKinds.forEach(kind => {
@@ -749,37 +784,37 @@ const buildTheme = tokens => {
         face: `
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
           }
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
             font-weight: 400;
           }
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff") format('woff');
             font-weight: 700;
           }
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff") format('woff');
             font-weight: 600;
           }
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff") format('woff');
             font-weight: 500;
           }
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Light.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Light.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Light.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Light.woff") format('woff');
             font-weight: 100;
           }`,
         size: large.hpe.text.medium.fontSize,
