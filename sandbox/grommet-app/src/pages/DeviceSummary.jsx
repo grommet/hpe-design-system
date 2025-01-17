@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { Box, Stack, Meter, Text } from 'grommet';
-import { DashboardCard } from '../../components';
-import { Legend } from '../../components';
-import { SkeletonContext } from '../../components';
+import { DashboardCard } from '../components';
+import { Legend } from '../components';
+import { SkeletonContext } from '../components';
 
 export const DeviceSummary = () => {
   const skeleton = useContext(SkeletonContext);
@@ -16,15 +16,15 @@ export const DeviceSummary = () => {
             values={[
               {
                 value: 70,
-                color: skeleton ? 'background-contrast' : 'graph-0',
+                color: skeleton ? 'background-contrast' : 'graph-4',
               },
               {
                 value: 10,
-                color: skeleton ? 'background-contrast' : 'graph-1',
+                color: skeleton ? 'background-contrast' : 'graph-5',
               },
               {
                 value: 20,
-                color: skeleton ? 'background-contrast' : 'graph-2',
+                color: skeleton ? 'background-contrast' : 'graph-6',
               },
             ]}
             size="small"
@@ -39,19 +39,19 @@ export const DeviceSummary = () => {
         </Stack>
         <Box gap="small">
           <Box direction="row" align="center" justify="between">
-            <Legend label="Require assignments" color="graph-2" />
+            <Legend label="Require assignments" color="graph-6" />
             <Text weight={500} color="text-strong">
               68
             </Text>
           </Box>
           <Box direction="row" align="center" justify="between">
-            <Legend label="Require subscriptions" color="graph-1" />
+            <Legend label="Require subscriptions" color="graph-5" />
             <Text weight={500} color="text-strong">
               34
             </Text>
           </Box>
           <Box direction="row" align="center" justify="between">
-            <Legend label="Assigned and subscribed" color="graph-0" />
+            <Legend label="Assigned and subscribed" color="graph-4" />
             <Text weight={500} color="text-strong">
               245
             </Text>

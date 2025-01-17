@@ -7,7 +7,8 @@ import {
   Button,
   Tabs,
   Tab,
-  Text,
+  Heading,
+  Paragraph,
 } from 'grommet';
 import { Link } from 'react-router-dom';
 import { Devices } from './Devices';
@@ -36,7 +37,20 @@ function Sustainability() {
             </Tab>
             <Tab title="Manage">
               <Box pad={{ vertical: 'medium' }}>
-                <Text>TBD</Text>
+                <ContentPane alignSelf="start">
+                  <Box gap="medium" align="start" flex={false}>
+                    <Box align="start" gap="xsmall">
+                      <Heading margin="none" level={2}>
+                        No resources to manage
+                      </Heading>
+                      <Paragraph margin="none" textAlign="start">
+                        You do not have access to manage resources. Please
+                        contact the administrator to request access.
+                      </Paragraph>
+                    </Box>
+                    <Button secondary label="Request access" />
+                  </Box>
+                </ContentPane>
               </Box>
             </Tab>
           </Tabs>

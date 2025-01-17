@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Header, Heading } from 'grommet';
-import { BackgroundContext } from '../../App';
+import { BackgroundContext } from '../../contexts';
 
 const ContentPane = ({
   actions,
