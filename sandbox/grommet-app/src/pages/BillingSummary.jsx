@@ -1,5 +1,5 @@
 import { Box, Notification } from 'grommet';
-import { DashboardCard, Metric } from '../../components';
+import { DashboardCard, Metric } from '../components';
 
 const currencyOptions = {
   style: 'currency',
@@ -28,7 +28,7 @@ export const BillingSummary = () => {
           options={currencyOptions}
         />
         <Metric
-          label="End-of-month total cos (forecasted)"
+          label="End-of-month total cost (forecasted)"
           value={652.11}
           options={currencyOptions}
         />
