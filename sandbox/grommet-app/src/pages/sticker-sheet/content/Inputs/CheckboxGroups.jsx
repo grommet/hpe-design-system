@@ -1,10 +1,11 @@
 import { CheckBoxGroup, FormField } from 'grommet';
 import ContentPane from '../../../../components/ContentPane';
-import { Compare } from '../../components';
+import { Compare, StyleInProgress } from '../../components';
 
 export const CheckboxGroups = () => {
   return (
     <ContentPane>
+      <StyleInProgress />
       <Compare guidingChild="last">
         <CheckBoxGroup
           options={[
