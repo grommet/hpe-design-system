@@ -24,6 +24,14 @@ export const CheckboxGroups = () => {
           />
         </FormField>
       </Compare>
+      <Compare>
+        <FormField label="Label" error="There is an error">
+          <CheckBoxGroup
+            options={['Option 1', 'Option 2', 'Option 3']}
+            value={['Option 2']}
+          />
+        </FormField>
+      </Compare>
     </ContentPane>
   );
 };
