@@ -386,7 +386,7 @@ const buildTheme = (tokens, flags) => {
       ? breakpoint.hpe.size.container.xlarge
       : breakpoint.hpe.size.container.large,
     xlarge: flags['v6-backwards-compatibility']
-      ? breakpoint.hpe.size.container.xxlarge
+      ? '1152px'
       : breakpoint.hpe.size.container.xlarge,
     xxlarge: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container['3xlarge']
