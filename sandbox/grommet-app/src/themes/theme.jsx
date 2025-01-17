@@ -163,7 +163,7 @@ const textSizes = [
   '6xl',
 ];
 
-const buildTheme = tokens => {
+const buildTheme = (tokens, flags) => {
   const {
     light,
     dark,
@@ -369,35 +369,31 @@ const buildTheme = tokens => {
     'disabled-text': 'text-disabled', // deprecate
   };
 
-  const containerTokens = 'container' in large.hpe.size; // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
-  // with old t-shirt sizes
   const size = breakpoint => ({
-    xxsmall: containerTokens
+    xxsmall: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container['5xsmall']
-      : breakpoint.hpe.size.content.xxsmall,
-    xsmall: containerTokens
+      : breakpoint.hpe.size.container.xxsmall,
+    xsmall: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container['3xsmall']
-      : breakpoint.hpe.size.content.xsmall,
-    small: containerTokens
+      : breakpoint.hpe.size.container.xsmall,
+    small: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container.xsmall
-      : breakpoint.hpe.size.content.small,
-    medium: containerTokens
+      : breakpoint.hpe.size.container.small,
+    medium: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container.medium
-      : breakpoint.hpe.size.content.medium,
-    large: containerTokens
+      : breakpoint.hpe.size.container.medium,
+    large: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container.xlarge
-      : breakpoint.hpe.size.content.large,
-    xlarge: containerTokens
+      : breakpoint.hpe.size.container.large,
+    xlarge: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container.xxlarge
-      : breakpoint.hpe.size.content.xlarge,
-    xxlarge: containerTokens
+      : breakpoint.hpe.size.container.xlarge,
+    xxlarge: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container['3xlarge']
-      : breakpoint.hpe.size.content.xxlarge,
+      : breakpoint.hpe.size.container.xxlarge,
     full: '100%',
   });
 
-  // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
-  // with old t-shirt sizes
   const dimensions = {
     borderSize: {
       xsmall: large.hpe.borderWidth.xsmall,
@@ -410,12 +406,37 @@ const buildTheme = tokens => {
     edgeSize: {
       none: large.hpe.spacing.none,
       hair: large.hpe.spacing.hair,
-      xxsmall: large.hpe.spacing['5xsmall'],
-      xsmall: large.hpe.spacing['3xsmall'],
-      small: large.hpe.spacing['xsmall'],
+      '5xsmall': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['5xsmall'],
+      '4xsmall': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['4xsmall'],
+      '3xsmall': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['3xsmall'],
+      xxsmall: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['5xsmall']
+        : large.hpe.spacing.xxsmall,
+      xsmall: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['3xsmall']
+        : large.hpe.spacing.xsmall,
+      small: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['xsmall']
+        : large.hpe.spacing.small,
       medium: large.hpe.spacing.medium,
-      large: large.hpe.spacing.xlarge,
-      xlarge: large.hpe.spacing['3xlarge'],
+      large: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing.xlarge
+        : large.hpe.spacing.large,
+      xlarge: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['3xlarge']
+        : large.hpe.spacing.xlarge,
+      xxlarge: flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing.xxlarge,
+      '3xlarge': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['3xlarge'],
       responsiveBreakpoint: 'small',
     },
     size: size(large),
@@ -2655,14 +2676,21 @@ const buildTheme = tokens => {
   });
 };
 
-export const current = buildTheme({
-  light: localLight,
-  dark: localDark,
-  small: localSmall,
-  large: localMedium,
-  global: localGlobal,
-  components: localComponents,
-});
+export const current = buildTheme(
+  {
+    light: localLight,
+    dark: localDark,
+    small: localSmall,
+    large: localMedium,
+    global: localGlobal,
+    components: localComponents,
+  },
+  {
+    // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
+    // with old t-shirt sizes
+    'v6-backwards-compatibility': true,
+  },
+);
 
 // need to extend hpe with new token namespace to "fill gaps" for sake of demo
 // when toggling between themes
