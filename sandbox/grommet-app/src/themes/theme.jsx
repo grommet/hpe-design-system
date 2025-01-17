@@ -388,10 +388,10 @@ const buildTheme = tokens => {
       ? breakpoint.hpe.size.container.xlarge
       : breakpoint.hpe.size.content.large,
     xlarge: containerTokens
-      ? breakpoint.hpe.size.container['3xlarge']
+      ? breakpoint.hpe.size.container.xxlarge
       : breakpoint.hpe.size.content.xlarge,
     xxlarge: containerTokens
-      ? breakpoint.hpe.size.container['4xlarge']
+      ? breakpoint.hpe.size.container['3xlarge']
       : breakpoint.hpe.size.content.xxlarge,
     full: '100%',
   });
@@ -2065,7 +2065,7 @@ const buildTheme = tokens => {
       wide: {
         width: {
           min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
-          max: 'xlarge',
+          max: 'xxlarge',
         },
         xsmall: {
           pad: { horizontal: 'large' },
