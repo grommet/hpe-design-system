@@ -8,32 +8,32 @@ import {
   StatusGoodSmall,
   CircleInformation,
 } from 'grommet-icons';
-import { DashboardCard, NotificationMetric } from '../../components';
-import notifications from '../../mockData/notifications.json';
+import { DashboardCard, NotificationMetric } from '../components';
+import notifications from '../mockData/notifications.json';
 import { useContext } from 'react';
-import { SkeletonContext } from '../../components';
+import { SkeletonContext } from '../components';
 
 const statuses = {
   critical: {
-    background: 'background-status-critical',
+    background: 'background-critical',
     icon: <StatusCritical color="icon-critical" height="medium" />,
     iconCompact: <StatusCriticalSmall color="icon-critical" height="medium" />,
     label: 'Critical',
   },
   warning: {
-    background: 'background-status-warning',
+    background: 'background-warning',
     icon: <StatusWarning color="icon-warning" height="medium" />,
     iconCompact: <StatusWarningSmall color="icon-warning" height="medium" />,
     label: 'Warning',
   },
   ok: {
-    background: 'background-status-ok',
+    background: 'background-ok',
     icon: <StatusGood color="icon-ok" height="medium" />,
     iconCompact: <StatusGoodSmall color="icon-ok" height="medium" />,
     label: 'Ok',
   },
   info: {
-    background: 'background-status-info',
+    background: 'background-info',
     icon: <CircleInformation color="icon-info" height="medium" />,
     iconCompact: <StatusGoodSmall color="icon-info" height="medium" />,
     label: 'Information',
