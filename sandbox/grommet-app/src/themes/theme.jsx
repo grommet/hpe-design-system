@@ -4,6 +4,7 @@ import {
   // deepMerge
 } from 'grommet/utils';
 import {
+  primitives as localPrimitives,
   dark as localDark,
   light as localLight,
   medium as localMedium,
@@ -165,6 +166,7 @@ const textSizes = [
 
 const buildTheme = tokens => {
   const {
+    primitives,
     light,
     dark,
     small,
@@ -247,58 +249,40 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.decorative.blue,
       light: light.hpe.color.decorative.blue,
     },
-    'blue!': {
-      dark: dark.hpe.color.decorative['blue!'],
-      light: light.hpe.color.decorative['blue!'],
-    },
+    'blue!': primitives.hpe.base.color['blue-700'],
     green: {
       dark: dark.hpe.color.decorative.green,
       light: light.hpe.color.decorative.green,
     },
     'green!': {
-      dark: dark.hpe.color.decorative['green!'],
-      light: light.hpe.color.decorative['green!'],
+      dark: dark.hpe.color.decorative.brand,
+      light: light.hpe.color.decorative.brand,
     },
     teal: {
       dark: dark.hpe.color.decorative.teal,
       light: light.hpe.color.decorative.teal,
     },
-    'teal!': {
-      dark: dark.hpe.color.decorative['teal!'],
-      light: light.hpe.color.decorative['teal!'],
-    },
+    'teal!': primitives.hpe.base.color['teal-400'],
     purple: {
       dark: dark.hpe.color.decorative.purple,
       light: light.hpe.color.decorative.purple,
     },
-    'purple!': {
-      dark: dark.hpe.color.decorative['purple!'],
-      light: light.hpe.color.decorative['purple!'],
-    },
+    'purple!': primitives.hpe.base.color['purple-800'],
     red: {
       dark: dark.hpe.color.decorative.red,
       light: light.hpe.color.decorative.red,
     },
-    'red!': {
-      dark: dark.hpe.color.decorative['red!'],
-      light: light.hpe.color.decorative['red!'],
-    },
+    'red!': primitives.hpe.base.color['red-750'],
     orange: {
       dark: dark.hpe.color.decorative.orange,
       light: light.hpe.color.decorative.orange,
     },
-    'orange!': {
-      dark: dark.hpe.color.decorative['orange!'],
-      light: light.hpe.color.decorative['orange!'],
-    },
+    'orange!': primitives.hpe.base.color['orange-500'],
     yellow: {
       dark: dark.hpe.color.decorative.yellow,
       light: light.hpe.color.decorative.yellow,
     },
-    'yellow!': {
-      dark: dark.hpe.color.decorative['yellow!'],
-      light: light.hpe.color.decorative['yellow!'],
-    },
+    'yellow!': primitives.hpe.base.color['yellow-400'],
     'graph-0': {
       light: light.hpe.color.dataVis['categorical-10'],
       dark: dark.hpe.color.dataVis['categorical-10'],
@@ -2653,6 +2637,7 @@ const buildTheme = tokens => {
 };
 
 export const current = buildTheme({
+  primitives: localPrimitives,
   light: localLight,
   dark: localDark,
   small: localSmall,
