@@ -25,7 +25,7 @@ import { MonthlyCharges } from './MonthlyCharges';
 import { SkeletonContext } from '../components';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
 
-const Divider = () => <Box border={{ side: 'bottom', color: 'primary' }} />;
+const Divider = () => <Box border={{ side: 'bottom', color: 'border-weak' }} />;
 
 function Home() {
   const size = useContext(ResponsiveContext);
