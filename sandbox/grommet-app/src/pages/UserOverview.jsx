@@ -1,8 +1,8 @@
 import { Box, Meter, Text, Notification } from 'grommet';
-import { DashboardCard } from '../../components';
-import { Legend } from '../../components';
+import { DashboardCard } from '../components';
+import { Legend } from '../components';
 import { useContext } from 'react';
-import { SkeletonContext } from '../../components';
+import { SkeletonContext } from '../components';
 
 export const UserOverview = () => {
   const skeleton = useContext(SkeletonContext);

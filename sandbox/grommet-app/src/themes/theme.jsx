@@ -915,6 +915,9 @@ const buildTheme = tokens => {
       textDecoration: components.hpe.anchor.default.rest.textDecoration,
       fontWeight: components.hpe.anchor.default.rest.fontWeight,
       gap: components.hpe.anchor.default.medium.gapX, // TO DO not size specific
+      icon: {
+        color: 'icon-primary',
+      },
       hover: {
         textDecoration: components.hpe.anchor.default.hover.textDecoration,
       },

@@ -1,6 +1,6 @@
 import { List, Box, Text } from 'grommet';
-import { DashboardCard } from '../../components';
-import services from '../../mockData/services.json';
+import { DashboardCard } from '../components';
+import services from '../mockData/services.json';
 
 export const MyServices = () => {
   return (
