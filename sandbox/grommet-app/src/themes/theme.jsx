@@ -1493,6 +1493,12 @@ const buildTheme = tokens => {
             };
           }
         }
+          &:has([role="group"]), &:has([role="radiogroup"]), &:has([type="checkbox"]) {
+            border-width: ${
+              components.hpe.formField.medium.input.group.container.borderWidth
+            };
+          }
+
           [role="group"], [role="radiogroup"] {
             gap: 0;
             padding-block: ${
@@ -2313,7 +2319,7 @@ const buildTheme = tokens => {
           <Blank
             color={components.hpe.radioButton.control.selected.rest.iconColor}
           >
-            <circle cx="12" cy="12" r="6" />
+            <circle cx="12" cy="12" r="8" />
           </Blank>
         ),
       },
