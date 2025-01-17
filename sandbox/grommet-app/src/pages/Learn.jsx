@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import { Box, Heading } from 'grommet';
-import { DashboardCard } from '../../components';
-import {
-  skeleton as skeletonAnimation,
-  useLoading,
-} from '../../utils/skeleton';
+import { DashboardCard } from '../components';
+import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
 
 const data = [
   {

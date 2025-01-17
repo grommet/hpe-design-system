@@ -1,8 +1,8 @@
 import { Box, DataChart, Text, Notification, Skeleton } from 'grommet';
-import { DashboardCard, Legend } from '../../components';
-import expenses from '../../mockData/expenses.json';
+import { DashboardCard, Legend } from '../components';
+import expenses from '../mockData/expenses.json';
 import { useContext } from 'react';
-import { SkeletonContext } from '../../components';
+import { SkeletonContext } from '../components';
 
 export const MonthlyCharges = () => {
   const skeleton = useContext(SkeletonContext);

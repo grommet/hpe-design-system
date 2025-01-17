@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { DataChart, Grid, Notification, Skeleton } from 'grommet';
-import { DashboardCard } from '../../components';
-import sustainability from '../../mockData/sustainability.json';
-import { Metric } from '../../components';
+import { DashboardCard } from '../components';
+import sustainability from '../mockData/sustainability.json';
+import { Metric } from '../components';
 import { useContext } from 'react';
-import { SkeletonContext } from '../../components';
+import { SkeletonContext } from '../components';
 
 export const SustainabilityOverview = () => {
   const skeleton = useContext(SkeletonContext);

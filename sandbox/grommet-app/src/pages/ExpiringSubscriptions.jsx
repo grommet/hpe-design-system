@@ -1,9 +1,9 @@
 import { Box, List, Text, Notification } from 'grommet';
 import { StatusCriticalSmall, StatusWarningSmall } from 'grommet-icons';
-import { DashboardCard } from '../../components';
-import services from '../../mockData/services.json';
+import { DashboardCard } from '../components';
+import services from '../mockData/services.json';
 import { useContext } from 'react';
-import { SkeletonContext } from '../../components';
+import { SkeletonContext } from '../components';
 
 export const ExpiringSubscriptions = () => {
   const skeleton = useContext(SkeletonContext);

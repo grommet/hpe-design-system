@@ -10,7 +10,7 @@ import {
 } from 'grommet-icons';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { useLoading } from '../../utils/skeleton';
+import { useLoading } from '../utils/skeleton';
 
 export const QuickActions = ({ edit = true, icons }) => {
   const theme = useContext(ThemeContext);

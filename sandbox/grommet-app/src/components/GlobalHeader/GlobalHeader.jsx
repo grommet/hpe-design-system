@@ -1,7 +1,8 @@
-import { useContext, useMemo, useState } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import {
+  Anchor,
   Box,
   Button,
   Heading,
@@ -11,24 +12,22 @@ import {
   Select,
   Page,
   PageContent,
-  Text,
   DropButton,
   TextInput,
+  ToggleGroup,
+  ResponsiveContext,
 } from 'grommet';
 import {
-  Down,
   Search,
   User,
   Notification,
   Catalog,
   HelpOption,
   Menu,
+  LinkNext,
 } from 'grommet-icons';
+import { Link } from 'react-router-dom';
 import { themes } from '../../themes/theme';
-import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
-
-// TO DO fix animation once motion tokens are added
-const StyledDown = styled(Down)``;
 
 export const GlobalHeader = ({
   darkMode,
@@ -37,90 +36,62 @@ export const GlobalHeader = ({
   activeTheme,
   backgroundBack,
   setBackgroundBack,
-  workspace,
-  setWorkspace,
 }) => {
   const theme = useContext(ThemeContext);
-  const [open, setOpen] = useState(false);
-  const boxProps = useMemo(
-    () =>
-      workspace === 'Acme Next'
-        ? {
-            elevation: 'small',
-            round: {
-              corner: 'bottom',
-              size: 'medium',
-            },
-          }
-        : {
-            border: { color: 'border-weak', side: 'bottom' },
-          },
-    [workspace],
-  );
-
+  const breakpoint = useContext(ResponsiveContext);
   return (
-    <Page
-      // kind={window.location.pathname === '/' ? 'full' : 'wide'}
-      kind="full"
-    >
+    <Page kind="full">
       <PageContent pad="none">
         <Box
           direction="row"
           justify="between"
           align="center"
           background={
-            activeTheme === 'refresh'
-              ? { color: 'background-primary-default', dark: true }
+            activeTheme === 'next'
+              ? 'background-primary-xstrong'
               : 'background-front'
           }
+          elevation={activeTheme === 'next' ? 'none' : 'small'}
           pad={{ horizontal: 'xsmall', vertical: 'small' }}
-          {...boxProps}
         >
           <Box direction="row" gap="medium" flex>
             <Box direction="row" gap="xsmall">
               <Button icon={<Menu />} />
               <Box border={{ side: 'left', color: 'border-weak' }} />
             </Box>
-            <Box height="32px" width="90px" align="start">
-              <Image
-                src={`/hpe_greenlake_grn_${
-                  activeTheme === 'refresh' ? 'rev' : 'pos'
-                }_rgb.svg`}
-                fit="contain"
-              />
-            </Box>
-            <Box width="large">
-              <TextInput
-                icon={<Search />}
-                placeholder="Type / to search assets, docs, serices, hardware, and more"
-              />
-            </Box>
+            <Link to="/">
+              <Box height="32px" width="90px" align="start">
+                <Image
+                  src={`/hpe_greenlake_grn_${
+                    activeTheme === 'current' && !theme.dark ? 'pos' : 'rev'
+                  }_rgb.svg`}
+                  fit="contain"
+                  alt="HPE GreenLake badge"
+                />
+              </Box>
+            </Link>
+            {!['xsmall', 'small'].includes(breakpoint) ? (
+              <Box width={breakpoint === 'medium' ? 'medium' : 'large'}>
+                <TextInput
+                  icon={<Search id="global-header-search" />}
+                  placeholder="Type / to search assets, services, and more"
+                  aria-labelledby="global-header-search"
+                />
+              </Box>
+            ) : undefined}
           </Box>
-          <Box direction="row" gap="small">
-            <Box direction="row" gap="xsmall">
-              <Button icon={<HelpOption />} />
-              <Button icon={<Catalog />} />
-              <Button icon={<Notification />} />
-            </Box>
-            <Select
-              options={['Acme Production', 'Acme Next']}
-              value={workspace}
-              valueLabel={label => (
-                <Box {...theme.global.input} pad={theme.global.input.padding}>
-                  <Text color="text-strong">{label}</Text>
-                </Box>
-              )}
-              onChange={({ value }) => setWorkspace(value)}
-              icon={<StyledDown open={open} />}
-              onOpen={() => setOpen(true)}
-              onClose={() => setOpen(false)}
-              dropProps={{ animate: 'select' }}
-            />
+          <Box direction="row" gap="xsmall">
+            <Button icon={<HelpOption />} />
+            <Button icon={<Catalog />} />
+            <Button icon={<Notification />} />
             <DropButton
               icon={<User />}
               dropContent={
                 <Box
-                  background={{ dark: false, color: 'background-floating' }}
+                  background={{
+                    color: 'background-floating',
+                    dark: theme.dark ? true : false,
+                  }}
                   pad="medium"
                   gap="medium"
                   width="medium"
@@ -139,26 +110,48 @@ export const GlobalHeader = ({
                     border={{ side: 'bottom', color: 'border-weak' }}
                     width="100%"
                   />
-                  <FormField label="Mode">
+                  <FormField
+                    label="Mode"
+                    alignSelf="start"
+                    contentProps={{ border: false }}
+                    htmlFor="theme-mode-toggle"
+                    name="theme-mode-toggle"
+                  >
                     <ToggleGroup
+                      id="theme-mode-toggle"
+                      name="theme-mode-toggle"
                       options={[
                         { label: 'Light', value: 'light' },
                         { label: 'Dark', value: 'dark' },
                       ]}
                       border={{ size: 'none' }}
-                      value={darkMode ? 'dark' : 'light'}
-                      onChange={e =>
-                        setDarkMode(e.target.value === 'light' ? false : true)
+                      value={darkMode ? ['dark'] : ['light']}
+                      onToggle={({ value }) =>
+                        setDarkMode(value === 'light' ? false : true)
                       }
                     />
                   </FormField>
-                  <FormField label="Theme">
+                  <FormField
+                    label="Theme"
+                    htmlFor="theme-select__input"
+                    name="theme-select"
+                  >
                     <Select
+                      id="theme-select"
+                      name="theme-select"
                       options={Object.keys(themes).map(theme => theme)}
                       onChange={({ option }) => setActiveTheme(option)}
                       value={activeTheme}
                     />
                   </FormField>
+                  <Anchor
+                    alignSelf="start"
+                    as={Link}
+                    to="/sticker-sheet"
+                    label="View sticker sheet"
+                    icon={<LinkNext />}
+                    reverse
+                  />
                 </Box>
               }
               dropAlign={{ top: 'bottom', right: 'right' }}
