@@ -5,7 +5,6 @@ import { themes } from './themes/theme';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
 import StickerSheet from './pages/sticker-sheet/index';
-import Refresh from './pages/refresh/index';
 import { Layouts, routes as layoutRoutes } from './pages/layouts';
 import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
@@ -91,9 +90,6 @@ const App = () => {
                   <Route path="/" element={<Home />} />
                   <Route path="/sustainability" element={<Sustainability />} />
                   <Route path="/sticker-sheet" element={<StickerSheet />} />
-                  {/* TO DO unfinished layout */}
-                  {/* <Route path="/refresh" element={<Refresh />} /> */}
-                  <Route path="/refresh" element={<Refresh />} />
                   <Route path="/layouts" element={<Layouts />} />
                   {layoutRoutes}
                 </Routes>
