@@ -137,28 +137,12 @@
           }
         }
       },
-      "ok": {
+      "info": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.500-Opacity30}",
-            "$description": "Use for backgrounds communicating success.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "critical": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.red.800-Opacity30}",
-            "$description": "Use for backgrounds communicating errors or danger.",
+            "$value": "{base.color.blue.400-Opacity12}",
+            "$description": "Use for backgrounds communicating neutral information.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -185,12 +169,28 @@
           }
         }
       },
-      "info": {
+      "critical": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.blue.400-Opacity12}",
-            "$description": "Use for backgrounds communicating neutral information.",
+            "$value": "{base.color.red.800-Opacity30}",
+            "$description": "Use for backgrounds communicating errors or danger.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.green.500-Opacity30}",
+            "$description": "Use for backgrounds communicating success.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
