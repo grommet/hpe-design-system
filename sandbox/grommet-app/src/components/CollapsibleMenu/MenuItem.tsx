@@ -19,7 +19,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
     <Button
       key={item.key}
       label={
-        <Box direction="row" justify="between">
+        <Box direction="row" justify="between" width={{ min: "small" }}>
           <Text>{item.label}</Text>
           <Text>{item.count}</Text>
         </Box>

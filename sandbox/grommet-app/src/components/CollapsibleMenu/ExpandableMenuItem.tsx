@@ -13,7 +13,7 @@ export const ExpandableMenuItem = ({
 }) => {
   const { global } = useContext(ThemeContext) as { global: { edgeSize: { medium: string } } };
   return (
-    <React.Fragment key={item}>
+    <Box key={item} gap="xsmall">
       <Button
         label={
           <Box direction="row" align="center" justify="between">
@@ -53,6 +53,6 @@ export const ExpandableMenuItem = ({
           );
         })}
       </Collapsible>
-    </React.Fragment>
+    </Box>
   );
 }

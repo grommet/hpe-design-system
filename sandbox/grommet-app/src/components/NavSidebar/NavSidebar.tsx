@@ -5,7 +5,13 @@ import { CollapsibleMenu } from '../CollapsibleMenu';
 
 const SidebarHeader = ({ expanded, setExpanded }) => {
   return (
-    <Box direction='row' justify='between' align='center' gap="large">
+    <Box
+      direction='row'
+      align='center'
+      justify='between'
+      gap="large"
+      pad={{ left: 'small', vertical: 'small' }}
+    >
       {expanded && <Text size='large' >Private Cloud</Text>}
       <Button icon={<SidebarIcon />} onClick={() => setExpanded(!expanded)} />
     </Box>
@@ -49,12 +55,14 @@ export const NavSidebar = ({ ...rest }) => {
       {open &&
         <Nav
           border={{ side: "top", color: "border-weak" }}
+          gap="small"
           pad={{ vertical: "small" }}
         >
           <CollapsibleMenu
             items={items}
             selected={selected}
             onSelect={setSelected}
+            gap="small"
           />
           <Anchor href="/home" label="Home" />
           <Anchor href="/about" label="About" />
