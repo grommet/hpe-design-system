@@ -1512,7 +1512,6 @@ const buildTheme = (tokens, flags) => {
     },
     formField: {
       extend: ({ theme }) => `
-        // TO DO bad practice
         [class*="ContentBox"] {
           label {
           padding-block: ${
@@ -1551,7 +1550,9 @@ const buildTheme = (tokens, flags) => {
                 components.hpe.formField.medium.input.group.item.paddingX
               };
               border-radius: ${
-                components.hpe.formField.medium.input.group.item.borderRadius
+                dimensions.edgeSize[
+                  components.hpe.formField.medium.input.group.item.borderRadius
+                ]
               };
               &:hover {
                 background: ${
