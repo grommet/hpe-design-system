@@ -3317,7 +3317,7 @@ export default {
   },
   "hpe.button.primary.hover.background": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#01a982",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3333,7 +3333,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.700}",
+      "$value": "{color.background.primary.strong.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {

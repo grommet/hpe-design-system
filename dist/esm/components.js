@@ -121,7 +121,7 @@ export default {
           }
         },
         "hover": {
-          "background": "var(--hpe-button-primary-hover-background)",
+          "background": "background-primary-strong-hover",
           "borderColor": "transparent",
           "textColor": "text-onPrimaryStrong",
           "iconColor": "icon-onPrimaryStrong",

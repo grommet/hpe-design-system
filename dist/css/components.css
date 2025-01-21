@@ -59,7 +59,6 @@
   --hpe-element-xlarge-paddingX-default: var(--hpe-base-dimension-600);
   --hpe-button-primary-rest-background: linear-gradient(70deg, var(--hpe-color-transparent), var(--hpe-color-background-primary-strong) 35%, var(--hpe-color-transparent) 70%, var(--hpe-color-background-primary-strong) 100%); /* For dev use. */
   --hpe-button-primary-rest-fontWeight: var(--hpe-fontWeight-bold);
-  --hpe-button-primary-hover-background: var(--hpe-base-color-green-700);
   --hpe-button-primary-xsmall-paddingX: var(--hpe-button-default-xsmall-paddingX);
   --hpe-button-primary-xsmall-paddingY: var(--hpe-button-default-xsmall-paddingY);
   --hpe-button-primary-xsmall-iconOnly-paddingY: var(--hpe-button-default-xsmall-iconOnly-paddingY);
@@ -201,6 +200,7 @@
   --hpe-button-primary-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-button-primary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-primary-disabled-rest-fontWeight: var(--hpe-button-primary-rest-fontWeight);
+  --hpe-button-primary-hover-background: var(--hpe-color-background-primary-strong-hover);
   --hpe-button-primary-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
   --hpe-button-primary-hover-fontWeight: var(--hpe-button-primary-rest-fontWeight);

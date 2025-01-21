@@ -481,54 +481,6 @@ export default {
     ],
     "key": "{color.background.screenOverlay.DEFAULT.REST}"
   },
-  "hpe.color.background.info": {
-    "$type": "color",
-    "$value": "rgba(0, 200, 255, 0.24)",
-    "$description": "Use for backgrounds communicating neutral information.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.blue.400-Opacity24}",
-      "$description": "Use for backgrounds communicating neutral information.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.info",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "info",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "info",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.background.info.DEFAULT.REST}"
-  },
   "hpe.color.background.unknown": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.04)",
@@ -624,6 +576,54 @@ export default {
       "REST"
     ],
     "key": "{color.background.critical.DEFAULT.REST}"
+  },
+  "hpe.color.background.info": {
+    "$type": "color",
+    "$value": "rgba(0, 200, 255, 0.24)",
+    "$description": "Use for backgrounds communicating neutral information.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.blue.400-Opacity24}",
+      "$description": "Use for backgrounds communicating neutral information.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.info",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "info",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "info",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.info.DEFAULT.REST}"
   },
   "hpe.color.background.ok": {
     "$type": "color",
@@ -820,7 +820,7 @@ export default {
   "hpe.color.background.primary.xstrong": {
     "$type": "color",
     "$value": "#093a2f",
-    "$description": "Hover variant of background-primary.",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -836,7 +836,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.green.1000}",
-      "$description": "Hover variant of background-primary.",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,

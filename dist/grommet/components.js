@@ -121,7 +121,7 @@ export default {
           }
         },
         "hover": {
-          "background": "#008567",
+          "background": "background-primary-strong-hover",
           "borderColor": "transparent",
           "textColor": "text-onPrimaryStrong",
           "iconColor": "icon-onPrimaryStrong",
