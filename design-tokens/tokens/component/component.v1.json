@@ -11030,7 +11030,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{spacing.small}",
+            "$value": "{spacing.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -11042,7 +11042,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{spacing.small}",
+            "$value": "{spacing.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -12029,7 +12029,7 @@
         },
         "paddingX": {
           "$type": "number",
-          "$value": "{spacing.xsmall}",
+          "$value": "{spacing.3xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
