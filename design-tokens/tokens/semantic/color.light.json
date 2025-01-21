@@ -149,22 +149,6 @@
           }
         }
       },
-      "info": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.blue.400-Opacity24}",
-            "$description": "Use for backgrounds communicating neutral information.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "unknown": {
         "DEFAULT": {
           "REST": {
@@ -187,6 +171,22 @@
             "$type": "color",
             "$value": "{base.color.red.500-Opacity24}",
             "$description": "Use for backgrounds communicating errors or danger.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.blue.400-Opacity24}",
+            "$description": "Use for backgrounds communicating neutral information.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -260,7 +260,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.green.1000}",
-            "$description": "Hover variant of background-primary.",
+            "$description": "",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
