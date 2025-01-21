@@ -76,6 +76,18 @@
                 "codeSyntax": {}
               }
             }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{base.color.black.opacity12}",
+            "$description": "Use to create a subtle differentiation between a component or container and the region it sits on.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },
