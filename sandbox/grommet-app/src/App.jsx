@@ -90,8 +90,9 @@ const App = () => {
                   <Route path="/" element={<Home />} />
                   <Route path="/sustainability" element={<Sustainability />} />
                   <Route path="/sticker-sheet" element={<StickerSheet />} />
-                  <Route path="/layouts" element={<Layouts />} />
-                  {layoutRoutes}
+                  <Route path="/layouts" element={<Layouts />}>
+                    {layoutRoutes}
+                  </Route>
                 </Routes>
               </BrowserRouter>
               {window.location.pathname === '/next' ? (
