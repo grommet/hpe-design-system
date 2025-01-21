@@ -4973,7 +4973,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{static.spacing.xsmall}",
+          "$value": "{static.spacing.3xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5599,7 +5599,7 @@
     },
     "margin": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5932,7 +5932,7 @@
         "container": {
           "paddingY": {
             "$type": "number",
-            "$value": "{static.spacing.xsmall}",
+            "$value": "{static.spacing.3xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6606,7 +6606,7 @@
     "medium": {
       "gapX": {
         "$type": "number",
-        "$value": "{static.spacing.small}",
+        "$value": "{static.spacing.xsmall}",
         "$description": "Space between checkbox control and value (label)",
         "$extensions": {
           "com.figma": {
@@ -7030,7 +7030,7 @@
     "medium": {
       "gapX": {
         "$type": "number",
-        "$value": "{static.spacing.small}",
+        "$value": "{static.spacing.xsmall}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -7185,7 +7185,7 @@
   "dataCell": {
     "paddingX": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7245,7 +7245,7 @@
     },
     "paddingTop": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8223,7 +8223,7 @@
           "item": {
             "paddingX": {
               "$type": "number",
-              "$value": "{static.spacing.small}",
+              "$value": "{static.spacing.xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8321,7 +8321,7 @@
             },
             "paddingY": {
               "$type": "number",
-              "$value": "{static.spacing.xsmall}",
+              "$value": "{static.spacing.3xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8360,7 +8360,7 @@
         "container": {
           "paddingX": {
             "$type": "number",
-            "$value": "{static.spacing.small}",
+            "$value": "{static.spacing.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -10344,7 +10344,7 @@
     "medium": {
       "gapX": {
         "$type": "number",
-        "$value": "{static.spacing.small}",
+        "$value": "{static.spacing.xsmall}",
         "$description": "Space between checkbox control and value (label)",
         "$extensions": {
           "com.figma": {
