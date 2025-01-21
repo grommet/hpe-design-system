@@ -233,7 +233,7 @@
         "strong": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.600}",
+            "$value": "#007C60",
             "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
             "$extensions": {
               "com.figma": {
@@ -245,7 +245,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.green.600}",
+            "$value": "#00513F",
             "$description": "Hover variant of background-primary.",
             "$extensions": {
               "com.figma": {
@@ -260,7 +260,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.green.1000}",
-            "$description": "Hover variant of background-primary.",
+            "$description": "",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -276,7 +276,7 @@
           "strong": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.brand}",
+              "$value": "{color.background.primary.strong.REST}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -288,7 +288,7 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{base.color.brand}",
+              "$value": "{color.background.primary.strong.hover}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -423,7 +423,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.border.default.REST}",
+            "$value": "{color.foreground.critical.DEFAULT.REST}",
             "$description": "Use for borders communicating errors or danger.",
             "$extensions": {
               "com.figma": {
@@ -611,7 +611,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.text.default.REST}",
+            "$value": "{color.foreground.critical.DEFAULT.REST}",
             "$description": "Use for text on standard backgrounds communicating errors or danger.",
             "$extensions": {
               "com.figma": {
@@ -965,7 +965,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.red.550}",
+            "$value": "{color.foreground.critical.DEFAULT.REST}",
             "$description": "Use for icons communicating errors or danger.",
             "$extensions": {
               "com.figma": {
@@ -1029,7 +1029,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.grey.700}",
+            "$value": "{base.color.grey.800}",
             "$description": "Use for icons communicating unknown status.",
             "$extensions": {
               "com.figma": {
