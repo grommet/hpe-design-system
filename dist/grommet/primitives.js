@@ -26,17 +26,22 @@ export default {
         "600": "24px",
         "700": "28px",
         "750": "30px",
+        "800": "32px",
         "900": "36px",
         "1200": "48px",
+        "1600": "64px",
         "1800": "72px",
         "2400": "96px",
+        "3200": "128px",
         "4800": "192px",
+        "6400": "256px",
         "7200": "288px",
         "9600": "384px",
+        "12800": "512px",
         "14400": "576px",
         "19200": "768px",
-        "38400": "1152px",
-        "76800": "1536px"
+        "25600": "1024px",
+        "38400": "1536px"
       },
       "color": {
         "brand": "#01a982",
@@ -177,12 +182,18 @@ export default {
       "spacing": {
         "none": "0px",
         "hair": "1px",
-        "xxsmall": "3px",
-        "xsmall": "6px",
-        "small": "12px",
+        "5xsmall": "3px",
+        "4xsmall": "4px",
+        "3xsmall": "6px",
+        "xxsmall": "8px",
+        "xsmall": "12px",
+        "small": "16px",
         "medium": "24px",
-        "large": "48px",
-        "xlarge": "96px"
+        "large": "32px",
+        "xlarge": "48px",
+        "xxlarge": "64px",
+        "3xlarge": "96px",
+        "4xlarge": "128px"
       },
       "radius": {
         "none": "0px",
@@ -205,15 +216,17 @@ export default {
         "default": "1px"
       },
       "container": {
-        "xxsmall": "48px",
-        "xsmall": "96px",
-        "small": "192px",
-        "smallPlus": "288px",
+        "5xsmall": "48px",
+        "4xsmall": "64px",
+        "3xsmall": "96px",
+        "xxsmall": "128px",
+        "xsmall": "192px",
+        "small": "256px",
         "medium": "384px",
-        "mediumPlus": "576px",
-        "large": "768px",
-        "xlarge": "1152px",
-        "xxlarge": "1536px"
+        "large": "512px",
+        "xlarge": "768px",
+        "xxlarge": "1024px",
+        "3xlarge": "1536px"
       }
     },
     "TBD": "rgba(0, 255, 10, 0)"

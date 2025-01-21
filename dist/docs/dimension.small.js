@@ -83,7 +83,7 @@ export default {
     ],
     "key": "{spacing.hair}"
   },
-  "hpe.spacing.xxsmall": {
+  "hpe.spacing.5xsmall": {
     "$type": "number",
     "$value": "3px",
     "$description": "",
@@ -100,7 +100,127 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xxsmall}",
+      "$value": "{static.spacing.5xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.spacing.5xsmall",
+    "attributes": {
+      "category": "spacing",
+      "type": "5xsmall"
+    },
+    "path": [
+      "spacing",
+      "5xsmall"
+    ],
+    "key": "{spacing.5xsmall}"
+  },
+  "hpe.spacing.4xsmall": {
+    "$type": "number",
+    "$value": "3px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.spacing.5xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.spacing.4xsmall",
+    "attributes": {
+      "category": "spacing",
+      "type": "4xsmall"
+    },
+    "path": [
+      "spacing",
+      "4xsmall"
+    ],
+    "key": "{spacing.4xsmall}"
+  },
+  "hpe.spacing.3xsmall": {
+    "$type": "number",
+    "$value": "3px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.spacing.5xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.spacing.3xsmall",
+    "attributes": {
+      "category": "spacing",
+      "type": "3xsmall"
+    },
+    "path": [
+      "spacing",
+      "3xsmall"
+    ],
+    "key": "{spacing.3xsmall}"
+  },
+  "hpe.spacing.xxsmall": {
+    "$type": "number",
+    "$value": "4px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.spacing.4xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -125,7 +245,7 @@ export default {
   },
   "hpe.spacing.xsmall": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "6px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -140,7 +260,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xxsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -165,7 +285,7 @@ export default {
   },
   "hpe.spacing.small": {
     "$type": "number",
-    "$value": "6px",
+    "$value": "8px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -180,7 +300,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -220,7 +340,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -244,6 +364,46 @@ export default {
     "key": "{spacing.medium}"
   },
   "hpe.spacing.large": {
+    "$type": "number",
+    "$value": "16px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.spacing.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.spacing.large",
+    "attributes": {
+      "category": "spacing",
+      "type": "large"
+    },
+    "path": [
+      "spacing",
+      "large"
+    ],
+    "key": "{spacing.large}"
+  },
+  "hpe.spacing.xlarge": {
     "$type": "number",
     "$value": "24px",
     "$description": "",
@@ -272,20 +432,20 @@ export default {
         }
       }
     },
-    "name": "hpe.spacing.large",
+    "name": "hpe.spacing.xlarge",
     "attributes": {
       "category": "spacing",
-      "type": "large"
+      "type": "xlarge"
     },
     "path": [
       "spacing",
-      "large"
+      "xlarge"
     ],
-    "key": "{spacing.large}"
+    "key": "{spacing.xlarge}"
   },
-  "hpe.spacing.xlarge": {
+  "hpe.spacing.xxlarge": {
     "$type": "number",
-    "$value": "48px",
+    "$value": "32px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -312,16 +472,56 @@ export default {
         }
       }
     },
-    "name": "hpe.spacing.xlarge",
+    "name": "hpe.spacing.xxlarge",
     "attributes": {
       "category": "spacing",
-      "type": "xlarge"
+      "type": "xxlarge"
     },
     "path": [
       "spacing",
-      "xlarge"
+      "xxlarge"
     ],
-    "key": "{spacing.xlarge}"
+    "key": "{spacing.xxlarge}"
+  },
+  "hpe.spacing.3xlarge": {
+    "$type": "number",
+    "$value": "48px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.spacing.xlarge}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.spacing.3xlarge",
+    "attributes": {
+      "category": "spacing",
+      "type": "3xlarge"
+    },
+    "path": [
+      "spacing",
+      "3xlarge"
+    ],
+    "key": "{spacing.3xlarge}"
   },
   "hpe.radius.none": {
     "$type": "number",
@@ -977,7 +1177,7 @@ export default {
     ],
     "key": "{borderWidth.default}"
   },
-  "hpe.size.container.xxsmall": {
+  "hpe.size.container.5xsmall": {
     "$type": "number",
     "$value": "48px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
@@ -994,8 +1194,134 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.container.xxsmall}",
+      "$value": "{static.container.5xsmall}",
       "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.size.container.5xsmall",
+    "attributes": {
+      "category": "size",
+      "type": "container",
+      "item": "5xsmall"
+    },
+    "path": [
+      "size",
+      "container",
+      "5xsmall"
+    ],
+    "key": "{size.container.5xsmall}"
+  },
+  "hpe.size.container.4xsmall": {
+    "$type": "number",
+    "$value": "48px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.container.5xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.size.container.4xsmall",
+    "attributes": {
+      "category": "size",
+      "type": "container",
+      "item": "4xsmall"
+    },
+    "path": [
+      "size",
+      "container",
+      "4xsmall"
+    ],
+    "key": "{size.container.4xsmall}"
+  },
+  "hpe.size.container.3xsmall": {
+    "$type": "number",
+    "$value": "48px",
+    "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.container.5xsmall}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.size.container.3xsmall",
+    "attributes": {
+      "category": "size",
+      "type": "container",
+      "item": "3xsmall"
+    },
+    "path": [
+      "size",
+      "container",
+      "3xsmall"
+    ],
+    "key": "{size.container.3xsmall}"
+  },
+  "hpe.size.container.xxsmall": {
+    "$type": "number",
+    "$value": "64px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.container.4xsmall}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1021,7 +1347,7 @@ export default {
   },
   "hpe.size.container.xsmall": {
     "$type": "number",
-    "$value": "48px",
+    "$value": "96px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
     "$extensions": {
       "com.figma": {
@@ -1036,7 +1362,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.container.xxsmall}",
+      "$value": "{static.container.3xsmall}",
       "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
       "$extensions": {
         "com.figma": {
@@ -1063,7 +1389,49 @@ export default {
   },
   "hpe.size.container.small": {
     "$type": "number",
-    "$value": "96px",
+    "$value": "128px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.container.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.size.container.small",
+    "attributes": {
+      "category": "size",
+      "type": "container",
+      "item": "small"
+    },
+    "path": [
+      "size",
+      "container",
+      "small"
+    ],
+    "key": "{size.container.small}"
+  },
+  "hpe.size.container.medium": {
+    "$type": "number",
+    "$value": "192px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
     "$extensions": {
       "com.figma": {
@@ -1090,90 +1458,6 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.small",
-    "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "small"
-    },
-    "path": [
-      "size",
-      "container",
-      "small"
-    ],
-    "key": "{size.container.small}"
-  },
-  "hpe.size.container.smallPlus": {
-    "$type": "number",
-    "$value": "192px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "WIDTH_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{static.container.small}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.size.container.smallPlus",
-    "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "smallPlus"
-    },
-    "path": [
-      "size",
-      "container",
-      "smallPlus"
-    ],
-    "key": "{size.container.smallPlus}"
-  },
-  "hpe.size.container.medium": {
-    "$type": "number",
-    "$value": "192px",
-    "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "WIDTH_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{static.container.small}",
-      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "name": "hpe.size.container.medium",
     "attributes": {
       "category": "size",
@@ -1187,9 +1471,9 @@ export default {
     ],
     "key": "{size.container.medium}"
   },
-  "hpe.size.container.mediumPlus": {
+  "hpe.size.container.large": {
     "$type": "number",
-    "$value": "384px",
+    "$value": "256px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1204,50 +1488,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.container.medium}",
+      "$value": "{static.container.small}",
       "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.size.container.mediumPlus",
-    "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "mediumPlus"
-    },
-    "path": [
-      "size",
-      "container",
-      "mediumPlus"
-    ],
-    "key": "{size.container.mediumPlus}"
-  },
-  "hpe.size.container.large": {
-    "$type": "number",
-    "$value": "384px",
-    "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "WIDTH_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{static.container.medium}",
-      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1273,7 +1515,7 @@ export default {
   },
   "hpe.size.container.xlarge": {
     "$type": "number",
-    "$value": "768px",
+    "$value": "384px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
     "$extensions": {
       "com.figma": {
@@ -1288,7 +1530,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.container.large}",
+      "$value": "{static.container.medium}",
       "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
       "$extensions": {
         "com.figma": {
@@ -1315,7 +1557,49 @@ export default {
   },
   "hpe.size.container.xxlarge": {
     "$type": "number",
-    "$value": "1152px",
+    "$value": "512px",
+    "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.container.large}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.size.container.xxlarge",
+    "attributes": {
+      "category": "size",
+      "type": "container",
+      "item": "xxlarge"
+    },
+    "path": [
+      "size",
+      "container",
+      "xxlarge"
+    ],
+    "key": "{size.container.xxlarge}"
+  },
+  "hpe.size.container.3xlarge": {
+    "$type": "number",
+    "$value": "768px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
     "$extensions": {
       "com.figma": {
@@ -1342,18 +1626,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.xxlarge",
+    "name": "hpe.size.container.3xlarge",
     "attributes": {
       "category": "size",
       "type": "container",
-      "item": "xxlarge"
+      "item": "3xlarge"
     },
     "path": [
       "size",
       "container",
-      "xxlarge"
+      "3xlarge"
     ],
-    "key": "{size.container.xxlarge}"
+    "key": "{size.container.3xlarge}"
   },
   "hpe.size.icon.xsmall": {
     "$type": "number",

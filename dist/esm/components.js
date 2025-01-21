@@ -7,15 +7,15 @@ export default {
     "element": {
       "xsmall": {
         "minHeight": "var(--hpe-element-xsmall-minHeight)",
-        "textToElementX": "var(--hpe-static-spacing-xxsmall)",
-        "textToIconX": "var(--hpe-static-spacing-xxsmall)",
+        "textToElementX": "var(--hpe-static-spacing-5xsmall)",
+        "textToIconX": "var(--hpe-static-spacing-5xsmall)",
         "fontSize": "var(--hpe-text-xsmall-fontSize)",
         "lineHeight": "var(--hpe-text-xsmall-lineHeight)",
         "borderWidth": "default",
         "paddingY": "var(--hpe-element-xsmall-paddingY)",
         "paddingX": {
-          "narrow": "var(--hpe-static-spacing-xxsmall)",
-          "default": "var(--hpe-static-spacing-xsmall)",
+          "narrow": "var(--hpe-static-spacing-5xsmall)",
+          "default": "var(--hpe-static-spacing-3xsmall)",
           "wide": "var(--hpe-element-xsmall-paddingX-wide)"
         },
         "icon": {
@@ -32,12 +32,12 @@ export default {
         "minHeight": "var(--hpe-element-small-minHeight)",
         "width": "var(--hpe-element-small-width)",
         "height": "var(--hpe-element-small-height)",
-        "textToElementX": "var(--hpe-static-spacing-small)",
-        "textToIconX": "var(--hpe-static-spacing-xsmall)",
+        "textToElementX": "var(--hpe-static-spacing-xsmall)",
+        "textToIconX": "var(--hpe-static-spacing-3xsmall)",
         "paddingX": {
-          "narrow": "var(--hpe-static-spacing-xxsmall)",
-          "default": "var(--hpe-static-spacing-xsmall)",
-          "wide": "var(--hpe-static-spacing-small)"
+          "narrow": "var(--hpe-static-spacing-5xsmall)",
+          "default": "var(--hpe-static-spacing-3xsmall)",
+          "wide": "var(--hpe-static-spacing-xsmall)"
         },
         "icon": {
           "size": "var(--hpe-size-icon-small)"
@@ -49,8 +49,8 @@ export default {
         "minHeight": "var(--hpe-element-medium-minHeight)",
         "width": "var(--hpe-element-medium-width)",
         "height": "var(--hpe-element-medium-height)",
-        "textToElementX": "var(--hpe-static-spacing-small)",
-        "textToIconX": "var(--hpe-static-spacing-xsmall)",
+        "textToElementX": "var(--hpe-static-spacing-xsmall)",
+        "textToIconX": "var(--hpe-static-spacing-3xsmall)",
         "borderWidth": "default",
         "paddingY": "var(--hpe-element-medium-paddingY)",
         "paddingX": {
@@ -68,8 +68,8 @@ export default {
         "minHeight": "var(--hpe-element-large-minHeight)",
         "width": "var(--hpe-element-large-width)",
         "height": "var(--hpe-element-large-height)",
-        "textToElementX": "var(--hpe-static-spacing-small)",
-        "textToIconX": "var(--hpe-static-spacing-xsmall)",
+        "textToElementX": "var(--hpe-static-spacing-xsmall)",
+        "textToIconX": "var(--hpe-static-spacing-3xsmall)",
         "borderWidth": "default",
         "paddingY": "var(--hpe-element-large-paddingY)",
         "paddingX": {
@@ -87,8 +87,8 @@ export default {
         "minHeight": "var(--hpe-element-xlarge-minHeight)",
         "width": "var(--hpe-element-xlarge-width)",
         "height": "var(--hpe-element-xlarge-height)",
-        "textToElementX": "var(--hpe-static-spacing-small)",
-        "textToIconX": "var(--hpe-static-spacing-xsmall)",
+        "textToElementX": "var(--hpe-static-spacing-xsmall)",
+        "textToIconX": "var(--hpe-static-spacing-3xsmall)",
         "borderWidth": "default",
         "paddingY": "var(--hpe-element-xlarge-paddingY)",
         "paddingX": {
@@ -159,20 +159,20 @@ export default {
             "minWidth": "var(--hpe-element-xsmall-minHeight)",
             "fontSize": "var(--hpe-text-xsmall-fontSize)",
             "lineHeight": "var(--hpe-text-xsmall-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xxsmall)"
+            "gapX": "var(--hpe-static-spacing-5xsmall)"
           },
           "lineHeight": "var(--hpe-text-xsmall-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xxsmall)"
+          "gapX": "var(--hpe-static-spacing-5xsmall)"
         },
         "small": {
-          "paddingX": "var(--hpe-static-spacing-small)",
+          "paddingX": "var(--hpe-static-spacing-xsmall)",
           "paddingY": "var(--hpe-element-small-paddingY)",
           "borderRadius": "var(--hpe-static-radius-full)",
           "borderWidth": "var(--hpe-static-borderWidth-default)",
           "minHeight": "var(--hpe-element-small-minHeight)",
           "fontSize": "var(--hpe-text-small-fontSize)",
           "lineHeight": "var(--hpe-text-small-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "iconOnly": {
             "paddingX": "var(--hpe-button-default-small-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-small-iconOnly-paddingY)",
@@ -182,7 +182,7 @@ export default {
             "minWidth": "var(--hpe-element-small-minHeight)",
             "fontSize": "var(--hpe-text-small-fontSize)",
             "lineHeight": "var(--hpe-text-small-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)"
+            "gapX": "var(--hpe-static-spacing-3xsmall)"
           }
         },
         "medium": {
@@ -193,7 +193,7 @@ export default {
           "minHeight": "var(--hpe-element-medium-minHeight)",
           "fontSize": "var(--hpe-button-default-medium-fontSize)",
           "lineHeight": "var(--hpe-text-medium-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "iconOnly": {
             "paddingX": "var(--hpe-button-default-medium-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-medium-iconOnly-paddingY)",
@@ -203,7 +203,7 @@ export default {
             "minWidth": "var(--hpe-element-medium-minHeight)",
             "fontSize": "var(--hpe-button-default-medium-fontSize)",
             "lineHeight": "var(--hpe-text-medium-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)"
+            "gapX": "var(--hpe-static-spacing-3xsmall)"
           }
         },
         "large": {
@@ -214,7 +214,7 @@ export default {
           "minHeight": "var(--hpe-element-large-minHeight)",
           "fontSize": "var(--hpe-text-large-fontSize)",
           "lineHeight": "var(--hpe-text-large-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "iconOnly": {
             "borderRadius": "var(--hpe-static-radius-full)",
             "borderWidth": "var(--hpe-static-borderWidth-default)",
@@ -222,7 +222,7 @@ export default {
             "minWidth": "var(--hpe-element-large-minHeight)",
             "fontSize": "var(--hpe-text-large-fontSize)",
             "lineHeight": "var(--hpe-text-large-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)",
+            "gapX": "var(--hpe-static-spacing-3xsmall)",
             "paddingX": "var(--hpe-button-default-large-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-large-iconOnly-paddingY)"
           }
@@ -235,7 +235,7 @@ export default {
             "minWidth": "var(--hpe-element-xlarge-minHeight)",
             "fontSize": "var(--hpe-text-xlarge-fontSize)",
             "lineHeight": "var(--hpe-text-xlarge-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)",
+            "gapX": "var(--hpe-static-spacing-3xsmall)",
             "paddingX": "var(--hpe-button-default-xlarge-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-xlarge-iconOnly-paddingY)"
           },
@@ -246,7 +246,7 @@ export default {
           "minHeight": "var(--hpe-element-xlarge-minHeight)",
           "fontSize": "var(--hpe-text-xlarge-fontSize)",
           "lineHeight": "var(--hpe-text-xlarge-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         }
       },
       "secondary": {
@@ -297,7 +297,7 @@ export default {
           "minHeight": "var(--hpe-element-xsmall-minHeight)",
           "fontSize": "var(--hpe-text-xsmall-fontSize)",
           "lineHeight": "var(--hpe-text-xsmall-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xxsmall)",
+          "gapX": "var(--hpe-static-spacing-5xsmall)",
           "iconOnly": {
             "paddingX": "var(--hpe-button-default-xsmall-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-xsmall-iconOnly-paddingY)",
@@ -307,21 +307,21 @@ export default {
             "minWidth": "var(--hpe-element-xsmall-minHeight)",
             "fontSize": "var(--hpe-text-xsmall-fontSize)",
             "lineHeight": "var(--hpe-text-xsmall-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xxsmall)"
+            "gapX": "var(--hpe-static-spacing-5xsmall)"
           },
           "hover": {
             "boxShadow": "var(--hpe-button-secondary-xsmall-hover-boxShadow)"
           }
         },
         "small": {
-          "paddingX": "var(--hpe-static-spacing-small)",
+          "paddingX": "var(--hpe-static-spacing-xsmall)",
           "paddingY": "var(--hpe-element-small-paddingY)",
           "borderRadius": "var(--hpe-static-radius-full)",
           "borderWidth": "var(--hpe-static-borderWidth-default)",
           "minHeight": "var(--hpe-element-small-minHeight)",
           "fontSize": "var(--hpe-text-small-fontSize)",
           "lineHeight": "var(--hpe-text-small-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "iconOnly": {
             "paddingX": "var(--hpe-button-default-small-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-small-iconOnly-paddingY)",
@@ -331,7 +331,7 @@ export default {
             "minWidth": "var(--hpe-element-small-minHeight)",
             "fontSize": "var(--hpe-text-small-fontSize)",
             "lineHeight": "var(--hpe-text-small-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)"
+            "gapX": "var(--hpe-static-spacing-3xsmall)"
           },
           "hover": {
             "boxShadow": "var(--hpe-button-secondary-small-hover-boxShadow)"
@@ -345,7 +345,7 @@ export default {
           "minHeight": "var(--hpe-element-medium-minHeight)",
           "fontSize": "var(--hpe-button-default-medium-fontSize)",
           "lineHeight": "var(--hpe-text-medium-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "iconOnly": {
             "paddingX": "var(--hpe-button-secondary-medium-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-secondary-medium-iconOnly-paddingY)",
@@ -355,7 +355,7 @@ export default {
             "minWidth": "var(--hpe-element-medium-minHeight)",
             "fontSize": "var(--hpe-button-default-medium-fontSize)",
             "lineHeight": "var(--hpe-text-medium-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)"
+            "gapX": "var(--hpe-static-spacing-3xsmall)"
           },
           "hover": {
             "boxShadow": "var(--hpe-button-secondary-medium-hover-boxShadow)"
@@ -369,7 +369,7 @@ export default {
           "minHeight": "var(--hpe-element-large-minHeight)",
           "fontSize": "var(--hpe-text-large-fontSize)",
           "lineHeight": "var(--hpe-text-large-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "iconOnly": {
             "borderRadius": "var(--hpe-static-radius-full)",
             "borderWidth": "var(--hpe-static-borderWidth-small)",
@@ -377,7 +377,7 @@ export default {
             "minWidth": "var(--hpe-element-large-minHeight)",
             "fontSize": "var(--hpe-text-large-fontSize)",
             "lineHeight": "var(--hpe-text-large-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)",
+            "gapX": "var(--hpe-static-spacing-3xsmall)",
             "paddingX": "var(--hpe-button-default-large-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-large-iconOnly-paddingY)"
           },
@@ -393,7 +393,7 @@ export default {
             "minWidth": "var(--hpe-element-xlarge-minHeight)",
             "fontSize": "var(--hpe-text-xlarge-fontSize)",
             "lineHeight": "var(--hpe-text-xlarge-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)",
+            "gapX": "var(--hpe-static-spacing-3xsmall)",
             "paddingX": "var(--hpe-button-default-xlarge-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-xlarge-iconOnly-paddingY)"
           },
@@ -404,7 +404,7 @@ export default {
           "minHeight": "var(--hpe-element-xlarge-minHeight)",
           "fontSize": "var(--hpe-text-xlarge-fontSize)",
           "lineHeight": "var(--hpe-text-xlarge-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "hover": {
             "boxShadow": "var(--hpe-button-secondary-xlarge-hover-boxShadow)"
           }
@@ -458,7 +458,7 @@ export default {
           "minHeight": "var(--hpe-element-xsmall-minHeight)",
           "fontSize": "var(--hpe-text-xsmall-fontSize)",
           "lineHeight": "var(--hpe-text-xsmall-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xxsmall)",
+          "gapX": "var(--hpe-static-spacing-5xsmall)",
           "iconOnly": {
             "paddingX": "var(--hpe-button-default-xsmall-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-xsmall-iconOnly-paddingY)",
@@ -468,18 +468,18 @@ export default {
             "minWidth": "var(--hpe-element-xsmall-minHeight)",
             "fontSize": "var(--hpe-text-xsmall-fontSize)",
             "lineHeight": "var(--hpe-text-xsmall-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xxsmall)"
+            "gapX": "var(--hpe-static-spacing-5xsmall)"
           }
         },
         "small": {
-          "paddingX": "var(--hpe-static-spacing-small)",
+          "paddingX": "var(--hpe-static-spacing-xsmall)",
           "paddingY": "var(--hpe-element-small-paddingY)",
           "borderRadius": "var(--hpe-static-radius-full)",
           "borderWidth": "var(--hpe-static-borderWidth-default)",
           "minHeight": "var(--hpe-element-small-minHeight)",
           "fontSize": "var(--hpe-text-small-fontSize)",
           "lineHeight": "var(--hpe-text-small-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "iconOnly": {
             "paddingX": "var(--hpe-button-default-small-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-small-iconOnly-paddingY)",
@@ -489,7 +489,7 @@ export default {
             "minWidth": "var(--hpe-element-small-minHeight)",
             "fontSize": "var(--hpe-text-small-fontSize)",
             "lineHeight": "var(--hpe-text-small-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)"
+            "gapX": "var(--hpe-static-spacing-3xsmall)"
           }
         },
         "medium": {
@@ -500,7 +500,7 @@ export default {
           "minHeight": "var(--hpe-element-medium-minHeight)",
           "fontSize": "var(--hpe-button-default-medium-fontSize)",
           "lineHeight": "var(--hpe-text-medium-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "iconOnly": {
             "paddingX": "var(--hpe-button-default-medium-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-medium-iconOnly-paddingY)",
@@ -510,7 +510,7 @@ export default {
             "minWidth": "var(--hpe-element-medium-minHeight)",
             "fontSize": "var(--hpe-button-default-medium-fontSize)",
             "lineHeight": "var(--hpe-text-medium-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)"
+            "gapX": "var(--hpe-static-spacing-3xsmall)"
           }
         },
         "large": {
@@ -521,7 +521,7 @@ export default {
           "minHeight": "var(--hpe-element-large-minHeight)",
           "fontSize": "var(--hpe-text-large-fontSize)",
           "lineHeight": "var(--hpe-text-large-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "iconOnly": {
             "borderRadius": "var(--hpe-static-radius-full)",
             "borderWidth": "var(--hpe-static-borderWidth-default)",
@@ -529,7 +529,7 @@ export default {
             "minWidth": "var(--hpe-element-large-minHeight)",
             "fontSize": "var(--hpe-text-large-fontSize)",
             "lineHeight": "var(--hpe-text-large-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)",
+            "gapX": "var(--hpe-static-spacing-3xsmall)",
             "paddingX": "var(--hpe-button-default-large-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-large-iconOnly-paddingY)"
           }
@@ -542,7 +542,7 @@ export default {
             "minWidth": "var(--hpe-element-xlarge-minHeight)",
             "fontSize": "var(--hpe-text-xlarge-fontSize)",
             "lineHeight": "var(--hpe-text-xlarge-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)",
+            "gapX": "var(--hpe-static-spacing-3xsmall)",
             "paddingX": "var(--hpe-button-default-xlarge-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-xlarge-iconOnly-paddingY)"
           },
@@ -553,7 +553,7 @@ export default {
           "minHeight": "var(--hpe-element-xlarge-minHeight)",
           "fontSize": "var(--hpe-text-xlarge-fontSize)",
           "lineHeight": "var(--hpe-text-xlarge-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         }
       },
       "toolbar": {
@@ -597,7 +597,7 @@ export default {
           }
         },
         "xsmall": {
-          "paddingX": "var(--hpe-static-spacing-xsmall)",
+          "paddingX": "var(--hpe-static-spacing-3xsmall)",
           "paddingY": "var(--hpe-button-toolbar-xsmall-paddingY)",
           "borderRadius": "var(--hpe-static-radius-xsmall)",
           "borderWidth": "var(--hpe-static-borderWidth-default)",
@@ -613,19 +613,19 @@ export default {
             "minWidth": "var(--hpe-element-xsmall-minHeight)",
             "fontSize": "var(--hpe-text-xsmall-fontSize)",
             "lineHeight": "var(--hpe-text-xsmall-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xxsmall)"
+            "gapX": "var(--hpe-static-spacing-5xsmall)"
           },
-          "gapX": "var(--hpe-static-spacing-xxsmall)"
+          "gapX": "var(--hpe-static-spacing-5xsmall)"
         },
         "small": {
-          "paddingX": "var(--hpe-static-spacing-xsmall)",
+          "paddingX": "var(--hpe-static-spacing-3xsmall)",
           "paddingY": "var(--hpe-element-small-paddingY)",
           "borderRadius": "var(--hpe-static-radius-xsmall)",
           "borderWidth": "var(--hpe-static-borderWidth-default)",
           "minHeight": "var(--hpe-element-small-minHeight)",
           "fontSize": "var(--hpe-text-small-fontSize)",
           "lineHeight": "var(--hpe-text-small-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xxsmall)",
+          "gapX": "var(--hpe-static-spacing-5xsmall)",
           "iconOnly": {
             "paddingX": "var(--hpe-button-toolbar-small-iconOnly-paddingX)",
             "paddingY": "var(--hpe-button-toolbar-small-iconOnly-paddingY)",
@@ -635,28 +635,28 @@ export default {
             "minWidth": "var(--hpe-element-small-minHeight)",
             "fontSize": "var(--hpe-text-small-fontSize)",
             "lineHeight": "var(--hpe-text-small-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xxsmall)"
+            "gapX": "var(--hpe-static-spacing-5xsmall)"
           }
         },
         "medium": {
           "paddingX": "var(--hpe-element-medium-paddingX-default)",
           "paddingY": "var(--hpe-element-medium-paddingY)",
-          "borderRadius": "var(--hpe-static-spacing-xsmall)",
+          "borderRadius": "var(--hpe-static-spacing-3xsmall)",
           "borderWidth": "default",
           "minHeight": "var(--hpe-element-medium-minHeight)",
           "fontSize": "var(--hpe-button-default-medium-fontSize)",
           "lineHeight": "var(--hpe-text-medium-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "iconOnly": {
             "paddingX": "var(--hpe-button-default-medium-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-medium-iconOnly-paddingY)",
-            "borderRadius": "var(--hpe-static-spacing-xsmall)",
+            "borderRadius": "var(--hpe-static-spacing-3xsmall)",
             "borderWidth": "default",
             "minHeight": "var(--hpe-element-medium-minHeight)",
             "minWidth": "var(--hpe-element-medium-minHeight)",
             "fontSize": "var(--hpe-button-default-medium-fontSize)",
             "lineHeight": "var(--hpe-text-medium-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)"
+            "gapX": "var(--hpe-static-spacing-3xsmall)"
           }
         },
         "large": {
@@ -667,7 +667,7 @@ export default {
           "minHeight": "var(--hpe-element-large-minHeight)",
           "fontSize": "var(--hpe-text-large-fontSize)",
           "lineHeight": "var(--hpe-text-large-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)",
+          "gapX": "var(--hpe-static-spacing-3xsmall)",
           "iconOnly": {
             "borderRadius": "var(--hpe-static-radius-xsmall)",
             "borderWidth": "default",
@@ -675,7 +675,7 @@ export default {
             "minWidth": "var(--hpe-element-large-minHeight)",
             "fontSize": "var(--hpe-text-large-fontSize)",
             "lineHeight": "var(--hpe-text-large-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)",
+            "gapX": "var(--hpe-static-spacing-3xsmall)",
             "paddingX": "var(--hpe-button-toolbar-large-iconOnly-paddingX)",
             "paddingY": "var(--hpe-button-default-large-iconOnly-paddingY)"
           }
@@ -688,7 +688,7 @@ export default {
             "minWidth": "var(--hpe-element-xlarge-minHeight)",
             "fontSize": "var(--hpe-text-xlarge-fontSize)",
             "lineHeight": "var(--hpe-text-xlarge-lineHeight)",
-            "gapX": "var(--hpe-static-spacing-xsmall)",
+            "gapX": "var(--hpe-static-spacing-3xsmall)",
             "paddingX": "var(--hpe-button-default-xlarge-iconOnly-paddingY)",
             "paddingY": "var(--hpe-button-default-xlarge-iconOnly-paddingY)"
           },
@@ -699,14 +699,14 @@ export default {
           "minHeight": "var(--hpe-element-xlarge-minHeight)",
           "fontSize": "var(--hpe-text-xlarge-fontSize)",
           "lineHeight": "var(--hpe-text-xlarge-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         }
       }
     },
     "drop": {
       "background": "background-floating",
       "borderRadius": "xsmall",
-      "margin": "var(--hpe-static-spacing-xsmall)",
+      "margin": "var(--hpe-static-spacing-3xsmall)",
       "zIndex": "var(--hpe-drop-zIndex)"
     },
     "menu": {
@@ -749,11 +749,11 @@ export default {
           "minHeight": "var(--hpe-element-medium-minHeight)",
           "fontSize": "var(--hpe-button-default-medium-fontSize)",
           "lineHeight": "var(--hpe-text-medium-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         },
         "group": {
           "container": {
-            "paddingY": "var(--hpe-static-spacing-xsmall)"
+            "paddingY": "var(--hpe-static-spacing-3xsmall)"
           },
           "separator": {
             "height": "var(--hpe-static-borderWidth-xsmall)"
@@ -764,7 +764,7 @@ export default {
     "select": {
       "medium": {
         "option": {
-          "paddingX": "var(--hpe-static-spacing-small)",
+          "paddingX": "var(--hpe-static-spacing-xsmall)",
           "paddingY": "var(--hpe-select-medium-option-paddingY)",
           "minHeight": "var(--hpe-element-medium-minHeight)",
           "borderRadius": "var(--hpe-static-radius-none)",
@@ -866,7 +866,7 @@ export default {
         }
       },
       "medium": {
-        "gapX": "var(--hpe-static-spacing-small)",
+        "gapX": "var(--hpe-static-spacing-xsmall)",
         "label": {
           "fontSize": "var(--hpe-text-medium-fontSize)",
           "lineHeight": "var(--hpe-text-medium-lineHeight)",
@@ -949,7 +949,7 @@ export default {
         }
       },
       "medium": {
-        "gapX": "var(--hpe-static-spacing-small)",
+        "gapX": "var(--hpe-static-spacing-xsmall)",
         "label": {
           "fontSize": "var(--hpe-text-medium-fontSize)",
           "lineHeight": "var(--hpe-text-medium-lineHeight)",
@@ -972,12 +972,12 @@ export default {
       }
     },
     "dataCell": {
-      "paddingX": "var(--hpe-static-spacing-small)",
+      "paddingX": "var(--hpe-static-spacing-xsmall)",
       "fontSize": "var(--hpe-text-medium-fontSize)",
       "lineHeight": "var(--hpe-text-medium-lineHeight)",
       "fontWeight": "var(--hpe-dataCell-fontWeight)",
       "borderBottomWidth": "var(--hpe-static-borderWidth-xsmall)",
-      "paddingTop": "var(--hpe-static-spacing-xsmall)",
+      "paddingTop": "var(--hpe-static-spacing-3xsmall)",
       "paddingBottom": "var(--hpe-dataCell-paddingBottom)",
       "minHeight": "var(--hpe-element-medium-minHeight)",
       "rest": {
@@ -1015,12 +1015,12 @@ export default {
         }
       },
       "primary": {
-        "paddingX": "var(--hpe-static-spacing-small)",
+        "paddingX": "var(--hpe-static-spacing-xsmall)",
         "fontSize": "var(--hpe-text-medium-fontSize)",
         "lineHeight": "var(--hpe-text-medium-lineHeight)",
         "fontWeight": "var(--hpe-dataCell-primary-fontWeight)",
         "borderBottomWidth": "var(--hpe-static-borderWidth-xsmall)",
-        "paddingTop": "var(--hpe-static-spacing-xsmall)",
+        "paddingTop": "var(--hpe-static-spacing-3xsmall)",
         "paddingBottom": "var(--hpe-dataCell-paddingBottom)",
         "rest": {
           "textColor": "text-strong",
@@ -1059,12 +1059,12 @@ export default {
       }
     },
     "headerCell": {
-      "paddingX": "var(--hpe-static-spacing-small)",
+      "paddingX": "var(--hpe-static-spacing-xsmall)",
       "fontSize": "var(--hpe-text-medium-fontSize)",
       "lineHeight": "var(--hpe-text-medium-lineHeight)",
       "fontWeight": "var(--hpe-headerCell-fontWeight)",
       "borderBottomWidth": "var(--hpe-static-borderWidth-xsmall)",
-      "paddingTop": "var(--hpe-static-spacing-xsmall)",
+      "paddingTop": "var(--hpe-static-spacing-3xsmall)",
       "paddingBottom": "var(--hpe-dataCell-paddingBottom)",
       "rest": {
         "textColor": "text-strong",
@@ -1084,7 +1084,7 @@ export default {
         "borderColor": "transparent",
         "background": "transparent"
       },
-      "gapX": "var(--hpe-static-spacing-xsmall)",
+      "gapX": "var(--hpe-static-spacing-3xsmall)",
       "minHeight": "var(--hpe-element-medium-minHeight)",
       "units": {
         "rest": {
@@ -1108,29 +1108,29 @@ export default {
         "input": {
           "group": {
             "item": {
-              "paddingX": "var(--hpe-static-spacing-small)",
+              "paddingX": "var(--hpe-static-spacing-xsmall)",
               "paddingY": "var(--hpe-element-medium-paddingY)",
               "borderWidth": "default",
               "minHeight": "var(--hpe-element-medium-minHeight)",
               "borderRadius": "none",
-              "textToIconX": "var(--hpe-static-spacing-xsmall)",
-              "textToElementX": "var(--hpe-static-spacing-small)"
+              "textToIconX": "var(--hpe-static-spacing-3xsmall)",
+              "textToElementX": "var(--hpe-static-spacing-xsmall)"
             },
             "container": {
               "paddingX": "none",
-              "paddingY": "var(--hpe-static-spacing-xsmall)",
+              "paddingY": "var(--hpe-static-spacing-3xsmall)",
               "borderWidth": "default",
               "borderRadius": "var(--hpe-static-radius-xsmall)"
             }
           },
           "container": {
-            "paddingX": "var(--hpe-static-spacing-small)",
+            "paddingX": "var(--hpe-static-spacing-xsmall)",
             "paddingY": "var(--hpe-formField-medium-input-container-paddingY)",
             "borderWidth": "var(--hpe-static-borderWidth-default)",
             "borderRadius": "var(--hpe-static-radius-xsmall)",
             "minHeight": "var(--hpe-element-medium-minHeight)",
-            "textToIconX": "var(--hpe-static-spacing-xsmall)",
-            "textToElementX": "var(--hpe-static-spacing-small)"
+            "textToIconX": "var(--hpe-static-spacing-3xsmall)",
+            "textToElementX": "var(--hpe-static-spacing-xsmall)"
           }
         },
         "label": {
@@ -1406,14 +1406,14 @@ export default {
       }
     },
     "footerCell": {
-      "paddingX": "var(--hpe-static-spacing-small)",
+      "paddingX": "var(--hpe-static-spacing-xsmall)",
       "fontSize": "var(--hpe-text-medium-fontSize)",
       "lineHeight": "var(--hpe-text-medium-lineHeight)",
       "fontWeight": "var(--hpe-footerCell-fontWeight)",
       "borderTopWidth": "var(--hpe-static-borderWidth-xsmall)",
       "paddingTop": "var(--hpe-dataCell-paddingBottom)",
-      "paddingBottom": "var(--hpe-static-spacing-xsmall)",
-      "gapX": "var(--hpe-static-spacing-xsmall)",
+      "paddingBottom": "var(--hpe-static-spacing-3xsmall)",
+      "gapX": "var(--hpe-static-spacing-3xsmall)",
       "minHeight": "var(--hpe-element-medium-minHeight)",
       "rest": {
         "textColor": "text-default",
@@ -1502,7 +1502,7 @@ export default {
         }
       },
       "medium": {
-        "gapX": "var(--hpe-static-spacing-small)",
+        "gapX": "var(--hpe-static-spacing-xsmall)",
         "label": {
           "fontSize": "var(--hpe-text-medium-fontSize)",
           "lineHeight": "var(--hpe-text-medium-lineHeight)",
@@ -1536,42 +1536,42 @@ export default {
         "small": {
           "fontSize": "var(--hpe-text-small-fontSize)",
           "lineHeight": "var(--hpe-text-small-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         },
         "medium": {
           "fontSize": "var(--hpe-text-medium-fontSize)",
           "lineHeight": "var(--hpe-text-medium-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         },
         "large": {
           "fontSize": "var(--hpe-text-large-fontSize)",
           "lineHeight": "var(--hpe-text-large-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         },
         "xlarge": {
           "fontSize": "var(--hpe-text-xlarge-fontSize)",
           "lineHeight": "var(--hpe-text-xlarge-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         },
         "xxlarge": {
           "fontSize": "var(--hpe-text-xxlarge-fontSize)",
           "lineHeight": "var(--hpe-text-xxlarge-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         },
         "3xl": {
           "fontSize": "var(--hpe-text-3xl-fontSize)",
           "lineHeight": "var(--hpe-text-3xl-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         },
         "4xl": {
           "fontSize": "var(--hpe-text-4xl-fontSize)",
           "lineHeight": "var(--hpe-text-4xl-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         },
         "5xl": {
           "fontSize": "var(--hpe-text-5xl-fontSize)",
           "lineHeight": "var(--hpe-text-5xl-lineHeight)",
-          "gapX": "var(--hpe-static-spacing-xsmall)"
+          "gapX": "var(--hpe-static-spacing-3xsmall)"
         }
       }
     }

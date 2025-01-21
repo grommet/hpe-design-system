@@ -2,17 +2,22 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-module.exports = {
+export default {
   "hpe": {
     "spacing": {
       "none": "var(--hpe-spacing-none)",
       "hair": "var(--hpe-spacing-hair)",
+      "5xsmall": "var(--hpe-spacing-5xsmall)",
+      "4xsmall": "var(--hpe-spacing-4xsmall)",
+      "3xsmall": "var(--hpe-spacing-3xsmall)",
       "xxsmall": "var(--hpe-spacing-xxsmall)",
       "xsmall": "var(--hpe-spacing-xsmall)",
       "small": "var(--hpe-spacing-small)",
       "medium": "var(--hpe-spacing-medium)",
       "large": "var(--hpe-spacing-large)",
-      "xlarge": "var(--hpe-spacing-xlarge)"
+      "xlarge": "var(--hpe-spacing-xlarge)",
+      "xxlarge": "var(--hpe-spacing-xxlarge)",
+      "3xlarge": "var(--hpe-spacing-3xlarge)"
     },
     "radius": {
       "none": "var(--hpe-radius-none)",
@@ -36,15 +41,17 @@ module.exports = {
     },
     "size": {
       "container": {
+        "5xsmall": "var(--hpe-size-container-5xsmall)",
+        "4xsmall": "var(--hpe-size-container-4xsmall)",
+        "3xsmall": "var(--hpe-size-container-3xsmall)",
         "xxsmall": "var(--hpe-size-container-xxsmall)",
         "xsmall": "var(--hpe-size-container-xsmall)",
         "small": "var(--hpe-size-container-small)",
-        "smallPlus": "var(--hpe-size-container-smallPlus)",
         "medium": "var(--hpe-size-container-medium)",
-        "mediumPlus": "var(--hpe-size-container-mediumPlus)",
         "large": "var(--hpe-size-container-large)",
         "xlarge": "var(--hpe-size-container-xlarge)",
-        "xxlarge": "var(--hpe-size-container-xxlarge)"
+        "xxlarge": "var(--hpe-size-container-xxlarge)",
+        "3xlarge": "var(--hpe-size-container-3xlarge)"
       },
       "icon": {
         "xsmall": "var(--hpe-size-icon-xsmall)",

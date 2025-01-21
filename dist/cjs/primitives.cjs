@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-export default {
+module.exports = {
   "hpe": {
     "base": {
       "dimension": {
@@ -26,17 +26,22 @@ export default {
         "600": "var(--hpe-base-dimension-600)",
         "700": "var(--hpe-base-dimension-700)",
         "750": "var(--hpe-base-dimension-750)",
+        "800": "var(--hpe-base-dimension-800)",
         "900": "var(--hpe-base-dimension-900)",
         "1200": "var(--hpe-base-dimension-1200)",
+        "1600": "var(--hpe-base-dimension-1600)",
         "1800": "var(--hpe-base-dimension-1800)",
         "2400": "var(--hpe-base-dimension-2400)",
+        "3200": "var(--hpe-base-dimension-3200)",
         "4800": "var(--hpe-base-dimension-4800)",
+        "6400": "var(--hpe-base-dimension-6400)",
         "7200": "var(--hpe-base-dimension-7200)",
         "9600": "var(--hpe-base-dimension-9600)",
+        "12800": "var(--hpe-base-dimension-12800)",
         "14400": "var(--hpe-base-dimension-14400)",
         "19200": "var(--hpe-base-dimension-19200)",
-        "38400": "var(--hpe-base-dimension-38400)",
-        "76800": "var(--hpe-base-dimension-76800)"
+        "25600": "var(--hpe-base-dimension-25600)",
+        "38400": "var(--hpe-base-dimension-38400)"
       },
       "color": {
         "brand": "var(--hpe-base-color-brand)",
@@ -177,12 +182,18 @@ export default {
       "spacing": {
         "none": "var(--hpe-static-spacing-none)",
         "hair": "var(--hpe-static-spacing-hair)",
+        "5xsmall": "var(--hpe-static-spacing-5xsmall)",
+        "4xsmall": "var(--hpe-static-spacing-4xsmall)",
+        "3xsmall": "var(--hpe-static-spacing-3xsmall)",
         "xxsmall": "var(--hpe-static-spacing-xxsmall)",
         "xsmall": "var(--hpe-static-spacing-xsmall)",
         "small": "var(--hpe-static-spacing-small)",
         "medium": "var(--hpe-static-spacing-medium)",
         "large": "var(--hpe-static-spacing-large)",
-        "xlarge": "var(--hpe-static-spacing-xlarge)"
+        "xlarge": "var(--hpe-static-spacing-xlarge)",
+        "xxlarge": "var(--hpe-static-spacing-xxlarge)",
+        "3xlarge": "var(--hpe-static-spacing-3xlarge)",
+        "4xlarge": "var(--hpe-static-spacing-4xlarge)"
       },
       "radius": {
         "none": "var(--hpe-static-radius-none)",
@@ -205,15 +216,17 @@ export default {
         "default": "var(--hpe-static-borderWidth-default)"
       },
       "container": {
+        "5xsmall": "var(--hpe-static-container-5xsmall)",
+        "4xsmall": "var(--hpe-static-container-4xsmall)",
+        "3xsmall": "var(--hpe-static-container-3xsmall)",
         "xxsmall": "var(--hpe-static-container-xxsmall)",
         "xsmall": "var(--hpe-static-container-xsmall)",
         "small": "var(--hpe-static-container-small)",
-        "smallPlus": "var(--hpe-static-container-smallPlus)",
         "medium": "var(--hpe-static-container-medium)",
-        "mediumPlus": "var(--hpe-static-container-mediumPlus)",
         "large": "var(--hpe-static-container-large)",
         "xlarge": "var(--hpe-static-container-xlarge)",
-        "xxlarge": "var(--hpe-static-container-xxlarge)"
+        "xxlarge": "var(--hpe-static-container-xxlarge)",
+        "3xlarge": "var(--hpe-static-container-3xlarge)"
       }
     },
     "TBD": "var(--hpe-TBD)"

@@ -14,7 +14,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -52,7 +52,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -90,7 +90,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -128,7 +128,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -166,7 +166,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -204,7 +204,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -242,7 +242,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -280,7 +280,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -318,7 +318,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -356,7 +356,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -396,7 +396,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -438,7 +438,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -478,7 +478,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -516,7 +516,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -554,7 +554,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -592,7 +592,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -630,7 +630,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -668,7 +668,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -706,7 +706,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -744,7 +744,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -771,6 +771,44 @@ export default {
     ],
     "key": "{base.dimension.750}"
   },
+  "hpe.base.dimension.800": {
+    "$type": "number",
+    "$value": "32px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 32,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.dimension.800",
+    "attributes": {
+      "category": "base",
+      "type": "dimension",
+      "item": "800"
+    },
+    "path": [
+      "base",
+      "dimension",
+      "800"
+    ],
+    "key": "{base.dimension.800}"
+  },
   "hpe.base.dimension.900": {
     "$type": "number",
     "$value": "36px",
@@ -782,7 +820,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -820,7 +858,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -847,6 +885,44 @@ export default {
     ],
     "key": "{base.dimension.1200}"
   },
+  "hpe.base.dimension.1600": {
+    "$type": "number",
+    "$value": "64px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 64,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.dimension.1600",
+    "attributes": {
+      "category": "base",
+      "type": "dimension",
+      "item": "1600"
+    },
+    "path": [
+      "base",
+      "dimension",
+      "1600"
+    ],
+    "key": "{base.dimension.1600}"
+  },
   "hpe.base.dimension.1800": {
     "$type": "number",
     "$value": "72px",
@@ -858,7 +934,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -896,7 +972,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -923,6 +999,44 @@ export default {
     ],
     "key": "{base.dimension.2400}"
   },
+  "hpe.base.dimension.3200": {
+    "$type": "number",
+    "$value": "128px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 128,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.dimension.3200",
+    "attributes": {
+      "category": "base",
+      "type": "dimension",
+      "item": "3200"
+    },
+    "path": [
+      "base",
+      "dimension",
+      "3200"
+    ],
+    "key": "{base.dimension.3200}"
+  },
   "hpe.base.dimension.4800": {
     "$type": "number",
     "$value": "192px",
@@ -934,7 +1048,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -961,6 +1075,44 @@ export default {
     ],
     "key": "{base.dimension.4800}"
   },
+  "hpe.base.dimension.6400": {
+    "$type": "number",
+    "$value": "256px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 256,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.dimension.6400",
+    "attributes": {
+      "category": "base",
+      "type": "dimension",
+      "item": "6400"
+    },
+    "path": [
+      "base",
+      "dimension",
+      "6400"
+    ],
+    "key": "{base.dimension.6400}"
+  },
   "hpe.base.dimension.7200": {
     "$type": "number",
     "$value": "288px",
@@ -972,7 +1124,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1010,7 +1162,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1037,6 +1189,44 @@ export default {
     ],
     "key": "{base.dimension.9600}"
   },
+  "hpe.base.dimension.12800": {
+    "$type": "number",
+    "$value": "512px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 512,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.dimension.12800",
+    "attributes": {
+      "category": "base",
+      "type": "dimension",
+      "item": "12800"
+    },
+    "path": [
+      "base",
+      "dimension",
+      "12800"
+    ],
+    "key": "{base.dimension.12800}"
+  },
   "hpe.base.dimension.14400": {
     "$type": "number",
     "$value": "576px",
@@ -1048,7 +1238,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1086,7 +1276,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1113,9 +1303,9 @@ export default {
     ],
     "key": "{base.dimension.19200}"
   },
-  "hpe.base.dimension.38400": {
+  "hpe.base.dimension.25600": {
     "$type": "number",
-    "$value": "1152px",
+    "$value": "1024px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1124,11 +1314,49 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 1152,
+      "$value": 1024,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.dimension.25600",
+    "attributes": {
+      "category": "base",
+      "type": "dimension",
+      "item": "25600"
+    },
+    "path": [
+      "base",
+      "dimension",
+      "25600"
+    ],
+    "key": "{base.dimension.25600}"
+  },
+  "hpe.base.dimension.38400": {
+    "$type": "number",
+    "$value": "1536px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 1536,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1151,44 +1379,6 @@ export default {
     ],
     "key": "{base.dimension.38400}"
   },
-  "hpe.base.dimension.76800": {
-    "$type": "number",
-    "$value": "1536px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": 1536,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.dimension.76800",
-    "attributes": {
-      "category": "base",
-      "type": "dimension",
-      "item": "76800"
-    },
-    "path": [
-      "base",
-      "dimension",
-      "76800"
-    ],
-    "key": "{base.dimension.76800}"
-  },
   "hpe.base.color.brand": {
     "$type": "color",
     "$value": "#01a982",
@@ -1202,7 +1392,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1244,7 +1434,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1288,7 +1478,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1332,7 +1522,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1376,7 +1566,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1420,7 +1610,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1464,7 +1654,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1508,7 +1698,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1552,7 +1742,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1596,7 +1786,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1640,7 +1830,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1684,7 +1874,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1728,7 +1918,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1772,7 +1962,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1816,7 +2006,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1860,7 +2050,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1904,7 +2094,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1948,7 +2138,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1992,7 +2182,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2036,7 +2226,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2080,7 +2270,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2124,7 +2314,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2168,7 +2358,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2212,7 +2402,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2256,7 +2446,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2300,7 +2490,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2344,7 +2534,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2388,7 +2578,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2432,7 +2622,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2476,7 +2666,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2520,7 +2710,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2564,7 +2754,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2608,7 +2798,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2652,7 +2842,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2696,7 +2886,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2740,7 +2930,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2784,7 +2974,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2828,7 +3018,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2872,7 +3062,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2916,7 +3106,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2960,7 +3150,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3004,7 +3194,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3048,7 +3238,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3092,7 +3282,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3136,7 +3326,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3180,7 +3370,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3224,7 +3414,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3268,7 +3458,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3312,7 +3502,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3356,7 +3546,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3400,7 +3590,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3444,7 +3634,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3488,7 +3678,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3532,7 +3722,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3576,7 +3766,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3620,7 +3810,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3664,7 +3854,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3708,7 +3898,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3752,7 +3942,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3796,7 +3986,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3840,7 +4030,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3884,7 +4074,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3928,7 +4118,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3972,7 +4162,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4016,7 +4206,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4060,7 +4250,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4104,7 +4294,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4148,7 +4338,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4192,7 +4382,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4236,7 +4426,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4280,7 +4470,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4324,7 +4514,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4368,7 +4558,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4412,7 +4602,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4456,7 +4646,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4500,7 +4690,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4544,7 +4734,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4588,7 +4778,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4632,7 +4822,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4676,7 +4866,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4720,7 +4910,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4764,7 +4954,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4808,7 +4998,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4852,7 +5042,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4896,7 +5086,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4940,7 +5130,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4984,7 +5174,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5028,7 +5218,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5072,7 +5262,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5116,7 +5306,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5160,7 +5350,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5204,7 +5394,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5248,7 +5438,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5292,7 +5482,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5336,7 +5526,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5380,7 +5570,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5424,7 +5614,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5468,7 +5658,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5512,7 +5702,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5556,7 +5746,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -5598,7 +5788,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -5640,7 +5830,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -5682,7 +5872,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5724,7 +5914,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5766,7 +5956,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5808,7 +5998,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5850,7 +6040,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5892,7 +6082,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5934,7 +6124,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5976,7 +6166,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6018,7 +6208,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6060,7 +6250,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6102,7 +6292,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6144,7 +6334,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6186,7 +6376,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6228,7 +6418,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6270,7 +6460,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6312,7 +6502,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6354,7 +6544,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6396,7 +6586,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6438,7 +6628,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6480,7 +6670,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6522,7 +6712,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6564,7 +6754,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6606,7 +6796,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6648,7 +6838,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6690,7 +6880,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6732,7 +6922,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6761,7 +6951,7 @@ export default {
     ],
     "key": "{static.spacing.hair}"
   },
-  "hpe.static.spacing.xxsmall": {
+  "hpe.static.spacing.5xsmall": {
     "$type": "number",
     "$value": "3px",
     "$description": "",
@@ -6774,7 +6964,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6785,6 +6975,132 @@ export default {
           "hiddenFromPublishing": false,
           "scopes": [
             "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.5xsmall",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "5xsmall"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "5xsmall"
+    ],
+    "key": "{static.spacing.5xsmall}"
+  },
+  "hpe.static.spacing.4xsmall": {
+    "$type": "number",
+    "$value": "4px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.100}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.4xsmall",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "4xsmall"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "4xsmall"
+    ],
+    "key": "{static.spacing.4xsmall}"
+  },
+  "hpe.static.spacing.3xsmall": {
+    "$type": "number",
+    "$value": "6px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.150}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.3xsmall",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "3xsmall"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "3xsmall"
+    ],
+    "key": "{static.spacing.3xsmall}"
+  },
+  "hpe.static.spacing.xxsmall": {
+    "$type": "number",
+    "$value": "8px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -6805,7 +7121,7 @@ export default {
   },
   "hpe.static.spacing.xsmall": {
     "$type": "number",
-    "$value": "6px",
+    "$value": "12px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -6816,11 +7132,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.150}",
+      "$value": "{base.dimension.300}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6847,28 +7163,28 @@ export default {
   },
   "hpe.static.spacing.small": {
     "$type": "number",
-    "$value": "12px",
+    "$value": "16px",
     "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "GAP"
+          "ALL_SCOPES"
         ],
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.300}",
+      "$value": "{base.dimension.400}",
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "GAP"
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -6900,7 +7216,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6931,28 +7247,28 @@ export default {
   },
   "hpe.static.spacing.large": {
     "$type": "number",
-    "$value": "48px",
+    "$value": "32px",
     "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "GAP"
+          "ALL_SCOPES"
         ],
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.1200}",
+      "$value": "{base.dimension.800}",
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "GAP"
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -6973,7 +7289,7 @@ export default {
   },
   "hpe.static.spacing.xlarge": {
     "$type": "number",
-    "$value": "96px",
+    "$value": "48px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -6984,11 +7300,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.2400}",
+      "$value": "{base.dimension.1200}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7013,6 +7329,132 @@ export default {
     ],
     "key": "{static.spacing.xlarge}"
   },
+  "hpe.static.spacing.xxlarge": {
+    "$type": "number",
+    "$value": "64px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.1600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.xxlarge",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "xxlarge"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "xxlarge"
+    ],
+    "key": "{static.spacing.xxlarge}"
+  },
+  "hpe.static.spacing.3xlarge": {
+    "$type": "number",
+    "$value": "96px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.2400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.3xlarge",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "3xlarge"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "3xlarge"
+    ],
+    "key": "{static.spacing.3xlarge}"
+  },
+  "hpe.static.spacing.4xlarge": {
+    "$type": "number",
+    "$value": "128px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.3200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.4xlarge",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "4xlarge"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "4xlarge"
+    ],
+    "key": "{static.spacing.4xlarge}"
+  },
   "hpe.static.radius.none": {
     "$type": "number",
     "$value": "0px",
@@ -7026,7 +7468,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7068,7 +7510,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7110,7 +7552,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7152,7 +7594,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7194,7 +7636,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7236,7 +7678,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7278,7 +7720,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7320,7 +7762,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7362,7 +7804,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7404,7 +7846,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7446,7 +7888,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7488,7 +7930,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7530,7 +7972,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7572,7 +8014,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7614,7 +8056,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7656,7 +8098,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7685,7 +8127,7 @@ export default {
     ],
     "key": "{static.borderWidth.default}"
   },
-  "hpe.static.container.xxsmall": {
+  "hpe.static.container.5xsmall": {
     "$type": "number",
     "$value": "48px",
     "$description": "",
@@ -7699,7 +8141,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7711,6 +8153,134 @@ export default {
           "scopes": [
             "WIDTH_HEIGHT",
             "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.container.5xsmall",
+    "attributes": {
+      "category": "static",
+      "type": "container",
+      "item": "5xsmall"
+    },
+    "path": [
+      "static",
+      "container",
+      "5xsmall"
+    ],
+    "key": "{static.container.5xsmall}"
+  },
+  "hpe.static.container.4xsmall": {
+    "$type": "number",
+    "$value": "64px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.1600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.container.4xsmall",
+    "attributes": {
+      "category": "static",
+      "type": "container",
+      "item": "4xsmall"
+    },
+    "path": [
+      "static",
+      "container",
+      "4xsmall"
+    ],
+    "key": "{static.container.4xsmall}"
+  },
+  "hpe.static.container.3xsmall": {
+    "$type": "number",
+    "$value": "96px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.2400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.container.3xsmall",
+    "attributes": {
+      "category": "static",
+      "type": "container",
+      "item": "3xsmall"
+    },
+    "path": [
+      "static",
+      "container",
+      "3xsmall"
+    ],
+    "key": "{static.container.3xsmall}"
+  },
+  "hpe.static.container.xxsmall": {
+    "$type": "number",
+    "$value": "128px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.3200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -7731,7 +8301,7 @@ export default {
   },
   "hpe.static.container.xsmall": {
     "$type": "number",
-    "$value": "96px",
+    "$value": "192px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -7743,11 +8313,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.2400}",
+      "$value": "{base.dimension.4800}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7775,30 +8345,28 @@ export default {
   },
   "hpe.static.container.small": {
     "$type": "number",
-    "$value": "192px",
+    "$value": "256px",
     "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "WIDTH_HEIGHT",
-          "GAP"
+          "ALL_SCOPES"
         ],
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.4800}",
+      "$value": "{base.dimension.6400}",
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "WIDTH_HEIGHT",
-            "GAP"
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
@@ -7817,48 +8385,6 @@ export default {
     ],
     "key": "{static.container.small}"
   },
-  "hpe.static.container.smallPlus": {
-    "$type": "number",
-    "$value": "288px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.7200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.static.container.smallPlus",
-    "attributes": {
-      "category": "static",
-      "type": "container",
-      "item": "smallPlus"
-    },
-    "path": [
-      "static",
-      "container",
-      "smallPlus"
-    ],
-    "key": "{static.container.smallPlus}"
-  },
   "hpe.static.container.medium": {
     "$type": "number",
     "$value": "384px",
@@ -7873,7 +8399,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7903,9 +8429,9 @@ export default {
     ],
     "key": "{static.container.medium}"
   },
-  "hpe.static.container.mediumPlus": {
+  "hpe.static.container.large": {
     "$type": "number",
-    "$value": "576px",
+    "$value": "512px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -7916,61 +8442,17 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.14400}",
+      "$value": "{base.dimension.12800}",
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
             "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.static.container.mediumPlus",
-    "attributes": {
-      "category": "static",
-      "type": "container",
-      "item": "mediumPlus"
-    },
-    "path": [
-      "static",
-      "container",
-      "mediumPlus"
-    ],
-    "key": "{static.container.mediumPlus}"
-  },
-  "hpe.static.container.large": {
-    "$type": "number",
-    "$value": "768px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "WIDTH_HEIGHT",
-          "GAP"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.19200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT",
-            "GAP"
           ],
           "codeSyntax": {}
         }
@@ -7991,7 +8473,7 @@ export default {
   },
   "hpe.static.container.xlarge": {
     "$type": "number",
-    "$value": "1152px",
+    "$value": "768px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -8003,11 +8485,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.38400}",
+      "$value": "{base.dimension.19200}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8035,7 +8517,7 @@ export default {
   },
   "hpe.static.container.xxlarge": {
     "$type": "number",
-    "$value": "1536px",
+    "$value": "1024px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -8047,11 +8529,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.76800}",
+      "$value": "{base.dimension.25600}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -8077,6 +8559,50 @@ export default {
     ],
     "key": "{static.container.xxlarge}"
   },
+  "hpe.static.container.3xlarge": {
+    "$type": "number",
+    "$value": "1536px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.38400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.container.3xlarge",
+    "attributes": {
+      "category": "static",
+      "type": "container",
+      "item": "3xlarge"
+    },
+    "path": [
+      "static",
+      "container",
+      "3xlarge"
+    ],
+    "key": "{static.container.3xlarge}"
+  },
   "hpe.TBD": {
     "$type": "color",
     "$value": "rgba(0, 255, 10, 0)",
@@ -8090,7 +8616,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",

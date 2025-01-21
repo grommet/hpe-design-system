@@ -62,7 +62,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xxsmall}",
+      "$value": "{static.spacing.5xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -104,7 +104,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xxsmall}",
+      "$value": "{static.spacing.5xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -316,7 +316,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xxsmall}",
+      "$value": "{static.spacing.5xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -360,7 +360,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -872,7 +872,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -914,7 +914,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -956,7 +956,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xxsmall}",
+      "$value": "{static.spacing.5xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1000,7 +1000,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1044,7 +1044,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1342,7 +1342,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1384,7 +1384,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1898,7 +1898,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1940,7 +1940,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2454,7 +2454,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2496,7 +2496,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -20995,7 +20995,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -23297,7 +23297,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -24463,7 +24463,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -26831,7 +26831,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "Space between checkbox control and value (label)",
       "$extensions": {
         "com.figma": {
@@ -28289,7 +28289,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -28835,7 +28835,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29037,7 +29037,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -32439,7 +32439,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -32817,7 +32817,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -32960,7 +32960,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -39648,7 +39648,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "Space between checkbox control and value (label)",
       "$extensions": {
         "com.figma": {

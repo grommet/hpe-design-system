@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-module.exports = {
+export default {
   "hpe": {
     "color": {
       "background": {
@@ -11,17 +11,19 @@ module.exports = {
         "front": "var(--hpe-color-background-front)",
         "floating": "var(--hpe-color-background-floating)",
         "contrast": "var(--hpe-color-background-contrast)",
+        "contrast-hover": "var(--hpe-color-background-contrast-hover)",
         "hover": "var(--hpe-color-background-hover)",
         "active": "var(--hpe-color-background-active)",
         "disabled": "var(--hpe-color-background-disabled)",
         "screenOverlay": "var(--hpe-color-background-screenOverlay)",
-        "ok": "var(--hpe-color-background-ok)",
-        "critical": "var(--hpe-color-background-critical)",
-        "unknown": "var(--hpe-color-background-unknown)",
         "info": "var(--hpe-color-background-info)",
+        "unknown": "var(--hpe-color-background-unknown)",
+        "critical": "var(--hpe-color-background-critical)",
+        "ok": "var(--hpe-color-background-ok)",
         "warning": "var(--hpe-color-background-warning)",
         "primary-strong": "var(--hpe-color-background-primary-strong)",
         "primary-strong-hover": "var(--hpe-color-background-primary-strong-hover)",
+        "primary-xstrong": "var(--hpe-color-background-primary-xstrong)",
         "selected-primary-strong": "var(--hpe-color-background-selected-primary-strong)",
         "selected-primary-strong-hover": "var(--hpe-color-background-selected-primary-strong-hover)",
         "selected-primary-weak": "var(--hpe-color-background-selected-primary-weak)",
@@ -91,14 +93,7 @@ module.exports = {
         "blue": "var(--hpe-color-decorative-blue)",
         "red": "var(--hpe-color-decorative-red)",
         "orange": "var(--hpe-color-decorative-orange)",
-        "yellow": "var(--hpe-color-decorative-yellow)",
-        "purple!": "var(--hpe-color-decorative-purple!)",
-        "green!": "var(--hpe-color-decorative-green!)",
-        "teal!": "var(--hpe-color-decorative-teal!)",
-        "blue!": "var(--hpe-color-decorative-blue!)",
-        "red!": "var(--hpe-color-decorative-red!)",
-        "orange!": "var(--hpe-color-decorative-orange!)",
-        "yellow!": "var(--hpe-color-decorative-yellow!)"
+        "yellow": "var(--hpe-color-decorative-yellow)"
       },
       "dataVis": {
         "categorical-10": "var(--hpe-color-dataVis-categorical-10)",
