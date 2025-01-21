@@ -423,18 +423,6 @@
       },
       "38400": {
         "$type": "number",
-        "$value": 1152,
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": [],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "76800": {
-        "$type": "number",
         "$value": 1536,
         "$description": "",
         "$extensions": {
@@ -2479,7 +2467,7 @@
       },
       "3xlarge": {
         "$type": "number",
-        "$value": "{base.dimension.76800}",
+        "$value": "{base.dimension.38400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
