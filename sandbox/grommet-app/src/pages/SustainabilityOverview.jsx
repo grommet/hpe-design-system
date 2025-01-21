@@ -9,124 +9,123 @@ import { SkeletonContext } from '../components';
 export const SustainabilityOverview = () => {
   const skeleton = useContext(SkeletonContext);
   return (
-    <DashboardCard
-      title="Sustainability overview"
-      as={Link}
-      to="/sustainability"
-      level={2}
-      footer={
-        <Notification
-          status="warning"
-          message="Your carbon emissions have increased by 83% in the past month."
-        />
-      }
-      style={{ textDecoration: 'none' }} // override from as={Link}
-    >
-      <Grid columns={[['min-content', 'auto'], 'flex']} gap="medium">
-        <>
-          <Metric
-            label="Carbon emissions"
-            unit="MTCO2e"
-            value={132000}
-            size="small"
+    <Link to="/sustainability" style={{ textDecoration: 'none' }}>
+      <DashboardCard
+        title="Sustainability overview"
+        level={2}
+        footer={
+          <Notification
+            status="warning"
+            message="Your carbon emissions have increased by 83% in the past month."
           />
-          {skeleton ? (
-            <Skeleton height="xxsmall" />
-          ) : (
-            <DataChart
-              data={sustainability.sustainability.slice(0, 10)}
-              series={['date', 'emissions']}
-              chart={[
-                {
-                  property: 'emissions',
-                  type: 'area',
-                  thickness: 'xsmall',
-                  color: { color: 'graph-0', opacity: 'strong' },
-                },
-                {
-                  property: 'emissions',
-                  type: 'line',
-                  thickness: 'xxsmall',
-                  color: 'graph-0',
-                  round: true,
-                },
-              ]}
-              axis={{
-                x: false,
-                y: false,
-              }}
-              size={{ height: 'xxsmall' }}
+        }
+      >
+        <Grid columns={[['min-content', 'auto'], 'flex']} gap="medium">
+          <>
+            <Metric
+              label="Carbon emissions"
+              unit="MTCO2e"
+              value={132000}
+              size="small"
             />
-          )}
-        </>
-        <>
-          <Metric
-            label="Energy consumption"
-            unit="kWh"
-            value={325000}
-            size="small"
-          />
-          {skeleton ? (
-            <Skeleton height="xxsmall" />
-          ) : (
-            <DataChart
-              data={sustainability.sustainability.slice(0, 10)}
-              series={['date', 'energy']}
-              chart={[
-                {
-                  property: 'energy',
-                  type: 'area',
-                  thickness: 'xsmall',
-                  color: { color: 'graph-1', opacity: 'strong' },
-                },
-                {
-                  property: 'energy',
-                  type: 'line',
-                  thickness: 'xxsmall',
-                  color: 'graph-1',
-                  round: true,
-                },
-              ]}
-              axis={{
-                x: false,
-                y: false,
-              }}
-              size={{ height: 'xxsmall' }}
+            {skeleton ? (
+              <Skeleton height="xxsmall" />
+            ) : (
+              <DataChart
+                data={sustainability.sustainability.slice(0, 10)}
+                series={['date', 'emissions']}
+                chart={[
+                  {
+                    property: 'emissions',
+                    type: 'area',
+                    thickness: 'xsmall',
+                    color: { color: 'graph-0', opacity: 'strong' },
+                  },
+                  {
+                    property: 'emissions',
+                    type: 'line',
+                    thickness: 'xxsmall',
+                    color: 'graph-0',
+                    round: true,
+                  },
+                ]}
+                axis={{
+                  x: false,
+                  y: false,
+                }}
+                size={{ height: 'xxsmall' }}
+              />
+            )}
+          </>
+          <>
+            <Metric
+              label="Energy consumption"
+              unit="kWh"
+              value={325000}
+              size="small"
             />
-          )}
-        </>
-        <>
-          <Metric label="Energy cost" unit="USD" value={48750} size="small" />
-          {skeleton ? (
-            <Skeleton height="xxsmall" />
-          ) : (
-            <DataChart
-              data={sustainability.sustainability.slice(0, 10)}
-              series={['date', 'cost']}
-              chart={[
-                {
-                  property: 'cost',
-                  type: 'area',
-                  thickness: 'xsmall',
-                  color: { color: 'graph-2', opacity: 'strong' },
-                },
-                {
-                  property: 'cost',
-                  type: 'line',
-                  thickness: 'xxsmall',
-                  color: 'graph-2',
-                  round: true,
-                },
-              ]}
-              axis={{
-                x: false,
-                y: false,
-              }}
-              size={{ height: 'xxsmall' }}
-            />
-          )}
-        </>
-      </Grid>
-    </DashboardCard>
+            {skeleton ? (
+              <Skeleton height="xxsmall" />
+            ) : (
+              <DataChart
+                data={sustainability.sustainability.slice(0, 10)}
+                series={['date', 'energy']}
+                chart={[
+                  {
+                    property: 'energy',
+                    type: 'area',
+                    thickness: 'xsmall',
+                    color: { color: 'graph-1', opacity: 'strong' },
+                  },
+                  {
+                    property: 'energy',
+                    type: 'line',
+                    thickness: 'xxsmall',
+                    color: 'graph-1',
+                    round: true,
+                  },
+                ]}
+                axis={{
+                  x: false,
+                  y: false,
+                }}
+                size={{ height: 'xxsmall' }}
+              />
+            )}
+          </>
+          <>
+            <Metric label="Energy cost" unit="USD" value={48750} size="small" />
+            {skeleton ? (
+              <Skeleton height="xxsmall" />
+            ) : (
+              <DataChart
+                data={sustainability.sustainability.slice(0, 10)}
+                series={['date', 'cost']}
+                chart={[
+                  {
+                    property: 'cost',
+                    type: 'area',
+                    thickness: 'xsmall',
+                    color: { color: 'graph-2', opacity: 'strong' },
+                  },
+                  {
+                    property: 'cost',
+                    type: 'line',
+                    thickness: 'xxsmall',
+                    color: 'graph-2',
+                    round: true,
+                  },
+                ]}
+                axis={{
+                  x: false,
+                  y: false,
+                }}
+                size={{ height: 'xxsmall' }}
+              />
+            )}
+          </>
+        </Grid>
+      </DashboardCard>
+    </Link>
   );
 };

@@ -38,7 +38,7 @@
     },
     "4xsmall": {
       "$type": "number",
-      "$value": "{static.spacing.5xsmall}",
+      "$value": "{static.spacing.4xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -50,7 +50,7 @@
     },
     "3xsmall": {
       "$type": "number",
-      "$value": "{static.spacing.5xsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -62,7 +62,7 @@
     },
     "xxsmall": {
       "$type": "number",
-      "$value": "{static.spacing.4xsmall}",
+      "$value": "{static.spacing.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -74,7 +74,7 @@
     },
     "xsmall": {
       "$type": "number",
-      "$value": "{static.spacing.3xsmall}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -86,7 +86,7 @@
     },
     "small": {
       "$type": "number",
-      "$value": "{static.spacing.xxsmall}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -98,7 +98,7 @@
     },
     "medium": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -110,7 +110,7 @@
     },
     "large": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -122,7 +122,7 @@
     },
     "xlarge": {
       "$type": "number",
-      "$value": "{static.spacing.medium}",
+      "$value": "{static.spacing.xlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -134,7 +134,7 @@
     },
     "xxlarge": {
       "$type": "number",
-      "$value": "{static.spacing.large}",
+      "$value": "{static.spacing.xxlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -146,7 +146,7 @@
     },
     "3xlarge": {
       "$type": "number",
-      "$value": "{static.spacing.xlarge}",
+      "$value": "{static.spacing.3xlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -184,7 +184,7 @@
     },
     "xxsmall": {
       "$type": "number",
-      "$value": "{static.radius.hair}",
+      "$value": "{static.radius.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -196,7 +196,7 @@
     },
     "xsmall": {
       "$type": "number",
-      "$value": "{static.radius.xxsmall}",
+      "$value": "{static.radius.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -208,7 +208,7 @@
     },
     "small": {
       "$type": "number",
-      "$value": "{static.radius.xsmall}",
+      "$value": "{static.radius.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -220,7 +220,7 @@
     },
     "medium": {
       "$type": "number",
-      "$value": "{static.radius.small}",
+      "$value": "{static.radius.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -232,7 +232,7 @@
     },
     "large": {
       "$type": "number",
-      "$value": "{static.radius.medium}",
+      "$value": "{static.radius.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -244,7 +244,7 @@
     },
     "xlarge": {
       "$type": "number",
-      "$value": "{static.radius.large}",
+      "$value": "{static.radius.xlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -294,7 +294,7 @@
     },
     "small": {
       "$type": "number",
-      "$value": "{static.borderWidth.xsmall}",
+      "$value": "{static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -306,7 +306,7 @@
     },
     "medium": {
       "$type": "number",
-      "$value": "{static.borderWidth.small}",
+      "$value": "{static.borderWidth.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -318,7 +318,7 @@
     },
     "large": {
       "$type": "number",
-      "$value": "{static.borderWidth.medium}",
+      "$value": "{static.borderWidth.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -330,7 +330,7 @@
     },
     "xlarge": {
       "$type": "number",
-      "$value": "{static.borderWidth.large}",
+      "$value": "{static.borderWidth.xlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -369,7 +369,7 @@
       },
       "4xsmall": {
         "$type": "number",
-        "$value": "{static.container.5xsmall}",
+        "$value": "{static.container.4xsmall}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -381,7 +381,7 @@
       },
       "3xsmall": {
         "$type": "number",
-        "$value": "{static.container.5xsmall}",
+        "$value": "{static.container.3xsmall}",
         "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
@@ -393,7 +393,7 @@
       },
       "xxsmall": {
         "$type": "number",
-        "$value": "{static.container.4xsmall}",
+        "$value": "{static.container.xxsmall}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -405,7 +405,7 @@
       },
       "xsmall": {
         "$type": "number",
-        "$value": "{static.container.3xsmall}",
+        "$value": "{static.container.xsmall}",
         "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
@@ -417,7 +417,7 @@
       },
       "small": {
         "$type": "number",
-        "$value": "{static.container.xxsmall}",
+        "$value": "{static.container.small}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -429,7 +429,7 @@
       },
       "medium": {
         "$type": "number",
-        "$value": "{static.container.xsmall}",
+        "$value": "{static.container.medium}",
         "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
@@ -441,7 +441,7 @@
       },
       "large": {
         "$type": "number",
-        "$value": "{static.container.small}",
+        "$value": "{static.container.large}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -453,7 +453,7 @@
       },
       "xlarge": {
         "$type": "number",
-        "$value": "{static.container.medium}",
+        "$value": "{static.container.xlarge}",
         "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
@@ -465,7 +465,7 @@
       },
       "xxlarge": {
         "$type": "number",
-        "$value": "{static.container.large}",
+        "$value": "{static.container.xxlarge}",
         "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
@@ -477,7 +477,7 @@
       },
       "3xlarge": {
         "$type": "number",
-        "$value": "{static.container.xlarge}",
+        "$value": "{static.container.3xlarge}",
         "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
@@ -1031,7 +1031,7 @@
       },
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.500}",
+        "$value": "{base.fontSize.600}",
         "$description": "Font size typically used on h1.",
         "$extensions": {
           "com.figma": {
@@ -1043,7 +1043,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.200}",
+        "$value": "{base.lineHeight.500}",
         "$description": "Line height typically used on h1.",
         "$extensions": {
           "com.figma": {
@@ -1069,7 +1069,7 @@
       },
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.300}",
+        "$value": "{base.fontSize.500}",
         "$description": "Font size typically used on h2.",
         "$extensions": {
           "com.figma": {
@@ -1081,7 +1081,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.100}",
+        "$value": "{base.lineHeight.200}",
         "$description": "Line height typically used on h2.",
         "$extensions": {
           "com.figma": {
@@ -1095,7 +1095,7 @@
     "medium": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.100}",
+        "$value": "{base.fontSize.300}",
         "$description": "Font size typically used on h3.",
         "$extensions": {
           "com.figma": {
@@ -1107,7 +1107,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.90}",
+        "$value": "{base.lineHeight.100}",
         "$description": "Line height typically used on h3.",
         "$extensions": {
           "com.figma": {
@@ -1133,7 +1133,7 @@
     "small": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$value": "{base.fontSize.100}",
         "$description": "Font size typically used on h4.",
         "$extensions": {
           "com.figma": {
@@ -1145,7 +1145,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.80}",
+        "$value": "{base.lineHeight.90}",
         "$description": "Line height typically used on h4.",
         "$extensions": {
           "com.figma": {

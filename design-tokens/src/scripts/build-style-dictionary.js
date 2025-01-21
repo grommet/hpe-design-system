@@ -10,6 +10,10 @@ const CJS_DIR = 'dist/cjs/';
 const CSS_DIR = 'dist/css/';
 const DOCS_DIR = 'dist/docs/';
 const PREFIX = 'hpe';
+/**
+ * Design tokens that should only exist in Figma but not be output to hpe-design-tokens
+ */
+const FIGMA_PREFIX = 'fig';
 
 await HPEStyleDictionary.hasInitialized;
 
@@ -20,7 +24,7 @@ let extendedDictionary = HPEStyleDictionary;
  * ----------------------------------- */
 try {
   extendedDictionary = await HPEStyleDictionary.extend({
-    source: [`${TOKENS_DIR}/primitive/primitives.base.json`],
+    source: [`${TOKENS_DIR}/primitive/primitives.default.json`],
     platforms: {
       grommet: {
         transformGroup: 'js/w3c',
@@ -28,7 +32,7 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'base.js',
+            destination: 'primitives.js',
             format: 'javascript/esm',
           },
         ],
@@ -39,7 +43,7 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'base.js',
+            destination: 'primitives.js',
             format: 'javascript/esm',
           },
         ],
@@ -50,7 +54,7 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'base.cjs',
+            destination: 'primitives.cjs',
             format: 'javascript/commonJs',
           },
         ],
@@ -61,7 +65,7 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'base.css',
+            destination: 'primitives.css',
             format: 'css/variables',
             options: {
               outputReferences: true,
@@ -73,7 +77,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: DOCS_DIR,
         prefix: PREFIX,
-        files: [{ destination: 'base.js', format: 'jsonFlat' }],
+        files: [{ destination: 'primitives.js', format: 'jsonFlat' }],
       },
     },
   });
@@ -88,7 +92,7 @@ try {
 try {
   extendedDictionary = await HPEStyleDictionary.extend({
     source: [
-      `${TOKENS_DIR}/primitive/primitives.base.json`,
+      `${TOKENS_DIR}/primitive/primitives.default.json`,
       `${TOKENS_DIR}/semantic/color.light.json`, // using light mode to have a reference name available
       `${TOKENS_DIR}/semantic/global.default.json`,
     ],
@@ -175,7 +179,9 @@ try {
 const colorModeFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('color') ? `${TOKENS_DIR}/semantic/${file}` : undefined,
+    file.includes('color') && !file.includes('v1')
+      ? `${TOKENS_DIR}/semantic/${file}`
+      : undefined,
   )
   .filter(file => file);
 
@@ -186,7 +192,7 @@ try {
   colorModeFiles.forEach(async file => {
     const [theme, mode] = getThemeAndMode(file);
     extendedDictionary = await HPEStyleDictionary.extend({
-      source: [`${TOKENS_DIR}/primitive/primitives.base.json`, file],
+      source: [`${TOKENS_DIR}/primitive/primitives.default.json`, file],
       platforms: {
         grommet: {
           transformGroup: 'js/w3c',
@@ -208,9 +214,7 @@ try {
           prefix: PREFIX,
           files: [
             {
-              destination: `color.${
-                theme ? `${theme}-${mode}` : `${mode || ''}`
-              }.js`,
+              destination: 'color.js',
               format: 'javascript/esm',
               filter: token => token.filePath === file,
             },
@@ -222,9 +226,7 @@ try {
           prefix: PREFIX,
           files: [
             {
-              destination: `color.${
-                theme ? `${theme}-${mode}` : `${mode || ''}`
-              }.cjs`,
+              destination: 'color.cjs',
               format: 'javascript/commonJs',
               filter: token => token.filePath === file,
             },
@@ -278,7 +280,9 @@ try {
 const dimensionFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('dimension') ? `${TOKENS_DIR}/semantic/${file}` : undefined,
+    file.includes('dimension') && !file.includes('v1')
+      ? `${TOKENS_DIR}/semantic/${file}`
+      : undefined,
   )
   .filter(file => file);
 
@@ -288,7 +292,7 @@ try {
     const mode = res[1];
     extendedDictionary = await HPEStyleDictionary.extend({
       source: [
-        `${TOKENS_DIR}/primitive/primitives.base.json`,
+        `${TOKENS_DIR}/primitive/primitives.default.json`,
         `${TOKENS_DIR}/semantic/color.light.json`,
         `${TOKENS_DIR}/semantic/global.default.json`,
         file,
@@ -312,7 +316,7 @@ try {
           prefix: PREFIX,
           files: [
             {
-              destination: `dimension.${mode}.js`,
+              destination: 'dimension.js',
               format: 'javascript/esm',
               filter: token => token.filePath === file,
             },
@@ -324,7 +328,7 @@ try {
           prefix: PREFIX,
           files: [
             {
-              destination: `dimension.${mode}.cjs`,
+              destination: 'dimension.cjs',
               format: 'javascript/commonJs',
               filter: token => token.filePath === file,
             },
@@ -378,7 +382,7 @@ try {
 try {
   extendedDictionary = await HPEStyleDictionary.extend({
     source: [
-      `${TOKENS_DIR}/primitive/primitives.base.json`,
+      `${TOKENS_DIR}/primitive/primitives.default.json`,
       `${TOKENS_DIR}/semantic/global.default.json`,
       `${TOKENS_DIR}/semantic/color.light.json`, // using light mode to have a reference name available
       `${TOKENS_DIR}/semantic/dimension.medium.json`, // using medium mode to have a reference name available
@@ -392,9 +396,10 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'components.default.js',
+            destination: 'components.js',
             filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`),
+              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+              !token.path.includes(FIGMA_PREFIX),
             format: 'esmGrommetRefs',
           },
         ],
@@ -405,9 +410,10 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'components.default.js',
+            destination: 'components.js',
             filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`),
+              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+              !token.path.includes(FIGMA_PREFIX),
             format: 'esmGrommetRefs',
           },
         ],
@@ -418,9 +424,10 @@ try {
         prefix: PREFIX,
         files: [
           {
-            destination: 'components.default.cjs',
+            destination: 'components.cjs',
             filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`),
+              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+              !token.path.includes(FIGMA_PREFIX),
             format: 'javascript/commonJs',
           },
         ],
@@ -434,7 +441,8 @@ try {
             destination: 'components.css',
             format: 'css/variables',
             filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`),
+              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+              !token.path.includes(FIGMA_PREFIX),
             options: {
               outputReferences: true,
             },
@@ -449,7 +457,8 @@ try {
           {
             destination: 'components.js',
             filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`),
+              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+              !token.path.includes(FIGMA_PREFIX),
             format: 'jsonFlat',
           },
         ],

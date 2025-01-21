@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { deepFreeze, deepMerge } from 'grommet/utils';
 import {
-  base,
+  primitives as localPrimitives,
   dark as localDark,
   light as localLight,
   medium as localMedium,
@@ -161,8 +161,9 @@ const textSizes = [
   // '6xl',
 ];
 
-const buildTheme = tokens => {
+const buildTheme = (tokens, flags) => {
   const {
+    primitives,
     light,
     dark,
     small,
@@ -210,7 +211,7 @@ const buildTheme = tokens => {
 
     // ---- TO DO: Tokens do not exist, should they? ---- //
 
-    control: 'background-primary-default',
+    control: 'background-primary-strong',
     'active-text': 'text-strong',
     'text-primary-button': components.hpe.button.primary.rest.textColor,
     'background-cta-alternate': 'background-contrast',
@@ -245,58 +246,40 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.decorative.blue,
       light: light.hpe.color.decorative.blue,
     },
-    'blue!': {
-      dark: dark.hpe.color.decorative['blue!'],
-      light: light.hpe.color.decorative['blue!'],
-    },
+    'blue!': primitives.hpe.base.color['blue-700'],
     green: {
       dark: dark.hpe.color.decorative.green,
       light: light.hpe.color.decorative.green,
     },
     'green!': {
-      dark: dark.hpe.color.decorative['green!'],
-      light: light.hpe.color.decorative['green!'],
+      dark: dark.hpe.color.decorative.brand,
+      light: light.hpe.color.decorative.brand,
     },
     teal: {
       dark: dark.hpe.color.decorative.teal,
       light: light.hpe.color.decorative.teal,
     },
-    'teal!': {
-      dark: dark.hpe.color.decorative['teal!'],
-      light: light.hpe.color.decorative['teal!'],
-    },
+    'teal!': primitives.hpe.base.color['teal-400'],
     purple: {
       dark: dark.hpe.color.decorative.purple,
       light: light.hpe.color.decorative.purple,
     },
-    'purple!': {
-      dark: dark.hpe.color.decorative['purple!'],
-      light: light.hpe.color.decorative['purple!'],
-    },
+    'purple!': primitives.hpe.base.color['purple-800'],
     red: {
       dark: dark.hpe.color.decorative.red,
       light: light.hpe.color.decorative.red,
     },
-    'red!': {
-      dark: dark.hpe.color.decorative['red!'],
-      light: light.hpe.color.decorative['red!'],
-    },
+    'red!': primitives.hpe.base.color['red-750'],
     orange: {
       dark: dark.hpe.color.decorative.orange,
       light: light.hpe.color.decorative.orange,
     },
-    'orange!': {
-      dark: dark.hpe.color.decorative['orange!'],
-      light: light.hpe.color.decorative['orange!'],
-    },
+    'orange!': primitives.hpe.base.color['orange-500'],
     yellow: {
       dark: dark.hpe.color.decorative.yellow,
       light: light.hpe.color.decorative.yellow,
     },
-    'yellow!': {
-      dark: dark.hpe.color.decorative['yellow!'],
-      light: light.hpe.color.decorative['yellow!'],
-    },
+    'yellow!': primitives.hpe.base.color['yellow-400'],
     'graph-0': {
       light: light.hpe.color.dataVis['categorical-10'],
       dark: dark.hpe.color.dataVis['categorical-10'],
@@ -359,7 +342,7 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.icon.default,
     },
     'selected-background': 'background-selected-strong-enabled',
-    'selected-text': 'text-onSelectedStrong',
+    'selected-text': 'text-onSelectedPrimaryStrong',
     placeholder: {
       light: light.hpe.color.text.placeholder,
       dark: dark.hpe.color.text.placeholder,
@@ -367,29 +350,28 @@ const buildTheme = tokens => {
     'disabled-text': 'text-disabled', // deprecate
   };
 
-  const containerTokens = 'container' in large.hpe.size;
   const size = breakpoint => ({
-    xxsmall: containerTokens
-      ? breakpoint.hpe.size.container.xxsmall
-      : breakpoint.hpe.size.content.xxsmall,
-    xsmall: containerTokens
+    xxsmall: flags['v6-backwards-compatibility']
+      ? breakpoint.hpe.size.container['5xsmall']
+      : breakpoint.hpe.size.container.xxsmall,
+    xsmall: flags['v6-backwards-compatibility']
+      ? breakpoint.hpe.size.container['3xsmall']
+      : breakpoint.hpe.size.container.xsmall,
+    small: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container.xsmall
-      : breakpoint.hpe.size.content.xsmall,
-    small: containerTokens
-      ? breakpoint.hpe.size.container.small
-      : breakpoint.hpe.size.content.small,
-    medium: containerTokens
+      : breakpoint.hpe.size.container.small,
+    medium: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container.medium
-      : breakpoint.hpe.size.content.medium,
-    large: containerTokens
-      ? breakpoint.hpe.size.container.large
-      : breakpoint.hpe.size.content.large,
-    xlarge: containerTokens
+      : breakpoint.hpe.size.container.medium,
+    large: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container.xlarge
-      : breakpoint.hpe.size.content.xlarge,
-    xxlarge: containerTokens
-      ? breakpoint.hpe.size.container.xxlarge
-      : breakpoint.hpe.size.content.xxlarge,
+      : breakpoint.hpe.size.container.large,
+    xlarge: flags['v6-backwards-compatibility']
+      ? '1152px'
+      : breakpoint.hpe.size.container.xlarge,
+    xxlarge: flags['v6-backwards-compatibility']
+      ? breakpoint.hpe.size.container['3xlarge']
+      : breakpoint.hpe.size.container.xxlarge,
     full: '100%',
   });
 
@@ -405,12 +387,37 @@ const buildTheme = tokens => {
     edgeSize: {
       none: large.hpe.spacing.none,
       hair: large.hpe.spacing.hair,
-      xxsmall: large.hpe.spacing.xxsmall,
-      xsmall: large.hpe.spacing.xsmall,
-      small: large.hpe.spacing.small,
+      '5xsmall': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['5xsmall'],
+      '4xsmall': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['4xsmall'],
+      '3xsmall': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['3xsmall'],
+      xxsmall: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['5xsmall']
+        : large.hpe.spacing.xxsmall,
+      xsmall: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['3xsmall']
+        : large.hpe.spacing.xsmall,
+      small: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['xsmall']
+        : large.hpe.spacing.small,
       medium: large.hpe.spacing.medium,
-      large: large.hpe.spacing.large,
-      xlarge: large.hpe.spacing.xlarge,
+      large: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing.xlarge
+        : large.hpe.spacing.large,
+      xlarge: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['3xlarge']
+        : large.hpe.spacing.xlarge,
+      xxlarge: flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing.xxlarge,
+      '3xlarge': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['3xlarge'],
       responsiveBreakpoint: 'small',
     },
     size: size(large),
@@ -511,7 +518,8 @@ const buildTheme = tokens => {
   };
 
   const anchorSizeTheme = {};
-  textSizes.forEach(size => {
+  textSizes.forEach(sizeArg => {
+    const size = sizeArg === '6xl' ? '5xl' : sizeArg;
     anchorSizeTheme[size] = {
       color: components.hpe.anchor.default.rest.textColor,
       textDecoration: components.hpe.anchor.default.rest.textDecoration,
@@ -521,17 +529,45 @@ const buildTheme = tokens => {
 
   const paragraphTheme = {};
   const textTheme = {};
+  const fontWeights = {};
+  // Keep track of the largest text size to use as a fallback
+  // because grommet theme has a max size of 6xl, but design tokens
+  // only supports up to 5xl.
+  const fallback = {
+    size: '0rem',
+    height: '0rem',
+    maxWidth: '0rem',
+    weight: 0,
+  };
   textSizes.forEach(size => {
+    if (
+      parseInt(large.hpe.text?.[size]?.fontSize.replace('rem', ''), 10) >
+      parseInt(fallback.size.replace('rem', ''), 10)
+    ) {
+      fallback.size = large.hpe.text?.[size]?.fontSize;
+      fallback.height = large.hpe.text?.[size]?.lineHeight;
+      fallback.maxWidth = large.hpe.text?.[size]?.maxWidth;
+      fallback.weight = large.hpe.text?.[size]?.fontWeight;
+    }
     paragraphTheme[size] = {
-      size: large.hpe.text?.[size]?.fontSize,
-      height: large.hpe.text?.[size]?.lineHeight,
-      maxWidth: large.hpe.text?.[size]?.maxWidth,
+      size: large.hpe.text?.[size]?.fontSize || fallback.size,
+      height: large.hpe.text?.[size]?.lineHeight || fallback.height,
+      maxWidth: large.hpe.text?.[size]?.maxWidth || fallback.maxWidth,
     };
     textTheme[size] = {
-      size: large.hpe.text?.[size].fontSize,
-      height: large.hpe.text?.[size].lineHeight,
+      size: large.hpe.text?.[size]?.fontSize || fallback.size,
+      height: large.hpe.text?.[size]?.lineHeight || fallback.height,
     };
+    fontWeights[size] = large.hpe.text?.[size]?.fontWeight || fallback.weight;
   });
+
+  textTheme.extend = ({ size }) => {
+    return `font-weight: ${fontWeights[size]};`;
+  };
+
+  paragraphTheme.extend = ({ size }) => {
+    return `font-weight: ${fontWeights[size]};`;
+  };
 
   const buttonKindTheme = {};
   buttonKinds.forEach(kind => {
@@ -755,37 +791,37 @@ const buildTheme = tokens => {
         face: `
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
           }
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
             font-weight: 400;
           }
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Bold.woff") format('woff');
             font-weight: 700;
           }
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Semibold.woff") format('woff');
             font-weight: 600;
           }
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Medium.woff") format('woff');
             font-weight: 500;
           }
           @font-face {
             font-family: "Metric";
-            src: url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Light.woff2") format('woff2'),
-                 url("https://www.hpe.com/h41225/hfws-static/fonts/metric-hpe-web/MetricHPE-Web-Light.woff") format('woff');
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Light.woff2") format('woff2'),
+                 url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Light.woff") format('woff');
             font-weight: 100;
           }`,
         size: large.hpe.text.medium.fontSize,
@@ -848,8 +884,8 @@ const buildTheme = tokens => {
         color: 'text-default',
       },
       selected: {
-        background: 'background-selected-strong-enabled',
-        color: 'text-onSelectedStrong',
+        background: 'background-selected-primary-strong',
+        color: 'text-onSelectedPrimaryStrong',
       },
     },
     accordion: {
@@ -881,6 +917,9 @@ const buildTheme = tokens => {
       textDecoration: components.hpe.anchor.default.rest.textDecoration,
       fontWeight: components.hpe.anchor.default.rest.fontWeight,
       gap: components.hpe.anchor.default.medium.gapX, // TO DO not size specific
+      icon: {
+        color: 'icon-primary',
+      },
       hover: {
         textDecoration: components.hpe.anchor.default.hover.textDecoration,
       },
@@ -1035,19 +1074,19 @@ const buildTheme = tokens => {
           color: 'text-strong',
         },
         selected: {
-          background: 'background-selected-strong-enabled',
-          color: 'text-onSelectedStrong',
+          background: 'background-selected-primary-strong',
+          color: 'text-onSelectedPrimaryStrong',
           hover: {
-            background: 'background-selected-strong-hover',
+            background: 'background-selected-primary-strong-hover',
           },
           font: {
             weight: global.hpe.fontWeight.medium,
           },
         },
         inRange: {
-          color: 'text-onSelected',
+          color: 'text-onSelectedPrimary',
           hover: {
-            background: 'background-selected-weak-hover',
+            background: 'background-selected-primary-weak-hover',
           },
           font: {
             weight: global.hpe.fontWeight.medium,
@@ -1056,7 +1095,7 @@ const buildTheme = tokens => {
         extend: '',
       },
       range: {
-        background: 'background-selected-weak-enabled',
+        background: 'background-selected-primary-weak',
       },
       icons: {
         // next: Next,
@@ -1224,10 +1263,7 @@ const buildTheme = tokens => {
           ]?.[theme.dark ? 'dark' : 'light']
         }`,
       },
-      // Q make sure this is 12px is small
       gap: components.hpe.checkbox.medium.gapX,
-      // Q do we need a token here?
-      // A good question, not sure if this a grommet-ism?
       label: {
         align: 'start',
       },
@@ -1633,7 +1669,7 @@ const buildTheme = tokens => {
       },
     },
     heading: {
-      color: 'text-heading-default',
+      color: 'text-heading',
       weight: large.hpe.heading.xlarge.fontWeight, // Q: not sure what token to point to here
       level: {
         1: {
@@ -1924,7 +1960,7 @@ const buildTheme = tokens => {
       critical: {
         background: 'background-critical',
         message: {
-          color: 'text-onCritical-default',
+          color: 'text-onCritical',
         },
         title: {
           color: 'text-onCritical-strong',
@@ -1932,7 +1968,7 @@ const buildTheme = tokens => {
         global: {
           background: 'background-critical',
           message: {
-            color: 'text-onCritical-default',
+            color: 'text-onCritical',
           },
           title: {
             color: 'text-onCritical-strong',
@@ -1951,7 +1987,7 @@ const buildTheme = tokens => {
       warning: {
         background: 'background-warning',
         message: {
-          color: 'text-onWarning-default',
+          color: 'text-onWarning',
         },
         title: {
           color: 'text-onWarning-strong',
@@ -1959,7 +1995,7 @@ const buildTheme = tokens => {
         global: {
           background: 'background-warning',
           message: {
-            color: 'text-onWarning-default',
+            color: 'text-onWarning',
           },
           title: {
             color: 'text-onWarning-strong',
@@ -1978,7 +2014,7 @@ const buildTheme = tokens => {
       normal: {
         background: 'background-ok',
         message: {
-          color: 'text-onOk-default',
+          color: 'text-onOk',
         },
         title: {
           color: 'text-onOk-strong',
@@ -1986,7 +2022,7 @@ const buildTheme = tokens => {
         global: {
           background: 'background-ok',
           message: {
-            color: 'text-onOk-default',
+            color: 'text-onOk',
           },
           title: {
             color: 'text-onOk-strong',
@@ -2005,7 +2041,7 @@ const buildTheme = tokens => {
       unknown: {
         background: 'background-unknown',
         message: {
-          color: 'text-onUnknown-default',
+          color: 'text-onUnknown',
         },
         title: {
           color: 'text-onUnknown-strong',
@@ -2013,7 +2049,7 @@ const buildTheme = tokens => {
         global: {
           background: 'background-unknown',
           message: {
-            color: 'text-onUnknown-default',
+            color: 'text-onUnknown',
           },
           title: {
             color: 'text-onUnknown-strong',
@@ -2059,7 +2095,7 @@ const buildTheme = tokens => {
       undefined: {
         background: 'background-unknown',
         message: {
-          color: 'text-onUnknown-default',
+          color: 'text-onUnknown',
         },
         title: {
           color: 'text-onUnknown-strong',
@@ -2067,7 +2103,7 @@ const buildTheme = tokens => {
         global: {
           background: 'background-ok',
           message: {
-            color: 'text-onUnknown-default',
+            color: 'text-onUnknown',
           },
           title: {
             color: 'text-onUnknown-strong',
@@ -2333,15 +2369,15 @@ const buildTheme = tokens => {
     },
     rangeInput: {
       thumb: {
-        color: 'background-primary-default', // Should this instead be "control"?
+        color: 'background-primary-strong', // Should this instead be "control"?
       },
       track: {
         lower: {
           // TO DO is this the right token for here?
-          color: 'background-primary-default',
+          color: 'background-primary-strong',
         },
         upper: {
-          color: base.hpe.base.color['grey-500'],
+          color: primitives.hpe.base.color['grey-500'],
         },
       },
     },
@@ -2381,8 +2417,8 @@ const buildTheme = tokens => {
     },
     spinner: {
       container: {
-        pad: 'none', // Should we have universal token here for none?
-        color: 'background-primary-default', // Is this the right token for here?
+        pad: 'none',
+        color: 'foreground-primary',
         // tokens?
         border: [
           { color: 'border-weak', side: 'all', size: 'medium' },
@@ -2393,20 +2429,20 @@ const buildTheme = tokens => {
       },
       size: {
         xsmall: components.hpe.element?.xsmall.minHeight,
-        small: components.hpe.element?.small.minHeight, // TO DO should these align? this was before we standardized on component sizes
+        small: components.hpe.element?.small.minHeight,
         medium: components.hpe.element?.medium.minHeight,
         large: components.hpe.element?.large.minHeight,
         xlarge: components.hpe.element?.xlarge.minHeight,
       },
     },
     starRating: {
-      color: 'background-selected-strong-enabled',
+      color: 'background-selected-primary-strong',
     },
     tab: {
       color: 'text',
       active: {
-        background: 'background-selected-strong-enabled',
-        color: 'text-onSelectedStrong',
+        background: 'background-selected-primary-strong',
+        color: 'text-onSelectedPrimaryStrong',
         weight: 500,
       },
       hover: {
@@ -2452,12 +2488,12 @@ const buildTheme = tokens => {
           border-radius: ${theme.global.edgeSize.xsmall}; 
           & button[aria-selected="true"]:hover > div {
             background: ${
-              theme.global.colors['background-selected-strong-hover'][
+              theme.global.colors['background-selected-primary-strong-hover'][
                 theme.dark ? 'dark' : 'light'
               ]
             };
             color: ${
-              theme.global.colors['text-onSelectedStrong'][
+              theme.global.colors['text-onSelectedPrimaryStrong'][
                 theme.dark ? 'dark' : 'light'
               ]
             };
@@ -2641,10 +2677,10 @@ const buildTheme = tokens => {
     },
     thumbsRating: {
       like: {
-        color: 'background-selected-strong-enabled',
+        color: 'background-selected-primary-strong',
       },
       dislike: {
-        color: 'background-selected-strong-enabled',
+        color: 'background-selected-primary-strong',
       },
     },
     toggleGroup: {
@@ -2667,14 +2703,22 @@ const buildTheme = tokens => {
   });
 };
 
-export const current = buildTheme({
-  light: localLight,
-  dark: localDark,
-  small: localSmall,
-  large: localMedium,
-  global: localGlobal,
-  components: localComponents,
-});
+export const current = buildTheme(
+  {
+    primitives: localPrimitives,
+    light: localLight,
+    dark: localDark,
+    small: localSmall,
+    large: localMedium,
+    global: localGlobal,
+    components: localComponents,
+  },
+  {
+    // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
+    // with old t-shirt sizes
+    'v6-backwards-compatibility': true,
+  },
+);
 
 // need to extend hpe with new token namespace to "fill gaps" for sake of demo
 // when toggling between themes
@@ -2686,10 +2730,10 @@ const newColors = {
   'background-critical': 'validation-critical',
   'background-warning': 'validation-warning',
   'background-ok': 'validation-ok',
-  'background-primary-default': 'brand',
-  'background-primary-hover': 'brand',
-  'background-selected-strong-enabled': 'background-primary-default',
-  'background-selected-strong-hover': 'background-primary-hover',
+  'background-primary-strong': 'brand',
+  'background-primary-strong-hover': 'brand',
+  'background-selected-strong-enabled': 'background-primary-strong',
+  'background-selected-strong-hover': 'background-primary-strong-hover',
   'background-neutral-xstrong': {},
   'border-disabled': 'text-disabled',
   'border-selected': 'brand',
@@ -2705,19 +2749,19 @@ const newColors = {
   'text-ok': 'text',
   'text-info': 'text',
   'text-unknown': 'text',
-  'text-onSelectedStrong': 'text-primary-button',
-  'text-onSelected': 'text',
-  'text-heading-default': 'text-strong',
-  'text-onStrong-default': 'text-primary-button',
-  'text-onCritical-default': 'text',
+  'text-onSelectedPrimaryStrong': 'text-primary-button',
+  'text-onSelectedPrimary': 'text',
+  'text-heading': 'text-strong',
+  'text-onStrong': 'text-primary-button',
+  'text-onCritical': 'text',
   'text-onCritical-strong': 'text-strong',
-  'text-onWarning-default': 'text',
+  'text-onWarning': 'text',
   'text-onWarning-strong': 'text-strong',
-  'text-onOk-default': 'text',
+  'text-onOk': 'text',
   'text-onOk-strong': 'text-strong',
-  'text-Info-default': 'text',
+  'text-onInfo': 'text',
   'text-Info-strong': 'text-strong',
-  'text-onUnknown-default': 'text',
+  'text-onUnknown': 'text',
   'text-onUnknown-strong': 'text-strong',
   'text-primary': {},
   'icon-primary': 'brand',
@@ -2727,9 +2771,9 @@ const newColors = {
   'icon-ok': 'status-ok',
   'icon-info': 'text',
   'icon-unknown': 'status-unknown',
-  'icon-onPrimary': 'text-primary-button',
-  'icon-onSelectedStrong': 'text-primary-button',
-  'icon-onSelected': 'icon-default',
+  'icon-onPrimaryStrong': 'text-primary-button',
+  'icon-onSelectedPrimaryStrong': 'text-primary-button',
+  'icon-onSelectedPrimary': 'icon-default',
   'foreground-primary': 'brand',
   'foreground-critical': 'status-critical',
   'foreground-warning': 'status-warning',
