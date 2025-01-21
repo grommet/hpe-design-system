@@ -22,7 +22,7 @@ const LayoutsIndex = () => {
         <PageHeader title="Layouts" />
         <List data={layouts} defaultItemProps={{ pad: { vertical: 'xxsmall' } }}>
           {(item) => (
-            <RoutedAnchor key={item} as={Link} to={`/layouts/${item.toLowerCase()}`} label={item} alignSelf="start" />
+            <RoutedAnchor key={item} as={Link} to={`/layouts/${item.toLowerCase().replace(' ', '-')}`} label={item} alignSelf="start" />
           )}
         </List>
       </PageContent>
