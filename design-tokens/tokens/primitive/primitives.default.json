@@ -241,6 +241,18 @@
           }
         }
       },
+      "800": {
+        "$type": "number",
+        "$value": 32,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [],
+            "codeSyntax": {}
+          }
+        }
+      },
       "900": {
         "$type": "number",
         "$value": 36,
@@ -256,6 +268,18 @@
       "1200": {
         "$type": "number",
         "$value": 48,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "1600": {
+        "$type": "number",
+        "$value": 64,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -289,9 +313,33 @@
           }
         }
       },
+      "3200": {
+        "$type": "number",
+        "$value": 128,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [],
+            "codeSyntax": {}
+          }
+        }
+      },
       "4800": {
         "$type": "number",
         "$value": 192,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "6400": {
+        "$type": "number",
+        "$value": 256,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -325,6 +373,18 @@
           }
         }
       },
+      "12800": {
+        "$type": "number",
+        "$value": 512,
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": [],
+            "codeSyntax": {}
+          }
+        }
+      },
       "14400": {
         "$type": "number",
         "$value": 576,
@@ -349,9 +409,9 @@
           }
         }
       },
-      "38400": {
+      "25600": {
         "$type": "number",
-        "$value": 1152,
+        "$value": 1024,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -361,7 +421,7 @@
           }
         }
       },
-      "76800": {
+      "38400": {
         "$type": "number",
         "$value": 1536,
         "$description": "",
@@ -1943,7 +2003,7 @@
           }
         }
       },
-      "xxsmall": {
+      "5xsmall": {
         "$type": "number",
         "$value": "{base.dimension.75}",
         "$description": "",
@@ -1955,7 +2015,19 @@
           }
         }
       },
-      "xsmall": {
+      "4xsmall": {
+        "$type": "number",
+        "$value": "{base.dimension.100}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "3xsmall": {
         "$type": "number",
         "$value": "{base.dimension.150}",
         "$description": "",
@@ -1967,7 +2039,19 @@
           }
         }
       },
-      "small": {
+      "xxsmall": {
+        "$type": "number",
+        "$value": "{base.dimension.200}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "xsmall": {
         "$type": "number",
         "$value": "{base.dimension.300}",
         "$description": "",
@@ -1975,6 +2059,18 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": ["GAP"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "small": {
+        "$type": "number",
+        "$value": "{base.dimension.400}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
             "codeSyntax": {}
           }
         }
@@ -1993,6 +2089,18 @@
       },
       "large": {
         "$type": "number",
+        "$value": "{base.dimension.800}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "xlarge": {
+        "$type": "number",
         "$value": "{base.dimension.1200}",
         "$description": "",
         "$extensions": {
@@ -2003,7 +2111,19 @@
           }
         }
       },
-      "xlarge": {
+      "xxlarge": {
+        "$type": "number",
+        "$value": "{base.dimension.1600}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "3xlarge": {
         "$type": "number",
         "$value": "{base.dimension.2400}",
         "$description": "",
@@ -2011,6 +2131,18 @@
           "com.figma": {
             "hiddenFromPublishing": false,
             "scopes": ["GAP"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "4xlarge": {
+        "$type": "number",
+        "$value": "{base.dimension.3200}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
             "codeSyntax": {}
           }
         }
@@ -2213,7 +2345,7 @@
       }
     },
     "container": {
-      "xxsmall": {
+      "5xsmall": {
         "$type": "number",
         "$value": "{base.dimension.1200}",
         "$description": "",
@@ -2225,7 +2357,19 @@
           }
         }
       },
-      "xsmall": {
+      "4xsmall": {
+        "$type": "number",
+        "$value": "{base.dimension.1600}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "3xsmall": {
         "$type": "number",
         "$value": "{base.dimension.2400}",
         "$description": "",
@@ -2237,7 +2381,19 @@
           }
         }
       },
-      "small": {
+      "xxsmall": {
+        "$type": "number",
+        "$value": "{base.dimension.3200}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["ALL_SCOPES"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "xsmall": {
         "$type": "number",
         "$value": "{base.dimension.4800}",
         "$description": "",
@@ -2249,9 +2405,9 @@
           }
         }
       },
-      "smallPlus": {
+      "small": {
         "$type": "number",
-        "$value": "{base.dimension.7200}",
+        "$value": "{base.dimension.6400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -2273,9 +2429,9 @@
           }
         }
       },
-      "mediumPlus": {
+      "large": {
         "$type": "number",
-        "$value": "{base.dimension.14400}",
+        "$value": "{base.dimension.12800}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -2285,7 +2441,7 @@
           }
         }
       },
-      "large": {
+      "xlarge": {
         "$type": "number",
         "$value": "{base.dimension.19200}",
         "$description": "",
@@ -2297,9 +2453,9 @@
           }
         }
       },
-      "xlarge": {
+      "xxlarge": {
         "$type": "number",
-        "$value": "{base.dimension.38400}",
+        "$value": "{base.dimension.25600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -2309,9 +2465,9 @@
           }
         }
       },
-      "xxlarge": {
+      "3xlarge": {
         "$type": "number",
-        "$value": "{base.dimension.76800}",
+        "$value": "{base.dimension.38400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
