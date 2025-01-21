@@ -5,7 +5,7 @@ import { Down, LinkNext, Up } from 'grommet-icons';
 type MenuItem = {
   key: string;
   label: string;
-  count: number;
+  count?: number;
 }
 
 interface CollapsibleMenuProps {

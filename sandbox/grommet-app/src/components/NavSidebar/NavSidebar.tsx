@@ -32,9 +32,11 @@ const items = {
   "Reports": { key: "reports", label: "Reports" },
 };
 
+const defaultSelected = items["Dashboard"];
+
 export const NavSidebar = ({ ...rest }) => {
   const [open, setOpen] = React.useState(true);
-  const [selected, setSelected] = React.useState({});
+  const [selected, setSelected] = React.useState(defaultSelected);
 
   return (
     <Sidebar
