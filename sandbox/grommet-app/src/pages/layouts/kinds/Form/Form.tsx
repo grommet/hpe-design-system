@@ -97,7 +97,9 @@ export const Form = () => {
               htmlFor="weakness"
               name="weakness"
               label="Weakness"
-              error="This is a required field."
+              error={
+                !formValues.weakness.length ? 'This is a required field.' : ''
+              }
             >
               <CheckBoxGroup options={weakness} id="weakness" name="weakness" />
             </FormField>
