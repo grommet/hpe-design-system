@@ -44,6 +44,8 @@ const App = () => {
 
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
+  const appHeaderHeight = '60px';
+  const appHeight = `calc(100vh - ${appHeaderHeight})`;
 
   const loading = useLoading(6000);
 
@@ -77,7 +79,6 @@ const App = () => {
             <WorkspaceContext.Provider value={workspaceContextValue}>
               <BrowserRouter>
                 <GlobalHeader
-                  id="global-header"
                   darkMode={darkMode}
                   setDarkMode={setDarkMode}
                   setActiveTheme={setActiveTheme}
@@ -89,11 +90,7 @@ const App = () => {
                 />
                 <Box
                   // fill the viewport height minus the header height
-                  height={`calc(100vh - ${Math.ceil(
-                    window.document
-                      .getElementById('global-header')
-                      .getBoundingClientRect().height,
-                  )}px)`}
+                  height={appHeight}
                 >
                   <Routes>
                     <Route path="/" element={<Home />} />
