@@ -17,6 +17,7 @@ export const Selects = () => {
           <Select
             options={['Option 1', 'Option 2', 'Option 3']}
             placeholder="Select option"
+            multiple
           />
         </Compare>
         <Compare>

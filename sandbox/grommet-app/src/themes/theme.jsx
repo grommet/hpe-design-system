@@ -1023,7 +1023,7 @@ const buildTheme = (tokens, flags) => {
           // elevation: 'inset-selected',
           extend: ({ theme, ...rest }) =>
             // TO DO temp styling second option with "bookend"
-            rest['aria-posinset'] === 2 &&
+            (rest['aria-posinset'] === 2 || rest['aria-posinset'] === 1) &&
             `
             position: relative;
             border-color: transparent;

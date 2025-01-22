@@ -1398,6 +1398,13 @@ export const Devices = () => {
                   make: ['HPE'],
                 },
               },
+              {
+                name: 'My other devices',
+                properties: {
+                  type: ['Compute'],
+                  make: ['HPE'],
+                },
+              },
             ]
           : undefined
       }
