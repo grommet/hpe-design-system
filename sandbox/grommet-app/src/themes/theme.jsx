@@ -161,6 +161,24 @@ const textSizes = [
   // '6xl',
 ];
 
+export const optionBefore = props => css`
+  position: relative;
+  &::before {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 6px;
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+    top: 0;
+    bottom: 0;
+    left: -1px;
+    background: ${props.theme.global.colors['border-selected']?.[
+      props.theme.dark ? 'dark' : 'light'
+    ]};
+  }
+`;
+
 const buildTheme = (tokens, flags) => {
   const {
     primitives,
@@ -995,11 +1013,35 @@ const buildTheme = (tokens, flags) => {
       selected: {
         option: {
           background: components.hpe.select.option.selected.rest.background,
+          border: {
+            color: components.hpe.select.option.selected.rest.borderColor,
+          },
           color: components.hpe.select.option.selected.textColor,
           font: {
             weight: components.hpe.select.option.selected.rest.fontWeight,
           },
-          elevation: 'inset-selected',
+          // elevation: 'inset-selected',
+          extend: ({ theme, ...rest }) =>
+            // TO DO temp styling second option with "bookend"
+            rest['aria-posinset'] === 2 &&
+            `
+            position: relative;
+            border-color: transparent;
+          &::before {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 6px;
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+    top: 0;
+    bottom: 0;
+    left: -1px;
+    background: ${
+      theme.global.colors['border-selected']?.[theme.dark ? 'dark' : 'light']
+    };
+  }
+          `,
         },
       },
       hover: {
@@ -1018,18 +1060,6 @@ const buildTheme = (tokens, flags) => {
               components.hpe.select.option.selected.hover.background
             ][props.theme.dark ? 'dark' : 'light']
           };
-          box-shadow: ${
-            props.theme.global.elevation[props.theme.dark ? 'dark' : 'light'][
-              'inset-selected'
-            ]
-          };
-          &:focus:not(:focus-visible) {
-           box-shadow: ${
-             props.theme.global.elevation[props.theme.dark ? 'dark' : 'light'][
-               'inset-selected'
-             ]
-           };
-          }
           `,
         },
       },
@@ -2415,6 +2445,18 @@ const buildTheme = (tokens, flags) => {
         up: Up,
       },
       options: undefined,
+      container: {
+        extend: () => `
+        padding-block: 6px;
+        padding-inline: 6px;
+        display: flex;
+        [role="listbox"] {
+        display: flex;
+        flex-direction: column;
+          gap: 6px;
+        }
+        `,
+      },
     },
     spinner: {
       container: {
