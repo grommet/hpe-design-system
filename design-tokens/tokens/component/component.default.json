@@ -10429,7 +10429,7 @@
       "rest": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.strong.REST}",
+          "$value": "{color.text.primary.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -10467,7 +10467,7 @@
       "hover": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.strong.REST}",
+          "$value": "{color.text.primary.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -10505,7 +10505,7 @@
       "disabled": {
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.strong.REST}",
+          "$value": "{color.text.disabled.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
