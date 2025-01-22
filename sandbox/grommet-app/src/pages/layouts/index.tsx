@@ -1,17 +1,29 @@
 import React from "react";
 import { Link, Outlet, Route } from 'react-router-dom';
 import { Box, List, Page, PageContent, PageHeader } from "grommet";
-import { NavSidebar, RoutedAnchor } from '../../components';
-import { Collection, EmptyState } from './kinds';
+import { RoutedAnchor } from '../../components';
+import { Collection, EmptyState, NavigationalSidebar } from './kinds';
 
-const layouts = ['Collection', 'Dashboard', 'Detail', 'Empty state', 'Form', 'Home', 'List', 'Login', 'Main', 'NotFound', 'Settings', 'Splash', 'Wizard'];
+const layouts = [
+  'Collection',
+  'Dashboard',
+  'Detail',
+  'Empty state',
+  'Form',
+  'Home',
+  'List',
+  'Login',
+  'Main',
+  'Navigational sidebar',
+  'NotFound',
+  'Settings',
+  'Splash',
+  'Wizard'
+];
 
 const Layouts = () => {
   return (
-    <Box direction="row">
-      <NavSidebar />
-      <Outlet />
-    </Box>
+    <Outlet />
   );
 };
 
@@ -35,6 +47,7 @@ const routes = [
   <Route key="collection" path="collection" element={<Collection />} />,
   <Route key="dashboard" path="dashboard" element={<div>Dashboard</div>} />,
   <Route key="empty-state" path="empty-state" element={<EmptyState />} />,
+  <Route key="navigational-sidebar" path="navigational-sidebar" element={<NavigationalSidebar />} />,
 ]
 
 export { Layouts, routes };

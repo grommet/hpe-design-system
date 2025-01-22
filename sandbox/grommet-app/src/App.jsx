@@ -77,6 +77,7 @@ const App = () => {
             <WorkspaceContext.Provider value={workspaceContextValue}>
               <BrowserRouter>
                 <GlobalHeader
+                  id="global-header"
                   darkMode={darkMode}
                   setDarkMode={setDarkMode}
                   setActiveTheme={setActiveTheme}
@@ -86,14 +87,26 @@ const App = () => {
                   workspace={workspace}
                   setWorkspace={setWorkspace}
                 />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/sustainability" element={<Sustainability />} />
-                  <Route path="/sticker-sheet" element={<StickerSheet />} />
-                  <Route path="/layouts" element={<Layouts />}>
-                    {layoutRoutes}
-                  </Route>
-                </Routes>
+                <Box
+                  // fill the viewport height minus the header height
+                  height={`calc(100vh - ${Math.ceil(
+                    window.document
+                      .getElementById('global-header')
+                      .getBoundingClientRect().height,
+                  )}px)`}
+                >
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route
+                      path="/sustainability"
+                      element={<Sustainability />}
+                    />
+                    <Route path="/sticker-sheet" element={<StickerSheet />} />
+                    <Route path="/layouts" element={<Layouts />}>
+                      {layoutRoutes}
+                    </Route>
+                  </Routes>
+                </Box>
               </BrowserRouter>
               {window.location.pathname === '/next' ? (
                 <FloatingActionButton label="Ask HPE" />
