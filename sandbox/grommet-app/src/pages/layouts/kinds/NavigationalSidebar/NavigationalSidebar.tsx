@@ -19,7 +19,7 @@ export const NavigationalSidebar = () => {
       <Page pad={{ bottom: "xlarge" }}>
         <PageContent alignSelf="start">
           <PageHeader
-            title="Navigational Sidebar"
+            title="Navigational sidebar"
             subtitle="Demonstrates how a collapsible sidebar can be used for navigation."
             parent={<RoutedAnchor as={Link} to="/layouts" label="Layouts" icon={<Previous />} />}
           />

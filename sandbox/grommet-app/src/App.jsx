@@ -53,7 +53,7 @@ const App = () => {
     <Grommet
       theme={theme}
       background={backgroundBack ? 'background-back' : undefined}
-      full="min"
+      full
       themeMode={darkMode ? 'dark' : 'light'}
       options={{
         box: {
@@ -87,6 +87,7 @@ const App = () => {
                   setBackgroundBack={setBackgroundBack}
                   workspace={workspace}
                   setWorkspace={setWorkspace}
+                  style={{ position: 'relative', zIndex: 1 }}
                 />
                 <Box
                   // fill the viewport height minus the header height

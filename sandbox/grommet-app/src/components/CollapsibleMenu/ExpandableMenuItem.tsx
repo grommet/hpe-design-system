@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { Box, Button, Collapsible, Text, ThemeContext } from 'grommet';
 import { Down, LinkNext, Up } from 'grommet-icons';
+import { medium } from 'hpe-design-tokens/grommet';
+
+console.log('medium', medium);
 
 export const ExpandableMenuItem = ({
   item,
@@ -39,7 +42,9 @@ export const ExpandableMenuItem = ({
               label={
                 <Box direction="row" align="center" justify="between">
                   <Box direction="row" align="center" gap="xsmall">
-                    <Box width={global.edgeSize.medium}>
+                    <Box
+                      width={medium.hpe.spacing.medium}
+                    >
                       {active && <LinkNext />}
                     </Box>
                     <Text>{subItem.label}</Text>
