@@ -172,7 +172,7 @@ export const optionBefore = props => css`
     border-bottom-left-radius: 9999px;
     top: 0;
     bottom: 0;
-    left: -1px;
+    left: 0;
     background: ${props.theme.global.colors['border-selected']?.[
       props.theme.dark ? 'dark' : 'light'
     ]};
@@ -1021,26 +1021,26 @@ const buildTheme = (tokens, flags) => {
             weight: components.hpe.select.option.selected.rest.fontWeight,
           },
           // elevation: 'inset-selected',
-          extend: ({ theme, ...rest }) =>
-            // TO DO temp styling second option with "bookend"
-            (rest['aria-posinset'] === 2 || rest['aria-posinset'] === 1) &&
+          extend: ({ theme }) =>
             `
             position: relative;
             border-color: transparent;
           &::before {
-    display: block;
-    position: absolute;
-    content: '';
-    width: 6px;
-    border-top-left-radius: 9999px;
-    border-bottom-left-radius: 9999px;
-    top: 0;
-    bottom: 0;
-    left: -1px;
-    background: ${
-      theme.global.colors['border-selected']?.[theme.dark ? 'dark' : 'light']
-    };
-  }
+            display: block;
+            position: absolute;
+            content: '';
+            width: 6px;
+            border-top-left-radius: 9999px;
+            border-bottom-left-radius: 9999px;
+            top: -1px;
+            bottom: -1px;
+            left: -1px;
+            background: ${
+              theme.global.colors['border-selected']?.[
+                theme.dark ? 'dark' : 'light'
+              ]
+            };
+          }
           `,
         },
       },
@@ -2447,14 +2447,13 @@ const buildTheme = (tokens, flags) => {
       options: undefined,
       container: {
         extend: () => `
-        padding-block: 6px;
-        padding-inline: 6px;
-        display: flex;
-        [role="listbox"] {
-        display: flex;
-        flex-direction: column;
-          gap: 6px;
-        }
+          padding-block: 6px;
+          padding-inline: 6px;
+          [role="listbox"] {
+            display: flex;
+            flex-direction: column;
+              gap: 6px;
+            }
         `,
       },
     },
