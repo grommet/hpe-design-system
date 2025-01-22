@@ -233,7 +233,7 @@
         "strong": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.600}",
+            "$value": "{base.color.green.700}",
             "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
             "$extensions": {
               "com.figma": {
@@ -245,7 +245,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.green.600}",
+            "$value": "{base.color.green.800}",
             "$description": "Hover variant of background-primary.",
             "$extensions": {
               "com.figma": {
@@ -276,7 +276,7 @@
           "strong": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.brand}",
+              "$value": "{color.background.primary.strong.REST}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -288,7 +288,7 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{base.color.brand}",
+              "$value": "{color.background.primary.strong.hover}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -407,7 +407,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.600}",
+            "$value": "{base.color.green.700}",
             "$description": "Selected border color. Used for ‘selected’ state.",
             "$extensions": {
               "com.figma": {
@@ -423,7 +423,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.border.default.REST}",
+            "$value": "{base.color.red.800}",
             "$description": "Use for borders communicating errors or danger.",
             "$extensions": {
               "com.figma": {
@@ -611,7 +611,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.text.default.REST}",
+            "$value": "{base.color.red.800}",
             "$description": "Use for text on standard backgrounds communicating errors or danger.",
             "$extensions": {
               "com.figma": {
@@ -723,7 +723,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.text.strong.REST}",
+            "$value": "{base.color.green.900}",
             "$description": "Text color to be used for text sitting on non-strong variants of background-selected.",
             "$extensions": {
               "com.figma": {
@@ -1045,7 +1045,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.600}",
+            "$value": "{base.color.green.800}",
             "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
             "$extensions": {
               "com.figma": {

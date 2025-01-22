@@ -4,6 +4,7 @@ import {
   // deepMerge
 } from 'grommet/utils';
 import {
+  primitives as localPrimitives,
   dark as localDark,
   light as localLight,
   medium as localMedium,
@@ -163,8 +164,9 @@ const textSizes = [
   '6xl',
 ];
 
-const buildTheme = tokens => {
+const buildTheme = (tokens, flags) => {
   const {
+    primitives,
     light,
     dark,
     small,
@@ -247,58 +249,40 @@ const buildTheme = tokens => {
       dark: dark.hpe.color.decorative.blue,
       light: light.hpe.color.decorative.blue,
     },
-    'blue!': {
-      dark: dark.hpe.color.decorative['blue!'],
-      light: light.hpe.color.decorative['blue!'],
-    },
+    'blue!': primitives.hpe.base.color['blue-700'],
     green: {
       dark: dark.hpe.color.decorative.green,
       light: light.hpe.color.decorative.green,
     },
     'green!': {
-      dark: dark.hpe.color.decorative['green!'],
-      light: light.hpe.color.decorative['green!'],
+      dark: dark.hpe.color.decorative.brand,
+      light: light.hpe.color.decorative.brand,
     },
     teal: {
       dark: dark.hpe.color.decorative.teal,
       light: light.hpe.color.decorative.teal,
     },
-    'teal!': {
-      dark: dark.hpe.color.decorative['teal!'],
-      light: light.hpe.color.decorative['teal!'],
-    },
+    'teal!': primitives.hpe.base.color['teal-400'],
     purple: {
       dark: dark.hpe.color.decorative.purple,
       light: light.hpe.color.decorative.purple,
     },
-    'purple!': {
-      dark: dark.hpe.color.decorative['purple!'],
-      light: light.hpe.color.decorative['purple!'],
-    },
+    'purple!': primitives.hpe.base.color['purple-800'],
     red: {
       dark: dark.hpe.color.decorative.red,
       light: light.hpe.color.decorative.red,
     },
-    'red!': {
-      dark: dark.hpe.color.decorative['red!'],
-      light: light.hpe.color.decorative['red!'],
-    },
+    'red!': primitives.hpe.base.color['red-750'],
     orange: {
       dark: dark.hpe.color.decorative.orange,
       light: light.hpe.color.decorative.orange,
     },
-    'orange!': {
-      dark: dark.hpe.color.decorative['orange!'],
-      light: light.hpe.color.decorative['orange!'],
-    },
+    'orange!': primitives.hpe.base.color['orange-500'],
     yellow: {
       dark: dark.hpe.color.decorative.yellow,
       light: light.hpe.color.decorative.yellow,
     },
-    'yellow!': {
-      dark: dark.hpe.color.decorative['yellow!'],
-      light: light.hpe.color.decorative['yellow!'],
-    },
+    'yellow!': primitives.hpe.base.color['yellow-400'],
     'graph-0': {
       light: light.hpe.color.dataVis['categorical-10'],
       dark: dark.hpe.color.dataVis['categorical-10'],
@@ -369,29 +353,28 @@ const buildTheme = tokens => {
     'disabled-text': 'text-disabled', // deprecate
   };
 
-  const containerTokens = 'container' in large.hpe.size;
   const size = breakpoint => ({
-    xxsmall: containerTokens
-      ? breakpoint.hpe.size.container.xxsmall
-      : breakpoint.hpe.size.content.xxsmall,
-    xsmall: containerTokens
+    xxsmall: flags['v6-backwards-compatibility']
+      ? breakpoint.hpe.size.container['5xsmall']
+      : breakpoint.hpe.size.container.xxsmall,
+    xsmall: flags['v6-backwards-compatibility']
+      ? breakpoint.hpe.size.container['3xsmall']
+      : breakpoint.hpe.size.container.xsmall,
+    small: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container.xsmall
-      : breakpoint.hpe.size.content.xsmall,
-    small: containerTokens
-      ? breakpoint.hpe.size.container.small
-      : breakpoint.hpe.size.content.small,
-    medium: containerTokens
+      : breakpoint.hpe.size.container.small,
+    medium: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container.medium
-      : breakpoint.hpe.size.content.medium,
-    large: containerTokens
-      ? breakpoint.hpe.size.container.large
-      : breakpoint.hpe.size.content.large,
-    xlarge: containerTokens
+      : breakpoint.hpe.size.container.medium,
+    large: flags['v6-backwards-compatibility']
       ? breakpoint.hpe.size.container.xlarge
-      : breakpoint.hpe.size.content.xlarge,
-    xxlarge: containerTokens
-      ? breakpoint.hpe.size.container.xxlarge
-      : breakpoint.hpe.size.content.xxlarge,
+      : breakpoint.hpe.size.container.large,
+    xlarge: flags['v6-backwards-compatibility']
+      ? '1152px'
+      : breakpoint.hpe.size.container.xlarge,
+    xxlarge: flags['v6-backwards-compatibility']
+      ? breakpoint.hpe.size.container['3xlarge']
+      : breakpoint.hpe.size.container.xxlarge,
     full: '100%',
   });
 
@@ -407,12 +390,37 @@ const buildTheme = tokens => {
     edgeSize: {
       none: large.hpe.spacing.none,
       hair: large.hpe.spacing.hair,
-      xxsmall: large.hpe.spacing.xxsmall,
-      xsmall: large.hpe.spacing.xsmall,
-      small: large.hpe.spacing.small,
+      '5xsmall': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['5xsmall'],
+      '4xsmall': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['4xsmall'],
+      '3xsmall': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['3xsmall'],
+      xxsmall: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['5xsmall']
+        : large.hpe.spacing.xxsmall,
+      xsmall: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['3xsmall']
+        : large.hpe.spacing.xsmall,
+      small: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['xsmall']
+        : large.hpe.spacing.small,
       medium: large.hpe.spacing.medium,
-      large: large.hpe.spacing.large,
-      xlarge: large.hpe.spacing.xlarge,
+      large: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing.xlarge
+        : large.hpe.spacing.large,
+      xlarge: flags['v6-backwards-compatibility']
+        ? large.hpe.spacing['3xlarge']
+        : large.hpe.spacing.xlarge,
+      xxlarge: flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing.xxlarge,
+      '3xlarge': flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.spacing['3xlarge'],
       responsiveBreakpoint: 'small',
     },
     size: size(large),
@@ -2652,14 +2660,22 @@ const buildTheme = tokens => {
   });
 };
 
-export const current = buildTheme({
-  light: localLight,
-  dark: localDark,
-  small: localSmall,
-  large: localMedium,
-  global: localGlobal,
-  components: localComponents,
-});
+export const current = buildTheme(
+  {
+    primitives: localPrimitives,
+    light: localLight,
+    dark: localDark,
+    small: localSmall,
+    large: localMedium,
+    global: localGlobal,
+    components: localComponents,
+  },
+  {
+    // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
+    // with old t-shirt sizes
+    'v6-backwards-compatibility': true,
+  },
+);
 
 // need to extend hpe with new token namespace to "fill gaps" for sake of demo
 // when toggling between themes

@@ -10,6 +10,10 @@ const CJS_DIR = 'dist/cjs/';
 const CSS_DIR = 'dist/css/';
 const DOCS_DIR = 'dist/docs/';
 const PREFIX = 'hpe';
+/**
+ * Design tokens that should only exist in Figma but not be output to hpe-design-tokens
+ */
+const FIGMA_PREFIX = 'fig';
 
 await HPEStyleDictionary.hasInitialized;
 
@@ -175,7 +179,9 @@ try {
 const colorModeFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('color') ? `${TOKENS_DIR}/semantic/${file}` : undefined,
+    file.includes('color') && !file.includes('v1')
+      ? `${TOKENS_DIR}/semantic/${file}`
+      : undefined,
   )
   .filter(file => file);
 
@@ -274,7 +280,9 @@ try {
 const dimensionFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('dimension') ? `${TOKENS_DIR}/semantic/${file}` : undefined,
+    file.includes('dimension') && !file.includes('v1')
+      ? `${TOKENS_DIR}/semantic/${file}`
+      : undefined,
   )
   .filter(file => file);
 
@@ -390,7 +398,8 @@ try {
           {
             destination: 'components.js',
             filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`),
+              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+              !token.path.includes(FIGMA_PREFIX),
             format: 'esmGrommetRefs',
           },
         ],
@@ -403,7 +412,8 @@ try {
           {
             destination: 'components.js',
             filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`),
+              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+              !token.path.includes(FIGMA_PREFIX),
             format: 'esmGrommetRefs',
           },
         ],
@@ -416,7 +426,8 @@ try {
           {
             destination: 'components.cjs',
             filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`),
+              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+              !token.path.includes(FIGMA_PREFIX),
             format: 'javascript/commonJs',
           },
         ],
@@ -430,7 +441,8 @@ try {
             destination: 'components.css',
             format: 'css/variables',
             filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`),
+              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+              !token.path.includes(FIGMA_PREFIX),
             options: {
               outputReferences: true,
             },
@@ -445,7 +457,8 @@ try {
           {
             destination: 'components.js',
             filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`),
+              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+              !token.path.includes(FIGMA_PREFIX),
             format: 'jsonFlat',
           },
         ],
