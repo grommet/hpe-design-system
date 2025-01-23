@@ -1279,11 +1279,16 @@ const buildTheme = (tokens, flags) => {
               theme,
             );
           }
-          if (disabled)
+          if (disabled) {
+            background = getThemeColor(
+              components.hpe.checkbox.control.disabled.rest.background,
+              theme,
+            );
             borderColor = getThemeColor(
               components.hpe.checkbox.control.disabled.rest.borderColor,
               theme,
             );
+          }
           return `
             background: ${background};
             border-color: ${borderColor};
@@ -2411,6 +2416,22 @@ const buildTheme = (tokens, flags) => {
       },
     },
     select: {
+      clear: {
+        container: {
+          background: undefined,
+          pad: {
+            horizontal: '12px',
+            vertical: '6px',
+          },
+          hover: {
+            background: 'background-contrast',
+          },
+        },
+        text: {
+          color: 'text-strong',
+          weight: 600,
+        },
+      },
       control: {
         // TO DO should this use input tokens?
         // or should we have a select.control tokens?
@@ -2444,14 +2465,25 @@ const buildTheme = (tokens, flags) => {
       },
       options: undefined,
       container: {
+        // only apply paddingY to paddingTop because gap caused by Infinite Scroll
+        // adds an addition 6px on the bottom
+        // listbox targets container directly surrounding options
+        // [role="option"]:has(input[type="checkbox"]) targets options within SelectMultiple
         extend: () => `
-          padding-block: 6px;
-          padding-inline: 6px;
           [role="listbox"] {
+            padding-top: ${components.hpe.select.medium.drop.paddingY};
+            padding-inline: ${components.hpe.select.medium.drop.paddingX};
             display: flex;
             flex-direction: column;
-              gap: 6px;
+            gap: ${components.hpe.select.medium.drop.gapY};
+            [role="option"]:has(input[type="checkbox"]) {
+              border-radius: ${
+                dimensions.edgeSize[
+                  components.hpe.formField.medium.input.group.item.borderRadius
+                ]
+              };
             }
+          }
         `,
       },
     },
@@ -2526,16 +2558,11 @@ const buildTheme = (tokens, flags) => {
         extend: ({ theme }) => `
           border-radius: ${theme.global.edgeSize.xsmall}; 
           & button[aria-selected="true"]:hover > div {
-            background: ${
-              theme.global.colors['background-selected-primary-strong-hover'][
-                theme.dark ? 'dark' : 'light'
-              ]
-            };
-            color: ${
-              theme.global.colors['text-onSelectedPrimaryStrong'][
-                theme.dark ? 'dark' : 'light'
-              ]
-            };
+            background: ${getThemeColor(
+              'background-selected-primary-strong-hover',
+              theme,
+            )};
+            color: ${getThemeColor('text-onSelectedPrimaryStrong', theme)};
           }
         `,
       },
