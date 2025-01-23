@@ -85,11 +85,6 @@ export const Collection = ({ ...rest }) => {
     }
   }, [cloudType]);
 
-  // console.log breakpoint when it changes
-  useEffect(() => {
-    console.log('breakpoint', breakpoint);
-  }, [breakpoint]);
-
   const responsiveColumns = useMemo(() => {
     const exclude = {
       "Private cloud": {
