@@ -1194,8 +1194,7 @@ const buildTheme = (tokens, flags) => {
       hover: {
         border: {
           // applies directly to control (checkbox and toggle switch)
-          // TO DO remove from applying to switch
-          color: components.hpe.checkbox.control.hover.borderColor,
+          color: undefined,
           width:
             dimensions.borderSize[
               components.hpe.checkbox.medium.control.borderWidth
@@ -1587,11 +1586,10 @@ const buildTheme = (tokens, flags) => {
             components.hpe.formField.medium.input.group.item.paddingX
           };
           &:hover {
-            background: ${
-              theme.global.colors[
-                components.hpe.formField.input.group.item.hover.background
-              ][theme.dark ? 'dark' : 'light']
-            };
+            background: ${getThemeColor(
+              components.hpe.formField.input.group.item.hover.background,
+              theme,
+            )};
           }
         }
           &:has([role="group"]), &:has([role="radiogroup"]), &:has([type="checkbox"]) {
