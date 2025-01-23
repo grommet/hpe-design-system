@@ -1014,7 +1014,7 @@ const buildTheme = (tokens, flags) => {
           border: {
             color: components.hpe.select.option.selected.rest.borderColor,
           },
-          color: components.hpe.select.option.selected.textColor,
+          color: components.hpe.select.option.selected.rest.textColor,
           font: {
             weight: components.hpe.select.option.selected.rest.fontWeight,
           },
@@ -1056,11 +1056,14 @@ const buildTheme = (tokens, flags) => {
           extend: props =>
             props['aria-selected'] &&
             `
-          background: ${
-            props.theme.global.colors[
-              components.hpe.select.option.selected.hover.background
-            ][props.theme.dark ? 'dark' : 'light']
-          };
+          background: ${getThemeColor(
+            components.hpe.select.option.selected.hover.background,
+            props.theme,
+          )};
+          color: ${getThemeColor(
+            components.hpe.select.option.selected.hover.textColor,
+            props.theme,
+          )}
           `,
         },
       },
