@@ -1158,6 +1158,18 @@
             }
           }
         },
+        "opacity8": {
+          "$type": "color",
+          "$value": "#00000014",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "opacity12": {
           "$type": "color",
           "$value": "#0000001f",
