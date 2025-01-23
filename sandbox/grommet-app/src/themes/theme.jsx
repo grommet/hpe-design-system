@@ -851,6 +851,15 @@ const buildTheme = (tokens, flags) => {
       },
       focus: {
         border: undefined,
+        outline: {
+          color: global.hpe.focusIndicator.outline.color,
+          size: global.hpe.focusIndicator.outline.width,
+          offset: global.hpe.focusIndicator.outlineOffset, // TO DO does not have effect yet, requires grommet enhancement
+        },
+        shadow: {
+          color: global.hpe.focusIndicator.boxShadow.color,
+          size: global.hpe.focusIndicator.boxShadow.spread,
+        },
       },
       active: {
         background: 'background-active',
