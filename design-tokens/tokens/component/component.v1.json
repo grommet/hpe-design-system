@@ -6000,7 +6000,7 @@
         "container": {
           "paddingY": {
             "$type": "number",
-            "$value": "{static.spacing.3xsmall}",
+            "$value": "{static.spacing.none}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6081,7 +6081,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{static.radius.none}",
+          "$value": "{static.radius.xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6093,7 +6093,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.xsmall}",
+          "$value": "{static.borderWidth.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6219,7 +6219,7 @@
         },
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.strong.REST}",
+          "$value": "{color.text.default.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6269,7 +6269,7 @@
         },
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.strong.REST}",
+          "$value": "{color.text.default.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6945,7 +6945,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.disabled.DEFAULT.REST}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7081,7 +7081,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.disabled.DEFAULT.REST}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
