@@ -1181,7 +1181,7 @@ const buildTheme = (tokens, flags) => {
     card: {
       container: {
         background: 'background-front',
-        elevation: 'none',
+        elevation: 'medium',
         extend: 'transition: all 0.3s ease-in-out;', // TO DO motion tokens
       },
       body: {
@@ -1195,7 +1195,7 @@ const buildTheme = (tokens, flags) => {
       },
       hover: {
         container: {
-          elevation: 'medium',
+          elevation: 'large',
         },
       },
     },
@@ -1249,7 +1249,7 @@ const buildTheme = (tokens, flags) => {
           `;
         }, // Q: missing token for hover borderWidth? this falls into similar boat as secondary button
       },
-      color: components.hpe.switch.control.handle.rest.background, // The stroke color for the CheckBox icon, the toggle handle background when checked, and the border when checked. Setting to hanlde background since this is the only place to control this.
+      color: components.hpe.switch.control.handle.rest.background, // The stroke color for the CheckBox icon, the toggle handle background when checked, and the border when checked. Setting to handle background since this is the only place to control this.
       border: {
         color: components.hpe.checkbox.control.rest.borderColor,
         width:
