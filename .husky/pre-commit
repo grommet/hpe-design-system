@@ -6,6 +6,7 @@ __rootDir="$(CDPATH= cd "$($__dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "..Running design token checks"
 cd design-tokens
+npm run test
 npm run paddingY:verify
 npm run build
 cd ${__rootDir}
