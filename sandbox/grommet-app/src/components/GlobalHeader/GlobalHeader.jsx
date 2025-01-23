@@ -36,11 +36,12 @@ export const GlobalHeader = ({
   activeTheme,
   backgroundBack,
   setBackgroundBack,
+  ...rest
 }) => {
   const theme = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
   return (
-    <Page kind="full">
+    <Page kind="full" {...rest}>
       <PageContent pad="none">
         <Box
           direction="row"
