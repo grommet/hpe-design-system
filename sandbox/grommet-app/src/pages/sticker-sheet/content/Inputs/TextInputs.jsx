@@ -15,7 +15,12 @@ export const TextInputs = () => {
         </FormField>
       </Compare>
       <Compare guidingChild="last">
-        <FormField label="Disabled input" disabled>
+        <FormField
+          label="Disabled input"
+          help="Here is help text"
+          info="Here is info text"
+          disabled
+        >
           <TextInput value="Value" disabled />
         </FormField>
       </Compare>

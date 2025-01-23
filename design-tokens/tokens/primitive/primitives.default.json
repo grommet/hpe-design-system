@@ -802,6 +802,18 @@
             }
           }
         },
+        "450": {
+          "$type": "color",
+          "$value": "#00ebb5",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "500": {
           "$type": "color",
           "$value": "#17d0a6",
