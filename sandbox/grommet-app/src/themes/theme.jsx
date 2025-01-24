@@ -158,7 +158,7 @@ const textSizes = [
   '3xl',
   '4xl',
   '5xl',
-  // '6xl',
+  '6xl',
 ];
 
 export const optionBefore = props => css`
@@ -848,6 +848,15 @@ const buildTheme = (tokens, flags) => {
       },
       focus: {
         border: undefined,
+        outline: {
+          color: global.hpe.focusIndicator.outline.color,
+          size: global.hpe.focusIndicator.outline.width,
+          offset: global.hpe.focusIndicator.outlineOffset, // TO DO does not have effect yet, requires grommet enhancement
+        },
+        shadow: {
+          color: global.hpe.focusIndicator.boxShadow.color,
+          size: global.hpe.focusIndicator.boxShadow.spread,
+        },
       },
       active: {
         background: 'background-active',
@@ -1014,7 +1023,7 @@ const buildTheme = (tokens, flags) => {
           border: {
             color: components.hpe.select.option.selected.rest.borderColor,
           },
-          color: components.hpe.select.option.selected.rest.textColor,
+          color: components.hpe.select.option.selected.textColor,
           font: {
             weight: components.hpe.select.option.selected.rest.fontWeight,
           },
@@ -1056,10 +1065,10 @@ const buildTheme = (tokens, flags) => {
           extend: props =>
             props['aria-selected'] &&
             `
-          background: ${getThemeColor(
-            components.hpe.select.option.selected.hover.background,
-            props.theme,
-          )};
+           background: ${getThemeColor(
+             components.hpe.select.option.selected.hover.background,
+             props.theme,
+           )};
           color: ${getThemeColor(
             components.hpe.select.option.selected.hover.textColor,
             props.theme,
@@ -1173,7 +1182,7 @@ const buildTheme = (tokens, flags) => {
       container: {
         background: 'background-front',
         elevation: 'none',
-        extend: 'transition: all 0.3s ease-in-out;', // TO DO motion tokens
+        extend: 'transition: all 0.3s ease-in-out;',
       },
       body: {
         pad: 'medium',
@@ -1194,6 +1203,7 @@ const buildTheme = (tokens, flags) => {
       hover: {
         border: {
           // applies directly to control (checkbox and toggle switch)
+          // TO DO remove from applying to switch
           color: undefined,
           width:
             dimensions.borderSize[
@@ -1204,10 +1214,7 @@ const buildTheme = (tokens, flags) => {
         background: {
           color: 'transparent',
         },
-        // HPE Design System guidance states that pad="none" should be applied on CheckBox
-        // when its used outside of a FormField. We will apply this hover treatment in
-        // those instances.
-        extend: ({ disabled, pad, theme, toggle, checked }) => {
+        extend: ({ theme, toggle, checked }) => {
           let borderColor;
           if (toggle) {
             borderColor = getThemeColor(
@@ -1228,18 +1235,11 @@ const buildTheme = (tokens, flags) => {
             }
           }
           return css`
-            ${!disabled &&
-            pad === 'none' &&
-            !toggle &&
-            `border: 2px solid ${getThemeColor(
-              components.hpe.checkbox.control.hover.borderColor,
-              theme,
-            )};`}
             ${checked ? `border-color: ${borderColor};` : ''}
           `;
-        }, // Q: missing token for hover borderWidth? this falls into similar boat as secondary button
+        },
       },
-      color: components.hpe.switch.control.handle.rest.background, // The stroke color for the CheckBox icon, the toggle handle background when checked, and the border when checked. Setting to hanlde background since this is the only place to control this.
+      color: components.hpe.switch.control.handle.rest.background, // The stroke color for the CheckBox icon, the toggle handle background when checked, and the border when checked. Setting to handle background since this is the only place to control this.
       border: {
         color: components.hpe.checkbox.control.rest.borderColor,
         width:
@@ -1645,7 +1645,7 @@ const buildTheme = (tokens, flags) => {
       content: {
         // Q: missing tokens
         margin: { vertical: 'xsmall' },
-        pad: 'none', // TO DO when we have a CheckBoxGroup or RadioButtonGroup, we want padding
+        pad: 'none',
       },
       border: {
         error: {
@@ -2370,13 +2370,22 @@ const buildTheme = (tokens, flags) => {
         color: components.hpe.radioButton.control.rest.borderColor,
         width: components.hpe.radioButton.medium.control.borderWidth,
       },
+      check: {
+        background: {
+          color: components.hpe.radioButton.control.selected.rest.background,
+        },
+      },
       color: components.hpe.radioButton.control.selected.rest.borderColor,
       container: {
-        extend: () => `width: auto;`,
+        extend: () => `
+          width: auto;
+          `,
       },
       gap: components.hpe.radioButton.medium.gapX,
       hover: {
-        background: 'transparent',
+        background: {
+          color: components.hpe.formField.input.group.item.hover.background,
+        },
         border: {
           color: components.hpe.radioButton.control.hover.borderColor,
         },
@@ -2708,7 +2717,6 @@ const buildTheme = (tokens, flags) => {
     },
     text: {
       ...textTheme,
-      extend: '', // TO DO can remove once merging, needed to override current extend
     },
     textInput: {
       container: {
