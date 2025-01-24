@@ -1096,6 +1096,9 @@ const buildTheme = (tokens, flags) => {
     },
     calendar: {
       day: {
+        adjacent: {
+          color: 'text-weak',
+        },
         hover: {
           background: 'background-hover',
           color: 'text-strong',
