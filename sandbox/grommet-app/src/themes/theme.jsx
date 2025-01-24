@@ -1135,7 +1135,7 @@ const buildTheme = (tokens, flags) => {
         daySize: '27.43px',
         title: {
           size: 'medium',
-          weight: global.hpe.fontWeight.normal,
+          weight: global.hpe.fontWeight.medium,
           color: 'text-strong',
         },
       },
@@ -1163,7 +1163,7 @@ const buildTheme = (tokens, flags) => {
         },
         title: {
           size: 'large',
-          weight: global.hpe.fontWeight.normal,
+          weight: global.hpe.fontWeight.medium,
           color: 'text-strong',
         },
       },
@@ -1173,7 +1173,7 @@ const buildTheme = (tokens, flags) => {
         daySize: '109.71px',
         title: {
           size: 'xlarge',
-          weight: global.hpe.fontWeight.normal,
+          weight: global.hpe.fontWeight.medium,
           color: 'text-strong',
         },
       },
@@ -1182,7 +1182,7 @@ const buildTheme = (tokens, flags) => {
       container: {
         background: 'background-front',
         elevation: 'medium',
-        extend: 'transition: all 0.3s ease-in-out;', // TO DO motion tokens
+        extend: 'transition: all 0.3s ease-in-out;',
       },
       body: {
         pad: 'medium',
@@ -1214,10 +1214,7 @@ const buildTheme = (tokens, flags) => {
         background: {
           color: 'background-hover',
         },
-        // HPE Design System guidance states that pad="none" should be applied on CheckBox
-        // when its used outside of a FormField. We will apply this hover treatment in
-        // those instances.
-        extend: ({ disabled, pad, theme, toggle, checked }) => {
+        extend: ({ theme, toggle, checked }) => {
           let borderColor;
           if (toggle) {
             borderColor = getThemeColor(
@@ -1238,16 +1235,9 @@ const buildTheme = (tokens, flags) => {
             }
           }
           return css`
-            ${!disabled &&
-            pad === 'none' &&
-            !toggle &&
-            `border: 2px solid ${getThemeColor(
-              components.hpe.checkbox.control.hover.borderColor,
-              theme,
-            )};`}
             ${checked ? `border-color: ${borderColor};` : ''}
           `;
-        }, // Q: missing token for hover borderWidth? this falls into similar boat as secondary button
+        },
       },
       color: components.hpe.switch.control.handle.rest.background, // The stroke color for the CheckBox icon, the toggle handle background when checked, and the border when checked. Setting to handle background since this is the only place to control this.
       border: {
@@ -2325,6 +2315,11 @@ const buildTheme = (tokens, flags) => {
       border: {
         color: components.hpe.radioButton.control.rest.borderColor,
         width: components.hpe.radioButton.medium.control.borderWidth,
+      },
+      check: {
+        background: {
+          color: components.hpe.radioButton.control.selected.rest.background,
+        },
       },
       color: components.hpe.radioButton.control.selected.rest.borderColor,
       container: {
