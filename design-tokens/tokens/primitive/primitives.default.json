@@ -2271,7 +2271,7 @@
       },
       "full": {
         "$type": "number",
-        "$value": "{base.dimension.9600}",
+        "$value": 9999,
         "$description": "",
         "$extensions": {
           "com.figma": {

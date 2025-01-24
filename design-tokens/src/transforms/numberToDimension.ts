@@ -13,6 +13,7 @@ export const numberToDimension: Transform = {
         'fontSize',
         'lineHeight',
         'spacing',
+        'radius',
         'paddingX',
         'paddingY',
         'paddingBottom',
