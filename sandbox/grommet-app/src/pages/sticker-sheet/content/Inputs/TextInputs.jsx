@@ -28,7 +28,6 @@ export const TextInputs = () => {
         <FormField
           label="Label"
           help="Here is help text"
-          info="Here is info text"
           error="There is an error."
         >
           <TextInput value="Value" />
