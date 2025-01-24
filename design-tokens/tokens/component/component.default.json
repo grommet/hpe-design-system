@@ -7543,7 +7543,7 @@
         },
         "background": {
           "$type": "color",
-          "$value": "{color.background.selected.primary.weak.REST}",
+          "$value": "{color.background.DEFAULT.active}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -10326,7 +10326,7 @@
         "rest": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.default.REST}",
+            "$value": "{color.background.selected.primary.strong.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -10338,7 +10338,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.border.selected.DEFAULT.REST}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -10350,7 +10350,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.background.selected.primary.strong.REST}",
+            "$value": "{color.icon.onSelectedPrimaryStrong.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -10364,7 +10364,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.default.REST}",
+            "$value": "{color.background.selected.primary.strong.hover}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -10376,7 +10376,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.border.selected.DEFAULT.REST}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -10388,7 +10388,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.background.selected.primary.strong.hover}",
+            "$value": "{color.icon.onSelectedPrimaryStrong.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
