@@ -24,6 +24,16 @@ export const TextInputs = () => {
           <TextInput value="Value" disabled />
         </FormField>
       </Compare>
+      <Compare guidingChild="last">
+        <FormField
+          label="Label"
+          help="Here is help text"
+          info="Here is info text"
+          error="There is an error."
+        >
+          <TextInput value="Value" />
+        </FormField>
+      </Compare>
     </ContentPane>
   );
 };

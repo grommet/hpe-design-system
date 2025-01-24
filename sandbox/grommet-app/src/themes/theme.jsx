@@ -1580,70 +1580,68 @@ const buildTheme = (tokens, flags) => {
       extend: ({ theme }) =>
         `
           input:disabled { 
-          color: ${getThemeColor(
-            components.hpe.formField.value.disabled.rest.textColor,
-            theme,
-          )};
-          }
-            [class*="ContentBox"] {
-          label {
-          padding-block: ${
-            components.hpe.formField.medium.input.group.item.paddingY
-          };
-          padding-inline: ${
-            components.hpe.formField.medium.input.group.item.paddingX
-          };
-          &:hover {
-            background: ${getThemeColor(
-              components.hpe.formField.input.group.item.hover.background,
+            color: ${getThemeColor(
+              components.hpe.formField.value.disabled.rest.textColor,
               theme,
             )};
           }
-        }
-          &:has([role="group"]), &:has([role="radiogroup"]), &:has([type="checkbox"]) {
-            border-width: ${
-              components.hpe.formField.medium.input.group.container.borderWidth
-            };
-          }
-
-          [role="group"], [role="radiogroup"] {
-            gap: 0;
-            padding-block: ${
-              components.hpe.formField.medium.input.group.container.paddingY
-            };
-            padding-inline: ${
-              components.hpe.formField.medium.input.group.container.paddingX
-            };
+          [class*="ContentBox"] {
             label {
-             border: ${
-               dimensions.borderSize[
-                 components.hpe.formField.medium.input.group.item.borderWidth
-               ] || components.hpe.formField.medium.input.group.item.borderWidth
-             } solid ${getThemeColor(
-          components.hpe.formField.input.group.item.rest.borderColor,
-          theme,
-        )};
-            padding-block: ${
-              components.hpe.formField.medium.input.group.item.paddingY
-            };
+              padding-block: ${
+                components.hpe.formField.medium.input.group.item.paddingY
+              };
               padding-inline: ${
                 components.hpe.formField.medium.input.group.item.paddingX
               };
-              border-radius: ${
-                dimensions.edgeSize[
-                  components.hpe.formField.medium.input.group.item.borderRadius
-                ]
-              };
               &:hover {
-                background: ${
-                  theme.global.colors[
-                    components.hpe.formField.input.group.item.hover.background
-                  ][theme.dark ? 'dark' : 'light']
-                };
+                background: ${getThemeColor(
+                  components.hpe.formField.input.container.hover.background,
+                  theme,
+                )};
               }
+            }
+            &:has([role="group"]), &:has([role="radiogroup"]), &:has([type="checkbox"]) {
+              border-color: transparent;
+            }
+            [role="group"], [role="radiogroup"] {
+              gap: 0;
+              padding-block: ${
+                components.hpe.formField.medium.input.group.container.paddingY
+              };
+              padding-inline: ${
+                components.hpe.formField.medium.input.group.container.paddingX
+              };
+              label {
+                border: ${
+                  dimensions.borderSize[
+                    components.hpe.formField.medium.input.group.item.borderWidth
+                  ] ||
+                  components.hpe.formField.medium.input.group.item.borderWidth
+                } solid ${getThemeColor(
+          components.hpe.formField.input.group.item.rest.borderColor,
+          theme,
+        )};
+                padding-block: ${
+                  components.hpe.formField.medium.input.group.item.paddingY
+                };
+                padding-inline: ${
+                  components.hpe.formField.medium.input.group.item.paddingX
+                };
+                border-radius: ${
+                  dimensions.edgeSize[
+                    components.hpe.formField.medium.input.group.item
+                      .borderRadius
+                  ]
+                };
+                &:hover {
+                  background: ${getThemeColor(
+                    components.hpe.formField.input.group.item.hover.background,
+                    theme,
+                  )};
+                }
+              }
+            }
           }
-        }
-      }
       `,
       content: {
         // Q: missing tokens

@@ -9152,7 +9152,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.DEFAULT.hover}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9205,7 +9205,7 @@
           "rest": {
             "background": {
               "$type": "color",
-              "$value": "{color.transparent}",
+              "$value": "{color.background.critical.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
