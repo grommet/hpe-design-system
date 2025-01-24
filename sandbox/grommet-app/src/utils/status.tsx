@@ -1,21 +1,27 @@
 import React from 'react';
-import { StatusCritical, StatusDisabled, StatusGood, StatusUnknown, StatusWarning } from "grommet-icons";
+import {
+  StatusCriticalSmall,
+  StatusDisabled,
+  StatusGoodSmall,
+  StatusUnknownSmall,
+  StatusWarningSmall
+} from "grommet-icons";
 
 export const statusMap = new Map([
   ['critical', {
-    icon: <StatusCritical />,
+    icon: <StatusCriticalSmall />,
     color: 'status-critical',
   }],
   ['warning', {
-    icon: <StatusWarning />,
+    icon: <StatusWarningSmall />,
     color: 'status-warning',
   }],
   ['ok', {
-    icon: <StatusGood />,
+    icon: <StatusGoodSmall />,
     color: 'status-ok',
   }],
   ['unknown', {
-    icon: <StatusUnknown />,
+    icon: <StatusUnknownSmall />,
     color: 'status-unknown',
   }],
   ['unsupported', {
