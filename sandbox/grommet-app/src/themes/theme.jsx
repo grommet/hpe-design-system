@@ -1185,7 +1185,7 @@ const buildTheme = (tokens, flags) => {
       container: {
         background: 'background-front',
         elevation: 'medium',
-        extend: 'transition: all 0.3s ease-in-out;',
+        extend: 'transition: box-shadow 0.3s ease-in-out;',
       },
       body: {
         pad: 'medium',
@@ -2326,9 +2326,35 @@ const buildTheme = (tokens, flags) => {
       },
       color: components.hpe.radioButton.control.selected.rest.borderColor,
       container: {
-        extend: () => `
+        extend: ({ theme }) => `
           width: auto;
-          padding-inline: ${components.hpe.formField.medium.input.group.item.paddingX};
+          padding-inline: ${
+            components.hpe.formField.medium.input.group.item.paddingX
+          };
+          &:has(input[checked]) {
+            & div:has(> svg[aria-hidden="true"]) {
+              background: ${getThemeColor(
+                components.hpe.radioButton.control.selected.rest.background,
+                theme,
+              )};
+              border-color: ${getThemeColor(
+                components.hpe.radioButton.control.selected.rest.borderColor,
+                theme,
+              )};
+            }
+          }
+          &:has(input[checked]):hover {
+              & div:has(> svg[aria-hidden="true"]) {
+                background: ${getThemeColor(
+                  components.hpe.radioButton.control.selected.hover.background,
+                  theme,
+                )};
+                border-color: ${getThemeColor(
+                  components.hpe.radioButton.control.selected.hover.borderColor,
+                  theme,
+                )};
+              }
+          }
           `,
       },
       extend: () => `

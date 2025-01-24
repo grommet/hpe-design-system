@@ -10398,7 +10398,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.border.strong.REST}",
+            "$value": "{color.border.selected.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
