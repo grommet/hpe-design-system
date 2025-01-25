@@ -578,12 +578,12 @@ const buildTheme = (tokens, flags) => {
     fontWeights[size] = large.hpe.text?.[size]?.fontWeight || fallback.weight;
   });
 
-  textTheme.extend = ({ size }) => {
-    return `font-weight: ${fontWeights[size]};`;
+  textTheme.extend = ({ size, weight }) => {
+    return !weight ? `font-weight: ${fontWeights[size]};` : '';
   };
 
-  paragraphTheme.extend = ({ size }) => {
-    return `font-weight: ${fontWeights[size]};`;
+  paragraphTheme.extend = ({ size, weight }) => {
+    return !weight ? `font-weight: ${fontWeights[size]};` : '';
   };
 
   const buttonKindTheme = {};
@@ -1388,6 +1388,12 @@ const buildTheme = (tokens, flags) => {
       extend: ({ disabled, theme }) => css`
       font-weight: ${components.hpe.checkbox.medium.label.fontWeight};
       width: auto;
+      border: ${
+        components.hpe.formField.medium.input.container.borderWidth
+      } solid ${getThemeColor(
+        components.hpe.formField.input.group.item.rest.borderColor,
+        theme,
+      )};
       ${
         // override built in disabled opacity: 0.5 from grommet
         disabled &&
@@ -1485,11 +1491,11 @@ const buildTheme = (tokens, flags) => {
         },
       },
       icons: {
-        ascending: () => <Ascending />,
-        descending: () => <Descending />,
+        ascending: () => <Descending size="large" />,
+        descending: () => <Ascending size="large" />,
         contract: () => <Up height="medium" />,
         expand: () => <Down height="medium" />,
-        sortable: () => <Unsorted />,
+        sortable: () => <Unsorted size="large" />,
       },
       pinned: {
         header: {
@@ -1989,7 +1995,7 @@ const buildTheme = (tokens, flags) => {
       container: {
         round: 'xsmall',
       },
-      direction: 'row',
+      direction: 'column',
       global: {
         direction: 'row',
         container: {
@@ -2006,6 +2012,7 @@ const buildTheme = (tokens, flags) => {
       },
       critical: {
         background: 'background-critical',
+        color: 'icon-critical',
         message: {
           color: 'text-onCritical',
         },
@@ -2033,6 +2040,7 @@ const buildTheme = (tokens, flags) => {
       },
       warning: {
         background: 'background-warning',
+        color: 'icon-warning',
         message: {
           color: 'text-onWarning',
         },
@@ -2060,6 +2068,7 @@ const buildTheme = (tokens, flags) => {
       },
       normal: {
         background: 'background-ok',
+        color: 'icon-ok',
         message: {
           color: 'text-onOk',
         },
@@ -2087,6 +2096,7 @@ const buildTheme = (tokens, flags) => {
       },
       unknown: {
         background: 'background-unknown',
+        color: 'icon-unknown',
         message: {
           color: 'text-onUnknown',
         },
@@ -2114,6 +2124,7 @@ const buildTheme = (tokens, flags) => {
       },
       info: {
         background: 'background-info',
+        color: 'icon-info',
         message: {
           color: 'text-onInfo',
         },

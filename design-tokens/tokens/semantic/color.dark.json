@@ -1396,7 +1396,7 @@
     },
     "focus": {
       "$type": "color",
-      "$value": "{base.color.teal.400}",
+      "$value": "#004233",
       "$description": "",
       "$extensions": {
         "com.figma": {

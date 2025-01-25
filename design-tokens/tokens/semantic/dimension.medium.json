@@ -256,7 +256,7 @@
     },
     "full": {
       "$type": "number",
-      "$value": "{base.dimension.9600}",
+      "$value": "{static.radius.full}",
       "$description": "",
       "$extensions": {
         "com.figma": {
