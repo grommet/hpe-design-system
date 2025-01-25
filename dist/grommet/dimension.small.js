@@ -28,7 +28,7 @@ export default {
       "medium": "12px",
       "large": "24px",
       "xlarge": "48px",
-      "full": "384px"
+      "full": "9999px"
     },
     "borderWidth": {
       "none": "0px",

@@ -104,12 +104,11 @@ export default {
     "button": {
       "primary": {
         "rest": {
-          "background": "linear-gradient(70deg, rgba(0, 0, 0, 0), #01a982 35%, rgba(0, 0, 0, 0) 70%, #01a982 100%)",
+          "background": "background-primary-strong",
           "borderColor": "transparent",
           "textColor": "text-onPrimaryStrong",
           "iconColor": "icon-onPrimaryStrong",
-          "fontWeight": 700,
-          "backgroundColor": "background-primary-strong"
+          "fontWeight": 700
         },
         "disabled": {
           "rest": {
@@ -146,14 +145,14 @@ export default {
         "xsmall": {
           "paddingX": "12px",
           "paddingY": "3px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "default",
           "minHeight": "24px",
           "fontSize": "0.875rem",
           "iconOnly": {
             "paddingX": "4px",
             "paddingY": "4px",
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "default",
             "minHeight": "24px",
             "minWidth": "24px",
@@ -167,7 +166,7 @@ export default {
         "small": {
           "paddingX": "12px",
           "paddingY": "3px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "28px",
           "fontSize": "1rem",
@@ -176,7 +175,7 @@ export default {
           "iconOnly": {
             "paddingX": "5px",
             "paddingY": "5px",
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "1px",
             "minHeight": "28px",
             "minWidth": "28px",
@@ -188,7 +187,7 @@ export default {
         "medium": {
           "paddingX": "18px",
           "paddingY": "5px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "36px",
           "fontSize": "19px",
@@ -197,7 +196,7 @@ export default {
           "iconOnly": {
             "paddingX": "8px",
             "paddingY": "8px",
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "1px",
             "minHeight": "36px",
             "minWidth": "36px",
@@ -209,14 +208,14 @@ export default {
         "large": {
           "paddingX": "24px",
           "paddingY": "9px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "1px",
             "minHeight": "48px",
             "minWidth": "48px",
@@ -229,7 +228,7 @@ export default {
         },
         "xlarge": {
           "iconOnly": {
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "1px",
             "minHeight": "72px",
             "minWidth": "72px",
@@ -241,7 +240,7 @@ export default {
           },
           "paddingX": "32px",
           "paddingY": "20px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "72px",
           "fontSize": "1.5rem",
@@ -292,7 +291,7 @@ export default {
         "xsmall": {
           "paddingX": "12px",
           "paddingY": "3px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "default",
           "minHeight": "24px",
           "fontSize": "0.875rem",
@@ -301,7 +300,7 @@ export default {
           "iconOnly": {
             "paddingX": "4px",
             "paddingY": "4px",
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "default",
             "minHeight": "24px",
             "minWidth": "24px",
@@ -316,7 +315,7 @@ export default {
         "small": {
           "paddingX": "12px",
           "paddingY": "3px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "28px",
           "fontSize": "1rem",
@@ -325,7 +324,7 @@ export default {
           "iconOnly": {
             "paddingX": "5px",
             "paddingY": "5px",
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "1px",
             "minHeight": "28px",
             "minWidth": "28px",
@@ -340,7 +339,7 @@ export default {
         "medium": {
           "paddingX": "18px",
           "paddingY": "4px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "2px",
           "minHeight": "36px",
           "fontSize": "19px",
@@ -349,7 +348,7 @@ export default {
           "iconOnly": {
             "paddingX": "7px",
             "paddingY": "7px",
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "2px",
             "minHeight": "36px",
             "minWidth": "36px",
@@ -364,14 +363,14 @@ export default {
         "large": {
           "paddingX": "24px",
           "paddingY": "8px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "2px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "2px",
             "minHeight": "48px",
             "minWidth": "48px",
@@ -387,7 +386,7 @@ export default {
         },
         "xlarge": {
           "iconOnly": {
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "2px",
             "minHeight": "72px",
             "minWidth": "72px",
@@ -399,7 +398,7 @@ export default {
           },
           "paddingX": "32px",
           "paddingY": "19px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "2px",
           "minHeight": "72px",
           "fontSize": "1.5rem",
@@ -453,7 +452,7 @@ export default {
         "xsmall": {
           "paddingX": "12px",
           "paddingY": "3px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "default",
           "minHeight": "24px",
           "fontSize": "0.875rem",
@@ -462,7 +461,7 @@ export default {
           "iconOnly": {
             "paddingX": "4px",
             "paddingY": "4px",
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "default",
             "minHeight": "24px",
             "minWidth": "24px",
@@ -474,7 +473,7 @@ export default {
         "small": {
           "paddingX": "12px",
           "paddingY": "3px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "28px",
           "fontSize": "1rem",
@@ -483,7 +482,7 @@ export default {
           "iconOnly": {
             "paddingX": "5px",
             "paddingY": "5px",
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "1px",
             "minHeight": "28px",
             "minWidth": "28px",
@@ -495,7 +494,7 @@ export default {
         "medium": {
           "paddingX": "18px",
           "paddingY": "5px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "36px",
           "fontSize": "19px",
@@ -504,7 +503,7 @@ export default {
           "iconOnly": {
             "paddingX": "8px",
             "paddingY": "8px",
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "1px",
             "minHeight": "36px",
             "minWidth": "36px",
@@ -516,14 +515,14 @@ export default {
         "large": {
           "paddingX": "24px",
           "paddingY": "9px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "1px",
             "minHeight": "48px",
             "minWidth": "48px",
@@ -536,7 +535,7 @@ export default {
         },
         "xlarge": {
           "iconOnly": {
-            "borderRadius": "384px",
+            "borderRadius": "9999px",
             "borderWidth": "1px",
             "minHeight": "72px",
             "minWidth": "72px",
@@ -548,7 +547,7 @@ export default {
           },
           "paddingX": "32px",
           "paddingY": "20px",
-          "borderRadius": "384px",
+          "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "72px",
           "fontSize": "1.5rem",
@@ -735,12 +734,23 @@ export default {
           }
         }
       },
+      "drop": {
+        "background": "background-floating",
+        "borderColor": "transparent"
+      },
       "group": {
         "separator": {
           "background": "border-default"
         }
       },
       "medium": {
+        "drop": {
+          "paddingX": "none",
+          "paddingY": "none",
+          "gapY": "none",
+          "borderRadius": "xsmall",
+          "borderWidth": "none"
+        },
         "item": {
           "paddingX": "18px",
           "paddingY": "5px",
@@ -753,7 +763,8 @@ export default {
         },
         "group": {
           "container": {
-            "paddingY": "6px"
+            "paddingY": "0px",
+            "gapY": "0px"
           },
           "separator": {
             "height": "1px"
@@ -771,19 +782,26 @@ export default {
           "borderWidth": "1px",
           "fontSize": "19px",
           "lineHeight": "1.5rem"
+        },
+        "drop": {
+          "paddingX": "0px",
+          "paddingY": "0px",
+          "gapY": "0px",
+          "borderRadius": "xsmall",
+          "borderWidth": "0px"
         }
       },
       "option": {
         "rest": {
           "background": "transparent",
           "borderColor": "transparent",
-          "textColor": "text-strong",
+          "textColor": "text-default",
           "fontWeight": 500
         },
         "hover": {
           "background": "background-hover",
           "borderColor": "transparent",
-          "textColor": "text-strong",
+          "textColor": "text-default",
           "fontWeight": 500
         },
         "disabled": {
@@ -808,6 +826,10 @@ export default {
             "fontWeight": 500
           }
         }
+      },
+      "drop": {
+        "background": "background-floating",
+        "border": "transparent"
       }
     },
     "checkbox": {
@@ -822,7 +844,7 @@ export default {
         },
         "disabled": {
           "rest": {
-            "background": "background-disabled",
+            "background": "transparent",
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
@@ -876,7 +898,7 @@ export default {
           "height": "24px",
           "width": "24px",
           "borderWidth": "default",
-          "borderRadius": "3px"
+          "borderRadius": "4px"
         }
       }
     },
@@ -893,7 +915,7 @@ export default {
           },
           "disabled": {
             "rest": {
-              "background": "background-disabled",
+              "background": "transparent",
               "borderColor": "border-disabled"
             }
           },
@@ -963,8 +985,8 @@ export default {
             "borderRadius": "24px"
           },
           "handle": {
-            "height": "22px",
-            "width": "22px",
+            "height": "24px",
+            "width": "24px",
             "borderWidth": "default",
             "borderRadius": "24px"
           }
@@ -972,14 +994,6 @@ export default {
       }
     },
     "dataCell": {
-      "paddingX": "12px",
-      "fontSize": "1.125rem",
-      "lineHeight": "1.5rem",
-      "fontWeight": 400,
-      "borderBottomWidth": "1px",
-      "paddingTop": "6px",
-      "paddingBottom": "5px",
-      "minHeight": "36px",
       "rest": {
         "textColor": "text-default",
         "iconColor": "icon-default",
@@ -1002,26 +1016,28 @@ export default {
       },
       "selected": {
         "rest": {
-          "textColor": "text-onSelectedPrimary",
-          "iconColor": "icon-onSelectedPrimary",
+          "textColor": "text-default",
+          "iconColor": "icon-default",
           "borderColor": "transparent",
-          "background": "background-selected-primary-weak"
+          "background": "transparent"
         },
         "hover": {
-          "textColor": "text-onSelectedPrimary",
-          "iconColor": "icon-onSelectedPrimary",
+          "textColor": "text-default",
+          "iconColor": "icon-default",
           "borderColor": "transparent",
-          "background": "background-selected-primary-weak-hover"
+          "background": "transparent"
         }
       },
       "primary": {
-        "paddingX": "12px",
-        "fontSize": "1.125rem",
-        "lineHeight": "1.5rem",
-        "fontWeight": 500,
-        "borderBottomWidth": "1px",
-        "paddingTop": "6px",
-        "paddingBottom": "5px",
+        "medium": {
+          "paddingX": "12px",
+          "fontSize": "1.125rem",
+          "lineHeight": "1.5rem",
+          "fontWeight": 500,
+          "borderBottomWidth": "1px",
+          "paddingTop": "6px",
+          "paddingBottom": "5px"
+        },
         "rest": {
           "textColor": "text-strong",
           "iconColor": "text-strong",
@@ -1056,51 +1072,16 @@ export default {
           "backgroundColor": "transparent",
           "background": "transparent"
         }
-      }
-    },
-    "headerCell": {
-      "paddingX": "12px",
-      "fontSize": "1.125rem",
-      "lineHeight": "1.5rem",
-      "fontWeight": 500,
-      "borderBottomWidth": "1px",
-      "paddingTop": "6px",
-      "paddingBottom": "5px",
-      "rest": {
-        "textColor": "text-strong",
-        "iconColor": "icon-strong",
-        "borderColor": "border-default",
-        "background": "transparent"
       },
-      "hover": {
-        "textColor": "text-strong",
-        "iconColor": "icon-strong",
-        "borderColor": "border-default",
-        "background": "background-hover"
-      },
-      "pinned": {
-        "textColor": "text-default",
-        "iconColor": "icon-default",
-        "borderColor": "transparent",
-        "background": "transparent"
-      },
-      "gapX": "6px",
-      "minHeight": "36px",
-      "units": {
-        "rest": {
-          "textColor": "text-weak"
-        },
-        "hover": {
-          "textColor": "text-weak"
-        },
-        "pinned": {
-          "rest": {
-            "textColor": "text-weak"
-          },
-          "hover": {
-            "textColor": "text-weak"
-          }
-        }
+      "medium": {
+        "paddingX": "12px",
+        "fontSize": "1.125rem",
+        "lineHeight": "1.5rem",
+        "fontWeight": 400,
+        "borderBottomWidth": "1px",
+        "paddingTop": "6px",
+        "paddingBottom": "5px",
+        "minHeight": "36px"
       }
     },
     "formField": {
@@ -1183,7 +1164,7 @@ export default {
             },
             "disabled": {
               "rest": {
-                "background": "background-disabled",
+                "background": "transparent",
                 "borderColor": "border-disabled"
               }
             },
@@ -1227,7 +1208,7 @@ export default {
             "borderColor": "border-default"
           },
           "hover": {
-            "background": "background-hover",
+            "background": "transparent",
             "borderColor": "border-default"
           },
           "focus": {
@@ -1405,16 +1386,54 @@ export default {
         }
       }
     },
+    "headerCell": {
+      "rest": {
+        "textColor": "text-strong",
+        "iconColor": "icon-strong",
+        "borderColor": "border-default",
+        "background": "transparent"
+      },
+      "hover": {
+        "textColor": "text-strong",
+        "iconColor": "icon-strong",
+        "borderColor": "border-default",
+        "background": "background-hover"
+      },
+      "pinned": {
+        "textColor": "text-default",
+        "iconColor": "icon-default",
+        "borderColor": "transparent",
+        "background": "transparent"
+      },
+      "units": {
+        "rest": {
+          "textColor": "text-weak"
+        },
+        "hover": {
+          "textColor": "text-weak"
+        },
+        "pinned": {
+          "rest": {
+            "textColor": "text-weak"
+          },
+          "hover": {
+            "textColor": "text-weak"
+          }
+        }
+      },
+      "medium": {
+        "paddingX": "12px",
+        "fontSize": "1.125rem",
+        "lineHeight": "1.5rem",
+        "fontWeight": 500,
+        "borderBottomWidth": "1px",
+        "paddingTop": "6px",
+        "paddingBottom": "5px",
+        "gapX": "6px",
+        "minHeight": "36px"
+      }
+    },
     "footerCell": {
-      "paddingX": "12px",
-      "fontSize": "1.125rem",
-      "lineHeight": "1.5rem",
-      "fontWeight": 500,
-      "borderTopWidth": "1px",
-      "paddingTop": "5px",
-      "paddingBottom": "6px",
-      "gapX": "6px",
-      "minHeight": "36px",
       "rest": {
         "textColor": "text-default",
         "iconColor": "icon-default",
@@ -1440,6 +1459,17 @@ export default {
           "borderColor": "transparent",
           "background": "transparent"
         }
+      },
+      "medium": {
+        "paddingX": "12px",
+        "fontSize": "1.125rem",
+        "lineHeight": "1.5rem",
+        "fontWeight": 500,
+        "borderTopWidth": "1px",
+        "paddingTop": "5px",
+        "paddingBottom": "6px",
+        "gapX": "6px",
+        "minHeight": "36px"
       }
     },
     "radioButton": {
@@ -1470,7 +1500,7 @@ export default {
           },
           "hover": {
             "background": "background-default",
-            "borderColor": "border-strong",
+            "borderColor": "border-selected",
             "iconColor": "decorative-brand"
           },
           "focus": {
@@ -1512,7 +1542,7 @@ export default {
           "height": "24px",
           "width": "24px",
           "borderWidth": "default",
-          "borderRadius": "384px"
+          "borderRadius": "9999px"
         }
       }
     },

@@ -104,12 +104,11 @@ export default {
     "button": {
       "primary": {
         "rest": {
-          "background": "var(--hpe-button-primary-rest-background)",
+          "background": "background-primary-strong",
           "borderColor": "transparent",
           "textColor": "text-onPrimaryStrong",
           "iconColor": "icon-onPrimaryStrong",
-          "fontWeight": "var(--hpe-button-primary-rest-fontWeight)",
-          "backgroundColor": "background-primary-strong"
+          "fontWeight": "var(--hpe-button-primary-rest-fontWeight)"
         },
         "disabled": {
           "rest": {
@@ -735,12 +734,23 @@ export default {
           }
         }
       },
+      "drop": {
+        "background": "background-floating",
+        "borderColor": "transparent"
+      },
       "group": {
         "separator": {
           "background": "border-default"
         }
       },
       "medium": {
+        "drop": {
+          "paddingX": "none",
+          "paddingY": "none",
+          "gapY": "none",
+          "borderRadius": "xsmall",
+          "borderWidth": "none"
+        },
         "item": {
           "paddingX": "var(--hpe-element-medium-paddingX-wide)",
           "paddingY": "var(--hpe-element-medium-paddingY)",
@@ -753,7 +763,8 @@ export default {
         },
         "group": {
           "container": {
-            "paddingY": "var(--hpe-static-spacing-3xsmall)"
+            "paddingY": "var(--hpe-static-spacing-none)",
+            "gapY": "var(--hpe-static-spacing-none)"
           },
           "separator": {
             "height": "var(--hpe-static-borderWidth-xsmall)"
@@ -771,19 +782,26 @@ export default {
           "borderWidth": "var(--hpe-static-borderWidth-xsmall)",
           "fontSize": "var(--hpe-button-default-medium-fontSize)",
           "lineHeight": "var(--hpe-text-medium-lineHeight)"
+        },
+        "drop": {
+          "paddingX": "var(--hpe-static-spacing-none)",
+          "paddingY": "var(--hpe-static-spacing-none)",
+          "gapY": "var(--hpe-static-spacing-none)",
+          "borderRadius": "xsmall",
+          "borderWidth": "var(--hpe-static-borderWidth-none)"
         }
       },
       "option": {
         "rest": {
           "background": "transparent",
           "borderColor": "transparent",
-          "textColor": "text-strong",
+          "textColor": "text-default",
           "fontWeight": "var(--hpe-select-option-rest-fontWeight)"
         },
         "hover": {
           "background": "background-hover",
           "borderColor": "transparent",
-          "textColor": "text-strong",
+          "textColor": "text-default",
           "fontWeight": "var(--hpe-select-option-rest-fontWeight)"
         },
         "disabled": {
@@ -808,6 +826,10 @@ export default {
             "fontWeight": "var(--hpe-select-option-selected-hover-fontWeight)"
           }
         }
+      },
+      "drop": {
+        "background": "background-floating",
+        "border": "transparent"
       }
     },
     "checkbox": {
@@ -822,7 +844,7 @@ export default {
         },
         "disabled": {
           "rest": {
-            "background": "background-disabled",
+            "background": "transparent",
             "borderColor": "border-disabled",
             "iconColor": "icon-disabled"
           }
@@ -876,7 +898,7 @@ export default {
           "height": "var(--hpe-checkbox-medium-control-height)",
           "width": "var(--hpe-checkbox-medium-control-width)",
           "borderWidth": "default",
-          "borderRadius": "var(--hpe-static-radius-xxsmall)"
+          "borderRadius": "var(--hpe-checkbox-medium-control-borderRadius)"
         }
       }
     },
@@ -893,7 +915,7 @@ export default {
           },
           "disabled": {
             "rest": {
-              "background": "background-disabled",
+              "background": "transparent",
               "borderColor": "border-disabled"
             }
           },
@@ -972,14 +994,6 @@ export default {
       }
     },
     "dataCell": {
-      "paddingX": "var(--hpe-static-spacing-xsmall)",
-      "fontSize": "var(--hpe-text-medium-fontSize)",
-      "lineHeight": "var(--hpe-text-medium-lineHeight)",
-      "fontWeight": "var(--hpe-dataCell-fontWeight)",
-      "borderBottomWidth": "var(--hpe-static-borderWidth-xsmall)",
-      "paddingTop": "var(--hpe-static-spacing-3xsmall)",
-      "paddingBottom": "var(--hpe-dataCell-paddingBottom)",
-      "minHeight": "var(--hpe-element-medium-minHeight)",
       "rest": {
         "textColor": "text-default",
         "iconColor": "icon-default",
@@ -1002,26 +1016,28 @@ export default {
       },
       "selected": {
         "rest": {
-          "textColor": "text-onSelectedPrimary",
-          "iconColor": "icon-onSelectedPrimary",
+          "textColor": "text-default",
+          "iconColor": "icon-default",
           "borderColor": "transparent",
-          "background": "background-selected-primary-weak"
+          "background": "transparent"
         },
         "hover": {
-          "textColor": "text-onSelectedPrimary",
-          "iconColor": "icon-onSelectedPrimary",
+          "textColor": "text-default",
+          "iconColor": "icon-default",
           "borderColor": "transparent",
-          "background": "background-selected-primary-weak-hover"
+          "background": "transparent"
         }
       },
       "primary": {
-        "paddingX": "var(--hpe-static-spacing-xsmall)",
-        "fontSize": "var(--hpe-text-medium-fontSize)",
-        "lineHeight": "var(--hpe-text-medium-lineHeight)",
-        "fontWeight": "var(--hpe-dataCell-primary-fontWeight)",
-        "borderBottomWidth": "var(--hpe-static-borderWidth-xsmall)",
-        "paddingTop": "var(--hpe-static-spacing-3xsmall)",
-        "paddingBottom": "var(--hpe-dataCell-paddingBottom)",
+        "medium": {
+          "paddingX": "var(--hpe-static-spacing-xsmall)",
+          "fontSize": "var(--hpe-text-medium-fontSize)",
+          "lineHeight": "var(--hpe-text-medium-lineHeight)",
+          "fontWeight": "var(--hpe-dataCell-primary-medium-fontWeight)",
+          "borderBottomWidth": "var(--hpe-static-borderWidth-xsmall)",
+          "paddingTop": "var(--hpe-static-spacing-3xsmall)",
+          "paddingBottom": "var(--hpe-dataCell-medium-paddingBottom)"
+        },
         "rest": {
           "textColor": "text-strong",
           "iconColor": "text-strong",
@@ -1056,51 +1072,16 @@ export default {
           "backgroundColor": "transparent",
           "background": "transparent"
         }
-      }
-    },
-    "headerCell": {
-      "paddingX": "var(--hpe-static-spacing-xsmall)",
-      "fontSize": "var(--hpe-text-medium-fontSize)",
-      "lineHeight": "var(--hpe-text-medium-lineHeight)",
-      "fontWeight": "var(--hpe-headerCell-fontWeight)",
-      "borderBottomWidth": "var(--hpe-static-borderWidth-xsmall)",
-      "paddingTop": "var(--hpe-static-spacing-3xsmall)",
-      "paddingBottom": "var(--hpe-dataCell-paddingBottom)",
-      "rest": {
-        "textColor": "text-strong",
-        "iconColor": "icon-strong",
-        "borderColor": "border-default",
-        "background": "transparent"
       },
-      "hover": {
-        "textColor": "text-strong",
-        "iconColor": "icon-strong",
-        "borderColor": "border-default",
-        "background": "background-hover"
-      },
-      "pinned": {
-        "textColor": "text-default",
-        "iconColor": "icon-default",
-        "borderColor": "transparent",
-        "background": "transparent"
-      },
-      "gapX": "var(--hpe-static-spacing-3xsmall)",
-      "minHeight": "var(--hpe-element-medium-minHeight)",
-      "units": {
-        "rest": {
-          "textColor": "text-weak"
-        },
-        "hover": {
-          "textColor": "text-weak"
-        },
-        "pinned": {
-          "rest": {
-            "textColor": "text-weak"
-          },
-          "hover": {
-            "textColor": "text-weak"
-          }
-        }
+      "medium": {
+        "paddingX": "var(--hpe-static-spacing-xsmall)",
+        "fontSize": "var(--hpe-text-medium-fontSize)",
+        "lineHeight": "var(--hpe-text-medium-lineHeight)",
+        "fontWeight": "var(--hpe-dataCell-medium-fontWeight)",
+        "borderBottomWidth": "var(--hpe-static-borderWidth-xsmall)",
+        "paddingTop": "var(--hpe-static-spacing-3xsmall)",
+        "paddingBottom": "var(--hpe-dataCell-medium-paddingBottom)",
+        "minHeight": "var(--hpe-element-medium-minHeight)"
       }
     },
     "formField": {
@@ -1183,7 +1164,7 @@ export default {
             },
             "disabled": {
               "rest": {
-                "background": "background-disabled",
+                "background": "transparent",
                 "borderColor": "border-disabled"
               }
             },
@@ -1227,7 +1208,7 @@ export default {
             "borderColor": "border-default"
           },
           "hover": {
-            "background": "background-hover",
+            "background": "transparent",
             "borderColor": "border-default"
           },
           "focus": {
@@ -1405,16 +1386,54 @@ export default {
         }
       }
     },
+    "headerCell": {
+      "rest": {
+        "textColor": "text-strong",
+        "iconColor": "icon-strong",
+        "borderColor": "border-default",
+        "background": "transparent"
+      },
+      "hover": {
+        "textColor": "text-strong",
+        "iconColor": "icon-strong",
+        "borderColor": "border-default",
+        "background": "background-hover"
+      },
+      "pinned": {
+        "textColor": "text-default",
+        "iconColor": "icon-default",
+        "borderColor": "transparent",
+        "background": "transparent"
+      },
+      "units": {
+        "rest": {
+          "textColor": "text-weak"
+        },
+        "hover": {
+          "textColor": "text-weak"
+        },
+        "pinned": {
+          "rest": {
+            "textColor": "text-weak"
+          },
+          "hover": {
+            "textColor": "text-weak"
+          }
+        }
+      },
+      "medium": {
+        "paddingX": "var(--hpe-static-spacing-xsmall)",
+        "fontSize": "var(--hpe-text-medium-fontSize)",
+        "lineHeight": "var(--hpe-text-medium-lineHeight)",
+        "fontWeight": "var(--hpe-headerCell-medium-fontWeight)",
+        "borderBottomWidth": "var(--hpe-static-borderWidth-xsmall)",
+        "paddingTop": "var(--hpe-static-spacing-3xsmall)",
+        "paddingBottom": "var(--hpe-dataCell-medium-paddingBottom)",
+        "gapX": "var(--hpe-static-spacing-3xsmall)",
+        "minHeight": "var(--hpe-element-medium-minHeight)"
+      }
+    },
     "footerCell": {
-      "paddingX": "var(--hpe-static-spacing-xsmall)",
-      "fontSize": "var(--hpe-text-medium-fontSize)",
-      "lineHeight": "var(--hpe-text-medium-lineHeight)",
-      "fontWeight": "var(--hpe-footerCell-fontWeight)",
-      "borderTopWidth": "var(--hpe-static-borderWidth-xsmall)",
-      "paddingTop": "var(--hpe-dataCell-paddingBottom)",
-      "paddingBottom": "var(--hpe-static-spacing-3xsmall)",
-      "gapX": "var(--hpe-static-spacing-3xsmall)",
-      "minHeight": "var(--hpe-element-medium-minHeight)",
       "rest": {
         "textColor": "text-default",
         "iconColor": "icon-default",
@@ -1440,6 +1459,17 @@ export default {
           "borderColor": "transparent",
           "background": "transparent"
         }
+      },
+      "medium": {
+        "paddingX": "var(--hpe-static-spacing-xsmall)",
+        "fontSize": "var(--hpe-text-medium-fontSize)",
+        "lineHeight": "var(--hpe-text-medium-lineHeight)",
+        "fontWeight": "var(--hpe-footerCell-medium-fontWeight)",
+        "borderTopWidth": "var(--hpe-static-borderWidth-xsmall)",
+        "paddingTop": "var(--hpe-dataCell-medium-paddingBottom)",
+        "paddingBottom": "var(--hpe-static-spacing-3xsmall)",
+        "gapX": "var(--hpe-static-spacing-3xsmall)",
+        "minHeight": "var(--hpe-element-medium-minHeight)"
       }
     },
     "radioButton": {
@@ -1470,7 +1500,7 @@ export default {
           },
           "hover": {
             "background": "background-default",
-            "borderColor": "border-strong",
+            "borderColor": "border-selected",
             "iconColor": "decorative-brand"
           },
           "focus": {

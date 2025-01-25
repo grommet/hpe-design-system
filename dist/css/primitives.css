@@ -68,6 +68,7 @@
   --hpe-base-color-green-100: #cbfaeb;
   --hpe-base-color-green-125: #aef6df;
   --hpe-base-color-green-400: #17eba0;
+  --hpe-base-color-green-450: #00ebb5;
   --hpe-base-color-green-500: #17d0a6;
   --hpe-base-color-green-600: #01a982; /* HPE Brand */
   --hpe-base-color-green-650: #009a71;
@@ -96,6 +97,7 @@
   --hpe-base-color-purple-500-Opacity12: rgba(247, 64, 255, 0.12);
   --hpe-base-color-purple-800-Opacity12: rgba(118, 48, 234, 0.12);
   --hpe-base-color-black-opacity4: rgba(0, 0, 0, 0.04);
+  --hpe-base-color-black-opacity8: rgba(0, 0, 0, 0.08);
   --hpe-base-color-black-opacity12: rgba(0, 0, 0, 0.12);
   --hpe-base-color-black-opacity24: rgba(0, 0, 0, 0.24);
   --hpe-base-color-black-opacity36: rgba(0, 0, 0, 0.36);
@@ -164,6 +166,7 @@
   --hpe-base-lineHeight-800: 3rem;
   --hpe-base-lineHeight-900: 4.5rem;
   --hpe-base-lineHeight-1000: 4.5rem;
+  --hpe-static-radius-full: 9999px;
   --hpe-TBD: rgba(0, 255, 10, 0); /* Placeholder for colors that still need finalising. */
   --hpe-base-color-brand: var(--hpe-base-color-green-600);
   --hpe-static-spacing-none: var(--hpe-base-dimension-0);
@@ -188,7 +191,6 @@
   --hpe-static-radius-medium: var(--hpe-base-dimension-600);
   --hpe-static-radius-large: var(--hpe-base-dimension-1200);
   --hpe-static-radius-xlarge: var(--hpe-base-dimension-2400);
-  --hpe-static-radius-full: var(--hpe-base-dimension-9600);
   --hpe-static-borderWidth-none: var(--hpe-base-dimension-0);
   --hpe-static-borderWidth-xsmall: var(--hpe-base-dimension-25);
   --hpe-static-borderWidth-small: var(--hpe-base-dimension-50);

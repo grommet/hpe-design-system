@@ -108,8 +108,7 @@ module.exports = {
           "borderColor": "var(--hpe-button-primary-rest-borderColor)",
           "textColor": "var(--hpe-button-primary-rest-textColor)",
           "iconColor": "var(--hpe-button-primary-rest-iconColor)",
-          "fontWeight": "var(--hpe-button-primary-rest-fontWeight)",
-          "backgroundColor": "var(--hpe-button-primary-rest-backgroundColor)"
+          "fontWeight": "var(--hpe-button-primary-rest-fontWeight)"
         },
         "disabled": {
           "rest": {
@@ -735,12 +734,23 @@ module.exports = {
           }
         }
       },
+      "drop": {
+        "background": "var(--hpe-menu-drop-background)",
+        "borderColor": "var(--hpe-menu-drop-borderColor)"
+      },
       "group": {
         "separator": {
           "background": "var(--hpe-menu-group-separator-background)"
         }
       },
       "medium": {
+        "drop": {
+          "paddingX": "var(--hpe-menu-medium-drop-paddingX)",
+          "paddingY": "var(--hpe-menu-medium-drop-paddingY)",
+          "gapY": "var(--hpe-menu-medium-drop-gapY)",
+          "borderRadius": "var(--hpe-menu-medium-drop-borderRadius)",
+          "borderWidth": "var(--hpe-menu-medium-drop-borderWidth)"
+        },
         "item": {
           "paddingX": "var(--hpe-menu-medium-item-paddingX)",
           "paddingY": "var(--hpe-menu-medium-item-paddingY)",
@@ -753,7 +763,8 @@ module.exports = {
         },
         "group": {
           "container": {
-            "paddingY": "var(--hpe-menu-medium-group-container-paddingY)"
+            "paddingY": "var(--hpe-menu-medium-group-container-paddingY)",
+            "gapY": "var(--hpe-menu-medium-group-container-gapY)"
           },
           "separator": {
             "height": "var(--hpe-menu-medium-group-separator-height)"
@@ -771,6 +782,13 @@ module.exports = {
           "borderWidth": "var(--hpe-select-medium-option-borderWidth)",
           "fontSize": "var(--hpe-select-medium-option-fontSize)",
           "lineHeight": "var(--hpe-select-medium-option-lineHeight)"
+        },
+        "drop": {
+          "paddingX": "var(--hpe-select-medium-drop-paddingX)",
+          "paddingY": "var(--hpe-select-medium-drop-paddingY)",
+          "gapY": "var(--hpe-select-medium-drop-gapY)",
+          "borderRadius": "var(--hpe-select-medium-drop-borderRadius)",
+          "borderWidth": "var(--hpe-select-medium-drop-borderWidth)"
         }
       },
       "option": {
@@ -808,6 +826,10 @@ module.exports = {
             "fontWeight": "var(--hpe-select-option-selected-hover-fontWeight)"
           }
         }
+      },
+      "drop": {
+        "background": "var(--hpe-select-drop-background)",
+        "border": "var(--hpe-select-drop-border)"
       }
     },
     "checkbox": {
@@ -972,14 +994,6 @@ module.exports = {
       }
     },
     "dataCell": {
-      "paddingX": "var(--hpe-dataCell-paddingX)",
-      "fontSize": "var(--hpe-dataCell-fontSize)",
-      "lineHeight": "var(--hpe-dataCell-lineHeight)",
-      "fontWeight": "var(--hpe-dataCell-fontWeight)",
-      "borderBottomWidth": "var(--hpe-dataCell-borderBottomWidth)",
-      "paddingTop": "var(--hpe-dataCell-paddingTop)",
-      "paddingBottom": "var(--hpe-dataCell-paddingBottom)",
-      "minHeight": "var(--hpe-dataCell-minHeight)",
       "rest": {
         "textColor": "var(--hpe-dataCell-rest-textColor)",
         "iconColor": "var(--hpe-dataCell-rest-iconColor)",
@@ -1015,13 +1029,15 @@ module.exports = {
         }
       },
       "primary": {
-        "paddingX": "var(--hpe-dataCell-primary-paddingX)",
-        "fontSize": "var(--hpe-dataCell-primary-fontSize)",
-        "lineHeight": "var(--hpe-dataCell-primary-lineHeight)",
-        "fontWeight": "var(--hpe-dataCell-primary-fontWeight)",
-        "borderBottomWidth": "var(--hpe-dataCell-primary-borderBottomWidth)",
-        "paddingTop": "var(--hpe-dataCell-primary-paddingTop)",
-        "paddingBottom": "var(--hpe-dataCell-primary-paddingBottom)",
+        "medium": {
+          "paddingX": "var(--hpe-dataCell-primary-medium-paddingX)",
+          "fontSize": "var(--hpe-dataCell-primary-medium-fontSize)",
+          "lineHeight": "var(--hpe-dataCell-primary-medium-lineHeight)",
+          "fontWeight": "var(--hpe-dataCell-primary-medium-fontWeight)",
+          "borderBottomWidth": "var(--hpe-dataCell-primary-medium-borderBottomWidth)",
+          "paddingTop": "var(--hpe-dataCell-primary-medium-paddingTop)",
+          "paddingBottom": "var(--hpe-dataCell-primary-medium-paddingBottom)"
+        },
         "rest": {
           "textColor": "var(--hpe-dataCell-primary-rest-textColor)",
           "iconColor": "var(--hpe-dataCell-primary-rest-iconColor)",
@@ -1056,51 +1072,16 @@ module.exports = {
           "backgroundColor": "var(--hpe-dataCell-pinned-hover-backgroundColor)",
           "background": "var(--hpe-dataCell-pinned-hover-background)"
         }
-      }
-    },
-    "headerCell": {
-      "paddingX": "var(--hpe-headerCell-paddingX)",
-      "fontSize": "var(--hpe-headerCell-fontSize)",
-      "lineHeight": "var(--hpe-headerCell-lineHeight)",
-      "fontWeight": "var(--hpe-headerCell-fontWeight)",
-      "borderBottomWidth": "var(--hpe-headerCell-borderBottomWidth)",
-      "paddingTop": "var(--hpe-headerCell-paddingTop)",
-      "paddingBottom": "var(--hpe-headerCell-paddingBottom)",
-      "rest": {
-        "textColor": "var(--hpe-headerCell-rest-textColor)",
-        "iconColor": "var(--hpe-headerCell-rest-iconColor)",
-        "borderColor": "var(--hpe-headerCell-rest-borderColor)",
-        "background": "var(--hpe-headerCell-rest-background)"
       },
-      "hover": {
-        "textColor": "var(--hpe-headerCell-hover-textColor)",
-        "iconColor": "var(--hpe-headerCell-hover-iconColor)",
-        "borderColor": "var(--hpe-headerCell-hover-borderColor)",
-        "background": "var(--hpe-headerCell-hover-background)"
-      },
-      "pinned": {
-        "textColor": "var(--hpe-headerCell-pinned-textColor)",
-        "iconColor": "var(--hpe-headerCell-pinned-iconColor)",
-        "borderColor": "var(--hpe-headerCell-pinned-borderColor)",
-        "background": "var(--hpe-headerCell-pinned-background)"
-      },
-      "gapX": "var(--hpe-headerCell-gapX)",
-      "minHeight": "var(--hpe-headerCell-minHeight)",
-      "units": {
-        "rest": {
-          "textColor": "var(--hpe-headerCell-units-rest-textColor)"
-        },
-        "hover": {
-          "textColor": "var(--hpe-headerCell-units-hover-textColor)"
-        },
-        "pinned": {
-          "rest": {
-            "textColor": "var(--hpe-headerCell-units-pinned-rest-textColor)"
-          },
-          "hover": {
-            "textColor": "var(--hpe-headerCell-units-pinned-hover-textColor)"
-          }
-        }
+      "medium": {
+        "paddingX": "var(--hpe-dataCell-medium-paddingX)",
+        "fontSize": "var(--hpe-dataCell-medium-fontSize)",
+        "lineHeight": "var(--hpe-dataCell-medium-lineHeight)",
+        "fontWeight": "var(--hpe-dataCell-medium-fontWeight)",
+        "borderBottomWidth": "var(--hpe-dataCell-medium-borderBottomWidth)",
+        "paddingTop": "var(--hpe-dataCell-medium-paddingTop)",
+        "paddingBottom": "var(--hpe-dataCell-medium-paddingBottom)",
+        "minHeight": "var(--hpe-dataCell-medium-minHeight)"
       }
     },
     "formField": {
@@ -1405,16 +1386,54 @@ module.exports = {
         }
       }
     },
+    "headerCell": {
+      "rest": {
+        "textColor": "var(--hpe-headerCell-rest-textColor)",
+        "iconColor": "var(--hpe-headerCell-rest-iconColor)",
+        "borderColor": "var(--hpe-headerCell-rest-borderColor)",
+        "background": "var(--hpe-headerCell-rest-background)"
+      },
+      "hover": {
+        "textColor": "var(--hpe-headerCell-hover-textColor)",
+        "iconColor": "var(--hpe-headerCell-hover-iconColor)",
+        "borderColor": "var(--hpe-headerCell-hover-borderColor)",
+        "background": "var(--hpe-headerCell-hover-background)"
+      },
+      "pinned": {
+        "textColor": "var(--hpe-headerCell-pinned-textColor)",
+        "iconColor": "var(--hpe-headerCell-pinned-iconColor)",
+        "borderColor": "var(--hpe-headerCell-pinned-borderColor)",
+        "background": "var(--hpe-headerCell-pinned-background)"
+      },
+      "units": {
+        "rest": {
+          "textColor": "var(--hpe-headerCell-units-rest-textColor)"
+        },
+        "hover": {
+          "textColor": "var(--hpe-headerCell-units-hover-textColor)"
+        },
+        "pinned": {
+          "rest": {
+            "textColor": "var(--hpe-headerCell-units-pinned-rest-textColor)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-headerCell-units-pinned-hover-textColor)"
+          }
+        }
+      },
+      "medium": {
+        "paddingX": "var(--hpe-headerCell-medium-paddingX)",
+        "fontSize": "var(--hpe-headerCell-medium-fontSize)",
+        "lineHeight": "var(--hpe-headerCell-medium-lineHeight)",
+        "fontWeight": "var(--hpe-headerCell-medium-fontWeight)",
+        "borderBottomWidth": "var(--hpe-headerCell-medium-borderBottomWidth)",
+        "paddingTop": "var(--hpe-headerCell-medium-paddingTop)",
+        "paddingBottom": "var(--hpe-headerCell-medium-paddingBottom)",
+        "gapX": "var(--hpe-headerCell-medium-gapX)",
+        "minHeight": "var(--hpe-headerCell-medium-minHeight)"
+      }
+    },
     "footerCell": {
-      "paddingX": "var(--hpe-footerCell-paddingX)",
-      "fontSize": "var(--hpe-footerCell-fontSize)",
-      "lineHeight": "var(--hpe-footerCell-lineHeight)",
-      "fontWeight": "var(--hpe-footerCell-fontWeight)",
-      "borderTopWidth": "var(--hpe-footerCell-borderTopWidth)",
-      "paddingTop": "var(--hpe-footerCell-paddingTop)",
-      "paddingBottom": "var(--hpe-footerCell-paddingBottom)",
-      "gapX": "var(--hpe-footerCell-gapX)",
-      "minHeight": "var(--hpe-footerCell-minHeight)",
       "rest": {
         "textColor": "var(--hpe-footerCell-rest-textColor)",
         "iconColor": "var(--hpe-footerCell-rest-iconColor)",
@@ -1440,6 +1459,17 @@ module.exports = {
           "borderColor": "var(--hpe-footerCell-pinned-hover-borderColor)",
           "background": "var(--hpe-footerCell-pinned-hover-background)"
         }
+      },
+      "medium": {
+        "paddingX": "var(--hpe-footerCell-medium-paddingX)",
+        "fontSize": "var(--hpe-footerCell-medium-fontSize)",
+        "lineHeight": "var(--hpe-footerCell-medium-lineHeight)",
+        "fontWeight": "var(--hpe-footerCell-medium-fontWeight)",
+        "borderTopWidth": "var(--hpe-footerCell-medium-borderTopWidth)",
+        "paddingTop": "var(--hpe-footerCell-medium-paddingTop)",
+        "paddingBottom": "var(--hpe-footerCell-medium-paddingBottom)",
+        "gapX": "var(--hpe-footerCell-medium-gapX)",
+        "minHeight": "var(--hpe-footerCell-medium-minHeight)"
       }
     },
     "radioButton": {

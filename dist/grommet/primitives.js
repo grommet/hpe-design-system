@@ -74,6 +74,7 @@ export default {
         "green-100": "#cbfaeb",
         "green-125": "#aef6df",
         "green-400": "#17eba0",
+        "green-450": "#00ebb5",
         "green-500": "#17d0a6",
         "green-600": "#01a982",
         "green-650": "#009a71",
@@ -102,6 +103,7 @@ export default {
         "purple-500-Opacity12": "rgba(247, 64, 255, 0.12)",
         "purple-800-Opacity12": "rgba(118, 48, 234, 0.12)",
         "black-opacity4": "rgba(0, 0, 0, 0.04)",
+        "black-opacity8": "rgba(0, 0, 0, 0.08)",
         "black-opacity12": "rgba(0, 0, 0, 0.12)",
         "black-opacity24": "rgba(0, 0, 0, 0.24)",
         "black-opacity36": "rgba(0, 0, 0, 0.36)",
@@ -204,7 +206,7 @@ export default {
         "medium": "24px",
         "large": "48px",
         "xlarge": "96px",
-        "full": "384px"
+        "full": "9999px"
       },
       "borderWidth": {
         "none": "0px",

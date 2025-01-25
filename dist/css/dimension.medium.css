@@ -12,7 +12,7 @@
   --hpe-text-3xl-maxWidth: 25em;
   --hpe-text-4xl-maxWidth: 25em;
   --hpe-text-5xl-maxWidth: 25em;
-  --hpe-radius-full: var(--hpe-base-dimension-9600);
+  --hpe-radius-full: var(--hpe-static-radius-full);
   --hpe-size-icon-xsmall: var(--hpe-base-dimension-350);
   --hpe-size-icon-small: var(--hpe-base-dimension-400);
   --hpe-size-icon-medium: var(--hpe-base-dimension-450);

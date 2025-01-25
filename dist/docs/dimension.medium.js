@@ -845,7 +845,7 @@ export default {
   },
   "hpe.radius.full": {
     "$type": "number",
-    "$value": "384px",
+    "$value": "9999px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -860,7 +860,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.9600}",
+      "$value": "{static.radius.full}",
       "$description": "",
       "$extensions": {
         "com.figma": {

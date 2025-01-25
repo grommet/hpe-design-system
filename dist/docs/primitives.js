@@ -2697,6 +2697,50 @@ export default {
     ],
     "key": "{base.color.green.400}"
   },
+  "hpe.base.color.green.450": {
+    "$type": "color",
+    "$value": "#00ebb5",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#00ebb5",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.green.450",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "green",
+      "subitem": "450"
+    },
+    "path": [
+      "base",
+      "color",
+      "green",
+      "450"
+    ],
+    "key": "{base.color.green.450}"
+  },
   "hpe.base.color.green.500": {
     "$type": "color",
     "$value": "#17d0a6",
@@ -3928,6 +3972,50 @@ export default {
       "opacity4"
     ],
     "key": "{base.color.black.opacity4}"
+  },
+  "hpe.base.color.black.opacity8": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.08)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#00000014",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.black.opacity8",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "black",
+      "subitem": "opacity8"
+    },
+    "path": [
+      "base",
+      "color",
+      "black",
+      "opacity8"
+    ],
+    "key": "{base.color.black.opacity8}"
   },
   "hpe.base.color.black.opacity12": {
     "$type": "color",
@@ -7793,7 +7881,7 @@ export default {
   },
   "hpe.static.radius.full": {
     "$type": "number",
-    "$value": "384px",
+    "$value": "9999px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -7808,7 +7896,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.9600}",
+      "$value": 9999,
       "$description": "",
       "$extensions": {
         "com.figma": {

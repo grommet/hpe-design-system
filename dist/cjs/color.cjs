@@ -16,9 +16,9 @@ module.exports = {
         "active": "var(--hpe-color-background-active)",
         "disabled": "var(--hpe-color-background-disabled)",
         "screenOverlay": "var(--hpe-color-background-screenOverlay)",
+        "info": "var(--hpe-color-background-info)",
         "unknown": "var(--hpe-color-background-unknown)",
         "critical": "var(--hpe-color-background-critical)",
-        "info": "var(--hpe-color-background-info)",
         "ok": "var(--hpe-color-background-ok)",
         "warning": "var(--hpe-color-background-warning)",
         "primary-strong": "var(--hpe-color-background-primary-strong)",
@@ -28,6 +28,7 @@ module.exports = {
         "selected-primary-strong-hover": "var(--hpe-color-background-selected-primary-strong-hover)",
         "selected-primary-weak": "var(--hpe-color-background-selected-primary-weak)",
         "selected-primary-weak-hover": "var(--hpe-color-background-selected-primary-weak-hover)",
+        "neutral-strong": "var(--hpe-color-background-neutral-strong)",
         "neutral-xstrong": "var(--hpe-color-background-neutral-xstrong)"
       },
       "border": {

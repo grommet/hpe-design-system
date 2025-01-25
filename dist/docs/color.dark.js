@@ -245,7 +245,7 @@ export default {
   },
   "hpe.color.background.contrast.hover": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
+    "$value": "rgba(255, 255, 255, 0.2)",
     "$description": "Use to create a subtle differentiation between a component or container and the region it sits on.",
     "$extensions": {
       "com.figma": {
@@ -262,7 +262,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.black.opacity12}",
+      "$value": "{base.color.white.opacity20}",
       "$description": "Use to create a subtle differentiation between a component or container and the region it sits on.",
       "$extensions": {
         "com.figma": {
@@ -481,6 +481,54 @@ export default {
     ],
     "key": "{color.background.screenOverlay.DEFAULT.REST}"
   },
+  "hpe.color.background.info": {
+    "$type": "color",
+    "$value": "rgba(0, 200, 255, 0.12)",
+    "$description": "Use for backgrounds communicating neutral information.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.blue.400-Opacity12}",
+      "$description": "Use for backgrounds communicating neutral information.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.info",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "info",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "info",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.info.DEFAULT.REST}"
+  },
   "hpe.color.background.unknown": {
     "$type": "color",
     "$value": "rgba(255, 255, 255, 0.06)",
@@ -576,54 +624,6 @@ export default {
       "REST"
     ],
     "key": "{color.background.critical.DEFAULT.REST}"
-  },
-  "hpe.color.background.info": {
-    "$type": "color",
-    "$value": "rgba(0, 200, 255, 0.12)",
-    "$description": "Use for backgrounds communicating neutral information.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.blue.400-Opacity12}",
-      "$description": "Use for backgrounds communicating neutral information.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.info",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "info",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "info",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.background.info.DEFAULT.REST}"
   },
   "hpe.color.background.ok": {
     "$type": "color",
@@ -771,7 +771,7 @@ export default {
   },
   "hpe.color.background.primary.strong.hover": {
     "$type": "color",
-    "$value": "#01a982",
+    "$value": "#008567",
     "$description": "Hover variant of background-primary.",
     "$extensions": {
       "com.figma": {
@@ -787,7 +787,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.600}",
+      "$value": "{base.color.green.700}",
       "$description": "Hover variant of background-primary.",
       "$extensions": {
         "com.figma": {
@@ -1060,6 +1060,52 @@ export default {
       "hover"
     ],
     "key": "{color.background.selected.primary.weak.hover}"
+  },
+  "hpe.color.background.neutral.strong": {
+    "$type": "color",
+    "$value": "#bbbbbb",
+    "$description": "Highest emphasis variant of neutral palette.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.grey.500}",
+      "$description": "Highest emphasis variant of neutral palette.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.neutral.strong",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "neutral",
+      "subitem": "strong",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "neutral",
+      "strong",
+      "REST"
+    ],
+    "key": "{color.background.neutral.strong.REST}"
   },
   "hpe.color.background.neutral.xstrong": {
     "$type": "color",
@@ -1859,7 +1905,7 @@ export default {
   },
   "hpe.color.text.primary": {
     "$type": "color",
-    "$value": "#01a982",
+    "$value": "#00ebb5",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1874,7 +1920,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.600}",
+      "$value": "{base.color.green.450}",
       "$description": "",
       "$extensions": {
         "com.figma": {
