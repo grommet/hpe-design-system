@@ -1,4 +1,3 @@
-import fs from 'fs';
 import { rgbToHex } from './color.js';
 import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';
 import { Token, TokensFile } from './token_types.js';
@@ -251,32 +250,18 @@ export function tokenFilesFromLocalVariables(
         });
 
         let token: Token;
-        // TO DO this is temp way of handling the gradient on the primary button background
-        // which is only stored in code but handled as a solid color in Figma
-        if (variable.name === 'button/primary/rest/background') {
-          const componentTokens = fs.readFileSync(
-            'tokens/component/component.default.json',
-          );
-          const parsed = JSON.parse(componentTokens.toString());
-          token = parsed.button.primary.rest.background;
-        } else {
-          token = {
-            $type: tokenTypeFromVariable(variable),
-            $value: tokenValueFromVariable(
-              variable,
-              mode.modeId,
-              localVariables,
-            ),
-            $description: variable.description,
-            $extensions: {
-              'com.figma': {
-                hiddenFromPublishing: variable.hiddenFromPublishing,
-                scopes: variable.scopes,
-                codeSyntax: variable.codeSyntax,
-              },
+        token = {
+          $type: tokenTypeFromVariable(variable),
+          $value: tokenValueFromVariable(variable, mode.modeId, localVariables),
+          $description: variable.description,
+          $extensions: {
+            'com.figma': {
+              hiddenFromPublishing: variable.hiddenFromPublishing,
+              scopes: variable.scopes,
+              codeSyntax: variable.codeSyntax,
             },
-          };
-        }
+          },
+        };
 
         Object.assign(obj, token);
       }
