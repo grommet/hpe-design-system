@@ -2537,10 +2537,10 @@ const buildTheme = (tokens, flags) => {
         pad: 'none',
         color: 'foreground-primary',
         border: [
-          { color: 'border-weak', side: 'all', size: 'medium' },
-          { color: 'border-weak', side: 'right', size: 'medium' },
-          { color: 'border-weak', side: 'top', size: 'medium' },
-          { color: 'border-weak', side: 'left', size: 'medium' },
+          { color: 'transparent', side: 'all', size: 'medium' },
+          { color: 'transparent', side: 'right', size: 'medium' },
+          { color: 'transparent', side: 'top', size: 'medium' },
+          { color: 'transparent', side: 'left', size: 'medium' },
         ],
       },
       size: {
