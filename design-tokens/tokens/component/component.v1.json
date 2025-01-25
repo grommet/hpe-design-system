@@ -3,33 +3,13 @@
     "primary": {
       "rest": {
         "background": {
-          "$type": "gradient",
-          "$value": {
-            "angle": 70,
-            "stops": [
-              {
-                "color": "{color.transparent}",
-                "position": 0
-              },
-              {
-                "color": "{color.background.primary.strong.REST}",
-                "position": 0.35
-              },
-              {
-                "color": "{color.transparent}",
-                "position": 0.7
-              },
-              {
-                "color": "{color.background.primary.strong.REST}",
-                "position": 1
-              }
-            ]
-          },
-          "$description": "For dev use.",
+          "$type": "color",
+          "$value": "{color.background.primary.strong.REST}",
+          "$description": "",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
-              "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+              "scopes": ["STROKE_COLOR", "EFFECT_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -78,18 +58,6 @@
             "com.figma": {
               "hiddenFromPublishing": false,
               "scopes": ["FONT_STYLE"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "backgroundColor": {
-          "$type": "color",
-          "$value": "{color.background.primary.strong.REST}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["STROKE_COLOR", "EFFECT_COLOR"],
               "codeSyntax": {}
             }
           }
@@ -8905,7 +8873,7 @@
           "rest": {
             "background": {
               "$type": "color",
-              "$value": "{color.transparent}",
+              "$value": "{color.background.critical.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {

@@ -61,18 +61,6 @@
               "codeSyntax": {}
             }
           }
-        },
-        "backgroundColor": {
-          "$type": "color",
-          "$value": "{color.background.primary.strong.REST}",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["STROKE_COLOR", "EFFECT_COLOR"],
-              "codeSyntax": {}
-            }
-          }
         }
       },
       "disabled": {
