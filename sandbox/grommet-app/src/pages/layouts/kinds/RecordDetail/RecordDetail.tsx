@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Box,
+  Button,
   Grid,
   Notification,
   Page,
@@ -9,14 +10,28 @@ import {
   PageHeader,
 } from 'grommet';
 import { RoutedAnchor } from '../../../../components';
-import { Previous } from 'grommet-icons';
+import { Close, Previous } from 'grommet-icons';
 import ContentPane from '../../../../components/ContentPane';
 import { DetailSummary } from './DetailSummary';
 import { ScheduledActions } from './ScheduledActions';
 import { ILOSecurity } from './ILOSecurity';
 import { RecentActivity } from './RecentActivity';
+import { ScheduledJobs } from './ScheduledJobs';
 
 export const RecordDetail: React.FC = () => {
+  const [scheduledJobs, setScheduledJobs] = React.useState<boolean>(true);
+
+  const columns = ['flex', 'large'];
+  const rows = ['auto'];
+
+  const areas = [
+    ['notification', 'scheduled-jobs'],
+    ['details', 'scheduled-jobs'],
+    ['scheduled-actions', 'scheduled-jobs'],
+    ['iLO-security', 'scheduled-jobs'],
+    ['recent-activity', 'unassigned'],
+  ];
+
   return (
     <Page pad={{ bottom: 'xlarge' }} flex="grow">
       <PageContent>
@@ -25,52 +40,61 @@ export const RecordDetail: React.FC = () => {
           subtitle="2 servers"
           parent={<RoutedAnchor as={Link} to="/layouts" label="Layouts" icon={<Previous />} />}
         />
-        <Box gap="medium">
-          <Grid columns={['flex', 'medium']} gap="large">
-            <Box gap="small">
-              <Notification
-                status="info"
-                message="1 job is scheduled."
-                actions={[{ label: 'View', href: '#' }]}
-              />
-              <Box gap="large">
-                <ContentPane
-                  heading="Details"
-                  level={2}
-                  actions={undefined}
-                  skeleton={undefined}
-                >
-                  <DetailSummary />
-                </ContentPane>
-                <ContentPane
-                  heading="Scheduled actions"
-                  level={2}
-                  contain={true}
-                  actions={undefined}
-                  skeleton={undefined}
-                >
-                  <ScheduledActions />
-                </ContentPane>
-                <ContentPane
-                  heading="iLO security"
-                  level={2}
-                  actions={undefined}
-                  skeleton={undefined}
-                >
-                  <ILOSecurity />
-                </ContentPane>
-              </Box>
-            </Box>
-            <ContentPane
-              heading="Recent activity"
-              level={2}
-              actions={undefined}
-              skeleton={undefined}
-            >
-              <RecentActivity />
-            </ContentPane>
-          </Grid>
-        </Box>
+        <Grid areas={areas} columns={columns} rows={rows} gap="large">
+          <Box gridArea="notification">
+            <Notification
+              status="info"
+              message="1 job is scheduled."
+              actions={[{ label: 'View', onClick: () => { setScheduledJobs(true) } }]}
+            />
+          </Box>
+          <ContentPane
+            gridArea="details"
+            heading="Details"
+            level={2}
+            actions={undefined}
+            skeleton={undefined}
+          >
+            <DetailSummary />
+          </ContentPane>
+          <ContentPane
+            gridArea="scheduled-actions"
+            heading="Scheduled actions"
+            level={2}
+            contain={true}
+            actions={undefined}
+            skeleton={undefined}
+          >
+            <ScheduledActions />
+          </ContentPane>
+          <ContentPane
+            gridArea="iLO-security"
+            heading="iLO security"
+            level={2}
+            actions={undefined}
+            skeleton={undefined}
+          >
+            <ILOSecurity />
+          </ContentPane>
+          <ContentPane
+            gridArea="recent-activity"
+            heading="Recent activity"
+            level={2}
+            actions={undefined}
+            skeleton={undefined}
+          >
+            <RecentActivity />
+          </ContentPane>
+          <ContentPane
+            gridArea="scheduled-jobs"
+            heading="Scheduled and pending jobs"
+            level={2}
+            actions={<Button a11yTitle="" icon={<Close />} onClick={() => setScheduledJobs(false)} />}
+            skeleton={undefined}
+          >
+            <ScheduledJobs level={2} />
+          </ContentPane>
+        </Grid>
       </PageContent>
     </Page>
   );
