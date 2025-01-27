@@ -19,17 +19,21 @@ import { RecentActivity } from './RecentActivity';
 import { ScheduledJobs } from './ScheduledJobs';
 
 export const RecordDetail: React.FC = () => {
-  const [scheduledJobs, setScheduledJobs] = React.useState<boolean>(true);
-
-  const columns = ['flex', 'large'];
+  const [scheduledJobs, setScheduledJobs] = React.useState<boolean>(false);
+  const columns = scheduledJobs ? ['flex', 'auto'] : ['flex', 'medium'];
   const rows = ['auto'];
 
-  const areas = [
+  const areas = scheduledJobs ? [
     ['notification', 'scheduled-jobs'],
     ['details', 'scheduled-jobs'],
     ['scheduled-actions', 'scheduled-jobs'],
     ['iLO-security', 'scheduled-jobs'],
-    ['recent-activity', 'unassigned'],
+    ['unassigned', 'recent-activity'],
+  ] : [
+    ['notification', 'recent-activity'],
+    ['details', 'recent-activity'],
+    ['scheduled-actions', 'recent-activity'],
+    ['iLO-security', 'recent-activity'],
   ];
 
   return (
@@ -85,15 +89,16 @@ export const RecordDetail: React.FC = () => {
           >
             <RecentActivity />
           </ContentPane>
-          <ContentPane
+          {scheduledJobs && <ContentPane
             gridArea="scheduled-jobs"
             heading="Scheduled and pending jobs"
             level={2}
             actions={<Button a11yTitle="" icon={<Close />} onClick={() => setScheduledJobs(false)} />}
             skeleton={undefined}
+            animation={["slideLeft", "fadeIn"]}
           >
             <ScheduledJobs level={2} />
-          </ContentPane>
+          </ContentPane>}
         </Grid>
       </PageContent>
     </Page>
