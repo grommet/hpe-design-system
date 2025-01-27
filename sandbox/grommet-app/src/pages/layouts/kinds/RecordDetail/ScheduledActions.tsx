@@ -20,20 +20,26 @@ export const ScheduledActions: React.FC = () => {
       defaultItemProps={{ pad: undefined }}
     >
       {datum => (
-        <Grid columns={['small', 'small', 'xsmall', 'auto']} align="center" gap="medium">
+        <Grid
+          columns={['small', 'small', 'auto', 'auto', 'flex']}
+          align="center"
+          gap="medium"
+        >
           <Text color="text-strong" weight={500}>{datum.action}</Text>
           <Text textAlign='end'>
             {Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: "short" })
               .format(new Date(datum.date))}
           </Text>
           <Anchor label="1 server" href="#" />
-          <Menu
-            icon={<More />}
-            items={[
-              { label: 'Edit schedule', onClick: () => { } },
-              { label: 'Remove', onClick: () => { } },
-            ]}
-          />
+          <Box direction="row" align='start'>
+            <Menu
+              icon={<More />}
+              items={[
+                { label: 'Edit schedule', onClick: () => { } },
+                { label: 'Remove', onClick: () => { } },
+              ]}
+            />
+          </Box>
         </Grid>
       )}
     </List>
