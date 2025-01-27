@@ -23,17 +23,12 @@ export const RecordDetail: React.FC = () => {
   const columns = scheduledJobs ? ['flex', 'auto'] : ['flex', 'medium'];
   const rows = ['auto'];
 
-  const areas = scheduledJobs ? [
-    ['notification', 'scheduled-jobs'],
-    ['details', 'scheduled-jobs'],
-    ['scheduled-actions', 'scheduled-jobs'],
-    ['iLO-security', 'scheduled-jobs'],
-    ['unassigned', 'recent-activity'],
-  ] : [
-    ['notification', 'recent-activity'],
-    ['details', 'recent-activity'],
-    ['scheduled-actions', 'recent-activity'],
-    ['iLO-security', 'recent-activity'],
+  const areas = [
+    ['notification', 'context-pane'],
+    ['details', 'context-pane'],
+    ['scheduled-actions', 'context-pane'],
+    ['iLO-security', 'context-pane'],
+    ['unassigned', 'context-pane'],
   ];
 
   return (
@@ -80,25 +75,25 @@ export const RecordDetail: React.FC = () => {
           >
             <ILOSecurity />
           </ContentPane>
-          <ContentPane
-            gridArea="recent-activity"
-            heading="Recent activity"
-            level={2}
-            actions={undefined}
-            skeleton={undefined}
-          >
-            <RecentActivity />
-          </ContentPane>
-          {scheduledJobs && <ContentPane
-            gridArea="scheduled-jobs"
-            heading="Scheduled and pending jobs"
-            level={2}
-            actions={<Button a11yTitle="" icon={<Close />} onClick={() => setScheduledJobs(false)} />}
-            skeleton={undefined}
-            animation={["slideLeft", "fadeIn"]}
-          >
-            <ScheduledJobs level={2} />
-          </ContentPane>}
+          <Box gridArea='context-pane' gap="medium">
+            {scheduledJobs && <ContentPane
+              heading="Scheduled and pending jobs"
+              level={2}
+              actions={<Button a11yTitle="" icon={<Close />} onClick={() => setScheduledJobs(false)} />}
+              skeleton={undefined}
+              animation={["slideLeft", "fadeIn"]}
+            >
+              <ScheduledJobs level={2} />
+            </ContentPane>}
+            <ContentPane
+              heading="Recent activity"
+              level={2}
+              actions={undefined}
+              skeleton={undefined}
+            >
+              <RecentActivity />
+            </ContentPane>
+          </Box>
         </Grid>
       </PageContent>
     </Page>
