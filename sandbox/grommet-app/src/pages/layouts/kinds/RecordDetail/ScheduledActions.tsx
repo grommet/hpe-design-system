@@ -10,7 +10,7 @@ const futureDate = () => {
 
 const scheduledActions = [
   { action: 'Update firmware', date: futureDate() },
-  { action: 'Update ', date: futureDate() },
+  { action: 'Collect hardware inventory', date: futureDate() },
 ];
 
 export const ScheduledActions: React.FC = () => {
@@ -20,29 +20,21 @@ export const ScheduledActions: React.FC = () => {
       defaultItemProps={{ pad: undefined }}
     >
       {datum => (
-        <Box
-          alignSelf='start'
-          background="background-front"
-          margin={{ bottom: 'small' }}
-          pad={{ vertical: 'small', horizontal: 'medium' }}
-          round="small"
-        >
-          <Grid columns={['small', 'small', 'xsmall', 'auto']} align="center">
-            <Text color="text-strong" weight={500}>{datum.action}</Text>
-            <Text justifySelf='end'>
-              {Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: "short" })
-                .format(new Date(datum.date))}
-            </Text>
-            <Anchor label="1 server" href="#" />
-            <Menu
-              icon={<More />}
-              items={[
-                { label: 'Edit schedule', onClick: () => { } },
-                { label: 'Remove', onClick: () => { } },
-              ]}
-            />
-          </Grid>
-        </Box>
+        <Grid columns={['small', 'small', 'xsmall', 'auto']} align="center" gap="medium">
+          <Text color="text-strong" weight={500}>{datum.action}</Text>
+          <Text textAlign='end'>
+            {Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: "short" })
+              .format(new Date(datum.date))}
+          </Text>
+          <Anchor label="1 server" href="#" />
+          <Menu
+            icon={<More />}
+            items={[
+              { label: 'Edit schedule', onClick: () => { } },
+              { label: 'Remove', onClick: () => { } },
+            ]}
+          />
+        </Grid>
       )}
     </List>
   );
