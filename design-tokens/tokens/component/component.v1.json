@@ -1783,7 +1783,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.default.xsmall.iconOnly.paddingY}",
+            "$value": 4,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1991,7 +1991,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.default.small.iconOnly.paddingY}",
+            "$value": 5,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2199,7 +2199,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{element.medium.paddingY}",
+            "$value": 8,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2491,7 +2491,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.default.large.iconOnly.paddingY}",
+            "$value": 11,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2603,7 +2603,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{button.default.xlarge.iconOnly.paddingY}",
+            "$value": 22,
             "$description": "",
             "$extensions": {
               "com.figma": {
