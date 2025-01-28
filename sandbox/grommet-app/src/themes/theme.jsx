@@ -7,7 +7,7 @@ import {
   primitives as localPrimitives,
   dark as localDark,
   light as localLight,
-  medium as localMedium,
+  dimension as localDimension,
   small as localSmall,
   global as localGlobal,
   components as localComponents,
@@ -1053,13 +1053,13 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
-      extend: ({ sizeProp, icon, label, kind }) => {
+      extend: ({ sizeProp, hasIcon, hasLabel, kind }) => {
         let style = '';
         style += `line-height: ${large.hpe.text[sizeProp]?.lineHeight};`;
         // kind and size specific icon-only padding
         if (
-          icon &&
-          !label &&
+          hasIcon &&
+          !hasLabel &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingY &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingX
         )
@@ -2707,7 +2707,7 @@ export const current = buildTheme(
     light: localLight,
     dark: localDark,
     small: localSmall,
-    large: localMedium,
+    large: localDimension,
     global: localGlobal,
     components: localComponents,
   },

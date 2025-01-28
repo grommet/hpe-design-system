@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Collapsible, Text } from 'grommet';
 import { Down, LinkNext, Up } from 'grommet-icons';
-import { medium } from 'hpe-design-tokens/grommet';
+import { dimension } from 'hpe-design-tokens/grommet';
 
 export const ExpandableMenuItem = ({
   item,
@@ -10,7 +10,7 @@ export const ExpandableMenuItem = ({
   expanded,
   setExpanded,
   selected,
-  onSelect
+  onSelect,
 }) => {
   return (
     <Box key={item} gap="xsmall">
@@ -30,8 +30,8 @@ export const ExpandableMenuItem = ({
           }
         }}
       />
-      <Collapsible open={open} >
-        {value.map((subItem) => {
+      <Collapsible open={open}>
+        {value.map(subItem => {
           const active = selected.key === subItem.key;
           return (
             <Button
@@ -39,9 +39,7 @@ export const ExpandableMenuItem = ({
               label={
                 <Box direction="row" align="center" justify="between">
                   <Box direction="row" align="center" gap="small">
-                    <Box
-                      width={medium.hpe.size.icon.medium}
-                    >
+                    <Box width={dimension.hpe.size.icon.medium}>
                       {active && <LinkNext />}
                     </Box>
                     <Text>{subItem.label}</Text>
@@ -49,7 +47,9 @@ export const ExpandableMenuItem = ({
                   {subItem.count && <Text>{subItem.count}</Text>}
                 </Box>
               }
-              onClick={() => { onSelect(subItem) }}
+              onClick={() => {
+                onSelect(subItem);
+              }}
               active={active}
             />
           );
@@ -57,4 +57,4 @@ export const ExpandableMenuItem = ({
       </Collapsible>
     </Box>
   );
-}
+};

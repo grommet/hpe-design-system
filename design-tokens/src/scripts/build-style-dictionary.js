@@ -304,7 +304,9 @@ try {
           prefix: PREFIX,
           files: [
             {
-              destination: `dimension.${mode}.js`,
+              destination: `dimension.${
+                mode !== 'default' ? `${mode}.` : ''
+              }js`,
               format: 'javascript/esm',
               filter: token => token.filePath === file,
             },
@@ -340,7 +342,9 @@ try {
           prefix: PREFIX,
           files: [
             {
-              destination: `dimension.${mode}.css`,
+              destination: `dimension.${
+                mode !== 'default' ? `${mode}.` : ''
+              }css`,
               format: 'css/variables-breakpoints',
               options: {
                 outputReferences: true,
@@ -361,7 +365,9 @@ try {
           prefix: PREFIX,
           files: [
             {
-              destination: `dimension.${mode}.js`,
+              destination: `dimension.${
+                mode !== 'default' ? `${mode}.` : ''
+              }js`,
               filter: token => token.filePath === file,
               format: 'jsonFlat',
             },
@@ -385,7 +391,7 @@ try {
       `${TOKENS_DIR}/primitive/primitives.default.json`,
       `${TOKENS_DIR}/semantic/global.default.json`,
       `${TOKENS_DIR}/semantic/color.light.json`, // using light mode to have a reference name available
-      `${TOKENS_DIR}/semantic/dimension.medium.json`, // using medium mode to have a reference name available
+      `${TOKENS_DIR}/semantic/dimension.default.json`, // using default mode to have a reference name available
       `${TOKENS_DIR}/component/element.default.json`,
       `${TOKENS_DIR}/component/component.default.json`,
     ],

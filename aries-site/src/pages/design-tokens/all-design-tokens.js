@@ -50,7 +50,7 @@ Object.keys(tokens).forEach(mode => {
     if (!('modes' in structuredTokens[level][category][token]))
       structuredTokens[level][category][token].modes = {};
 
-    if (level === 'semantic' && mode !== 'global') {
+    if (level === 'semantic' && mode !== 'global' && mode !== 'dimension') {
       structuredTokens[level][category][token].modes[mode] = currentToken;
     } else
       structuredTokens[level][category][token].modes.default = currentToken;
@@ -177,6 +177,7 @@ const AllTokens = () => {
     const nextModes = Object.keys(Object.values(res)[0].modes).map(
       mode => mode,
     );
+    console.log(res, nextModes);
     let nextMode;
     if (nextModes.includes('light')) nextMode = 'light';
     else if (nextModes.includes('large')) nextMode = 'large';
