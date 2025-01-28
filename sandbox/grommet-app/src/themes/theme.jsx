@@ -1053,13 +1053,13 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
-      extend: ({ sizeProp, icon, label, kind }) => {
+      extend: ({ sizeProp, hasIcon, hasLabel, kind }) => {
         let style = '';
         style += `line-height: ${large.hpe.text[sizeProp]?.lineHeight};`;
         // kind and size specific icon-only padding
         if (
-          icon &&
-          !label &&
+          hasIcon &&
+          !hasLabel &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingY &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingX
         )
