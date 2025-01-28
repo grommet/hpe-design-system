@@ -1040,9 +1040,17 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
-      extend: ({ sizeProp }) => {
+      extend: ({ sizeProp, icon, label, kind }) => {
         let style = '';
         style += `line-height: ${large.hpe.text[sizeProp]?.lineHeight};`;
+        // kind and size specific icon-only padding
+        if (
+          icon &&
+          !label &&
+          components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingY &&
+          components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingX
+        )
+          style += `padding: ${components.hpe.button[kind][sizeProp].iconOnly.paddingY} ${components.hpe.button[kind][sizeProp].iconOnly.paddingX}`;
         return style;
       },
     },

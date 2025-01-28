@@ -1771,7 +1771,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.default.xsmall.iconOnly.paddingX}",
+            "$value": "{button.secondary.xsmall.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1979,7 +1979,7 @@
         "iconOnly": {
           "paddingX": {
             "$type": "number",
-            "$value": "{button.default.small.iconOnly.paddingX}",
+            "$value": "{button.secondary.small.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2479,7 +2479,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{button.default.large.iconOnly.paddingX}",
+            "$value": "{button.secondary.large.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2591,7 +2591,7 @@
           },
           "paddingX": {
             "$type": "number",
-            "$value": "{button.default.xlarge.iconOnly.paddingX}",
+            "$value": "{button.secondary.xlarge.iconOnly.paddingY}",
             "$description": "",
             "$extensions": {
               "com.figma": {
