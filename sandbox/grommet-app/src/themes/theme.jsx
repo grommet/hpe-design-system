@@ -2797,6 +2797,9 @@ const buildTheme = (tokens, flags) => {
       },
       container: {
         border: false,
+        extend: ({ theme }) => `&:hover {
+          background: ${getThemeColor('background-hover', theme)};
+        }`,
       },
       divider: false,
     },

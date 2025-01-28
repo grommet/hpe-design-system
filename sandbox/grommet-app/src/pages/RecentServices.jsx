@@ -48,6 +48,7 @@ export const RecentServices = () => {
                 description={service.description}
                 level={3}
                 actions={<Button label="Launch" secondary />}
+                elevation="medium"
               />
             ))}
           </Grid>
