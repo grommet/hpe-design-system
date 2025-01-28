@@ -2,12 +2,19 @@ import React from "react";
 import { Link, Outlet, Route } from 'react-router-dom';
 import { List, Page, PageContent, PageHeader } from "grommet";
 import { RoutedAnchor } from '../../components';
-import { Collection, EmptyState, Form, NavigationalSidebar } from './kinds';
+import {
+  Collection,
+  EmptyState,
+  Form,
+  NavigationalSidebar,
+  RecordDetailDSCC
+} from './kinds';
 
 const layouts = [
   'Collection',
   'Dashboard',
   'Detail',
+  'Record detail B',
   'Empty state',
   'Form',
   'Home',
@@ -40,7 +47,7 @@ const LayoutsIndex = () => {
             <RoutedAnchor
               key={item}
               as={Link}
-              to={`/layouts/${item.toLowerCase().replace(' ', '-')}`}
+              to={`/layouts/${item.toLowerCase().replaceAll(' ', '-')}`}
               label={item}
               alignSelf="start"
             />
@@ -54,6 +61,7 @@ const LayoutsIndex = () => {
 const routes = [
   <Route key="layouts" index element={<LayoutsIndex />} />,
   <Route key="collection" path="collection" element={<Collection />} />,
+  <Route key="record-detail-b" path="record-detail-b" element={<RecordDetailDSCC />} />,
   <Route key="dashboard" path="dashboard" element={<div>Dashboard</div>} />,
   <Route key="empty-state" path="empty-state" element={<EmptyState />} />,
   <Route key="form" path="/layouts/form" element={<Form />} />,
