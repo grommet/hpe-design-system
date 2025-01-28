@@ -1,3 +1,4 @@
+import { readdirSync } from 'fs';
 import { ApiGetLocalVariablesResponse } from './figma_api.js';
 
 export function green(msg: string) {
@@ -126,4 +127,43 @@ export const verifyReferences = (
     throw new Error(
       'Invalid references were found. Resolve reference errors in Figma.',
     );
+};
+
+const TOKENS_DIR = 'tokens';
+
+export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
+  const tokenDirs = readdirSync(tokensDir, { withFileTypes: true })
+    .filter((dir: any) => dir.isDirectory())
+    .map((dir: any) => dir.name);
+
+  const themes: { [key: string]: string[] } = {
+    default: [],
+    v1: [],
+  };
+
+  const tokens = tokenDirs
+    .map(dir =>
+      readdirSync(`${tokensDir}/${dir}`).map(
+        file => `${tokensDir}/${dir}/${file}`,
+      ),
+    )
+    .flat();
+
+  tokens.forEach(file => {
+    if (!file.includes('v1')) themes.default.push(file);
+    else themes.v1.push(file);
+  });
+
+  themes.default.forEach(file => {
+    let [fileName] = file.split('/').slice(-1);
+    const collection = fileName.split('.')[0];
+    const exists = themes.v1.find(file => {
+      let [v1FileName] = file.split('/').slice(-1);
+      const v1Collection = v1FileName.split('.')[0];
+      return v1Collection === collection;
+    });
+    if (!exists) themes.v1.push(file);
+  });
+
+  return themes;
 };
