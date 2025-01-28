@@ -1971,6 +1971,7 @@ const buildTheme = (tokens, flags) => {
         container: {
           pad: {
             vertical: components.hpe.menu.medium.group.container.paddingY,
+            horizontal: components.hpe.menu.medium.group.container.paddingX,
           },
         },
         separator: {
@@ -2466,6 +2467,7 @@ const buildTheme = (tokens, flags) => {
         upper: {
           color: primitives.hpe.base.color['grey-500'],
         },
+        extend: () => `border-radius: ${large.hpe.radius.full};`,
       },
     },
     select: {
@@ -2488,13 +2490,30 @@ const buildTheme = (tokens, flags) => {
       control: {
         // TO DO should this use input tokens?
         // or should we have a select.control tokens?
-        extend: ({ disabled }) => css`
+        extend: ({ disabled, theme }) => css`
           ${disabled &&
           `
           opacity: 0.3;
           input {
             cursor: default;
           }`}
+
+          &[class*="SelectMultiple"] [role="listbox"] {
+            padding-block: ${components.hpe.select.medium.drop.paddingY};
+            padding-inline: ${components.hpe.select.medium.drop.paddingX};
+            & [role='option'] {
+              border-radius: ${dimensions.edgeSize[
+                components.hpe.formField.medium.input.group.item.borderRadius
+              ] ||
+              components.hpe.formField.medium.input.group.item.borderRadius};
+              &:hover {
+                background: ${getThemeColor(
+                  components.hpe.formField.input.group.item.hover.backgroud,
+                  theme,
+                )};
+              }
+            }
+          }
         `,
       },
       emptySearchMessage: {
