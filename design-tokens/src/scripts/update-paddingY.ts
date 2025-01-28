@@ -127,9 +127,3 @@ Object.keys(themes).forEach(theme => {
     JSON.stringify(updated, null, 2),
   );
 });
-
-// const originalTokens = { ...allTokens };
-// const updated = updatePaddingY(originalTokens);
-// nonComponentTokens.forEach(category => {
-//   delete updated[category];
-// });
