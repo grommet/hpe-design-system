@@ -1436,6 +1436,14 @@ const buildTheme = (tokens, flags) => {
         selected: {
           background: components.hpe.dataCell.selected?.rest?.background,
         },
+        row: {
+          extend: `&:last-child td {
+              border-color: transparent;
+            }
+            &:last-child th {
+              border-color: transparent;
+            }`,
+        },
       },
       groupHeader: {
         // background: undefined,
