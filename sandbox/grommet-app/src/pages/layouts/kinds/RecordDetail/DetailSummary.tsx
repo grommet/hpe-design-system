@@ -1,11 +1,19 @@
 import React from 'react';
-import { NameValueList, NameValuePair } from 'grommet';
+import { Box, NameValueList, NameValuePair, Text } from 'grommet';
+import { StatusGoodSmall } from 'grommet-icons';
 import { sentenceCase } from '../../../../utils/format';
 
 const groupDetails = {
-  status: 'Okay',
+  status: {
+    value: 'Okay',
+    render: () => <Box direction="row" gap="xsmall" align="center">
+      <StatusGoodSmall color='status-ok' />
+      <Text>Okay</Text>
+    </Box>
+    ,
+  },
   state: 'Job in progress',
-  group: 'Group name',
+  group: 'Server group name',
   servers: 2,
   baseline: 'SPP 2022.09.04(04 Sep 2022)',
   power: 'On',
@@ -23,7 +31,9 @@ export const DetailSummary: React.FC = () => {
           key={name}
           name={sentenceCase(name)}
         >
-          {sentenceCase(value)}
+          {typeof value === 'object' && 'render' in value ?
+            value.render() :
+            sentenceCase(value.toString())}
         </NameValuePair>
       ))}
     </NameValueList>

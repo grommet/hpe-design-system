@@ -35,7 +35,7 @@ export const RecordDetail: React.FC = () => {
     <Page pad={{ bottom: 'xlarge' }} flex="grow">
       <PageContent>
         <PageHeader
-          title="Group name"
+          title="Server group name"
           subtitle="2 servers"
           parent={<RoutedAnchor as={Link} to="/layouts" label="Layouts" icon={<Previous />} />}
         />
@@ -44,7 +44,11 @@ export const RecordDetail: React.FC = () => {
             <Notification
               status="info"
               message="1 job is scheduled."
-              actions={[{ label: 'View', onClick: () => { setScheduledJobs(true) } }]}
+              actions={[{
+                label: 'View',
+                href: '#',
+                onClick: () => { setScheduledJobs(true) },
+              }]}
             />
           </Box>
           <ContentPane
@@ -76,15 +80,23 @@ export const RecordDetail: React.FC = () => {
             <ILOSecurity />
           </ContentPane>
           <Box gridArea='context-pane' gap="medium">
-            {scheduledJobs && <ContentPane
-              heading="Scheduled and pending jobs"
-              level={2}
-              actions={<Button a11yTitle="" icon={<Close />} onClick={() => setScheduledJobs(false)} />}
-              skeleton={undefined}
-              animation={["slideLeft", "fadeIn"]}
-            >
-              <ScheduledJobs level={2} />
-            </ContentPane>}
+            {scheduledJobs &&
+              <ContentPane
+                heading="Scheduled and pending jobs"
+                level={2}
+                actions={
+                  <Button
+                    autoFocus
+                    a11yTitle="You are in a new page region displaying scheduled and pending jobs. Remove this region by pressing Enter."
+                    icon={<Close />}
+                    onClick={() => setScheduledJobs(false)}
+                  />
+                }
+                skeleton={undefined}
+                animation={["slideLeft", "fadeIn"]}
+              >
+                <ScheduledJobs level={2} />
+              </ContentPane>}
             <ContentPane
               heading="Recent activity"
               level={2}
