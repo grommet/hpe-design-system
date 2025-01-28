@@ -198,8 +198,6 @@ const buildTheme = (tokens, flags) => {
     components,
   } = tokens;
 
-  const sd4 = 'valueText' in components.hpe.formField.medium ? false : true;
-
   const flatColors = flattenObject(light, '-');
   const tokenColors = {};
   Object.keys(flatColors).forEach(color => {
@@ -521,20 +519,10 @@ const buildTheme = (tokens, flags) => {
     },
   };
 
-  // This means the theme is structure pre switch of button.size.kind --> button.kind.size
-  const oldTheme =
-    components.hpe.button.medium && 'default' in components.hpe.button.medium
-      ? true
-      : false;
-
   // abstracted so button and pinned list icon can reference
   const mediumIconOnlyPad = {
-    vertical: oldTheme
-      ? components.hpe.button.medium.default.iconOnly.paddingY
-      : components.hpe.button.default.medium.iconOnly.paddingY,
-    horizontal: oldTheme
-      ? components.hpe.button.medium.default.iconOnly.paddingX
-      : components.hpe.button.default.medium.iconOnly.paddingY,
+    vertical: components.hpe.button.default.medium.iconOnly.paddingY,
+    horizontal: components.hpe.button.default.medium.iconOnly.paddingY,
   };
 
   const anchorSizeTheme = {};
@@ -591,12 +579,8 @@ const buildTheme = (tokens, flags) => {
 
   const buttonKindTheme = {};
   buttonKinds.forEach(kind => {
-    const borderWidth = oldTheme
-      ? components.hpe.button.medium?.[kind].borderWidth
-      : components.hpe.button[kind]?.medium.borderWidth;
-    const borderRadius = oldTheme
-      ? components.hpe.button.medium?.[kind].borderRadius
-      : components.hpe.button[kind]?.medium.borderRadius;
+    const borderWidth = components.hpe.button[kind]?.medium.borderWidth;
+    const borderRadius = components.hpe.button[kind]?.medium.borderRadius;
     buttonKindTheme[kind] = {
       background: components.hpe.button?.[kind].rest.background,
       border: {
@@ -705,42 +689,26 @@ const buildTheme = (tokens, flags) => {
     buttonKinds.forEach(kind => {
       kindStyles[kind] = {
         border: {
-          radius: oldTheme
-            ? components.hpe.button?.[size]?.[kind]?.borderRadius
-            : components.hpe.button?.[kind]?.[size]?.borderRadius,
+          radius: components.hpe.button?.[kind]?.[size]?.borderRadius,
         },
         pad: {
-          vertical: oldTheme
-            ? components.hpe.button?.[size]?.[kind]?.paddingY
-            : components.hpe.button?.[kind]?.[size]?.paddingY,
-          horizontal: oldTheme
-            ? components.hpe.button?.[size]?.[kind]?.paddingX
-            : components.hpe.button?.[kind]?.[size]?.paddingX,
+          vertical: components.hpe.button?.[kind]?.[size]?.paddingY,
+          horizontal: components.hpe.button?.[kind]?.[size]?.paddingX,
         },
       };
     });
     buttonSizesTheme[size] = {
       border: {
-        radius: oldTheme
-          ? components.hpe.button?.[size]?.default.borderRadius
-          : components.hpe.button?.default?.[size]?.borderRadius,
+        radius: components.hpe.button?.default?.[size]?.borderRadius,
       },
       pad: {
-        vertical: oldTheme
-          ? components.hpe.button?.[size]?.default.paddingY
-          : components.hpe.button?.default?.[size]?.paddingY,
-        horizontal: oldTheme
-          ? components.hpe.button?.[size]?.default.paddingX
-          : components.hpe.button?.default?.[size]?.paddingX,
+        vertical: components.hpe.button?.default?.[size]?.paddingY,
+        horizontal: components.hpe.button?.default?.[size]?.paddingX,
       },
       iconOnly: {
         pad: {
-          vertical: oldTheme
-            ? components.hpe.button?.[size]?.default.iconOnly.paddingY
-            : components.hpe.button?.default?.[size]?.iconOnly.paddingY,
-          horizontal: oldTheme
-            ? components.hpe.button?.[size]?.default.iconOnly.paddingX
-            : components.hpe.button?.default?.[size]?.iconOnly.paddingX,
+          vertical: components.hpe.button?.default?.[size]?.iconOnly.paddingY,
+          horizontal: components.hpe.button?.default?.[size]?.iconOnly.paddingX,
         },
       },
       ...kindStyles,
@@ -765,9 +733,7 @@ const buildTheme = (tokens, flags) => {
       input: {
         font: {
           height: 'inherit',
-          weight:
-            components.hpe.formField.medium[!sd4 ? 'valueText' : 'value']
-              .fontWeight,
+          weight: components.hpe.formField.medium.value.fontWeight,
         },
         padding: {
           horizontal: components.hpe.formField.medium.input.container.paddingX,
@@ -784,27 +750,15 @@ const buildTheme = (tokens, flags) => {
         },
         extend: `
           &::-webkit-input-placeholder {
-          font-weight: ${
-            components.hpe.formField.medium[
-              !sd4 ? 'placeholderText' : 'placeholder'
-            ].fontWeight
-          };
+          font-weight: ${components.hpe.formField.medium.placeholder.fontWeight};
         }
       
         &::-moz-placeholder {
-          font-weight: ${
-            components.hpe.formField.medium[
-              !sd4 ? 'placeholderText' : 'placeholder'
-            ].fontWeight
-          };
+          font-weight: ${components.hpe.formField.medium.placeholder.fontWeight};
         }
       
         &:-ms-input-placeholder {
-          font-weight: ${
-            components.hpe.formField.medium[
-              !sd4 ? 'placeholderText' : 'placeholder'
-            ].fontWeight
-          };
+          font-weight: ${components.hpe.formField.medium.placeholder.fontWeight};
         }
         `,
       },
@@ -983,9 +937,7 @@ const buildTheme = (tokens, flags) => {
     button: {
       intelligentPad: false,
       color: components.hpe.button.default.rest.textColor,
-      gap: oldTheme
-        ? components.hpe.button.medium.default.gapX
-        : components.hpe.button.default.medium.gapX,
+      gap: components.hpe.button.default.medium.gapX,
       badge: {
         align: 'container',
         container: {
@@ -1277,7 +1229,9 @@ const buildTheme = (tokens, flags) => {
         knob: {
           extend: ({ theme, checked, disabled }) => `
           box-shadow: ${
-            theme.global.elevation[theme.dark ? 'dark' : 'light'].small
+            theme.global.elevation[theme.dark ? 'dark' : 'light'][
+              components.hpe.switch.control.handle.rest.boxShadow
+            ]
           };
           border: ${
             dimensions.borderSize[
@@ -1495,17 +1449,11 @@ const buildTheme = (tokens, flags) => {
       button: {
         background: components.hpe.button.default.rest.background,
         border: {
-          radius: oldTheme
-            ? components.hpe.button.medium.default.borderRadius
-            : components.hpe.button.default.medium.borderRadius,
+          radius: components.hpe.button.default.medium.borderRadius,
         },
         pad: {
-          vertical: oldTheme
-            ? components.hpe.button.medium.default.paddingY
-            : components.hpe.button.default.medium.paddingY,
-          horizontal: oldTheme
-            ? components.hpe.button.medium.default.paddingX
-            : components.hpe.button.default.medium.paddingX,
+          vertical: components.hpe.button.default.medium.paddingY,
+          horizontal: components.hpe.button.default.medium.paddingX,
         },
         color: components.hpe.button.default.rest.textColor,
         font: {
@@ -1583,9 +1531,7 @@ const buildTheme = (tokens, flags) => {
             components.hpe.formField.input.container.disabled.rest.borderColor,
         },
         label: {
-          color:
-            components.hpe.formField[!sd4 ? 'labelText' : 'label'].disabled.rest
-              .textColor,
+          color: components.hpe.formField.label.disabled.rest.textColor,
         },
       },
       error: {
@@ -1597,8 +1543,7 @@ const buildTheme = (tokens, flags) => {
         },
         icon: <CircleAlert size="small" color={light.hpe.color.icon.default} />,
         size: 'xsmall', // Q: missing token
-        color:
-          components.hpe.formField[!sd4 ? 'errorText' : 'error'].rest.textColor,
+        color: components.hpe.formField.error.rest.textColor,
         margin: {
           // Q: missing token
           bottom: 'xsmall',
@@ -1614,12 +1559,12 @@ const buildTheme = (tokens, flags) => {
       },
       help: {
         size: 'xsmall',
-        color: components.hpe.formField[!sd4 ? 'helpText' : 'help'].rest.color,
+        color: components.hpe.formField.help.rest.color,
         margin: 'none', // TO DO missing token
       },
       info: {
         size: 'xsmall',
-        color: components.hpe.formField[!sd4 ? 'infoText' : 'info'].rest.color,
+        color: components.hpe.formField.info.rest.color,
         margin: {
           // Q: missing token
           bottom: 'xsmall',
@@ -1629,8 +1574,7 @@ const buildTheme = (tokens, flags) => {
       },
       label: {
         size: 'xsmall',
-        color:
-          components.hpe.formField[!sd4 ? 'labelText' : 'label'].rest.color,
+        color: components.hpe.formField.label.rest.color,
         margin: {
           // Q: missing token
           bottom: 'none',
@@ -1638,9 +1582,7 @@ const buildTheme = (tokens, flags) => {
           horizontal: 'none',
         },
         requiredIndicator: true,
-        weight:
-          components.hpe.formField.medium[!sd4 ? 'labelText' : 'label']
-            .fontWeight,
+        weight: components.hpe.formField.medium.label.fontWeight,
       },
       margin: {
         bottom: 'none', // TO DO missing token
@@ -2155,9 +2097,7 @@ const buildTheme = (tokens, flags) => {
       button: {
         color: components.hpe.button.default.rest.textColor,
         border: {
-          radius: oldTheme
-            ? components.hpe.button.medium.default.borderRadius
-            : components.hpe.button.default.medium.borderRadius,
+          radius: components.hpe.button.default.medium.borderRadius,
         },
         font: {
           weight: components.hpe.button.default.rest.fontWeight,
@@ -2165,9 +2105,7 @@ const buildTheme = (tokens, flags) => {
         active: {
           background: components.hpe.button.default.selected.rest.background,
           border: {
-            radius: oldTheme
-              ? components.hpe.button.medium.default.borderRadius
-              : components.hpe.button.default.medium.borderRadius,
+            radius: components.hpe.button.default.medium.borderRadius,
           },
           color: components.hpe.button.default.selected.rest.textColor,
           font: {
@@ -2177,9 +2115,7 @@ const buildTheme = (tokens, flags) => {
         hover: {
           background: components.hpe.button.default.hover.background,
           border: {
-            radius: oldTheme
-              ? components.hpe.button.medium.default.borderRadius
-              : components.hpe.button.default.medium.borderRadius,
+            radius: components.hpe.button.default.medium.borderRadius,
           },
           color: components.hpe.button.default.hover.textColor,
           font: {
@@ -2189,9 +2125,7 @@ const buildTheme = (tokens, flags) => {
         disabled: {
           background: components.hpe.button.default.disabled.rest.background,
           border: {
-            radius: oldTheme
-              ? components.hpe.button.medium.default.borderRadius
-              : components.hpe.button.default.medium.borderRadius,
+            radius: components.hpe.button.default.medium.borderRadius,
           },
           color: components.hpe.button.default.disabled.rest.textColor,
           font: {
@@ -2201,17 +2135,11 @@ const buildTheme = (tokens, flags) => {
         size: {
           small: {
             border: {
-              radius: oldTheme
-                ? components.hpe.button.small.default.borderRadius
-                : components.hpe.button.default.small.borderRadius,
+              radius: components.hpe.button.default.small.borderRadius,
               width:
                 dimensions.borderSize[
-                  oldTheme
-                    ? components.hpe.button.small.default.borderWidth
-                    : components.hpe.button.default.small.borderWidth
-                ] || oldTheme
-                  ? components.hpe.button.small.default.borderWidth
-                  : components.hpe.button.default.small.borderWidth,
+                  components.hpe.button.default.small.borderWidth
+                ] || components.hpe.button.default.small.borderWidth,
             },
             pad: {
               vertical: '4px',
@@ -2226,17 +2154,11 @@ const buildTheme = (tokens, flags) => {
           },
           medium: {
             border: {
-              radius: oldTheme
-                ? components.hpe.button.medium.default.borderRadius
-                : components.hpe.button.default.medium.borderRadius,
+              radius: components.hpe.button.default.medium.borderRadius,
               width:
                 dimensions.borderSize[
-                  oldTheme
-                    ? components.hpe.button.medium.default.borderWidth
-                    : components.hpe.button.default.medium.borderWidth
-                ] || oldTheme
-                  ? components.hpe.button.medium?.default.borderWidth
-                  : components.hpe.button.default.medium.borderWidth,
+                  components.hpe.button.default.medium.borderWidth
+                ] || components.hpe.button.default.medium.borderWidth,
             },
             pad: {
               vertical: '4px',
@@ -2251,17 +2173,11 @@ const buildTheme = (tokens, flags) => {
           },
           large: {
             border: {
-              radius: oldTheme
-                ? components.hpe.button.large.default.borderRadius
-                : components.hpe.button.default.large.borderRadius,
+              radius: components.hpe.button.default.large.borderRadius,
               width:
                 dimensions.borderSize[
-                  oldTheme
-                    ? components.hpe.button.large.default.borderWidth
-                    : components.hpe.button.default.large.borderWidth
-                ] || oldTheme
-                  ? components.hpe.button.large?.default.borderWidth
-                  : components.hpe.button.default.large.borderWidth,
+                  components.hpe.button.default.large.borderWidth
+                ] || components.hpe.button.default.large.borderWidth,
             },
             pad: {
               vertical: '4px',
@@ -2373,6 +2289,26 @@ const buildTheme = (tokens, flags) => {
       },
     },
     select: {
+      clear: {
+        container: {
+          background: undefined,
+          pad: {
+            horizontal: '12px',
+            vertical: '6px',
+          },
+          margin: {
+            horizontal: components.hpe.select.medium.drop.paddingX,
+          },
+          hover: {
+            background: 'background-contrast',
+          },
+          round: 'xsmall',
+        },
+        text: {
+          color: 'text-strong',
+          weight: 600,
+        },
+      },
       control: {
         // TO DO should this use input tokens?
         // or should we have a select.control tokens?
@@ -2405,6 +2341,28 @@ const buildTheme = (tokens, flags) => {
         up: Up,
       },
       options: undefined,
+      container: {
+        // only apply paddingY to paddingTop because gap caused by Infinite Scroll
+        // adds an addition 6px on the bottom
+        // listbox targets container directly surrounding options
+        // [role="option"]:has(input[type="checkbox"]) targets options within SelectMultiple
+        extend: () => `
+          [role="listbox"] {
+            padding-top: ${components.hpe.select.medium.drop.paddingY};
+            padding-inline: ${components.hpe.select.medium.drop.paddingX};
+            display: flex;
+            flex-direction: column;
+            gap: ${components.hpe.select.medium.drop.gapY};
+            [role="option"]:has(input[type="checkbox"]) {
+              border-radius: ${
+                dimensions.edgeSize[
+                  components.hpe.formField.medium.input.group.item.borderRadius
+                ]
+              };
+            }
+          }
+        `,
+      },
     },
     spinner: {
       container: {
@@ -2676,9 +2634,7 @@ const buildTheme = (tokens, flags) => {
       container: {
         border: {
           color: components.hpe.button.toolbar.rest.borderColor,
-          size: oldTheme
-            ? components.hpe.button.medium.toolbar.borderWidth
-            : components.hpe.button.toolbar.medium.borderWidth,
+          size: components.hpe.button.toolbar.medium.borderWidth,
         },
       },
     },
