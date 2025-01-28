@@ -854,9 +854,14 @@ const buildTheme = (tokens, flags) => {
           offset: global.hpe.focusIndicator.outlineOffset, // TO DO does not have effect yet, requires grommet enhancement
         },
         shadow: {
-          color: global.hpe.focusIndicator.boxShadow.color,
-          size: global.hpe.focusIndicator.boxShadow.spread,
+          color: global.hpe.focusIndicator.boxShadow.trim().split(' ')[
+            global.hpe.focusIndicator.boxShadow.trim().split(' ').length - 1
+          ],
+          size: global.hpe.focusIndicator.boxShadow.trim().split(' ')[
+            global.hpe.focusIndicator.boxShadow.trim().split(' ').length - 2
+          ],
         },
+        twoColor: true,
       },
       active: {
         background: 'background-active',
