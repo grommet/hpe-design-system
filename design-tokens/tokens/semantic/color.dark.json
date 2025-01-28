@@ -79,7 +79,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.black.opacity12}",
+            "$value": "{base.color.white.opacity20}",
             "$description": "Use to create a subtle differentiation between a component or container and the region it sits on.",
             "$extensions": {
               "com.figma": {
@@ -149,6 +149,22 @@
           }
         }
       },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.blue.400-Opacity12}",
+            "$description": "Use for backgrounds communicating neutral information.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
       "unknown": {
         "DEFAULT": {
           "REST": {
@@ -171,22 +187,6 @@
             "$type": "color",
             "$value": "{base.color.red.800-Opacity30}",
             "$description": "Use for backgrounds communicating errors or danger.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "info": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.blue.400-Opacity12}",
-            "$description": "Use for backgrounds communicating neutral information.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -245,7 +245,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.green.600}",
+            "$value": "{base.color.green.700}",
             "$description": "Hover variant of background-primary.",
             "$extensions": {
               "com.figma": {
@@ -328,6 +328,20 @@
         }
       },
       "neutral": {
+        "strong": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.grey.500}",
+            "$description": "Highest emphasis variant of neutral palette.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
         "xstrong": {
           "REST": {
             "$type": "color",
@@ -595,7 +609,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.600}",
+            "$value": "{base.color.green.450}",
             "$description": "",
             "$extensions": {
               "com.figma": {
