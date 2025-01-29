@@ -43,6 +43,8 @@ const App = () => {
 
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
+  const appHeaderHeight = '60px';
+  const appHeight = `calc(100vh - ${appHeaderHeight})`;
 
   const loading = useLoading(6000);
 
@@ -50,7 +52,7 @@ const App = () => {
     <Grommet
       theme={theme}
       background={backgroundBack ? 'background-back' : undefined}
-      full="min"
+      full
       themeMode={darkMode ? 'dark' : 'light'}
       options={{
         box: {
@@ -84,14 +86,24 @@ const App = () => {
                   setBackgroundBack={setBackgroundBack}
                   workspace={workspace}
                   setWorkspace={setWorkspace}
+                  style={{ position: 'relative', zIndex: 1 }}
                 />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/sustainability" element={<Sustainability />} />
-                  <Route path="/sticker-sheet" element={<StickerSheet />} />
-                  <Route path="/layouts" element={<Layouts />} />
-                  {layoutRoutes}
-                </Routes>
+                <Box
+                  // fill the viewport height minus the header height
+                  height={appHeight}
+                >
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route
+                      path="/sustainability"
+                      element={<Sustainability />}
+                    />
+                    <Route path="/sticker-sheet" element={<StickerSheet />} />
+                    <Route path="/layouts" element={<Layouts />}>
+                      {layoutRoutes}
+                    </Route>
+                  </Routes>
+                </Box>
               </BrowserRouter>
             </WorkspaceContext.Provider>
           </BackgroundContext.Provider>

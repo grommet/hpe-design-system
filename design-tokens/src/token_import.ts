@@ -11,7 +11,7 @@ import {
   VariableCodeSyntax,
 } from './figma_api.js';
 import { colorApproximatelyEqual, parseColor } from './color.js';
-import { areSetsEqual, excludedNameParts } from './utils.js';
+import { areSetsEqual, excludedNameParts, isReference } from './utils.js';
 import { Token, TokenOrTokenGroup, TokensFile } from './token_types.js';
 
 const shadowToVariables = (name: any, values: any) => {
@@ -63,14 +63,40 @@ const shadowToVariables = (name: any, values: any) => {
 const transformShadow = (name: string, token: any) => {
   let tokens = {};
   const value = token['$value'];
-  const shadowValues = !Array.isArray(value) ? [value] : value;
 
-  // loop through shadows and add the index to the name
-  for (const [index, stepValue] of shadowValues.entries()) {
-    tokens = {
-      ...tokens,
-      ...shadowToVariables(`${name}/${index + 1}`, stepValue),
-    };
+  // if shadow is referencing a shadow from the color collection,
+  // we need to determine how many shadows exist and build up
+  // the references for each shadow part
+  if (isReference(value)) {
+    // get that shadow from the global set to figure out how many shadows exist
+    const raw = fs.readFileSync('./tokens/semantic/color.light.json'); // using light mode to get reference
+    const parsed = JSON.parse(raw.toString());
+    const shadowRef = parsed.shadow[value.slice(1, -1).split('.')[1]].$value;
+    const numShadows = Array.isArray(shadowRef) ? shadowRef.length : 1;
+
+    const ref = value.slice(1, -1).split('.').join('/');
+    for (let i = 0; i < numShadows; i += 1) {
+      tokens = {
+        ...tokens,
+        ...shadowToVariables(`${name}/${i + 1}`, {
+          color: `{${ref}/${i + 1}/color}`,
+          offsetX: `{${ref}/${i + 1}/offsetX}`,
+          offsetY: `{${ref}/${i + 1}/offsetY}`,
+          blur: `{${ref}/${i + 1}/blur}`,
+          spread: `{${ref}/${i + 1}/spread}`,
+        }),
+      };
+    }
+  } else {
+    const shadowValues = !Array.isArray(value) ? [value] : value;
+
+    // loop through shadows and add the index to the name
+    for (const [index, stepValue] of shadowValues.entries()) {
+      tokens = {
+        ...tokens,
+        ...shadowToVariables(`${name}/${index + 1}`, stepValue),
+      };
+    }
   }
 
   return tokens;
