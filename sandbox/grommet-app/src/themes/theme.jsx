@@ -1589,6 +1589,12 @@ const buildTheme = (tokens, flags) => {
         label: {
           color: components.hpe.formField.default.label.disabled.rest.textColor,
         },
+        help: {
+          color: components.hpe.formField.default.help.disabled.rest.color,
+        },
+        info: {
+          color: components.hpe.formField.default.info.disabled.rest.textColor,
+        },
       },
       error: {
         background: {
