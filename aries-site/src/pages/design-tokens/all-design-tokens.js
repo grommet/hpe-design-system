@@ -177,7 +177,6 @@ const AllTokens = () => {
     const nextModes = Object.keys(Object.values(res)[0].modes).map(
       mode => mode,
     );
-    console.log(res, nextModes);
     let nextMode;
     if (nextModes.includes('light')) nextMode = 'light';
     else if (nextModes.includes('large')) nextMode = 'large';
