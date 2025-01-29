@@ -33,6 +33,11 @@ export const TextInputs = () => {
           <TextInput value="Value" />
         </FormField>
       </Compare>
+      <Compare guidingChild="last">
+        <FormField label="Label">
+          <TextInput value="Value" readOnlyCopy />
+        </FormField>
+      </Compare>
     </ContentPane>
   );
 };

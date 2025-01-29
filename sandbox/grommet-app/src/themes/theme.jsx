@@ -759,17 +759,27 @@ const buildTheme = (tokens, flags) => {
                 .borderColor,
           },
         },
-        extend: `
+        extend: ({ theme }) => `
+          color: ${getThemeColor(
+            components.hpe.formField.default.value.rest.textColor,
+            theme,
+          )};
           &::-webkit-input-placeholder {
-          font-weight: ${components.hpe.formField.default.medium.placeholder.fontWeight};
+          font-weight: ${
+            components.hpe.formField.default.medium.placeholder.fontWeight
+          };
         }
       
         &::-moz-placeholder {
-          font-weight: ${components.hpe.formField.default.medium.placeholder.fontWeight};
+          font-weight: ${
+            components.hpe.formField.default.medium.placeholder.fontWeight
+          };
         }
       
         &:-ms-input-placeholder {
-          font-weight: ${components.hpe.formField.default.medium.placeholder.fontWeight};
+          font-weight: ${
+            components.hpe.formField.default.medium.placeholder.fontWeight
+          };
         }
         `,
       },
@@ -1737,7 +1747,7 @@ const buildTheme = (tokens, flags) => {
       },
       label: {
         size: 'xsmall',
-        color: components.hpe.formField.default.label.rest.color,
+        color: components.hpe.formField.default.label.rest.textColor,
         margin: {
           // Q: missing token
           bottom: 'none',
@@ -2466,13 +2476,13 @@ const buildTheme = (tokens, flags) => {
             horizontal: components.hpe.select.default.medium.drop.paddingX,
           },
           hover: {
-            background: 'background-contrast',
+            background: 'background-hover',
           },
           round: 'xsmall',
         },
         text: {
-          color: 'text-strong',
-          weight: 600,
+          color: components.hpe.button.default.rest.textColor,
+          weight: components.hpe.button.default.rest.fontWeight,
         },
       },
       control: {
@@ -2620,7 +2630,7 @@ const buildTheme = (tokens, flags) => {
       extend: ({ theme }) => `border-radius: ${theme.global.edgeSize.xsmall};`,
     },
     tabs: {
-      gap: 'small',
+      gap: 'xsmall',
       header: {
         border: undefined,
         extend: ({ theme }) => `
@@ -2820,7 +2830,12 @@ const buildTheme = (tokens, flags) => {
       },
       container: {
         border: false,
-        extend: ({ theme }) => `&:hover {
+        extend: ({ theme }) => `
+        gap: ${
+          dimensions.edgeSize[large.hpe.spacing['5xsmall']] ||
+          large.hpe.spacing['5xsmall']
+        };
+        &:hover {
           background: ${getThemeColor('background-hover', theme)};
         }`,
       },

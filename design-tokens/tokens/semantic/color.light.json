@@ -995,7 +995,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.blue.400}",
+            "$value": "{base.color.blue.900}",
             "$description": "Use for icons communicating neutral information.",
             "$extensions": {
               "com.figma": {

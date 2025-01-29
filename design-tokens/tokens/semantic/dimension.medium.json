@@ -851,7 +851,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -901,7 +901,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -951,7 +951,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1001,7 +1001,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
