@@ -15,6 +15,7 @@ export const SystemSummary = ({ ...rest }) => {
       external={null}
       footer={null}
       inline={null}
+      onClick={null}
       {...rest}
     >
       <Box direction="row" gap="medium">

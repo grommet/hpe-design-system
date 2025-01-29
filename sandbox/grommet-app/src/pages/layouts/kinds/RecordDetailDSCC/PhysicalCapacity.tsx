@@ -7,13 +7,14 @@ export const PhysicalCapacity = ({ ...rest }) => {
   return (
     <DashboardCard
       title="Physical capacity"
-      subtitle={undefined}
+      subtitle={null}
       level={3}
       hideCta
-      icon={undefined}
-      external={undefined}
-      footer={undefined}
-      inline={undefined}
+      icon={null}
+      external={null}
+      footer={null}
+      inline={null}
+      onClick={null}
       {...rest}
     >
       <Grid
@@ -40,6 +41,7 @@ export const PhysicalCapacity = ({ ...rest }) => {
           values={[{ value: 34 }, { value: 13 }]}
           size="full"
           thickness="small"
+          round
         />
         <Box gridArea="summary" justify="end">
           <Text>

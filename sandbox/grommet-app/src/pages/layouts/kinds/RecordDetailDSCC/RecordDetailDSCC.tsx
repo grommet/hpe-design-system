@@ -6,6 +6,7 @@ import {
   PageContent,
   PageHeader
 } from "grommet";
+import { PerformanceSummary } from "./PerformanceSummary";
 import { PhysicalCapacity } from "./PhysicalCapacity";
 import { SystemSummary } from "./SystemSummary";
 
@@ -41,7 +42,7 @@ export const RecordDetailDSCC = () => {
           >
             <SystemSummary gridArea="summary-1" />
             <PhysicalCapacity gridArea="summary-2" />
-            <Box gridArea="summary-3" background="background-front">3</Box>
+            <PerformanceSummary gridArea="summary-3" />
           </Grid>
           <Grid
             areas={detailAreas}
