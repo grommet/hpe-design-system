@@ -719,6 +719,10 @@ const buildTheme = (tokens, flags) => {
     };
   });
 
+  const focusBoxShadowParts = global.hpe.focusIndicator.boxShadow
+    .trim()
+    .split(' ');
+
   return deepFreeze({
     defaultMode: 'light',
     global: {
@@ -818,12 +822,13 @@ const buildTheme = (tokens, flags) => {
         outline: {
           color: global.hpe.focusIndicator.outline.color,
           size: global.hpe.focusIndicator.outline.width,
-          offset: global.hpe.focusIndicator.outlineOffset, // TO DO does not have effect yet, requires grommet enhancement
+          offset: global.hpe.focusIndicator.outlineOffset,
         },
         shadow: {
-          color: global.hpe.focusIndicator.boxShadow.color,
-          size: global.hpe.focusIndicator.boxShadow.spread,
+          color: focusBoxShadowParts[focusBoxShadowParts.length - 1],
+          size: focusBoxShadowParts[focusBoxShadowParts.length - 2],
         },
+        twoColor: true,
       },
       active: {
         background: 'background-active',
@@ -1054,12 +1059,25 @@ const buildTheme = (tokens, flags) => {
         },
       },
       extend: ({ sizeProp, hasIcon, hasLabel, kind }) => {
+        // necessary so primary label is accessible on HPE green background
         let style = '';
-        style += `line-height: ${large.hpe.text[sizeProp]?.lineHeight};`;
+        const iconOnly = hasIcon && !hasLabel;
+        if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
+          const themeObj =
+            kind === 'option'
+              ? components.hpe.select.default.medium[kind]
+              : components.hpe.button[
+                  typeof kind === 'string' ? kind : 'default'
+                ].medium;
+          const { fontSize, lineHeight } = themeObj;
+
+          style += `font-size: ${fontSize};
+        line-height: ${lineHeight};`;
+        }
+
         // kind and size specific icon-only padding
         if (
-          hasIcon &&
-          !hasLabel &&
+          iconOnly &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingY &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingX
         )
@@ -1592,9 +1610,9 @@ const buildTheme = (tokens, flags) => {
         },
       },
       focus: {
-        background: undefined, // TO DO missing token
+        background: undefined, // Intentionally not carrying this style through to tokens to rely on global focus indicator
         border: {
-          color: 'border-strong', // Q: missing token
+          color: undefined, // Intentionally not carrying this style through to tokens to rely on global focus indicator
         },
       },
       help: {
