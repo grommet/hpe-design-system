@@ -1518,7 +1518,7 @@ const buildTheme = (tokens, flags) => {
         },
       },
       primary: {
-        weight: components.hpe.dataCell.primary.fontWeight,
+        weight: components.hpe.dataCell.primary.medium.fontWeight,
         color: components.hpe.dataCell.primary.rest.textColor,
       },
       resize: {
@@ -1683,6 +1683,9 @@ const buildTheme = (tokens, flags) => {
           vertical:
             components.hpe.formField.default.medium.input.group.item.paddingY,
         },
+        container: {
+          border: {},
+        },
       },
       disabled: {
         background:
@@ -1724,6 +1727,18 @@ const buildTheme = (tokens, flags) => {
           horizontal: 'none',
         },
       },
+      checkBoxGroup: {
+        container: {
+          border: {},
+          disabled: {
+            border: {},
+          },
+          error: {
+            border: {},
+          },
+        },
+      },
+      radioButtonGroup: {},
       focus: {
         background: undefined, // Intentionally not carrying this style through to tokens to rely on global focus indicator
         border: {
@@ -1978,13 +1993,26 @@ const buildTheme = (tokens, flags) => {
           top: 'bottom',
           left: 'left',
         },
+        // pad: {
+        //   vertical: components.hpe.menu.default.medium.group.container.paddingY,
+        //   horizontal: 'xsmall',
+        // },
+        // gap: 'medium',
+      },
+      // alwaysGroup: true,
+      // specifically box around the items, this is easier for people to understand
+      container: {
+        // box props
       },
       group: {
+        drop: {},
         container: {
           pad: {
             vertical:
               components.hpe.menu.default.medium.group.container.paddingY,
+            horizontal: 'xsmall',
           },
+          gap: 'xxsmall',
         },
         separator: {
           color: components.hpe.menu.default.group.separator.background,
