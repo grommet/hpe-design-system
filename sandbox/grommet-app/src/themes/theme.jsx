@@ -1054,12 +1054,25 @@ const buildTheme = (tokens, flags) => {
         },
       },
       extend: ({ sizeProp, hasIcon, hasLabel, kind }) => {
+        // necessary so primary label is accessible on HPE green background
         let style = '';
-        style += `line-height: ${large.hpe.text[sizeProp]?.lineHeight};`;
+        const iconOnly = hasIcon && !hasLabel;
+        if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
+          const themeObj =
+            kind === 'option'
+              ? components.hpe.select.default.medium[kind]
+              : components.hpe.button[
+                  typeof kind === 'string' ? kind : 'default'
+                ].medium;
+          const { fontSize, lineHeight } = themeObj;
+
+          style += `font-size: ${fontSize};
+        line-height: ${lineHeight};`;
+        }
+
         // kind and size specific icon-only padding
         if (
-          hasIcon &&
-          !hasLabel &&
+          iconOnly &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingY &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingX
         )
@@ -1592,9 +1605,9 @@ const buildTheme = (tokens, flags) => {
         },
       },
       focus: {
-        background: undefined, // TO DO missing token
+        background: undefined, // Intentionally not carrying this style through to tokens to rely on global focus indicator
         border: {
-          color: 'border-strong', // Q: missing token
+          color: undefined, // Intentionally not carrying this style through to tokens to rely on global focus indicator
         },
       },
       help: {
