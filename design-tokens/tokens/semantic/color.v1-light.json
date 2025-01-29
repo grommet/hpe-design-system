@@ -149,22 +149,6 @@
           }
         }
       },
-      "info": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.blue.400-Opacity24}",
-            "$description": "Use for backgrounds communicating neutral information.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "unknown": {
         "DEFAULT": {
           "REST": {
@@ -185,8 +169,24 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.red.500-Opacity24}",
+            "$value": "{base.color.red.500-Opacity12}",
             "$description": "Use for backgrounds communicating errors or danger.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.blue.400-Opacity12}",
+            "$description": "Use for backgrounds communicating neutral information.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -201,7 +201,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.400-Opacity24}",
+            "$value": "{base.color.green.400-Opacity12}",
             "$description": "Use for backgrounds communicating success.",
             "$extensions": {
               "com.figma": {
@@ -217,7 +217,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.orange.400-Opacity24}",
+            "$value": "{base.color.orange.400-Opacity12}",
             "$description": "Use for borders communicating warning or caution.",
             "$extensions": {
               "com.figma": {
@@ -610,6 +610,18 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.green.800}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{base.color.green.900}",
             "$description": "",
             "$extensions": {
               "com.figma": {

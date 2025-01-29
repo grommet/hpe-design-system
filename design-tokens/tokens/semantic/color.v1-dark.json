@@ -149,22 +149,6 @@
           }
         }
       },
-      "info": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.blue.400-Opacity12}",
-            "$description": "Use for backgrounds communicating neutral information.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "unknown": {
         "DEFAULT": {
           "REST": {
@@ -187,6 +171,22 @@
             "$type": "color",
             "$value": "{base.color.red.800-Opacity30}",
             "$description": "Use for backgrounds communicating errors or danger.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.blue.400-Opacity12}",
+            "$description": "Use for backgrounds communicating neutral information.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -610,6 +610,18 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.green.500}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{base.color.green.450}",
             "$description": "",
             "$extensions": {
               "com.figma": {
