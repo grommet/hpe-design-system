@@ -719,6 +719,10 @@ const buildTheme = (tokens, flags) => {
     };
   });
 
+  const focusBoxShadowParts = global.hpe.focusIndicator.boxShadow
+    .trim()
+    .split(' ');
+
   return deepFreeze({
     defaultMode: 'light',
     global: {
@@ -818,12 +822,13 @@ const buildTheme = (tokens, flags) => {
         outline: {
           color: global.hpe.focusIndicator.outline.color,
           size: global.hpe.focusIndicator.outline.width,
-          offset: global.hpe.focusIndicator.outlineOffset, // TO DO does not have effect yet, requires grommet enhancement
+          offset: global.hpe.focusIndicator.outlineOffset,
         },
         shadow: {
-          color: global.hpe.focusIndicator.boxShadow.color,
-          size: global.hpe.focusIndicator.boxShadow.spread,
+          color: focusBoxShadowParts[focusBoxShadowParts.length - 1],
+          size: focusBoxShadowParts[focusBoxShadowParts.length - 2],
         },
+        twoColor: true,
       },
       active: {
         background: 'background-active',
