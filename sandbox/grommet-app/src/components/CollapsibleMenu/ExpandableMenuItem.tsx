@@ -39,7 +39,7 @@ export const ExpandableMenuItem = ({
               label={
                 <Box direction="row" align="center" justify="between">
                   <Box direction="row" align="center" gap="small">
-                    <Box width={dimension.hpe.size.icon.medium}>
+                    <Box width={dimension.hpe.icon.medium.size}>
                       {active && <LinkNext />}
                     </Box>
                     <Text>{subItem.label}</Text>
