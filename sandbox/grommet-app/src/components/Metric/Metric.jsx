@@ -10,6 +10,7 @@ export const Metric = ({
   options,
   reverse = false,
   size = 'medium',
+  ...rest
 }) => {
   let value = valueProp;
   if (typeof valueProp === 'number') {
@@ -29,18 +30,9 @@ export const Metric = ({
   );
 
   return (
-    <Box>
-      {reverse ? (
-        <>
-          {valueNode}
-          {label}
-        </>
-      ) : (
-        <>
-          {label}
-          {valueNode}
-        </>
-      )}
+    <Box direction={reverse && 'column-reverse'} {...rest}>
+      {label}
+      {valueNode}
     </Box>
   );
 };

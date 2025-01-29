@@ -8,13 +8,13 @@ export const SystemSummary = ({ ...rest }) => {
   return (
     <DashboardCard
       title="System"
-      subtitle={undefined}
+      subtitle={null}
       level={3}
       hideCta
-      icon={undefined}
-      external={undefined}
-      footer={undefined}
-      inline={undefined}
+      icon={null}
+      external={null}
+      footer={null}
+      inline={null}
       {...rest}
     >
       <Box direction="row" gap="medium">
@@ -27,11 +27,15 @@ export const SystemSummary = ({ ...rest }) => {
             </Box>
           }
           reverse
+          options={null}
+          unit={null}
         />
         <Metric
           label="Source"
           value="System name"
           reverse
+          options={null}
+          unit={null}
         />
       </Box>
     </DashboardCard>
