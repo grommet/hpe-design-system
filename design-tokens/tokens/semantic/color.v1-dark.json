@@ -1263,7 +1263,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.grey.500}",
+            "$value": "{base.color.grey.400}",
             "$description": "Highest emphasis variant of neutral palette.",
             "$extensions": {
               "com.figma": {

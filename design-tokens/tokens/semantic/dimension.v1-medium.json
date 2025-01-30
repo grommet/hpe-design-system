@@ -1053,7 +1053,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 42,
+        "$value": 40,
         "$description": "Line height typically used on h1.",
         "$extensions": {
           "com.figma": {
@@ -1091,7 +1091,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 34,
+        "$value": 32,
         "$description": "Line height typically used on h2.",
         "$extensions": {
           "com.figma": {
@@ -1117,7 +1117,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 24,
+        "$value": 28,
         "$description": "Line height typically used on h3.",
         "$extensions": {
           "com.figma": {
@@ -1193,7 +1193,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 24,
+        "$value": 20,
         "$description": "Line height typically used on h5.",
         "$extensions": {
           "com.figma": {
@@ -1231,7 +1231,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 16,
+        "$value": 18,
         "$description": "Line height typically used on h6.",
         "$extensions": {
           "com.figma": {

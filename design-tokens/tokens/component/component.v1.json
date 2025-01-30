@@ -2890,7 +2890,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 9,
+          "$value": 8,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3208,7 +3208,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 20,
+          "$value": 19,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -6956,7 +6956,7 @@
           "hover": {
             "background": {
               "$type": "color",
-              "$value": "{switch.default.control.track.rest.background}",
+              "$value": "{color.decorative.neutral.DEFAULT.hover}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
