@@ -2536,15 +2536,11 @@ const buildTheme = (tokens, flags) => {
               .paddingX};
             & [role='option'] {
               border-radius: ${dimensions.edgeSize[
-                components.hpe.formField.default.medium.input.group.item
-                  .borderRadius
-              ] ||
-              components.hpe.formField.default.medium.input.group.item
-                .borderRadius};
+                components.hpe.select.default.medium.option.borderRadius
+              ] || components.hpe.select.default.medium.option.borderRadius};
               &:hover {
                 background: ${getThemeColor(
-                  components.hpe.formField.default.input.group.item.hover
-                    .backgroud,
+                  components.hpe.select.default.option.hover.backgroud,
                   theme,
                 )};
               }
@@ -2572,26 +2568,30 @@ const buildTheme = (tokens, flags) => {
         up: Up,
       },
       options: undefined,
-      container: {
+      listbox: {
         // only apply paddingY to paddingTop because gap caused by Infinite Scroll
         // adds an addition 6px on the bottom
-        // listbox targets container directly surrounding options
-        // [role="option"]:has(input[type="checkbox"]) targets options within SelectMultiple
         extend: () => `
-          [role="listbox"] {
-            padding-top: ${components.hpe.select.default.medium.drop.paddingY};
-            padding-inline: ${
-              components.hpe.select.default.medium.drop.paddingX
-            };
-            display: flex;
-            flex-direction: column;
-            gap: ${components.hpe.select.default.medium.drop.gapY};
-            [role="option"]:has(input[type="checkbox"]) {
+          padding-top: ${components.hpe.select.default.medium.drop.paddingY};
+          padding-inline: ${components.hpe.select.default.medium.drop.paddingX};
+          display: flex;
+          flex-direction: column;
+          gap: ${components.hpe.select.default.medium.drop.gapY};
+        `,
+      },
+    },
+    selectMultiple: {
+      listbox: {
+        extend: () => `
+          padding-block: ${components.hpe.select.default.medium.drop.paddingY};
+          padding-inline: ${components.hpe.select.default.medium.drop.paddingX};
+          display: flex;
+          flex-direction: column;
+          [role="option"] {
               border-radius: ${
                 dimensions.edgeSize[
-                  components.hpe.formField.default.medium.input.group.item
-                    .borderRadius
-                ]
+                  components.hpe.select.default.medium.option.borderRadius
+                ] || components.hpe.select.default.medium.option.borderRadius
               };
             }
           }
