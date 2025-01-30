@@ -45,6 +45,8 @@ export const nonComponentTokens: string[] = [
   'paragraph',
   'shadow',
   'size',
+  'container',
+  'icon',
   'fontStack',
   'breakpoint',
   'fontWeight',
