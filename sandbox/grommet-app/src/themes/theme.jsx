@@ -927,6 +927,11 @@ const buildTheme = (tokens, flags) => {
       },
       hover: {
         textDecoration: components.hpe.anchor.default.hover.textDecoration,
+        extend: ({ theme }) =>
+          `color: ${getThemeColor(
+            components.hpe.anchor.default.hover.textColor,
+            theme,
+          )};`,
       },
       size: anchorSizeTheme,
     },
