@@ -2567,7 +2567,7 @@ export default {
   },
   "hpe.base.color.green.100": {
     "$type": "color",
-    "$value": "#cbfaeb",
+    "$value": "#d1ffee",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2582,7 +2582,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#cbfaeb",
+      "$value": "#d1ffee",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2611,7 +2611,7 @@ export default {
   },
   "hpe.base.color.green.125": {
     "$type": "color",
-    "$value": "#aef6df",
+    "$value": "#aafade",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2626,7 +2626,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#aef6df",
+      "$value": "#aafade",
       "$description": "",
       "$extensions": {
         "com.figma": {

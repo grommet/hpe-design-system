@@ -101,6 +101,91 @@ module.exports = {
         }
       }
     },
+    "select": {
+      "default": {
+        "medium": {
+          "option": {
+            "paddingX": "var(--hpe-select-default-medium-option-paddingX)",
+            "paddingY": "var(--hpe-select-default-medium-option-paddingY)",
+            "minHeight": "var(--hpe-select-default-medium-option-minHeight)",
+            "borderRadius": "var(--hpe-select-default-medium-option-borderRadius)",
+            "borderWidth": "var(--hpe-select-default-medium-option-borderWidth)",
+            "fontSize": "var(--hpe-select-default-medium-option-fontSize)",
+            "lineHeight": "var(--hpe-select-default-medium-option-lineHeight)",
+            "marker": {
+              "width": "var(--hpe-select-default-medium-option-marker-width)",
+              "borderTopLeftRadius": "var(--hpe-select-default-medium-option-marker-borderTopLeftRadius)",
+              "borderTopRightRadius": "var(--hpe-select-default-medium-option-marker-borderTopRightRadius)",
+              "borderBottomLeftRadius": "var(--hpe-select-default-medium-option-marker-borderBottomLeftRadius)",
+              "borderBottomRightRadius": "var(--hpe-select-default-medium-option-marker-borderBottomRightRadius)",
+              "top": "var(--hpe-select-default-medium-option-marker-top)",
+              "bottom": "var(--hpe-select-default-medium-option-marker-bottom)",
+              "left": "var(--hpe-select-default-medium-option-marker-left)"
+            }
+          },
+          "drop": {
+            "paddingX": "var(--hpe-select-default-medium-drop-paddingX)",
+            "paddingY": "var(--hpe-select-default-medium-drop-paddingY)",
+            "gapY": "var(--hpe-select-default-medium-drop-gapY)",
+            "borderRadius": "var(--hpe-select-default-medium-drop-borderRadius)",
+            "borderWidth": "var(--hpe-select-default-medium-drop-borderWidth)"
+          }
+        },
+        "option": {
+          "rest": {
+            "background": "var(--hpe-select-default-option-rest-background)",
+            "borderColor": "var(--hpe-select-default-option-rest-borderColor)",
+            "textColor": "var(--hpe-select-default-option-rest-textColor)",
+            "fontWeight": "var(--hpe-select-default-option-rest-fontWeight)"
+          },
+          "hover": {
+            "background": "var(--hpe-select-default-option-hover-background)",
+            "borderColor": "var(--hpe-select-default-option-hover-borderColor)",
+            "textColor": "var(--hpe-select-default-option-hover-textColor)",
+            "fontWeight": "var(--hpe-select-default-option-hover-fontWeight)"
+          },
+          "disabled": {
+            "rest": {
+              "background": "var(--hpe-select-default-option-disabled-rest-background)",
+              "borderColor": "var(--hpe-select-default-option-disabled-rest-borderColor)",
+              "textColor": "var(--hpe-select-default-option-disabled-rest-textColor)",
+              "fontWeight": "var(--hpe-select-default-option-disabled-rest-fontWeight)"
+            }
+          },
+          "selected": {
+            "rest": {
+              "background": "var(--hpe-select-default-option-selected-rest-background)",
+              "borderColor": "var(--hpe-select-default-option-selected-rest-borderColor)",
+              "textColor": "var(--hpe-select-default-option-selected-rest-textColor)",
+              "fontWeight": "var(--hpe-select-default-option-selected-rest-fontWeight)"
+            },
+            "hover": {
+              "background": "var(--hpe-select-default-option-selected-hover-background)",
+              "borderColor": "var(--hpe-select-default-option-selected-hover-borderColor)",
+              "textColor": "var(--hpe-select-default-option-selected-hover-textColor)",
+              "fontWeight": "var(--hpe-select-default-option-selected-hover-fontWeight)"
+            }
+          },
+          "marker": {
+            "rest": {
+              "background": "var(--hpe-select-default-option-marker-rest-background)"
+            },
+            "hover": {
+              "background": "var(--hpe-select-default-option-marker-hover-background)"
+            },
+            "disabled": {
+              "rest": {
+                "background": "var(--hpe-select-default-option-marker-disabled-rest-background)"
+              }
+            }
+          }
+        },
+        "drop": {
+          "background": "var(--hpe-select-default-drop-background)",
+          "border": "var(--hpe-select-default-drop-border)"
+        }
+      }
+    },
     "button": {
       "primary": {
         "rest": {
@@ -307,9 +392,6 @@ module.exports = {
             "fontSize": "var(--hpe-button-secondary-xsmall-iconOnly-fontSize)",
             "lineHeight": "var(--hpe-button-secondary-xsmall-iconOnly-lineHeight)",
             "gapX": "var(--hpe-button-secondary-xsmall-iconOnly-gapX)"
-          },
-          "hover": {
-            "boxShadow": "var(--hpe-button-secondary-xsmall-hover-boxShadow)"
           }
         },
         "small": {
@@ -331,9 +413,6 @@ module.exports = {
             "fontSize": "var(--hpe-button-secondary-small-iconOnly-fontSize)",
             "lineHeight": "var(--hpe-button-secondary-small-iconOnly-lineHeight)",
             "gapX": "var(--hpe-button-secondary-small-iconOnly-gapX)"
-          },
-          "hover": {
-            "boxShadow": "var(--hpe-button-secondary-small-hover-boxShadow)"
           }
         },
         "medium": {
@@ -355,9 +434,6 @@ module.exports = {
             "fontSize": "var(--hpe-button-secondary-medium-iconOnly-fontSize)",
             "lineHeight": "var(--hpe-button-secondary-medium-iconOnly-lineHeight)",
             "gapX": "var(--hpe-button-secondary-medium-iconOnly-gapX)"
-          },
-          "hover": {
-            "boxShadow": "var(--hpe-button-secondary-medium-hover-boxShadow)"
           }
         },
         "large": {
@@ -379,9 +455,6 @@ module.exports = {
             "gapX": "var(--hpe-button-secondary-large-iconOnly-gapX)",
             "paddingX": "var(--hpe-button-secondary-large-iconOnly-paddingX)",
             "paddingY": "var(--hpe-button-secondary-large-iconOnly-paddingY)"
-          },
-          "hover": {
-            "boxShadow": "var(--hpe-button-secondary-large-hover-boxShadow)"
           }
         },
         "xlarge": {
@@ -403,10 +476,7 @@ module.exports = {
           "minHeight": "var(--hpe-button-secondary-xlarge-minHeight)",
           "fontSize": "var(--hpe-button-secondary-xlarge-fontSize)",
           "lineHeight": "var(--hpe-button-secondary-xlarge-lineHeight)",
-          "gapX": "var(--hpe-button-secondary-xlarge-gapX)",
-          "hover": {
-            "boxShadow": "var(--hpe-button-secondary-xlarge-hover-boxShadow)"
-          }
+          "gapX": "var(--hpe-button-secondary-xlarge-gapX)"
         }
       },
       "default": {
@@ -702,330 +772,601 @@ module.exports = {
         }
       }
     },
-    "drop": {
-      "background": "var(--hpe-drop-background)",
-      "borderRadius": "var(--hpe-drop-borderRadius)",
-      "margin": "var(--hpe-drop-margin)",
-      "zIndex": "var(--hpe-drop-zIndex)"
-    },
     "menu": {
-      "item": {
-        "rest": {
-          "background": "var(--hpe-menu-item-rest-background)",
-          "borderColor": "var(--hpe-menu-item-rest-borderColor)",
-          "textColor": "var(--hpe-menu-item-rest-textColor)",
-          "iconColor": "var(--hpe-menu-item-rest-iconColor)",
-          "fontWeight": "var(--hpe-menu-item-rest-fontWeight)"
-        },
-        "hover": {
-          "background": "var(--hpe-menu-item-hover-background)",
-          "borderColor": "var(--hpe-menu-item-hover-borderColor)",
-          "textColor": "var(--hpe-menu-item-hover-textColor)",
-          "iconColor": "var(--hpe-menu-item-hover-iconColor)",
-          "fontWeight": "var(--hpe-menu-item-hover-fontWeight)"
-        },
-        "disabled": {
-          "rest": {
-            "background": "var(--hpe-menu-item-disabled-rest-background)",
-            "borderColor": "var(--hpe-menu-item-disabled-rest-borderColor)",
-            "textColor": "var(--hpe-menu-item-disabled-rest-textColor)",
-            "iconColor": "var(--hpe-menu-item-disabled-rest-iconColor)",
-            "fontWeight": "var(--hpe-menu-item-disabled-rest-fontWeight)"
-          }
-        }
-      },
-      "drop": {
-        "background": "var(--hpe-menu-drop-background)",
-        "borderColor": "var(--hpe-menu-drop-borderColor)"
-      },
-      "group": {
-        "separator": {
-          "background": "var(--hpe-menu-group-separator-background)"
-        }
-      },
-      "medium": {
-        "drop": {
-          "paddingX": "var(--hpe-menu-medium-drop-paddingX)",
-          "paddingY": "var(--hpe-menu-medium-drop-paddingY)",
-          "gapY": "var(--hpe-menu-medium-drop-gapY)",
-          "borderRadius": "var(--hpe-menu-medium-drop-borderRadius)",
-          "borderWidth": "var(--hpe-menu-medium-drop-borderWidth)"
-        },
+      "default": {
         "item": {
-          "paddingX": "var(--hpe-menu-medium-item-paddingX)",
-          "paddingY": "var(--hpe-menu-medium-item-paddingY)",
-          "borderRadius": "var(--hpe-menu-medium-item-borderRadius)",
-          "borderWidth": "var(--hpe-menu-medium-item-borderWidth)",
-          "minHeight": "var(--hpe-menu-medium-item-minHeight)",
-          "fontSize": "var(--hpe-menu-medium-item-fontSize)",
-          "lineHeight": "var(--hpe-menu-medium-item-lineHeight)",
-          "gapX": "var(--hpe-menu-medium-item-gapX)"
+          "rest": {
+            "background": "var(--hpe-menu-default-item-rest-background)",
+            "borderColor": "var(--hpe-menu-default-item-rest-borderColor)",
+            "textColor": "var(--hpe-menu-default-item-rest-textColor)",
+            "iconColor": "var(--hpe-menu-default-item-rest-iconColor)",
+            "fontWeight": "var(--hpe-menu-default-item-rest-fontWeight)"
+          },
+          "hover": {
+            "background": "var(--hpe-menu-default-item-hover-background)",
+            "borderColor": "var(--hpe-menu-default-item-hover-borderColor)",
+            "textColor": "var(--hpe-menu-default-item-hover-textColor)",
+            "iconColor": "var(--hpe-menu-default-item-hover-iconColor)",
+            "fontWeight": "var(--hpe-menu-default-item-hover-fontWeight)"
+          },
+          "disabled": {
+            "rest": {
+              "background": "var(--hpe-menu-default-item-disabled-rest-background)",
+              "borderColor": "var(--hpe-menu-default-item-disabled-rest-borderColor)",
+              "textColor": "var(--hpe-menu-default-item-disabled-rest-textColor)",
+              "iconColor": "var(--hpe-menu-default-item-disabled-rest-iconColor)",
+              "fontWeight": "var(--hpe-menu-default-item-disabled-rest-fontWeight)"
+            }
+          }
+        },
+        "drop": {
+          "background": "var(--hpe-menu-default-drop-background)",
+          "borderColor": "var(--hpe-menu-default-drop-borderColor)"
         },
         "group": {
-          "container": {
-            "paddingY": "var(--hpe-menu-medium-group-container-paddingY)",
-            "gapY": "var(--hpe-menu-medium-group-container-gapY)"
-          },
           "separator": {
-            "height": "var(--hpe-menu-medium-group-separator-height)"
+            "background": "var(--hpe-menu-default-group-separator-background)"
+          }
+        },
+        "medium": {
+          "drop": {
+            "paddingX": "var(--hpe-menu-default-medium-drop-paddingX)",
+            "paddingY": "var(--hpe-menu-default-medium-drop-paddingY)",
+            "gapY": "var(--hpe-menu-default-medium-drop-gapY)",
+            "borderRadius": "var(--hpe-menu-default-medium-drop-borderRadius)",
+            "borderWidth": "var(--hpe-menu-default-medium-drop-borderWidth)"
+          },
+          "item": {
+            "paddingX": "var(--hpe-menu-default-medium-item-paddingX)",
+            "paddingY": "var(--hpe-menu-default-medium-item-paddingY)",
+            "borderRadius": "var(--hpe-menu-default-medium-item-borderRadius)",
+            "borderWidth": "var(--hpe-menu-default-medium-item-borderWidth)",
+            "minHeight": "var(--hpe-menu-default-medium-item-minHeight)",
+            "fontSize": "var(--hpe-menu-default-medium-item-fontSize)",
+            "lineHeight": "var(--hpe-menu-default-medium-item-lineHeight)",
+            "gapX": "var(--hpe-menu-default-medium-item-gapX)"
+          },
+          "group": {
+            "container": {
+              "paddingY": "var(--hpe-menu-default-medium-group-container-paddingY)",
+              "paddingX": "var(--hpe-menu-default-medium-group-container-paddingX)",
+              "gapY": "var(--hpe-menu-default-medium-group-container-gapY)"
+            },
+            "separator": {
+              "height": "var(--hpe-menu-default-medium-group-separator-height)"
+            }
           }
         }
       }
     },
-    "select": {
-      "medium": {
-        "option": {
-          "paddingX": "var(--hpe-select-medium-option-paddingX)",
-          "paddingY": "var(--hpe-select-medium-option-paddingY)",
-          "minHeight": "var(--hpe-select-medium-option-minHeight)",
-          "borderRadius": "var(--hpe-select-medium-option-borderRadius)",
-          "borderWidth": "var(--hpe-select-medium-option-borderWidth)",
-          "fontSize": "var(--hpe-select-medium-option-fontSize)",
-          "lineHeight": "var(--hpe-select-medium-option-lineHeight)"
-        },
-        "drop": {
-          "paddingX": "var(--hpe-select-medium-drop-paddingX)",
-          "paddingY": "var(--hpe-select-medium-drop-paddingY)",
-          "gapY": "var(--hpe-select-medium-drop-gapY)",
-          "borderRadius": "var(--hpe-select-medium-drop-borderRadius)",
-          "borderWidth": "var(--hpe-select-medium-drop-borderWidth)"
-        }
-      },
-      "option": {
-        "rest": {
-          "background": "var(--hpe-select-option-rest-background)",
-          "borderColor": "var(--hpe-select-option-rest-borderColor)",
-          "textColor": "var(--hpe-select-option-rest-textColor)",
-          "fontWeight": "var(--hpe-select-option-rest-fontWeight)"
-        },
-        "hover": {
-          "background": "var(--hpe-select-option-hover-background)",
-          "borderColor": "var(--hpe-select-option-hover-borderColor)",
-          "textColor": "var(--hpe-select-option-hover-textColor)",
-          "fontWeight": "var(--hpe-select-option-hover-fontWeight)"
-        },
-        "disabled": {
-          "rest": {
-            "background": "var(--hpe-select-option-disabled-rest-background)",
-            "borderColor": "var(--hpe-select-option-disabled-rest-borderColor)",
-            "textColor": "var(--hpe-select-option-disabled-rest-textColor)",
-            "fontWeight": "var(--hpe-select-option-disabled-rest-fontWeight)"
-          }
-        },
-        "selected": {
-          "rest": {
-            "background": "var(--hpe-select-option-selected-rest-background)",
-            "borderColor": "var(--hpe-select-option-selected-rest-borderColor)",
-            "textColor": "var(--hpe-select-option-selected-rest-textColor)",
-            "fontWeight": "var(--hpe-select-option-selected-rest-fontWeight)"
-          },
-          "hover": {
-            "background": "var(--hpe-select-option-selected-hover-background)",
-            "borderColor": "var(--hpe-select-option-selected-hover-borderColor)",
-            "textColor": "var(--hpe-select-option-selected-hover-textColor)",
-            "fontWeight": "var(--hpe-select-option-selected-hover-fontWeight)"
-          }
-        }
-      },
-      "drop": {
-        "background": "var(--hpe-select-drop-background)",
-        "border": "var(--hpe-select-drop-border)"
+    "drop": {
+      "default": {
+        "background": "var(--hpe-drop-default-background)",
+        "borderRadius": "var(--hpe-drop-default-borderRadius)",
+        "margin": "var(--hpe-drop-default-margin)",
+        "boxShadow": "var(--hpe-drop-default-boxShadow)",
+        "zIndex": "var(--hpe-drop-default-zIndex)"
       }
     },
     "checkbox": {
-      "control": {
-        "rest": {
-          "background": "var(--hpe-checkbox-control-rest-background)",
-          "borderColor": "var(--hpe-checkbox-control-rest-borderColor)"
-        },
-        "hover": {
-          "background": "var(--hpe-checkbox-control-hover-background)",
-          "borderColor": "var(--hpe-checkbox-control-hover-borderColor)"
-        },
-        "disabled": {
-          "rest": {
-            "background": "var(--hpe-checkbox-control-disabled-rest-background)",
-            "borderColor": "var(--hpe-checkbox-control-disabled-rest-borderColor)",
-            "iconColor": "var(--hpe-checkbox-control-disabled-rest-iconColor)"
-          }
-        },
-        "selected": {
-          "rest": {
-            "background": "var(--hpe-checkbox-control-selected-rest-background)",
-            "borderColor": "var(--hpe-checkbox-control-selected-rest-borderColor)",
-            "iconColor": "var(--hpe-checkbox-control-selected-rest-iconColor)"
-          },
-          "hover": {
-            "background": "var(--hpe-checkbox-control-selected-hover-background)",
-            "borderColor": "var(--hpe-checkbox-control-selected-hover-borderColor)",
-            "iconColor": "var(--hpe-checkbox-control-selected-hover-iconColor)"
-          }
-        },
-        "indeterminate": {
-          "rest": {
-            "background": "var(--hpe-checkbox-control-indeterminate-rest-background)",
-            "borderColor": "var(--hpe-checkbox-control-indeterminate-rest-borderColor)",
-            "iconColor": "var(--hpe-checkbox-control-indeterminate-rest-iconColor)"
-          },
-          "hover": {
-            "background": "var(--hpe-checkbox-control-indeterminate-hover-background)",
-            "borderColor": "var(--hpe-checkbox-control-indeterminate-hover-borderColor)",
-            "iconColor": "var(--hpe-checkbox-control-indeterminate-hover-iconColor)"
-          }
-        }
-      },
-      "label": {
-        "rest": {
-          "textColor": "var(--hpe-checkbox-label-rest-textColor)"
-        },
-        "hover": {
-          "textColor": "var(--hpe-checkbox-label-hover-textColor)"
-        },
-        "disabled": {
-          "rest": {
-            "textColor": "var(--hpe-checkbox-label-disabled-rest-textColor)"
-          }
-        }
-      },
-      "medium": {
-        "gapX": "var(--hpe-checkbox-medium-gapX)",
-        "label": {
-          "fontSize": "var(--hpe-checkbox-medium-label-fontSize)",
-          "lineHeight": "var(--hpe-checkbox-medium-label-lineHeight)",
-          "fontWeight": "var(--hpe-checkbox-medium-label-fontWeight)"
-        },
+      "default": {
         "control": {
-          "height": "var(--hpe-checkbox-medium-control-height)",
-          "width": "var(--hpe-checkbox-medium-control-width)",
-          "borderWidth": "var(--hpe-checkbox-medium-control-borderWidth)",
-          "borderRadius": "var(--hpe-checkbox-medium-control-borderRadius)"
+          "rest": {
+            "background": "var(--hpe-checkbox-default-control-rest-background)",
+            "borderColor": "var(--hpe-checkbox-default-control-rest-borderColor)"
+          },
+          "hover": {
+            "background": "var(--hpe-checkbox-default-control-hover-background)",
+            "borderColor": "var(--hpe-checkbox-default-control-hover-borderColor)"
+          },
+          "disabled": {
+            "rest": {
+              "background": "var(--hpe-checkbox-default-control-disabled-rest-background)",
+              "borderColor": "var(--hpe-checkbox-default-control-disabled-rest-borderColor)",
+              "iconColor": "var(--hpe-checkbox-default-control-disabled-rest-iconColor)"
+            }
+          },
+          "selected": {
+            "rest": {
+              "background": "var(--hpe-checkbox-default-control-selected-rest-background)",
+              "borderColor": "var(--hpe-checkbox-default-control-selected-rest-borderColor)",
+              "iconColor": "var(--hpe-checkbox-default-control-selected-rest-iconColor)"
+            },
+            "hover": {
+              "background": "var(--hpe-checkbox-default-control-selected-hover-background)",
+              "borderColor": "var(--hpe-checkbox-default-control-selected-hover-borderColor)",
+              "iconColor": "var(--hpe-checkbox-default-control-selected-hover-iconColor)"
+            }
+          },
+          "indeterminate": {
+            "rest": {
+              "background": "var(--hpe-checkbox-default-control-indeterminate-rest-background)",
+              "borderColor": "var(--hpe-checkbox-default-control-indeterminate-rest-borderColor)",
+              "iconColor": "var(--hpe-checkbox-default-control-indeterminate-rest-iconColor)"
+            },
+            "hover": {
+              "background": "var(--hpe-checkbox-default-control-indeterminate-hover-background)",
+              "borderColor": "var(--hpe-checkbox-default-control-indeterminate-hover-borderColor)",
+              "iconColor": "var(--hpe-checkbox-default-control-indeterminate-hover-iconColor)"
+            }
+          }
+        },
+        "label": {
+          "rest": {
+            "textColor": "var(--hpe-checkbox-default-label-rest-textColor)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-checkbox-default-label-hover-textColor)"
+          },
+          "disabled": {
+            "rest": {
+              "textColor": "var(--hpe-checkbox-default-label-disabled-rest-textColor)"
+            }
+          }
+        },
+        "medium": {
+          "gapX": "var(--hpe-checkbox-default-medium-gapX)",
+          "label": {
+            "fontSize": "var(--hpe-checkbox-default-medium-label-fontSize)",
+            "lineHeight": "var(--hpe-checkbox-default-medium-label-lineHeight)",
+            "fontWeight": "var(--hpe-checkbox-default-medium-label-fontWeight)"
+          },
+          "control": {
+            "height": "var(--hpe-checkbox-default-medium-control-height)",
+            "width": "var(--hpe-checkbox-default-medium-control-width)",
+            "borderWidth": "var(--hpe-checkbox-default-medium-control-borderWidth)",
+            "borderRadius": "var(--hpe-checkbox-default-medium-control-borderRadius)"
+          }
         }
       }
     },
     "switch": {
-      "control": {
-        "track": {
-          "rest": {
-            "background": "var(--hpe-switch-control-track-rest-background)",
-            "borderColor": "var(--hpe-switch-control-track-rest-borderColor)"
-          },
-          "hover": {
-            "background": "var(--hpe-switch-control-track-hover-background)",
-            "borderColor": "var(--hpe-switch-control-track-hover-borderColor)"
-          },
-          "disabled": {
-            "rest": {
-              "background": "var(--hpe-switch-control-track-disabled-rest-background)",
-              "borderColor": "var(--hpe-switch-control-track-disabled-rest-borderColor)"
-            }
-          },
-          "selected": {
-            "rest": {
-              "background": "var(--hpe-switch-control-track-selected-rest-background)",
-              "borderColor": "var(--hpe-switch-control-track-selected-rest-borderColor)"
-            },
-            "hover": {
-              "background": "var(--hpe-switch-control-track-selected-hover-background)",
-              "borderColor": "var(--hpe-switch-control-track-selected-hover-borderColor)"
-            }
-          }
-        },
-        "handle": {
-          "rest": {
-            "background": "var(--hpe-switch-control-handle-rest-background)",
-            "borderColor": "var(--hpe-switch-control-handle-rest-borderColor)"
-          },
-          "hover": {
-            "background": "var(--hpe-switch-control-handle-hover-background)",
-            "borderColor": "var(--hpe-switch-control-handle-hover-borderColor)"
-          },
-          "disabled": {
-            "rest": {
-              "background": "var(--hpe-switch-control-handle-disabled-rest-background)",
-              "borderColor": "var(--hpe-switch-control-handle-disabled-rest-borderColor)"
-            }
-          },
-          "selected": {
-            "rest": {
-              "background": "var(--hpe-switch-control-handle-selected-rest-background)",
-              "borderColor": "var(--hpe-switch-control-handle-selected-rest-borderColor)"
-            },
-            "hover": {
-              "background": "var(--hpe-switch-control-handle-selected-hover-background)",
-              "borderColor": "var(--hpe-switch-control-handle-selected-hover-borderColor)"
-            }
-          }
-        }
-      },
-      "label": {
-        "rest": {
-          "textColor": "var(--hpe-switch-label-rest-textColor)"
-        },
-        "hover": {
-          "textColor": "var(--hpe-switch-label-hover-textColor)"
-        },
-        "disabled": {
-          "rest": {
-            "textColor": "var(--hpe-switch-label-disabled-rest-textColor)"
-          }
-        }
-      },
-      "medium": {
-        "gapX": "var(--hpe-switch-medium-gapX)",
-        "label": {
-          "fontSize": "var(--hpe-switch-medium-label-fontSize)",
-          "lineHeight": "var(--hpe-switch-medium-label-lineHeight)",
-          "fontWeight": "var(--hpe-switch-medium-label-fontWeight)"
-        },
+      "default": {
         "control": {
           "track": {
-            "height": "var(--hpe-switch-medium-control-track-height)",
-            "width": "var(--hpe-switch-medium-control-track-width)",
-            "borderWidth": "var(--hpe-switch-medium-control-track-borderWidth)",
-            "borderRadius": "var(--hpe-switch-medium-control-track-borderRadius)"
+            "rest": {
+              "background": "var(--hpe-switch-default-control-track-rest-background)",
+              "borderColor": "var(--hpe-switch-default-control-track-rest-borderColor)"
+            },
+            "hover": {
+              "background": "var(--hpe-switch-default-control-track-hover-background)",
+              "borderColor": "var(--hpe-switch-default-control-track-hover-borderColor)"
+            },
+            "disabled": {
+              "rest": {
+                "background": "var(--hpe-switch-default-control-track-disabled-rest-background)",
+                "borderColor": "var(--hpe-switch-default-control-track-disabled-rest-borderColor)"
+              }
+            },
+            "selected": {
+              "rest": {
+                "background": "var(--hpe-switch-default-control-track-selected-rest-background)",
+                "borderColor": "var(--hpe-switch-default-control-track-selected-rest-borderColor)"
+              },
+              "hover": {
+                "background": "var(--hpe-switch-default-control-track-selected-hover-background)",
+                "borderColor": "var(--hpe-switch-default-control-track-selected-hover-borderColor)"
+              }
+            }
           },
           "handle": {
-            "height": "var(--hpe-switch-medium-control-handle-height)",
-            "width": "var(--hpe-switch-medium-control-handle-width)",
-            "borderWidth": "var(--hpe-switch-medium-control-handle-borderWidth)",
-            "borderRadius": "var(--hpe-switch-medium-control-handle-borderRadius)"
+            "rest": {
+              "background": "var(--hpe-switch-default-control-handle-rest-background)",
+              "borderColor": "var(--hpe-switch-default-control-handle-rest-borderColor)",
+              "boxShadow": "var(--hpe-switch-default-control-handle-rest-boxShadow)"
+            },
+            "hover": {
+              "background": "var(--hpe-switch-default-control-handle-hover-background)",
+              "borderColor": "var(--hpe-switch-default-control-handle-hover-borderColor)",
+              "boxShadow": "var(--hpe-switch-default-control-handle-hover-boxShadow)"
+            },
+            "disabled": {
+              "rest": {
+                "background": "var(--hpe-switch-default-control-handle-disabled-rest-background)",
+                "borderColor": "var(--hpe-switch-default-control-handle-disabled-rest-borderColor)",
+                "boxShadow": "var(--hpe-switch-default-control-handle-disabled-rest-boxShadow)"
+              }
+            },
+            "selected": {
+              "rest": {
+                "background": "var(--hpe-switch-default-control-handle-selected-rest-background)",
+                "borderColor": "var(--hpe-switch-default-control-handle-selected-rest-borderColor)",
+                "boxShadow": "var(--hpe-switch-default-control-handle-selected-rest-boxShadow)"
+              },
+              "hover": {
+                "background": "var(--hpe-switch-default-control-handle-selected-hover-background)",
+                "borderColor": "var(--hpe-switch-default-control-handle-selected-hover-borderColor)",
+                "boxShadow": "var(--hpe-switch-default-control-handle-selected-hover-boxShadow)"
+              }
+            }
+          }
+        },
+        "label": {
+          "rest": {
+            "textColor": "var(--hpe-switch-default-label-rest-textColor)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-switch-default-label-hover-textColor)"
+          },
+          "disabled": {
+            "rest": {
+              "textColor": "var(--hpe-switch-default-label-disabled-rest-textColor)"
+            }
+          }
+        },
+        "medium": {
+          "gapX": "var(--hpe-switch-default-medium-gapX)",
+          "label": {
+            "fontSize": "var(--hpe-switch-default-medium-label-fontSize)",
+            "lineHeight": "var(--hpe-switch-default-medium-label-lineHeight)",
+            "fontWeight": "var(--hpe-switch-default-medium-label-fontWeight)"
+          },
+          "control": {
+            "track": {
+              "height": "var(--hpe-switch-default-medium-control-track-height)",
+              "width": "var(--hpe-switch-default-medium-control-track-width)",
+              "borderWidth": "var(--hpe-switch-default-medium-control-track-borderWidth)",
+              "borderRadius": "var(--hpe-switch-default-medium-control-track-borderRadius)"
+            },
+            "handle": {
+              "height": "var(--hpe-switch-default-medium-control-handle-height)",
+              "width": "var(--hpe-switch-default-medium-control-handle-width)",
+              "borderWidth": "var(--hpe-switch-default-medium-control-handle-borderWidth)",
+              "borderRadius": "var(--hpe-switch-default-medium-control-handle-borderRadius)"
+            }
+          }
+        }
+      }
+    },
+    "formField": {
+      "default": {
+        "medium": {
+          "input": {
+            "group": {
+              "item": {
+                "paddingX": "var(--hpe-formField-default-medium-input-group-item-paddingX)",
+                "paddingY": "var(--hpe-formField-default-medium-input-group-item-paddingY)",
+                "borderWidth": "var(--hpe-formField-default-medium-input-group-item-borderWidth)",
+                "minHeight": "var(--hpe-formField-default-medium-input-group-item-minHeight)",
+                "borderRadius": "var(--hpe-formField-default-medium-input-group-item-borderRadius)",
+                "textToIconX": "var(--hpe-formField-default-medium-input-group-item-textToIconX)",
+                "textToElementX": "var(--hpe-formField-default-medium-input-group-item-textToElementX)"
+              },
+              "container": {
+                "paddingX": "var(--hpe-formField-default-medium-input-group-container-paddingX)",
+                "paddingY": "var(--hpe-formField-default-medium-input-group-container-paddingY)",
+                "borderWidth": "var(--hpe-formField-default-medium-input-group-container-borderWidth)",
+                "borderRadius": "var(--hpe-formField-default-medium-input-group-container-borderRadius)"
+              }
+            },
+            "container": {
+              "paddingX": "var(--hpe-formField-default-medium-input-container-paddingX)",
+              "paddingY": "var(--hpe-formField-default-medium-input-container-paddingY)",
+              "borderWidth": "var(--hpe-formField-default-medium-input-container-borderWidth)",
+              "borderRadius": "var(--hpe-formField-default-medium-input-container-borderRadius)",
+              "minHeight": "var(--hpe-formField-default-medium-input-container-minHeight)",
+              "textToIconX": "var(--hpe-formField-default-medium-input-container-textToIconX)",
+              "textToElementX": "var(--hpe-formField-default-medium-input-container-textToElementX)"
+            }
+          },
+          "label": {
+            "fontSize": "var(--hpe-formField-default-medium-label-fontSize)",
+            "lineHeight": "var(--hpe-formField-default-medium-label-lineHeight)",
+            "fontWeight": "var(--hpe-formField-default-medium-label-fontWeight)"
+          },
+          "placeholder": {
+            "fontSize": "var(--hpe-formField-default-medium-placeholder-fontSize)",
+            "lineHeight": "var(--hpe-formField-default-medium-placeholder-lineHeight)",
+            "fontWeight": "var(--hpe-formField-default-medium-placeholder-fontWeight)"
+          },
+          "help": {
+            "fontSize": "var(--hpe-formField-default-medium-help-fontSize)",
+            "lineHeight": "var(--hpe-formField-default-medium-help-lineHeight)",
+            "fontWeight": "var(--hpe-formField-default-medium-help-fontWeight)"
+          },
+          "info": {
+            "fontSize": "var(--hpe-formField-default-medium-info-fontSize)",
+            "lineHeight": "var(--hpe-formField-default-medium-info-lineHeight)",
+            "fontWeight": "var(--hpe-formField-default-medium-info-fontWeight)"
+          },
+          "error": {
+            "fontSize": "var(--hpe-formField-default-medium-error-fontSize)",
+            "lineHeight": "var(--hpe-formField-default-medium-error-lineHeight)",
+            "fontWeight": "var(--hpe-formField-default-medium-error-fontWeight)"
+          },
+          "value": {
+            "fontSize": "var(--hpe-formField-default-medium-value-fontSize)",
+            "lineHeight": "var(--hpe-formField-default-medium-value-lineHeight)",
+            "fontWeight": "var(--hpe-formField-default-medium-value-fontWeight)"
+          }
+        },
+        "input": {
+          "group": {
+            "container": {
+              "rest": {
+                "background": "var(--hpe-formField-default-input-group-container-rest-background)",
+                "borderColor": "var(--hpe-formField-default-input-group-container-rest-borderColor)"
+              },
+              "hover": {
+                "background": "var(--hpe-formField-default-input-group-container-hover-background)",
+                "borderColor": "var(--hpe-formField-default-input-group-container-hover-borderColor)"
+              },
+              "error": {
+                "rest": {
+                  "background": "var(--hpe-formField-default-input-group-container-error-rest-background)",
+                  "borderColor": "var(--hpe-formField-default-input-group-container-error-rest-borderColor)"
+                }
+              },
+              "disabled": {
+                "rest": {
+                  "background": "var(--hpe-formField-default-input-group-container-disabled-rest-background)",
+                  "borderColor": "var(--hpe-formField-default-input-group-container-disabled-rest-borderColor)"
+                }
+              },
+              "readOnly": {
+                "rest": {
+                  "background": "var(--hpe-formField-default-input-group-container-readOnly-rest-background)",
+                  "borderColor": "var(--hpe-formField-default-input-group-container-readOnly-rest-borderColor)"
+                }
+              }
+            },
+            "item": {
+              "rest": {
+                "background": "var(--hpe-formField-default-input-group-item-rest-background)",
+                "borderColor": "var(--hpe-formField-default-input-group-item-rest-borderColor)"
+              },
+              "hover": {
+                "background": "var(--hpe-formField-default-input-group-item-hover-background)",
+                "borderColor": "var(--hpe-formField-default-input-group-item-hover-borderColor)"
+              },
+              "disabled": {
+                "rest": {
+                  "background": "var(--hpe-formField-default-input-group-item-disabled-rest-background)",
+                  "borderColor": "var(--hpe-formField-default-input-group-item-disabled-rest-borderColor)"
+                }
+              },
+              "readOnly": {
+                "rest": {
+                  "background": "var(--hpe-formField-default-input-group-item-readOnly-rest-background)",
+                  "borderColor": "var(--hpe-formField-default-input-group-item-readOnly-rest-borderColor)"
+                }
+              }
+            }
+          },
+          "container": {
+            "rest": {
+              "background": "var(--hpe-formField-default-input-container-rest-background)",
+              "borderColor": "var(--hpe-formField-default-input-container-rest-borderColor)"
+            },
+            "hover": {
+              "background": "var(--hpe-formField-default-input-container-hover-background)",
+              "borderColor": "var(--hpe-formField-default-input-container-hover-borderColor)"
+            },
+            "error": {
+              "rest": {
+                "background": "var(--hpe-formField-default-input-container-error-rest-background)",
+                "borderColor": "var(--hpe-formField-default-input-container-error-rest-borderColor)"
+              }
+            },
+            "disabled": {
+              "rest": {
+                "background": "var(--hpe-formField-default-input-container-disabled-rest-background)",
+                "borderColor": "var(--hpe-formField-default-input-container-disabled-rest-borderColor)"
+              }
+            },
+            "readOnly": {
+              "rest": {
+                "background": "var(--hpe-formField-default-input-container-readOnly-rest-background)",
+                "borderColor": "var(--hpe-formField-default-input-container-readOnly-rest-borderColor)"
+              }
+            }
+          }
+        },
+        "label": {
+          "rest": {
+            "textColor": "var(--hpe-formField-default-label-rest-textColor)",
+            "iconColor": "var(--hpe-formField-default-label-rest-iconColor)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-formField-default-label-hover-textColor)",
+            "iconColor": "var(--hpe-formField-default-label-hover-iconColor)"
+          },
+          "error": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-label-error-rest-textColor)",
+              "iconColor": "var(--hpe-formField-default-label-error-rest-iconColor)"
+            }
+          },
+          "disabled": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-label-disabled-rest-textColor)",
+              "iconColor": "var(--hpe-formField-default-label-disabled-rest-iconColor)"
+            }
+          },
+          "readOnly": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-label-readOnly-rest-textColor)",
+              "iconColor": "var(--hpe-formField-default-label-readOnly-rest-iconColor)"
+            }
+          }
+        },
+        "placeholder": {
+          "rest": {
+            "textColor": "var(--hpe-formField-default-placeholder-rest-textColor)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-formField-default-placeholder-hover-textColor)"
+          },
+          "error": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-placeholder-error-rest-textColor)"
+            }
+          },
+          "disabled": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-placeholder-disabled-rest-textColor)"
+            }
+          },
+          "readOnly": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-placeholder-readOnly-rest-textColor)"
+            }
+          }
+        },
+        "help": {
+          "rest": {
+            "textColor": "var(--hpe-formField-default-help-rest-textColor)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-formField-default-help-hover-textColor)"
+          },
+          "error": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-help-error-rest-textColor)"
+            }
+          },
+          "disabled": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-help-disabled-rest-textColor)"
+            }
+          },
+          "readOnly": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-help-readOnly-rest-textColor)"
+            }
+          }
+        },
+        "info": {
+          "rest": {
+            "textColor": "var(--hpe-formField-default-info-rest-textColor)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-formField-default-info-hover-textColor)"
+          },
+          "error": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-info-error-rest-textColor)"
+            }
+          },
+          "disabled": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-info-disabled-rest-textColor)"
+            }
+          },
+          "readOnly": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-info-readOnly-rest-textColor)"
+            }
+          }
+        },
+        "error": {
+          "rest": {
+            "textColor": "var(--hpe-formField-default-error-rest-textColor)",
+            "iconColor": "var(--hpe-formField-default-error-rest-iconColor)"
+          },
+          "hover": {
+            "iconColor": "var(--hpe-formField-default-error-hover-iconColor)",
+            "textColor": "var(--hpe-formField-default-error-hover-textColor)"
+          }
+        },
+        "value": {
+          "rest": {
+            "textColor": "var(--hpe-formField-default-value-rest-textColor)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-formField-default-value-hover-textColor)"
+          },
+          "error": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-value-error-rest-textColor)"
+            }
+          },
+          "disabled": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-value-disabled-rest-textColor)"
+            }
+          },
+          "readOnly": {
+            "rest": {
+              "textColor": "var(--hpe-formField-default-value-readOnly-rest-textColor)"
+            }
           }
         }
       }
     },
     "dataCell": {
-      "rest": {
-        "textColor": "var(--hpe-dataCell-rest-textColor)",
-        "iconColor": "var(--hpe-dataCell-rest-iconColor)",
-        "borderColor": "var(--hpe-dataCell-rest-borderColor)",
-        "background": "var(--hpe-dataCell-rest-background)"
-      },
-      "hover": {
-        "textColor": "var(--hpe-dataCell-hover-textColor)",
-        "iconColor": "var(--hpe-dataCell-hover-iconColor)",
-        "borderColor": "var(--hpe-dataCell-hover-borderColor)",
-        "background": "var(--hpe-dataCell-hover-background)"
-      },
-      "disabled": {
+      "default": {
         "rest": {
-          "textColor": "var(--hpe-dataCell-disabled-rest-textColor)",
-          "iconColor": "var(--hpe-dataCell-disabled-rest-iconColor)",
-          "borderColor": "var(--hpe-dataCell-disabled-rest-borderColor)",
-          "background": "var(--hpe-dataCell-disabled-rest-background)"
-        }
-      },
-      "selected": {
-        "rest": {
-          "textColor": "var(--hpe-dataCell-selected-rest-textColor)",
-          "iconColor": "var(--hpe-dataCell-selected-rest-iconColor)",
-          "borderColor": "var(--hpe-dataCell-selected-rest-borderColor)",
-          "background": "var(--hpe-dataCell-selected-rest-background)"
+          "textColor": "var(--hpe-dataCell-default-rest-textColor)",
+          "iconColor": "var(--hpe-dataCell-default-rest-iconColor)",
+          "borderColor": "var(--hpe-dataCell-default-rest-borderColor)",
+          "background": "var(--hpe-dataCell-default-rest-background)"
         },
         "hover": {
-          "textColor": "var(--hpe-dataCell-selected-hover-textColor)",
-          "iconColor": "var(--hpe-dataCell-selected-hover-iconColor)",
-          "borderColor": "var(--hpe-dataCell-selected-hover-borderColor)",
-          "background": "var(--hpe-dataCell-selected-hover-background)"
+          "textColor": "var(--hpe-dataCell-default-hover-textColor)",
+          "iconColor": "var(--hpe-dataCell-default-hover-iconColor)",
+          "borderColor": "var(--hpe-dataCell-default-hover-borderColor)",
+          "background": "var(--hpe-dataCell-default-hover-background)"
+        },
+        "disabled": {
+          "rest": {
+            "textColor": "var(--hpe-dataCell-default-disabled-rest-textColor)",
+            "iconColor": "var(--hpe-dataCell-default-disabled-rest-iconColor)",
+            "borderColor": "var(--hpe-dataCell-default-disabled-rest-borderColor)",
+            "background": "var(--hpe-dataCell-default-disabled-rest-background)"
+          }
+        },
+        "selected": {
+          "rest": {
+            "textColor": "var(--hpe-dataCell-default-selected-rest-textColor)",
+            "iconColor": "var(--hpe-dataCell-default-selected-rest-iconColor)",
+            "borderColor": "var(--hpe-dataCell-default-selected-rest-borderColor)",
+            "background": "var(--hpe-dataCell-default-selected-rest-background)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-dataCell-default-selected-hover-textColor)",
+            "iconColor": "var(--hpe-dataCell-default-selected-hover-iconColor)",
+            "borderColor": "var(--hpe-dataCell-default-selected-hover-borderColor)",
+            "background": "var(--hpe-dataCell-default-selected-hover-background)"
+          },
+          "rest 2": {
+            "textColor": "var(--hpe-dataCell-default-selected-rest 2-textColor)",
+            "iconColor": "var(--hpe-dataCell-default-selected-rest 2-iconColor)",
+            "borderColor": "var(--hpe-dataCell-default-selected-rest 2-borderColor)",
+            "background": "var(--hpe-dataCell-default-selected-rest 2-background)"
+          },
+          "hover 2": {
+            "textColor": "var(--hpe-dataCell-default-selected-hover 2-textColor)",
+            "iconColor": "var(--hpe-dataCell-default-selected-hover 2-iconColor)",
+            "borderColor": "var(--hpe-dataCell-default-selected-hover 2-borderColor)",
+            "background": "var(--hpe-dataCell-default-selected-hover 2-background)"
+          }
+        },
+        "pinned": {
+          "rest": {
+            "textColor": "var(--hpe-dataCell-default-pinned-rest-textColor)",
+            "iconColor": "var(--hpe-dataCell-default-pinned-rest-iconColor)",
+            "borderColor": "var(--hpe-dataCell-default-pinned-rest-borderColor)",
+            "backgroundColor": "var(--hpe-dataCell-default-pinned-rest-backgroundColor)",
+            "background": "var(--hpe-dataCell-default-pinned-rest-background)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-dataCell-default-pinned-hover-textColor)",
+            "iconColor": "var(--hpe-dataCell-default-pinned-hover-iconColor)",
+            "borderColor": "var(--hpe-dataCell-default-pinned-hover-borderColor)",
+            "backgroundColor": "var(--hpe-dataCell-default-pinned-hover-backgroundColor)",
+            "background": "var(--hpe-dataCell-default-pinned-hover-background)"
+          }
+        },
+        "medium": {
+          "paddingX": "var(--hpe-dataCell-default-medium-paddingX)",
+          "fontSize": "var(--hpe-dataCell-default-medium-fontSize)",
+          "lineHeight": "var(--hpe-dataCell-default-medium-lineHeight)",
+          "fontWeight": "var(--hpe-dataCell-default-medium-fontWeight)",
+          "borderBottomWidth": "var(--hpe-dataCell-default-medium-borderBottomWidth)",
+          "paddingTop": "var(--hpe-dataCell-default-medium-paddingTop)",
+          "paddingBottom": "var(--hpe-dataCell-default-medium-paddingBottom)",
+          "minHeight": "var(--hpe-dataCell-default-medium-minHeight)"
         }
       },
       "primary": {
@@ -1055,494 +1396,193 @@ module.exports = {
           "iconColor": "var(--hpe-dataCell-primary-disabled-iconColor)",
           "borderColor": "var(--hpe-dataCell-primary-disabled-borderColor)",
           "background": "var(--hpe-dataCell-primary-disabled-background)"
-        }
-      },
-      "pinned": {
-        "rest": {
-          "textColor": "var(--hpe-dataCell-pinned-rest-textColor)",
-          "iconColor": "var(--hpe-dataCell-pinned-rest-iconColor)",
-          "borderColor": "var(--hpe-dataCell-pinned-rest-borderColor)",
-          "backgroundColor": "var(--hpe-dataCell-pinned-rest-backgroundColor)",
-          "background": "var(--hpe-dataCell-pinned-rest-background)"
         },
-        "hover": {
-          "textColor": "var(--hpe-dataCell-pinned-hover-textColor)",
-          "iconColor": "var(--hpe-dataCell-pinned-hover-iconColor)",
-          "borderColor": "var(--hpe-dataCell-pinned-hover-borderColor)",
-          "backgroundColor": "var(--hpe-dataCell-pinned-hover-backgroundColor)",
-          "background": "var(--hpe-dataCell-pinned-hover-background)"
-        }
-      },
-      "medium": {
-        "paddingX": "var(--hpe-dataCell-medium-paddingX)",
-        "fontSize": "var(--hpe-dataCell-medium-fontSize)",
-        "lineHeight": "var(--hpe-dataCell-medium-lineHeight)",
-        "fontWeight": "var(--hpe-dataCell-medium-fontWeight)",
-        "borderBottomWidth": "var(--hpe-dataCell-medium-borderBottomWidth)",
-        "paddingTop": "var(--hpe-dataCell-medium-paddingTop)",
-        "paddingBottom": "var(--hpe-dataCell-medium-paddingBottom)",
-        "minHeight": "var(--hpe-dataCell-medium-minHeight)"
-      }
-    },
-    "formField": {
-      "medium": {
-        "input": {
-          "group": {
-            "item": {
-              "paddingX": "var(--hpe-formField-medium-input-group-item-paddingX)",
-              "paddingY": "var(--hpe-formField-medium-input-group-item-paddingY)",
-              "borderWidth": "var(--hpe-formField-medium-input-group-item-borderWidth)",
-              "minHeight": "var(--hpe-formField-medium-input-group-item-minHeight)",
-              "borderRadius": "var(--hpe-formField-medium-input-group-item-borderRadius)",
-              "textToIconX": "var(--hpe-formField-medium-input-group-item-textToIconX)",
-              "textToElementX": "var(--hpe-formField-medium-input-group-item-textToElementX)"
-            },
-            "container": {
-              "paddingX": "var(--hpe-formField-medium-input-group-container-paddingX)",
-              "paddingY": "var(--hpe-formField-medium-input-group-container-paddingY)",
-              "borderWidth": "var(--hpe-formField-medium-input-group-container-borderWidth)",
-              "borderRadius": "var(--hpe-formField-medium-input-group-container-borderRadius)"
-            }
-          },
-          "container": {
-            "paddingX": "var(--hpe-formField-medium-input-container-paddingX)",
-            "paddingY": "var(--hpe-formField-medium-input-container-paddingY)",
-            "borderWidth": "var(--hpe-formField-medium-input-container-borderWidth)",
-            "borderRadius": "var(--hpe-formField-medium-input-container-borderRadius)",
-            "minHeight": "var(--hpe-formField-medium-input-container-minHeight)",
-            "textToIconX": "var(--hpe-formField-medium-input-container-textToIconX)",
-            "textToElementX": "var(--hpe-formField-medium-input-container-textToElementX)"
-          }
-        },
-        "label": {
-          "fontSize": "var(--hpe-formField-medium-label-fontSize)",
-          "lineHeight": "var(--hpe-formField-medium-label-lineHeight)",
-          "fontWeight": "var(--hpe-formField-medium-label-fontWeight)"
-        },
-        "placeholder": {
-          "fontSize": "var(--hpe-formField-medium-placeholder-fontSize)",
-          "lineHeight": "var(--hpe-formField-medium-placeholder-lineHeight)",
-          "fontWeight": "var(--hpe-formField-medium-placeholder-fontWeight)"
-        },
-        "help": {
-          "fontSize": "var(--hpe-formField-medium-help-fontSize)",
-          "lineHeight": "var(--hpe-formField-medium-help-lineHeight)",
-          "fontWeight": "var(--hpe-formField-medium-help-fontWeight)"
-        },
-        "info": {
-          "fontSize": "var(--hpe-formField-medium-info-fontSize)",
-          "lineHeight": "var(--hpe-formField-medium-info-lineHeight)",
-          "fontWeight": "var(--hpe-formField-medium-info-fontWeight)"
-        },
-        "error": {
-          "fontSize": "var(--hpe-formField-medium-error-fontSize)",
-          "lineHeight": "var(--hpe-formField-medium-error-lineHeight)",
-          "fontWeight": "var(--hpe-formField-medium-error-fontWeight)"
-        },
-        "value": {
-          "fontSize": "var(--hpe-formField-medium-value-fontSize)",
-          "lineHeight": "var(--hpe-formField-medium-value-lineHeight)",
-          "fontWeight": "var(--hpe-formField-medium-value-fontWeight)"
-        }
-      },
-      "input": {
-        "group": {
-          "container": {
-            "rest": {
-              "background": "var(--hpe-formField-input-group-container-rest-background)",
-              "borderColor": "var(--hpe-formField-input-group-container-rest-borderColor)"
-            },
-            "hover": {
-              "background": "var(--hpe-formField-input-group-container-hover-background)",
-              "borderColor": "var(--hpe-formField-input-group-container-hover-borderColor)"
-            },
-            "error": {
-              "rest": {
-                "background": "var(--hpe-formField-input-group-container-error-rest-background)",
-                "borderColor": "var(--hpe-formField-input-group-container-error-rest-borderColor)"
-              }
-            },
-            "disabled": {
-              "rest": {
-                "background": "var(--hpe-formField-input-group-container-disabled-rest-background)",
-                "borderColor": "var(--hpe-formField-input-group-container-disabled-rest-borderColor)"
-              }
-            },
-            "readOnly": {
-              "rest": {
-                "background": "var(--hpe-formField-input-group-container-readOnly-rest-background)",
-                "borderColor": "var(--hpe-formField-input-group-container-readOnly-rest-borderColor)"
-              }
-            }
-          },
-          "item": {
-            "rest": {
-              "background": "var(--hpe-formField-input-group-item-rest-background)",
-              "borderColor": "var(--hpe-formField-input-group-item-rest-borderColor)"
-            },
-            "hover": {
-              "background": "var(--hpe-formField-input-group-item-hover-background)",
-              "borderColor": "var(--hpe-formField-input-group-item-hover-borderColor)"
-            },
-            "focus": {
-              "background": "var(--hpe-formField-input-group-item-focus-background)",
-              "borderColor": "var(--hpe-formField-input-group-item-focus-borderColor)"
-            },
-            "disabled": {
-              "rest": {
-                "background": "var(--hpe-formField-input-group-item-disabled-rest-background)",
-                "borderColor": "var(--hpe-formField-input-group-item-disabled-rest-borderColor)"
-              }
-            },
-            "readOnly": {
-              "rest": {
-                "background": "var(--hpe-formField-input-group-item-readOnly-rest-background)",
-                "borderColor": "var(--hpe-formField-input-group-item-readOnly-rest-borderColor)"
-              }
-            }
-          }
-        },
-        "container": {
+        "selected": {
           "rest": {
-            "background": "var(--hpe-formField-input-container-rest-background)",
-            "borderColor": "var(--hpe-formField-input-container-rest-borderColor)"
+            "textColor": "var(--hpe-dataCell-primary-selected-rest-textColor)",
+            "iconColor": "var(--hpe-dataCell-primary-selected-rest-iconColor)",
+            "borderColor": "var(--hpe-dataCell-primary-selected-rest-borderColor)",
+            "background": "var(--hpe-dataCell-primary-selected-rest-background)"
           },
           "hover": {
-            "background": "var(--hpe-formField-input-container-hover-background)",
-            "borderColor": "var(--hpe-formField-input-container-hover-borderColor)"
+            "textColor": "var(--hpe-dataCell-primary-selected-hover-textColor)",
+            "iconColor": "var(--hpe-dataCell-primary-selected-hover-iconColor)",
+            "borderColor": "var(--hpe-dataCell-primary-selected-hover-borderColor)",
+            "background": "var(--hpe-dataCell-primary-selected-hover-background)"
+          }
+        },
+        "pinned": {
+          "rest": {
+            "textColor": "var(--hpe-dataCell-primary-pinned-rest-textColor)",
+            "iconColor": "var(--hpe-dataCell-primary-pinned-rest-iconColor)",
+            "borderColor": "var(--hpe-dataCell-primary-pinned-rest-borderColor)",
+            "backgroundColor": "var(--hpe-dataCell-primary-pinned-rest-backgroundColor)",
+            "background": "var(--hpe-dataCell-primary-pinned-rest-background)"
           },
-          "focus": {
-            "background": "var(--hpe-formField-input-container-focus-background)",
-            "borderColor": "var(--hpe-formField-input-container-focus-borderColor)"
-          },
-          "error": {
-            "rest": {
-              "background": "var(--hpe-formField-input-container-error-rest-background)",
-              "borderColor": "var(--hpe-formField-input-container-error-rest-borderColor)"
-            }
-          },
-          "disabled": {
-            "rest": {
-              "background": "var(--hpe-formField-input-container-disabled-rest-background)",
-              "borderColor": "var(--hpe-formField-input-container-disabled-rest-borderColor)"
-            }
-          },
-          "readOnly": {
-            "rest": {
-              "background": "var(--hpe-formField-input-container-readOnly-rest-background)",
-              "borderColor": "var(--hpe-formField-input-container-readOnly-rest-borderColor)"
-            }
-          }
-        }
-      },
-      "label": {
-        "rest": {
-          "textColor": "var(--hpe-formField-label-rest-textColor)",
-          "iconColor": "var(--hpe-formField-label-rest-iconColor)"
-        },
-        "hover": {
-          "textColor": "var(--hpe-formField-label-hover-textColor)",
-          "iconColor": "var(--hpe-formField-label-hover-iconColor)"
-        },
-        "focus": {
-          "textColor": "var(--hpe-formField-label-focus-textColor)",
-          "iconColor": "var(--hpe-formField-label-focus-iconColor)"
-        },
-        "error": {
-          "rest": {
-            "textColor": "var(--hpe-formField-label-error-rest-textColor)",
-            "iconColor": "var(--hpe-formField-label-error-rest-iconColor)"
-          }
-        },
-        "disabled": {
-          "rest": {
-            "textColor": "var(--hpe-formField-label-disabled-rest-textColor)",
-            "iconColor": "var(--hpe-formField-label-disabled-rest-iconColor)"
-          }
-        },
-        "readOnly": {
-          "rest": {
-            "textColor": "var(--hpe-formField-label-readOnly-rest-textColor)",
-            "iconColor": "var(--hpe-formField-label-readOnly-rest-iconColor)"
-          }
-        }
-      },
-      "placeholder": {
-        "rest": {
-          "textColor": "var(--hpe-formField-placeholder-rest-textColor)"
-        },
-        "hover": {
-          "textColor": "var(--hpe-formField-placeholder-hover-textColor)"
-        },
-        "focus": {
-          "textColor": "var(--hpe-formField-placeholder-focus-textColor)"
-        },
-        "error": {
-          "rest": {
-            "textColor": "var(--hpe-formField-placeholder-error-rest-textColor)"
-          }
-        },
-        "disabled": {
-          "rest": {
-            "textColor": "var(--hpe-formField-placeholder-disabled-rest-textColor)"
-          }
-        },
-        "readOnly": {
-          "rest": {
-            "textColor": "var(--hpe-formField-placeholder-readOnly-rest-textColor)"
-          }
-        }
-      },
-      "help": {
-        "rest": {
-          "textColor": "var(--hpe-formField-help-rest-textColor)"
-        },
-        "hover": {
-          "textColor": "var(--hpe-formField-help-hover-textColor)"
-        },
-        "focus": {
-          "textColor": "var(--hpe-formField-help-focus-textColor)"
-        },
-        "error": {
-          "rest": {
-            "textColor": "var(--hpe-formField-help-error-rest-textColor)"
-          }
-        },
-        "disabled": {
-          "rest": {
-            "color": "var(--hpe-formField-help-disabled-rest-color)"
-          }
-        },
-        "readOnly": {
-          "rest": {
-            "textColor": "var(--hpe-formField-help-readOnly-rest-textColor)"
-          }
-        }
-      },
-      "info": {
-        "rest": {
-          "textColor": "var(--hpe-formField-info-rest-textColor)"
-        },
-        "hover": {
-          "textColor": "var(--hpe-formField-info-hover-textColor)"
-        },
-        "focus": {
-          "textColor": "var(--hpe-formField-info-focus-textColor)"
-        },
-        "error": {
-          "rest": {
-            "textColor": "var(--hpe-formField-info-error-rest-textColor)"
-          }
-        },
-        "disabled": {
-          "rest": {
-            "textColor": "var(--hpe-formField-info-disabled-rest-textColor)"
-          }
-        },
-        "readOnly": {
-          "rest": {
-            "textColor": "var(--hpe-formField-info-readOnly-rest-textColor)"
-          }
-        }
-      },
-      "error": {
-        "rest": {
-          "textColor": "var(--hpe-formField-error-rest-textColor)",
-          "iconColor": "var(--hpe-formField-error-rest-iconColor)"
-        },
-        "hover": {
-          "iconColor": "var(--hpe-formField-error-hover-iconColor)",
-          "textColor": "var(--hpe-formField-error-hover-textColor)"
-        },
-        "focus": {
-          "iconColor": "var(--hpe-formField-error-focus-iconColor)",
-          "textColor": "var(--hpe-formField-error-focus-textColor)"
-        }
-      },
-      "value": {
-        "rest": {
-          "textColor": "var(--hpe-formField-value-rest-textColor)"
-        },
-        "hover": {
-          "textColor": "var(--hpe-formField-value-hover-textColor)"
-        },
-        "focus": {
-          "textColor": "var(--hpe-formField-value-focus-textColor)"
-        },
-        "error": {
-          "rest": {
-            "textColor": "var(--hpe-formField-value-error-rest-textColor)"
-          }
-        },
-        "disabled": {
-          "rest": {
-            "textColor": "var(--hpe-formField-value-disabled-rest-textColor)"
-          }
-        },
-        "readOnly": {
-          "rest": {
-            "textColor": "var(--hpe-formField-value-readOnly-rest-textColor)"
+          "hover": {
+            "textColor": "var(--hpe-dataCell-primary-pinned-hover-textColor)",
+            "iconColor": "var(--hpe-dataCell-primary-pinned-hover-iconColor)",
+            "borderColor": "var(--hpe-dataCell-primary-pinned-hover-borderColor)",
+            "backgroundColor": "var(--hpe-dataCell-primary-pinned-hover-backgroundColor)",
+            "background": "var(--hpe-dataCell-primary-pinned-hover-background)"
           }
         }
       }
     },
     "headerCell": {
-      "rest": {
-        "textColor": "var(--hpe-headerCell-rest-textColor)",
-        "iconColor": "var(--hpe-headerCell-rest-iconColor)",
-        "borderColor": "var(--hpe-headerCell-rest-borderColor)",
-        "background": "var(--hpe-headerCell-rest-background)"
-      },
-      "hover": {
-        "textColor": "var(--hpe-headerCell-hover-textColor)",
-        "iconColor": "var(--hpe-headerCell-hover-iconColor)",
-        "borderColor": "var(--hpe-headerCell-hover-borderColor)",
-        "background": "var(--hpe-headerCell-hover-background)"
-      },
-      "pinned": {
-        "textColor": "var(--hpe-headerCell-pinned-textColor)",
-        "iconColor": "var(--hpe-headerCell-pinned-iconColor)",
-        "borderColor": "var(--hpe-headerCell-pinned-borderColor)",
-        "background": "var(--hpe-headerCell-pinned-background)"
-      },
-      "units": {
+      "default": {
         "rest": {
-          "textColor": "var(--hpe-headerCell-units-rest-textColor)"
+          "textColor": "var(--hpe-headerCell-default-rest-textColor)",
+          "iconColor": "var(--hpe-headerCell-default-rest-iconColor)",
+          "borderColor": "var(--hpe-headerCell-default-rest-borderColor)",
+          "background": "var(--hpe-headerCell-default-rest-background)"
         },
         "hover": {
-          "textColor": "var(--hpe-headerCell-units-hover-textColor)"
+          "textColor": "var(--hpe-headerCell-default-hover-textColor)",
+          "iconColor": "var(--hpe-headerCell-default-hover-iconColor)",
+          "borderColor": "var(--hpe-headerCell-default-hover-borderColor)",
+          "background": "var(--hpe-headerCell-default-hover-background)"
         },
         "pinned": {
+          "textColor": "var(--hpe-headerCell-default-pinned-textColor)",
+          "iconColor": "var(--hpe-headerCell-default-pinned-iconColor)",
+          "borderColor": "var(--hpe-headerCell-default-pinned-borderColor)",
+          "background": "var(--hpe-headerCell-default-pinned-background)"
+        },
+        "units": {
           "rest": {
-            "textColor": "var(--hpe-headerCell-units-pinned-rest-textColor)"
+            "textColor": "var(--hpe-headerCell-default-units-rest-textColor)"
           },
           "hover": {
-            "textColor": "var(--hpe-headerCell-units-pinned-hover-textColor)"
+            "textColor": "var(--hpe-headerCell-default-units-hover-textColor)"
+          },
+          "pinned": {
+            "rest": {
+              "textColor": "var(--hpe-headerCell-default-units-pinned-rest-textColor)"
+            },
+            "hover": {
+              "textColor": "var(--hpe-headerCell-default-units-pinned-hover-textColor)"
+            }
           }
+        },
+        "medium": {
+          "paddingX": "var(--hpe-headerCell-default-medium-paddingX)",
+          "fontSize": "var(--hpe-headerCell-default-medium-fontSize)",
+          "lineHeight": "var(--hpe-headerCell-default-medium-lineHeight)",
+          "fontWeight": "var(--hpe-headerCell-default-medium-fontWeight)",
+          "borderBottomWidth": "var(--hpe-headerCell-default-medium-borderBottomWidth)",
+          "paddingTop": "var(--hpe-headerCell-default-medium-paddingTop)",
+          "paddingBottom": "var(--hpe-headerCell-default-medium-paddingBottom)",
+          "gapX": "var(--hpe-headerCell-default-medium-gapX)",
+          "minHeight": "var(--hpe-headerCell-default-medium-minHeight)"
         }
-      },
-      "medium": {
-        "paddingX": "var(--hpe-headerCell-medium-paddingX)",
-        "fontSize": "var(--hpe-headerCell-medium-fontSize)",
-        "lineHeight": "var(--hpe-headerCell-medium-lineHeight)",
-        "fontWeight": "var(--hpe-headerCell-medium-fontWeight)",
-        "borderBottomWidth": "var(--hpe-headerCell-medium-borderBottomWidth)",
-        "paddingTop": "var(--hpe-headerCell-medium-paddingTop)",
-        "paddingBottom": "var(--hpe-headerCell-medium-paddingBottom)",
-        "gapX": "var(--hpe-headerCell-medium-gapX)",
-        "minHeight": "var(--hpe-headerCell-medium-minHeight)"
       }
     },
     "footerCell": {
-      "rest": {
-        "textColor": "var(--hpe-footerCell-rest-textColor)",
-        "iconColor": "var(--hpe-footerCell-rest-iconColor)",
-        "borderColor": "var(--hpe-footerCell-rest-borderColor)",
-        "background": "var(--hpe-footerCell-rest-background)"
-      },
-      "hover": {
-        "textColor": "var(--hpe-footerCell-hover-textColor)",
-        "iconColor": "var(--hpe-footerCell-hover-iconColor)",
-        "borderColor": "var(--hpe-footerCell-hover-borderColor)",
-        "background": "var(--hpe-footerCell-hover-background)"
-      },
-      "pinned": {
+      "default": {
         "rest": {
-          "textColor": "var(--hpe-footerCell-pinned-rest-textColor)",
-          "iconColor": "var(--hpe-footerCell-pinned-rest-iconColor)",
-          "borderColor": "var(--hpe-footerCell-pinned-rest-borderColor)",
-          "background": "var(--hpe-footerCell-pinned-rest-background)"
+          "textColor": "var(--hpe-footerCell-default-rest-textColor)",
+          "iconColor": "var(--hpe-footerCell-default-rest-iconColor)",
+          "borderColor": "var(--hpe-footerCell-default-rest-borderColor)",
+          "background": "var(--hpe-footerCell-default-rest-background)"
         },
         "hover": {
-          "textColor": "var(--hpe-footerCell-pinned-hover-textColor)",
-          "iconColor": "var(--hpe-footerCell-pinned-hover-iconColor)",
-          "borderColor": "var(--hpe-footerCell-pinned-hover-borderColor)",
-          "background": "var(--hpe-footerCell-pinned-hover-background)"
+          "textColor": "var(--hpe-footerCell-default-hover-textColor)",
+          "iconColor": "var(--hpe-footerCell-default-hover-iconColor)",
+          "borderColor": "var(--hpe-footerCell-default-hover-borderColor)",
+          "background": "var(--hpe-footerCell-default-hover-background)"
+        },
+        "pinned": {
+          "rest": {
+            "textColor": "var(--hpe-footerCell-default-pinned-rest-textColor)",
+            "iconColor": "var(--hpe-footerCell-default-pinned-rest-iconColor)",
+            "borderColor": "var(--hpe-footerCell-default-pinned-rest-borderColor)",
+            "background": "var(--hpe-footerCell-default-pinned-rest-background)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-footerCell-default-pinned-hover-textColor)",
+            "iconColor": "var(--hpe-footerCell-default-pinned-hover-iconColor)",
+            "borderColor": "var(--hpe-footerCell-default-pinned-hover-borderColor)",
+            "background": "var(--hpe-footerCell-default-pinned-hover-background)"
+          }
+        },
+        "medium": {
+          "paddingX": "var(--hpe-footerCell-default-medium-paddingX)",
+          "fontSize": "var(--hpe-footerCell-default-medium-fontSize)",
+          "lineHeight": "var(--hpe-footerCell-default-medium-lineHeight)",
+          "fontWeight": "var(--hpe-footerCell-default-medium-fontWeight)",
+          "borderTopWidth": "var(--hpe-footerCell-default-medium-borderTopWidth)",
+          "paddingTop": "var(--hpe-footerCell-default-medium-paddingTop)",
+          "paddingBottom": "var(--hpe-footerCell-default-medium-paddingBottom)",
+          "gapX": "var(--hpe-footerCell-default-medium-gapX)",
+          "minHeight": "var(--hpe-footerCell-default-medium-minHeight)"
         }
-      },
-      "medium": {
-        "paddingX": "var(--hpe-footerCell-medium-paddingX)",
-        "fontSize": "var(--hpe-footerCell-medium-fontSize)",
-        "lineHeight": "var(--hpe-footerCell-medium-lineHeight)",
-        "fontWeight": "var(--hpe-footerCell-medium-fontWeight)",
-        "borderTopWidth": "var(--hpe-footerCell-medium-borderTopWidth)",
-        "paddingTop": "var(--hpe-footerCell-medium-paddingTop)",
-        "paddingBottom": "var(--hpe-footerCell-medium-paddingBottom)",
-        "gapX": "var(--hpe-footerCell-medium-gapX)",
-        "minHeight": "var(--hpe-footerCell-medium-minHeight)"
       }
     },
     "radioButton": {
-      "control": {
-        "rest": {
-          "background": "var(--hpe-radioButton-control-rest-background)",
-          "borderColor": "var(--hpe-radioButton-control-rest-borderColor)"
-        },
-        "hover": {
-          "background": "var(--hpe-radioButton-control-hover-background)",
-          "borderColor": "var(--hpe-radioButton-control-hover-borderColor)"
-        },
-        "focus": {
-          "background": "var(--hpe-radioButton-control-focus-background)",
-          "borderColor": "var(--hpe-radioButton-control-focus-borderColor)"
-        },
-        "disabled": {
-          "rest": {
-            "background": "var(--hpe-radioButton-control-disabled-rest-background)",
-            "borderColor": "var(--hpe-radioButton-control-disabled-rest-borderColor)"
-          }
-        },
-        "selected": {
-          "rest": {
-            "background": "var(--hpe-radioButton-control-selected-rest-background)",
-            "borderColor": "var(--hpe-radioButton-control-selected-rest-borderColor)",
-            "iconColor": "var(--hpe-radioButton-control-selected-rest-iconColor)"
-          },
-          "hover": {
-            "background": "var(--hpe-radioButton-control-selected-hover-background)",
-            "borderColor": "var(--hpe-radioButton-control-selected-hover-borderColor)",
-            "iconColor": "var(--hpe-radioButton-control-selected-hover-iconColor)"
-          },
-          "focus": {
-            "background": "var(--hpe-radioButton-control-selected-focus-background)",
-            "borderColor": "var(--hpe-radioButton-control-selected-focus-borderColor)",
-            "iconColor": "var(--hpe-radioButton-control-selected-focus-iconColor)"
-          }
-        }
-      },
-      "label": {
-        "rest": {
-          "textColor": "var(--hpe-radioButton-label-rest-textColor)"
-        },
-        "hover": {
-          "textColor": "var(--hpe-radioButton-label-hover-textColor)"
-        },
-        "disabled": {
-          "rest": {
-            "textColor": "var(--hpe-radioButton-label-disabled-rest-textColor)"
-          }
-        },
-        "selected": {
-          "rest": {
-            "textColor": "var(--hpe-radioButton-label-selected-rest-textColor)"
-          },
-          "hover": {
-            "textColor": "var(--hpe-radioButton-label-selected-hover-textColor)"
-          }
-        }
-      },
-      "medium": {
-        "gapX": "var(--hpe-radioButton-medium-gapX)",
-        "label": {
-          "fontSize": "var(--hpe-radioButton-medium-label-fontSize)",
-          "lineHeight": "var(--hpe-radioButton-medium-label-lineHeight)",
-          "fontWeight": "var(--hpe-radioButton-medium-label-fontWeight)"
-        },
+      "default": {
         "control": {
-          "height": "var(--hpe-radioButton-medium-control-height)",
-          "width": "var(--hpe-radioButton-medium-control-width)",
-          "borderWidth": "var(--hpe-radioButton-medium-control-borderWidth)",
-          "borderRadius": "var(--hpe-radioButton-medium-control-borderRadius)"
+          "rest": {
+            "background": "var(--hpe-radioButton-default-control-rest-background)",
+            "borderColor": "var(--hpe-radioButton-default-control-rest-borderColor)"
+          },
+          "hover": {
+            "background": "var(--hpe-radioButton-default-control-hover-background)",
+            "borderColor": "var(--hpe-radioButton-default-control-hover-borderColor)"
+          },
+          "disabled": {
+            "rest": {
+              "background": "var(--hpe-radioButton-default-control-disabled-rest-background)",
+              "borderColor": "var(--hpe-radioButton-default-control-disabled-rest-borderColor)"
+            }
+          },
+          "selected": {
+            "rest": {
+              "background": "var(--hpe-radioButton-default-control-selected-rest-background)",
+              "borderColor": "var(--hpe-radioButton-default-control-selected-rest-borderColor)",
+              "iconColor": "var(--hpe-radioButton-default-control-selected-rest-iconColor)"
+            },
+            "hover": {
+              "background": "var(--hpe-radioButton-default-control-selected-hover-background)",
+              "borderColor": "var(--hpe-radioButton-default-control-selected-hover-borderColor)",
+              "iconColor": "var(--hpe-radioButton-default-control-selected-hover-iconColor)"
+            }
+          }
+        },
+        "label": {
+          "rest": {
+            "textColor": "var(--hpe-radioButton-default-label-rest-textColor)"
+          },
+          "hover": {
+            "textColor": "var(--hpe-radioButton-default-label-hover-textColor)"
+          },
+          "disabled": {
+            "rest": {
+              "textColor": "var(--hpe-radioButton-default-label-disabled-rest-textColor)"
+            }
+          },
+          "selected": {
+            "rest": {
+              "textColor": "var(--hpe-radioButton-default-label-selected-rest-textColor)"
+            },
+            "hover": {
+              "textColor": "var(--hpe-radioButton-default-label-selected-hover-textColor)"
+            }
+          }
+        },
+        "medium": {
+          "gapX": "var(--hpe-radioButton-default-medium-gapX)",
+          "label": {
+            "fontSize": "var(--hpe-radioButton-default-medium-label-fontSize)",
+            "lineHeight": "var(--hpe-radioButton-default-medium-label-lineHeight)",
+            "fontWeight": "var(--hpe-radioButton-default-medium-label-fontWeight)"
+          },
+          "control": {
+            "height": "var(--hpe-radioButton-default-medium-control-height)",
+            "width": "var(--hpe-radioButton-default-medium-control-width)",
+            "borderWidth": "var(--hpe-radioButton-default-medium-control-borderWidth)",
+            "borderRadius": "var(--hpe-radioButton-default-medium-control-borderRadius)"
+          }
         }
       }
     },

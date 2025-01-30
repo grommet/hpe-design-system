@@ -1177,7 +1177,7 @@ export default {
     ],
     "key": "{borderWidth.default}"
   },
-  "hpe.size.container.5xsmall": {
+  "hpe.container.5xsmall": {
     "$type": "number",
     "$value": "48px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
@@ -1206,20 +1206,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.5xsmall",
+    "name": "hpe.container.5xsmall",
     "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "5xsmall"
+      "category": "container",
+      "type": "5xsmall"
     },
     "path": [
-      "size",
       "container",
       "5xsmall"
     ],
-    "key": "{size.container.5xsmall}"
+    "key": "{container.5xsmall}"
   },
-  "hpe.size.container.4xsmall": {
+  "hpe.container.4xsmall": {
     "$type": "number",
     "$value": "48px",
     "$description": "",
@@ -1248,20 +1246,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.4xsmall",
+    "name": "hpe.container.4xsmall",
     "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "4xsmall"
+      "category": "container",
+      "type": "4xsmall"
     },
     "path": [
-      "size",
       "container",
       "4xsmall"
     ],
-    "key": "{size.container.4xsmall}"
+    "key": "{container.4xsmall}"
   },
-  "hpe.size.container.3xsmall": {
+  "hpe.container.3xsmall": {
     "$type": "number",
     "$value": "48px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
@@ -1290,20 +1286,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.3xsmall",
+    "name": "hpe.container.3xsmall",
     "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "3xsmall"
+      "category": "container",
+      "type": "3xsmall"
     },
     "path": [
-      "size",
       "container",
       "3xsmall"
     ],
-    "key": "{size.container.3xsmall}"
+    "key": "{container.3xsmall}"
   },
-  "hpe.size.container.xxsmall": {
+  "hpe.container.xxsmall": {
     "$type": "number",
     "$value": "64px",
     "$description": "",
@@ -1332,20 +1326,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.xxsmall",
+    "name": "hpe.container.xxsmall",
     "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "xxsmall"
+      "category": "container",
+      "type": "xxsmall"
     },
     "path": [
-      "size",
       "container",
       "xxsmall"
     ],
-    "key": "{size.container.xxsmall}"
+    "key": "{container.xxsmall}"
   },
-  "hpe.size.container.xsmall": {
+  "hpe.container.xsmall": {
     "$type": "number",
     "$value": "96px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
@@ -1374,20 +1366,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.xsmall",
+    "name": "hpe.container.xsmall",
     "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "xsmall"
+      "category": "container",
+      "type": "xsmall"
     },
     "path": [
-      "size",
       "container",
       "xsmall"
     ],
-    "key": "{size.container.xsmall}"
+    "key": "{container.xsmall}"
   },
-  "hpe.size.container.small": {
+  "hpe.container.small": {
     "$type": "number",
     "$value": "128px",
     "$description": "",
@@ -1416,20 +1406,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.small",
+    "name": "hpe.container.small",
     "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "small"
+      "category": "container",
+      "type": "small"
     },
     "path": [
-      "size",
       "container",
       "small"
     ],
-    "key": "{size.container.small}"
+    "key": "{container.small}"
   },
-  "hpe.size.container.medium": {
+  "hpe.container.medium": {
     "$type": "number",
     "$value": "192px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
@@ -1458,20 +1446,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.medium",
+    "name": "hpe.container.medium",
     "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "medium"
+      "category": "container",
+      "type": "medium"
     },
     "path": [
-      "size",
       "container",
       "medium"
     ],
-    "key": "{size.container.medium}"
+    "key": "{container.medium}"
   },
-  "hpe.size.container.large": {
+  "hpe.container.large": {
     "$type": "number",
     "$value": "256px",
     "$description": "",
@@ -1500,20 +1486,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.large",
+    "name": "hpe.container.large",
     "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "large"
+      "category": "container",
+      "type": "large"
     },
     "path": [
-      "size",
       "container",
       "large"
     ],
-    "key": "{size.container.large}"
+    "key": "{container.large}"
   },
-  "hpe.size.container.xlarge": {
+  "hpe.container.xlarge": {
     "$type": "number",
     "$value": "384px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
@@ -1542,20 +1526,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.xlarge",
+    "name": "hpe.container.xlarge",
     "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "xlarge"
+      "category": "container",
+      "type": "xlarge"
     },
     "path": [
-      "size",
       "container",
       "xlarge"
     ],
-    "key": "{size.container.xlarge}"
+    "key": "{container.xlarge}"
   },
-  "hpe.size.container.xxlarge": {
+  "hpe.container.xxlarge": {
     "$type": "number",
     "$value": "512px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
@@ -1584,20 +1566,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.xxlarge",
+    "name": "hpe.container.xxlarge",
     "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "xxlarge"
+      "category": "container",
+      "type": "xxlarge"
     },
     "path": [
-      "size",
       "container",
       "xxlarge"
     ],
-    "key": "{size.container.xxlarge}"
+    "key": "{container.xxlarge}"
   },
-  "hpe.size.container.3xlarge": {
+  "hpe.container.3xlarge": {
     "$type": "number",
     "$value": "768px",
     "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
@@ -1626,20 +1606,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.container.3xlarge",
+    "name": "hpe.container.3xlarge",
     "attributes": {
-      "category": "size",
-      "type": "container",
-      "item": "3xlarge"
+      "category": "container",
+      "type": "3xlarge"
     },
     "path": [
-      "size",
       "container",
       "3xlarge"
     ],
-    "key": "{size.container.3xlarge}"
+    "key": "{container.3xlarge}"
   },
-  "hpe.size.icon.xsmall": {
+  "hpe.icon.xsmall.size": {
     "$type": "number",
     "$value": "14px",
     "$description": "",
@@ -1668,20 +1646,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.icon.xsmall",
+    "name": "hpe.icon.xsmall.size",
     "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "xsmall"
+      "category": "icon",
+      "type": "xsmall",
+      "item": "size"
     },
     "path": [
-      "size",
       "icon",
-      "xsmall"
+      "xsmall",
+      "size"
     ],
-    "key": "{size.icon.xsmall}"
+    "key": "{icon.xsmall.size}"
   },
-  "hpe.size.icon.small": {
+  "hpe.icon.small.size": {
     "$type": "number",
     "$value": "16px",
     "$description": "",
@@ -1710,20 +1688,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.icon.small",
+    "name": "hpe.icon.small.size",
     "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "small"
+      "category": "icon",
+      "type": "small",
+      "item": "size"
     },
     "path": [
-      "size",
       "icon",
-      "small"
+      "small",
+      "size"
     ],
-    "key": "{size.icon.small}"
+    "key": "{icon.small.size}"
   },
-  "hpe.size.icon.medium": {
+  "hpe.icon.medium.size": {
     "$type": "number",
     "$value": "18px",
     "$description": "",
@@ -1752,20 +1730,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.icon.medium",
+    "name": "hpe.icon.medium.size",
     "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "medium"
+      "category": "icon",
+      "type": "medium",
+      "item": "size"
     },
     "path": [
-      "size",
       "icon",
-      "medium"
+      "medium",
+      "size"
     ],
-    "key": "{size.icon.medium}"
+    "key": "{icon.medium.size}"
   },
-  "hpe.size.icon.large": {
+  "hpe.icon.large.size": {
     "$type": "number",
     "$value": "22px",
     "$description": "",
@@ -1794,20 +1772,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.icon.large",
+    "name": "hpe.icon.large.size",
     "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "large"
+      "category": "icon",
+      "type": "large",
+      "item": "size"
     },
     "path": [
-      "size",
       "icon",
-      "large"
+      "large",
+      "size"
     ],
-    "key": "{size.icon.large}"
+    "key": "{icon.large.size}"
   },
-  "hpe.size.icon.xlarge": {
+  "hpe.icon.xlarge.size": {
     "$type": "number",
     "$value": "24px",
     "$description": "",
@@ -1836,20 +1814,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.icon.xlarge",
+    "name": "hpe.icon.xlarge.size",
     "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "xlarge"
+      "category": "icon",
+      "type": "xlarge",
+      "item": "size"
     },
     "path": [
-      "size",
       "icon",
-      "xlarge"
+      "xlarge",
+      "size"
     ],
-    "key": "{size.icon.xlarge}"
+    "key": "{icon.xlarge.size}"
   },
-  "hpe.size.icon.xxlarge": {
+  "hpe.icon.xxlarge.size": {
     "$type": "number",
     "$value": "36px",
     "$description": "",
@@ -1878,18 +1856,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.icon.xxlarge",
+    "name": "hpe.icon.xxlarge.size",
     "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "xxlarge"
+      "category": "icon",
+      "type": "xxlarge",
+      "item": "size"
     },
     "path": [
-      "size",
       "icon",
-      "xxlarge"
+      "xxlarge",
+      "size"
     ],
-    "key": "{size.icon.xxlarge}"
+    "key": "{icon.xxlarge.size}"
   },
   "hpe.text.xsmall.fontSize": {
     "$type": "number",

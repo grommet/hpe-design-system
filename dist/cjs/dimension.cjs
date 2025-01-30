@@ -39,27 +39,37 @@ module.exports = {
       "xlarge": "var(--hpe-borderWidth-xlarge)",
       "default": "var(--hpe-borderWidth-default)"
     },
-    "size": {
-      "container": {
-        "5xsmall": "var(--hpe-size-container-5xsmall)",
-        "4xsmall": "var(--hpe-size-container-4xsmall)",
-        "3xsmall": "var(--hpe-size-container-3xsmall)",
-        "xxsmall": "var(--hpe-size-container-xxsmall)",
-        "xsmall": "var(--hpe-size-container-xsmall)",
-        "small": "var(--hpe-size-container-small)",
-        "medium": "var(--hpe-size-container-medium)",
-        "large": "var(--hpe-size-container-large)",
-        "xlarge": "var(--hpe-size-container-xlarge)",
-        "xxlarge": "var(--hpe-size-container-xxlarge)",
-        "3xlarge": "var(--hpe-size-container-3xlarge)"
+    "container": {
+      "5xsmall": "var(--hpe-container-5xsmall)",
+      "4xsmall": "var(--hpe-container-4xsmall)",
+      "3xsmall": "var(--hpe-container-3xsmall)",
+      "xxsmall": "var(--hpe-container-xxsmall)",
+      "xsmall": "var(--hpe-container-xsmall)",
+      "small": "var(--hpe-container-small)",
+      "medium": "var(--hpe-container-medium)",
+      "large": "var(--hpe-container-large)",
+      "xlarge": "var(--hpe-container-xlarge)",
+      "xxlarge": "var(--hpe-container-xxlarge)",
+      "3xlarge": "var(--hpe-container-3xlarge)"
+    },
+    "icon": {
+      "xsmall": {
+        "size": "var(--hpe-icon-xsmall-size)"
       },
-      "icon": {
-        "xsmall": "var(--hpe-size-icon-xsmall)",
-        "small": "var(--hpe-size-icon-small)",
-        "medium": "var(--hpe-size-icon-medium)",
-        "large": "var(--hpe-size-icon-large)",
-        "xlarge": "var(--hpe-size-icon-xlarge)",
-        "xxlarge": "var(--hpe-size-icon-xxlarge)"
+      "small": {
+        "size": "var(--hpe-icon-small-size)"
+      },
+      "medium": {
+        "size": "var(--hpe-icon-medium-size)"
+      },
+      "large": {
+        "size": "var(--hpe-icon-large-size)"
+      },
+      "xlarge": {
+        "size": "var(--hpe-icon-xlarge-size)"
+      },
+      "xxlarge": {
+        "size": "var(--hpe-icon-xxlarge-size)"
       }
     },
     "text": {

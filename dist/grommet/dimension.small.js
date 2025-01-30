@@ -39,27 +39,37 @@ export default {
       "xlarge": "12px",
       "default": "1px"
     },
-    "size": {
-      "container": {
-        "5xsmall": "48px",
-        "4xsmall": "48px",
-        "3xsmall": "48px",
-        "xxsmall": "64px",
-        "xsmall": "96px",
-        "small": "128px",
-        "medium": "192px",
-        "large": "256px",
-        "xlarge": "384px",
-        "xxlarge": "512px",
-        "3xlarge": "768px"
+    "container": {
+      "5xsmall": "48px",
+      "4xsmall": "48px",
+      "3xsmall": "48px",
+      "xxsmall": "64px",
+      "xsmall": "96px",
+      "small": "128px",
+      "medium": "192px",
+      "large": "256px",
+      "xlarge": "384px",
+      "xxlarge": "512px",
+      "3xlarge": "768px"
+    },
+    "icon": {
+      "xsmall": {
+        "size": "14px"
       },
-      "icon": {
-        "xsmall": "14px",
-        "small": "16px",
-        "medium": "18px",
-        "large": "22px",
-        "xlarge": "24px",
-        "xxlarge": "36px"
+      "small": {
+        "size": "16px"
+      },
+      "medium": {
+        "size": "18px"
+      },
+      "large": {
+        "size": "22px"
+      },
+      "xlarge": {
+        "size": "24px"
+      },
+      "xxlarge": {
+        "size": "36px"
       }
     },
     "text": {

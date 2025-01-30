@@ -481,10 +481,10 @@ export default {
     ],
     "key": "{color.background.screenOverlay.DEFAULT.REST}"
   },
-  "hpe.color.background.info": {
+  "hpe.color.background.warning": {
     "$type": "color",
-    "$value": "rgba(0, 200, 255, 0.12)",
-    "$description": "Use for backgrounds communicating neutral information.",
+    "$value": "rgba(254, 201, 1, 0.12)",
+    "$description": "Use for borders communicating warning or caution.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -499,8 +499,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.blue.400-Opacity12}",
-      "$description": "Use for backgrounds communicating neutral information.",
+      "$value": "{base.color.yellow.400-Opacity12}",
+      "$description": "Use for borders communicating warning or caution.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -512,118 +512,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.info",
+    "name": "hpe.color.background.warning",
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "info",
+      "item": "warning",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "info",
+      "warning",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.background.info.DEFAULT.REST}"
-  },
-  "hpe.color.background.unknown": {
-    "$type": "color",
-    "$value": "rgba(255, 255, 255, 0.06)",
-    "$description": "Use for backgrounds communicating an unknown status.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity6}",
-      "$description": "Use for backgrounds communicating an unknown status.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.unknown",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "unknown",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "unknown",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.background.unknown.DEFAULT.REST}"
-  },
-  "hpe.color.background.critical": {
-    "$type": "color",
-    "$value": "rgba(204, 31, 26, 0.3)",
-    "$description": "Use for backgrounds communicating errors or danger.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.red.800-Opacity30}",
-      "$description": "Use for backgrounds communicating errors or danger.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.critical",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "critical",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "critical",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.background.critical.DEFAULT.REST}"
+    "key": "{color.background.warning.DEFAULT.REST}"
   },
   "hpe.color.background.ok": {
     "$type": "color",
@@ -673,10 +577,10 @@ export default {
     ],
     "key": "{color.background.ok.DEFAULT.REST}"
   },
-  "hpe.color.background.warning": {
+  "hpe.color.background.info": {
     "$type": "color",
-    "$value": "rgba(254, 201, 1, 0.12)",
-    "$description": "Use for borders communicating warning or caution.",
+    "$value": "rgba(255, 255, 255, 0.12)",
+    "$description": "Use for backgrounds communicating neutral information.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -691,8 +595,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.yellow.400-Opacity12}",
-      "$description": "Use for borders communicating warning or caution.",
+      "$value": "{color.background.contrast.DEFAULT.REST}",
+      "$description": "Use for backgrounds communicating neutral information.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -704,22 +608,118 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.warning",
+    "name": "hpe.color.background.info",
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "warning",
+      "item": "info",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "warning",
+      "info",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.background.warning.DEFAULT.REST}"
+    "key": "{color.background.info.DEFAULT.REST}"
+  },
+  "hpe.color.background.critical": {
+    "$type": "color",
+    "$value": "rgba(204, 31, 26, 0.3)",
+    "$description": "Use for backgrounds communicating errors or danger.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.red.800-Opacity30}",
+      "$description": "Use for backgrounds communicating errors or danger.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.critical",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "critical",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "critical",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.critical.DEFAULT.REST}"
+  },
+  "hpe.color.background.unknown": {
+    "$type": "color",
+    "$value": "rgba(255, 255, 255, 0.06)",
+    "$description": "Use for backgrounds communicating an unknown status.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity6}",
+      "$description": "Use for backgrounds communicating an unknown status.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.unknown",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "unknown",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "unknown",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.unknown.DEFAULT.REST}"
   },
   "hpe.color.background.primary.strong": {
     "$type": "color",
@@ -963,7 +963,7 @@ export default {
     ],
     "key": "{color.background.selected.primary.strong.hover}"
   },
-  "hpe.color.background.selected.primary.weak": {
+  "hpe.color.background.selected.primary": {
     "$type": "color",
     "$value": "#093a2f",
     "$description": "Lower emphasis variant of background-selected-strong.",
@@ -994,25 +994,25 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.selected.primary.weak",
+    "name": "hpe.color.background.selected.primary",
     "attributes": {
       "category": "color",
       "type": "background",
       "item": "selected",
       "subitem": "primary",
-      "state": "weak"
+      "state": "DEFAULT"
     },
     "path": [
       "color",
       "background",
       "selected",
       "primary",
-      "weak",
+      "DEFAULT",
       "REST"
     ],
-    "key": "{color.background.selected.primary.weak.REST}"
+    "key": "{color.background.selected.primary.DEFAULT.REST}"
   },
-  "hpe.color.background.selected.primary.weak.hover": {
+  "hpe.color.background.selected.primary.hover": {
     "$type": "color",
     "$value": "#074b3b",
     "$description": "Hover variant of background-selected-weak.",
@@ -1043,69 +1043,23 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.selected.primary.weak.hover",
+    "name": "hpe.color.background.selected.primary.hover",
     "attributes": {
       "category": "color",
       "type": "background",
       "item": "selected",
       "subitem": "primary",
-      "state": "weak"
+      "state": "DEFAULT"
     },
     "path": [
       "color",
       "background",
       "selected",
       "primary",
-      "weak",
+      "DEFAULT",
       "hover"
     ],
-    "key": "{color.background.selected.primary.weak.hover}"
-  },
-  "hpe.color.background.neutral.strong": {
-    "$type": "color",
-    "$value": "#bbbbbb",
-    "$description": "Highest emphasis variant of neutral palette.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.grey.500}",
-      "$description": "Highest emphasis variant of neutral palette.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.neutral.strong",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "neutral",
-      "subitem": "strong",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "neutral",
-      "strong",
-      "REST"
-    ],
-    "key": "{color.background.neutral.strong.REST}"
+    "key": "{color.background.selected.primary.DEFAULT.hover}"
   },
   "hpe.color.background.neutral.xstrong": {
     "$type": "color",
@@ -1905,7 +1859,7 @@ export default {
   },
   "hpe.color.text.primary": {
     "$type": "color",
-    "$value": "#00ebb5",
+    "$value": "#17d0a6",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1920,7 +1874,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.450}",
+      "$value": "{base.color.green.500}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1948,6 +1902,52 @@ export default {
       "REST"
     ],
     "key": "{color.text.primary.DEFAULT.REST}"
+  },
+  "hpe.color.text.primary.hover": {
+    "$type": "color",
+    "$value": "#00ebb5",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.green.450}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.text.primary.hover",
+    "attributes": {
+      "category": "color",
+      "type": "text",
+      "item": "primary",
+      "subitem": "DEFAULT",
+      "state": "hover"
+    },
+    "path": [
+      "color",
+      "text",
+      "primary",
+      "DEFAULT",
+      "hover"
+    ],
+    "key": "{color.text.primary.DEFAULT.hover}"
   },
   "hpe.color.text.critical": {
     "$type": "color",
@@ -3089,7 +3089,7 @@ export default {
   },
   "hpe.color.icon.info": {
     "$type": "color",
-    "$value": "#00739d",
+    "$value": "#ffffff",
     "$description": "Use for icons communicating neutral information.",
     "$extensions": {
       "com.figma": {
@@ -3106,7 +3106,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.blue.700}",
+      "$value": "{color.icon.default.REST}",
       "$description": "Use for icons communicating neutral information.",
       "$extensions": {
         "com.figma": {
@@ -3850,6 +3850,98 @@ export default {
       "REST"
     ],
     "key": "{color.decorative.yellow.DEFAULT.REST}"
+  },
+  "hpe.color.decorative.neutral": {
+    "$type": "color",
+    "$value": "#bbbbbb",
+    "$description": "Highest emphasis variant of neutral palette.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.grey.500}",
+      "$description": "Highest emphasis variant of neutral palette.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.decorative.neutral",
+    "attributes": {
+      "category": "color",
+      "type": "decorative",
+      "item": "neutral",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "decorative",
+      "neutral",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.decorative.neutral.DEFAULT.REST}"
+  },
+  "hpe.color.decorative.neutral.hover": {
+    "$type": "color",
+    "$value": "#bbbbbb",
+    "$description": "Highest emphasis variant of neutral palette.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.grey.500}",
+      "$description": "Highest emphasis variant of neutral palette.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.decorative.neutral.hover",
+    "attributes": {
+      "category": "color",
+      "type": "decorative",
+      "item": "neutral",
+      "subitem": "DEFAULT",
+      "state": "hover"
+    },
+    "path": [
+      "color",
+      "decorative",
+      "neutral",
+      "DEFAULT",
+      "hover"
+    ],
+    "key": "{color.decorative.neutral.DEFAULT.hover}"
   },
   "hpe.color.dataVis.categorical.10": {
     "$type": "color",
