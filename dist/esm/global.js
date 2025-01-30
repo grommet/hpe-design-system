@@ -5,9 +5,7 @@
 export default {
   "hpe": {
     "focusIndicator": {
-      "outline": {
-        "color": "focus"
-      },
+      "outline": "var(--hpe-focusIndicator-outline)",
       "outlineOffset": "var(--hpe-focusIndicator-outlineOffset)",
       "boxShadow": "var(--hpe-focusIndicator-boxShadow)"
     },
