@@ -24,6 +24,10 @@ export const numberToDimension: Transform = {
         'borderWidth',
         'breakpoint',
         'outlineOffset',
+        'top',
+        'left',
+        'bottom',
+        'right',
       ].find(v => token.path.includes(v))
     )
       return true;

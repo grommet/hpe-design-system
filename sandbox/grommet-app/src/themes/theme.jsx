@@ -164,21 +164,24 @@ const textSizes = [
   '6xl',
 ];
 
-export const optionBefore = props => css`
+export const optionBefore = ({ theme }) => css`
   position: relative;
   &::before {
     display: block;
     position: absolute;
     content: '';
-    width: 6px;
-    border-top-left-radius: 9999px;
-    border-bottom-left-radius: 9999px;
+    width: ${localComponents.hpe.select.default.medium.option.marker.width};
+    border-top-left-radius: ${localComponents.hpe.select.default.medium.option
+      .marker.borderTopLeftRadius};
+    border-bottom-left-radius: ${localComponents.hpe.select.default.medium
+      .option.marker.borderBottomLeftRadius};
     top: 0;
     bottom: 0;
     left: 0;
-    background: ${props.theme.global.colors['border-selected']?.[
-      props.theme.dark ? 'dark' : 'light'
-    ]};
+    background: ${getThemeColor(
+      localComponents.hpe.select.default.option.marker.rest.background,
+      theme,
+    )};
   }
 `;
 
@@ -1008,17 +1011,26 @@ const buildTheme = (tokens, flags) => {
               display: block;
               position: absolute;
               content: '';
-              width: 6px; // hpe.spacing['3xsmall']
-              border-top-left-radius: 9999px; // hpe.radius.full
-              border-bottom-left-radius: 9999px; // hpe.radius.full
-              top: -1px; // hpe.select.default.medium.option.borderWidth
-              bottom: -1px; // hpe.select.default.medium.option.borderWidth
-              left: -1px; // hpe.select.default.medium.option.borderWidth
-              background: ${
-                theme.global.colors['border-selected']?.[
-                  theme.dark ? 'dark' : 'light'
-                ]
+              width: ${
+                components.hpe.select.default.medium.option.marker.width
               };
+              border-top-left-radius: ${
+                components.hpe.select.default.medium.option.marker
+                  .borderTopLeftRadius
+              };
+              border-bottom-left-radius: ${
+                components.hpe.select.default.medium.option.marker
+                  .borderBottomLeftRadius
+              };
+              top: ${components.hpe.select.default.medium.option.marker.top};
+              bottom: ${
+                components.hpe.select.default.medium.option.marker.bottom
+              };
+              left: ${components.hpe.select.default.medium.option.marker.left};
+              background: ${getThemeColor(
+                components.hpe.select.default.option.marker.rest.background,
+                theme,
+              )};
             }
           `,
         },
