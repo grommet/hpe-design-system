@@ -30,6 +30,9 @@ export const getGrommetValue = (token: any, dictionary: any) => {
       width: token.$value.width,
       style: token.$value.style,
     };
+  } else if (token.$type === 'shadow' && isReference(originalValue)) {
+    // '{shadow.small}' --> 'small'
+    result = tokenToGrommetRef(originalValue);
   } else if (
     token.$type !== 'shadow' &&
     token.$type !== 'gradient' && // shadow and gradient are already transformed

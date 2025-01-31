@@ -1,7 +1,7 @@
 import { rgbToHex } from './color.js';
 import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';
 import { Token, TokensFile } from './token_types.js';
-import { access } from './utils.js';
+import { access, isReference } from './utils.js';
 
 /**
  * Supported color interaction states
@@ -142,17 +142,26 @@ export function tokenFilesFromLocalVariables(
           obj = obj[groupName];
         });
 
+        let value = tokenValueFromVariable(
+          variable,
+          mode.modeId,
+          localVariables,
+        );
+        if (typeof value === 'string' && value.includes('shadow')) {
+          // convert {shadow.small.1.offsetY} --> {shadow.small}
+          value = `{${value.slice(1, -1).split('.').slice(0, -2).join('.')}}`;
+        }
+
         const token = {
           $type: 'shadow',
-          $value: [
-            {
-              [property]: tokenValueFromVariable(
-                variable,
-                mode.modeId,
-                localVariables,
-              ),
-            },
-          ],
+          $value:
+            typeof value === 'string' && isReference(value)
+              ? value
+              : [
+                  {
+                    [property]: value,
+                  },
+                ],
           $description: '',
           $extensions: {
             'com.figma': {
@@ -167,7 +176,8 @@ export function tokenFilesFromLocalVariables(
         const boxShadow = access(keyPath.join('.'), tokenFiles[fileName]);
         if (Object.keys(boxShadow).length === 0) {
           Object.assign(obj, token);
-        } else {
+          // if not a string reference
+        } else if (typeof boxShadow.$value === 'object') {
           const index =
             parseInt(parts[parts.length - 3], 10) >= 0
               ? parseInt(parts[parts.length - 3], 10)

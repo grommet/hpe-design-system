@@ -254,6 +254,18 @@
         }
       }
     },
+    "xxlarge": {
+      "$type": "number",
+      "$value": "{static.radius.xlarge}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"],
+          "codeSyntax": {}
+        }
+      }
+    },
     "full": {
       "$type": "number",
       "$value": "{static.radius.full}",
@@ -353,143 +365,143 @@
       }
     }
   },
-  "size": {
-    "container": {
-      "5xsmall": {
-        "$type": "number",
-        "$value": "{static.container.5xsmall}",
-        "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "4xsmall": {
-        "$type": "number",
-        "$value": "{static.container.5xsmall}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "3xsmall": {
-        "$type": "number",
-        "$value": "{static.container.5xsmall}",
-        "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "xxsmall": {
-        "$type": "number",
-        "$value": "{static.container.4xsmall}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "xsmall": {
-        "$type": "number",
-        "$value": "{static.container.3xsmall}",
-        "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "small": {
-        "$type": "number",
-        "$value": "{static.container.xxsmall}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "medium": {
-        "$type": "number",
-        "$value": "{static.container.xsmall}",
-        "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "large": {
-        "$type": "number",
-        "$value": "{static.container.small}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "xlarge": {
-        "$type": "number",
-        "$value": "{static.container.medium}",
-        "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "xxlarge": {
-        "$type": "number",
-        "$value": "{static.container.large}",
-        "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "3xlarge": {
-        "$type": "number",
-        "$value": "{static.container.xlarge}",
-        "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["WIDTH_HEIGHT"],
-            "codeSyntax": {}
-          }
+  "container": {
+    "5xsmall": {
+      "$type": "number",
+      "$value": "{static.container.5xsmall}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
         }
       }
     },
-    "icon": {
-      "xsmall": {
+    "4xsmall": {
+      "$type": "number",
+      "$value": "{static.container.5xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "3xsmall": {
+      "$type": "number",
+      "$value": "{static.container.5xsmall}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "xxsmall": {
+      "$type": "number",
+      "$value": "{static.container.4xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "xsmall": {
+      "$type": "number",
+      "$value": "{static.container.3xsmall}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "small": {
+      "$type": "number",
+      "$value": "{static.container.xxsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "medium": {
+      "$type": "number",
+      "$value": "{static.container.xsmall}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "large": {
+      "$type": "number",
+      "$value": "{static.container.small}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "xlarge": {
+      "$type": "number",
+      "$value": "{static.container.medium}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "xxlarge": {
+      "$type": "number",
+      "$value": "{static.container.large}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "3xlarge": {
+      "$type": "number",
+      "$value": "{static.container.xlarge}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["WIDTH_HEIGHT"],
+          "codeSyntax": {}
+        }
+      }
+    }
+  },
+  "icon": {
+    "xsmall": {
+      "size": {
         "$type": "number",
         "$value": "{base.dimension.350}",
         "$description": "",
@@ -500,8 +512,10 @@
             "codeSyntax": {}
           }
         }
-      },
-      "small": {
+      }
+    },
+    "small": {
+      "size": {
         "$type": "number",
         "$value": "{base.dimension.400}",
         "$description": "",
@@ -512,8 +526,10 @@
             "codeSyntax": {}
           }
         }
-      },
-      "medium": {
+      }
+    },
+    "medium": {
+      "size": {
         "$type": "number",
         "$value": "{base.dimension.450}",
         "$description": "",
@@ -524,8 +540,10 @@
             "codeSyntax": {}
           }
         }
-      },
-      "large": {
+      }
+    },
+    "large": {
+      "size": {
         "$type": "number",
         "$value": "{base.dimension.550}",
         "$description": "",
@@ -536,8 +554,10 @@
             "codeSyntax": {}
           }
         }
-      },
-      "xlarge": {
+      }
+    },
+    "xlarge": {
+      "size": {
         "$type": "number",
         "$value": "{base.dimension.600}",
         "$description": "",
@@ -548,8 +568,10 @@
             "codeSyntax": {}
           }
         }
-      },
-      "xxlarge": {
+      }
+    },
+    "xxlarge": {
+      "size": {
         "$type": "number",
         "$value": "{base.dimension.900}",
         "$description": "",
@@ -841,7 +863,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -891,7 +913,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -941,7 +963,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -991,7 +1013,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.light}",
+        "$value": "{fontWeight.regular}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1019,7 +1041,7 @@
     "xlarge": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.medium}",
+        "$value": "{fontWeight.regular}",
         "$description": "Font weight typically used on h1.",
         "$extensions": {
           "com.figma": {
@@ -1031,7 +1053,7 @@
       },
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.500}",
+        "$value": 28,
         "$description": "Font size typically used on h1.",
         "$extensions": {
           "com.figma": {
@@ -1043,7 +1065,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.200}",
+        "$value": 32,
         "$description": "Line height typically used on h1.",
         "$extensions": {
           "com.figma": {
@@ -1057,7 +1079,7 @@
     "large": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.medium}",
+        "$value": "{fontWeight.regular}",
         "$description": "Font weight typically used on h2.",
         "$extensions": {
           "com.figma": {
@@ -1069,7 +1091,7 @@
       },
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.300}",
+        "$value": 24,
         "$description": "Font size typically used on h2.",
         "$extensions": {
           "com.figma": {
@@ -1081,7 +1103,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.100}",
+        "$value": 28,
         "$description": "Line height typically used on h2.",
         "$extensions": {
           "com.figma": {
@@ -1095,7 +1117,7 @@
     "medium": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.100}",
+        "$value": 20,
         "$description": "Font size typically used on h3.",
         "$extensions": {
           "com.figma": {
@@ -1107,7 +1129,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.90}",
+        "$value": 24,
         "$description": "Line height typically used on h3.",
         "$extensions": {
           "com.figma": {
@@ -1119,7 +1141,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.medium}",
+        "$value": "{fontWeight.regular}",
         "$description": "Font weight typically used on h3.",
         "$extensions": {
           "com.figma": {
@@ -1133,7 +1155,7 @@
     "small": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$value": 18,
         "$description": "Font size typically used on h4.",
         "$extensions": {
           "com.figma": {
@@ -1145,7 +1167,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.80}",
+        "$value": 20,
         "$description": "Line height typically used on h4.",
         "$extensions": {
           "com.figma": {
@@ -1171,7 +1193,7 @@
     "xsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$value": 16,
         "$description": "Font size typically used on h5.",
         "$extensions": {
           "com.figma": {
@@ -1183,7 +1205,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.80}",
+        "$value": 18,
         "$description": "Line height typically used on h5.",
         "$extensions": {
           "com.figma": {
@@ -1209,7 +1231,7 @@
     "xxsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.80}",
+        "$value": 16,
         "$description": "Font size typically used on h6.",
         "$extensions": {
           "com.figma": {
@@ -1221,7 +1243,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": "{base.lineHeight.80}",
+        "$value": 18,
         "$description": "Line height typically used on h6.",
         "$extensions": {
           "com.figma": {
