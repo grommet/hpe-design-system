@@ -3,7 +3,6 @@ import { Box, Select, Text } from 'grommet';
 import ContentPane from '../../../../components/ContentPane';
 import { Compare } from '../../components';
 import { optionBefore } from '../../../../themes/theme';
-import { StyleInProgress } from '../../components';
 
 const CustomOption = styled(Box)`
   ${props => props.selected && optionBefore}
@@ -11,7 +10,6 @@ const CustomOption = styled(Box)`
 export const Selects = () => {
   return (
     <ContentPane>
-      <StyleInProgress />
       <Box gap="medium">
         <Compare>
           <Select

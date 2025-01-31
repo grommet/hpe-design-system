@@ -1,11 +1,10 @@
 import { CheckBox, FormField } from 'grommet';
 import ContentPane from '../../../../components/ContentPane';
-import { Compare, StyleInProgress } from '../../components';
+import { Compare } from '../../components';
 
 export const Checkboxes = () => {
   return (
     <ContentPane>
-      <StyleInProgress />
       <Compare>
         <CheckBox label="Checkbox label" />
       </Compare>
