@@ -7,7 +7,11 @@ export const DetailPane = ({ ...rest }) => {
 
   return (
     <Box {...rest}>
-      <Tabs activeIndex={activeIndex} onActive={setActiveIndex}>
+      <Tabs
+        activeIndex={activeIndex}
+        onActive={setActiveIndex}
+        alignControls="start"
+      >
         <Tab title="Issues">Issues</Tab>
         <Tab title="Capacity">
           <Box pad={{ top: "medium" }}>

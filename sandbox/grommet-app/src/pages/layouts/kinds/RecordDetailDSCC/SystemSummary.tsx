@@ -4,7 +4,7 @@ import { DashboardCard, Metric, metricSizes } from "../../../../components";
 import { StatusGoodSmall } from "grommet-icons";
 
 
-export const SystemSummary = ({ ...rest }) => {
+export const SystemSummary = ({ size, ...rest }) => {
   return (
     <DashboardCard
       title="System"
@@ -18,18 +18,19 @@ export const SystemSummary = ({ ...rest }) => {
       onClick={null}
       {...rest}
     >
-      <Box direction="row" gap="medium">
+      <Box direction="row" gap="medium" wrap>
         <Metric
           label="Call home"
           value={
             <Box direction="row" align="center" gap="xsmall">
               <StatusGoodSmall color="status-ok" />
-              <Text size={metricSizes.medium.value} color="text-strong" weight={500}>On</Text>
+              <Text size={metricSizes[size].value} color="text-strong" weight={500}>On</Text>
             </Box>
           }
           reverse
           options={null}
           unit={null}
+          size={size}
         />
         <Metric
           label="Source"
@@ -37,6 +38,7 @@ export const SystemSummary = ({ ...rest }) => {
           reverse
           options={null}
           unit={null}
+          size={size}
         />
       </Box>
     </DashboardCard>

@@ -3,7 +3,7 @@ import { Box, Grid, Meter, Text } from "grommet";
 import { DashboardCard, Metric } from "../../../../components";
 
 
-export const PhysicalCapacity = ({ ...rest }) => {
+export const PhysicalCapacity = ({ size, ...rest }) => {
   return (
     <DashboardCard
       title="Physical capacity"
@@ -23,7 +23,7 @@ export const PhysicalCapacity = ({ ...rest }) => {
           ["metric", "summary"],
           ["meter", "meter"]
         ]}
-        columns={['flex', 'auto']}
+        columns={['flex', 'flex']}
         rows={['auto']}
       >
         <Metric
@@ -33,6 +33,7 @@ export const PhysicalCapacity = ({ ...rest }) => {
           unit="used"
           options={null}
           reverse
+          size={size}
         />
         <Meter
           gridArea="meter"
@@ -44,7 +45,9 @@ export const PhysicalCapacity = ({ ...rest }) => {
           round
         />
         <Box gridArea="summary" justify="end">
-          <Text>
+          <Text
+            size={["xsmall", "small", 'medium'].includes(size) ? "small" : "medium"}
+          >
             <Text color="text-strong" weight={500}>131.5</Text> of 281.1 TiB
           </Text>
         </Box>

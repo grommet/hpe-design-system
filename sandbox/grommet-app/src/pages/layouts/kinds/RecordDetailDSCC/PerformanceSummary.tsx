@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "grommet";
 import { DashboardCard, Metric } from "../../../../components";
 
-export const PerformanceSummary = ({ ...rest }) => {
+export const PerformanceSummary = ({ size, ...rest }) => {
   return (
     <DashboardCard
       title="Performance"
@@ -16,13 +16,14 @@ export const PerformanceSummary = ({ ...rest }) => {
       onClick={null}
       {...rest}
     >
-      <Box direction="row" gap="medium">
+      <Box direction="row" gap="medium" wrap>
         <Metric
           label="R latency"
           value={1.8}
           unit="ms"
           options={{}}
           reverse
+          size={size}
         />
         <Metric
           label="W latency"
@@ -30,6 +31,7 @@ export const PerformanceSummary = ({ ...rest }) => {
           unit="ms"
           options={{}}
           reverse
+          size={size}
         />
         <Metric
           label="IOPS"
@@ -37,6 +39,7 @@ export const PerformanceSummary = ({ ...rest }) => {
           unit={null}
           options={{}}
           reverse
+          size={size}
         />
         <Metric
           label="W latency"
@@ -44,6 +47,7 @@ export const PerformanceSummary = ({ ...rest }) => {
           unit="MiB/s"
           options={{}}
           reverse
+          size={size}
         />
       </Box>
     </DashboardCard>
