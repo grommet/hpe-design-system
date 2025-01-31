@@ -441,6 +441,32 @@ const buildTheme = (tokens, flags) => {
         : large.hpe.spacing['3xlarge'],
       responsiveBreakpoint: 'small',
     },
+    radius: {
+      none: large.hpe.radius.none,
+      hair: large.hpe.radius.hair,
+      xxsmall: flags['v6-backwards-compatibility']
+        ? '3px'
+        : large.hpe.radius.xxsmall,
+      xsmall: flags['v6-backwards-compatibility']
+        ? '6px'
+        : large.hpe.radius.xsmall,
+      small: flags['v6-backwards-compatibility']
+        ? '12px'
+        : large.hpe.radius.small,
+      medium: flags['v6-backwards-compatibility']
+        ? '24px'
+        : large.hpe.radius.medium,
+      large: flags['v6-backwards-compatibility']
+        ? '48px'
+        : large.hpe.radius.large,
+      xlarge: flags['v6-backwards-compatibility']
+        ? '96px'
+        : large.hpe.radius.xlarge,
+      xxlarge: flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.radius.xxlarge,
+      responsiveBreakpoint: 'small',
+    },
     size: size(large),
     breakpoints: {
       xsmall: {
@@ -461,6 +487,32 @@ const buildTheme = (tokens, flags) => {
           medium: small.hpe.spacing.medium,
           large: small.hpe.spacing.large,
           xlarge: small.hpe.spacing.xlarge,
+          responsiveBreakpoint: 'small',
+        },
+        radius: {
+          none: small.hpe.radius.none,
+          hair: small.hpe.radius.hair,
+          xxsmall: flags['v6-backwards-compatibility']
+            ? '1px'
+            : small.hpe.radius.xxsmall,
+          xsmall: flags['v6-backwards-compatibility']
+            ? '3px'
+            : small.hpe.radius.xsmall,
+          small: flags['v6-backwards-compatibility']
+            ? '6px'
+            : small.hpe.radius.small,
+          medium: flags['v6-backwards-compatibility']
+            ? '12px'
+            : small.hpe.radius.medium,
+          large: flags['v6-backwards-compatibility']
+            ? '24px'
+            : small.hpe.radius.large,
+          xlarge: flags['v6-backwards-compatibility']
+            ? '48px'
+            : small.hpe.radius.xlarge,
+          xxlarge: flags['v6-backwards-compatibility']
+            ? undefined
+            : small.hpe.radius.xxlarge,
           responsiveBreakpoint: 'small',
         },
         size: size(small),
@@ -484,6 +536,32 @@ const buildTheme = (tokens, flags) => {
           medium: small.hpe.spacing.medium,
           large: small.hpe.spacing.large,
           xlarge: small.hpe.spacing.xlarge,
+          responsiveBreakpoint: 'small',
+        },
+        radius: {
+          none: small.hpe.radius.none,
+          hair: small.hpe.radius.hair,
+          xxsmall: flags['v6-backwards-compatibility']
+            ? '1px'
+            : small.hpe.radius.xxsmall,
+          xsmall: flags['v6-backwards-compatibility']
+            ? '3px'
+            : small.hpe.radius.xsmall,
+          small: flags['v6-backwards-compatibility']
+            ? '6px'
+            : small.hpe.radius.small,
+          medium: flags['v6-backwards-compatibility']
+            ? '12px'
+            : small.hpe.radius.medium,
+          large: flags['v6-backwards-compatibility']
+            ? '24px'
+            : small.hpe.radius.large,
+          xlarge: flags['v6-backwards-compatibility']
+            ? '48px'
+            : small.hpe.radius.xlarge,
+          xxlarge: flags['v6-backwards-compatibility']
+            ? undefined
+            : small.hpe.radius.xxlarge,
           responsiveBreakpoint: 'small',
         },
         size: size(small),
@@ -1071,7 +1149,7 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
-      extend: ({ sizeProp, hasIcon, hasLabel, kind }) => {
+      extend: ({ sizeProp, hasIcon, hasLabel, kind, plain }) => {
         // necessary so primary label is accessible on HPE green background
         let style = '';
         const iconOnly = hasIcon && !hasLabel;
@@ -1090,6 +1168,7 @@ const buildTheme = (tokens, flags) => {
 
         // kind and size specific icon-only padding
         if (
+          !plain &&
           iconOnly &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingY &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingX
