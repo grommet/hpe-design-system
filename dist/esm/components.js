@@ -844,8 +844,8 @@ export default {
         "background": "var(--hpe-drop-default-background)",
         "borderRadius": "var(--hpe-drop-default-borderRadius)",
         "margin": "var(--hpe-drop-default-margin)",
-        "boxShadow": "var(--hpe-drop-default-boxShadow)",
-        "zIndex": "var(--hpe-drop-default-zIndex)"
+        "zIndex": "var(--hpe-drop-default-zIndex)",
+        "boxShadow": "var(--hpe-drop-default-boxShadow)"
       }
     },
     "checkbox": {
@@ -1328,18 +1328,6 @@ export default {
             "iconColor": "var(--hpe-dataCell-default-selected-hover-iconColor)",
             "borderColor": "var(--hpe-dataCell-default-selected-hover-borderColor)",
             "background": "var(--hpe-dataCell-default-selected-hover-background)"
-          },
-          "rest 2": {
-            "textColor": "var(--hpe-dataCell-default-selected-rest 2-textColor)",
-            "iconColor": "var(--hpe-dataCell-default-selected-rest 2-iconColor)",
-            "borderColor": "var(--hpe-dataCell-default-selected-rest 2-borderColor)",
-            "background": "var(--hpe-dataCell-default-selected-rest 2-background)"
-          },
-          "hover 2": {
-            "textColor": "var(--hpe-dataCell-default-selected-hover 2-textColor)",
-            "iconColor": "var(--hpe-dataCell-default-selected-hover 2-iconColor)",
-            "borderColor": "var(--hpe-dataCell-default-selected-hover 2-borderColor)",
-            "background": "var(--hpe-dataCell-default-selected-hover 2-background)"
           }
         },
         "pinned": {
@@ -1602,6 +1590,11 @@ export default {
           "textColor": "var(--hpe-anchor-default-disabled-textColor)",
           "fontWeight": "var(--hpe-anchor-default-disabled-fontWeight)",
           "textDecoration": "var(--hpe-anchor-default-disabled-textDecoration)"
+        },
+        "xsmall": {
+          "fontSize": "var(--hpe-anchor-default-xsmall-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-xsmall-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-xsmall-gapX)"
         },
         "small": {
           "fontSize": "var(--hpe-anchor-default-small-fontSize)",

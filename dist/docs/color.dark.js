@@ -3899,7 +3899,7 @@ export default {
   },
   "hpe.color.decorative.neutral.hover": {
     "$type": "color",
-    "$value": "#bbbbbb",
+    "$value": "#cccccc",
     "$description": "Highest emphasis variant of neutral palette.",
     "$extensions": {
       "com.figma": {
@@ -3914,7 +3914,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.500}",
+      "$value": "{base.color.grey.400}",
       "$description": "Highest emphasis variant of neutral palette.",
       "$extensions": {
         "com.figma": {

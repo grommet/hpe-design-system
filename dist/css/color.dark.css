@@ -57,7 +57,7 @@
   --hpe-color-decorative-orange: var(--hpe-base-color-orange-700); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-yellow: var(--hpe-base-color-yellow-700); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-neutral: var(--hpe-base-color-grey-500); /* Highest emphasis variant of neutral palette. */
-  --hpe-color-decorative-neutral-hover: var(--hpe-base-color-grey-500); /* Highest emphasis variant of neutral palette. */
+  --hpe-color-decorative-neutral-hover: var(--hpe-base-color-grey-400); /* Highest emphasis variant of neutral palette. */
   --hpe-color-dataVis-categorical-10: var(--hpe-base-color-dataVis-green1);
   --hpe-color-dataVis-categorical-20: var(--hpe-base-color-dataVis-darkblue2);
   --hpe-color-dataVis-categorical-30: var(--hpe-base-color-dataVis-gold2);
@@ -161,7 +161,7 @@
   --hpe-color-decorative-orange: var(--hpe-base-color-orange-700); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-yellow: var(--hpe-base-color-yellow-700); /* Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-neutral: var(--hpe-base-color-grey-500); /* Highest emphasis variant of neutral palette. */
-  --hpe-color-decorative-neutral-hover: var(--hpe-base-color-grey-500); /* Highest emphasis variant of neutral palette. */
+  --hpe-color-decorative-neutral-hover: var(--hpe-base-color-grey-400); /* Highest emphasis variant of neutral palette. */
   --hpe-color-dataVis-categorical-10: var(--hpe-base-color-dataVis-green1);
   --hpe-color-dataVis-categorical-20: var(--hpe-base-color-dataVis-darkblue2);
   --hpe-color-dataVis-categorical-30: var(--hpe-base-color-dataVis-gold2);

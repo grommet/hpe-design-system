@@ -28,6 +28,7 @@ module.exports = {
       "medium": "var(--hpe-radius-medium)",
       "large": "var(--hpe-radius-large)",
       "xlarge": "var(--hpe-radius-xlarge)",
+      "xxlarge": "var(--hpe-radius-xxlarge)",
       "full": "var(--hpe-radius-full)"
     },
     "borderWidth": {

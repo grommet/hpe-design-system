@@ -118,9 +118,9 @@ export default {
               "borderTopRightRadius": "0px",
               "borderBottomLeftRadius": "9999px",
               "borderBottomRightRadius": "0px",
-              "top": -1,
-              "bottom": -1,
-              "left": -1
+              "top": "-1px",
+              "bottom": "-1px",
+              "left": "-1px"
             }
           },
           "drop": {
@@ -844,8 +844,8 @@ export default {
         "background": "background-floating",
         "borderRadius": "xsmall",
         "margin": "6px",
-        "boxShadow": "medium",
-        "zIndex": 110
+        "zIndex": 110,
+        "boxShadow": "medium"
       }
     },
     "checkbox": {
@@ -1006,13 +1006,13 @@ export default {
               "height": "24px",
               "width": "48px",
               "borderWidth": "1px",
-              "borderRadius": "24px"
+              "borderRadius": "9999px"
             },
             "handle": {
               "height": "24px",
               "width": "24px",
               "borderWidth": "default",
-              "borderRadius": "24px"
+              "borderRadius": "9999px"
             }
           }
         }
@@ -1328,18 +1328,6 @@ export default {
             "iconColor": "icon-default",
             "borderColor": "transparent",
             "background": "transparent"
-          },
-          "rest 2": {
-            "textColor": "text-default",
-            "iconColor": "icon-default",
-            "borderColor": "transparent",
-            "background": "transparent"
-          },
-          "hover 2": {
-            "textColor": "text-default",
-            "iconColor": "icon-default",
-            "borderColor": "transparent",
-            "background": "transparent"
           }
         },
         "pinned": {
@@ -1602,6 +1590,11 @@ export default {
           "textColor": "text-strong",
           "fontWeight": 500,
           "textDecoration": "underline"
+        },
+        "xsmall": {
+          "fontSize": "0.875rem",
+          "lineHeight": "1rem",
+          "gapX": "3px"
         },
         "small": {
           "fontSize": "1rem",

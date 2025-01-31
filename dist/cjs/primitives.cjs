@@ -16,7 +16,6 @@ module.exports = {
         "225": "var(--hpe-base-dimension-225)",
         "250": "var(--hpe-base-dimension-250)",
         "300": "var(--hpe-base-dimension-300)",
-        "325": "var(--hpe-base-dimension-325)",
         "350": "var(--hpe-base-dimension-350)",
         "400": "var(--hpe-base-dimension-400)",
         "450": "var(--hpe-base-dimension-450)",
@@ -25,7 +24,6 @@ module.exports = {
         "550": "var(--hpe-base-dimension-550)",
         "600": "var(--hpe-base-dimension-600)",
         "700": "var(--hpe-base-dimension-700)",
-        "750": "var(--hpe-base-dimension-750)",
         "800": "var(--hpe-base-dimension-800)",
         "900": "var(--hpe-base-dimension-900)",
         "1200": "var(--hpe-base-dimension-1200)",
@@ -35,10 +33,8 @@ module.exports = {
         "3200": "var(--hpe-base-dimension-3200)",
         "4800": "var(--hpe-base-dimension-4800)",
         "6400": "var(--hpe-base-dimension-6400)",
-        "7200": "var(--hpe-base-dimension-7200)",
         "9600": "var(--hpe-base-dimension-9600)",
         "12800": "var(--hpe-base-dimension-12800)",
-        "14400": "var(--hpe-base-dimension-14400)",
         "19200": "var(--hpe-base-dimension-19200)",
         "25600": "var(--hpe-base-dimension-25600)",
         "38400": "var(--hpe-base-dimension-38400)"
@@ -48,7 +44,6 @@ module.exports = {
         "red-500": "var(--hpe-base-color-red-500)",
         "red-550": "var(--hpe-base-color-red-550)",
         "red-600": "var(--hpe-base-color-red-600)",
-        "red-700": "var(--hpe-base-color-red-700)",
         "red-750": "var(--hpe-base-color-red-750)",
         "red-800": "var(--hpe-base-color-red-800)",
         "red-850": "var(--hpe-base-color-red-850)",
@@ -56,21 +51,14 @@ module.exports = {
         "red-500-Opacity24": "var(--hpe-base-color-red-500-Opacity24)",
         "red-800-Opacity30": "var(--hpe-base-color-red-800-Opacity30)",
         "orange-400": "var(--hpe-base-color-orange-400)",
-        "orange-500": "var(--hpe-base-color-orange-500)",
         "orange-600": "var(--hpe-base-color-orange-600)",
         "orange-700": "var(--hpe-base-color-orange-700)",
         "orange-400-Opacity12": "var(--hpe-base-color-orange-400-Opacity12)",
         "orange-400-Opacity24": "var(--hpe-base-color-orange-400-Opacity24)",
-        "orange-500-Opacity12": "var(--hpe-base-color-orange-500-Opacity12)",
         "yellow-200": "var(--hpe-base-color-yellow-200)",
-        "yellow-300": "var(--hpe-base-color-yellow-300)",
         "yellow-400": "var(--hpe-base-color-yellow-400)",
-        "yellow-500": "var(--hpe-base-color-yellow-500)",
         "yellow-700": "var(--hpe-base-color-yellow-700)",
-        "yellow-200-Opacity12": "var(--hpe-base-color-yellow-200-Opacity12)",
-        "yellow-300-Opacity12": "var(--hpe-base-color-yellow-300-Opacity12)",
         "yellow-400-Opacity12": "var(--hpe-base-color-yellow-400-Opacity12)",
-        "yellow-500-Opacity30": "var(--hpe-base-color-yellow-500-Opacity30)",
         "green-100": "var(--hpe-base-color-green-100)",
         "green-125": "var(--hpe-base-color-green-125)",
         "green-400": "var(--hpe-base-color-green-400)",
@@ -86,34 +74,24 @@ module.exports = {
         "green-400-Opacity24": "var(--hpe-base-color-green-400-Opacity24)",
         "green-500-Opacity30": "var(--hpe-base-color-green-500-Opacity30)",
         "teal-200": "var(--hpe-base-color-teal-200)",
-        "teal-300": "var(--hpe-base-color-teal-300)",
         "teal-400": "var(--hpe-base-color-teal-400)",
         "teal-700": "var(--hpe-base-color-teal-700)",
-        "teal-200-Opacity12": "var(--hpe-base-color-teal-200-Opacity12)",
-        "teal-300-Opacity12": "var(--hpe-base-color-teal-300-Opacity12)",
         "blue-400": "var(--hpe-base-color-blue-400)",
         "blue-700": "var(--hpe-base-color-blue-700)",
         "blue-900": "var(--hpe-base-color-blue-900)",
         "blue-400-Opacity12": "var(--hpe-base-color-blue-400-Opacity12)",
-        "blue-400-Opacity24": "var(--hpe-base-color-blue-400-Opacity24)",
-        "blue-700-Opacity12": "var(--hpe-base-color-blue-700-Opacity12)",
         "purple-500": "var(--hpe-base-color-purple-500)",
-        "purple-800": "var(--hpe-base-color-purple-800)",
         "purple-900": "var(--hpe-base-color-purple-900)",
-        "purple-500-Opacity12": "var(--hpe-base-color-purple-500-Opacity12)",
-        "purple-800-Opacity12": "var(--hpe-base-color-purple-800-Opacity12)",
         "black-opacity4": "var(--hpe-base-color-black-opacity4)",
         "black-opacity8": "var(--hpe-base-color-black-opacity8)",
         "black-opacity12": "var(--hpe-base-color-black-opacity12)",
         "black-opacity24": "var(--hpe-base-color-black-opacity24)",
         "black-opacity36": "var(--hpe-base-color-black-opacity36)",
-        "black-opacity50": "var(--hpe-base-color-black-opacity50)",
         "black-opacity72": "var(--hpe-base-color-black-opacity72)",
         "black-opacity100": "var(--hpe-base-color-black-opacity100)",
         "grey-50": "var(--hpe-base-color-grey-50)",
         "grey-400": "var(--hpe-base-color-grey-400)",
         "grey-500": "var(--hpe-base-color-grey-500)",
-        "grey-550": "var(--hpe-base-color-grey-550)",
         "grey-600": "var(--hpe-base-color-grey-600)",
         "grey-700": "var(--hpe-base-color-grey-700)",
         "grey-800": "var(--hpe-base-color-grey-800)",
@@ -162,8 +140,7 @@ module.exports = {
         "600": "var(--hpe-base-fontSize-600)",
         "700": "var(--hpe-base-fontSize-700)",
         "800": "var(--hpe-base-fontSize-800)",
-        "900": "var(--hpe-base-fontSize-900)",
-        "1000": "var(--hpe-base-fontSize-1000)"
+        "900": "var(--hpe-base-fontSize-900)"
       },
       "lineHeight": {
         "80": "var(--hpe-base-lineHeight-80)",
@@ -176,8 +153,7 @@ module.exports = {
         "600": "var(--hpe-base-lineHeight-600)",
         "700": "var(--hpe-base-lineHeight-700)",
         "800": "var(--hpe-base-lineHeight-800)",
-        "900": "var(--hpe-base-lineHeight-900)",
-        "1000": "var(--hpe-base-lineHeight-1000)"
+        "900": "var(--hpe-base-lineHeight-900)"
       }
     },
     "static": {
@@ -206,6 +182,7 @@ module.exports = {
         "medium": "var(--hpe-static-radius-medium)",
         "large": "var(--hpe-static-radius-large)",
         "xlarge": "var(--hpe-static-radius-xlarge)",
+        "xxlarge": "var(--hpe-static-radius-xxlarge)",
         "full": "var(--hpe-static-radius-full)"
       },
       "borderWidth": {
@@ -230,7 +207,6 @@ module.exports = {
         "xxlarge": "var(--hpe-static-container-xxlarge)",
         "3xlarge": "var(--hpe-static-container-3xlarge)"
       }
-    },
-    "TBD": "var(--hpe-TBD)"
+    }
   }
 }

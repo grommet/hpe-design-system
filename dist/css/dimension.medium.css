@@ -85,6 +85,7 @@
   --hpe-radius-medium: var(--hpe-static-radius-medium);
   --hpe-radius-large: var(--hpe-static-radius-large);
   --hpe-radius-xlarge: var(--hpe-static-radius-xlarge);
+  --hpe-radius-xxlarge: var(--hpe-static-radius-xxlarge);
   --hpe-borderWidth-none: var(--hpe-static-borderWidth-none);
   --hpe-borderWidth-xsmall: var(--hpe-static-borderWidth-xsmall);
   --hpe-borderWidth-small: var(--hpe-static-borderWidth-small);

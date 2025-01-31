@@ -383,48 +383,6 @@ export default {
     ],
     "key": "{base.dimension.300}"
   },
-  "hpe.base.dimension.325": {
-    "$type": "number",
-    "$value": "13px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": 13,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.dimension.325",
-    "attributes": {
-      "category": "base",
-      "type": "dimension",
-      "item": "325"
-    },
-    "path": [
-      "base",
-      "dimension",
-      "325"
-    ],
-    "key": "{base.dimension.325}"
-  },
   "hpe.base.dimension.350": {
     "$type": "number",
     "$value": "14px",
@@ -732,44 +690,6 @@ export default {
       "700"
     ],
     "key": "{base.dimension.700}"
-  },
-  "hpe.base.dimension.750": {
-    "$type": "number",
-    "$value": "30px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": 30,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.dimension.750",
-    "attributes": {
-      "category": "base",
-      "type": "dimension",
-      "item": "750"
-    },
-    "path": [
-      "base",
-      "dimension",
-      "750"
-    ],
-    "key": "{base.dimension.750}"
   },
   "hpe.base.dimension.800": {
     "$type": "number",
@@ -1113,44 +1033,6 @@ export default {
     ],
     "key": "{base.dimension.6400}"
   },
-  "hpe.base.dimension.7200": {
-    "$type": "number",
-    "$value": "288px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": 288,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.dimension.7200",
-    "attributes": {
-      "category": "base",
-      "type": "dimension",
-      "item": "7200"
-    },
-    "path": [
-      "base",
-      "dimension",
-      "7200"
-    ],
-    "key": "{base.dimension.7200}"
-  },
   "hpe.base.dimension.9600": {
     "$type": "number",
     "$value": "384px",
@@ -1226,44 +1108,6 @@ export default {
       "12800"
     ],
     "key": "{base.dimension.12800}"
-  },
-  "hpe.base.dimension.14400": {
-    "$type": "number",
-    "$value": "576px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": 576,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.dimension.14400",
-    "attributes": {
-      "category": "base",
-      "type": "dimension",
-      "item": "14400"
-    },
-    "path": [
-      "base",
-      "dimension",
-      "14400"
-    ],
-    "key": "{base.dimension.14400}"
   },
   "hpe.base.dimension.19200": {
     "$type": "number",
@@ -1552,50 +1396,6 @@ export default {
       "600"
     ],
     "key": "{base.color.red.600}"
-  },
-  "hpe.base.color.red.700": {
-    "$type": "color",
-    "$value": "#d04f4e",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#d04f4e",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.red.700",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "red",
-      "subitem": "700"
-    },
-    "path": [
-      "base",
-      "color",
-      "red",
-      "700"
-    ],
-    "key": "{base.color.red.700}"
   },
   "hpe.base.color.red.750": {
     "$type": "color",
@@ -1905,50 +1705,6 @@ export default {
     ],
     "key": "{base.color.orange.400}"
   },
-  "hpe.base.color.orange.500": {
-    "$type": "color",
-    "$value": "#ff8300",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ff8300",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.orange.500",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "orange",
-      "subitem": "500"
-    },
-    "path": [
-      "base",
-      "color",
-      "orange",
-      "500"
-    ],
-    "key": "{base.color.orange.500}"
-  },
   "hpe.base.color.orange.600": {
     "$type": "color",
     "$value": "#d36d00",
@@ -2125,50 +1881,6 @@ export default {
     ],
     "key": "{base.color.orange.400-Opacity24}"
   },
-  "hpe.base.color.orange.500-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(255, 131, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ff83001f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.orange.500-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "orange",
-      "subitem": "500-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "orange",
-      "500-Opacity12"
-    ],
-    "key": "{base.color.orange.500-Opacity12}"
-  },
   "hpe.base.color.yellow.200": {
     "$type": "color",
     "$value": "#ffeb59",
@@ -2212,50 +1924,6 @@ export default {
       "200"
     ],
     "key": "{base.color.yellow.200}"
-  },
-  "hpe.base.color.yellow.300": {
-    "$type": "color",
-    "$value": "#ffd829",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ffd829",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.yellow.300",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "yellow",
-      "subitem": "300"
-    },
-    "path": [
-      "base",
-      "color",
-      "yellow",
-      "300"
-    ],
-    "key": "{base.color.yellow.300}"
   },
   "hpe.base.color.yellow.400": {
     "$type": "color",
@@ -2301,50 +1969,6 @@ export default {
     ],
     "key": "{base.color.yellow.400}"
   },
-  "hpe.base.color.yellow.500": {
-    "$type": "color",
-    "$value": "#d89128",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#d89128",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.yellow.500",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "yellow",
-      "subitem": "500"
-    },
-    "path": [
-      "base",
-      "color",
-      "yellow",
-      "500"
-    ],
-    "key": "{base.color.yellow.500}"
-  },
   "hpe.base.color.yellow.700": {
     "$type": "color",
     "$value": "#8d741c",
@@ -2389,94 +2013,6 @@ export default {
     ],
     "key": "{base.color.yellow.700}"
   },
-  "hpe.base.color.yellow.200-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(255, 235, 89, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ffeb591f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.yellow.200-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "yellow",
-      "subitem": "200-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "yellow",
-      "200-Opacity12"
-    ],
-    "key": "{base.color.yellow.200-Opacity12}"
-  },
-  "hpe.base.color.yellow.300-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(255, 216, 41, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ffd8291f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.yellow.300-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "yellow",
-      "subitem": "300-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "yellow",
-      "300-Opacity12"
-    ],
-    "key": "{base.color.yellow.300-Opacity12}"
-  },
   "hpe.base.color.yellow.400-Opacity12": {
     "$type": "color",
     "$value": "rgba(254, 201, 1, 0.12)",
@@ -2520,50 +2056,6 @@ export default {
       "400-Opacity12"
     ],
     "key": "{base.color.yellow.400-Opacity12}"
-  },
-  "hpe.base.color.yellow.500-Opacity30": {
-    "$type": "color",
-    "$value": "rgba(216, 145, 40, 0.3)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#d891284d",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.yellow.500-Opacity30",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "yellow",
-      "subitem": "500-Opacity30"
-    },
-    "path": [
-      "base",
-      "color",
-      "yellow",
-      "500-Opacity30"
-    ],
-    "key": "{base.color.yellow.500-Opacity30}"
   },
   "hpe.base.color.green.100": {
     "$type": "color",
@@ -3225,50 +2717,6 @@ export default {
     ],
     "key": "{base.color.teal.200}"
   },
-  "hpe.base.color.teal.300": {
-    "$type": "color",
-    "$value": "#1bf6df",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#1bf6df",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.teal.300",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "teal",
-      "subitem": "300"
-    },
-    "path": [
-      "base",
-      "color",
-      "teal",
-      "300"
-    ],
-    "key": "{base.color.teal.300}"
-  },
   "hpe.base.color.teal.400": {
     "$type": "color",
     "$value": "#00e8cf",
@@ -3356,94 +2804,6 @@ export default {
       "700"
     ],
     "key": "{base.color.teal.700}"
-  },
-  "hpe.base.color.teal.200-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(130, 255, 242, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#82fff21f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.teal.200-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "teal",
-      "subitem": "200-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "teal",
-      "200-Opacity12"
-    ],
-    "key": "{base.color.teal.200-Opacity12}"
-  },
-  "hpe.base.color.teal.300-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(27, 246, 223, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#1bf6df1f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.teal.300-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "teal",
-      "subitem": "300-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "teal",
-      "300-Opacity12"
-    ],
-    "key": "{base.color.teal.300-Opacity12}"
   },
   "hpe.base.color.blue.400": {
     "$type": "color",
@@ -3621,94 +2981,6 @@ export default {
     ],
     "key": "{base.color.blue.400-Opacity12}"
   },
-  "hpe.base.color.blue.400-Opacity24": {
-    "$type": "color",
-    "$value": "rgba(0, 200, 255, 0.24)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#00c8ff3d",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.blue.400-Opacity24",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "blue",
-      "subitem": "400-Opacity24"
-    },
-    "path": [
-      "base",
-      "color",
-      "blue",
-      "400-Opacity24"
-    ],
-    "key": "{base.color.blue.400-Opacity24}"
-  },
-  "hpe.base.color.blue.700-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(0, 115, 157, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#00739d1f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.blue.700-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "blue",
-      "subitem": "700-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "blue",
-      "700-Opacity12"
-    ],
-    "key": "{base.color.blue.700-Opacity12}"
-  },
   "hpe.base.color.purple.500": {
     "$type": "color",
     "$value": "#f740ff",
@@ -3753,50 +3025,6 @@ export default {
     ],
     "key": "{base.color.purple.500}"
   },
-  "hpe.base.color.purple.800": {
-    "$type": "color",
-    "$value": "#7630ea",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#7630ea",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.purple.800",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "purple",
-      "subitem": "800"
-    },
-    "path": [
-      "base",
-      "color",
-      "purple",
-      "800"
-    ],
-    "key": "{base.color.purple.800}"
-  },
   "hpe.base.color.purple.900": {
     "$type": "color",
     "$value": "#6633bc",
@@ -3840,94 +3068,6 @@ export default {
       "900"
     ],
     "key": "{base.color.purple.900}"
-  },
-  "hpe.base.color.purple.500-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(247, 64, 255, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#f740ff1f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.purple.500-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "purple",
-      "subitem": "500-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "purple",
-      "500-Opacity12"
-    ],
-    "key": "{base.color.purple.500-Opacity12}"
-  },
-  "hpe.base.color.purple.800-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(118, 48, 234, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#7630ea1f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.purple.800-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "purple",
-      "subitem": "800-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "purple",
-      "800-Opacity12"
-    ],
-    "key": "{base.color.purple.800-Opacity12}"
   },
   "hpe.base.color.black.opacity4": {
     "$type": "color",
@@ -4149,50 +3289,6 @@ export default {
     ],
     "key": "{base.color.black.opacity36}"
   },
-  "hpe.base.color.black.opacity50": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.5)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#00000080",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.black.opacity50",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "black",
-      "subitem": "opacity50"
-    },
-    "path": [
-      "base",
-      "color",
-      "black",
-      "opacity50"
-    ],
-    "key": "{base.color.black.opacity50}"
-  },
   "hpe.base.color.black.opacity72": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.72)",
@@ -4412,50 +3508,6 @@ export default {
       "500"
     ],
     "key": "{base.color.grey.500}"
-  },
-  "hpe.base.color.grey.550": {
-    "$type": "color",
-    "$value": "#ebebeb",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ebebeb",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.grey.550",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "grey",
-      "subitem": "550"
-    },
-    "path": [
-      "base",
-      "color",
-      "grey",
-      "550"
-    ],
-    "key": "{base.color.grey.550}"
   },
   "hpe.base.color.grey.600": {
     "$type": "color",
@@ -6409,48 +5461,6 @@ export default {
     ],
     "key": "{base.fontSize.900}"
   },
-  "hpe.base.fontSize.1000": {
-    "$type": "number",
-    "$value": "4.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": 72,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.fontSize.1000",
-    "attributes": {
-      "category": "base",
-      "type": "fontSize",
-      "item": "1000"
-    },
-    "path": [
-      "base",
-      "fontSize",
-      "1000"
-    ],
-    "key": "{base.fontSize.1000}"
-  },
   "hpe.base.lineHeight.80": {
     "$type": "number",
     "$value": "0.75rem",
@@ -6912,48 +5922,6 @@ export default {
       "900"
     ],
     "key": "{base.lineHeight.900}"
-  },
-  "hpe.base.lineHeight.1000": {
-    "$type": "number",
-    "$value": "4.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": 72,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.lineHeight.1000",
-    "attributes": {
-      "category": "base",
-      "type": "lineHeight",
-      "item": "1000"
-    },
-    "path": [
-      "base",
-      "lineHeight",
-      "1000"
-    ],
-    "key": "{base.lineHeight.1000}"
   },
   "hpe.static.spacing.none": {
     "$type": "number",
@@ -7629,7 +6597,7 @@ export default {
   },
   "hpe.static.radius.xxsmall": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -7644,7 +6612,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.75}",
+      "$value": "{base.dimension.100}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7713,6 +6681,48 @@ export default {
   },
   "hpe.static.radius.small": {
     "$type": "number",
+    "$value": "8px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.small",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "small"
+    },
+    "path": [
+      "static",
+      "radius",
+      "small"
+    ],
+    "key": "{static.radius.small}"
+  },
+  "hpe.static.radius.medium": {
+    "$type": "number",
     "$value": "12px",
     "$description": "",
     "$extensions": {
@@ -7740,20 +6750,62 @@ export default {
         }
       }
     },
-    "name": "hpe.static.radius.small",
+    "name": "hpe.static.radius.medium",
     "attributes": {
       "category": "static",
       "type": "radius",
-      "item": "small"
+      "item": "medium"
     },
     "path": [
       "static",
       "radius",
-      "small"
+      "medium"
     ],
-    "key": "{static.radius.small}"
+    "key": "{static.radius.medium}"
   },
-  "hpe.static.radius.medium": {
+  "hpe.static.radius.large": {
+    "$type": "number",
+    "$value": "16px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.large",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "large"
+    },
+    "path": [
+      "static",
+      "radius",
+      "large"
+    ],
+    "key": "{static.radius.large}"
+  },
+  "hpe.static.radius.xlarge": {
     "$type": "number",
     "$value": "24px",
     "$description": "",
@@ -7782,90 +6834,6 @@ export default {
         }
       }
     },
-    "name": "hpe.static.radius.medium",
-    "attributes": {
-      "category": "static",
-      "type": "radius",
-      "item": "medium"
-    },
-    "path": [
-      "static",
-      "radius",
-      "medium"
-    ],
-    "key": "{static.radius.medium}"
-  },
-  "hpe.static.radius.large": {
-    "$type": "number",
-    "$value": "48px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.1200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.static.radius.large",
-    "attributes": {
-      "category": "static",
-      "type": "radius",
-      "item": "large"
-    },
-    "path": [
-      "static",
-      "radius",
-      "large"
-    ],
-    "key": "{static.radius.large}"
-  },
-  "hpe.static.radius.xlarge": {
-    "$type": "number",
-    "$value": "96px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.2400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "name": "hpe.static.radius.xlarge",
     "attributes": {
       "category": "static",
@@ -7878,6 +6846,48 @@ export default {
       "xlarge"
     ],
     "key": "{static.radius.xlarge}"
+  },
+  "hpe.static.radius.xxlarge": {
+    "$type": "number",
+    "$value": "32px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.800}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.xxlarge",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "xxlarge"
+    },
+    "path": [
+      "static",
+      "radius",
+      "xxlarge"
+    ],
+    "key": "{static.radius.xxlarge}"
   },
   "hpe.static.radius.full": {
     "$type": "number",
@@ -8690,43 +7700,5 @@ export default {
       "3xlarge"
     ],
     "key": "{static.container.3xlarge}"
-  },
-  "hpe.TBD": {
-    "$type": "color",
-    "$value": "rgba(0, 255, 10, 0)",
-    "$description": "Placeholder for colors that still need finalising.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": true,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#00ff0a00",
-      "$description": "Placeholder for colors that still need finalising.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.TBD",
-    "attributes": {
-      "category": "TBD"
-    },
-    "path": [
-      "TBD"
-    ],
-    "key": "{TBD}"
   }
 }

@@ -96,7 +96,7 @@ export default {
         "orange": "#9b6310",
         "yellow": "#8d741c",
         "neutral": "#bbbbbb",
-        "neutral-hover": "#bbbbbb"
+        "neutral-hover": "#cccccc"
       },
       "dataVis": {
         "categorical-10": "#01a982",

@@ -23,11 +23,12 @@ export default {
       "none": "0px",
       "hair": "1px",
       "xxsmall": "1px",
-      "xsmall": "3px",
+      "xsmall": "4px",
       "small": "6px",
-      "medium": "12px",
-      "large": "24px",
-      "xlarge": "48px",
+      "medium": "8px",
+      "large": "12px",
+      "xlarge": "16px",
+      "xxlarge": "24px",
       "full": "9999px"
     },
     "borderWidth": {
