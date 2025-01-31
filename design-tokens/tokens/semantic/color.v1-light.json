@@ -149,12 +149,60 @@
           }
         }
       },
+      "warning": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.orange.400-Opacity12}",
+            "$description": "Use for borders communicating warning or caution.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.green.400-Opacity12}",
+            "$description": "Use for backgrounds communicating success.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
       "info": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.blue.400-Opacity24}",
+            "$value": "{base.color.blue.400-Opacity12}",
             "$description": "Use for backgrounds communicating neutral information.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "critical": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.red.500-Opacity12}",
+            "$description": "Use for backgrounds communicating errors or danger.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -171,54 +219,6 @@
             "$type": "color",
             "$value": "{base.color.black.opacity4}",
             "$description": "Use for backgrounds communicating an unknown status.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "critical": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.red.500-Opacity24}",
-            "$description": "Use for backgrounds communicating errors or danger.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "ok": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.green.400-Opacity24}",
-            "$description": "Use for backgrounds communicating success.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "warning": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.orange.400-Opacity24}",
-            "$description": "Use for borders communicating warning or caution.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -299,7 +299,7 @@
               }
             }
           },
-          "weak": {
+          "DEFAULT": {
             "REST": {
               "$type": "color",
               "$value": "{base.color.green.100}",
@@ -328,20 +328,6 @@
         }
       },
       "neutral": {
-        "strong": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.grey.600}",
-            "$description": "Highest emphasis variant of neutral palette.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["ALL_SCOPES"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        },
         "xstrong": {
           "REST": {
             "$type": "color",
@@ -610,6 +596,18 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.green.800}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{base.color.green.900}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -995,7 +993,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.blue.400}",
+            "$value": "{base.color.blue.900}",
             "$description": "Use for icons communicating neutral information.",
             "$extensions": {
               "com.figma": {
@@ -1239,6 +1237,34 @@
             "$type": "color",
             "$value": "{base.color.yellow.200}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "neutral": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.grey.600}",
+            "$description": "Highest emphasis variant of neutral palette.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{base.color.grey.700}",
+            "$description": "Highest emphasis variant of neutral palette.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,

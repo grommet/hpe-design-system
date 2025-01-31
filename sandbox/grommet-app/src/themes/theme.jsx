@@ -1592,7 +1592,7 @@ const buildTheme = (tokens, flags) => {
     formField: {
       extend: ({ theme }) =>
         `
-          input:disabled { 
+          input:disabled {
             color: ${getThemeColor(
               components.hpe.formField.default.value.disabled.rest.textColor,
               theme,
@@ -1615,9 +1615,6 @@ const buildTheme = (tokens, flags) => {
                   theme,
                 )};
               }
-            }
-            &:has([role="group"]), &:has([role="radiogroup"]), &:has([type="checkbox"]) {
-              border-color: transparent;
             }
             [role="group"], [role="radiogroup"] {
               gap: 0;
@@ -1689,7 +1686,38 @@ const buildTheme = (tokens, flags) => {
             components.hpe.formField.default.medium.input.group.item.paddingY,
         },
         container: {
-          border: {},
+          extend: ({ error }) =>
+            `border-color: ${
+              error
+                ? components.hpe.formField.default.input.group.container.error
+                    .rest.borderColor
+                : components.hpe.formField.default.input.group.container.rest
+                    .borderColor
+            }; `,
+        },
+      },
+      checkBoxGroup: {
+        container: {
+          extend: ({ error }) =>
+            `border-color: ${
+              error
+                ? components.hpe.formField.default.input.group.container.error
+                    .rest.borderColor
+                : components.hpe.formField.default.input.group.container.rest
+                    .borderColor
+            }; `,
+        },
+      },
+      radioButtonGroup: {
+        container: {
+          extend: ({ error }) =>
+            `border-color: ${
+              error
+                ? components.hpe.formField.default.input.group.container.error
+                    .rest.borderColor
+                : components.hpe.formField.default.input.group.container.rest
+                    .borderColor
+            }; `,
         },
       },
       disabled: {
@@ -1732,19 +1760,8 @@ const buildTheme = (tokens, flags) => {
           horizontal: 'none',
         },
       },
-      checkBoxGroup: {
-        container: {
-          border: {},
-          disabled: {
-            border: {},
-          },
-          error: {
-            border: {},
-          },
-        },
-      },
-      radioButtonGroup: {},
       focus: {
+        containerFocus: false,
         background: undefined, // Intentionally not carrying this style through to tokens to rely on global focus indicator
         border: {
           color: undefined, // Intentionally not carrying this style through to tokens to rely on global focus indicator
@@ -1998,16 +2015,14 @@ const buildTheme = (tokens, flags) => {
           top: 'bottom',
           left: 'left',
         },
-        // pad: {
-        //   vertical: components.hpe.menu.default.medium.group.container.paddingY,
-        //   horizontal: 'xsmall',
-        // },
-        // gap: 'medium',
       },
-      // alwaysGroup: true,
-      // specifically box around the items, this is easier for people to understand
       container: {
-        // box props
+        pad: {
+          vertical: components.hpe.menu.default.medium.group.container.paddingY,
+          horizontal:
+            components.hpe.menu.default.medium.group.container.paddingX,
+        },
+        gap: components.hpe.menu.default.medium.group.container.gapY,
       },
       group: {
         drop: {},
@@ -2015,9 +2030,10 @@ const buildTheme = (tokens, flags) => {
           pad: {
             vertical:
               components.hpe.menu.default.medium.group.container.paddingY,
-            horizontal: 'xsmall',
+            horizontal:
+              components.hpe.menu.default.medium.group.container.paddingX,
           },
-          gap: 'xxsmall',
+          gap: components.hpe.menu.default.medium.group.container.gapY,
         },
         separator: {
           color: components.hpe.menu.default.group.separator.background,
