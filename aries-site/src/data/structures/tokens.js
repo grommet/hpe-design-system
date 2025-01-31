@@ -50,9 +50,29 @@ export const tokens = [
       'Layouts determine the positioning of components on a page.',
     sections: [],
     relatedContent: [
+      'Typography system',
       'All design tokens',
       'Using design tokens in code',
       'Using design tokens in Figma',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Typography system',
+    type: 'Getting started',
+    description:
+      'Typography is an essential part of establishing hierarchy and structure to a page, working in tandem with color and spacing.',
+    preview: {
+      component: () => <Text size="3xl">Aa</Text>,
+    },
+    seoDescription:
+      'Typography is an essential part of establishing hierarchy and structure to a page, working in tandem with color and spacing.',
+    sections: [],
+    relatedContent: [
+      'Layout and spacing',
+      'Global',
+      'Element',
+      'All design tokens',
     ],
     tags: [],
   },
