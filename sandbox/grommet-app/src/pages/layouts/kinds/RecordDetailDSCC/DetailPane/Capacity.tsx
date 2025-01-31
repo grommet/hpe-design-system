@@ -3,38 +3,49 @@ import {
   Box,
   Data,
   DataChart,
+  Text,
   ToggleGroup,
   Toolbar
 } from "grommet";
 import ContentPane from "../../../../../components/ContentPane";
 import capacityData from "../../../../../mockData/capacity.json";
 
-const NOW = capacityData.reduce((max, d) => {
+const MOCK_TODAY = capacityData.reduce((max, d) => {
   const date = new Date(d.timestamp);
   return new Date(Math.max(max.getTime(), date.getTime()));
 }, new Date(0));
 
-console.log(NOW);
+const timeframes = {
+  "1H": new Date(MOCK_TODAY.getTime() - 60 * 60 * 1000),
+  "8H": new Date(MOCK_TODAY.getTime() - 8 * 60 * 60 * 1000),
+  "1D": new Date(MOCK_TODAY.getTime() - 24 * 60 * 60 * 1000),
+  "1W": new Date(MOCK_TODAY.getTime() - 7 * 24 * 60 * 60 * 1000),
+};
+const defaultRange = [timeframes["1W"], MOCK_TODAY];
 
 export const Capacity = () => {
   const [data, setData] = React.useState(capacityData);
+  const [range, setRange] = React.useState(defaultRange);
+
+
   const onToggle = (event: { value?: string | string[] }) => {
-    const nextValue = event.value;
+    const nextRange = event.value;
     const nextData = capacityData.filter((d) => {
       const date = new Date(d.timestamp);
-      switch (nextValue) {
+      switch (nextRange) {
         case "1H":
-          return date > new Date(NOW.getTime() - 60 * 60 * 1000);
+          return date > timeframes["1H"];
         case "8H":
-          return date > new Date(NOW.getTime() - 8 * 60 * 60 * 1000);
+          return date > timeframes["8H"];
         case "1D":
-          return date > new Date(NOW.getTime() - 24 * 60 * 60 * 1000);
+          return date > timeframes["1D"];
         case "1W":
-          return date > new Date(NOW.getTime() - 7 * 24 * 60 * 60 * 1000);
+          return date > timeframes["1W"];
         default:
           return false;
       }
     });
+    setRange([timeframes[nextRange as keyof typeof timeframes], MOCK_TODAY]);
     setData(nextData);
   }
 
@@ -47,19 +58,26 @@ export const Capacity = () => {
     >
       <Data data={capacityData}>
         <Box gap="medium">
-          <Toolbar>
-            <ToggleGroup
-              a11yTitle="Choose chart timeframe"
-              options={[
-                { label: "1H", value: "1H" },
-                { label: "8H", value: "8H" },
-                { label: "1D", value: "1D" },
-                { label: "1W", value: "1W" },
-              ]}
-              onToggle={onToggle}
-              defaultValue={["1W"]}
-            />
-          </Toolbar>
+          <Box gap="xxsmall">
+            <Toolbar>
+              <ToggleGroup
+                a11yTitle="Choose chart timeframe"
+                options={[
+                  { label: "1H", value: "1H" },
+                  { label: "8H", value: "8H" },
+                  { label: "1D", value: "1D" },
+                  { label: "1W", value: "1W" },
+                ]}
+                onToggle={onToggle}
+                defaultValue={["1W"]}
+              />
+            </Toolbar>
+            <Text size="small">
+              {Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "medium" }).format(range[0])}
+              {' '}&ndash;{' '}
+              {Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "medium" }).format(range[1])}
+            </Text>
+          </Box>
           <Box height="medium">
             <DataChart
               data={data}
@@ -88,8 +106,8 @@ export const Capacity = () => {
                 y: { property: "used", granularity: "fine" },
               }}
               chart={[
-                { property: "used", type: "line", thickness: "xsmall" },
-                { property: "total capacity", type: "line", thickness: "xxsmall" },
+                { property: "used", type: "line", thickness: "xxsmall" },
+                { property: "total capacity", type: "line", thickness: "xsmall" },
               ]}
               size="fill"
               guide={{
