@@ -13,7 +13,6 @@ export const Metric = ({
   ...rest
 }) => {
   let value = valueProp;
-  console.log('valueProp', valueProp);
 
   if (typeof valueProp === 'number') {
     value = Intl.NumberFormat(undefined, options).format(valueProp);

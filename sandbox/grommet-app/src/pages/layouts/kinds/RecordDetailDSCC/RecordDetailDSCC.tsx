@@ -6,6 +6,7 @@ import {
   PageContent,
   PageHeader
 } from "grommet";
+import { DetailPane } from "./DetailPane";
 import { PerformanceSummary } from "./PerformanceSummary";
 import { PhysicalCapacity } from "./PhysicalCapacity";
 import { SystemSummary } from "./SystemSummary";
@@ -50,7 +51,7 @@ export const RecordDetailDSCC = () => {
             rows={detailRows}
             gap="large"
           >
-            <Box gridArea="detail-1" background="background-front">1</Box>
+            <DetailPane gridArea="detail-1" />
             <Box gridArea="detail-2" background="background-front">2</Box>
           </Grid>
         </Box>
