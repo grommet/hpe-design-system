@@ -298,7 +298,7 @@
       "xxsmall": {
         "$type": "number",
         "$value": "{static.container.xxsmall}",
-        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$description": "Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -310,7 +310,7 @@
       "xsmall": {
         "$type": "number",
         "$value": "{static.container.xxsmall}",
-        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$description": "Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -322,7 +322,7 @@
       "small": {
         "$type": "number",
         "$value": "{static.container.xsmall}",
-        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$description": "Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -346,7 +346,7 @@
       "medium": {
         "$type": "number",
         "$value": "{static.container.small}",
-        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$description": "Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -370,7 +370,7 @@
       "large": {
         "$type": "number",
         "$value": "{static.container.medium}",
-        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$description": "Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -382,7 +382,7 @@
       "xlarge": {
         "$type": "number",
         "$value": "{static.container.large}",
-        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$description": "Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -394,7 +394,7 @@
       "xxlarge": {
         "$type": "number",
         "$value": "{static.container.xlarge}",
-        "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+        "$description": "Container tokens define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1026,7 +1026,7 @@
       "fontWeight": {
         "$type": "number",
         "$value": "{fontWeight.medium}",
-        "$description": "",
+        "$description": "Font weight typically used on h1.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1038,7 +1038,7 @@
       "fontSize": {
         "$type": "number",
         "$value": "{base.fontSize.500}",
-        "$description": "",
+        "$description": "Font size typically used on h1.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1050,7 +1050,7 @@
       "lineHeight": {
         "$type": "number",
         "$value": "{base.lineHeight.200}",
-        "$description": "",
+        "$description": "Line height typically used on h1.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1064,7 +1064,7 @@
       "fontWeight": {
         "$type": "number",
         "$value": "{fontWeight.medium}",
-        "$description": "",
+        "$description": "Font weight typically used on h2.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1076,7 +1076,7 @@
       "fontSize": {
         "$type": "number",
         "$value": "{base.fontSize.300}",
-        "$description": "",
+        "$description": "Font size typically used on h2.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1088,7 +1088,7 @@
       "lineHeight": {
         "$type": "number",
         "$value": "{base.lineHeight.100}",
-        "$description": "",
+        "$description": "Line height typically used on h2.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1102,7 +1102,7 @@
       "fontSize": {
         "$type": "number",
         "$value": "{base.fontSize.100}",
-        "$description": "",
+        "$description": "Font size typically used on h3.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1114,7 +1114,7 @@
       "lineHeight": {
         "$type": "number",
         "$value": "{base.lineHeight.90}",
-        "$description": "",
+        "$description": "Line height typically used on h3.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1126,7 +1126,7 @@
       "fontWeight": {
         "$type": "number",
         "$value": "{fontWeight.medium}",
-        "$description": "",
+        "$description": "Font weight typically used on h3.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1140,7 +1140,7 @@
       "fontSize": {
         "$type": "number",
         "$value": "{base.fontSize.80}",
-        "$description": "",
+        "$description": "Font size typically used on h4.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1152,7 +1152,7 @@
       "lineHeight": {
         "$type": "number",
         "$value": "{base.lineHeight.80}",
-        "$description": "",
+        "$description": "Line height typically used on h4.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1164,7 +1164,7 @@
       "fontWeight": {
         "$type": "number",
         "$value": "{fontWeight.medium}",
-        "$description": "",
+        "$description": "Font weight typically used on h4.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1178,7 +1178,7 @@
       "fontSize": {
         "$type": "number",
         "$value": "{base.fontSize.80}",
-        "$description": "",
+        "$description": "Font size typically used on h5.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1190,7 +1190,7 @@
       "lineHeight": {
         "$type": "number",
         "$value": "{base.lineHeight.80}",
-        "$description": "",
+        "$description": "Line height typically used on h5.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1202,7 +1202,7 @@
       "fontWeight": {
         "$type": "number",
         "$value": "{fontWeight.semibold}",
-        "$description": "",
+        "$description": "Font weight typically used on h5.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1216,7 +1216,7 @@
       "fontSize": {
         "$type": "number",
         "$value": "{base.fontSize.80}",
-        "$description": "",
+        "$description": "Font size typically used on h6.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1228,7 +1228,7 @@
       "lineHeight": {
         "$type": "number",
         "$value": "{base.lineHeight.80}",
-        "$description": "",
+        "$description": "Line height typically used on h6.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
@@ -1240,7 +1240,7 @@
       "fontWeight": {
         "$type": "number",
         "$value": "{fontWeight.semibold}",
-        "$description": "",
+        "$description": "Font weight typically used on h6.",
         "$extensions": {
           "com.figma": {
             "hiddenFromPublishing": false,
