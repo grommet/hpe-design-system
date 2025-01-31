@@ -1108,7 +1108,7 @@ const buildTheme = (tokens, flags) => {
         inRange: {
           color: 'text-onSelectedPrimary',
           hover: {
-            background: 'background-selected-primary-weak-hover',
+            background: 'background-selected-primary-hover',
             color: 'text-onSelectedPrimary',
           },
           font: {
@@ -1118,7 +1118,7 @@ const buildTheme = (tokens, flags) => {
         extend: '',
       },
       range: {
-        background: 'background-selected-primary-weak',
+        background: 'background-selected-primary',
       },
       icons: {
         // next: Next,
