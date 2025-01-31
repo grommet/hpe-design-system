@@ -17,9 +17,8 @@ import { SystemSummary } from "./SystemSummary";
 import { PropertiesGeneral } from "./PropertiesGeneral";
 import { PropertiesRelated } from "./PropertiesRelated";
 
-export const RecordDetailDSCC = () => {
+export const DSCCSystemDetail = () => {
   const breakpoint = useContext(ResponsiveContext);
-  console.log(breakpoint);
 
   const summaryColumns = ["flex", "flex", "auto"];
 
