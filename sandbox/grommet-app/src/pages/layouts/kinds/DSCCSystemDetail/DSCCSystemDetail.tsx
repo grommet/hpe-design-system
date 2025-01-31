@@ -42,13 +42,13 @@ export const DSCCSystemDetail = () => {
     ] :
     [
       ["detail-1", "detail-2"],
-      ["unassigned-1", "detail-3"]
+      ["detail-1", "detail-3"]
     ];
 
   const metricSize = ['xsmall', 'small', 'medium'].includes(breakpoint) ? "small" : "medium";
 
   return (
-    <Page pad={{ bottom: 'xlarge' }} >
+    <Page pad={{ bottom: 'xlarge' }} flex={false}>
       <PageContent>
         <PageHeader
           title="System detail page"
@@ -59,7 +59,7 @@ export const DSCCSystemDetail = () => {
             areas={summaryAreas}
             columns={summaryColumns}
             rows={summaryRows}
-            gap="medium"
+            gap={["large", 'xlarge'].includes(breakpoint) ? "medium" : "small"}
           >
             <SystemSummary gridArea="summary-1" size={metricSize} />
             <PhysicalCapacity gridArea="summary-2" size={metricSize} />
@@ -69,7 +69,7 @@ export const DSCCSystemDetail = () => {
             areas={detailAreas}
             columns={detailColumns}
             rows={detailRows}
-            gap="large"
+            gap={["large", 'xlarge'].includes(breakpoint) ? "large" : "medium"}
           >
             <DetailPane gridArea="detail-1" />
             {/* <Box gridArea="detail-2" gap="medium"> */}
