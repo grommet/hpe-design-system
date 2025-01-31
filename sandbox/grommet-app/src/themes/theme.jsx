@@ -533,6 +533,7 @@ const buildTheme = (tokens, flags) => {
       color: components.hpe.anchor.default.rest.textColor,
       textDecoration: components.hpe.anchor.default.rest.textDecoration,
       fontWeight: components.hpe.anchor.default.rest.fontWeight,
+      gap: components.hpe.anchor.default[size].gapX,
     };
   });
 
@@ -1870,9 +1871,19 @@ const buildTheme = (tokens, flags) => {
           left: 'left',
         },
       },
+      // treat flat array of menu items as a single "group" stylistically
+      container: {
+        pad: {
+          horizontal:
+            components.hpe.menu.default.medium.group.container.paddingX,
+          vertical: components.hpe.menu.default.medium.group.container.paddingY,
+        },
+      },
       group: {
         container: {
           pad: {
+            horizontal:
+              components.hpe.menu.default.medium.group.container.paddingX,
             vertical:
               components.hpe.menu.default.medium.group.container.paddingY,
           },
@@ -2386,8 +2397,6 @@ const buildTheme = (tokens, flags) => {
         },
       },
       control: {
-        // TO DO should this use input tokens?
-        // or should we have a select.control tokens?
         extend: ({ disabled }) => css`
           ${disabled &&
           `
@@ -2417,29 +2426,15 @@ const buildTheme = (tokens, flags) => {
         up: Up,
       },
       options: undefined,
-      container: {
+      listbox: {
         // only apply paddingY to paddingTop because gap caused by Infinite Scroll
         // adds an addition 6px on the bottom
-        // listbox targets container directly surrounding options
-        // [role="option"]:has(input[type="checkbox"]) targets options within SelectMultiple
         extend: () => `
-          [role="listbox"] {
-            padding-top: ${components.hpe.select.default.medium.drop.paddingY};
-            padding-inline: ${
-              components.hpe.select.default.medium.drop.paddingX
-            };
-            display: flex;
-            flex-direction: column;
-            gap: ${components.hpe.select.default.medium.drop.gapY};
-            [role="option"]:has(input[type="checkbox"]) {
-              border-radius: ${
-                dimensions.edgeSize[
-                  components.hpe.formField.default.medium.input.group.item
-                    .borderRadius
-                ]
-              };
-            }
-          }
+          padding-top: ${components.hpe.select.default.medium.drop.paddingY};
+          padding-inline: ${components.hpe.select.default.medium.drop.paddingX};
+          display: flex;
+          flex-direction: column;
+          gap: ${components.hpe.select.default.medium.drop.gapY};
         `,
       },
     },
