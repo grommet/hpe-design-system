@@ -15,13 +15,13 @@ Layouts should be:
 
 ## Foundations
 
-### 4px base unit
-
-Our sizing system is based off of a 4px base unit. Each dimension-related design token is a multiple of this base unit, which ensures alignment as elements are composed alongside each other into layouts.
-
 ### Sizing system
 
-TO DO: Insert information here about formula to derive and select "core" sizes for each category below.
+The sizing scale consists of a primary scale based on the doubling/halving of a 24px base unit and a supplementary scale doubling/halving a 16px base unit.
+
+This results in the following: 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536.
+
+Spacing, container, radius, and borderWidth tokens are created using a subset of this scale.
 
 ## Spacing
 
@@ -69,7 +69,7 @@ Container tokens are particularly useful when defining grid layouts. In other ca
 There are TBD container tokens to provide flexibility to cater to various design needs.
 
 <ContentPane>
-  <DesignTokensTable active="semantic.size" />
+  <DesignTokensTable active="semantic.container" />
 </ContentPane>
 
 ## Radius
