@@ -2890,7 +2890,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 8,
+          "$value": 9,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3208,7 +3208,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 19,
+          "$value": 20,
           "$description": "",
           "$extensions": {
             "com.figma": {

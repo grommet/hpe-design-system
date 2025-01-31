@@ -1073,11 +1073,12 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
-      extend: ({ sizeProp, hasIcon, hasLabel, kind }) => {
+      extend: ({ sizeProp, hasIcon, hasLabel, kind, plain }) => {
         let style = '';
         const iconOnly = hasIcon && !hasLabel;
         // kind and size specific icon-only padding
         if (
+          !plain &&
           iconOnly &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingY &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingX
