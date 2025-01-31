@@ -254,6 +254,18 @@
         }
       }
     },
+    "xxlarge": {
+      "$type": "number",
+      "$value": "{static.radius.xlarge}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["CORNER_RADIUS"],
+          "codeSyntax": {}
+        }
+      }
+    },
     "full": {
       "$type": "number",
       "$value": "{static.radius.full}",

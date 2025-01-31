@@ -5932,7 +5932,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{static.radius.small}",
+          "$value": "{static.radius.medium}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -7396,7 +7396,7 @@
             },
             "borderRadius": {
               "$type": "number",
-              "$value": "{static.radius.medium}",
+              "$value": "{static.radius.full}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7446,7 +7446,7 @@
             },
             "borderRadius": {
               "$type": "number",
-              "$value": "{static.radius.medium}",
+              "$value": "{static.radius.full}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7642,7 +7642,7 @@
             },
             "borderRadius": {
               "$type": "number",
-              "$value": "{static.radius.xsmall}",
+              "$value": "{static.radius.small}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -15100,7 +15100,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.small}",
+          "$value": "{radius.medium}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -15185,7 +15185,7 @@
         "button": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{static.radius.small}",
+            "$value": "{static.radius.medium}",
             "$description": "",
             "$extensions": {
               "com.figma": {

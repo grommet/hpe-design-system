@@ -1911,7 +1911,7 @@
       },
       "xxsmall": {
         "$type": "number",
-        "$value": "{base.dimension.75}",
+        "$value": "{base.dimension.100}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1935,7 +1935,7 @@
       },
       "small": {
         "$type": "number",
-        "$value": "{base.dimension.300}",
+        "$value": "{base.dimension.200}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1947,7 +1947,7 @@
       },
       "medium": {
         "$type": "number",
-        "$value": "{base.dimension.600}",
+        "$value": "{base.dimension.300}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1959,7 +1959,7 @@
       },
       "large": {
         "$type": "number",
-        "$value": "{base.dimension.1200}",
+        "$value": "{base.dimension.400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1971,7 +1971,19 @@
       },
       "xlarge": {
         "$type": "number",
-        "$value": "{base.dimension.2400}",
+        "$value": "{base.dimension.600}",
+        "$description": "",
+        "$extensions": {
+          "com.figma": {
+            "hiddenFromPublishing": false,
+            "scopes": ["CORNER_RADIUS"],
+            "codeSyntax": {}
+          }
+        }
+      },
+      "xxlarge": {
+        "$type": "number",
+        "$value": "{base.dimension.800}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -2212,18 +2224,6 @@
             "codeSyntax": {}
           }
         }
-      }
-    }
-  },
-  "TBD": {
-    "$type": "color",
-    "$value": "#00ff0a00",
-    "$description": "Placeholder for colors that still need finalising.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": true,
-        "scopes": ["ALL_SCOPES"],
-        "codeSyntax": {}
       }
     }
   }
