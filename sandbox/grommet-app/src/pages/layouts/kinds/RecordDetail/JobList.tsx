@@ -31,9 +31,10 @@ export const JobList = (
           background="background-contrast"
           round="small"
           pad={{ left: 'small', right: 'xsmall', vertical: 'small' }}
+          gap="medium"
         >
           <Box direction="row" justify="between">
-            <Text>{datum.name}</Text>
+            <Text color="text-strong" weight={500}>{datum.name}</Text>
             <Box direction="row">
               <Button icon={<Edit />} size="small" />
               <Button icon={<Trash />} size="small" />
