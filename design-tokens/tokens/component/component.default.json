@@ -6495,18 +6495,6 @@
           }
         }
       },
-      "boxShadow": {
-        "$type": "shadow",
-        "$value": "{shadow.medium}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["ALL_SCOPES"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "zIndex": {
         "$type": "number",
         "$value": 110,
