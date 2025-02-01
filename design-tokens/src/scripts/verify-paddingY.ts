@@ -1,5 +1,5 @@
-import { readFileSync, readdirSync } from 'fs';
-import { access, isReference } from '../utils.js';
+import { readFileSync } from 'fs';
+import { access, getThemeFiles, isReference } from '../utils.js';
 
 const getValue = (valueArg: any, tokens: { [key: string]: any }) => {
   let value = valueArg;
@@ -76,30 +76,21 @@ export const descend = (
   });
 };
 
-const TOKENS_DIR = 'tokens';
-const tokenDirs = readdirSync(TOKENS_DIR, { withFileTypes: true })
-  .filter((dir: any) => dir.isDirectory())
-  .map((dir: any) => dir.name);
-
-const tokens = tokenDirs
-  .map(dir =>
-    readdirSync(`${TOKENS_DIR}/${dir}`).map(
-      file => `${TOKENS_DIR}/${dir}/${file}`,
-    ),
-  )
-  .flat();
-
-let allTokens = {};
-tokens.forEach(file => {
-  const raw = readFileSync(file.toString());
-  const parsed = JSON.parse(raw.toString());
-  allTokens = { ...allTokens, ...parsed };
-});
-
 const verifyPaddingY = (tokens: { [key: string]: any }) => {
   const allTokens = tokens;
   descend(tokens, allTokens);
 };
 
-const originalTokens = { ...allTokens };
-verifyPaddingY(originalTokens);
+const themes = getThemeFiles();
+Object.keys(themes).forEach(theme => {
+  console.log(`Verifying theme: ${theme}`);
+  let allTokens = {};
+  themes[theme].forEach(file => {
+    const raw = readFileSync(file.toString());
+    const parsed = JSON.parse(raw.toString());
+    allTokens = { ...allTokens, ...parsed };
+  });
+
+  const originalTokens = { ...allTokens };
+  verifyPaddingY(originalTokens);
+});

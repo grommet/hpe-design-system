@@ -24,12 +24,21 @@ export const Selects = () => {
           <Select
             options={['Option 1', 'Option 2', 'Option 3']}
             placeholder="Select option"
+            multiple
+            onSearch={() => {}}
+            clear
+          />
+        </Compare>
+        <Compare>
+          <Select
+            options={['Option 1', 'Option 2', 'Option 3']}
+            placeholder="Select option"
           >
             {(option, index, options, { selected }) => (
               <CustomOption
                 key={index}
                 background={
-                  selected ? 'background-selected-primary-weak' : undefined
+                  selected ? 'background-selected-primary' : undefined
                 }
                 pad={{ horizontal: 'small', vertical: 'xsmall' }}
                 round="xsmall"

@@ -114,7 +114,6 @@ export const GlobalHeader = ({
                   <FormField
                     label="Mode"
                     alignSelf="start"
-                    contentProps={{ border: false }}
                     htmlFor="theme-mode-toggle"
                     name="theme-mode-toggle"
                   >
