@@ -2,12 +2,12 @@ import React from "react";
 import { Link, Outlet, Route } from 'react-router-dom';
 import { List, Page, PageContent, PageHeader } from "grommet";
 import { RoutedAnchor } from '../../components';
-import { Collection, EmptyState, Form, NavigationalSidebar } from './kinds';
+import { Collection, EmptyState, Form, NavigationalSidebar, RecordDetail } from './kinds';
 
 const layouts = [
   'Collection',
   'Dashboard',
-  'Detail',
+  'Record detail',
   'Empty state',
   'Form',
   'Home',
@@ -58,6 +58,7 @@ const routes = [
   <Route key="empty-state" path="empty-state" element={<EmptyState />} />,
   <Route key="form" path="/layouts/form" element={<Form />} />,
   <Route key="navigational-sidebar" path="navigational-sidebar" element={<NavigationalSidebar />} />,
+  <Route key="record-detail" path="record-detail" element={<RecordDetail />} />,
 ];
 
 export { Layouts, routes };
