@@ -1405,9 +1405,17 @@ const buildTheme = (tokens, flags) => {
         background: components.hpe.switch.default.control.track.rest.background,
         color: components.hpe.switch.default.control.handle.rest.background,
         size: components.hpe.switch.default.medium.control.track.width,
-        // TO DO need token for handle elevation
         knob: {
-          extend: ({ theme, checked, disabled }) => `
+          extend: ({ theme, checked, disabled }) => {
+            const insetHandle =
+              dimensions.borderSize[
+                components.hpe.switch.default.medium.control.handle.borderWidth
+              ] ||
+              dimensions.borderSize[
+                components.hpe.switch.default.medium.control.handle.borderWidth
+              ];
+
+            return `
           box-shadow: ${
             theme.global.elevation[theme.dark ? 'dark' : 'light'][
               components.hpe.switch.default.control.handle.rest.boxShadow
@@ -1418,17 +1426,18 @@ const buildTheme = (tokens, flags) => {
               components.hpe.switch.default.medium.control.handle.borderWidth
             ]
           } solid ${getThemeColor(
-            disabled
-              ? components.hpe.switch.default.control.handle.disabled.rest
-                  .borderColor
-              : components.hpe.switch.default.control.handle.rest.borderColor,
-            theme,
-          )};
+              disabled
+                ? components.hpe.switch.default.control.handle.disabled.rest
+                    .borderColor
+                : components.hpe.switch.default.control.handle.rest.borderColor,
+              theme,
+            )};
           width: ${components.hpe.switch.default.medium.control.handle.width};
           height: ${components.hpe.switch.default.medium.control.handle.height};
-          top: 1px; // TO DO token?
-          ${!checked ? 'left: 1px;' : ''} // TO DO token?
-          `,
+          top: ${insetHandle};
+          left: ${!checked ? insetHandle : '25px'};
+          `;
+          },
         },
         // applies to track around handle
         extend: ({ checked, theme, disabled }) => {
@@ -1471,7 +1480,6 @@ const buildTheme = (tokens, flags) => {
             &:hover {
               ${!disabled ? `background: ${hoverBackground};` : ''}
             }
-            
         `;
         },
       },
@@ -1487,6 +1495,9 @@ const buildTheme = (tokens, flags) => {
         components.hpe.formField.default.input.group.item.rest.borderColor,
         theme,
       )};
+      & input:checked + span[class*=CheckBoxToggle] > span[class*=CheckBoxKnob] {
+        left: 25px;
+      }
       ${
         // override built in disabled opacity: 0.5 from grommet
         disabled &&
