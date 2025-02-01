@@ -164,21 +164,24 @@ const textSizes = [
   '6xl',
 ];
 
-export const optionBefore = props => css`
+export const optionBefore = ({ theme }) => css`
   position: relative;
   &::before {
     display: block;
     position: absolute;
     content: '';
-    width: 6px;
-    border-top-left-radius: 9999px;
-    border-bottom-left-radius: 9999px;
+    width: ${localComponents.hpe.select.default.medium.option.marker.width};
+    border-top-left-radius: ${localComponents.hpe.select.default.medium.option
+      .marker.borderTopLeftRadius};
+    border-bottom-left-radius: ${localComponents.hpe.select.default.medium
+      .option.marker.borderBottomLeftRadius};
     top: 0;
     bottom: 0;
     left: 0;
-    background: ${props.theme.global.colors['border-selected']?.[
-      props.theme.dark ? 'dark' : 'light'
-    ]};
+    background: ${getThemeColor(
+      localComponents.hpe.select.default.option.marker.rest.background,
+      theme,
+    )};
   }
 `;
 
@@ -438,6 +441,32 @@ const buildTheme = (tokens, flags) => {
         : large.hpe.spacing['3xlarge'],
       responsiveBreakpoint: 'small',
     },
+    radius: {
+      none: large.hpe.radius.none,
+      hair: large.hpe.radius.hair,
+      xxsmall: flags['v6-backwards-compatibility']
+        ? '3px'
+        : large.hpe.radius.xxsmall,
+      xsmall: flags['v6-backwards-compatibility']
+        ? '6px'
+        : large.hpe.radius.xsmall,
+      small: flags['v6-backwards-compatibility']
+        ? '12px'
+        : large.hpe.radius.small,
+      medium: flags['v6-backwards-compatibility']
+        ? '24px'
+        : large.hpe.radius.medium,
+      large: flags['v6-backwards-compatibility']
+        ? '48px'
+        : large.hpe.radius.large,
+      xlarge: flags['v6-backwards-compatibility']
+        ? '96px'
+        : large.hpe.radius.xlarge,
+      xxlarge: flags['v6-backwards-compatibility']
+        ? undefined
+        : large.hpe.radius.xxlarge,
+      responsiveBreakpoint: 'small',
+    },
     size: size(large),
     breakpoints: {
       xsmall: {
@@ -458,6 +487,32 @@ const buildTheme = (tokens, flags) => {
           medium: small.hpe.spacing.medium,
           large: small.hpe.spacing.large,
           xlarge: small.hpe.spacing.xlarge,
+          responsiveBreakpoint: 'small',
+        },
+        radius: {
+          none: small.hpe.radius.none,
+          hair: small.hpe.radius.hair,
+          xxsmall: flags['v6-backwards-compatibility']
+            ? '1px'
+            : small.hpe.radius.xxsmall,
+          xsmall: flags['v6-backwards-compatibility']
+            ? '3px'
+            : small.hpe.radius.xsmall,
+          small: flags['v6-backwards-compatibility']
+            ? '6px'
+            : small.hpe.radius.small,
+          medium: flags['v6-backwards-compatibility']
+            ? '12px'
+            : small.hpe.radius.medium,
+          large: flags['v6-backwards-compatibility']
+            ? '24px'
+            : small.hpe.radius.large,
+          xlarge: flags['v6-backwards-compatibility']
+            ? '48px'
+            : small.hpe.radius.xlarge,
+          xxlarge: flags['v6-backwards-compatibility']
+            ? undefined
+            : small.hpe.radius.xxlarge,
           responsiveBreakpoint: 'small',
         },
         size: size(small),
@@ -481,6 +536,32 @@ const buildTheme = (tokens, flags) => {
           medium: small.hpe.spacing.medium,
           large: small.hpe.spacing.large,
           xlarge: small.hpe.spacing.xlarge,
+          responsiveBreakpoint: 'small',
+        },
+        radius: {
+          none: small.hpe.radius.none,
+          hair: small.hpe.radius.hair,
+          xxsmall: flags['v6-backwards-compatibility']
+            ? '1px'
+            : small.hpe.radius.xxsmall,
+          xsmall: flags['v6-backwards-compatibility']
+            ? '3px'
+            : small.hpe.radius.xsmall,
+          small: flags['v6-backwards-compatibility']
+            ? '6px'
+            : small.hpe.radius.small,
+          medium: flags['v6-backwards-compatibility']
+            ? '12px'
+            : small.hpe.radius.medium,
+          large: flags['v6-backwards-compatibility']
+            ? '24px'
+            : small.hpe.radius.large,
+          xlarge: flags['v6-backwards-compatibility']
+            ? '48px'
+            : small.hpe.radius.xlarge,
+          xxlarge: flags['v6-backwards-compatibility']
+            ? undefined
+            : small.hpe.radius.xxlarge,
           responsiveBreakpoint: 'small',
         },
         size: size(small),
@@ -533,6 +614,7 @@ const buildTheme = (tokens, flags) => {
       color: components.hpe.anchor.default.rest.textColor,
       textDecoration: components.hpe.anchor.default.rest.textDecoration,
       fontWeight: components.hpe.anchor.default.rest.fontWeight,
+      gap: components.hpe.anchor.default[size].gapX,
     };
   });
 
@@ -1007,17 +1089,26 @@ const buildTheme = (tokens, flags) => {
               display: block;
               position: absolute;
               content: '';
-              width: 6px; // hpe.spacing['3xsmall']
-              border-top-left-radius: 9999px; // hpe.radius.full
-              border-bottom-left-radius: 9999px; // hpe.radius.full
-              top: -1px; // hpe.select.default.medium.option.borderWidth
-              bottom: -1px; // hpe.select.default.medium.option.borderWidth
-              left: -1px; // hpe.select.default.medium.option.borderWidth
-              background: ${
-                theme.global.colors['border-selected']?.[
-                  theme.dark ? 'dark' : 'light'
-                ]
+              width: ${
+                components.hpe.select.default.medium.option.marker.width
               };
+              border-top-left-radius: ${
+                components.hpe.select.default.medium.option.marker
+                  .borderTopLeftRadius
+              };
+              border-bottom-left-radius: ${
+                components.hpe.select.default.medium.option.marker
+                  .borderBottomLeftRadius
+              };
+              top: ${components.hpe.select.default.medium.option.marker.top};
+              bottom: ${
+                components.hpe.select.default.medium.option.marker.bottom
+              };
+              left: ${components.hpe.select.default.medium.option.marker.left};
+              background: ${getThemeColor(
+                components.hpe.select.default.option.marker.rest.background,
+                theme,
+              )};
             }
           `,
         },
@@ -1058,7 +1149,7 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
-      extend: ({ sizeProp, hasIcon, hasLabel, kind }) => {
+      extend: ({ sizeProp, hasIcon, hasLabel, kind, plain }) => {
         // necessary so primary label is accessible on HPE green background
         let style = '';
         const iconOnly = hasIcon && !hasLabel;
@@ -1077,6 +1168,7 @@ const buildTheme = (tokens, flags) => {
 
         // kind and size specific icon-only padding
         if (
+          !plain &&
           iconOnly &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingY &&
           components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingX
@@ -1589,6 +1681,12 @@ const buildTheme = (tokens, flags) => {
         label: {
           color: components.hpe.formField.default.label.disabled.rest.textColor,
         },
+        help: {
+          color: components.hpe.formField.default.help.disabled.rest.color,
+        },
+        info: {
+          color: components.hpe.formField.default.info.disabled.rest.textColor,
+        },
       },
       error: {
         background: {
@@ -1864,9 +1962,19 @@ const buildTheme = (tokens, flags) => {
           left: 'left',
         },
       },
+      // treat flat array of menu items as a single "group" stylistically
+      container: {
+        pad: {
+          horizontal:
+            components.hpe.menu.default.medium.group.container.paddingX,
+          vertical: components.hpe.menu.default.medium.group.container.paddingY,
+        },
+      },
       group: {
         container: {
           pad: {
+            horizontal:
+              components.hpe.menu.default.medium.group.container.paddingX,
             vertical:
               components.hpe.menu.default.medium.group.container.paddingY,
           },
@@ -2380,8 +2488,6 @@ const buildTheme = (tokens, flags) => {
         },
       },
       control: {
-        // TO DO should this use input tokens?
-        // or should we have a select.control tokens?
         extend: ({ disabled }) => css`
           ${disabled &&
           `
@@ -2411,29 +2517,15 @@ const buildTheme = (tokens, flags) => {
         up: Up,
       },
       options: undefined,
-      container: {
+      listbox: {
         // only apply paddingY to paddingTop because gap caused by Infinite Scroll
         // adds an addition 6px on the bottom
-        // listbox targets container directly surrounding options
-        // [role="option"]:has(input[type="checkbox"]) targets options within SelectMultiple
         extend: () => `
-          [role="listbox"] {
-            padding-top: ${components.hpe.select.default.medium.drop.paddingY};
-            padding-inline: ${
-              components.hpe.select.default.medium.drop.paddingX
-            };
-            display: flex;
-            flex-direction: column;
-            gap: ${components.hpe.select.default.medium.drop.gapY};
-            [role="option"]:has(input[type="checkbox"]) {
-              border-radius: ${
-                dimensions.edgeSize[
-                  components.hpe.formField.default.medium.input.group.item
-                    .borderRadius
-                ]
-              };
-            }
-          }
+          padding-top: ${components.hpe.select.default.medium.drop.paddingY};
+          padding-inline: ${components.hpe.select.default.medium.drop.paddingX};
+          display: flex;
+          flex-direction: column;
+          gap: ${components.hpe.select.default.medium.drop.gapY};
         `,
       },
     },

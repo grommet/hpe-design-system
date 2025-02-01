@@ -38,7 +38,7 @@ export const Selects = () => {
               <CustomOption
                 key={index}
                 background={
-                  selected ? 'background-selected-primary-weak' : undefined
+                  selected ? 'background-selected-primary' : undefined
                 }
                 pad={{ horizontal: 'small', vertical: 'xsmall' }}
                 round="xsmall"

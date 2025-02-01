@@ -117,7 +117,7 @@ try {
         files: [
           {
             destination: 'global.js',
-            format: 'esmGrommetRefs',
+            format: 'javascript/esm',
             filter: token =>
               token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
           },
@@ -420,7 +420,7 @@ try {
             filter: token =>
               token.filePath.includes(`${TOKENS_DIR}/component/`) &&
               !token.path.includes(FIGMA_PREFIX),
-            format: 'esmGrommetRefs',
+            format: 'javascript/esm',
           },
         ],
       },
