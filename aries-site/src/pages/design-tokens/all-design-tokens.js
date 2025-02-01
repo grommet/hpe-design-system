@@ -50,7 +50,7 @@ Object.keys(tokens).forEach(mode => {
     if (!('modes' in structuredTokens[level][category][token]))
       structuredTokens[level][category][token].modes = {};
 
-    if (level === 'semantic' && mode !== 'global') {
+    if (level === 'semantic' && mode !== 'global' && mode !== 'dimension') {
       structuredTokens[level][category][token].modes[mode] = currentToken;
     } else
       structuredTokens[level][category][token].modes.default = currentToken;
