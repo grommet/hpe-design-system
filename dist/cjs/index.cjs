@@ -1,9 +1,7 @@
-const base = require('./base.cjs');
-const dark = require('./color.dark.cjs');
-const light = require('./color.light.cjs');
-const components = require('./components.default.cjs');
-const medium = require('./dimension.medium.cjs');
-const small = require('./dimension.small.cjs');
+const color = require('./color.cjs');
+const components = require('./components.cjs');
+const dimension = require('./dimension.cjs');
 const global = require('./global.cjs');
+const primitives = require('./primitives.cjs');
 
-module.exports = { base,dark,light,components,medium,small,global };
+module.exports = { color,components,dimension,global,primitives };

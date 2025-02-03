@@ -5,30 +5,27 @@
 export default {
   "hpe": {
     "focusIndicator": {
-      "outline": {
-        "color": "focus",
-        "width": "2px",
-        "style": "solid"
-      }
+      "outline": "var(--hpe-focusIndicator-outline)",
+      "outlineOffset": "var(--hpe-focusIndicator-outlineOffset)",
+      "boxShadow": "var(--hpe-focusIndicator-boxShadow)"
     },
     "fontStack": {
-      "primary": "'Metric', Arial, sans-serif",
-      "code": "'Fira Mono', ui-monospace, monospace"
+      "primary": "var(--hpe-fontStack-primary)"
     },
     "breakpoint": {
-      "xsmall": "576px",
-      "small": "768px",
-      "medium": "1080px",
-      "large": "1440px"
+      "xsmall": "var(--hpe-breakpoint-xsmall)",
+      "small": "var(--hpe-breakpoint-small)",
+      "medium": "var(--hpe-breakpoint-medium)",
+      "large": "var(--hpe-breakpoint-large)"
     },
     "fontWeight": {
-      "thin": 100,
-      "light": 300,
-      "regular": 400,
-      "medium": 500,
-      "semibold": 600,
-      "bold": 700,
-      "black": 900
+      "thin": "var(--hpe-fontWeight-thin)",
+      "light": "var(--hpe-fontWeight-light)",
+      "regular": "var(--hpe-fontWeight-regular)",
+      "medium": "var(--hpe-fontWeight-medium)",
+      "semibold": "var(--hpe-fontWeight-semibold)",
+      "bold": "var(--hpe-fontWeight-bold)",
+      "black": "var(--hpe-fontWeight-black)"
     }
   }
 }

@@ -7,7 +7,7 @@ export default {
     "$type": "border",
     "$value": {
       "style": "solid",
-      "color": "#00e8cf",
+      "color": "#004233",
       "width": "2px"
     },
     "$description": "",
@@ -44,12 +44,97 @@ export default {
     "path": [
       "focusIndicator",
       "outline"
-    ]
+    ],
+    "key": "{focusIndicator.outline}"
+  },
+  "hpe.focusIndicator.outlineOffset": {
+    "$type": "number",
+    "$value": "2px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": true,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/global.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 2,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.focusIndicator.outlineOffset",
+    "attributes": {
+      "category": "focusIndicator",
+      "type": "outlineOffset"
+    },
+    "path": [
+      "focusIndicator",
+      "outlineOffset"
+    ],
+    "key": "{focusIndicator.outlineOffset}"
+  },
+  "hpe.focusIndicator.boxShadow": {
+    "$type": "shadow",
+    "$value": "0 0 0 2px #ffffff ",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/global.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": 0,
+          "offsetY": 0,
+          "blur": 0,
+          "spread": "{focusIndicator.outlineOffset}",
+          "color": "{base.color.white.100}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.focusIndicator.boxShadow",
+    "attributes": {
+      "category": "focusIndicator",
+      "type": "boxShadow"
+    },
+    "path": [
+      "focusIndicator",
+      "boxShadow"
+    ],
+    "key": "{focusIndicator.boxShadow}"
   },
   "hpe.fontStack.primary": {
     "$type": "fontFamily",
     "$value": "'Metric', Arial, sans-serif",
-    "$description": "For dev use only.",
+    "$description": "The main font stack for an application.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -64,7 +149,7 @@ export default {
     "original": {
       "$type": "fontFamily",
       "$value": "'Metric', Arial, sans-serif",
-      "$description": "For dev use only.",
+      "$description": "The main font stack for an application.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -83,46 +168,8 @@ export default {
     "path": [
       "fontStack",
       "primary"
-    ]
-  },
-  "hpe.fontStack.code": {
-    "$type": "fontFamily",
-    "$value": "'Fira Mono', ui-monospace, monospace",
-    "$description": "For dev use only.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": true,
-        "scopes": [
-          "FONT_FAMILY"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/global.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "fontFamily",
-      "$value": "'Fira Mono', ui-monospace, monospace",
-      "$description": "For dev use only.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "FONT_FAMILY"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.fontStack.code",
-    "attributes": {
-      "category": "fontStack",
-      "type": "code"
-    },
-    "path": [
-      "fontStack",
-      "code"
-    ]
+    ],
+    "key": "{fontStack.primary}"
   },
   "hpe.breakpoint.xsmall": {
     "$type": "number",
@@ -161,12 +208,13 @@ export default {
     "path": [
       "breakpoint",
       "xsmall"
-    ]
+    ],
+    "key": "{breakpoint.xsmall}"
   },
   "hpe.breakpoint.small": {
     "$type": "number",
     "$value": "768px",
-    "$description": "",
+    "$description": "The breakpoint where spacing and typography sizes shift down to accommodate smaller screen sizes.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -181,7 +229,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 768,
-      "$description": "",
+      "$description": "The breakpoint where spacing and typography sizes shift down to accommodate smaller screen sizes.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -200,7 +248,8 @@ export default {
     "path": [
       "breakpoint",
       "small"
-    ]
+    ],
+    "key": "{breakpoint.small}"
   },
   "hpe.breakpoint.medium": {
     "$type": "number",
@@ -239,7 +288,8 @@ export default {
     "path": [
       "breakpoint",
       "medium"
-    ]
+    ],
+    "key": "{breakpoint.medium}"
   },
   "hpe.breakpoint.large": {
     "$type": "number",
@@ -278,12 +328,13 @@ export default {
     "path": [
       "breakpoint",
       "large"
-    ]
+    ],
+    "key": "{breakpoint.large}"
   },
   "hpe.fontWeight.thin": {
     "$type": "number",
     "$value": 100,
-    "$description": "",
+    "$description": "Thin is rarely, if at all, used.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -298,7 +349,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 100,
-      "$description": "",
+      "$description": "Thin is rarely, if at all, used.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -317,7 +368,8 @@ export default {
     "path": [
       "fontWeight",
       "thin"
-    ]
+    ],
+    "key": "{fontWeight.thin}"
   },
   "hpe.fontWeight.light": {
     "$type": "number",
@@ -356,12 +408,13 @@ export default {
     "path": [
       "fontWeight",
       "light"
-    ]
+    ],
+    "key": "{fontWeight.light}"
   },
   "hpe.fontWeight.regular": {
     "$type": "number",
     "$value": 400,
-    "$description": "",
+    "$description": "The default font-weight for most text.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -376,7 +429,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 400,
-      "$description": "",
+      "$description": "The default font-weight for most text.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -395,12 +448,13 @@ export default {
     "path": [
       "fontWeight",
       "regular"
-    ]
+    ],
+    "key": "{fontWeight.regular}"
   },
   "hpe.fontWeight.medium": {
     "$type": "number",
     "$value": 500,
-    "$description": "",
+    "$description": "The font-weight generally used when increased emphasis is desired.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -415,7 +469,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 500,
-      "$description": "",
+      "$description": "The font-weight generally used when increased emphasis is desired.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -434,7 +488,8 @@ export default {
     "path": [
       "fontWeight",
       "medium"
-    ]
+    ],
+    "key": "{fontWeight.medium}"
   },
   "hpe.fontWeight.semibold": {
     "$type": "number",
@@ -473,12 +528,13 @@ export default {
     "path": [
       "fontWeight",
       "semibold"
-    ]
+    ],
+    "key": "{fontWeight.semibold}"
   },
   "hpe.fontWeight.bold": {
     "$type": "number",
     "$value": 700,
-    "$description": "",
+    "$description": "Bold is used sparingly because it has reduced readability especially at smaller font sizes.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -493,7 +549,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 700,
-      "$description": "",
+      "$description": "Bold is used sparingly because it has reduced readability especially at smaller font sizes.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -512,12 +568,13 @@ export default {
     "path": [
       "fontWeight",
       "bold"
-    ]
+    ],
+    "key": "{fontWeight.bold}"
   },
   "hpe.fontWeight.black": {
     "$type": "number",
     "$value": 900,
-    "$description": "",
+    "$description": "Black is rarely, if at all, used.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -532,7 +589,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": 900,
-      "$description": "",
+      "$description": "Black is rarely, if at all, used.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -551,6 +608,7 @@ export default {
     "path": [
       "fontWeight",
       "black"
-    ]
+    ],
+    "key": "{fontWeight.black}"
   }
 }

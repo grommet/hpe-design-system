@@ -3,18 +3,19 @@
  */
 
 :root {
-  --hpe-font-stack-primary: 'Metric', Arial, sans-serif; /* For dev use only. */
-  --hpe-font-stack-code: 'Fira Mono', ui-monospace, monospace; /* For dev use only. */
+  --hpe-focusIndicator-outlineOffset: 2px;
+  --hpe-fontStack-primary: 'Metric', Arial, sans-serif; /* The main font stack for an application. */
   --hpe-breakpoint-xsmall: 576px;
-  --hpe-breakpoint-small: 768px;
+  --hpe-breakpoint-small: 768px; /* The breakpoint where spacing and typography sizes shift down to accommodate smaller screen sizes. */
   --hpe-breakpoint-medium: 1080px;
   --hpe-breakpoint-large: 1440px;
-  --hpe-font-weight-thin: 100;
-  --hpe-font-weight-light: 300;
-  --hpe-font-weight-regular: 400;
-  --hpe-font-weight-medium: 500;
-  --hpe-font-weight-semibold: 600;
-  --hpe-font-weight-bold: 700;
-  --hpe-font-weight-black: 900;
-  --hpe-focus-indicator-outline: var(--hpe-base-dimension-50) solid var(--hpe-color-focus);
+  --hpe-fontWeight-thin: 100; /* Thin is rarely, if at all, used. */
+  --hpe-fontWeight-light: 300;
+  --hpe-fontWeight-regular: 400; /* The default font-weight for most text. */
+  --hpe-fontWeight-medium: 500; /* The font-weight generally used when increased emphasis is desired. */
+  --hpe-fontWeight-semibold: 600;
+  --hpe-fontWeight-bold: 700; /* Bold is used sparingly because it has reduced readability especially at smaller font sizes. */
+  --hpe-fontWeight-black: 900; /* Black is rarely, if at all, used. */
+  --hpe-focusIndicator-outline: var(--hpe-base-dimension-50) solid var(--hpe-color-focus);
+  --hpe-focusIndicator-boxShadow: 0 0 0 var(--hpe-focusIndicator-outlineOffset) var(--hpe-base-color-white-100) ;
 }

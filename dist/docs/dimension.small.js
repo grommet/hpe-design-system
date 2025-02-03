@@ -20,7 +20,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.none}",
+      "$value": "{static.spacing.none}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40,7 +40,8 @@ export default {
     "path": [
       "spacing",
       "none"
-    ]
+    ],
+    "key": "{spacing.none}"
   },
   "hpe.spacing.hair": {
     "$type": "number",
@@ -59,7 +60,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.hair}",
+      "$value": "{static.spacing.hair}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -79,9 +80,10 @@ export default {
     "path": [
       "spacing",
       "hair"
-    ]
+    ],
+    "key": "{spacing.hair}"
   },
-  "hpe.spacing.xxsmall": {
+  "hpe.spacing.5xsmall": {
     "$type": "number",
     "$value": "3px",
     "$description": "",
@@ -98,7 +100,127 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
+      "$value": "{static.spacing.5xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.spacing.5xsmall",
+    "attributes": {
+      "category": "spacing",
+      "type": "5xsmall"
+    },
+    "path": [
+      "spacing",
+      "5xsmall"
+    ],
+    "key": "{spacing.5xsmall}"
+  },
+  "hpe.spacing.4xsmall": {
+    "$type": "number",
+    "$value": "3px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.spacing.5xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.spacing.4xsmall",
+    "attributes": {
+      "category": "spacing",
+      "type": "4xsmall"
+    },
+    "path": [
+      "spacing",
+      "4xsmall"
+    ],
+    "key": "{spacing.4xsmall}"
+  },
+  "hpe.spacing.3xsmall": {
+    "$type": "number",
+    "$value": "3px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.spacing.5xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.spacing.3xsmall",
+    "attributes": {
+      "category": "spacing",
+      "type": "3xsmall"
+    },
+    "path": [
+      "spacing",
+      "3xsmall"
+    ],
+    "key": "{spacing.3xsmall}"
+  },
+  "hpe.spacing.xxsmall": {
+    "$type": "number",
+    "$value": "4px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.spacing.4xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -118,11 +240,12 @@ export default {
     "path": [
       "spacing",
       "xxsmall"
-    ]
+    ],
+    "key": "{spacing.xxsmall}"
   },
   "hpe.spacing.xsmall": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "6px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -137,7 +260,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xxsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -157,11 +280,12 @@ export default {
     "path": [
       "spacing",
       "xsmall"
-    ]
+    ],
+    "key": "{spacing.xsmall}"
   },
   "hpe.spacing.small": {
     "$type": "number",
-    "$value": "6px",
+    "$value": "8px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -176,7 +300,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.xsmall}",
+      "$value": "{static.spacing.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -196,7 +320,8 @@ export default {
     "path": [
       "spacing",
       "small"
-    ]
+    ],
+    "key": "{spacing.small}"
   },
   "hpe.spacing.medium": {
     "$type": "number",
@@ -215,7 +340,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -235,11 +360,12 @@ export default {
     "path": [
       "spacing",
       "medium"
-    ]
+    ],
+    "key": "{spacing.medium}"
   },
   "hpe.spacing.large": {
     "$type": "number",
-    "$value": "24px",
+    "$value": "16px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -254,7 +380,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.medium}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -274,11 +400,12 @@ export default {
     "path": [
       "spacing",
       "large"
-    ]
+    ],
+    "key": "{spacing.large}"
   },
   "hpe.spacing.xlarge": {
     "$type": "number",
-    "$value": "48px",
+    "$value": "24px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -293,7 +420,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.spacing.large}",
+      "$value": "{static.spacing.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -313,7 +440,88 @@ export default {
     "path": [
       "spacing",
       "xlarge"
-    ]
+    ],
+    "key": "{spacing.xlarge}"
+  },
+  "hpe.spacing.xxlarge": {
+    "$type": "number",
+    "$value": "32px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.spacing.large}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.spacing.xxlarge",
+    "attributes": {
+      "category": "spacing",
+      "type": "xxlarge"
+    },
+    "path": [
+      "spacing",
+      "xxlarge"
+    ],
+    "key": "{spacing.xxlarge}"
+  },
+  "hpe.spacing.3xlarge": {
+    "$type": "number",
+    "$value": "48px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.spacing.xlarge}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.spacing.3xlarge",
+    "attributes": {
+      "category": "spacing",
+      "type": "3xlarge"
+    },
+    "path": [
+      "spacing",
+      "3xlarge"
+    ],
+    "key": "{spacing.3xlarge}"
   },
   "hpe.radius.none": {
     "$type": "number",
@@ -332,7 +540,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.none}",
+      "$value": "{static.radius.none}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -352,7 +560,8 @@ export default {
     "path": [
       "radius",
       "none"
-    ]
+    ],
+    "key": "{radius.none}"
   },
   "hpe.radius.hair": {
     "$type": "number",
@@ -371,7 +580,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.hair}",
+      "$value": "{static.radius.hair}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -391,7 +600,8 @@ export default {
     "path": [
       "radius",
       "hair"
-    ]
+    ],
+    "key": "{radius.hair}"
   },
   "hpe.radius.xxsmall": {
     "$type": "number",
@@ -410,7 +620,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.hair}",
+      "$value": "{static.radius.hair}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -430,7 +640,8 @@ export default {
     "path": [
       "radius",
       "xxsmall"
-    ]
+    ],
+    "key": "{radius.xxsmall}"
   },
   "hpe.radius.xsmall": {
     "$type": "number",
@@ -449,7 +660,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xxsmall}",
+      "$value": "{static.radius.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -469,7 +680,8 @@ export default {
     "path": [
       "radius",
       "xsmall"
-    ]
+    ],
+    "key": "{radius.xsmall}"
   },
   "hpe.radius.small": {
     "$type": "number",
@@ -488,7 +700,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.xsmall}",
+      "$value": "{static.radius.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -508,7 +720,8 @@ export default {
     "path": [
       "radius",
       "small"
-    ]
+    ],
+    "key": "{radius.small}"
   },
   "hpe.radius.medium": {
     "$type": "number",
@@ -527,7 +740,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.small}",
+      "$value": "{static.radius.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -547,7 +760,8 @@ export default {
     "path": [
       "radius",
       "medium"
-    ]
+    ],
+    "key": "{radius.medium}"
   },
   "hpe.radius.large": {
     "$type": "number",
@@ -566,7 +780,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.medium}",
+      "$value": "{static.radius.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -586,7 +800,8 @@ export default {
     "path": [
       "radius",
       "large"
-    ]
+    ],
+    "key": "{radius.large}"
   },
   "hpe.radius.xlarge": {
     "$type": "number",
@@ -605,7 +820,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.large}",
+      "$value": "{static.radius.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -625,11 +840,12 @@ export default {
     "path": [
       "radius",
       "xlarge"
-    ]
+    ],
+    "key": "{radius.xlarge}"
   },
   "hpe.radius.full": {
     "$type": "number",
-    "$value": "384px",
+    "$value": "9999px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -644,7 +860,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.9600}",
+      "$value": "{static.radius.full}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -664,7 +880,8 @@ export default {
     "path": [
       "radius",
       "full"
-    ]
+    ],
+    "key": "{radius.full}"
   },
   "hpe.borderWidth.none": {
     "$type": "number",
@@ -684,7 +901,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.none}",
+      "$value": "{static.borderWidth.none}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -705,7 +922,8 @@ export default {
     "path": [
       "borderWidth",
       "none"
-    ]
+    ],
+    "key": "{borderWidth.none}"
   },
   "hpe.borderWidth.xsmall": {
     "$type": "number",
@@ -725,7 +943,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
+      "$value": "{static.borderWidth.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -746,7 +964,8 @@ export default {
     "path": [
       "borderWidth",
       "xsmall"
-    ]
+    ],
+    "key": "{borderWidth.xsmall}"
   },
   "hpe.borderWidth.small": {
     "$type": "number",
@@ -766,7 +985,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
+      "$value": "{static.borderWidth.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -787,7 +1006,8 @@ export default {
     "path": [
       "borderWidth",
       "small"
-    ]
+    ],
+    "key": "{borderWidth.small}"
   },
   "hpe.borderWidth.medium": {
     "$type": "number",
@@ -807,7 +1027,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.small}",
+      "$value": "{static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -828,7 +1048,8 @@ export default {
     "path": [
       "borderWidth",
       "medium"
-    ]
+    ],
+    "key": "{borderWidth.medium}"
   },
   "hpe.borderWidth.large": {
     "$type": "number",
@@ -848,7 +1069,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.medium}",
+      "$value": "{static.borderWidth.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -869,7 +1090,8 @@ export default {
     "path": [
       "borderWidth",
       "large"
-    ]
+    ],
+    "key": "{borderWidth.large}"
   },
   "hpe.borderWidth.xlarge": {
     "$type": "number",
@@ -889,7 +1111,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.large}",
+      "$value": "{static.borderWidth.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -910,7 +1132,8 @@ export default {
     "path": [
       "borderWidth",
       "xlarge"
-    ]
+    ],
+    "key": "{borderWidth.xlarge}"
   },
   "hpe.borderWidth.default": {
     "$type": "number",
@@ -930,7 +1153,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.borderWidth.xsmall}",
+      "$value": "{static.borderWidth.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -951,12 +1174,13 @@ export default {
     "path": [
       "borderWidth",
       "default"
-    ]
+    ],
+    "key": "{borderWidth.default}"
   },
-  "hpe.size.content.xxsmall": {
+  "hpe.container.5xsmall": {
     "$type": "number",
     "$value": "48px",
-    "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+    "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -970,8 +1194,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.xxsmall}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$value": "{static.container.5xsmall}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -982,63 +1206,141 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.xxsmall",
+    "name": "hpe.container.5xsmall",
     "attributes": {
-      "category": "size",
-      "type": "content",
-      "item": "xxsmall"
+      "category": "container",
+      "type": "5xsmall"
     },
     "path": [
-      "size",
-      "content",
+      "container",
+      "5xsmall"
+    ],
+    "key": "{container.5xsmall}"
+  },
+  "hpe.container.4xsmall": {
+    "$type": "number",
+    "$value": "48px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.container.5xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.container.4xsmall",
+    "attributes": {
+      "category": "container",
+      "type": "4xsmall"
+    },
+    "path": [
+      "container",
+      "4xsmall"
+    ],
+    "key": "{container.4xsmall}"
+  },
+  "hpe.container.3xsmall": {
+    "$type": "number",
+    "$value": "48px",
+    "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.container.5xsmall}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.container.3xsmall",
+    "attributes": {
+      "category": "container",
+      "type": "3xsmall"
+    },
+    "path": [
+      "container",
+      "3xsmall"
+    ],
+    "key": "{container.3xsmall}"
+  },
+  "hpe.container.xxsmall": {
+    "$type": "number",
+    "$value": "64px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.container.4xsmall}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.container.xxsmall",
+    "attributes": {
+      "category": "container",
+      "type": "xxsmall"
+    },
+    "path": [
+      "container",
       "xxsmall"
-    ]
+    ],
+    "key": "{container.xxsmall}"
   },
-  "hpe.size.content.xsmall": {
-    "$type": "number",
-    "$value": "48px",
-    "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "WIDTH_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.static.content.xxsmall}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.size.content.xsmall",
-    "attributes": {
-      "category": "size",
-      "type": "content",
-      "item": "xsmall"
-    },
-    "path": [
-      "size",
-      "content",
-      "xsmall"
-    ]
-  },
-  "hpe.size.content.small": {
+  "hpe.container.xsmall": {
     "$type": "number",
     "$value": "96px",
-    "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+    "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1052,8 +1354,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.xsmall}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$value": "{static.container.3xsmall}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1064,21 +1366,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.small",
+    "name": "hpe.container.xsmall",
     "attributes": {
-      "category": "size",
-      "type": "content",
-      "item": "small"
+      "category": "container",
+      "type": "xsmall"
     },
     "path": [
-      "size",
-      "content",
-      "small"
-    ]
+      "container",
+      "xsmall"
+    ],
+    "key": "{container.xsmall}"
   },
-  "hpe.size.content.smallPlus": {
+  "hpe.container.small": {
     "$type": "number",
-    "$value": "12px",
+    "$value": "128px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1093,7 +1394,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.radius.small}",
+      "$value": "{static.container.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1105,22 +1406,21 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.smallPlus",
+    "name": "hpe.container.small",
     "attributes": {
-      "category": "size",
-      "type": "content",
-      "item": "smallPlus"
+      "category": "container",
+      "type": "small"
     },
     "path": [
-      "size",
-      "content",
-      "smallPlus"
-    ]
+      "container",
+      "small"
+    ],
+    "key": "{container.small}"
   },
-  "hpe.size.content.medium": {
+  "hpe.container.medium": {
     "$type": "number",
     "$value": "192px",
-    "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+    "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1134,8 +1434,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.small}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$value": "{static.container.xsmall}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1146,21 +1446,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.medium",
+    "name": "hpe.container.medium",
     "attributes": {
-      "category": "size",
-      "type": "content",
-      "item": "medium"
+      "category": "container",
+      "type": "medium"
     },
     "path": [
-      "size",
-      "content",
+      "container",
       "medium"
-    ]
+    ],
+    "key": "{container.medium}"
   },
-  "hpe.size.content.mediumPlus": {
+  "hpe.container.large": {
     "$type": "number",
-    "$value": "384px",
+    "$value": "256px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1175,7 +1474,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.medium}",
+      "$value": "{static.container.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1187,22 +1486,21 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.mediumPlus",
+    "name": "hpe.container.large",
     "attributes": {
-      "category": "size",
-      "type": "content",
-      "item": "mediumPlus"
+      "category": "container",
+      "type": "large"
     },
     "path": [
-      "size",
-      "content",
-      "mediumPlus"
-    ]
+      "container",
+      "large"
+    ],
+    "key": "{container.large}"
   },
-  "hpe.size.content.large": {
+  "hpe.container.xlarge": {
     "$type": "number",
     "$value": "384px",
-    "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+    "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1216,8 +1514,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.medium}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$value": "{static.container.medium}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1228,22 +1526,61 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.large",
+    "name": "hpe.container.xlarge",
     "attributes": {
-      "category": "size",
-      "type": "content",
-      "item": "large"
+      "category": "container",
+      "type": "xlarge"
     },
     "path": [
-      "size",
-      "content",
-      "large"
-    ]
+      "container",
+      "xlarge"
+    ],
+    "key": "{container.xlarge}"
   },
-  "hpe.size.content.xlarge": {
+  "hpe.container.xxlarge": {
+    "$type": "number",
+    "$value": "512px",
+    "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.container.large}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.container.xxlarge",
+    "attributes": {
+      "category": "container",
+      "type": "xxlarge"
+    },
+    "path": [
+      "container",
+      "xxlarge"
+    ],
+    "key": "{container.xxlarge}"
+  },
+  "hpe.container.3xlarge": {
     "$type": "number",
     "$value": "768px",
-    "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+    "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1257,8 +1594,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.large}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$value": "{static.container.xlarge}",
+      "$description": "Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1269,22 +1606,21 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.xlarge",
+    "name": "hpe.container.3xlarge",
     "attributes": {
-      "category": "size",
-      "type": "content",
-      "item": "xlarge"
+      "category": "container",
+      "type": "3xlarge"
     },
     "path": [
-      "size",
-      "content",
-      "xlarge"
-    ]
+      "container",
+      "3xlarge"
+    ],
+    "key": "{container.3xlarge}"
   },
-  "hpe.size.content.xxlarge": {
+  "hpe.icon.xsmall.size": {
     "$type": "number",
-    "$value": "1152px",
-    "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+    "$value": "14px",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1298,8 +1634,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.static.content.xlarge}",
-      "$description": "Content tokens are generally scoped for the width and height of containers or layout elements. For example, box, card and layout-grids.",
+      "$value": "{base.dimension.350}",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1310,19 +1646,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.content.xxlarge",
+    "name": "hpe.icon.xsmall.size",
     "attributes": {
-      "category": "size",
-      "type": "content",
-      "item": "xxlarge"
+      "category": "icon",
+      "type": "xsmall",
+      "item": "size"
     },
     "path": [
-      "size",
-      "content",
-      "xxlarge"
-    ]
+      "icon",
+      "xsmall",
+      "size"
+    ],
+    "key": "{icon.xsmall.size}"
   },
-  "hpe.size.icon.xsmall": {
+  "hpe.icon.small.size": {
     "$type": "number",
     "$value": "16px",
     "$description": "",
@@ -1351,60 +1688,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.icon.xsmall",
+    "name": "hpe.icon.small.size",
     "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "xsmall"
+      "category": "icon",
+      "type": "small",
+      "item": "size"
     },
     "path": [
-      "size",
       "icon",
-      "xsmall"
-    ]
+      "small",
+      "size"
+    ],
+    "key": "{icon.small.size}"
   },
-  "hpe.size.icon.small": {
-    "$type": "number",
-    "$value": "16px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "WIDTH_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.size.icon.small",
-    "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "small"
-    },
-    "path": [
-      "size",
-      "icon",
-      "small"
-    ]
-  },
-  "hpe.size.icon.medium": {
+  "hpe.icon.medium.size": {
     "$type": "number",
     "$value": "18px",
     "$description": "",
@@ -1433,19 +1730,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.icon.medium",
+    "name": "hpe.icon.medium.size",
     "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "medium"
+      "category": "icon",
+      "type": "medium",
+      "item": "size"
     },
     "path": [
-      "size",
       "icon",
-      "medium"
-    ]
+      "medium",
+      "size"
+    ],
+    "key": "{icon.medium.size}"
   },
-  "hpe.size.icon.large": {
+  "hpe.icon.large.size": {
     "$type": "number",
     "$value": "22px",
     "$description": "",
@@ -1474,19 +1772,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.icon.large",
+    "name": "hpe.icon.large.size",
     "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "large"
+      "category": "icon",
+      "type": "large",
+      "item": "size"
     },
     "path": [
-      "size",
       "icon",
-      "large"
-    ]
+      "large",
+      "size"
+    ],
+    "key": "{icon.large.size}"
   },
-  "hpe.size.icon.xlarge": {
+  "hpe.icon.xlarge.size": {
     "$type": "number",
     "$value": "24px",
     "$description": "",
@@ -1515,19 +1814,20 @@ export default {
         }
       }
     },
-    "name": "hpe.size.icon.xlarge",
+    "name": "hpe.icon.xlarge.size",
     "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "xlarge"
+      "category": "icon",
+      "type": "xlarge",
+      "item": "size"
     },
     "path": [
-      "size",
       "icon",
-      "xlarge"
-    ]
+      "xlarge",
+      "size"
+    ],
+    "key": "{icon.xlarge.size}"
   },
-  "hpe.size.icon.xxlarge": {
+  "hpe.icon.xxlarge.size": {
     "$type": "number",
     "$value": "36px",
     "$description": "",
@@ -1556,140 +1856,18 @@ export default {
         }
       }
     },
-    "name": "hpe.size.icon.xxlarge",
+    "name": "hpe.icon.xxlarge.size",
     "attributes": {
-      "category": "size",
-      "type": "icon",
-      "item": "xxlarge"
+      "category": "icon",
+      "type": "xxlarge",
+      "item": "size"
     },
     "path": [
-      "size",
       "icon",
-      "xxlarge"
-    ]
-  },
-  "hpe.display.medium.fontSize": {
-    "$type": "number",
-    "$value": "2.25rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.display.medium.fontSize",
-    "attributes": {
-      "category": "display",
-      "type": "medium",
-      "item": "fontSize"
-    },
-    "path": [
-      "display",
-      "medium",
-      "fontSize"
-    ]
-  },
-  "hpe.display.medium.lineHeight": {
-    "$type": "number",
-    "$value": "2.25rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.display.medium.lineHeight",
-    "attributes": {
-      "category": "display",
-      "type": "medium",
-      "item": "lineHeight"
-    },
-    "path": [
-      "display",
-      "medium",
-      "lineHeight"
-    ]
-  },
-  "hpe.display.medium.fontWeight": {
-    "$type": "number",
-    "$value": 400,
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_STYLE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.display.medium.fontWeight",
-    "attributes": {
-      "category": "display",
-      "type": "medium",
-      "item": "fontWeight"
-    },
-    "path": [
-      "display",
-      "medium",
-      "fontWeight"
-    ]
+      "xxlarge",
+      "size"
+    ],
+    "key": "{icon.xxlarge.size}"
   },
   "hpe.text.xsmall.fontSize": {
     "$type": "number",
@@ -1730,7 +1908,8 @@ export default {
       "text",
       "xsmall",
       "fontSize"
-    ]
+    ],
+    "key": "{text.xsmall.fontSize}"
   },
   "hpe.text.xsmall.lineHeight": {
     "$type": "number",
@@ -1771,7 +1950,8 @@ export default {
       "text",
       "xsmall",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.xsmall.lineHeight}"
   },
   "hpe.text.xsmall.fontWeight": {
     "$type": "number",
@@ -1812,7 +1992,50 @@ export default {
       "text",
       "xsmall",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.xsmall.fontWeight}"
+  },
+  "hpe.text.xsmall.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.xsmall.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "xsmall",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "xsmall",
+      "maxWidth"
+    ],
+    "key": "{text.xsmall.maxWidth}"
   },
   "hpe.text.small.fontSize": {
     "$type": "number",
@@ -1853,7 +2076,8 @@ export default {
       "text",
       "small",
       "fontSize"
-    ]
+    ],
+    "key": "{text.small.fontSize}"
   },
   "hpe.text.small.lineHeight": {
     "$type": "number",
@@ -1894,7 +2118,8 @@ export default {
       "text",
       "small",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.small.lineHeight}"
   },
   "hpe.text.small.fontWeight": {
     "$type": "number",
@@ -1935,7 +2160,50 @@ export default {
       "text",
       "small",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.small.fontWeight}"
+  },
+  "hpe.text.small.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.small.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "small",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "small",
+      "maxWidth"
+    ],
+    "key": "{text.small.maxWidth}"
   },
   "hpe.text.medium.fontSize": {
     "$type": "number",
@@ -1976,7 +2244,8 @@ export default {
       "text",
       "medium",
       "fontSize"
-    ]
+    ],
+    "key": "{text.medium.fontSize}"
   },
   "hpe.text.medium.lineHeight": {
     "$type": "number",
@@ -2017,7 +2286,8 @@ export default {
       "text",
       "medium",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.medium.lineHeight}"
   },
   "hpe.text.medium.fontWeight": {
     "$type": "number",
@@ -2058,7 +2328,50 @@ export default {
       "text",
       "medium",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.medium.fontWeight}"
+  },
+  "hpe.text.medium.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.medium.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "medium",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "medium",
+      "maxWidth"
+    ],
+    "key": "{text.medium.maxWidth}"
   },
   "hpe.text.large.fontSize": {
     "$type": "number",
@@ -2099,7 +2412,8 @@ export default {
       "text",
       "large",
       "fontSize"
-    ]
+    ],
+    "key": "{text.large.fontSize}"
   },
   "hpe.text.large.lineHeight": {
     "$type": "number",
@@ -2140,7 +2454,8 @@ export default {
       "text",
       "large",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.large.lineHeight}"
   },
   "hpe.text.large.fontWeight": {
     "$type": "number",
@@ -2181,7 +2496,50 @@ export default {
       "text",
       "large",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.large.fontWeight}"
+  },
+  "hpe.text.large.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.large.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "large",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "large",
+      "maxWidth"
+    ],
+    "key": "{text.large.maxWidth}"
   },
   "hpe.text.xlarge.fontSize": {
     "$type": "number",
@@ -2222,7 +2580,8 @@ export default {
       "text",
       "xlarge",
       "fontSize"
-    ]
+    ],
+    "key": "{text.xlarge.fontSize}"
   },
   "hpe.text.xlarge.lineHeight": {
     "$type": "number",
@@ -2263,7 +2622,8 @@ export default {
       "text",
       "xlarge",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.xlarge.lineHeight}"
   },
   "hpe.text.xlarge.fontWeight": {
     "$type": "number",
@@ -2304,7 +2664,50 @@ export default {
       "text",
       "xlarge",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.xlarge.fontWeight}"
+  },
+  "hpe.text.xlarge.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.xlarge.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "xlarge",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "xlarge",
+      "maxWidth"
+    ],
+    "key": "{text.xlarge.maxWidth}"
   },
   "hpe.text.xxlarge.fontSize": {
     "$type": "number",
@@ -2345,7 +2748,8 @@ export default {
       "text",
       "xxlarge",
       "fontSize"
-    ]
+    ],
+    "key": "{text.xxlarge.fontSize}"
   },
   "hpe.text.xxlarge.lineHeight": {
     "$type": "number",
@@ -2386,11 +2790,12 @@ export default {
       "text",
       "xxlarge",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.xxlarge.lineHeight}"
   },
   "hpe.text.xxlarge.fontWeight": {
     "$type": "number",
-    "$value": 300,
+    "$value": 400,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2405,7 +2810,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.light}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2427,7 +2832,50 @@ export default {
       "text",
       "xxlarge",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.xxlarge.fontWeight}"
+  },
+  "hpe.text.xxlarge.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.xxlarge.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "xxlarge",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "xxlarge",
+      "maxWidth"
+    ],
+    "key": "{text.xxlarge.maxWidth}"
   },
   "hpe.text.3xl.fontSize": {
     "$type": "number",
@@ -2468,7 +2916,8 @@ export default {
       "text",
       "3xl",
       "fontSize"
-    ]
+    ],
+    "key": "{text.3xl.fontSize}"
   },
   "hpe.text.3xl.lineHeight": {
     "$type": "number",
@@ -2509,11 +2958,12 @@ export default {
       "text",
       "3xl",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.3xl.lineHeight}"
   },
   "hpe.text.3xl.fontWeight": {
     "$type": "number",
-    "$value": 300,
+    "$value": 400,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2528,7 +2978,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.light}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2550,7 +3000,50 @@ export default {
       "text",
       "3xl",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.3xl.fontWeight}"
+  },
+  "hpe.text.3xl.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.3xl.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "3xl",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "3xl",
+      "maxWidth"
+    ],
+    "key": "{text.3xl.maxWidth}"
   },
   "hpe.text.4xl.fontSize": {
     "$type": "number",
@@ -2591,7 +3084,8 @@ export default {
       "text",
       "4xl",
       "fontSize"
-    ]
+    ],
+    "key": "{text.4xl.fontSize}"
   },
   "hpe.text.4xl.lineHeight": {
     "$type": "number",
@@ -2632,11 +3126,12 @@ export default {
       "text",
       "4xl",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.4xl.lineHeight}"
   },
   "hpe.text.4xl.fontWeight": {
     "$type": "number",
-    "$value": 300,
+    "$value": 400,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2651,7 +3146,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.light}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2673,7 +3168,50 @@ export default {
       "text",
       "4xl",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.4xl.fontWeight}"
+  },
+  "hpe.text.4xl.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "string",
+      "$value": "25em",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.text.4xl.maxWidth",
+    "attributes": {
+      "category": "text",
+      "type": "4xl",
+      "item": "maxWidth"
+    },
+    "path": [
+      "text",
+      "4xl",
+      "maxWidth"
+    ],
+    "key": "{text.4xl.maxWidth}"
   },
   "hpe.text.5xl.fontSize": {
     "$type": "number",
@@ -2714,7 +3252,8 @@ export default {
       "text",
       "5xl",
       "fontSize"
-    ]
+    ],
+    "key": "{text.5xl.fontSize}"
   },
   "hpe.text.5xl.lineHeight": {
     "$type": "number",
@@ -2755,11 +3294,12 @@ export default {
       "text",
       "5xl",
       "lineHeight"
-    ]
+    ],
+    "key": "{text.5xl.lineHeight}"
   },
   "hpe.text.5xl.fontWeight": {
     "$type": "number",
-    "$value": 300,
+    "$value": 400,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2774,7 +3314,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.light}",
+      "$value": "{fontWeight.regular}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2796,17 +3336,18 @@ export default {
       "text",
       "5xl",
       "fontWeight"
-    ]
+    ],
+    "key": "{text.5xl.fontWeight}"
   },
-  "hpe.text.6xl.fontSize": {
-    "$type": "number",
-    "$value": "4.5rem",
+  "hpe.text.5xl.maxWidth": {
+    "$type": "string",
+    "$value": "25em",
     "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "FONT_SIZE"
+          "ALL_SCOPES"
         ],
         "codeSyntax": {}
       }
@@ -2814,117 +3355,36 @@ export default {
     "filePath": "tokens/semantic/dimension.small.json",
     "isSource": true,
     "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.1000}",
+      "$type": "string",
+      "$value": "25em",
       "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "FONT_SIZE"
+            "ALL_SCOPES"
           ],
           "codeSyntax": {}
         }
       }
     },
-    "name": "hpe.text.6xl.fontSize",
+    "name": "hpe.text.5xl.maxWidth",
     "attributes": {
       "category": "text",
-      "type": "6xl",
-      "item": "fontSize"
+      "type": "5xl",
+      "item": "maxWidth"
     },
     "path": [
       "text",
-      "6xl",
-      "fontSize"
-    ]
-  },
-  "hpe.text.6xl.lineHeight": {
-    "$type": "number",
-    "$value": "4.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.1000}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.text.6xl.lineHeight",
-    "attributes": {
-      "category": "text",
-      "type": "6xl",
-      "item": "lineHeight"
-    },
-    "path": [
-      "text",
-      "6xl",
-      "lineHeight"
-    ]
-  },
-  "hpe.text.6xl.fontWeight": {
-    "$type": "number",
-    "$value": 300,
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_STYLE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{fontWeight.light}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.text.6xl.fontWeight",
-    "attributes": {
-      "category": "text",
-      "type": "6xl",
-      "item": "fontWeight"
-    },
-    "path": [
-      "text",
-      "6xl",
-      "fontWeight"
-    ]
+      "5xl",
+      "maxWidth"
+    ],
+    "key": "{text.5xl.maxWidth}"
   },
   "hpe.heading.xlarge.fontWeight": {
     "$type": "number",
-    "$value": 500,
-    "$description": "",
+    "$value": 400,
+    "$description": "Font weight typically used on h1.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2938,8 +3398,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
+      "$value": "{fontWeight.regular}",
+      "$description": "Font weight typically used on h1.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2960,12 +3420,13 @@ export default {
       "heading",
       "xlarge",
       "fontWeight"
-    ]
+    ],
+    "key": "{heading.xlarge.fontWeight}"
   },
   "hpe.heading.xlarge.fontSize": {
     "$type": "number",
-    "$value": "1.5rem",
-    "$description": "",
+    "$value": "1.75rem",
+    "$description": "Font size typically used on h1.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2979,8 +3440,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.fontSize.500}",
-      "$description": "",
+      "$value": 28,
+      "$description": "Font size typically used on h1.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3001,12 +3462,13 @@ export default {
       "heading",
       "xlarge",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.xlarge.fontSize}"
   },
   "hpe.heading.xlarge.lineHeight": {
     "$type": "number",
-    "$value": "1.5rem",
-    "$description": "",
+    "$value": "2rem",
+    "$description": "Line height typically used on h1.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3020,8 +3482,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.lineHeight.200}",
-      "$description": "",
+      "$value": 32,
+      "$description": "Line height typically used on h1.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3042,12 +3504,13 @@ export default {
       "heading",
       "xlarge",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.xlarge.lineHeight}"
   },
   "hpe.heading.large.fontWeight": {
     "$type": "number",
-    "$value": 500,
-    "$description": "",
+    "$value": 400,
+    "$description": "Font weight typically used on h2.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3061,8 +3524,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
+      "$value": "{fontWeight.regular}",
+      "$description": "Font weight typically used on h2.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3083,12 +3546,13 @@ export default {
       "heading",
       "large",
       "fontWeight"
-    ]
+    ],
+    "key": "{heading.large.fontWeight}"
   },
   "hpe.heading.large.fontSize": {
     "$type": "number",
-    "$value": "1.25rem",
-    "$description": "",
+    "$value": "1.5rem",
+    "$description": "Font size typically used on h2.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3102,8 +3566,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.fontSize.300}",
-      "$description": "",
+      "$value": 24,
+      "$description": "Font size typically used on h2.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3124,12 +3588,13 @@ export default {
       "heading",
       "large",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.large.fontSize}"
   },
   "hpe.heading.large.lineHeight": {
     "$type": "number",
-    "$value": "1.25rem",
-    "$description": "",
+    "$value": "1.75rem",
+    "$description": "Line height typically used on h2.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3143,8 +3608,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.lineHeight.100}",
-      "$description": "",
+      "$value": 28,
+      "$description": "Line height typically used on h2.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3165,12 +3630,13 @@ export default {
       "heading",
       "large",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.large.lineHeight}"
   },
   "hpe.heading.medium.fontSize": {
     "$type": "number",
-    "$value": "1rem",
-    "$description": "",
+    "$value": "1.25rem",
+    "$description": "Font size typically used on h3.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3184,8 +3650,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.fontSize.100}",
-      "$description": "",
+      "$value": 20,
+      "$description": "Font size typically used on h3.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3206,12 +3672,13 @@ export default {
       "heading",
       "medium",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.medium.fontSize}"
   },
   "hpe.heading.medium.lineHeight": {
     "$type": "number",
-    "$value": "1rem",
-    "$description": "",
+    "$value": "1.5rem",
+    "$description": "Line height typically used on h3.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3225,8 +3692,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.lineHeight.90}",
-      "$description": "",
+      "$value": 24,
+      "$description": "Line height typically used on h3.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3247,12 +3714,13 @@ export default {
       "heading",
       "medium",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.medium.lineHeight}"
   },
   "hpe.heading.medium.fontWeight": {
     "$type": "number",
-    "$value": 500,
-    "$description": "",
+    "$value": 400,
+    "$description": "Font weight typically used on h3.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3266,8 +3734,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
+      "$value": "{fontWeight.regular}",
+      "$description": "Font weight typically used on h3.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3288,12 +3756,13 @@ export default {
       "heading",
       "medium",
       "fontWeight"
-    ]
+    ],
+    "key": "{heading.medium.fontWeight}"
   },
   "hpe.heading.small.fontSize": {
     "$type": "number",
-    "$value": "0.75rem",
-    "$description": "",
+    "$value": "1.125rem",
+    "$description": "Font size typically used on h4.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3307,8 +3776,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.fontSize.80}",
-      "$description": "",
+      "$value": 18,
+      "$description": "Font size typically used on h4.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3329,12 +3798,13 @@ export default {
       "heading",
       "small",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.small.fontSize}"
   },
   "hpe.heading.small.lineHeight": {
     "$type": "number",
-    "$value": "0.75rem",
-    "$description": "",
+    "$value": "1.25rem",
+    "$description": "Line height typically used on h4.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3348,8 +3818,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.lineHeight.80}",
-      "$description": "",
+      "$value": 20,
+      "$description": "Line height typically used on h4.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3370,12 +3840,13 @@ export default {
       "heading",
       "small",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.small.lineHeight}"
   },
   "hpe.heading.small.fontWeight": {
     "$type": "number",
     "$value": 500,
-    "$description": "",
+    "$description": "Font weight typically used on h4.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3390,7 +3861,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": "{fontWeight.medium}",
-      "$description": "",
+      "$description": "Font weight typically used on h4.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3411,12 +3882,13 @@ export default {
       "heading",
       "small",
       "fontWeight"
-    ]
+    ],
+    "key": "{heading.small.fontWeight}"
   },
   "hpe.heading.xsmall.fontSize": {
     "$type": "number",
-    "$value": "0.75rem",
-    "$description": "",
+    "$value": "1rem",
+    "$description": "Font size typically used on h5.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3430,8 +3902,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.fontSize.80}",
-      "$description": "",
+      "$value": 16,
+      "$description": "Font size typically used on h5.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3452,12 +3924,13 @@ export default {
       "heading",
       "xsmall",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.xsmall.fontSize}"
   },
   "hpe.heading.xsmall.lineHeight": {
     "$type": "number",
-    "$value": "0.75rem",
-    "$description": "",
+    "$value": "1.125rem",
+    "$description": "Line height typically used on h5.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3471,8 +3944,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.lineHeight.80}",
-      "$description": "",
+      "$value": 18,
+      "$description": "Line height typically used on h5.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3493,12 +3966,13 @@ export default {
       "heading",
       "xsmall",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.xsmall.lineHeight}"
   },
   "hpe.heading.xsmall.fontWeight": {
     "$type": "number",
     "$value": 600,
-    "$description": "",
+    "$description": "Font weight typically used on h5.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3513,7 +3987,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": "{fontWeight.semibold}",
-      "$description": "",
+      "$description": "Font weight typically used on h5.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3534,12 +4008,13 @@ export default {
       "heading",
       "xsmall",
       "fontWeight"
-    ]
+    ],
+    "key": "{heading.xsmall.fontWeight}"
   },
   "hpe.heading.xxsmall.fontSize": {
     "$type": "number",
-    "$value": "0.75rem",
-    "$description": "",
+    "$value": "1rem",
+    "$description": "Font size typically used on h6.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3553,8 +4028,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.fontSize.80}",
-      "$description": "",
+      "$value": 16,
+      "$description": "Font size typically used on h6.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3575,12 +4050,13 @@ export default {
       "heading",
       "xxsmall",
       "fontSize"
-    ]
+    ],
+    "key": "{heading.xxsmall.fontSize}"
   },
   "hpe.heading.xxsmall.lineHeight": {
     "$type": "number",
-    "$value": "0.75rem",
-    "$description": "",
+    "$value": "1.125rem",
+    "$description": "Line height typically used on h6.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3594,8 +4070,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.lineHeight.80}",
-      "$description": "",
+      "$value": 18,
+      "$description": "Line height typically used on h6.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3616,12 +4092,13 @@ export default {
       "heading",
       "xxsmall",
       "lineHeight"
-    ]
+    ],
+    "key": "{heading.xxsmall.lineHeight}"
   },
   "hpe.heading.xxsmall.fontWeight": {
     "$type": "number",
     "$value": 600,
-    "$description": "",
+    "$description": "Font weight typically used on h6.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3636,7 +4113,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": "{fontWeight.semibold}",
-      "$description": "",
+      "$description": "Font weight typically used on h6.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3657,744 +4134,7 @@ export default {
       "heading",
       "xxsmall",
       "fontWeight"
-    ]
-  },
-  "hpe.paragraph.xsmall.fontSize": {
-    "$type": "number",
-    "$value": "0.875rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xsmall.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xsmall",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "xsmall",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.xsmall.lineHeight": {
-    "$type": "number",
-    "$value": "1rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.90}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xsmall.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xsmall",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "xsmall",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.xsmall.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xsmall.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xsmall",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "xsmall",
-      "maxWidth"
-    ]
-  },
-  "hpe.paragraph.small.fontSize": {
-    "$type": "number",
-    "$value": "1rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.100}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.small.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "small",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "small",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.small.lineHeight": {
-    "$type": "number",
-    "$value": "1.75rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.small.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "small",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "small",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.small.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.small.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "small",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "small",
-      "maxWidth"
-    ]
-  },
-  "hpe.paragraph.medium.fontSize": {
-    "$type": "number",
-    "$value": "1.125rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.medium.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "medium",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "medium",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.medium.lineHeight": {
-    "$type": "number",
-    "$value": "1.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.medium.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "medium",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "medium",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.medium.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.medium.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "medium",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "medium",
-      "maxWidth"
-    ]
-  },
-  "hpe.paragraph.large.fontSize": {
-    "$type": "number",
-    "$value": "1.375rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.large.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "large",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "large",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.large.lineHeight": {
-    "$type": "number",
-    "$value": "1.75rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.large.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "large",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "large",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.large.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.large.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "large",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "large",
-      "maxWidth"
-    ]
-  },
-  "hpe.paragraph.xlarge.fontSize": {
-    "$type": "number",
-    "$value": "1.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xlarge.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xlarge",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "xlarge",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.xlarge.lineHeight": {
-    "$type": "number",
-    "$value": "1.875rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xlarge.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xlarge",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "xlarge",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.xlarge.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xlarge.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xlarge",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "xlarge",
-      "maxWidth"
-    ]
-  },
-  "hpe.paragraph.xxlarge.fontSize": {
-    "$type": "number",
-    "$value": "2.25rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.fontSize.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xxlarge.fontSize",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xxlarge",
-      "item": "fontSize"
-    },
-    "path": [
-      "paragraph",
-      "xxlarge",
-      "fontSize"
-    ]
-  },
-  "hpe.paragraph.xxlarge.lineHeight": {
-    "$type": "number",
-    "$value": "2.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.lineHeight.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xxlarge.lineHeight",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xxlarge",
-      "item": "lineHeight"
-    },
-    "path": [
-      "paragraph",
-      "xxlarge",
-      "lineHeight"
-    ]
-  },
-  "hpe.paragraph.xxlarge.maxWidth": {
-    "$type": "string",
-    "$value": "25em",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "25em",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.paragraph.xxlarge.maxWidth",
-    "attributes": {
-      "category": "paragraph",
-      "type": "xxlarge",
-      "item": "maxWidth"
-    },
-    "path": [
-      "paragraph",
-      "xxlarge",
-      "maxWidth"
-    ]
+    ],
+    "key": "{heading.xxsmall.fontWeight}"
   }
 }

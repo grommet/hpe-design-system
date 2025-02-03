@@ -14,7 +14,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -38,7 +38,8 @@ export default {
       "base",
       "dimension",
       "0"
-    ]
+    ],
+    "key": "{base.dimension.0}"
   },
   "hpe.base.dimension.25": {
     "$type": "number",
@@ -51,7 +52,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -75,7 +76,8 @@ export default {
       "base",
       "dimension",
       "25"
-    ]
+    ],
+    "key": "{base.dimension.25}"
   },
   "hpe.base.dimension.50": {
     "$type": "number",
@@ -88,7 +90,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -112,7 +114,8 @@ export default {
       "base",
       "dimension",
       "50"
-    ]
+    ],
+    "key": "{base.dimension.50}"
   },
   "hpe.base.dimension.75": {
     "$type": "number",
@@ -125,7 +128,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -149,7 +152,8 @@ export default {
       "base",
       "dimension",
       "75"
-    ]
+    ],
+    "key": "{base.dimension.75}"
   },
   "hpe.base.dimension.100": {
     "$type": "number",
@@ -162,7 +166,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -186,7 +190,8 @@ export default {
       "base",
       "dimension",
       "100"
-    ]
+    ],
+    "key": "{base.dimension.100}"
   },
   "hpe.base.dimension.150": {
     "$type": "number",
@@ -199,7 +204,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -223,7 +228,8 @@ export default {
       "base",
       "dimension",
       "150"
-    ]
+    ],
+    "key": "{base.dimension.150}"
   },
   "hpe.base.dimension.200": {
     "$type": "number",
@@ -236,7 +242,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -260,7 +266,8 @@ export default {
       "base",
       "dimension",
       "200"
-    ]
+    ],
+    "key": "{base.dimension.200}"
   },
   "hpe.base.dimension.225": {
     "$type": "number",
@@ -273,7 +280,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -297,7 +304,8 @@ export default {
       "base",
       "dimension",
       "225"
-    ]
+    ],
+    "key": "{base.dimension.225}"
   },
   "hpe.base.dimension.250": {
     "$type": "number",
@@ -310,7 +318,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -334,7 +342,8 @@ export default {
       "base",
       "dimension",
       "250"
-    ]
+    ],
+    "key": "{base.dimension.250}"
   },
   "hpe.base.dimension.300": {
     "$type": "number",
@@ -347,7 +356,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -371,48 +380,8 @@ export default {
       "base",
       "dimension",
       "300"
-    ]
-  },
-  "hpe.base.dimension.325": {
-    "$type": "number",
-    "$value": "13px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": 13,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.dimension.325",
-    "attributes": {
-      "category": "base",
-      "type": "dimension",
-      "item": "325"
-    },
-    "path": [
-      "base",
-      "dimension",
-      "325"
-    ]
+    ],
+    "key": "{base.dimension.300}"
   },
   "hpe.base.dimension.350": {
     "$type": "number",
@@ -427,7 +396,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -453,7 +422,8 @@ export default {
       "base",
       "dimension",
       "350"
-    ]
+    ],
+    "key": "{base.dimension.350}"
   },
   "hpe.base.dimension.400": {
     "$type": "number",
@@ -466,7 +436,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -490,7 +460,8 @@ export default {
       "base",
       "dimension",
       "400"
-    ]
+    ],
+    "key": "{base.dimension.400}"
   },
   "hpe.base.dimension.450": {
     "$type": "number",
@@ -503,7 +474,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -527,7 +498,8 @@ export default {
       "base",
       "dimension",
       "450"
-    ]
+    ],
+    "key": "{base.dimension.450}"
   },
   "hpe.base.dimension.475": {
     "$type": "number",
@@ -540,7 +512,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -564,7 +536,8 @@ export default {
       "base",
       "dimension",
       "475"
-    ]
+    ],
+    "key": "{base.dimension.475}"
   },
   "hpe.base.dimension.500": {
     "$type": "number",
@@ -577,7 +550,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -601,7 +574,8 @@ export default {
       "base",
       "dimension",
       "500"
-    ]
+    ],
+    "key": "{base.dimension.500}"
   },
   "hpe.base.dimension.550": {
     "$type": "number",
@@ -614,7 +588,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -638,7 +612,8 @@ export default {
       "base",
       "dimension",
       "550"
-    ]
+    ],
+    "key": "{base.dimension.550}"
   },
   "hpe.base.dimension.600": {
     "$type": "number",
@@ -651,7 +626,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -675,7 +650,8 @@ export default {
       "base",
       "dimension",
       "600"
-    ]
+    ],
+    "key": "{base.dimension.600}"
   },
   "hpe.base.dimension.700": {
     "$type": "number",
@@ -688,7 +664,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -712,11 +688,12 @@ export default {
       "base",
       "dimension",
       "700"
-    ]
+    ],
+    "key": "{base.dimension.700}"
   },
-  "hpe.base.dimension.750": {
+  "hpe.base.dimension.800": {
     "$type": "number",
-    "$value": "30px",
+    "$value": "32px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -725,11 +702,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 30,
+      "$value": 32,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -739,17 +716,18 @@ export default {
         }
       }
     },
-    "name": "hpe.base.dimension.750",
+    "name": "hpe.base.dimension.800",
     "attributes": {
       "category": "base",
       "type": "dimension",
-      "item": "750"
+      "item": "800"
     },
     "path": [
       "base",
       "dimension",
-      "750"
-    ]
+      "800"
+    ],
+    "key": "{base.dimension.800}"
   },
   "hpe.base.dimension.900": {
     "$type": "number",
@@ -762,7 +740,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -786,7 +764,8 @@ export default {
       "base",
       "dimension",
       "900"
-    ]
+    ],
+    "key": "{base.dimension.900}"
   },
   "hpe.base.dimension.1200": {
     "$type": "number",
@@ -799,7 +778,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -823,7 +802,46 @@ export default {
       "base",
       "dimension",
       "1200"
-    ]
+    ],
+    "key": "{base.dimension.1200}"
+  },
+  "hpe.base.dimension.1600": {
+    "$type": "number",
+    "$value": "64px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 64,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.dimension.1600",
+    "attributes": {
+      "category": "base",
+      "type": "dimension",
+      "item": "1600"
+    },
+    "path": [
+      "base",
+      "dimension",
+      "1600"
+    ],
+    "key": "{base.dimension.1600}"
   },
   "hpe.base.dimension.1800": {
     "$type": "number",
@@ -836,7 +854,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -860,7 +878,8 @@ export default {
       "base",
       "dimension",
       "1800"
-    ]
+    ],
+    "key": "{base.dimension.1800}"
   },
   "hpe.base.dimension.2400": {
     "$type": "number",
@@ -873,7 +892,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -897,7 +916,46 @@ export default {
       "base",
       "dimension",
       "2400"
-    ]
+    ],
+    "key": "{base.dimension.2400}"
+  },
+  "hpe.base.dimension.3200": {
+    "$type": "number",
+    "$value": "128px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 128,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.dimension.3200",
+    "attributes": {
+      "category": "base",
+      "type": "dimension",
+      "item": "3200"
+    },
+    "path": [
+      "base",
+      "dimension",
+      "3200"
+    ],
+    "key": "{base.dimension.3200}"
   },
   "hpe.base.dimension.4800": {
     "$type": "number",
@@ -910,7 +968,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -934,11 +992,12 @@ export default {
       "base",
       "dimension",
       "4800"
-    ]
+    ],
+    "key": "{base.dimension.4800}"
   },
-  "hpe.base.dimension.7200": {
+  "hpe.base.dimension.6400": {
     "$type": "number",
-    "$value": "288px",
+    "$value": "256px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -947,11 +1006,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 288,
+      "$value": 256,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -961,17 +1020,18 @@ export default {
         }
       }
     },
-    "name": "hpe.base.dimension.7200",
+    "name": "hpe.base.dimension.6400",
     "attributes": {
       "category": "base",
       "type": "dimension",
-      "item": "7200"
+      "item": "6400"
     },
     "path": [
       "base",
       "dimension",
-      "7200"
-    ]
+      "6400"
+    ],
+    "key": "{base.dimension.6400}"
   },
   "hpe.base.dimension.9600": {
     "$type": "number",
@@ -984,7 +1044,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1008,11 +1068,12 @@ export default {
       "base",
       "dimension",
       "9600"
-    ]
+    ],
+    "key": "{base.dimension.9600}"
   },
-  "hpe.base.dimension.14400": {
+  "hpe.base.dimension.12800": {
     "$type": "number",
-    "$value": "576px",
+    "$value": "512px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1021,11 +1082,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 576,
+      "$value": 512,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1035,17 +1096,18 @@ export default {
         }
       }
     },
-    "name": "hpe.base.dimension.14400",
+    "name": "hpe.base.dimension.12800",
     "attributes": {
       "category": "base",
       "type": "dimension",
-      "item": "14400"
+      "item": "12800"
     },
     "path": [
       "base",
       "dimension",
-      "14400"
-    ]
+      "12800"
+    ],
+    "key": "{base.dimension.12800}"
   },
   "hpe.base.dimension.19200": {
     "$type": "number",
@@ -1058,7 +1120,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1082,11 +1144,12 @@ export default {
       "base",
       "dimension",
       "19200"
-    ]
+    ],
+    "key": "{base.dimension.19200}"
   },
-  "hpe.base.dimension.38400": {
+  "hpe.base.dimension.25600": {
     "$type": "number",
-    "$value": "1152px",
+    "$value": "1024px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1095,11 +1158,49 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 1152,
+      "$value": 1024,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.dimension.25600",
+    "attributes": {
+      "category": "base",
+      "type": "dimension",
+      "item": "25600"
+    },
+    "path": [
+      "base",
+      "dimension",
+      "25600"
+    ],
+    "key": "{base.dimension.25600}"
+  },
+  "hpe.base.dimension.38400": {
+    "$type": "number",
+    "$value": "1536px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 1536,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1119,44 +1220,8 @@ export default {
       "base",
       "dimension",
       "38400"
-    ]
-  },
-  "hpe.base.dimension.76800": {
-    "$type": "number",
-    "$value": "1536px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": 1536,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.dimension.76800",
-    "attributes": {
-      "category": "base",
-      "type": "dimension",
-      "item": "76800"
-    },
-    "path": [
-      "base",
-      "dimension",
-      "76800"
-    ]
+    ],
+    "key": "{base.dimension.38400}"
   },
   "hpe.base.color.brand": {
     "$type": "color",
@@ -1171,7 +1236,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1197,7 +1262,8 @@ export default {
       "base",
       "color",
       "brand"
-    ]
+    ],
+    "key": "{base.color.brand}"
   },
   "hpe.base.color.red.500": {
     "$type": "color",
@@ -1212,7 +1278,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1240,7 +1306,8 @@ export default {
       "color",
       "red",
       "500"
-    ]
+    ],
+    "key": "{base.color.red.500}"
   },
   "hpe.base.color.red.550": {
     "$type": "color",
@@ -1255,7 +1322,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1283,7 +1350,8 @@ export default {
       "color",
       "red",
       "550"
-    ]
+    ],
+    "key": "{base.color.red.550}"
   },
   "hpe.base.color.red.600": {
     "$type": "color",
@@ -1298,7 +1366,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1326,50 +1394,8 @@ export default {
       "color",
       "red",
       "600"
-    ]
-  },
-  "hpe.base.color.red.700": {
-    "$type": "color",
-    "$value": "#d04f4e",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#d04f4e",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.red.700",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "red",
-      "subitem": "700"
-    },
-    "path": [
-      "base",
-      "color",
-      "red",
-      "700"
-    ]
+    ],
+    "key": "{base.color.red.600}"
   },
   "hpe.base.color.red.750": {
     "$type": "color",
@@ -1384,7 +1410,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1412,7 +1438,8 @@ export default {
       "color",
       "red",
       "750"
-    ]
+    ],
+    "key": "{base.color.red.750}"
   },
   "hpe.base.color.red.800": {
     "$type": "color",
@@ -1427,7 +1454,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1455,7 +1482,8 @@ export default {
       "color",
       "red",
       "800"
-    ]
+    ],
+    "key": "{base.color.red.800}"
   },
   "hpe.base.color.red.850": {
     "$type": "color",
@@ -1470,7 +1498,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1498,7 +1526,8 @@ export default {
       "color",
       "red",
       "850"
-    ]
+    ],
+    "key": "{base.color.red.850}"
   },
   "hpe.base.color.red.500-Opacity12": {
     "$type": "color",
@@ -1513,7 +1542,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1541,7 +1570,8 @@ export default {
       "color",
       "red",
       "500-Opacity12"
-    ]
+    ],
+    "key": "{base.color.red.500-Opacity12}"
   },
   "hpe.base.color.red.500-Opacity24": {
     "$type": "color",
@@ -1556,7 +1586,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1584,7 +1614,8 @@ export default {
       "color",
       "red",
       "500-Opacity24"
-    ]
+    ],
+    "key": "{base.color.red.500-Opacity24}"
   },
   "hpe.base.color.red.800-Opacity30": {
     "$type": "color",
@@ -1599,7 +1630,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1627,7 +1658,8 @@ export default {
       "color",
       "red",
       "800-Opacity30"
-    ]
+    ],
+    "key": "{base.color.red.800-Opacity30}"
   },
   "hpe.base.color.orange.400": {
     "$type": "color",
@@ -1642,7 +1674,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1670,50 +1702,8 @@ export default {
       "color",
       "orange",
       "400"
-    ]
-  },
-  "hpe.base.color.orange.500": {
-    "$type": "color",
-    "$value": "#ff8300",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ff8300",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.orange.500",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "orange",
-      "subitem": "500"
-    },
-    "path": [
-      "base",
-      "color",
-      "orange",
-      "500"
-    ]
+    ],
+    "key": "{base.color.orange.400}"
   },
   "hpe.base.color.orange.600": {
     "$type": "color",
@@ -1728,7 +1718,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1756,7 +1746,8 @@ export default {
       "color",
       "orange",
       "600"
-    ]
+    ],
+    "key": "{base.color.orange.600}"
   },
   "hpe.base.color.orange.700": {
     "$type": "color",
@@ -1771,7 +1762,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1799,7 +1790,8 @@ export default {
       "color",
       "orange",
       "700"
-    ]
+    ],
+    "key": "{base.color.orange.700}"
   },
   "hpe.base.color.orange.400-Opacity12": {
     "$type": "color",
@@ -1814,7 +1806,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1842,7 +1834,8 @@ export default {
       "color",
       "orange",
       "400-Opacity12"
-    ]
+    ],
+    "key": "{base.color.orange.400-Opacity12}"
   },
   "hpe.base.color.orange.400-Opacity24": {
     "$type": "color",
@@ -1857,7 +1850,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1885,50 +1878,8 @@ export default {
       "color",
       "orange",
       "400-Opacity24"
-    ]
-  },
-  "hpe.base.color.orange.500-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(255, 131, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ff83001f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.orange.500-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "orange",
-      "subitem": "500-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "orange",
-      "500-Opacity12"
-    ]
+    ],
+    "key": "{base.color.orange.400-Opacity24}"
   },
   "hpe.base.color.yellow.200": {
     "$type": "color",
@@ -1943,7 +1894,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -1971,50 +1922,8 @@ export default {
       "color",
       "yellow",
       "200"
-    ]
-  },
-  "hpe.base.color.yellow.300": {
-    "$type": "color",
-    "$value": "#ffd829",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ffd829",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.yellow.300",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "yellow",
-      "subitem": "300"
-    },
-    "path": [
-      "base",
-      "color",
-      "yellow",
-      "300"
-    ]
+    ],
+    "key": "{base.color.yellow.200}"
   },
   "hpe.base.color.yellow.400": {
     "$type": "color",
@@ -2029,7 +1938,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2057,50 +1966,8 @@ export default {
       "color",
       "yellow",
       "400"
-    ]
-  },
-  "hpe.base.color.yellow.500": {
-    "$type": "color",
-    "$value": "#d89128",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#d89128",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.yellow.500",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "yellow",
-      "subitem": "500"
-    },
-    "path": [
-      "base",
-      "color",
-      "yellow",
-      "500"
-    ]
+    ],
+    "key": "{base.color.yellow.400}"
   },
   "hpe.base.color.yellow.700": {
     "$type": "color",
@@ -2115,7 +1982,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2143,93 +2010,8 @@ export default {
       "color",
       "yellow",
       "700"
-    ]
-  },
-  "hpe.base.color.yellow.200-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(255, 235, 89, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ffeb591f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.yellow.200-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "yellow",
-      "subitem": "200-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "yellow",
-      "200-Opacity12"
-    ]
-  },
-  "hpe.base.color.yellow.300-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(255, 216, 41, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ffd8291f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.yellow.300-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "yellow",
-      "subitem": "300-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "yellow",
-      "300-Opacity12"
-    ]
+    ],
+    "key": "{base.color.yellow.700}"
   },
   "hpe.base.color.yellow.400-Opacity12": {
     "$type": "color",
@@ -2244,7 +2026,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2272,54 +2054,12 @@ export default {
       "color",
       "yellow",
       "400-Opacity12"
-    ]
-  },
-  "hpe.base.color.yellow.500-Opacity30": {
-    "$type": "color",
-    "$value": "rgba(216, 145, 40, 0.3)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#d891284d",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.yellow.500-Opacity30",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "yellow",
-      "subitem": "500-Opacity30"
-    },
-    "path": [
-      "base",
-      "color",
-      "yellow",
-      "500-Opacity30"
-    ]
+    ],
+    "key": "{base.color.yellow.400-Opacity12}"
   },
   "hpe.base.color.green.100": {
     "$type": "color",
-    "$value": "#cbfaeb",
+    "$value": "#d1ffee",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2330,11 +2070,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#cbfaeb",
+      "$value": "#d1ffee",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2358,11 +2098,12 @@ export default {
       "color",
       "green",
       "100"
-    ]
+    ],
+    "key": "{base.color.green.100}"
   },
   "hpe.base.color.green.125": {
     "$type": "color",
-    "$value": "#aef6df",
+    "$value": "#aafade",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2373,11 +2114,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#aef6df",
+      "$value": "#aafade",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2401,7 +2142,8 @@ export default {
       "color",
       "green",
       "125"
-    ]
+    ],
+    "key": "{base.color.green.125}"
   },
   "hpe.base.color.green.400": {
     "$type": "color",
@@ -2416,7 +2158,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2444,7 +2186,52 @@ export default {
       "color",
       "green",
       "400"
-    ]
+    ],
+    "key": "{base.color.green.400}"
+  },
+  "hpe.base.color.green.450": {
+    "$type": "color",
+    "$value": "#00ebb5",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#00ebb5",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.green.450",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "green",
+      "subitem": "450"
+    },
+    "path": [
+      "base",
+      "color",
+      "green",
+      "450"
+    ],
+    "key": "{base.color.green.450}"
   },
   "hpe.base.color.green.500": {
     "$type": "color",
@@ -2459,7 +2246,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2487,7 +2274,8 @@ export default {
       "color",
       "green",
       "500"
-    ]
+    ],
+    "key": "{base.color.green.500}"
   },
   "hpe.base.color.green.600": {
     "$type": "color",
@@ -2502,7 +2290,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2530,7 +2318,8 @@ export default {
       "color",
       "green",
       "600"
-    ]
+    ],
+    "key": "{base.color.green.600}"
   },
   "hpe.base.color.green.650": {
     "$type": "color",
@@ -2545,7 +2334,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2573,7 +2362,8 @@ export default {
       "color",
       "green",
       "650"
-    ]
+    ],
+    "key": "{base.color.green.650}"
   },
   "hpe.base.color.green.700": {
     "$type": "color",
@@ -2588,7 +2378,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2616,7 +2406,8 @@ export default {
       "color",
       "green",
       "700"
-    ]
+    ],
+    "key": "{base.color.green.700}"
   },
   "hpe.base.color.green.800": {
     "$type": "color",
@@ -2631,7 +2422,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2659,7 +2450,8 @@ export default {
       "color",
       "green",
       "800"
-    ]
+    ],
+    "key": "{base.color.green.800}"
   },
   "hpe.base.color.green.900": {
     "$type": "color",
@@ -2674,7 +2466,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2702,7 +2494,8 @@ export default {
       "color",
       "green",
       "900"
-    ]
+    ],
+    "key": "{base.color.green.900}"
   },
   "hpe.base.color.green.1000": {
     "$type": "color",
@@ -2717,7 +2510,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2745,7 +2538,8 @@ export default {
       "color",
       "green",
       "1000"
-    ]
+    ],
+    "key": "{base.color.green.1000}"
   },
   "hpe.base.color.green.400-Opacity12": {
     "$type": "color",
@@ -2760,7 +2554,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2788,7 +2582,8 @@ export default {
       "color",
       "green",
       "400-Opacity12"
-    ]
+    ],
+    "key": "{base.color.green.400-Opacity12}"
   },
   "hpe.base.color.green.400-Opacity24": {
     "$type": "color",
@@ -2803,7 +2598,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2831,7 +2626,8 @@ export default {
       "color",
       "green",
       "400-Opacity24"
-    ]
+    ],
+    "key": "{base.color.green.400-Opacity24}"
   },
   "hpe.base.color.green.500-Opacity30": {
     "$type": "color",
@@ -2846,7 +2642,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2874,7 +2670,8 @@ export default {
       "color",
       "green",
       "500-Opacity30"
-    ]
+    ],
+    "key": "{base.color.green.500-Opacity30}"
   },
   "hpe.base.color.teal.200": {
     "$type": "color",
@@ -2889,7 +2686,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -2917,50 +2714,8 @@ export default {
       "color",
       "teal",
       "200"
-    ]
-  },
-  "hpe.base.color.teal.300": {
-    "$type": "color",
-    "$value": "#1bf6df",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#1bf6df",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.teal.300",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "teal",
-      "subitem": "300"
-    },
-    "path": [
-      "base",
-      "color",
-      "teal",
-      "300"
-    ]
+    ],
+    "key": "{base.color.teal.200}"
   },
   "hpe.base.color.teal.400": {
     "$type": "color",
@@ -2975,7 +2730,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3003,7 +2758,8 @@ export default {
       "color",
       "teal",
       "400"
-    ]
+    ],
+    "key": "{base.color.teal.400}"
   },
   "hpe.base.color.teal.700": {
     "$type": "color",
@@ -3018,7 +2774,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3046,93 +2802,8 @@ export default {
       "color",
       "teal",
       "700"
-    ]
-  },
-  "hpe.base.color.teal.200-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(130, 255, 242, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#82fff21f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.teal.200-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "teal",
-      "subitem": "200-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "teal",
-      "200-Opacity12"
-    ]
-  },
-  "hpe.base.color.teal.300-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(27, 246, 223, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#1bf6df1f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.teal.300-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "teal",
-      "subitem": "300-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "teal",
-      "300-Opacity12"
-    ]
+    ],
+    "key": "{base.color.teal.700}"
   },
   "hpe.base.color.blue.400": {
     "$type": "color",
@@ -3147,7 +2818,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3175,7 +2846,8 @@ export default {
       "color",
       "blue",
       "400"
-    ]
+    ],
+    "key": "{base.color.blue.400}"
   },
   "hpe.base.color.blue.700": {
     "$type": "color",
@@ -3190,7 +2862,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3218,7 +2890,8 @@ export default {
       "color",
       "blue",
       "700"
-    ]
+    ],
+    "key": "{base.color.blue.700}"
   },
   "hpe.base.color.blue.900": {
     "$type": "color",
@@ -3233,7 +2906,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3261,7 +2934,8 @@ export default {
       "color",
       "blue",
       "900"
-    ]
+    ],
+    "key": "{base.color.blue.900}"
   },
   "hpe.base.color.blue.400-Opacity12": {
     "$type": "color",
@@ -3276,7 +2950,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3304,93 +2978,8 @@ export default {
       "color",
       "blue",
       "400-Opacity12"
-    ]
-  },
-  "hpe.base.color.blue.400-Opacity24": {
-    "$type": "color",
-    "$value": "rgba(0, 200, 255, 0.24)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#00c8ff3d",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.blue.400-Opacity24",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "blue",
-      "subitem": "400-Opacity24"
-    },
-    "path": [
-      "base",
-      "color",
-      "blue",
-      "400-Opacity24"
-    ]
-  },
-  "hpe.base.color.blue.700-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(0, 115, 157, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#00739d1f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.blue.700-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "blue",
-      "subitem": "700-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "blue",
-      "700-Opacity12"
-    ]
+    ],
+    "key": "{base.color.blue.400-Opacity12}"
   },
   "hpe.base.color.purple.500": {
     "$type": "color",
@@ -3405,7 +2994,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3433,50 +3022,8 @@ export default {
       "color",
       "purple",
       "500"
-    ]
-  },
-  "hpe.base.color.purple.800": {
-    "$type": "color",
-    "$value": "#7630ea",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#7630ea",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.purple.800",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "purple",
-      "subitem": "800"
-    },
-    "path": [
-      "base",
-      "color",
-      "purple",
-      "800"
-    ]
+    ],
+    "key": "{base.color.purple.500}"
   },
   "hpe.base.color.purple.900": {
     "$type": "color",
@@ -3491,7 +3038,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3519,93 +3066,8 @@ export default {
       "color",
       "purple",
       "900"
-    ]
-  },
-  "hpe.base.color.purple.500-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(247, 64, 255, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#f740ff1f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.purple.500-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "purple",
-      "subitem": "500-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "purple",
-      "500-Opacity12"
-    ]
-  },
-  "hpe.base.color.purple.800-Opacity12": {
-    "$type": "color",
-    "$value": "rgba(118, 48, 234, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#7630ea1f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.purple.800-Opacity12",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "purple",
-      "subitem": "800-Opacity12"
-    },
-    "path": [
-      "base",
-      "color",
-      "purple",
-      "800-Opacity12"
-    ]
+    ],
+    "key": "{base.color.purple.900}"
   },
   "hpe.base.color.black.opacity4": {
     "$type": "color",
@@ -3620,7 +3082,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3648,7 +3110,52 @@ export default {
       "color",
       "black",
       "opacity4"
-    ]
+    ],
+    "key": "{base.color.black.opacity4}"
+  },
+  "hpe.base.color.black.opacity8": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.08)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#00000014",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.black.opacity8",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "black",
+      "subitem": "opacity8"
+    },
+    "path": [
+      "base",
+      "color",
+      "black",
+      "opacity8"
+    ],
+    "key": "{base.color.black.opacity8}"
   },
   "hpe.base.color.black.opacity12": {
     "$type": "color",
@@ -3663,7 +3170,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3691,7 +3198,8 @@ export default {
       "color",
       "black",
       "opacity12"
-    ]
+    ],
+    "key": "{base.color.black.opacity12}"
   },
   "hpe.base.color.black.opacity24": {
     "$type": "color",
@@ -3706,7 +3214,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3734,7 +3242,8 @@ export default {
       "color",
       "black",
       "opacity24"
-    ]
+    ],
+    "key": "{base.color.black.opacity24}"
   },
   "hpe.base.color.black.opacity36": {
     "$type": "color",
@@ -3749,7 +3258,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3777,50 +3286,8 @@ export default {
       "color",
       "black",
       "opacity36"
-    ]
-  },
-  "hpe.base.color.black.opacity50": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.5)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#00000080",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.black.opacity50",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "black",
-      "subitem": "opacity50"
-    },
-    "path": [
-      "base",
-      "color",
-      "black",
-      "opacity50"
-    ]
+    ],
+    "key": "{base.color.black.opacity36}"
   },
   "hpe.base.color.black.opacity72": {
     "$type": "color",
@@ -3835,7 +3302,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3863,7 +3330,8 @@ export default {
       "color",
       "black",
       "opacity72"
-    ]
+    ],
+    "key": "{base.color.black.opacity72}"
   },
   "hpe.base.color.black.opacity100": {
     "$type": "color",
@@ -3878,7 +3346,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3906,7 +3374,8 @@ export default {
       "color",
       "black",
       "opacity100"
-    ]
+    ],
+    "key": "{base.color.black.opacity100}"
   },
   "hpe.base.color.grey.50": {
     "$type": "color",
@@ -3921,7 +3390,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3949,7 +3418,8 @@ export default {
       "color",
       "grey",
       "50"
-    ]
+    ],
+    "key": "{base.color.grey.50}"
   },
   "hpe.base.color.grey.400": {
     "$type": "color",
@@ -3964,7 +3434,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -3992,7 +3462,8 @@ export default {
       "color",
       "grey",
       "400"
-    ]
+    ],
+    "key": "{base.color.grey.400}"
   },
   "hpe.base.color.grey.500": {
     "$type": "color",
@@ -4007,7 +3478,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4035,50 +3506,8 @@ export default {
       "color",
       "grey",
       "500"
-    ]
-  },
-  "hpe.base.color.grey.550": {
-    "$type": "color",
-    "$value": "#ebebeb",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#EBEBEB",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.grey.550",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "grey",
-      "subitem": "550"
-    },
-    "path": [
-      "base",
-      "color",
-      "grey",
-      "550"
-    ]
+    ],
+    "key": "{base.color.grey.500}"
   },
   "hpe.base.color.grey.600": {
     "$type": "color",
@@ -4093,7 +3522,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4121,7 +3550,8 @@ export default {
       "color",
       "grey",
       "600"
-    ]
+    ],
+    "key": "{base.color.grey.600}"
   },
   "hpe.base.color.grey.700": {
     "$type": "color",
@@ -4136,7 +3566,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4164,7 +3594,8 @@ export default {
       "color",
       "grey",
       "700"
-    ]
+    ],
+    "key": "{base.color.grey.700}"
   },
   "hpe.base.color.grey.800": {
     "$type": "color",
@@ -4179,7 +3610,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4207,11 +3638,12 @@ export default {
       "color",
       "grey",
       "800"
-    ]
+    ],
+    "key": "{base.color.grey.800}"
   },
   "hpe.base.color.grey.1000": {
     "$type": "color",
-    "$value": "#333333",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4222,11 +3654,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#333333",
+      "$value": "#2e2e2e",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4250,7 +3682,8 @@ export default {
       "color",
       "grey",
       "1000"
-    ]
+    ],
+    "key": "{base.color.grey.1000}"
   },
   "hpe.base.color.grey.1100": {
     "$type": "color",
@@ -4265,7 +3698,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4293,7 +3726,8 @@ export default {
       "color",
       "grey",
       "1100"
-    ]
+    ],
+    "key": "{base.color.grey.1100}"
   },
   "hpe.base.color.grey.1200": {
     "$type": "color",
@@ -4308,7 +3742,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4336,7 +3770,8 @@ export default {
       "color",
       "grey",
       "1200"
-    ]
+    ],
+    "key": "{base.color.grey.1200}"
   },
   "hpe.base.color.grey.1300": {
     "$type": "color",
@@ -4351,7 +3786,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4379,7 +3814,8 @@ export default {
       "color",
       "grey",
       "1300"
-    ]
+    ],
+    "key": "{base.color.grey.1300}"
   },
   "hpe.base.color.white.100": {
     "$type": "color",
@@ -4394,7 +3830,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4422,7 +3858,8 @@ export default {
       "color",
       "white",
       "100"
-    ]
+    ],
+    "key": "{base.color.white.100}"
   },
   "hpe.base.color.white.opacity6": {
     "$type": "color",
@@ -4437,7 +3874,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4465,7 +3902,8 @@ export default {
       "color",
       "white",
       "opacity6"
-    ]
+    ],
+    "key": "{base.color.white.opacity6}"
   },
   "hpe.base.color.white.opacity7": {
     "$type": "color",
@@ -4480,7 +3918,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4508,7 +3946,8 @@ export default {
       "color",
       "white",
       "opacity7"
-    ]
+    ],
+    "key": "{base.color.white.opacity7}"
   },
   "hpe.base.color.white.opacity12": {
     "$type": "color",
@@ -4523,7 +3962,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4551,7 +3990,8 @@ export default {
       "color",
       "white",
       "opacity12"
-    ]
+    ],
+    "key": "{base.color.white.opacity12}"
   },
   "hpe.base.color.white.opacity20": {
     "$type": "color",
@@ -4566,7 +4006,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4594,7 +4034,8 @@ export default {
       "color",
       "white",
       "opacity20"
-    ]
+    ],
+    "key": "{base.color.white.opacity20}"
   },
   "hpe.base.color.white.opacity24": {
     "$type": "color",
@@ -4609,7 +4050,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4637,7 +4078,8 @@ export default {
       "color",
       "white",
       "opacity24"
-    ]
+    ],
+    "key": "{base.color.white.opacity24}"
   },
   "hpe.base.color.white.opacity36": {
     "$type": "color",
@@ -4652,7 +4094,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4680,7 +4122,8 @@ export default {
       "color",
       "white",
       "opacity36"
-    ]
+    ],
+    "key": "{base.color.white.opacity36}"
   },
   "hpe.base.color.white.opacity50": {
     "$type": "color",
@@ -4695,7 +4138,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4723,7 +4166,8 @@ export default {
       "color",
       "white",
       "opacity50"
-    ]
+    ],
+    "key": "{base.color.white.opacity50}"
   },
   "hpe.base.color.white.opacity72": {
     "$type": "color",
@@ -4738,7 +4182,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4766,7 +4210,8 @@ export default {
       "color",
       "white",
       "opacity72"
-    ]
+    ],
+    "key": "{base.color.white.opacity72}"
   },
   "hpe.base.color.dataVis.green1": {
     "$type": "color",
@@ -4781,7 +4226,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4809,7 +4254,8 @@ export default {
       "color",
       "dataVis",
       "green1"
-    ]
+    ],
+    "key": "{base.color.dataVis.green1}"
   },
   "hpe.base.color.dataVis.darkblue1": {
     "$type": "color",
@@ -4824,7 +4270,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4852,7 +4298,8 @@ export default {
       "color",
       "dataVis",
       "darkblue1"
-    ]
+    ],
+    "key": "{base.color.dataVis.darkblue1}"
   },
   "hpe.base.color.dataVis.purple1": {
     "$type": "color",
@@ -4867,7 +4314,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4895,7 +4342,8 @@ export default {
       "color",
       "dataVis",
       "purple1"
-    ]
+    ],
+    "key": "{base.color.dataVis.purple1}"
   },
   "hpe.base.color.dataVis.gold1": {
     "$type": "color",
@@ -4910,7 +4358,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4938,7 +4386,8 @@ export default {
       "color",
       "dataVis",
       "gold1"
-    ]
+    ],
+    "key": "{base.color.dataVis.gold1}"
   },
   "hpe.base.color.dataVis.lightblue1": {
     "$type": "color",
@@ -4953,7 +4402,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -4981,7 +4430,8 @@ export default {
       "color",
       "dataVis",
       "lightblue1"
-    ]
+    ],
+    "key": "{base.color.dataVis.lightblue1}"
   },
   "hpe.base.color.dataVis.pink1": {
     "$type": "color",
@@ -4996,7 +4446,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5024,7 +4474,8 @@ export default {
       "color",
       "dataVis",
       "pink1"
-    ]
+    ],
+    "key": "{base.color.dataVis.pink1}"
   },
   "hpe.base.color.dataVis.blue1": {
     "$type": "color",
@@ -5039,7 +4490,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5067,7 +4518,8 @@ export default {
       "color",
       "dataVis",
       "blue1"
-    ]
+    ],
+    "key": "{base.color.dataVis.blue1}"
   },
   "hpe.base.color.dataVis.grape1": {
     "$type": "color",
@@ -5082,7 +4534,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5110,7 +4562,8 @@ export default {
       "color",
       "dataVis",
       "grape1"
-    ]
+    ],
+    "key": "{base.color.dataVis.grape1}"
   },
   "hpe.base.color.dataVis.darkblue2": {
     "$type": "color",
@@ -5125,7 +4578,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5153,7 +4606,8 @@ export default {
       "color",
       "dataVis",
       "darkblue2"
-    ]
+    ],
+    "key": "{base.color.dataVis.darkblue2}"
   },
   "hpe.base.color.dataVis.purple2": {
     "$type": "color",
@@ -5168,7 +4622,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5196,7 +4650,8 @@ export default {
       "color",
       "dataVis",
       "purple2"
-    ]
+    ],
+    "key": "{base.color.dataVis.purple2}"
   },
   "hpe.base.color.dataVis.gold2": {
     "$type": "color",
@@ -5211,7 +4666,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5239,7 +4694,8 @@ export default {
       "color",
       "dataVis",
       "gold2"
-    ]
+    ],
+    "key": "{base.color.dataVis.gold2}"
   },
   "hpe.base.color.dataVis.lightblue2": {
     "$type": "color",
@@ -5254,7 +4710,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5282,7 +4738,8 @@ export default {
       "color",
       "dataVis",
       "lightblue2"
-    ]
+    ],
+    "key": "{base.color.dataVis.lightblue2}"
   },
   "hpe.base.color.dataVis.pink2": {
     "$type": "color",
@@ -5297,7 +4754,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5325,7 +4782,8 @@ export default {
       "color",
       "dataVis",
       "pink2"
-    ]
+    ],
+    "key": "{base.color.dataVis.pink2}"
   },
   "hpe.base.color.dataVis.blue2": {
     "$type": "color",
@@ -5340,7 +4798,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5368,9 +4826,10 @@ export default {
       "color",
       "dataVis",
       "blue2"
-    ]
+    ],
+    "key": "{base.color.dataVis.blue2}"
   },
-  "hpe.base.color.dataVis.purple-2": {
+  "hpe.base.color.dataVis.purple3": {
     "$type": "color",
     "$value": "#9a3ac0",
     "$description": "",
@@ -5383,7 +4842,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
@@ -5399,19 +4858,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.dataVis.purple-2",
+    "name": "hpe.base.color.dataVis.purple3",
     "attributes": {
       "category": "base",
       "type": "color",
       "item": "dataVis",
-      "subitem": "purple-2"
+      "subitem": "purple3"
     },
     "path": [
       "base",
       "color",
       "dataVis",
-      "purple-2"
-    ]
+      "purple3"
+    ],
+    "key": "{base.color.dataVis.purple3}"
   },
   "hpe.base.fontFamily.MetricHPEXS": {
     "$type": "string",
@@ -5426,7 +4886,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -5452,7 +4912,8 @@ export default {
       "base",
       "fontFamily",
       "MetricHPEXS"
-    ]
+    ],
+    "key": "{base.fontFamily.MetricHPEXS}"
   },
   "hpe.base.fontFamily.code": {
     "$type": "string",
@@ -5467,7 +4928,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -5493,7 +4954,8 @@ export default {
       "base",
       "fontFamily",
       "code"
-    ]
+    ],
+    "key": "{base.fontFamily.code}"
   },
   "hpe.base.fontFamily.primary": {
     "$type": "string",
@@ -5508,7 +4970,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -5534,7 +4996,8 @@ export default {
       "base",
       "fontFamily",
       "primary"
-    ]
+    ],
+    "key": "{base.fontFamily.primary}"
   },
   "hpe.base.fontSize.80": {
     "$type": "number",
@@ -5549,7 +5012,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5575,7 +5038,8 @@ export default {
       "base",
       "fontSize",
       "80"
-    ]
+    ],
+    "key": "{base.fontSize.80}"
   },
   "hpe.base.fontSize.90": {
     "$type": "number",
@@ -5590,7 +5054,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5616,7 +5080,8 @@ export default {
       "base",
       "fontSize",
       "90"
-    ]
+    ],
+    "key": "{base.fontSize.90}"
   },
   "hpe.base.fontSize.100": {
     "$type": "number",
@@ -5631,7 +5096,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5657,7 +5122,8 @@ export default {
       "base",
       "fontSize",
       "100"
-    ]
+    ],
+    "key": "{base.fontSize.100}"
   },
   "hpe.base.fontSize.200": {
     "$type": "number",
@@ -5672,7 +5138,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5698,7 +5164,8 @@ export default {
       "base",
       "fontSize",
       "200"
-    ]
+    ],
+    "key": "{base.fontSize.200}"
   },
   "hpe.base.fontSize.300": {
     "$type": "number",
@@ -5713,7 +5180,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5739,7 +5206,8 @@ export default {
       "base",
       "fontSize",
       "300"
-    ]
+    ],
+    "key": "{base.fontSize.300}"
   },
   "hpe.base.fontSize.400": {
     "$type": "number",
@@ -5754,7 +5222,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5780,7 +5248,8 @@ export default {
       "base",
       "fontSize",
       "400"
-    ]
+    ],
+    "key": "{base.fontSize.400}"
   },
   "hpe.base.fontSize.500": {
     "$type": "number",
@@ -5795,7 +5264,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5821,7 +5290,8 @@ export default {
       "base",
       "fontSize",
       "500"
-    ]
+    ],
+    "key": "{base.fontSize.500}"
   },
   "hpe.base.fontSize.600": {
     "$type": "number",
@@ -5836,7 +5306,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5862,7 +5332,8 @@ export default {
       "base",
       "fontSize",
       "600"
-    ]
+    ],
+    "key": "{base.fontSize.600}"
   },
   "hpe.base.fontSize.700": {
     "$type": "number",
@@ -5877,7 +5348,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5903,7 +5374,8 @@ export default {
       "base",
       "fontSize",
       "700"
-    ]
+    ],
+    "key": "{base.fontSize.700}"
   },
   "hpe.base.fontSize.800": {
     "$type": "number",
@@ -5918,7 +5390,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5944,7 +5416,8 @@ export default {
       "base",
       "fontSize",
       "800"
-    ]
+    ],
+    "key": "{base.fontSize.800}"
   },
   "hpe.base.fontSize.900": {
     "$type": "number",
@@ -5959,7 +5432,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -5985,48 +5458,8 @@ export default {
       "base",
       "fontSize",
       "900"
-    ]
-  },
-  "hpe.base.fontSize.1000": {
-    "$type": "number",
-    "$value": "4.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_SIZE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": 72,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_SIZE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.fontSize.1000",
-    "attributes": {
-      "category": "base",
-      "type": "fontSize",
-      "item": "1000"
-    },
-    "path": [
-      "base",
-      "fontSize",
-      "1000"
-    ]
+    ],
+    "key": "{base.fontSize.900}"
   },
   "hpe.base.lineHeight.80": {
     "$type": "number",
@@ -6041,7 +5474,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6067,7 +5500,8 @@ export default {
       "base",
       "lineHeight",
       "80"
-    ]
+    ],
+    "key": "{base.lineHeight.80}"
   },
   "hpe.base.lineHeight.90": {
     "$type": "number",
@@ -6082,7 +5516,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6108,7 +5542,8 @@ export default {
       "base",
       "lineHeight",
       "90"
-    ]
+    ],
+    "key": "{base.lineHeight.90}"
   },
   "hpe.base.lineHeight.100": {
     "$type": "number",
@@ -6123,7 +5558,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6149,7 +5584,8 @@ export default {
       "base",
       "lineHeight",
       "100"
-    ]
+    ],
+    "key": "{base.lineHeight.100}"
   },
   "hpe.base.lineHeight.200": {
     "$type": "number",
@@ -6164,7 +5600,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6190,7 +5626,8 @@ export default {
       "base",
       "lineHeight",
       "200"
-    ]
+    ],
+    "key": "{base.lineHeight.200}"
   },
   "hpe.base.lineHeight.300": {
     "$type": "number",
@@ -6205,7 +5642,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6231,7 +5668,8 @@ export default {
       "base",
       "lineHeight",
       "300"
-    ]
+    ],
+    "key": "{base.lineHeight.300}"
   },
   "hpe.base.lineHeight.400": {
     "$type": "number",
@@ -6246,7 +5684,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6272,7 +5710,8 @@ export default {
       "base",
       "lineHeight",
       "400"
-    ]
+    ],
+    "key": "{base.lineHeight.400}"
   },
   "hpe.base.lineHeight.500": {
     "$type": "number",
@@ -6287,7 +5726,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6313,7 +5752,8 @@ export default {
       "base",
       "lineHeight",
       "500"
-    ]
+    ],
+    "key": "{base.lineHeight.500}"
   },
   "hpe.base.lineHeight.600": {
     "$type": "number",
@@ -6328,7 +5768,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6354,7 +5794,8 @@ export default {
       "base",
       "lineHeight",
       "600"
-    ]
+    ],
+    "key": "{base.lineHeight.600}"
   },
   "hpe.base.lineHeight.700": {
     "$type": "number",
@@ -6369,7 +5810,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6395,7 +5836,8 @@ export default {
       "base",
       "lineHeight",
       "700"
-    ]
+    ],
+    "key": "{base.lineHeight.700}"
   },
   "hpe.base.lineHeight.800": {
     "$type": "number",
@@ -6410,7 +5852,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6436,7 +5878,8 @@ export default {
       "base",
       "lineHeight",
       "800"
-    ]
+    ],
+    "key": "{base.lineHeight.800}"
   },
   "hpe.base.lineHeight.900": {
     "$type": "number",
@@ -6451,7 +5894,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6477,50 +5920,10 @@ export default {
       "base",
       "lineHeight",
       "900"
-    ]
+    ],
+    "key": "{base.lineHeight.900}"
   },
-  "hpe.base.lineHeight.1000": {
-    "$type": "number",
-    "$value": "4.5rem",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "LINE_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": 72,
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "LINE_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.lineHeight.1000",
-    "attributes": {
-      "category": "base",
-      "type": "lineHeight",
-      "item": "1000"
-    },
-    "path": [
-      "base",
-      "lineHeight",
-      "1000"
-    ]
-  },
-  "hpe.base.static.spacing.none": {
+  "hpe.static.spacing.none": {
     "$type": "number",
     "$value": "0px",
     "$description": "",
@@ -6533,7 +5936,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6549,21 +5952,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.spacing.none",
+    "name": "hpe.static.spacing.none",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "none"
+      "category": "static",
+      "type": "spacing",
+      "item": "none"
     },
     "path": [
-      "base",
       "static",
       "spacing",
       "none"
-    ]
+    ],
+    "key": "{static.spacing.none}"
   },
-  "hpe.base.static.spacing.hair": {
+  "hpe.static.spacing.hair": {
     "$type": "number",
     "$value": "1px",
     "$description": "",
@@ -6576,7 +5978,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6592,21 +5994,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.spacing.hair",
+    "name": "hpe.static.spacing.hair",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "hair"
+      "category": "static",
+      "type": "spacing",
+      "item": "hair"
     },
     "path": [
-      "base",
       "static",
       "spacing",
       "hair"
-    ]
+    ],
+    "key": "{static.spacing.hair}"
   },
-  "hpe.base.static.spacing.xxsmall": {
+  "hpe.static.spacing.5xsmall": {
     "$type": "number",
     "$value": "3px",
     "$description": "",
@@ -6619,7 +6020,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -6635,582 +6036,22 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.spacing.xxsmall",
+    "name": "hpe.static.spacing.5xsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "xxsmall"
+      "category": "static",
+      "type": "spacing",
+      "item": "5xsmall"
     },
     "path": [
-      "base",
       "static",
       "spacing",
-      "xxsmall"
-    ]
+      "5xsmall"
+    ],
+    "key": "{static.spacing.5xsmall}"
   },
-  "hpe.base.static.spacing.xsmall": {
+  "hpe.static.spacing.4xsmall": {
     "$type": "number",
-    "$value": "6px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "GAP"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.150}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.spacing.xsmall",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "xsmall"
-    },
-    "path": [
-      "base",
-      "static",
-      "spacing",
-      "xsmall"
-    ]
-  },
-  "hpe.base.static.spacing.small": {
-    "$type": "number",
-    "$value": "12px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "GAP"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.spacing.small",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "small"
-    },
-    "path": [
-      "base",
-      "static",
-      "spacing",
-      "small"
-    ]
-  },
-  "hpe.base.static.spacing.medium": {
-    "$type": "number",
-    "$value": "24px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "GAP"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.spacing.medium",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "medium"
-    },
-    "path": [
-      "base",
-      "static",
-      "spacing",
-      "medium"
-    ]
-  },
-  "hpe.base.static.spacing.large": {
-    "$type": "number",
-    "$value": "48px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "GAP"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.1200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.spacing.large",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "large"
-    },
-    "path": [
-      "base",
-      "static",
-      "spacing",
-      "large"
-    ]
-  },
-  "hpe.base.static.spacing.xlarge": {
-    "$type": "number",
-    "$value": "96px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "GAP"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.2400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.spacing.xlarge",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "spacing",
-      "subitem": "xlarge"
-    },
-    "path": [
-      "base",
-      "static",
-      "spacing",
-      "xlarge"
-    ]
-  },
-  "hpe.base.static.radius.none": {
-    "$type": "number",
-    "$value": "0px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.0}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.radius.none",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "none"
-    },
-    "path": [
-      "base",
-      "static",
-      "radius",
-      "none"
-    ]
-  },
-  "hpe.base.static.radius.hair": {
-    "$type": "number",
-    "$value": "1px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.25}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.radius.hair",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "hair"
-    },
-    "path": [
-      "base",
-      "static",
-      "radius",
-      "hair"
-    ]
-  },
-  "hpe.base.static.radius.xxsmall": {
-    "$type": "number",
-    "$value": "3px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.75}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.radius.xxsmall",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "xxsmall"
-    },
-    "path": [
-      "base",
-      "static",
-      "radius",
-      "xxsmall"
-    ]
-  },
-  "hpe.base.static.radius.xsmall": {
-    "$type": "number",
-    "$value": "6px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.150}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.radius.xsmall",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "xsmall"
-    },
-    "path": [
-      "base",
-      "static",
-      "radius",
-      "xsmall"
-    ]
-  },
-  "hpe.base.static.radius.small": {
-    "$type": "number",
-    "$value": "12px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.radius.small",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "small"
-    },
-    "path": [
-      "base",
-      "static",
-      "radius",
-      "small"
-    ]
-  },
-  "hpe.base.static.radius.medium": {
-    "$type": "number",
-    "$value": "24px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.radius.medium",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "medium"
-    },
-    "path": [
-      "base",
-      "static",
-      "radius",
-      "medium"
-    ]
-  },
-  "hpe.base.static.radius.large": {
-    "$type": "number",
-    "$value": "48px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.1200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.radius.large",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "large"
-    },
-    "path": [
-      "base",
-      "static",
-      "radius",
-      "large"
-    ]
-  },
-  "hpe.base.static.radius.xlarge": {
-    "$type": "number",
-    "$value": "96px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.2400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.radius.xlarge",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "xlarge"
-    },
-    "path": [
-      "base",
-      "static",
-      "radius",
-      "xlarge"
-    ]
-  },
-  "hpe.base.static.radius.full": {
-    "$type": "number",
-    "$value": "384px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -7221,11 +6062,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.9600}",
+      "$value": "{base.dimension.100}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7237,21 +6078,818 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.radius.full",
+    "name": "hpe.static.spacing.4xsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "radius",
-      "subitem": "full"
+      "category": "static",
+      "type": "spacing",
+      "item": "4xsmall"
     },
     "path": [
-      "base",
+      "static",
+      "spacing",
+      "4xsmall"
+    ],
+    "key": "{static.spacing.4xsmall}"
+  },
+  "hpe.static.spacing.3xsmall": {
+    "$type": "number",
+    "$value": "6px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.150}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.3xsmall",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "3xsmall"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "3xsmall"
+    ],
+    "key": "{static.spacing.3xsmall}"
+  },
+  "hpe.static.spacing.xxsmall": {
+    "$type": "number",
+    "$value": "8px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.xxsmall",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "xxsmall"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "xxsmall"
+    ],
+    "key": "{static.spacing.xxsmall}"
+  },
+  "hpe.static.spacing.xsmall": {
+    "$type": "number",
+    "$value": "12px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.xsmall",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "xsmall"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "xsmall"
+    ],
+    "key": "{static.spacing.xsmall}"
+  },
+  "hpe.static.spacing.small": {
+    "$type": "number",
+    "$value": "16px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.small",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "small"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "small"
+    ],
+    "key": "{static.spacing.small}"
+  },
+  "hpe.static.spacing.medium": {
+    "$type": "number",
+    "$value": "24px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.medium",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "medium"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "medium"
+    ],
+    "key": "{static.spacing.medium}"
+  },
+  "hpe.static.spacing.large": {
+    "$type": "number",
+    "$value": "32px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.800}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.large",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "large"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "large"
+    ],
+    "key": "{static.spacing.large}"
+  },
+  "hpe.static.spacing.xlarge": {
+    "$type": "number",
+    "$value": "48px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.1200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.xlarge",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "xlarge"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "xlarge"
+    ],
+    "key": "{static.spacing.xlarge}"
+  },
+  "hpe.static.spacing.xxlarge": {
+    "$type": "number",
+    "$value": "64px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.1600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.xxlarge",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "xxlarge"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "xxlarge"
+    ],
+    "key": "{static.spacing.xxlarge}"
+  },
+  "hpe.static.spacing.3xlarge": {
+    "$type": "number",
+    "$value": "96px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.2400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.3xlarge",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "3xlarge"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "3xlarge"
+    ],
+    "key": "{static.spacing.3xlarge}"
+  },
+  "hpe.static.spacing.4xlarge": {
+    "$type": "number",
+    "$value": "128px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.3200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.spacing.4xlarge",
+    "attributes": {
+      "category": "static",
+      "type": "spacing",
+      "item": "4xlarge"
+    },
+    "path": [
+      "static",
+      "spacing",
+      "4xlarge"
+    ],
+    "key": "{static.spacing.4xlarge}"
+  },
+  "hpe.static.radius.none": {
+    "$type": "number",
+    "$value": "0px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.0}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.none",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "none"
+    },
+    "path": [
+      "static",
+      "radius",
+      "none"
+    ],
+    "key": "{static.radius.none}"
+  },
+  "hpe.static.radius.hair": {
+    "$type": "number",
+    "$value": "1px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.25}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.hair",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "hair"
+    },
+    "path": [
+      "static",
+      "radius",
+      "hair"
+    ],
+    "key": "{static.radius.hair}"
+  },
+  "hpe.static.radius.xxsmall": {
+    "$type": "number",
+    "$value": "3px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.75}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.xxsmall",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "xxsmall"
+    },
+    "path": [
+      "static",
+      "radius",
+      "xxsmall"
+    ],
+    "key": "{static.radius.xxsmall}"
+  },
+  "hpe.static.radius.xsmall": {
+    "$type": "number",
+    "$value": "6px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.150}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.xsmall",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "xsmall"
+    },
+    "path": [
+      "static",
+      "radius",
+      "xsmall"
+    ],
+    "key": "{static.radius.xsmall}"
+  },
+  "hpe.static.radius.small": {
+    "$type": "number",
+    "$value": "12px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.small",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "small"
+    },
+    "path": [
+      "static",
+      "radius",
+      "small"
+    ],
+    "key": "{static.radius.small}"
+  },
+  "hpe.static.radius.medium": {
+    "$type": "number",
+    "$value": "24px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.medium",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "medium"
+    },
+    "path": [
+      "static",
+      "radius",
+      "medium"
+    ],
+    "key": "{static.radius.medium}"
+  },
+  "hpe.static.radius.large": {
+    "$type": "number",
+    "$value": "48px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.1200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.large",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "large"
+    },
+    "path": [
+      "static",
+      "radius",
+      "large"
+    ],
+    "key": "{static.radius.large}"
+  },
+  "hpe.static.radius.xlarge": {
+    "$type": "number",
+    "$value": "96px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.2400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.xlarge",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "xlarge"
+    },
+    "path": [
+      "static",
+      "radius",
+      "xlarge"
+    ],
+    "key": "{static.radius.xlarge}"
+  },
+  "hpe.static.radius.full": {
+    "$type": "number",
+    "$value": "9999px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": 9999,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.full",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "full"
+    },
+    "path": [
       "static",
       "radius",
       "full"
-    ]
+    ],
+    "key": "{static.radius.full}"
   },
-  "hpe.base.static.borderWidth.none": {
+  "hpe.static.borderWidth.none": {
     "$type": "number",
     "$value": "0px",
     "$description": "",
@@ -7264,7 +6902,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7280,21 +6918,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.none",
+    "name": "hpe.static.borderWidth.none",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "none"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "none"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "none"
-    ]
+    ],
+    "key": "{static.borderWidth.none}"
   },
-  "hpe.base.static.borderWidth.xsmall": {
+  "hpe.static.borderWidth.xsmall": {
     "$type": "number",
     "$value": "1px",
     "$description": "",
@@ -7307,7 +6944,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7323,21 +6960,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.xsmall",
+    "name": "hpe.static.borderWidth.xsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "xsmall"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "xsmall"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "xsmall"
-    ]
+    ],
+    "key": "{static.borderWidth.xsmall}"
   },
-  "hpe.base.static.borderWidth.small": {
+  "hpe.static.borderWidth.small": {
     "$type": "number",
     "$value": "2px",
     "$description": "",
@@ -7350,7 +6986,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7366,21 +7002,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.small",
+    "name": "hpe.static.borderWidth.small",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "small"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "small"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "small"
-    ]
+    ],
+    "key": "{static.borderWidth.small}"
   },
-  "hpe.base.static.borderWidth.medium": {
+  "hpe.static.borderWidth.medium": {
     "$type": "number",
     "$value": "4px",
     "$description": "",
@@ -7393,7 +7028,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7409,21 +7044,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.medium",
+    "name": "hpe.static.borderWidth.medium",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "medium"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "medium"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "medium"
-    ]
+    ],
+    "key": "{static.borderWidth.medium}"
   },
-  "hpe.base.static.borderWidth.large": {
+  "hpe.static.borderWidth.large": {
     "$type": "number",
     "$value": "12px",
     "$description": "",
@@ -7436,7 +7070,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7452,21 +7086,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.large",
+    "name": "hpe.static.borderWidth.large",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "large"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "large"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "large"
-    ]
+    ],
+    "key": "{static.borderWidth.large}"
   },
-  "hpe.base.static.borderWidth.xlarge": {
+  "hpe.static.borderWidth.xlarge": {
     "$type": "number",
     "$value": "24px",
     "$description": "",
@@ -7479,7 +7112,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7495,21 +7128,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.xlarge",
+    "name": "hpe.static.borderWidth.xlarge",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "xlarge"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "xlarge"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "xlarge"
-    ]
+    ],
+    "key": "{static.borderWidth.xlarge}"
   },
-  "hpe.base.static.borderWidth.default": {
+  "hpe.static.borderWidth.default": {
     "$type": "number",
     "$value": "1px",
     "$description": "",
@@ -7522,7 +7154,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7538,21 +7170,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.borderWidth.default",
+    "name": "hpe.static.borderWidth.default",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "borderWidth",
-      "subitem": "default"
+      "category": "static",
+      "type": "borderWidth",
+      "item": "default"
     },
     "path": [
-      "base",
       "static",
       "borderWidth",
       "default"
-    ]
+    ],
+    "key": "{static.borderWidth.default}"
   },
-  "hpe.base.static.content.xxsmall": {
+  "hpe.static.container.5xsmall": {
     "$type": "number",
     "$value": "48px",
     "$description": "",
@@ -7566,7 +7197,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7583,21 +7214,62 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.xxsmall",
+    "name": "hpe.static.container.5xsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "content",
-      "subitem": "xxsmall"
+      "category": "static",
+      "type": "container",
+      "item": "5xsmall"
     },
     "path": [
-      "base",
       "static",
-      "content",
-      "xxsmall"
-    ]
+      "container",
+      "5xsmall"
+    ],
+    "key": "{static.container.5xsmall}"
   },
-  "hpe.base.static.content.xsmall": {
+  "hpe.static.container.4xsmall": {
+    "$type": "number",
+    "$value": "64px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.1600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.container.4xsmall",
+    "attributes": {
+      "category": "static",
+      "type": "container",
+      "item": "4xsmall"
+    },
+    "path": [
+      "static",
+      "container",
+      "4xsmall"
+    ],
+    "key": "{static.container.4xsmall}"
+  },
+  "hpe.static.container.3xsmall": {
     "$type": "number",
     "$value": "96px",
     "$description": "",
@@ -7611,7 +7283,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7628,21 +7300,62 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.xsmall",
+    "name": "hpe.static.container.3xsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "content",
-      "subitem": "xsmall"
+      "category": "static",
+      "type": "container",
+      "item": "3xsmall"
     },
     "path": [
-      "base",
       "static",
-      "content",
-      "xsmall"
-    ]
+      "container",
+      "3xsmall"
+    ],
+    "key": "{static.container.3xsmall}"
   },
-  "hpe.base.static.content.small": {
+  "hpe.static.container.xxsmall": {
+    "$type": "number",
+    "$value": "128px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.3200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.container.xxsmall",
+    "attributes": {
+      "category": "static",
+      "type": "container",
+      "item": "xxsmall"
+    },
+    "path": [
+      "static",
+      "container",
+      "xxsmall"
+    ],
+    "key": "{static.container.xxsmall}"
+  },
+  "hpe.static.container.xsmall": {
     "$type": "number",
     "$value": "192px",
     "$description": "",
@@ -7656,7 +7369,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7673,23 +7386,22 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.small",
+    "name": "hpe.static.container.xsmall",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "content",
-      "subitem": "small"
+      "category": "static",
+      "type": "container",
+      "item": "xsmall"
     },
     "path": [
-      "base",
       "static",
-      "content",
-      "small"
-    ]
+      "container",
+      "xsmall"
+    ],
+    "key": "{static.container.xsmall}"
   },
-  "hpe.base.static.content.smallPlus": {
+  "hpe.static.container.small": {
     "$type": "number",
-    "$value": "288px",
+    "$value": "256px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -7700,11 +7412,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.7200}",
+      "$value": "{base.dimension.6400}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7716,21 +7428,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.smallPlus",
+    "name": "hpe.static.container.small",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "content",
-      "subitem": "smallPlus"
+      "category": "static",
+      "type": "container",
+      "item": "small"
     },
     "path": [
-      "base",
       "static",
-      "content",
-      "smallPlus"
-    ]
+      "container",
+      "small"
+    ],
+    "key": "{static.container.small}"
   },
-  "hpe.base.static.content.medium": {
+  "hpe.static.container.medium": {
     "$type": "number",
     "$value": "384px",
     "$description": "",
@@ -7744,7 +7455,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7761,23 +7472,22 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.medium",
+    "name": "hpe.static.container.medium",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "content",
-      "subitem": "medium"
+      "category": "static",
+      "type": "container",
+      "item": "medium"
     },
     "path": [
-      "base",
       "static",
-      "content",
+      "container",
       "medium"
-    ]
+    ],
+    "key": "{static.container.medium}"
   },
-  "hpe.base.static.content.mediumPlus": {
+  "hpe.static.container.large": {
     "$type": "number",
-    "$value": "576px",
+    "$value": "512px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -7788,11 +7498,11 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.14400}",
+      "$value": "{base.dimension.12800}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7804,21 +7514,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.mediumPlus",
+    "name": "hpe.static.container.large",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "content",
-      "subitem": "mediumPlus"
+      "category": "static",
+      "type": "container",
+      "item": "large"
     },
     "path": [
-      "base",
       "static",
-      "content",
-      "mediumPlus"
-    ]
+      "container",
+      "large"
+    ],
+    "key": "{static.container.large}"
   },
-  "hpe.base.static.content.large": {
+  "hpe.static.container.xlarge": {
     "$type": "number",
     "$value": "768px",
     "$description": "",
@@ -7832,7 +7541,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7849,23 +7558,22 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.large",
+    "name": "hpe.static.container.xlarge",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "content",
-      "subitem": "large"
+      "category": "static",
+      "type": "container",
+      "item": "xlarge"
     },
     "path": [
-      "base",
       "static",
-      "content",
-      "large"
-    ]
+      "container",
+      "xlarge"
+    ],
+    "key": "{static.container.xlarge}"
   },
-  "hpe.base.static.content.xlarge": {
+  "hpe.static.container.xxlarge": {
     "$type": "number",
-    "$value": "1152px",
+    "$value": "1024px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -7877,7 +7585,51 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.25600}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.container.xxlarge",
+    "attributes": {
+      "category": "static",
+      "type": "container",
+      "item": "xxlarge"
+    },
+    "path": [
+      "static",
+      "container",
+      "xxlarge"
+    ],
+    "key": "{static.container.xxlarge}"
+  },
+  "hpe.static.container.3xlarge": {
+    "$type": "number",
+    "$value": "1536px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT",
+          "GAP"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -7894,69 +7646,23 @@ export default {
         }
       }
     },
-    "name": "hpe.base.static.content.xlarge",
+    "name": "hpe.static.container.3xlarge",
     "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "content",
-      "subitem": "xlarge"
+      "category": "static",
+      "type": "container",
+      "item": "3xlarge"
     },
     "path": [
-      "base",
       "static",
-      "content",
-      "xlarge"
-    ]
-  },
-  "hpe.base.static.content.xxlarge": {
-    "$type": "number",
-    "$value": "1536px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "WIDTH_HEIGHT",
-          "GAP"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.base.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.76800}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT",
-            "GAP"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.static.content.xxlarge",
-    "attributes": {
-      "category": "base",
-      "type": "static",
-      "item": "content",
-      "subitem": "xxlarge"
-    },
-    "path": [
-      "base",
-      "static",
-      "content",
-      "xxlarge"
-    ]
+      "container",
+      "3xlarge"
+    ],
+    "key": "{static.container.3xlarge}"
   },
   "hpe.TBD": {
     "$type": "color",
     "$value": "rgba(0, 255, 10, 0)",
-    "$description": "Placeholder for colours that still need finalising.",
+    "$description": "Placeholder for colors that still need finalising.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": true,
@@ -7966,12 +7672,12 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/primitive/primitives.base.json",
+    "filePath": "tokens/primitive/primitives.default.json",
     "isSource": true,
     "original": {
       "$type": "color",
       "$value": "#00ff0a00",
-      "$description": "Placeholder for colours that still need finalising.",
+      "$description": "Placeholder for colors that still need finalising.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -7988,6 +7694,7 @@ export default {
     },
     "path": [
       "TBD"
-    ]
+    ],
+    "key": "{TBD}"
   }
 }
