@@ -34,6 +34,12 @@ if (process.env.CI) {
           `${localFolder}/${BUILD_DIR}/esm/index.d.ts`,
         ),
       )
+      .then(() =>
+        fs.copyFile(
+          `${path.resolve('src')}/index.d.ts`,
+          `${localFolder}/${BUILD_DIR}/grommet/index.d.ts`,
+        ),
+      )
       .then(() => git(localFolder).add(['--all', '.']))
       .then(() => git(localFolder).commit(`${BRANCH} updated`))
       .then(() => git(localFolder).push('origin', BRANCH))
