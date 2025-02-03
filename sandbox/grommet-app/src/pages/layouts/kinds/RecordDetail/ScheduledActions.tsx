@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, Box, Grid, List, Menu, Text, } from 'grommet';
+import { Anchor, Box, List, Menu, Text, } from 'grommet';
 import { More } from 'grommet-icons';
 
 const futureDate = () => {
@@ -13,25 +13,29 @@ const scheduledActions = [
   { action: 'Collect hardware inventory', date: futureDate() },
 ];
 
-export const ScheduledActions: React.FC = () => {
+export const ScheduledActions = ({ ...rest }) => {
   return (
     <List
       data={scheduledActions}
       defaultItemProps={{ pad: undefined }}
+      {...rest}
     >
       {datum => (
-        <Grid
-          columns={['small', 'small', 'auto', 'auto', 'flex']}
-          align="center"
-          gap="medium"
-        >
-          <Text color="text-strong" weight={500}>{datum.action}</Text>
-          <Text textAlign='end'>
-            {Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: "short" })
-              .format(new Date(datum.date))}
-          </Text>
-          <Anchor label="1 server" href="#" />
-          <Box direction="row" align='start'>
+        <Box direction='row' align='center' gap={{ column: "medium" }} wrap>
+          <Box width="small">
+            <Text color="text-strong" weight={500}>{datum.action}</Text>
+          </Box>
+          <Box direction='row' align="center" gap="medium">
+            <Box
+              // empirically tested for date widths
+              width="11rem"
+            >
+              <Text textAlign='end'>
+                {Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: "short" })
+                  .format(new Date(datum.date))}
+              </Text>
+            </Box>
+            <Anchor label="1 server" href="#" />
             <Menu
               icon={<More />}
               items={[
@@ -40,8 +44,9 @@ export const ScheduledActions: React.FC = () => {
               ]}
             />
           </Box>
-        </Grid>
-      )}
-    </List>
+        </Box>
+      )
+      }
+    </List >
   );
 }
