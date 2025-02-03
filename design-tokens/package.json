@@ -11,7 +11,9 @@
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.cjs"
     },
-    "./grommet": "./dist/grommet/index.js",
+    "./grommet": {
+      "import": "./dist/grommet/index.js"
+    },
     "./docs": "./dist/docs/index.js",
     "./dist/css/*.css": {
       "import": "./dist/css/*.css",
