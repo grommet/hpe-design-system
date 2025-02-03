@@ -2694,6 +2694,9 @@ const buildTheme = (tokens, flags) => {
           display: flex;
           flex-direction: column;
           gap: ${components.hpe.select.default.medium.drop.gapY};
+          [role="option"] {
+            border-radius: ${components.hpe.select.default.medium.option.borderRadius};
+          }
         `,
       },
     },
