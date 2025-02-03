@@ -12,7 +12,8 @@
       "require": "./dist/cjs/index.cjs"
     },
     "./grommet": {
-      "import": "./dist/grommet/index.js"
+      "import": "./dist/grommet/index.js",
+      "require": "./dist/grommet/cjs/index.cjs"
     },
     "./docs": "./dist/docs/index.js",
     "./dist/css/*.css": {
