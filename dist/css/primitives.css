@@ -143,7 +143,6 @@
   --hpe-base-lineHeight-800: 3rem;
   --hpe-base-lineHeight-900: 4.5rem;
   --hpe-static-radius-full: 9999px;
-  --hpe-TBD: rgba(0, 255, 10, 0); /* Placeholder for colors that still need finalising. */
   --hpe-base-color-brand: var(--hpe-base-color-green-600);
   --hpe-static-spacing-none: var(--hpe-base-dimension-0);
   --hpe-static-spacing-hair: var(--hpe-base-dimension-25);
@@ -161,12 +160,13 @@
   --hpe-static-spacing-4xlarge: var(--hpe-base-dimension-3200);
   --hpe-static-radius-none: var(--hpe-base-dimension-0);
   --hpe-static-radius-hair: var(--hpe-base-dimension-25);
-  --hpe-static-radius-xxsmall: var(--hpe-base-dimension-75);
+  --hpe-static-radius-xxsmall: var(--hpe-base-dimension-100);
   --hpe-static-radius-xsmall: var(--hpe-base-dimension-150);
-  --hpe-static-radius-small: var(--hpe-base-dimension-300);
-  --hpe-static-radius-medium: var(--hpe-base-dimension-600);
-  --hpe-static-radius-large: var(--hpe-base-dimension-1200);
-  --hpe-static-radius-xlarge: var(--hpe-base-dimension-2400);
+  --hpe-static-radius-small: var(--hpe-base-dimension-200);
+  --hpe-static-radius-medium: var(--hpe-base-dimension-300);
+  --hpe-static-radius-large: var(--hpe-base-dimension-400);
+  --hpe-static-radius-xlarge: var(--hpe-base-dimension-600);
+  --hpe-static-radius-xxlarge: var(--hpe-base-dimension-800);
   --hpe-static-borderWidth-none: var(--hpe-base-dimension-0);
   --hpe-static-borderWidth-xsmall: var(--hpe-base-dimension-25);
   --hpe-static-borderWidth-small: var(--hpe-base-dimension-50);

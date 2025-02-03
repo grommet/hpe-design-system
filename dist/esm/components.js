@@ -182,6 +182,7 @@ export default {
         },
         "drop": {
           "background": "var(--hpe-select-default-drop-background)",
+          "borderColor": "var(--hpe-select-default-drop-borderColor)",
           "border": "var(--hpe-select-default-drop-border)"
         }
       }
@@ -1328,18 +1329,6 @@ export default {
             "iconColor": "var(--hpe-dataCell-default-selected-hover-iconColor)",
             "borderColor": "var(--hpe-dataCell-default-selected-hover-borderColor)",
             "background": "var(--hpe-dataCell-default-selected-hover-background)"
-          },
-          "rest 2": {
-            "textColor": "var(--hpe-dataCell-default-selected-rest 2-textColor)",
-            "iconColor": "var(--hpe-dataCell-default-selected-rest 2-iconColor)",
-            "borderColor": "var(--hpe-dataCell-default-selected-rest 2-borderColor)",
-            "background": "var(--hpe-dataCell-default-selected-rest 2-background)"
-          },
-          "hover 2": {
-            "textColor": "var(--hpe-dataCell-default-selected-hover 2-textColor)",
-            "iconColor": "var(--hpe-dataCell-default-selected-hover 2-iconColor)",
-            "borderColor": "var(--hpe-dataCell-default-selected-hover 2-borderColor)",
-            "background": "var(--hpe-dataCell-default-selected-hover 2-background)"
           }
         },
         "pinned": {

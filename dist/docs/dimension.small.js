@@ -645,7 +645,7 @@ export default {
   },
   "hpe.radius.xsmall": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -725,7 +725,7 @@ export default {
   },
   "hpe.radius.medium": {
     "$type": "number",
-    "$value": "12px",
+    "$value": "8px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -765,7 +765,7 @@ export default {
   },
   "hpe.radius.large": {
     "$type": "number",
-    "$value": "24px",
+    "$value": "12px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -805,7 +805,7 @@ export default {
   },
   "hpe.radius.xlarge": {
     "$type": "number",
-    "$value": "48px",
+    "$value": "16px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -842,6 +842,46 @@ export default {
       "xlarge"
     ],
     "key": "{radius.xlarge}"
+  },
+  "hpe.radius.xxlarge": {
+    "$type": "number",
+    "$value": "24px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{static.radius.xlarge}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.radius.xxlarge",
+    "attributes": {
+      "category": "radius",
+      "type": "xxlarge"
+    },
+    "path": [
+      "radius",
+      "xxlarge"
+    ],
+    "key": "{radius.xxlarge}"
   },
   "hpe.radius.full": {
     "$type": "number",

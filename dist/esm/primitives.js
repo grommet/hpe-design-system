@@ -182,6 +182,7 @@ export default {
         "medium": "var(--hpe-static-radius-medium)",
         "large": "var(--hpe-static-radius-large)",
         "xlarge": "var(--hpe-static-radius-xlarge)",
+        "xxlarge": "var(--hpe-static-radius-xxlarge)",
         "full": "var(--hpe-static-radius-full)"
       },
       "borderWidth": {
@@ -206,7 +207,6 @@ export default {
         "xxlarge": "var(--hpe-static-container-xxlarge)",
         "3xlarge": "var(--hpe-static-container-3xlarge)"
       }
-    },
-    "TBD": "var(--hpe-TBD)"
+    }
   }
 }

@@ -176,12 +176,13 @@ export default {
       "radius": {
         "none": "0px",
         "hair": "1px",
-        "xxsmall": "3px",
+        "xxsmall": "4px",
         "xsmall": "6px",
-        "small": "12px",
-        "medium": "24px",
-        "large": "48px",
-        "xlarge": "96px",
+        "small": "8px",
+        "medium": "12px",
+        "large": "16px",
+        "xlarge": "24px",
+        "xxlarge": "32px",
         "full": "9999px"
       },
       "borderWidth": {
@@ -206,7 +207,6 @@ export default {
         "xxlarge": "1024px",
         "3xlarge": "1536px"
       }
-    },
-    "TBD": "rgba(0, 255, 10, 0)"
+    }
   }
 }

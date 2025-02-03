@@ -182,6 +182,7 @@ export default {
         },
         "drop": {
           "background": "background-floating",
+          "borderColor": "transparent",
           "border": "transparent"
         }
       }
@@ -1006,13 +1007,13 @@ export default {
               "height": "24px",
               "width": "48px",
               "borderWidth": "1px",
-              "borderRadius": "24px"
+              "borderRadius": "9999px"
             },
             "handle": {
               "height": "20px",
               "width": "20px",
               "borderWidth": "default",
-              "borderRadius": "24px"
+              "borderRadius": "9999px"
             }
           }
         }
@@ -1036,14 +1037,14 @@ export default {
                 "paddingX": "none",
                 "paddingY": "0px",
                 "borderWidth": "0px",
-                "borderRadius": "6px"
+                "borderRadius": "8px"
               }
             },
             "container": {
               "paddingX": "12px",
               "paddingY": "5px",
               "borderWidth": "1px",
-              "borderRadius": "6px",
+              "borderRadius": "8px",
               "minHeight": "36px",
               "textToIconX": "6px",
               "textToElementX": "12px"
@@ -1324,18 +1325,6 @@ export default {
             "background": "background-active"
           },
           "hover": {
-            "textColor": "text-onSelectedPrimary",
-            "iconColor": "icon-onSelectedPrimary",
-            "borderColor": "border-weak",
-            "background": "background-contrast-hover"
-          },
-          "rest 2": {
-            "textColor": "text-onSelectedPrimary",
-            "iconColor": "icon-onSelectedPrimary",
-            "borderColor": "border-weak",
-            "background": "background-active"
-          },
-          "hover 2": {
             "textColor": "text-onSelectedPrimary",
             "iconColor": "icon-onSelectedPrimary",
             "borderColor": "border-weak",

@@ -4851,6 +4851,50 @@ export default {
     ],
     "key": "{select.default.drop.background}"
   },
+  "hpe.select.default.drop.borderColor": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{color.transparent}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.select.default.drop.borderColor",
+    "attributes": {
+      "category": "select",
+      "type": "default",
+      "item": "drop",
+      "subitem": "borderColor"
+    },
+    "path": [
+      "select",
+      "default",
+      "drop",
+      "borderColor"
+    ],
+    "key": "{select.default.drop.borderColor}"
+  },
   "hpe.select.default.drop.border": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
@@ -24722,7 +24766,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.radius.small}",
+      "$value": "{static.radius.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29950,7 +29994,7 @@ export default {
   },
   "hpe.switch.default.medium.control.track.borderRadius": {
     "$type": "number",
-    "$value": "24px",
+    "$value": "9999px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29965,7 +30009,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.radius.medium}",
+      "$value": "{static.radius.full}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30140,7 +30184,7 @@ export default {
   },
   "hpe.switch.default.medium.control.handle.borderRadius": {
     "$type": "number",
-    "$value": "24px",
+    "$value": "9999px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -30155,7 +30199,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.radius.medium}",
+      "$value": "{static.radius.full}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -30671,7 +30715,7 @@ export default {
   },
   "hpe.formField.default.medium.input.group.container.borderRadius": {
     "$type": "number",
-    "$value": "6px",
+    "$value": "8px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -30862,7 +30906,7 @@ export default {
   },
   "hpe.formField.default.medium.input.container.borderRadius": {
     "$type": "number",
-    "$value": "6px",
+    "$value": "8px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -30877,7 +30921,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.radius.xsmall}",
+      "$value": "{static.radius.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -35809,390 +35853,6 @@ export default {
       "background"
     ],
     "key": "{dataCell.default.selected.hover.background}"
-  },
-  "hpe.dataCell.default.selected.rest 2.textColor": {
-    "$type": "color",
-    "$value": "#074b3b",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.dataCell.default.selected.rest 2.textColor",
-    "attributes": {
-      "category": "dataCell",
-      "type": "default",
-      "item": "selected",
-      "subitem": "rest 2",
-      "state": "textColor"
-    },
-    "path": [
-      "dataCell",
-      "default",
-      "selected",
-      "rest 2",
-      "textColor"
-    ],
-    "key": "{dataCell.default.selected.rest 2.textColor}"
-  },
-  "hpe.dataCell.default.selected.rest 2.iconColor": {
-    "$type": "color",
-    "$value": "#2e2e2e",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.dataCell.default.selected.rest 2.iconColor",
-    "attributes": {
-      "category": "dataCell",
-      "type": "default",
-      "item": "selected",
-      "subitem": "rest 2",
-      "state": "iconColor"
-    },
-    "path": [
-      "dataCell",
-      "default",
-      "selected",
-      "rest 2",
-      "iconColor"
-    ],
-    "key": "{dataCell.default.selected.rest 2.iconColor}"
-  },
-  "hpe.dataCell.default.selected.rest 2.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{dataCell.default.rest.borderColor}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.dataCell.default.selected.rest 2.borderColor",
-    "attributes": {
-      "category": "dataCell",
-      "type": "default",
-      "item": "selected",
-      "subitem": "rest 2",
-      "state": "borderColor"
-    },
-    "path": [
-      "dataCell",
-      "default",
-      "selected",
-      "rest 2",
-      "borderColor"
-    ],
-    "key": "{dataCell.default.selected.rest 2.borderColor}"
-  },
-  "hpe.dataCell.default.selected.rest 2.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.DEFAULT.active}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.dataCell.default.selected.rest 2.background",
-    "attributes": {
-      "category": "dataCell",
-      "type": "default",
-      "item": "selected",
-      "subitem": "rest 2",
-      "state": "background"
-    },
-    "path": [
-      "dataCell",
-      "default",
-      "selected",
-      "rest 2",
-      "background"
-    ],
-    "key": "{dataCell.default.selected.rest 2.background}"
-  },
-  "hpe.dataCell.default.selected.hover 2.textColor": {
-    "$type": "color",
-    "$value": "#074b3b",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.dataCell.default.selected.hover 2.textColor",
-    "attributes": {
-      "category": "dataCell",
-      "type": "default",
-      "item": "selected",
-      "subitem": "hover 2",
-      "state": "textColor"
-    },
-    "path": [
-      "dataCell",
-      "default",
-      "selected",
-      "hover 2",
-      "textColor"
-    ],
-    "key": "{dataCell.default.selected.hover 2.textColor}"
-  },
-  "hpe.dataCell.default.selected.hover 2.iconColor": {
-    "$type": "color",
-    "$value": "#2e2e2e",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.dataCell.default.selected.hover 2.iconColor",
-    "attributes": {
-      "category": "dataCell",
-      "type": "default",
-      "item": "selected",
-      "subitem": "hover 2",
-      "state": "iconColor"
-    },
-    "path": [
-      "dataCell",
-      "default",
-      "selected",
-      "hover 2",
-      "iconColor"
-    ],
-    "key": "{dataCell.default.selected.hover 2.iconColor}"
-  },
-  "hpe.dataCell.default.selected.hover 2.borderColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_COLOR",
-          "EFFECT_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{dataCell.default.rest.borderColor}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_COLOR",
-            "EFFECT_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.dataCell.default.selected.hover 2.borderColor",
-    "attributes": {
-      "category": "dataCell",
-      "type": "default",
-      "item": "selected",
-      "subitem": "hover 2",
-      "state": "borderColor"
-    },
-    "path": [
-      "dataCell",
-      "default",
-      "selected",
-      "hover 2",
-      "borderColor"
-    ],
-    "key": "{dataCell.default.selected.hover 2.borderColor}"
-  },
-  "hpe.dataCell.default.selected.hover 2.background": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.08)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.background.contrast.DEFAULT.hover}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.dataCell.default.selected.hover 2.background",
-    "attributes": {
-      "category": "dataCell",
-      "type": "default",
-      "item": "selected",
-      "subitem": "hover 2",
-      "state": "background"
-    },
-    "path": [
-      "dataCell",
-      "default",
-      "selected",
-      "hover 2",
-      "background"
-    ],
-    "key": "{dataCell.default.selected.hover 2.background}"
   },
   "hpe.dataCell.default.pinned.rest.textColor": {
     "$type": "color",

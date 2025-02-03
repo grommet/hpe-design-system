@@ -6597,7 +6597,7 @@ export default {
   },
   "hpe.static.radius.xxsmall": {
     "$type": "number",
-    "$value": "3px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -6612,7 +6612,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.75}",
+      "$value": "{base.dimension.100}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -6681,6 +6681,48 @@ export default {
   },
   "hpe.static.radius.small": {
     "$type": "number",
+    "$value": "8px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.200}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.small",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "small"
+    },
+    "path": [
+      "static",
+      "radius",
+      "small"
+    ],
+    "key": "{static.radius.small}"
+  },
+  "hpe.static.radius.medium": {
+    "$type": "number",
     "$value": "12px",
     "$description": "",
     "$extensions": {
@@ -6708,20 +6750,62 @@ export default {
         }
       }
     },
-    "name": "hpe.static.radius.small",
+    "name": "hpe.static.radius.medium",
     "attributes": {
       "category": "static",
       "type": "radius",
-      "item": "small"
+      "item": "medium"
     },
     "path": [
       "static",
       "radius",
-      "small"
+      "medium"
     ],
-    "key": "{static.radius.small}"
+    "key": "{static.radius.medium}"
   },
-  "hpe.static.radius.medium": {
+  "hpe.static.radius.large": {
+    "$type": "number",
+    "$value": "16px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.400}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.large",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "large"
+    },
+    "path": [
+      "static",
+      "radius",
+      "large"
+    ],
+    "key": "{static.radius.large}"
+  },
+  "hpe.static.radius.xlarge": {
     "$type": "number",
     "$value": "24px",
     "$description": "",
@@ -6750,90 +6834,6 @@ export default {
         }
       }
     },
-    "name": "hpe.static.radius.medium",
-    "attributes": {
-      "category": "static",
-      "type": "radius",
-      "item": "medium"
-    },
-    "path": [
-      "static",
-      "radius",
-      "medium"
-    ],
-    "key": "{static.radius.medium}"
-  },
-  "hpe.static.radius.large": {
-    "$type": "number",
-    "$value": "48px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.1200}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.static.radius.large",
-    "attributes": {
-      "category": "static",
-      "type": "radius",
-      "item": "large"
-    },
-    "path": [
-      "static",
-      "radius",
-      "large"
-    ],
-    "key": "{static.radius.large}"
-  },
-  "hpe.static.radius.xlarge": {
-    "$type": "number",
-    "$value": "96px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "CORNER_RADIUS"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.2400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "CORNER_RADIUS"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "name": "hpe.static.radius.xlarge",
     "attributes": {
       "category": "static",
@@ -6846,6 +6846,48 @@ export default {
       "xlarge"
     ],
     "key": "{static.radius.xlarge}"
+  },
+  "hpe.static.radius.xxlarge": {
+    "$type": "number",
+    "$value": "32px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.800}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.static.radius.xxlarge",
+    "attributes": {
+      "category": "static",
+      "type": "radius",
+      "item": "xxlarge"
+    },
+    "path": [
+      "static",
+      "radius",
+      "xxlarge"
+    ],
+    "key": "{static.radius.xxlarge}"
   },
   "hpe.static.radius.full": {
     "$type": "number",
@@ -7658,43 +7700,5 @@ export default {
       "3xlarge"
     ],
     "key": "{static.container.3xlarge}"
-  },
-  "hpe.TBD": {
-    "$type": "color",
-    "$value": "rgba(0, 255, 10, 0)",
-    "$description": "Placeholder for colors that still need finalising.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": true,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#00ff0a00",
-      "$description": "Placeholder for colors that still need finalising.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.TBD",
-    "attributes": {
-      "category": "TBD"
-    },
-    "path": [
-      "TBD"
-    ],
-    "key": "{TBD}"
   }
 }
