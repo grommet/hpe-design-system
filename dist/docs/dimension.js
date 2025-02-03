@@ -16,7 +16,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -56,7 +56,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -96,7 +96,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -136,7 +136,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -176,7 +176,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -216,7 +216,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -256,7 +256,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -296,7 +296,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -336,7 +336,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -376,7 +376,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -416,7 +416,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -456,7 +456,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -496,7 +496,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -536,7 +536,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -576,7 +576,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -616,7 +616,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -656,7 +656,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -696,7 +696,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -736,7 +736,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -776,7 +776,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -816,7 +816,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -856,7 +856,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -896,7 +896,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -937,7 +937,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -979,7 +979,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1021,7 +1021,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1063,7 +1063,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1105,7 +1105,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1147,7 +1147,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1189,7 +1189,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1230,7 +1230,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1270,7 +1270,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1310,7 +1310,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1350,7 +1350,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1390,7 +1390,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1430,7 +1430,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1470,7 +1470,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1510,7 +1510,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1550,7 +1550,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1590,7 +1590,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1630,7 +1630,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1670,7 +1670,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1712,7 +1712,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1754,7 +1754,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1796,7 +1796,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1838,7 +1838,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1880,7 +1880,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1922,7 +1922,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -1964,7 +1964,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2006,7 +2006,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2048,7 +2048,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -2090,7 +2090,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2132,7 +2132,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2174,7 +2174,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2216,7 +2216,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -2258,7 +2258,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2300,7 +2300,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2342,7 +2342,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2384,7 +2384,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -2426,7 +2426,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2468,7 +2468,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2510,7 +2510,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2552,7 +2552,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -2594,7 +2594,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2636,7 +2636,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2678,7 +2678,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2720,7 +2720,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -2762,7 +2762,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2804,7 +2804,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2846,7 +2846,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2888,7 +2888,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -2930,7 +2930,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -2972,7 +2972,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3014,7 +3014,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3056,7 +3056,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -3098,7 +3098,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3140,7 +3140,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3182,7 +3182,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3224,7 +3224,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -3266,7 +3266,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3308,7 +3308,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3350,7 +3350,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3392,7 +3392,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "string",
@@ -3434,7 +3434,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3476,7 +3476,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3518,7 +3518,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3560,7 +3560,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3602,7 +3602,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3644,7 +3644,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3686,7 +3686,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3728,7 +3728,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3770,7 +3770,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3812,7 +3812,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3854,7 +3854,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3896,7 +3896,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3938,7 +3938,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -3980,7 +3980,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -4022,7 +4022,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -4064,7 +4064,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -4106,7 +4106,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
@@ -4148,7 +4148,7 @@ export default {
         "codeSyntax": {}
       }
     },
-    "filePath": "tokens/semantic/dimension.medium.json",
+    "filePath": "tokens/semantic/dimension.default.json",
     "isSource": true,
     "original": {
       "$type": "number",
