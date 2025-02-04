@@ -7101,7 +7101,7 @@ export default {
   },
   "hpe.static.borderWidth.large": {
     "$type": "number",
-    "$value": "12px",
+    "$value": "6px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -7116,7 +7116,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.300}",
+      "$value": "{base.dimension.150}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -7140,48 +7140,6 @@ export default {
       "large"
     ],
     "key": "{static.borderWidth.large}"
-  },
-  "hpe.static.borderWidth.xlarge": {
-    "$type": "number",
-    "$value": "24px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "EFFECT_FLOAT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.600}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.static.borderWidth.xlarge",
-    "attributes": {
-      "category": "static",
-      "type": "borderWidth",
-      "item": "xlarge"
-    },
-    "path": [
-      "static",
-      "borderWidth",
-      "xlarge"
-    ],
-    "key": "{static.borderWidth.xlarge}"
   },
   "hpe.static.borderWidth.default": {
     "$type": "number",

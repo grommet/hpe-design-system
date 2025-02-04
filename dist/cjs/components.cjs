@@ -1336,14 +1336,12 @@ module.exports = {
             "textColor": "var(--hpe-dataCell-default-pinned-rest-textColor)",
             "iconColor": "var(--hpe-dataCell-default-pinned-rest-iconColor)",
             "borderColor": "var(--hpe-dataCell-default-pinned-rest-borderColor)",
-            "backgroundColor": "var(--hpe-dataCell-default-pinned-rest-backgroundColor)",
             "background": "var(--hpe-dataCell-default-pinned-rest-background)"
           },
           "hover": {
             "textColor": "var(--hpe-dataCell-default-pinned-hover-textColor)",
             "iconColor": "var(--hpe-dataCell-default-pinned-hover-iconColor)",
             "borderColor": "var(--hpe-dataCell-default-pinned-hover-borderColor)",
-            "backgroundColor": "var(--hpe-dataCell-default-pinned-hover-backgroundColor)",
             "background": "var(--hpe-dataCell-default-pinned-hover-background)"
           }
         },
@@ -1433,10 +1431,12 @@ module.exports = {
           "background": "var(--hpe-headerCell-default-hover-background)"
         },
         "pinned": {
-          "textColor": "var(--hpe-headerCell-default-pinned-textColor)",
-          "iconColor": "var(--hpe-headerCell-default-pinned-iconColor)",
-          "borderColor": "var(--hpe-headerCell-default-pinned-borderColor)",
-          "background": "var(--hpe-headerCell-default-pinned-background)"
+          "rest": {
+            "textColor": "var(--hpe-headerCell-default-pinned-rest-textColor)",
+            "iconColor": "var(--hpe-headerCell-default-pinned-rest-iconColor)",
+            "borderColor": "var(--hpe-headerCell-default-pinned-rest-borderColor)",
+            "background": "var(--hpe-headerCell-default-pinned-rest-background)"
+          }
         },
         "units": {
           "rest": {

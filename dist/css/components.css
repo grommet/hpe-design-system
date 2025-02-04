@@ -190,13 +190,10 @@
   --hpe-dataCell-primary-medium-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-dataCell-primary-medium-paddingBottom: var(--hpe-dataCell-default-medium-paddingBottom);
   --hpe-headerCell-default-rest-background: var(--hpe-color-transparent);
-  --hpe-headerCell-default-pinned-background: var(--hpe-color-transparent);
   --hpe-headerCell-default-medium-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-headerCell-default-medium-paddingBottom: var(--hpe-dataCell-default-medium-paddingBottom);
   --hpe-footerCell-default-rest-background: var(--hpe-color-transparent);
   --hpe-footerCell-default-hover-background: var(--hpe-color-transparent);
-  --hpe-footerCell-default-pinned-rest-background: var(--hpe-color-transparent);
-  --hpe-footerCell-default-pinned-hover-background: var(--hpe-color-transparent);
   --hpe-footerCell-default-medium-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-footerCell-default-medium-paddingTop: var(--hpe-dataCell-default-medium-paddingBottom); /* This intentionally uses paddingBottom because the border side is switched from dataCell. */
   --hpe-radioButton-default-control-rest-background: var(--hpe-color-transparent);
@@ -502,10 +499,8 @@
   --hpe-dataCell-default-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-dataCell-default-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-dataCell-default-selected-hover-background: var(--hpe-color-background-contrast-hover);
-  --hpe-dataCell-default-pinned-rest-backgroundColor: var(--hpe-dataCell-default-rest-background);
-  --hpe-dataCell-default-pinned-rest-background: var(--hpe-dataCell-default-rest-background);
-  --hpe-dataCell-default-pinned-hover-backgroundColor: var(--hpe-dataCell-default-rest-background);
-  --hpe-dataCell-default-pinned-hover-background: var(--hpe-dataCell-default-rest-background);
+  --hpe-dataCell-default-pinned-rest-background: var(--hpe-color-background-front);
+  --hpe-dataCell-default-pinned-hover-background: var(--hpe-color-background-front);
   --hpe-dataCell-default-medium-paddingX: var(--hpe-static-spacing-xsmall);
   --hpe-dataCell-default-medium-borderBottomWidth: var(--hpe-static-borderWidth-xsmall);
   --hpe-dataCell-default-medium-paddingTop: var(--hpe-static-spacing-xsmall);
@@ -518,16 +513,19 @@
   --hpe-dataCell-primary-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-dataCell-primary-selected-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-dataCell-primary-pinned-rest-backgroundColor: var(--hpe-dataCell-default-rest-background);
-  --hpe-dataCell-primary-pinned-rest-background: var(--hpe-dataCell-default-rest-background);
+  --hpe-dataCell-primary-pinned-rest-background: var(--hpe-color-background-front);
   --hpe-dataCell-primary-pinned-hover-backgroundColor: var(--hpe-dataCell-default-rest-background);
-  --hpe-dataCell-primary-pinned-hover-background: var(--hpe-dataCell-default-rest-background);
+  --hpe-dataCell-primary-pinned-hover-background: var(--hpe-color-background-front);
   --hpe-headerCell-default-rest-textColor: var(--hpe-color-text-strong);
   --hpe-headerCell-default-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-headerCell-default-rest-borderColor: var(--hpe-color-border-default);
+  --hpe-headerCell-default-pinned-rest-background: var(--hpe-color-background-front);
   --hpe-headerCell-default-units-rest-textColor: var(--hpe-color-text-weak);
   --hpe-headerCell-default-units-hover-textColor: var(--hpe-color-text-weak);
   --hpe-headerCell-default-medium-minHeight: var(--hpe-element-medium-minHeight);
   --hpe-footerCell-default-rest-borderColor: var(--hpe-color-border-default);
+  --hpe-footerCell-default-pinned-rest-background: var(--hpe-color-background-front);
+  --hpe-footerCell-default-pinned-hover-background: var(--hpe-color-background-front);
   --hpe-footerCell-default-medium-minHeight: var(--hpe-element-medium-minHeight);
   --hpe-radioButton-default-control-rest-borderColor: var(--hpe-color-border-default);
   --hpe-radioButton-default-control-hover-borderColor: var(--hpe-color-border-strong);
@@ -750,8 +748,8 @@
   --hpe-headerCell-default-hover-iconColor: var(--hpe-headerCell-default-rest-iconColor);
   --hpe-headerCell-default-hover-borderColor: var(--hpe-headerCell-default-rest-borderColor);
   --hpe-headerCell-default-hover-background: var(--hpe-color-background-hover);
-  --hpe-headerCell-default-pinned-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-headerCell-default-pinned-iconColor: var(--hpe-dataCell-default-rest-iconColor);
+  --hpe-headerCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
+  --hpe-headerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-headerCell-default-units-pinned-rest-textColor: var(--hpe-headerCell-default-units-rest-textColor);
   --hpe-headerCell-default-units-pinned-hover-textColor: var(--hpe-headerCell-default-units-rest-textColor);
   --hpe-headerCell-default-medium-paddingX: var(--hpe-dataCell-default-medium-paddingX);
@@ -887,7 +885,7 @@
   --hpe-dataCell-primary-hover-borderColor: var(--hpe-dataCell-default-hover-borderColor);
   --hpe-dataCell-primary-disabled-borderColor: var(--hpe-dataCell-default-disabled-rest-borderColor);
   --hpe-dataCell-primary-selected-rest-background: var(--hpe-color-background-active);
-  --hpe-headerCell-default-pinned-borderColor: var(--hpe-dataCell-default-hover-borderColor);
+  --hpe-headerCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-hover-borderColor);
   --hpe-headerCell-default-medium-fontSize: var(--hpe-dataCell-default-medium-fontSize);
   --hpe-headerCell-default-medium-lineHeight: var(--hpe-dataCell-default-medium-lineHeight);
   --hpe-footerCell-default-hover-textColor: var(--hpe-footerCell-default-rest-textColor);

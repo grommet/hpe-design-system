@@ -1336,15 +1336,13 @@ module.exports = {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
-            "backgroundColor": "transparent",
-            "background": "transparent"
+            "background": "background-front"
           },
           "hover": {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
-            "backgroundColor": "transparent",
-            "background": "transparent"
+            "background": "background-front"
           }
         },
         "medium": {
@@ -1406,14 +1404,14 @@ module.exports = {
             "iconColor": "icon-default",
             "borderColor": "border-weak",
             "backgroundColor": "transparent",
-            "background": "transparent"
+            "background": "background-front"
           },
           "hover": {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
             "backgroundColor": "transparent",
-            "background": "transparent"
+            "background": "background-front"
           }
         }
       }
@@ -1433,10 +1431,12 @@ module.exports = {
           "background": "background-hover"
         },
         "pinned": {
-          "textColor": "text-default",
-          "iconColor": "icon-default",
-          "borderColor": "border-weak",
-          "background": "transparent"
+          "rest": {
+            "textColor": "text-default",
+            "iconColor": "icon-default",
+            "borderColor": "border-weak",
+            "background": "background-front"
+          }
         },
         "units": {
           "rest": {
@@ -1486,13 +1486,13 @@ module.exports = {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
-            "background": "transparent"
+            "background": "background-front"
           },
           "hover": {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
-            "background": "transparent"
+            "background": "background-front"
           }
         },
         "medium": {

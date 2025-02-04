@@ -37,7 +37,6 @@ module.exports = {
       "small": "var(--hpe-borderWidth-small)",
       "medium": "var(--hpe-borderWidth-medium)",
       "large": "var(--hpe-borderWidth-large)",
-      "xlarge": "var(--hpe-borderWidth-xlarge)",
       "default": "var(--hpe-borderWidth-default)"
     },
     "container": {

@@ -35998,57 +35998,9 @@ export default {
     ],
     "key": "{dataCell.default.pinned.rest.borderColor}"
   },
-  "hpe.dataCell.default.pinned.rest.backgroundColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{dataCell.default.rest.background}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.dataCell.default.pinned.rest.backgroundColor",
-    "attributes": {
-      "category": "dataCell",
-      "type": "default",
-      "item": "pinned",
-      "subitem": "rest",
-      "state": "backgroundColor"
-    },
-    "path": [
-      "dataCell",
-      "default",
-      "pinned",
-      "rest",
-      "backgroundColor"
-    ],
-    "key": "{dataCell.default.pinned.rest.backgroundColor}"
-  },
   "hpe.dataCell.default.pinned.rest.background": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#ffffff",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -36064,7 +36016,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.default.rest.background}",
+      "$value": "{color.background.front.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -36238,57 +36190,9 @@ export default {
     ],
     "key": "{dataCell.default.pinned.hover.borderColor}"
   },
-  "hpe.dataCell.default.pinned.hover.backgroundColor": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{dataCell.default.rest.background}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.dataCell.default.pinned.hover.backgroundColor",
-    "attributes": {
-      "category": "dataCell",
-      "type": "default",
-      "item": "pinned",
-      "subitem": "hover",
-      "state": "backgroundColor"
-    },
-    "path": [
-      "dataCell",
-      "default",
-      "pinned",
-      "hover",
-      "backgroundColor"
-    ],
-    "key": "{dataCell.default.pinned.hover.backgroundColor}"
-  },
   "hpe.dataCell.default.pinned.hover.background": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#ffffff",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -36304,7 +36208,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.default.rest.background}",
+      "$value": "{color.background.front.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38128,7 +38032,7 @@ export default {
   },
   "hpe.dataCell.primary.pinned.rest.background": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#ffffff",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -38144,7 +38048,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.default.rest.background}",
+      "$value": "{color.background.front.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38368,7 +38272,7 @@ export default {
   },
   "hpe.dataCell.primary.pinned.hover.background": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#ffffff",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -38384,7 +38288,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{dataCell.default.rest.background}",
+      "$value": "{color.background.front.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38782,7 +38686,7 @@ export default {
     ],
     "key": "{headerCell.default.hover.background}"
   },
-  "hpe.headerCell.default.pinned.textColor": {
+  "hpe.headerCell.default.pinned.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -38811,22 +38715,24 @@ export default {
         }
       }
     },
-    "name": "hpe.headerCell.default.pinned.textColor",
+    "name": "hpe.headerCell.default.pinned.rest.textColor",
     "attributes": {
       "category": "headerCell",
       "type": "default",
       "item": "pinned",
-      "subitem": "textColor"
+      "subitem": "rest",
+      "state": "textColor"
     },
     "path": [
       "headerCell",
       "default",
       "pinned",
+      "rest",
       "textColor"
     ],
-    "key": "{headerCell.default.pinned.textColor}"
+    "key": "{headerCell.default.pinned.rest.textColor}"
   },
-  "hpe.headerCell.default.pinned.iconColor": {
+  "hpe.headerCell.default.pinned.rest.iconColor": {
     "$type": "color",
     "$value": "#555555",
     "$description": "",
@@ -38859,22 +38765,24 @@ export default {
         }
       }
     },
-    "name": "hpe.headerCell.default.pinned.iconColor",
+    "name": "hpe.headerCell.default.pinned.rest.iconColor",
     "attributes": {
       "category": "headerCell",
       "type": "default",
       "item": "pinned",
-      "subitem": "iconColor"
+      "subitem": "rest",
+      "state": "iconColor"
     },
     "path": [
       "headerCell",
       "default",
       "pinned",
+      "rest",
       "iconColor"
     ],
-    "key": "{headerCell.default.pinned.iconColor}"
+    "key": "{headerCell.default.pinned.rest.iconColor}"
   },
-  "hpe.headerCell.default.pinned.borderColor": {
+  "hpe.headerCell.default.pinned.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.12)",
     "$description": "",
@@ -38905,24 +38813,26 @@ export default {
         }
       }
     },
-    "name": "hpe.headerCell.default.pinned.borderColor",
+    "name": "hpe.headerCell.default.pinned.rest.borderColor",
     "attributes": {
       "category": "headerCell",
       "type": "default",
       "item": "pinned",
-      "subitem": "borderColor"
+      "subitem": "rest",
+      "state": "borderColor"
     },
     "path": [
       "headerCell",
       "default",
       "pinned",
+      "rest",
       "borderColor"
     ],
-    "key": "{headerCell.default.pinned.borderColor}"
+    "key": "{headerCell.default.pinned.rest.borderColor}"
   },
-  "hpe.headerCell.default.pinned.background": {
+  "hpe.headerCell.default.pinned.rest.background": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#ffffff",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -38938,7 +38848,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.transparent}",
+      "$value": "{color.background.front.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -38951,20 +38861,22 @@ export default {
         }
       }
     },
-    "name": "hpe.headerCell.default.pinned.background",
+    "name": "hpe.headerCell.default.pinned.rest.background",
     "attributes": {
       "category": "headerCell",
       "type": "default",
       "item": "pinned",
-      "subitem": "background"
+      "subitem": "rest",
+      "state": "background"
     },
     "path": [
       "headerCell",
       "default",
       "pinned",
+      "rest",
       "background"
     ],
-    "key": "{headerCell.default.pinned.background}"
+    "key": "{headerCell.default.pinned.rest.background}"
   },
   "hpe.headerCell.default.units.rest.textColor": {
     "$type": "color",
@@ -40064,7 +39976,7 @@ export default {
   },
   "hpe.footerCell.default.pinned.rest.background": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#ffffff",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -40080,7 +39992,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.transparent}",
+      "$value": "{color.background.front.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40256,7 +40168,7 @@ export default {
   },
   "hpe.footerCell.default.pinned.hover.background": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0)",
+    "$value": "#ffffff",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -40272,7 +40184,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.transparent}",
+      "$value": "{color.background.front.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {

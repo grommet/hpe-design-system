@@ -1133,48 +1133,6 @@ export default {
     ],
     "key": "{borderWidth.large}"
   },
-  "hpe.borderWidth.xlarge": {
-    "$type": "number",
-    "$value": "12px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_FLOAT",
-          "EFFECT_FLOAT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{static.borderWidth.large}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.borderWidth.xlarge",
-    "attributes": {
-      "category": "borderWidth",
-      "type": "xlarge"
-    },
-    "path": [
-      "borderWidth",
-      "xlarge"
-    ],
-    "key": "{borderWidth.xlarge}"
-  },
   "hpe.borderWidth.default": {
     "$type": "number",
     "$value": "1px",
