@@ -7463,17 +7463,17 @@
                   "codeSyntax": {}
                 }
               }
-            }
-          },
-          "fontWeight": {
-            "$type": "number",
-            "$value": "{switch.default.label.rest.fontWeight}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FONT_STYLE"],
-                "codeSyntax": {}
+            },
+            "fontWeight": {
+              "$type": "number",
+              "$value": "{switch.default.label.rest.fontWeight}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FONT_STYLE"],
+                  "codeSyntax": {}
+                }
               }
             }
           }
@@ -7491,17 +7491,43 @@
                   "codeSyntax": {}
                 }
               }
+            },
+            "fontWeight": {
+              "$type": "number",
+              "$value": "{switch.default.label.rest.fontWeight}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FONT_STYLE"],
+                  "codeSyntax": {}
+                }
+              }
             }
           },
-          "fontWeight": {
-            "$type": "number",
-            "$value": "{switch.default.label.rest.fontWeight}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FONT_STYLE"],
-                "codeSyntax": {}
+          "hover": {
+            "textColor": {
+              "$type": "color",
+              "$value": "{switch.default.label.rest.textColor}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["TEXT_FILL"],
+                  "codeSyntax": {}
+                }
+              }
+            },
+            "fontWeight": {
+              "$type": "number",
+              "$value": "{switch.default.label.rest.fontWeight}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["FONT_STYLE"],
+                  "codeSyntax": {}
+                }
               }
             }
           }
