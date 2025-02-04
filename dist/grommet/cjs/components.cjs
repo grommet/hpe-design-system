@@ -136,12 +136,14 @@ module.exports = {
             "background": "transparent",
             "borderColor": "transparent",
             "textColor": "text-default",
+            "iconColor": "icon-default",
             "fontWeight": 500
           },
           "hover": {
             "background": "background-hover",
             "borderColor": "transparent",
             "textColor": "text-default",
+            "iconColor": "icon-default",
             "fontWeight": 500
           },
           "disabled": {
@@ -149,6 +151,7 @@ module.exports = {
               "background": "background-disabled",
               "borderColor": "transparent",
               "textColor": "text-disabled",
+              "iconColor": "icon-disabled",
               "fontWeight": 500
             }
           },
@@ -157,12 +160,14 @@ module.exports = {
               "background": "background-selected-primary",
               "borderColor": "transparent",
               "textColor": "text-onSelectedPrimary",
+              "iconColor": "icon-onSelectedPrimary",
               "fontWeight": 500
             },
             "hover": {
               "background": "background-selected-primary-hover",
               "borderColor": "transparent",
               "textColor": "text-onSelectedPrimary",
+              "iconColor": "icon-onSelectedPrimary",
               "fontWeight": 500
             }
           },
@@ -182,8 +187,7 @@ module.exports = {
         },
         "drop": {
           "background": "background-floating",
-          "borderColor": "transparent",
-          "border": "transparent"
+          "borderColor": "transparent"
         }
       }
     },
@@ -1403,14 +1407,12 @@ module.exports = {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
-            "backgroundColor": "transparent",
             "background": "transparent"
           },
           "hover": {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
-            "backgroundColor": "transparent",
             "background": "transparent"
           }
         }

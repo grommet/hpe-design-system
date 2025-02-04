@@ -75,7 +75,6 @@
   --hpe-select-default-option-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-select-default-option-selected-hover-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-select-default-drop-borderColor: var(--hpe-color-transparent);
-  --hpe-select-default-drop-border: var(--hpe-color-transparent);
   --hpe-button-primary-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-primary-rest-fontWeight: var(--hpe-fontWeight-semibold);
   --hpe-button-primary-disabled-rest-borderColor: var(--hpe-color-transparent);
@@ -257,10 +256,13 @@
   --hpe-select-default-medium-drop-gapY: var(--hpe-static-spacing-3xsmall);
   --hpe-select-default-medium-drop-borderWidth: var(--hpe-static-borderWidth-none);
   --hpe-select-default-option-rest-textColor: var(--hpe-color-text-default);
+  --hpe-select-default-option-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-select-default-option-hover-textColor: var(--hpe-color-text-default);
+  --hpe-select-default-option-hover-iconColor: var(--hpe-color-icon-default);
   --hpe-select-default-option-hover-fontWeight: var(--hpe-select-default-option-rest-fontWeight);
   --hpe-select-default-option-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-select-default-option-disabled-rest-textColor: var(--hpe-color-text-disabled);
+  --hpe-select-default-option-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-select-default-option-disabled-rest-fontWeight: var(--hpe-select-default-option-rest-fontWeight);
   --hpe-select-default-option-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-select-default-option-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
@@ -517,8 +519,6 @@
   --hpe-dataCell-primary-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-dataCell-primary-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-dataCell-primary-selected-hover-background: var(--hpe-color-background-contrast-hover);
-  --hpe-dataCell-primary-pinned-rest-backgroundColor: var(--hpe-dataCell-default-rest-background);
-  --hpe-dataCell-primary-pinned-hover-backgroundColor: var(--hpe-dataCell-default-rest-background);
   --hpe-headerCell-default-rest-textColor: var(--hpe-color-text-strong);
   --hpe-headerCell-default-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-headerCell-default-rest-borderColor: var(--hpe-color-border-default);
@@ -566,6 +566,8 @@
   --hpe-element-xlarge-borderWidth: var(--hpe-borderWidth-default);
   --hpe-select-default-medium-option-paddingX: var(--hpe-formField-default-medium-input-container-paddingX);
   --hpe-select-default-option-hover-background: var(--hpe-color-background-hover);
+  --hpe-select-default-option-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-drop-background: var(--hpe-drop-default-background);
   --hpe-button-primary-xsmall-minHeight: var(--hpe-button-default-xsmall-minHeight);
   --hpe-button-primary-xsmall-iconOnly-borderRadius: var(--hpe-button-primary-xsmall-borderRadius);
