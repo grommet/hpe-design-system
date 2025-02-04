@@ -191,7 +191,6 @@ module.exports = {
         "small": "var(--hpe-static-borderWidth-small)",
         "medium": "var(--hpe-static-borderWidth-medium)",
         "large": "var(--hpe-static-borderWidth-large)",
-        "xlarge": "var(--hpe-static-borderWidth-xlarge)",
         "default": "var(--hpe-static-borderWidth-default)"
       },
       "container": {

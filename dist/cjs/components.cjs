@@ -136,12 +136,14 @@ module.exports = {
             "background": "var(--hpe-select-default-option-rest-background)",
             "borderColor": "var(--hpe-select-default-option-rest-borderColor)",
             "textColor": "var(--hpe-select-default-option-rest-textColor)",
+            "iconColor": "var(--hpe-select-default-option-rest-iconColor)",
             "fontWeight": "var(--hpe-select-default-option-rest-fontWeight)"
           },
           "hover": {
             "background": "var(--hpe-select-default-option-hover-background)",
             "borderColor": "var(--hpe-select-default-option-hover-borderColor)",
             "textColor": "var(--hpe-select-default-option-hover-textColor)",
+            "iconColor": "var(--hpe-select-default-option-hover-iconColor)",
             "fontWeight": "var(--hpe-select-default-option-hover-fontWeight)"
           },
           "disabled": {
@@ -149,6 +151,7 @@ module.exports = {
               "background": "var(--hpe-select-default-option-disabled-rest-background)",
               "borderColor": "var(--hpe-select-default-option-disabled-rest-borderColor)",
               "textColor": "var(--hpe-select-default-option-disabled-rest-textColor)",
+              "iconColor": "var(--hpe-select-default-option-disabled-rest-iconColor)",
               "fontWeight": "var(--hpe-select-default-option-disabled-rest-fontWeight)"
             }
           },
@@ -157,12 +160,14 @@ module.exports = {
               "background": "var(--hpe-select-default-option-selected-rest-background)",
               "borderColor": "var(--hpe-select-default-option-selected-rest-borderColor)",
               "textColor": "var(--hpe-select-default-option-selected-rest-textColor)",
+              "iconColor": "var(--hpe-select-default-option-selected-rest-iconColor)",
               "fontWeight": "var(--hpe-select-default-option-selected-rest-fontWeight)"
             },
             "hover": {
               "background": "var(--hpe-select-default-option-selected-hover-background)",
               "borderColor": "var(--hpe-select-default-option-selected-hover-borderColor)",
               "textColor": "var(--hpe-select-default-option-selected-hover-textColor)",
+              "iconColor": "var(--hpe-select-default-option-selected-hover-iconColor)",
               "fontWeight": "var(--hpe-select-default-option-selected-hover-fontWeight)"
             }
           },
@@ -182,7 +187,7 @@ module.exports = {
         },
         "drop": {
           "background": "var(--hpe-select-default-drop-background)",
-          "border": "var(--hpe-select-default-drop-border)"
+          "borderColor": "var(--hpe-select-default-drop-borderColor)"
         }
       }
     },
@@ -1335,14 +1340,12 @@ module.exports = {
             "textColor": "var(--hpe-dataCell-default-pinned-rest-textColor)",
             "iconColor": "var(--hpe-dataCell-default-pinned-rest-iconColor)",
             "borderColor": "var(--hpe-dataCell-default-pinned-rest-borderColor)",
-            "backgroundColor": "var(--hpe-dataCell-default-pinned-rest-backgroundColor)",
             "background": "var(--hpe-dataCell-default-pinned-rest-background)"
           },
           "hover": {
             "textColor": "var(--hpe-dataCell-default-pinned-hover-textColor)",
             "iconColor": "var(--hpe-dataCell-default-pinned-hover-iconColor)",
             "borderColor": "var(--hpe-dataCell-default-pinned-hover-borderColor)",
-            "backgroundColor": "var(--hpe-dataCell-default-pinned-hover-backgroundColor)",
             "background": "var(--hpe-dataCell-default-pinned-hover-background)"
           }
         },
@@ -1404,14 +1407,12 @@ module.exports = {
             "textColor": "var(--hpe-dataCell-primary-pinned-rest-textColor)",
             "iconColor": "var(--hpe-dataCell-primary-pinned-rest-iconColor)",
             "borderColor": "var(--hpe-dataCell-primary-pinned-rest-borderColor)",
-            "backgroundColor": "var(--hpe-dataCell-primary-pinned-rest-backgroundColor)",
             "background": "var(--hpe-dataCell-primary-pinned-rest-background)"
           },
           "hover": {
             "textColor": "var(--hpe-dataCell-primary-pinned-hover-textColor)",
             "iconColor": "var(--hpe-dataCell-primary-pinned-hover-iconColor)",
             "borderColor": "var(--hpe-dataCell-primary-pinned-hover-borderColor)",
-            "backgroundColor": "var(--hpe-dataCell-primary-pinned-hover-backgroundColor)",
             "background": "var(--hpe-dataCell-primary-pinned-hover-background)"
           }
         }
@@ -1432,10 +1433,12 @@ module.exports = {
           "background": "var(--hpe-headerCell-default-hover-background)"
         },
         "pinned": {
-          "textColor": "var(--hpe-headerCell-default-pinned-textColor)",
-          "iconColor": "var(--hpe-headerCell-default-pinned-iconColor)",
-          "borderColor": "var(--hpe-headerCell-default-pinned-borderColor)",
-          "background": "var(--hpe-headerCell-default-pinned-background)"
+          "rest": {
+            "textColor": "var(--hpe-headerCell-default-pinned-rest-textColor)",
+            "iconColor": "var(--hpe-headerCell-default-pinned-rest-iconColor)",
+            "borderColor": "var(--hpe-headerCell-default-pinned-rest-borderColor)",
+            "background": "var(--hpe-headerCell-default-pinned-rest-background)"
+          }
         },
         "units": {
           "rest": {

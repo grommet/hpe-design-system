@@ -91,7 +91,6 @@
   --hpe-borderWidth-small: var(--hpe-static-borderWidth-small);
   --hpe-borderWidth-medium: var(--hpe-static-borderWidth-medium);
   --hpe-borderWidth-large: var(--hpe-static-borderWidth-large);
-  --hpe-borderWidth-xlarge: var(--hpe-static-borderWidth-xlarge);
   --hpe-borderWidth-default: var(--hpe-static-borderWidth-xsmall);
   --hpe-container-5xsmall: var(--hpe-static-container-5xsmall); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
   --hpe-container-4xsmall: var(--hpe-static-container-4xsmall);

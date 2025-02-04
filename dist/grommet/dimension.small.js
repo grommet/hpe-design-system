@@ -37,7 +37,6 @@ export default {
       "small": "1px",
       "medium": "2px",
       "large": "4px",
-      "xlarge": "12px",
       "default": "1px"
     },
     "container": {

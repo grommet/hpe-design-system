@@ -190,8 +190,7 @@ module.exports = {
         "xsmall": "1px",
         "small": "2px",
         "medium": "4px",
-        "large": "12px",
-        "xlarge": "24px",
+        "large": "6px",
         "default": "1px"
       },
       "container": {

@@ -1093,7 +1093,7 @@ export default {
   },
   "hpe.borderWidth.large": {
     "$type": "number",
-    "$value": "12px",
+    "$value": "6px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1132,48 +1132,6 @@ export default {
       "large"
     ],
     "key": "{borderWidth.large}"
-  },
-  "hpe.borderWidth.xlarge": {
-    "$type": "number",
-    "$value": "24px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "STROKE_FLOAT",
-          "EFFECT_FLOAT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{static.borderWidth.xlarge}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "STROKE_FLOAT",
-            "EFFECT_FLOAT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.borderWidth.xlarge",
-    "attributes": {
-      "category": "borderWidth",
-      "type": "xlarge"
-    },
-    "path": [
-      "borderWidth",
-      "xlarge"
-    ],
-    "key": "{borderWidth.xlarge}"
   },
   "hpe.borderWidth.default": {
     "$type": "number",

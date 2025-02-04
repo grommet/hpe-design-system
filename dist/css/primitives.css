@@ -171,8 +171,7 @@
   --hpe-static-borderWidth-xsmall: var(--hpe-base-dimension-25);
   --hpe-static-borderWidth-small: var(--hpe-base-dimension-50);
   --hpe-static-borderWidth-medium: var(--hpe-base-dimension-100);
-  --hpe-static-borderWidth-large: var(--hpe-base-dimension-300);
-  --hpe-static-borderWidth-xlarge: var(--hpe-base-dimension-600);
+  --hpe-static-borderWidth-large: var(--hpe-base-dimension-150);
   --hpe-static-borderWidth-default: var(--hpe-base-dimension-25);
   --hpe-static-container-5xsmall: var(--hpe-base-dimension-1200);
   --hpe-static-container-4xsmall: var(--hpe-base-dimension-1600);
