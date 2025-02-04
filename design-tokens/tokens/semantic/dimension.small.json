@@ -874,7 +874,7 @@
         }
       }
     },
-    "3xl": {
+    "3xlarge": {
       "fontSize": {
         "$type": "number",
         "$value": "{base.fontSize.700}",
@@ -924,7 +924,7 @@
         }
       }
     },
-    "4xl": {
+    "4xlarge": {
       "fontSize": {
         "$type": "number",
         "$value": "{base.fontSize.800}",
@@ -974,7 +974,7 @@
         }
       }
     },
-    "5xl": {
+    "5xlarge": {
       "fontSize": {
         "$type": "number",
         "$value": "{base.fontSize.900}",

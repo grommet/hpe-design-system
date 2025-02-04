@@ -158,10 +158,10 @@ const textSizes = [
   'large',
   'xlarge',
   'xxlarge',
-  '3xl',
-  '4xl',
-  '5xl',
-  '6xl',
+  '3xlarge',
+  '4xlarge',
+  '5xlarge',
+  '6xlarge',
 ];
 
 export const optionBefore = ({ theme }) => css`
@@ -269,6 +269,14 @@ const responsiveGlobalSizes = {
     xlarge: `${baseSpacing * 32}px`, // 768
     full: '100%',
   },
+};
+
+const getTextSize = size => {
+  if (size === '3xlarge') return '3xl';
+  else if (size === '4xlarge') return '4xl';
+  else if (size === '5xlarge') return '5xl';
+  else if (size === '6xlarge') return '6xl';
+  return size;
 };
 
 const buildTheme = (tokens, flags) => {
@@ -628,8 +636,9 @@ const buildTheme = (tokens, flags) => {
 
   const anchorSizeTheme = {};
   textSizes.forEach(sizeArg => {
-    const size = sizeArg === '6xl' ? '5xl' : sizeArg;
-    anchorSizeTheme[size] = {
+    const size = sizeArg === '6xlarge' ? '5xlarge' : sizeArg;
+    const themeSize = getTextSize(size);
+    anchorSizeTheme[themeSize] = {
       color: components.hpe.anchor.default.rest.textColor,
       textDecoration: components.hpe.anchor.default.rest.textDecoration,
       fontWeight: components.hpe.anchor.default.rest.fontWeight,
@@ -659,16 +668,18 @@ const buildTheme = (tokens, flags) => {
       fallback.maxWidth = large.hpe.text?.[size]?.maxWidth;
       fallback.weight = large.hpe.text?.[size]?.fontWeight;
     }
-    paragraphTheme[size] = {
+    const themeSize = getTextSize(size);
+    paragraphTheme[themeSize] = {
       size: large.hpe.text?.[size]?.fontSize || fallback.size,
       height: large.hpe.text?.[size]?.lineHeight || fallback.height,
       maxWidth: large.hpe.text?.[size]?.maxWidth || fallback.maxWidth,
     };
-    textTheme[size] = {
+    textTheme[themeSize] = {
       size: large.hpe.text?.[size]?.fontSize || fallback.size,
       height: large.hpe.text?.[size]?.lineHeight || fallback.height,
     };
-    fontWeights[size] = large.hpe.text?.[size]?.fontWeight || fallback.weight;
+    fontWeights[themeSize] =
+      large.hpe.text?.[size]?.fontWeight || fallback.weight;
   });
 
   textTheme.extend = ({ size, weight }) => {
@@ -1451,7 +1462,7 @@ const buildTheme = (tokens, flags) => {
       // when its used outside of a FormField. We will apply this hover treatment in
       // those instances.
       extend: ({ disabled, theme }) => css`
-      font-weight: ${components.hpe.checkbox.default.medium.label.fontWeight};
+      font-weight: ${components.hpe.checkbox.default.label.rest.fontWeight};
       width: auto;
       border: ${
         components.hpe.formField.default.medium.input.container.borderWidth
@@ -2454,7 +2465,7 @@ const buildTheme = (tokens, flags) => {
       },
       size: components.hpe.radioButton.default.medium.control.height,
       font: {
-        weight: components.hpe.radioButton.default.medium.label.fontWeight,
+        weight: components.hpe.radioButton.default.label.rest.fontWeight,
       },
       icons: {
         circle: () => (
