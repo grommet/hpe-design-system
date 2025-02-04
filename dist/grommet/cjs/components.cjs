@@ -926,8 +926,7 @@ module.exports = {
           "gapX": "12px",
           "label": {
             "fontSize": "1.125rem",
-            "lineHeight": "1.5rem",
-            "fontWeight": 400
+            "lineHeight": "1.5rem"
           },
           "control": {
             "height": "24px",
@@ -1029,8 +1028,7 @@ module.exports = {
           "gapX": "12px",
           "label": {
             "fontSize": "1.125rem",
-            "lineHeight": "1.5rem",
-            "fontWeight": 500
+            "lineHeight": "1.5rem"
           },
           "control": {
             "track": {
@@ -1596,8 +1594,7 @@ module.exports = {
           "gapX": "12px",
           "label": {
             "fontSize": "1.125rem",
-            "lineHeight": "1.5rem",
-            "fontWeight": 500
+            "lineHeight": "1.5rem"
           },
           "control": {
             "height": "24px",

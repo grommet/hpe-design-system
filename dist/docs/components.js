@@ -28582,52 +28582,6 @@ export default {
     ],
     "key": "{checkbox.default.medium.label.lineHeight}"
   },
-  "hpe.checkbox.default.medium.label.fontWeight": {
-    "$type": "number",
-    "$value": 400,
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_STYLE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{fontWeight.regular}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.default.medium.label.fontWeight",
-    "attributes": {
-      "category": "checkbox",
-      "type": "default",
-      "item": "medium",
-      "subitem": "label",
-      "state": "fontWeight"
-    },
-    "path": [
-      "checkbox",
-      "default",
-      "medium",
-      "label",
-      "fontWeight"
-    ],
-    "key": "{checkbox.default.medium.label.fontWeight}"
-  },
   "hpe.checkbox.default.medium.control.height": {
     "$type": "number",
     "$value": "24px",
@@ -29410,7 +29364,7 @@ export default {
   },
   "hpe.switch.default.control.handle.rest.boxShadow": {
     "$type": "shadow",
-    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$value": "0 2px 4px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29555,7 +29509,7 @@ export default {
   },
   "hpe.switch.default.control.handle.hover.boxShadow": {
     "$type": "shadow",
-    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$value": "0 2px 4px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29702,7 +29656,7 @@ export default {
   },
   "hpe.switch.default.control.handle.disabled.rest.boxShadow": {
     "$type": "shadow",
-    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$value": "0 2px 4px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29850,7 +29804,7 @@ export default {
   },
   "hpe.switch.default.control.handle.selected.rest.boxShadow": {
     "$type": "shadow",
-    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$value": "0 2px 4px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29998,7 +29952,7 @@ export default {
   },
   "hpe.switch.default.control.handle.selected.hover.boxShadow": {
     "$type": "shadow",
-    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$value": "0 2px 4px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -30645,52 +30599,6 @@ export default {
       "lineHeight"
     ],
     "key": "{switch.default.medium.label.lineHeight}"
-  },
-  "hpe.switch.default.medium.label.fontWeight": {
-    "$type": "number",
-    "$value": 500,
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_STYLE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.switch.default.medium.label.fontWeight",
-    "attributes": {
-      "category": "switch",
-      "type": "default",
-      "item": "medium",
-      "subitem": "label",
-      "state": "fontWeight"
-    },
-    "path": [
-      "switch",
-      "default",
-      "medium",
-      "label",
-      "fontWeight"
-    ],
-    "key": "{switch.default.medium.label.fontWeight}"
   },
   "hpe.switch.default.medium.control.track.height": {
     "$type": "number",
@@ -42544,52 +42452,6 @@ export default {
       "lineHeight"
     ],
     "key": "{radioButton.default.medium.label.lineHeight}"
-  },
-  "hpe.radioButton.default.medium.label.fontWeight": {
-    "$type": "number",
-    "$value": 500,
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_STYLE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.radioButton.default.medium.label.fontWeight",
-    "attributes": {
-      "category": "radioButton",
-      "type": "default",
-      "item": "medium",
-      "subitem": "label",
-      "state": "fontWeight"
-    },
-    "path": [
-      "radioButton",
-      "default",
-      "medium",
-      "label",
-      "fontWeight"
-    ],
-    "key": "{radioButton.default.medium.label.fontWeight}"
   },
   "hpe.radioButton.default.medium.control.height": {
     "$type": "number",

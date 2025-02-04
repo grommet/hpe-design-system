@@ -41,16 +41,16 @@ module.exports = {
     },
     "container": {
       "5xsmall": "48px",
-      "4xsmall": "48px",
-      "3xsmall": "48px",
-      "xxsmall": "64px",
-      "xsmall": "96px",
-      "small": "128px",
-      "medium": "192px",
-      "large": "256px",
-      "xlarge": "384px",
-      "xxlarge": "512px",
-      "3xlarge": "768px"
+      "4xsmall": "64px",
+      "3xsmall": "96px",
+      "xxsmall": "128px",
+      "xsmall": "192px",
+      "small": "256px",
+      "medium": "384px",
+      "large": "512px",
+      "xlarge": "768px",
+      "xxlarge": "1024px",
+      "3xlarge": "1536px"
     },
     "icon": {
       "xsmall": {

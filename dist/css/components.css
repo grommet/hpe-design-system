@@ -145,7 +145,6 @@
   --hpe-checkbox-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-disabled-rest-background: var(--hpe-color-transparent);
   --hpe-checkbox-default-label-rest-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-checkbox-default-medium-label-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-checkbox-default-medium-control-height: var(--hpe-base-dimension-600);
   --hpe-checkbox-default-medium-control-width: var(--hpe-base-dimension-600);
   --hpe-switch-default-control-track-rest-borderColor: var(--hpe-color-transparent);
@@ -159,7 +158,6 @@
   --hpe-switch-default-control-handle-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-handle-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-label-rest-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-switch-default-medium-label-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-switch-default-medium-control-track-height: var(--hpe-base-dimension-600);
   --hpe-switch-default-medium-control-track-width: var(--hpe-base-dimension-1200);
   --hpe-switch-default-medium-control-track-borderRadius: var(--hpe-static-radius-full);
@@ -209,7 +207,6 @@
   --hpe-radioButton-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-radioButton-default-label-rest-fontWeight: var(--hpe-fontWeight-regular);
-  --hpe-radioButton-default-medium-label-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-radioButton-default-medium-control-height: var(--hpe-base-dimension-600);
   --hpe-radioButton-default-medium-control-width: var(--hpe-base-dimension-600);
   --hpe-radioButton-default-medium-control-borderRadius: var(--hpe-static-radius-full);

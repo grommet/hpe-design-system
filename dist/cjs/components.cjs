@@ -926,8 +926,7 @@ module.exports = {
           "gapX": "var(--hpe-checkbox-default-medium-gapX)",
           "label": {
             "fontSize": "var(--hpe-checkbox-default-medium-label-fontSize)",
-            "lineHeight": "var(--hpe-checkbox-default-medium-label-lineHeight)",
-            "fontWeight": "var(--hpe-checkbox-default-medium-label-fontWeight)"
+            "lineHeight": "var(--hpe-checkbox-default-medium-label-lineHeight)"
           },
           "control": {
             "height": "var(--hpe-checkbox-default-medium-control-height)",
@@ -1029,8 +1028,7 @@ module.exports = {
           "gapX": "var(--hpe-switch-default-medium-gapX)",
           "label": {
             "fontSize": "var(--hpe-switch-default-medium-label-fontSize)",
-            "lineHeight": "var(--hpe-switch-default-medium-label-lineHeight)",
-            "fontWeight": "var(--hpe-switch-default-medium-label-fontWeight)"
+            "lineHeight": "var(--hpe-switch-default-medium-label-lineHeight)"
           },
           "control": {
             "track": {
@@ -1596,8 +1594,7 @@ module.exports = {
           "gapX": "var(--hpe-radioButton-default-medium-gapX)",
           "label": {
             "fontSize": "var(--hpe-radioButton-default-medium-label-fontSize)",
-            "lineHeight": "var(--hpe-radioButton-default-medium-label-lineHeight)",
-            "fontWeight": "var(--hpe-radioButton-default-medium-label-fontWeight)"
+            "lineHeight": "var(--hpe-radioButton-default-medium-label-lineHeight)"
           },
           "control": {
             "height": "var(--hpe-radioButton-default-medium-control-height)",
