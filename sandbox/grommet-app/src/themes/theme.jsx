@@ -195,6 +195,7 @@ const globalSizes = {
     medium: `${baseSpacing / 6}px`, // 4
     large: `${baseSpacing / 2}px`, // 12
     xlarge: `${baseSpacing}px`, // 24
+    default: '1px',
   },
   edgeSize: {
     none: '0px',
@@ -238,6 +239,7 @@ const responsiveGlobalSizes = {
     medium: `${baseSpacing / 6}px`, // 4
     large: `${baseSpacing / 4}px`, // 6
     xlarge: `${baseSpacing / 2}px`, // 12
+    default: '1px',
   },
   edgeSize: {
     none: '0px',
