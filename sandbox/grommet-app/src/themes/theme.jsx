@@ -1455,7 +1455,7 @@ const buildTheme = (tokens, flags) => {
       // when its used outside of a FormField. We will apply this hover treatment in
       // those instances.
       extend: ({ disabled, theme }) => css`
-      font-weight: ${components.hpe.checkbox.default.medium.label.fontWeight};
+      font-weight: ${components.hpe.checkbox.default.label.rest.fontWeight};
       width: auto;
       border: ${
         components.hpe.formField.default.medium.input.container.borderWidth
@@ -2458,7 +2458,7 @@ const buildTheme = (tokens, flags) => {
       },
       size: components.hpe.radioButton.default.medium.control.height,
       font: {
-        weight: components.hpe.radioButton.default.medium.label.fontWeight,
+        weight: components.hpe.radioButton.default.label.rest.fontWeight,
       },
       icons: {
         circle: () => (
