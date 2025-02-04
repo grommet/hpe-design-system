@@ -50,7 +50,7 @@
     },
     "3xsmall": {
       "$type": "number",
-      "$value": "{static.spacing.4xsmall}",
+      "$value": "{static.spacing.5xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -62,7 +62,7 @@
     },
     "xxsmall": {
       "$type": "number",
-      "$value": "{static.spacing.3xsmall}",
+      "$value": "{static.spacing.4xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -74,7 +74,7 @@
     },
     "xsmall": {
       "$type": "number",
-      "$value": "{static.spacing.xxsmall}",
+      "$value": "{static.spacing.3xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -86,7 +86,7 @@
     },
     "small": {
       "$type": "number",
-      "$value": "{static.spacing.xsmall}",
+      "$value": "{static.spacing.xxsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -98,7 +98,7 @@
     },
     "medium": {
       "$type": "number",
-      "$value": "{static.spacing.small}",
+      "$value": "{static.spacing.xsmall}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -110,7 +110,7 @@
     },
     "large": {
       "$type": "number",
-      "$value": "{static.spacing.medium}",
+      "$value": "{static.spacing.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -122,7 +122,7 @@
     },
     "xlarge": {
       "$type": "number",
-      "$value": "{static.spacing.large}",
+      "$value": "{static.spacing.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -134,7 +134,7 @@
     },
     "xxlarge": {
       "$type": "number",
-      "$value": "{static.spacing.xlarge}",
+      "$value": "{static.spacing.large}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -146,7 +146,7 @@
     },
     "3xlarge": {
       "$type": "number",
-      "$value": "{static.spacing.xxlarge}",
+      "$value": "{static.spacing.xlarge}",
       "$description": "",
       "$extensions": {
         "com.figma": {
