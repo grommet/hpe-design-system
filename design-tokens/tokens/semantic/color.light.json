@@ -137,8 +137,24 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.black.opacity12}",
+            "$value": "{base.color.black.opacity50}",
             "$description": "The background color for the overlay that sits behind modal layers.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "unknown": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.black.opacity4}",
+            "$description": "Use for backgrounds communicating an unknown status.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -203,22 +219,6 @@
             "$type": "color",
             "$value": "{base.color.red.500-Opacity24}",
             "$description": "Use for backgrounds communicating errors or danger.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "unknown": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.black.opacity4}",
-            "$description": "Use for backgrounds communicating an unknown status.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -702,6 +702,34 @@
       "heading": {
         "DEFAULT": {
           "REST": {
+            "$type": "color",
+            "$value": "{color.text.strong.REST}",
+            "$description": "Text color for headings.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "anchor": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{color.text.strong.REST}",
+            "$description": "Text color for headings.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
             "$type": "color",
             "$value": "{color.text.strong.REST}",
             "$description": "Text color for headings.",
