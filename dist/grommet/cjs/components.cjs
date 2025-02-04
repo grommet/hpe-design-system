@@ -1624,17 +1624,17 @@ module.exports = {
           "lineHeight": "2.5rem",
           "gapX": "6px"
         },
-        "3xl": {
+        "3xlarge": {
           "fontSize": "2.625rem",
           "lineHeight": "2.875rem",
           "gapX": "6px"
         },
-        "4xl": {
+        "4xlarge": {
           "fontSize": "3rem",
           "lineHeight": "3rem",
           "gapX": "6px"
         },
-        "5xl": {
+        "5xlarge": {
           "fontSize": "4.5rem",
           "lineHeight": "4.5rem",
           "gapX": "6px"

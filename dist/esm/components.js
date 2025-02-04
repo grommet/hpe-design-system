@@ -1624,20 +1624,20 @@ export default {
           "lineHeight": "var(--hpe-anchor-default-xxlarge-lineHeight)",
           "gapX": "var(--hpe-anchor-default-xxlarge-gapX)"
         },
-        "3xl": {
-          "fontSize": "var(--hpe-anchor-default-3xl-fontSize)",
-          "lineHeight": "var(--hpe-anchor-default-3xl-lineHeight)",
-          "gapX": "var(--hpe-anchor-default-3xl-gapX)"
+        "3xlarge": {
+          "fontSize": "var(--hpe-anchor-default-3xlarge-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-3xlarge-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-3xlarge-gapX)"
         },
-        "4xl": {
-          "fontSize": "var(--hpe-anchor-default-4xl-fontSize)",
-          "lineHeight": "var(--hpe-anchor-default-4xl-lineHeight)",
-          "gapX": "var(--hpe-anchor-default-4xl-gapX)"
+        "4xlarge": {
+          "fontSize": "var(--hpe-anchor-default-4xlarge-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-4xlarge-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-4xlarge-gapX)"
         },
-        "5xl": {
-          "fontSize": "var(--hpe-anchor-default-5xl-fontSize)",
-          "lineHeight": "var(--hpe-anchor-default-5xl-lineHeight)",
-          "gapX": "var(--hpe-anchor-default-5xl-gapX)"
+        "5xlarge": {
+          "fontSize": "var(--hpe-anchor-default-5xlarge-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-5xlarge-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-5xlarge-gapX)"
         }
       }
     }

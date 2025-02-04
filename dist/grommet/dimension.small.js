@@ -109,19 +109,19 @@ export default {
         "fontWeight": 300,
         "maxWidth": "25em"
       },
-      "3xl": {
+      "3xlarge": {
         "fontSize": "2.625rem",
         "lineHeight": "2.875rem",
         "fontWeight": 300,
         "maxWidth": "25em"
       },
-      "4xl": {
+      "4xlarge": {
         "fontSize": "3rem",
         "lineHeight": "3rem",
         "fontWeight": 300,
         "maxWidth": "25em"
       },
-      "5xl": {
+      "5xlarge": {
         "fontSize": "4.5rem",
         "lineHeight": "4.5rem",
         "fontWeight": 300,

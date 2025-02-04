@@ -2875,7 +2875,7 @@ export default {
     ],
     "key": "{text.xxlarge.maxWidth}"
   },
-  "hpe.text.3xl.fontSize": {
+  "hpe.text.3xlarge.fontSize": {
     "$type": "number",
     "$value": "2.625rem",
     "$description": "",
@@ -2904,20 +2904,20 @@ export default {
         }
       }
     },
-    "name": "hpe.text.3xl.fontSize",
+    "name": "hpe.text.3xlarge.fontSize",
     "attributes": {
       "category": "text",
-      "type": "3xl",
+      "type": "3xlarge",
       "item": "fontSize"
     },
     "path": [
       "text",
-      "3xl",
+      "3xlarge",
       "fontSize"
     ],
-    "key": "{text.3xl.fontSize}"
+    "key": "{text.3xlarge.fontSize}"
   },
-  "hpe.text.3xl.lineHeight": {
+  "hpe.text.3xlarge.lineHeight": {
     "$type": "number",
     "$value": "2.875rem",
     "$description": "",
@@ -2946,20 +2946,20 @@ export default {
         }
       }
     },
-    "name": "hpe.text.3xl.lineHeight",
+    "name": "hpe.text.3xlarge.lineHeight",
     "attributes": {
       "category": "text",
-      "type": "3xl",
+      "type": "3xlarge",
       "item": "lineHeight"
     },
     "path": [
       "text",
-      "3xl",
+      "3xlarge",
       "lineHeight"
     ],
-    "key": "{text.3xl.lineHeight}"
+    "key": "{text.3xlarge.lineHeight}"
   },
-  "hpe.text.3xl.fontWeight": {
+  "hpe.text.3xlarge.fontWeight": {
     "$type": "number",
     "$value": 300,
     "$description": "",
@@ -2988,20 +2988,20 @@ export default {
         }
       }
     },
-    "name": "hpe.text.3xl.fontWeight",
+    "name": "hpe.text.3xlarge.fontWeight",
     "attributes": {
       "category": "text",
-      "type": "3xl",
+      "type": "3xlarge",
       "item": "fontWeight"
     },
     "path": [
       "text",
-      "3xl",
+      "3xlarge",
       "fontWeight"
     ],
-    "key": "{text.3xl.fontWeight}"
+    "key": "{text.3xlarge.fontWeight}"
   },
-  "hpe.text.3xl.maxWidth": {
+  "hpe.text.3xlarge.maxWidth": {
     "$type": "string",
     "$value": "25em",
     "$description": "",
@@ -3030,20 +3030,20 @@ export default {
         }
       }
     },
-    "name": "hpe.text.3xl.maxWidth",
+    "name": "hpe.text.3xlarge.maxWidth",
     "attributes": {
       "category": "text",
-      "type": "3xl",
+      "type": "3xlarge",
       "item": "maxWidth"
     },
     "path": [
       "text",
-      "3xl",
+      "3xlarge",
       "maxWidth"
     ],
-    "key": "{text.3xl.maxWidth}"
+    "key": "{text.3xlarge.maxWidth}"
   },
-  "hpe.text.4xl.fontSize": {
+  "hpe.text.4xlarge.fontSize": {
     "$type": "number",
     "$value": "3rem",
     "$description": "",
@@ -3072,20 +3072,20 @@ export default {
         }
       }
     },
-    "name": "hpe.text.4xl.fontSize",
+    "name": "hpe.text.4xlarge.fontSize",
     "attributes": {
       "category": "text",
-      "type": "4xl",
+      "type": "4xlarge",
       "item": "fontSize"
     },
     "path": [
       "text",
-      "4xl",
+      "4xlarge",
       "fontSize"
     ],
-    "key": "{text.4xl.fontSize}"
+    "key": "{text.4xlarge.fontSize}"
   },
-  "hpe.text.4xl.lineHeight": {
+  "hpe.text.4xlarge.lineHeight": {
     "$type": "number",
     "$value": "3rem",
     "$description": "",
@@ -3114,20 +3114,20 @@ export default {
         }
       }
     },
-    "name": "hpe.text.4xl.lineHeight",
+    "name": "hpe.text.4xlarge.lineHeight",
     "attributes": {
       "category": "text",
-      "type": "4xl",
+      "type": "4xlarge",
       "item": "lineHeight"
     },
     "path": [
       "text",
-      "4xl",
+      "4xlarge",
       "lineHeight"
     ],
-    "key": "{text.4xl.lineHeight}"
+    "key": "{text.4xlarge.lineHeight}"
   },
-  "hpe.text.4xl.fontWeight": {
+  "hpe.text.4xlarge.fontWeight": {
     "$type": "number",
     "$value": 300,
     "$description": "",
@@ -3156,20 +3156,20 @@ export default {
         }
       }
     },
-    "name": "hpe.text.4xl.fontWeight",
+    "name": "hpe.text.4xlarge.fontWeight",
     "attributes": {
       "category": "text",
-      "type": "4xl",
+      "type": "4xlarge",
       "item": "fontWeight"
     },
     "path": [
       "text",
-      "4xl",
+      "4xlarge",
       "fontWeight"
     ],
-    "key": "{text.4xl.fontWeight}"
+    "key": "{text.4xlarge.fontWeight}"
   },
-  "hpe.text.4xl.maxWidth": {
+  "hpe.text.4xlarge.maxWidth": {
     "$type": "string",
     "$value": "25em",
     "$description": "",
@@ -3198,20 +3198,20 @@ export default {
         }
       }
     },
-    "name": "hpe.text.4xl.maxWidth",
+    "name": "hpe.text.4xlarge.maxWidth",
     "attributes": {
       "category": "text",
-      "type": "4xl",
+      "type": "4xlarge",
       "item": "maxWidth"
     },
     "path": [
       "text",
-      "4xl",
+      "4xlarge",
       "maxWidth"
     ],
-    "key": "{text.4xl.maxWidth}"
+    "key": "{text.4xlarge.maxWidth}"
   },
-  "hpe.text.5xl.fontSize": {
+  "hpe.text.5xlarge.fontSize": {
     "$type": "number",
     "$value": "4.5rem",
     "$description": "",
@@ -3240,20 +3240,20 @@ export default {
         }
       }
     },
-    "name": "hpe.text.5xl.fontSize",
+    "name": "hpe.text.5xlarge.fontSize",
     "attributes": {
       "category": "text",
-      "type": "5xl",
+      "type": "5xlarge",
       "item": "fontSize"
     },
     "path": [
       "text",
-      "5xl",
+      "5xlarge",
       "fontSize"
     ],
-    "key": "{text.5xl.fontSize}"
+    "key": "{text.5xlarge.fontSize}"
   },
-  "hpe.text.5xl.lineHeight": {
+  "hpe.text.5xlarge.lineHeight": {
     "$type": "number",
     "$value": "4.5rem",
     "$description": "",
@@ -3282,20 +3282,20 @@ export default {
         }
       }
     },
-    "name": "hpe.text.5xl.lineHeight",
+    "name": "hpe.text.5xlarge.lineHeight",
     "attributes": {
       "category": "text",
-      "type": "5xl",
+      "type": "5xlarge",
       "item": "lineHeight"
     },
     "path": [
       "text",
-      "5xl",
+      "5xlarge",
       "lineHeight"
     ],
-    "key": "{text.5xl.lineHeight}"
+    "key": "{text.5xlarge.lineHeight}"
   },
-  "hpe.text.5xl.fontWeight": {
+  "hpe.text.5xlarge.fontWeight": {
     "$type": "number",
     "$value": 300,
     "$description": "",
@@ -3324,20 +3324,20 @@ export default {
         }
       }
     },
-    "name": "hpe.text.5xl.fontWeight",
+    "name": "hpe.text.5xlarge.fontWeight",
     "attributes": {
       "category": "text",
-      "type": "5xl",
+      "type": "5xlarge",
       "item": "fontWeight"
     },
     "path": [
       "text",
-      "5xl",
+      "5xlarge",
       "fontWeight"
     ],
-    "key": "{text.5xl.fontWeight}"
+    "key": "{text.5xlarge.fontWeight}"
   },
-  "hpe.text.5xl.maxWidth": {
+  "hpe.text.5xlarge.maxWidth": {
     "$type": "string",
     "$value": "25em",
     "$description": "",
@@ -3366,18 +3366,18 @@ export default {
         }
       }
     },
-    "name": "hpe.text.5xl.maxWidth",
+    "name": "hpe.text.5xlarge.maxWidth",
     "attributes": {
       "category": "text",
-      "type": "5xl",
+      "type": "5xlarge",
       "item": "maxWidth"
     },
     "path": [
       "text",
-      "5xl",
+      "5xlarge",
       "maxWidth"
     ],
-    "key": "{text.5xl.maxWidth}"
+    "key": "{text.5xlarge.maxWidth}"
   },
   "hpe.heading.xlarge.fontWeight": {
     "$type": "number",
