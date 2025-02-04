@@ -898,14 +898,27 @@ module.exports = {
         },
         "label": {
           "rest": {
-            "textColor": "text-default"
+            "textColor": "text-default",
+            "fontWeight": 500
           },
           "hover": {
-            "textColor": "text-default"
+            "textColor": "text-default",
+            "fontWeight": 500
           },
           "disabled": {
             "rest": {
-              "textColor": "text-disabled"
+              "textColor": "text-disabled",
+              "fontWeight": 500
+            }
+          },
+          "selected": {
+            "rest": {
+              "textColor": "text-default",
+              "fontWeight": 500
+            },
+            "hover": {
+              "textColor": "text-default",
+              "fontWeight": 500
             }
           }
         },
@@ -913,8 +926,7 @@ module.exports = {
           "gapX": "12px",
           "label": {
             "fontSize": "1.125rem",
-            "lineHeight": "1.5rem",
-            "fontWeight": 500
+            "lineHeight": "1.5rem"
           },
           "control": {
             "height": "24px",
@@ -988,14 +1000,27 @@ module.exports = {
         },
         "label": {
           "rest": {
-            "textColor": "text-default"
+            "textColor": "text-default",
+            "fontWeight": 500
           },
           "hover": {
-            "textColor": "text-default"
+            "textColor": "text-default",
+            "fontWeight": 500
           },
           "disabled": {
             "rest": {
-              "textColor": "text-disabled"
+              "textColor": "text-disabled",
+              "fontWeight": 500
+            }
+          },
+          "selected": {
+            "rest": {
+              "textColor": "text-default",
+              "fontWeight": 500
+            },
+            "hover": {
+              "textColor": "text-default",
+              "fontWeight": 500
             }
           }
         },
@@ -1003,8 +1028,7 @@ module.exports = {
           "gapX": "12px",
           "label": {
             "fontSize": "1.125rem",
-            "lineHeight": "1.5rem",
-            "fontWeight": 500
+            "lineHeight": "1.5rem"
           },
           "control": {
             "track": {
@@ -1542,22 +1566,27 @@ module.exports = {
         },
         "label": {
           "rest": {
-            "textColor": "text-default"
+            "textColor": "text-default",
+            "fontWeight": 500
           },
           "hover": {
-            "textColor": "text-default"
+            "textColor": "text-default",
+            "fontWeight": 500
           },
           "disabled": {
             "rest": {
-              "textColor": "text-disabled"
+              "textColor": "text-disabled",
+              "fontWeight": 500
             }
           },
           "selected": {
             "rest": {
-              "textColor": "text-default"
+              "textColor": "text-default",
+              "fontWeight": 500
             },
             "hover": {
-              "textColor": "text-default"
+              "textColor": "text-default",
+              "fontWeight": 500
             }
           }
         },
@@ -1565,8 +1594,7 @@ module.exports = {
           "gapX": "12px",
           "label": {
             "fontSize": "1.125rem",
-            "lineHeight": "1.5rem",
-            "fontWeight": 500
+            "lineHeight": "1.5rem"
           },
           "control": {
             "height": "24px",

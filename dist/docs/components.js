@@ -28026,6 +28026,52 @@ export default {
     ],
     "key": "{checkbox.default.label.rest.textColor}"
   },
+  "hpe.checkbox.default.label.rest.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.default.label.rest.fontWeight",
+    "attributes": {
+      "category": "checkbox",
+      "type": "default",
+      "item": "label",
+      "subitem": "rest",
+      "state": "fontWeight"
+    },
+    "path": [
+      "checkbox",
+      "default",
+      "label",
+      "rest",
+      "fontWeight"
+    ],
+    "key": "{checkbox.default.label.rest.fontWeight}"
+  },
   "hpe.checkbox.default.label.hover.textColor": {
     "$type": "color",
     "$value": "#555555",
@@ -28071,6 +28117,52 @@ export default {
       "textColor"
     ],
     "key": "{checkbox.default.label.hover.textColor}"
+  },
+  "hpe.checkbox.default.label.hover.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{checkbox.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.default.label.hover.fontWeight",
+    "attributes": {
+      "category": "checkbox",
+      "type": "default",
+      "item": "label",
+      "subitem": "hover",
+      "state": "fontWeight"
+    },
+    "path": [
+      "checkbox",
+      "default",
+      "label",
+      "hover",
+      "fontWeight"
+    ],
+    "key": "{checkbox.default.label.hover.fontWeight}"
   },
   "hpe.checkbox.default.label.disabled.rest.textColor": {
     "$type": "color",
@@ -28118,6 +28210,241 @@ export default {
       "textColor"
     ],
     "key": "{checkbox.default.label.disabled.rest.textColor}"
+  },
+  "hpe.checkbox.default.label.disabled.rest.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{checkbox.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.default.label.disabled.rest.fontWeight",
+    "attributes": {
+      "category": "checkbox",
+      "type": "default",
+      "item": "label",
+      "subitem": "disabled",
+      "state": "rest"
+    },
+    "path": [
+      "checkbox",
+      "default",
+      "label",
+      "disabled",
+      "rest",
+      "fontWeight"
+    ],
+    "key": "{checkbox.default.label.disabled.rest.fontWeight}"
+  },
+  "hpe.checkbox.default.label.selected.rest.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{checkbox.default.label.rest.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.default.label.selected.rest.textColor",
+    "attributes": {
+      "category": "checkbox",
+      "type": "default",
+      "item": "label",
+      "subitem": "selected",
+      "state": "rest"
+    },
+    "path": [
+      "checkbox",
+      "default",
+      "label",
+      "selected",
+      "rest",
+      "textColor"
+    ],
+    "key": "{checkbox.default.label.selected.rest.textColor}"
+  },
+  "hpe.checkbox.default.label.selected.rest.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{checkbox.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.default.label.selected.rest.fontWeight",
+    "attributes": {
+      "category": "checkbox",
+      "type": "default",
+      "item": "label",
+      "subitem": "selected",
+      "state": "rest"
+    },
+    "path": [
+      "checkbox",
+      "default",
+      "label",
+      "selected",
+      "rest",
+      "fontWeight"
+    ],
+    "key": "{checkbox.default.label.selected.rest.fontWeight}"
+  },
+  "hpe.checkbox.default.label.selected.hover.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{checkbox.default.label.rest.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.default.label.selected.hover.textColor",
+    "attributes": {
+      "category": "checkbox",
+      "type": "default",
+      "item": "label",
+      "subitem": "selected",
+      "state": "hover"
+    },
+    "path": [
+      "checkbox",
+      "default",
+      "label",
+      "selected",
+      "hover",
+      "textColor"
+    ],
+    "key": "{checkbox.default.label.selected.hover.textColor}"
+  },
+  "hpe.checkbox.default.label.selected.hover.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{checkbox.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.checkbox.default.label.selected.hover.fontWeight",
+    "attributes": {
+      "category": "checkbox",
+      "type": "default",
+      "item": "label",
+      "subitem": "selected",
+      "state": "hover"
+    },
+    "path": [
+      "checkbox",
+      "default",
+      "label",
+      "selected",
+      "hover",
+      "fontWeight"
+    ],
+    "key": "{checkbox.default.label.selected.hover.fontWeight}"
   },
   "hpe.checkbox.default.medium.gapX": {
     "$type": "number",
@@ -28254,52 +28581,6 @@ export default {
       "lineHeight"
     ],
     "key": "{checkbox.default.medium.label.lineHeight}"
-  },
-  "hpe.checkbox.default.medium.label.fontWeight": {
-    "$type": "number",
-    "$value": 500,
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_STYLE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.checkbox.default.medium.label.fontWeight",
-    "attributes": {
-      "category": "checkbox",
-      "type": "default",
-      "item": "medium",
-      "subitem": "label",
-      "state": "fontWeight"
-    },
-    "path": [
-      "checkbox",
-      "default",
-      "medium",
-      "label",
-      "fontWeight"
-    ],
-    "key": "{checkbox.default.medium.label.fontWeight}"
   },
   "hpe.checkbox.default.medium.control.height": {
     "$type": "number",
@@ -29763,6 +30044,52 @@ export default {
     ],
     "key": "{switch.default.label.rest.textColor}"
   },
+  "hpe.switch.default.label.rest.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.switch.default.label.rest.fontWeight",
+    "attributes": {
+      "category": "switch",
+      "type": "default",
+      "item": "label",
+      "subitem": "rest",
+      "state": "fontWeight"
+    },
+    "path": [
+      "switch",
+      "default",
+      "label",
+      "rest",
+      "fontWeight"
+    ],
+    "key": "{switch.default.label.rest.fontWeight}"
+  },
   "hpe.switch.default.label.hover.textColor": {
     "$type": "color",
     "$value": "#555555",
@@ -29808,6 +30135,52 @@ export default {
       "textColor"
     ],
     "key": "{switch.default.label.hover.textColor}"
+  },
+  "hpe.switch.default.label.hover.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{switch.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.switch.default.label.hover.fontWeight",
+    "attributes": {
+      "category": "switch",
+      "type": "default",
+      "item": "label",
+      "subitem": "hover",
+      "state": "fontWeight"
+    },
+    "path": [
+      "switch",
+      "default",
+      "label",
+      "hover",
+      "fontWeight"
+    ],
+    "key": "{switch.default.label.hover.fontWeight}"
   },
   "hpe.switch.default.label.disabled.rest.textColor": {
     "$type": "color",
@@ -29855,6 +30228,241 @@ export default {
       "textColor"
     ],
     "key": "{switch.default.label.disabled.rest.textColor}"
+  },
+  "hpe.switch.default.label.disabled.rest.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{switch.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.switch.default.label.disabled.rest.fontWeight",
+    "attributes": {
+      "category": "switch",
+      "type": "default",
+      "item": "label",
+      "subitem": "disabled",
+      "state": "rest"
+    },
+    "path": [
+      "switch",
+      "default",
+      "label",
+      "disabled",
+      "rest",
+      "fontWeight"
+    ],
+    "key": "{switch.default.label.disabled.rest.fontWeight}"
+  },
+  "hpe.switch.default.label.selected.rest.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{switch.default.label.rest.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.switch.default.label.selected.rest.textColor",
+    "attributes": {
+      "category": "switch",
+      "type": "default",
+      "item": "label",
+      "subitem": "selected",
+      "state": "rest"
+    },
+    "path": [
+      "switch",
+      "default",
+      "label",
+      "selected",
+      "rest",
+      "textColor"
+    ],
+    "key": "{switch.default.label.selected.rest.textColor}"
+  },
+  "hpe.switch.default.label.selected.rest.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{switch.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.switch.default.label.selected.rest.fontWeight",
+    "attributes": {
+      "category": "switch",
+      "type": "default",
+      "item": "label",
+      "subitem": "selected",
+      "state": "rest"
+    },
+    "path": [
+      "switch",
+      "default",
+      "label",
+      "selected",
+      "rest",
+      "fontWeight"
+    ],
+    "key": "{switch.default.label.selected.rest.fontWeight}"
+  },
+  "hpe.switch.default.label.selected.hover.textColor": {
+    "$type": "color",
+    "$value": "#555555",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{switch.default.label.rest.textColor}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.switch.default.label.selected.hover.textColor",
+    "attributes": {
+      "category": "switch",
+      "type": "default",
+      "item": "label",
+      "subitem": "selected",
+      "state": "hover"
+    },
+    "path": [
+      "switch",
+      "default",
+      "label",
+      "selected",
+      "hover",
+      "textColor"
+    ],
+    "key": "{switch.default.label.selected.hover.textColor}"
+  },
+  "hpe.switch.default.label.selected.hover.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{switch.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.switch.default.label.selected.hover.fontWeight",
+    "attributes": {
+      "category": "switch",
+      "type": "default",
+      "item": "label",
+      "subitem": "selected",
+      "state": "hover"
+    },
+    "path": [
+      "switch",
+      "default",
+      "label",
+      "selected",
+      "hover",
+      "fontWeight"
+    ],
+    "key": "{switch.default.label.selected.hover.fontWeight}"
   },
   "hpe.switch.default.medium.gapX": {
     "$type": "number",
@@ -29991,52 +30599,6 @@ export default {
       "lineHeight"
     ],
     "key": "{switch.default.medium.label.lineHeight}"
-  },
-  "hpe.switch.default.medium.label.fontWeight": {
-    "$type": "number",
-    "$value": 500,
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_STYLE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.switch.default.medium.label.fontWeight",
-    "attributes": {
-      "category": "switch",
-      "type": "default",
-      "item": "medium",
-      "subitem": "label",
-      "state": "fontWeight"
-    },
-    "path": [
-      "switch",
-      "default",
-      "medium",
-      "label",
-      "fontWeight"
-    ],
-    "key": "{switch.default.medium.label.fontWeight}"
   },
   "hpe.switch.default.medium.control.track.height": {
     "$type": "number",
@@ -41335,6 +41897,52 @@ export default {
     ],
     "key": "{radioButton.default.label.rest.textColor}"
   },
+  "hpe.radioButton.default.label.rest.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{fontWeight.medium}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.radioButton.default.label.rest.fontWeight",
+    "attributes": {
+      "category": "radioButton",
+      "type": "default",
+      "item": "label",
+      "subitem": "rest",
+      "state": "fontWeight"
+    },
+    "path": [
+      "radioButton",
+      "default",
+      "label",
+      "rest",
+      "fontWeight"
+    ],
+    "key": "{radioButton.default.label.rest.fontWeight}"
+  },
   "hpe.radioButton.default.label.hover.textColor": {
     "$type": "color",
     "$value": "#555555",
@@ -41380,6 +41988,52 @@ export default {
       "textColor"
     ],
     "key": "{radioButton.default.label.hover.textColor}"
+  },
+  "hpe.radioButton.default.label.hover.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{radioButton.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.radioButton.default.label.hover.fontWeight",
+    "attributes": {
+      "category": "radioButton",
+      "type": "default",
+      "item": "label",
+      "subitem": "hover",
+      "state": "fontWeight"
+    },
+    "path": [
+      "radioButton",
+      "default",
+      "label",
+      "hover",
+      "fontWeight"
+    ],
+    "key": "{radioButton.default.label.hover.fontWeight}"
   },
   "hpe.radioButton.default.label.disabled.rest.textColor": {
     "$type": "color",
@@ -41428,6 +42082,53 @@ export default {
     ],
     "key": "{radioButton.default.label.disabled.rest.textColor}"
   },
+  "hpe.radioButton.default.label.disabled.rest.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{radioButton.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.radioButton.default.label.disabled.rest.fontWeight",
+    "attributes": {
+      "category": "radioButton",
+      "type": "default",
+      "item": "label",
+      "subitem": "disabled",
+      "state": "rest"
+    },
+    "path": [
+      "radioButton",
+      "default",
+      "label",
+      "disabled",
+      "rest",
+      "fontWeight"
+    ],
+    "key": "{radioButton.default.label.disabled.rest.fontWeight}"
+  },
   "hpe.radioButton.default.label.selected.rest.textColor": {
     "$type": "color",
     "$value": "#555555",
@@ -41475,6 +42176,53 @@ export default {
     ],
     "key": "{radioButton.default.label.selected.rest.textColor}"
   },
+  "hpe.radioButton.default.label.selected.rest.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{radioButton.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.radioButton.default.label.selected.rest.fontWeight",
+    "attributes": {
+      "category": "radioButton",
+      "type": "default",
+      "item": "label",
+      "subitem": "selected",
+      "state": "rest"
+    },
+    "path": [
+      "radioButton",
+      "default",
+      "label",
+      "selected",
+      "rest",
+      "fontWeight"
+    ],
+    "key": "{radioButton.default.label.selected.rest.fontWeight}"
+  },
   "hpe.radioButton.default.label.selected.hover.textColor": {
     "$type": "color",
     "$value": "#555555",
@@ -41521,6 +42269,53 @@ export default {
       "textColor"
     ],
     "key": "{radioButton.default.label.selected.hover.textColor}"
+  },
+  "hpe.radioButton.default.label.selected.hover.fontWeight": {
+    "$type": "number",
+    "$value": 500,
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/component/component.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{radioButton.default.label.rest.fontWeight}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.radioButton.default.label.selected.hover.fontWeight",
+    "attributes": {
+      "category": "radioButton",
+      "type": "default",
+      "item": "label",
+      "subitem": "selected",
+      "state": "hover"
+    },
+    "path": [
+      "radioButton",
+      "default",
+      "label",
+      "selected",
+      "hover",
+      "fontWeight"
+    ],
+    "key": "{radioButton.default.label.selected.hover.fontWeight}"
   },
   "hpe.radioButton.default.medium.gapX": {
     "$type": "number",
@@ -41657,52 +42452,6 @@ export default {
       "lineHeight"
     ],
     "key": "{radioButton.default.medium.label.lineHeight}"
-  },
-  "hpe.radioButton.default.medium.label.fontWeight": {
-    "$type": "number",
-    "$value": 500,
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_STYLE"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/component/component.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{fontWeight.medium}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.radioButton.default.medium.label.fontWeight",
-    "attributes": {
-      "category": "radioButton",
-      "type": "default",
-      "item": "medium",
-      "subitem": "label",
-      "state": "fontWeight"
-    },
-    "path": [
-      "radioButton",
-      "default",
-      "medium",
-      "label",
-      "fontWeight"
-    ],
-    "key": "{radioButton.default.medium.label.fontWeight}"
   },
   "hpe.radioButton.default.medium.control.height": {
     "$type": "number",

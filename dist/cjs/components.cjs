@@ -898,14 +898,27 @@ module.exports = {
         },
         "label": {
           "rest": {
-            "textColor": "var(--hpe-checkbox-default-label-rest-textColor)"
+            "textColor": "var(--hpe-checkbox-default-label-rest-textColor)",
+            "fontWeight": "var(--hpe-checkbox-default-label-rest-fontWeight)"
           },
           "hover": {
-            "textColor": "var(--hpe-checkbox-default-label-hover-textColor)"
+            "textColor": "var(--hpe-checkbox-default-label-hover-textColor)",
+            "fontWeight": "var(--hpe-checkbox-default-label-hover-fontWeight)"
           },
           "disabled": {
             "rest": {
-              "textColor": "var(--hpe-checkbox-default-label-disabled-rest-textColor)"
+              "textColor": "var(--hpe-checkbox-default-label-disabled-rest-textColor)",
+              "fontWeight": "var(--hpe-checkbox-default-label-disabled-rest-fontWeight)"
+            }
+          },
+          "selected": {
+            "rest": {
+              "textColor": "var(--hpe-checkbox-default-label-selected-rest-textColor)",
+              "fontWeight": "var(--hpe-checkbox-default-label-selected-rest-fontWeight)"
+            },
+            "hover": {
+              "textColor": "var(--hpe-checkbox-default-label-selected-hover-textColor)",
+              "fontWeight": "var(--hpe-checkbox-default-label-selected-hover-fontWeight)"
             }
           }
         },
@@ -913,8 +926,7 @@ module.exports = {
           "gapX": "var(--hpe-checkbox-default-medium-gapX)",
           "label": {
             "fontSize": "var(--hpe-checkbox-default-medium-label-fontSize)",
-            "lineHeight": "var(--hpe-checkbox-default-medium-label-lineHeight)",
-            "fontWeight": "var(--hpe-checkbox-default-medium-label-fontWeight)"
+            "lineHeight": "var(--hpe-checkbox-default-medium-label-lineHeight)"
           },
           "control": {
             "height": "var(--hpe-checkbox-default-medium-control-height)",
@@ -988,14 +1000,27 @@ module.exports = {
         },
         "label": {
           "rest": {
-            "textColor": "var(--hpe-switch-default-label-rest-textColor)"
+            "textColor": "var(--hpe-switch-default-label-rest-textColor)",
+            "fontWeight": "var(--hpe-switch-default-label-rest-fontWeight)"
           },
           "hover": {
-            "textColor": "var(--hpe-switch-default-label-hover-textColor)"
+            "textColor": "var(--hpe-switch-default-label-hover-textColor)",
+            "fontWeight": "var(--hpe-switch-default-label-hover-fontWeight)"
           },
           "disabled": {
             "rest": {
-              "textColor": "var(--hpe-switch-default-label-disabled-rest-textColor)"
+              "textColor": "var(--hpe-switch-default-label-disabled-rest-textColor)",
+              "fontWeight": "var(--hpe-switch-default-label-disabled-rest-fontWeight)"
+            }
+          },
+          "selected": {
+            "rest": {
+              "textColor": "var(--hpe-switch-default-label-selected-rest-textColor)",
+              "fontWeight": "var(--hpe-switch-default-label-selected-rest-fontWeight)"
+            },
+            "hover": {
+              "textColor": "var(--hpe-switch-default-label-selected-hover-textColor)",
+              "fontWeight": "var(--hpe-switch-default-label-selected-hover-fontWeight)"
             }
           }
         },
@@ -1003,8 +1028,7 @@ module.exports = {
           "gapX": "var(--hpe-switch-default-medium-gapX)",
           "label": {
             "fontSize": "var(--hpe-switch-default-medium-label-fontSize)",
-            "lineHeight": "var(--hpe-switch-default-medium-label-lineHeight)",
-            "fontWeight": "var(--hpe-switch-default-medium-label-fontWeight)"
+            "lineHeight": "var(--hpe-switch-default-medium-label-lineHeight)"
           },
           "control": {
             "track": {
@@ -1542,22 +1566,27 @@ module.exports = {
         },
         "label": {
           "rest": {
-            "textColor": "var(--hpe-radioButton-default-label-rest-textColor)"
+            "textColor": "var(--hpe-radioButton-default-label-rest-textColor)",
+            "fontWeight": "var(--hpe-radioButton-default-label-rest-fontWeight)"
           },
           "hover": {
-            "textColor": "var(--hpe-radioButton-default-label-hover-textColor)"
+            "textColor": "var(--hpe-radioButton-default-label-hover-textColor)",
+            "fontWeight": "var(--hpe-radioButton-default-label-hover-fontWeight)"
           },
           "disabled": {
             "rest": {
-              "textColor": "var(--hpe-radioButton-default-label-disabled-rest-textColor)"
+              "textColor": "var(--hpe-radioButton-default-label-disabled-rest-textColor)",
+              "fontWeight": "var(--hpe-radioButton-default-label-disabled-rest-fontWeight)"
             }
           },
           "selected": {
             "rest": {
-              "textColor": "var(--hpe-radioButton-default-label-selected-rest-textColor)"
+              "textColor": "var(--hpe-radioButton-default-label-selected-rest-textColor)",
+              "fontWeight": "var(--hpe-radioButton-default-label-selected-rest-fontWeight)"
             },
             "hover": {
-              "textColor": "var(--hpe-radioButton-default-label-selected-hover-textColor)"
+              "textColor": "var(--hpe-radioButton-default-label-selected-hover-textColor)",
+              "fontWeight": "var(--hpe-radioButton-default-label-selected-hover-fontWeight)"
             }
           }
         },
@@ -1565,8 +1594,7 @@ module.exports = {
           "gapX": "var(--hpe-radioButton-default-medium-gapX)",
           "label": {
             "fontSize": "var(--hpe-radioButton-default-medium-label-fontSize)",
-            "lineHeight": "var(--hpe-radioButton-default-medium-label-lineHeight)",
-            "fontWeight": "var(--hpe-radioButton-default-medium-label-fontWeight)"
+            "lineHeight": "var(--hpe-radioButton-default-medium-label-lineHeight)"
           },
           "control": {
             "height": "var(--hpe-radioButton-default-medium-control-height)",
