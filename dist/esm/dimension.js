@@ -109,23 +109,23 @@ export default {
         "fontWeight": "var(--hpe-text-xxlarge-fontWeight)",
         "maxWidth": "var(--hpe-text-xxlarge-maxWidth)"
       },
-      "3xl": {
-        "fontSize": "var(--hpe-text-3xl-fontSize)",
-        "lineHeight": "var(--hpe-text-3xl-lineHeight)",
-        "fontWeight": "var(--hpe-text-3xl-fontWeight)",
-        "maxWidth": "var(--hpe-text-3xl-maxWidth)"
+      "3xlarge": {
+        "fontSize": "var(--hpe-text-3xlarge-fontSize)",
+        "lineHeight": "var(--hpe-text-3xlarge-lineHeight)",
+        "fontWeight": "var(--hpe-text-3xlarge-fontWeight)",
+        "maxWidth": "var(--hpe-text-3xlarge-maxWidth)"
       },
-      "4xl": {
-        "fontSize": "var(--hpe-text-4xl-fontSize)",
-        "lineHeight": "var(--hpe-text-4xl-lineHeight)",
-        "fontWeight": "var(--hpe-text-4xl-fontWeight)",
-        "maxWidth": "var(--hpe-text-4xl-maxWidth)"
+      "4xlarge": {
+        "fontSize": "var(--hpe-text-4xlarge-fontSize)",
+        "lineHeight": "var(--hpe-text-4xlarge-lineHeight)",
+        "fontWeight": "var(--hpe-text-4xlarge-fontWeight)",
+        "maxWidth": "var(--hpe-text-4xlarge-maxWidth)"
       },
-      "5xl": {
-        "fontSize": "var(--hpe-text-5xl-fontSize)",
-        "lineHeight": "var(--hpe-text-5xl-lineHeight)",
-        "fontWeight": "var(--hpe-text-5xl-fontWeight)",
-        "maxWidth": "var(--hpe-text-5xl-maxWidth)"
+      "5xlarge": {
+        "fontSize": "var(--hpe-text-5xlarge-fontSize)",
+        "lineHeight": "var(--hpe-text-5xlarge-lineHeight)",
+        "fontWeight": "var(--hpe-text-5xlarge-fontWeight)",
+        "maxWidth": "var(--hpe-text-5xlarge-maxWidth)"
       }
     },
     "heading": {

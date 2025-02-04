@@ -144,6 +144,7 @@
   --hpe-menu-default-drop-borderColor: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-disabled-rest-background: var(--hpe-color-transparent);
+  --hpe-checkbox-default-label-rest-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-checkbox-default-medium-label-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-checkbox-default-medium-control-height: var(--hpe-base-dimension-600);
   --hpe-checkbox-default-medium-control-width: var(--hpe-base-dimension-600);
@@ -157,6 +158,7 @@
   --hpe-switch-default-control-handle-disabled-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-handle-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-handle-selected-hover-borderColor: var(--hpe-color-transparent);
+  --hpe-switch-default-label-rest-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-switch-default-medium-label-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-switch-default-medium-control-track-height: var(--hpe-base-dimension-600);
   --hpe-switch-default-medium-control-track-width: var(--hpe-base-dimension-1200);
@@ -206,6 +208,7 @@
   --hpe-radioButton-default-control-hover-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
+  --hpe-radioButton-default-label-rest-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-radioButton-default-medium-label-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-radioButton-default-medium-control-height: var(--hpe-base-dimension-600);
   --hpe-radioButton-default-medium-control-width: var(--hpe-base-dimension-600);
@@ -416,7 +419,11 @@
   --hpe-checkbox-default-control-indeterminate-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
   --hpe-checkbox-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-hover-textColor: var(--hpe-color-text-default);
+  --hpe-checkbox-default-label-hover-fontWeight: var(--hpe-checkbox-default-label-rest-fontWeight);
   --hpe-checkbox-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
+  --hpe-checkbox-default-label-disabled-rest-fontWeight: var(--hpe-checkbox-default-label-rest-fontWeight);
+  --hpe-checkbox-default-label-selected-rest-fontWeight: var(--hpe-checkbox-default-label-rest-fontWeight);
+  --hpe-checkbox-default-label-selected-hover-fontWeight: var(--hpe-checkbox-default-label-rest-fontWeight);
   --hpe-checkbox-default-medium-gapX: var(--hpe-static-spacing-xsmall); /* Space between checkbox control and value (label) */
   --hpe-checkbox-default-medium-control-borderRadius: var(--hpe-static-radius-xsmall);
   --hpe-switch-default-control-track-rest-background: var(--hpe-color-decorative-neutral);
@@ -434,7 +441,11 @@
   --hpe-switch-default-control-handle-selected-hover-boxShadow: var(--hpe-shadow-small);
   --hpe-switch-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-switch-default-label-hover-textColor: var(--hpe-color-text-default);
+  --hpe-switch-default-label-hover-fontWeight: var(--hpe-switch-default-label-rest-fontWeight);
   --hpe-switch-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
+  --hpe-switch-default-label-disabled-rest-fontWeight: var(--hpe-switch-default-label-rest-fontWeight);
+  --hpe-switch-default-label-selected-rest-fontWeight: var(--hpe-switch-default-label-rest-fontWeight);
+  --hpe-switch-default-label-selected-hover-fontWeight: var(--hpe-switch-default-label-rest-fontWeight);
   --hpe-switch-default-medium-gapX: var(--hpe-static-spacing-xsmall);
   --hpe-switch-default-medium-control-track-borderWidth: var(--hpe-static-borderWidth-default);
   --hpe-formField-default-medium-input-group-item-paddingX: var(--hpe-static-spacing-xxsmall);
@@ -535,9 +546,13 @@
   --hpe-radioButton-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-radioButton-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-hover-textColor: var(--hpe-color-text-default);
+  --hpe-radioButton-default-label-hover-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
   --hpe-radioButton-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
+  --hpe-radioButton-default-label-disabled-rest-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
   --hpe-radioButton-default-label-selected-rest-textColor: var(--hpe-color-text-default);
+  --hpe-radioButton-default-label-selected-rest-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
   --hpe-radioButton-default-label-selected-hover-textColor: var(--hpe-color-text-default);
+  --hpe-radioButton-default-label-selected-hover-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
   --hpe-radioButton-default-medium-gapX: var(--hpe-static-spacing-xsmall); /* Space between checkbox control and value (label) */
   --hpe-anchor-default-rest-textColor: var(--hpe-color-text-primary);
   --hpe-anchor-default-hover-textColor: var(--hpe-color-text-primary-hover);
@@ -554,12 +569,12 @@
   --hpe-anchor-default-xlarge-lineHeight: var(--hpe-text-xlarge-lineHeight);
   --hpe-anchor-default-xxlarge-fontSize: var(--hpe-text-xxlarge-fontSize);
   --hpe-anchor-default-xxlarge-lineHeight: var(--hpe-text-xxlarge-lineHeight);
-  --hpe-anchor-default-3xl-fontSize: var(--hpe-text-3xl-fontSize);
-  --hpe-anchor-default-3xl-lineHeight: var(--hpe-text-3xl-lineHeight);
-  --hpe-anchor-default-4xl-fontSize: var(--hpe-text-4xl-fontSize);
-  --hpe-anchor-default-4xl-lineHeight: var(--hpe-text-4xl-lineHeight);
-  --hpe-anchor-default-5xl-fontSize: var(--hpe-text-5xl-fontSize);
-  --hpe-anchor-default-5xl-lineHeight: var(--hpe-text-5xl-lineHeight);
+  --hpe-anchor-default-3xlarge-fontSize: var(--hpe-text-3xlarge-fontSize);
+  --hpe-anchor-default-3xlarge-lineHeight: var(--hpe-text-3xlarge-lineHeight);
+  --hpe-anchor-default-4xlarge-fontSize: var(--hpe-text-4xlarge-fontSize);
+  --hpe-anchor-default-4xlarge-lineHeight: var(--hpe-text-4xlarge-lineHeight);
+  --hpe-anchor-default-5xlarge-fontSize: var(--hpe-text-5xlarge-fontSize);
+  --hpe-anchor-default-5xlarge-lineHeight: var(--hpe-text-5xlarge-lineHeight);
   --hpe-element-xsmall-borderWidth: var(--hpe-borderWidth-default);
   --hpe-element-medium-borderWidth: var(--hpe-borderWidth-default);
   --hpe-element-large-borderWidth: var(--hpe-borderWidth-default);
@@ -687,11 +702,15 @@
   --hpe-checkbox-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-checkbox-default-control-indeterminate-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-checkbox-default-control-indeterminate-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
+  --hpe-checkbox-default-label-selected-rest-textColor: var(--hpe-checkbox-default-label-rest-textColor);
+  --hpe-checkbox-default-label-selected-hover-textColor: var(--hpe-checkbox-default-label-rest-textColor);
   --hpe-checkbox-default-medium-label-fontSize: var(--hpe-element-medium-fontSize);
   --hpe-checkbox-default-medium-label-lineHeight: var(--hpe-element-medium-lineHeight);
   --hpe-checkbox-default-medium-control-borderWidth: var(--hpe-borderWidth-default);
   --hpe-switch-default-control-track-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-switch-default-control-track-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
+  --hpe-switch-default-label-selected-rest-textColor: var(--hpe-switch-default-label-rest-textColor);
+  --hpe-switch-default-label-selected-hover-textColor: var(--hpe-switch-default-label-rest-textColor);
   --hpe-switch-default-medium-label-fontSize: var(--hpe-element-medium-fontSize);
   --hpe-switch-default-medium-label-lineHeight: var(--hpe-element-medium-lineHeight);
   --hpe-switch-default-medium-control-handle-borderWidth: var(--hpe-borderWidth-default);
@@ -780,9 +799,9 @@
   --hpe-anchor-default-large-gapX: var(--hpe-element-large-textToIconX);
   --hpe-anchor-default-xlarge-gapX: var(--hpe-element-xlarge-textToIconX);
   --hpe-anchor-default-xxlarge-gapX: var(--hpe-element-xlarge-textToIconX);
-  --hpe-anchor-default-3xl-gapX: var(--hpe-element-xlarge-textToIconX);
-  --hpe-anchor-default-4xl-gapX: var(--hpe-element-xlarge-textToIconX);
-  --hpe-anchor-default-5xl-gapX: var(--hpe-element-xlarge-textToIconX);
+  --hpe-anchor-default-3xlarge-gapX: var(--hpe-element-xlarge-textToIconX);
+  --hpe-anchor-default-4xlarge-gapX: var(--hpe-element-xlarge-textToIconX);
+  --hpe-anchor-default-5xlarge-gapX: var(--hpe-element-xlarge-textToIconX);
   --hpe-select-default-medium-option-lineHeight: var(--hpe-button-default-medium-lineHeight);
   --hpe-select-default-medium-drop-borderRadius: var(--hpe-drop-default-borderRadius);
   --hpe-button-primary-xsmall-fontSize: var(--hpe-button-default-xsmall-fontSize);

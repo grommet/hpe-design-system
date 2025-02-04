@@ -898,14 +898,27 @@ module.exports = {
         },
         "label": {
           "rest": {
-            "textColor": "var(--hpe-checkbox-default-label-rest-textColor)"
+            "textColor": "var(--hpe-checkbox-default-label-rest-textColor)",
+            "fontWeight": "var(--hpe-checkbox-default-label-rest-fontWeight)"
           },
           "hover": {
-            "textColor": "var(--hpe-checkbox-default-label-hover-textColor)"
+            "textColor": "var(--hpe-checkbox-default-label-hover-textColor)",
+            "fontWeight": "var(--hpe-checkbox-default-label-hover-fontWeight)"
           },
           "disabled": {
             "rest": {
-              "textColor": "var(--hpe-checkbox-default-label-disabled-rest-textColor)"
+              "textColor": "var(--hpe-checkbox-default-label-disabled-rest-textColor)",
+              "fontWeight": "var(--hpe-checkbox-default-label-disabled-rest-fontWeight)"
+            }
+          },
+          "selected": {
+            "rest": {
+              "textColor": "var(--hpe-checkbox-default-label-selected-rest-textColor)",
+              "fontWeight": "var(--hpe-checkbox-default-label-selected-rest-fontWeight)"
+            },
+            "hover": {
+              "textColor": "var(--hpe-checkbox-default-label-selected-hover-textColor)",
+              "fontWeight": "var(--hpe-checkbox-default-label-selected-hover-fontWeight)"
             }
           }
         },
@@ -988,14 +1001,27 @@ module.exports = {
         },
         "label": {
           "rest": {
-            "textColor": "var(--hpe-switch-default-label-rest-textColor)"
+            "textColor": "var(--hpe-switch-default-label-rest-textColor)",
+            "fontWeight": "var(--hpe-switch-default-label-rest-fontWeight)"
           },
           "hover": {
-            "textColor": "var(--hpe-switch-default-label-hover-textColor)"
+            "textColor": "var(--hpe-switch-default-label-hover-textColor)",
+            "fontWeight": "var(--hpe-switch-default-label-hover-fontWeight)"
           },
           "disabled": {
             "rest": {
-              "textColor": "var(--hpe-switch-default-label-disabled-rest-textColor)"
+              "textColor": "var(--hpe-switch-default-label-disabled-rest-textColor)",
+              "fontWeight": "var(--hpe-switch-default-label-disabled-rest-fontWeight)"
+            }
+          },
+          "selected": {
+            "rest": {
+              "textColor": "var(--hpe-switch-default-label-selected-rest-textColor)",
+              "fontWeight": "var(--hpe-switch-default-label-selected-rest-fontWeight)"
+            },
+            "hover": {
+              "textColor": "var(--hpe-switch-default-label-selected-hover-textColor)",
+              "fontWeight": "var(--hpe-switch-default-label-selected-hover-fontWeight)"
             }
           }
         },
@@ -1542,22 +1568,27 @@ module.exports = {
         },
         "label": {
           "rest": {
-            "textColor": "var(--hpe-radioButton-default-label-rest-textColor)"
+            "textColor": "var(--hpe-radioButton-default-label-rest-textColor)",
+            "fontWeight": "var(--hpe-radioButton-default-label-rest-fontWeight)"
           },
           "hover": {
-            "textColor": "var(--hpe-radioButton-default-label-hover-textColor)"
+            "textColor": "var(--hpe-radioButton-default-label-hover-textColor)",
+            "fontWeight": "var(--hpe-radioButton-default-label-hover-fontWeight)"
           },
           "disabled": {
             "rest": {
-              "textColor": "var(--hpe-radioButton-default-label-disabled-rest-textColor)"
+              "textColor": "var(--hpe-radioButton-default-label-disabled-rest-textColor)",
+              "fontWeight": "var(--hpe-radioButton-default-label-disabled-rest-fontWeight)"
             }
           },
           "selected": {
             "rest": {
-              "textColor": "var(--hpe-radioButton-default-label-selected-rest-textColor)"
+              "textColor": "var(--hpe-radioButton-default-label-selected-rest-textColor)",
+              "fontWeight": "var(--hpe-radioButton-default-label-selected-rest-fontWeight)"
             },
             "hover": {
-              "textColor": "var(--hpe-radioButton-default-label-selected-hover-textColor)"
+              "textColor": "var(--hpe-radioButton-default-label-selected-hover-textColor)",
+              "fontWeight": "var(--hpe-radioButton-default-label-selected-hover-fontWeight)"
             }
           }
         },
@@ -1624,20 +1655,20 @@ module.exports = {
           "lineHeight": "var(--hpe-anchor-default-xxlarge-lineHeight)",
           "gapX": "var(--hpe-anchor-default-xxlarge-gapX)"
         },
-        "3xl": {
-          "fontSize": "var(--hpe-anchor-default-3xl-fontSize)",
-          "lineHeight": "var(--hpe-anchor-default-3xl-lineHeight)",
-          "gapX": "var(--hpe-anchor-default-3xl-gapX)"
+        "3xlarge": {
+          "fontSize": "var(--hpe-anchor-default-3xlarge-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-3xlarge-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-3xlarge-gapX)"
         },
-        "4xl": {
-          "fontSize": "var(--hpe-anchor-default-4xl-fontSize)",
-          "lineHeight": "var(--hpe-anchor-default-4xl-lineHeight)",
-          "gapX": "var(--hpe-anchor-default-4xl-gapX)"
+        "4xlarge": {
+          "fontSize": "var(--hpe-anchor-default-4xlarge-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-4xlarge-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-4xlarge-gapX)"
         },
-        "5xl": {
-          "fontSize": "var(--hpe-anchor-default-5xl-fontSize)",
-          "lineHeight": "var(--hpe-anchor-default-5xl-lineHeight)",
-          "gapX": "var(--hpe-anchor-default-5xl-gapX)"
+        "5xlarge": {
+          "fontSize": "var(--hpe-anchor-default-5xlarge-fontSize)",
+          "lineHeight": "var(--hpe-anchor-default-5xlarge-lineHeight)",
+          "gapX": "var(--hpe-anchor-default-5xlarge-gapX)"
         }
       }
     }
