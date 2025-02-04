@@ -7843,8 +7843,8 @@ grommet-theme-hpe@5.7.0:
   integrity sha512-P8n7wQt1QTWdgDCOV1zc0jOlnq9ml5bCCEgtdCsMKiWIQkbOGJVbOACsfiZOS+J6M7l9ur9QFoXtVkGO6a+HAA==
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
-  version "2.45.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#52b33e24612aa7bbbc6deb3a7abbc5cd787e0299"
+  version "2.45.1"
+  resolved "https://github.com/grommet/grommet/tarball/stable#cf5ca6f8b82ec85e53beceeda6a75464f2a3527c"
   dependencies:
     "@emotion/is-prop-valid" "^1.3.1"
     grommet-icons "^4.12.4"
