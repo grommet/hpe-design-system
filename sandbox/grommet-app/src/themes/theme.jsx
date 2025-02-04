@@ -1563,21 +1563,18 @@ const buildTheme = (tokens, flags) => {
       pinned: {
         header: {
           background: {
-            color: components.hpe.headerCell.default.pinned.rest.background,
             opacity: 'strong',
           },
           extend: 'backdrop-filter: blur(12px);',
         },
         body: {
           background: {
-            color: components.hpe.dataCell.default.pinned.rest.background,
             opacity: 'strong',
           },
           extend: 'backdrop-filter: blur(12px);',
         },
         footer: {
           background: {
-            color: components.hpe.footerCell.default.pinned.rest.background,
             opacity: 'strong',
           },
           extend: 'backdrop-filter: blur(12px);',
