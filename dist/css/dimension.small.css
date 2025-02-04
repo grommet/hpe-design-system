@@ -94,15 +94,15 @@
   --hpe-borderWidth-large: var(--hpe-static-borderWidth-medium);
   --hpe-borderWidth-default: var(--hpe-static-borderWidth-xsmall);
   --hpe-container-5xsmall: var(--hpe-static-container-5xsmall); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
-  --hpe-container-4xsmall: var(--hpe-static-container-5xsmall);
-  --hpe-container-3xsmall: var(--hpe-static-container-5xsmall); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
-  --hpe-container-xxsmall: var(--hpe-static-container-4xsmall);
-  --hpe-container-xsmall: var(--hpe-static-container-3xsmall); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
-  --hpe-container-small: var(--hpe-static-container-xxsmall);
-  --hpe-container-medium: var(--hpe-static-container-xsmall); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
-  --hpe-container-large: var(--hpe-static-container-small);
-  --hpe-container-xlarge: var(--hpe-static-container-medium); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
-  --hpe-container-xxlarge: var(--hpe-static-container-large); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
-  --hpe-container-3xlarge: var(--hpe-static-container-xlarge); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-4xsmall: var(--hpe-static-container-4xsmall);
+  --hpe-container-3xsmall: var(--hpe-static-container-3xsmall); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-xxsmall: var(--hpe-static-container-xxsmall);
+  --hpe-container-xsmall: var(--hpe-static-container-xsmall); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-small: var(--hpe-static-container-small);
+  --hpe-container-medium: var(--hpe-static-container-medium); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-large: var(--hpe-static-container-large);
+  --hpe-container-xlarge: var(--hpe-static-container-xlarge); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-xxlarge: var(--hpe-static-container-xxlarge); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-3xlarge: var(--hpe-static-container-3xlarge); /* Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
 }
 }
