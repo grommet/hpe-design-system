@@ -12,9 +12,9 @@
   --hpe-element-xlarge-paddingY: 20px;
   --hpe-element-xlarge-paddingX-wide: 32px;
   --hpe-select-default-medium-option-paddingY: 5px;
-  --hpe-select-default-medium-option-marker-top: 0px;
-  --hpe-select-default-medium-option-marker-bottom: 0px;
-  --hpe-select-default-medium-option-marker-left: 0px;
+  --hpe-select-default-medium-option-marker-top: -1px;
+  --hpe-select-default-medium-option-marker-bottom: -1px;
+  --hpe-select-default-medium-option-marker-left: -1px;
   --hpe-button-secondary-xsmall-iconOnly-paddingY: 4px;
   --hpe-button-secondary-small-iconOnly-paddingY: 5px;
   --hpe-button-secondary-medium-paddingY: 4px;

@@ -4601,7 +4601,7 @@ export default {
   },
   "hpe.shadow.small": {
     "$type": "shadow",
-    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$value": "0 2px 4px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4619,7 +4619,7 @@ export default {
       "$value": [
         {
           "offsetX": 0,
-          "offsetY": "{base.dimension.100}",
+          "offsetY": "{base.dimension.50}",
           "blur": "{base.dimension.100}",
           "spread": 0,
           "color": "{base.color.black.opacity12}"

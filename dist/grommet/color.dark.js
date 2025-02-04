@@ -118,9 +118,9 @@ export default {
       }
     },
     "shadow": {
-      "small": "0 4px 4px rgba(0, 0, 0, 0.24) ",
+      "small": "0 2px 4px rgba(0, 0, 0, 0.24) ",
       "medium": "0px 6px 12px 0px rgba(0, 0, 0, 0.36) ",
-      "large": "0px 12px 24px 0px rgba(0, 0, 0, 0.36) "
+      "large": "0px 12px 24px 0px rgba(0, 0, 0, 0.48) "
     }
   }
 }

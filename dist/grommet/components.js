@@ -118,9 +118,9 @@ export default {
               "borderTopRightRadius": "0px",
               "borderBottomLeftRadius": "9999px",
               "borderBottomRightRadius": "0px",
-              "top": "0px",
-              "bottom": "0px",
-              "left": "0px"
+              "top": "-1px",
+              "bottom": "-1px",
+              "left": "-1px"
             }
           },
           "drop": {

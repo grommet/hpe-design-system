@@ -3344,7 +3344,7 @@ export default {
   },
   "hpe.select.default.medium.option.marker.top": {
     "$type": "number",
-    "$value": "0px",
+    "$value": "-1px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3359,7 +3359,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 0,
+      "$value": -1,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3391,7 +3391,7 @@ export default {
   },
   "hpe.select.default.medium.option.marker.bottom": {
     "$type": "number",
-    "$value": "0px",
+    "$value": "-1px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3406,7 +3406,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 0,
+      "$value": -1,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3438,7 +3438,7 @@ export default {
   },
   "hpe.select.default.medium.option.marker.left": {
     "$type": "number",
-    "$value": "0px",
+    "$value": "-1px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3453,7 +3453,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 0,
+      "$value": -1,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29364,7 +29364,7 @@ export default {
   },
   "hpe.switch.default.control.handle.rest.boxShadow": {
     "$type": "shadow",
-    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$value": "0 2px 4px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29509,7 +29509,7 @@ export default {
   },
   "hpe.switch.default.control.handle.hover.boxShadow": {
     "$type": "shadow",
-    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$value": "0 2px 4px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29656,7 +29656,7 @@ export default {
   },
   "hpe.switch.default.control.handle.disabled.rest.boxShadow": {
     "$type": "shadow",
-    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$value": "0 2px 4px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29804,7 +29804,7 @@ export default {
   },
   "hpe.switch.default.control.handle.selected.rest.boxShadow": {
     "$type": "shadow",
-    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$value": "0 2px 4px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -29952,7 +29952,7 @@ export default {
   },
   "hpe.switch.default.control.handle.selected.hover.boxShadow": {
     "$type": "shadow",
-    "$value": "0 4px 4px rgba(0, 0, 0, 0.12) ",
+    "$value": "0 2px 4px rgba(0, 0, 0, 0.12) ",
     "$description": "",
     "$extensions": {
       "com.figma": {
