@@ -7835,7 +7835,7 @@ grommet-icons@^4.12.3:
 
 "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.12.3"
-  resolved "https://github.com/grommet/grommet-icons/tarball/stable#41f431609d2a1b9d612e20ae19d799b66b522c6c"
+  resolved "https://github.com/grommet/grommet-icons/tarball/stable#67f55c85c94e4ca4ca06898f4074b401f0585fdc"
 
 grommet-theme-hpe@5.7.0:
   version "5.7.0"
