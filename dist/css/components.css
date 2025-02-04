@@ -41,7 +41,7 @@
   --hpe-dataCell-default-medium-paddingBottom: 5px;
   --hpe-anchor-default-rest-textDecoration: underline;
   --hpe-anchor-default-hover-textDecoration: underline;
-  --hpe-anchor-default-disabled-textDecoration: underline;
+  --hpe-anchor-default-disabled-rest-textDecoration: underline;
   --hpe-element-xsmall-minHeight: var(--hpe-base-dimension-600);
   --hpe-element-xsmall-paddingX-wide: var(--hpe-base-dimension-225);
   --hpe-element-xsmall-width: var(--hpe-base-dimension-600);
@@ -189,7 +189,7 @@
   --hpe-radioButton-default-medium-control-borderRadius: var(--hpe-static-radius-full);
   --hpe-anchor-default-rest-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-anchor-default-hover-fontWeight: var(--hpe-fontWeight-medium);
-  --hpe-anchor-default-disabled-fontWeight: var(--hpe-fontWeight-medium);
+  --hpe-anchor-default-disabled-rest-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-element-xsmall-textToElementX: var(--hpe-static-spacing-5xsmall);
   --hpe-element-xsmall-textToIconX: var(--hpe-static-spacing-5xsmall);
   --hpe-element-xsmall-fontSize: var(--hpe-text-xsmall-fontSize);
@@ -529,9 +529,7 @@
   --hpe-radioButton-default-label-selected-hover-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-selected-hover-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
   --hpe-radioButton-default-medium-gapX: var(--hpe-static-spacing-xsmall); /* Space between checkbox control and value (label) */
-  --hpe-anchor-default-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-anchor-default-hover-textColor: var(--hpe-color-text-strong);
-  --hpe-anchor-default-disabled-textColor: var(--hpe-color-text-strong);
+  --hpe-anchor-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-anchor-default-xsmall-fontSize: var(--hpe-text-xsmall-fontSize);
   --hpe-anchor-default-xsmall-lineHeight: var(--hpe-text-xsmall-lineHeight);
   --hpe-anchor-default-small-fontSize: var(--hpe-text-small-fontSize);
@@ -733,10 +731,10 @@
   --hpe-dataCell-primary-hover-textColor: var(--hpe-dataCell-primary-rest-textColor);
   --hpe-dataCell-primary-hover-iconColor: var(--hpe-dataCell-primary-rest-iconColor);
   --hpe-dataCell-primary-hover-borderColor: var(--hpe-dataCell-default-hover-borderColor);
-  --hpe-dataCell-primary-disabled-textColor: var(--hpe-dataCell-default-disabled-rest-textColor);
-  --hpe-dataCell-primary-disabled-iconColor: var(--hpe-dataCell-default-disabled-rest-iconColor);
-  --hpe-dataCell-primary-disabled-borderColor: var(--hpe-dataCell-default-disabled-rest-borderColor);
-  --hpe-dataCell-primary-disabled-background: var(--hpe-dataCell-default-disabled-rest-background);
+  --hpe-dataCell-primary-disabled-rest-textColor: var(--hpe-dataCell-default-disabled-rest-textColor);
+  --hpe-dataCell-primary-disabled-rest-iconColor: var(--hpe-dataCell-default-disabled-rest-iconColor);
+  --hpe-dataCell-primary-disabled-rest-borderColor: var(--hpe-dataCell-default-disabled-rest-borderColor);
+  --hpe-dataCell-primary-disabled-rest-background: var(--hpe-dataCell-default-disabled-rest-background);
   --hpe-dataCell-primary-selected-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
   --hpe-dataCell-primary-selected-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-primary-selected-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
@@ -776,6 +774,8 @@
   --hpe-radioButton-default-medium-label-fontSize: var(--hpe-element-medium-fontSize);
   --hpe-radioButton-default-medium-label-lineHeight: var(--hpe-element-medium-lineHeight);
   --hpe-radioButton-default-medium-control-borderWidth: var(--hpe-borderWidth-default);
+  --hpe-anchor-default-rest-textColor: var(--hpe-color-text-anchor);
+  --hpe-anchor-default-hover-textColor: var(--hpe-color-text-anchor-hover);
   --hpe-anchor-default-xsmall-gapX: var(--hpe-element-xsmall-textToIconX);
   --hpe-anchor-default-small-gapX: var(--hpe-element-small-textToIconX);
   --hpe-anchor-default-medium-gapX: var(--hpe-element-medium-textToIconX);

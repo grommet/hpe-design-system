@@ -1407,10 +1407,12 @@ export default {
           "background": "transparent"
         },
         "disabled": {
-          "textColor": "text-disabled",
-          "iconColor": "icon-disabled",
-          "borderColor": "transparent",
-          "background": "transparent"
+          "rest": {
+            "textColor": "text-disabled",
+            "iconColor": "icon-disabled",
+            "borderColor": "transparent",
+            "background": "transparent"
+          }
         },
         "selected": {
           "rest": {
@@ -1608,19 +1610,21 @@ export default {
     "anchor": {
       "default": {
         "rest": {
-          "textColor": "text-strong",
+          "textColor": "text-anchor",
           "fontWeight": 500,
           "textDecoration": "underline"
         },
         "hover": {
-          "textColor": "text-strong",
+          "textColor": "text-anchor-hover",
           "fontWeight": 500,
           "textDecoration": "underline"
         },
         "disabled": {
-          "textColor": "text-strong",
-          "fontWeight": 500,
-          "textDecoration": "underline"
+          "rest": {
+            "textColor": "text-disabled",
+            "fontWeight": 500,
+            "textDecoration": "underline"
+          }
         },
         "xsmall": {
           "fontSize": "0.875rem",

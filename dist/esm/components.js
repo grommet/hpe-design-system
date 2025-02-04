@@ -1407,10 +1407,12 @@ export default {
           "background": "var(--hpe-dataCell-primary-hover-background)"
         },
         "disabled": {
-          "textColor": "var(--hpe-dataCell-primary-disabled-textColor)",
-          "iconColor": "var(--hpe-dataCell-primary-disabled-iconColor)",
-          "borderColor": "var(--hpe-dataCell-primary-disabled-borderColor)",
-          "background": "var(--hpe-dataCell-primary-disabled-background)"
+          "rest": {
+            "textColor": "var(--hpe-dataCell-primary-disabled-rest-textColor)",
+            "iconColor": "var(--hpe-dataCell-primary-disabled-rest-iconColor)",
+            "borderColor": "var(--hpe-dataCell-primary-disabled-rest-borderColor)",
+            "background": "var(--hpe-dataCell-primary-disabled-rest-background)"
+          }
         },
         "selected": {
           "rest": {
@@ -1618,9 +1620,11 @@ export default {
           "textDecoration": "var(--hpe-anchor-default-hover-textDecoration)"
         },
         "disabled": {
-          "textColor": "var(--hpe-anchor-default-disabled-textColor)",
-          "fontWeight": "var(--hpe-anchor-default-disabled-fontWeight)",
-          "textDecoration": "var(--hpe-anchor-default-disabled-textDecoration)"
+          "rest": {
+            "textColor": "var(--hpe-anchor-default-disabled-rest-textColor)",
+            "fontWeight": "var(--hpe-anchor-default-disabled-rest-fontWeight)",
+            "textDecoration": "var(--hpe-anchor-default-disabled-rest-textDecoration)"
+          }
         },
         "xsmall": {
           "fontSize": "var(--hpe-anchor-default-xsmall-fontSize)",

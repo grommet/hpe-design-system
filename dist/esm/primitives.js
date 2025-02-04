@@ -88,6 +88,7 @@ export default {
         "black-opacity24": "var(--hpe-base-color-black-opacity24)",
         "black-opacity36": "var(--hpe-base-color-black-opacity36)",
         "black-opacity48": "var(--hpe-base-color-black-opacity48)",
+        "black-opacity50": "var(--hpe-base-color-black-opacity50)",
         "black-opacity72": "var(--hpe-base-color-black-opacity72)",
         "black-opacity100": "var(--hpe-base-color-black-opacity100)",
         "grey-50": "var(--hpe-base-color-grey-50)",

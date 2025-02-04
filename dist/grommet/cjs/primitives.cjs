@@ -88,6 +88,7 @@ module.exports = {
         "black-opacity24": "rgba(0, 0, 0, 0.24)",
         "black-opacity36": "rgba(0, 0, 0, 0.36)",
         "black-opacity48": "rgba(0, 0, 0, 0.48)",
+        "black-opacity50": "rgba(0, 0, 0, 0.5)",
         "black-opacity72": "rgba(0, 0, 0, 0.72)",
         "black-opacity100": "#000000",
         "grey-50": "#f7f7f7",

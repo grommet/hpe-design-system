@@ -38021,7 +38021,7 @@ export default {
     ],
     "key": "{dataCell.primary.hover.background}"
   },
-  "hpe.dataCell.primary.disabled.textColor": {
+  "hpe.dataCell.primary.disabled.rest.textColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -38050,22 +38050,24 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.disabled.textColor",
+    "name": "hpe.dataCell.primary.disabled.rest.textColor",
     "attributes": {
       "category": "dataCell",
       "type": "primary",
       "item": "disabled",
-      "subitem": "textColor"
+      "subitem": "rest",
+      "state": "textColor"
     },
     "path": [
       "dataCell",
       "primary",
       "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{dataCell.primary.disabled.textColor}"
+    "key": "{dataCell.primary.disabled.rest.textColor}"
   },
-  "hpe.dataCell.primary.disabled.iconColor": {
+  "hpe.dataCell.primary.disabled.rest.iconColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
@@ -38098,22 +38100,24 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.disabled.iconColor",
+    "name": "hpe.dataCell.primary.disabled.rest.iconColor",
     "attributes": {
       "category": "dataCell",
       "type": "primary",
       "item": "disabled",
-      "subitem": "iconColor"
+      "subitem": "rest",
+      "state": "iconColor"
     },
     "path": [
       "dataCell",
       "primary",
       "disabled",
+      "rest",
       "iconColor"
     ],
-    "key": "{dataCell.primary.disabled.iconColor}"
+    "key": "{dataCell.primary.disabled.rest.iconColor}"
   },
-  "hpe.dataCell.primary.disabled.borderColor": {
+  "hpe.dataCell.primary.disabled.rest.borderColor": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -38144,22 +38148,24 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.disabled.borderColor",
+    "name": "hpe.dataCell.primary.disabled.rest.borderColor",
     "attributes": {
       "category": "dataCell",
       "type": "primary",
       "item": "disabled",
-      "subitem": "borderColor"
+      "subitem": "rest",
+      "state": "borderColor"
     },
     "path": [
       "dataCell",
       "primary",
       "disabled",
+      "rest",
       "borderColor"
     ],
-    "key": "{dataCell.primary.disabled.borderColor}"
+    "key": "{dataCell.primary.disabled.rest.borderColor}"
   },
-  "hpe.dataCell.primary.disabled.background": {
+  "hpe.dataCell.primary.disabled.rest.background": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
     "$description": "",
@@ -38190,20 +38196,22 @@ export default {
         }
       }
     },
-    "name": "hpe.dataCell.primary.disabled.background",
+    "name": "hpe.dataCell.primary.disabled.rest.background",
     "attributes": {
       "category": "dataCell",
       "type": "primary",
       "item": "disabled",
-      "subitem": "background"
+      "subitem": "rest",
+      "state": "background"
     },
     "path": [
       "dataCell",
       "primary",
       "disabled",
+      "rest",
       "background"
     ],
-    "key": "{dataCell.primary.disabled.background}"
+    "key": "{dataCell.primary.disabled.rest.background}"
   },
   "hpe.dataCell.primary.selected.rest.textColor": {
     "$type": "color",
@@ -42656,7 +42664,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong.REST}",
+      "$value": "{color.text.anchor.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -42784,7 +42792,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong.REST}",
+      "$value": "{color.text.anchor.DEFAULT.hover}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -42891,9 +42899,9 @@ export default {
     ],
     "key": "{anchor.default.hover.textDecoration}"
   },
-  "hpe.anchor.default.disabled.textColor": {
+  "hpe.anchor.default.disabled.rest.textColor": {
     "$type": "color",
-    "$value": "#2e2e2e",
+    "$value": "rgba(0, 0, 0, 0.24)",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -42908,7 +42916,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong.REST}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -42920,22 +42928,24 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.disabled.textColor",
+    "name": "hpe.anchor.default.disabled.rest.textColor",
     "attributes": {
       "category": "anchor",
       "type": "default",
       "item": "disabled",
-      "subitem": "textColor"
+      "subitem": "rest",
+      "state": "textColor"
     },
     "path": [
       "anchor",
       "default",
       "disabled",
+      "rest",
       "textColor"
     ],
-    "key": "{anchor.default.disabled.textColor}"
+    "key": "{anchor.default.disabled.rest.textColor}"
   },
-  "hpe.anchor.default.disabled.fontWeight": {
+  "hpe.anchor.default.disabled.rest.fontWeight": {
     "$type": "number",
     "$value": 500,
     "$description": "",
@@ -42960,22 +42970,24 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.disabled.fontWeight",
+    "name": "hpe.anchor.default.disabled.rest.fontWeight",
     "attributes": {
       "category": "anchor",
       "type": "default",
       "item": "disabled",
-      "subitem": "fontWeight"
+      "subitem": "rest",
+      "state": "fontWeight"
     },
     "path": [
       "anchor",
       "default",
       "disabled",
+      "rest",
       "fontWeight"
     ],
-    "key": "{anchor.default.disabled.fontWeight}"
+    "key": "{anchor.default.disabled.rest.fontWeight}"
   },
-  "hpe.anchor.default.disabled.textDecoration": {
+  "hpe.anchor.default.disabled.rest.textDecoration": {
     "$type": "string",
     "$value": "underline",
     "$description": "",
@@ -43000,20 +43012,22 @@ export default {
         }
       }
     },
-    "name": "hpe.anchor.default.disabled.textDecoration",
+    "name": "hpe.anchor.default.disabled.rest.textDecoration",
     "attributes": {
       "category": "anchor",
       "type": "default",
       "item": "disabled",
-      "subitem": "textDecoration"
+      "subitem": "rest",
+      "state": "textDecoration"
     },
     "path": [
       "anchor",
       "default",
       "disabled",
+      "rest",
       "textDecoration"
     ],
-    "key": "{anchor.default.disabled.textDecoration}"
+    "key": "{anchor.default.disabled.rest.textDecoration}"
   },
   "hpe.anchor.default.xsmall.fontSize": {
     "$type": "number",

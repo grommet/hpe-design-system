@@ -3333,6 +3333,50 @@ export default {
     ],
     "key": "{base.color.black.opacity48}"
   },
+  "hpe.base.color.black.opacity50": {
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0.5)",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#00000080",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.black.opacity50",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "black",
+      "subitem": "opacity50"
+    },
+    "path": [
+      "base",
+      "color",
+      "black",
+      "opacity50"
+    ],
+    "key": "{base.color.black.opacity50}"
+  },
   "hpe.base.color.black.opacity72": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0.72)",
