@@ -1336,13 +1336,13 @@ module.exports = {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
-            "background": "background-front"
+            "background": "transparent"
           },
           "hover": {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
-            "background": "background-front"
+            "background": "transparent"
           }
         },
         "medium": {
@@ -1404,14 +1404,14 @@ module.exports = {
             "iconColor": "icon-default",
             "borderColor": "border-weak",
             "backgroundColor": "transparent",
-            "background": "background-front"
+            "background": "transparent"
           },
           "hover": {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
             "backgroundColor": "transparent",
-            "background": "background-front"
+            "background": "transparent"
           }
         }
       }
@@ -1435,7 +1435,7 @@ module.exports = {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
-            "background": "background-front"
+            "background": "transparent"
           }
         },
         "units": {
@@ -1486,13 +1486,13 @@ module.exports = {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
-            "background": "background-front"
+            "background": "transparent"
           },
           "hover": {
             "textColor": "text-default",
             "iconColor": "icon-default",
             "borderColor": "border-weak",
-            "background": "background-front"
+            "background": "transparent"
           }
         },
         "medium": {
