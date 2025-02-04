@@ -340,18 +340,6 @@
         }
       }
     },
-    "xlarge": {
-      "$type": "number",
-      "$value": "{static.borderWidth.xlarge}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": ["STROKE_FLOAT", "EFFECT_FLOAT"],
-          "codeSyntax": {}
-        }
-      }
-    },
     "default": {
       "$type": "number",
       "$value": "{static.borderWidth.xsmall}",

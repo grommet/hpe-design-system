@@ -2057,19 +2057,7 @@
       },
       "large": {
         "$type": "number",
-        "$value": "{base.dimension.300}",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["EFFECT_FLOAT"],
-            "codeSyntax": {}
-          }
-        }
-      },
-      "xlarge": {
-        "$type": "number",
-        "$value": "{base.dimension.600}",
+        "$value": "{base.dimension.150}",
         "$description": "",
         "$extensions": {
           "com.figma": {

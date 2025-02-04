@@ -402,8 +402,12 @@ const buildTheme = (tokens, flags) => {
       small: large.hpe.borderWidth.small,
       medium: large.hpe.borderWidth.medium,
       default: large.hpe.borderWidth.default,
-      large: large.hpe.borderWidth.large,
-      xlarge: large.hpe.borderWidth.xlarge,
+      large: flags['v6-backwards-compatibility']
+        ? '12px'
+        : large.hpe.borderWidth.large,
+      xlarge: flags['v6-backwards-compatibility']
+        ? '24px'
+        : large.hpe.borderWidth.xlarge,
     },
     edgeSize: {
       none: large.hpe.spacing.none,
@@ -475,8 +479,12 @@ const buildTheme = (tokens, flags) => {
           small: small.hpe.borderWidth.small,
           medium: small.hpe.borderWidth.medium,
           default: small.hpe.borderWidth.default,
-          large: small.hpe.borderWidth.large,
-          xlarge: small.hpe.borderWidth.xlarge,
+          large: flags['v6-backwards-compatibility']
+            ? '6px'
+            : small.hpe.borderWidth.large,
+          xlarge: flags['v6-backwards-compatibility']
+            ? '12px'
+            : small.hpe.borderWidth.xlarge,
         },
         edgeSize: {
           none: small.hpe.spacing.none,
@@ -524,8 +532,12 @@ const buildTheme = (tokens, flags) => {
           small: small.hpe.borderWidth.small,
           medium: small.hpe.borderWidth.medium,
           default: small.hpe.borderWidth.default,
-          large: small.hpe.borderWidth.large,
-          xlarge: small.hpe.borderWidth.xlarge,
+          large: flags['v6-backwards-compatibility']
+            ? '6px'
+            : small.hpe.borderWidth.large,
+          xlarge: flags['v6-backwards-compatibility']
+            ? '12px'
+            : small.hpe.borderWidth.xlarge,
         },
         edgeSize: {
           none: small.hpe.spacing.none,
@@ -1550,15 +1562,21 @@ const buildTheme = (tokens, flags) => {
       },
       pinned: {
         header: {
-          background: { opacity: 'strong' },
+          background: {
+            opacity: 'strong',
+          },
           extend: 'backdrop-filter: blur(12px);',
         },
         body: {
-          background: { opacity: 'strong' },
+          background: {
+            opacity: 'strong',
+          },
           extend: 'backdrop-filter: blur(12px);',
         },
         footer: {
-          background: { opacity: 'strong' },
+          background: {
+            opacity: 'strong',
+          },
           extend: 'backdrop-filter: blur(12px);',
         },
       },
