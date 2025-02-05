@@ -25,7 +25,6 @@ import {
 } from 'grommet-icons';
 // import { hpe } from 'grommet-theme-hpe';
 
-// TO DO should these be added as tokens?
 const backgrounds = {
   'datawave-green-1':
     'url(https://d3hq6blov2iije.cloudfront.net/images/textures/AdobeStock-57301038_800_0_72_RGB+19849.jpg)',
@@ -86,39 +85,6 @@ const backgrounds = {
         hsl(46deg 100% 50%) 100%
     );`,
 };
-
-// const dropKeyFrames = keyframes`
-//   0% {
-//     opacity: 0;
-//     transform: scale(1, 0.1);
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: scale(1, 1);
-//   }
-// `;
-
-// const standardDrop = keyframes`
-//   0% {
-//     opacity: 0.5;
-//     transform: scale(0.5);
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: scale(1);
-//   }
-// `;
-
-// const skeletonAnimation = keyframes`
-// 0% {
-//   transform: translateX(-100%);
-// }
-// 100% {
-//   transform: translateX(100%);
-// }
-// `;
-
-// const themeModeTransition = `background ${base.motion.duration[375]} ${base.motion.easing.simple.inOut}`;
 
 const baseSpacing = 24;
 
@@ -326,8 +292,6 @@ const buildTheme = (tokens, flags) => {
     'neutral-4': undefined,
     'neutral-5': undefined,
     'status-error': undefined,
-    // ----------- These ones we need to map manually for backwards compatibility -----------
-    // ----------- with current color namespace ---------------
     control: 'background-primary-strong',
     'active-text': 'text-strong',
     'text-primary-button': components.hpe.button.primary.rest.textColor,
@@ -840,7 +804,7 @@ const buildTheme = (tokens, flags) => {
   return deepFreeze({
     defaultMode: 'light',
     global: {
-      backgrounds, // TO DO backgrounds
+      backgrounds,
       ...dimensions,
       colors,
       control: {
@@ -876,17 +840,27 @@ const buildTheme = (tokens, flags) => {
                 .borderColor,
           },
         },
-        extend: `
+        extend: ({ theme }) => `
+          color: ${getThemeColor(
+            components.hpe.formField.default.value.rest.textColor,
+            theme,
+          )};
           &::-webkit-input-placeholder {
-          font-weight: ${components.hpe.formField.default.medium.placeholder.fontWeight};
+          font-weight: ${
+            components.hpe.formField.default.medium.placeholder.fontWeight
+          };
         }
       
         &::-moz-placeholder {
-          font-weight: ${components.hpe.formField.default.medium.placeholder.fontWeight};
+          font-weight: ${
+            components.hpe.formField.default.medium.placeholder.fontWeight
+          };
         }
       
         &:-ms-input-placeholder {
-          font-weight: ${components.hpe.formField.default.medium.placeholder.fontWeight};
+          font-weight: ${
+            components.hpe.formField.default.medium.placeholder.fontWeight
+          };
         }
         `,
       },
@@ -1028,12 +1002,17 @@ const buildTheme = (tokens, flags) => {
       color: components.hpe.anchor.default.rest.textColor,
       textDecoration: components.hpe.anchor.default.rest.textDecoration,
       fontWeight: components.hpe.anchor.default.rest.fontWeight,
-      gap: components.hpe.anchor.default.medium.gapX, // TO DO not size specific
+      gap: components.hpe.anchor.default.medium.gapX,
       icon: {
         color: 'icon-primary',
       },
       hover: {
         textDecoration: components.hpe.anchor.default.hover.textDecoration,
+        extend: ({ theme }) =>
+          `color: ${getThemeColor(
+            components.hpe.anchor.default.hover.textColor,
+            theme,
+          )};`,
       },
       size: anchorSizeTheme,
     },
@@ -1073,7 +1052,7 @@ const buildTheme = (tokens, flags) => {
           background: 'background-neutral-xstrong',
         },
         size: {
-          medium: '18px', // Q: what token should be used here? no token for this at the moments
+          medium: '18px',
         },
         text: {
           size: {
@@ -1081,14 +1060,12 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
-      // TO DO add cta-primary variant
       'cta-primary': {
         ...buttonKindTheme.primary,
         icon: <Hpe />,
         reverse: true,
         extend: '',
       },
-      // TO DO add cta-alternate variant
       'cta-alternate': {
         ...buttonKindTheme.secondary,
         icon: <Hpe color="icon-brand" />,
@@ -1147,10 +1124,7 @@ const buildTheme = (tokens, flags) => {
       },
       hover: {
         'cta-primary': buttonStatesTheme.hover.primary,
-        'cta-alternate': {
-          ...buttonStatesTheme.hover.secondary,
-          extend: '', // TO DO can remove when merging, temp to override extend
-        },
+        'cta-alternate': buttonStatesTheme.hover.secondary,
         ...buttonStatesTheme.hover,
         option: {
           background: components.hpe.select.default.option.hover.background,
@@ -1161,11 +1135,14 @@ const buildTheme = (tokens, flags) => {
           extend: props =>
             props['aria-selected'] &&
             `
-          background: ${
-            props.theme.global.colors[
-              components.hpe.select.default.option.selected.hover.background
-            ][props.theme.dark ? 'dark' : 'light']
-          };
+           background: ${getThemeColor(
+             components.hpe.select.default.option.selected.hover.background,
+             props.theme,
+           )};
+          color: ${getThemeColor(
+            components.hpe.select.default.option.selected.hover.textColor,
+            props.theme,
+          )}
           `,
         },
       },
@@ -1182,22 +1159,8 @@ const buildTheme = (tokens, flags) => {
         },
       },
       extend: ({ sizeProp, hasIcon, hasLabel, kind, plain }) => {
-        // necessary so primary label is accessible on HPE green background
         let style = '';
         const iconOnly = hasIcon && !hasLabel;
-        if ((sizeProp === 'medium' || sizeProp === undefined) && !iconOnly) {
-          const themeObj =
-            kind === 'option'
-              ? components.hpe.select.default.medium[kind]
-              : components.hpe.button[
-                  typeof kind === 'string' ? kind : 'default'
-                ].medium;
-          const { fontSize, lineHeight } = themeObj;
-
-          style += `font-size: ${fontSize};
-        line-height: ${lineHeight};`;
-        }
-
         // kind and size specific icon-only padding
         if (
           !plain &&
@@ -1214,8 +1177,34 @@ const buildTheme = (tokens, flags) => {
         adjacent: {
           color: 'text-weak',
         },
-        extend: ({ isSelected, theme }) =>
-          isSelected && `color: ${theme.global.colors['text-primary-button']};`,
+        hover: {
+          background: 'background-hover',
+          color: 'text-strong',
+        },
+        selected: {
+          background: 'background-selected-primary-strong',
+          color: 'text-onSelectedPrimaryStrong',
+          hover: {
+            background: 'background-selected-primary-strong-hover',
+          },
+          font: {
+            weight: global.hpe.fontWeight.medium,
+          },
+        },
+        inRange: {
+          color: 'text-onSelectedPrimary',
+          hover: {
+            background: 'background-selected-primary-hover',
+            color: 'text-onSelectedPrimary',
+          },
+          font: {
+            weight: global.hpe.fontWeight.medium,
+          },
+        },
+        extend: '',
+      },
+      range: {
+        background: 'background-selected-primary',
       },
       icons: {
         // next: Next,
@@ -1225,9 +1214,27 @@ const buildTheme = (tokens, flags) => {
         fontSize: '13.6px',
         lineHeight: 1.375,
         daySize: '27.43px',
+        day: {
+          round: 'full',
+        },
+        range: {
+          round: 'none',
+          start: {
+            round: {
+              corner: 'left',
+              size: 'full',
+            },
+          },
+          end: {
+            round: {
+              corner: 'right',
+              size: 'full',
+            },
+          },
+        },
         title: {
           size: 'medium',
-          weight: 500,
+          weight: global.hpe.fontWeight.normal,
           color: 'text-strong',
         },
       },
@@ -1235,9 +1242,27 @@ const buildTheme = (tokens, flags) => {
         fontSize: '18px',
         lineHeight: 1.45,
         daySize: '54.86px',
+        day: {
+          round: 'full',
+        },
+        range: {
+          round: 'none',
+          start: {
+            round: {
+              corner: 'left',
+              size: 'full',
+            },
+          },
+          end: {
+            round: {
+              corner: 'right',
+              size: 'full',
+            },
+          },
+        },
         title: {
           size: 'large',
-          weight: 500,
+          weight: global.hpe.fontWeight.normal,
           color: 'text-strong',
         },
       },
@@ -1245,9 +1270,27 @@ const buildTheme = (tokens, flags) => {
         fontSize: '31.2px',
         lineHeight: 1.11,
         daySize: '109.71px',
+        day: {
+          round: 'full',
+        },
+        range: {
+          round: 'none',
+          start: {
+            round: {
+              corner: 'left',
+              size: 'full',
+            },
+          },
+          end: {
+            round: {
+              corner: 'right',
+              size: 'full',
+            },
+          },
+        },
         title: {
           size: 'xlarge',
-          weight: 500,
+          weight: global.hpe.fontWeight.normal,
           color: 'text-strong',
         },
       },
@@ -1255,7 +1298,7 @@ const buildTheme = (tokens, flags) => {
     card: {
       container: {
         background: 'background-front',
-        elevation: 'medium',
+        elevation: 'none',
         extend: 'transition: box-shadow 0.3s ease-in-out;',
       },
       body: {
@@ -1269,7 +1312,7 @@ const buildTheme = (tokens, flags) => {
       },
       hover: {
         container: {
-          elevation: 'large',
+          elevation: 'medium',
         },
       },
     },
@@ -1277,8 +1320,7 @@ const buildTheme = (tokens, flags) => {
       hover: {
         border: {
           // applies directly to control (checkbox and toggle switch)
-          // TO DO remove from applying to switch
-          color: components.hpe.checkbox.default.control.hover.borderColor,
+          color: undefined,
           width:
             dimensions.borderSize[
               components.hpe.checkbox.default.medium.control.borderWidth
@@ -1286,7 +1328,7 @@ const buildTheme = (tokens, flags) => {
         },
         // applies to container around control and label
         background: {
-          color: 'background-hover',
+          color: undefined,
         },
         extend: ({ theme, toggle, checked }) => {
           let borderColor;
@@ -1355,11 +1397,16 @@ const buildTheme = (tokens, flags) => {
               theme,
             );
           }
-          if (disabled)
+          if (disabled) {
+            background = getThemeColor(
+              components.hpe.checkbox.default.control.disabled.rest.background,
+              theme,
+            );
             borderColor = getThemeColor(
               components.hpe.checkbox.default.control.disabled.rest.borderColor,
               theme,
             );
+          }
           return `
             background: ${background};
             border-color: ${borderColor};
@@ -1381,19 +1428,23 @@ const buildTheme = (tokens, flags) => {
       label: {
         align: 'start',
       },
-      pad: {
-        vertical: components.hpe.element?.medium.paddingY,
-        horizontal:
-          components.hpe.formField.default.medium.input.container.paddingX,
-      },
+      pad: 'none',
       size: components.hpe.checkbox.default.medium.control.width,
       toggle: {
         background: components.hpe.switch.default.control.track.rest.background,
         color: components.hpe.switch.default.control.handle.rest.background,
         size: components.hpe.switch.default.medium.control.track.width,
-        // TO DO need token for handle elevation
         knob: {
-          extend: ({ theme, checked, disabled }) => `
+          extend: ({ theme, checked, disabled }) => {
+            const insetHandle =
+              dimensions.borderSize[
+                components.hpe.switch.default.medium.control.handle.borderWidth
+              ] ||
+              dimensions.borderSize[
+                components.hpe.switch.default.medium.control.handle.borderWidth
+              ];
+
+            return `
           box-shadow: ${
             theme.global.elevation[theme.dark ? 'dark' : 'light'][
               components.hpe.switch.default.control.handle.rest.boxShadow
@@ -1404,17 +1455,18 @@ const buildTheme = (tokens, flags) => {
               components.hpe.switch.default.medium.control.handle.borderWidth
             ]
           } solid ${getThemeColor(
-            disabled
-              ? components.hpe.switch.default.control.handle.disabled.rest
-                  .borderColor
-              : components.hpe.switch.default.control.handle.rest.borderColor,
-            theme,
-          )};
+              disabled
+                ? components.hpe.switch.default.control.handle.disabled.rest
+                    .borderColor
+                : components.hpe.switch.default.control.handle.rest.borderColor,
+              theme,
+            )};
           width: ${components.hpe.switch.default.medium.control.handle.width};
           height: ${components.hpe.switch.default.medium.control.handle.height};
-          // top: 1px; // TO DO token?
-          // ${!checked ? 'left: 1px;' : ''} // TO DO token?
-          `,
+          top: ${insetHandle};
+          left: ${!checked ? insetHandle : '25px'};
+          `;
+          },
         },
         // applies to track around handle
         extend: ({ checked, theme, disabled }) => {
@@ -1441,7 +1493,8 @@ const buildTheme = (tokens, flags) => {
           }
           if (disabled) {
             background = getThemeColor(
-              components.hpe.switch.default.control.track.disabled.rest,
+              components.hpe.switch.default.control.track.disabled.rest
+                .background,
               theme,
             );
             borderColor = getThemeColor(
@@ -1456,7 +1509,6 @@ const buildTheme = (tokens, flags) => {
             &:hover {
               ${!disabled ? `background: ${hoverBackground};` : ''}
             }
-            
         `;
         },
       },
@@ -1472,6 +1524,9 @@ const buildTheme = (tokens, flags) => {
         components.hpe.formField.default.input.group.item.rest.borderColor,
         theme,
       )};
+      & input:checked + span[class*=CheckBoxToggle] > span[class*=CheckBoxKnob] {
+        left: 25px;
+      }
       ${
         // override built in disabled opacity: 0.5 from grommet
         disabled &&
@@ -1486,12 +1541,9 @@ const buildTheme = (tokens, flags) => {
     },
     checkBoxGroup: {
       container: {
-        gap: 'none', // TO DO missing token
-        margin: {
-          vertical:
-            components.hpe.formField.default.medium.input.group.container
-              .paddingY,
-        },
+        cssGap: true,
+        gap: 'small',
+        margin: 'none',
       },
     },
     data: {
@@ -1518,6 +1570,14 @@ const buildTheme = (tokens, flags) => {
         selected: {
           background:
             components.hpe.dataCell.default.selected?.rest?.background,
+        },
+        row: {
+          extend: `&:last-child td {
+              border-color: transparent;
+            }
+            &:last-child th {
+              border-color: transparent;
+            }`,
         },
       },
       groupHeader: {
@@ -1601,11 +1661,10 @@ const buildTheme = (tokens, flags) => {
         },
       },
       primary: {
-        weight: components.hpe.dataCell.primary.fontWeight,
+        weight: components.hpe.dataCell.primary.medium.fontWeight,
         color: components.hpe.dataCell.primary.rest.textColor,
       },
       resize: {
-        // Q: missing tokens
         border: {
           color: 'border',
           side: 'end',
@@ -1623,12 +1682,12 @@ const buildTheme = (tokens, flags) => {
         color:
           components.hpe.formField.default.input.container.rest.borderColor,
         side: 'all',
-        style: 'dashed',
+        style: 'solid',
         size: components.hpe.formField.default.medium.input.container
           .borderWidth,
       },
       button: {
-        background: components.hpe.button.default.rest.background,
+        background: components.hpe.button.secondary.rest.background,
         border: {
           radius: components.hpe.button.default.medium.borderRadius,
         },
@@ -1636,13 +1695,13 @@ const buildTheme = (tokens, flags) => {
           vertical: components.hpe.button.default.medium.paddingY,
           horizontal: components.hpe.button.default.medium.paddingX,
         },
-        color: components.hpe.button.default.rest.textColor,
+        color: components.hpe.button.secondary.rest.textColor,
         font: {
-          weight: components.hpe.button.default.rest.fontWeight,
+          weight: components.hpe.button.secondary.rest.fontWeight,
         },
         hover: {
-          background: components.hpe.button.default.hover.background,
-          color: components.hpe.button.default.hover.textColor,
+          background: components.hpe.button.secondary.hover.background,
+          color: components.hpe.button.secondary.hover.textColor,
         },
       },
       dragOver: {
@@ -1670,30 +1729,78 @@ const buildTheme = (tokens, flags) => {
     formField: {
       extend: ({ theme }) =>
         `
-          input:disabled { 
-          color: ${getThemeColor(
-            components.hpe.formField.default.value.disabled.rest.textColor,
-            theme,
-          )};
+          input:disabled {
+            color: ${getThemeColor(
+              components.hpe.formField.default.value.disabled.rest.textColor,
+              theme,
+            )};
           }
-          [role="group"], [role="radiogroup"] {
+          [class*="ContentBox"] {
             label {
-              border: ${
-                dimensions.borderSize[
+              padding-block: ${
+                components.hpe.formField.default.medium.input.group.item
+                  .paddingY
+              };
+              padding-inline: ${
+                components.hpe.formField.default.medium.input.group.item
+                  .paddingX
+              };
+              &:hover {
+                background: ${getThemeColor(
+                  components.hpe.formField.default.input.container.hover
+                    .background,
+                  theme,
+                )};
+              }
+            }
+            [role="group"], [role="radiogroup"] {
+              gap: 0;
+              padding-block: ${
+                components.hpe.formField.default.medium.input.group.container
+                  .paddingY
+              };
+              padding-inline: ${
+                components.hpe.formField.default.medium.input.group.container
+                  .paddingX
+              };
+              label {
+                border: ${
+                  dimensions.borderSize[
+                    components.hpe.formField.default.medium.input.group.item
+                      .borderWidth
+                  ] ||
                   components.hpe.formField.default.medium.input.group.item
                     .borderWidth
-                ] ||
-                components.hpe.formField.default.medium.input.group.item
-                  .borderWidth
-              } solid ${getThemeColor(
+                } solid ${getThemeColor(
           components.hpe.formField.default.input.group.item.rest.borderColor,
           theme,
         )};
+                padding-block: ${
+                  components.hpe.formField.default.medium.input.group.item
+                    .paddingY
+                };
+                padding-inline: ${
+                  components.hpe.formField.default.medium.input.group.item
+                    .paddingX
+                };
+                border-radius: ${
+                  dimensions.edgeSize[
+                    components.hpe.formField.default.medium.input.group.item
+                      .borderRadius
+                  ]
+                };
+                &:hover {
+                  background: ${getThemeColor(
+                    components.hpe.formField.default.input.group.item.hover
+                      .background,
+                    theme,
+                  )};
+                }
+              }
             }
           }
       `,
       content: {
-        // Q: missing tokens
         margin: { vertical: 'xsmall' },
         pad: 'none',
       },
@@ -1706,6 +1813,48 @@ const buildTheme = (tokens, flags) => {
         color:
           components.hpe.formField.default.input.container.rest.borderColor,
         side: 'all',
+      },
+      checkBox: {
+        pad: {
+          horizontal:
+            components.hpe.formField.default.medium.input.group.item.paddingX,
+          vertical:
+            components.hpe.formField.default.medium.input.group.item.paddingY,
+        },
+        container: {
+          extend: ({ error }) =>
+            `border-color: ${
+              error
+                ? components.hpe.formField.default.input.group.container.error
+                    .rest.borderColor
+                : components.hpe.formField.default.input.group.container.rest
+                    .borderColor
+            }; `,
+        },
+      },
+      checkBoxGroup: {
+        container: {
+          extend: ({ error }) =>
+            `border-color: ${
+              error
+                ? components.hpe.formField.default.input.group.container.error
+                    .rest.borderColor
+                : components.hpe.formField.default.input.group.container.rest
+                    .borderColor
+            }; `,
+        },
+      },
+      radioButtonGroup: {
+        container: {
+          extend: ({ error }) =>
+            `border-color: ${
+              error
+                ? components.hpe.formField.default.input.group.container.error
+                    .rest.borderColor
+                : components.hpe.formField.default.input.group.container.rest
+                    .borderColor
+            }; `,
+        },
       },
       disabled: {
         background:
@@ -1720,7 +1869,7 @@ const buildTheme = (tokens, flags) => {
           color: components.hpe.formField.default.label.disabled.rest.textColor,
         },
         help: {
-          color: components.hpe.formField.default.help.disabled.rest.color,
+          color: components.hpe.formField.default.help.disabled.rest.textColor,
         },
         info: {
           color: components.hpe.formField.default.info.disabled.rest.textColor,
@@ -1733,19 +1882,21 @@ const buildTheme = (tokens, flags) => {
               .background,
         },
         container: {
-          gap: 'xsmall', // Q: missing token
+          gap: 'xsmall',
         },
-        icon: <CircleAlert size="small" color={light.hpe.color.icon.default} />,
-        size: 'xsmall', // Q: missing token
+        icon: (
+          <CircleAlert size="small" color={light.hpe.color.icon.critical} />
+        ),
+        size: 'xsmall',
         color: components.hpe.formField.default.error.rest.textColor,
         margin: {
-          // Q: missing token
           bottom: 'xsmall',
           top: 'none',
           horizontal: 'none',
         },
       },
       focus: {
+        containerFocus: false,
         background: undefined, // Intentionally not carrying this style through to tokens to rely on global focus indicator
         border: {
           color: undefined, // Intentionally not carrying this style through to tokens to rely on global focus indicator
@@ -1754,13 +1905,12 @@ const buildTheme = (tokens, flags) => {
       help: {
         size: 'xsmall',
         color: components.hpe.formField.default.help.rest.color,
-        margin: 'none', // TO DO missing token
+        margin: 'none',
       },
       info: {
         size: 'xsmall',
         color: components.hpe.formField.default.info.rest.color,
         margin: {
-          // Q: missing token
           bottom: 'xsmall',
           top: 'none',
           horizontal: 'none',
@@ -1768,9 +1918,8 @@ const buildTheme = (tokens, flags) => {
       },
       label: {
         size: 'xsmall',
-        color: components.hpe.formField.default.label.rest.color,
+        color: components.hpe.formField.default.label.rest.textColor,
         margin: {
-          // Q: missing token
           bottom: 'none',
           top: 'xsmall',
           horizontal: 'none',
@@ -1779,11 +1928,10 @@ const buildTheme = (tokens, flags) => {
         weight: components.hpe.formField.default.medium.label.fontWeight,
       },
       margin: {
-        bottom: 'none', // TO DO missing token
+        bottom: 'none',
       },
       round:
         components.hpe.formField.default.medium.input.container.borderRadius,
-      // TO DO no tokens
       survey: {
         label: {
           margin: { bottom: 'none' },
@@ -1802,7 +1950,6 @@ const buildTheme = (tokens, flags) => {
           },
           small: {
             // this value is off because we didn't have the same typography system before
-            // TO DO could hard code with v6 backwards compatibility flag
             size: large.hpe.heading.large.fontSize,
             height: large.hpe.heading.large.lineHeight,
           },
@@ -1811,12 +1958,10 @@ const buildTheme = (tokens, flags) => {
             height: large.hpe.heading.xlarge.lineHeight,
           },
           large: {
-            // Q: missing tokens
             size: '48px',
             height: '48px',
           },
           xlarge: {
-            // Q: missing tokens
             size: '60px',
             height: '60px',
           },
@@ -1838,7 +1983,6 @@ const buildTheme = (tokens, flags) => {
             height: large.hpe.heading.xlarge.lineHeight,
           },
           xlarge: {
-            // Q: missing tokens
             size: '48px',
             height: '48px',
           },
@@ -2000,15 +2144,16 @@ const buildTheme = (tokens, flags) => {
           left: 'left',
         },
       },
-      // treat flat array of menu items as a single "group" stylistically
       container: {
         pad: {
+          vertical: components.hpe.menu.default.medium.group.container.paddingY,
           horizontal:
             components.hpe.menu.default.medium.group.container.paddingX,
-          vertical: components.hpe.menu.default.medium.group.container.paddingY,
         },
+        gap: components.hpe.menu.default.medium.group.container.gapY,
       },
       group: {
+        drop: {},
         container: {
           pad: {
             horizontal:
@@ -2016,11 +2161,12 @@ const buildTheme = (tokens, flags) => {
             vertical:
               components.hpe.menu.default.medium.group.container.paddingY,
           },
+          gap: components.hpe.menu.default.medium.group.container.gapY,
         },
         separator: {
           color: components.hpe.menu.default.group.separator.background,
           size: components.hpe.menu.default.medium.group.separator.height,
-          pad: 'none', // TO DO no token
+          pad: 'none',
         },
       },
       icons: {
@@ -2400,7 +2546,6 @@ const buildTheme = (tokens, flags) => {
       },
     },
     paragraph: {
-      // TO DO this is enabling more than xxlarge
       ...paragraphTheme,
     },
     radioButton: {
@@ -2419,9 +2564,6 @@ const buildTheme = (tokens, flags) => {
       container: {
         extend: ({ theme }) => `
           width: auto;
-          padding-inline: ${
-            components.hpe.formField.default.medium.input.group.item.paddingX
-          };
           &:has(input[checked]) {
             & div:has(> svg[aria-hidden="true"]) {
               background: ${getThemeColor(
@@ -2452,14 +2594,10 @@ const buildTheme = (tokens, flags) => {
           }
           `,
       },
-      extend: () => `
-      padding-block: ${components.hpe.formField.default.medium.input.group.item.paddingY};
-    `,
       gap: components.hpe.radioButton.default.medium.gapX,
       hover: {
         background: {
-          color:
-            components.hpe.formField.default.input.group.item.hover.background,
+          color: 'transparent',
         },
         border: {
           color: components.hpe.radioButton.default.control.hover.borderColor,
@@ -2483,12 +2621,9 @@ const buildTheme = (tokens, flags) => {
     },
     radioButtonGroup: {
       container: {
-        gap: 'none', // TO DO should be token?
-        margin: {
-          vertical:
-            components.hpe.formField.default.medium.input.group.container
-              .paddingY,
-        },
+        cssGap: true,
+        gap: 'small',
+        margin: 'none',
       },
     },
     rangeInput: {
@@ -2500,8 +2635,9 @@ const buildTheme = (tokens, flags) => {
           color: 'background-primary-strong',
         },
         upper: {
-          color: 'border',
+          color: primitives.hpe.base.color['grey-500'],
         },
+        extend: () => `border-radius: ${large.hpe.radius.full};`,
       },
     },
     select: {
@@ -2516,23 +2652,41 @@ const buildTheme = (tokens, flags) => {
             horizontal: components.hpe.select.default.medium.drop.paddingX,
           },
           hover: {
-            background: 'background-contrast',
+            background: 'background-hover',
           },
           round: 'xsmall',
         },
         text: {
-          color: 'text-strong',
-          weight: 600,
+          color: components.hpe.button.default.rest.textColor,
+          weight: components.hpe.button.default.rest.fontWeight,
         },
       },
       control: {
-        extend: ({ disabled }) => css`
+        extend: ({ disabled, theme }) => css`
           ${disabled &&
           `
           opacity: 0.3;
           input {
             cursor: default;
           }`}
+
+          &[class*="SelectMultiple"] [role="listbox"] {
+            padding-block: ${components.hpe.select.default.medium.drop
+              .paddingY};
+            padding-inline: ${components.hpe.select.default.medium.drop
+              .paddingX};
+            & [role='option'] {
+              border-radius: ${dimensions.edgeSize[
+                components.hpe.select.default.medium.option.borderRadius
+              ] || components.hpe.select.default.medium.option.borderRadius};
+              &:hover {
+                background: ${getThemeColor(
+                  components.hpe.select.default.option.hover.backgroud,
+                  theme,
+                )};
+              }
+            }
+          }
         `,
       },
       emptySearchMessage: {
@@ -2564,6 +2718,27 @@ const buildTheme = (tokens, flags) => {
           display: flex;
           flex-direction: column;
           gap: ${components.hpe.select.default.medium.drop.gapY};
+          [role="option"] {
+            border-radius: ${components.hpe.select.default.medium.option.borderRadius};
+          }
+        `,
+      },
+    },
+    selectMultiple: {
+      listbox: {
+        extend: () => `
+          padding-block: ${components.hpe.select.default.medium.drop.paddingY};
+          padding-inline: ${components.hpe.select.default.medium.drop.paddingX};
+          display: flex;
+          flex-direction: column;
+          [role="option"] {
+              border-radius: ${
+                dimensions.edgeSize[
+                  components.hpe.select.default.medium.option.borderRadius
+                ] || components.hpe.select.default.medium.option.borderRadius
+              };
+            }
+          }
         `,
       },
     },
@@ -2572,10 +2747,10 @@ const buildTheme = (tokens, flags) => {
         pad: 'none',
         color: 'foreground-primary',
         border: [
-          { color: 'border-weak', side: 'all', size: 'medium' },
-          { color: 'border-weak', side: 'right', size: 'medium' },
-          { color: 'border-weak', side: 'top', size: 'medium' },
-          { color: 'border-weak', side: 'left', size: 'medium' },
+          { color: 'transparent', side: 'all', size: 'medium' },
+          { color: 'transparent', side: 'right', size: 'medium' },
+          { color: 'transparent', side: 'top', size: 'medium' },
+          { color: 'transparent', side: 'left', size: 'medium' },
         ],
       },
       size: {
@@ -2592,52 +2767,59 @@ const buildTheme = (tokens, flags) => {
     tab: {
       color: 'text',
       active: {
-        background: undefined,
-        color: 'text-strong',
-        weight: 600,
+        background: 'background-selected-primary-strong',
+        color: 'text-onSelectedPrimaryStrong',
+        weight: 500,
       },
       hover: {
-        background: 'transparent',
+        background: 'background-hover',
         color: 'text',
       },
       border: {
-        side: 'bottom',
+        side: 'all',
         color: 'transparent',
-        size: 'medium',
+        size:
+          dimensions[components.hpe.element?.medium.borderWidth] ||
+          components.hpe.element?.medium.borderWidth,
         active: {
-          color: 'brand',
+          color: 'transparent',
         },
         disabled: {
           color: undefined,
         },
         hover: {
-          color: 'border-weak',
+          color: undefined,
         },
       },
       disabled: {
+        background: 'background-disabled',
         color: 'text-disabled',
       },
       pad: {
-        // top and bottom pad need to be defined individually, specifying
-        // "vertical" only applies to top
-        bottom: '9px',
-        top: '9px',
-        // align horizontal pad with button
-        horizontal: '18px',
+        bottom: components.hpe.element?.medium.paddingY,
+        top: components.hpe.element?.medium.paddingY,
+        horizontal: components.hpe.element?.medium?.paddingX?.wide,
       },
       margin: {
-        // bring the overall tabs border behind invidual tab borders
-        vertical: '-1px',
+        vertical: 'none',
         horizontal: 'none',
       },
+      extend: ({ theme }) => `border-radius: ${theme.global.edgeSize.xsmall};`,
     },
     tabs: {
+      gap: 'xsmall',
       header: {
-        border: {
-          side: 'bottom',
-          size: 'xsmall',
-          color: 'border-weak',
-        },
+        border: undefined,
+        extend: ({ theme }) => `
+          border-radius: ${theme.global.edgeSize.xsmall}; 
+          & button[aria-selected="true"]:hover > div {
+            background: ${getThemeColor(
+              'background-selected-primary-strong-hover',
+              theme,
+            )};
+            color: ${getThemeColor('text-onSelectedPrimaryStrong', theme)};
+          }
+        `,
       },
       step: {
         xsmall: 1,
@@ -2664,7 +2846,7 @@ const buildTheme = (tokens, flags) => {
           horizontal: components.hpe.dataCell.default.medium.paddingX,
         },
         border: {
-          side: 'bottom', // TO DO this causes issues on the last row with the footer border
+          side: 'bottom',
           color: components.hpe.dataCell.default.rest.borderColor,
         },
         extend: ({ theme }) =>
@@ -2693,7 +2875,7 @@ const buildTheme = (tokens, flags) => {
     },
     tag: {
       border: {
-        color: 'border',
+        color: 'border-weak',
       },
       icons: {
         remove: Close,
@@ -2708,7 +2890,7 @@ const buildTheme = (tokens, flags) => {
       value: {
         weight: global.hpe.fontWeight.medium,
       },
-      round: 'large',
+      round: 'xsmall',
       size: {
         xsmall: {
           icon: undefined,
@@ -2737,7 +2919,6 @@ const buildTheme = (tokens, flags) => {
             },
           },
         },
-        // TO DO tag rounding is overriding "default" rounding, do we expect this?
         medium: {
           icon: undefined,
           pad: {
@@ -2821,25 +3002,20 @@ const buildTheme = (tokens, flags) => {
     },
     toggleGroup: {
       button: {
-        pad: {
-          // these are fine since it is built with buttons
-          vertical: '6px',
-          horizontal: '12px',
-        },
-        iconOnly: {
-          // Q this will be a token?
-          pad: {
-            vertical: parseInt(mediumIconOnlyPad, 10),
-            horizontal: parseInt(mediumIconOnlyPad, 10),
-          },
-        },
+        kind: 'toolbar',
       },
       container: {
-        border: {
-          color: components.hpe.button.toolbar.rest.borderColor,
-          size: components.hpe.button.toolbar.medium.borderWidth,
-        },
+        border: false,
+        extend: ({ theme }) => `
+        gap: ${
+          dimensions.edgeSize[large.hpe.spacing['5xsmall']] ||
+          large.hpe.spacing['5xsmall']
+        };
+        &:hover {
+          background: ${getThemeColor('background-hover', theme)};
+        }`,
       },
+      divider: false,
     },
     // Theme-Designer only parameters
     name: 'HPE 1',
