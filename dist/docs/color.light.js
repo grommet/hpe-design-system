@@ -2385,7 +2385,7 @@ export default {
   },
   "hpe.color.text.onSelectedPrimary": {
     "$type": "color",
-    "$value": "#074b3b",
+    "$value": "#2e2e2e",
     "$description": "Text color to be used for text sitting on non-strong variants of background-selected.",
     "$extensions": {
       "com.figma": {
@@ -2400,7 +2400,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.900}",
+      "$value": "{color.text.strong.REST}",
       "$description": "Text color to be used for text sitting on non-strong variants of background-selected.",
       "$extensions": {
         "com.figma": {

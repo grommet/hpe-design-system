@@ -60,7 +60,7 @@ export default {
         "anchor": "#006750",
         "anchor-hover": "#074b3b",
         "onSelectedPrimaryStrong": "#ffffff",
-        "onSelectedPrimary": "#074b3b",
+        "onSelectedPrimary": "#2e2e2e",
         "onStrong": "#ffffff",
         "onCritical-strong": "#2e2e2e",
         "onCritical": "#555555",

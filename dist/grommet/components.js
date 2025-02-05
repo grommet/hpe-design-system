@@ -366,15 +366,15 @@ export default {
           "rest": {
             "background": "background-selected-primary",
             "borderColor": "transparent",
-            "textColor": "text-onSelectedPrimary",
-            "iconColor": "icon-onSelectedPrimary",
+            "textColor": "text-primary",
+            "iconColor": "icon-primary",
             "fontWeight": 600
           },
           "hover": {
             "background": "background-selected-primary-hover",
             "borderColor": "transparent",
-            "textColor": "text-onSelectedPrimary",
-            "iconColor": "icon-onSelectedPrimary",
+            "textColor": "text-primary",
+            "iconColor": "icon-primary",
             "fontWeight": 600
           }
         },
@@ -648,7 +648,7 @@ export default {
         "disabled": {
           "rest": {
             "background": "transparent",
-            "borderColor": "border-disabled",
+            "borderColor": "transparent",
             "textColor": "text-disabled",
             "iconColor": "icon-disabled",
             "fontWeight": 500
@@ -658,15 +658,15 @@ export default {
           "rest": {
             "background": "background-selected-primary",
             "borderColor": "border-selected",
-            "textColor": "text-onSelectedPrimary",
-            "iconColor": "icon-onSelectedPrimary",
+            "textColor": "text-primary",
+            "iconColor": "icon-primary",
             "fontWeight": 500
           },
           "hover": {
             "background": "background-selected-primary-hover",
             "borderColor": "border-selected",
-            "textColor": "text-onSelectedPrimary",
-            "iconColor": "icon-onSelectedPrimary",
+            "textColor": "text-primary",
+            "iconColor": "icon-primary",
             "fontWeight": 500
           }
         },
@@ -1064,7 +1064,7 @@ export default {
               "container": {
                 "paddingX": "none",
                 "paddingY": "0px",
-                "borderWidth": "0px",
+                "borderWidth": "default",
                 "borderRadius": "8px"
               }
             },
@@ -1123,7 +1123,7 @@ export default {
               "error": {
                 "rest": {
                   "background": "background-critical",
-                  "borderColor": "border-strong"
+                  "borderColor": "border-critical"
                 }
               },
               "disabled": {

@@ -130,6 +130,7 @@
   --hpe-button-toolbar-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-toolbar-rest-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-button-toolbar-disabled-rest-background: var(--hpe-color-transparent);
+  --hpe-button-toolbar-disabled-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-toolbar-xsmall-iconOnly-paddingX: var(--hpe-button-toolbar-xsmall-iconOnly-paddingY);
   --hpe-button-toolbar-medium-paddingX: var(--hpe-element-medium-paddingX-default);
   --hpe-button-toolbar-medium-iconOnly-paddingY: var(--hpe-button-default-medium-iconOnly-paddingY);
@@ -265,9 +266,7 @@
   --hpe-select-default-option-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-select-default-option-disabled-rest-fontWeight: var(--hpe-select-default-option-rest-fontWeight);
   --hpe-select-default-option-selected-rest-background: var(--hpe-color-background-selected-primary);
-  --hpe-select-default-option-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-select-default-option-selected-hover-background: var(--hpe-color-background-selected-primary-hover);
-  --hpe-select-default-option-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-select-default-option-marker-rest-background: var(--hpe-color-border-selected);
   --hpe-select-default-option-marker-hover-background: var(--hpe-color-border-selected);
   --hpe-select-default-option-marker-disabled-rest-background: var(--hpe-color-border-disabled);
@@ -317,9 +316,11 @@
   --hpe-button-secondary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-secondary-disabled-rest-fontWeight: var(--hpe-button-secondary-rest-fontWeight);
   --hpe-button-secondary-selected-rest-background: var(--hpe-color-background-selected-primary);
-  --hpe-button-secondary-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
+  --hpe-button-secondary-selected-rest-textColor: var(--hpe-color-text-primary);
+  --hpe-button-secondary-selected-rest-iconColor: var(--hpe-color-icon-primary);
   --hpe-button-secondary-selected-hover-background: var(--hpe-color-background-selected-primary-hover);
-  --hpe-button-secondary-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
+  --hpe-button-secondary-selected-hover-textColor: var(--hpe-color-text-primary);
+  --hpe-button-secondary-selected-hover-iconColor: var(--hpe-color-icon-primary);
   --hpe-button-secondary-xsmall-borderRadius: var(--hpe-button-default-xsmall-borderRadius);
   --hpe-button-secondary-small-paddingY: var(--hpe-button-default-small-paddingY);
   --hpe-button-secondary-small-borderRadius: var(--hpe-button-default-small-borderRadius);
@@ -362,17 +363,18 @@
   --hpe-button-toolbar-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-button-toolbar-hover-borderColor: var(--hpe-button-toolbar-rest-borderColor);
   --hpe-button-toolbar-hover-fontWeight: var(--hpe-button-toolbar-rest-fontWeight);
-  --hpe-button-toolbar-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-button-toolbar-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-button-toolbar-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-toolbar-disabled-rest-fontWeight: var(--hpe-button-toolbar-rest-fontWeight);
   --hpe-button-toolbar-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-button-toolbar-selected-rest-borderColor: var(--hpe-color-border-selected);
-  --hpe-button-toolbar-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
+  --hpe-button-toolbar-selected-rest-textColor: var(--hpe-color-text-primary);
+  --hpe-button-toolbar-selected-rest-iconColor: var(--hpe-color-icon-primary);
   --hpe-button-toolbar-selected-rest-fontWeight: var(--hpe-button-toolbar-rest-fontWeight);
   --hpe-button-toolbar-selected-hover-background: var(--hpe-color-background-selected-primary-hover);
   --hpe-button-toolbar-selected-hover-borderColor: var(--hpe-color-border-selected);
-  --hpe-button-toolbar-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
+  --hpe-button-toolbar-selected-hover-textColor: var(--hpe-color-text-primary);
+  --hpe-button-toolbar-selected-hover-iconColor: var(--hpe-color-icon-primary);
   --hpe-button-toolbar-selected-hover-fontWeight: var(--hpe-button-toolbar-rest-fontWeight);
   --hpe-button-toolbar-xsmall-borderRadius: var(--hpe-static-radius-xsmall);
   --hpe-button-toolbar-xsmall-borderWidth: var(--hpe-static-borderWidth-default);
@@ -448,7 +450,6 @@
   --hpe-formField-default-medium-input-group-item-paddingX: var(--hpe-static-spacing-xxsmall);
   --hpe-formField-default-medium-input-group-item-minHeight: var(--hpe-element-medium-minHeight);
   --hpe-formField-default-medium-input-group-container-paddingY: var(--hpe-static-spacing-none);
-  --hpe-formField-default-medium-input-group-container-borderWidth: var(--hpe-static-borderWidth-none);
   --hpe-formField-default-medium-input-container-paddingX: var(--hpe-static-spacing-xsmall);
   --hpe-formField-default-medium-input-container-borderWidth: var(--hpe-static-borderWidth-default);
   --hpe-formField-default-medium-input-container-borderRadius: var(--hpe-static-radius-small);
@@ -464,7 +465,7 @@
   --hpe-formField-default-input-group-container-rest-background: var(--hpe-formField-default-input-container-rest-background);
   --hpe-formField-default-input-group-container-hover-borderColor: var(--hpe-formField-default-input-group-container-rest-borderColor);
   --hpe-formField-default-input-group-container-error-rest-background: var(--hpe-color-background-critical);
-  --hpe-formField-default-input-group-container-error-rest-borderColor: var(--hpe-color-border-strong);
+  --hpe-formField-default-input-group-container-error-rest-borderColor: var(--hpe-color-border-critical);
   --hpe-formField-default-input-group-container-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-formField-default-input-container-rest-borderColor: var(--hpe-color-border-default);
   --hpe-formField-default-input-container-hover-borderColor: var(--hpe-color-border-default);
@@ -513,8 +514,6 @@
   --hpe-dataCell-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-dataCell-default-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-dataCell-default-disabled-rest-background: var(--hpe-dataCell-default-rest-background);
-  --hpe-dataCell-default-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-dataCell-default-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-dataCell-default-selected-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-dataCell-default-medium-paddingX: var(--hpe-static-spacing-xsmall);
   --hpe-dataCell-default-medium-borderBottomWidth: var(--hpe-static-borderWidth-xsmall);
@@ -524,8 +523,6 @@
   --hpe-dataCell-primary-rest-iconColor: var(--hpe-color-text-strong);
   --hpe-dataCell-primary-rest-background: var(--hpe-dataCell-default-rest-background);
   --hpe-dataCell-primary-hover-background: var(--hpe-dataCell-default-hover-background);
-  --hpe-dataCell-primary-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-dataCell-primary-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-dataCell-primary-selected-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-headerCell-default-rest-textColor: var(--hpe-color-text-strong);
   --hpe-headerCell-default-rest-iconColor: var(--hpe-color-icon-strong);
@@ -576,7 +573,9 @@
   --hpe-element-xlarge-borderWidth: var(--hpe-borderWidth-default);
   --hpe-select-default-medium-option-paddingX: var(--hpe-formField-default-medium-input-container-paddingX);
   --hpe-select-default-option-hover-background: var(--hpe-color-background-hover);
+  --hpe-select-default-option-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-select-default-option-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-select-default-option-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-drop-background: var(--hpe-drop-default-background);
   --hpe-button-primary-xsmall-minHeight: var(--hpe-button-default-xsmall-minHeight);
@@ -598,8 +597,6 @@
   --hpe-button-primary-xlarge-minHeight: var(--hpe-button-default-xlarge-minHeight);
   --hpe-button-secondary-hover-textColor: var(--hpe-button-secondary-rest-textColor);
   --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
-  --hpe-button-secondary-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
-  --hpe-button-secondary-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-button-secondary-xsmall-minHeight: var(--hpe-button-default-xsmall-minHeight);
   --hpe-button-secondary-xsmall-iconOnly-borderRadius: var(--hpe-button-secondary-xsmall-borderRadius);
   --hpe-button-secondary-small-borderWidth: var(--hpe-button-default-small-borderWidth);
@@ -649,8 +646,6 @@
   --hpe-button-toolbar-hover-background: var(--hpe-color-background-hover);
   --hpe-button-toolbar-hover-textColor: var(--hpe-button-toolbar-rest-textColor);
   --hpe-button-toolbar-hover-iconColor: var(--hpe-button-toolbar-rest-iconColor);
-  --hpe-button-toolbar-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
-  --hpe-button-toolbar-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-button-toolbar-xsmall-paddingX: var(--hpe-element-xsmall-paddingX-default);
   --hpe-button-toolbar-xsmall-fontSize: var(--hpe-element-xsmall-fontSize);
   --hpe-button-toolbar-xsmall-lineHeight: var(--hpe-element-xsmall-lineHeight);
@@ -714,6 +709,7 @@
   --hpe-formField-default-medium-input-group-item-textToIconX: var(--hpe-element-medium-textToIconX);
   --hpe-formField-default-medium-input-group-item-textToElementX: var(--hpe-element-medium-textToElementX);
   --hpe-formField-default-medium-input-group-container-paddingX: var(--hpe-spacing-none);
+  --hpe-formField-default-medium-input-group-container-borderWidth: var(--hpe-borderWidth-default);
   --hpe-formField-default-medium-input-group-container-borderRadius: var(--hpe-formField-default-medium-input-container-borderRadius);
   --hpe-formField-default-medium-input-container-textToIconX: var(--hpe-element-medium-textToIconX);
   --hpe-formField-default-medium-input-container-textToElementX: var(--hpe-element-medium-textToElementX);
@@ -729,8 +725,10 @@
   --hpe-dataCell-default-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-disabled-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
+  --hpe-dataCell-default-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-dataCell-default-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-default-selected-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
+  --hpe-dataCell-default-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-dataCell-default-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-default-selected-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
@@ -750,8 +748,10 @@
   --hpe-dataCell-primary-disabled-rest-textColor: var(--hpe-dataCell-default-disabled-rest-textColor);
   --hpe-dataCell-primary-disabled-rest-iconColor: var(--hpe-dataCell-default-disabled-rest-iconColor);
   --hpe-dataCell-primary-disabled-rest-background: var(--hpe-dataCell-default-disabled-rest-background);
+  --hpe-dataCell-primary-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-dataCell-primary-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-primary-selected-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
+  --hpe-dataCell-primary-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-dataCell-primary-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-primary-selected-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
