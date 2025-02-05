@@ -1,5 +1,11 @@
 # hpe-design-tokens
 
+## 1.0.0
+
+### Major Changes
+
+- 1c39846: - Updated design token values to reflect new theme.
+
 ## 0.9.0
 
 ### Minor Changes
