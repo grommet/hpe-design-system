@@ -2213,7 +2213,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
+            "$value": "{color.text.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2225,7 +2225,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
+            "$value": "{color.icon.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2275,7 +2275,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
+            "$value": "{color.text.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2287,7 +2287,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
+            "$value": "{color.icon.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4849,7 +4849,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.border.disabled.DEFAULT.REST}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4925,7 +4925,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
+            "$value": "{color.text.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4937,7 +4937,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
+            "$value": "{color.icon.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4987,7 +4987,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
+            "$value": "{color.text.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4999,7 +4999,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
+            "$value": "{color.icon.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7795,7 +7795,7 @@
               },
               "borderWidth": {
                 "$type": "number",
-                "$value": "{static.borderWidth.none}",
+                "$value": "{borderWidth.default}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -8206,7 +8206,7 @@
                 },
                 "borderColor": {
                   "$type": "color",
-                  "$value": "{color.border.strong.REST}",
+                  "$value": "{color.border.critical.DEFAULT.REST}",
                   "$description": "",
                   "$extensions": {
                     "com.figma": {
@@ -16820,7 +16820,7 @@
           "group": {
             "paddingX": {
               "$type": "number",
-              "$value": "{static.spacing.none}",
+              "$value": "{static.spacing.5xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
