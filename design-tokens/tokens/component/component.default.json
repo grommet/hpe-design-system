@@ -53,7 +53,7 @@
           },
           "borderWidth": {
             "$type": "number",
-            "$value": "{static.borderWidth.xsmall}",
+            "$value": "{static.borderWidth.default}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -656,7 +656,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{button.default.rest.borderColor}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -692,7 +692,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{fontWeight.bold}",
+          "$value": "{fontWeight.semibold}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -782,7 +782,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{button.primary.rest.borderColor}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -833,7 +833,7 @@
         "rest": {
           "background": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.background}",
+            "$value": "{color.background.primary.xstrong.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -845,7 +845,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.borderColor}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -857,7 +857,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.textColor}",
+            "$value": "{color.text.onPrimaryStrong.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -869,7 +869,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.iconColor}",
+            "$value": "{color.icon.onPrimaryStrong.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -895,7 +895,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{button.default.selected.hover.background}",
+            "$value": "{color.background.primary.xstrong.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -907,7 +907,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{button.default.selected.hover.borderColor}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -919,7 +919,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{button.default.selected.hover.textColor}",
+            "$value": "{color.text.onPrimaryStrong.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -931,7 +931,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{button.default.selected.hover.iconColor}",
+            "$value": "{color.icon.onPrimaryStrong.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2000,7 +2000,7 @@
       "rest": {
         "background": {
           "$type": "color",
-          "$value": "{button.default.rest.background}",
+          "$value": "{color.background.contrast.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2012,7 +2012,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{color.background.primary.strong.REST}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2024,7 +2024,7 @@
         },
         "textColor": {
           "$type": "color",
-          "$value": "{button.default.rest.textColor}",
+          "$value": "{color.text.primary.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2036,7 +2036,7 @@
         },
         "iconColor": {
           "$type": "color",
-          "$value": "{button.default.rest.iconColor}",
+          "$value": "{color.icon.primary.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2048,7 +2048,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{button.default.rest.fontWeight}",
+          "$value": "{fontWeight.medium}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2062,7 +2062,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "{color.transparent}",
+          "$value": "{color.background.contrast.DEFAULT.hover}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2074,7 +2074,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{base.color.green.700}",
+          "$value": "{button.secondary.rest.borderColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2137,7 +2137,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.border.disabled.DEFAULT.REST}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2189,7 +2189,7 @@
         "rest": {
           "background": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.background}",
+            "$value": "{color.background.selected.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2201,7 +2201,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.borderColor}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2213,7 +2213,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.textColor}",
+            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2225,7 +2225,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.iconColor}",
+            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2237,7 +2237,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{button.secondary.rest.fontWeight}",
+            "$value": "{fontWeight.semibold}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2251,7 +2251,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{button.default.selected.hover.background}",
+            "$value": "{color.background.selected.primary.DEFAULT.hover}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2263,7 +2263,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{button.default.selected.hover.borderColor}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2275,7 +2275,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{button.default.selected.hover.textColor}",
+            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2287,7 +2287,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{button.default.selected.hover.iconColor}",
+            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2299,7 +2299,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{button.secondary.rest.fontWeight}",
+            "$value": "{fontWeight.semibold}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2742,7 +2742,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 4,
+          "$value": "{element.medium.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2766,7 +2766,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.small}",
+          "$value": "{button.default.medium.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2839,7 +2839,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 7,
+            "$value": 8,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2950,7 +2950,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 8,
+          "$value": 9,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2974,7 +2974,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.small}",
+          "$value": "{button.default.large.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3131,7 +3131,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 11,
+            "$value": 12,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3243,7 +3243,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 22,
+            "$value": 23,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3268,7 +3268,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 19,
+          "$value": 20,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3292,7 +3292,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.small}",
+          "$value": "{button.default.xlarge.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3404,7 +3404,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{fontWeight.semibold}",
+          "$value": "{fontWeight.medium}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3419,7 +3419,7 @@
         "rest": {
           "background": {
             "$type": "color",
-            "$value": "{button.default.rest.background}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3431,7 +3431,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{button.default.rest.borderColor}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3569,7 +3569,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{button.default.rest.textColor}",
+            "$value": "{color.text.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3581,7 +3581,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{button.default.rest.iconColor}",
+            "$value": "{color.icon.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3593,7 +3593,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{button.default.rest.fontWeight}",
+            "$value": "{fontWeight.semibold}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3607,7 +3607,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.DEFAULT.active}",
+            "$value": "{color.background.contrast.DEFAULT.hover}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3619,7 +3619,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.transparent}",
+            "$value": "{button.default.selected.rest.borderColor}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3631,7 +3631,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{button.default.rest.textColor}",
+            "$value": "{button.default.selected.rest.textColor}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3643,7 +3643,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{button.default.rest.iconColor}",
+            "$value": "{button.default.selected.rest.iconColor}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3655,7 +3655,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{button.default.rest.fontWeight}",
+            "$value": "{button.default.selected.rest.fontWeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4724,7 +4724,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{color.border.default.REST}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4736,7 +4736,7 @@
         },
         "textColor": {
           "$type": "color",
-          "$value": "{button.default.rest.textColor}",
+          "$value": "{color.text.default.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4748,7 +4748,7 @@
         },
         "iconColor": {
           "$type": "color",
-          "$value": "{button.default.rest.iconColor}",
+          "$value": "{color.icon.default.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4760,7 +4760,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{button.default.rest.fontWeight}",
+          "$value": "{fontWeight.medium}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4822,7 +4822,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{button.default.rest.fontWeight}",
+          "$value": "{button.toolbar.rest.fontWeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -4837,7 +4837,7 @@
         "rest": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.disabled.DEFAULT.REST}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4885,7 +4885,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{button.default.rest.fontWeight}",
+            "$value": "{button.toolbar.rest.fontWeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4901,7 +4901,7 @@
         "rest": {
           "background": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.background}",
+            "$value": "{color.background.selected.primary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4913,7 +4913,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.border.default.REST}",
+            "$value": "{color.border.selected.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4925,7 +4925,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.textColor}",
+            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4937,7 +4937,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.iconColor}",
+            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4949,7 +4949,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{button.default.rest.fontWeight}",
+            "$value": "{button.toolbar.rest.fontWeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4963,7 +4963,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.background}",
+            "$value": "{color.background.selected.primary.DEFAULT.hover}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4975,7 +4975,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.borderColor}",
+            "$value": "{color.border.selected.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4987,7 +4987,7 @@
           },
           "textColor": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.textColor}",
+            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4999,7 +4999,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{button.default.selected.rest.iconColor}",
+            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5011,7 +5011,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{button.default.rest.fontWeight}",
+            "$value": "{button.toolbar.rest.fontWeight}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6389,7 +6389,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{radius.none}",
+            "$value": "{static.radius.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6464,7 +6464,7 @@
           "container": {
             "paddingY": {
               "$type": "number",
-              "$value": "{static.spacing.none}",
+              "$value": "{static.spacing.3xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -6476,7 +6476,7 @@
             },
             "paddingX": {
               "$type": "number",
-              "$value": "{static.spacing.none}",
+              "$value": "{static.spacing.3xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -6587,7 +6587,7 @@
         "rest": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.default.REST}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6613,7 +6613,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.default.REST}",
+            "$value": "{color.background.DEFAULT.hover}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -6718,7 +6718,7 @@
           "hover": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.selected.primary.strong.REST}",
+              "$value": "{color.background.selected.primary.strong.hover}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -6796,7 +6796,7 @@
           "hover": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.selected.primary.strong.REST}",
+              "$value": "{color.background.selected.primary.strong.hover}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -6849,7 +6849,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{fontWeight.medium}",
+            "$value": "{fontWeight.regular}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7047,7 +7047,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{static.radius.xxsmall}",
+            "$value": "{static.radius.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7068,7 +7068,7 @@
           "rest": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.default.REST}",
+              "$value": "{color.decorative.neutral.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7080,7 +7080,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.default.REST}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7094,7 +7094,7 @@
           "hover": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.default.REST}",
+              "$value": "{color.decorative.neutral.DEFAULT.hover}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7106,7 +7106,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.strong.REST}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7121,7 +7121,7 @@
             "rest": {
               "background": {
                 "$type": "color",
-                "$value": "{color.transparent}",
+                "$value": "{color.background.disabled.DEFAULT.REST}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7133,7 +7133,7 @@
               },
               "borderColor": {
                 "$type": "color",
-                "$value": "{color.border.disabled.DEFAULT.REST}",
+                "$value": "{color.transparent}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7161,7 +7161,7 @@
               },
               "borderColor": {
                 "$type": "color",
-                "$value": "{color.border.default.REST}",
+                "$value": "{color.transparent}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7175,7 +7175,7 @@
             "hover": {
               "background": {
                 "$type": "color",
-                "$value": "{color.background.selected.primary.strong.REST}",
+                "$value": "{color.background.selected.primary.strong.hover}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7187,7 +7187,7 @@
               },
               "borderColor": {
                 "$type": "color",
-                "$value": "{color.border.strong.REST}",
+                "$value": "{color.transparent}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7216,7 +7216,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.default.REST}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7254,7 +7254,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.default.REST}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7293,7 +7293,7 @@
               },
               "borderColor": {
                 "$type": "color",
-                "$value": "{color.border.disabled.DEFAULT.REST}",
+                "$value": "{color.transparent}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7333,7 +7333,7 @@
               },
               "borderColor": {
                 "$type": "color",
-                "$value": "{color.border.default.REST}",
+                "$value": "{color.transparent}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7371,7 +7371,7 @@
               },
               "borderColor": {
                 "$type": "color",
-                "$value": "{color.border.default.REST}",
+                "$value": "{color.transparent}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7413,7 +7413,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{fontWeight.medium}",
+            "$value": "{fontWeight.regular}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -7626,7 +7626,7 @@
           "handle": {
             "height": {
               "$type": "number",
-              "$value": "{base.dimension.600}",
+              "$value": "{base.dimension.500}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7638,7 +7638,7 @@
             },
             "width": {
               "$type": "number",
-              "$value": "{base.dimension.600}",
+              "$value": "{base.dimension.500}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -7685,7 +7685,7 @@
             "item": {
               "paddingX": {
                 "$type": "number",
-                "$value": "{static.spacing.xsmall}",
+                "$value": "{static.spacing.xxsmall}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7733,7 +7733,7 @@
               },
               "borderRadius": {
                 "$type": "number",
-                "$value": "{radius.none}",
+                "$value": "{radius.xsmall}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7783,7 +7783,7 @@
               },
               "paddingY": {
                 "$type": "number",
-                "$value": "{static.spacing.3xsmall}",
+                "$value": "{static.spacing.none}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7795,7 +7795,7 @@
               },
               "borderWidth": {
                 "$type": "number",
-                "$value": "{borderWidth.default}",
+                "$value": "{static.borderWidth.none}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -7858,7 +7858,7 @@
             },
             "borderRadius": {
               "$type": "number",
-              "$value": "{static.radius.xsmall}",
+              "$value": "{static.radius.small}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8123,7 +8123,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{fontWeight.medium}",
+            "$value": "{fontWeight.regular}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -8153,7 +8153,7 @@
               },
               "borderColor": {
                 "$type": "color",
-                "$value": "{formField.default.input.container.rest.borderColor}",
+                "$value": "{color.transparent}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -8455,7 +8455,7 @@
               },
               "borderColor": {
                 "$type": "color",
-                "$value": "{color.border.strong.REST}",
+                "$value": "{color.border.critical.DEFAULT.REST}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -8471,7 +8471,7 @@
             "rest": {
               "background": {
                 "$type": "color",
-                "$value": "{color.background.disabled.DEFAULT.REST}",
+                "$value": "{color.transparent}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -8622,7 +8622,7 @@
             },
             "iconColor": {
               "$type": "color",
-              "$value": "{color.icon.strong.REST}",
+              "$value": "{color.icon.disabled.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -8913,7 +8913,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.default.REST}",
+            "$value": "{color.icon.critical.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -8927,7 +8927,7 @@
         "hover": {
           "iconColor": {
             "$type": "color",
-            "$value": "{color.icon.default.REST}",
+            "$value": "{color.icon.critical.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -8955,7 +8955,7 @@
         "rest": {
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.default.REST}",
+            "$value": "{color.text.strong.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -8969,7 +8969,7 @@
         "hover": {
           "textColor": {
             "$type": "color",
-            "$value": "{color.text.default.REST}",
+            "$value": "{color.text.strong.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -8984,7 +8984,7 @@
           "rest": {
             "textColor": {
               "$type": "color",
-              "$value": "{color.text.default.REST}",
+              "$value": "{color.text.strong.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -9016,7 +9016,7 @@
           "rest": {
             "textColor": {
               "$type": "color",
-              "$value": "{color.text.default.REST}",
+              "$value": "{color.text.strong.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -9060,7 +9060,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{color.transparent}",
+          "$value": "{color.border.weak.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9189,7 +9189,7 @@
         "rest": {
           "textColor": {
             "$type": "color",
-            "$value": "{dataCell.default.rest.textColor}",
+            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9201,7 +9201,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{dataCell.default.rest.iconColor}",
+            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9225,7 +9225,7 @@
           },
           "background": {
             "$type": "color",
-            "$value": "{color.transparent}",
+            "$value": "{color.background.DEFAULT.active}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9239,7 +9239,7 @@
         "hover": {
           "textColor": {
             "$type": "color",
-            "$value": "{dataCell.default.rest.textColor}",
+            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9251,7 +9251,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{dataCell.default.rest.iconColor}",
+            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9275,7 +9275,7 @@
           },
           "background": {
             "$type": "color",
-            "$value": "{color.transparent}",
+            "$value": "{color.background.contrast.DEFAULT.hover}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9452,7 +9452,7 @@
         },
         "paddingTop": {
           "$type": "number",
-          "$value": "{static.spacing.3xsmall}",
+          "$value": "{static.spacing.xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9464,7 +9464,7 @@
         },
         "paddingBottom": {
           "$type": "number",
-          "$value": 5,
+          "$value": 11,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -9731,7 +9731,7 @@
         "rest": {
           "textColor": {
             "$type": "color",
-            "$value": "{dataCell.default.rest.textColor}",
+            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9743,7 +9743,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{dataCell.default.rest.iconColor}",
+            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9767,7 +9767,7 @@
           },
           "background": {
             "$type": "color",
-            "$value": "{color.transparent}",
+            "$value": "{color.background.DEFAULT.active}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9781,7 +9781,7 @@
         "hover": {
           "textColor": {
             "$type": "color",
-            "$value": "{dataCell.default.rest.textColor}",
+            "$value": "{color.text.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9793,7 +9793,7 @@
           },
           "iconColor": {
             "$type": "color",
-            "$value": "{dataCell.default.rest.iconColor}",
+            "$value": "{color.icon.onSelectedPrimary.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -9817,7 +9817,7 @@
           },
           "background": {
             "$type": "color",
-            "$value": "{color.transparent}",
+            "$value": "{color.background.contrast.DEFAULT.hover}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -10662,7 +10662,7 @@
           "rest": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.default.REST}",
+              "$value": "{color.background.selected.primary.strong.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -10674,7 +10674,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.selected.DEFAULT.REST}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -10686,7 +10686,7 @@
             },
             "iconColor": {
               "$type": "color",
-              "$value": "{color.decorative.brand.DEFAULT.REST}",
+              "$value": "{color.icon.onSelectedPrimaryStrong.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -10700,7 +10700,7 @@
           "hover": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.default.REST}",
+              "$value": "{color.background.selected.primary.strong.hover}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -10712,7 +10712,7 @@
             },
             "borderColor": {
               "$type": "color",
-              "$value": "{color.border.selected.DEFAULT.REST}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -10724,7 +10724,7 @@
             },
             "iconColor": {
               "$type": "color",
-              "$value": "{color.decorative.brand.DEFAULT.REST}",
+              "$value": "{color.icon.onSelectedPrimaryStrong.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -10753,7 +10753,7 @@
           },
           "fontWeight": {
             "$type": "number",
-            "$value": "{fontWeight.medium}",
+            "$value": "{fontWeight.regular}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -11705,7 +11705,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{static.radius.none}",
+            "$value": "{radius.full}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -11819,7 +11819,7 @@
               },
               "borderRadius": {
                 "$type": "number",
-                "$value": "{static.radius.none}",
+                "$value": "{static.radius.full}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {
@@ -13054,7 +13054,7 @@
       "track": {
         "background": {
           "$type": "color",
-          "$value": "{color.background.contrast.DEFAULT.REST}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -13472,7 +13472,7 @@
       "track": {
         "background": {
           "$type": "color",
-          "$value": "{color.background.neutral.xstrong.REST}",
+          "$value": "{color.background.contrast.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -13513,7 +13513,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": 0,
+            "$value": "{static.radius.full}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -13539,7 +13539,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{radius.none}",
+            "$value": "{static.radius.full}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -13690,7 +13690,7 @@
           "track": {
             "paddingX": {
               "$type": "number",
-              "$value": "{static.spacing.none}",
+              "$value": "{static.spacing.hair}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -13746,7 +13746,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "{color.background.DEFAULT.hover}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -13823,7 +13823,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.DEFAULT.hover}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -13952,7 +13952,7 @@
         },
         "paddingX": {
           "$type": "number",
-          "$value": "{element.medium.paddingX.narrow}",
+          "$value": "{static.spacing.none}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -13964,7 +13964,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{element.medium.paddingY}",
+          "$value": "{static.spacing.none}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -13988,7 +13988,7 @@
         },
         "height": {
           "$type": "number",
-          "$value": "{element.medium.height}",
+          "$value": "{base.dimension.450}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -14000,7 +14000,7 @@
         },
         "width": {
           "$type": "number",
-          "$value": "{element.medium.width}",
+          "$value": "{base.dimension.450}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -14037,7 +14037,7 @@
           },
           "gapx": {
             "$type": "number",
-            "$value": "{static.spacing.none}",
+            "$value": "{spacing.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -14141,7 +14141,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.transparent}",
+            "$value": "{color.background.DEFAULT.hover}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -14153,7 +14153,7 @@
           },
           "border": {
             "$type": "color",
-            "$value": "{color.border.weak.REST}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -14204,7 +14204,7 @@
           "rest": {
             "background": {
               "$type": "color",
-              "$value": "{color.transparent}",
+              "$value": "{color.background.selected.primary.strong.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -14216,7 +14216,7 @@
             },
             "border": {
               "$type": "color",
-              "$value": "{color.border.selected.DEFAULT.REST}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -14228,7 +14228,7 @@
             },
             "textColor": {
               "$type": "color",
-              "$value": "{color.text.strong.REST}",
+              "$value": "{color.text.onSelectedPrimaryStrong.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -14240,7 +14240,7 @@
             },
             "iconColor": {
               "$type": "color",
-              "$value": "{color.icon.strong.REST}",
+              "$value": "{color.icon.onSelectedPrimaryStrong.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -14266,7 +14266,7 @@
           "hover": {
             "background": {
               "$type": "color",
-              "$value": "{color.transparent}",
+              "$value": "{color.background.selected.primary.strong.hover}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -14278,7 +14278,7 @@
             },
             "border": {
               "$type": "color",
-              "$value": "{color.border.selected.DEFAULT.REST}",
+              "$value": "{color.transparent}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -14290,7 +14290,7 @@
             },
             "textColor": {
               "$type": "color",
-              "$value": "{color.text.strong.REST}",
+              "$value": "{color.text.onSelectedPrimaryStrong.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -14302,7 +14302,7 @@
             },
             "iconColor": {
               "$type": "color",
-              "$value": "{color.icon.strong.REST}",
+              "$value": "{color.text.onSelectedPrimaryStrong.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -14406,7 +14406,7 @@
         },
         "border": {
           "$type": "color",
-          "$value": "{color.border.weak.REST}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -14433,7 +14433,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{radius.none}",
+            "$value": "{radius.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -14530,7 +14530,7 @@
           "selected": {
             "borderWidth": {
               "$type": "number",
-              "$value": "{borderWidth.medium}",
+              "$value": "{borderWidth.none}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -14569,7 +14569,7 @@
           },
           "gapx": {
             "$type": "number",
-            "$value": "{spacing.none}",
+            "$value": "{spacing.3xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -14774,7 +14774,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{radius.xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -14846,7 +14846,7 @@
         },
         "edgeToElement": {
           "$type": "number",
-          "$value": "{static.spacing.3xsmall}",
+          "$value": "{static.spacing.none}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -14859,7 +14859,7 @@
         "button": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.default.xsmall.borderRadius}",
+            "$value": "{static.radius.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -14875,7 +14875,7 @@
         "button": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.default.small.borderRadius}",
+            "$value": "{static.radius.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -14900,7 +14900,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{radius.xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -14972,7 +14972,7 @@
         },
         "edgeToElement": {
           "$type": "number",
-          "$value": "{static.spacing.3xsmall}",
+          "$value": "{static.spacing.hair}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -14998,7 +14998,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{radius.xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -15022,7 +15022,7 @@
         },
         "paddingX": {
           "$type": "number",
-          "$value": "{element.medium.paddingX.wide}",
+          "$value": "{element.medium.paddingX.default}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -15070,7 +15070,7 @@
         },
         "edgeToElement": {
           "$type": "number",
-          "$value": "{static.spacing.3xsmall}",
+          "$value": "{static.spacing.5xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -15083,7 +15083,7 @@
         "button": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.default.medium.borderRadius}",
+            "$value": "{static.radius.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -15111,7 +15111,7 @@
         "button": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.default.large.borderRadius}",
+            "$value": "{static.radius.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -15124,7 +15124,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{radius.xsmall}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -15222,7 +15222,7 @@
         },
         "borderRadius": {
           "$type": "number",
-          "$value": "{radius.full}",
+          "$value": "{radius.medium}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -15307,7 +15307,7 @@
         "button": {
           "borderRadius": {
             "$type": "number",
-            "$value": "{button.default.xlarge.borderRadius}",
+            "$value": "{static.radius.medium}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -15362,7 +15362,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "{color.background.DEFAULT.hover}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -15439,7 +15439,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.DEFAULT.hover}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -15568,7 +15568,7 @@
         },
         "paddingX": {
           "$type": "number",
-          "$value": "{element.medium.paddingX.narrow}",
+          "$value": "{static.spacing.none}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -15580,7 +15580,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{element.medium.paddingY}",
+          "$value": "{static.spacing.none}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -15604,7 +15604,7 @@
         },
         "height": {
           "$type": "number",
-          "$value": "{element.medium.height}",
+          "$value": "{base.dimension.450}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -15616,7 +15616,7 @@
         },
         "width": {
           "$type": "number",
-          "$value": "{element.medium.width}",
+          "$value": "{base.dimension.450}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -15653,7 +15653,7 @@
           },
           "gapx": {
             "$type": "number",
-            "$value": "{static.spacing.none}",
+            "$value": "{static.spacing.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -15799,7 +15799,7 @@
           },
           "border": {
             "$type": "color",
-            "$value": "{color.border.default.REST}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -15861,7 +15861,7 @@
           },
           "border": {
             "$type": "color",
-            "$value": "{color.border.default.REST}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -15912,7 +15912,7 @@
           "rest": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.DEFAULT.active}",
+              "$value": "{color.background.selected.primary.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -15924,7 +15924,7 @@
             },
             "border": {
               "$type": "color",
-              "$value": "{color.border.default.REST}",
+              "$value": "{color.border.selected.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16052,7 +16052,7 @@
         },
         "border": {
           "$type": "color",
-          "$value": "{color.border.default.REST}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -16068,7 +16068,7 @@
           "first": {
             "borderWidthLeft": {
               "$type": "number",
-              "$value": "{static.borderWidth.none}",
+              "$value": "{static.borderWidth.default}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16092,7 +16092,7 @@
             },
             "borderWidthTop": {
               "$type": "number",
-              "$value": "{static.borderWidth.none}",
+              "$value": "{static.borderWidth.default}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16104,7 +16104,7 @@
             },
             "borderWidthBottom": {
               "$type": "number",
-              "$value": "{static.borderWidth.none}",
+              "$value": "{static.borderWidth.default}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16140,7 +16140,7 @@
             },
             "borderRadiusTopRight": {
               "$type": "number",
-              "$value": "{radius.none}",
+              "$value": "{static.radius.xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16152,7 +16152,7 @@
             },
             "borderRadiusBottomRight": {
               "$type": "number",
-              "$value": "{radius.none}",
+              "$value": "{static.radius.xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16250,7 +16250,7 @@
           "middle": {
             "borderWidthLeft": {
               "$type": "number",
-              "$value": "{static.borderWidth.none}",
+              "$value": "{static.borderWidth.default}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16274,7 +16274,7 @@
             },
             "borderWidthTop": {
               "$type": "number",
-              "$value": "{static.borderWidth.none}",
+              "$value": "{static.borderWidth.default}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16286,7 +16286,7 @@
             },
             "borderWidthBottom": {
               "$type": "number",
-              "$value": "{static.borderWidth.none}",
+              "$value": "{static.borderWidth.default}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16298,7 +16298,7 @@
             },
             "borderRadius": {
               "$type": "number",
-              "$value": "{radius.none}",
+              "$value": "{static.radius.xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16396,7 +16396,7 @@
           "last": {
             "borderWidthLeft": {
               "$type": "number",
-              "$value": "{static.borderWidth.none}",
+              "$value": "{borderWidth.xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16408,7 +16408,7 @@
             },
             "borderWidthRight": {
               "$type": "number",
-              "$value": "{static.borderWidth.none}",
+              "$value": "{static.borderWidth.default}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16420,7 +16420,7 @@
             },
             "borderWidthTop": {
               "$type": "number",
-              "$value": "{static.borderWidth.none}",
+              "$value": "{static.borderWidth.default}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16432,7 +16432,7 @@
             },
             "borderWidthBottom": {
               "$type": "number",
-              "$value": "{static.borderWidth.none}",
+              "$value": "{static.borderWidth.default}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16468,7 +16468,7 @@
             },
             "borderRadiusTopLeft": {
               "$type": "number",
-              "$value": "{radius.none}",
+              "$value": "{static.radius.xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16480,7 +16480,7 @@
             },
             "borderRadiusBottomLeft": {
               "$type": "number",
-              "$value": "{radius.none}",
+              "$value": "{static.radius.xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -16579,7 +16579,7 @@
         "group": {
           "borderWidth": {
             "$type": "number",
-            "$value": "{borderWidth.xsmall}",
+            "$value": "{static.borderWidth.none}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -16603,7 +16603,7 @@
           },
           "gapx": {
             "$type": "number",
-            "$value": "{spacing.none}",
+            "$value": "{static.spacing.3xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -16806,7 +16806,7 @@
             },
             "borderRadius": {
               "$type": "number",
-              "$value": "{static.radius.none}",
+              "$value": "{static.radius.xsmall}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -17047,7 +17047,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{static.spacing.none}",
+            "$value": "{static.spacing.3xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -17059,7 +17059,7 @@
           },
           "gapY": {
             "$type": "number",
-            "$value": "{static.spacing.none}",
+            "$value": "{static.spacing.3xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -17203,7 +17203,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{static.radius.none}",
+            "$value": "{static.radius.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -17230,7 +17230,7 @@
           "Container": {
             "paddingX": {
               "$type": "number",
-              "$value": "{static.spacing.3xsmall}",
+              "$value": "{static.spacing.none}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -17242,7 +17242,7 @@
             },
             "paddingY": {
               "$type": "number",
-              "$value": "{static.spacing.3xsmall}",
+              "$value": "{static.spacing.none}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -17390,7 +17390,7 @@
             },
             "textColor": {
               "$type": "color",
-              "$value": "{color.text.onWarning.DEFAULT.REST}",
+              "$value": "{color.text.onWarning.strong.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -17522,7 +17522,7 @@
           "rest": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.unknown.DEFAULT.REST}",
+              "$value": "{color.background.info.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -17573,7 +17573,7 @@
         "medium": {
           "borderWidth": {
             "$type": "number",
-            "$value": "{borderWidth.none}",
+            "$value": "{static.borderWidth.none}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -17728,7 +17728,7 @@
             },
             "textColor": {
               "$type": "color",
-              "$value": "{color.text.onWarning.DEFAULT.REST}",
+              "$value": "{color.text.onWarning.strong.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -17808,7 +17808,7 @@
           "rest": {
             "background": {
               "$type": "color",
-              "$value": "{color.background.unknown.DEFAULT.REST}",
+              "$value": "{color.background.info.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -17859,7 +17859,7 @@
         "medium": {
           "borderWidth": {
             "$type": "number",
-            "$value": "{borderWidth.none}",
+            "$value": "{static.borderWidth.none}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -18141,7 +18141,7 @@
         "medium": {
           "borderWidth": {
             "$type": "number",
-            "$value": "{borderWidth.none}",
+            "$value": "{static.borderWidth.none}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -18257,7 +18257,7 @@
           },
           "borderRadius": {
             "$type": "number",
-            "$value": "{static.radius.none}",
+            "$value": "{static.radius.xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -18271,7 +18271,7 @@
         "drop": {
           "paddingX": {
             "$type": "number",
-            "$value": "{static.spacing.none}",
+            "$value": "{static.spacing.3xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -18283,7 +18283,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": "{static.spacing.none}",
+            "$value": "{static.spacing.3xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -18295,7 +18295,7 @@
           },
           "gapY": {
             "$type": "number",
-            "$value": "{static.spacing.none}",
+            "$value": "{static.spacing.3xsmall}",
             "$description": "",
             "$extensions": {
               "com.figma": {
