@@ -435,7 +435,7 @@ export default {
   },
   "hpe.color.background.screenOverlay": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.5)",
+    "$value": "rgba(0, 0, 0, 0.12)",
     "$description": "The background color for the overlay that sits behind modal layers.",
     "$extensions": {
       "com.figma": {
@@ -451,7 +451,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.black.opacity50}",
+      "$value": "{base.color.black.opacity12}",
       "$description": "The background color for the overlay that sits behind modal layers.",
       "$extensions": {
         "com.figma": {
@@ -627,7 +627,7 @@ export default {
   },
   "hpe.color.background.info": {
     "$type": "color",
-    "$value": "rgba(255, 255, 255, 0.12)",
+    "$value": "rgba(0, 200, 255, 0.12)",
     "$description": "Use for backgrounds communicating neutral information.",
     "$extensions": {
       "com.figma": {
@@ -643,7 +643,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.contrast.DEFAULT.REST}",
+      "$value": "{base.color.blue.400-Opacity12}",
       "$description": "Use for backgrounds communicating neutral information.",
       "$extensions": {
         "com.figma": {
@@ -723,7 +723,7 @@ export default {
   },
   "hpe.color.background.primary.strong": {
     "$type": "color",
-    "$value": "#01a982",
+    "$value": "#007c60",
     "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
     "$extensions": {
       "com.figma": {
@@ -739,7 +739,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.600}",
+      "$value": "#007c60",
       "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
       "$extensions": {
         "com.figma": {
@@ -771,7 +771,7 @@ export default {
   },
   "hpe.color.background.primary.strong.hover": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#00513f",
     "$description": "Hover variant of background-primary.",
     "$extensions": {
       "com.figma": {
@@ -787,7 +787,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.700}",
+      "$value": "#00513f",
       "$description": "Hover variant of background-primary.",
       "$extensions": {
         "com.figma": {
@@ -867,7 +867,7 @@ export default {
   },
   "hpe.color.background.selected.primary.strong": {
     "$type": "color",
-    "$value": "#01a982",
+    "$value": "#007c60",
     "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
     "$extensions": {
       "com.figma": {
@@ -883,7 +883,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.brand}",
+      "$value": "{color.background.primary.strong.REST}",
       "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
@@ -916,7 +916,7 @@ export default {
   },
   "hpe.color.background.selected.primary.strong.hover": {
     "$type": "color",
-    "$value": "#01a982",
+    "$value": "#00513f",
     "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
     "$extensions": {
       "com.figma": {
@@ -932,7 +932,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.brand}",
+      "$value": "{color.background.primary.strong.hover}",
       "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
@@ -1341,7 +1341,7 @@ export default {
   },
   "hpe.color.border.critical": {
     "$type": "color",
-    "$value": "rgba(255, 255, 255, 0.36)",
+    "$value": "#fc5a5a",
     "$description": "Use for borders communicating errors or danger.",
     "$extensions": {
       "com.figma": {
@@ -1356,7 +1356,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.border.default.REST}",
+      "$value": "{color.foreground.critical.DEFAULT.REST}",
       "$description": "Use for borders communicating errors or danger.",
       "$extensions": {
         "com.figma": {
@@ -1951,7 +1951,7 @@ export default {
   },
   "hpe.color.text.critical": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#fc5a5a",
     "$description": "Use for text on standard backgrounds communicating errors or danger.",
     "$extensions": {
       "com.figma": {
@@ -1968,7 +1968,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.default.REST}",
+      "$value": "{color.foreground.critical.DEFAULT.REST}",
       "$description": "Use for text on standard backgrounds communicating errors or danger.",
       "$extensions": {
         "com.figma": {
@@ -2247,7 +2247,7 @@ export default {
   },
   "hpe.color.text.anchor": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#17d0a6",
     "$description": "Text color for headings.",
     "$extensions": {
       "com.figma": {
@@ -2262,7 +2262,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong.REST}",
+      "$value": "{color.text.primary.DEFAULT.REST}",
       "$description": "Text color for headings.",
       "$extensions": {
         "com.figma": {
@@ -2293,7 +2293,7 @@ export default {
   },
   "hpe.color.text.anchor.hover": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#00ebb5",
     "$description": "Text color for headings.",
     "$extensions": {
       "com.figma": {
@@ -2308,7 +2308,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.strong.REST}",
+      "$value": "{color.text.primary.DEFAULT.hover}",
       "$description": "Text color for headings.",
       "$extensions": {
         "com.figma": {
@@ -3148,7 +3148,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.red.550}",
+      "$value": "{color.foreground.critical.DEFAULT.REST}",
       "$description": "Use for icons communicating errors or danger.",
       "$extensions": {
         "com.figma": {
@@ -3181,7 +3181,7 @@ export default {
   },
   "hpe.color.icon.info": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#00739d",
     "$description": "Use for icons communicating neutral information.",
     "$extensions": {
       "com.figma": {
@@ -3198,7 +3198,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.default.REST}",
+      "$value": "{base.color.blue.700}",
       "$description": "Use for icons communicating neutral information.",
       "$extensions": {
         "com.figma": {
@@ -3331,7 +3331,7 @@ export default {
   },
   "hpe.color.icon.unknown": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#555555",
     "$description": "Use for icons communicating unknown status.",
     "$extensions": {
       "com.figma": {
@@ -3348,7 +3348,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.700}",
+      "$value": "{base.color.grey.800}",
       "$description": "Use for icons communicating unknown status.",
       "$extensions": {
         "com.figma": {
@@ -3381,7 +3381,7 @@ export default {
   },
   "hpe.color.icon.primary": {
     "$type": "color",
-    "$value": "#01a982",
+    "$value": "#17d0a6",
     "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
     "$extensions": {
       "com.figma": {
@@ -3398,7 +3398,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.600}",
+      "$value": "{base.color.green.500}",
       "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
       "$extensions": {
         "com.figma": {
@@ -4453,7 +4453,7 @@ export default {
   },
   "hpe.color.focus": {
     "$type": "color",
-    "$value": "#00e8cf",
+    "$value": "#004233",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4468,7 +4468,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.teal.400}",
+      "$value": "#004233",
       "$description": "",
       "$extensions": {
         "com.figma": {

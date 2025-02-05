@@ -106,57 +106,57 @@ module.exports = {
       "xxlarge": {
         "fontSize": "2.25rem",
         "lineHeight": "2.5rem",
-        "fontWeight": 300,
+        "fontWeight": 400,
         "maxWidth": "25em"
       },
       "3xlarge": {
         "fontSize": "2.625rem",
         "lineHeight": "2.875rem",
-        "fontWeight": 300,
+        "fontWeight": 400,
         "maxWidth": "25em"
       },
       "4xlarge": {
         "fontSize": "3rem",
         "lineHeight": "3rem",
-        "fontWeight": 300,
+        "fontWeight": 400,
         "maxWidth": "25em"
       },
       "5xlarge": {
         "fontSize": "4.5rem",
         "lineHeight": "4.5rem",
-        "fontWeight": 300,
+        "fontWeight": 400,
         "maxWidth": "25em"
       }
     },
     "heading": {
       "xlarge": {
-        "fontWeight": 500,
-        "fontSize": "1.5rem",
-        "lineHeight": "1.5rem"
+        "fontWeight": 400,
+        "fontSize": "1.75rem",
+        "lineHeight": "2rem"
       },
       "large": {
-        "fontWeight": 500,
-        "fontSize": "1.25rem",
-        "lineHeight": "1.25rem"
+        "fontWeight": 400,
+        "fontSize": "1.5rem",
+        "lineHeight": "1.75rem"
       },
       "medium": {
-        "fontSize": "1rem",
-        "lineHeight": "1rem",
-        "fontWeight": 500
+        "fontSize": "1.25rem",
+        "lineHeight": "1.5rem",
+        "fontWeight": 400
       },
       "small": {
-        "fontSize": "0.75rem",
-        "lineHeight": "0.75rem",
+        "fontSize": "1.125rem",
+        "lineHeight": "1.25rem",
         "fontWeight": 500
       },
       "xsmall": {
-        "fontSize": "0.75rem",
-        "lineHeight": "0.75rem",
+        "fontSize": "1rem",
+        "lineHeight": "1.125rem",
         "fontWeight": 600
       },
       "xxsmall": {
-        "fontSize": "0.75rem",
-        "lineHeight": "0.75rem",
+        "fontSize": "1rem",
+        "lineHeight": "1.125rem",
         "fontWeight": 600
       }
     }

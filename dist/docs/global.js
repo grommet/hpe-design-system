@@ -7,7 +7,7 @@ export default {
     "$type": "border",
     "$value": {
       "style": "solid",
-      "color": "#00e8cf",
+      "color": "#004233",
       "width": "2px"
     },
     "$description": "",

@@ -198,7 +198,7 @@ module.exports = {
           "borderColor": "transparent",
           "textColor": "text-onPrimaryStrong",
           "iconColor": "icon-onPrimaryStrong",
-          "fontWeight": 700
+          "fontWeight": 600
         },
         "disabled": {
           "rest": {
@@ -206,7 +206,7 @@ module.exports = {
             "borderColor": "transparent",
             "textColor": "text-disabled",
             "iconColor": "icon-disabled",
-            "fontWeight": 700
+            "fontWeight": 600
           }
         },
         "hover": {
@@ -214,22 +214,22 @@ module.exports = {
           "borderColor": "transparent",
           "textColor": "text-onPrimaryStrong",
           "iconColor": "icon-onPrimaryStrong",
-          "fontWeight": 700
+          "fontWeight": 600
         },
         "selected": {
           "rest": {
-            "background": "background-active",
+            "background": "background-primary-xstrong",
             "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 700
+            "textColor": "text-onPrimaryStrong",
+            "iconColor": "icon-onPrimaryStrong",
+            "fontWeight": 600
           },
           "hover": {
-            "background": "background-active",
+            "background": "background-primary-xstrong",
             "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 700
+            "textColor": "text-onPrimaryStrong",
+            "iconColor": "icon-onPrimaryStrong",
+            "fontWeight": 600
           }
         },
         "xsmall": {
@@ -340,41 +340,41 @@ module.exports = {
       },
       "secondary": {
         "rest": {
-          "background": "transparent",
-          "borderColor": "background-primary-strong",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "background": "background-contrast",
+          "borderColor": "transparent",
+          "textColor": "text-primary",
+          "iconColor": "icon-primary",
+          "fontWeight": 500
         },
         "hover": {
-          "background": "transparent",
-          "borderColor": "#008567",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "background": "background-contrast-hover",
+          "borderColor": "transparent",
+          "textColor": "text-primary",
+          "iconColor": "icon-primary",
+          "fontWeight": 500
         },
         "disabled": {
           "rest": {
             "background": "background-disabled",
-            "borderColor": "border-disabled",
+            "borderColor": "transparent",
             "textColor": "text-disabled",
             "iconColor": "icon-disabled",
-            "fontWeight": 600
+            "fontWeight": 500
           }
         },
         "selected": {
           "rest": {
-            "background": "background-active",
+            "background": "background-selected-primary",
             "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
+            "textColor": "text-onSelectedPrimary",
+            "iconColor": "icon-onSelectedPrimary",
             "fontWeight": 600
           },
           "hover": {
-            "background": "background-active",
+            "background": "background-selected-primary-hover",
             "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
+            "textColor": "text-onSelectedPrimary",
+            "iconColor": "icon-onSelectedPrimary",
             "fontWeight": 600
           }
         },
@@ -422,18 +422,18 @@ module.exports = {
         },
         "medium": {
           "paddingX": "18px",
-          "paddingY": "4px",
+          "paddingY": "5px",
           "borderRadius": "9999px",
-          "borderWidth": "2px",
+          "borderWidth": "1px",
           "minHeight": "36px",
           "fontSize": "19px",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
-            "paddingX": "7px",
-            "paddingY": "7px",
+            "paddingX": "8px",
+            "paddingY": "8px",
             "borderRadius": "9999px",
-            "borderWidth": "2px",
+            "borderWidth": "1px",
             "minHeight": "36px",
             "minWidth": "36px",
             "fontSize": "19px",
@@ -443,41 +443,41 @@ module.exports = {
         },
         "large": {
           "paddingX": "24px",
-          "paddingY": "8px",
+          "paddingY": "9px",
           "borderRadius": "9999px",
-          "borderWidth": "2px",
+          "borderWidth": "1px",
           "minHeight": "48px",
           "fontSize": "1.375rem",
           "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "9999px",
-            "borderWidth": "2px",
+            "borderWidth": "1px",
             "minHeight": "48px",
             "minWidth": "48px",
             "fontSize": "1.375rem",
             "lineHeight": "1.75rem",
             "gapX": "6px",
-            "paddingX": "11px",
-            "paddingY": "11px"
+            "paddingX": "12px",
+            "paddingY": "12px"
           }
         },
         "xlarge": {
           "iconOnly": {
             "borderRadius": "9999px",
-            "borderWidth": "2px",
+            "borderWidth": "1px",
             "minHeight": "72px",
             "minWidth": "72px",
             "fontSize": "1.5rem",
             "lineHeight": "1.875rem",
             "gapX": "6px",
-            "paddingX": "22px",
-            "paddingY": "22px"
+            "paddingX": "23px",
+            "paddingY": "23px"
           },
           "paddingX": "32px",
-          "paddingY": "19px",
+          "paddingY": "20px",
           "borderRadius": "9999px",
-          "borderWidth": "2px",
+          "borderWidth": "1px",
           "minHeight": "72px",
           "fontSize": "1.5rem",
           "lineHeight": "1.875rem",
@@ -490,7 +490,7 @@ module.exports = {
           "borderColor": "transparent",
           "textColor": "text-strong",
           "iconColor": "icon-strong",
-          "fontWeight": 600
+          "fontWeight": 500
         },
         "disabled": {
           "rest": {
@@ -498,7 +498,7 @@ module.exports = {
             "borderColor": "transparent",
             "textColor": "text-disabled",
             "iconColor": "icon-disabled",
-            "fontWeight": 600
+            "fontWeight": 500
           }
         },
         "hover": {
@@ -506,21 +506,21 @@ module.exports = {
           "borderColor": "transparent",
           "textColor": "text-strong",
           "iconColor": "icon-strong",
-          "fontWeight": 600
+          "fontWeight": 500
         },
         "selected": {
           "rest": {
             "background": "background-active",
             "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
+            "textColor": "text-primary",
+            "iconColor": "icon-primary",
             "fontWeight": 600
           },
           "hover": {
-            "background": "background-active",
+            "background": "background-contrast-hover",
             "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
+            "textColor": "text-primary",
+            "iconColor": "icon-primary",
             "fontWeight": 600
           }
         },
@@ -633,41 +633,41 @@ module.exports = {
       "toolbar": {
         "rest": {
           "background": "transparent",
-          "borderColor": "border-default",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "borderColor": "transparent",
+          "textColor": "text-default",
+          "iconColor": "icon-default",
+          "fontWeight": 500
         },
         "hover": {
           "background": "background-hover",
-          "borderColor": "border-default",
-          "textColor": "text-strong",
-          "iconColor": "icon-strong",
-          "fontWeight": 600
+          "borderColor": "transparent",
+          "textColor": "text-default",
+          "iconColor": "icon-default",
+          "fontWeight": 500
         },
         "disabled": {
           "rest": {
-            "background": "background-disabled",
+            "background": "transparent",
             "borderColor": "border-disabled",
             "textColor": "text-disabled",
             "iconColor": "icon-disabled",
-            "fontWeight": 600
+            "fontWeight": 500
           }
         },
         "selected": {
           "rest": {
-            "background": "background-active",
-            "borderColor": "border-default",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 600
+            "background": "background-selected-primary",
+            "borderColor": "border-selected",
+            "textColor": "text-onSelectedPrimary",
+            "iconColor": "icon-onSelectedPrimary",
+            "fontWeight": 500
           },
           "hover": {
-            "background": "background-active",
-            "borderColor": "transparent",
-            "textColor": "text-strong",
-            "iconColor": "icon-strong",
-            "fontWeight": 600
+            "background": "background-selected-primary-hover",
+            "borderColor": "border-selected",
+            "textColor": "text-onSelectedPrimary",
+            "iconColor": "icon-onSelectedPrimary",
+            "fontWeight": 500
           }
         },
         "xsmall": {
@@ -785,14 +785,14 @@ module.exports = {
             "borderColor": "transparent",
             "textColor": "text-strong",
             "iconColor": "icon-strong",
-            "fontWeight": 600
+            "fontWeight": 500
           },
           "hover": {
             "background": "background-hover",
             "borderColor": "transparent",
             "textColor": "text-strong",
             "iconColor": "icon-strong",
-            "fontWeight": 600
+            "fontWeight": 500
           },
           "disabled": {
             "rest": {
@@ -800,7 +800,7 @@ module.exports = {
               "borderColor": "transparent",
               "textColor": "text-disabled",
               "iconColor": "icon-disabled",
-              "fontWeight": 600
+              "fontWeight": 500
             }
           }
         },
@@ -824,7 +824,7 @@ module.exports = {
           "item": {
             "paddingX": "18px",
             "paddingY": "5px",
-            "borderRadius": "none",
+            "borderRadius": "6px",
             "borderWidth": "1px",
             "minHeight": "36px",
             "fontSize": "19px",
@@ -833,8 +833,8 @@ module.exports = {
           },
           "group": {
             "container": {
-              "paddingY": "0px",
-              "paddingX": "0px",
+              "paddingY": "6px",
+              "paddingX": "6px",
               "gapY": "0px"
             },
             "separator": {
@@ -857,11 +857,11 @@ module.exports = {
       "default": {
         "control": {
           "rest": {
-            "background": "background-default",
+            "background": "transparent",
             "borderColor": "border-default"
           },
           "hover": {
-            "background": "background-default",
+            "background": "background-hover",
             "borderColor": "border-strong"
           },
           "disabled": {
@@ -878,7 +878,7 @@ module.exports = {
               "iconColor": "icon-onSelectedPrimaryStrong"
             },
             "hover": {
-              "background": "background-selected-primary-strong",
+              "background": "background-selected-primary-strong-hover",
               "borderColor": "border-strong",
               "iconColor": "icon-onSelectedPrimaryStrong"
             }
@@ -890,7 +890,7 @@ module.exports = {
               "iconColor": "icon-onPrimaryStrong"
             },
             "hover": {
-              "background": "background-selected-primary-strong",
+              "background": "background-selected-primary-strong-hover",
               "borderColor": "border-strong",
               "iconColor": "icon-onPrimaryStrong"
             }
@@ -899,26 +899,26 @@ module.exports = {
         "label": {
           "rest": {
             "textColor": "text-default",
-            "fontWeight": 500
+            "fontWeight": 400
           },
           "hover": {
             "textColor": "text-default",
-            "fontWeight": 500
+            "fontWeight": 400
           },
           "disabled": {
             "rest": {
               "textColor": "text-disabled",
-              "fontWeight": 500
+              "fontWeight": 400
             }
           },
           "selected": {
             "rest": {
               "textColor": "text-default",
-              "fontWeight": 500
+              "fontWeight": 400
             },
             "hover": {
               "textColor": "text-default",
-              "fontWeight": 500
+              "fontWeight": 400
             }
           }
         },
@@ -932,7 +932,7 @@ module.exports = {
             "height": "24px",
             "width": "24px",
             "borderWidth": "default",
-            "borderRadius": "4px"
+            "borderRadius": "6px"
           }
         }
       }
@@ -942,57 +942,57 @@ module.exports = {
         "control": {
           "track": {
             "rest": {
-              "background": "background-default",
-              "borderColor": "border-default"
+              "background": "decorative-neutral",
+              "borderColor": "transparent"
             },
             "hover": {
-              "background": "background-default",
-              "borderColor": "border-strong"
+              "background": "decorative-neutral-hover",
+              "borderColor": "transparent"
             },
             "disabled": {
               "rest": {
-                "background": "transparent",
-                "borderColor": "border-disabled"
+                "background": "background-disabled",
+                "borderColor": "transparent"
               }
             },
             "selected": {
               "rest": {
                 "background": "background-selected-primary-strong",
-                "borderColor": "border-default"
+                "borderColor": "transparent"
               },
               "hover": {
-                "background": "background-selected-primary-strong",
-                "borderColor": "border-strong"
+                "background": "background-selected-primary-strong-hover",
+                "borderColor": "transparent"
               }
             }
           },
           "handle": {
             "rest": {
               "background": "background-front",
-              "borderColor": "border-default",
+              "borderColor": "transparent",
               "boxShadow": "small"
             },
             "hover": {
               "background": "background-default",
-              "borderColor": "border-default",
+              "borderColor": "transparent",
               "boxShadow": "small"
             },
             "disabled": {
               "rest": {
                 "background": "background-disabled",
-                "borderColor": "border-disabled",
+                "borderColor": "transparent",
                 "boxShadow": "small"
               }
             },
             "selected": {
               "rest": {
                 "background": "background-default",
-                "borderColor": "border-default",
+                "borderColor": "transparent",
                 "boxShadow": "small"
               },
               "hover": {
                 "background": "background-default",
-                "borderColor": "border-default",
+                "borderColor": "transparent",
                 "boxShadow": "small"
               }
             }
@@ -1001,26 +1001,26 @@ module.exports = {
         "label": {
           "rest": {
             "textColor": "text-default",
-            "fontWeight": 500
+            "fontWeight": 400
           },
           "hover": {
             "textColor": "text-default",
-            "fontWeight": 500
+            "fontWeight": 400
           },
           "disabled": {
             "rest": {
               "textColor": "text-disabled",
-              "fontWeight": 500
+              "fontWeight": 400
             }
           },
           "selected": {
             "rest": {
               "textColor": "text-default",
-              "fontWeight": 500
+              "fontWeight": 400
             },
             "hover": {
               "textColor": "text-default",
-              "fontWeight": 500
+              "fontWeight": 400
             }
           }
         },
@@ -1038,8 +1038,8 @@ module.exports = {
               "borderRadius": "9999px"
             },
             "handle": {
-              "height": "24px",
-              "width": "24px",
+              "height": "20px",
+              "width": "20px",
               "borderWidth": "default",
               "borderRadius": "9999px"
             }
@@ -1053,26 +1053,26 @@ module.exports = {
           "input": {
             "group": {
               "item": {
-                "paddingX": "12px",
+                "paddingX": "8px",
                 "paddingY": "5px",
                 "borderWidth": "default",
                 "minHeight": "36px",
-                "borderRadius": "none",
+                "borderRadius": "xsmall",
                 "textToIconX": "6px",
                 "textToElementX": "12px"
               },
               "container": {
                 "paddingX": "none",
-                "paddingY": "6px",
-                "borderWidth": "default",
-                "borderRadius": "6px"
+                "paddingY": "0px",
+                "borderWidth": "0px",
+                "borderRadius": "8px"
               }
             },
             "container": {
               "paddingX": "12px",
               "paddingY": "5px",
               "borderWidth": "1px",
-              "borderRadius": "6px",
+              "borderRadius": "8px",
               "minHeight": "36px",
               "textToIconX": "6px",
               "textToElementX": "12px"
@@ -1106,7 +1106,7 @@ module.exports = {
           "value": {
             "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
-            "fontWeight": 500
+            "fontWeight": 400
           }
         },
         "input": {
@@ -1114,11 +1114,11 @@ module.exports = {
             "container": {
               "rest": {
                 "background": "transparent",
-                "borderColor": "border-default"
+                "borderColor": "transparent"
               },
               "hover": {
                 "background": "transparent",
-                "borderColor": "border-default"
+                "borderColor": "transparent"
               },
               "error": {
                 "rest": {
@@ -1174,12 +1174,12 @@ module.exports = {
             "error": {
               "rest": {
                 "background": "background-critical",
-                "borderColor": "border-strong"
+                "borderColor": "border-critical"
               }
             },
             "disabled": {
               "rest": {
-                "background": "background-disabled",
+                "background": "transparent",
                 "borderColor": "border-disabled"
               }
             },
@@ -1209,7 +1209,7 @@ module.exports = {
           "disabled": {
             "rest": {
               "textColor": "text-disabled",
-              "iconColor": "icon-strong"
+              "iconColor": "icon-disabled"
             }
           },
           "readOnly": {
@@ -1291,23 +1291,23 @@ module.exports = {
         "error": {
           "rest": {
             "textColor": "text-critical",
-            "iconColor": "icon-default"
+            "iconColor": "icon-critical"
           },
           "hover": {
-            "iconColor": "icon-default",
+            "iconColor": "icon-critical",
             "textColor": "text-critical"
           }
         },
         "value": {
           "rest": {
-            "textColor": "text-default"
+            "textColor": "text-strong"
           },
           "hover": {
-            "textColor": "text-default"
+            "textColor": "text-strong"
           },
           "error": {
             "rest": {
-              "textColor": "text-default"
+              "textColor": "text-strong"
             }
           },
           "disabled": {
@@ -1317,7 +1317,7 @@ module.exports = {
           },
           "readOnly": {
             "rest": {
-              "textColor": "text-default"
+              "textColor": "text-strong"
             }
           }
         }
@@ -1328,48 +1328,48 @@ module.exports = {
         "rest": {
           "textColor": "text-default",
           "iconColor": "icon-default",
-          "borderColor": "transparent",
+          "borderColor": "border-weak",
           "background": "transparent"
         },
         "hover": {
           "textColor": "text-default",
           "iconColor": "icon-default",
-          "borderColor": "transparent",
+          "borderColor": "border-weak",
           "background": "transparent"
         },
         "disabled": {
           "rest": {
             "textColor": "text-disabled",
             "iconColor": "icon-disabled",
-            "borderColor": "transparent",
+            "borderColor": "border-weak",
             "background": "transparent"
           }
         },
         "selected": {
           "rest": {
-            "textColor": "text-default",
-            "iconColor": "icon-default",
-            "borderColor": "transparent",
-            "background": "transparent"
+            "textColor": "text-onSelectedPrimary",
+            "iconColor": "icon-onSelectedPrimary",
+            "borderColor": "border-weak",
+            "background": "background-active"
           },
           "hover": {
-            "textColor": "text-default",
-            "iconColor": "icon-default",
-            "borderColor": "transparent",
-            "background": "transparent"
+            "textColor": "text-onSelectedPrimary",
+            "iconColor": "icon-onSelectedPrimary",
+            "borderColor": "border-weak",
+            "background": "background-contrast-hover"
           }
         },
         "pinned": {
           "rest": {
             "textColor": "text-default",
             "iconColor": "icon-default",
-            "borderColor": "transparent",
+            "borderColor": "border-weak",
             "background": "transparent"
           },
           "hover": {
             "textColor": "text-default",
             "iconColor": "icon-default",
-            "borderColor": "transparent",
+            "borderColor": "border-weak",
             "background": "transparent"
           }
         },
@@ -1379,8 +1379,8 @@ module.exports = {
           "lineHeight": "1.5rem",
           "fontWeight": 400,
           "borderBottomWidth": "1px",
-          "paddingTop": "6px",
-          "paddingBottom": "5px",
+          "paddingTop": "12px",
+          "paddingBottom": "11px",
           "minHeight": "36px"
         }
       },
@@ -1391,54 +1391,54 @@ module.exports = {
           "lineHeight": "1.5rem",
           "fontWeight": 500,
           "borderBottomWidth": "1px",
-          "paddingTop": "6px",
-          "paddingBottom": "5px"
+          "paddingTop": "12px",
+          "paddingBottom": "11px"
         },
         "rest": {
           "textColor": "text-strong",
           "iconColor": "text-strong",
-          "borderColor": "transparent",
+          "borderColor": "border-weak",
           "background": "transparent"
         },
         "hover": {
           "textColor": "text-strong",
           "iconColor": "text-strong",
-          "borderColor": "transparent",
+          "borderColor": "border-weak",
           "background": "transparent"
         },
         "disabled": {
           "rest": {
             "textColor": "text-disabled",
             "iconColor": "icon-disabled",
-            "borderColor": "transparent",
+            "borderColor": "border-weak",
             "background": "transparent"
           }
         },
         "selected": {
           "rest": {
-            "textColor": "text-default",
-            "iconColor": "icon-default",
-            "borderColor": "transparent",
-            "background": "transparent"
+            "textColor": "text-onSelectedPrimary",
+            "iconColor": "icon-onSelectedPrimary",
+            "borderColor": "border-weak",
+            "background": "background-active"
           },
           "hover": {
-            "textColor": "text-default",
-            "iconColor": "icon-default",
-            "borderColor": "transparent",
-            "background": "transparent"
+            "textColor": "text-onSelectedPrimary",
+            "iconColor": "icon-onSelectedPrimary",
+            "borderColor": "border-weak",
+            "background": "background-contrast-hover"
           }
         },
         "pinned": {
           "rest": {
             "textColor": "text-default",
             "iconColor": "icon-default",
-            "borderColor": "transparent",
+            "borderColor": "border-weak",
             "background": "transparent"
           },
           "hover": {
             "textColor": "text-default",
             "iconColor": "icon-default",
-            "borderColor": "transparent",
+            "borderColor": "border-weak",
             "background": "transparent"
           }
         }
@@ -1462,7 +1462,7 @@ module.exports = {
           "rest": {
             "textColor": "text-default",
             "iconColor": "icon-default",
-            "borderColor": "transparent",
+            "borderColor": "border-weak",
             "background": "transparent"
           }
         },
@@ -1488,8 +1488,8 @@ module.exports = {
           "lineHeight": "1.5rem",
           "fontWeight": 500,
           "borderBottomWidth": "1px",
-          "paddingTop": "6px",
-          "paddingBottom": "5px",
+          "paddingTop": "12px",
+          "paddingBottom": "11px",
           "gapX": "6px",
           "minHeight": "36px"
         }
@@ -1513,13 +1513,13 @@ module.exports = {
           "rest": {
             "textColor": "text-default",
             "iconColor": "icon-default",
-            "borderColor": "transparent",
+            "borderColor": "border-weak",
             "background": "transparent"
           },
           "hover": {
             "textColor": "text-default",
             "iconColor": "icon-default",
-            "borderColor": "transparent",
+            "borderColor": "border-weak",
             "background": "transparent"
           }
         },
@@ -1529,8 +1529,8 @@ module.exports = {
           "lineHeight": "1.5rem",
           "fontWeight": 500,
           "borderTopWidth": "1px",
-          "paddingTop": "5px",
-          "paddingBottom": "6px",
+          "paddingTop": "11px",
+          "paddingBottom": "12px",
           "gapX": "6px",
           "minHeight": "36px"
         }
@@ -1555,40 +1555,40 @@ module.exports = {
           },
           "selected": {
             "rest": {
-              "background": "background-default",
-              "borderColor": "border-selected",
-              "iconColor": "decorative-brand"
+              "background": "background-selected-primary-strong",
+              "borderColor": "transparent",
+              "iconColor": "icon-onSelectedPrimaryStrong"
             },
             "hover": {
-              "background": "background-default",
-              "borderColor": "border-selected",
-              "iconColor": "decorative-brand"
+              "background": "background-selected-primary-strong-hover",
+              "borderColor": "transparent",
+              "iconColor": "icon-onSelectedPrimaryStrong"
             }
           }
         },
         "label": {
           "rest": {
             "textColor": "text-default",
-            "fontWeight": 500
+            "fontWeight": 400
           },
           "hover": {
             "textColor": "text-default",
-            "fontWeight": 500
+            "fontWeight": 400
           },
           "disabled": {
             "rest": {
               "textColor": "text-disabled",
-              "fontWeight": 500
+              "fontWeight": 400
             }
           },
           "selected": {
             "rest": {
               "textColor": "text-default",
-              "fontWeight": 500
+              "fontWeight": 400
             },
             "hover": {
               "textColor": "text-default",
-              "fontWeight": 500
+              "fontWeight": 400
             }
           }
         },
