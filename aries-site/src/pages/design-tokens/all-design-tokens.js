@@ -23,7 +23,6 @@ import { Close, Folder, Menu } from 'grommet-icons';
 import { ThemeContext } from 'styled-components';
 // eslint-disable-next-line import/no-unresolved
 import * as tokens from 'hpe-design-tokens/docs';
-import { BetaNotification } from '../../examples';
 
 const structuredTokens = {
   primitive: {},
@@ -200,7 +199,6 @@ const AllTokens = () => {
 
   return (
     <Page kind="full">
-      <BetaNotification />
       <Box direction="row" gap="large">
         {['large', 'xlarge'].includes(breakpoint) ? (
           <Box
