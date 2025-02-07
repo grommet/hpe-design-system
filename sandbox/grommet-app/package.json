@@ -14,6 +14,7 @@
     "gsap": "^3.12.5",
     "hpe-design-tokens-brand-refresh": "https://github.com/grommet/hpe-design-system/tarball/design-tokens-brand-refresh-stable",
     "hpe-design-tokens-old-theme": "https://github.com/grommet/hpe-design-system/tarball/design-tokens-old-theme-stable",
+    "grommet-theme-hpe-NEXT": "https://github.com/grommet/grommet-theme-hpe/tarball/NEXT-stable",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-gsap": "^3.2.1",

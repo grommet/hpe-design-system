@@ -43,8 +43,8 @@ const App = () => {
 
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
-  const appHeaderHeight = '60px';
-  const appHeight = `calc(100vh - ${appHeaderHeight})`;
+  // const appHeaderHeight = '60px';
+  // const appHeight = `calc(100vh - ${appHeaderHeight})`;
 
   const loading = useLoading(6000);
 
@@ -52,7 +52,7 @@ const App = () => {
     <Grommet
       theme={theme}
       background={backgroundBack ? 'background-back' : undefined}
-      full
+      full="min"
       themeMode={darkMode ? 'dark' : 'light'}
       options={{
         box: {
@@ -89,8 +89,8 @@ const App = () => {
                   style={{ position: 'relative', zIndex: 1 }}
                 />
                 <Box
-                  // fill the viewport height minus the header height
-                  height={appHeight}
+                // fill the viewport height minus the header height
+                // height={appHeight}
                 >
                   <Routes>
                     <Route path="/" element={<Home />} />
