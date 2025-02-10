@@ -15,25 +15,45 @@
           "codeSyntax": {}
         }
       }
+    },
+    "outlineOffset": {
+      "$type": "number",
+      "$value": 2,
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": [],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "boxShadow": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": 0,
+          "offsetY": 0,
+          "blur": 0,
+          "spread": "{focusIndicator.outlineOffset}",
+          "color": "{base.color.white.100}"
+        }
+      ],
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": ["ALL_SCOPES"],
+          "codeSyntax": {}
+        }
+      }
     }
   },
   "fontStack": {
     "primary": {
       "$type": "fontFamily",
       "$value": "'Metric', Arial, sans-serif",
-      "$description": "For dev use only.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": true,
-          "scopes": ["FONT_FAMILY"],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "code": {
-      "$type": "fontFamily",
-      "$value": "'Fira Mono', ui-monospace, monospace",
-      "$description": "For dev use only.",
+      "$description": "The main font stack for an application.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -59,7 +79,7 @@
     "small": {
       "$type": "number",
       "$value": 768,
-      "$description": "",
+      "$description": "The breakpoint where spacing and typography sizes shift down to accommodate smaller screen sizes.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": true,
@@ -97,7 +117,7 @@
     "thin": {
       "$type": "number",
       "$value": 100,
-      "$description": "",
+      "$description": "Thin is rarely, if at all, used.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -121,7 +141,7 @@
     "regular": {
       "$type": "number",
       "$value": 400,
-      "$description": "",
+      "$description": "The default font-weight for most text.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -133,7 +153,7 @@
     "medium": {
       "$type": "number",
       "$value": 500,
-      "$description": "",
+      "$description": "The font-weight generally used when increased emphasis is desired.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -157,7 +177,7 @@
     "bold": {
       "$type": "number",
       "$value": 700,
-      "$description": "",
+      "$description": "Bold is used sparingly because it has reduced readability especially at smaller font sizes.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -169,7 +189,7 @@
     "black": {
       "$type": "number",
       "$value": 900,
-      "$description": "",
+      "$description": "Black is rarely, if at all, used.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,

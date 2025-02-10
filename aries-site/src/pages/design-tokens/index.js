@@ -7,7 +7,6 @@ import {
   Grid,
   PageContent,
   Paragraph,
-  Notification,
 } from 'grommet';
 import { Meta, ContentCard } from '../../components';
 import { getCards, getPageDetails, nameToPath } from '../../utils';
@@ -29,13 +28,6 @@ const Tokens = () => (
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
       </PageIntro>
-      <Notification
-        message={`Design tokens are in a beta phase. Accordingly, 
-          this documentation is a work in progress and will be 
-          updated as needed during this phase.`}
-        width="large"
-        margin={{ bottom: 'large' }}
-      />
       <Data data={cards} pad={{ bottom: 'large' }}>
         <DataContext.Consumer>
           {({ data }) => {

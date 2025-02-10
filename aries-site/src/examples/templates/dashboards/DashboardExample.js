@@ -1,5 +1,5 @@
 import React, { useContext, useMemo, useState } from 'react';
-import { Box, Button, ResponsiveContext, Text } from 'grommet';
+import { Box, Main, Button, ResponsiveContext, Text } from 'grommet';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { DashboardGrid, DashboardFooter, Greeting } from '.';
 
@@ -19,29 +19,31 @@ export const DashboardExample = () => {
     <UserContext.Provider value={contextValue}>
       <Box width={{ max: 'xxlarge' }} margin="auto" fill>
         <GlobalHeader />
-        <Box overflow="auto">
-          <Box
-            background="background"
-            justify="center"
-            pad={{
-              horizontal: !['xsmall', 'small'].includes(size)
-                ? 'xlarge'
-                : 'medium',
-              vertical: 'large',
-            }}
-            flex={false}
-          >
-            {user ? (
-              <Box gap="large">
-                <Greeting />
-                <DashboardGrid />
-              </Box>
-            ) : (
-              <DemoPageContent />
-            )}
+        <Main>
+          <Box overflow="auto">
+            <Box
+              background="background"
+              justify="center"
+              pad={{
+                horizontal: !['xsmall', 'small'].includes(size)
+                  ? 'xlarge'
+                  : 'medium',
+                vertical: 'large',
+              }}
+              flex={false}
+            >
+              {user ? (
+                <Box gap="large">
+                  <Greeting />
+                  <DashboardGrid />
+                </Box>
+              ) : (
+                <DemoPageContent />
+              )}
+            </Box>
+            {user && <DashboardFooter />}
           </Box>
-          {user && <DashboardFooter />}
-        </Box>
+        </Main>
       </Box>
     </UserContext.Provider>
   );

@@ -27,7 +27,11 @@ export const DocsPageHeader = ({ title, topic, render }) => {
           </Link>
         )
       }
-      subtitle={<SubsectionText>{page.description}</SubsectionText>}
+      subtitle={
+        <SubsectionText accessibility={page.accessibility}>
+          {page.description}
+        </SubsectionText>
+      }
       margin={{ bottom: 'small' }}
     >
       {page.status && <Status status={page.status} />}

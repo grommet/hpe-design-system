@@ -13,6 +13,7 @@ export const numberToDimension: Transform = {
         'fontSize',
         'lineHeight',
         'spacing',
+        'radius',
         'paddingX',
         'paddingY',
         'paddingBottom',
@@ -22,6 +23,11 @@ export const numberToDimension: Transform = {
         'borderRadius',
         'borderWidth',
         'breakpoint',
+        'outlineOffset',
+        'top',
+        'left',
+        'bottom',
+        'right',
       ].find(v => token.path.includes(v))
     )
       return true;

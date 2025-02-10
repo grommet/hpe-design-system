@@ -17,8 +17,7 @@ const StyledHeader = ({
 
   return (
     <Header
-      // TO DO replace with background-primary-xstrong-default
-      background="#093A2F"
+      background="background-primary-xstrong"
       pad={{
         vertical: 'small',
         horizontal: 'medium',

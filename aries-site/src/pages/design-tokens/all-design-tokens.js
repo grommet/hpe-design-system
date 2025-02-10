@@ -23,7 +23,6 @@ import { Close, Folder, Menu } from 'grommet-icons';
 import { ThemeContext } from 'styled-components';
 // eslint-disable-next-line import/no-unresolved
 import * as tokens from 'hpe-design-tokens/docs';
-import { BetaNotification } from '../../examples';
 
 const structuredTokens = {
   primitive: {},
@@ -32,14 +31,14 @@ const structuredTokens = {
 };
 
 Object.keys(tokens).forEach(mode => {
-  // base, component, light, dark, etc.
+  // primitives, component, light, dark, etc.
   Object.keys(tokens[mode]).forEach(token => {
     const currentToken = tokens[mode][token];
 
     const parts = token.split('.');
     const category = parts[1];
     let level;
-    if (mode === 'base') level = 'primitive';
+    if (mode === 'primitives') level = 'primitive';
     else if (mode === 'components') level = 'component';
     else level = 'semantic';
 
@@ -50,7 +49,7 @@ Object.keys(tokens).forEach(mode => {
     if (!('modes' in structuredTokens[level][category][token]))
       structuredTokens[level][category][token].modes = {};
 
-    if (level === 'semantic' && mode !== 'global') {
+    if (level === 'semantic' && mode !== 'global' && mode !== 'dimension') {
       structuredTokens[level][category][token].modes[mode] = currentToken;
     } else
       structuredTokens[level][category][token].modes.default = currentToken;
@@ -152,8 +151,8 @@ const getTokens = (tokenObj, mode) =>
       id: key,
       token: key,
       type: tokenObj[key]?.modes[mode]?.$type,
-      description: tokenObj[key]?.modes[mode]?.comment,
-      value: tokenObj[key]?.modes[mode].value,
+      description: tokenObj[key]?.modes[mode]?.$description,
+      value: tokenObj[key]?.modes[mode].$value,
     };
   });
 
@@ -200,7 +199,6 @@ const AllTokens = () => {
 
   return (
     <Page kind="full">
-      <BetaNotification />
       <Box direction="row" gap="large">
         {['large', 'xlarge'].includes(breakpoint) ? (
           <Box

@@ -1,6 +1,13 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, Meter, ResponsiveContext, ThemeContext } from 'grommet';
+import {
+  Box,
+  Grid,
+  Meter,
+  NameValueList,
+  ResponsiveContext,
+  ThemeContext,
+} from 'grommet';
 import { parseMetricToNum } from 'grommet/utils';
 import { ChartCard, Legend, Measure } from '../../components';
 import {
@@ -155,15 +162,20 @@ export const CostByService = ({ period, notification }) => {
                 size="full"
               />
             </Box>
-            <Measure
+            <NameValueList
+              valueProps={{ width: ['xsmall', 'auto'] }}
+              pairProps={{ direction: 'column' }}
+              layout="grid"
               gridArea="measure"
-              alignSelf="center"
-              name={{ label: { label: 'Total Cost', size: 'medium' } }}
-              value={{
-                value: formatCurrency(totalCost),
-                size: 'xlarge',
-              }}
-            />
+            >
+              <Measure
+                name={{ label: { label: 'Total Cost', size: 'medium' } }}
+                value={{
+                  value: formatCurrency(totalCost),
+                  size: 'xlarge',
+                }}
+              />
+            </NameValueList>
             <Legend gridArea="legend" values={values} />
           </Grid>
         )}

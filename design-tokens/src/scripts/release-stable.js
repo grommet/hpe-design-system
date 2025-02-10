@@ -21,7 +21,7 @@ if (process.env.CI) {
     git()
       .clone(repoURL, localFolder)
       .then(() => git(localFolder).checkout(BRANCH))
-      // .then(() => del([`${localFolder}/**/*`]))
+      .then(() => del([`${localFolder}/**/*`]))
       .then(() => fs.copy(localDist, `${localFolder}/${BUILD_DIR}`))
       .then(() =>
         files.forEach(file =>
@@ -30,8 +30,14 @@ if (process.env.CI) {
       )
       .then(() =>
         fs.copyFile(
-          `${path.resolve('src')}/index.d.ts`,
+          `${path.resolve('src')}/types/esm/index.d.ts`,
           `${localFolder}/${BUILD_DIR}/esm/index.d.ts`,
+        ),
+      )
+      .then(() =>
+        fs.copyFile(
+          `${path.resolve('src')}/types/grommet/index.d.ts`,
+          `${localFolder}/${BUILD_DIR}/grommet/index.d.ts`,
         ),
       )
       .then(() => git(localFolder).add(['--all', '.']))
