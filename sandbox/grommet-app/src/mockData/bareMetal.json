@@ -1,0 +1,112 @@
+{
+  "Las Vegas": [],
+  "Frankfurt": [
+    {
+      "name": "HPE-PC-NODE 5",
+      "os": {
+        "name": "Ubuntu Server",
+        "description": "Ubuntu 24.04 LTS Linux",
+        "version": "24.04 LTS",
+        "architecture": "64-bit (x86)",
+        "type": "ISO"
+      },
+      "cpu": "HPE ProLiant DL380",
+      "system": "HPE Private Cloud - Frankfurt",
+      "ilo ip": "12.189.23.15",
+      "health": "Okay",
+      "location": "Frankfurt"
+    },
+    {
+      "name": "HPE-PC-NODE 6",
+      "os": {
+        "name": "Ubuntu Server",
+        "description": "Ubuntu 24.04 LTS Linux",
+        "version": "24.04 LTS",
+        "architecture": "64-bit (x86)",
+        "type": "ISO"
+      },
+      "cpu": "HPE ProLiant DL380",
+      "system": "HPE Private Cloud - Frankfurt",
+      "ilo ip": "12.189.23.16",
+      "health": "Okay",
+      "location": "Frankfurt"
+    },
+    {
+      "name": "HPE-PC-NODE 7",
+      "os": {
+        "name": "Ubuntu Server",
+        "description": "Ubuntu 24.04 LTS Linux",
+        "version": "24.04 LTS",
+        "architecture": "64-bit (x86)",
+        "type": "ISO"
+      },
+      "cpu": "HPE ProLiant DL380",
+      "system": "HPE Private Cloud - Frankfurt",
+      "ilo ip": "12.189.23.17",
+      "health": "Okay",
+      "location": "Frankfurt"
+    }
+  ],
+  "New York": [
+    {
+      "name": "HPE-PC-NODE 1",
+      "os": {
+        "name": "Ubuntu Server",
+        "description": "Ubuntu 24.04 LTS Linux",
+        "version": "24.04 LTS",
+        "architecture": "64-bit (x86)",
+        "type": "ISO"
+      },
+      "cpu": "HPE ProLiant DL380",
+      "system": "HPE Private Cloud - New York",
+      "ilo ip": "",
+      "health": "Unknown",
+      "location": "New York"
+    },
+    {
+      "name": "HPE-PC-NODE 2",
+      "os": {
+        "name": "Ubuntu Server",
+        "description": "Ubuntu 24.04 LTS Linux",
+        "version": "24.04 LTS",
+        "architecture": "64-bit (x86)",
+        "type": "ISO"
+      },
+      "cpu": "HPE ProLiant DL380",
+      "system": "HPE Private Cloud - New York",
+      "ilo ip": "12.189.112.3",
+      "health": "Okay",
+      "location": "New York"
+    },
+    {
+      "name": "HPE-PC-NODE 3",
+      "os": {
+        "name": "Ubuntu Server",
+        "description": "Ubuntu 24.04 LTS Linux",
+        "version": "24.04 LTS",
+        "architecture": "64-bit (x86)",
+        "type": "ISO"
+      },
+      "cpu": "HPE ProLiant DL380",
+      "system": "HPE Private Cloud - New York",
+      "ilo ip": "12.189.112.4",
+      "health": "Okay",
+      "location": "New York"
+    },
+    {
+      "name": "HPE-PC-NODE 4",
+      "os": {
+        "name": "Ubuntu Server",
+        "description": "Ubuntu 24.04 LTS Linux",
+        "version": "24.04 LTS",
+        "architecture": "64-bit (x86)",
+        "type": "ISO"
+      },
+      "cpu": "HPE ProLiant DL380",
+      "system": "HPE Private Cloud - New York",
+      "ilo ip": "12.189.112.5",
+      "health": "Okay",
+      "location": "New York"
+    }
+  ]
+}

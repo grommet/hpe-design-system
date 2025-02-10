@@ -11,7 +11,6 @@ export const commonJsGrommetRefs: FormatFn = async ({
 }: FormatFnArguments) => {
   const { prefix } = platform;
   let tokens = dictionary.tokens;
-
   dictionary.allTokens.forEach((token: any) => {
     const value = getGrommetValue(token, dictionary);
     const originalToken = access(token.path.join('.'), tokens);

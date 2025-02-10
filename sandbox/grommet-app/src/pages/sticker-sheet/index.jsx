@@ -65,7 +65,6 @@ const textSizes = [
   '3xl',
   '4xl',
   '5xl',
-  '6xl',
 ];
 
 const StickerSheet = () => {
