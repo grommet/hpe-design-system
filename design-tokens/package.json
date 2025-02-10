@@ -1,7 +1,7 @@
 {
   "name": "hpe-design-tokens",
   "description": "Design tokens for use with the HPE Design System.",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "license": "Apache-2.0",
   "type": "module",
   "module": "./dist/esm/index.js",
@@ -10,6 +10,10 @@
     ".": {
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.cjs"
+    },
+    "./grommet": {
+      "import": "./dist/grommet/index.js",
+      "require": "./dist/grommet/cjs/index.cjs"
     },
     "./docs": "./dist/docs/index.js",
     "./dist/css/*.css": {

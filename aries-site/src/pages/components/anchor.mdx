@@ -1,5 +1,5 @@
-import { Anchor as GrommetAnchor, Box, Text } from 'grommet';
-import { BestPracticeGroup, Example } from '../../layouts';
+import { Anchor as GrommetAnchor } from 'grommet';
+import { BestPracticeGroup, Example, AccessibilitySection } from '../../layouts';
 import {
   AnchorExample,
   AnchorBadExample,
@@ -65,35 +65,6 @@ It is important that your anchor clearly states to what content the anchor leads
   </Example>
 </BestPracticeGroup>
 
-### Accessibility
-
-**Use 'target' and 'rel' props when linking externally:**
-
-If clicking an Anchor leads to an external URL, apply these props to the anchor:
-
-- target="\_blank"
-- rel="noopener"
-
-The distinction is important to screen reader users to know what's going to happen next. Will I navigate somewhere or will something happen on the page?
-
-The "\_blank" target causes the link to open in a new tab, so the user doesn't lose their place on the application. Adding the "noopener" property prevents the newly opened page from gaining access to the original page which helps maintain the security of your application.
-
-**Use clear Anchor labels:**
-
-It is important to make sure the label of the anchor will allow screen reader users to know where the anchor will lead.
-
-Unhelpful Anchor label:
-
-- Read more <GrommetAnchor label="here" />
-
-The word "here" is vague. A screen reader user may not know the context of "here".
-
-Helpful Anchor label:
-
-- Read more <GrommetAnchor label="Anchor documentation" />
-
-This clearly states the type of content to which the Anchor relates.
-
 ## Variants
 
 Anchors are used primarily in text heavy contexts. Here are some ways
@@ -155,3 +126,37 @@ Used to indicate that an anchor cannot be interacted with.
 >
   <AnchorDisabledExample />
 </Example>
+
+## Accessibility
+### A11y guidance
+The following guidance should be considered for each instance of the component and is the responsibility of the implementer. WCAG criteria provided directly by the Grommet component are summarized under [WCAG compliance](#wcag-compliance).
+
+**Use 'target' and 'rel' props when linking externally:**
+
+If clicking an Anchor leads to an external URL, apply these props to the anchor:
+
+- target="\_blank"
+- rel="noopener"
+
+The distinction is important to screen reader users to know what's going to happen next. Will I navigate somewhere or will something happen on the page?
+
+The "\_blank" target causes the link to open in a new tab, so the user doesn't lose their place on the application. Adding the "noopener" property prevents the newly opened page from gaining access to the original page which helps maintain the security of your application.
+
+**Use clear Anchor labels:**
+
+It is important to make sure the label of the anchor will allow screen reader users to know where the anchor will lead.
+
+Unhelpful Anchor label:
+
+- Read more <GrommetAnchor label="here" />
+
+The word "here" is vague. A screen reader user may not know the context of "here".
+
+Helpful Anchor label:
+
+- Read more <GrommetAnchor label="Anchor documentation" />
+
+This clearly states the type of content to which the Anchor relates.
+
+### WCAG compliance
+  <AccessibilitySection title='anchor' />
