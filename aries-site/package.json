@@ -17,9 +17,10 @@
   },
   "scripts": {
     "build": "yarn build-search && next build",
+    "build-design-tokens": "cd ../design-tokens && yarn build",
     "export": "yarn build",
     "postexport": "node next.postexport.js",
-    "start": "yarn build-search && next",
+    "start": "yarn build-design-tokens && yarn build-search && next",
     "start-server": "yarn build && yarn next -p 3030",
     "test": "yarn build && node src/scripts/start-tests.js",
     "test:local": "start-server-and-test start-server 3030 'testcafe all'",
