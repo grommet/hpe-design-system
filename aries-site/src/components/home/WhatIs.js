@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Grid, Heading, PageContent, Paragraph, Tag } from 'grommet';
+import { Box, Grid, Heading, PageContent, Paragraph } from 'grommet';
 
 const whatIsContent = [
   {
@@ -18,7 +18,6 @@ const whatIsContent = [
     heading: 'Design tokens',
     text: `Standardized design attributes for color, fonts, and spacing 
     ensuring consistency across digital products.`,
-    tag: <Tag alignSelf="start" value="Beta" background="validation-ok" />,
   },
   {
     heading: 'Icons',
