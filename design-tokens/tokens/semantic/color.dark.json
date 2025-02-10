@@ -149,6 +149,22 @@
           }
         }
       },
+      "unknown": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.white.opacity6}",
+            "$description": "Use for backgrounds communicating an unknown status.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
       "warning": {
         "DEFAULT": {
           "REST": {
@@ -185,7 +201,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.background.contrast.DEFAULT.REST}",
+            "$value": "{base.color.blue.400-Opacity12}",
             "$description": "Use for backgrounds communicating neutral information.",
             "$extensions": {
               "com.figma": {
@@ -213,27 +229,11 @@
           }
         }
       },
-      "unknown": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.white.opacity6}",
-            "$description": "Use for backgrounds communicating an unknown status.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "primary": {
         "strong": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.600}",
+            "$value": "#007c60",
             "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
             "$extensions": {
               "com.figma": {
@@ -245,7 +245,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.green.700}",
+            "$value": "#00513f",
             "$description": "Hover variant of background-primary.",
             "$extensions": {
               "com.figma": {
@@ -276,7 +276,7 @@
           "strong": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.brand}",
+              "$value": "{color.background.primary.strong.REST}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -288,7 +288,7 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{base.color.brand}",
+              "$value": "{color.background.primary.strong.hover}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -423,7 +423,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.border.default.REST}",
+            "$value": "{color.foreground.critical.DEFAULT.REST}",
             "$description": "Use for borders communicating errors or danger.",
             "$extensions": {
               "com.figma": {
@@ -623,7 +623,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.text.default.REST}",
+            "$value": "{color.foreground.critical.DEFAULT.REST}",
             "$description": "Use for text on standard backgrounds communicating errors or danger.",
             "$extensions": {
               "com.figma": {
@@ -704,6 +704,34 @@
           "REST": {
             "$type": "color",
             "$value": "{color.text.strong.REST}",
+            "$description": "Text color for headings.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "anchor": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{color.text.primary.DEFAULT.REST}",
+            "$description": "Text color for headings.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.text.primary.DEFAULT.hover}",
             "$description": "Text color for headings.",
             "$extensions": {
               "com.figma": {
@@ -977,7 +1005,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.red.550}",
+            "$value": "{color.foreground.critical.DEFAULT.REST}",
             "$description": "Use for icons communicating errors or danger.",
             "$extensions": {
               "com.figma": {
@@ -993,7 +1021,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.icon.default.REST}",
+            "$value": "{base.color.blue.700}",
             "$description": "Use for icons communicating neutral information.",
             "$extensions": {
               "com.figma": {
@@ -1041,7 +1069,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.grey.700}",
+            "$value": "{base.color.grey.800}",
             "$description": "Use for icons communicating unknown status.",
             "$extensions": {
               "com.figma": {
@@ -1057,7 +1085,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.600}",
+            "$value": "{base.color.green.500}",
             "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
             "$extensions": {
               "com.figma": {
@@ -1422,7 +1450,7 @@
     },
     "focus": {
       "$type": "color",
-      "$value": "{base.color.teal.400}",
+      "$value": "#004233",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1505,7 +1533,7 @@
       "$value": [
         {
           "offsetX": 0,
-          "offsetY": "{base.dimension.100}",
+          "offsetY": "{base.dimension.50}",
           "blur": "{base.dimension.100}",
           "spread": 0,
           "color": "{base.color.black.opacity24}"
@@ -1548,7 +1576,7 @@
           "offsetY": "{static.spacing.xsmall}",
           "blur": "{static.spacing.medium}",
           "spread": "{static.spacing.none}",
-          "color": "{base.color.black.opacity36}"
+          "color": "{base.color.black.opacity48}"
         }
       ],
       "$description": "",

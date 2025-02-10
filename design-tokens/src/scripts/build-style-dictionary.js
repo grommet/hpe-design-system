@@ -6,6 +6,7 @@ import { getThemeAndMode, numberToPixel } from '../utils.ts';
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
 const GROMMET_DIR = 'dist/grommet/';
+const GROMMET_CJS_DIR = 'dist/grommet/cjs/';
 const CJS_DIR = 'dist/cjs/';
 const CSS_DIR = 'dist/css/';
 const DOCS_DIR = 'dist/docs/';
@@ -34,6 +35,17 @@ try {
           {
             destination: 'primitives.js',
             format: 'javascript/esm',
+          },
+        ],
+      },
+      'grommet/cjs': {
+        transformGroup: 'js/w3c',
+        buildPath: GROMMET_CJS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: 'primitives.cjs',
+            format: 'javascript/commonJs',
           },
         ],
       },
@@ -110,6 +122,19 @@ try {
           },
         ],
       },
+      'grommet/cjs': {
+        transformGroup: 'js/w3c',
+        buildPath: GROMMET_CJS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: 'global.cjs',
+            format: 'commonJsGrommetRefs',
+            filter: token =>
+              token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
+          },
+        ],
+      },
       js: {
         transformGroup: 'js/css',
         buildPath: ESM_DIR,
@@ -179,7 +204,7 @@ try {
 const colorModeFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('color') && !file.includes('v1')
+    file.includes('color') && !file.includes('v0')
       ? `${TOKENS_DIR}/semantic/${file}`
       : undefined,
   )
@@ -204,6 +229,20 @@ try {
                 theme ? `${theme}-${mode}` : `${mode || ''}`
               }.js`,
               format: 'javascript/esm',
+              filter: token => token.filePath === file,
+            },
+          ],
+        },
+        'grommet/cjs': {
+          transformGroup: 'js/w3c',
+          buildPath: GROMMET_CJS_DIR,
+          prefix: PREFIX,
+          files: [
+            {
+              destination: `color.${
+                theme ? `${theme}-${mode}` : `${mode || ''}`
+              }.cjs`,
+              format: 'javascript/commonJs',
               filter: token => token.filePath === file,
             },
           ],
@@ -280,7 +319,7 @@ try {
 const dimensionFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('dimension') && !file.includes('v1')
+    file.includes('dimension') && !file.includes('v0')
       ? `${TOKENS_DIR}/semantic/${file}`
       : undefined,
   )
@@ -308,6 +347,20 @@ try {
                 mode !== 'default' ? `${mode}.` : ''
               }js`,
               format: 'javascript/esm',
+              filter: token => token.filePath === file,
+            },
+          ],
+        },
+        'grommet/cjs': {
+          transformGroup: 'js/w3c',
+          buildPath: GROMMET_CJS_DIR,
+          prefix: PREFIX,
+          files: [
+            {
+              destination: `dimension.${
+                mode !== 'default' ? `${mode}.` : ''
+              }cjs`,
+              format: 'javascript/commonJs',
               filter: token => token.filePath === file,
             },
           ],
@@ -407,6 +460,20 @@ try {
               token.filePath.includes(`${TOKENS_DIR}/component/`) &&
               !token.path.includes(FIGMA_PREFIX),
             format: 'esmGrommetRefs',
+          },
+        ],
+      },
+      'grommet/cjs': {
+        transformGroup: 'js/w3c',
+        buildPath: GROMMET_CJS_DIR,
+        prefix: PREFIX,
+        files: [
+          {
+            destination: 'components.cjs',
+            filter: token =>
+              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+              !token.path.includes(FIGMA_PREFIX),
+            format: 'commonJsGrommetRefs',
           },
         ],
       },
@@ -544,6 +611,32 @@ fs.readdirSync(GROMMET_DIR)
       grommetCollections.push(mode);
     }
   });
+
+/** -----------------------------------
+ * Create Grommet CommonJS index.js
+ * ----------------------------------- */
+const grommetCjsCollections = [];
+fs.readdirSync(GROMMET_CJS_DIR)
+  .filter(file => file !== 'index.cjs')
+  .forEach(file => {
+    if (file.toLowerCase().endsWith('.cjs')) {
+      const filename = file.replace('.cjs', '');
+      const parts = filename.split('.');
+      let mode = parts[1];
+      // special case for base.js and components
+      if (mode === 'default' || !mode) [mode] = parts;
+      fs.appendFileSync(
+        `${GROMMET_CJS_DIR}index.cjs`,
+        `const ${mode} = require('./${file}');\n`,
+      );
+      grommetCjsCollections.push(mode);
+    }
+  });
+
+const grommetCjsOutput = `\nmodule.exports = { ${grommetCjsCollections.map(
+  collection => collection,
+)} };\n`;
+fs.appendFileSync(`${GROMMET_CJS_DIR}index.cjs`, grommetCjsOutput);
 
 /** -----------------------------------
  * Create docs index.js
