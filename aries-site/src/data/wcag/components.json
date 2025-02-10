@@ -1,0 +1,52 @@
+[
+  {
+    "anchor": [
+      { "rule": "1.4.1", "status": "passed" },
+      { "rule": "1.4.3", "status": "passed" },
+      { "rule": "1.4.6", "status": "passed" },
+      { "rule": "2.1.1", "status": "passed" },
+      { "rule": "2.1.2", "status": "passed" },
+      { "rule": "2.1.3", "status": "passed" },
+      { "rule": "2.4.4", "status": "conditional" },
+      { "rule": "2.4.7", "status": "passed" },
+      { "rule": "2.4.9", "status": "conditional" },
+      { "rule": "2.4.13", "status": "failed" },
+      { "rule": "3.2.1", "status": "passed" },
+      { "rule": "4.1.2", "status": "passed" }
+    ],
+    "button": [
+      { "rule": "1.1.1", "status": "conditional" },
+      { "rule": "1.3.1", "status": "conditional" },
+      { "rule": "1.3.3", "status": "conditional" },
+      { "rule": "1.4.3", "status": "exceptions" },
+      { "rule": "1.4.6", "status": "failed" },
+      { "rule": "2.1.1", "status": "passed" },
+      { "rule": "2.1.2", "status": "passed" },
+      { "rule": "2.1.3", "status": "passed" },
+      { "rule": "2.4.7", "status": "passed" },
+      { "rule": "2.4.13", "status": "failed" },
+      { "rule": "2.5.3", "status": "conditional" },
+      { "rule": "2.5.5", "status": "failed" },
+      { "rule": "2.5.8", "status": "passed" },
+      { "rule": "4.1.2", "status": "conditional" },
+      { "rule": "4.1.3", "status": "passed" }
+    ],
+    "menu": [
+      { "rule": "1.4.3", "status": "passed" },
+      { "rule": "1.4.6", "status": "passed" },
+      { "rule": "1.4.11", "status": "passed" },
+      { "rule": "1.4.13", "status": "passed" },
+      { "rule": "2.1.1", "status": "passed" },
+      { "rule": "2.1.2", "status": "passed" },
+      { "rule": "2.4.4", "status": "conditional" },
+      { "rule": "2.4.7", "status": "failed" },
+      { "rule": "2.4.13", "status": "failed" },
+      { "rule": "2.5.5", "status": "failed" },
+      { "rule": "2.5.8", "status": "passed" },
+      { "rule": "3.2.1", "status": "passed" },
+      { "rule": "3.2.4", "status": "conditional" },
+      { "rule": "3.2.5", "status": "passed" },
+      { "rule": "4.1.2", "status": "passed" }
+    ]
+  }
+]

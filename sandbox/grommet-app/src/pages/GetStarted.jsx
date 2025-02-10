@@ -12,7 +12,7 @@ export const GetStarted = ({ kind, heading }) => {
   if (kind === 'next')
     kindStyles = {
       container: {
-        background: { color: 'background-primary-weak-default' },
+        background: { color: 'background-primary-weak' },
         pad: 'xsmall',
         border: true,
         round: 'xsmall',
@@ -45,7 +45,7 @@ export const GetStarted = ({ kind, heading }) => {
               <Box {...kindStyles.container}>
                 <AppsRounded
                   size="xxlarge"
-                  color="icon-primary"
+                  color="brand"
                   {...kindStyles.icon}
                 />
               </Box>

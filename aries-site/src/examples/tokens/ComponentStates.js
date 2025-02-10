@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { global, components } from 'hpe-design-tokens';
+// eslint-disable-next-line import/no-unresolved
+import { global, components } from 'hpe-design-tokens/grommet';
 import { Box, Button, FormField, TextInput } from 'grommet';
 
 const HoverButton = styled(Button)`

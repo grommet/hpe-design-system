@@ -1,8 +1,11 @@
 import { usesReferences, getReferences } from 'style-dictionary/utils';
-import { isReference } from '../../utils.js';
+import { excludedNameParts, isReference } from '../../utils.js';
 
 const tokenToGrommetRef = (value: string): string => {
-  const temp: string[] = value.slice(1, -1).split('.');
+  const temp: string[] = value
+    .slice(1, -1)
+    .split('.')
+    .filter(part => !excludedNameParts.includes(part));
   temp.shift();
   return temp.join('-');
 };
@@ -27,6 +30,9 @@ export const getGrommetValue = (token: any, dictionary: any) => {
       width: token.$value.width,
       style: token.$value.style,
     };
+  } else if (token.$type === 'shadow' && isReference(originalValue)) {
+    // '{shadow.small}' --> 'small'
+    result = tokenToGrommetRef(originalValue);
   } else if (
     token.$type !== 'shadow' &&
     token.$type !== 'gradient' && // shadow and gradient are already transformed
