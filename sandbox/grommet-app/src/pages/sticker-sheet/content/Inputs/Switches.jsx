@@ -10,6 +10,7 @@ export const Switches = () => {
         <CheckBox label="Switch label" toggle />
         <CheckBox label="Switch label" toggle checked />
         <CheckBox label="Switch label" toggle disabled />
+        <CheckBox label="Switch label" toggle disabled checked />
       </Compare>
     </ContentPane>
   );

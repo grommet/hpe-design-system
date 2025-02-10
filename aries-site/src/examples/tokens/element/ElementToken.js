@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, CheckBox, Text } from 'grommet';
-import { components } from 'hpe-design-tokens';
+// eslint-disable-next-line import/no-unresolved
+import { components } from 'hpe-design-tokens/grommet';
 import { Add } from 'grommet-icons';
 
 export const ElementToken = ({ token }) => {
