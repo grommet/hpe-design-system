@@ -1,6 +1,7 @@
 import { StyleDictionary } from 'style-dictionary-utils';
 import {
   commonJs,
+  commonJsGrommetRefs,
   cssColorModes,
   cssBreakpoints,
   esmGrommetRefs,
@@ -28,6 +29,10 @@ export const HPEStyleDictionary = new StyleDictionary({
 HPEStyleDictionary.registerFormat({
   name: 'javascript/commonJs',
   format: commonJs,
+});
+HPEStyleDictionary.registerFormat({
+  name: `commonJsGrommetRefs`,
+  format: commonJsGrommetRefs,
 });
 HPEStyleDictionary.registerFormat({
   name: 'javascript/esm',

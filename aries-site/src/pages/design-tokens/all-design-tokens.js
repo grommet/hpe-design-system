@@ -23,7 +23,6 @@ import { Close, Folder, Menu } from 'grommet-icons';
 import { ThemeContext } from 'styled-components';
 // eslint-disable-next-line import/no-unresolved
 import * as tokens from 'hpe-design-tokens/docs';
-import { BetaNotification } from '../../examples';
 
 const structuredTokens = {
   primitive: {},
@@ -50,7 +49,7 @@ Object.keys(tokens).forEach(mode => {
     if (!('modes' in structuredTokens[level][category][token]))
       structuredTokens[level][category][token].modes = {};
 
-    if (level === 'semantic' && mode !== 'global') {
+    if (level === 'semantic' && mode !== 'global' && mode !== 'dimension') {
       structuredTokens[level][category][token].modes[mode] = currentToken;
     } else
       structuredTokens[level][category][token].modes.default = currentToken;
@@ -200,7 +199,6 @@ const AllTokens = () => {
 
   return (
     <Page kind="full">
-      <BetaNotification />
       <Box direction="row" gap="large">
         {['large', 'xlarge'].includes(breakpoint) ? (
           <Box
