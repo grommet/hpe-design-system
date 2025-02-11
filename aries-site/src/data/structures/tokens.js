@@ -39,6 +39,24 @@ export const tokens = [
     tags: [],
   },
   {
+    name: 'Element',
+    type: 'Getting started',
+    description:
+      'Element tokens provide standardized sizing for core UI building blocks to ensure alignment in layouts.',
+    preview: {
+      component: () => <Text size="large">hpe.element.medium.paddingY</Text>,
+    },
+    seoDescription:
+      'Element tokens provide standardized sizing for core UI building blocks to ensure alignment in layouts.',
+    sections: [],
+    relatedContent: [
+      'All design tokens',
+      'Using design tokens in code',
+      'Using design tokens in Figma',
+    ],
+    tags: [],
+  },
+  {
     name: 'Using design tokens in code',
     type: 'Building with tokens',
     description: 'How to map design tokens to code.',
