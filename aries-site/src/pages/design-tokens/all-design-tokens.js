@@ -13,7 +13,6 @@ import {
 } from 'grommet';
 import { Close, Folder, Menu } from 'grommet-icons';
 import { ThemeContext } from 'styled-components';
-import { BetaNotification } from '../../examples';
 import {
   structuredTokens,
   DesignTokenContext,
@@ -104,7 +103,6 @@ const AllTokens = () => {
   return (
     <DesignTokenContext.Provider value={contextValue}>
       <Page kind="full">
-        <BetaNotification />
         <Box direction="row" gap="large">
           {['large', 'xlarge'].includes(breakpoint) ? (
             <Box
