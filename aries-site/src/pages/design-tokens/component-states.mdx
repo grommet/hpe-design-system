@@ -38,7 +38,7 @@ Interaction states use the CSS pseudo-class terminology (hover, focus, active). 
 
 ### Application state naming
 
-Some application states correspond directly to CSS pseudo-classes (e.g., disabled), while others are named more generically to apply across components (e.g., “selected” can refer to a selected dropdown item or checked checkbox).
+Some application states correspond directly to CSS pseudo-classes (e.g., disabled), while others are named more generically to apply across components (e.g., “selected” can refer to a selected dropdown option or checked checkbox).
 
 Application states that have use cases within the design system are represented in the table below.
 
@@ -55,15 +55,15 @@ If two application states exist at once, the component should be styled based on
   margin={{ bottom: 'medium' }}
 />
 
-|               |                  rest                   |                  hover                  |                  focus                  |                 active                  | Notes                     |
-| ------------- | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: | ------------------------- |
-| none          | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | --                        |
-| error         | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | --                        |
-| disabled      | <span><Checkmark size="small" /></span> |                   --                    |                   --                    |                   --                    | --                        |
-| readonly      | <span><Checkmark size="small" /></span> |                   --                    | <span><Checkmark size="small" /></span> |                   --                    | --                        |
-| selected      | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | --                        |
-| indeterminate | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | Only applies to checkbox. |
-| pinned        | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | <span><Checkmark size="small" /></span> | --                        |
+|               |                           rest                           |                          hover                           |                          focus                           |                          active                          | Notes                     |
+| ------------- | :------------------------------------------------------: | :------------------------------------------------------: | :------------------------------------------------------: | :------------------------------------------------------: | ------------------------- |
+| none          | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | --                        |
+| error         | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | --                        |
+| disabled      | <span><Checkmark a11yTitle="true" size="small" /></span> |                            --                            |                            --                            |                            --                            | --                        |
+| readonly      | <span><Checkmark a11yTitle="true" size="small" /></span> |                            --                            | <span><Checkmark a11yTitle="true" size="small" /></span> |                            --                            | --                        |
+| selected      | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | --                        |
+| indeterminate | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | Only applies to checkbox. |
+| pinned        | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | --                        |
 
 ## Component-specific tokens
 
