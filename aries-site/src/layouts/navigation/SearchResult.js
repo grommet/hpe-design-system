@@ -10,7 +10,7 @@ import { NotificationTag } from '../content/NotificationTag';
 import { ViewContext } from '../../pages/_app';
 
 export const SearchResult = ({ query, result }) => {
-  const hub = result.url && result.url.split('/')[1];
+  const hub = result.url && result.url.split('/')[1].replaceAll('-', ' ');
   const parent = getPageDetails(hub);
 
   const { contentHistory } = useContext(ViewContext);
