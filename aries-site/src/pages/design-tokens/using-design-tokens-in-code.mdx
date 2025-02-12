@@ -126,6 +126,7 @@ const tokenToCssPropertyMap = {
   // ... this is a demo, there may be a few others to map
 };
 
+// Helper function to create empty nested object for each class name
 const createNestedObject = (className, obj) => {
   if (!(className in obj)) {
     [className].reduce(function (o, s) {
