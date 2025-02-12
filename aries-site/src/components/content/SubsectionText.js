@@ -45,11 +45,18 @@ export const SubsectionText = ({
         alignSelf="start"
         border={{ color: AccessibilityColorMap(accessibility) }}
         value={accessibility}
-        onClick={() =>
-          document
-            .getElementById('wcag-compliance')
-            .scrollIntoView({ behavior: 'auto' })
-        }
+        onClick={() => {
+          // Scroll to the section 'wcag-compliance'
+          const section = document.getElementById('wcag-compliance');
+          if (section) {
+            section.scrollIntoView({ behavior: 'auto' });
+          }
+
+          const button = section ? section.querySelector('button') : null;
+          if (button) {
+            button.focus();
+          }
+        }}
       />
     )}
   </StyledBox>
