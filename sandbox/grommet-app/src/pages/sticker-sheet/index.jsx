@@ -3,15 +3,16 @@ import React, { useContext, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Anchor,
-  Box,
-  CheckBox,
+  // Box,
+  // CheckBox,
   Grommet,
   Page,
   PageContent,
   PageHeader,
+  Notification,
   ThemeContext,
-  Select,
-  FormField,
+  // Select,
+  // FormField,
   Tab,
   Tabs,
 } from 'grommet';
@@ -68,8 +69,14 @@ const textSizes = [
 ];
 
 const StickerSheet = () => {
-  const [mode, setMode] = React.useState('Compare diffs');
-  const [direction, setDirection] = React.useState('row');
+  const [
+    mode,
+    // setMode
+  ] = React.useState('Compare diffs');
+  const [
+    direction,
+    // setDirection
+  ] = React.useState('row');
   const [activeIndex, setActiveIndex] = React.useState(
     Number.parseInt(sessionStorage.getItem('activeIndex'), 10) || 0,
   );
@@ -101,34 +108,39 @@ const StickerSheet = () => {
               parent={
                 <Anchor as={Link} to="/" label="Home" icon={<Previous />} />
               }
-              actions={
-                <Box direction="row" gap="xsmall">
-                  <FormField label="Layout">
-                    <CheckBox
-                      label="View side-by-side"
-                      onChange={e =>
-                        setDirection(e.target.checked ? 'row' : '')
-                      }
-                      checked={direction === 'row' ? true : false}
-                      toggle
-                    />
-                  </FormField>
-                  <FormField
-                    label="View mode"
-                    htmlFor="view-mode__input"
-                    name="view-mode"
-                  >
-                    <Select
-                      id="view-mode"
-                      name="view-mode"
-                      options={['v5', 'next', 'Compare diffs']}
-                      value={mode}
-                      onChange={({ option }) => setMode(option)}
-                    />
-                  </FormField>
-                </Box>
-              }
+              // hide actions from demo deploy
+              // actions={
+              //   <Box direction="row" gap="xsmall">
+              //     <FormField label="Layout">
+              //       <CheckBox
+              //         label="View side-by-side"
+              //         onChange={e =>
+              //           setDirection(e.target.checked ? 'row' : '')
+              //         }
+              //         checked={direction === 'row' ? true : false}
+              //         toggle
+              //       />
+              //     </FormField>
+              //     <FormField
+              //       label="View mode"
+              //       htmlFor="view-mode__input"
+              //       name="view-mode"
+              //     >
+              //       <Select
+              //         id="view-mode"
+              //         name="view-mode"
+              //         options={['v5', 'next', 'Compare diffs']}
+              //         value={mode}
+              //         onChange={({ option }) => setMode(option)}
+              //       />
+              //     </FormField>
+              //   </Box>
+              // }
               width="100%"
+            />
+            <Notification
+              status="info"
+              message="This page provides a comparison between the existing and updated HPE theme. For each component, the version on the left is the existing styling and the verison on the right is the new styling."
             />
             <Tabs
               activeIndex={activeIndex}
