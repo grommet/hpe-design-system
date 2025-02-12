@@ -532,7 +532,7 @@ export default {
   "hpe.color.background.warning": {
     "$type": "color",
     "$value": "rgba(254, 201, 1, 0.12)",
-    "$description": "Use for borders communicating warning or caution.",
+    "$description": "Use for backgrounds communicating warning or caution.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -548,7 +548,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.yellow.400-Opacity12}",
-      "$description": "Use for borders communicating warning or caution.",
+      "$description": "Use for backgrounds communicating warning or caution.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1488,7 +1488,7 @@ export default {
   "hpe.color.border.warning": {
     "$type": "color",
     "$value": "rgba(255, 255, 255, 0.36)",
-    "$description": "Use for backgrounds communicating warning or caution.",
+    "$description": "Use for borders communicating warning or caution.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1505,7 +1505,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.border.default.REST}",
-      "$description": "Use for backgrounds communicating warning or caution.",
+      "$description": "Use for borders communicating warning or caution.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,

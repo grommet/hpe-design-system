@@ -18,7 +18,7 @@
   --hpe-color-background-disabled: var(--hpe-base-color-white-opacity7); /* Disabled background color. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity12); /* The background color for the overlay that sits behind modal layers. */
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6); /* Use for backgrounds communicating an unknown status. */
-  --hpe-color-background-warning: var(--hpe-base-color-yellow-400-Opacity12); /* Use for borders communicating warning or caution. */
+  --hpe-color-background-warning: var(--hpe-base-color-yellow-400-Opacity12); /* Use for backgrounds communicating warning or caution. */
   --hpe-color-background-ok: var(--hpe-base-color-green-500-Opacity30); /* Use for backgrounds communicating success. */
   --hpe-color-background-info: var(--hpe-base-color-blue-400-Opacity12); /* Use for backgrounds communicating neutral information. */
   --hpe-color-background-critical: var(--hpe-base-color-red-800-Opacity30); /* Use for backgrounds communicating errors or danger. */
@@ -77,7 +77,7 @@
   --hpe-color-border-critical: var(--hpe-color-foreground-critical); /* Use for borders communicating errors or danger. */
   --hpe-color-border-info: var(--hpe-color-border-default); /* Use for borders communicating neutral information. */
   --hpe-color-border-ok: var(--hpe-color-border-default); /* Use for borders communicating success. */
-  --hpe-color-border-warning: var(--hpe-color-border-default); /* Use for backgrounds communicating warning or caution. */
+  --hpe-color-border-warning: var(--hpe-color-border-default); /* Use for borders communicating warning or caution. */
   --hpe-color-border-unknown: var(--hpe-color-border-default); /* Use for borders communicating an unknown status. */
   --hpe-color-text-placeholder: var(--hpe-color-text-weak); /* Placeholder text color. */
   --hpe-color-text-critical: var(--hpe-color-foreground-critical); /* Use for text on standard backgrounds communicating errors or danger. */
@@ -124,7 +124,7 @@
   --hpe-color-background-disabled: var(--hpe-base-color-white-opacity7); /* Disabled background color. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity12); /* The background color for the overlay that sits behind modal layers. */
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6); /* Use for backgrounds communicating an unknown status. */
-  --hpe-color-background-warning: var(--hpe-base-color-yellow-400-Opacity12); /* Use for borders communicating warning or caution. */
+  --hpe-color-background-warning: var(--hpe-base-color-yellow-400-Opacity12); /* Use for backgrounds communicating warning or caution. */
   --hpe-color-background-ok: var(--hpe-base-color-green-500-Opacity30); /* Use for backgrounds communicating success. */
   --hpe-color-background-info: var(--hpe-base-color-blue-400-Opacity12); /* Use for backgrounds communicating neutral information. */
   --hpe-color-background-critical: var(--hpe-base-color-red-800-Opacity30); /* Use for backgrounds communicating errors or danger. */
@@ -183,7 +183,7 @@
   --hpe-color-border-critical: var(--hpe-color-foreground-critical); /* Use for borders communicating errors or danger. */
   --hpe-color-border-info: var(--hpe-color-border-default); /* Use for borders communicating neutral information. */
   --hpe-color-border-ok: var(--hpe-color-border-default); /* Use for borders communicating success. */
-  --hpe-color-border-warning: var(--hpe-color-border-default); /* Use for backgrounds communicating warning or caution. */
+  --hpe-color-border-warning: var(--hpe-color-border-default); /* Use for borders communicating warning or caution. */
   --hpe-color-border-unknown: var(--hpe-color-border-default); /* Use for borders communicating an unknown status. */
   --hpe-color-text-placeholder: var(--hpe-color-text-weak); /* Placeholder text color. */
   --hpe-color-text-critical: var(--hpe-color-foreground-critical); /* Use for text on standard backgrounds communicating errors or danger. */
