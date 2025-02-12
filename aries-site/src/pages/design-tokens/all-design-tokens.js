@@ -38,15 +38,17 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
       />
       <Collapsible open={open}>
         <Box pad={{ left: 'medium' }} flex={false}>
-          {Object.keys(tokensObj[collection]).map(category => (
-            <Button
-              key={category}
-              align="start"
-              label={category}
-              active={active === `${collection}.${category}`}
-              onClick={() => setActive(`${collection}.${category}`)}
-            />
-          ))}
+          {Object.keys(tokensObj[collection])
+            .sort()
+            .map(category => (
+              <Button
+                key={category}
+                align="start"
+                label={category}
+                active={active === `${collection}.${category}`}
+                onClick={() => setActive(`${collection}.${category}`)}
+              />
+            ))}
         </Box>
       </Collapsible>
     </Box>
