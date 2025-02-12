@@ -5,6 +5,8 @@ import { ContentPane } from '../../layouts';
 
 Font stack design tokens are a list of fonts that are used in the design system. The first font in the list is the primary font, and the rest are fallback fonts.
 
+To learn more about options for how fonts can be loaded, read [font delivery documentation](/foundation/typography#font-delivery).
+
 <ContentPane>
   <DesignTokensTable active="semantic.fontStack" />
 </ContentPane>
@@ -19,13 +21,13 @@ Breakpoint design tokens can be used for logic pertaining to layout adjustments 
 
 ### Built-in breakpoint changes
 
-The values of semantic [spacing]() and [heading]() design tokens step down in size at the `small` breakpoint. These values shifts are built in to the system.
+The values of semantic spacing and heading design tokens step down in size at the `small` breakpoint. These value shifts are built in to the system.
 
 ## fontWeight
 
 Font weight design tokens are used to define the weight of text elements. Each [text size]() has a default font weight, but this can be overridden by the `fontWeight` design tokens to add or remove emphasis based on the use case.
 
-Our system uses "bold" sparingly because it can hurt readability at smaller text sizes and instead relies on the "medium" font weight to create visual emphasis.
+The system uses `bold` sparingly because it can hurt readability at smaller text sizes and instead relies on the `medium` font weight to create visual emphasis.
 
 <ContentPane>
   <DesignTokensTable active="semantic.fontWeight" />
