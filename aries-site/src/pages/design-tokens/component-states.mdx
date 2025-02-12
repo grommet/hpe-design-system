@@ -1,0 +1,70 @@
+import { Checkmark } from 'grommet-icons';
+import { Notification } from 'grommet';
+import { Example } from '../../layouts';
+import { ComponentStates } from '../../examples';
+
+<Example>
+  <ComponentStates />
+</Example>
+
+State gives confidence that an interaction has been registered, that a component can or cannot be interacted with, or that the system is in a particular state.
+
+Design tokens represent these states in a systematic, scalable way to ensure:
+
+- Predictable mapping of design tokens to components
+- Clarity for how the system should expand if new states are added
+
+## Interaction vs application state
+
+A component should be styled based on combination of application state and interaction state.
+
+| State type      | Description                                                                    |
+| --------------- | ------------------------------------------------------------------------------ |
+| **Interaction** | Direct result of user interaction (e.g., the user hovered over a button).      |
+| **Application** | Result of the system (e.g., a input has been validated and there is an error). |
+
+<Notification
+  status="info"
+  message="Not all state combinations are valid (e.g., a component cannot be disabled and focused), and not all state combinations apply to all components (e.g., a button cannot have a validation error)."
+  margin={{ bottom: 'medium' }}
+  alignSelf="start"
+/>
+
+See [validation state combinations](#supported-states) in the table below.
+
+### Interaction state naming
+
+Interaction states use the CSS pseudo-class terminology (hover, focus, active). For the “resting state” of the component, the term “rest” is used.
+
+### Application state naming
+
+Some application states correspond directly to CSS pseudo-classes (e.g., disabled), while others are named more generically to apply across components (e.g., “selected” can refer to a selected dropdown option or checked checkbox).
+
+Application states that have use cases within the design system are represented in the table below.
+
+## Supported states
+
+In this table, “interaction” states are represented as column headings and “application” states are the rows. Checked cells represent valid combinations.
+
+If two application states exist at once, the component should be styled based on the top-most row in the table. For example, if a component is both “readonly” and "selected", it should be styled as "readonly".
+
+<Notification
+  status="info"
+  message="Active and focus state does not currently have design tokens, but they are included in this model to demonstrate how the system would extend if styles for this state are added. For focus state, use the global focusIndicator tokens."
+  width={{ max: 'large' }}
+  margin={{ bottom: 'medium' }}
+/>
+
+|               |                           rest                           |                          hover                           |                          focus                           |                          active                          | Notes                     |
+| ------------- | :------------------------------------------------------: | :------------------------------------------------------: | :------------------------------------------------------: | :------------------------------------------------------: | ------------------------- |
+| none          | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | --                        |
+| error         | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | --                        |
+| disabled      | <span><Checkmark a11yTitle="true" size="small" /></span> |                            --                            |                            --                            |                            --                            | --                        |
+| readonly      | <span><Checkmark a11yTitle="true" size="small" /></span> |                            --                            | <span><Checkmark a11yTitle="true" size="small" /></span> |                            --                            | --                        |
+| selected      | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | --                        |
+| indeterminate | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | Only applies to checkbox. |
+| pinned        | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | <span><Checkmark a11yTitle="true" size="small" /></span> | --                        |
+
+## Component-specific tokens
+
+For each component with [component-specific tokens](/design-tokens/how-to-read-design-tokens#component), the applicable state combinations are provided as design tokens.
