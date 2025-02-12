@@ -67,6 +67,29 @@ const Nav = ({ active, setActive, tokens: tokensObj }) => {
   ));
 };
 
+const NavPane = ({ children }) => {
+  const theme = useContext(ThemeContext);
+  return (
+    <Box
+      flex={false}
+      style={{
+        position: 'sticky',
+        top: theme.global.edgeSize.medium,
+      }}
+      height="130vh"
+    >
+      <Box
+        background="background-contrast"
+        pad={{ horizontal: 'small', vertical: 'medium' }}
+        round="medium"
+        width="small"
+      >
+        {children}
+      </Box>
+    </Box>
+  );
+};
+
 const NavLayer = ({ children, onClose }) => {
   return (
     <Layer onEsc={onClose} full>
@@ -86,7 +109,6 @@ const NavLayer = ({ children, onClose }) => {
 const AllTokens = () => {
   const [openLayer, setOpenLayer] = useState(false);
   const breakpoint = useContext(ResponsiveContext);
-  const theme = useContext(ThemeContext);
   const {
     data,
     setData,
@@ -119,19 +141,6 @@ const AllTokens = () => {
     <Nav tokens={structuredTokens} active={active} setActive={setActive} />
   );
 
-  const menuStyle = {
-    flex: false,
-    style: {
-      position: 'sticky',
-      top: theme.global.edgeSize.medium,
-    },
-    height: '130vh',
-    background: 'background-contrast',
-    pad: { horizontal: 'small', vertical: 'medium' },
-    round: 'medium',
-    width: 'small',
-  };
-
   const activeCollection = active
     .split('.')
     .map(
@@ -144,7 +153,7 @@ const AllTokens = () => {
       <Page>
         <Box direction="row" gap="large">
           {['large', 'xlarge'].includes(breakpoint) ? (
-            <Box {...menuStyle}>{navContent}</Box>
+            <NavPane>{navContent}</NavPane>
           ) : undefined}
           <PageContent pad="none">
             <Box pad="medium" round="medium" background="background-front">
