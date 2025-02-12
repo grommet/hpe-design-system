@@ -66,6 +66,22 @@ const Nav = ({ active, setActive, tokens: tokensObj }) => {
   ));
 };
 
+const NavLayer = ({ children, onClose }) => {
+  return (
+    <Layer onEsc={onClose} full>
+      <Box pad="medium" gap="small" overflow="auto">
+        <Button
+          icon={<Close />}
+          a11yTitle="Close design token navigation."
+          alignSelf="end"
+          onClick={onClose}
+        />
+        {children}
+      </Box>
+    </Layer>
+  );
+};
+
 const AllTokens = () => {
   const [openLayer, setOpenLayer] = useState(false);
   const breakpoint = useContext(ResponsiveContext);
@@ -115,6 +131,13 @@ const AllTokens = () => {
     width: 'small',
   };
 
+  const activeCollection = active
+    .split('.')
+    .map(
+      (part, index) =>
+        `${part} ${index < active.split('.').length - 1 ? '/ ' : ''}`,
+    );
+
   return (
     <DesignTokenContext.Provider value={contextValue}>
       <Page kind="full">
@@ -134,28 +157,8 @@ const AllTokens = () => {
                   />
                 ) : undefined}
                 <Heading level={2} margin="none" id="token-table-heading">
-                  {active
-                    .split('.')
-                    .map(
-                      (part, index) =>
-                        `${part} ${
-                          index < active.split('.').length - 1 ? '/ ' : ''
-                        }`,
-                    )}
+                  {activeCollection}
                 </Heading>
-                {openLayer ? (
-                  <Layer onEsc={() => setOpenLayer(false)} full>
-                    <Box pad="medium" gap="small" overflow="auto">
-                      <Button
-                        icon={<Close />}
-                        a11yTitle="Close design token navigation."
-                        alignSelf="end"
-                        onClick={() => setOpenLayer(false)}
-                      />
-                      {navContent}
-                    </Box>
-                  </Layer>
-                ) : undefined}
               </Box>
               {active.includes('primitive') ? (
                 <Notification
@@ -174,6 +177,11 @@ const AllTokens = () => {
               />
             </Box>
           </PageContent>
+          {openLayer && (
+            <NavLayer onClose={() => setOpenLayer(false)}>
+              {navContent}
+            </NavLayer>
+          )}
         </Box>
       </Page>
     </DesignTokenContext.Provider>
