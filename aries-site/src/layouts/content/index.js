@@ -3,6 +3,7 @@ export * from './Annotation';
 export * from './ButtonRow';
 export * from './ColorRow';
 export * from './ContentSection';
+export * from './ContentPane';
 export * from './DocsPageHeader';
 export * from './Example';
 export * from './FeedbackSection';

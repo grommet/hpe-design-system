@@ -9,15 +9,15 @@ import { Example } from '../../layouts';
 
 Our typography is about more than words. It’s an integral part of our personality and design. When we’re making a statement, we want our visual language to be clear, recognized and understood.
 
-  <Button
-    href="https://www.figma.com/design/oJhw3JqMemtbwWjlLPWW5O/HPE-Typography-Styles?m=auto&node-id=0-1&t=FGQxx1dTsnYSBi3K-1"
-    icon={<Figma color="plain" />}
-    label="Open in Figma"
-    target="_blank"
-    secondary
-    rel="noreferrer noopener"
-    alignSelf="start"
-  />
+<Button
+  href="https://www.figma.com/design/oJhw3JqMemtbwWjlLPWW5O/HPE-Typography-Styles?m=auto&node-id=0-1&t=FGQxx1dTsnYSBi3K-1"
+  icon={<Figma color="plain" />}
+  label="Open in Figma"
+  target="_blank"
+  secondary
+  rel="noreferrer noopener"
+  alignSelf="start"
+/>
 
 ## MetricHPE styles
 
@@ -98,10 +98,16 @@ When implementing heading levels, always use the correct semantic heading level.
   <TextSizeExample />
 </Example>
 
-## Fonts for offline usage
+## Font delivery
 
-In rare cases where a product needs to reference the MetricHPE fonts but users
-don't have internet access from their browser or maybe a designer needs the fonts
-locally, you can download the fonts for local use.
+In most cases, teams should point to the web-hosted version of the MetricHPE fonts to ensure users always have the latest version.
+
+For Grommet-based teams, these CDN URLs are already included in grommet-theme-hpe.
+
+For non-Grommet teams, the appropriate CDN URLs and font-face definitions can be found in [grommet-theme-hpe](https://github.com/grommet/grommet-theme-hpe/blob/master/src/js/themes/hpe.js) by searching for `@font-face`.
+
+### Fonts for offline usage
+
+In rare cases where a product needs to reference the MetricHPE fonts but users don't have internet access from their browser or maybe a designer needs the fonts locally, you can download the fonts for local use.
 
 MetricHPE fonts can be downloaded from Brand Central in [OTF/Vector and Web](https://brandcentral.hpe.com/brand-central/content/font#primary-external-font-metrichpe) formats.
