@@ -46,11 +46,8 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
     <Data data={currentData} pad={{ vertical: 'medium' }}>
       {toolbar ? (
         <>
-          <Toolbar
-            align="end"
-            margin={{ bottom: currentData?.length <= 10 ? 'medium' : 'none' }}
-          >
-            {currentData?.length > 10 ? <DataSearch /> : undefined}
+          <Toolbar align="end">
+            <DataSearch />
             {modeOptions?.length > 1 ? (
               // eslint-disable-next-line grommet/formfield-htmlfor-id
               <FormField
@@ -78,7 +75,7 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
               </FormField>
             ) : undefined}
           </Toolbar>
-          {currentData?.length > 10 ? <DataSummary /> : undefined}
+          <DataSummary />
         </>
       ) : undefined}
       <Box
@@ -106,7 +103,8 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
                   return <DimensionPreview datum={datum} />;
                 if (
                   datum.token.includes('radius') ||
-                  datum.token.includes('borderRadius')
+                  datum.token.includes('borderRadius') ||
+                  /border.*Radius/.test(datum.token)
                 )
                   return <RadiusPreview datum={datum} />;
                 if (datum.token.includes('border'))
@@ -139,10 +137,8 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
                   >
                     <Text size="xsmall">{datum.token}</Text>
                   </Box>
-                  {/* <Button icon={<Copy />} size="small" /> */}
                 </Box>
               ),
-              //   size: 'small',
             },
             {
               property: 'description',
