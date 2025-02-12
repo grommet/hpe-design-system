@@ -85,10 +85,6 @@ const AllTokens = () => {
       setOpenLayer(false);
   }, [breakpoint, openLayer]);
 
-  const navContent = (
-    <Nav tokens={structuredTokens} active={active} setActive={setActive} />
-  );
-
   const contextValue = useMemo(
     () => ({
       data,
@@ -102,27 +98,29 @@ const AllTokens = () => {
     [data, setData, active, setActive, selectedMode, setSelectedMode, modes],
   );
 
+  const navContent = (
+    <Nav tokens={structuredTokens} active={active} setActive={setActive} />
+  );
+
+  const menuStyle = {
+    flex: false,
+    style: {
+      position: 'sticky',
+      top: theme.global.edgeSize.medium,
+    },
+    height: '130vh',
+    background: 'background-contrast',
+    pad: { horizontal: 'small', vertical: 'medium' },
+    round: 'medium',
+    width: 'small',
+  };
+
   return (
     <DesignTokenContext.Provider value={contextValue}>
       <Page kind="full">
         <Box direction="row" gap="large">
           {['large', 'xlarge'].includes(breakpoint) ? (
-            <Box
-              width="medium"
-              pad="medium"
-              border={{ color: 'border-weak' }}
-              round="medium"
-              flex={false}
-              style={{
-                position: 'sticky',
-                top: theme.global.edgeSize.medium,
-                bottom: 0,
-              }}
-              height="100vh"
-              overflow="auto"
-            >
-              {navContent}
-            </Box>
+            <Box {...menuStyle}>{navContent}</Box>
           ) : undefined}
           <PageContent pad="none">
             <Box pad="medium" round="medium" background="background-front">
