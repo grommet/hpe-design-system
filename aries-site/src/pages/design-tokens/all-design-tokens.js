@@ -27,7 +27,7 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
   );
 
   return (
-    <Box flex={false}>
+    <Box flex={false} gap="xxsmall">
       <Button
         icon={<Folder aria-hidden="true" />}
         a11yTitle={`${collection} token directory`}
@@ -37,7 +37,7 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
         onClick={() => setOpen(!open)}
       />
       <Collapsible open={open}>
-        <Box pad={{ left: 'medium' }} flex={false}>
+        <Box pad={{ left: 'medium' }} flex={false} gap="hair">
           {Object.keys(tokensObj[collection])
             .sort()
             .map(category => (
@@ -54,6 +54,7 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
     </Box>
   );
 };
+
 const Nav = ({ active, setActive, tokens: tokensObj }) => {
   return Object.keys(tokensObj).map(collection => (
     <NavSection
@@ -140,7 +141,7 @@ const AllTokens = () => {
 
   return (
     <DesignTokenContext.Provider value={contextValue}>
-      <Page kind="full">
+      <Page>
         <Box direction="row" gap="large">
           {['large', 'xlarge'].includes(breakpoint) ? (
             <Box {...menuStyle}>{navContent}</Box>
