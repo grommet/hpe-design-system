@@ -3,9 +3,9 @@
 
 
 "@adobe/css-tools@^4.3.0-rc.1", "@adobe/css-tools@^4.4.0":
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.4.1.tgz#2447a230bfe072c1659e6815129c03cf170710e3"
-  integrity sha512-12WGKBQzjUAI4ayyF4IAtfw2QR/IDoqk6jTddXDhtYTJF9ASmoE1zst7cVtP0aL/F1jUJL5r+JxKXKEgHNbEUQ==
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.4.2.tgz#c836b1bd81e6d62cd6cdf3ee4948bcdce8ea79c8"
+  integrity sha512-baYZExFpsdkBNuvGKTKWCwKH57HRZLVtycZS05WTQNVOiXVSeAki3nU35zlRbToeMW8aHlJfyS+1C4BOv27q0A==
 
 "@alloc/quick-lru@^5.2.0":
   version "5.2.0"
@@ -7856,7 +7856,7 @@ grommet-theme-hpe@5.7.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.45.1"
-  resolved "https://github.com/grommet/grommet/tarball/stable#995715141056353163971ab5c9122904b14b7a27"
+  resolved "https://github.com/grommet/grommet/tarball/stable#4f53333fef8c98d351bfe3ddec292b8f62fc0d01"
   dependencies:
     "@emotion/is-prop-valid" "^1.3.1"
     grommet-icons "^4.12.4"
