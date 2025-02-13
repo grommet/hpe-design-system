@@ -71,9 +71,19 @@ export const AccessibilitySection = ({ title, version }) => {
           title: successCriterion.title,
         };
 
+        // If the rule status is failed && level = AAA,
+        // change status to AAA failed
+        if (rule.status === 'failed' && extractedData.level === 'AAA') {
+          console.log('here aaa failed');
+          extractedData.status = 'AAA failed';
+        } else {
+          console.log('else');
+          extractedData.status = rule.status;
+        }
+
         return {
           ...extractedData,
-          status: rule.status,
+          status: extractedData.status,
         };
       }
 
@@ -92,8 +102,9 @@ export const AccessibilitySection = ({ title, version }) => {
         status="info"
         margin={{ bottom: 'medium' }}
         width="large"
-        // eslint-disable-next-line max-len
-        message="WCAG rules marked as conditional indicate that the implementer must take additional actions to ensure full compliance."
+        message={`WCAG rules marked as conditional indicate that
+        the implementer must take additional actions to ensure
+        full compliance.`}
       />
       <WCAGRuleSummary statuses={statusData} />
       <WCAGRuleDetail version={version || '2.2'} rules={comparisons} />
