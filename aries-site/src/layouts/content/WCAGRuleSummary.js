@@ -27,7 +27,7 @@ const STATUS_MAP = {
 };
 
 const StatusLabel = ({ icon, label }) => (
-  <Box align="center" direction="row" gap="xsmall">
+  <Box justify="between" align="center" direction="row" gap="xsmall">
     {icon}
     <Text>{label}</Text>
   </Box>
