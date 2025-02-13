@@ -339,26 +339,21 @@ export const Layout = ({
     nav = (
       <Collapsible open={showSidebar} direction="horizontal">
         <Box
-          background="background-front"
+          background="background-contrast"
+          width="medium"
+          pad={{ horizontal: 'medium', vertical: 'small' }}
+          gap="medium"
           height="100vh"
+          overflow="auto"
           style={{ position: 'sticky', top: 0, bottom: 0 }}
         >
-          <Box
-            background="background-contrast"
-            width="medium"
-            pad={{ horizontal: 'medium', vertical: 'small' }}
-            gap="medium"
-            height="100vh"
-            overflow="auto"
-          >
-            <Button
-              a11yTitle="Hide sidebar"
-              alignSelf="start"
-              icon={<Sidebar color="icon-primary" />}
-              onClick={() => setShowSidebar(false)}
-            />
-            {navContent}
-          </Box>
+          <Button
+            a11yTitle="Hide sidebar"
+            alignSelf="start"
+            icon={<Sidebar color="icon-primary" />}
+            onClick={() => setShowSidebar(false)}
+          />
+          {navContent}
         </Box>
       </Collapsible>
     );
