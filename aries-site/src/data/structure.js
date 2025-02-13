@@ -52,11 +52,11 @@ export const structure = [
       .map(page => page.name),
   },
   {
-    name: 'Learn',
-    color: 'blue!',
+    name: 'Design tokens',
+    color: 'purple',
     description:
-      'Learn foundational knowledge and best practices for how to build HPE applications with Grommet using these tutorials, how-to guides, and explanations.',
-    icon: (_, color) => <Grow color={color} aria-hidden="true" />,
+      'Design tokens represent design decisions such as color, typography, spacing, and motion in a consistent, reusable, and tech-agnostic format.',
+    icon: (_, color) => <Cube color={color} aria-hidden="true" />,
     preview: {
       image: {
         src: {
@@ -67,8 +67,29 @@ export const structure = [
       },
     },
     seoDescription:
-      'Learn foundational knowledge and best practices for how to build HPE applications with Grommet using these tutorials, how-to guides, and explanations.',
-    pages: learn.map(page => page.name),
+      'Design tokens represent design decisions such as color, typography, spacing, and motion in a consistent, reusable, and tech-agnostic format.',
+    pages: tokens.map(page => page.name),
+  },
+  {
+    name: 'Components',
+    color: 'purple!',
+    description:
+      'The component library provides a vetted set of interface elements for use in your applications and websites. All components are published in Figma for use in your designs. Web versions are built atop Grommet and styled by the HPE Theme providing the "building blocks" your application needs to be performant and compliant.',
+    icon: (size, color) => (
+      <IconSquare size={size} color={color} aria-hidden="true" />
+    ),
+    preview: {
+      image: {
+        src: {
+          light: '/components-light.svg',
+          dark: '/components-dark.svg',
+        },
+        alt: 'HPE Cards Preview',
+      },
+    },
+    seoDescription:
+      'Browse our component library of user interface elements for use in your applications and websites.',
+    pages: components.sortByName().map(page => page.name),
   },
   {
     name: 'Templates',
@@ -95,13 +116,11 @@ export const structure = [
       .map(page => page.name),
   },
   {
-    name: 'Components',
-    color: 'purple!',
+    name: 'Learn',
+    color: 'blue!',
     description:
-      'The component library provides a vetted set of interface elements for use in your applications and websites. All components are published in Figma for use in your designs. Web versions are built atop Grommet and styled by the HPE Theme providing the "building blocks" your application needs to be performant and compliant.',
-    icon: (size, color) => (
-      <IconSquare size={size} color={color} aria-hidden="true" />
-    ),
+      'Learn foundational knowledge and best practices for how to build HPE applications with Grommet using these tutorials, how-to guides, and explanations.',
+    icon: (_, color) => <Grow color={color} aria-hidden="true" />,
     preview: {
       image: {
         src: {
@@ -112,8 +131,8 @@ export const structure = [
       },
     },
     seoDescription:
-      'Browse our component library of user interface elements for use in your applications and websites.',
-    pages: components.sortByName().map(page => page.name),
+      'Learn foundational knowledge and best practices for how to build HPE applications with Grommet using these tutorials, how-to guides, and explanations.',
+    pages: learn.map(page => page.name),
   },
   {
     name: 'Whats New',
@@ -123,25 +142,7 @@ export const structure = [
     pages: [],
     pageLayout: 'plain',
   },
-  {
-    name: 'Design tokens',
-    color: 'purple',
-    description:
-      'Design tokens represent design decisions such as color, typography, spacing, and motion in a consistent, reusable, and tech-agnostic format.',
-    icon: (_, color) => <Cube color={color} aria-hidden="true" />,
-    preview: {
-      image: {
-        src: {
-          light: '/components-light.svg',
-          dark: '/components-dark.svg',
-        },
-        alt: 'HPE Cards Preview',
-      },
-    },
-    seoDescription:
-      'Design tokens represent design decisions such as color, typography, spacing, and motion in a consistent, reusable, and tech-agnostic format.',
-    pages: tokens.map(page => page.name),
-  },
+
   components,
   foundation,
   learn,

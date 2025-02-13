@@ -47,6 +47,7 @@ export const foundation = [
     name: 'Accessibility transcript file',
     description: 'Transcription for accessibility at HPE with Bill Tipton',
     searchable: false,
+    sideNav: false,
   },
   {
     name: 'Our brand',

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, {
   Fragment,
   useEffect,
@@ -25,7 +26,7 @@ import {
   Anchor,
   Layer,
 } from 'grommet';
-import { Close, ShareRounded, Sidebar } from 'grommet-icons';
+import { Close, Down, Next, ShareRounded, Sidebar } from 'grommet-icons';
 import {
   ContentSection,
   DocsPageHeader,
@@ -48,9 +49,137 @@ import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateNotification } from '../content/UpdateNotification';
 import { ViewContext } from '../../pages/_app';
 import { Login } from '../../components/Login';
+import { navItems } from '../../data/search/contentForNav';
+import { structure } from '../../data';
 
-const pageDetails = getPageDetails('Home');
-const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
+const sortNavItems = items =>
+  items.sort((a, b) => {
+    const firstPage = a
+      .split('/')
+      [a.split('/').length - 1].replaceAll('-', ' ');
+    const secondPage = b
+      .split('/')
+      [b.split('/').length - 1].replaceAll('-', ' ');
+    const firstIndex = structure
+      .map(page => page.name.toLowerCase())
+      .indexOf(firstPage);
+    const secondIndex = structure
+      .map(page => page.name.toLowerCase())
+      .indexOf(secondPage);
+
+    if (/^components|templates/.test(a) && /^components|templates/.test(b)) {
+      if (a.includes('all-components')) return 1;
+      if (b.includes('all-components')) return -1;
+      if (a < b) return -1;
+      if (b > a) return 1;
+      return 0;
+    }
+    if (firstIndex < secondIndex) return -1;
+    if (firstIndex > secondIndex) return 1;
+    return 0;
+  });
+
+const sorted = sortNavItems(navItems);
+
+// const pageDetails = getPageDetails('Home');
+
+const createNestedObject = (path, obj) => {
+  path.split('/').reduce((r, a) => {
+    // eslint-disable-next-line no-param-reassign
+    r[a] = r[a] || {};
+    return r[a];
+  }, obj);
+};
+
+const buildNav = items => {
+  const result = {};
+  items.forEach(item => {
+    createNestedObject(item, result);
+  });
+  return result;
+};
+
+const sortOrder = [
+  'foundation',
+  'design-tokens',
+  'components',
+  'templates',
+  'learn',
+];
+
+const navTree = buildNav(sorted);
+
+const OptionsList = ({ options, open, setOpen }) => {
+  const router = useRouter();
+
+  const handleCollapsible = option => {
+    if (open.includes(option)) {
+      setOpen(open.filter(a => a !== option));
+    } else setOpen([...open, option]);
+  };
+
+  return (
+    <Box gap="xsmall">
+      {Object.keys(options).map(option => {
+        const subPages = Object.keys(options[option]).length > 0;
+        const pageDetails = getPageDetails(option.replaceAll('-', ' '));
+
+        return pageDetails.sideNav !== false ? (
+          <Box gap="xsmall">
+            <Link
+              key={option}
+              href={nameToPath(
+                getPageDetails(option.replaceAll('-', ' ')).name,
+              )}
+              passHref
+              legacyBehavior
+            >
+              <Button
+                justify="start"
+                align="start"
+                label={
+                  getPageDetails(option.replaceAll('-', ' ')).render ||
+                  getPageDetails(option.replaceAll('-', ' ')).name
+                }
+                active={
+                  router.pathname ===
+                  nameToPath(getPageDetails(option.replaceAll('-', ' ')).name)
+                }
+                icon={
+                  // eslint-disable-next-line no-nested-ternary
+                  Object.keys(options[option]).length &&
+                  sortOrder.includes(option) ? (
+                    open.includes(option) ? (
+                      <Down color="icon-primary" />
+                    ) : (
+                      <Next color="icon-primary" />
+                    )
+                  ) : undefined
+                }
+                onClick={() => {
+                  handleCollapsible(option);
+                }}
+                // reverse
+              />
+            </Link>
+            {/* Base Case */}
+            {subPages && (
+              <Collapsible open={open.includes(option)}>
+                <Box pad={{ left: 'medium' }}>
+                  <OptionsList
+                    options={options[option]}
+                    open={open}
+                    setOpen={setOpen}
+                  />
+                </Box>
+              </Collapsible>
+            )}
+          </Box>
+        ) : undefined;
+      })}
+    </Box>
+  );
+};
 
 export const Layout = ({
   // backgroundImage,
@@ -59,9 +188,7 @@ export const Layout = ({
   topic,
   isLanding = false,
 }) => {
-  const [authenticated, setAuthenticated] = useState(
-    localStorage.getItem('theme-update-demo') || false,
-  );
+  const [authenticated, setAuthenticated] = useState(true);
   useEffect(() => {
     if (localStorage.getItem('theme-update-demo')) setAuthenticated(true);
   }, []);
@@ -177,24 +304,15 @@ export const Layout = ({
     if (sidebarLayout) setShowSidebarLayer(false);
   }, [sidebarLayout]);
 
+  const [openTopics, setOpenTopics] = useState([]);
   const navContent = (
-    <Box gap="medium">
+    <Box gap="medium" flex={false}>
       <Box as="nav" gap="small">
-        {navItems.map(item => (
-          <Link
-            key={item.name}
-            href={nameToPath(item.name)}
-            passHref
-            legacyBehavior
-          >
-            <Button
-              align="start"
-              key={item.name}
-              label={item.name}
-              active={router.pathname === nameToPath(item.name)}
-            />
-          </Link>
-        ))}
+        <OptionsList
+          options={navTree}
+          open={openTopics}
+          setOpen={setOpenTopics}
+        />
       </Box>
       <Box border={{ side: 'bottom', color: 'border-weak' }} />
       <Box gap="medium" pad={{ horizontal: 'small' }}>
@@ -221,21 +339,26 @@ export const Layout = ({
     nav = (
       <Collapsible open={showSidebar} direction="horizontal">
         <Box
-          background="background-contrast"
-          width="medium"
-          pad={{ horizontal: 'medium', vertical: 'small' }}
-          gap="medium"
-          style={{ position: 'sticky', top: 0, bottom: 0 }}
+          background="background-front"
           height="100vh"
-          overflow="auto"
+          style={{ position: 'sticky', top: 0, bottom: 0 }}
         >
-          <Button
-            a11yTitle="Hide sidebar"
-            alignSelf="start"
-            icon={<Sidebar color="icon-primary" />}
-            onClick={() => setShowSidebar(false)}
-          />
-          {navContent}
+          <Box
+            background="background-contrast"
+            width="medium"
+            pad={{ horizontal: 'medium', vertical: 'small' }}
+            gap="medium"
+            height="100vh"
+            overflow="auto"
+          >
+            <Button
+              a11yTitle="Hide sidebar"
+              alignSelf="start"
+              icon={<Sidebar color="icon-primary" />}
+              onClick={() => setShowSidebar(false)}
+            />
+            {navContent}
+          </Box>
         </Box>
       </Collapsible>
     );
