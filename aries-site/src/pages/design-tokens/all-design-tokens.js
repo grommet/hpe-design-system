@@ -27,7 +27,7 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
   );
 
   return (
-    <Box flex={false}>
+    <Box flex={false} gap="xxsmall">
       <Button
         icon={<Folder aria-hidden="true" />}
         a11yTitle={`${collection} token directory`}
@@ -37,21 +37,24 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
         onClick={() => setOpen(!open)}
       />
       <Collapsible open={open}>
-        <Box pad={{ left: 'medium' }} flex={false}>
-          {Object.keys(tokensObj[collection]).map(category => (
-            <Button
-              key={category}
-              align="start"
-              label={category}
-              active={active === `${collection}.${category}`}
-              onClick={() => setActive(`${collection}.${category}`)}
-            />
-          ))}
+        <Box pad={{ left: 'medium' }} flex={false} gap="hair">
+          {Object.keys(tokensObj[collection])
+            .sort()
+            .map(category => (
+              <Button
+                key={category}
+                align="start"
+                label={category}
+                active={active === `${collection}.${category}`}
+                onClick={() => setActive(`${collection}.${category}`)}
+              />
+            ))}
         </Box>
       </Collapsible>
     </Box>
   );
 };
+
 const Nav = ({ active, setActive, tokens: tokensObj }) => {
   return Object.keys(tokensObj).map(collection => (
     <NavSection
@@ -64,10 +67,48 @@ const Nav = ({ active, setActive, tokens: tokensObj }) => {
   ));
 };
 
+const NavPane = ({ children }) => {
+  const theme = useContext(ThemeContext);
+  return (
+    <Box
+      flex={false}
+      style={{
+        position: 'sticky',
+        top: theme.global.edgeSize.medium,
+      }}
+      height="130vh"
+    >
+      <Box
+        background="background-contrast"
+        pad={{ horizontal: 'small', vertical: 'medium' }}
+        round="medium"
+        width="small"
+      >
+        {children}
+      </Box>
+    </Box>
+  );
+};
+
+const NavLayer = ({ children, onClose }) => {
+  return (
+    <Layer onEsc={onClose} full>
+      <Box pad="medium" gap="small" overflow="auto">
+        <Button
+          icon={<Close />}
+          a11yTitle="Close design token navigation."
+          alignSelf="end"
+          onClick={onClose}
+        />
+        {children}
+      </Box>
+    </Layer>
+  );
+};
+
 const AllTokens = () => {
   const [openLayer, setOpenLayer] = useState(false);
   const breakpoint = useContext(ResponsiveContext);
-  const theme = useContext(ThemeContext);
   const {
     data,
     setData,
@@ -83,10 +124,6 @@ const AllTokens = () => {
       setOpenLayer(false);
   }, [breakpoint, openLayer]);
 
-  const navContent = (
-    <Nav tokens={structuredTokens} active={active} setActive={setActive} />
-  );
-
   const contextValue = useMemo(
     () => ({
       data,
@@ -100,27 +137,23 @@ const AllTokens = () => {
     [data, setData, active, setActive, selectedMode, setSelectedMode, modes],
   );
 
+  const navContent = (
+    <Nav tokens={structuredTokens} active={active} setActive={setActive} />
+  );
+
+  const activeCollection = active
+    .split('.')
+    .map(
+      (part, index) =>
+        `${part} ${index < active.split('.').length - 1 ? '/ ' : ''}`,
+    );
+
   return (
     <DesignTokenContext.Provider value={contextValue}>
-      <Page kind="full">
+      <Page>
         <Box direction="row" gap="large">
           {['large', 'xlarge'].includes(breakpoint) ? (
-            <Box
-              width="medium"
-              pad="medium"
-              border={{ color: 'border-weak' }}
-              round="medium"
-              flex={false}
-              style={{
-                position: 'sticky',
-                top: theme.global.edgeSize.medium,
-                bottom: 0,
-              }}
-              height="100vh"
-              overflow="auto"
-            >
-              {navContent}
-            </Box>
+            <NavPane>{navContent}</NavPane>
           ) : undefined}
           <PageContent pad="none">
             <Box pad="medium" round="medium" background="background-front">
@@ -134,28 +167,8 @@ const AllTokens = () => {
                   />
                 ) : undefined}
                 <Heading level={2} margin="none" id="token-table-heading">
-                  {active
-                    .split('.')
-                    .map(
-                      (part, index) =>
-                        `${part} ${
-                          index < active.split('.').length - 1 ? '/ ' : ''
-                        }`,
-                    )}
+                  {activeCollection}
                 </Heading>
-                {openLayer ? (
-                  <Layer onEsc={() => setOpenLayer(false)} full>
-                    <Box pad="medium" gap="small" overflow="auto">
-                      <Button
-                        icon={<Close />}
-                        a11yTitle="Close design token navigation."
-                        alignSelf="end"
-                        onClick={() => setOpenLayer(false)}
-                      />
-                      {navContent}
-                    </Box>
-                  </Layer>
-                ) : undefined}
               </Box>
               {active.includes('primitive') ? (
                 <Notification
@@ -174,6 +187,11 @@ const AllTokens = () => {
               />
             </Box>
           </PageContent>
+          {openLayer && (
+            <NavLayer onClose={() => setOpenLayer(false)}>
+              {navContent}
+            </NavLayer>
+          )}
         </Box>
       </Page>
     </DesignTokenContext.Provider>
