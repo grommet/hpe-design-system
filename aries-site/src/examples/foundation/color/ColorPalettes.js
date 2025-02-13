@@ -220,4 +220,4 @@ export const ElevationDark = () => {
 export const Overlay = () => layerColor && generateColorExamples(layerColor);
 
 export const GraphColors = () =>
-  graphColor && generateColorExamples(graphColor);
+  graphColor && generateColorExamples(graphColor, 'text-strong');

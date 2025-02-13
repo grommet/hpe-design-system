@@ -4,6 +4,7 @@ import { resolve, sep } from 'path';
 const SOURCE_DIRECTORY = `${process.cwd()}/src/pages`;
 const OUT_DIRECTORY = `${process.cwd()}/src/data/search`;
 const OUT_PATH = `${OUT_DIRECTORY}/contentForSearch.js`;
+const NAV_OUT_PATH = `${OUT_DIRECTORY}/contentForNav.js`;
 
 const toTitleCase = str =>
   str
@@ -35,6 +36,12 @@ const mapContent = async files => {
       );
       const parent = pathParts.pop();
       const filePath = file;
+      let pathname = file.split('/');
+      pathname = pathname
+        .slice(pathname.indexOf('pages') + 1)
+        .filter(p => !['index.js', 'index.mdx'].includes(p))
+        .join('/')
+        .replace(/\..*/, ''); // get rid of file extension
       let content = await readFile(file, 'utf-8');
 
       content = content
@@ -50,7 +57,7 @@ const mapContent = async files => {
           '',
         );
 
-      return { name, parent, path: filePath, content };
+      return { name, parent, path: filePath, content, pathname };
     }),
   );
   return contents;
@@ -70,3 +77,22 @@ try {
 }
 
 writeFile(OUT_PATH, `export const siteContents = ${JSON.stringify(contents)};`);
+writeFile(
+  NAV_OUT_PATH,
+  `export const navItems = [${contents
+    .map(page =>
+      ![
+        '404',
+        '_app',
+        '_document',
+        'index',
+        'showmore',
+        'whats-new',
+        'feedback',
+        '',
+      ].includes(page.pathname)
+        ? `"${page.pathname}" `
+        : undefined,
+    )
+    .filter(p => p)}];\n`,
+);

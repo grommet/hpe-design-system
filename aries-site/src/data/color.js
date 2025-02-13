@@ -13,7 +13,7 @@ const primaryColors = [
   {
     name: 'brand',
     value: 'brand',
-    hex: colors['green!'],
+    hex: colors['green!'].light,
   },
 ];
 
@@ -21,32 +21,32 @@ const coreColors = [
   {
     name: 'purple!',
     value: 'purple!',
-    hex: colors['purple!'],
+    hex: colors['purple!'].light,
   },
   {
     name: 'teal!',
     value: 'teal!',
-    hex: colors['teal!'],
+    hex: colors['teal!'].light,
   },
   {
     name: 'blue!',
     value: 'blue!',
-    hex: colors['blue!'],
+    hex: colors['blue!'].light,
   },
   {
     name: 'red!',
     value: 'red!',
-    hex: colors['red!'],
+    hex: colors['red!'].light,
   },
   {
     name: 'orange!',
     value: 'orange!',
-    hex: colors['orange!'],
+    hex: colors['orange!'].light,
   },
   {
     name: 'yellow!',
     value: 'yellow!',
-    hex: colors['yellow!'],
+    hex: colors['yellow!'].light,
   },
 ];
 
@@ -365,7 +365,7 @@ const focusColor = [
   {
     name: 'focus',
     value: colors['teal!'],
-    hex: colors['teal!'],
+    hex: colors['teal!'].light,
   },
 ];
 
@@ -416,28 +416,38 @@ const layerColor = [
 const graphColor = [
   {
     name: 'graph-0',
-    value: colors['orange!'],
-    hex: colors['orange!'],
+    value: colors['graph-0'].light,
+    hex: colors['graph-0'].light,
   },
   {
     name: 'graph-1',
-    value: colors['blue!'],
-    hex: colors['blue!'],
+    value: colors['graph-1'].light,
+    hex: colors['graph-1'].light,
   },
   {
     name: 'graph-2',
-    value: colors['purple!'],
-    hex: colors['purple!'],
+    value: colors['graph-2'].light,
+    hex: colors['graph-2'].light,
   },
   {
     name: 'graph-3',
-    value: colors['yellow!'],
-    hex: colors['yellow!'],
+    value: colors['graph-3'].light,
+    hex: colors['graph-3'].light,
   },
   {
     name: 'graph-4',
-    value: colors['teal!'],
-    hex: colors['teal!'],
+    value: colors['graph-4'].light,
+    hex: colors['graph-4'].light,
+  },
+  {
+    name: 'graph-5',
+    value: colors['graph-5'].light,
+    hex: colors['graph-5'].light,
+  },
+  {
+    name: 'graph-6',
+    value: colors['graph-6'].light,
+    hex: colors['graph-6'].light,
   },
 ];
 

@@ -34,7 +34,7 @@ const SlackOption = () => (
       icon={<ChatOption />}
       label="Join us on Slack"
       href="https://slack-invite.grommet.io/"
-      primary
+      secondary
     />
   </Box>
 );
@@ -89,7 +89,7 @@ const Feedback = () => (
 export const Community = ({ ...rest }) => {
   const size = useContext(ResponsiveContext);
   return (
-    <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
+    <PageContent>
       <Box
         fill="horizontal"
         pad={{
@@ -99,10 +99,10 @@ export const Community = ({ ...rest }) => {
         {...rest}
       >
         <Box width="xlarge">
-          <Heading margin="none" level={2} size="large">
+          <Heading margin="none" level={2}>
             Community
           </Heading>
-          <Paragraph size="xlarge" fill>
+          <Paragraph size="large">
             The HPE Design System is an open-source framework for designers and
             developers. We welcome feedback, ideas and appreciate your
             suggestions.
@@ -112,7 +112,6 @@ export const Community = ({ ...rest }) => {
           columns="medium"
           rows={[['auto', 'full']]}
           gap={{ row: 'large', column: 'small' }}
-          fill
         >
           <SlackOption />
           {/* <Roadmap />
