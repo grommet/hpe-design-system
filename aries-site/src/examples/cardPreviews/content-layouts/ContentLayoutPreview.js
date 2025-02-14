@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Grid } from 'grommet';
 
-const GridRegion = () => <Box background="blue!" round="xsmall" />;
+const GridRegion = () => <Box background="brand" round="xsmall" />;
 
 export const ContentLayoutPreview = () => (
   <Grid columns={['3/4', '1/4']} gap="small" fill>
