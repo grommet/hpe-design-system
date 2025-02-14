@@ -140,7 +140,6 @@ const Jobs = ({ layer, onClose, ...rest }) => {
         />
       }
       skeleton={undefined}
-      // animation={["slideLeft", "fadeIn"]}
       {...rest}
     >
       <ScheduledJobs level={2} />
