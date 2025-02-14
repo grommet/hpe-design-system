@@ -100,9 +100,7 @@ export const AccessibilitySection = ({ title, version }) => {
         status="info"
         margin={{ bottom: 'medium' }}
         width="large"
-        message={`WCAG rules marked as conditional indicate that
-        the implementer must take additional actions to ensure
-        full compliance.`}
+        message={`"Conditional" status indicates extra actions required by implementers for full compliance.`}
       />
       <WCAGRuleSummary statuses={statusData} />
       <WCAGRuleDetail version={version || '2.2'} rules={comparisons} />
