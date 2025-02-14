@@ -72,9 +72,9 @@ export const AccessibilitySection = ({ title, version }) => {
         };
 
         // If the rule status is failed && level = AAA,
-        // change status to AAA failed
+        // change status to AAA not achieved
         if (rule.status === 'failed' && extractedData.level === 'AAA') {
-          extractedData.status = 'AAA failed';
+          extractedData.status = 'AAA not achieved';
         } else {
           extractedData.status = rule.status;
         }
@@ -100,7 +100,8 @@ export const AccessibilitySection = ({ title, version }) => {
         status="info"
         margin={{ bottom: 'medium' }}
         width="large"
-        message={`"Conditional" status indicates extra actions required by implementers for full compliance.`}
+        message={`"Conditional" status indicates extra
+        actions required by implementers for full compliance.`}
       />
       <WCAGRuleSummary statuses={statusData} />
       <WCAGRuleDetail version={version || '2.2'} rules={comparisons} />

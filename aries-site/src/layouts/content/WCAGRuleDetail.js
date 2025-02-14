@@ -24,7 +24,7 @@ const getStatusIcon = status => {
       return <StatusCriticalSmall alt="" color="status-critical" />;
     case 'conditional':
       return <CircleInformation alt="" />;
-    case 'AAA failed':
+    case 'AAA not achieved':
       return <StatusWarningSmall alt="" color="status-warning" />;
     default:
       return <StatusGoodSmall alt="" color="status-ok" />;
@@ -33,7 +33,7 @@ const getStatusIcon = status => {
 
 const statusRank = {
   passed: 0,
-  'AAA failed': 1,
+  'AAA not achieved': 1,
   conditional: 2,
   failed: 3,
 };
