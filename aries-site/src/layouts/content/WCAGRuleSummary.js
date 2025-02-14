@@ -20,8 +20,8 @@ const STATUS_MAP = {
     label: 'Conditional',
     icon: <CircleInformation alt="" />,
   },
-  'AAA failed': {
-    label: 'AAA Failed',
+  'AAA not achieved': {
+    label: 'AAA not achieved',
     icon: <StatusWarningSmall alt="" color="status-warning" />,
   },
 };
@@ -45,7 +45,7 @@ const calculateAccessibilityTestCounts = statuses =>
       passed: 0,
       failed: 0,
       conditional: 0,
-      'AAA failed': 0,
+      'AAA not achieved': 0,
     },
   );
 
