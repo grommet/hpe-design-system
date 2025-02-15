@@ -117,7 +117,6 @@
   --hpe-button-default-small-iconOnly-paddingX: var(--hpe-button-default-small-iconOnly-paddingY);
   --hpe-button-default-medium-paddingY: var(--hpe-element-medium-paddingY);
   --hpe-button-default-medium-borderRadius: var(--hpe-static-radius-full);
-  --hpe-button-default-medium-fontSize: var(--hpe-base-dimension-475);
   --hpe-button-default-medium-iconOnly-paddingX: var(--hpe-button-default-medium-iconOnly-paddingY);
   --hpe-button-default-large-paddingY: var(--hpe-element-large-paddingY);
   --hpe-button-default-large-borderRadius: var(--hpe-static-radius-full);
@@ -145,6 +144,10 @@
   --hpe-menu-default-drop-borderColor: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-disabled-rest-background: var(--hpe-color-transparent);
+  --hpe-checkbox-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
+  --hpe-checkbox-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
+  --hpe-checkbox-default-control-indeterminate-rest-borderColor: var(--hpe-color-transparent);
+  --hpe-checkbox-default-control-indeterminate-hover-borderColor: var(--hpe-color-transparent);
   --hpe-checkbox-default-label-rest-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-checkbox-default-medium-control-height: var(--hpe-base-dimension-600);
   --hpe-checkbox-default-medium-control-width: var(--hpe-base-dimension-600);
@@ -248,7 +251,6 @@
   --hpe-select-default-medium-option-minHeight: var(--hpe-element-medium-minHeight);
   --hpe-select-default-medium-option-borderRadius: var(--hpe-static-radius-xsmall);
   --hpe-select-default-medium-option-borderWidth: var(--hpe-static-borderWidth-default);
-  --hpe-select-default-medium-option-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-select-default-medium-option-marker-width: var(--hpe-static-spacing-3xsmall);
   --hpe-select-default-medium-option-marker-borderTopRightRadius: var(--hpe-static-radius-none);
   --hpe-select-default-medium-option-marker-borderBottomRightRadius: var(--hpe-static-radius-none);
@@ -296,7 +298,6 @@
   --hpe-button-primary-small-iconOnly-paddingX: var(--hpe-button-default-small-iconOnly-paddingX);
   --hpe-button-primary-medium-paddingY: var(--hpe-button-default-medium-paddingY);
   --hpe-button-primary-medium-borderRadius: var(--hpe-button-default-medium-borderRadius);
-  --hpe-button-primary-medium-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-button-primary-medium-iconOnly-paddingX: var(--hpe-button-default-medium-iconOnly-paddingX);
   --hpe-button-primary-large-paddingY: var(--hpe-button-default-large-paddingY);
   --hpe-button-primary-large-borderRadius: var(--hpe-button-default-large-borderRadius);
@@ -326,7 +327,6 @@
   --hpe-button-secondary-small-borderRadius: var(--hpe-button-default-small-borderRadius);
   --hpe-button-secondary-medium-paddingX: var(--hpe-element-medium-paddingX-wide);
   --hpe-button-secondary-medium-borderRadius: var(--hpe-button-default-medium-borderRadius);
-  --hpe-button-secondary-medium-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-button-secondary-large-borderRadius: var(--hpe-button-default-large-borderRadius);
   --hpe-button-secondary-xlarge-paddingX: var(--hpe-button-default-xlarge-paddingX);
   --hpe-button-secondary-xlarge-borderRadius: var(--hpe-button-default-xlarge-borderRadius);
@@ -351,7 +351,6 @@
   --hpe-button-default-medium-borderWidth: var(--hpe-static-borderWidth-default);
   --hpe-button-default-medium-minHeight: var(--hpe-element-medium-minHeight);
   --hpe-button-default-medium-iconOnly-borderRadius: var(--hpe-button-default-medium-borderRadius);
-  --hpe-button-default-medium-iconOnly-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-button-default-large-paddingX: var(--hpe-element-large-paddingX-wide);
   --hpe-button-default-large-borderWidth: var(--hpe-static-borderWidth-default);
   --hpe-button-default-large-minHeight: var(--hpe-element-large-minHeight);
@@ -385,7 +384,6 @@
   --hpe-button-toolbar-small-minHeight: var(--hpe-element-small-minHeight);
   --hpe-button-toolbar-medium-paddingY: var(--hpe-button-default-medium-paddingY);
   --hpe-button-toolbar-medium-borderRadius: var(--hpe-static-spacing-3xsmall);
-  --hpe-button-toolbar-medium-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-button-toolbar-medium-iconOnly-paddingX: var(--hpe-button-default-medium-iconOnly-paddingX);
   --hpe-button-toolbar-large-borderRadius: var(--hpe-static-radius-xsmall);
   --hpe-button-toolbar-xlarge-iconOnly-paddingX: var(--hpe-button-default-xlarge-iconOnly-paddingX);
@@ -397,7 +395,6 @@
   --hpe-menu-default-medium-item-paddingY: var(--hpe-button-default-medium-paddingY);
   --hpe-menu-default-medium-item-borderRadius: var(--hpe-static-radius-xsmall);
   --hpe-menu-default-medium-item-borderWidth: var(--hpe-static-borderWidth-default);
-  --hpe-menu-default-medium-item-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-menu-default-medium-group-container-paddingY: var(--hpe-static-spacing-3xsmall);
   --hpe-menu-default-medium-group-container-paddingX: var(--hpe-static-spacing-3xsmall);
   --hpe-menu-default-medium-group-container-gapY: var(--hpe-static-spacing-none);
@@ -408,13 +405,9 @@
   --hpe-checkbox-default-control-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-checkbox-default-control-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
-  --hpe-checkbox-default-control-selected-rest-borderColor: var(--hpe-color-border-selected);
   --hpe-checkbox-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-checkbox-default-control-selected-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-checkbox-default-control-indeterminate-rest-borderColor: var(--hpe-color-border-selected);
   --hpe-checkbox-default-control-indeterminate-rest-iconColor: var(--hpe-color-icon-onPrimaryStrong);
-  --hpe-checkbox-default-control-indeterminate-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-control-indeterminate-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
   --hpe-checkbox-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-hover-textColor: var(--hpe-color-text-default);
@@ -587,7 +580,6 @@
   --hpe-button-primary-medium-borderWidth: var(--hpe-button-default-medium-borderWidth);
   --hpe-button-primary-medium-minHeight: var(--hpe-button-default-medium-minHeight);
   --hpe-button-primary-medium-iconOnly-borderRadius: var(--hpe-button-primary-medium-borderRadius);
-  --hpe-button-primary-medium-iconOnly-fontSize: var(--hpe-button-primary-medium-fontSize);
   --hpe-button-primary-large-paddingX: var(--hpe-button-default-large-paddingX);
   --hpe-button-primary-large-borderWidth: var(--hpe-button-default-large-borderWidth);
   --hpe-button-primary-large-minHeight: var(--hpe-button-default-large-minHeight);
@@ -605,7 +597,6 @@
   --hpe-button-secondary-medium-borderWidth: var(--hpe-button-default-medium-borderWidth);
   --hpe-button-secondary-medium-minHeight: var(--hpe-button-default-medium-minHeight);
   --hpe-button-secondary-medium-iconOnly-borderRadius: var(--hpe-button-secondary-medium-borderRadius);
-  --hpe-button-secondary-medium-iconOnly-fontSize: var(--hpe-button-secondary-medium-fontSize);
   --hpe-button-secondary-large-paddingX: var(--hpe-button-default-large-paddingX);
   --hpe-button-secondary-large-borderWidth: var(--hpe-button-default-large-borderWidth);
   --hpe-button-secondary-large-minHeight: var(--hpe-button-default-large-minHeight);
@@ -629,6 +620,7 @@
   --hpe-button-default-small-gapX: var(--hpe-element-small-textToIconX);
   --hpe-button-default-small-iconOnly-borderWidth: var(--hpe-button-default-small-borderWidth);
   --hpe-button-default-small-iconOnly-minHeight: var(--hpe-button-default-small-minHeight);
+  --hpe-button-default-medium-fontSize: var(--hpe-element-medium-fontSize);
   --hpe-button-default-medium-lineHeight: var(--hpe-element-medium-lineHeight);
   --hpe-button-default-medium-gapX: var(--hpe-element-medium-textToIconX);
   --hpe-button-default-medium-iconOnly-borderWidth: var(--hpe-button-default-medium-borderWidth);
@@ -663,7 +655,6 @@
   --hpe-button-toolbar-medium-borderWidth: var(--hpe-borderWidth-default);
   --hpe-button-toolbar-medium-minHeight: var(--hpe-button-default-medium-minHeight);
   --hpe-button-toolbar-medium-iconOnly-borderRadius: var(--hpe-button-toolbar-medium-borderRadius);
-  --hpe-button-toolbar-medium-iconOnly-fontSize: var(--hpe-button-toolbar-medium-fontSize);
   --hpe-button-toolbar-large-borderWidth: var(--hpe-borderWidth-default);
   --hpe-button-toolbar-large-minHeight: var(--hpe-button-default-large-minHeight);
   --hpe-button-toolbar-large-iconOnly-borderRadius: var(--hpe-button-toolbar-large-borderRadius);
@@ -799,6 +790,7 @@
   --hpe-anchor-default-3xlarge-gapX: var(--hpe-element-xlarge-textToIconX);
   --hpe-anchor-default-4xlarge-gapX: var(--hpe-element-xlarge-textToIconX);
   --hpe-anchor-default-5xlarge-gapX: var(--hpe-element-xlarge-textToIconX);
+  --hpe-select-default-medium-option-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-select-default-medium-option-lineHeight: var(--hpe-button-default-medium-lineHeight);
   --hpe-select-default-medium-drop-borderRadius: var(--hpe-drop-default-borderRadius);
   --hpe-button-primary-xsmall-fontSize: var(--hpe-button-default-xsmall-fontSize);
@@ -812,6 +804,7 @@
   --hpe-button-primary-small-gapX: var(--hpe-button-default-small-gapX);
   --hpe-button-primary-small-iconOnly-borderWidth: var(--hpe-button-primary-small-borderWidth);
   --hpe-button-primary-small-iconOnly-minHeight: var(--hpe-button-primary-small-minHeight);
+  --hpe-button-primary-medium-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-button-primary-medium-lineHeight: var(--hpe-button-default-medium-lineHeight);
   --hpe-button-primary-medium-gapX: var(--hpe-button-default-medium-gapX);
   --hpe-button-primary-medium-iconOnly-borderWidth: var(--hpe-button-primary-medium-borderWidth);
@@ -837,6 +830,7 @@
   --hpe-button-secondary-small-gapX: var(--hpe-button-default-small-gapX);
   --hpe-button-secondary-small-iconOnly-borderWidth: var(--hpe-button-secondary-small-borderWidth);
   --hpe-button-secondary-small-iconOnly-minHeight: var(--hpe-button-secondary-small-minHeight);
+  --hpe-button-secondary-medium-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-button-secondary-medium-lineHeight: var(--hpe-button-default-medium-lineHeight);
   --hpe-button-secondary-medium-gapX: var(--hpe-button-default-medium-gapX);
   --hpe-button-secondary-medium-iconOnly-borderWidth: var(--hpe-button-secondary-medium-borderWidth);
@@ -861,6 +855,7 @@
   --hpe-button-default-small-iconOnly-lineHeight: var(--hpe-button-default-small-lineHeight);
   --hpe-button-default-small-iconOnly-gapX: var(--hpe-button-default-small-gapX);
   --hpe-button-default-medium-iconOnly-minWidth: var(--hpe-button-default-medium-iconOnly-minHeight);
+  --hpe-button-default-medium-iconOnly-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-button-default-medium-iconOnly-lineHeight: var(--hpe-button-default-medium-lineHeight);
   --hpe-button-default-medium-iconOnly-gapX: var(--hpe-button-default-medium-gapX);
   --hpe-button-default-large-iconOnly-minWidth: var(--hpe-button-default-large-iconOnly-minHeight);
@@ -879,6 +874,7 @@
   --hpe-button-toolbar-small-iconOnly-fontSize: var(--hpe-button-toolbar-small-fontSize);
   --hpe-button-toolbar-small-iconOnly-lineHeight: var(--hpe-button-toolbar-small-lineHeight);
   --hpe-button-toolbar-small-iconOnly-gapX: var(--hpe-button-toolbar-small-gapX);
+  --hpe-button-toolbar-medium-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-button-toolbar-medium-lineHeight: var(--hpe-button-default-medium-lineHeight);
   --hpe-button-toolbar-medium-gapX: var(--hpe-button-default-medium-gapX);
   --hpe-button-toolbar-medium-iconOnly-borderWidth: var(--hpe-button-toolbar-medium-borderWidth);
@@ -896,6 +892,7 @@
   --hpe-menu-default-item-hover-textColor: var(--hpe-button-default-hover-textColor);
   --hpe-menu-default-item-hover-iconColor: var(--hpe-button-default-hover-iconColor);
   --hpe-menu-default-medium-drop-borderRadius: var(--hpe-drop-default-borderRadius);
+  --hpe-menu-default-medium-item-fontSize: var(--hpe-button-default-medium-fontSize);
   --hpe-menu-default-medium-item-lineHeight: var(--hpe-button-default-medium-lineHeight);
   --hpe-dataCell-default-selected-rest-background: var(--hpe-color-background-active);
   --hpe-dataCell-primary-medium-fontSize: var(--hpe-dataCell-default-medium-fontSize);
@@ -921,6 +918,7 @@
   --hpe-button-primary-small-iconOnly-lineHeight: var(--hpe-button-primary-small-lineHeight);
   --hpe-button-primary-small-iconOnly-gapX: var(--hpe-button-primary-small-gapX);
   --hpe-button-primary-medium-iconOnly-minWidth: var(--hpe-button-default-medium-iconOnly-minWidth);
+  --hpe-button-primary-medium-iconOnly-fontSize: var(--hpe-button-primary-medium-fontSize);
   --hpe-button-primary-medium-iconOnly-lineHeight: var(--hpe-button-primary-medium-lineHeight);
   --hpe-button-primary-medium-iconOnly-gapX: var(--hpe-button-primary-medium-gapX);
   --hpe-button-primary-large-iconOnly-minWidth: var(--hpe-button-default-large-iconOnly-minWidth);
@@ -940,6 +938,7 @@
   --hpe-button-secondary-small-iconOnly-lineHeight: var(--hpe-button-secondary-small-lineHeight);
   --hpe-button-secondary-small-iconOnly-gapX: var(--hpe-button-secondary-small-gapX);
   --hpe-button-secondary-medium-iconOnly-minWidth: var(--hpe-button-secondary-medium-iconOnly-minHeight);
+  --hpe-button-secondary-medium-iconOnly-fontSize: var(--hpe-button-secondary-medium-fontSize);
   --hpe-button-secondary-medium-iconOnly-lineHeight: var(--hpe-button-secondary-medium-lineHeight);
   --hpe-button-secondary-medium-iconOnly-gapX: var(--hpe-button-secondary-medium-gapX);
   --hpe-button-secondary-large-iconOnly-minWidth: var(--hpe-button-secondary-large-iconOnly-minHeight);
@@ -952,6 +951,7 @@
   --hpe-button-secondary-xlarge-iconOnly-gapX: var(--hpe-button-secondary-xlarge-gapX);
   --hpe-button-default-xsmall-iconOnly-borderWidth: var(--hpe-button-default-xsmall-borderWidth);
   --hpe-button-toolbar-medium-iconOnly-minWidth: var(--hpe-button-default-medium-iconOnly-minWidth);
+  --hpe-button-toolbar-medium-iconOnly-fontSize: var(--hpe-button-toolbar-medium-fontSize);
   --hpe-button-toolbar-medium-iconOnly-lineHeight: var(--hpe-button-toolbar-medium-lineHeight);
   --hpe-button-toolbar-medium-iconOnly-gapX: var(--hpe-button-toolbar-medium-gapX);
   --hpe-button-toolbar-large-iconOnly-minWidth: var(--hpe-button-default-large-iconOnly-minWidth);

@@ -110,7 +110,7 @@ module.exports = {
             "minHeight": "36px",
             "borderRadius": "6px",
             "borderWidth": "1px",
-            "fontSize": "19px",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "marker": {
               "width": "6px",
@@ -280,7 +280,7 @@ module.exports = {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "36px",
-          "fontSize": "19px",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
@@ -290,7 +290,7 @@ module.exports = {
             "borderWidth": "1px",
             "minHeight": "36px",
             "minWidth": "36px",
-            "fontSize": "19px",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
@@ -426,7 +426,7 @@ module.exports = {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "36px",
-          "fontSize": "19px",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
@@ -436,7 +436,7 @@ module.exports = {
             "borderWidth": "1px",
             "minHeight": "36px",
             "minWidth": "36px",
-            "fontSize": "19px",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
@@ -572,7 +572,7 @@ module.exports = {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "36px",
-          "fontSize": "19px",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
@@ -582,7 +582,7 @@ module.exports = {
             "borderWidth": "1px",
             "minHeight": "36px",
             "minWidth": "36px",
-            "fontSize": "19px",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
@@ -718,7 +718,7 @@ module.exports = {
           "borderRadius": "6px",
           "borderWidth": "default",
           "minHeight": "36px",
-          "fontSize": "19px",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
@@ -728,7 +728,7 @@ module.exports = {
             "borderWidth": "default",
             "minHeight": "36px",
             "minWidth": "36px",
-            "fontSize": "19px",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
@@ -827,7 +827,7 @@ module.exports = {
             "borderRadius": "6px",
             "borderWidth": "1px",
             "minHeight": "36px",
-            "fontSize": "19px",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           },
@@ -874,24 +874,24 @@ module.exports = {
           "selected": {
             "rest": {
               "background": "background-selected-primary-strong",
-              "borderColor": "border-selected",
+              "borderColor": "transparent",
               "iconColor": "icon-onSelectedPrimaryStrong"
             },
             "hover": {
               "background": "background-selected-primary-strong-hover",
-              "borderColor": "border-strong",
+              "borderColor": "transparent",
               "iconColor": "icon-onSelectedPrimaryStrong"
             }
           },
           "indeterminate": {
             "rest": {
               "background": "background-selected-primary-strong",
-              "borderColor": "border-selected",
+              "borderColor": "transparent",
               "iconColor": "icon-onPrimaryStrong"
             },
             "hover": {
               "background": "background-selected-primary-strong-hover",
-              "borderColor": "border-strong",
+              "borderColor": "transparent",
               "iconColor": "icon-onPrimaryStrong"
             }
           }
