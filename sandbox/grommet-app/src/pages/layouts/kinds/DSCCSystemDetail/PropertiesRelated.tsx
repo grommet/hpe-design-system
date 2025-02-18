@@ -14,5 +14,6 @@ export const PropertiesRelated = ({ ...rest }) => {
       level={2}
       properties={properties}
       {...rest}
-    />);
+    />
+  );
 }

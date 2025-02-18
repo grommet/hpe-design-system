@@ -18,7 +18,7 @@ export const SystemSummary = ({ size, ...rest }) => {
       onClick={null}
       {...rest}
     >
-      <Box direction="row" gap="medium" wrap>
+      <Box direction="row" gap={{ column: 'medium', row: 'small' }} wrap>
         <Metric
           label="Call home"
           value={

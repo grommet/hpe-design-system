@@ -1,8 +1,5 @@
 import React from 'react';
 import { PropertiesPane } from '../../../../components';
-import { sentenceCase } from '../../../../utils/format';
-import { renderMatches } from 'react-router-dom';
-import { render } from 'react-dom';
 
 const properties = [
   { key: 'model', value: 'HPE_3PAR 8400' },
