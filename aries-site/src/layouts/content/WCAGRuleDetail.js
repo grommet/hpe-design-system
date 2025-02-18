@@ -24,7 +24,7 @@ const getStatusIcon = status => {
       return <StatusCriticalSmall alt="" color="status-critical" />;
     case 'conditional':
       return <CircleInformation alt="" />;
-    case 'exceptions':
+    case 'AAA not achieved':
       return <StatusWarningSmall alt="" color="status-warning" />;
     default:
       return <StatusGoodSmall alt="" color="status-ok" />;
@@ -33,7 +33,7 @@ const getStatusIcon = status => {
 
 const statusRank = {
   passed: 0,
-  'passed with exceptions': 1,
+  'AAA not achieved': 1,
   conditional: 2,
   failed: 3,
 };
@@ -121,10 +121,6 @@ export const WCAGRuleDetail = ({ rules, version }) => {
                   {getStatusIcon(
                     groupedRules[group].reduce(
                       (worst, item) => {
-                        // Ignore rules with level "AAA"
-                        if (item.level === 'AAA' && item.status === 'failed') {
-                          return worst;
-                        }
                         return statusRank[item.status] >
                           statusRank[worst.status]
                           ? item
@@ -140,18 +136,21 @@ export const WCAGRuleDetail = ({ rules, version }) => {
               }
             >
               <Box pad={{ vertical: 'small' }} gap="small">
-                {groupedRules[group].map(item => (
-                  <WCAGAccessibilityCardView
-                    key={item.num}
-                    status={item.status}
-                    level={item.level}
-                    link={`https://www.w3.org/TR/WCAG22/#${item.id}`}
-                    ruleNumber={item.num}
-                    version={version}
-                    ruleName={item.handle}
-                    ruleDescription={item.title}
-                  />
-                ))}
+                {/* Sort the rules by their status */}
+                {groupedRules[group]
+                  .sort((a, b) => statusRank[b.status] - statusRank[a.status])
+                  .map(item => (
+                    <WCAGAccessibilityCardView
+                      key={item.num}
+                      status={item.status}
+                      level={item.level}
+                      link={`https://www.w3.org/TR/WCAG22/#${item.id}`}
+                      ruleNumber={item.num}
+                      version={version}
+                      ruleName={item.handle}
+                      ruleDescription={item.title}
+                    />
+                  ))}
               </Box>
             </AccordionPanel>
           </Accordion>
