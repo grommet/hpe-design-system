@@ -37,7 +37,6 @@ export const PhysicalCapacity = ({ size, ...rest }) => {
         />
         <Meter
           gridArea="meter"
-          type="bar"
           max={100}
           values={[{ value: 34 }, { value: 13 }]}
           size="full"

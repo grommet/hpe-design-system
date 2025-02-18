@@ -72,13 +72,11 @@ export const DSCCSystemDetail = () => {
             gap={["large", 'xlarge'].includes(breakpoint) ? "large" : "medium"}
           >
             <DetailPane gridArea="detail-1" />
-            {/* <Box gridArea="detail-2" gap="medium"> */}
             <PropertiesGeneral gridArea="detail-2" />
             <PropertiesRelated gridArea="detail-3" />
-            {/* </Box> */}
           </Grid>
         </Box>
       </PageContent>
-    </Page >
+    </Page>
   );
 }

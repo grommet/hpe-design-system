@@ -18,10 +18,10 @@ export const PropertiesPane = ({
       {...rest}
     >
       <NameValueList nameProps={{ width: ['xsmall', 'max-content'] }}>
-        {properties && properties.map(({ key, value }) =>
+        {properties && properties.map(({ key, value, render }) =>
           <NameValuePair
             key={key}
-            name={sentenceCase(key)}
+            name={render ? render : sentenceCase(key)}
           >{value}</NameValuePair>
         )}
       </NameValueList>
