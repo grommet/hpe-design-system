@@ -13,15 +13,19 @@ Layouts should be:
 - **Consistent**: They should maintain a predictable structure across the application.
 - **Semantic**: They should be designed with HTML semantics in mind to ensure accessibility.
 
-## Foundations
+## Foundational scale
 
-### Sizing system
+The following sizing scale has been built from the following principles:
+
+- **Proportional**: Have a natural ratio where each step in the scale is proportional to other steps.
+- **Composable**: Each scale step may is divisible into have, thirds, quarters, etc. Alternatively each step is composable from smaller steps.
+- **Flexible**: Scale may be divided into subsets and provides choice serving a variety of use cases.
 
 The sizing scale consists of a primary scale based on the doubling/halving of a 24px base unit and a supplementary scale doubling/halving a 16px base unit.
 
 The resulting scale steps: 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536.
 
-[Spacing](#spacing), [container](#container), [radius](#radius), and borderWidth tokens are defined using subsets of this scale.
+[Spacing](#spacing), [container](#container), [radius](#radius), and [borderWidth](#border-width) tokens are defined using subsets of this scale.
 
 ## Spacing
 
@@ -80,6 +84,14 @@ Larger elements, like page sections, may have a larger radius while elements nes
 
 <ContentPane>
   <DesignTokensTable active="semantic.radius" toolbar />
+</ContentPane>
+
+## Border width
+
+Border width tokens define the thickness of a border.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.borderWidth" toolbar />
 </ContentPane>
 
 ## Responsiveness
