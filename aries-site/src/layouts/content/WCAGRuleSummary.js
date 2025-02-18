@@ -12,10 +12,6 @@ const STATUS_MAP = {
     label: 'Passed',
     icon: <StatusGoodSmall alt="" color="status-ok" />,
   },
-  exceptions: {
-    label: 'Passed with Exceptions',
-    icon: <StatusWarningSmall alt="" color="status-warning" />,
-  },
   failed: {
     label: 'Failed',
     icon: <StatusCriticalSmall alt="" color="status-critical" />,
@@ -24,10 +20,14 @@ const STATUS_MAP = {
     label: 'Conditional',
     icon: <CircleInformation alt="" />,
   },
+  'AAA not achieved': {
+    label: 'AAA not achieved',
+    icon: <StatusWarningSmall alt="" color="status-warning" />,
+  },
 };
 
 const StatusLabel = ({ icon, label }) => (
-  <Box align="center" direction="row" gap="xsmall">
+  <Box justify="between" align="center" direction="row" gap="xsmall">
     {icon}
     <Text>{label}</Text>
   </Box>
@@ -43,9 +43,9 @@ const calculateAccessibilityTestCounts = statuses =>
     },
     {
       passed: 0,
-      exceptions: 0,
       failed: 0,
       conditional: 0,
+      'AAA not achieved': 0,
     },
   );
 
