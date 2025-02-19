@@ -19,7 +19,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '18.18.x'
+          node-version: '20.16.0'
       - name: Install latest dependencies
         run: yarn upgrade
         working-directory: aries-site
