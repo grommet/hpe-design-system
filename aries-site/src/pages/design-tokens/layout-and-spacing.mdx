@@ -5,7 +5,7 @@ import { ContentPane, BestPracticeGroup, Example } from '../../layouts';
 import { DesignTokensTable } from '../../components';
 import { SpacingBestPractices } from '../../examples';
 
-The proximity and grouping of elements establish a clear content hierarchy that facilitates a user in accomplishing their goals, without additional distractions.
+The proximity and grouping of elements establish a clear content hierarchy that facilitates a user in accomplishing their goals, free of distraction.
 
 Layouts should be:
 
@@ -13,21 +13,25 @@ Layouts should be:
 - **Consistent**: They should maintain a predictable structure across the application.
 - **Semantic**: They should be designed with HTML semantics in mind to ensure accessibility.
 
-## Foundations
+## Foundational scale
 
-### Sizing system
+The following sizing scale has been built from the following principles:
+
+- **Proportional**: Have a natural ratio where each step in the scale is proportional to other steps.
+- **Composable**: Each scale step may is divisible into have, thirds, quarters, etc. Alternatively each step is composable from smaller steps.
+- **Flexible**: Scale may be divided into subsets and provides choice serving a variety of use cases.
 
 The sizing scale consists of a primary scale based on the doubling/halving of a 24px base unit and a supplementary scale doubling/halving a 16px base unit.
 
-This results in the following: 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536.
+The resulting scale steps: 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536.
 
-Spacing, container, radius, and borderWidth tokens are created using a subset of this scale.
+[Spacing](#spacing), [container](#container), [radius](#radius), and [borderWidth](#border-width) tokens are defined using subsets of this scale.
 
 ## Spacing
 
-Spacing uses proximity principles to create a rhythm and hierarchy within a page. Spacing design tokens define the padding within, margin around, or gap between content.
+Spacing uses proximity principles to define relationships between content and create hierarchy within a page. Spacing design tokens define the padding within, margin around, or gap between content.
 
-Rather than relying heavily on borders to separate content, spacing creates a visual hierarchy that guides the user’s eye through the page and helps them understand the relationships between different elements.
+Spacing guides users’ eyes through the page, helping them understand the relationships between different elements. The HPE Design System minimizes use of borders to separate content. Instead spacing, typography, and background color are combined to create visual hierarchy
 
 There are 12 spacing tokens to provide flexibility to cater to various design needs ranging from dense data-rich experiences to more spacious layouts.
 
@@ -62,11 +66,11 @@ There are 12 spacing tokens to provide flexibility to cater to various design ne
 
 ## Containers
 
-Containers define the minimum/maximum width or height of a page section.
+Containers define the minimum/maximum width or height for content areas.
 
 Container tokens are particularly useful when defining grid layouts. In other cases, consider the approach of [content-driven layouts](/templates/content-layouts#content-driven-layouts) to avoid artificially constraining content.
 
-There are TBD container tokens to provide flexibility to cater to various design needs.
+There are 11 container tokens to provide flexibility to cater to various design needs.
 
 <ContentPane>
   <DesignTokensTable active="semantic.container" />
@@ -82,12 +86,20 @@ Larger elements, like page sections, may have a larger radius while elements nes
   <DesignTokensTable active="semantic.radius" toolbar />
 </ContentPane>
 
+## Border width
+
+Border width tokens define the thickness of a border.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.borderWidth" toolbar />
+</ContentPane>
+
 ## Responsiveness
 
-Layouts should be designed with responsiveness in mind to meet a user wherever they are— whether on a desktop, tablet, or mobile device.
+Layouts should be designed with responsiveness in mind to meet a user wherever they are &mdash; whether on a desktop, tablet, or mobile device.
 
-The values of spacing and radius tokens automatically step down one t-shirt size at the `small` [breakpoint](/design-tokens/global#breakpoint). This retains appropriate proportions between shape, spacing, and content as the screen size decreases.
+The values of semantic spacing and radius design tokens step down in size at the `small` [breakpoint](/design-tokens/global#breakpoint). This retains appropriate proportions between shape, spacing, and content as the screen size decreases.
 
-When utilizing the CSS files, a media query is included in the "dimension.small.css" file to adjust the token values at the `small` breakpoint.
+When utilizing the CSS files, a media query is included in the `dimension.small.css` file to adjust the token values at the `small` breakpoint.
 
 To further refine layouts for different screen sizes, various [breakpoints](/design-tokens/global#breakpoint) can be used to instruct logic for layout adjustments.

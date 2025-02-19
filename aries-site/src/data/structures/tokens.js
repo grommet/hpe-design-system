@@ -42,7 +42,8 @@ export const tokens = [
   {
     name: 'Layout and spacing',
     type: 'Getting started',
-    description: 'Layouts determine the positioning of components on a page.',
+    description:
+      'Layouts determine the positioning, dimension, and relationship between components on a page.',
     preview: {
       component: () => <ContentLayoutPreview />,
     },

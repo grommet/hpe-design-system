@@ -170,7 +170,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.yellow.400-Opacity12}",
-            "$description": "Use for borders communicating warning or caution.",
+            "$description": "Use for backgrounds communicating warning or caution.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -472,7 +472,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.border.default.REST}",
-            "$description": "Use for backgrounds communicating warning or caution.",
+            "$description": "Use for borders communicating warning or caution.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
