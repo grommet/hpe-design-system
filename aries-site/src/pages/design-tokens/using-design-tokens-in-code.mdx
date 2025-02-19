@@ -1,7 +1,3 @@
-import { BetaNotification } from '../../examples';
-
-<BetaNotification />
-
 ## Using tokens with Grommet
 
 There is no need to install "hpe-design-tokens" or change how you build with Grommet. The HPE Design System team has mapped "hpe-design-tokens" into "grommet-theme-hpe", so there should be no change to your workflow.
@@ -40,44 +36,48 @@ To use hpe-design-tokens as CSS variables, first import the CSS files into your 
 
 ```
 // For example, main.jsx
-import 'hpe-design-tokens/dist/css/base.css';
+import 'hpe-design-tokens/dist/css/primitives.css';
 import 'hpe-design-tokens/dist/css/color.light.css';
 import 'hpe-design-tokens/dist/css/color.dark.css';
 import 'hpe-design-tokens/dist/css/global.css';
 import 'hpe-design-tokens/dist/css/components.css';
-import 'hpe-design-tokens/dist/css/dimension.large.css';
+import 'hpe-design-tokens/dist/css/dimension.css';
 import 'hpe-design-tokens/dist/css/dimension.small.css';
 ```
 
 Then, apply the token directly to a CSS property, or create your own CSS variable that can be modified across states.
 
+To programmatically build up CSS classes, see [Generate CSS class names](#generate-css-class-names).
+
 ```
 // For example, styles.css
 
-button.primary {
-    --button-primary-background: var(--hpe-button-primary-enabled-background);
+.hpe-button-primary {
+    --button-primary-background: var(--hpe-button-primary-rest-background);
     background: var(--button-primary-background);
 }
-button.primary:hover {
+.hpe-button-primary:hover {
     --button-primary-background: var(--hpe-button-primary-hover-background);
 }
-button.primary:disabled {
-    --button-primary-background: var(--hpe-button-primary-disabled-background);
+.hpe-button-primary:disabled {
+    --button-primary-background: var(--hpe-button-primary-disabled-rest-background);
 }
 ```
 
 #### ESM
 
-To use hpe-design-tokens as ESM, import the modules into your project.
+To use hpe-design-tokens as ESM, import the modules into your project. This format is intended to be used in conjunction with the CSS files.
+
+The values returned are the CSS variable for each design token.
 
 ```
 // For example, main.jsx
-import { light, dark, large, small, global, components } from 'hpe-design-tokens';
+import { light, dark, dimension, small, global, components } from 'hpe-design-tokens';
 
 const theme = {
     button: {
         primary: {
-            background: components.hpe.button.primary.enabled.background,
+            background: components.hpe.button.primary.rest.background, // var(--hpe-button-primary-rest-background)
         }
     }
 }
@@ -85,16 +85,115 @@ const theme = {
 
 #### CommonJS
 
-To use hpe-design-tokens with CommonJS, import the modules into your project.
+To use hpe-design-tokens with CommonJS, import the modules into your project. This format is intended to be used in conjunction with the CSS files.
+
+The values returned are the CSS variable for each design token.
 
 ```
-const { light, dark, large, small, global, components } = require("hpe-design-tokens");
+const { light, dark, dimension, small, global, components } = require("hpe-design-tokens");
 
 const theme = {
     button: {
         primary: {
-            background: components.hpe.button.primary.enabled.background,
+            background: components.hpe.button.primary.rest.background, // var(--hpe-button-primary-rest-background)
         }
     }
 }
+```
+
+### Generate CSS class names
+
+This code snippet provides a starting point for how to programmatically generate CSS class names for components using either the [ESM](#esm) or [CommonJS](#commonjs) outputs.
+
+```
+
+// Step 1: Import components from hpe-design-tokens
+import { components } from "hpe-design-tokens";
+
+// Step 2: Create map of token properties to CSS properties.
+// Most token properties align to CSS properties,
+// but there are a few exceptions.
+const tokenToCssPropertyMap = {
+  textColor: "color",
+  iconColor: "stroke",
+  textToElementX: "gap",
+  textToIconX: "gap",
+  paddingX: "padding-inline",
+  paddingY: "padding-block",
+  gapX: "row-gap",
+  gapY: "column-gap",
+  size: ["width", "height"],
+  // ... this is a demo, there may be a few others to map
+};
+
+// Helper function to create empty nested object for each class name
+const createNestedObject = (className, obj) => {
+  if (!(className in obj)) {
+    [className].reduce(function (o, s) {
+      return (o[s] = {});
+    }, obj);
+  }
+};
+
+// Step 3: Recursively loop through component tokens to build
+// up classes for each component variant/size/state.
+const generateComponentClasses = (obj, keyPath = []) => {
+  const flattened = {};
+
+  Object.keys(obj).forEach(key => {
+    const value = obj[key];
+
+    if (typeof value === "object" && value !== null && !Array.isArray(value)) {
+      Object.assign(flattened, generateComponentClasses(value, [...keyPath, key]));
+    } else {
+      // removing "rest" from className which refers to "resting" state of a component
+      // it's part of token name for consistency across the taxonomy, but not necessary
+      // for the CSS className.
+      let className = `.${keyPath.filter(k => k !== "rest").join("-")}`;
+      // converting certain states names to CSS pseudo classes
+      if (className.includes("-hover")) className = className.replace("-hover", ":hover");
+      else if (className.includes("-disabled")) className = className.replace("-disabled", ":disabled");
+
+      // treat element "paddingX", "textToElementX", "textToIconX" tokens (hpe.element.medium.paddingX.narrow) like utility classes
+      if ((keyPath.includes("element") && keyPath.includes("paddingX")) || key.includes("textToElementX") || key.includes("textToIconX")) {
+        className = `${className}-${key}`;
+        createNestedObject(className, flattened);
+        flattened[className][keyPath.includes("paddingX") ? tokenToCssPropertyMap["paddingX"] : tokenToCssPropertyMap[key] || key] = value;
+      } else {
+        createNestedObject(className, flattened);
+        // loop through as array for things like "size" which should apply to height and width
+        const properties = Array.isArray(tokenToCssPropertyMap[key]) ? tokenToCssPropertyMap[key] : [tokenToCssPropertyMap[key] || key];
+        properties.forEach(property => {
+          flattened[className][property] = value;
+        });
+      }
+    }
+  });
+
+  return flattened;
+};
+
+// Step 4: Use a script/package to convert output to CSS file.
+// Output example:
+// {
+//     ".hpe-button-primary": {
+//         background: "var(--hpe-button-primary-rest-background)",
+//         borderColor: "var(--hpe-button-primary-rest-borderColor)",
+//         color: "var(--hpe-button-primary-rest-textColor)",
+//         // ...
+//     },
+//     ".hpe-button-primary:hover": {
+//         background: "var(--hpe-button-primary-hover-background)",
+//         borderColor: "var(--hpe-button-primary-hover-borderColor)",
+//         color: "var(--hpe-button-primary-hover-textColor)",
+//         // ...
+//     },
+//     ".hpe-button-primary-medium": {
+//         fontSize: "var(--hpe-button-primary-medium-fontSize)",
+//         lineHeight: "var(--hpe-button-primary-medium-lineHeight)",
+//         borderRadius: "var(--hpe-button-primary-medium-borderRadius)",
+//         // ...
+//     },
+//     // ...
+// }
 ```

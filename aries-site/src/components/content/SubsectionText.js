@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Box, Paragraph } from 'grommet';
+import { Box, Tag, Paragraph } from 'grommet';
 
 import { TEXT_SIZE } from '../../layouts';
 import { HighlightPhrase } from './HighlightPhrase';
@@ -21,17 +21,49 @@ const StyledBox = styled(Box)`
   }
 `;
 
-export const SubsectionText = ({ children, level, size, ...rest }) => (
-  <StyledBox width="large" margin={{ bottom: 'medium' }}>
+const AccessibilityColorMap = accessibility => {
+  if (accessibility.includes('Passed')) return 'status-ok';
+  if (accessibility.includes('Failed')) return 'status-critical';
+  return 'status-warning';
+};
+
+export const SubsectionText = ({
+  children,
+  level,
+  size,
+  accessibility,
+  ...rest
+}) => (
+  <StyledBox gap="xsmall" width="large" margin={{ bottom: 'medium' }}>
     <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest}>
       <HighlightPhrase size={size || TEXT_SIZE[level]}>
         {children}
       </HighlightPhrase>
     </Paragraph>
+    {accessibility && (
+      <Tag
+        alignSelf="start"
+        border={{ color: AccessibilityColorMap(accessibility) }}
+        value={accessibility}
+        onClick={() => {
+          // Scroll to the section 'wcag-compliance'
+          const section = document.getElementById('wcag-compliance');
+          if (section) {
+            section.scrollIntoView({ behavior: 'auto' });
+          }
+
+          const button = section ? section.querySelector('button') : null;
+          if (button) {
+            button.focus();
+          }
+        }}
+      />
+    )}
   </StyledBox>
 );
 
 SubsectionText.propTypes = {
+  accessibility: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,

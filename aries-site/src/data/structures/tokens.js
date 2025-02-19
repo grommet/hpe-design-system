@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { Figma, Code, Book, Table } from 'grommet-icons';
 import { Box, Text } from 'grommet';
+import { ButtonStates } from '../../examples';
 
 export const tokens = [
   {
@@ -30,6 +31,60 @@ export const tokens = [
     },
     seoDescription:
       'An explanation of HPE Design System design token naming conventions.',
+    sections: [],
+    relatedContent: [
+      'All design tokens',
+      'Using design tokens in code',
+      'Using design tokens in Figma',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Global',
+    type: 'Getting started',
+    description: `Global tokens are a set of design tokens that are used across the entire design 
+    system and don't change as a result of screen size or color mode.`,
+    preview: {
+      component: () => <Text size="large">hpe.fontStack.primary</Text>,
+    },
+    seoDescription: `Global tokens are a set of design tokens that are used across the entire design 
+    system and don't change as a result of screen size or color mode.`,
+    sections: [],
+    relatedContent: [
+      'All design tokens',
+      'Using design tokens in code',
+      'Using design tokens in Figma',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Component states',
+    type: 'Getting started',
+    description:
+      'The state of a component communicates feedback based on user interaction, system status, or both.',
+    preview: {
+      component: () => <ButtonStates size="small" tabIndex={-1} />,
+    },
+    seoDescription:
+      'The state of a component communicates feedback based on user interaction, system status, or both.',
+    sections: [],
+    relatedContent: [
+      'All design tokens',
+      'Using design tokens in code',
+      'Using design tokens in Figma',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Element',
+    type: 'Getting started',
+    description:
+      'Element tokens provide standardized sizing for core UI building blocks to ensure alignment in layouts.',
+    preview: {
+      component: () => <Text size="large">hpe.element.medium.paddingY</Text>,
+    },
+    seoDescription:
+      'Element tokens provide standardized sizing for core UI building blocks to ensure alignment in layouts.',
     sections: [],
     relatedContent: [
       'All design tokens',
