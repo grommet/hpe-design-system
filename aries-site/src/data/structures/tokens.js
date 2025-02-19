@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { Figma, Code, Book, Table } from 'grommet-icons';
 import { Box, Text } from 'grommet';
-import { ButtonStates } from '../../examples';
+import { ButtonStates, ContentLayoutPreview } from '../../examples';
 
 export const tokens = [
   {
@@ -31,6 +31,23 @@ export const tokens = [
     },
     seoDescription:
       'An explanation of HPE Design System design token naming conventions.',
+    sections: [],
+    relatedContent: [
+      'All design tokens',
+      'Using design tokens in code',
+      'Using design tokens in Figma',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Layout and spacing',
+    type: 'Getting started',
+    description: 'Layouts determine the positioning, dimension, and relationship between components on a page.',
+    preview: {
+      component: () => <ContentLayoutPreview />,
+    },
+    seoDescription:
+      'Layouts determine the positioning of components on a page.',
     sections: [],
     relatedContent: [
       'All design tokens',

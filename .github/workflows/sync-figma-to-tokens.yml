@@ -21,7 +21,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.16.0'
+          node-version: '20.16.x'
 
       - name: Set NPM version
         run: npm install -g npm@9.5.1
