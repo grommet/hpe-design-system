@@ -57,7 +57,7 @@ export const numberToPixel = (value: number): string => `${value}px`;
 
 export const excludedNameParts = ['DEFAULT', 'REST'];
 /**
- * Ensure variable references are to valid collections. Log errors for any variables that reference invalid Figma files.
+ * Ensure variable references are to valid collections. Log errors for any variables referencing invalid Figma files.
  */
 export const verifyReferences = (
   localTokens: ApiGetLocalVariablesResponse[],
