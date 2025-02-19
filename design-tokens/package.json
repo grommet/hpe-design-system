@@ -13,8 +13,8 @@
   },
   "scripts": {
     "prettier:check": "prettier --check src/",
-    "sync-tokens-to-figma": "ts-node-esm -P tsconfig.json src/sync_tokens_to_figma.ts",
-    "sync-figma-to-tokens": "ts-node-esm -P tsconfig.json src/sync_figma_to_tokens.ts",
+    "sync-tokens-to-figma": "tsx src/sync_tokens_to_figma.ts",
+    "sync-figma-to-tokens": "tsx src/sync_figma_to_tokens.ts",
     "build-style-dictionary": "node src/build-style-dictionary.js",
     "build-token-tree": "node src/build-token-tree.js",
     "build": "rm -rf ./dist && node src/build.js && yarn build-style-dictionary && yarn build-token-tree",
@@ -33,6 +33,7 @@
     "prettier": "3.0.0",
     "style-dictionary": "^3.9.2",
     "style-dictionary-utils": "^2.0.7",
-    "ts-jest": "^29.1.1"
+    "ts-jest": "^29.1.1",
+    "tsx": "^4.19.3"
   }
 }
