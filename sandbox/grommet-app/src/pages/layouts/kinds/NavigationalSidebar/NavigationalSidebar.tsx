@@ -10,7 +10,7 @@ const defaultSelected = navItems["Dashboard"];
 
 export const NavigationalSidebar = () => {
   return (
-    <Box direction="row" fill flex={false}>
+    <Box direction="row">
       <NavSidebar
         title="Private Cloud"
         active={defaultSelected}
