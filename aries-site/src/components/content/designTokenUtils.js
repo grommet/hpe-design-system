@@ -5,20 +5,20 @@ import * as tokens from 'hpe-design-tokens/docs';
 import { Box, Text } from 'grommet';
 
 const structuredTokens = {
-  primitive: {},
+  primitives: {},
   semantic: {},
   component: {},
 };
 
 Object.keys(tokens).forEach(mode => {
-  // base, component, light, dark, etc.
+  // primitives, component, light, dark, etc.
   Object.keys(tokens[mode]).forEach(token => {
     const currentToken = tokens[mode][token];
 
     const parts = token.split('.');
     const category = parts[1];
     let level;
-    if (mode === 'base') level = 'primitive';
+    if (mode === 'primitives') level = 'primitives';
     else if (mode === 'components') level = 'component';
     else level = 'semantic';
 
