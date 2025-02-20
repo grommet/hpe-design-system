@@ -106,7 +106,7 @@ export const RecordDetail: React.FC = () => {
                 layer={['xsmall', 'small', 'medium'].includes(breakpoint)}
                 onClose={() => setScheduledJobs(false)}
                 animation={['xsmall', 'small', 'medium'].includes(breakpoint) ?
-                  undefined :
+                  false :
                   ["slideLeft", "fadeIn"]
                 }
               />
@@ -126,7 +126,7 @@ export const RecordDetail: React.FC = () => {
   );
 }
 
-const Jobs = ({ layer, onClose, ...rest }) => {
+const Jobs = ({ animation, layer, onClose, ...rest }) => {
   const content = (
     <ContentPane
       heading="Scheduled and pending jobs"
@@ -140,6 +140,7 @@ const Jobs = ({ layer, onClose, ...rest }) => {
         />
       }
       skeleton={undefined}
+      animation={animation}
       {...rest}
     >
       <ScheduledJobs level={2} />
@@ -148,7 +149,7 @@ const Jobs = ({ layer, onClose, ...rest }) => {
 
   if (layer) {
     return (
-      <Layer full modal={false}>
+      <Layer full modal={false} animation={animation}>
         {content}
       </Layer>
     );
