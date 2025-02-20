@@ -23,7 +23,7 @@ const AlertItem = ({ label, Icon, color, value, size }) => (
     }
   />
 );
-s;
+
 const AlertMetric = ({ label, size, value }) => (
   <Metric
     align="center"
