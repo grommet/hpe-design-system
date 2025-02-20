@@ -254,9 +254,8 @@ export const ServersTable = () => {
           <Box gridArea="quickfilters">
             <QuickFilters value={value} setValue={setValue} counts={counts} />
           </Box>
-          <Box overflow="auto" gridArea="datatable">
+          <Box pad={{ vertical: 'small' }} overflow="auto" gridArea="datatable">
             <Toolbar>
-              <Box flex />
               <DataSearch />
               <DataFilters layer />
               <Button icon={<FormUpload />} />
