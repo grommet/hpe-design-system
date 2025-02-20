@@ -4,6 +4,7 @@ import { Previous } from "grommet-icons";
 import { Link } from "react-router-dom";
 import { NavSidebar, RoutedAnchor } from "../../../../components";
 import { navItems } from "./navItems";
+import { appHeight } from "../../../../App";
 
 const defaultSelected = navItems["Dashboard"];
 
@@ -14,7 +15,7 @@ export const NavigationalSidebar = () => {
         title="Private Cloud"
         active={defaultSelected}
         items={navItems}
-        flex="grow"
+        height={appHeight}
       />
       <Page pad={{ bottom: "xlarge" }}>
         <PageContent alignSelf="start">

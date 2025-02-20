@@ -97,7 +97,7 @@ export const Capacity = () => {
                 },
                 {
                   property: "total capacity",
-                  label: "Total Capacity",
+                  label: "Total capacity",
                   suffix: " TiB"
                 }
               ]}

@@ -44,7 +44,7 @@ export const Form = () => {
   const [numFiles, setNumFiles] = useState(0);
 
   return (
-    <Page pad={{ bottom: 'large' }} kind="narrow" flex={false}>
+    <Page pad={{ bottom: 'xlarge' }} kind="narrow">
       <PageContent>
         <PageHeader
           title="Form"
