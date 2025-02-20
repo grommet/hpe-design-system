@@ -7,13 +7,14 @@ import {
   EmptyState,
   Form,
   NavigationalSidebar,
-  DSCCSystemDetail
+  DSCCSystemDetail,
+  RecordDetail
 } from './kinds';
 
 const layouts = [
   'Collection',
   'Dashboard',
-  'Detail',
+  'Detail - COM',
   'Detail - DSCC System',
   'Empty state',
   'Form',
@@ -61,6 +62,7 @@ const LayoutsIndex = () => {
 const routes = [
   <Route key="layouts" index element={<LayoutsIndex />} />,
   <Route key="collection" path="collection" element={<Collection />} />,
+  <Route key="detail-com" path="detail-com" element={<RecordDetail />} />,
   <Route key="detail-dscc-system" path="detail-dscc-system" element={<DSCCSystemDetail />} />,
   <Route key="dashboard" path="dashboard" element={<div>Dashboard</div>} />,
   <Route key="empty-state" path="empty-state" element={<EmptyState />} />,
