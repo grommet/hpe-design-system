@@ -18,8 +18,15 @@ const sizes = {
     unit: 'medium',
   },
 };
-export const Metric = ({ label, value, unit, options, size = 'medium' }) => (
-  <Box>
+export const Metric = ({
+  label,
+  value,
+  unit,
+  options,
+  size = 'medium',
+  ...rest
+}) => (
+  <Box {...rest}>
     <Text size={sizes[size].label}>{label}</Text>
     <Text size={sizes[size].unit}>
       <Text size={sizes[size].value} weight={500} color="text-strong">
@@ -32,6 +39,7 @@ export const Metric = ({ label, value, unit, options, size = 'medium' }) => (
 
 Metric.propTypes = {
   label: PropTypes.string,
+  icon: PropTypes.node,
   value: PropTypes.number,
   unit: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
