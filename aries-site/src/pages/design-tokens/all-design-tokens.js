@@ -155,7 +155,7 @@ const AllTokens = () => {
           {['large', 'xlarge'].includes(breakpoint) ? (
             <NavPane>{navContent}</NavPane>
           ) : undefined}
-          <PageContent pad="none">
+          <PageContent pad="none" alignSelf="start">
             <Box pad="medium" round="medium" background="background-front">
               <Box direction="row" align="center" gap="small">
                 {!['large', 'xlarge'].includes(breakpoint) ? (

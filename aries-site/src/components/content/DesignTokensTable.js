@@ -113,7 +113,6 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
           <Toolbar align="end">
             <DataSearch />
             {modeOptions?.length > 1 ? (
-              // eslint-disable-next-line grommet/formfield-htmlfor-id
               <Box width="small">
                 <FormField
                   label="Mode"
