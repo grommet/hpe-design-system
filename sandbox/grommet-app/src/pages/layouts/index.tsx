@@ -1,8 +1,15 @@
-import React from "react";
+import React from 'react';
 import { Link, Outlet, Route } from 'react-router-dom';
-import { List, Page, PageContent, PageHeader } from "grommet";
+import { List, Page, PageContent, PageHeader } from 'grommet';
 import { RoutedAnchor } from '../../components';
-import { Collection, EmptyState, Form, NavigationalSidebar, RecordDetail } from './kinds';
+import {
+  Collection,
+  EmptyState,
+  Form,
+  NavigationalSidebar,
+  OpsRamp,
+  RecordDetail,
+} from './kinds';
 
 const layouts = [
   'Collection',
@@ -16,20 +23,19 @@ const layouts = [
   'Main',
   'Navigational sidebar',
   'NotFound',
+  'OpsRamp detail',
   'Settings',
   'Splash',
-  'Wizard'
+  'Wizard',
 ];
 
 const Layouts = () => {
-  return (
-    <Outlet />
-  );
+  return <Outlet />;
 };
 
 const LayoutsIndex = () => {
   return (
-    <Page pad={{ bottom: "xlarge" }}>
+    <Page pad={{ bottom: 'xlarge' }}>
       <PageContent>
         <PageHeader title="Layouts" />
         <List
@@ -57,8 +63,18 @@ const routes = [
   <Route key="dashboard" path="dashboard" element={<div>Dashboard</div>} />,
   <Route key="empty-state" path="empty-state" element={<EmptyState />} />,
   <Route key="form" path="/layouts/form" element={<Form />} />,
-  <Route key="navigational-sidebar" path="navigational-sidebar" element={<NavigationalSidebar />} />,
+  <Route
+    key="navigational-sidebar"
+    path="navigational-sidebar"
+    element={<NavigationalSidebar />}
+  />,
   <Route key="record-detail" path="record-detail" element={<RecordDetail />} />,
+  <Route key="opsramp-detail" path="opsramp-detail" element={<OpsRamp />} />,
+  <Route
+    key="navigational-sidebar"
+    path="navigational-sidebar"
+    element={<NavigationalSidebar />}
+  />,
 ];
 
 export { Layouts, routes };
