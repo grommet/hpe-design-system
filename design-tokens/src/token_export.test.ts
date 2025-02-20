@@ -1,5 +1,5 @@
-import { ApiGetLocalVariablesResponse } from './figma_api.js'
-import { tokenFilesFromLocalVariables } from './token_export.js'
+import { ApiGetLocalVariablesResponse } from './figma_api.js';
+import { tokenFilesFromLocalVariables } from './token_export.js';
 
 describe('tokenFilesFromLocalVariables', () => {
   it('ignores remote variables', () => {
@@ -35,11 +35,11 @@ describe('tokenFilesFromLocalVariables', () => {
           },
         },
       },
-    }
+    };
 
-    const tokenFiles = tokenFilesFromLocalVariables(localVariablesResponse)
-    expect(tokenFiles).toEqual({})
-  })
+    const tokenFiles = tokenFilesFromLocalVariables(localVariablesResponse);
+    expect(tokenFiles).toEqual({});
+  });
 
   it('returns token files', () => {
     const localVariablesResponse: ApiGetLocalVariablesResponse = {
@@ -99,8 +99,18 @@ describe('tokenFilesFromLocalVariables', () => {
             variableCollectionId: 'VariableCollectionId:1:1',
             resolvedType: 'COLOR',
             valuesByMode: {
-              '1:0': { r: 1, g: 0.7450980392156863, b: 0.08627450980392157, a: 1 },
-              '1:1': { r: 1, g: 0.796078431372549, b: 0.7176470588235294, a: 1 },
+              '1:0': {
+                r: 1,
+                g: 0.7450980392156863,
+                b: 0.08627450980392157,
+                a: 1,
+              },
+              '1:1': {
+                r: 1,
+                g: 0.796078431372549,
+                b: 0.7176470588235294,
+                a: 1,
+              },
             },
             remote: false,
             description: 'Radish color',
@@ -116,7 +126,12 @@ describe('tokenFilesFromLocalVariables', () => {
             resolvedType: 'COLOR',
             valuesByMode: {
               '1:0': { r: 1, g: 0, b: 0.08627450980392157, a: 1 },
-              '1:1': { r: 0.8705882352941177, g: 0.9529411764705882, b: 0.34509803921568627, a: 1 },
+              '1:1': {
+                r: 0.8705882352941177,
+                g: 0.9529411764705882,
+                b: 0.34509803921568627,
+                a: 1,
+              },
             },
             remote: false,
             description: 'Pear color',
@@ -126,9 +141,9 @@ describe('tokenFilesFromLocalVariables', () => {
           },
         },
       },
-    }
+    };
 
-    const tokenFiles = tokenFilesFromLocalVariables(localVariablesResponse)
+    const tokenFiles = tokenFilesFromLocalVariables(localVariablesResponse);
 
     expect(tokenFiles['primitives.mode1.json']).toEqual({
       spacing: {
@@ -160,32 +175,40 @@ describe('tokenFilesFromLocalVariables', () => {
       color: {
         brand: {
           radish: {
-            $type: 'color',
-            $value: '#ffbe16',
-            $description: 'Radish color',
-            $extensions: {
-              'com.figma': {
-                hiddenFromPublishing: false,
-                scopes: ['ALL_SCOPES'],
-                codeSyntax: {},
+            DEFAULT: {
+              REST: {
+                $type: 'color',
+                $value: '#ffbe16',
+                $description: 'Radish color',
+                $extensions: {
+                  'com.figma': {
+                    hiddenFromPublishing: false,
+                    scopes: ['ALL_SCOPES'],
+                    codeSyntax: {},
+                  },
+                },
               },
             },
           },
           pear: {
-            $type: 'color',
-            $value: '#ff0016',
-            $description: 'Pear color',
-            $extensions: {
-              'com.figma': {
-                hiddenFromPublishing: false,
-                scopes: ['ALL_SCOPES'],
-                codeSyntax: {},
+            DEFAULT: {
+              REST: {
+                $type: 'color',
+                $value: '#ff0016',
+                $description: 'Pear color',
+                $extensions: {
+                  'com.figma': {
+                    hiddenFromPublishing: false,
+                    scopes: ['ALL_SCOPES'],
+                    codeSyntax: {},
+                  },
+                },
               },
             },
           },
         },
       },
-    })
+    });
 
     expect(tokenFiles['primitives.mode2.json']).toEqual({
       spacing: {
@@ -217,33 +240,41 @@ describe('tokenFilesFromLocalVariables', () => {
       color: {
         brand: {
           radish: {
-            $type: 'color',
-            $value: '#ffcbb7',
-            $description: 'Radish color',
-            $extensions: {
-              'com.figma': {
-                hiddenFromPublishing: false,
-                scopes: ['ALL_SCOPES'],
-                codeSyntax: {},
+            DEFAULT: {
+              REST: {
+                $type: 'color',
+                $value: '#ffcbb7',
+                $description: 'Radish color',
+                $extensions: {
+                  'com.figma': {
+                    hiddenFromPublishing: false,
+                    scopes: ['ALL_SCOPES'],
+                    codeSyntax: {},
+                  },
+                },
               },
             },
           },
           pear: {
-            $type: 'color',
-            $value: '#def358',
-            $description: 'Pear color',
-            $extensions: {
-              'com.figma': {
-                hiddenFromPublishing: false,
-                scopes: ['ALL_SCOPES'],
-                codeSyntax: {},
+            DEFAULT: {
+              REST: {
+                $type: 'color',
+                $value: '#def358',
+                $description: 'Pear color',
+                $extensions: {
+                  'com.figma': {
+                    hiddenFromPublishing: false,
+                    scopes: ['ALL_SCOPES'],
+                    codeSyntax: {},
+                  },
+                },
               },
             },
           },
         },
       },
-    })
-  })
+    });
+  });
 
   it('handles aliases', () => {
     const localVariablesResponse: ApiGetLocalVariablesResponse = {
@@ -296,9 +327,9 @@ describe('tokenFilesFromLocalVariables', () => {
           },
         },
       },
-    }
+    };
 
-    const tokenFiles = tokenFilesFromLocalVariables(localVariablesResponse)
+    const tokenFiles = tokenFilesFromLocalVariables(localVariablesResponse);
 
     expect(tokenFiles['collection1.mode1.json']).toEqual({
       var1: {
@@ -325,6 +356,6 @@ describe('tokenFilesFromLocalVariables', () => {
           },
         },
       },
-    })
-  })
-})
+    });
+  });
+});

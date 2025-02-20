@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { Figma, Code, Book, Table } from 'grommet-icons';
 import { Box, Text } from 'grommet';
-import { ButtonStates } from '../../examples';
+import { ButtonStates, ContentLayoutPreview } from '../../examples';
 
 export const tokens = [
   {
@@ -36,6 +36,44 @@ export const tokens = [
       'All design tokens',
       'Using design tokens in code',
       'Using design tokens in Figma',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Layout and spacing',
+    type: 'Getting started',
+    description:
+      'Layouts determine the positioning, dimension, and relationship between components on a page.',
+    preview: {
+      component: () => <ContentLayoutPreview />,
+    },
+    seoDescription:
+      'Layouts determine the positioning of components on a page.',
+    sections: [],
+    relatedContent: [
+      'Typography system',
+      'All design tokens',
+      'Using design tokens in code',
+      'Using design tokens in Figma',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Typography system',
+    type: 'Getting started',
+    description:
+      'Typography is an essential part of establishing hierarchy and structure to a page, working in tandem with color and spacing.',
+    preview: {
+      component: () => <Text size="3xl">Aa</Text>,
+    },
+    seoDescription:
+      'Typography is an essential part of establishing hierarchy and structure to a page, working in tandem with color and spacing.',
+    sections: [],
+    relatedContent: [
+      'Layout and spacing',
+      'Global',
+      'Element',
+      'All design tokens',
     ],
     tags: [],
   },
