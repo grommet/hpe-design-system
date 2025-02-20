@@ -63,11 +63,10 @@ export const ResourceAlerts = ({ size }) => {
       value: 2,
     },
     { label: 'OK', Icon: StatusGoodSmall, color: 'status-ok', value: 0 },
-    { label: 'Info', Icon: StatusInfo, color: 'status-info', value: 4 },
+    { label: 'Info', Icon: StatusInfo, value: 4 },
     {
       label: 'Observed',
       Icon: StatusPlaceholderSmall,
-      color: 'status-placeholder',
       value: 2,
     },
   ];
