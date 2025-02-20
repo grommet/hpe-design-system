@@ -276,7 +276,7 @@ export const ServersTable = () => {
         {showResultDetails && (
           <ResourceDetails
             layer={['xsmall', 'small', 'medium'].includes(breakpoint)}
-            onClose={() => setScheduledJobs(false)}
+            onClose={() => setShowResultDetails(false)}
             animation={
               ['xsmall', 'small', 'medium'].includes(breakpoint)
                 ? false
