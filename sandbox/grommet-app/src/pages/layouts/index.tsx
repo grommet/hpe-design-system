@@ -9,12 +9,14 @@ import {
   NavigationalSidebar,
   OpsRamp,
   RecordDetail,
+  DSCCSystemDetail,
 } from './kinds';
 
 const layouts = [
   'Collection',
   'Dashboard',
-  'Record detail',
+  'Detail - COM',
+  'Detail - DSCC System',
   'Empty state',
   'Form',
   'Home',
@@ -46,7 +48,10 @@ const LayoutsIndex = () => {
             <RoutedAnchor
               key={item}
               as={Link}
-              to={`/layouts/${item.toLowerCase().replace(' ', '-')}`}
+              to={`/layouts/${item
+                .toLowerCase()
+                .replaceAll(' - ', '-')
+                .replaceAll(' ', '-')}`}
               label={item}
               alignSelf="start"
             />
@@ -60,6 +65,12 @@ const LayoutsIndex = () => {
 const routes = [
   <Route key="layouts" index element={<LayoutsIndex />} />,
   <Route key="collection" path="collection" element={<Collection />} />,
+  <Route key="detail-com" path="detail-com" element={<RecordDetail />} />,
+  <Route
+    key="detail-dscc-system"
+    path="detail-dscc-system"
+    element={<DSCCSystemDetail />}
+  />,
   <Route key="dashboard" path="dashboard" element={<div>Dashboard</div>} />,
   <Route key="empty-state" path="empty-state" element={<EmptyState />} />,
   <Route key="form" path="/layouts/form" element={<Form />} />,
@@ -68,13 +79,7 @@ const routes = [
     path="navigational-sidebar"
     element={<NavigationalSidebar />}
   />,
-  <Route key="record-detail" path="record-detail" element={<RecordDetail />} />,
   <Route key="opsramp-detail" path="opsramp-detail" element={<OpsRamp />} />,
-  <Route
-    key="navigational-sidebar"
-    path="navigational-sidebar"
-    element={<NavigationalSidebar />}
-  />,
 ];
 
 export { Layouts, routes };
