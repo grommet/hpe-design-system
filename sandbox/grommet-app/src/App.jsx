@@ -14,6 +14,9 @@ import { BackgroundContext, WorkspaceContext } from './contexts';
 import { useLoading } from './utils/skeleton';
 import './app.css';
 
+const appHeaderHeight = '60px';
+export const appHeight = `calc(100vh - ${appHeaderHeight})`;
+
 const App = () => {
   const [authenticated, setAuthenticated] = useState(
     localStorage.getItem('design-tokens-demo') || false,
@@ -44,8 +47,6 @@ const App = () => {
 
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
-  const appHeaderHeight = '60px';
-  const appHeight = `calc(100vh - ${appHeaderHeight})`;
 
   const loading = useLoading(6000);
 
@@ -53,7 +54,7 @@ const App = () => {
     <Grommet
       theme={theme}
       background={backgroundBack ? 'background-back' : undefined}
-      full
+      full="min"
       themeMode={darkMode ? 'dark' : 'light'}
       options={{
         box: {
@@ -89,22 +90,14 @@ const App = () => {
                   setWorkspace={setWorkspace}
                   style={{ position: 'relative', zIndex: 1 }}
                 />
-                <Box
-                  // fill the viewport height minus the header height
-                  height={appHeight}
-                >
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route
-                      path="/sustainability"
-                      element={<Sustainability />}
-                    />
-                    <Route path="/sticker-sheet" element={<StickerSheet />} />
-                    <Route path="/layouts" element={<Layouts />}>
-                      {layoutRoutes}
-                    </Route>
-                  </Routes>
-                </Box>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/sustainability" element={<Sustainability />} />
+                  <Route path="/sticker-sheet" element={<StickerSheet />} />
+                  <Route path="/layouts" element={<Layouts />}>
+                    {layoutRoutes}
+                  </Route>
+                </Routes>
               </BrowserRouter>
               {window.location.pathname === '/next' ? (
                 <FloatingActionButton label="Ask HPE" />
