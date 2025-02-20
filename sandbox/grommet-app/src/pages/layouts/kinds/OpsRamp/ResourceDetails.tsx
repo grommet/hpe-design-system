@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Menu, Layer, Text } from 'grommet';
+import React, { useContext } from 'react';
+import { Box, Menu, Layer, Text, ResponsiveContext } from 'grommet';
 import { LinkNext, StatusGoodSmall } from 'grommet-icons';
 import ContentPane from '../../../../components/ContentPane';
 import { ResourceAlerts } from './ResourceAlerts';
@@ -37,6 +37,10 @@ const ResourceActions = ({ onClose }) => (
 );
 
 export const ResourceDetails = ({ animation, layer, onClose, ...rest }) => {
+  const breakpoint = useContext(ResponsiveContext);
+  const metricSize = ['xsmall', 'small', 'medium'].includes(breakpoint)
+    ? 'small'
+    : 'medium';
   const content = (
     <ContentPane
       gap="small"
@@ -54,7 +58,7 @@ export const ResourceDetails = ({ animation, layer, onClose, ...rest }) => {
     >
       <ResourceHeader name="k8s-flow-worker02" ipAddress="172.31.47.37" />
       <Box border={{ side: 'top' }} />
-      <ResourceAlerts />
+      <ResourceAlerts size={metricSize} />
       <Box border={{ side: 'top' }} />
       <ResourceOverview />
       <Box border={{ side: 'top' }} />

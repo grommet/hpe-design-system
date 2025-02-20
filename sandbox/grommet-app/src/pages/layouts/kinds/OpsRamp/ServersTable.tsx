@@ -149,8 +149,6 @@ export const ServersTable = () => {
   const counts = result.data.length;
   const breakpoint = useContext(ResponsiveContext);
 
-  console.log('breakpoint', breakpoint);
-
   const columns = [
     {
       property: 'name',
