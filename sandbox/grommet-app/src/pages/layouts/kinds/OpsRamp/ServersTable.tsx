@@ -59,72 +59,68 @@ const QuickFilters: React.FC<{
   const size = useContext(ResponsiveContext);
 
   return (
-    <Box gap="medium">
-      <Text size="xlarge">Group by Availability State</Text>
-      <SelectorGroup
-        a11yTitle="Server availability filters"
-        value={selectedValue}
-        // this func does not work right now
-        // onSelect={({ value }) => {
-        //   let nextView = { ...view };
-        //   const nextProperties = {};
-        //   // manipulate value to view object
-        //   if (value)
-        //     nextProperties[VALUE_MAP[value].property] = [
-        //       VALUE_MAP[value].value,
-        //     ];
-        //   nextView = {
-        //     ...nextView,
-        //     // reset search/page when filter applied
-        //     search: '',
-        //     page: 1,
-        //     properties: nextProperties,
-        //     value: undefined,
-        //   };
+    <SelectorGroup
+      a11yTitle="Server availability filters"
+      value={selectedValue}
+      // this func does not work right now
+      // onSelect={({ value }) => {
+      //   let nextView = { ...view };
+      //   const nextProperties = {};
+      //   // manipulate value to view object
+      //   if (value)
+      //     nextProperties[VALUE_MAP[value].property] = [
+      //       VALUE_MAP[value].value,
+      //     ];
+      //   nextView = {
+      //     ...nextView,
+      //     // reset search/page when filter applied
+      //     search: '',
+      //     page: 1,
+      //     properties: nextProperties,
+      //     value: undefined,
+      //   };
 
-        //   onView(nextView);
-        //   setValue(value);
-        // }}
-        multiple={true}
-        layout="grid"
-        defaultValue={[]}
-      >
-        <Selector
-          icon={<StatusCriticalSmall color="status-critical" height="medium" />}
-          title="Down"
-          value="status.down"
-          direction="column"
-          indicator={true}
-          description={null}
-        />
-        <Selector
-          icon={<StatusGoodSmall color="status-ok" height="medium" />}
-          title="Up"
-          value="status.up"
-          direction="column"
-          indicator={true}
-          description={null}
-        />
-        <Selector
-          icon={<StatusUnknownSmall height="medium" />}
-          title="Unknown"
-          value="status.unknown"
-          direction="column"
-          indicator={true}
-          description={null}
-        />
-        <Selector
-          icon={
-            <StatusPlaceholderSmall color="status-unknown" height="medium" />
-          }
-          title="Undefined"
-          value="status.undefined"
-          direction="column"
-          indicator={true}
-          description={null}
-        />
-      </SelectorGroup>
-    </Box>
+      //   onView(nextView);
+      //   setValue(value);
+      // }}
+      multiple={true}
+      layout="grid"
+      defaultValue={[]}
+    >
+      <Text size="large">Group By Availability State</Text>
+      <Selector
+        icon={<StatusCriticalSmall color="status-critical" height="medium" />}
+        title="Down"
+        value="status.down"
+        direction="column"
+        indicator={true}
+        description={null}
+      />
+      <Selector
+        icon={<StatusGoodSmall color="status-ok" height="medium" />}
+        title="Up"
+        value="status.up"
+        direction="column"
+        indicator={true}
+        description={null}
+      />
+      <Selector
+        icon={<StatusUnknownSmall height="medium" />}
+        title="Unknown"
+        value="status.unknown"
+        direction="column"
+        indicator={true}
+        description={null}
+      />
+      <Selector
+        icon={<StatusPlaceholderSmall color="status-unknown" height="medium" />}
+        title="Undefined"
+        value="status.undefined"
+        direction="column"
+        indicator={true}
+        description={null}
+      />
+    </SelectorGroup>
   );
 };
 
@@ -149,10 +145,11 @@ const defaultView = {
 export const ServersTable = () => {
   const [result, setResult] = useState<Result>({ data: [] });
   const [showResultDetails, setShowResultDetails] = useState(false);
-  const [showLayer, setShowLayer] = useState(false);
   const [value, setValue] = useState<string>('');
   const counts = result.data.length;
   const breakpoint = useContext(ResponsiveContext);
+
+  console.log('breakpoint', breakpoint);
 
   const columns = [
     {
@@ -242,15 +239,11 @@ export const ServersTable = () => {
     setResult({ data: opsRamp.servers });
   }, []);
 
-  const handleLayerClose = () => {
-    setShowLayer(false);
-  };
-
   return (
     <Grid
       rows={rows}
       columns={showResultDetails ? gridColumns : 'full'}
-      areas={areas}
+      areas={showResultDetails ? areas : undefined}
       gap={{ row: gap.row, column: gap.column }}
     >
       <Data data={result.data} defaultView={defaultView}>
@@ -258,17 +251,12 @@ export const ServersTable = () => {
           round="small"
           background="background-front"
           pad={{ top: 'small', bottom: 'medium', horizontal: 'medium' }}
+          gap="medium"
         >
           <Box gridArea="quickfilters">
             <QuickFilters value={value} setValue={setValue} counts={counts} />
           </Box>
-        </Box>
-        <Box
-          round="small"
-          background="background-front"
-          pad={{ vertical: 'small', horizontal: 'medium' }}
-        >
-          <Box gridArea="datatable">
+          <Box overflow="auto" gridArea="datatable">
             <Toolbar>
               <Box flex />
               <DataSearch />
@@ -289,11 +277,11 @@ export const ServersTable = () => {
       <Box gridArea="resourcedetails">
         {showResultDetails && (
           <ResourceDetails
-            layer={showLayer}
-            onClose={handleLayerClose}
+            layer={['xsmall', 'small', 'medium'].includes(breakpoint)}
+            onClose={() => setScheduledJobs(false)}
             animation={
               ['xsmall', 'small', 'medium'].includes(breakpoint)
-                ? undefined
+                ? false
                 : ['slideLeft', 'fadeIn']
             }
           />

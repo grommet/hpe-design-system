@@ -35,7 +35,6 @@ export const ResourceAlerts = () => (
       pad={{ vertical: 'small', horizontal: 'medium' }}
       direction="row"
       gap="medium"
-      alignSelf="center"
     >
       <AlertMetric label="All" value={12} />
       <AlertMetric label="Critical" value={4} />

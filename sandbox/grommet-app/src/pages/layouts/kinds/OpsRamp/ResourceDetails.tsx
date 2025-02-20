@@ -36,7 +36,7 @@ const ResourceActions = ({ onClose }) => (
   <Menu label="Actions" items={actionItems} onClick={onClose} />
 );
 
-export const ResourceDetails = ({ layer, onClose, ...rest }) => {
+export const ResourceDetails = ({ animation, layer, onClose, ...rest }) => {
   const content = (
     <ContentPane
       gap="small"
@@ -49,9 +49,9 @@ export const ResourceDetails = ({ layer, onClose, ...rest }) => {
       level={2}
       actions={<ResourceActions onClose={onClose} />}
       skeleton={undefined}
+      animation={animation}
       {...rest}
     >
-      <Box border={{ side: 'top' }} />
       <ResourceHeader name="k8s-flow-worker02" ipAddress="172.31.47.37" />
       <Box border={{ side: 'top' }} />
       <ResourceAlerts />

@@ -6,7 +6,7 @@ export const ResourceTraits = () => (
     <Box pad={{ vertical: 'small' }}>
       <Text>Traits</Text>
     </Box>
-    <Box direction="row" gap="small">
+    <Box direction="row" gap="xsmall">
       <Tag value="" name="Other" />
       <Tag value="" name="Gateway is connected to this device" />
     </Box>

@@ -21,7 +21,10 @@ export const ResourceOverview = () => {
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="OverView">
           <TabContent>
-            <NameValueList valueProps={{ width: ['xsmall', 'max-content'] }}>
+            <NameValueList
+              gap="small"
+              valueProps={{ width: ['xsmall', 'max-content'] }}
+            >
               {Object.entries(defaultData).map(([name, value]) => {
                 return (
                   <NameValuePair key={name} name={name}>
