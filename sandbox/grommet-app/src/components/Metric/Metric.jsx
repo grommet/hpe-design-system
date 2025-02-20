@@ -31,7 +31,7 @@ export const Metric = ({
   );
 
   return (
-    <Box direction={reverse && 'column-reverse'} {...rest}>
+    <Box direction={reverse ? 'column-reverse' : 'column'} {...rest}>
       {label}
       {valueNode}
     </Box>
