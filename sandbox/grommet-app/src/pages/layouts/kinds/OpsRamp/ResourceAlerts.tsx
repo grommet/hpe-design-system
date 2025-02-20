@@ -9,6 +9,21 @@ import {
   StatusPlaceholderSmall,
 } from 'grommet-icons';
 
+const AlertItem = ({ label, Icon, color, value, size }) => (
+  <AlertMetric
+    size={size}
+    label={label}
+    value={
+      <Box direction="row" align="center" gap="xsmall">
+        <Icon color={color} />
+        <Text size={metricSizes[size].value} color="text-strong" weight={500}>
+          {value}
+        </Text>
+      </Box>
+    }
+  />
+);
+s;
 const AlertMetric = ({ label, size, value }) => (
   <Metric
     align="center"
@@ -32,114 +47,55 @@ const TicketNotesSummary = () => (
   </Box>
 );
 
-export const ResourceAlerts = ({ size }) => (
-  <>
-    <Box pad={{ vertical: 'small' }}>
-      <Text>Resource Alerts</Text>
-    </Box>
+export const ResourceAlerts = ({ size }) => {
+  const alertData = [
+    { label: 'All', Icon: StatusGoodSmall, color: 'status-ok', value: 12 },
+    {
+      label: 'Critical',
+      Icon: StatusCriticalSmall,
+      color: 'status-critical',
+      value: 4,
+    },
+    {
+      label: 'Warning',
+      Icon: StatusWarningSmall,
+      color: 'status-warning',
+      value: 2,
+    },
+    { label: 'OK', Icon: StatusGoodSmall, color: 'status-ok', value: 0 },
+    { label: 'Info', Icon: StatusInfo, color: 'status-info', value: 4 },
+    {
+      label: 'Observed',
+      Icon: StatusPlaceholderSmall,
+      color: 'status-placeholder',
+      value: 2,
+    },
+  ];
 
-    <Box
-      pad={{ vertical: 'small', horizontal: 'medium' }}
-      direction="row"
-      gap="medium"
-    >
-      <AlertMetric
-        size={size}
-        label="All"
-        value={
-          <Box direction="row" align="center" gap="xsmall">
-            <StatusGoodSmall color="status-ok" />
-            <Text
-              size={metricSizes[size].value}
-              color="text-strong"
-              weight={500}
-            >
-              12
-            </Text>
-          </Box>
-        }
-      />
-      <AlertMetric
-        size={size}
-        label="Critical"
-        value={
-          <Box direction="row" align="center" gap="xsmall">
-            <StatusCriticalSmall color="status-critical" />
-            <Text
-              size={metricSizes[size].value}
-              color="text-strong"
-              weight={500}
-            >
-              4
-            </Text>
-          </Box>
-        }
-      />
-      <AlertMetric
-        size={size}
-        label="Warning"
-        value={
-          <Box direction="row" align="center" gap="xsmall">
-            <StatusWarningSmall color="status-warning" />
-            <Text
-              size={metricSizes[size].value}
-              color="text-strong"
-              weight={500}
-            >
-              2
-            </Text>
-          </Box>
-        }
-      />
-      <AlertMetric
-        size={size}
-        label="OK"
-        value={
-          <Box direction="row" align="center" gap="xsmall">
-            <StatusGoodSmall color="status-ok" />
-            <Text
-              size={metricSizes[size].value}
-              color="text-strong"
-              weight={500}
-            >
-              0
-            </Text>
-          </Box>
-        }
-      />
-      <AlertMetric
-        size={size}
-        label="Info"
-        value={
-          <Box direction="row" align="center" gap="xsmall">
-            <StatusInfo />
-            <Text
-              size={metricSizes[size].value}
-              color="text-strong"
-              weight={500}
-            >
-              4
-            </Text>
-          </Box>
-        }
-      />
-      <AlertMetric
-        size={size}
-        label="Observed"
-        value={
-          <Box direction="row" align="center" gap="xsmall">
-            <StatusPlaceholderSmall />
-            <Text
-              size={metricSizes[size].value}
-              color="text-strong"
-              weight={500}
-            >
-              2
-            </Text>
-          </Box>
-        }
-      />
-    </Box>
-    <TicketNotesSummary />
-  </>
-);
+  return (
+    <>
+      <Box pad={{ vertical: 'small' }}>
+        <Text>Resource Alerts</Text>
+      </Box>
+
+      <Box
+        pad={{ vertical: 'small', horizontal: 'medium' }}
+        direction="row"
+        gap="medium"
+      >
+        {alertData.map(({ label, Icon, color, value }) => (
+          <AlertItem
+            key={label}
+            label={label}
+            Icon={Icon}
+            color={color}
+            value={value}
+            size={size}
+          />
+        ))}
+      </Box>
+
+      <TicketNotesSummary />
+    </>
+  );
+};
