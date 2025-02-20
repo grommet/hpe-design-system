@@ -1487,6 +1487,7 @@ export const Devices = () => {
           verticalAlign={{ body: 'top' }}
           onClickRow="select"
           id="devices-table"
+          primaryKey="serialNumber"
         />
       </Box>
       <Pagination
