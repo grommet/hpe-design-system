@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Box, Menu, Layer, Text, ResponsiveContext } from 'grommet';
+import React, { useContext, useState } from 'react';
+import { Box, Button, Menu, Layer, Text, ResponsiveContext } from 'grommet';
 import { LinkNext, StatusGoodSmall } from 'grommet-icons';
 import ContentPane from '../../../../components/ContentPane';
 import { ResourceAlerts } from './ResourceAlerts';
@@ -41,12 +41,13 @@ export const ResourceDetails = ({ animation, layer, onClose, ...rest }) => {
   const metricSize = ['xsmall', 'small', 'medium'].includes(breakpoint)
     ? 'small'
     : 'medium';
+
   const content = (
     <ContentPane
       gap="small"
       heading={
         <Box align="center" direction="row" gap="medium">
-          <LinkNext />
+          <Button onClick={onClose} icon={<LinkNext />} />
           <Text>Resource Details</Text>
         </Box>
       }
