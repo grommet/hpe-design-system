@@ -16,8 +16,9 @@ import {
   ResponsiveContext,
   DropButton,
   Menu,
+  ToggleGroup,
 } from 'grommet';
-import { More } from 'grommet-icons';
+import { More, List, Table, MapLocation } from 'grommet-icons';
 import { useContext } from 'react';
 import { useLoading } from '../../utils/skeleton';
 import { Comfortable, Compact, Spacious } from '../../icons';
@@ -1397,6 +1398,13 @@ export const Devices = () => {
                   make: ['HPE'],
                 },
               },
+              {
+                name: 'My other devices',
+                properties: {
+                  type: ['Compute'],
+                  make: ['HPE'],
+                },
+              },
             ]
           : undefined
       }
@@ -1423,6 +1431,23 @@ export const Devices = () => {
           <>
             <DataView />
             <Toolbar>
+              <ToggleGroup
+                options={[
+                  {
+                    icon: <Table a11yTitle="Map view" />,
+                    value: 'table',
+                  },
+                  {
+                    icon: <List a11yTitle="List view" />,
+                    value: 'list',
+                  },
+                  {
+                    icon: <MapLocation a11yTitle="Map view" />,
+                    value: 'map',
+                  },
+                ]}
+                defaultValue="table"
+              />
               <DataTableColumns drop options={options} />
               {/* add back when density tokens are added */}
               {/* <DensityControl /> */}
@@ -1453,7 +1478,6 @@ export const Devices = () => {
       <Box skeleton={skeleton}>
         <DataSummary margin={{ bottom: 'none', top: 'xsmall' }} />
       </Box>
-
       <Box overflow={{ horizontal: 'auto' }} skeleton={skeleton}>
         <DataTable
           columns={columns}
@@ -1462,6 +1486,7 @@ export const Devices = () => {
           verticalAlign={{ body: 'top' }}
           onClickRow="select"
           id="devices-table"
+          primaryKey="serialNumber"
         />
       </Box>
       <Pagination
