@@ -20,12 +20,14 @@ import {
   useDesignTokens,
 } from '../../components';
 
-const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
-  const activeParts = active.split('.');
-  const [open, setOpen] = useState(
-    activeParts[activeParts.length - 1] in structuredTokens[collection],
-  );
-
+const NavSection = ({
+  active,
+  collection,
+  setActive,
+  tokens: tokensObj,
+  open,
+  setOpen,
+}) => {
   return (
     <Box flex={false} gap="xxsmall">
       <Button
@@ -34,7 +36,10 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
         justify="start"
         align="start"
         label={collection}
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          if (open) setOpen('');
+          else setOpen(collection);
+        }}
       />
       <Collapsible open={open}>
         <Box pad={{ left: 'medium' }} flex={false} gap="hair">
@@ -56,6 +61,11 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
 };
 
 const Nav = ({ active, setActive, tokens: tokensObj }) => {
+  const activeParts = active.split('.');
+  const [open, setOpen] = useState(
+    activeParts.at[-1] in tokensObj ? '' : activeParts[0],
+  );
+
   return Object.keys(tokensObj).map(collection => (
     <NavSection
       key={collection}
@@ -63,29 +73,22 @@ const Nav = ({ active, setActive, tokens: tokensObj }) => {
       collection={collection}
       active={active}
       setActive={setActive}
+      open={collection === open}
+      setOpen={setOpen}
     />
   ));
 };
 
-const NavPane = ({ children }) => {
-  const theme = useContext(ThemeContext);
+const NavPane = ({ children, ...rest }) => {
   return (
     <Box
-      flex={false}
-      style={{
-        position: 'sticky',
-        top: theme.global.edgeSize.medium,
-      }}
-      height="130vh"
+      background="background-contrast"
+      pad={{ horizontal: 'small', vertical: 'medium' }}
+      round="medium"
+      width="small"
+      {...rest}
     >
-      <Box
-        background="background-contrast"
-        pad={{ horizontal: 'small', vertical: 'medium' }}
-        round="medium"
-        width="small"
-      >
-        {children}
-      </Box>
+      {children}
     </Box>
   );
 };
@@ -109,6 +112,7 @@ const NavLayer = ({ children, onClose }) => {
 const AllTokens = () => {
   const [openLayer, setOpenLayer] = useState(false);
   const breakpoint = useContext(ResponsiveContext);
+  const theme = useContext(ThemeContext);
   const {
     data,
     setData,
@@ -153,7 +157,16 @@ const AllTokens = () => {
       <Page>
         <Box direction="row" gap="large">
           {['large', 'xlarge'].includes(breakpoint) ? (
-            <NavPane>{navContent}</NavPane>
+            <Box
+              flex="grow"
+              style={{
+                position: 'sticky',
+                top: theme.global.edgeSize.medium,
+              }}
+              height="100vh"
+            >
+              <NavPane>{navContent}</NavPane>
+            </Box>
           ) : undefined}
           <PageContent pad="none" alignSelf="start">
             <Box pad="medium" round="medium" background="background-front">
