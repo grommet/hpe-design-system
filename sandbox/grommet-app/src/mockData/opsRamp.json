@@ -99,7 +99,7 @@
       "state": "unknown"
     },
     {
-      "name": "k8s-cluster-06",
+      "name": "k8s-cluster-27",
       "ip address": "10.42.0.15",
       "make": "VMware, Inc.",
       "model": "VMware Virtual Platform",
@@ -125,6 +125,13 @@
       "make": "VMware, Inc.",
       "model": "VMware Virtual Platform",
       "state": "undefined"
+    },
+    {
+      "name": "k8s-cluster-11",
+      "ip address": "10.42.0.16",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "unknown"
     }
   ]
 }
