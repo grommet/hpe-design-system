@@ -8,22 +8,27 @@ import {
 } from 'grommet-icons';
 import { DataContext, Text } from 'grommet';
 
-// need to fix TS error here
+interface DataContextType {
+  onView: (view: any) => void;
+  view: any;
+}
 
 export const QuickFilters: React.FC<{
-  value;
-  setValue;
-  counts;
+  value: any;
+  setValue: React.Dispatch<React.SetStateAction<any>>;
+  counts: { down?: number; up?: number; unknown?: number; undefined?: number };
 }> = ({ value: selectedValue, setValue, counts }) => {
-  const { onView, view } = useContext(DataContext);
+  const { onView, view } = useContext(DataContext) as DataContextType;
 
   return (
     <SelectorGroup
       a11yTitle="Server State quick filters"
       value={selectedValue}
+      defaultValue={undefined}
+      multiple={false}
       onSelect={({ value }) => {
         let nextView = { ...view };
-        const nextProperties = {};
+        const nextProperties: { state?: string[] } = {};
         if (value) nextProperties.state = [value];
         nextView = {
           ...nextView,
@@ -69,7 +74,7 @@ export const QuickFilters: React.FC<{
         value="undefined"
         direction="column"
         indicator={true}
-        description={<Text size="xlarge">{counts?.undefiend}</Text>}
+        description={<Text size="xlarge">{counts?.undefined}</Text>}
       />
     </SelectorGroup>
   );
