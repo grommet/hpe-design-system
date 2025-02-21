@@ -8,6 +8,8 @@ import {
 } from 'grommet-icons';
 import { DataContext, Text } from 'grommet';
 
+// need to fix TS error here
+
 export const QuickFilters: React.FC<{
   value;
   setValue;

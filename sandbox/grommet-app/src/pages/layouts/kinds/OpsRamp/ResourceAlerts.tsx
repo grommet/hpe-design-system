@@ -9,7 +9,21 @@ import {
   StatusPlaceholderSmall,
 } from 'grommet-icons';
 
-const AlertItem = ({ label, Icon, color, value, size }) => (
+interface AlertItemProps {
+  label: string;
+  Icon: React.ComponentType<{ color?: string }>;
+  color: string;
+  value: number;
+  size: string;
+}
+
+const AlertItem: React.FC<AlertItemProps> = ({
+  label,
+  Icon,
+  color,
+  value,
+  size,
+}) => (
   <AlertMetric
     size={size}
     label={label}
@@ -24,7 +38,13 @@ const AlertItem = ({ label, Icon, color, value, size }) => (
   />
 );
 
-const AlertMetric = ({ label, size, value }) => (
+interface AlertMetricProps {
+  label: string;
+  size: string;
+  value: JSX.Element;
+}
+
+const AlertMetric: React.FC<AlertMetricProps> = ({ label, size, value }) => (
   <Metric
     align="center"
     label={label}
@@ -36,7 +56,7 @@ const AlertMetric = ({ label, size, value }) => (
   />
 );
 
-const TicketNotesSummary = () => (
+const TicketNotesSummary: React.FC = () => (
   <Box pad={{ vertical: 'small' }} direction="row" gap="small">
     <Text>
       Tickets: <Text weight="bold">1</Text>
@@ -47,7 +67,11 @@ const TicketNotesSummary = () => (
   </Box>
 );
 
-export const ResourceAlerts = ({ size }) => {
+interface ResourceAlertsProps {
+  size: string;
+}
+
+export const ResourceAlerts: React.FC<ResourceAlertsProps> = ({ size }) => {
   const alertData = [
     { label: 'All', Icon: StatusGoodSmall, color: 'status-ok', value: 12 },
     {
@@ -75,13 +99,13 @@ export const ResourceAlerts = ({ size }) => {
     <Box>
       <Text>Resource Alerts</Text>
       {/* // probably need a grid for responsive layout */}
-      <Box justify="between" direction="row">
+      <Box gap="small" direction="row">
         {alertData.map(({ label, Icon, color, value }) => (
           <AlertItem
             key={label}
             label={label}
             Icon={Icon}
-            color={color}
+            color={color || 'text-strong'}
             value={value}
             size={size}
           />

@@ -7,7 +7,6 @@ import {
   Grid,
   Toolbar,
   DataSearch,
-  Text,
   Data,
   DataContext,
   ResponsiveContext,
@@ -26,7 +25,7 @@ import opsRamp from '../../../../mockData/opsRamp.json';
 import { ResourceDetails } from './ResourceDetails';
 import { QuickFilters } from './QuickFilters';
 
-export const ServersTable = () => {
+export const ServersTable: React.FC = () => {
   const [total, setTotal] = useState(0);
   const [result, setResult] = useState([]);
   const [quickFilter, setQuickFilter] = useState('');
