@@ -17,7 +17,7 @@ export const ResourceOverview = () => {
   const [index, setIndex] = useState();
   const onActive = nextIndex => setIndex(nextIndex);
   return (
-    <Box pad={{ vertical: 'small' }}>
+    <Box gap="small">
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="OverView">
           <TabContent>
