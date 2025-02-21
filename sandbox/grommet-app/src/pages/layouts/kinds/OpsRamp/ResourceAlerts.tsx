@@ -72,16 +72,10 @@ export const ResourceAlerts = ({ size }) => {
   ];
 
   return (
-    <>
-      <Box pad={{ vertical: 'small' }}>
-        <Text>Resource Alerts</Text>
-      </Box>
-
-      <Box
-        pad={{ vertical: 'small', horizontal: 'medium' }}
-        direction="row"
-        gap="medium"
-      >
+    <Box>
+      <Text>Resource Alerts</Text>
+      {/* // probably need a grid for responsive layout */}
+      <Box justify="between" direction="row">
         {alertData.map(({ label, Icon, color, value }) => (
           <AlertItem
             key={label}
@@ -93,8 +87,7 @@ export const ResourceAlerts = ({ size }) => {
           />
         ))}
       </Box>
-
       <TicketNotesSummary />
-    </>
+    </Box>
   );
 };
