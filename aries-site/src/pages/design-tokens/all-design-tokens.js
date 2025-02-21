@@ -141,8 +141,13 @@ const AllTokens = () => {
     [data, setData, active, setActive, selectedMode, setSelectedMode, modes],
   );
 
+  const onActive = value => {
+    setActive(value);
+    if (openLayer) setOpenLayer(false);
+  };
+
   const navContent = (
-    <Nav tokens={structuredTokens} active={active} setActive={setActive} />
+    <Nav tokens={structuredTokens} active={active} setActive={onActive} />
   );
 
   const activeCollection = active
