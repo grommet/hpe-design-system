@@ -26,128 +26,114 @@ import opsRamp from '../../../../mockData/opsRamp.json';
 import { SelectorGroup, Selector } from '../../../../components';
 import { ResourceDetails } from './ResourceDetails';
 
-interface DataContextType {
-  onView: (view: any) => void;
-  view: any;
-}
-
-const VALUE_MAP = {
-  'state.up': {
-    property: 'state',
-    value: 'up',
-  },
-  'state.down': {
-    property: 'state',
-    value: 'down',
-  },
-  'state.unknown': {
-    property: 'state',
-    value: 'unknown',
-  },
-  'state.undefined': {
-    property: 'state',
-    value: 'undefined',
-  },
-};
-
 const QuickFilters: React.FC<{
-  value: string;
-  setValue: (value: string) => void;
-  counts: number;
+  value;
+  setValue;
+  counts;
 }> = ({ value: selectedValue, setValue, counts }) => {
-  const { onView, view } = useContext<DataContextType>(DataContext);
+  const { onView, view } = useContext(DataContext);
   const size = useContext(ResponsiveContext);
 
   return (
     <SelectorGroup
-      a11yTitle="Server availability filters"
+      a11yTitle="Server State quick filters"
       value={selectedValue}
-      // this func does not work right now
-      // onSelect={({ value }) => {
-      //   let nextView = { ...view };
-      //   const nextProperties = {};
-      //   // manipulate value to view object
-      //   if (value)
-      //     nextProperties[VALUE_MAP[value].property] = [
-      //       VALUE_MAP[value].value,
-      //     ];
-      //   nextView = {
-      //     ...nextView,
-      //     // reset search/page when filter applied
-      //     search: '',
-      //     page: 1,
-      //     properties: nextProperties,
-      //     value: undefined,
-      //   };
+      onSelect={({ value }) => {
+        let nextView = { ...view };
+        const nextProperties = {};
+        if (value) nextProperties.state = [value];
+        nextView = {
+          ...nextView,
+          search: '',
+          page: 1,
+          properties: nextProperties,
+          value: undefined,
+        };
 
-      //   onView(nextView);
-      //   setValue(value);
-      // }}
-      multiple={true}
+        onView(nextView);
+        setValue(value);
+      }}
       layout="grid"
-      defaultValue={[]}
     >
       <Text size="large">Group By Availability State</Text>
       <Selector
         icon={<StatusCriticalSmall color="status-critical" height="medium" />}
-        title="Down"
-        value="status.down"
+        title="Down servers"
+        value="down"
         direction="column"
         indicator={true}
-        description={null}
+        description={<Text size="xlarge">{counts?.down}</Text>}
       />
       <Selector
         icon={<StatusGoodSmall color="status-ok" height="medium" />}
-        title="Up"
-        value="status.up"
+        title="Up servers"
+        value="up"
         direction="column"
         indicator={true}
-        description={null}
+        description={<Text size="xlarge">{counts?.up}</Text>}
       />
       <Selector
         icon={<StatusUnknownSmall height="medium" />}
-        title="Unknown"
-        value="status.unknown"
+        title="Unknown servers"
+        value="unknown"
         direction="column"
         indicator={true}
-        description={null}
+        description={<Text size="xlarge">{counts?.unknown}</Text>}
       />
       <Selector
         icon={<StatusPlaceholderSmall color="status-unknown" height="medium" />}
-        title="Undefined"
-        value="status.undefined"
+        title="Undefined servers"
+        value="undefined"
         direction="column"
         indicator={true}
-        description={null}
+        description={<Text size="xlarge">{counts?.undefiend}</Text>}
       />
     </SelectorGroup>
   );
 };
 
-type Server = {
-  name: string;
-  'ip address': string;
-  make: string;
-  model: string;
-  state: string;
-};
-
-type Result = {
-  data: Server[];
-};
-
-const defaultView = {
-  search: '',
-  sort: { property: 'name', direction: 'asc' },
-  step: 10,
-};
-
 export const ServersTable = () => {
-  const [result, setResult] = useState<Result>({ data: [] });
+  const [total, setTotal] = useState(0);
+  const [result, setResult] = useState([]);
+  const [quickFilter, setQuickFilter] = useState('');
+  const [up, setUp] = useState(0);
+  const [down, setDown] = useState(0);
+  const [unknown, setUnknown] = useState(0);
+  const [undefiend, setUndefined] = useState(0);
   const [showResultDetails, setShowResultDetails] = useState(false);
-  const [value, setValue] = useState<string>('');
-  const counts = result.data.length;
   const breakpoint = useContext(ResponsiveContext);
+
+  useEffect(() => {
+    const servers = opsRamp.servers || [];
+    const upServers = servers.filter(server => server.state === 'up').length;
+    const downServers = servers.filter(
+      server => server.state === 'down',
+    ).length;
+    const unknownServers = servers.filter(
+      server => server.state === 'unknown',
+    ).length;
+    const undefiendServers = servers.filter(
+      server => server.state === 'undefined',
+    ).length;
+
+    setUp(upServers);
+    setDown(downServers);
+    setUndefined(undefiendServers);
+    setUnknown(unknownServers);
+    setTotal(servers.length);
+    setResult(servers);
+  }, []);
+
+  useEffect(() => {
+    let filteredData = opsRamp.servers || [];
+    if (quickFilter) {
+      filteredData = filteredData.filter(
+        server => server.state === quickFilter,
+      );
+    }
+    setResult(filteredData);
+    setTotal(filteredData.length);
+  }, [quickFilter]);
 
   const columns = [
     {
@@ -231,12 +217,6 @@ export const ServersTable = () => {
     ? areasSmall
     : areasDefault;
 
-  useEffect(() => {
-    // demo purposes so imported mock data
-    // real app you'd fetch() API
-    setResult({ data: opsRamp.servers });
-  }, []);
-
   return (
     <Grid
       rows={rows}
@@ -244,7 +224,16 @@ export const ServersTable = () => {
       areas={showResultDetails ? areas : undefined}
       gap={{ row: gap.row, column: gap.column }}
     >
-      <Data data={result.data} defaultView={defaultView}>
+      <Data
+        data={result}
+        total={total}
+        filteredTotal={result.length}
+        defaultView={{
+          search: '',
+          sort: { property: 'name', direction: 'asc' },
+          step: 10,
+        }}
+      >
         <Box
           round="small"
           background="background-front"
@@ -252,7 +241,11 @@ export const ServersTable = () => {
           gap="medium"
         >
           <Box gridArea="quickfilters">
-            <QuickFilters value={value} setValue={setValue} counts={counts} />
+            <QuickFilters
+              value={quickFilter}
+              setValue={setQuickFilter}
+              counts={{ up, down, unknown, undefiend }}
+            />
           </Box>
           <Box pad={{ vertical: 'small' }} overflow="auto" gridArea="datatable">
             <Toolbar>
@@ -261,7 +254,12 @@ export const ServersTable = () => {
               <Button icon={<FormUpload />} />
               <Button icon={<SettingsOption />} />
             </Toolbar>
-            <DataTable onSelect={() => {}} columns={columns} sortable />
+            <DataTable
+              aria-describedby="server-table"
+              onSelect={() => {}}
+              columns={columns}
+              sortable
+            />
             <Pagination
               summary
               stepOptions
