@@ -8,7 +8,6 @@ import {
   Toolbar,
   DataSearch,
   Data,
-  DataContext,
   ResponsiveContext,
   DataTable,
   Pagination,
