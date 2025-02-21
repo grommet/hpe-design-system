@@ -13,7 +13,7 @@ const TabContent = ({ ...rest }) => (
   <Box pad={{ vertical: 'medium' }} {...rest} />
 );
 
-export const ResourceOverview = () => {
+export const ResourceOverview: React.FC = () => {
   const [index, setIndex] = useState();
   const onActive = nextIndex => setIndex(nextIndex);
   return (

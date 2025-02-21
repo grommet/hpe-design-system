@@ -14,7 +14,12 @@ import { ResourceAlerts } from './ResourceAlerts';
 import { ResourceTraits } from './ResourceTraits';
 import { ResourceOverview } from './ResourceOverview';
 
-const actionItems = [
+interface ActionItem {
+  label: string | JSX.Element;
+  onClick: () => void;
+}
+
+const actionItems: ActionItem[] = [
   { label: 'View details', onClick: () => {} },
   { label: 'Copy ID', onClick: () => {} },
   { label: 'Add relationships', onClick: () => {} },
@@ -30,7 +35,12 @@ const actionItems = [
   },
 ];
 
-const ResourceHeader = ({ name, ipAddress }) => (
+interface ResourceHeaderProps {
+  name: string;
+  ipAddress: string;
+}
+
+const ResourceHeader: React.FC<ResourceHeaderProps> = ({ name, ipAddress }) => (
   <Box pad={{ vertical: 'small' }} align="center" direction="row" gap="small">
     <StatusGoodSmall color="status-ok" />
     <Box>
@@ -40,11 +50,18 @@ const ResourceHeader = ({ name, ipAddress }) => (
   </Box>
 );
 
-const ResourceActions = ({ onClose }) => (
+interface ResourceActionsProps {
+  onClose: () => void;
+}
+
+const ResourceActions: React.FC<ResourceActionsProps> = ({ onClose }) => (
   <Menu label="Actions" items={actionItems} onClick={onClose} />
 );
 
-const ResourceSections = ({ size }) => (
+interface ResourceSectionsProps {
+  size: string;
+}
+const ResourceSections: React.FC<ResourceSectionsProps> = ({ size }) => (
   <Box gap="small">
     <Box border={{ side: 'top' }} />
     <ResourceHeader name="k8s-flow-worker02" ipAddress="172.31.47.37" />
@@ -57,7 +74,19 @@ const ResourceSections = ({ size }) => (
   </Box>
 );
 
-export const ResourceDetails = ({ animation, layer, onClose, ...rest }) => {
+interface ResourceDetailsProps {
+  animation?: false | string[];
+  layer?: boolean;
+  onClose: () => void;
+  [key: string]: any;
+}
+
+export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
+  animation,
+  layer,
+  onClose,
+  ...rest
+}) => {
   const breakpoint = useContext(ResponsiveContext);
   const metricSize = ['xsmall', 'small', 'medium'].includes(breakpoint)
     ? 'small'
