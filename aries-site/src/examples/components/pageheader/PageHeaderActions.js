@@ -4,6 +4,7 @@ import { Box, Button, Page, PageContent, PageHeader } from 'grommet';
 import { Pin } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 import { FilterServers, ReverseAnchor } from '../../templates';
+import { ContentPane } from '../../../layouts';
 
 export const PageHeaderActions = ({ bestPractice = true }) => (
   <Page>
@@ -17,7 +18,9 @@ export const PageHeaderActions = ({ bestPractice = true }) => (
         parent={<ReverseAnchor label="Dashboard" />}
         actions={<PageActions bestPractice={bestPractice} />}
       />
-      <FilterServers bestPractice={bestPractice} />
+      <ContentPane flex={false}>
+        <FilterServers bestPractice={bestPractice} />
+      </ContentPane>
     </PageContent>
   </Page>
 );
