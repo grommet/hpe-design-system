@@ -41,7 +41,6 @@ export const ListIconIdentifierExample = () => (
   <Box width={{ max: 'xxlarge' }} margin="auto" fill>
     <List
       aria-label="User status"
-      background="background-front"
       data={data}
       action={item => <Text key={item.name}>{item.option}</Text>}
       onClickItem={e => {
