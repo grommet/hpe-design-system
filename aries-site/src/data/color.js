@@ -13,7 +13,7 @@ const primaryColors = [
   {
     name: 'brand',
     value: 'brand',
-    hex: colors['green!'],
+    hex: colors.brand.light, // same hex code for light and dark
   },
 ];
 
