@@ -219,7 +219,7 @@ const columns = [
 
 // designSystemDemo is used for DS site only, can be removed in production.
 export const DataTableFixedHeaderExample = ({ designSystemDemo }) => (
-  <ContentPane gap="medium">
+  <ContentPane gap="medium" alignSelf="start">
     <Heading id="connected-heading" level={3} margin="none">
       Connected devices
     </Heading>
