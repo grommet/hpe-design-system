@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, DataTable, Heading, Pagination, Text, Tip } from 'grommet';
 import { StatusCritical } from 'grommet-icons';
+import { ContentPane } from '../../../layouts';
 
 const columns = [
   {
@@ -98,11 +99,10 @@ export const PaginationServerTableExample = () => {
   }, [sort, page]);
 
   return (
-    <Box pad="small" align="start">
-      <Heading id="server-side-pagination-heading" level={3}>
+    <ContentPane gap="medium">
+      <Heading id="server-side-pagination-heading" level={3} margin="none">
         Launches
       </Heading>
-
       <DataTable
         aria-describedby="server-side-pagination-heading"
         columns={columns}
@@ -113,7 +113,6 @@ export const PaginationServerTableExample = () => {
         fill
         gap="small"
       />
-
       {numberItems > limit && (
         <Box
           direction="row-responsive"
@@ -135,6 +134,6 @@ export const PaginationServerTableExample = () => {
           />
         </Box>
       )}
-    </Box>
+    </ContentPane>
   );
 };
