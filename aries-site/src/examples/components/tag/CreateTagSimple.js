@@ -107,7 +107,7 @@ export const CreateTagSimple = () => {
               !['xsmall', 'small'].includes(size)
                 ? {
                     top: `${
-                      parseInt(theme.text.xsmall.height, 10) +
+                      parseInt(theme.text.xsmall.height, 10) * 16 +
                       parseInt(
                         theme.global.edgeSize[theme.formField.label.margin.top],
                         10,
