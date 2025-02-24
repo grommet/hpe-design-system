@@ -38,7 +38,7 @@ export const ContentSpinnerExample = () => {
             pad={{ vertical: 'small' }}
             responsive={false}
           >
-            <Hpe color="brand" />
+            <Hpe color="brand" height="medium" />
             <Box direction="row" gap="xsmall" wrap>
               <Text color="text-strong" weight="bold">
                 HPE
