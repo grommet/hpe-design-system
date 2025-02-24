@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, DataTable, Text, Heading } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 const data = [
   {
@@ -218,12 +219,8 @@ const columns = [
 
 // designSystemDemo is used for DS site only, can be removed in production.
 export const DataTableFixedHeaderExample = ({ designSystemDemo }) => (
-  <>
-    <Heading
-      id="connected-heading"
-      level={3}
-      margin={{ bottom: 'medium', top: 'none' }}
-    >
+  <ContentPane gap="medium">
+    <Heading id="connected-heading" level={3} margin="none">
       Connected devices
     </Heading>
     <Box
@@ -244,7 +241,7 @@ export const DataTableFixedHeaderExample = ({ designSystemDemo }) => (
         pin
       />
     </Box>
-  </>
+  </ContentPane>
 );
 
 DataTableFixedHeaderExample.propTypes = {

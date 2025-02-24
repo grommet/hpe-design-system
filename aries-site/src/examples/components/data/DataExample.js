@@ -15,6 +15,8 @@ import {
   Menu,
   Pagination as GrommetPagination,
 } from 'grommet';
+import { ContentPane } from '../../../layouts';
+
 import applications from '../../../data/mockData/applications.json';
 
 const columns = [
@@ -48,8 +50,8 @@ const options = columns.map(column => ({
 
 export const DataExample = () => {
   return (
-    <Box>
-      <Heading id="application-heading" level={2}>
+    <ContentPane gap="medium">
+      <Heading id="application-heading" level={2} margin="none">
         Applications
       </Heading>
       <Data
@@ -95,7 +97,7 @@ export const DataExample = () => {
           <Pagination />
         </ResultsWrapper>
       </Data>
-    </Box>
+    </ContentPane>
   );
 };
 
