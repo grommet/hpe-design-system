@@ -15,6 +15,7 @@ import {
   TextArea,
 } from 'grommet';
 import { CircleAlert } from 'grommet-icons';
+import { ContentPane } from '../../../layouts';
 
 const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
 const weakness = ['Fire', 'PB & J', 'Kryptonite'];
@@ -44,7 +45,7 @@ export const RequiredFieldsExample = () => {
   const [numFiles, setNumFiles] = useState(0);
 
   return (
-    <Box gap="medium" width="medium">
+    <ContentPane gap="medium" width="medium">
       <Header
         direction="column"
         align="start"
@@ -168,6 +169,6 @@ export const RequiredFieldsExample = () => {
           </Box>
         </Form>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };
