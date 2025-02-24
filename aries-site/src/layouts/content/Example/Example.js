@@ -174,10 +174,16 @@ export const Example = ({
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
   let content = !fullscreen && (
-    <ExampleContainer as="section" {...containerProps}>
+    <ExampleContainer
+      as="section"
+      {...containerProps}
+      background={
+        !plain ? { color: 'background-contrast', opacity: '0.02' } : undefined
+      }
+    >
       <ExampleWrapper
         background={
-          ExampleWrapper === ResponsiveContainer && background
+          (ExampleWrapper === ResponsiveContainer || screen) && background
             ? background
             : undefined
         }
@@ -286,7 +292,7 @@ export const Example = ({
           }}
         >
           <Layer full>
-            <Box fill background="background">
+            <Box fill background="background-back">
               <Box
                 direction="row"
                 justify={
