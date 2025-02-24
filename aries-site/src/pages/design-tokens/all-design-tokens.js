@@ -20,14 +20,12 @@ import {
   useDesignTokens,
 } from '../../components';
 
-const NavSection = ({
-  active,
-  collection,
-  setActive,
-  tokens: tokensObj,
-  open,
-  setOpen,
-}) => {
+const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
+  const activeParts = active.split('.');
+  const [open, setOpen] = useState(
+    activeParts[activeParts.length - 1] in structuredTokens[collection],
+  );
+
   return (
     <Box flex={false} gap="xxsmall">
       <Button
@@ -61,11 +59,6 @@ const NavSection = ({
 };
 
 const Nav = ({ active, setActive, tokens: tokensObj }) => {
-  const activeParts = active.split('.');
-  const [open, setOpen] = useState(
-    activeParts.at[-1] in tokensObj ? '' : activeParts[0],
-  );
-
   return Object.keys(tokensObj).map(collection => (
     <NavSection
       key={collection}
@@ -73,8 +66,6 @@ const Nav = ({ active, setActive, tokens: tokensObj }) => {
       collection={collection}
       active={active}
       setActive={setActive}
-      open={collection === open}
-      setOpen={setOpen}
     />
   ));
 };
@@ -83,9 +74,8 @@ const NavPane = ({ children, ...rest }) => {
   return (
     <Box
       background="background-contrast"
-      pad={{ horizontal: 'small', vertical: 'medium' }}
+      pad={{ left: 'small', right: 'large', vertical: 'medium' }}
       round="medium"
-      width="small"
       {...rest}
     >
       {children}
@@ -170,7 +160,7 @@ const AllTokens = () => {
               }}
               height="100vh"
             >
-              <NavPane>{navContent}</NavPane>
+              <NavPane overflow="auto">{navContent}</NavPane>
             </Box>
           ) : undefined}
           <PageContent pad="none" alignSelf="start">
