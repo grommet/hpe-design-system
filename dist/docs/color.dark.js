@@ -1957,9 +1957,7 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
+          "TEXT_FILL"
         ],
         "codeSyntax": {}
       }
@@ -1974,9 +1972,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
+            "TEXT_FILL"
           ],
           "codeSyntax": {}
         }
@@ -2007,9 +2003,7 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
+          "TEXT_FILL"
         ],
         "codeSyntax": {}
       }
@@ -2024,9 +2018,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
+            "TEXT_FILL"
           ],
           "codeSyntax": {}
         }
@@ -2057,9 +2049,7 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
+          "TEXT_FILL"
         ],
         "codeSyntax": {}
       }
@@ -2074,9 +2064,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
+            "TEXT_FILL"
           ],
           "codeSyntax": {}
         }
@@ -2107,9 +2095,7 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
+          "TEXT_FILL"
         ],
         "codeSyntax": {}
       }
@@ -2124,9 +2110,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
+            "TEXT_FILL"
           ],
           "codeSyntax": {}
         }
@@ -2157,9 +2141,7 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
+          "TEXT_FILL"
         ],
         "codeSyntax": {}
       }
@@ -2174,9 +2156,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
+            "TEXT_FILL"
           ],
           "codeSyntax": {}
         }
@@ -2207,7 +2187,7 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "TEXT_FILL"
         ],
         "codeSyntax": {}
       }
@@ -2222,7 +2202,7 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "TEXT_FILL"
           ],
           "codeSyntax": {}
         }
@@ -2253,7 +2233,8 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "TEXT_FILL",
+          "STROKE_COLOR"
         ],
         "codeSyntax": {}
       }
@@ -2268,7 +2249,8 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "TEXT_FILL",
+            "STROKE_COLOR"
           ],
           "codeSyntax": {}
         }
@@ -2299,7 +2281,8 @@ export default {
       "com.figma": {
         "hiddenFromPublishing": false,
         "scopes": [
-          "ALL_SCOPES"
+          "TEXT_FILL",
+          "STROKE_COLOR"
         ],
         "codeSyntax": {}
       }
@@ -2314,7 +2297,8 @@ export default {
         "com.figma": {
           "hiddenFromPublishing": false,
           "scopes": [
-            "ALL_SCOPES"
+            "TEXT_FILL",
+            "STROKE_COLOR"
           ],
           "codeSyntax": {}
         }
