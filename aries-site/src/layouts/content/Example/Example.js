@@ -18,7 +18,7 @@ import {
 } from 'grommet';
 import { Contract } from 'grommet-icons';
 import { aries } from '../../../themes/aries';
-import { scaled } from '../../../themes/scaled';
+// import { scaled } from '../../../themes/scaled';
 import {
   BrowserWrapper,
   Container,
@@ -146,10 +146,12 @@ export const Example = ({
     if (fullscreen) viewPort = size;
     else if (!fullscreen) {
       const containerWidth = mockBrowserRect.width;
-      scaledTheme =
-        scale || screenContainer.scale
-          ? scaled(scale || screenContainer.scale)
-          : theme;
+      // temp removing concept of "scaled" theme
+      // scaledTheme =
+      //   scale || screenContainer.scale
+      //     ? scaled(scale || screenContainer.scale)
+      //     : theme;
+      scaledTheme = theme;
       const { breakpoints } = scaledTheme.global;
       let breakpoint;
       Object.entries(breakpoints)

@@ -6,7 +6,7 @@ import { ContentPane } from '../../../layouts';
 
 export const ChildPageHeaderExample = () => (
   <Page>
-    <Box align="center" pad="small" elevation="small">
+    <Box align="center" pad="small" background="background-front" flex={false}>
       <TextEmphasis>Global Header</TextEmphasis>
     </Box>
     <PageContent>
@@ -15,7 +15,7 @@ export const ChildPageHeaderExample = () => (
         subtitle="View and manage servers."
         parent={<ReverseAnchor label="Manage account" />}
       />
-      <ContentPane>
+      <ContentPane flex={false}>
         <FilterServers />
       </ContentPane>
     </PageContent>

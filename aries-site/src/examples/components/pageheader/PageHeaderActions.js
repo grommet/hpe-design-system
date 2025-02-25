@@ -8,7 +8,7 @@ import { ContentPane } from '../../../layouts';
 
 export const PageHeaderActions = ({ bestPractice = true }) => (
   <Page>
-    <Box align="center" pad="small" elevation="small">
+    <Box align="center" pad="small" background="background-front" flex={false}>
       <TextEmphasis>Global Header</TextEmphasis>
     </Box>
     <PageContent>
