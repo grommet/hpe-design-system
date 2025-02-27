@@ -28,12 +28,7 @@ export const ExampleControls = ({
 
   const boxProps = !horizontalLayout
     ? {
-        background: { color: 'background-contrast', opacity: 0.02 },
-        border: {
-          side: 'top',
-          color: 'border-weak',
-          size: 'xsmall',
-        },
+        background: 'background-contrast',
         pad: { horizontal: 'medium', vertical: 'small' },
       }
     : {

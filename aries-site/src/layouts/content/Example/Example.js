@@ -180,8 +180,36 @@ export const Example = ({
       as="section"
       {...containerProps}
       background={
-        !plain ? { color: 'background-contrast', opacity: '0.02' } : undefined
+        // opacity reduced to be closer to "background-back"
+        // can't set directly to "background-back" because the app background
+        // is "background-back" and therefore there would be no distinction
+        // between the regions
+        !plain
+          ? {
+              color: {
+                light: 'background-contrast',
+                dark: 'background-back',
+              },
+              opacity: 0.02,
+            }
+          : undefined
       }
+      // using "border" treatement in dark mode to create separate
+      // since the approach of "background-contrast" doesn't have
+      // the intended effect
+      // a rare case when border is used to define page sections
+      border={[
+        {
+          side: 'top',
+          color: { light: undefined, dark: 'border-weak' },
+          opacity: 0.05,
+        },
+        {
+          side: 'vertical',
+          color: { light: undefined, dark: 'border-weak' },
+          opacity: 0.05,
+        },
+      ]}
     >
       <ExampleWrapper
         background={
