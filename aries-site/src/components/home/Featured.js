@@ -6,8 +6,12 @@ import { nameToPath } from '../../utils';
 import { featured } from '../../data';
 
 const FeaturedLayout = ({ ...rest }) => (
-  <PageContent pad={{ bottom: 'large' }} {...rest}>
-    <Grid columns={{ count: 'fit', size: 'small' }} gap="large">
+  <PageContent {...rest}>
+    <Grid
+      columns={{ count: 'fit', size: 'small' }}
+      gap="large"
+      pad={{ bottom: 'large' }}
+    >
       {featured.map(({ name, description, icon, url }) => (
         <ContentPreviewCard
           key={name}
