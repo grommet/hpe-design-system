@@ -173,43 +173,44 @@ export const Example = ({
     }
   } else viewPort = undefined;
 
+  const exampleControls = !bestPractice &&
+    (designer || docs || figma || guidance || screenContainer || template) && (
+      <ExampleControls
+        componentName={componentName}
+        designer={designer}
+        docs={docs}
+        figma={figma}
+        grommetSource={grommetSource}
+        guidance={guidance}
+        horizontalLayout={horizontalLayout}
+        setFullscreen={value => setFullscreen(value)}
+        showResponsiveControls={showResponsiveControls}
+      />
+    );
+
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
   let content = !fullscreen && (
     <ExampleContainer
       as="section"
       {...containerProps}
-      background={
-        // opacity reduced to be closer to "background-back"
-        // can't set directly to "background-back" because the app background
-        // is "background-back" and therefore there would be no distinction
-        // between the regions
-        !plain
-          ? {
-              color: {
-                light: 'background-contrast',
-                dark: 'background-back',
-              },
-              opacity: 0.02,
-            }
-          : undefined
-      }
-      // using "border" treatement in dark mode to create separate
-      // since the approach of "background-contrast" doesn't have
-      // the intended effect
+      background={!plain ? 'background-back' : undefined}
+      // using "border" treatement to create separation from page background
       // a rare case when border is used to define page sections
-      border={[
-        {
-          side: 'top',
-          color: { light: undefined, dark: 'border-weak' },
-          opacity: 0.05,
-        },
-        {
-          side: 'vertical',
-          color: { light: undefined, dark: 'border-weak' },
-          opacity: 0.05,
-        },
-      ]}
+      border={
+        exampleControls
+          ? [
+              {
+                side: 'top',
+                color: 'border-weak',
+              },
+              {
+                side: 'vertical',
+                color: 'border-weak',
+              },
+            ]
+          : { color: 'border-weak' }
+      }
     >
       <ExampleWrapper
         background={
@@ -238,21 +239,6 @@ export const Example = ({
       </ExampleWrapper>
     </ExampleContainer>
   );
-
-  const exampleControls = !bestPractice &&
-    (designer || docs || figma || guidance || screenContainer || template) && (
-      <ExampleControls
-        componentName={componentName}
-        designer={designer}
-        docs={docs}
-        figma={figma}
-        grommetSource={grommetSource}
-        guidance={guidance}
-        horizontalLayout={horizontalLayout}
-        setFullscreen={value => setFullscreen(value)}
-        showResponsiveControls={showResponsiveControls}
-      />
-    );
 
   if (!horizontalLayout)
     content = (
