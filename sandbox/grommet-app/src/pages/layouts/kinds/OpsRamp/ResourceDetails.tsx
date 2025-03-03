@@ -98,7 +98,7 @@ export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
       heading={
         <Box align="center" direction="row" gap="medium">
           <Button onClick={onClose} icon={<LinkNext />} />
-          <Heading level={2}>Resource Details</Heading>
+          <Heading level={2} margin="none">Resource Details</Heading>
         </Box>
       }
       level={2}
