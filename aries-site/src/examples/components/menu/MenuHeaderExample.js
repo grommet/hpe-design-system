@@ -12,7 +12,7 @@ export const MenuHeaderExample = () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Header background="background-contrast" pad="small" fill="horizontal">
+    <Header pad="small" fill="horizontal">
       <Button>
         <Box
           direction="row"

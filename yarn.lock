@@ -7700,10 +7700,12 @@ grommet-icons@^4.12.4:
   version "4.12.4"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#67839aebf5b804c9a4a82db82ebec86d40d04680"
 
-grommet-theme-hpe@5.7.0:
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-5.7.0.tgz#c2488c5ae88467a035129e71b608e0d59db1b8df"
-  integrity sha512-P8n7wQt1QTWdgDCOV1zc0jOlnq9ml5bCCEgtdCsMKiWIQkbOGJVbOACsfiZOS+J6M7l9ur9QFoXtVkGO6a+HAA==
+grommet-theme-hpe@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-6.0.0.tgz#528af5d2c07e589e6c98e21d5dde3c3585e39dfe"
+  integrity sha512-APd4KwxMiXl/WMCVF/30mKmnHBN6zpmF3mTzn6XXBEwhnQvZR+detLn1BQmdAL36Pwfg8TsH0j71J4VtpHwxpQ==
+  dependencies:
+    hpe-design-tokens "^1.0.0"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.45.1"
