@@ -1,0 +1,66 @@
+import { Box, Grid, Notification, Text } from 'grommet';
+import { Trigger } from 'grommet-icons';
+import { ContentPane, Example } from '../../layouts';
+import { ColorPreview } from '../../components';
+import {
+  SpecialtyBackgrounds,
+  StandardBackgrounds,
+  StandardForegrounds,
+  StrongBackgrounds,
+} from '../../examples';
+
+## Using background and foreground colors
+
+Backgrounds pair with text and icon colors, unless they have a specific color pairing. For example, `color.background.default` or `color.background.front` will work with `color.text.default` or `color.icon.strong`.
+
+## Accessible color pairings
+
+These background colors can be paired with the following text and icon colors and will meet accessibility requirements for color contrast.
+
+Combine background and text and icon colors with confidence as all contrast ratios have been tested.
+
+<StandardBackgrounds />
+
+**Work with**
+
+<StandardForegrounds />
+
+## Strong background and onStrong colors
+
+Strong backgrounds have higher emphasis and are always paired with onStrong colors. This ensures that content sitting on strong backgrounds, for example, text and icons, will always be visible and accessible, even if colors are updated at a future date.
+
+<Notification
+  status="info"
+  title="Color updates"
+  message="When color values are updated with new theme versions, the design system will ensure that supported color pairings meet accessibility requirements."
+  width={{ max: 'large' }}
+  margin={{ bottom: 'medium' }}
+/>
+
+<Example>
+  <StrongBackgrounds />
+</Example>
+
+## Specialty color pairings
+
+Some colors have pairings with added granular definition. For example, `color.background.primary.strong` is paired with `color.text.onPrimaryStrong`.
+
+Only some colors are chosen for this specific level of pairing, in order to enable the styling management from the token level.
+
+<Example>
+  <SpecialtyBackgrounds />
+</Example>
+
+Refer to this table below as a guide to which background colors pair with 'on' colors.
+
+| Example                                                                | Background color                         | Pairs with                                                             |
+| ---------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------------------------------------- |
+| <ColorPreview datum={{value: 'background-critical'}} />                | color.background.critical                | color.text.onCritical, color.text.onCritical.strong                    |
+| <ColorPreview datum={{value: 'background-warning'}} />                 | color.background.warning                 | color.text.onWarning, color.text.onWarning.strong                      |
+| <ColorPreview datum={{value: 'background-ok'}} />                      | color.background.ok                      | color.text.onWarning, color.text.onWarning.strong                      |
+| <ColorPreview datum={{value: 'background-info'}} />                    | color.background.info                    | color.text.onInfo, color.text.onInfo.strong                            |
+| <ColorPreview datum={{value: 'background-unknown'}} />                 | color.background.unknown                 | color.text.onUnknown, color.text.onUnknown.strong                      |
+| <ColorPreview datum={{value: 'background-primary-strong'}} />          | color.background.primary.strong          | color.text.onPrimaryStrong, color.icon.onPrimaryStrong                 |
+| <ColorPreview datum={{value: 'background-primary-xstrong'}} />         | color.background.primary.xstrong         | color.text.onPrimaryStrong, color.icon.onPrimaryStrong                 |
+| <ColorPreview datum={{value: 'background-selected-primary'}} />        | color.background.selected.primary        | color.text.onSelectedPrimary, color.icon.onSelectedPrimary             |
+| <ColorPreview datum={{value: 'background-selected-primary-strong'}} /> | color.background.selected.primary.strong | color.text.onSelectedPrimaryStrong, color.icon.onSelectedPrimaryStrong |
