@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text } from 'grommet';
+import { Anchor, Box, Text } from 'grommet';
 import { Metric, metricSizes } from '../../../../components';
 import {
   StatusGoodSmall,
@@ -59,10 +59,10 @@ const AlertMetric: React.FC<AlertMetricProps> = ({ label, size, value }) => (
 const TicketNotesSummary: React.FC = () => (
   <Box pad={{ vertical: 'small' }} direction="row" gap="small">
     <Text>
-      Tickets: <Text weight="bold">1</Text>
+      Tickets: <Anchor href="#">1</Anchor>
     </Text>
     <Text>
-      Notes: <Text weight="bold">2</Text>
+      Notes: <Anchor href="#">2</Anchor>
     </Text>
   </Box>
 );
