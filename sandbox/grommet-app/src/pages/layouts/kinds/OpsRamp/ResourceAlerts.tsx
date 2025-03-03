@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, Box, Text } from 'grommet';
+import { Anchor, Grid, Box, Text } from 'grommet';
 import { Metric, metricSizes } from '../../../../components';
 import {
   StatusGoodSmall,
@@ -98,18 +98,26 @@ export const ResourceAlerts: React.FC<ResourceAlertsProps> = ({ size }) => {
   return (
     <Box>
       <Text>Resource Alerts</Text>
-      {/* // probably need a grid for responsive layout */}
-      <Box gap="small" direction="row">
-        {alertData.map(({ label, Icon, color, value }) => (
-          <AlertItem
-            key={label}
-            label={label}
-            Icon={Icon}
-            color={color || 'text-strong'}
-            value={value}
-            size={size}
-          />
-        ))}
+      {/* in design the pad is 18px */}
+      <Box pad="small" gap="small" direction="row">
+        <Grid
+          fill
+          columns={{
+            count: 6,
+            size: 'auto',
+          }}
+        >
+          {alertData.map(({ label, Icon, color, value }) => (
+            <AlertItem
+              key={label}
+              label={label}
+              Icon={Icon}
+              color={color || 'text-strong'}
+              value={value}
+              size={size}
+            />
+          ))}
+        </Grid>
       </Box>
       <TicketNotesSummary />
     </Box>

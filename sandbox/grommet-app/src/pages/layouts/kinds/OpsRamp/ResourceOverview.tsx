@@ -19,11 +19,11 @@ export const ResourceOverview: React.FC = () => {
   return (
     <Box gap="small">
       <Tabs activeIndex={index} onActive={onActive} justify="start">
-        <Tab title="OverView">
+        <Tab title="Overview">
           <TabContent>
             <NameValueList
               gap="small"
-              valueProps={{ width: ['xsmall', 'max-content'] }}
+              nameProps={{ width: ['xsmall', 'max-content'] }}
             >
               {Object.entries(defaultData).map(([name, value]) => {
                 return (
@@ -38,7 +38,7 @@ export const ResourceOverview: React.FC = () => {
         <Tab title="Related Resources">
           <TabContent>Related Resources Information</TabContent>
         </Tab>
-        <Tab title="Custom Atttribute">
+        <Tab title="Custom Atttributes">
           <TabContent>Custom Atttribute Information</TabContent>
         </Tab>
       </Tabs>
