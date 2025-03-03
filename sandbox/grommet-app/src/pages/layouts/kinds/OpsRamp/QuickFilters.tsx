@@ -46,7 +46,7 @@ export const QuickFilters: React.FC<{
       <Text size="large">Group By Availability State</Text>
       <Selector
         icon={<StatusCriticalSmall color="status-critical" height="medium" />}
-        title="Down servers"
+        title="Down"
         value="down"
         direction="column"
         indicator={true}
@@ -54,7 +54,7 @@ export const QuickFilters: React.FC<{
       />
       <Selector
         icon={<StatusGoodSmall color="status-ok" height="medium" />}
-        title="Up servers"
+        title="Up"
         value="up"
         direction="column"
         indicator={true}
@@ -62,19 +62,19 @@ export const QuickFilters: React.FC<{
       />
       <Selector
         icon={<StatusUnknownSmall height="medium" />}
-        title="Unknown servers"
+        title="Unknown"
         value="unknown"
         direction="column"
         indicator={true}
-        description={<Text size="xlarge">{counts?.unknown}</Text>}
+        description={<Text size="xlarge">{counts?.unknown || 0}</Text>}
       />
       <Selector
         icon={<StatusPlaceholderSmall color="status-unknown" height="medium" />}
-        title="Undefined servers"
+        title="Undefined"
         value="undefined"
         direction="column"
         indicator={true}
-        description={<Text size="xlarge">{counts?.undefined}</Text>}
+        description={<Text size="xlarge">{counts?.undefined || 0}</Text>}
       />
     </SelectorGroup>
   );

@@ -165,6 +165,20 @@ export const ServersTable: React.FC = () => {
           sort: { property: 'name', direction: 'asc' },
           step: 10,
         }}
+        properties={{
+          name: {
+            label: 'Name',
+          },
+          'ip address': {
+            label: 'IP Address',
+          },
+          model: {
+            label: 'Model',
+          },
+          state: {
+            label: 'State',
+          },
+        }}
       >
         <Box
           round="small"
@@ -183,8 +197,8 @@ export const ServersTable: React.FC = () => {
             <Toolbar>
               <DataSearch />
               <DataFilters layer />
-              <Button icon={<FormUpload />} />
-              <Button icon={<SettingsOption />} />
+              <Button kind="toolbar" icon={<FormUpload />} />
+              <Button kind="toolbar" icon={<SettingsOption />} />
             </Toolbar>
             <DataTable
               aria-describedby="server-table"
