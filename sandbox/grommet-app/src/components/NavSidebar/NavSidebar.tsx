@@ -5,19 +5,21 @@ import { CollapsibleMenu } from '../CollapsibleMenu';
 
 const SidebarHeader = ({ expanded, setExpanded, title }) => {
   return (
-    <Box
-      direction='row'
-      align='center'
-      justify='between'
-      gap="large"
-    >
-      {expanded && <Text size='large' >{title}</Text>}
+    <Box direction="row" align="center" justify="between" gap="large">
+      {expanded && <Text size="large">{title}</Text>}
       <Button icon={<SidebarIcon />} onClick={() => setExpanded(!expanded)} />
     </Box>
   );
-}
+};
 
-export const NavSidebar = ({ title, active, items, ...rest }) => {
+export const NavSidebar = ({
+  title,
+  active,
+  items,
+  expanded = true,
+  setExpanded,
+  ...rest
+}) => {
   const [open, setOpen] = React.useState(true);
   const [selected, setSelected] = React.useState(active);
 
@@ -25,15 +27,17 @@ export const NavSidebar = ({ title, active, items, ...rest }) => {
     <Sidebar
       background="background-front"
       gap="small"
-      header={< SidebarHeader expanded={open} setExpanded={setOpen} title={title} />}
-      pad={open ? "small" : { vertical: "small", horizontal: "xsmall" }}
+      header={
+        <SidebarHeader expanded={open} setExpanded={setOpen} title={title} />
+      }
+      pad={open ? 'small' : { vertical: 'small', horizontal: 'xsmall' }}
       {...rest}
     >
-      {open &&
+      {open && (
         <Nav
-          border={{ side: "top", color: "border-weak" }}
+          border={{ side: 'top', color: 'border-weak' }}
           gap="small"
-          pad={{ vertical: "small" }}
+          pad={{ vertical: 'small' }}
         >
           <CollapsibleMenu
             items={items}
@@ -42,7 +46,7 @@ export const NavSidebar = ({ title, active, items, ...rest }) => {
             gap="small"
           />
         </Nav>
-      }
-    </Sidebar >
+      )}
+    </Sidebar>
   );
 };

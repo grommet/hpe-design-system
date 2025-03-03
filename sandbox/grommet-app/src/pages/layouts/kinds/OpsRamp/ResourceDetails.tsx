@@ -54,8 +54,8 @@ interface ResourceActionsProps {
   onClose: () => void;
 }
 
-const ResourceActions: React.FC<ResourceActionsProps> = ({ onClose }) => (
-  <Menu label="Actions" items={actionItems} onClick={onClose} />
+const ResourceActions: React.FC<ResourceActionsProps> = () => (
+  <Menu label="Actions" items={actionItems} onClick={() => {}} />
 );
 
 interface ResourceSectionsProps {
@@ -98,7 +98,9 @@ export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
       heading={
         <Box align="center" direction="row" gap="medium">
           <Button onClick={onClose} icon={<LinkNext />} />
-          <Heading level={2} margin="none">Resource Details</Heading>
+          <Heading level={2} margin="none">
+            Resource Details
+          </Heading>
         </Box>
       }
       level={2}
