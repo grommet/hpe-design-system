@@ -18,7 +18,7 @@ export const HPEVideo = () => {
       pad={{ vertical: 'xlarge', horizontal: 'xlarge' }}
       background={{
         fill: 'horizontal',
-        image: 'url(/public/video-marketing-background.png)',
+        image: 'url(/video-marketing-background.png)',
         dark: false,
         size: 'cover',
       }}
