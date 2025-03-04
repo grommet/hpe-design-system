@@ -15,9 +15,14 @@ import clock from '/clock.svg';
 import performance from '/performance.svg';
 
 const ContentArea = ({ alt, image, desc, title }) => {
+  const breakpoint = useContext(ResponsiveContext);
+  console.log(breakpoint);
   return (
     <Box align="center" gap="medium">
-      <Box width="xsmall" height="xsmall">
+      <Box
+        width={breakpoint === 'medium' ? 'xxsmall' : 'xsmall'}
+        height={breakpoint === 'medium' ? 'xxsmall' : 'xsmall'}
+      >
         <Image fit="contain" alt={alt} src={image} />
       </Box>
       <Heading margin="none" level={4}>
@@ -39,6 +44,8 @@ export const MarketingBrochure = () => {
       };
   const rows = ['auto'];
   const gap = {
+    xsamll: 'medium',
+    small: 'medium',
     medium: 'medium',
     large: 'large',
     xlarge: 'large',
@@ -46,7 +53,7 @@ export const MarketingBrochure = () => {
 
   return (
     <PageContent
-      pad={{ vertical: 'xlarge' }}
+      pad={{ vertical: 'xlarge', horizontal: 'xlarge' }}
       background={{ fill: 'horizontal', color: 'green', dark: true }}
       fill="horizontal"
     >
