@@ -50,7 +50,7 @@ export const HPEAI = () => {
           ? { color: 'background', dark: true }
           : {
               fill: 'horizontal',
-              image: 'url(/public/marketing-background.png)',
+              image: 'url(/marketing-background.png)',
               dark: true,
             }
       }
