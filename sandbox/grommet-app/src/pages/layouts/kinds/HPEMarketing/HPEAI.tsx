@@ -83,7 +83,6 @@ export const HPEAI = () => {
               co-developed solutions to help you accelerate the adoption of
               generative AI.
             </Text>
-            {/* // alignement between text and icon is off */}
             <Button
               label="HPE ships first NVIDIA Grace Blackwell system"
               kind="cta-primary"
