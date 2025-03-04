@@ -21,6 +21,7 @@ import {
   passwordRequirements,
   passwordRulesStrong,
 } from './utils/FormValidation';
+import { ContentPane } from '../../../layouts';
 
 export const SimpleSignUpExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -48,7 +49,7 @@ export const SimpleSignUpExample = () => {
   };
 
   return (
-    <Box gap="medium" width="medium">
+    <ContentPane gap="medium" width="medium">
       <Header
         direction="column"
         align="start"
@@ -177,6 +178,6 @@ export const SimpleSignUpExample = () => {
           </Box>
         </Form>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };

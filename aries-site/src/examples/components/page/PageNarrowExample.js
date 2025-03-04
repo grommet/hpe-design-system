@@ -14,6 +14,7 @@ import {
   TextInput,
   Button,
 } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 // `demoStyle` is specific for the Design System site and is used
 // as a visual aid to help present layout concepts. Remove from
@@ -27,7 +28,9 @@ export const PageNarrowExample = () => (
         title="Narrow page"
         actions={[<Button key="Action A" secondary label="Action A" />]}
       />
-      <FormSection />
+      <ContentPane>
+        <FormSection />
+      </ContentPane>
     </PageContent>
   </Page>
 );

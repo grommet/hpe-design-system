@@ -7,9 +7,7 @@ export const DashboardGrid = ({ ...rest }) => {
   return (
     <Grid
       columns={!['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
-      rows={[['auto', 'full']]}
       gap="medium"
-      fill
       {...rest}
     >
       {data &&

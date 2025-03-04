@@ -11,6 +11,7 @@ export const TagPageHeader = ({ description }) => (
           description ||
           'Tags are name-value pairs that can be assigned to resources.'
         }
+        pad="none"
       />
     </Box>
     <Text size="large">

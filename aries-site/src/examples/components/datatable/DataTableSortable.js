@@ -12,6 +12,7 @@ import {
   StatusWarningSmall,
   StatusCriticalSmall,
 } from 'grommet-icons';
+import { ContentPane } from '../../../layouts';
 
 const data = [
   {
@@ -156,12 +157,8 @@ export const DataTableSortable = () => {
   const size = React.useContext(ResponsiveContext);
 
   return (
-    <>
-      <Heading
-        id="sortable-heading"
-        level={3}
-        margin={{ bottom: 'small', top: 'none' }}
-      >
+    <ContentPane gap="medium">
+      <Heading id="sortable-heading" level={3} margin="none">
         Sortable items
       </Heading>
       <Box align="start" margin={{ right: 'auto' }} overflow="auto">
@@ -182,6 +179,6 @@ export const DataTableSortable = () => {
           sortable
         />
       </Box>
-    </>
+    </ContentPane>
   );
 };

@@ -17,46 +17,48 @@ import {
   StatusGoodSmall,
   StatusUnknownSmall,
 } from 'grommet-icons';
+import { ContentPane } from '../../../layouts';
 
 const { servers } = require('../../../data/mockData/servers.json');
 
 export const MenuBatchActionsExample = () => (
-  <Data
-    data={servers.items.slice(3, 12)}
-    views={[
-      { name: 'All', properties: { status: ['Ready', 'Paused'] } },
-      { name: 'Paused', properties: { status: ['Paused'] } },
-      { name: 'Ready', properties: { status: ['Ready'] } },
-    ]}
-  >
-    <Toolbar gap="medium">
-      <Toolbar>
-        <DataSearch responsive />
-        <DataFilters layer />
+  <ContentPane>
+    <Data
+      data={servers.items.slice(3, 12)}
+      views={[
+        { name: 'All', properties: { status: ['Ready', 'Paused'] } },
+        { name: 'Paused', properties: { status: ['Paused'] } },
+        { name: 'Ready', properties: { status: ['Ready'] } },
+      ]}
+    >
+      <Toolbar gap="medium">
+        <Toolbar>
+          <DataSearch responsive />
+          <DataFilters layer />
+        </Toolbar>
+        {/* Flex Box added for spacing between Button */}
+        <Box flex />
+        <Menu
+          label="Actions"
+          kind="toolbar"
+          open
+          items={[
+            [
+              { label: 'Power on', onClick: () => {} },
+              { label: 'Power off', onClick: () => {} },
+              { label: 'Reset', onClick: () => {} },
+              { label: 'Update firmware', onClick: () => {} },
+            ],
+            [{ label: 'Add to group', onClick: () => {} }],
+          ]}
+          dropAlign={{ top: 'bottom', right: 'right' }}
+        />
       </Toolbar>
-      {/* Flex Box added for spacing between Button */}
-      <Box flex />
-      <Menu
-        label="Actions"
-        kind="toolbar"
-        open
-        items={[
-          [
-            { label: 'Power on', onClick: () => {} },
-            { label: 'Power off', onClick: () => {} },
-            { label: 'Reset', onClick: () => {} },
-            { label: 'Update firmware', onClick: () => {} },
-          ],
-          [{ label: 'Add to group', onClick: () => {} }],
-        ]}
-        dropAlign={{ top: 'bottom', right: 'right' }}
-      />
-    </Toolbar>
-    <DataSummary />
-    <ServerResults />
-  </Data>
+      <DataSummary />
+      <ServerResults />
+    </Data>
+  </ContentPane>
 );
-
 
 const columns = [
   {

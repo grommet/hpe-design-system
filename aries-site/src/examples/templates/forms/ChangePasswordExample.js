@@ -9,6 +9,7 @@ import {
   ResponsiveContext,
   TextInput,
 } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 const passwordRulesWeak = [
   {
@@ -43,7 +44,7 @@ export const ChangePasswordExample = () => {
   };
 
   return (
-    <Box gap="medium" width="medium">
+    <ContentPane gap="medium" width="medium">
       <Header
         direction="column"
         align="start"
@@ -119,6 +120,6 @@ export const ChangePasswordExample = () => {
           </Box>
         </Form>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };

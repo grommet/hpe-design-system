@@ -11,6 +11,7 @@ import {
   ToggleGroup,
 } from 'grommet';
 import { Apps, Table, List as ListIcon } from 'grommet-icons';
+import { ContentPane } from '../../../layouts';
 import { columns, fetchLaunches, formatData } from './utils';
 import { CardView } from './CardView';
 import { ListView } from './ListView';
@@ -47,8 +48,10 @@ export const ToggleGroupViews = () => {
   }, []);
   const [value, setValue] = useState('table');
   return (
-    <>
-      <Heading id="spaceX-rocket-launches">Space X Launch Data</Heading>
+    <ContentPane gap="medium">
+      <Heading id="spaceX-rocket-launches" level={2} margin="none">
+        SpaceX launches
+      </Heading>
       <Data
         data={result.data}
         properties={{
@@ -83,6 +86,6 @@ export const ToggleGroupViews = () => {
         {value === 'list' && <ListView />}
         <Pagination summary stepOptions border="top" pad="xsmall" />
       </Data>
-    </>
+    </ContentPane>
   );
 };

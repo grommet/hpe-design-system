@@ -10,7 +10,8 @@ import { SelectorHeader } from './SelectorHeader';
 const StyledBox = styled(Box)`
   ${props =>
     props.selected &&
-    `box-shadow: inset 0 0 0 1px ${props.theme.global.colors['green!']};`}
+    // eslint-disable-next-line max-len
+    `box-shadow: inset 0 0 0 1px ${props.theme.global.colors['border-selected']};`}
 `;
 
 // match focus indicator rounding to container
@@ -51,7 +52,7 @@ const Selector = ({
         selected={selected}
         gap="xsmall"
         border={{
-          color: selected ? 'brand' : 'border',
+          color: selected ? 'border-selected' : 'border',
         }}
       >
         {(indicator !== false || title || description || icon) && (

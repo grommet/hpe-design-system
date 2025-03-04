@@ -8,6 +8,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 const data = [
   {
@@ -270,12 +271,8 @@ export const DataTableExample = ({ designSystemDemo }) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
-    <>
-      <Heading
-        id="storage-pools-heading"
-        level={3}
-        margin={{ bottom: 'small', top: 'none' }}
-      >
+    <ContentPane gap="medium">
+      <Heading id="storage-pools-heading" level={3} margin="none">
         Storage pools
       </Heading>
       <Box
@@ -304,7 +301,7 @@ export const DataTableExample = ({ designSystemDemo }) => {
           sortable
         />
       </Box>
-    </>
+    </ContentPane>
   );
 };
 

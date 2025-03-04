@@ -13,6 +13,7 @@ import {
   TextInput,
   Text,
 } from 'grommet';
+import { ContentPane } from '../../../../layouts';
 import { profileData } from '../data';
 
 export const NameValueListEditExample = () => {
@@ -35,110 +36,112 @@ export const NameValueListEditExample = () => {
           )
         }
       />
-      {!edit ? (
-        <NameValueList pairProps={{ direction: 'column' }}>
-          {Object.entries(currentData).map(
-            ([name, value]) =>
-              value && (
-                <NameValuePair
-                  key={name}
-                  name={<Text {...theme.formField.label}>{name}</Text>}
-                >
-                  {name === 'Email' ? (
-                    <Anchor label={value} href={`mailto:${value}`} />
-                  ) : (
-                    <Text {...theme.global.input.font}>{value || '--'}</Text>
-                  )}
-                </NameValuePair>
-              ),
-          )}
-        </NameValueList>
-      ) : (
-        <Form>
-          {Object.entries(currentData).map(([name]) => (
-            // https://github.com/grommet/eslint-plugin-grommet/issues/48
-            // eslint-disable-next-line max-len
-            // eslint-disable-next-line grommet/formfield-htmlfor-id, grommet/formfield-name
-            <FormField
-              label={name}
-              htmlFor={name}
-              name={name}
-              contentProps={{ width: 'medium' }}
+      <ContentPane>
+        {!edit ? (
+          <NameValueList pairProps={{ direction: 'column' }}>
+            {Object.entries(currentData).map(
+              ([name, value]) =>
+                value && (
+                  <NameValuePair
+                    key={name}
+                    name={<Text {...theme.formField.label}>{name}</Text>}
+                  >
+                    {name === 'Email' ? (
+                      <Anchor label={value} href={`mailto:${value}`} />
+                    ) : (
+                      <Text {...theme.global.input.font}>{value || '--'}</Text>
+                    )}
+                  </NameValuePair>
+                ),
+            )}
+          </NameValueList>
+        ) : (
+          <Form>
+            {Object.entries(currentData).map(([name]) => (
+              // https://github.com/grommet/eslint-plugin-grommet/issues/48
+              // eslint-disable-next-line max-len
+              // eslint-disable-next-line grommet/formfield-htmlfor-id, grommet/formfield-name
+              <FormField
+                label={name}
+                htmlFor={name}
+                name={name}
+                contentProps={{ width: 'medium' }}
+              >
+                {name !== 'Phone number' ? (
+                  <TextInput
+                    id={name}
+                    name={name}
+                    value={tempData[name]}
+                    onChange={event => {
+                      const nextValue = {
+                        ...tempData,
+                        [name]: event.target.value,
+                      };
+                      setTempData(nextValue);
+                    }}
+                  />
+                ) : (
+                  <MaskedInput
+                    mask={[
+                      { fixed: '(' },
+                      {
+                        length: 3,
+                        regexp: /^[0-9]{1,3}$/,
+                        placeholder: 'xxx',
+                      },
+                      { fixed: ')' },
+                      { fixed: ' ' },
+                      {
+                        length: 3,
+                        regexp: /^[0-9]{1,3}$/,
+                        placeholder: 'xxx',
+                      },
+                      { fixed: '-' },
+                      {
+                        length: 4,
+                        regexp: /^[0-9]{1,4}$/,
+                        placeholder: 'xxxx',
+                      },
+                    ]}
+                    id={name}
+                    name={name}
+                    value={tempData[name]}
+                    onChange={event => {
+                      const nextValue = {
+                        ...tempData,
+                        [name]: event.target.value,
+                      };
+                      setTempData(nextValue);
+                    }}
+                  />
+                )}
+              </FormField>
+            ))}
+            <Box
+              direction="row"
+              gap="small"
+              align="center"
+              margin={{ top: 'medium' }}
             >
-              {name !== 'Phone number' ? (
-                <TextInput
-                  id={name}
-                  name={name}
-                  value={tempData[name]}
-                  onChange={event => {
-                    const nextValue = {
-                      ...tempData,
-                      [name]: event.target.value,
-                    };
-                    setTempData(nextValue);
-                  }}
-                />
-              ) : (
-                <MaskedInput
-                  mask={[
-                    { fixed: '(' },
-                    {
-                      length: 3,
-                      regexp: /^[0-9]{1,3}$/,
-                      placeholder: 'xxx',
-                    },
-                    { fixed: ')' },
-                    { fixed: ' ' },
-                    {
-                      length: 3,
-                      regexp: /^[0-9]{1,3}$/,
-                      placeholder: 'xxx',
-                    },
-                    { fixed: '-' },
-                    {
-                      length: 4,
-                      regexp: /^[0-9]{1,4}$/,
-                      placeholder: 'xxxx',
-                    },
-                  ]}
-                  id={name}
-                  name={name}
-                  value={tempData[name]}
-                  onChange={event => {
-                    const nextValue = {
-                      ...tempData,
-                      [name]: event.target.value,
-                    };
-                    setTempData(nextValue);
-                  }}
-                />
-              )}
-            </FormField>
-          ))}
-          <Box
-            direction="row"
-            gap="small"
-            align="center"
-            margin={{ top: 'medium' }}
-          >
-            <Button
-              label="Save"
-              primary
-              onClick={() => {
-                setCurrentData(tempData);
-                setEdit(false);
-              }}
-            />
-            <Button
-              label="Cancel"
-              onClick={() => {
-                setEdit(false);
-                setTempData(currentData);
-              }}
-            />
-          </Box>
-        </Form>
-      )}
+              <Button
+                label="Save"
+                primary
+                onClick={() => {
+                  setCurrentData(tempData);
+                  setEdit(false);
+                }}
+              />
+              <Button
+                label="Cancel"
+                onClick={() => {
+                  setEdit(false);
+                  setTempData(currentData);
+                }}
+              />
+            </Box>
+          </Form>
+        )}
+      </ContentPane>
     </Box>
   );
 };

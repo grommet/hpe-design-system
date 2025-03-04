@@ -10,6 +10,7 @@ import {
   Text,
 } from 'grommet';
 
+import { ContentPane } from '../../../layouts';
 import { ReverseAnchor } from '../../templates/ReverseAnchor';
 import data from '../../../data/mockData/orders.json';
 
@@ -65,7 +66,7 @@ export const DataTableSingleSelectExample = () => {
   const [pageDetails, setPageDetails] = React.useState({});
 
   return !pageDetails.id ? (
-    <>
+    <ContentPane gap="medium">
       <Heading id={collectionId} level={3} margin="none">
         Orders
       </Heading>
@@ -85,9 +86,9 @@ export const DataTableSingleSelectExample = () => {
           pin={['xsmall', 'small'].includes(size)}
         />
       </Box>
-    </>
+    </ContentPane>
   ) : (
-    <>
+    <ContentPane gap="medium">
       <PageHeader
         title={`Order number: ${pageDetails.id}`}
         parent={
@@ -114,6 +115,6 @@ export const DataTableSingleSelectExample = () => {
           </NameValueList>
         )}
       </Box>
-    </>
+    </ContentPane>
   );
 };

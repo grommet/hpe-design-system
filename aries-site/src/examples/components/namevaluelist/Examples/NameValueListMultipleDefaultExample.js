@@ -9,19 +9,20 @@ import {
   Tabs,
 } from 'grommet';
 import { StatusGoodSmall } from 'grommet-icons';
+import { ContentPane } from '../../../../layouts';
 import { kubernetesData, serverData, tagsData } from '../data';
 
 export const NameValueListMultipleDefaultExample = () => {
   const [index, setIndex] = React.useState();
   const onActive = nextIndex => setIndex(nextIndex);
   return (
-    <Box gap="medium">
+    <>
       <PageHeader title="Demo_Cluster_5" />
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="Overview">
-          <Box gap="medium">
-            <>
-              <Heading level={2} margin={{ bottom: 'small' }}>
+          <Box gap="medium" pad={{ top: 'medium' }}>
+            <ContentPane gap="medium">
+              <Heading level={2} margin="none">
                 Details
               </Heading>
               <NameValueList>
@@ -38,9 +39,9 @@ export const NameValueListMultipleDefaultExample = () => {
                   </NameValuePair>
                 ))}
               </NameValueList>
-            </>
-            <>
-              <Heading level={2} margin={{ bottom: 'small' }}>
+            </ContentPane>
+            <ContentPane gap="medium">
+              <Heading level={2} margin="none">
                 Kubernetes
               </Heading>
               <NameValueList>
@@ -50,9 +51,9 @@ export const NameValueListMultipleDefaultExample = () => {
                   </NameValuePair>
                 ))}
               </NameValueList>
-            </>
-            <>
-              <Heading level={2} margin={{ bottom: 'small' }}>
+            </ContentPane>
+            <ContentPane gap="medium">
+              <Heading level={2} margin="none">
                 Tags
               </Heading>
               <NameValueList>
@@ -62,7 +63,7 @@ export const NameValueListMultipleDefaultExample = () => {
                   </NameValuePair>
                 ))}
               </NameValueList>
-            </>
+            </ContentPane>
           </Box>
         </Tab>
         <Tab title="Policies">
@@ -72,6 +73,6 @@ export const NameValueListMultipleDefaultExample = () => {
           <Box margin="small">Services information</Box>
         </Tab>
       </Tabs>
-    </Box>
+    </>
   );
 };

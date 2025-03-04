@@ -1,11 +1,10 @@
 import React, { useContext, useMemo, useState } from 'react';
-import { Box, Main, Button, ResponsiveContext, Text } from 'grommet';
+import { Box, Button, Text, Page, PageContent } from 'grommet';
 import { defaultUser, GlobalHeader, UserContext } from '../global-header';
 import { DashboardGrid, DashboardFooter, Greeting } from '.';
 
 export const DashboardExample = () => {
   const [user, setUser] = useState(defaultUser);
-  const size = useContext(ResponsiveContext);
 
   const contextValue = useMemo(
     () => ({
@@ -17,21 +16,11 @@ export const DashboardExample = () => {
 
   return (
     <UserContext.Provider value={contextValue}>
-      <Box width={{ max: 'xxlarge' }} margin="auto" fill>
-        <GlobalHeader />
-        <Main>
-          <Box overflow="auto">
-            <Box
-              background="background"
-              justify="center"
-              pad={{
-                horizontal: !['xsmall', 'small'].includes(size)
-                  ? 'xlarge'
-                  : 'medium',
-                vertical: 'large',
-              }}
-              flex={false}
-            >
+      <GlobalHeader />
+      <Page background="background-back">
+        <Box overflow="auto">
+          <PageContent>
+            <Box flex={false}>
               {user ? (
                 <Box gap="large">
                   <Greeting />
@@ -42,9 +31,9 @@ export const DashboardExample = () => {
               )}
             </Box>
             {user && <DashboardFooter />}
-          </Box>
-        </Main>
-      </Box>
+          </PageContent>
+        </Box>
+      </Page>
     </UserContext.Provider>
   );
 };

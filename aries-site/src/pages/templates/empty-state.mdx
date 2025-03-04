@@ -75,7 +75,7 @@ Ultimately, the goal of the empty state is to guide the user and help them under
 Center the empty state horizontally within the UI to ensure the empty state is the focal point of the UI. The exact positioning of the empty state can depend on the specific UI design and layout. For example, if there are other elements in the content area, the empty state may need to be adjusted slightly to ensure it is still centered within the available space.
 
 <Example
-  screenContainer={{ scale: 0.6 }}
+  screenContainer
   code={[
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/empty-state/PageEmptyState.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/empty-state/ListingEmptyState.js',
@@ -91,7 +91,7 @@ Center the empty state horizontally within the UI to ensure the empty state is t
 With left-aligned UIs, positioning an empty state on the top left could help draw the user's attention to the fact that there is no content available in that section. This is the most common placement within our cloud services.
 
 <Example
-  screenContainer={{ scale: 0.6 }}
+  screenContainer
   code={[
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/empty-state/PageEmptyState.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/empty-state/ListingEmptyState.js',
@@ -107,7 +107,8 @@ With left-aligned UIs, positioning an empty state on the top left could help dra
 Sometimes, it makes sense to place the empty state within the content area itself. For example, if the interface is displaying a list of items, the empty state can be a message that appears when there are no items in the list.
 
 <Example
-  screenContainer={{ scale: 0.6 }}
+  screenContainer
+  width="100%"
   code={[
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/empty-state/CardEmptyState.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/empty-state/ErrorManagementEmptyState.js',
@@ -121,7 +122,7 @@ Sometimes, it makes sense to place the empty state within the content area itsel
 </Example>
 
 <Example
-  screenContainer={{ scale: 0.6 }}
+  screenContainer
   code={[
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/empty-state/LayerEmptyState.js',
     'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/EmptyState/EmptyState.js',

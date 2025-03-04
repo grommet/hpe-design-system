@@ -3,7 +3,7 @@ import { Box } from 'grommet';
 // Theme-like object specifying alignment, width, and spacing for
 // an AppContainer.
 export const appContainer = {
-  gap: 'large',
+  gap: 'none',
   width: {
     min: 'medium',
   },

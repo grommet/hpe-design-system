@@ -11,6 +11,7 @@ import {
 } from 'grommet';
 import { Iteration, Search as SearchIcon } from 'grommet-icons';
 import { SelectorGroup, Selector } from 'aries-core';
+import { ContentPane } from '../../../layouts';
 
 const services = [
   {
@@ -60,55 +61,57 @@ export const SupportSelector = () => {
   return (
     <Page>
       <PageContent>
-        <Box gap="medium">
-          <Box gap="small">
-            <Heading margin="none">What can we help you with?</Heading>
-            <Text>Choose a product to continue.</Text>
-          </Box>
-          <TextInput
-            aria-label="search"
-            icon={<SearchIcon />}
-            placeholder="Search all assets"
-            type="search"
-            width="medium"
-          />
-          <Box gap="large">
+        <ContentPane>
+          <Box gap="medium">
             <Box gap="small">
-              <Text>Services</Text>
-              <SelectorGroup
-                a11yTitle="Select service products"
-                columns={!['xsmall', 'small'].includes(size) ? '1/3' : '100%'}
-              >
-                {services.map(datum => (
-                  <Selector
-                    key={datum.value}
-                    value={datum.value}
-                    title={datum.title}
-                  />
-                ))}
-              </SelectorGroup>
+              <Heading margin="none">What can we help you with?</Heading>
+              <Text>Choose a product to continue.</Text>
             </Box>
-            <Box gap="small">
-              <Text>Devices</Text>
-              <SelectorGroup
-                multiple
-                a11yTitle="Select devices products"
-                columns={!['xsmall', 'small'].includes(size) ? '1/3' : '100%'}
-              >
-                {devices.map(datum => (
-                  <Selector
-                    key={datum.value}
-                    direction='row'
-                    value={datum.value}
-                    icon={datum.icon}
-                    title={datum.title}
-                    description={datum.description}
-                  />
-                ))}
-              </SelectorGroup>
+            <TextInput
+              aria-label="search"
+              icon={<SearchIcon />}
+              placeholder="Search all assets"
+              type="search"
+              width="medium"
+            />
+            <Box gap="large">
+              <Box gap="small">
+                <Text>Services</Text>
+                <SelectorGroup
+                  a11yTitle="Select service products"
+                  columns={!['xsmall', 'small'].includes(size) ? '1/3' : '100%'}
+                >
+                  {services.map(datum => (
+                    <Selector
+                      key={datum.value}
+                      value={datum.value}
+                      title={datum.title}
+                    />
+                  ))}
+                </SelectorGroup>
+              </Box>
+              <Box gap="small">
+                <Text>Devices</Text>
+                <SelectorGroup
+                  multiple
+                  a11yTitle="Select devices products"
+                  columns={!['xsmall', 'small'].includes(size) ? '1/3' : '100%'}
+                >
+                  {devices.map(datum => (
+                    <Selector
+                      key={datum.value}
+                      direction="row"
+                      value={datum.value}
+                      icon={datum.icon}
+                      title={datum.title}
+                      description={datum.description}
+                    />
+                  ))}
+                </SelectorGroup>
+              </Box>
             </Box>
           </Box>
-        </Box>
+        </ContentPane>
       </PageContent>
     </Page>
   );

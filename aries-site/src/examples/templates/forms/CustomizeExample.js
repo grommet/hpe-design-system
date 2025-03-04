@@ -11,6 +11,7 @@ import {
   ResponsiveContext,
   Text,
 } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 export const CustomizeExample = () => {
   const [formValues, setFormValues] = React.useState({});
@@ -22,7 +23,7 @@ export const CustomizeExample = () => {
   };
 
   return (
-    <Box gap="medium" width="medium">
+    <ContentPane gap="medium" width="medium">
       <Header
         direction="column"
         align="start"
@@ -99,6 +100,6 @@ export const CustomizeExample = () => {
           </Box>
         </Form>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };

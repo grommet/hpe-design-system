@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
-import { Box, Heading } from 'grommet';
+import { Heading } from 'grommet';
 import { FilterServers } from './FilterServers';
+import { ContentPane } from '../../../../layouts/content/ContentPane';
 
 export const FilteringTable = ({ containerRef }) => (
-  <Box background="background-front" pad="small" gap="medium" fill>
+  <ContentPane gap="medium">
     <Heading id="servers-heading" level={2} margin="none">
       Servers
     </Heading>
     <FilterServers containerRef={containerRef} filtersOpen />
-  </Box>
+  </ContentPane>
 );
 
 FilteringTable.propTypes = {

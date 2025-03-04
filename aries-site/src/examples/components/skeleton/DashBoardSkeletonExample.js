@@ -17,7 +17,14 @@ import {
 import { adjustPad } from '../../templates/Card/utils';
 import { activities } from '../card/data';
 
-const skeleton = { message: { start: 'Loading', end: 'Content Loaded' } };
+const skeleton = {
+  message: { start: 'Loading', end: 'Content Loaded' },
+  depth: 3,
+  colors: {
+    light: ['transparent', 'background-front', 'background-contrast'],
+    dark: ['transparent', 'background-front', 'background-contrast'],
+  },
+};
 
 const columns = {
   xsmall: ['auto'],

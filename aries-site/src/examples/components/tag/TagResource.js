@@ -10,24 +10,11 @@ import {
   Tag,
   Page,
   PageContent,
+  PageHeader,
 } from 'grommet';
 import { Previous } from 'grommet-icons';
-import { PageHeader } from 'grommet/components';
+import { ContentPane } from '../../../layouts';
 import { details, tags } from '.';
-
-const Section = ({ ...rest }) => <Box gap="medium" flex={false} {...rest} />;
-
-const SectionHeader = ({ heading }) => (
-  <Box
-    border={{ color: 'border-weak', side: 'bottom' }}
-    pad={{ bottom: 'small' }}
-    flex={false}
-  >
-    <Heading level={2} margin="none">
-      {heading}
-    </Heading>
-  </Box>
-);
 
 const SectionDetails = ({ data }) => (
   <NameValueList
@@ -51,13 +38,17 @@ export const TagResource = () => (
         parent={<Anchor icon={<Previous />} label="Devices" />}
         actions={<Button label="Edit" primary />}
       />
-      <Box gap="large" flex={false}>
-        <Section>
-          <SectionHeader heading="Details" />
+      <Box gap="medium" flex={false}>
+        <ContentPane gap="medium">
+          <Heading level={2} margin="none">
+            Detail
+          </Heading>
           <SectionDetails data={details} />
-        </Section>
-        <Section gap="none">
-          <SectionHeader heading="Tags" />
+        </ContentPane>
+        <ContentPane gap="medium">
+          <Heading level={2} margin="none">
+            Tags
+          </Heading>
           <Box direction="row" pad={{ vertical: 'small' }} wrap>
             {tags.map((t, index) => {
               const [name] = Object.keys(t);
@@ -79,15 +70,11 @@ export const TagResource = () => (
               );
             })}
           </Box>
-        </Section>
+        </ContentPane>
       </Box>
     </PageContent>
   </Page>
 );
-
-SectionHeader.propTypes = {
-  heading: PropTypes.string,
-};
 
 SectionDetails.propTypes = {
   data: PropTypes.shape({

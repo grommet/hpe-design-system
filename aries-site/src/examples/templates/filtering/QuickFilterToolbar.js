@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import {
+  Box,
   Data,
   DataTable,
   DataContext,
@@ -15,6 +16,7 @@ import {
   Toolbar,
   Pagination,
 } from 'grommet';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 import applications from '../../../data/mockData/applications.json';
 
 const properties = {
@@ -53,16 +55,19 @@ const columns = [
 export const QuickFilterToolbar = () => (
   <Page>
     <PageContent>
-      <Heading level={2} margin="none">
-        Storage
-      </Heading>
-
-      <Data data={applications} properties={properties}>
-        <ComposedToolbar />
-        <DataSummary />
-        <DataTable aria-describedby="storage-heading" columns={columns} />
-        <Pagination alignSelf="end" />
-      </Data>
+      <ContentPane>
+        <Heading level={2} margin="none">
+          Storage
+        </Heading>
+        <Data data={applications} properties={properties}>
+          <ComposedToolbar />
+          <DataSummary />
+          <DataTable aria-describedby="storage-heading" columns={columns} />
+          <Box border="top" pad={{ vertical: 'xsmall' }}>
+            <Pagination summary stepOptions />
+          </Box>
+        </Data>
+      </ContentPane>
     </PageContent>
   </Page>
 );

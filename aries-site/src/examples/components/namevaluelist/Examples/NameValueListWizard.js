@@ -122,7 +122,7 @@ export const NameValueListWizard = ({ containerRef }) => {
 
   return (
     <WizardContext.Provider value={contextValue}>
-      <Box fill>
+      <Box background="background-floating" fill>
         <WizardHeader setOpen={setOpen} />
         <StepContent
           onSubmit={({ value }) => console.log('onSubmit:', value)}

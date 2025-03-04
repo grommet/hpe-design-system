@@ -16,6 +16,7 @@ import {
 } from 'grommet';
 import { Close, Next, CircleAlert } from 'grommet-icons';
 import { emailValidation } from './utils/FormValidation';
+import { ContentPane } from '../../../layouts';
 
 const ResetPassword = ({ closeLayer, email }) => {
   const [formValues, setFormValues] = React.useState({ resetEmail: email });
@@ -42,7 +43,7 @@ const ResetPassword = ({ closeLayer, email }) => {
       </Box>
       <Box
         gap="medium"
-        margin={{ horizontal: 'xlarge', bottom: 'xlarge', top: 'large' }}
+        pad={{ horizontal: 'medium', bottom: 'medium' }}
         width="medium"
       >
         <Heading level={2} margin="none">
@@ -113,7 +114,7 @@ export const SignInExample = () => {
   };
 
   return (
-    <Box gap="medium" width="medium">
+    <ContentPane gap="medium" width="medium">
       <Header
         direction="column"
         align="start"
@@ -214,7 +215,7 @@ export const SignInExample = () => {
           )}
         </Box>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };
 

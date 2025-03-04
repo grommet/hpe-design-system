@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import {
   Grid,
-  Main,
+  // Main,
   ResponsiveContext,
   Page,
   PageContent,
@@ -14,7 +14,7 @@ import { CostByMonth, CostByService, CostByYear, RulesAudit } from './content';
 export const ThreeColumnDashboard = () => (
   <AppContainer background="background-back">
     <ContentArea title="Global Header" />
-    <Page>
+    <Page pad={{ bottom: 'xlarge' }}>
       <PageContent gap="large">
         <PageHeader title="Dashboard" />
         <Content />
@@ -59,13 +59,15 @@ const Content = () => {
   const [period] = useState(defaultPeriod);
 
   return (
-    <Main>
-      <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
-        <CostByService period={period} />
-        <CostByMonth period="Last Year" />
-        <CostByYear period="Lifetime" />
-        <RulesAudit period="Last Year" />
-      </Grid>
-    </Main>
+    // Main is commented out for this example, but should be used in a
+    // real application.
+    // <Main>
+    <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
+      <CostByService period={period} />
+      <CostByMonth period="Last Year" />
+      <CostByYear period="Lifetime" />
+      <RulesAudit period="Last Year" />
+    </Grid>
+    // </Main>
   );
 };

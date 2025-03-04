@@ -8,6 +8,7 @@ import {
   RadioButtonGroup,
   Select,
 } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 const sortFeatures = ['Featured', 'Price', 'Users'];
 
@@ -27,7 +28,7 @@ export const SortExample = () => {
   };
 
   return (
-    <Box gap="medium" width="medium">
+    <ContentPane gap="medium" width="medium">
       <Header
         direction="column"
         align="start"
@@ -74,6 +75,6 @@ export const SortExample = () => {
           </FormField>
         </Form>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import {
   Box,
   Grid,
-  Main,
+  // Main,
   ResponsiveContext,
   Page,
   PageContent,
@@ -17,7 +17,7 @@ export const ResponsiveContentLayoutExample = () => {
   return (
     <AppContainer background="background-back">
       <ContentArea title="Global Header" />
-      <Page>
+      <Page pad={{ bottom: 'large' }}>
         <PageContent gap="large">
           <PageHeader
             /* for dev purposes, will be replaced with dashboard content */
@@ -74,35 +74,34 @@ const Content = () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Main>
-      <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
-        {/* Content Block 1 is top priority content. At narrow breakpoints, 
+    // Main is commented out for this example, but should be used in a
+    // real application.
+    // <Main>
+    <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
+      {/* Content Block 1 is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
-        {['xsmall', 'small'].includes(size) && <ContentBlock title="1" />}
-        <Grid gap={firstChildGrid.gap}>
-          <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
-            <ContentBlock title="2" />
-            <ContentBlock title="3" />
-          </Grid>
-          <Grid
-            columns={secondChildGrid.columns[size]}
-            gap={secondChildGrid.gap}
-          >
-            <Box gap={secondChildGrid.gap}>
-              <ContentBlock title="4" />
-              <ContentBlock title="5" />
-            </Box>
-            <ContentBlock title="6" fill="vertical" />
-          </Grid>
+      {['xsmall', 'small'].includes(size) && <ContentBlock title="1" />}
+      <Grid gap={firstChildGrid.gap}>
+        <Grid columns={firstChildGrid.columns[size]} gap={firstChildGrid.gap}>
+          <ContentBlock title="2" />
+          <ContentBlock title="3" />
         </Grid>
-        {!['xsmall', 'small'].includes(size) && size !== 'xsmall' && (
-          <ContentBlock title="1" fill="vertical" />
-        )}
+        <Grid columns={secondChildGrid.columns[size]} gap={secondChildGrid.gap}>
+          <Box gap={secondChildGrid.gap}>
+            <ContentBlock title="4" />
+            <ContentBlock title="5" />
+          </Box>
+          <ContentBlock title="6" fill="vertical" />
+        </Grid>
       </Grid>
-    </Main>
+      {!['xsmall', 'small'].includes(size) && size !== 'xsmall' && (
+        <ContentBlock title="1" fill="vertical" />
+      )}
+    </Grid>
+    // </Main>
   );
 };
 
 const ContentBlock = ({ ...rest }) => (
-  <ContentArea elevation="medium" height="small" round="small" {...rest} />
+  <ContentArea height="small" round="small" {...rest} />
 );

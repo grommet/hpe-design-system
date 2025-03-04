@@ -84,7 +84,6 @@ export const PaginationAnatomy = () => (
         <Box />
         <Box />
         <Box
-          background="background-front"
           fill
           id="border"
           border={{ side: 'top' }}
@@ -92,7 +91,6 @@ export const PaginationAnatomy = () => (
           pad={{ vertical: 'xsmall' }}
         />
         <Box
-          background="background-front"
           fill
           border={{ side: 'top' }}
           id="summary"
@@ -109,7 +107,6 @@ export const PaginationAnatomy = () => (
           fill
           justify="end"
           align="center"
-          background="background-front"
           pad={{ vertical: 'xsmall' }}
         >
           <Text>Items per page</Text>
@@ -121,7 +118,6 @@ export const PaginationAnatomy = () => (
           />
         </Box>
         <Box
-          background="background-front"
           align="end"
           fill
           border={{ side: 'top' }}

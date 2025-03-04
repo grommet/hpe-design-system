@@ -8,8 +8,24 @@ import { nameToSlug } from '../../utils';
 import { ViewContext } from '../../pages/_app';
 
 const SectionButton = styled(Button)`
-  border-radius: 0 ${props => props.theme.global.edgeSize.xsmall}
-    ${props => props.theme.global.edgeSize.xsmall} 0;
+  position: relative;
+  border-radius: ${props => props.theme.global.edgeSize.xsmall}
+    ${props => props.theme.global.edgeSize.xsmall}
+    ${props => props.theme.global.edgeSize.xsmall}
+    ${props => props.theme.global.edgeSize.xsmall};
+`;
+
+const Marker = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 9999px;
+  background-color: ${props =>
+    props.theme.global.colors['border-strong'][
+      props.theme.dark ? 'dark' : 'light'
+    ]};
 `;
 
 const useActiveHeadingId = (headings, options) => {
@@ -82,11 +98,11 @@ export const InPageNavigation = ({ headings, title }) => {
       <Box
         pad={{ horizontal: 'small', bottom: 'small' }}
         flex={false}
-        border={{ side: 'left', color: 'border-weak', size: 'small' }}
+        border={{ side: 'left', color: 'transparent', size: 'small' }}
       >
         <Text
           color="text-strong"
-          weight="bold"
+          weight={500}
           // align with button labels
           margin={{ left: theme.global.borderSize.small }}
         >
@@ -101,12 +117,6 @@ export const InPageNavigation = ({ headings, title }) => {
           // heading[1] refers to the full heading title matched by regex
           const headingTitle = heading[1];
           const active = activeId === nameToSlug(headingTitle);
-
-          const borderLeft = {
-            side: 'left',
-            size: active ? 'medium' : 'small',
-            color: active ? 'border-strong' : 'border-weak',
-          };
 
           let subsectionPad = 'small';
           if (level.length > 3) subsectionPad = 'large';
@@ -137,37 +147,37 @@ export const InPageNavigation = ({ headings, title }) => {
               legacyBehavior
             >
               <SectionButton theme={theme} hoverIndicator>
-                <Box border={borderLeft}>
-                  <Box
-                    pad={{
-                      left: subsectionPad,
-                      vertical: theme.button.size.small.pad.vertical,
-                      right: theme.button.size.small.pad.horizontal,
-                    }}
-                    margin={
-                      active
-                        ? undefined
-                        : { left: theme.global.borderSize.small }
-                    }
-                    direction="row"
-                    align="top"
-                    gap="small"
-                  >
-                    <Text color="text-strong" size="small" weight="normal">
-                      {headingTitle}
-                    </Text>
-                    {showUpdate && pageUpdateReady && (
-                      <Box background={{ dark: true }} justify="top">
-                        <StatusGoodSmall
-                          a11yTitle="Section has been updated"
-                          size="10px"
-                          color="teal"
-                          height="small"
-                        />
-                      </Box>
-                    )}
-                  </Box>
+                <Box
+                  pad={{
+                    left: subsectionPad,
+                    vertical: theme.button.size.small.pad.vertical,
+                    right: theme.button.size.small.pad.horizontal,
+                  }}
+                  // margin={
+                  //   active
+                  //     ? undefined
+                  //     : { left: theme.global.borderSize.small }
+                  // }
+                  direction="row"
+                  align="top"
+                  gap="small"
+                >
+                  <Text color="text-strong" size="small" weight="normal">
+                    {headingTitle}
+                  </Text>
+                  {showUpdate && pageUpdateReady && (
+                    <Box background={{ dark: true }} justify="top">
+                      <StatusGoodSmall
+                        a11yTitle="Section has been updated"
+                        size="10px"
+                        color="teal"
+                        height="small"
+                      />
+                    </Box>
+                  )}
                 </Box>
+
+                {active ? <Marker /> : undefined}
               </SectionButton>
             </Link>
           );

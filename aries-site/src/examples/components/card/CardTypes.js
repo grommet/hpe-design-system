@@ -11,7 +11,6 @@ import {
 } from 'grommet';
 import { LinkNext } from 'grommet-icons';
 import { Example } from '../../../layouts';
-import { EventPromotionCard, NavigationalCardPreview } from '.';
 
 const columns = {
   xsmall: ['auto'],
@@ -29,13 +28,11 @@ export const CardTypes = () => {
       <Type
         title="Call to action"
         description="Entice the user down a desired path."
-        preview={<EventPromotionCard />}
         href="/components/card/call-to-action-card"
       />
       <Type
         title="Navigational"
         description="Provide the user with a means of wayfinding."
-        preview={<NavigationalCardPreview />}
         href="/components/card/navigational-card"
       />
       <Type

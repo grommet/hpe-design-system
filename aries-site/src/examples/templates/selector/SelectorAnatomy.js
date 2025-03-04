@@ -7,7 +7,8 @@ import { Annotation } from '../../../layouts';
 const StyledBox = styled(Box)`
   ${props =>
     props.selected &&
-    `box-shadow: inset 0 0 0 1px ${props.theme.global.colors['green!']};`}
+    // eslint-disable-next-line max-len
+    `box-shadow: inset 0 0 0 1px ${props.theme.global.colors['border-selected']};`}
 `;
 
 // match focus indicator rounding to container
@@ -104,7 +105,7 @@ const SelectorExample = () => (
       round="xsmall"
       selected
       border={{
-        color: 'brand',
+        color: 'border-selected',
       }}
       id="s-container"
       gap="xsmall"
@@ -113,21 +114,21 @@ const SelectorExample = () => (
         <Box direction="row" gap="xsmall" flex={false}>
           <Box flex>
             <Box gap="xxsmall">
-            <Iteration id="s-icon" height="medium" />
-            <Text id="s-title" weight={500} wordBreak="break-word">
-              Aruba AP-635 Wifi 6E Access Point
-            </Text>
+              <Iteration id="s-icon" height="medium" />
+              <Text id="s-title" weight={500} wordBreak="break-word">
+                Aruba AP-635 Wifi 6E Access Point
+              </Text>
             </Box>
             <Text id="s-desc">36 devices</Text>
           </Box>
           <Box
-            border={{ color: 'brand', size: 'xsmall' }}
+            border={{ color: 'transparent', size: 'xsmall' }}
             round="small"
             height="24px"
             width="24px"
             justify="center"
             align="center"
-            background="brand"
+            background="background-selected-primary-strong"
             flex={false}
           >
             <Checkmark id="s-indicator" aria-label="selected" size="small" />

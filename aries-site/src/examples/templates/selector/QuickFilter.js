@@ -21,6 +21,7 @@ import {
 } from 'grommet';
 import { StatusCriticalSmall, StatusGoodSmall } from 'grommet-icons';
 import { SelectorGroup, Selector } from 'aries-core';
+import { ContentPane } from '../../../layouts';
 
 const buildQuery = view => {
   const query = {};
@@ -306,48 +307,50 @@ export const QuickFilter = () => {
           subtitle="Manage recent launches."
           pad={{ top: 'none', bottom: 'medium' }}
         />
-        <Data
-          properties={{
-            rocket: { label: 'Rocket', options: rockets },
-            success: { label: 'Success', options: ['Successful', 'Failed'] },
-          }}
-          data={result.data}
-          total={total}
-          filteredTotal={result.filteredTotal}
-          defaultView={defaultView}
-          view={view}
-          onView={setView}
-          gap="medium"
-        >
-          <QuickFilters
-            value={quickFilter}
-            setValue={setQuickFilter}
-            counts={{ failed, successful }}
-          />
-          <Box>
-            <Toolbar>
-              <DataSearch />
-              <DataFilters layer />
-              <Box flex>
-                <Menu alignSelf="end" label="Actions" kind="toolbar" />
+        <ContentPane>
+          <Data
+            properties={{
+              rocket: { label: 'Rocket', options: rockets },
+              success: { label: 'Success', options: ['Successful', 'Failed'] },
+            }}
+            data={result.data}
+            total={total}
+            filteredTotal={result.filteredTotal}
+            defaultView={defaultView}
+            view={view}
+            onView={setView}
+            gap="medium"
+          >
+            <QuickFilters
+              value={quickFilter}
+              setValue={setQuickFilter}
+              counts={{ failed, successful }}
+            />
+            <Box>
+              <Toolbar>
+                <DataSearch />
+                <DataFilters layer />
+                <Box flex>
+                  <Menu alignSelf="end" label="Actions" kind="toolbar" />
+                </Box>
+              </Toolbar>
+              <DataSummary />
+              <Box overflow="auto">
+                <DataTable
+                  alignSelf="start"
+                  columns={columns}
+                  verticalAlign={{ body: 'top' }}
+                />
               </Box>
-            </Toolbar>
-            <DataSummary />
-            <Box overflow="auto">
-              <DataTable
-                alignSelf="start"
-                columns={columns}
-                verticalAlign={{ body: 'top' }}
+              <Pagination
+                summary
+                stepOptions
+                border="top"
+                pad={{ vertical: 'xsmall', horizontal: 'small' }}
               />
             </Box>
-            <Pagination
-              summary
-              stepOptions
-              border="top"
-              pad={{ vertical: 'xsmall', horizontal: 'small' }}
-            />
-          </Box>
-        </Data>
+          </Data>
+        </ContentPane>
       </PageContent>
     </Page>
   );

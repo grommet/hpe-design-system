@@ -12,6 +12,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 export const SettingsExample = () => {
   const [formValues, setFormValues] = React.useState({
@@ -27,7 +28,7 @@ export const SettingsExample = () => {
   };
 
   return (
-    <Box gap="medium" width="medium">
+    <ContentPane gap="medium" width="medium">
       <Header
         direction="column"
         align="start"
@@ -120,6 +121,6 @@ export const SettingsExample = () => {
           </Box>
         </Form>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };

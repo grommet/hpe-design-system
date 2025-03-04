@@ -19,7 +19,6 @@ export const FooterComboExample = () => {
         <Button label="Next" icon={<Next />} reverse />
       </Footer>
       <Footer
-        background="background-front"
         direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
         align={!['xsmall', 'small'].includes(size) ? 'center' : undefined}
       >

@@ -18,7 +18,7 @@ import {
 } from 'grommet';
 import { Contract } from 'grommet-icons';
 import { aries } from '../../../themes/aries';
-import { scaled } from '../../../themes/scaled';
+// import { scaled } from '../../../themes/scaled';
 import {
   BrowserWrapper,
   Container,
@@ -146,10 +146,12 @@ export const Example = ({
     if (fullscreen) viewPort = size;
     else if (!fullscreen) {
       const containerWidth = mockBrowserRect.width;
-      scaledTheme =
-        scale || screenContainer.scale
-          ? scaled(scale || screenContainer.scale)
-          : theme;
+      // temp removing concept of "scaled" theme
+      // scaledTheme =
+      //   scale || screenContainer.scale
+      //     ? scaled(scale || screenContainer.scale)
+      //     : theme;
+      scaledTheme = theme;
       const { breakpoints } = scaledTheme.global;
       let breakpoint;
       Object.entries(breakpoints)
@@ -171,13 +173,48 @@ export const Example = ({
     }
   } else viewPort = undefined;
 
+  const exampleControls = !bestPractice &&
+    (designer || docs || figma || guidance || screenContainer || template) && (
+      <ExampleControls
+        componentName={componentName}
+        designer={designer}
+        docs={docs}
+        figma={figma}
+        grommetSource={grommetSource}
+        guidance={guidance}
+        horizontalLayout={horizontalLayout}
+        setFullscreen={value => setFullscreen(value)}
+        showResponsiveControls={showResponsiveControls}
+      />
+    );
+
   // when Layer is open, we remove the inline Example to avoid
   // repeat id tags that may impede interactivity of inputs
   let content = !fullscreen && (
-    <ExampleContainer as="section" {...containerProps}>
+    <ExampleContainer
+      as="section"
+      {...containerProps}
+      background={!plain ? 'background-back' : undefined}
+      // using "border" treatement to create separation from page background
+      // a rare case when border is used to define page sections
+      border={
+        exampleControls
+          ? [
+              {
+                side: 'top',
+                color: 'border-weak',
+              },
+              {
+                side: 'vertical',
+                color: 'border-weak',
+              },
+            ]
+          : { color: 'border-weak' }
+      }
+    >
       <ExampleWrapper
         background={
-          ExampleWrapper === ResponsiveContainer && background
+          (ExampleWrapper === ResponsiveContainer || screen) && background
             ? background
             : undefined
         }
@@ -202,21 +239,6 @@ export const Example = ({
       </ExampleWrapper>
     </ExampleContainer>
   );
-
-  const exampleControls = !bestPractice &&
-    (designer || docs || figma || guidance || screenContainer || template) && (
-      <ExampleControls
-        componentName={componentName}
-        designer={designer}
-        docs={docs}
-        figma={figma}
-        grommetSource={grommetSource}
-        guidance={guidance}
-        horizontalLayout={horizontalLayout}
-        setFullscreen={value => setFullscreen(value)}
-        showResponsiveControls={showResponsiveControls}
-      />
-    );
 
   if (!horizontalLayout)
     content = (
@@ -286,7 +308,7 @@ export const Example = ({
           }}
         >
           <Layer full>
-            <Box fill background="background">
+            <Box fill background="background-back">
               <Box
                 direction="row"
                 justify={

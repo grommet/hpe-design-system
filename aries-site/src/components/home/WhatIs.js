@@ -57,8 +57,7 @@ export const WhatIs = ({ ...rest }) => {
       <Box
         fill
         pad={{
-          top: 'large',
-          bottom: 'medium',
+          vertical: 'medium',
         }}
         gap="xlarge"
         {...rest}

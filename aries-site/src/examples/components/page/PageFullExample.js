@@ -16,6 +16,8 @@ import { Bookmark } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 import serverhealth from '../../../data/mockData/serverhealth.json';
 import { StatusIndicator } from '../../templates';
+import { ContentPane } from '../../../layouts';
+
 // `demoStyle` is specific for the Design System site and is used
 // as a visual aid to help present layout concepts. Remove from
 // your implementation.
@@ -25,22 +27,24 @@ export const PageFullExample = () => (
   <Page kind="full" flex="grow" {...demoStyle}>
     <PageContent fill {...demoStyle}>
       <PageHeader title="Full page" />
-      <Grid columns={['medium', 'flex']} rows={['large']} border>
-        <ServerList />
-        <Box
-          background={{
-            image: 'url(/images/world_map.jpg)',
-            position: 'right',
-            size: 'cover',
-          }}
-        />
-      </Grid>
+      <ContentPane>
+        <Grid columns={['medium', 'flex']} rows={['large']} border>
+          <ServerList />
+          <Box
+            background={{
+              image: 'url(/images/world_map.jpg)',
+              position: 'right',
+              size: 'cover',
+            }}
+          />
+        </Grid>
+      </ContentPane>
     </PageContent>
   </Page>
 );
 
 const ServerList = () => (
-  <Box background="background-front" overflow="auto">
+  <Box overflow="auto">
     <List data={serverhealth} pad={{ bottom: 'xsmall' }}>
       {datum => (
         <Box

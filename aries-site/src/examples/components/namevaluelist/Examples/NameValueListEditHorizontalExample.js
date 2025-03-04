@@ -11,6 +11,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
+import { ContentPane } from '../../../../layouts';
 import { NameValueListFormField, NameValueListFormLabel } from './components';
 import { formattedData } from '../data';
 
@@ -62,77 +63,81 @@ export const NameValueListEditHorizontalExample = () => {
           )
         }
       />
-
-      <Wrapper {...wrapperProps}>
-        <NameValueList valueProps={{ width: ['auto', 'medium'] }}>
-          {Object.entries(currentData).map(([name, value]) => {
-            let nameRender = value.displayName;
-            let valueRender = currentData[name].render ? (
-              currentData[name].render(value.value || '--')
-            ) : (
-              <Text {...theme.global.input.font}>{value.value || '--'}</Text>
-            );
-
-            if (edit) {
-              nameRender = (
-                <NameValueListFormLabel data={currentData[name]} name={name} />
+      <ContentPane>
+        <Wrapper {...wrapperProps}>
+          <NameValueList valueProps={{ width: ['auto', 'medium'] }}>
+            {Object.entries(currentData).map(([name, value]) => {
+              let nameRender = value.displayName;
+              let valueRender = currentData[name].render ? (
+                currentData[name].render(value.value || '--')
+              ) : (
+                <Text {...theme.global.input.font}>{value.value || '--'}</Text>
               );
-              valueRender = (
-                <NameValueListFormField data={currentData[name]} name={name}>
-                  {currentData[name].formRender ? (
-                    currentData[name].formRender(
-                      name,
-                      tempData[name].value,
-                      event => onChange(event, name),
-                    )
-                  ) : (
-                    <TextInput
-                      id={name}
-                      name={name}
-                      value={tempData[name].value}
-                      onChange={event => onChange(event, name)}
-                      placeholder={tempData[name].placeholder}
-                    />
-                  )}
-                </NameValueListFormField>
-              );
-            }
 
-            return (
-              <NameValuePair key={name} name={nameRender}>
-                {valueRender}
-              </NameValuePair>
-            );
-          })}
-        </NameValueList>
-        {edit ? (
-          <Box
-            direction="row-responsive"
-            gap="medium"
-            align="center"
-            margin={{ top: 'medium' }}
-          >
-            <Button
-              label="Save changes"
-              primary
-              type="submit"
-              fill={
-                ['xsmall', 'small'].includes(size) ? 'horizontal' : undefined
+              if (edit) {
+                nameRender = (
+                  <NameValueListFormLabel
+                    data={currentData[name]}
+                    name={name}
+                  />
+                );
+                valueRender = (
+                  <NameValueListFormField data={currentData[name]} name={name}>
+                    {currentData[name].formRender ? (
+                      currentData[name].formRender(
+                        name,
+                        tempData[name].value,
+                        event => onChange(event, name),
+                      )
+                    ) : (
+                      <TextInput
+                        id={name}
+                        name={name}
+                        value={tempData[name].value}
+                        onChange={event => onChange(event, name)}
+                        placeholder={tempData[name].placeholder}
+                      />
+                    )}
+                  </NameValueListFormField>
+                );
               }
-            />
-            <Button
-              label="Cancel"
-              onClick={() => {
-                setEdit(false);
-                setTempData(currentData);
-              }}
-              fill={
-                ['xsmall', 'small'].includes(size) ? 'horizontal' : undefined
-              }
-            />
-          </Box>
-        ) : undefined}
-      </Wrapper>
+
+              return (
+                <NameValuePair key={name} name={nameRender}>
+                  {valueRender}
+                </NameValuePair>
+              );
+            })}
+          </NameValueList>
+          {edit ? (
+            <Box
+              direction="row-responsive"
+              gap="medium"
+              align="center"
+              margin={{ top: 'medium' }}
+            >
+              <Button
+                label="Save changes"
+                primary
+                type="submit"
+                fill={
+                  ['xsmall', 'small'].includes(size) ? 'horizontal' : undefined
+                }
+              />
+              <Button
+                label="Cancel"
+                onClick={() => {
+                  setEdit(false);
+                  setTempData(currentData);
+                }}
+                fill={
+                  ['xsmall', 'small'].includes(size) ? 'horizontal' : undefined
+                }
+              />
+            </Box>
+          ) : undefined}
+        </Wrapper>
+      </ContentPane>
     </Box>
   );
 };

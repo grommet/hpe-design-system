@@ -7,6 +7,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 const data = [
   {
@@ -514,42 +515,36 @@ export const PaginationTableExample = () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Box pad="small">
-      <Heading
-        id="storage-pools-heading"
-        level={3}
-        margin={{ bottom: 'small', top: 'none' }}
-      >
+    <ContentPane gap="medium">
+      <Heading id="storage-pools-heading" level={3} margin="none">
         Storage pools
       </Heading>
-      <Box>
-        <DataTable
-          aria-describedby="storage-pools-heading"
-          data={data}
-          columns={[
-            {
-              property: 'id',
-              header: 'Id',
-              primary: true,
-              render: datum => datum.id.slice(datum.id.length - 5),
-              pin: ['xsmall', 'small'].includes(size),
-            },
-            ...columns,
-          ]}
-          fill
-          onClickRow={({ datum }) => handleClickRow(datum)}
-          paginate={{
-            border: 'top',
-            direction: 'row',
-            fill: 'horizontal',
-            flex: false,
-            justify: !['xsmall', 'small'].includes(size) ? 'end' : 'center',
-            pad: { top: 'xsmall' },
-          }}
-          step={10}
-          sortable
-        />
-      </Box>
-    </Box>
+      <DataTable
+        aria-describedby="storage-pools-heading"
+        data={data}
+        columns={[
+          {
+            property: 'id',
+            header: 'Id',
+            primary: true,
+            render: datum => datum.id.slice(datum.id.length - 5),
+            pin: ['xsmall', 'small'].includes(size),
+          },
+          ...columns,
+        ]}
+        fill
+        onClickRow={({ datum }) => handleClickRow(datum)}
+        paginate={{
+          border: 'top',
+          direction: 'row',
+          fill: 'horizontal',
+          flex: false,
+          justify: !['xsmall', 'small'].includes(size) ? 'end' : 'center',
+          pad: { top: 'xsmall' },
+        }}
+        step={10}
+        sortable
+      />
+    </ContentPane>
   );
 };

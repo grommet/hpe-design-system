@@ -13,7 +13,7 @@ const SelectorIndicator = ({ selected, indicator, ...rest }) => {
   return (
     <Box
       border={{
-        color: selected ? 'brand' : 'border',
+        color: selected ? 'transparent' : 'border',
         size: 'xsmall',
       }}
       round={round}
@@ -21,7 +21,7 @@ const SelectorIndicator = ({ selected, indicator, ...rest }) => {
       width={theme.global.edgeSize[size]}
       justify="center"
       align="center"
-      background={selected ? 'brand' : undefined}
+      background={selected ? 'background-selected-primary-strong' : undefined}
       flex={false}
       {...rest}
     >

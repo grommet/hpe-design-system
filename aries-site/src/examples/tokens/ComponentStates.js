@@ -5,13 +5,16 @@ import { global, components } from 'hpe-design-tokens/grommet';
 import { Box, Button, FormField, TextInput } from 'grommet';
 
 const HoverButton = styled(Button)`
-  background: ${components.hpe.button.primary.hover.background};
+  background: ${props =>
+    props.theme.global.colors[components.hpe.button.primary.hover.background][
+      props.theme.dark ? 'dark' : 'light'
+    ]};
 `;
 
 const FocusButton = styled(Button)`
   outline-color: ${props =>
-    props.theme.global.colors[
-      props.theme.global.colors[global.hpe.focusIndicator.outline.color]
+    props.theme.global.colors[global.hpe.focusIndicator.outline.color][
+      props.theme.dark ? 'dark' : 'light'
     ]};
   outline-width: ${global.hpe.focusIndicator.outline.width};
   outline-style: ${global.hpe.focusIndicator.outline.style};
