@@ -17,6 +17,8 @@ const defaultSelected = NavItems['Container Orchestration'][0];
 
 export const OpsRamp: React.FC = () => {
   const breakpoint = React.useContext(ResponsiveContext);
+  const isSidebarCollapsed = ['xsmall', 'small'].includes(breakpoint);
+
   return (
     <Box direction="row" fill>
       <NavSidebar
@@ -24,7 +26,8 @@ export const OpsRamp: React.FC = () => {
         active={defaultSelected}
         items={NavItems}
         flex="grow"
-        expanded={['xsmall', 'small'].includes(breakpoint)}
+        setExpanded={() => {}}
+        sideBarOpen={!isSidebarCollapsed}
       />
       <Page pad={{ bottom: 'xlarge' }}>
         <PageContent>

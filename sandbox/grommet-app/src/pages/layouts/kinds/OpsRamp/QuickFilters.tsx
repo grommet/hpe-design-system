@@ -16,7 +16,12 @@ interface DataContextType {
 export const QuickFilters: React.FC<{
   value: any;
   setValue: React.Dispatch<React.SetStateAction<any>>;
-  counts: { down?: number; up?: number; unknown?: number; undefined?: number };
+  counts: {
+    down?: number;
+    up?: number;
+    unknown?: number;
+    undefinedState?: number;
+  };
 }> = ({ value: selectedValue, setValue, counts }) => {
   const { onView, view } = useContext(DataContext) as DataContextType;
 
@@ -27,55 +32,57 @@ export const QuickFilters: React.FC<{
       defaultValue={undefined}
       multiple={false}
       onSelect={({ value }) => {
-        let nextView = { ...view };
-        const nextProperties: { state?: string[] } = {};
-        if (value) nextProperties.state = [value];
-        nextView = {
-          ...nextView,
+        const nextView = {
+          ...view,
           search: '',
           page: 1,
-          properties: nextProperties,
+          properties: value ? { state: [value] } : {},
           value: undefined,
         };
-
         onView(nextView);
         setValue(value);
       }}
       layout="grid"
     >
       <Text size="large">Group By Availability State</Text>
-      <Selector
-        icon={<StatusCriticalSmall color="status-critical" height="medium" />}
-        title="Down"
-        value="down"
-        direction="column"
-        indicator={true}
-        description={<Text size="xlarge">{counts?.down}</Text>}
-      />
-      <Selector
-        icon={<StatusGoodSmall color="status-ok" height="medium" />}
-        title="Up"
-        value="up"
-        direction="column"
-        indicator={true}
-        description={<Text size="xlarge">{counts?.up}</Text>}
-      />
-      <Selector
-        icon={<StatusUnknownSmall height="medium" />}
-        title="Unknown"
-        value="unknown"
-        direction="column"
-        indicator={true}
-        description={<Text size="xlarge">{counts?.unknown || 0}</Text>}
-      />
-      <Selector
-        icon={<StatusPlaceholderSmall color="status-unknown" height="medium" />}
-        title="Undefined"
-        value="undefined"
-        direction="column"
-        indicator={true}
-        description={<Text size="xlarge">{counts?.undefined || 0}</Text>}
-      />
+      {[
+        {
+          icon: <StatusCriticalSmall color="status-critical" height="medium" />,
+          title: 'Down',
+          value: 'down',
+          count: counts?.down,
+        },
+        {
+          icon: <StatusGoodSmall color="status-ok" height="medium" />,
+          title: 'Up',
+          value: 'up',
+          count: counts?.up,
+        },
+        {
+          icon: <StatusUnknownSmall height="medium" />,
+          title: 'Unknown',
+          value: 'unknown',
+          count: counts?.unknown,
+        },
+        {
+          icon: (
+            <StatusPlaceholderSmall color="status-unknown" height="medium" />
+          ),
+          title: 'Undefined',
+          value: 'undefined',
+          count: counts?.undefinedState,
+        },
+      ].map(({ icon, title, value, count }) => (
+        <Selector
+          key={value}
+          icon={icon}
+          title={title}
+          value={value}
+          direction="column"
+          indicator={true}
+          description={<Text size="xlarge">{count}</Text>}
+        />
+      ))}
     </SelectorGroup>
   );
 };

@@ -21,6 +21,7 @@ import {
   StatusUnknownSmall,
 } from 'grommet-icons';
 import opsRamp from '../../../../mockData/opsRamp.json';
+
 import { ResourceDetails } from './ResourceDetails';
 import { QuickFilters } from './QuickFilters';
 
@@ -31,7 +32,7 @@ export const ServersTable: React.FC = () => {
   const [up, setUp] = useState(0);
   const [down, setDown] = useState(0);
   const [unknown, setUnknown] = useState(0);
-  const [undefiend, setUndefined] = useState(0);
+  const [undefinedState, setUndefinedState] = useState(0);
   const [showResultDetails, setShowResultDetails] = useState(false);
   const breakpoint = useContext(ResponsiveContext);
 
@@ -44,13 +45,13 @@ export const ServersTable: React.FC = () => {
     const unknownServers = servers.filter(
       server => server.state === 'unknown',
     ).length;
-    const undefiendServers = servers.filter(
+    const undefinedServers = servers.filter(
       server => server.state === 'undefined',
     ).length;
 
     setUp(upServers);
     setDown(downServers);
-    setUndefined(undefiendServers);
+    setUndefinedState(undefinedServers);
     setUnknown(unknownServers);
     setTotal(servers.length);
     setResult(servers);
@@ -190,7 +191,7 @@ export const ServersTable: React.FC = () => {
             <QuickFilters
               value={quickFilter}
               setValue={setQuickFilter}
-              counts={{ up, down, unknown, undefiend }}
+              counts={{ up, down, unknown, undefinedState }}
             />
           </Box>
           <Box pad={{ vertical: 'small' }} overflow="auto" gridArea="datatable">
