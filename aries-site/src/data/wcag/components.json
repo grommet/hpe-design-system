@@ -47,6 +47,7 @@
       { "rule": "3.2.4", "status": "conditional" },
       { "rule": "3.2.5", "status": "passed" },
       { "rule": "4.1.2", "status": "passed" }
-    ]
+    ],
+    "fileInput": []
   }
 ]
