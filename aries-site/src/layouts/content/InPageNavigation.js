@@ -2,31 +2,10 @@ import { useState, useRef, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
-import styled, { ThemeContext } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { StatusGoodSmall } from 'grommet-icons';
 import { nameToSlug } from '../../utils';
 import { ViewContext } from '../../pages/_app';
-
-const SectionButton = styled(Button)`
-  position: relative;
-  border-radius: ${props => props.theme.global.edgeSize.xsmall}
-    ${props => props.theme.global.edgeSize.xsmall}
-    ${props => props.theme.global.edgeSize.xsmall}
-    ${props => props.theme.global.edgeSize.xsmall};
-`;
-
-const Marker = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  border-radius: 9999px;
-  background-color: ${props =>
-    props.theme.global.colors['border-strong'][
-      props.theme.dark ? 'dark' : 'light'
-    ]};
-`;
 
 const useActiveHeadingId = (headings, options) => {
   const [activeHeadingId, setActiveHeadingId] = useState();
@@ -102,11 +81,10 @@ export const InPageNavigation = ({ headings, title }) => {
       >
         <Text
           color="text-strong"
-          weight={500}
           // align with button labels
-          margin={{ left: theme.global.borderSize.small }}
+          margin={{ left: theme.button.size.small.default.pad.horizontal }}
         >
-          Jump to section
+          On this page
         </Text>
       </Box>
       <Nav gap="none" a11yTitle="Jump to section">
@@ -140,46 +118,34 @@ export const InPageNavigation = ({ headings, title }) => {
           }
 
           return (
-            <Link
-              key={index}
-              href={`#${nameToSlug(headingTitle)}`}
-              passHref
-              legacyBehavior
-            >
-              <SectionButton theme={theme} hoverIndicator>
-                <Box
-                  pad={{
-                    left: subsectionPad,
-                    vertical: theme.button.size.small.pad.vertical,
-                    right: theme.button.size.small.pad.horizontal,
-                  }}
-                  // margin={
-                  //   active
-                  //     ? undefined
-                  //     : { left: theme.global.borderSize.small }
-                  // }
-                  direction="row"
-                  align="top"
-                  gap="small"
-                >
-                  <Text color="text-strong" size="small" weight="normal">
-                    {headingTitle}
-                  </Text>
-                  {showUpdate && pageUpdateReady && (
-                    <Box background={{ dark: true }} justify="top">
-                      <StatusGoodSmall
-                        a11yTitle="Section has been updated"
-                        size="10px"
-                        color="teal"
-                        height="small"
-                      />
-                    </Box>
-                  )}
-                </Box>
-
-                {active ? <Marker /> : undefined}
-              </SectionButton>
-            </Link>
+            <Box pad={{ left: subsectionPad, right: 'xxsmall' }}>
+              <Link
+                key={index}
+                href={`#${nameToSlug(headingTitle)}`}
+                passHref
+                legacyBehavior
+              >
+                <Button
+                  active={active}
+                  justify="start"
+                  align="start"
+                  label={headingTitle}
+                  size="small"
+                  icon={
+                    showUpdate && pageUpdateReady ? (
+                      <Box background={{ dark: true }} justify="top">
+                        <StatusGoodSmall
+                          a11yTitle="Section has been updated"
+                          size="10px"
+                          color="teal"
+                          height="small"
+                        />
+                      </Box>
+                    ) : undefined
+                  }
+                />
+              </Link>
+            </Box>
           );
         })}
       </Nav>
