@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Anchor,
   Box,
@@ -7,13 +7,12 @@ import {
   Toolbar,
   DataSearch,
   Data,
-  ResponsiveContext,
   DataTable,
   Pagination,
 } from 'grommet';
 import {
   StatusCriticalSmall,
-  FormUpload,
+  Upload,
   SettingsOption,
   StatusGoodSmall,
   StatusPlaceholderSmall,
@@ -154,21 +153,23 @@ export const ServersTable: React.FC<ServersTableProps> = ({
         <Toolbar>
           <DataSearch />
           <DataFilters layer />
-          <Button kind="toolbar" icon={<FormUpload />} />
+          <Button kind="toolbar" icon={<Upload />} />
           <Button kind="toolbar" icon={<SettingsOption />} />
         </Toolbar>
-        <DataTable
-          aria-describedby="server-table"
-          onSelect={() => {}}
-          columns={columns}
-          sortable
-        />
-        <Pagination
-          summary
-          stepOptions
-          border="top"
-          pad={{ vertical: 'xsmall', left: 'small' }}
-        />
+        <Box>
+          <DataTable
+            aria-describedby="server-table"
+            onSelect={() => {}}
+            columns={columns}
+            sortable
+          />
+          <Pagination
+            summary
+            stepOptions
+            border="top"
+            pad={{ vertical: 'xsmall', left: 'small' }}
+          />
+        </Box>
       </Box>
     </Data>
   );
