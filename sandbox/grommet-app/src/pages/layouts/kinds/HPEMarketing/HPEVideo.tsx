@@ -15,14 +15,13 @@ export const HPEVideo = () => {
 
   return (
     <PageContent
-      pad={{ vertical: 'xlarge', horizontal: 'xlarge' }}
+      pad="xlarge"
       background={{
         fill: 'horizontal',
         image: 'url(/video-marketing-background.png)',
         dark: false,
         size: 'cover',
       }}
-      fill="horizontal"
     >
       <Box align="center" gap="large">
         {/* their heading is level 2 60px for font size */}
