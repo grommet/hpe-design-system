@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, Nav, Sidebar, Text } from 'grommet';
 import { Sidebar as SidebarIcon } from 'grommet-icons';
 import { CollapsibleMenu } from '../CollapsibleMenu';
@@ -16,12 +16,16 @@ export const NavSidebar = ({
   title,
   active,
   items,
-  expanded = true,
   setExpanded,
+  sideBarOpen = true,
   ...rest
 }) => {
-  const [open, setOpen] = React.useState(true);
-  const [selected, setSelected] = React.useState(active);
+  const [open, setOpen] = useState(sideBarOpen);
+  const [selected, setSelected] = useState(active);
+
+  useEffect(() => {
+    setOpen(sideBarOpen);
+  }, [sideBarOpen]);
 
   return (
     <Sidebar

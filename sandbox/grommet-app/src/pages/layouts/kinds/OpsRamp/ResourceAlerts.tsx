@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, Grid, Box, Text } from 'grommet';
+import { Anchor, Grid, Box, Text, ResponsiveContext } from 'grommet';
 import { Metric, metricSizes } from '../../../../components';
 import {
   StatusGoodSmall,
@@ -95,30 +95,42 @@ export const ResourceAlerts: React.FC<ResourceAlertsProps> = ({ size }) => {
     },
   ];
 
+  let columns;
+  const breakpoint = React.useContext(ResponsiveContext);
+  if (
+    breakpoint === 'xsmall' ||
+    breakpoint === 'small' ||
+    breakpoint === 'xlarge'
+  ) {
+    columns = {
+      count: 6,
+      size: 'auto',
+    };
+  } else if (breakpoint === 'large') {
+    columns = {
+      count: 3,
+      size: 'auto',
+    };
+  } else {
+    columns = 'xsmall';
+  }
+
   return (
     <Box>
       <Text>Resource Alerts</Text>
       {/* in design the pad is 18px */}
-      <Box pad="small" gap="small" direction="row">
-        <Grid
-          fill
-          columns={{
-            count: 6,
-            size: 'auto',
-          }}
-        >
-          {alertData.map(({ label, Icon, color, value }) => (
-            <AlertItem
-              key={label}
-              label={label}
-              Icon={Icon}
-              color={color || 'text-strong'}
-              value={value}
-              size={size}
-            />
-          ))}
-        </Grid>
-      </Box>
+      <Grid pad="small" columns={columns}>
+        {alertData.map(({ label, Icon, color, value }) => (
+          <AlertItem
+            key={label}
+            label={label}
+            Icon={Icon}
+            color={color || 'text-strong'}
+            value={value}
+            size={size}
+          />
+        ))}
+      </Grid>
       <TicketNotesSummary />
     </Box>
   );
