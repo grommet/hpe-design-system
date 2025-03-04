@@ -54,7 +54,6 @@ export const HPEAI = () => {
               dark: true,
             }
       }
-      fill="horizontal"
     >
       <Grid areas={areas} columns={columns} rows={rows} gap={gap[breakpoint]}>
         <Box
