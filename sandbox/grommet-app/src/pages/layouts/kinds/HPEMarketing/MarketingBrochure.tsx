@@ -4,7 +4,6 @@ import {
   Button,
   Grid,
   Image,
-  Heading,
   PageContent,
   Text,
   ResponsiveContext,
@@ -19,14 +18,21 @@ const ContentArea = ({ alt, image, desc, title }) => {
   return (
     <Box align="center" gap="medium">
       <Box
-        width={breakpoint === 'medium' ? 'xxsmall' : 'xsmall'}
-        height={breakpoint === 'medium' ? 'xxsmall' : 'xsmall'}
+        width={
+          ['xsmall', 'small', 'medium'].includes(breakpoint)
+            ? 'xxsmall'
+            : 'xsmall'
+        }
+        height={
+          ['xsmall', 'small', 'medium'].includes(breakpoint)
+            ? 'xxsmall'
+            : 'xsmall'
+        }
       >
+        {/* here icons did not work well they came out too small */}
         <Image fit="contain" alt={alt} src={image} />
       </Box>
-      <Heading margin="none" level={4}>
-        {title}
-      </Heading>
+      <Text size="xxlarge">{title}</Text>
       <Text>{desc}</Text>
     </Box>
   );
@@ -53,7 +59,11 @@ export const MarketingBrochure = () => {
   return (
     <PageContent
       pad={{ vertical: 'xlarge', horizontal: 'xlarge' }}
-      background={{ fill: 'horizontal', color: 'background-primary-strong', dark: true }}
+      background={{
+        fill: 'horizontal',
+        color: 'background-primary-strong',
+        dark: true,
+      }}
       fill="horizontal"
     >
       <Box gap="large">
@@ -65,13 +75,13 @@ export const MarketingBrochure = () => {
         >
           <ContentArea
             image={female}
-            alt=""
+            alt="Work with experts and develop new skill sets"
             title="People"
             desc="Work with experts and develop new skill sets"
           />
           <ContentArea
             image={clock}
-            alt=""
+            alt="Accelerate AI deployments and protect from risks"
             title="Technology"
             desc="Accelerate AI deployments and protect from risks"
           />
@@ -79,14 +89,23 @@ export const MarketingBrochure = () => {
             image={performance}
             title="Economics"
             desc="Optimize AI costs long term"
-            alt=""
+            alt="Financial flexibility"
           />
         </Grid>
         <Button
-          size="large"
+          size={
+            ['xsmall', 'small', 'medium'].includes(breakpoint)
+              ? 'medium'
+              : 'large'
+          }
           icon={<LinkNext />}
+          alignSelf={
+            ['xsmall', 'small'].includes(breakpoint) ? 'stretch' : 'center'
+          }
           label="Read the brochure"
-          alignSelf="center"
+          // "background-contrast" styling doesn't work well here
+          secondary
+          reverse
         />
       </Box>
     </PageContent>
