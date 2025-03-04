@@ -4,10 +4,9 @@ import { Box, Page, PageContent, ResponsiveContext } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { RoutedAnchor } from '../../../../components';
 import { HPEAI } from './HPEAI';
+import { MarketingBrochure } from './MarketingBrochure';
 
 export const HPEMarketing = () => {
-  const size = useContext(ResponsiveContext);
-
   return (
     <Page pad={{ bottom: 'xlarge' }}>
       <PageContent>
@@ -21,6 +20,7 @@ export const HPEMarketing = () => {
         </Box>
       </PageContent>
       <HPEAI />
+      <MarketingBrochure />
     </Page>
   );
 };
