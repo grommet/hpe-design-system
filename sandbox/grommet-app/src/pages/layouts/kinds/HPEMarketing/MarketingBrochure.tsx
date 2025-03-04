@@ -16,7 +16,6 @@ import performance from '/performance.svg';
 
 const ContentArea = ({ alt, image, desc, title }) => {
   const breakpoint = useContext(ResponsiveContext);
-  console.log(breakpoint);
   return (
     <Box align="center" gap="medium">
       <Box
