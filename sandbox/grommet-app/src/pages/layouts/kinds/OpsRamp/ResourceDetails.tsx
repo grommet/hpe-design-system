@@ -55,7 +55,12 @@ interface ResourceActionsProps {
 }
 
 const ResourceActions: React.FC<ResourceActionsProps> = () => (
-  <Menu label="Actions" items={actionItems} onClick={() => {}} />
+  <Menu
+    dropAlign={{ top: 'bottom', right: 'right' }}
+    label="Actions"
+    items={actionItems}
+    onClick={() => {}}
+  />
 );
 
 interface ResourceSectionsProps {

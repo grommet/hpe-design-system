@@ -22,8 +22,6 @@ export const OpsRamp: React.FC = () => {
   const breakpoint = React.useContext(ResponsiveContext);
   const isSidebarCollapsed = ['xsmall', 'small'].includes(breakpoint);
 
-  console.log(breakpoint);
-
   const [showResultDetails, setShowResultDetails] = useState(false);
 
   const gridColumns = ['xsmall', 'small'].includes(breakpoint)
