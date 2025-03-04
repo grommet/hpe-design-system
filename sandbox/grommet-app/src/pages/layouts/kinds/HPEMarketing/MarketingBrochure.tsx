@@ -53,7 +53,7 @@ export const MarketingBrochure = () => {
   return (
     <PageContent
       pad={{ vertical: 'xlarge', horizontal: 'xlarge' }}
-      background={{ fill: 'horizontal', color: 'green', dark: true }}
+      background={{ fill: 'horizontal', color: 'background-primary-strong', dark: true }}
       fill="horizontal"
     >
       <Box gap="large">
