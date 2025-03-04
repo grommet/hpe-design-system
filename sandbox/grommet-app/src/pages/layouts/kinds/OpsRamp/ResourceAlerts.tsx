@@ -73,7 +73,7 @@ interface ResourceAlertsProps {
 
 export const ResourceAlerts: React.FC<ResourceAlertsProps> = ({ size }) => {
   const alertData = [
-    { label: 'All', Icon: StatusGoodSmall, color: 'status-ok', value: 12 },
+    { label: 'All', Icon: () => null, color: 'status-ok', value: 12 },
     {
       label: 'Critical',
       Icon: StatusCriticalSmall,
