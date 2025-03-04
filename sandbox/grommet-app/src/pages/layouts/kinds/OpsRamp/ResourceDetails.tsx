@@ -30,7 +30,7 @@ const actionItems: ActionItem[] = [
   { label: 'Add note', onClick: () => {} },
   { label: 'Unmanage', onClick: () => {} },
   {
-    label: <Text color="status-critical">Remove</Text>,
+    label: <Text color="text-critical">Remove</Text>,
     onClick: () => {},
   },
 ];
