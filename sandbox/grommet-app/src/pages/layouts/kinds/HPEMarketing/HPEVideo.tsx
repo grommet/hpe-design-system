@@ -65,10 +65,13 @@ export const HPEVideo = () => {
           alignSelf={
             ['xsmall', 'small'].includes(breakpoint) ? 'stretch' : 'center'
           }
-          align="center"
           label="Read the press release"
           icon={<LinkNext />}
-          size={['xsmall', 'small'].includes(breakpoint) ? 'medium' : 'large'}
+          size={
+            ['xsmall', 'small', 'medium'].includes(breakpoint)
+              ? 'medium'
+              : 'large'
+          }
         />
       </Box>
     </PageContent>
