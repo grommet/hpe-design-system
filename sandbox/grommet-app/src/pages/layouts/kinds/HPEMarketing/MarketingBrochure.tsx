@@ -3,35 +3,18 @@ import {
   Box,
   Button,
   Grid,
-  Image,
   PageContent,
   Text,
   ResponsiveContext,
 } from 'grommet';
-import { LinkNext } from 'grommet-icons';
-import female from '/female.png';
-import clock from '/clock.svg';
-import performance from '/performance.svg';
+import { LinkNext, User, Clock, Time } from 'grommet-icons';
 
-const ContentArea = ({ alt, image, desc, title }) => {
-  const breakpoint = useContext(ResponsiveContext);
+const ContentArea = ({ icon, desc, title }) => {
   return (
     <Box align="center" gap="medium">
-      <Box
-        width={
-          ['xsmall', 'small', 'medium'].includes(breakpoint)
-            ? 'xxsmall'
-            : 'xsmall'
-        }
-        height={
-          ['xsmall', 'small', 'medium'].includes(breakpoint)
-            ? 'xxsmall'
-            : 'xsmall'
-        }
-      >
-        {/* here icons did not work well they came out too small */}
-        <Image fit="contain" alt={alt} src={image} />
-      </Box>
+      {/* here icons did not work well they came out
+         too small even with passing large size */}
+      {icon}
       <Text size="xxlarge">{title}</Text>
       <Text>{desc}</Text>
     </Box>
@@ -74,22 +57,19 @@ export const MarketingBrochure = () => {
           gap={gap[breakpoint]}
         >
           <ContentArea
-            image={female}
-            alt="Work with experts and develop new skill sets"
+            icon={<User size="large" />}
             title="People"
             desc="Work with experts and develop new skill sets"
           />
           <ContentArea
-            image={clock}
-            alt="Accelerate AI deployments and protect from risks"
+            icon={<Clock size="large" />}
             title="Technology"
             desc="Accelerate AI deployments and protect from risks"
           />
           <ContentArea
-            image={performance}
+            icon={<Time size="large" />}
             title="Economics"
             desc="Optimize AI costs long term"
-            alt="Financial flexibility"
           />
         </Grid>
         <Button
