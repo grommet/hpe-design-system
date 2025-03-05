@@ -57,17 +57,17 @@ export const MarketingBrochure = () => {
           gap={gap[breakpoint]}
         >
           <ContentArea
-            icon={<User size="large" />}
+            icon={<User size="xlarge" />}
             title="People"
             desc="Work with experts and develop new skill sets"
           />
           <ContentArea
-            icon={<Clock size="large" />}
+            icon={<Clock size="xlarge" />}
             title="Technology"
             desc="Accelerate AI deployments and protect from risks"
           />
           <ContentArea
-            icon={<Time size="large" />}
+            icon={<Time size="xlarge" />}
             title="Economics"
             desc="Optimize AI costs long term"
           />
