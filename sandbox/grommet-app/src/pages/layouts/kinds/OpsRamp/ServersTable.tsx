@@ -23,6 +23,13 @@ import opsRamp from '../../../../mockData/opsRamp.json';
 
 import { QuickFilters } from './QuickFilters';
 
+const defaultView = {
+  search: '',
+  sort: { property: 'name', direction: 'asc' as 'asc' | 'desc' },
+  step: 10,
+  properties: {},
+};
+
 interface ServersTableProps {
   showResultDetails: boolean;
   setShowResultDetails: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,10 +39,19 @@ export const ServersTable: React.FC<ServersTableProps> = ({
   setShowResultDetails,
 }) => {
   const [total, setTotal] = useState(0);
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState<
+    {
+      name: string;
+      'ip address': string;
+      make: string;
+      model: string;
+      state: string;
+    }[]
+  >([]);
   const [quickFilter, setQuickFilter] = useState('');
   const [up, setUp] = useState(0);
   const [down, setDown] = useState(0);
+  const [view, setView] = useState(defaultView);
   const [unknown, setUnknown] = useState(0);
   const [undefinedState, setUndefinedState] = useState(0);
 
@@ -61,15 +77,18 @@ export const ServersTable: React.FC<ServersTableProps> = ({
   }, []);
 
   useEffect(() => {
-    let filteredData = opsRamp.servers || [];
-    if (quickFilter) {
+    let filteredData = opsRamp.servers;
+    if (!('properties' in view)) {
+      setQuickFilter('');
+    }
+    if (view && quickFilter !== '') {
       filteredData = filteredData.filter(
         server => server.state === quickFilter,
       );
     }
     setResult(filteredData);
     setTotal(filteredData.length);
-  }, [quickFilter]);
+  }, [view, quickFilter]);
 
   const columns = [
     {
@@ -119,11 +138,7 @@ export const ServersTable: React.FC<ServersTableProps> = ({
       data={result}
       total={total}
       filteredTotal={result.length}
-      defaultView={{
-        search: '',
-        sort: { property: 'name', direction: 'asc' },
-        step: 10,
-      }}
+      defaultView={defaultView}
       properties={{
         name: {
           label: 'Name',
@@ -138,6 +153,8 @@ export const ServersTable: React.FC<ServersTableProps> = ({
           label: 'State',
         },
       }}
+      view={view}
+      onView={view => setView(view as typeof defaultView)}
     >
       <Box
         round="small"
