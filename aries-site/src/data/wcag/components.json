@@ -47,6 +47,393 @@
       { "rule": "3.2.4", "status": "conditional" },
       { "rule": "3.2.5", "status": "passed" },
       { "rule": "4.1.2", "status": "passed" }
+    ],
+    "toggleGroup": [
+      {
+        "rule": "1.1.1",
+        "status": "conditional",
+        "label": "Non-text content",
+        "notes": "Requires caller to provide aria-label."
+      },
+      {
+        "rule": "1.2",
+        "status": "not-applicable",
+        "label": "Time-based Media"
+      },
+      {
+        "rule": "1.3.1",
+        "status": "passed",
+        "label": "Info and Relationships",
+        "notes": "Uses `role='radiogroup'` for single select and `role='group'` for multi-select."
+      },
+      {
+        "rule": "1.3.2",
+        "status": "not-applicable",
+        "label": "Meaningful Sequence",
+        "notes": "Not sure this is applicable. Maybe RTL?"
+      },
+      {
+        "rule": "1.3.3",
+        "status": "not-applicable",
+        "label": "Sensory Characteristics"
+      },
+      {
+        "rule": "1.3.4",
+        "status": "not-applicable",
+        "label": "Orientation"
+      },
+      {
+        "rule": "1.3.5",
+        "status": "not-applicable",
+        "label": "Identify Input Purpose"
+      },
+      {
+        "rule": "1.3.6",
+        "status": "not-applicable",
+        "label": "Identify Purpose"
+      },
+      {
+        "rule": "1.4.1",
+        "status": "passed",
+        "label": "Use of Color",
+        "notes": "Uses background color and border to indicate state."
+      },
+      {
+        "rule": "1.4.2",
+        "status": "not-applicable",
+        "label": "Audio Control"
+      },
+      {
+        "rule": "1.4.3",
+        "status": "passed",
+        "label": "Contrast (Minimum)",
+        "notes": "Minimum contrast ratio of 6.29 (selected state) exceeds 4.5:1."
+      },
+      { "rule": "1.4.4", "status": "passed", "label": "Resize Text" },
+      {
+        "rule": "1.4.5",
+        "status": "not-applicable",
+        "label": "Images of Text"
+      },
+      {
+        "rule": "1.4.6",
+        "status": "failed",
+        "label": "Contrast (Enhanced)",
+        "notes": "Minimum contrast ratio of 6.29 (selected state) does not exceed 7:1."
+      },
+      {
+        "rule": "1.4.7",
+        "status": "not-applicable",
+        "label": "Low or No Background Audio"
+      },
+      {
+        "rule": "1.4.8",
+        "status": "not-applicable",
+        "label": "Visual Presentation"
+      },
+      {
+        "rule": "1.4.9",
+        "status": "not-applicable",
+        "label": "Images of Text (No Exception)"
+      },
+      {
+        "rule": "1.4.10",
+        "status": "not-applicable",
+        "label": "Reflow"
+      },
+      {
+        "rule": "1.4.11",
+        "status": "passed",
+        "label": "Non-text Contrast",
+        "notes": "Minimum contrast ratio of 6.29 exceeds 3:1."
+      },
+      {
+        "rule": "1.4.12",
+        "status": "not-applicable",
+        "label": "Text Spacing"
+      },
+      {
+        "rule": "1.4.13",
+        "status": "passed",
+        "label": "Content on Hover or Focus",
+        "notes": "Hover and focus states are indicated by background color and border."
+      },
+      {
+        "rule": "2.1.1",
+        "status": "passed",
+        "label": "Keyboard"
+      },
+      {
+        "rule": "2.1.2",
+        "status": "passed",
+        "label": "No Keyboard Trap"
+      },
+      {
+        "rule": "2.1.3",
+        "status": "passed",
+        "label": "Keyboard (No Exception)"
+      },
+      {
+        "rule": "2.2.1",
+        "status": "not-applicable",
+        "label": "Timing Adjustable"
+      },
+      {
+        "rule": "2.2.2",
+        "status": "not-applicable",
+        "label": "Pause, Stop, Hide"
+      },
+      { "rule": "2.2.3", "status": "passed", "label": "No Timing" },
+      { "rule": "2.2.4", "status": "not-applicable", "label": "Interruptions" },
+      {
+        "rule": "2.2.5",
+        "status": "not-applicable",
+        "label": "Re-authenticating"
+      },
+      {
+        "rule": "2.2.6",
+        "status": "not-applicable",
+        "label": "Timeouts"
+      },
+      {
+        "rule": "2.3.1",
+        "status": "passed",
+        "label": "Three Flashes or Below Threshold"
+      },
+      {
+        "rule": "2.3.2",
+        "status": "passed",
+        "label": "Three Flashes"
+      },
+      {
+        "rule": "2.3.3",
+        "status": "not-applicable",
+        "label": "Animation from Interactions"
+      },
+      {
+        "rule": "2.4.1",
+        "status": "not-applicable",
+        "label": "Bypass Blocks"
+      },
+      {
+        "rule": "2.4.2",
+        "status": "not-applicable",
+        "label": "Page Titled"
+      },
+      {
+        "rule": "2.4.3",
+        "status": "not-applicable",
+        "label": "Focus Order"
+      },
+      {
+        "rule": "2.4.4",
+        "status": "not-applicable",
+        "label": "Link Purpose (In Context)"
+      },
+      {
+        "rule": "2.4.5",
+        "status": "not-applicable",
+        "label": "Multiple Ways"
+      },
+      {
+        "rule": "2.4.6",
+        "status": "not-applicable",
+        "label": "Headings and Labels"
+      },
+      {
+        "rule": "2.4.7",
+        "status": "passed",
+        "label": "Focus Visible"
+      },
+      {
+        "rule": "2.4.8",
+        "status": "not-applicable",
+        "label": "Location"
+      },
+      {
+        "rule": "2.4.9",
+        "status": "not-applicable",
+        "label": "Link Purpose (Link Only)"
+      },
+      {
+        "rule": "2.4.10",
+        "status": "not-applicable",
+        "label": "Section Headings"
+      },
+      {
+        "rule": "2.4.11",
+        "status": "passed",
+        "label": "Focus Not Obscured (Minimum)"
+      },
+      {
+        "rule": "2.4.12",
+        "status": "passed",
+        "label": "Focus Not Obscured (Enhanced)"
+      },
+      {
+        "rule": "2.4.13",
+        "status": "passed",
+        "label": "Focus Appearance"
+      },
+      {
+        "rule": "2.5.1",
+        "status": "not-applicable",
+        "label": "Pointer Gestures"
+      },
+      {
+        "rule": "2.5.2",
+        "status": "passed",
+        "label": "Pointer Cancellation",
+        "notes": "No down event."
+      },
+      {
+        "rule": "2.5.3",
+        "status": "not-applicable",
+        "label": "Label in Name"
+      },
+      {
+        "rule": "2.5.4",
+        "status": "not-applicable",
+        "label": "Motion Actuation"
+      },
+      {
+        "rule": "2.5.5",
+        "status": "failed",
+        "label": "Target Size (Enhanced)",
+        "notes": "36x36 does not meet minimum target size of 44x44 pixels."
+      },
+      {
+        "rule": "2.5.6",
+        "status": "not-applicable",
+        "label": "Concurrent Input Mechanisms"
+      },
+      {
+        "rule": "2.5.7",
+        "status": "not-applicable",
+        "label": "Dragging Movements"
+      },
+      {
+        "rule": "2.5.8",
+        "status": "passed",
+        "label": "Target Size (Minimum)",
+        "notes": "36x36 meets minimum target size of 24x24 pixels."
+      },
+      {
+        "rule": "3.1.1",
+        "status": "not-applicable",
+        "label": "Language of Page"
+      },
+      {
+        "rule": "3.1.2",
+        "status": "not-applicable",
+        "label": "Language of Parts"
+      },
+      {
+        "rule": "3.1.3",
+        "status": "not-applicable",
+        "label": "Unusual Words"
+      },
+      {
+        "rule": "3.1.4",
+        "status": "not-applicable",
+        "label": "Abbreviations"
+      },
+      {
+        "rule": "3.1.5",
+        "status": "not-applicable",
+        "label": "Reading Level"
+      },
+      {
+        "rule": "3.1.6",
+        "status": "not-applicable",
+        "label": "Pronunciation"
+      },
+      {
+        "rule": "3.2.1",
+        "status": "passed",
+        "label": "On Focus"
+      },
+      {
+        "rule": "3.2.2",
+        "status": "not-applicable",
+        "label": "On Input"
+      },
+      {
+        "rule": "3.2.3",
+        "status": "not-applicable",
+        "label": "Consistent Navigation"
+      },
+      {
+        "rule": "3.2.4",
+        "status": "not-applicable",
+        "label": "Consistent Identification"
+      },
+      {
+        "rule": "3.2.5",
+        "status": "not-applicable",
+        "label": "Change on Request"
+      },
+      {
+        "rule": "3.2.6",
+        "status": "not-applicable",
+        "label": "Consistent Help"
+      },
+      {
+        "rule": "3.3.1",
+        "status": "not-applicable",
+        "label": "Error Identification"
+      },
+      {
+        "rule": "3.3.2",
+        "status": "not-applicable",
+        "label": "Labels or Instructions"
+      },
+      {
+        "rule": "3.3.3",
+        "status": "not-applicable",
+        "label": "Error Suggestion"
+      },
+      {
+        "rule": "3.3.4",
+        "status": "not-applicable",
+        "label": "Error Prevention (Legal, Financial, Data)"
+      },
+      {
+        "rule": "3.3.5",
+        "status": "not-applicable",
+        "label": "Help"
+      },
+      {
+        "rule": "3.3.6",
+        "status": "not-applicable",
+        "label": "Error Prevention (All)"
+      },
+      {
+        "rule": "3.3.7",
+        "status": "not-applicable",
+        "label": "Redundant Entry"
+      },
+      {
+        "rule": "3.3.8",
+        "status": "not-applicable",
+        "label": "Accessible Authentication (Minimum)"
+      },
+      {
+        "rule": "3.3.9",
+        "status": "not-applicable",
+        "label": "Accessible Authentication (Enhanced)"
+      },
+      {
+        "rule": "4.1.2",
+        "status": "passed",
+        "label": "Name, Role, Value",
+        "notes": "Uses `aria-label` to provide a name for the toggle group, role of `radiogroup`, and `aria-checked` to indicate the state of the selected toggle. For multi-select, uses `aria-pressed` to indicate the state of each toggle, and role of `group`."
+      },
+      {
+        "rule": "4.1.3",
+        "status": "not-applicable",
+        "label": "Status Messages"
+      }
     ]
   }
 ]
