@@ -11,7 +11,7 @@ export const GraphExample = ({ color }) => {
         width="xxsmall"
         round="small"
       />
-      <Box align="center" gap="xsmall">
+      <Box align="center">
         <Text weight={500} size="small">
           {color.name}
         </Text>
