@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   DataFilters,
+  DataSummary,
   Toolbar,
   DataSearch,
   Data,
@@ -150,12 +151,15 @@ export const ServersTable: React.FC<ServersTableProps> = ({
           setValue={setQuickFilter}
           counts={{ up, down, unknown, undefinedState }}
         />
-        <Toolbar>
-          <DataSearch />
-          <DataFilters layer />
-          <Button kind="toolbar" icon={<Upload />} />
-          <Button kind="toolbar" icon={<SettingsOption />} />
-        </Toolbar>
+        <Box>
+          <Toolbar>
+            <DataSearch />
+            <DataFilters layer />
+            <Button kind="toolbar" icon={<Upload />} />
+            <Button kind="toolbar" icon={<SettingsOption />} />
+          </Toolbar>
+          <DataSummary />
+        </Box>
         <Box>
           <DataTable
             aria-describedby="server-table"
