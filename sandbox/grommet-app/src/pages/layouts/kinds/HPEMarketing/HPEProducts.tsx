@@ -36,7 +36,7 @@ export const HPEProducts = () => {
   const onActive = (nextIndex: number) => setIndex(nextIndex);
   return (
     <PageContent
-      pad={{ vertical: 'xlarge', horizontal: 'xlarge' }}
+      pad="xlarge"
       background={{
         fill: 'horizontal',
         image: 'url(/video-marketing-background.png)',
