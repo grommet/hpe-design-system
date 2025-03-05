@@ -5,6 +5,7 @@ import { Previous } from 'grommet-icons';
 import { RoutedAnchor } from '../../../../components';
 import { HPEAI } from './HPEAI';
 import { MarketingBrochure } from './MarketingBrochure';
+import { HPEVideo } from './HPEVideo';
 
 export const HPEMarketing = () => {
   return (
@@ -21,6 +22,7 @@ export const HPEMarketing = () => {
       </PageContent>
       <HPEAI />
       <MarketingBrochure />
+      <HPEVideo />
     </Page>
   );
 };
