@@ -82,9 +82,11 @@ export const HPEAI = () => {
               co-developed solutions to help you accelerate the adoption of
               generative AI.
             </Text>
+            {/* we dont have a button kind to match hpe marketing page */}
             <Button
               label="HPE ships first NVIDIA Grace Blackwell system"
-              kind="cta-primary"
+              primary
+              reverse
               alignSelf={
                 ['xsmall', 'small'].includes(breakpoint) ? 'stretch' : 'start'
               }
