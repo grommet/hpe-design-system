@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { Box, List, Menu, ResponsiveContext } from 'grommet';
+import { List, Menu, ResponsiveContext } from 'grommet';
 import { More } from 'grommet-icons';
+import { ContentPane } from '../../../layouts';
 
 const data = [];
 
@@ -13,7 +14,7 @@ for (let i = 0; i < 95; i += 1) {
 export const PaginationListExample = () => {
   const size = useContext(ResponsiveContext);
   return (
-    <Box overflow="auto" pad="xsmall">
+    <ContentPane overflow="auto">
       <List
         data={data}
         action={(item, index) => (
@@ -34,6 +35,6 @@ export const PaginationListExample = () => {
           pad: { top: 'xsmall' },
         }}
       />
-    </Box>
+    </ContentPane>
   );
 };

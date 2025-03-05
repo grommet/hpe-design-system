@@ -47,7 +47,8 @@ export const BasicLayoutCardsExample = () => {
             >
               {data.map((datum, index) => (
                 <Card
-                  background="background"
+                  background="background-front"
+                  elevation="medium"
                   key={index}
                   onClick={() => {
                     // eslint-disable-next-line no-alert

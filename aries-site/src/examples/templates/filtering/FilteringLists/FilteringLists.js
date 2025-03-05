@@ -16,7 +16,7 @@ import {
 } from 'grommet';
 import { TextEmphasis } from 'aries-core';
 import { Deliver, Package, StatusCritical, StatusGood } from 'grommet-icons';
-
+import { ContentPane } from '../../../../layouts';
 import { orders } from './mockData';
 
 const statusIcons = {
@@ -36,22 +36,24 @@ const properties = {
 export const FilteringLists = () => (
   <Page>
     <PageContent gap="medium">
-      <Heading level={2} margin="none">
-        Orders
-      </Heading>
-      <Grid
-        // Use Grid with height prop for sticky header and scrollable results
-        height={{ min: 'medium' }}
-      >
-        <Data data={orders} properties={properties}>
-          <Toolbar>
-            <DataSearch responsive />
-            <DataFilters layer />
-          </Toolbar>
-          <DataSummary />
-          <Orders />
-        </Data>
-      </Grid>
+      <ContentPane gap="medium">
+        <Heading level={2} margin="none">
+          Orders
+        </Heading>
+        <Grid
+          // Use Grid with height prop for sticky header and scrollable results
+          height={{ min: 'medium' }}
+        >
+          <Data data={orders} properties={properties}>
+            <Toolbar>
+              <DataSearch responsive />
+              <DataFilters layer />
+            </Toolbar>
+            <DataSummary />
+            <Orders />
+          </Data>
+        </Grid>
+      </ContentPane>
     </PageContent>
   </Page>
 );

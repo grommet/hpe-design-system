@@ -1,25 +1,38 @@
 import React from 'react';
 import { Tab, Tabs, Paragraph } from 'grommet';
+import { TabContent } from './TabContent';
 
 export const TabResponsiveExample = () => (
   <Tabs justify="start">
     <Tab title="General">
-      <Paragraph>General Information</Paragraph>
+      <TabContent>
+        <Paragraph>General Information</Paragraph>
+      </TabContent>
     </Tab>
     <Tab title="Account">
-      <Paragraph>Account Information</Paragraph>
+      <TabContent>
+        <Paragraph>Account Information</Paragraph>
+      </TabContent>
     </Tab>
     <Tab title="Billing">
-      <Paragraph>Billing Information</Paragraph>
+      <TabContent>
+        <Paragraph>Billing Information</Paragraph>
+      </TabContent>
     </Tab>
     <Tab title="Overview">
-      <Paragraph>Overview Information</Paragraph>
+      <TabContent>
+        <Paragraph>Overview Information</Paragraph>
+      </TabContent>
     </Tab>
     <Tab title="Services">
-      <Paragraph>Service Information</Paragraph>
+      <TabContent>
+        <Paragraph>Service Information</Paragraph>
+      </TabContent>
     </Tab>
     <Tab title="Management">
-      <Paragraph>Management Information</Paragraph>
+      <TabContent>
+        <Paragraph>Management Information</Paragraph>
+      </TabContent>
     </Tab>
   </Tabs>
 );

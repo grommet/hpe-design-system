@@ -1,3 +1,4 @@
+import { Checkmark } from 'grommet-icons';
 import { BestPracticeGroup, Example } from '../../layouts';
 import { ColorSwatch, ExampleImagePreview } from '../../components';
 import {
@@ -19,7 +20,6 @@ import {
   NameValueListMultipleDefaultExample,
   NameValueListPairPropsExample,
   NameValueListReadMoreExample,
-  NameValueListScaleTable,
   NameValueListSimpleExample,
   NameValueListSummaryExample,
   NameValueListTextBadExample,
@@ -258,7 +258,7 @@ In certain scenarios, it is important to display to a user that a certain name-v
   github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/namevaluelist/NameValuelistWizard"
   docs="https://v2.grommet.io/namevaluelist?theme=hpe"
   showResponsiveControls={['laptop', 'mobile']}
-  template
+  screenContainer
 >
   <NameValueListWizard />
 </Example>
@@ -353,7 +353,14 @@ to imply hierarchy: [order](#order), [headings](#headings), [scale](#scale),
 - The size of name can differ from value.
 - Name should never be scaled bigger than its value.
 
-<NameValueListScaleTable />
+| Text size        | Name                            | Value                           |
+| ---------------- | ------------------------------- | ------------------------------- |
+| xsmall           | <Checkmark aria-label="true" /> | <Checkmark aria-label="true" /> |
+| small            | <Checkmark aria-label="true" /> | <Checkmark aria-label="true" /> |
+| medium (default) | <Checkmark aria-label="true" /> | <Checkmark aria-label="true" /> |
+| large            | <Checkmark aria-label="true" /> | <Checkmark aria-label="true" /> |
+| xlarge           | n/a                             | <Checkmark aria-label="true" /> |
+| xxlarge          | n/a                             | <Checkmark aria-label="true" /> |
 
 <BestPracticeGroup>
   <Example
