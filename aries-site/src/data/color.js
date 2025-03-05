@@ -364,8 +364,8 @@ const statusColorsDark = [
 const focusColor = [
   {
     name: 'focus',
-    value: colors['teal!'],
-    hex: colors['teal!'],
+    value: colors.focus.light, // same in light and dark mode
+    hex: colors.focus.light, // same in light and dark mode
   },
 ];
 
