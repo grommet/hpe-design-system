@@ -8,17 +8,18 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
+import { ContentPane } from '../../../../layouts';
 import { ContactInformation, ShippingInfomation } from '../Shipping';
 
 export const ColumnFormDont = () => {
   const size = useContext(ResponsiveContext);
   const [formValues, setFormValues] = React.useState({
-    'address1': '',
-    'address2': '',
-    'city': '',
-    'state': '',
-    'zipcode': '',
-    'isBusiness': '',
+    address1: '',
+    address2: '',
+    city: '',
+    state: '',
+    zipcode: '',
+    isBusiness: '',
     'full-name-2': '',
     'phone-shipping-2': '',
     'email-shipping-2': '',
@@ -58,7 +59,7 @@ export const ColumnFormDont = () => {
   };
 
   return (
-    <Box gap="medium">
+    <ContentPane gap="medium">
       <Header
         direction="column"
         align="start"
@@ -104,6 +105,6 @@ export const ColumnFormDont = () => {
           </Box>
         </Form>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };

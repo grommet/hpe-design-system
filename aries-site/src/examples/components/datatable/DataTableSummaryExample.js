@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, DataTable, Heading, ResponsiveContext } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 const data = [
   {
@@ -116,12 +117,8 @@ export const DataTableSummaryExample = ({ designSystemDemo }) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
-    <>
-      <Heading
-        id="service-adoption-heading"
-        level={3}
-        margin={{ bottom: 'small', top: 'none' }}
-      >
+    <ContentPane gap="medium">
+      <Heading id="service-adoption-heading" level={3} margin="none">
         Service adoption
       </Heading>
       <Box
@@ -147,7 +144,7 @@ export const DataTableSummaryExample = ({ designSystemDemo }) => {
           pin
         />
       </Box>
-    </>
+    </ContentPane>
   );
 };
 

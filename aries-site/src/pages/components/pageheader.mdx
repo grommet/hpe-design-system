@@ -73,7 +73,7 @@ Page-level actions should:
   screenContainer
   width="100%"
 >
-  <PageHeaderContentRegions background="background-front" />
+  <PageHeaderContentRegions />
 </Example>
 
 ## Title
@@ -142,7 +142,8 @@ Child pages include a reverse anchor which allows the user to navigate from the 
   docs="https://v2.grommet.io/pageheader?theme=hpe"
   github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/pageheader/ChildPageHeaderExample.js"
   showResponsiveControls={['fullScreen']}
-  screenContainer={{ scale: 0.6 }}
+  screenContainer
+  width="100%"
 >
   <ChildPageHeaderExample />
 </Example>
@@ -156,7 +157,8 @@ Top-level pages do not display a reverse anchor because they do not have a paren
   docs="https://v2.grommet.io/pageheader?theme=hpe"
   github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/pageheader/TopLevelPageHeaderExample.js"
   showResponsiveControls={['fullScreen']}
-  screenContainer={{ scale: 0.6 }}
+  screenContainer
+  width="100%"
 >
   <TopLevelPageHeaderExample />
 </Example>
@@ -186,7 +188,7 @@ Page-level actions affect the entire page or launch a task flow.
     }}
     width="100%"
     showResponsiveControls={[]}
-    screenContainer={{ scale: 0.6 }}
+    screenContainer
   >
     <PageHeaderActions />
   </Example>
@@ -197,7 +199,7 @@ Page-level actions affect the entire page or launch a task flow.
     }}
     width="100%"
     showResponsiveControls={[]}
-    screenContainer={{ scale: 0.6 }}
+    screenContainer
   >
     <PageHeaderActions bestPractice={false} />
   </Example>
