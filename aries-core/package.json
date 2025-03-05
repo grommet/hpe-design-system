@@ -40,7 +40,7 @@
     "test": "jest",
     "release-stable": "babel-node ./tools/release-stable",
     "storybook": "yarn build-design-tokens && storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "yarn build-design-tokens && storybook build"
   },
   "keywords": [
     "aries",
