@@ -447,5 +447,419 @@
         "status": "not-applicable"
       }
     ]
+  },
+  {
+    "card": [
+      {
+        "rule": "1.1.1",
+        "label": "Non-text content",
+        "status": "conditional",
+        "notes": "Highly dependent on the content of the card."
+      },
+      {
+        "rule": "1.2",
+        "label": "Time-based Media",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.1",
+        "label": "Info and Relationships",
+        "status": "conditional",
+        "notes": "There are a lot of considerations for how the markup of a card is implemented, largely dependent on the card's content and context in which it is presented. For example, a card representing a self-contained piece of content that could be distributed or reused independently, `<article>` is the more appropriate accessible choice. Examples of this might be a product listing, a blog post, or even the cards representing content on this HPE Design System site. An 'analytic card' that is part of a larger dashboard or report might be better suited to a `<section>` element. Additional considerations are needed if the card is part of a group of related cards and may need role of 'region' or 'listitem' and aria-labelledby to provide context and relationships. Headings within the card should use proper heading levels (<h1>-<h6>)."
+      },
+      {
+        "rule": "1.3.2",
+        "label": "Meaningful Sequence",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.3",
+        "label": "Sensory Characteristics",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.4",
+        "label": "Orientation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.5",
+        "label": "Identify Input Purpose",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.6",
+        "label": "Identify Purpose",
+        "status": "conditional",
+        "notes": "Dependent on content and context."
+      },
+      {
+        "rule": "1.4.1",
+        "label": "Use of Color",
+        "status": "not-applicable",
+        "notes": "Not directly applicable to the card, but is applicable to its contents."
+      },
+      {
+        "rule": "1.4.2",
+        "label": "Audio Control",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.3",
+        "label": "Contrast (Minimum)",
+        "status": "not-applicable",
+        "notes": "Not directly applicable to the card, but is applicable to its contents."
+      },
+      {
+        "rule": "1.4.4",
+        "label": "Resize Text",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.5",
+        "label": "Images of Text",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.6",
+        "label": "Contrast (Enhanced)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.7",
+        "label": "Low or No Background Audio",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.8",
+        "label": "Visual Presentation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.9",
+        "label": "Images of Text (No Exception)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.10",
+        "label": "Reflow",
+        "status": "not-applicable",
+        "notes": "Not directly applicable to the card, but is applicable to its contents."
+      },
+      {
+        "rule": "1.4.11",
+        "label": "Non-text Contrast",
+        "status": "conditional",
+        "notes": "Dependent on the content of the card and whether the card is interactive."
+      },
+      {
+        "rule": "1.4.12",
+        "label": "Text Spacing",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.13",
+        "label": "Content on Hover or Focus",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.1.1",
+        "label": "Keyboard",
+        "status": "conditional",
+        "notes": "Dependent on the card's content and interactivity. If the entire card is a link, use an <a> element. Test that the card and any interactive elements within it can be reached and activated using the keyboard alone."
+      },
+      {
+        "rule": "2.1.2",
+        "label": "No Keyboard Trap",
+        "status": "conditional",
+        "notes": "Requires implementor to test depending on the card's content."
+      },
+      {
+        "rule": "2.1.3",
+        "label": "Keyboard (No Exception)",
+        "status": "conditional"
+      },
+      {
+        "rule": "2.1.4",
+        "label": "Character Key Shortcuts",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.1",
+        "label": "Timing Adjustable",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.2",
+        "label": "Pause, Stop, Hide",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.3",
+        "label": "No Timing",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.4",
+        "label": "Interruptions",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.5",
+        "label": "Re-authenticating",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.6",
+        "label": "Timeouts",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.3.1",
+        "label": "Three Flashes or Below Threshold",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.3.2",
+        "label": "Three Flashes",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.3.3",
+        "label": "Animation from Interactions",
+        "status": "not-applicable",
+        "notes": "I don't think hover elevation is considered here. Check with team."
+      },
+      {
+        "rule": "2.4.1",
+        "label": "Bypass Blocks",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.2",
+        "label": "Page Titled",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.3",
+        "label": "Focus Order",
+        "status": "conditional",
+        "notes": "Depending on context, a proper role of `listitem` or wrapping in an <li> may be needed."
+      },
+      {
+        "rule": "2.4.4",
+        "label": "Link Purpose (In Context)",
+        "status": "conditional",
+        "notes": "Related cards sharing a common call to action such as 'Learn More' may need to be differentiated by using `aria-label` to provide context as to answer 'learn more about what?'."
+      },
+      {
+        "rule": "2.4.5",
+        "label": "Multiple Ways",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.6",
+        "label": "Headings and Labels",
+        "status": "conditional",
+        "notes": "Proper semantic headings are needed. Cards marked up as <section> may need an aria-labelledby as well. Cards marked up as <article> will use the first heading within or `aria-label`."
+      },
+      {
+        "rule": "2.4.7",
+        "label": "Focus Visible",
+        "status": "passed",
+        "notes": "When the card is interactive, focus is visible on hover and keyboard focus."
+      },
+      {
+        "rule": "2.4.8",
+        "label": "Location",
+        "status": "not yet evaluated"
+      },
+      {
+        "rule": "2.4.9",
+        "label": "Link Purpose (Link Only)",
+        "status": "conditional",
+        "notes": "Related cards sharing a common call to action such as 'Learn More' may need to be differentiated by using `aria-label` to provide context as to answer 'learn more about what?'."
+      },
+      {
+        "rule": "2.4.10",
+        "label": "Section Headings",
+        "status": "conditional",
+        "notes": "Dependent on content and context."
+      },
+      {
+        "rule": "2.4.11",
+        "label": "Focus Not Obscured (Minimum)",
+        "status": "passed"
+      },
+      {
+        "rule": "2.4.12",
+        "label": "Focus Not Obscured (Enhanced)",
+        "status": "passed"
+      },
+      {
+        "rule": "2.4.13",
+        "label": "Focus Appearance",
+        "status": "passed"
+      },
+      {
+        "rule": "2.5.1",
+        "label": "Pointer Gestures",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.2",
+        "label": "Pointer Cancellation",
+        "status": "passed",
+        "notes": "No down event."
+      },
+      {
+        "rule": "2.5.3",
+        "label": "Label in Name",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.4",
+        "label": "Motion Actuation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.5",
+        "label": "Target Size (Enhanced)",
+        "status": "passed",
+        "notes": "Applies to a clickable card. Cards with interactive contents must be tested separately."
+      },
+      {
+        "rule": "2.5.6",
+        "label": "Concurrent Input Mechanisms",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.7",
+        "label": "Dragging Movements",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.8",
+        "label": "Target Size (Minimum)",
+        "status": "passed",
+        "notes": "Applies to a clickable card. Cards with interactive contents must be tested separately."
+      },
+      {
+        "rule": "3.1.1",
+        "label": "Language of Page",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.2",
+        "label": "Language of Parts",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.3",
+        "label": "Unusual Words",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.4",
+        "label": "Abbreviations",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.5",
+        "label": "Reading Level",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.6",
+        "label": "Pronunciation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.1",
+        "label": "On Focus",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.2",
+        "label": "On Input",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.3",
+        "label": "Consistent Navigation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.4",
+        "label": "Consistent Identification",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.5",
+        "label": "Change on Request",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.6",
+        "label": "Consistent Help",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.1",
+        "label": "Error Identification",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.2",
+        "label": "Labels or Instructions",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.3",
+        "label": "Error Suggestion",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.4",
+        "label": "Error Prevention (Legal, Financial, Data)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.5",
+        "label": "Help",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.6",
+        "label": "Error Prevention (All)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.7",
+        "label": "Redundant Entry",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.8",
+        "label": "Accessible Authentication (Minimum)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.9",
+        "label": "Accessible Authentication (Enhanced)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "4.1.2",
+        "label": "Name, Role, Value",
+        "status": "conditional",
+        "notes": "Dependent on content and context."
+      },
+      {
+        "rule": "4.1.3",
+        "label": "Status Messages",
+        "status": "not-applicable"
+      }
+    ]
   }
 ]
