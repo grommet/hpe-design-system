@@ -1755,6 +1755,7 @@ export const components = [
     category: 'Controls',
     description:
       'A group of related buttons that enable the user to toggle one or more options on or off.',
+    accessibility: 'Failed WCAG 2.2 AA',
     preview: {
       component: () => <ToggleGroupPreview />,
     },
