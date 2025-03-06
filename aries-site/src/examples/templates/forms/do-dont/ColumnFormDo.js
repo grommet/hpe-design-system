@@ -1,24 +1,25 @@
 import React, { useContext } from 'react';
 import {
-    Box,
-    Button,
-    Form,
-    Header,
-    Heading,
-    Text,
-    ResponsiveContext,
-  } from 'grommet';
+  Box,
+  Button,
+  Form,
+  Header,
+  Heading,
+  Text,
+  ResponsiveContext,
+} from 'grommet';
+import { ContentPane } from '../../../../layouts';
 import { ContactInformation, ShippingInfomation } from '../Shipping';
 
 export const ColumnFormDo = () => {
   const size = useContext(ResponsiveContext);
   const [formValues, setFormValues] = React.useState({
-    'address1': '',
-    'address2': '',
-    'city': '',
-    'state': '',
-    'zipcode': '',
-    'isBusiness': '',
+    address1: '',
+    address2: '',
+    city: '',
+    state: '',
+    zipcode: '',
+    isBusiness: '',
     'full-name-1': '',
     'phone-shipping-1': '',
     'email-shipping-1': '',
@@ -58,7 +59,7 @@ export const ColumnFormDo = () => {
   };
 
   return (
-    <Box gap="medium">
+    <ContentPane gap="medium">
       <Header
         direction="column"
         align="start"
@@ -100,6 +101,6 @@ export const ColumnFormDo = () => {
           </Box>
         </Form>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };

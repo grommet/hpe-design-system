@@ -27,6 +27,7 @@ import {
   Sidedrawer,
   useConfirmation,
 } from './components';
+import { ContentPane } from '../../../layouts/content/ContentPane';
 
 const defaultFormValues = {
   'application-title': '',
@@ -172,36 +173,36 @@ const columns = [
 const ApplicationsPage = () => {
   const { setShowLayer } = useConfirmation();
   return (
-      <Page>
-        <PageContent>
-          <Box gap="medium">
-            <Heading id="applications-heading" level={2} margin="none">
-              Applications
-            </Heading>
-            <Data data={applications}>
-              <Toolbar>
-                <DataSearch />
-                <DataFilters layer />
-                <Box flex />
-                <Button
-                  label="Add application"
-                  secondary
-                  onClick={() => setShowLayer(true)}
-                />
-              </Toolbar>
-              <DataSummary />
-              <Box height={{ max: 'medium' }} alignSelf="start" overflow="auto">
-                <DataTable
-                  aria-describedby="applications-heading"
-                  columns={columns}
-                  pin
-                  primaryKey="title"
-                  sortable
-                />
-              </Box>
-            </Data>
-          </Box>
-        </PageContent>
-      </Page>
+    <Page pad={{ bottom: 'large' }}>
+      <PageContent>
+        <ContentPane gap="medium">
+          <Heading id="applications-heading" level={2} margin="none">
+            Applications
+          </Heading>
+          <Data data={applications}>
+            <Toolbar>
+              <DataSearch />
+              <DataFilters layer />
+              <Box flex />
+              <Button
+                label="Add application"
+                secondary
+                onClick={() => setShowLayer(true)}
+              />
+            </Toolbar>
+            <DataSummary />
+            <Box height={{ max: 'medium' }} alignSelf="start" overflow="auto">
+              <DataTable
+                aria-describedby="applications-heading"
+                columns={columns}
+                pin
+                primaryKey="title"
+                sortable
+              />
+            </Box>
+          </Data>
+        </ContentPane>
+      </PageContent>
+    </Page>
   );
 };

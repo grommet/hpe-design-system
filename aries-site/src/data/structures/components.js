@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { FileInput, Spinner } from 'grommet';
 import {
   AnchorPreview,
   AvatarPreview,
@@ -369,14 +370,7 @@ export const components = [
     relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
     sections: ['FileInput with multiple files', 'FileInput within a Form'],
     preview: {
-      image: {
-        src: {
-          light: '/componentImages/components-preview-fileinput.svg',
-          dark: '/componentImages/components-preview-fileinput-invert.svg',
-        },
-        alt: 'HPE Design System FileInput',
-        fit: 'contain',
-      },
+      component: () => <FileInput inert aria-hidden="true" tabIndex={-1} />,
     },
     tags: [
       'input fields',
@@ -1404,13 +1398,15 @@ export const components = [
       'Spinner is a small motion graphic element that indicates a loading state for quick, asynchronous tasks.',
 
     preview: {
-      image: {
-        src: {
-          light: '/components-preview-spinner.svg',
-          dark: '/components-preview-spinner-invert.svg',
-        },
-        alt: 'HPE Spinner preview',
-      },
+      component: () => (
+        // eslint-disable-next-line grommet/spinner-message
+        <Spinner
+          animation={false}
+          aria-hidden="true"
+          size="large"
+          style={{ transform: 'rotate(75deg)' }}
+        />
+      ),
     },
     seoDescription:
       'Spinner is an animated graphic element loading state for quick asynchronous tasks.',

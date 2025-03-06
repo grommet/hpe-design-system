@@ -178,13 +178,29 @@ const AllTokens = () => {
                   {activeCollection}
                 </Heading>
               </Box>
-              {active.includes('primitive') ? (
+              {/* eslint-disable-next-line no-nested-ternary */}
+              {active.includes('base') ? (
                 <Notification
                   status="warning"
-                  message={`Primitive tokens should never be used directly. 
+                  message={`Base tokens should never be used directly. 
                 Semantic or component tokens should be used instead. 
                 These are here purely for documentation.`}
                   margin={{ top: 'small' }}
+                />
+              ) : active.includes('static') ? (
+                <Notification
+                  status="info"
+                  message={`Static tokens should never be used to compose 
+                    layouts; use semantic tokens instead. Static tokens may
+                    be used for custom "elements" when element tokens 
+                    don't suffice.`}
+                  margin={{ top: 'small' }}
+                  actions={[
+                    {
+                      label: 'Learn about element tokens',
+                      href: '/design-tokens/element',
+                    },
+                  ]}
                 />
               ) : undefined}
               <DesignTokensTable

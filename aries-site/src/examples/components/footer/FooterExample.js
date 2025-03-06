@@ -13,7 +13,6 @@ export const FooterExample = () => {
   ];
   return (
     <Footer
-      background="background-front"
       direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
       align={!['xsmall', 'small'].includes(size) ? 'center' : undefined}
       pad={{ horizontal: 'medium', vertical: 'small' }}
