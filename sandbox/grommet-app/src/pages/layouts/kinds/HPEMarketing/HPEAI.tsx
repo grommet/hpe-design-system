@@ -88,7 +88,7 @@ export const HPEAI = () => {
               label="HPE ships first NVIDIA Grace Blackwell system"
               kind="cta-primary"
               alignSelf={
-                ['xsmall', 'small'].includes(breakpoint) ? 'none' : 'start'
+                ['xsmall', 'small'].includes(breakpoint) ? 'stretch' : 'start'
               }
               icon={<LinkNext size="small" />}
             />

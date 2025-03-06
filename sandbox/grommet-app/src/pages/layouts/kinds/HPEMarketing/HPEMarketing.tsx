@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Page, PageContent, ResponsiveContext } from 'grommet';
+import { Box, Page, PageContent } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { RoutedAnchor } from '../../../../components';
 import { HPEAI } from './HPEAI';
 import { MarketingBrochure } from './MarketingBrochure';
+import { HPEVideo } from './HPEVideo';
+import { HPEPrivateCloud } from './HPEPrivateCloud';
+import { HPEProducts } from './HPEProducts';
 
 export const HPEMarketing = () => {
   return (
@@ -21,6 +24,9 @@ export const HPEMarketing = () => {
       </PageContent>
       <HPEAI />
       <MarketingBrochure />
+      <HPEVideo />
+      <HPEPrivateCloud />
+      <HPEProducts />
     </Page>
   );
 };
