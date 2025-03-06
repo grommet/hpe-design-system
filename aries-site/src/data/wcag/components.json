@@ -10,7 +10,7 @@
       { "rule": "2.4.4", "status": "conditional" },
       { "rule": "2.4.7", "status": "passed" },
       { "rule": "2.4.9", "status": "conditional" },
-      { "rule": "2.4.13", "status": "failed" },
+      { "rule": "2.4.13", "status": "passed" },
       { "rule": "3.2.1", "status": "passed" },
       { "rule": "4.1.2", "status": "passed" }
     ],
