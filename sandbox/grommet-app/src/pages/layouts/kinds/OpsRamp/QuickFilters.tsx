@@ -15,7 +15,7 @@ interface DataContextType {
 
 export const QuickFilters: React.FC<{
   value: any;
-  setValue: React.Dispatch<React.SetStateAction<any>>;
+  setValue: any;
   counts: {
     down?: number;
     up?: number;
