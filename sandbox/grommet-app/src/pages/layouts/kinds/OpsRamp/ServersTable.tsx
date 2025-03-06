@@ -77,15 +77,29 @@ export const ServersTable: React.FC<ServersTableProps> = ({
   }, []);
 
   useEffect(() => {
+    if (!view) return;
+
+    console.log('view', view);
     let filteredData = opsRamp.servers;
     if (!('properties' in view)) {
       setQuickFilter('');
     }
-    if (view && quickFilter !== '') {
+
+    if (quickFilter) {
       filteredData = filteredData.filter(
         server => server.state === quickFilter,
       );
     }
+    if (view && view.properties) {
+      Object.keys(view.properties).forEach(property => {
+        if (Array.isArray(view.properties[property])) {
+          filteredData = filteredData.filter(server =>
+            view.properties[property].includes(server[property]),
+          );
+        }
+      });
+    }
+
     setResult(filteredData);
     setTotal(filteredData.length);
   }, [view, quickFilter]);
@@ -140,21 +154,17 @@ export const ServersTable: React.FC<ServersTableProps> = ({
       filteredTotal={result.length}
       defaultView={defaultView}
       properties={{
-        name: {
-          label: 'Name',
-        },
-        'ip address': {
-          label: 'IP Address',
-        },
         model: {
           label: 'Model',
+          options: ['VirtualMachine', 'VMware Virtual Platform'],
         },
         state: {
           label: 'State',
+          options: ['up', 'down', 'unknown', 'undefined'],
         },
       }}
       view={view}
-      onView={view => setView(view as typeof defaultView)}
+      onView={setView}
     >
       <Box
         round="small"
