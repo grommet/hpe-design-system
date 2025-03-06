@@ -33,13 +33,15 @@
     "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "build": "webpack --mode production && babel ./src/js/ --out-dir ./dist --config-file ./babel.config.js --ignore 'src/**/*.test.js,src/**/__tests__,src/**/stories'",
+    "build-design-tokens": "cd ../design-tokens && yarn build",
+    "build-site-search": "cd ../aries-site && node src/scripts/site-contents.mjs",
+    "build": "yarn build-design-tokens && webpack --mode production && babel ./src/js/ --out-dir ./dist --config-file ./babel.config.js --ignore 'src/**/*.test.js,src/**/__tests__,src/**/stories'",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
     "test": "jest",
     "release-stable": "babel-node ./tools/release-stable",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "yarn build-design-tokens && storybook dev -p 6006",
+    "build-storybook": "yarn build-design-tokens && yarn build-site-search && storybook build"
   },
   "keywords": [
     "aries",

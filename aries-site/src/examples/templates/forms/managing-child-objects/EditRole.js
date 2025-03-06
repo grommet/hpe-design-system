@@ -10,6 +10,7 @@ import {
   TextInput,
 } from 'grommet';
 import { ButtonGroup } from 'aries-core';
+import { ContentPane } from '../../../../layouts';
 import { FormChildObjects } from '../../FormChildObject';
 
 const permissionTemplate = {
@@ -107,7 +108,7 @@ export const EditRole = () => {
   };
 
   return (
-    <Box alignSelf="center" gap="medium" width="medium">
+    <ContentPane alignSelf="center" gap="medium" width="medium">
       <Heading level={2} margin="none">
         Edit role
       </Heading>
@@ -161,6 +162,6 @@ export const EditRole = () => {
           </Box>
         </Form>
       </Main>
-    </Box>
+    </ContentPane>
   );
 };

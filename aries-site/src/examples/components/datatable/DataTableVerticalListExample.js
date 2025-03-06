@@ -8,8 +8,8 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
-
 import { StatusGoodSmall, StatusWarningSmall } from 'grommet-icons';
+import { ContentPane } from '../../../layouts';
 
 import ServerGroups from '../../../data/mockData/serverGroups.json';
 
@@ -82,12 +82,8 @@ const columns = [
 export const DataTableVerticalListExample = ({ designSystemDemo }) => {
   const size = React.useContext(ResponsiveContext);
   return (
-    <>
-      <Heading
-        id="server-groups-vertical-align"
-        level={3}
-        margin={{ bottom: 'small', top: 'none' }}
-      >
+    <ContentPane gap="medium">
+      <Heading id="server-groups-vertical-align" level={3} margin="none">
         Server groups
       </Heading>
       <Box
@@ -126,7 +122,7 @@ export const DataTableVerticalListExample = ({ designSystemDemo }) => {
           verticalAlign={{ body: 'top' }}
         />
       </Box>
-    </>
+    </ContentPane>
   );
 };
 

@@ -4,7 +4,13 @@ import { Box, Button } from 'grommet';
 import { LayerHeader } from 'aries-core';
 
 export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
-  <Box round="small" elevation="large" pad="medium" gap="medium">
+  <Box
+    background="background-floating"
+    round="small"
+    elevation="large"
+    pad="medium"
+    gap="medium"
+  >
     <LayerHeader
       title={
         bestPractice

@@ -14,6 +14,7 @@ import {
   PageContent,
   Toolbar,
 } from 'grommet';
+import { ContentPane } from '../../../../layouts';
 
 const COLUMNS = [
   { property: 'name', header: 'Name', primary: true, pin: true },
@@ -92,7 +93,7 @@ const buildProperties = () => {
 };
 
 export const TableCustomizationExample = () => (
-  <Page background="background" fill>
+  <Page fill>
     <PageContent>
       <Box gap="medium">
         <Header pad={{ top: 'medium' }}>
@@ -110,28 +111,31 @@ const Results = () => {
   const [select, setSelect] = useState([]);
   const properties = buildProperties();
   return (
-    <Data data={allData} flex properties={properties}>
-      <Toolbar gap="medium">
-        <Toolbar>
-          <DataSearch responsive />
-          <DataFilters layer />
+    <ContentPane>
+      <Data data={allData} flex properties={properties}>
+        <Toolbar gap="medium">
+          <Toolbar>
+            <DataSearch responsive />
+            <DataFilters layer />
+          </Toolbar>
+          <DataTableColumns drop options={options} />
+          {/* Flex box for spacing between Data components and 
+          Actions button  */}
+          <Box flex />
+          <Menu label="Actions" kind="toolbar" />
         </Toolbar>
-        <DataTableColumns drop options={options} />
-        {/* Flex box for spacing between Data components and Actions button  */}
-        <Box flex />
-        <Menu label="Actions" kind="toolbar" />
-      </Toolbar>
-      <DataSummary />
-      <Box overflow="auto" flex>
-        <DataTable
-          aria-describedby="users-heading"
-          background="background"
-          columns={COLUMNS}
-          select={select}
-          onSelect={setSelect}
-          pin
-        />
-      </Box>
-    </Data>
+        <DataSummary />
+        <Box overflow="auto" flex>
+          <DataTable
+            aria-describedby="users-heading"
+            background="background"
+            columns={COLUMNS}
+            select={select}
+            onSelect={setSelect}
+            pin
+          />
+        </Box>
+      </Data>
+    </ContentPane>
   );
 };

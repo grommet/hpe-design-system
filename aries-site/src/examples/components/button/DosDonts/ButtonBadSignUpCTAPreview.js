@@ -12,6 +12,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
+import { ContentPane } from '../../../../layouts';
 
 export const ButtonBadSignUpCTAsPreview = () => {
   // eslint-disable-next-line no-unused-vars
@@ -20,7 +21,7 @@ export const ButtonBadSignUpCTAsPreview = () => {
   };
 
   return (
-    <Box gap="medium" width="medium">
+    <ContentPane gap="medium" width="medium">
       <Header
         direction="column"
         align="start"
@@ -114,6 +115,6 @@ export const ButtonBadSignUpCTAsPreview = () => {
           </Box>
         </Form>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };
