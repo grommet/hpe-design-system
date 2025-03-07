@@ -172,6 +172,7 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
         gap="medium"
         flex={false}
       >
+        {/* need to add a grid for when screen gets smaller if we like this direction */}
         <Toolbar align="center" flex={false}>
           <QuickFilters
             value={quickFilter}
@@ -191,7 +192,9 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
             onSelect={() => {}}
             columns={columns}
             sortable
+            data={result}
           />
+          {/* // Pagination is not working correctly  */}
           <Pagination
             summary
             stepOptions
