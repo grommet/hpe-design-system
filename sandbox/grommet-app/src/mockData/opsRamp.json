@@ -1,0 +1,137 @@
+{
+  "nodes": [
+    {
+      "name": "k8s-flow-master01",
+      "ip address": "172.25.22.90",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "up"
+    },
+    {
+      "name": "k8s-cluster-02-master",
+      "ip address": "172.25.22.53",
+      "make": "VMware, Inc.",
+      "model": "VirtualMachine",
+      "state": "down"
+    },
+    {
+      "name": "k8s-flow-worker02",
+      "ip address": "172.25.22.92",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "up"
+    },
+    {
+      "name": "k8s-cluster-02-worker03",
+      "ip address": "172.25.22.56",
+      "make": "VMware, Inc.",
+      "model": "VirtualMachine",
+      "state": "up"
+    },
+    {
+      "name": "k8s-flow-worker01",
+      "ip address": "172.25.22.91",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "up"
+    },
+    {
+      "name": "k8s-cluster-02",
+      "ip address": "10.42.0.15",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "up"
+    },
+    {
+      "name": "k8s-cluster-03",
+      "ip address": "10.42.0.15",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "up"
+    },
+    {
+      "name": "k8s-cluster-04",
+      "ip address": "10.42.0.15",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "up"
+    },
+    {
+      "name": "k8s-cluster-05",
+      "ip address": "10.42.0.15",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "unknown"
+    },
+    {
+      "name": "k8s-cluster-06",
+      "ip address": "10.42.0.15",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "up"
+    },
+    {
+      "name": "k8s-cluster-07",
+      "ip address": "10.42.0.15",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "up"
+    },
+    {
+      "name": "k8s-cluster-08",
+      "ip address": "10.42.0.15",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "up"
+    },
+    {
+      "name": "k8s-cluster-02-worker01",
+      "ip address": "172.25.22.54",
+      "make": "VMware, Inc.",
+      "model": "VirtualMachine",
+      "state": "up"
+    },
+    {
+      "name": "k8s-cluster-02-worker02",
+      "ip address": "172.25.22.54",
+      "make": "VMware, Inc.",
+      "model": "VirtualMachine",
+      "state": "unknown"
+    },
+    {
+      "name": "k8s-cluster-27",
+      "ip address": "10.42.0.15",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "undefined"
+    },
+    {
+      "name": "k8s-cluster-15",
+      "ip address": "10.42.0.15",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "undefined"
+    },
+    {
+      "name": "k8s-cluster-10",
+      "ip address": "10.42.0.15",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "undefined"
+    },
+    {
+      "name": "k8s-cluster",
+      "ip address": "10.42.0.15",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "undefined"
+    },
+    {
+      "name": "k8s-cluster-11",
+      "ip address": "10.42.0.16",
+      "make": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "state": "unknown"
+    }
+  ]
+}
