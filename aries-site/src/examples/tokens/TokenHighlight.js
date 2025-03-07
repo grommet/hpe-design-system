@@ -6,12 +6,13 @@ const parts = [
   'prefix',
   'level',
   'type',
+  'subtype',
   'component',
   'variant',
   'size',
   'element',
-  'state',
   'scale',
+  'state',
   'property',
 ];
 
