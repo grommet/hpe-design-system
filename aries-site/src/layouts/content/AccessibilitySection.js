@@ -58,38 +58,41 @@ export const AccessibilitySection = ({ title, version }) => {
   // Compare the component info with the success criteria
   // and return the status of each rule.
   const comparisons = useMemo(() => {
-    return componentInfo.map(rule => {
-      const ruleNum = rule.rule;
-      const successCriterion = successCriteriaMap.get(ruleNum);
+    const result = componentInfo
+      .filter(rule => rule.status !== 'not-applicable')
+      .map(rule => {
+        const ruleNum = rule.rule;
+        const successCriterion = successCriteriaMap.get(ruleNum);
 
-      if (successCriterion) {
-        const extractedData = {
-          id: successCriterion.id.split(':')[1],
-          num: successCriterion.num,
-          level: successCriterion.level,
-          handle: successCriterion.handle,
-          title: successCriterion.title,
-        };
+        if (successCriterion) {
+          const extractedData = {
+            id: successCriterion.id.split(':')[1],
+            num: successCriterion.num,
+            level: successCriterion.level,
+            handle: successCriterion.handle,
+            title: successCriterion.title,
+          };
 
-        // If the rule status is failed && level = AAA,
-        // change status to AAA not achieved
-        if (rule.status === 'failed' && extractedData.level === 'AAA') {
-          extractedData.status = 'AAA not achieved';
-        } else {
-          extractedData.status = rule.status;
+          // If the rule status is failed && level = AAA,
+          // change status to AAA not achieved
+          if (rule.status === 'failed' && extractedData.level === 'AAA') {
+            extractedData.status = 'AAA not achieved';
+          } else {
+            extractedData.status = rule.status;
+          }
+
+          return {
+            ...extractedData,
+            status: extractedData.status,
+          };
         }
 
         return {
-          ...extractedData,
-          status: extractedData.status,
+          rule: ruleNum,
+          message: `Success criterion with num ${ruleNum} not found`,
         };
-      }
-
-      return {
-        rule: ruleNum,
-        message: `Success criterion with num ${ruleNum} not found`,
-      };
-    });
+      });
+    return result;
   }, [componentInfo, successCriteriaMap]);
 
   const statusData = comparisons.map(item => item.status);
