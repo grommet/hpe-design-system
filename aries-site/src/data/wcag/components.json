@@ -48,30 +48,28 @@
       { "rule": "3.2.5", "status": "passed" },
       { "rule": "4.1.2", "status": "passed" }
     ],
-    "tabs": [
+  "avatar": [
       {
         "rule": "1.1.1",
         "label": "Non-text content",
         "status": "conditional",
-        "notes": "Requires caller to provide aria-label for icon-only tabs."
+        "notes": "Requires caller to provide a11yTile prop for `aria-label` to be added to the element for screen readers"
       },
       {
         "rule": "1.2",
         "label": "Time-based Media",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders a video/audio content within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "1.3.1",
         "label": "Info and Relationships",
         "status": "passed",
-        "notes": "Uses proper aria roles (`role='tab'`, `role='tablist'`, `role='tabpanel'`), uses aria-label to connect tabs to panels via tab title prop. And uses `aria-selected` to indicate the selected tab."
+        "notes": "Uses `role='figure'` for avatar container and `role='presentation'` for the image element."
       },
       {
         "rule": "1.3.2",
         "label": "Meaningful Sequence",
-        "status": "needs discussion - I would say passed without edge cases in the note below. Because we have tab first, then panel.",
-        "notes": "Do we support RTL and dynamic tab insertion that might affect keyboard navigation sequence? What about when consumer uses flexbox order to re-order tabs"
+        "status": "not-applicable"
       },
       {
         "rule": "1.3.3",
@@ -81,8 +79,7 @@
       {
         "rule": "1.3.4",
         "label": "Orientation",
-        "status": "needs discussion about support for vertical tabs",
-        "notes": "I did not see any vertical tabs in the example or via documentation. Do we support vertical tabs out of the box?"
+        "status": "not-applicable"
       },
       {
         "rule": "1.3.5",
@@ -92,26 +89,24 @@
       {
         "rule": "1.3.6",
         "label": "Identify Purpose",
-        "status": "conditional",
-        "notes": "`aria-label` should be provided when tabs are icon only."
+        "status": "not-applicable"
       },
       {
         "rule": "1.4.1",
         "label": "Use of Color",
         "status": "passed",
-        "notes": "Uses background color to indicate state."
+        "notes": "Uses background color for text-based Avatar."
       },
       {
         "rule": "1.4.2",
         "label": "Audio Control",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders a video/audio content within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "1.4.3",
         "label": "Contrast (Minimum)",
         "status": "passed",
-        "notes": "Minimum contrast ratio of 4.61 (selected state) exceeds 4.5:1."
+        "notes": "Minimum contrast ratio of 7.46 (text-based avatar) exceeds 4.5:1."
       },
       {
         "rule": "1.4.4",
@@ -126,14 +121,13 @@
       {
         "rule": "1.4.6",
         "label": "Contrast (Enhanced)",
-        "status": "failed",
-        "notes": "Minimum contrast ratio of 4.61 (selected state) does not exceed 7:1. But this will pass for larger text which requires 4.5:1."
+        "status": "passed",
+        "notes": "Minimum contrast ratio of 7.46 (text-based) exceed 7:1."
       },
       {
         "rule": "1.4.7",
         "label": "Low or No Background Audio",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders a video/audio content within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "1.4.8",
@@ -143,8 +137,7 @@
       {
         "rule": "1.4.9",
         "label": "Images of Text (No Exception)",
-        "status": "not-applicable",
-        "notes": "Need to clarify this."
+        "status": "not-applicable"
       },
       {
         "rule": "1.4.10",
@@ -155,7 +148,7 @@
         "rule": "1.4.11",
         "label": "Non-text Contrast",
         "status": "passed",
-        "notes": "Minimum contrast ratio of 4.61 exceeds 3:1."
+        "notes": "Minimum contrast ratio of 7.46 (text-based avatar) exceeds 3:1."
       },
       {
         "rule": "1.4.12",
@@ -165,27 +158,21 @@
       {
         "rule": "1.4.13",
         "label": "Content on Hover or Focus",
-        "status": "passed",
-        "notes": "Hover and focus states are indicated by background color and border."
+        "status": "not-applicable"
       },
       {
         "rule": "2.1.1",
         "label": "Keyboard",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.1.2",
         "label": "No Keyboard Trap",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.1.3",
         "label": "Keyboard (No Exception)",
-        "status": "passed"
-      },
-      {
-        "rule": "2.1.4",
-        "label": "Character Key Shortcuts",
         "status": "not-applicable"
       },
       {
@@ -196,8 +183,7 @@
       {
         "rule": "2.2.2",
         "label": "Pause, Stop, Hide",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders a video/audio content within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "2.2.3",
@@ -232,9 +218,7 @@
       {
         "rule": "2.3.3",
         "label": "Animation from Interactions",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders a content with animation within a tab panel?"
-        
+        "status": "not-applicable"
       },
       {
         "rule": "2.4.1",
@@ -254,8 +238,7 @@
       {
         "rule": "2.4.4",
         "label": "Link Purpose (In Context)",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders link(s) within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "2.4.5",
@@ -270,7 +253,7 @@
       {
         "rule": "2.4.7",
         "label": "Focus Visible",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.4.8",
@@ -280,8 +263,7 @@
       {
         "rule": "2.4.9",
         "label": "Link Purpose (Link Only)",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders link(s) within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "2.4.10",
@@ -291,17 +273,17 @@
       {
         "rule": "2.4.11",
         "label": "Focus Not Obscured (Minimum)",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.4.12",
         "label": "Focus Not Obscured (Enhanced)",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.4.13",
         "label": "Focus Appearance",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.5.1",
@@ -311,8 +293,7 @@
       {
         "rule": "2.5.2",
         "label": "Pointer Cancellation",
-        "status": "passed",
-        "notes": "No down event. I believe we use only a click event. Need to verify this."
+        "status": "not-applicable"
       },
       {
         "rule": "2.5.3",
@@ -328,7 +309,7 @@
         "rule": "2.5.5",
         "label": "Target Size (Enhanced)",
         "status": "failed",
-        "notes": "36x36 does not meet minimum target size of 44x44 pixels."
+        "notes": "20x20 does not meet minimum target size of 44x44 pixels."
       },
       {
         "rule": "2.5.6",
@@ -343,8 +324,8 @@
       {
         "rule": "2.5.8",
         "label": "Target Size (Minimum)",
-        "status": "passed",
-        "notes": "36x36 meets minimum target size of 24x24 pixels."
+        "status": "failed",
+        "notes": "20x20 does not meet minimum target size of 24x24 pixels."
       },
       {
         "rule": "3.1.1",
@@ -379,7 +360,7 @@
       {
         "rule": "3.2.1",
         "label": "On Focus",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "3.2.2",
@@ -454,14 +435,14 @@
       {
         "rule": "4.1.2",
         "label": "Name, Role, Value",
-        "status": "passed",
-        "notes": "Uses `aria-label` to connect tabs and panels, aria-expanded to indicate the state of the tab, and `role='tab'`, `role='tablist'`, `role='tabpanel'`."
+        "status": "conditional",
+        "notes": "Requires caller to provide a11yTitle prop to add `aria-label` to the element. Although, uses `role='figure'` for avatar container and `role='presentation'` for the image element."
       },
       {
         "rule": "4.1.3",
         "label": "Status Messages",
         "status": "not-applicable"
       }
-    ]    
+    ]
   }
 ]
