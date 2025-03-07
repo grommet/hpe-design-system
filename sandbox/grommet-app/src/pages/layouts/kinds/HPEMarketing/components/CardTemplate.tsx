@@ -9,7 +9,11 @@ import {
   Paragraph,
 } from 'grommet';
 
+// I will need to update this file and merge the changes from
+// what I did in this PR with the HPE Products section
+
 export const CardTemplate = ({
+  border,
   actions,
   description,
   media,
@@ -22,33 +26,37 @@ export const CardTemplate = ({
       as="section"
       fill="vertical"
       // in design there is no background only border
+      // then others no background or border
       background="none"
-      border
+      border={border}
+      gap="medium"
       {...rest}
     >
-      {media}
-      <Box gap="medium" flex>
-        <Box gap="medium" flex>
+      <Box gap="large">
+        {media}
+        <Box gap="small">
           <CardHeader pad="none" direction="column" gap="none" align="start">
-            <Heading level={3} margin="none">
+            {/* with size xlarge we match design size */}
+            <Heading size="xlarge" level={3} margin="none">
               {title}
             </Heading>
           </CardHeader>
           <CardBody pad="none" align="start">
+            {/* designs have 20px for paragraph text */}
             <Paragraph margin="none">{description}</Paragraph>
           </CardBody>
         </Box>
-        <CardFooter
-          pad={{ bottom: 'medium' }}
-          align="stretch"
-          direction="column"
-          gap="small"
-        >
-          <Box flex={false} align="start">
-            {actions}
-          </Box>
-        </CardFooter>
       </Box>
+      <CardFooter
+        pad={{ bottom: 'medium' }}
+        align="stretch"
+        direction="column"
+        gap="small"
+      >
+        <Box flex={false} align="start">
+          {actions}
+        </Box>
+      </CardFooter>
     </Card>
   );
 };
