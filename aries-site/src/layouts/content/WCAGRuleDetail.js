@@ -86,6 +86,12 @@ export const WCAGRuleDetail = ({ rules, version }) => {
       4: 'Robust',
     };
 
+    const defaultGrouping = {};
+
+    Object.values(principleMapping).forEach(principle => {
+      defaultGrouping[principle] = [];
+    });
+
     return ruleList.reduce((grouped, rule) => {
       const principleName = rule.num
         ? principleMapping[parseInt(rule.num.split('.')[0], 10)]
@@ -94,7 +100,7 @@ export const WCAGRuleDetail = ({ rules, version }) => {
         ...grouped,
         [principleName]: [...(grouped[principleName] || []), rule],
       };
-    }, {});
+    }, defaultGrouping);
   };
 
   const groupedRules = groupRulesByAccessibilityPrinciple(rules);
@@ -126,7 +132,7 @@ export const WCAGRuleDetail = ({ rules, version }) => {
                           ? item
                           : worst;
                       },
-                      { status: 'passed' },
+                      { status: 'conditional' },
                     ).status,
                   )}
                   <Heading margin={{ vertical: 'small' }} level={4}>
@@ -136,6 +142,12 @@ export const WCAGRuleDetail = ({ rules, version }) => {
               }
             >
               <Box pad={{ vertical: 'small' }} gap="small">
+                {groupedRules[group].length === 0 && (
+                  <Paragraph>
+                    At this time, there are no WCAG '{group}' rules applicable
+                    to this component.
+                  </Paragraph>
+                )}
                 {/* Sort the rules by their status */}
                 {groupedRules[group]
                   .sort((a, b) => statusRank[b.status] - statusRank[a.status])
