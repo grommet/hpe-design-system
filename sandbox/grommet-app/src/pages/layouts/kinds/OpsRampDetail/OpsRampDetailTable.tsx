@@ -10,6 +10,7 @@ import {
   Data,
   DataTable,
   Pagination,
+  ResponsiveContext,
   ColumnConfig,
   View,
 } from 'grommet';
@@ -30,6 +31,7 @@ const defaultView = {
   sort: { property: 'name', direction: 'asc' as 'asc' | 'desc' },
   step: 10,
   properties: {},
+  page: 1,
 };
 
 interface NodeTableProps {
@@ -173,29 +175,38 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
         flex={false}
       >
         {/* need to add a grid for when screen gets smaller if we like this direction */}
-        <Toolbar align="center" flex={false}>
-          <QuickFilters
-            value={quickFilter}
-            setValue={setQuickFilter}
-            counts={{ up, down, unknown, undefinedState }}
-          />
-          <Box flex />
-          <DataSearch />
-          <DataFilters layer />
-          <Button kind="toolbar" icon={<Upload />} />
-          <Button kind="toolbar" icon={<SettingsOption />} />
+        {/* should toolbox be under the quickfilters or keep to opsramp design */}
+        <Toolbar gap="none" direction="column" flex={false}>
+          <Toolbar fill="horizontal" align="center" flex={false}>
+            <QuickFilters
+              value={quickFilter}
+              setValue={setQuickFilter}
+              counts={{ up, down, unknown, undefinedState }}
+            />
+            <Box flex />
+            <DataSearch />
+            <DataFilters layer />
+            <Button kind="toolbar" icon={<Upload />} />
+            <Button kind="toolbar" icon={<SettingsOption />} />
+          </Toolbar>
+          <DataSummary />
         </Toolbar>
-        <DataSummary />
         <Box>
           <DataTable
             aria-describedby="node-table"
             onSelect={() => {}}
             columns={columns}
             sortable
-            data={result}
+            data={result.slice(
+              ((view.page ?? 1) - 1) * (view.step ?? 10),
+              (view.page ?? 1) * (view.step ?? 10),
+            )}
           />
-          {/* // Pagination is not working correctly  */}
           <Pagination
+            numberItems={total}
+            step={view.step}
+            page={view.page}
+            onChange={({ page }) => setView({ ...view, page })}
             summary
             stepOptions
             border="top"

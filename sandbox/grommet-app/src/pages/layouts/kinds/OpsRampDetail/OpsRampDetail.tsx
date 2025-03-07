@@ -24,30 +24,6 @@ export const OpsRampDetail: React.FC = () => {
 
   const [showResultDetails, setShowResultDetails] = useState(false);
 
-  const gridColumns = ['xsmall', 'small'].includes(breakpoint)
-    ? ['flex', 'auto']
-    : ['auto', 'auto'];
-
-  const columnsGap = {
-    xsmall: 'small',
-    small: 'small',
-    medium: 'medium',
-    large: 'large',
-    xlarge: 'large',
-  };
-
-  const gap = {
-    column: columnsGap[breakpoint],
-  };
-
-  const areasDefault = [['datetable', 'resourcedetails']];
-
-  const areasSmall = [['datatable', 'unassigned']];
-
-  const areas = ['xsmall', 'small'].includes(breakpoint)
-    ? areasSmall
-    : areasDefault;
-
   return (
     <Box direction="row" fill>
       <NavSidebar
@@ -72,35 +48,21 @@ export const OpsRampDetail: React.FC = () => {
               />
             }
           />
-          <Grid
-            columns={showResultDetails ? gridColumns : 'full'}
-            areas={showResultDetails ? areas : undefined}
-            gap={{ column: gap.column }}
+          <ContentPane
+            heading={undefined}
+            level={undefined}
+            actions={undefined}
+            skeleton={undefined}
+            overflow="auto"
           >
-            <ContentPane
-              heading={undefined}
-              level={undefined}
-              actions={undefined}
-              skeleton={undefined}
-              overflow="auto"
-            >
-              <OpsRampDetailTable
-                showResultDetails={showResultDetails}
-                setShowResultDetails={setShowResultDetails}
-              />
-            </ContentPane>
-            {showResultDetails && (
-              <ResourceDetails
-                layer={['xsmall', 'small', 'medium'].includes(breakpoint)}
-                onClose={() => setShowResultDetails(false)}
-                animation={
-                  ['xsmall', 'small', 'medium'].includes(breakpoint)
-                    ? false
-                    : ['slideLeft', 'fadeIn']
-                }
-              />
-            )}
-          </Grid>
+            <OpsRampDetailTable
+              showResultDetails={showResultDetails}
+              setShowResultDetails={setShowResultDetails}
+            />
+          </ContentPane>
+          {showResultDetails && (
+            <ResourceDetails onClose={() => setShowResultDetails(false)} />
+          )}
         </PageContent>
       </Page>
     </Box>
