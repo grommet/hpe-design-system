@@ -12,13 +12,13 @@ import {
 import { RoutedAnchor, NavSidebar } from '../../../../components';
 import ContentPane from '../../../../components/ContentPane';
 import { Previous } from 'grommet-icons';
-import { NavItems } from './navItems';
-import { ServersTable } from './ServersTable';
+import { OpsRampDetailItems } from '../NavigationalSidebar/navItems';
+import { OpsRampDetailTable } from './OpsRampDetailTable';
 import { ResourceDetails } from './ResourceDetails';
 
-const defaultSelected = NavItems['Container Orchestration'][0];
+const defaultSelected = OpsRampDetailItems['Container Orchestration'][0];
 
-export const OpsRamp: React.FC = () => {
+export const OpsRampDetail: React.FC = () => {
   const breakpoint = React.useContext(ResponsiveContext);
   const isSidebarCollapsed = ['xsmall', 'small'].includes(breakpoint);
 
@@ -29,11 +29,11 @@ export const OpsRamp: React.FC = () => {
     : ['auto', 'auto'];
 
   const columnsGap = {
-    xsmall: 'xsmall',
-    small: 'xsmall',
-    medium: 'small',
-    large: 'medium',
-    xlarge: 'medium',
+    xsmall: 'small',
+    small: 'small',
+    medium: 'medium',
+    large: 'large',
+    xlarge: 'large',
   };
 
   const gap = {
@@ -51,9 +51,9 @@ export const OpsRamp: React.FC = () => {
   return (
     <Box direction="row" fill>
       <NavSidebar
-        title="Resource Categories"
+        title="Resource categories"
         active={defaultSelected}
-        items={NavItems}
+        items={OpsRampDetailItems}
         flex="grow"
         setExpanded={() => {}}
         sideBarOpen={!isSidebarCollapsed}
@@ -78,14 +78,13 @@ export const OpsRamp: React.FC = () => {
             gap={{ column: gap.column }}
           >
             <ContentPane
-              gridArea=""
-              heading=""
-              level={2}
+              heading={undefined}
+              level={undefined}
               actions={undefined}
               skeleton={undefined}
               overflow="auto"
             >
-              <ServersTable
+              <OpsRampDetailTable
                 showResultDetails={showResultDetails}
                 setShowResultDetails={setShowResultDetails}
               />

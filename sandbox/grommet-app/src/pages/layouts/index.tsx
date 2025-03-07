@@ -7,7 +7,7 @@ import {
   EmptyState,
   Form,
   NavigationalSidebar,
-  OpsRamp,
+  OpsRampDetail,
   RecordDetail,
   DSCCSystemDetail,
 } from './kinds';
@@ -17,6 +17,7 @@ const layouts = [
   'Dashboard',
   'Detail - COM',
   'Detail - DSCC System',
+  'Detail - OpsRamp',
   'Empty state',
   'Form',
   'Home',
@@ -25,7 +26,6 @@ const layouts = [
   'Main',
   'Navigational sidebar',
   'NotFound',
-  'OpsRamp detail',
   'Settings',
   'Splash',
   'Wizard',
@@ -79,7 +79,11 @@ const routes = [
     path="navigational-sidebar"
     element={<NavigationalSidebar />}
   />,
-  <Route key="opsramp-detail" path="opsramp-detail" element={<OpsRamp />} />,
+  <Route
+    key="detail-opsramp"
+    path="detail-opsramp"
+    element={<OpsRampDetail />}
+  />,
 ];
 
 export { Layouts, routes };

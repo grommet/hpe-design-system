@@ -6,7 +6,28 @@ import {
   StatusUnknownSmall,
   StatusPlaceholderSmall,
 } from 'grommet-icons';
-import { DataContext, Text } from 'grommet';
+import { Box, DataContext, Text } from 'grommet';
+
+const MiniSelector = ({ value, count, icon, title }) => {
+  return (
+    <Selector
+      value={value}
+      title={
+        <Box align="center">
+          {title}
+          <Box direction="row" alignSelf="center" align="center" gap="xsmall">
+            <Text size="small">{count}</Text>
+            {icon}
+          </Box>
+        </Box>
+      }
+      indicator={false}
+      pad={{ horizontal: 'small', vertical: 'xsmall' }}
+      round="small"
+      margin={{ bottom: 'xsmall' }}
+    />
+  );
+};
 
 interface DataContextType {
   onView: (view: any) => void;
@@ -27,7 +48,7 @@ export const QuickFilters: React.FC<{
 
   return (
     <SelectorGroup
-      a11yTitle="Server State quick filters"
+      a11yTitle="Node state quick filters"
       value={selectedValue}
       defaultValue={undefined}
       multiple={false}
@@ -44,43 +65,40 @@ export const QuickFilters: React.FC<{
       }}
       layout="grid"
     >
-      <Text size="large">Group By Availability State</Text>
       {[
         {
           icon: <StatusCriticalSmall color="status-critical" height="medium" />,
-          title: 'Down',
           value: 'down',
           count: counts?.down,
+          title: 'Down',
         },
         {
           icon: <StatusGoodSmall color="status-ok" height="medium" />,
-          title: 'Up',
           value: 'up',
           count: counts?.up,
+          title: 'Up',
         },
         {
           icon: <StatusUnknownSmall height="medium" />,
-          title: 'Unknown',
           value: 'unknown',
           count: counts?.unknown,
+          title: 'Unknown',
         },
         {
           icon: (
             <StatusPlaceholderSmall color="status-unknown" height="medium" />
           ),
-          title: 'Undefined',
           value: 'undefined',
           count: counts?.undefinedState,
+          title: 'Undefined',
         },
-      ].map(({ icon, title, value, count }) => (
-        <Selector
+      ].map(({ icon, value, count, title }) => (
+        <MiniSelector
           key={value}
           icon={icon}
           title={title}
+          count={count}
           value={value}
-          direction="column"
-          indicator={true}
-          description={<Text size="xlarge">{count}</Text>}
         />
       ))}
     </SelectorGroup>
