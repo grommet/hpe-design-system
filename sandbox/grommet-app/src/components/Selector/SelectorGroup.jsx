@@ -81,8 +81,8 @@ const SelectorGroup = ({
       {layout === 'grid' && (
         <Grid
           columns={{
-            count: 'fit',
-            size: ['xsmall', 'small'],
+            count: 4,
+            size: 'auto',
           }}
           gap="small"
           role="group"

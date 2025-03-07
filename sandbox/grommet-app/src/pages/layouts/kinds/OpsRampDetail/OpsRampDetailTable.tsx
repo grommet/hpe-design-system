@@ -30,12 +30,12 @@ const defaultView = {
   properties: {},
 };
 
-interface ServersTableProps {
+interface NodeTableProps {
   showResultDetails: boolean;
   setShowResultDetails: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const ServersTable: React.FC<ServersTableProps> = ({
+export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
   setShowResultDetails,
 }) => {
   const [total, setTotal] = useState(0);
@@ -55,46 +55,41 @@ export const ServersTable: React.FC<ServersTableProps> = ({
   const [unknown, setUnknown] = useState(0);
   const [undefinedState, setUndefinedState] = useState(0);
 
+  console.log('opsRamp', opsRamp);
+
   useEffect(() => {
-    const servers = opsRamp.servers || [];
-    const upServers = servers.filter(server => server.state === 'up').length;
-    const downServers = servers.filter(
-      server => server.state === 'down',
-    ).length;
-    const unknownServers = servers.filter(
-      server => server.state === 'unknown',
-    ).length;
-    const undefinedServers = servers.filter(
-      server => server.state === 'undefined',
+    const node = opsRamp.node || [];
+    const upnode = node.filter(node => node.state === 'up').length;
+    const downnode = node.filter(node => node.state === 'down').length;
+    const unknownnode = node.filter(node => node.state === 'unknown').length;
+    const undefinednode = node.filter(
+      node => node.state === 'undefined',
     ).length;
 
-    setUp(upServers);
-    setDown(downServers);
-    setUndefinedState(undefinedServers);
-    setUnknown(unknownServers);
-    setTotal(servers.length);
-    setResult(servers);
+    setUp(upnode);
+    setDown(downnode);
+    setUndefinedState(undefinednode);
+    setUnknown(unknownnode);
+    setTotal(node.length);
+    setResult(node);
   }, []);
 
   useEffect(() => {
     if (!view) return;
 
-    console.log('view', view);
-    let filteredData = opsRamp.servers;
+    let filteredData = opsRamp.nodes;
     if (!('properties' in view)) {
       setQuickFilter('');
     }
 
     if (quickFilter) {
-      filteredData = filteredData.filter(
-        server => server.state === quickFilter,
-      );
+      filteredData = filteredData.filter(nodes => nodes.state === quickFilter);
     }
     if (view && view.properties) {
       Object.keys(view.properties).forEach(property => {
         if (Array.isArray(view.properties[property])) {
-          filteredData = filteredData.filter(server =>
-            view.properties[property].includes(server[property]),
+          filteredData = filteredData.filter(nodes =>
+            view.properties[property].includes(nodes[property]),
           );
         }
       });
@@ -103,6 +98,8 @@ export const ServersTable: React.FC<ServersTableProps> = ({
     setResult(filteredData);
     setTotal(filteredData.length);
   }, [view, quickFilter]);
+
+  console.log('view', view);
 
   const columns = [
     {
@@ -173,23 +170,22 @@ export const ServersTable: React.FC<ServersTableProps> = ({
         gap="medium"
         flex={false}
       >
-        <QuickFilters
-          value={quickFilter}
-          setValue={setQuickFilter}
-          counts={{ up, down, unknown, undefinedState }}
-        />
-        <Box>
-          <Toolbar>
-            <DataSearch />
-            <DataFilters layer />
-            <Button kind="toolbar" icon={<Upload />} />
-            <Button kind="toolbar" icon={<SettingsOption />} />
-          </Toolbar>
-          <DataSummary />
-        </Box>
+        <Toolbar align="center" flex={false}>
+          <QuickFilters
+            value={quickFilter}
+            setValue={setQuickFilter}
+            counts={{ up, down, unknown, undefinedState }}
+          />
+          <Box flex />
+          <DataSearch />
+          <DataFilters layer />
+          <Button kind="toolbar" icon={<Upload />} />
+          <Button kind="toolbar" icon={<SettingsOption />} />
+        </Toolbar>
+        <DataSummary />
         <Box>
           <DataTable
-            aria-describedby="server-table"
+            aria-describedby="node-table"
             onSelect={() => {}}
             columns={columns}
             sortable
@@ -198,7 +194,7 @@ export const ServersTable: React.FC<ServersTableProps> = ({
             summary
             stepOptions
             border="top"
-            pad={{ vertical: 'xsmall', left: 'small' }}
+            pad={{ vertical: 'xsmall', horizontal: 'small' }}
           />
         </Box>
       </Box>

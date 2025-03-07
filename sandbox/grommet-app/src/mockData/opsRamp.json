@@ -1,5 +1,5 @@
 {
-  "servers": [
+  "nodes": [
     {
       "name": "k8s-flow-master01",
       "ip address": "172.25.22.90",
