@@ -10,6 +10,8 @@ import {
   Data,
   DataTable,
   Pagination,
+  ColumnConfig,
+  View,
 } from 'grommet';
 import {
   StatusCriticalSmall,
@@ -32,46 +34,46 @@ const defaultView = {
 
 interface NodeTableProps {
   showResultDetails: boolean;
-  setShowResultDetails: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowResultDetails: (showResultDetails: boolean) => void;
 }
+
+type Node = {
+  name: string;
+  'ip address': string;
+  make: string;
+  model: string;
+  state: string;
+};
 
 export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
   setShowResultDetails,
 }) => {
   const [total, setTotal] = useState(0);
-  const [result, setResult] = useState<
-    {
-      name: string;
-      'ip address': string;
-      make: string;
-      model: string;
-      state: string;
-    }[]
-  >([]);
+  const [result, setResult] = useState<Node[]>([]);
   const [quickFilter, setQuickFilter] = useState('');
   const [up, setUp] = useState(0);
   const [down, setDown] = useState(0);
-  const [view, setView] = useState(defaultView);
+  const [view, setView] = useState<View>(defaultView);
   const [unknown, setUnknown] = useState(0);
   const [undefinedState, setUndefinedState] = useState(0);
 
-  console.log('opsRamp', opsRamp);
-
   useEffect(() => {
-    const node = opsRamp.node || [];
-    const upnode = node.filter(node => node.state === 'up').length;
-    const downnode = node.filter(node => node.state === 'down').length;
-    const unknownnode = node.filter(node => node.state === 'unknown').length;
-    const undefinednode = node.filter(
-      node => node.state === 'undefined',
+    const nodes = opsRamp.nodes || [];
+    const upNodes = nodes.filter(nodes => nodes.state === 'up').length;
+    const downNodes = nodes.filter(nodes => nodes.state === 'down').length;
+    const unknownNodes = nodes.filter(
+      nodes => nodes.state === 'unknown',
+    ).length;
+    const undefinedNodes = nodes.filter(
+      nodes => nodes.state === 'undefined',
     ).length;
 
-    setUp(upnode);
-    setDown(downnode);
-    setUndefinedState(undefinednode);
-    setUnknown(unknownnode);
-    setTotal(node.length);
-    setResult(node);
+    setUp(upNodes);
+    setDown(downNodes);
+    setUndefinedState(undefinedNodes);
+    setUnknown(unknownNodes);
+    setTotal(nodes.length);
+    setResult(nodes);
   }, []);
 
   useEffect(() => {
@@ -85,11 +87,13 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
     if (quickFilter) {
       filteredData = filteredData.filter(nodes => nodes.state === quickFilter);
     }
-    if (view && view.properties) {
+    if (view && view.properties && typeof view.properties === 'object') {
       Object.keys(view.properties).forEach(property => {
-        if (Array.isArray(view.properties[property])) {
-          filteredData = filteredData.filter(nodes =>
-            view.properties[property].includes(nodes[property]),
+        if (view.properties && Array.isArray(view.properties[property])) {
+          filteredData = filteredData.filter(
+            nodes =>
+              view.properties &&
+              view.properties[property].includes(nodes[property]),
           );
         }
       });
@@ -99,9 +103,7 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
     setTotal(filteredData.length);
   }, [view, quickFilter]);
 
-  console.log('view', view);
-
-  const columns = [
+  const columns: ColumnConfig<Node>[] = [
     {
       property: 'name',
       primary: true,
