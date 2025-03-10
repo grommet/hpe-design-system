@@ -48,7 +48,7 @@
       { "rule": "3.2.5", "status": "passed" },
       { "rule": "4.1.2", "status": "passed" }
     ],
-  "avatar": [
+    "avatar": [
       {
         "rule": "1.1.1",
         "label": "Non-text content",
@@ -107,7 +107,6 @@
         "label": "Contrast (Minimum)",
         "status": "conditional",
         "notes": "Based on the background color passed to the avatar. By default there is no background color"
-
       },
       {
         "rule": "1.4.4",
@@ -150,7 +149,6 @@
         "label": "Non-text Contrast",
         "status": "conditional",
         "notes": "Based on contrast of non-text items (such as icons, border, etc) used with the avatar."
-
       },
       {
         "rule": "1.4.12",
@@ -311,8 +309,7 @@
       {
         "rule": "2.5.5",
         "label": "Target Size (Enhanced)",
-        "status": "failed",
-        "notes": "20x20 does not meet minimum target size of 44x44 pixels."
+        "status": "passed"
       },
       {
         "rule": "2.5.6",
@@ -327,8 +324,7 @@
       {
         "rule": "2.5.8",
         "label": "Target Size (Minimum)",
-        "status": "failed",
-        "notes": "20x20 does not meet minimum target size of 24x24 pixels."
+        "status": "passed"
       },
       {
         "rule": "3.1.1",
