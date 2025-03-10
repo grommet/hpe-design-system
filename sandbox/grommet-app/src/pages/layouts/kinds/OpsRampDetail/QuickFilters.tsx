@@ -14,15 +14,15 @@ const MiniSelector = ({ value, count, icon, title }) => {
       value={value}
       title={
         <Box align="center">
-          {title}
+          <Text size="small">{title}</Text>
           <Box direction="row" alignSelf="center" align="center" gap="xsmall">
-            <Text size="small">{count}</Text>
             {icon}
+            <Text size="xsmall">{count}</Text>
           </Box>
         </Box>
       }
       indicator={false}
-      pad={{ horizontal: 'small', vertical: 'xsmall' }}
+      pad={{ horizontal: 'xsmall', vertical: 'xsmall' }}
       round="small"
       margin={{ bottom: 'xsmall' }}
     />
@@ -63,31 +63,29 @@ export const QuickFilters: React.FC<{
         onView(nextView);
         setValue(value);
       }}
-      layout="grid"
+      layout="fit"
     >
       {[
         {
-          icon: <StatusCriticalSmall color="status-critical" height="medium" />,
+          icon: <StatusCriticalSmall color="status-critical" />,
           value: 'down',
           count: counts?.down,
           title: 'Down',
         },
         {
-          icon: <StatusGoodSmall color="status-ok" height="medium" />,
+          icon: <StatusGoodSmall color="status-ok" />,
           value: 'up',
           count: counts?.up,
           title: 'Up',
         },
         {
-          icon: <StatusUnknownSmall height="medium" />,
+          icon: <StatusUnknownSmall />,
           value: 'unknown',
           count: counts?.unknown,
           title: 'Unknown',
         },
         {
-          icon: (
-            <StatusPlaceholderSmall color="status-unknown" height="medium" />
-          ),
+          icon: <StatusPlaceholderSmall color="status-unknown" />,
           value: 'undefined',
           count: counts?.undefinedState,
           title: 'Undefined',

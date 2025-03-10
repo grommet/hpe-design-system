@@ -82,9 +82,13 @@ const ResourceSections: React.FC<ResourceSectionsProps> = ({ size }) => (
 interface ResourceDetailsProps {
   onClose: () => void;
   [key: string]: any;
+  animation?: false | string[];
+  layer?: boolean;
 }
 
 export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
+  animation,
+  layer,
   onClose,
   ...rest
 }) => {
@@ -92,32 +96,35 @@ export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
   const metricSize = ['xsmall', 'small', 'medium'].includes(breakpoint)
     ? 'small'
     : 'medium';
-  return (
-    <Layer
-      full={!['xsmall', 'small'].includes(breakpoint) ? 'vertical' : true}
-      position="right"
-      onEsc={onClose}
+
+  const content = (
+    <ContentPane
+      heading={
+        <Box align="center" direction="row" gap="medium">
+          <Button onClick={onClose} icon={<LinkNext />} />
+          <Heading level={2} margin="none">
+            Resource Details
+          </Heading>
+        </Box>
+      }
+      level={2}
+      actions={<ResourceActions onClose={onClose} />}
+      skeleton={undefined}
+      animation={animation}
+      height="fit-content"
+      {...rest}
     >
-      <Box overflow="auto" fill="vertical">
-        <ContentPane
-          heading={
-            <Box align="center" direction="row" gap="medium">
-              <Button onClick={onClose} icon={<LinkNext />} />
-              <Heading level={2} margin="none">
-                Resource Details
-              </Heading>
-            </Box>
-          }
-          level={2}
-          actions={<ResourceActions onClose={onClose} />}
-          skeleton={undefined}
-          animation={undefined}
-          flex={false}
-          {...rest}
-        >
-          <ResourceSections size={metricSize} />
-        </ContentPane>
-      </Box>
-    </Layer>
+      <ResourceSections size={metricSize} />
+    </ContentPane>
   );
+
+  if (layer) {
+    return (
+      <Layer full modal={false} animation={animation}>
+        {content}
+      </Layer>
+    );
+  }
+
+  return content;
 };
