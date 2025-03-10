@@ -58,8 +58,7 @@
       {
         "rule": "1.2",
         "label": "Time-based Media",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders a video/audio content within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "1.3.1",
@@ -70,8 +69,8 @@
       {
         "rule": "1.3.2",
         "label": "Meaningful Sequence",
-        "status": "needs discussion - I would say passed without edge cases in the note below. Because we have tab first, then panel.",
-        "notes": "Do we support RTL and dynamic tab insertion that might affect keyboard navigation sequence? What about when consumer uses flexbox order to re-order tabs"
+        "status": "conditional",
+        "notes": "The implementer needs to right justified the text when in RTL mode"
       },
       {
         "rule": "1.3.3",
@@ -81,8 +80,7 @@
       {
         "rule": "1.3.4",
         "label": "Orientation",
-        "status": "needs discussion about support for vertical tabs",
-        "notes": "I did not see any vertical tabs in the example or via documentation. Do we support vertical tabs out of the box?"
+        "status": "not-applicable"
       },
       {
         "rule": "1.3.5",
@@ -104,8 +102,7 @@
       {
         "rule": "1.4.2",
         "label": "Audio Control",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders a video/audio content within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "1.4.3",
@@ -132,8 +129,7 @@
       {
         "rule": "1.4.7",
         "label": "Low or No Background Audio",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders a video/audio content within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "1.4.8",
@@ -143,13 +139,12 @@
       {
         "rule": "1.4.9",
         "label": "Images of Text (No Exception)",
-        "status": "not-applicable",
-        "notes": "Need to clarify this."
+        "status": "not-applicable"
       },
       {
         "rule": "1.4.10",
         "label": "Reflow",
-        "status": "not-applicable"
+        "status": "passed"
       },
       {
         "rule": "1.4.11",
@@ -160,13 +155,13 @@
       {
         "rule": "1.4.12",
         "label": "Text Spacing",
-        "status": "not-applicable"
+        "status": "conditional",
+        "notes": "The implementer needs apply required text spacing"
       },
       {
         "rule": "1.4.13",
         "label": "Content on Hover or Focus",
-        "status": "passed",
-        "notes": "Hover and focus states are indicated by background color and border."
+        "status": "passed"
       },
       {
         "rule": "2.1.1",
@@ -196,8 +191,7 @@
       {
         "rule": "2.2.2",
         "label": "Pause, Stop, Hide",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders a video/audio content within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "2.2.3",
@@ -232,9 +226,8 @@
       {
         "rule": "2.3.3",
         "label": "Animation from Interactions",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders a content with animation within a tab panel?"
-        
+        "status": "failed",
+        "notes": "No way provided to disable the animation"
       },
       {
         "rule": "2.4.1",
@@ -249,13 +242,12 @@
       {
         "rule": "2.4.3",
         "label": "Focus Order",
-        "status": "not-applicable"
+        "status": "passed"
       },
       {
         "rule": "2.4.4",
         "label": "Link Purpose (In Context)",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders link(s) within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "2.4.5",
@@ -280,8 +272,7 @@
       {
         "rule": "2.4.9",
         "label": "Link Purpose (Link Only)",
-        "status": "needs discussion",
-        "notes": "What about edge case when user renders link(s) within a tab panel?"
+        "status": "not-applicable"
       },
       {
         "rule": "2.4.10",
@@ -312,12 +303,12 @@
         "rule": "2.5.2",
         "label": "Pointer Cancellation",
         "status": "passed",
-        "notes": "No down event. I believe we use only a click event. Need to verify this."
+        "notes": "But Left and Right Keys are not working to switch tabs as expected"
       },
       {
         "rule": "2.5.3",
         "label": "Label in Name",
-        "status": "not-applicable"
+        "status": "passed"
       },
       {
         "rule": "2.5.4",
