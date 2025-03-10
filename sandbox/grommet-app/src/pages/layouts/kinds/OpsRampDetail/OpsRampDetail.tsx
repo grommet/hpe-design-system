@@ -24,29 +24,21 @@ export const OpsRampDetail: React.FC = () => {
 
   const [showResultDetails, setShowResultDetails] = useState(false);
 
-  const gridColumns = ['xsmall', 'small'].includes(breakpoint)
-    ? ['flex', 'auto']
-    : ['auto', 'auto'];
+  const gridColumns = ['2/3', '1/3'];
 
   const columnsGap = {
-    xsmall: 'small',
-    small: 'small',
-    medium: 'medium',
-    large: 'large',
-    xlarge: 'large',
+    xsmall: 'xsmall',
+    small: 'xsmall',
+    medium: 'small',
+    large: 'medium',
+    xlarge: 'medium',
   };
 
   const gap = {
     column: columnsGap[breakpoint],
   };
 
-  const areasDefault = [['datetable', 'resourcedetails']];
-
-  const areasSmall = [['datatable', 'unassigned']];
-
-  const areas = ['xsmall', 'small'].includes(breakpoint)
-    ? areasSmall
-    : areasDefault;
+  const areas = [['datetable', 'resourcedetails']];
 
   return (
     <Box direction="row" fill>
