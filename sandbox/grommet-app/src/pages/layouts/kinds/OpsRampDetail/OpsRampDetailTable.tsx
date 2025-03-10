@@ -16,7 +16,7 @@ import {
 } from 'grommet';
 import {
   StatusCriticalSmall,
-  Upload,
+  Share,
   SettingsOption,
   StatusGoodSmall,
   StatusPlaceholderSmall,
@@ -154,6 +154,7 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
       total={total}
       filteredTotal={result.length}
       defaultView={defaultView}
+      gap="medium"
       properties={{
         model: {
           label: 'Model',
@@ -167,31 +168,20 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
       view={view}
       onView={setView}
     >
-      <Box
-        round="small"
-        background="background-front"
-        pad={{ top: 'small', bottom: 'medium', horizontal: 'medium' }}
-        gap="medium"
-        flex={false}
-      >
-        {/* need to add a grid for when screen gets smaller if we like this direction */}
-        {/* should toolbox be under the quickfilters or keep to opsramp design */}
-        <Toolbar gap="none" direction="column" flex={false}>
-          <Toolbar fill="horizontal" align="center" flex={false}>
-            <QuickFilters
-              value={quickFilter}
-              setValue={setQuickFilter}
-              counts={{ up, down, unknown, undefinedState }}
-            />
-            <Box flex />
-            <DataSearch />
-            <DataFilters layer />
-            <Button kind="toolbar" icon={<Upload />} />
-            <Button kind="toolbar" icon={<SettingsOption />} />
-          </Toolbar>
-          <DataSummary />
+      <QuickFilters
+        value={quickFilter}
+        setValue={setQuickFilter}
+        counts={{ up, down, unknown, undefinedState }}
+      />
+      <Box>
+        <Toolbar>
+          <DataSearch />
+          <DataFilters layer />
+          <Button kind="toolbar" icon={<Share />} />
+          <Button kind="toolbar" icon={<SettingsOption />} />
         </Toolbar>
-        <Box>
+        <DataSummary />
+        <Box overflow="auto">
           <DataTable
             aria-describedby="node-table"
             onSelect={() => {}}
@@ -202,17 +192,13 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
               (view.page ?? 1) * (view.step ?? 10),
             )}
           />
-          <Pagination
-            numberItems={total}
-            step={view.step}
-            page={view.page}
-            onChange={({ page }) => setView({ ...view, page })}
-            summary
-            stepOptions
-            border="top"
-            pad={{ vertical: 'xsmall', horizontal: 'small' }}
-          />
         </Box>
+        <Pagination
+          summary
+          stepOptions
+          border="top"
+          pad={{ vertical: 'xsmall', horizontal: 'small' }}
+        />
       </Box>
     </Data>
   );
