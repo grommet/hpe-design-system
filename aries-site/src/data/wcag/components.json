@@ -94,8 +94,8 @@
       {
         "rule": "1.4.1",
         "label": "Use of Color",
-        "status": "passed",
-        "notes": "Uses background color for text-based Avatar."
+        "status": "conditional",
+        "notes": "Based on the background color passed to the avatar. By default there is no background color"
       },
       {
         "rule": "1.4.2",
@@ -105,8 +105,9 @@
       {
         "rule": "1.4.3",
         "label": "Contrast (Minimum)",
-        "status": "passed",
-        "notes": "Minimum contrast ratio of 7.46 (text-based avatar) exceeds 4.5:1."
+        "status": "conditional",
+        "notes": "Based on the background color passed to the avatar. By default there is no background color"
+
       },
       {
         "rule": "1.4.4",
@@ -121,8 +122,8 @@
       {
         "rule": "1.4.6",
         "label": "Contrast (Enhanced)",
-        "status": "passed",
-        "notes": "Minimum contrast ratio of 7.46 (text-based) exceed 7:1."
+        "status": "conditional",
+        "notes": "Based on the background color passed to the avatar. By default there is no background color"
       },
       {
         "rule": "1.4.7",
@@ -147,13 +148,15 @@
       {
         "rule": "1.4.11",
         "label": "Non-text Contrast",
-        "status": "passed",
-        "notes": "Minimum contrast ratio of 7.46 (text-based avatar) exceeds 3:1."
+        "status": "conditional",
+        "notes": "Based on contrast of non-text items (such as icons, border, etc) used with the avatar."
+
       },
       {
         "rule": "1.4.12",
         "label": "Text Spacing",
-        "status": "not-applicable"
+        "status": "conditional",
+        "notes": "Based on the text spacing passed by the implementer"
       },
       {
         "rule": "1.4.13",
@@ -208,12 +211,12 @@
       {
         "rule": "2.3.1",
         "label": "Three Flashes or Below Threshold",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.3.2",
         "label": "Three Flashes",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.3.3",
