@@ -5,12 +5,12 @@ import {
   Button,
   DataFilters,
   DataSummary,
+  DataSort,
   Toolbar,
   DataSearch,
   Data,
   DataTable,
   Pagination,
-  ResponsiveContext,
   ColumnConfig,
   View,
 } from 'grommet';
@@ -108,6 +108,7 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
   const columns: ColumnConfig<Node>[] = [
     {
       property: 'name',
+      pin: true,
       primary: true,
       header: 'Name',
       render: datum => (
@@ -177,6 +178,7 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
         <Toolbar>
           <DataSearch />
           <DataFilters layer />
+          <DataSort drop />
           <Button kind="toolbar" icon={<Share />} />
           <Button kind="toolbar" icon={<SettingsOption />} />
         </Toolbar>
