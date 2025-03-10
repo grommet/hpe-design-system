@@ -63,7 +63,13 @@ export const QuickFilters: React.FC<{
         onView(nextView);
         setValue(value);
       }}
-      layout="fit"
+      gap="xsmall"
+      columns={[
+        ['xxsmall', 'xsmall'],
+        ['xxsmall', 'xsmall'],
+        ['xxsmall', 'xsmall'],
+        ['xxsmall', 'xsmall'],
+      ]}
     >
       {[
         {
