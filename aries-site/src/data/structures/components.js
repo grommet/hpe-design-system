@@ -68,6 +68,7 @@ export const components = [
   },
   {
     name: 'Avatar',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Visualizations',
     description:
       'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
