@@ -88,6 +88,9 @@ export const HPEAI = () => {
               label="HPE ships first NVIDIA Grace Blackwell system"
               primary
               reverse
+              size={
+                ['xsmall', 'small'].includes(breakpoint) ? 'medium' : 'large'
+              }
               alignSelf={
                 ['xsmall', 'small'].includes(breakpoint) ? 'stretch' : 'start'
               }
