@@ -153,8 +153,7 @@
       {
         "rule": "1.4.12",
         "label": "Text Spacing",
-        "status": "conditional",
-        "notes": "Based on the text spacing passed by the implementer"
+        "status": "not-applicable"
       },
       {
         "rule": "1.4.13",
