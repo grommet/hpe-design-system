@@ -161,7 +161,7 @@
       {
         "rule": "1.4.13",
         "label": "Content on Hover or Focus",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.1.1",
@@ -453,6 +453,6 @@
         "label": "Status Messages",
         "status": "not-applicable"
       }
-    ]    
+    ]
   }
 ]
