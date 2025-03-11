@@ -24,7 +24,10 @@ export const OpsRampDetail: React.FC = () => {
 
   const [showResultDetails, setShowResultDetails] = useState(false);
 
-  const gridColumns = ['2/3', '1/3'];
+  const gridColumns = [
+    ['medium', 'auto'],
+    ['small', 'medium'],
+  ];
 
   const columnsGap = {
     xsmall: 'xsmall',
