@@ -67,6 +67,7 @@ const WCAGAccessibilityCardView = ({
               {ruleDescription}{' '}
               <Anchor
                 label="Read more"
+                aria-label={`Read more about ${ruleName}`}
                 target="_blank"
                 size="small"
                 href={link}
