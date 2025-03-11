@@ -67,8 +67,9 @@ export const HPEAI = () => {
               Artificial Intelligence (AI) solutions
             </Text>
           </Box>
-          {/* // this heading is not large enough can we use size or we steering away? */}
-          <Heading margin="none" level={1}>
+          {/* // this heading is not large enough can we use size or we steering away?
+          // I used xlarge which is 60px but marketing its 72 */}
+          <Heading size="xlarge" margin="none" level={1}>
             Learn how HPE and NVIDIA unlock AL
           </Heading>
           <Box gap="large">
