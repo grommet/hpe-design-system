@@ -31,7 +31,7 @@ import { TagPreview } from '../../examples/cardPreviews/tag';
 export const components = [
   {
     name: 'Anchor',
-    accessibility: 'Passed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Controls',
     description:
       'Hyperlinks used with text-based navigation, such as inline text.',
@@ -154,7 +154,7 @@ export const components = [
       'A container providing at-a-glance information and easy access to more details.',
     seoDescription:
       'Cards are a container providing at-a-glance information and easy access to more details. See when to use cards and alternatives.',
-    accessibility: 'Passed WCAG 2.2 AAA',
+    accessibility: 'Passed WCAG 2.2 AA',
     preview: {
       image: {
         src: {
@@ -846,7 +846,7 @@ export const components = [
   },
   {
     name: 'Menu',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Menu is a component that contains a list of actions. When a user clicks an item in the menu, the menu closes and the action is executed.',
