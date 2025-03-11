@@ -68,7 +68,7 @@ export const HPEAI = () => {
             </Text>
           </Box>
           {/* // this heading is not large enough can we use size or we steering away? */}
-          <Heading margin="none" level="1">
+          <Heading margin="none" level={1}>
             Learn how HPE and NVIDIA unlock AL
           </Heading>
           <Box gap="large">
