@@ -155,8 +155,7 @@
       {
         "rule": "1.4.12",
         "label": "Text Spacing",
-        "status": "conditional",
-        "notes": "The implementer needs apply required text spacing"
+        "status": "passed"
       },
       {
         "rule": "1.4.13",
