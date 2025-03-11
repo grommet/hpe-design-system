@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   ToggleGroupAnatomy,
   ToggleGroupSimple,
@@ -73,10 +73,14 @@ With multiple selection, multiple buttons can be toggled on at the same time.
 
 ## Accessibility
 
-In icon-only cases, ensure each icon has a clear a11yTitle.
+In icon-only cases, ensure each icon has a clear `aria-label`.
 
 | Key                   | Interaction                                                                                                                    |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | **Tab**               | If nothing is toggled on, focuses on the first button in the group. Otherwise, focuses on the first button that is toggled on. |
 | **Left/Right Arrows** | Moves to other available buttons.                                                                                              |
 | **Space/Enter**       | Selects button with focus.                                                                                                     |
+
+### WCAG compliance
+
+<AccessibilitySection title="ToggleGroup" />
