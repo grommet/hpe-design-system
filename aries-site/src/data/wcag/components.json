@@ -309,7 +309,8 @@
       {
         "rule": "2.5.5",
         "label": "Target Size (Enhanced)",
-        "status": "passed"
+        "status": "conditional",
+        "notes": "Out of the box, implementer can set optional avatar size of small which makes it to be 24x24"
       },
       {
         "rule": "2.5.6",
