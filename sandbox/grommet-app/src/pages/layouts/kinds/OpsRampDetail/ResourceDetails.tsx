@@ -99,6 +99,7 @@ export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
 
   const content = (
     <ContentPane
+      flex={false}
       heading={
         <Box align="center" direction="row" gap="medium">
           <Button onClick={onClose} icon={<LinkNext />} />
