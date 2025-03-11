@@ -59,14 +59,19 @@ const WCAGAccessibilityCardView = ({
     >
       <Box flex gap="small">
         <Paragraph margin="none">
-          <TextEmphasis>{ruleName}.</TextEmphasis> {ruleDescription} {''}
-          {descriptionEndsWithColon && (
-            <Anchor
-              target="_blank"
-              size="small"
-              href={link}
-              label="Read more"
-            />
+          <TextEmphasis>{ruleName}.</TextEmphasis>
+          {!descriptionEndsWithColon ? (
+            ruleDescription
+          ) : (
+            <Text>
+              {ruleDescription}{' '}
+              <Anchor
+                label="Read more"
+                target="_blank"
+                size="small"
+                href={link}
+              />
+            </Text>
           )}
         </Paragraph>
         <Box alignSelf="start" direction="row" align="center" gap="small">
