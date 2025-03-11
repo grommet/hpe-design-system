@@ -46,35 +46,52 @@ const WCAGAccessibilityCardView = ({
   ruleNumber,
   status,
   version,
-}) => (
-  <Box
-    pad={{ vertical: 'small', horizontal: 'medium' }}
-    background="background-front"
-    round="small"
-    justify="between"
-    direction="row"
-    gap="small"
-  >
-    <Box flex gap="small">
-      <Paragraph margin="none">
-        <TextEmphasis>{ruleName}.</TextEmphasis> {ruleDescription}
-      </Paragraph>
-      <Box alignSelf="start" direction="row" align="center" gap="small">
-        <Tag size="small" value={`WCAG ${version} ${level}`} />
-        <Anchor
-          target="_blank"
-          size="small"
-          href={link}
-          label={`${ruleNumber} ${ruleName}`}
-        />
+}) => {
+  const descriptionEndsWithColon = ruleDescription.endsWith(':');
+  return (
+    <Box
+      pad={{ vertical: 'small', horizontal: 'medium' }}
+      background="background-front"
+      round="small"
+      justify="between"
+      direction="row"
+      gap="small"
+    >
+      <Box flex gap="small">
+        <Paragraph margin="none">
+          <TextEmphasis>{ruleName}.</TextEmphasis>
+          {!descriptionEndsWithColon ? (
+            ruleDescription
+          ) : (
+            <Text>
+              {ruleDescription}{' '}
+              <Anchor
+                label="Read more"
+                aria-label={`Read more about ${ruleName}`}
+                target="_blank"
+                size="small"
+                href={link}
+              />
+            </Text>
+          )}
+        </Paragraph>
+        <Box alignSelf="start" direction="row" align="center" gap="small">
+          <Tag size="small" value={`WCAG ${version} ${level}`} />
+          <Anchor
+            target="_blank"
+            size="small"
+            href={link}
+            label={`${ruleNumber} ${ruleName}`}
+          />
+        </Box>
+      </Box>
+      <Box alignSelf="start" align="center" direction="row" gap="xsmall">
+        {getStatusIcon(status)}
+        <Text>{status.charAt(0).toUpperCase() + status.slice(1)}</Text>
       </Box>
     </Box>
-    <Box alignSelf="start" align="center" direction="row" gap="xsmall">
-      {getStatusIcon(status)}
-      <Text>{status.charAt(0).toUpperCase() + status.slice(1)}</Text>
-    </Box>
-  </Box>
-);
+  );
+};
 
 export const WCAGRuleDetail = ({ rules, version }) => {
   // Group rules by accessibility principle
