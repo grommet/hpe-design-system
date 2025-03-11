@@ -301,7 +301,8 @@
       {
         "rule": "2.5.3",
         "label": "Label in Name",
-        "status": "not-applicable"
+        "status": "conditional",
+        "notes": "Requires caller to provide a descriptive aria-label for the toggle group. Additionally, human understandable values and/or labels for each toggle should be provided."
       },
       {
         "rule": "2.5.4",
