@@ -14,11 +14,13 @@ const MiniSelector = ({ value, count, icon, title }) => {
       value={value}
       title={
         <Box align="center">
-          <Text size="small">{title}</Text>
           <Box direction="row" alignSelf="center" align="center" gap="xsmall">
             {icon}
-            <Text size="xsmall">{count}</Text>
+            <Text weight={500} color="text-strong" size="large">
+              {count}
+            </Text>
           </Box>
+          <Text size="small">{title}</Text>
         </Box>
       }
       indicator={false}
