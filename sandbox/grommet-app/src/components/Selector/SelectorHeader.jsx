@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { cloneElement, useContext } from 'react';
+import { useContext } from 'react';
 import { Box, Text, ThemeContext } from 'grommet';
 import { Checkmark } from 'grommet-icons';
 import { SelectorGroupContext } from './SelectorGroupContext';
@@ -39,10 +39,6 @@ const SelectorHeader = ({
   selected,
 }) => {
   let icon = iconProp;
-  if (iconProp && direction === 'column')
-    icon = cloneElement(iconProp, {
-      height: undefined,
-    });
   return (
     <Box direction="row" gap="xsmall" flex={false}>
       {direction === 'row' && icon}

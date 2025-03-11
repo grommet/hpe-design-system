@@ -73,7 +73,6 @@ interface ResourceAlertsProps {
 
 export const ResourceAlerts: React.FC<ResourceAlertsProps> = ({ size }) => {
   const alertData = [
-    { label: 'All', Icon: () => null, color: 'status-ok', value: 12 },
     {
       label: 'Critical',
       Icon: StatusCriticalSmall,
@@ -103,7 +102,7 @@ export const ResourceAlerts: React.FC<ResourceAlertsProps> = ({ size }) => {
     breakpoint === 'xlarge'
   ) {
     columns = {
-      count: 6,
+      count: 5,
       size: 'auto',
     };
   } else if (breakpoint === 'large') {
