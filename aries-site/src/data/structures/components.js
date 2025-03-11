@@ -154,7 +154,7 @@ export const components = [
       'A container providing at-a-glance information and easy access to more details.',
     seoDescription:
       'Cards are a container providing at-a-glance information and easy access to more details. See when to use cards and alternatives.',
-    accessibility: 'Passed WCAG 2.2 AAA',
+    accessibility: 'Passed WCAG 2.2 AA',
     preview: {
       image: {
         src: {

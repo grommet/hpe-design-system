@@ -228,8 +228,8 @@
       {
         "rule": "2.3.3",
         "label": "Animation from Interactions",
-        "status": "not-applicable",
-        "notes": "I don't think hover elevation is considered here. Check with team."
+        "status": "failed",
+        "notes": "Due to the the intent of 2.3.3 and subtle nature of the elevation animation, applicability of this rule falls into a grey area as the subtlty of the elevation is not likely to trigger reactions this rule intends to prevent. That said, we can treat as 'does not meet AAA' until `prefer-reduced-motion` is supplied in Grommet or the HPE theme. 2.3.3 aims to prevent animations that could cause seizures or physical reactions, particularly for users with vestibular disorders or cognitive disabilities. The core concern is with animations that are unexpected or excessive. Adding elevation to a card on hover typically involves a subtle animation, such as a slight increase in size or a shadow effect. Whether this triggers WCAG 2.3.3 depends on the nature of the animation. Applicability - 10 Subtle and Short Animations: If the elevation animation is subtle, brief, and not overly dynamic, it's less likely to cause issues. Many standard hover effects fall into this category. 2) Excessive or Rapid Animations: If the animation involves rapid, flashing, or large-scale movements, it could potentially violate WCAG 2.3.3. 3) User Control: A key aspect of WCAG 2.3.3 is providing users with the ability to disable non-essential animations. Therefore, if your site includes such animations, it should ideally offer a mechanism to turn them off and make use of `prefers-reduced-motion` media query."
       },
       {
         "rule": "2.4.1",
@@ -273,13 +273,13 @@
       {
         "rule": "2.4.8",
         "label": "Location",
-        "status": "not yet evaluated"
+        "status": "not-applicable"
       },
       {
         "rule": "2.4.9",
         "label": "Link Purpose (Link Only)",
         "status": "conditional",
-        "notes": "Related cards sharing a common call to action such as 'Learn More' may need to be differentiated by using `aria-label` to provide context as to answer 'learn more about what?'."
+        "notes": "Related cards sharing a common call to action such as 'Learn More' may need to be differentiated by using `aria-label` (https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA8 & https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-link-only#sufficient) to provide context as to answer 'learn more about what?'."
       },
       {
         "rule": "2.4.10",
