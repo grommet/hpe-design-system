@@ -84,6 +84,9 @@ export const OpsRampDetail: React.FC = () => {
                 setShowResultDetails={setShowResultDetails}
               />
             </ContentPane>
+            {/* when screen is going from large to medium and side nav is open, 
+            the ResourceDetails component the menu is getting cut off I can move it 
+            dowm to be column instread of row. */}
             {showResultDetails && (
               <ResourceDetails
                 layer={['xsmall', 'small', 'medium'].includes(breakpoint)}
