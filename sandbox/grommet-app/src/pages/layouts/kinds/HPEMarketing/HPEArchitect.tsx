@@ -122,6 +122,7 @@ export const HPEArchitect = ({ size }) => {
               alignSelf={
                 ['xsmall', 'small'].includes(breakpoint) ? 'stretch' : 'start'
               }
+              size={['xlarge'].includes(breakpoint) ? 'large' : 'medium'}
               icon={<LinkNext size="small" />}
             />
           </Box>
