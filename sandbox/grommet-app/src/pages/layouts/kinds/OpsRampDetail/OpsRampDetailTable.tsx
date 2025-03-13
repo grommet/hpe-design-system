@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Anchor,
   Box,
   Button,
   DataFilters,
@@ -11,41 +10,14 @@ import {
   Data,
   DataTable,
   Pagination,
-  ColumnConfig,
+  Tip,
   View,
 } from 'grommet';
-import {
-  StatusCriticalSmall,
-  Share,
-  SettingsOption,
-  StatusGoodSmall,
-  StatusPlaceholderSmall,
-  StatusUnknownSmall,
-} from 'grommet-icons';
+import { Actions, Share } from 'grommet-icons';
 import opsRamp from '../../../../mockData/opsRamp.json';
 
 import { QuickFilters } from './QuickFilters';
-
-const defaultView = {
-  search: '',
-  sort: { property: 'name', direction: 'asc' as 'asc' | 'desc' },
-  step: 10,
-  properties: {},
-  page: 1,
-};
-
-interface NodeTableProps {
-  showResultDetails: boolean;
-  setShowResultDetails: (showResultDetails: boolean) => void;
-}
-
-type Node = {
-  name: string;
-  'ip address': string;
-  make: string;
-  model: string;
-  state: string;
-};
+import { defaultView, columns, NodeTableProps } from './Config';
 
 export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
   setShowResultDetails,
@@ -53,29 +25,38 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
   const [total, setTotal] = useState(0);
   const [result, setResult] = useState<Node[]>([]);
   const [quickFilter, setQuickFilter] = useState('');
+  const [view, setView] = useState(defaultView);
   const [up, setUp] = useState(0);
   const [down, setDown] = useState(0);
-  const [view, setView] = useState<View>(defaultView);
   const [unknown, setUnknown] = useState(0);
   const [undefinedState, setUndefinedState] = useState(0);
 
   useEffect(() => {
     const nodes = opsRamp.nodes || [];
-    const upNodes = nodes.filter(nodes => nodes.state === 'up').length;
-    const downNodes = nodes.filter(nodes => nodes.state === 'down').length;
-    const unknownNodes = nodes.filter(
-      nodes => nodes.state === 'unknown',
-    ).length;
-    const undefinedNodes = nodes.filter(
-      nodes => nodes.state === 'undefined',
-    ).length;
-
+    let upNodes = 0;
+    let downNodes = 0;
+    let unknownNodes = 0;
+    let undefinedNodes = 0;
+    nodes.forEach(node => {
+      switch (node.state) {
+        case 'up':
+          upNodes++;
+          break;
+        case 'down':
+          downNodes++;
+          break;
+        case 'unknown':
+          unknownNodes++;
+          break;
+        case 'undefined':
+          undefinedNodes++;
+          break;
+      }
+    });
     setUp(upNodes);
     setDown(downNodes);
-    setUndefinedState(undefinedNodes);
     setUnknown(unknownNodes);
-    setTotal(nodes.length);
-    setResult(nodes);
+    setUndefinedState(undefinedNodes);
   }, []);
 
   useEffect(() => {
@@ -105,50 +86,6 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
     setTotal(filteredData.length);
   }, [view, quickFilter]);
 
-  const columns: ColumnConfig<Node>[] = [
-    {
-      property: 'name',
-      pin: true,
-      primary: true,
-      header: 'Name',
-      render: datum => (
-        <Box align="center" direction="row" gap="xsmall">
-          {datum.state === 'up' ? (
-            <StatusGoodSmall color="status-ok" />
-          ) : datum.state === 'down' ? (
-            <StatusCriticalSmall color="status-critical" />
-          ) : datum.state === 'unknown' ? (
-            <StatusUnknownSmall color="status-unknown" />
-          ) : datum.state === 'undefined' ? (
-            <StatusPlaceholderSmall />
-          ) : null}
-          <Anchor
-            onClick={() => {
-              setShowResultDetails(true);
-            }}
-          >
-            {datum.name}
-          </Anchor>
-        </Box>
-      ),
-    },
-    {
-      property: 'ip address',
-      header: 'IP Address',
-      sortable: false,
-    },
-    {
-      property: 'make',
-      header: 'Make',
-      sortable: false,
-    },
-    {
-      property: 'model',
-      header: 'Model',
-      sortable: false,
-    },
-  ];
-
   return (
     <Data
       data={result}
@@ -175,24 +112,28 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
         counts={{ up, down, unknown, undefinedState }}
       />
       <Box>
-        <Toolbar>
-          <DataSearch />
-          <DataFilters layer />
-          <DataSort drop />
-          <Button kind="toolbar" icon={<Share />} />
-          <Button kind="toolbar" icon={<SettingsOption />} />
+        <Toolbar justify="between">
+          <Toolbar>
+            <DataSearch />
+            <DataFilters layer />
+            <DataSort drop />
+          </Toolbar>
+          <Toolbar gap="xsmall">
+            <Button
+              kind="toolbar"
+              icon={<Share />}
+              tip="Share Kubernetes nodes"
+            />
+            <Button tip="Actions" kind="toolbar" icon={<Actions />} />
+          </Toolbar>
         </Toolbar>
         <DataSummary />
         <Box overflow="auto">
           <DataTable
             aria-describedby="node-table"
             onSelect={() => {}}
-            columns={columns}
+            columns={columns(setShowResultDetails)}
             sortable
-            data={result.slice(
-              ((view.page ?? 1) - 1) * (view.step ?? 10),
-              (view.page ?? 1) * (view.step ?? 10),
-            )}
           />
         </Box>
         <Pagination

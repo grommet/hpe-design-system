@@ -26,7 +26,7 @@ const Selector = ({
   direction,
   description,
   round = 'xsmall',
-  pad = 'small',
+  pad,
   ...rest
 }) => {
   const { selectedValue, handleToggle } = useContext(SelectorGroupContext);
@@ -52,6 +52,10 @@ const Selector = ({
         border={{
           color: selected ? 'brand' : 'border',
         }}
+        // we would need to add the hover effect as well
+        // here for the same bevavior as toggleGroup and Select
+        // also need to update the hex color to the actual token
+        background={selected ? '#d1ffee' : undefined}
       >
         {(indicator !== false || title || description || icon) && (
           <SelectorHeader
