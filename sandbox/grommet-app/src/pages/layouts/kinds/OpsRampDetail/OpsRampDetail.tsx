@@ -41,8 +41,6 @@ export const OpsRampDetail: React.FC = () => {
     column: columnsGap[breakpoint],
   };
 
-  const areas = [['datetable', 'resourcedetails']];
-
   return (
     <Box direction="row" fill>
       <NavSidebar
@@ -69,7 +67,6 @@ export const OpsRampDetail: React.FC = () => {
           />
           <Grid
             columns={showResultDetails ? gridColumns : 'full'}
-            areas={showResultDetails ? areas : undefined}
             gap={{ column: gap.column }}
           >
             <ContentPane
