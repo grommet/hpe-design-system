@@ -10,16 +10,20 @@ import {
   Data,
   DataTable,
   Pagination,
-  Tip,
-  View,
 } from 'grommet';
 import { Actions, Share } from 'grommet-icons';
 import opsRamp from '../../../../mockData/opsRamp.json';
 
 import { QuickFilters } from './QuickFilters';
-import { defaultView, columns, NodeTableProps } from './Config';
+import {
+  defaultView,
+  columns,
+  nodeTableProps,
+  properties,
+  Node,
+} from './config';
 
-export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
+export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
   setShowResultDetails,
 }) => {
   const [total, setTotal] = useState(0);
@@ -60,23 +64,16 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
   }, []);
 
   useEffect(() => {
-    if (!view) return;
-
-    let filteredData = opsRamp.nodes;
-    if (!('properties' in view)) {
-      setQuickFilter('');
-    }
-
+    let filteredData: Node[] = opsRamp.nodes || [];
     if (quickFilter) {
-      filteredData = filteredData.filter(nodes => nodes.state === quickFilter);
+      filteredData = filteredData.filter(node => node.state === quickFilter);
     }
+
     if (view && view.properties && typeof view.properties === 'object') {
       Object.keys(view.properties).forEach(property => {
-        if (view.properties && Array.isArray(view.properties[property])) {
-          filteredData = filteredData.filter(
-            nodes =>
-              view.properties &&
-              view.properties[property].includes(nodes[property]),
+        if (Array.isArray(view.properties[property])) {
+          filteredData = filteredData.filter(node =>
+            view.properties[property].includes(node[property]),
           );
         }
       });
@@ -84,7 +81,11 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
 
     setResult(filteredData);
     setTotal(filteredData.length);
-  }, [view, quickFilter]);
+  }, [quickFilter, view]);
+
+  const handleViewChange = (newView: any) => {
+    setView(newView);
+  };
 
   return (
     <Data
@@ -93,18 +94,9 @@ export const OpsRampDetailTable: React.FC<NodeTableProps> = ({
       filteredTotal={result.length}
       defaultView={defaultView}
       gap="medium"
-      properties={{
-        model: {
-          label: 'Model',
-          options: ['VirtualMachine', 'VMware Virtual Platform'],
-        },
-        state: {
-          label: 'State',
-          options: ['up', 'down', 'unknown', 'undefined'],
-        },
-      }}
+      properties={properties}
       view={view}
-      onView={setView}
+      onView={handleViewChange}
     >
       <QuickFilters
         value={quickFilter}

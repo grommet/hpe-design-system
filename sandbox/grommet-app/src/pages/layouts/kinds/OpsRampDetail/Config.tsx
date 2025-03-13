@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Anchor, ColumnConfig } from 'grommet';
+import { Anchor, Box, Button, ColumnConfig } from 'grommet';
 import {
   StatusCriticalSmall,
   StatusGoodSmall,
@@ -7,7 +7,7 @@ import {
   StatusPlaceholderSmall,
 } from 'grommet-icons';
 
-type Node = {
+export type Node = {
   name: string;
   'ip address': string;
   make: string;
@@ -15,7 +15,7 @@ type Node = {
   state: string;
 };
 
-export interface NodeTableProps {
+export interface nodeTableProps {
   showResultDetails: boolean;
   setShowResultDetails: (showResultDetails: boolean) => void;
 }
@@ -44,15 +44,22 @@ export const columns: (
         width={{ min: 'max-content' }}
       >
         {datum.state === 'up' ? (
-          <StatusGoodSmall color="status-ok" />
+          <StatusGoodSmall aria-label="up status" color="status-ok" />
         ) : datum.state === 'down' ? (
-          <StatusCriticalSmall color="status-critical" />
+          <StatusCriticalSmall
+            aria-label="down status"
+            color="status-critical"
+          />
         ) : datum.state === 'unknown' ? (
-          <StatusUnknownSmall color="status-unknown" />
+          <StatusUnknownSmall
+            aria-label="unknown status"
+            color="status-unknown"
+          />
         ) : datum.state === 'undefined' ? (
-          <StatusPlaceholderSmall />
+          <StatusPlaceholderSmall aria-label="undefined status" />
         ) : null}
         <Anchor
+          as={Button}
           onClick={() => {
             // Call setShowResultDetails from props
             setShowResultDetails(true);
@@ -80,7 +87,7 @@ export const columns: (
   },
 ];
 
-export const Properties = {
+export const properties = {
   model: {
     label: 'Model',
     options: ['VirtualMachine', 'VMware Virtual Platform'],
