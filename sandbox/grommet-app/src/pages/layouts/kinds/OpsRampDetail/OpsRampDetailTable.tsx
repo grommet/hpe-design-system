@@ -123,6 +123,7 @@ export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
         </Toolbar>
         <DataSummary />
         <Box overflow="auto">
+          {/* instead of datatable should we change to list on smaller views */}
           <DataTable
             aria-label="Kubernetes nodes table displaying node statuses"
             // style of onSelect use the same green color as the Select component
