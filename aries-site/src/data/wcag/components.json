@@ -48,7 +48,7 @@
       { "rule": "3.2.5", "status": "passed" },
       { "rule": "4.1.2", "status": "passed" }
     ],
-      "pageHeader": [
+      "pageheader": [
     { "rule": "1.1.1", "status": "conditional" },
     { "rule": "1.3.1", "status": "passed" },
     { "rule": "1.3.4", "status": "passed" },
