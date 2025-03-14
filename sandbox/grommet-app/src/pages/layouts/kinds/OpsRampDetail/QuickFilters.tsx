@@ -23,6 +23,9 @@ const MiniSelector = ({ value, count, icon, title }) => {
           <Text size="small">{title}</Text>
         </Box>
       }
+      icon={null}
+      direction={null}
+      description={null}
       indicator={false}
       pad={{ horizontal: 'xsmall', vertical: 'xsmall' }}
       round="small"

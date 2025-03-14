@@ -7,10 +7,22 @@ import { SelectorHeader } from './SelectorHeader';
 
 // Use box-shadow to increase selected border-width without needing
 // to calculate updated pad and avoid layout shift
+
+// added the hover background color which we can discuss
 const StyledBox = styled(Box)`
   ${props =>
     props.selected &&
-    `box-shadow: inset 0 0 0 1px ${props.theme.global.colors['green!']};`}
+    `
+      box-shadow: inset 0 0 0 1px ${props.theme.global.colors['green!']};
+    `}
+
+  &:hover {
+    ${props =>
+      props.selected &&
+      `
+        background: #aafade;
+      `}
+  }
 `;
 
 // match focus indicator rounding to container
