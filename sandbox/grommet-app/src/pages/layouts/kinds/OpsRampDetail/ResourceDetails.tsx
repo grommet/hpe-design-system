@@ -117,6 +117,8 @@ export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
         </Box>
       }
       level={2}
+      // possible to use responsive container to change the
+      // menu label to be icon to save space for smaller screens
       actions={<ResourceActions onClose={onClose} />}
       skeleton={undefined}
       animation={animation}

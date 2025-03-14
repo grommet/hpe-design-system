@@ -26,6 +26,9 @@ export const OpsRampDetail: React.FC = () => {
   const [selectedName, setSelectedName] = useState<string>('');
   const [selectedIpAddress, setSelectedIpAddress] = useState<string>('');
 
+  // when resource details is shown, the primary focus
+  // is on the resource details, so it should have a larger
+  // width than the table.
   const gridColumns = [
     ['medium', 'auto'],
     ['small', 'medium'],
