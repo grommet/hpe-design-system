@@ -30,6 +30,12 @@ export const defaultView = {
   page: 1,
 };
 
+export type resultType = {
+  data: Node[];
+  filteredTotal: number;
+  page: number;
+};
+
 export const columns: (
   setShowResultDetails: (showResultDetails: boolean) => void,
   setName: (name: string) => void,

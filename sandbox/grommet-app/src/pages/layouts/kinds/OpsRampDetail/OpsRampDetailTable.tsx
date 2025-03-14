@@ -21,6 +21,7 @@ import {
   nodeTableProps,
   properties,
   Node,
+  resultType,
 } from './config';
 
 export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
@@ -29,7 +30,11 @@ export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
   setSelectedIpAddress,
 }) => {
   const [total, setTotal] = useState(0);
-  const [result, setResult] = useState<Node[]>([]);
+  const [result, setResult] = useState<resultType>({
+    data: [],
+    filteredTotal: 0,
+    page: 1,
+  });
   const [quickFilter, setQuickFilter] = useState('');
   const [view, setView] = useState(defaultView);
   const [up, setUp] = useState(0);
@@ -81,7 +86,20 @@ export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
       });
     }
 
-    setResult(filteredData);
+    // Apply math for pagination
+    const filteredTotal = filteredData.length;
+    const step = view?.step || defaultView.step;
+    const page = view?.page || defaultView.page;
+
+    const startIndex = (page - 1) * step;
+    const endIndex = startIndex + step;
+    const paginatedData = filteredData.slice(startIndex, endIndex);
+
+    setResult({
+      data: paginatedData,
+      filteredTotal,
+      page,
+    });
     setTotal(filteredData.length);
   }, [quickFilter, view]);
 
@@ -91,9 +109,9 @@ export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
 
   return (
     <Data
-      data={result}
+      data={result.data}
       total={total}
-      filteredTotal={result.length}
+      filteredTotal={result.filteredTotal}
       defaultView={defaultView}
       gap="medium"
       properties={properties}
