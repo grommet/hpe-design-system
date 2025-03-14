@@ -59,12 +59,12 @@ const WCAGAccessibilityCardView = ({
     >
       <Box flex gap="small">
         <Paragraph margin="none">
-          <TextEmphasis>{ruleName}. </TextEmphasis>
+          <TextEmphasis>{ruleName}.</TextEmphasis>
           {!descriptionEndsWithColon ? (
             ruleDescription
           ) : (
             <Text>
-              {' '}{ruleDescription}
+              {' '}{ruleDescription}{' '}
               <Anchor
                 label="Read more"
                 aria-label={`Read more about ${ruleName}`}
