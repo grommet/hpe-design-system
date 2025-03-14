@@ -18,6 +18,8 @@ export type Node = {
 export interface nodeTableProps {
   showResultDetails: boolean;
   setShowResultDetails: (showResultDetails: boolean) => void;
+  setSelectedName: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedIpAddress: (ip: string) => void;
 }
 
 export const defaultView = {
@@ -30,7 +32,9 @@ export const defaultView = {
 
 export const columns: (
   setShowResultDetails: (showResultDetails: boolean) => void,
-) => ColumnConfig<Node>[] = setShowResultDetails => [
+  setName: (name: string) => void,
+  setIpAddress: (ip: string) => void,
+) => ColumnConfig<Node>[] = (setShowResultDetails, setName, setIpAddress) => [
   {
     property: 'name',
     pin: true,
@@ -61,8 +65,9 @@ export const columns: (
         <Anchor
           as={Button}
           onClick={() => {
-            // Call setShowResultDetails from props
             setShowResultDetails(true);
+            setName(datum.name);
+            setIpAddress(datum['ip address']);
           }}
         >
           {datum.name}

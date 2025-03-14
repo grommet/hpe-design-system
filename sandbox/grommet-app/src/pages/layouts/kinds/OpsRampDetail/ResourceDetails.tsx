@@ -65,11 +65,17 @@ const ResourceActions: React.FC<ResourceActionsProps> = () => (
 
 interface ResourceSectionsProps {
   size: string;
+  name: string;
+  ipAddress: string;
 }
-const ResourceSections: React.FC<ResourceSectionsProps> = ({ size }) => (
+const ResourceSections: React.FC<ResourceSectionsProps> = ({
+  size,
+  name,
+  ipAddress,
+}) => (
   <Box gap="small">
     <Box border={{ side: 'top' }} />
-    <ResourceHeader name="k8s-flow-worker02" ipAddress="172.31.47.37" />
+    <ResourceHeader name={name} ipAddress={ipAddress} />
     <Box border={{ side: 'top' }} />
     <ResourceAlerts size={size} />
     <Box border={{ side: 'top' }} />
@@ -89,6 +95,8 @@ interface ResourceDetailsProps {
 export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
   animation,
   layer,
+  name,
+  ipAddress,
   onClose,
   ...rest
 }) => {
@@ -115,7 +123,7 @@ export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
       height="fit-content"
       {...rest}
     >
-      <ResourceSections size={metricSize} />
+      <ResourceSections size={metricSize} name={name} ipAddress={ipAddress} />
     </ContentPane>
   );
 

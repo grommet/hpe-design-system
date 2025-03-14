@@ -23,6 +23,8 @@ export const OpsRampDetail: React.FC = () => {
   const isSidebarCollapsed = ['xsmall', 'small'].includes(breakpoint);
 
   const [showResultDetails, setShowResultDetails] = useState(false);
+  const [selectedName, setSelectedName] = useState<string>('');
+  const [selectedIpAddress, setSelectedIpAddress] = useState<string>('');
 
   const gridColumns = [
     ['medium', 'auto'],
@@ -79,6 +81,8 @@ export const OpsRampDetail: React.FC = () => {
               <OpsRampDetailTable
                 showResultDetails={showResultDetails}
                 setShowResultDetails={setShowResultDetails}
+                setSelectedName={setSelectedName}
+                setSelectedIpAddress={setSelectedIpAddress}
               />
             </ContentPane>
             {/* when screen is going from large to medium and side nav is open, 
@@ -93,6 +97,8 @@ export const OpsRampDetail: React.FC = () => {
                     ? false
                     : ['slideLeft', 'fadeIn']
                 }
+                name={selectedName}
+                ipAddress={selectedIpAddress}
               />
             )}
           </Grid>
