@@ -1674,6 +1674,7 @@ export const components = [
   },
   {
     name: 'PageHeader',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Layouts',
     description:
