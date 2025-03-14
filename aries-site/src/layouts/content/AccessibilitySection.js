@@ -70,7 +70,7 @@ export const AccessibilitySection = ({ title, version }) => {
             num: successCriterion.num,
             level: successCriterion.level,
             handle: successCriterion.handle,
-            title: successCriterion.title + '. ',
+            title: successCriterion.title,
           };
 
           // If the rule status is failed && level = AAA,
