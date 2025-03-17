@@ -540,6 +540,7 @@ export const components = [
       'Search is a field that allows a user to input keywords for content they are looking for.',
     seoDescription:
       'See HPE Design System Search input design and code examples.',
+    accessibility: 'Failed WCAG 2.2 AA',
     sections: [
       'Placeholder',
       'Auto-suggestions',
