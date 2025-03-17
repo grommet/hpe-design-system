@@ -877,49 +877,49 @@
       },
       {
         "rule": "1.2.2",
-        "label": "Captions (Prerecorded)\n",
+        "label": "Captions (Prerecorded)",
         "status": "not-applicable",
         "notes": ""
       },
       {
         "rule": "1.2.3",
-        "label": "Audio Description or Media Alternative (Prerecorded)\n",
+        "label": "Audio Description or Media Alternative (Prerecorded)",
         "status": "not-applicable",
         "notes": ""
       },
       {
         "rule": "1.2.4",
-        "label": "Captions (Live)\n",
+        "label": "Captions (Live)",
         "status": "not-applicable",
         "notes": ""
       },
       {
         "rule": "1.2.5",
-        "label": "Audio Description (Prerecorded)\n",
+        "label": "Audio Description (Prerecorded)",
         "status": "not-applicable",
         "notes": ""
       },
       {
         "rule": "1.2.6",
-        "label": "Sign Language (Prerecorded)\n",
+        "label": "Sign Language (Prerecorded)",
         "status": "not-applicable",
         "notes": ""
       },
       {
         "rule": "1.2.7",
-        "label": "Extended Audio Description (Prerecorded)\n",
+        "label": "Extended Audio Description (Prerecorded)",
         "status": "not-applicable",
         "notes": ""
       },
       {
         "rule": "1.2.8",
-        "label": "Media Alternative (Prerecorded)\n",
+        "label": "Media Alternative (Prerecorded)",
         "status": "not-applicable",
         "notes": ""
       },
       {
         "rule": "1.2.9",
-        "label": "Audio-only (Live)\n",
+        "label": "Audio-only (Live)",
         "status": "not-applicable",
         "notes": ""
       },
