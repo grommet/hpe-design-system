@@ -52,7 +52,6 @@ export const HPEPrivateCloud = () => {
         color: 'background',
         dark: true,
       }}
-      fill="horizontal"
     >
       <Box align="center" gap={columnGap[breakpoint]}>
         {/* their heading is level 1 60px for font 
