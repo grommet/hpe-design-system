@@ -868,7 +868,7 @@
       {
         "rule": "1.1.1",
         "label": "Non-text content",
-        "status": "failed",
+        "status": "conditional",
         "notes": "Implementer should pass in their own aria-label"
       },
       {
