@@ -962,7 +962,7 @@
       {
         "rule": "1.4.1",
         "label": "Use of Color",
-        "status": "passed",
+        "status": "failed",
         "notes": ""
       },
       {
@@ -1034,7 +1034,7 @@
       {
         "rule": "1.4.13",
         "label": "Content on Hover or Focus",
-        "status": "passed",
+        "status": "failed",
         "notes": ""
       },
       {
@@ -1184,7 +1184,7 @@
       {
         "rule": "2.4.13",
         "label": "Focus Appearance",
-        "status": "failed",
+        "status": "passed",
         "notes": "TextInput with suggestions, the treatment of the suggestion that is in focus is not meeting requirement."
       },
       {
