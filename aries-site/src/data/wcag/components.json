@@ -1185,7 +1185,7 @@
         "rule": "2.4.13",
         "label": "Focus Appearance",
         "status": "passed",
-        "notes": "TextInput with suggestions, the treatment of the suggestion that is in focus is not meeting requirement."
+        "notes": ""
       },
       {
         "rule": "2.5.1",
