@@ -226,7 +226,7 @@
         "rule": "2.3.3",
         "label": "Animation from Interactions",
         "status": "failed",
-        "notes": "No way provided to disable the animation"
+        "notes": "No way provided to disable the animation that occurs on responsive tabs"
       },
       {
         "rule": "2.4.1",
@@ -301,8 +301,7 @@
       {
         "rule": "2.5.2",
         "label": "Pointer Cancellation",
-        "status": "passed",
-        "notes": "But Left and Right Keys are not working to switch tabs as expected"
+        "status": "passed"
       },
       {
         "rule": "2.5.3",
