@@ -31,7 +31,7 @@ import { TagPreview } from '../../examples/cardPreviews/tag';
 export const components = [
   {
     name: 'Anchor',
-    accessibility: 'Passed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Controls',
     description:
       'Hyperlinks used with text-based navigation, such as inline text.',
@@ -154,6 +154,7 @@ export const components = [
       'A container providing at-a-glance information and easy access to more details.',
     seoDescription:
       'Cards are a container providing at-a-glance information and easy access to more details. See when to use cards and alternatives.',
+    accessibility: 'Passed WCAG 2.2 AA',
     preview: {
       image: {
         src: {
@@ -441,6 +442,7 @@ export const components = [
     description: 'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'About TextInput',
       'Password',
@@ -846,7 +848,7 @@ export const components = [
   },
   {
     name: 'Menu',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Menu is a component that contains a list of actions. When a user clicks an item in the menu, the menu closes and the action is executed.',
@@ -1755,6 +1757,7 @@ export const components = [
     category: 'Controls',
     description:
       'A group of related buttons that enable the user to toggle one or more options on or off.',
+    accessibility: 'Failed WCAG 2.2 AA',
     preview: {
       component: () => <ToggleGroupPreview />,
     },

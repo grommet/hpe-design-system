@@ -10,7 +10,7 @@
       { "rule": "2.4.4", "status": "conditional" },
       { "rule": "2.4.7", "status": "passed" },
       { "rule": "2.4.9", "status": "conditional" },
-      { "rule": "2.4.13", "status": "failed" },
+      { "rule": "2.4.13", "status": "passed" },
       { "rule": "3.2.1", "status": "passed" },
       { "rule": "4.1.2", "status": "passed" }
     ],
@@ -24,7 +24,7 @@
       { "rule": "2.1.2", "status": "passed" },
       { "rule": "2.1.3", "status": "passed" },
       { "rule": "2.4.7", "status": "passed" },
-      { "rule": "2.4.13", "status": "failed" },
+      { "rule": "2.4.13", "status": "passed" },
       { "rule": "2.5.3", "status": "conditional" },
       { "rule": "2.5.5", "status": "failed" },
       { "rule": "2.5.8", "status": "passed" },
@@ -48,12 +48,12 @@
       { "rule": "3.2.5", "status": "passed" },
       { "rule": "4.1.2", "status": "passed" }
     ],
-    "tabs": [
+    "togglegroup": [
       {
         "rule": "1.1.1",
         "label": "Non-text content",
         "status": "conditional",
-        "notes": "Requires caller to provide aria-label for icon-only tabs."
+        "notes": "Requires caller to provide aria-label."
       },
       {
         "rule": "1.2",
@@ -64,13 +64,12 @@
         "rule": "1.3.1",
         "label": "Info and Relationships",
         "status": "passed",
-        "notes": "Uses proper aria roles (`role='tab'`, `role='tablist'`, `role='tabpanel'`), uses aria-label to connect tabs to panels via tab title prop. And uses `aria-selected` to indicate the selected tab."
+        "notes": "Uses `role='radiogroup'` for single select and `role='group'` for multi-select."
       },
       {
         "rule": "1.3.2",
         "label": "Meaningful Sequence",
-        "status": "conditional",
-        "notes": "The implementer needs to right justified the text when in RTL mode"
+        "status": "not-applicable"
       },
       {
         "rule": "1.3.3",
@@ -91,13 +90,13 @@
         "rule": "1.3.6",
         "label": "Identify Purpose",
         "status": "conditional",
-        "notes": "`aria-label` should be provided when tabs are icon only."
+        "notes": "`aria-label`s should be provided when toggle options are icon only."
       },
       {
         "rule": "1.4.1",
         "label": "Use of Color",
         "status": "passed",
-        "notes": "Uses background color to indicate state."
+        "notes": "Uses background color and border to indicate state."
       },
       {
         "rule": "1.4.2",
@@ -108,7 +107,7 @@
         "rule": "1.4.3",
         "label": "Contrast (Minimum)",
         "status": "passed",
-        "notes": "Minimum contrast ratio of 4.61 (selected state) exceeds 4.5:1."
+        "notes": "Minimum contrast ratio of 6.29 (selected state) exceeds 4.5:1."
       },
       {
         "rule": "1.4.4",
@@ -124,7 +123,7 @@
         "rule": "1.4.6",
         "label": "Contrast (Enhanced)",
         "status": "failed",
-        "notes": "Minimum contrast ratio of 4.61 (selected state) does not exceed 7:1. But this will pass for larger text which requires 4.5:1."
+        "notes": "Minimum contrast ratio of 6.29 (selected state) does not exceed 7:1."
       },
       {
         "rule": "1.4.7",
@@ -144,13 +143,13 @@
       {
         "rule": "1.4.10",
         "label": "Reflow",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "1.4.11",
         "label": "Non-text Contrast",
         "status": "passed",
-        "notes": "Minimum contrast ratio of 4.61 exceeds 3:1."
+        "notes": "Minimum contrast ratio of 6.29 exceeds 3:1."
       },
       {
         "rule": "1.4.12",
@@ -160,7 +159,8 @@
       {
         "rule": "1.4.13",
         "label": "Content on Hover or Focus",
-        "status": "not-applicable"
+        "status": "failed",
+        "notes": "With tip, the pointer reveals the tip, however when cursor tries to move over the tip, it disappears. Hover and focus states indicated by background color and border are okay."
       },
       {
         "rule": "2.1.1",
@@ -178,11 +178,6 @@
         "status": "passed"
       },
       {
-        "rule": "2.1.4",
-        "label": "Character Key Shortcuts",
-        "status": "not-applicable"
-      },
-      {
         "rule": "2.2.1",
         "label": "Timing Adjustable",
         "status": "not-applicable"
@@ -195,7 +190,7 @@
       {
         "rule": "2.2.3",
         "label": "No Timing",
-        "status": "not-applicable"
+        "status": "passed"
       },
       {
         "rule": "2.2.4",
@@ -215,18 +210,17 @@
       {
         "rule": "2.3.1",
         "label": "Three Flashes or Below Threshold",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.3.2",
         "label": "Three Flashes",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.3.3",
         "label": "Animation from Interactions",
-        "status": "failed",
-        "notes": "No way provided to disable the animation that occurs on responsive tabs"
+        "status": "not-applicable"
       },
       {
         "rule": "2.4.1",
@@ -241,7 +235,7 @@
       {
         "rule": "2.4.3",
         "label": "Focus Order",
-        "status": "passed"
+        "status": "not-applicable"
       },
       {
         "rule": "2.4.4",
@@ -301,12 +295,14 @@
       {
         "rule": "2.5.2",
         "label": "Pointer Cancellation",
-        "status": "passed"
+        "status": "passed",
+        "notes": "No down event."
       },
       {
         "rule": "2.5.3",
         "label": "Label in Name",
-        "status": "passed"
+        "status": "conditional",
+        "notes": "Requires caller to provide a descriptive aria-label for the toggle group. Additionally, human understandable values and/or labels for each toggle should be provided."
       },
       {
         "rule": "2.5.4",
@@ -444,12 +440,938 @@
         "rule": "4.1.2",
         "label": "Name, Role, Value",
         "status": "passed",
-        "notes": "Uses `aria-label` to connect tabs and panels, aria-expanded to indicate the state of the tab, and `role='tab'`, `role='tablist'`, `role='tabpanel'`."
+        "notes": "Uses `aria-label` to provide a name for the toggle group, role of `radiogroup`, and `aria-checked` to indicate the state of the selected toggle. For multi-select, uses `aria-pressed` to indicate the state of each toggle, and role of `group`."
       },
       {
         "rule": "4.1.3",
         "label": "Status Messages",
         "status": "not-applicable"
+      }
+    ]
+  },
+  {
+    "card": [
+      {
+        "rule": "1.1.1",
+        "label": "Non-text content",
+        "status": "conditional",
+        "notes": "Highly dependent on the content of the card."
+      },
+      {
+        "rule": "1.2",
+        "label": "Time-based Media",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.1",
+        "label": "Info and Relationships",
+        "status": "conditional",
+        "notes": "There are a lot of considerations for how the markup of a card is implemented, largely dependent on the card's content and context in which it is presented. For example, a card representing a self-contained piece of content that could be distributed or reused independently, `<article>` is the more appropriate accessible choice. Examples of this might be a product listing, a blog post, or even the cards representing content on this HPE Design System site. An 'analytic card' that is part of a larger dashboard or report might be better suited to a `<section>` element. Additional considerations are needed if the card is part of a group of related cards and may need role of 'region' or 'listitem' and aria-labelledby to provide context and relationships. Headings within the card should use proper heading levels (<h1>-<h6>)."
+      },
+      {
+        "rule": "1.3.2",
+        "label": "Meaningful Sequence",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.3",
+        "label": "Sensory Characteristics",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.4",
+        "label": "Orientation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.5",
+        "label": "Identify Input Purpose",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.6",
+        "label": "Identify Purpose",
+        "status": "conditional",
+        "notes": "Dependent on content and context."
+      },
+      {
+        "rule": "1.4.1",
+        "label": "Use of Color",
+        "status": "not-applicable",
+        "notes": "Not directly applicable to the card, but is applicable to its contents."
+      },
+      {
+        "rule": "1.4.2",
+        "label": "Audio Control",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.3",
+        "label": "Contrast (Minimum)",
+        "status": "not-applicable",
+        "notes": "Not directly applicable to the card, but is applicable to its contents."
+      },
+      {
+        "rule": "1.4.4",
+        "label": "Resize Text",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.5",
+        "label": "Images of Text",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.6",
+        "label": "Contrast (Enhanced)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.7",
+        "label": "Low or No Background Audio",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.8",
+        "label": "Visual Presentation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.9",
+        "label": "Images of Text (No Exception)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.10",
+        "label": "Reflow",
+        "status": "not-applicable",
+        "notes": "Not directly applicable to the card, but is applicable to its contents."
+      },
+      {
+        "rule": "1.4.11",
+        "label": "Non-text Contrast",
+        "status": "conditional",
+        "notes": "Dependent on the content of the card and whether the card is interactive."
+      },
+      {
+        "rule": "1.4.12",
+        "label": "Text Spacing",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.13",
+        "label": "Content on Hover or Focus",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.1.1",
+        "label": "Keyboard",
+        "status": "conditional",
+        "notes": "Dependent on the card's content and interactivity. If the entire card is a link, use an <a> element. Test that the card and any interactive elements within it can be reached and activated using the keyboard alone."
+      },
+      {
+        "rule": "2.1.2",
+        "label": "No Keyboard Trap",
+        "status": "conditional",
+        "notes": "Requires implementor to test depending on the card's content."
+      },
+      {
+        "rule": "2.1.3",
+        "label": "Keyboard (No Exception)",
+        "status": "conditional"
+      },
+      {
+        "rule": "2.1.4",
+        "label": "Character Key Shortcuts",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.1",
+        "label": "Timing Adjustable",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.2",
+        "label": "Pause, Stop, Hide",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.3",
+        "label": "No Timing",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.4",
+        "label": "Interruptions",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.5",
+        "label": "Re-authenticating",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.6",
+        "label": "Timeouts",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.3.1",
+        "label": "Three Flashes or Below Threshold",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.3.2",
+        "label": "Three Flashes",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.3.3",
+        "label": "Animation from Interactions",
+        "status": "failed",
+        "notes": "Due to the the intent of 2.3.3 and subtle nature of the elevation animation, applicability of this rule falls into a grey area as the subtlty of the elevation is not likely to trigger reactions this rule intends to prevent. That said, we can treat as 'does not meet AAA' until `prefer-reduced-motion` is supplied in Grommet or the HPE theme. 2.3.3 aims to prevent animations that could cause seizures or physical reactions, particularly for users with vestibular disorders or cognitive disabilities. The core concern is with animations that are unexpected or excessive. Adding elevation to a card on hover typically involves a subtle animation, such as a slight increase in size or a shadow effect. Whether this triggers WCAG 2.3.3 depends on the nature of the animation. Applicability - 10 Subtle and Short Animations: If the elevation animation is subtle, brief, and not overly dynamic, it's less likely to cause issues. Many standard hover effects fall into this category. 2) Excessive or Rapid Animations: If the animation involves rapid, flashing, or large-scale movements, it could potentially violate WCAG 2.3.3. 3) User Control: A key aspect of WCAG 2.3.3 is providing users with the ability to disable non-essential animations. Therefore, if your site includes such animations, it should ideally offer a mechanism to turn them off and make use of `prefers-reduced-motion` media query."
+      },
+      {
+        "rule": "2.4.1",
+        "label": "Bypass Blocks",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.2",
+        "label": "Page Titled",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.3",
+        "label": "Focus Order",
+        "status": "conditional",
+        "notes": "Depending on context, a proper role of `listitem` or wrapping in an <li> may be needed."
+      },
+      {
+        "rule": "2.4.4",
+        "label": "Link Purpose (In Context)",
+        "status": "conditional",
+        "notes": "Related cards sharing a common call to action such as 'Learn More' may need to be differentiated by using `aria-label` to provide context as to answer 'learn more about what?'."
+      },
+      {
+        "rule": "2.4.5",
+        "label": "Multiple Ways",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.6",
+        "label": "Headings and Labels",
+        "status": "conditional",
+        "notes": "Proper semantic headings are needed. Cards marked up as <section> may need an aria-labelledby as well. Cards marked up as <article> will use the first heading within or `aria-label`."
+      },
+      {
+        "rule": "2.4.7",
+        "label": "Focus Visible",
+        "status": "passed",
+        "notes": "When the card is interactive, focus is visible on hover and keyboard focus."
+      },
+      {
+        "rule": "2.4.8",
+        "label": "Location",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.9",
+        "label": "Link Purpose (Link Only)",
+        "status": "conditional",
+        "notes": "Related cards sharing a common call to action such as 'Learn More' may need to be differentiated by using `aria-label` (https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA8 & https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-link-only#sufficient) to provide context as to answer 'learn more about what?'."
+      },
+      {
+        "rule": "2.4.10",
+        "label": "Section Headings",
+        "status": "conditional",
+        "notes": "Dependent on content and context."
+      },
+      {
+        "rule": "2.4.11",
+        "label": "Focus Not Obscured (Minimum)",
+        "status": "passed"
+      },
+      {
+        "rule": "2.4.12",
+        "label": "Focus Not Obscured (Enhanced)",
+        "status": "passed"
+      },
+      {
+        "rule": "2.4.13",
+        "label": "Focus Appearance",
+        "status": "passed"
+      },
+      {
+        "rule": "2.5.1",
+        "label": "Pointer Gestures",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.2",
+        "label": "Pointer Cancellation",
+        "status": "passed",
+        "notes": "No down event."
+      },
+      {
+        "rule": "2.5.3",
+        "label": "Label in Name",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.4",
+        "label": "Motion Actuation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.5",
+        "label": "Target Size (Enhanced)",
+        "status": "passed",
+        "notes": "Applies to a clickable card. Cards with interactive contents must be tested separately."
+      },
+      {
+        "rule": "2.5.6",
+        "label": "Concurrent Input Mechanisms",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.7",
+        "label": "Dragging Movements",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.8",
+        "label": "Target Size (Minimum)",
+        "status": "passed",
+        "notes": "Applies to a clickable card. Cards with interactive contents must be tested separately."
+      },
+      {
+        "rule": "3.1.1",
+        "label": "Language of Page",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.2",
+        "label": "Language of Parts",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.3",
+        "label": "Unusual Words",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.4",
+        "label": "Abbreviations",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.5",
+        "label": "Reading Level",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.6",
+        "label": "Pronunciation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.1",
+        "label": "On Focus",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.2",
+        "label": "On Input",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.3",
+        "label": "Consistent Navigation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.4",
+        "label": "Consistent Identification",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.5",
+        "label": "Change on Request",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.6",
+        "label": "Consistent Help",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.1",
+        "label": "Error Identification",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.2",
+        "label": "Labels or Instructions",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.3",
+        "label": "Error Suggestion",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.4",
+        "label": "Error Prevention (Legal, Financial, Data)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.5",
+        "label": "Help",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.6",
+        "label": "Error Prevention (All)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.7",
+        "label": "Redundant Entry",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.8",
+        "label": "Accessible Authentication (Minimum)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.9",
+        "label": "Accessible Authentication (Enhanced)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "4.1.2",
+        "label": "Name, Role, Value",
+        "status": "conditional",
+        "notes": "Dependent on content and context."
+      },
+      {
+        "rule": "4.1.3",
+        "label": "Status Messages",
+        "status": "not-applicable"
+      }
+    ],
+    "textinput": [
+      {
+        "rule": "1.1.1",
+        "label": "Non-text content",
+        "status": "conditional",
+        "notes": "If an icon is provided, an aria-label can be added to the icon."
+      },
+      {
+        "rule": "1.2.1",
+        "label": "Audio-only and Video-only (Prerecorded)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.2.2",
+        "label": "Captions (Prerecorded)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.2.3",
+        "label": "Audio Description or Media Alternative (Prerecorded)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.2.4",
+        "label": "Captions (Live)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.2.5",
+        "label": "Audio Description (Prerecorded)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.2.6",
+        "label": "Sign Language (Prerecorded)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.2.7",
+        "label": "Extended Audio Description (Prerecorded)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.2.8",
+        "label": "Media Alternative (Prerecorded)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.2.9",
+        "label": "Audio-only (Live)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.3.1",
+        "label": "Info and Relationships",
+        "status": "failed",
+        "notes": "Lack of screen reader clarity for suggestions drop down."
+      },
+      {
+        "rule": "1.3.2",
+        "label": "Meaningful Sequence",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "1.3.3",
+        "label": "Sensory Characteristics",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "1.3.4",
+        "label": "Orientation",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "1.3.5",
+        "label": "Identify Input Purpose",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.3.6",
+        "label": "Identify Purpose",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.1",
+        "label": "Use of Color",
+        "status": "failed",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.2",
+        "label": "Audio Control",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.3",
+        "label": "Contrast (Minimum)",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.4",
+        "label": "Resize Text",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.5",
+        "label": "Images of Text",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.6",
+        "label": "Contrast (Enhanced)",
+        "status": "failed",
+        "notes": "Placeholder text fails, other states pass."
+      },
+      {
+        "rule": "1.4.7",
+        "label": "Low or No Background Audio",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.8",
+        "label": "Visual Presentation",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.9",
+        "label": "Images of Text (No Exception)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.10",
+        "label": "Reflow",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.11",
+        "label": "Non-text Contrast",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.12",
+        "label": "Text Spacing",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "1.4.13",
+        "label": "Content on Hover or Focus",
+        "status": "failed",
+        "notes": ""
+      },
+      {
+        "rule": "2.1.1",
+        "label": "Keyboard",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "2.1.2",
+        "label": "No Keyboard Trap",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "2.1.3",
+        "label": "Keyboard (No Exception)",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "2.2.1",
+        "label": "Timing Adjustable",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.2.2",
+        "label": "Pause, Stop, Hide",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.2.3",
+        "label": "No Timing",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.2.4",
+        "label": "Interruptions",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.2.5",
+        "label": "Re-authenticating",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.2.6",
+        "label": "Timeouts",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.3.1",
+        "label": "Three Flashes or Below Threshold",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.3.2",
+        "label": "Three Flashes",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.3.3",
+        "label": "Animation from Interactions",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.4.1",
+        "label": "Bypass Blocks",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.4.2",
+        "label": "Page Titled",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.4.3",
+        "label": "Focus Order",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "2.4.4",
+        "label": "Link Purpose (In Context)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.4.5",
+        "label": "Multiple Ways",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.4.6",
+        "label": "Headings and Labels",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.4.7",
+        "label": "Focus Visible",
+        "status": "failed",
+        "notes": "TextInput with suggestions, the treatment of the suggestion that is in focus is not meeting requirement."
+      },
+      {
+        "rule": "2.4.8",
+        "label": "Location",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.4.9",
+        "label": "Link Purpose (Link Only)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.4.10",
+        "label": "Section Headings",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.4.11",
+        "label": "Focus Not Obscured (Minimum)",
+        "status": "failed",
+        "notes": "TextInput with suggestions, the treatment of the suggestion that is in focus is not meeting requirement."
+      },
+      {
+        "rule": "2.4.12",
+        "label": "Focus Not Obscured (Enhanced)",
+        "status": "failed",
+        "notes": "TextInput with suggestions, the treatment of the suggestion that is in focus is not meeting requirement."
+      },
+      {
+        "rule": "2.4.13",
+        "label": "Focus Appearance",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "2.5.1",
+        "label": "Pointer Gestures",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.5.2",
+        "label": "Pointer Cancellation",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "2.5.3",
+        "label": "Label in Name",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "2.5.4",
+        "label": "Motion Actuation",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.5.5",
+        "label": "Target Size (Enhanced)",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "2.5.6",
+        "label": "Concurrent Input Mechanisms",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "2.5.7",
+        "label": "Dragging Movements",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "2.5.8",
+        "label": "Target Size (Minimum)",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "3.1.1",
+        "label": "Language of Page",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.1.2",
+        "label": "Language of Parts",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.1.3",
+        "label": "Unusual Words",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.1.4",
+        "label": "Abbreviations",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.1.5",
+        "label": "Reading Level",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.1.6",
+        "label": "Pronunciation",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.2.1",
+        "label": "On Focus",
+        "status": "failed",
+        "notes": ""
+      },
+      {
+        "rule": "3.2.2",
+        "label": "On Input",
+        "status": "passed",
+        "notes": ""
+      },
+      {
+        "rule": "3.2.3",
+        "label": "Consistent Navigation",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.2.4",
+        "label": "Consistent Identification",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.2.5",
+        "label": "Change on Request",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.2.6",
+        "label": "Consistent Help",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.3.1",
+        "label": "Error Identification",
+        "status": "not-applicable",
+        "notes": "Dependent on FormField."
+      },
+      {
+        "rule": "3.3.2",
+        "label": "Labels or Instructions",
+        "status": "not-applicable",
+        "notes": "Dependent on FormField."
+      },
+      {
+        "rule": "3.3.3",
+        "label": "Error Suggestion",
+        "status": "not-applicable",
+        "notes": "Dependent on FormField."
+      },
+      {
+        "rule": "3.3.4",
+        "label": "Error Prevention (Legal, Financial, Data)",
+        "status": "not-applicable",
+        "notes": "Dependent on FormField."
+      },
+      {
+        "rule": "3.3.5",
+        "label": "Help",
+        "status": "not-applicable",
+        "notes": "Dependent on FormField."
+      },
+      {
+        "rule": "3.3.6",
+        "label": "Error Prevention (All)",
+        "status": "not-applicable",
+        "notes": "Dependent on FormField."
+      },
+      {
+        "rule": "3.3.7",
+        "label": "Redundant Entry",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.3.8",
+        "label": "Accessible Authentication (Minimum)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "3.3.9",
+        "label": "Accessible Authentication (Enhanced)",
+        "status": "not-applicable",
+        "notes": ""
+      },
+      {
+        "rule": "4.1.2",
+        "label": "Name, Role, Value",
+        "status": "conditional",
+        "notes": "When not in FormField, caller must provide an aria-label or title."
+      },
+      {
+        "rule": "4.1.3",
+        "label": "Status Messages",
+        "status": "not-applicable",
+        "notes": ""
       }
     ]
   }
