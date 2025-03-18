@@ -2518,9 +2518,9 @@
   integrity sha512-e7X7bbn3Z6DWnDi75UWn+REgAbLEqxI8Tq2pkFOFAMpWAWApz/YCUhtWMWn410h8Q2fYiYL7Yg5OlxMOCfFjJQ==
 
 "@next/mdx@^14.1.4":
-  version "14.2.24"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-14.2.24.tgz#04b3f7d26f477928a1a469102482e427af55e912"
-  integrity sha512-OfupBYFZXdB+1CypVpRFpIb/V1PgGed20yUbkKTDdssLvlID/emqVfsZ7RVUhI1DGOQPcPwSAy92GHQlEwccdQ==
+  version "14.2.25"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-14.2.25.tgz#832b76654daaa2d769e363d9154e902bbece80bd"
+  integrity sha512-xb/Cgi0BIeiSJ2f1gCyavaoTK4u7FP1jJx/mNLU3hby2udmx2Uf1UQV+4KungbOmMrEzfeiYnls7kBl3nfXOxw==
   dependencies:
     source-map "^0.7.0"
 
@@ -5109,9 +5109,9 @@ camelize@^1.0.0:
   integrity sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==
 
 caniuse-lite@^1.0.30001579, caniuse-lite@^1.0.30001688, caniuse-lite@^1.0.30001702:
-  version "1.0.30001705"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001705.tgz#dc3510bcdef261444ca944b7be9c8d0bb7fafeef"
-  integrity sha512-S0uyMMiYvA7CxNgomYBwwwPUnWzFD83f3B1ce5jHUfHTH//QL6hHsreI8RVC5606R4ssqravelYO5TU6t8sEyg==
+  version "1.0.30001706"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001706.tgz#902c3f896f4b2968031c3a546ab2ef8b465a2c8f"
+  integrity sha512-3ZczoTApMAZwPKYWmwVbQMFpXBDds3/0VciVoUwPUbldlYyVLmRVuRs/PcUZtHpbLRpzzDvrvnFuREsGt6lUug==
 
 case-sensitive-paths-webpack-plugin@^2.4.0:
   version "2.4.0"
@@ -10655,9 +10655,9 @@ mime-db@1.52.0:
   integrity sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==
 
 "mime-db@>= 1.43.0 < 2", mime-db@^1.41.0:
-  version "1.53.0"
-  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.53.0.tgz#3cb63cd820fc29896d9d4e8c32ab4fcd74ccb447"
-  integrity sha512-oHlN/w+3MQ3rba9rqFr6V/ypF10LSkdwUysQL7GkXoTgIWeV+tcXGA852TBxH+gsh8UWoyhR1hKcoMJTuWflpg==
+  version "1.54.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.54.0.tgz#cddb3ee4f9c64530dff640236661d42cb6a314f5"
+  integrity sha512-aU5EJuIN2WDemCcAp2vFBfp/m4EAhWJnUNSSw0ixs7/kXbd6Pg64EmwJkNdFhB8aWt1sH2CTXrLxo/iAGV3oPQ==
 
 mime-types@^2.1.12, mime-types@^2.1.27, mime-types@^2.1.31, mime-types@^2.1.35, mime-types@~2.1.17, mime-types@~2.1.24, mime-types@~2.1.34:
   version "2.1.35"
@@ -10928,9 +10928,9 @@ nth-check@^2.0.1:
     boolbase "^1.0.0"
 
 nwsapi@^2.2.0:
-  version "2.2.18"
-  resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.18.tgz#3c4d7927e1ef4d042d319438ecfda6cd81b7ee41"
-  integrity sha512-p1TRH/edngVEHVbwqWnxUViEmq5znDvyB+Sik5cmuLpGOIfDf/39zLiq3swPF8Vakqn+gvNiOQAZu8djYlQILA==
+  version "2.2.19"
+  resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.19.tgz#586660f7c24c34691907002309a8dc28064c9c0b"
+  integrity sha512-94bcyI3RsqiZufXjkr3ltkI86iEl+I7uiHVDtcq9wJUTwYQJ5odHDeSzkkrRzi80jJ8MaeZgqKjH1bAWAFw9bA==
 
 object-assign@^4.0.1, object-assign@^4.1.1:
   version "4.1.1"

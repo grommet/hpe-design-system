@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   TextInputExample,
   TextInputDisabledExample,
@@ -31,14 +31,6 @@ Text input fields perform text validation. Some use cases for TextInput include 
 There are many ways to give the user hints about how to properly fill out a text input. In addition to the label, placeholder text can help guide the user. When you want to place syntax restrictions on the input, such as an email address or phone number, consider using [MaskedInput](/components/maskedinput).
 
 A TextInput display the following states: enabled, focused, focused with value, validation, and disabled.
-
-### Accessibility
-
-In every case possible, TextInput should be used inside of a FormField to ensure that a label is appropriately paired with the input. This behavior is important to screen reader users who need to know to which context the TextInput is referring.
-
-If you need to use TextInput outside of the context of a FormField, it is important to make sure the TextInput is labeled in an alternate way to meet accessibility requirements. One approach is to use another visual indicator, such as the TextInput's icon, to serve as the label. See how this is done in the [Labeled by icon](#labeled-by-icon) example.
-
-Placeholder text does not serve as a sufficient means of meeting accessibility requirements for labels. To meet accessbility requirements, placeholder text should be used in conjunction with a label or aria-labelledby attribute.
 
 ## Variants
 
@@ -117,3 +109,15 @@ Apply `readOnlyCopy` to TextInput to display a copy button in the input.
 >
   <TextInputReadOnlyExample />
 </Example>
+
+## Accessibility
+
+In every case possible, TextInput should be used inside of a FormField to ensure that a label is appropriately paired with the input. This behavior is important to screen reader users who need to know to which context the TextInput is referring.
+
+If you need to use TextInput outside of the context of a FormField, it is important to make sure the TextInput is labeled in an alternate way to meet accessibility requirements. One approach is to use another visual indicator, such as the TextInput's icon, to serve as the label. See how this is done in the [Labeled by icon](#labeled-by-icon) example.
+
+Placeholder text does not serve as a sufficient means of meeting accessibility requirements for labels. To meet accessbility requirements, placeholder text should be used in conjunction with a label or aria-labelledby attribute.
+
+### WCAG compliance
+
+<AccessibilitySection title="TextInput" />

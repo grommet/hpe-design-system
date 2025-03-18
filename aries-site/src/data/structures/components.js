@@ -441,6 +441,7 @@ export const components = [
     description: 'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'About TextInput',
       'Password',
@@ -540,7 +541,7 @@ export const components = [
       'Search is a field that allows a user to input keywords for content they are looking for.',
     seoDescription:
       'See HPE Design System Search input design and code examples.',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'Placeholder',
       'Auto-suggestions',

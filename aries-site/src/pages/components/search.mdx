@@ -1,4 +1,8 @@
-import { BestPracticeGroup, Example } from '../../layouts';
+import {
+  AccessibilitySection,
+  BestPracticeGroup,
+  Example,
+} from '../../layouts';
 import {
   ClearSearchExample,
   SearchExample,
@@ -62,16 +66,6 @@ Placeholder text should be brief and to the point.
 - Sort results by highest relevance. Relevance can be determined by keyword matching, however, to really elevate user experience, consider implementing probability based approaches.
 - Persist users' original query. This eliminates the need to re-type and assists query reformation if needed.
 - Persist users' recently used search queries. Remembering the user's previous efforts respects their time and serves as "short cuts" for returning to previously visited content.
-
-### Accessibility
-
-Search inputs should be accessible. Ensure users have the ability to return results using their keyboard or by clicking a button.
-
-All search inputs should specify `type="search"`.
-
-Use an `aria-label` in addition to a placeholder unless a visual label is provided.
-
-For additional detail, see [ARIA form hints](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints).
 
 ## Search icon
 
@@ -146,3 +140,17 @@ Icon position is controlled via the [reverse](https://v2.grommet.io/textinput?th
 >
   <SearchIconPositionExample />
 </Example>
+
+## Accessibility
+
+Search inputs should be accessible. Ensure users have the ability to return results using their keyboard or by clicking a button.
+
+All search inputs should specify `type="search"`.
+
+Use an `aria-label` in addition to a placeholder unless a visual label is provided.
+
+For additional detail, see [ARIA form hints](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints).
+
+### WCAG compliance
+
+<AccessibilitySection title="Search" />
