@@ -126,7 +126,7 @@ export const HPEPrivateCloud = () => {
             ['xsmall', 'small'].includes(breakpoint) ? 'stretch' : 'center'
           }
           label="Learn More"
-          icon={<LinkNext color="brand" />}
+          icon={<LinkNext color="icon-primary" />}
           size={
             ['xsmall', 'small', 'medium'].includes(breakpoint)
               ? 'medium'
