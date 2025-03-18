@@ -116,7 +116,7 @@ export const ResourceAlerts: React.FC<ResourceAlertsProps> = ({ size }) => {
 
   return (
     <Box>
-      <Text>Resource Alerts</Text>
+      <Text size="small">Resource Alerts</Text>
       {/* in design the pad is 18px */}
       <Grid pad="small" columns={columns}>
         {alertData.map(({ label, Icon, color, value }) => (

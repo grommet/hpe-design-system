@@ -16,11 +16,11 @@ const MiniSelector = ({ value, count, icon, title }) => {
         <Box align="center">
           <Box direction="row" align="center" gap="xsmall">
             {icon}
-            <Text weight={500} color="text-strong" size="large">
+            <Text size="small">{title}</Text>
+            <Text weight={500} color="text-strong">
               {count}
             </Text>
           </Box>
-          <Text size="small">{title}</Text>
         </Box>
       }
       icon={null}
@@ -69,7 +69,7 @@ export const QuickFilters: React.FC<{
         setValue(value);
       }}
       gap="xsmall"
-      columns="xsmall"
+      layout="fit"
     >
       {[
         {

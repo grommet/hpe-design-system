@@ -28,6 +28,8 @@ export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
   setShowResultDetails,
   setSelectedName,
   setSelectedIpAddress,
+  setStatus,
+  name,
 }) => {
   const [total, setTotal] = useState(0);
   const [result, setResult] = useState<resultType>({
@@ -144,14 +146,18 @@ export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
           {/* instead of datatable should we change to list on smaller views */}
           <DataTable
             aria-label="Kubernetes nodes table displaying node statuses"
-            // style of onSelect use the same green color as the Select component
-            onSelect={() => {}}
             columns={columns(
               setShowResultDetails,
               setSelectedName,
               setSelectedIpAddress,
+              setStatus,
             )}
+            onSelect={() => {}}
             sortable
+            primaryKey="name"
+            rowProps={{
+              [name]: { background: 'background-selected-primary' },
+            }}
           />
         </Box>
         <Pagination

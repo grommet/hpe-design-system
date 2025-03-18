@@ -25,6 +25,7 @@ export const OpsRampDetail: React.FC = () => {
   const [showResultDetails, setShowResultDetails] = useState(false);
   const [selectedName, setSelectedName] = useState<string>('');
   const [selectedIpAddress, setSelectedIpAddress] = useState<string>('');
+  const [status, setStatus] = useState<string>('');
 
   // when resource details is shown, the primary focus
   // is on the resource details, so it should have a larger
@@ -86,6 +87,8 @@ export const OpsRampDetail: React.FC = () => {
                 setShowResultDetails={setShowResultDetails}
                 setSelectedName={setSelectedName}
                 setSelectedIpAddress={setSelectedIpAddress}
+                setStatus={setStatus}
+                name={selectedName}
               />
             </ContentPane>
             {/* when screen is going from large to medium and side nav is open, 
@@ -102,6 +105,7 @@ export const OpsRampDetail: React.FC = () => {
                 }
                 name={selectedName}
                 ipAddress={selectedIpAddress}
+                status={status}
               />
             )}
           </Grid>
