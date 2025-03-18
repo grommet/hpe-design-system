@@ -90,7 +90,7 @@ export const HPEPrivateCloud = () => {
         <Box gap="large" direction="row">
           <Image src="/hpe-logo-invert.svg" alt="HPE Logo" />
           <Box border={{ side: 'right', size: 'small' }} />
-          <Image src="/nvidia-logo.svg" alt="HPE Logo" />
+          <Image src="/nvidia-logo.svg" alt="NVIDIA Logo" />
         </Box>
         <Grid
           alignSelf="center"
