@@ -81,28 +81,28 @@ export const verifyReferences = (
           collection.name === 'color' &&
           collection.key !== process.env['FIGMA_COLOR_COLLECTION_KEY']
         ) {
-          collection.variableIds.forEach(id =>
+          collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'dimension' &&
           collection.key !== process.env['FIGMA_DIMENSION_COLLECTION_KEY']
         ) {
-          collection.variableIds.forEach(id =>
+          collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'primitives' &&
           collection.key !== process.env['FIGMA_PRIMITIVES_COLLECTION_KEY']
         ) {
-          collection.variableIds.forEach(id =>
+          collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'global' &&
           collection.key !== process.env['FIGMA_GLOBAL_COLLECTION_KEY']
         ) {
-          collection.variableIds.forEach(id =>
+          collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         }
@@ -132,6 +132,7 @@ export const verifyReferences = (
 };
 
 const TOKENS_DIR = 'tokens';
+export const COPYRIGHT = 'Copyright Hewlett Packard Enterprise Development LP.';
 
 export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
   const tokenDirs = readdirSync(tokensDir, { withFileTypes: true })
