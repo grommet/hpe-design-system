@@ -15,7 +15,6 @@ import { ProductHightlight } from './ProductHighlight';
 export const HPEPrivateCloud = () => {
   const breakpoint = useContext(ResponsiveContext);
 
-  console.log(breakpoint);
 
   const columns = ['xsmall', 'small'].includes(breakpoint)
     ? ['auto']
