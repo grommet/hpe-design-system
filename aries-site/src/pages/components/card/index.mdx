@@ -1,4 +1,4 @@
-import { BestPracticeGroup, Example } from '../../../layouts';
+import { AccessibilitySection, BestPracticeGroup, Example } from '../../../layouts';
 import { ExampleImagePreview } from '../../../components';
 import {
   CardAlignmentBestPractice,
@@ -73,38 +73,26 @@ Use left-alignment whenever possible in order to optimize readability.
 
 ### Spacing
 
-For cards within the same layout section, place a minimum gap of "medium" between cards.
+Follow the [proximity principle](https://www.nngroup.com/articles/gestalt-proximity/) 
+when applying spacing between a group of cards and between other content sections. Apply 
+a uniform gap between cards so that they are perceived as belonging to the same group. This 
+spacing should be less than the gap between other content sections.  
 
-<BestPracticeGroup columns="100%">
-  <Example
-    bestPractice={{
-      type: 'do',
-      message: 'Use a "medium" gap between cards.',
-    }}
-    width="100%"
-    height={{ min: 'small' }}
-  >
-    <CardSpacingBestPractice />
-  </Example>
-  <Example
-    bestPractice={{
-      type: 'dont',
-      message: `Don't use a gap smaller than "medium" between cards because this creates a crowded feeling.`,
-    }}
-    width="100%"
-    height={{ min: 'small' }}
-  >
-    <CardSpacingBestPractice bestPractice={false} />
-  </Example>
-</BestPracticeGroup>
+<Example
+  width="100%"
+  height={{ min: 'small' }}
+>
+  <CardSpacingBestPractice />
+</Example>
 
 ## Interactions
 
 ### Mouse
 
 - If a card does not contain an action behavior, do not provide hover feedback.
-- If a card has a singular action behavior, the entire card can be clickable. Provide a hand cursor change and large elevation on hover.
-- If a card contains a multiple action behaviors, such as a primary action and a secondary action, provide the documented hover feedback on the individual actionable elements only.
+- If a card has a singular action behavior, the entire card may be clickable. 
+Apply a `pointer` cursor and `large` elevation for the hover state.
+- If a card contains multiple interactive elements, provide hover feedback on the interactive elements, not the card itself.
 
 ### Keyboard
 
@@ -118,9 +106,14 @@ For cards within the same layout section, place a minimum gap of "medium" betwee
 
 ### Card titles
 
-Card titles should use a Heading of the correct [semantic heading level](/foundation/typography#semantic-usage-of-heading-levels) based on where the card is in the document. For example, a card nested under a Heading level 2 should use a Heading level 3 for its title.
+Card titles should use a Heading of the correct [semantic heading level](/foundation/typography#semantic-usage-of-heading-levels) 
+based on where the card is in the document. For example, a card nested under a 
+Heading level 2 should use a Heading level 3 for its title (Note: If desired, 
+a heading's size may be adjusted to achieve the desired aethetic, but always use 
+the proper level).
 
-Don't use Text for the card title as this will hurt the experience for users of assisstive technologies.
+Text should not be used for the card titles. Assistive technologies rely on HTML 
+heading or aria-labels for understanding a card's title.
 
 ### Card sections
 
@@ -130,34 +123,6 @@ When cards are presenting as a group, they should function as a list.
   - Some default browser padding may need to be overridden. This can be done by applying `pad="none"`, or the desired padding, to the container.
 - Apply `as="li"` to the individual cards.
 
-## Misuses
+### WCAG compliance
 
-- When data attributes across items needs to be analyzed, sorted, compared, and filtered, a card may not be the best tool. Instead, [DataTable](/components/datatable) may be more appropriate tool to meet these needs.
-- Cards should not be used as controls to filter data directly on the same screen. Instead, the [Selector](templates/selector) component is the appropriate tool for filtering data sets.
-- A card should not be used to group complex content into a single container. A card is meant to be individual, presenting a single, summarized topic which cannot be divided.
-
-<BestPracticeGroup>
-  <Example
-    height={{ min: 'small' }}
-    bestPractice={{
-      type: 'do',
-      message:
-        'Leave general page content outside of a card and align it flush with the left page margin.',
-    }}
-    scale={0.4}
-    width="100%"
-  >
-    <CardContentBestPractice />
-  </Example>
-  <Example
-    height={{ min: 'small' }}
-    bestPractice={{
-      type: 'dont',
-      message: `Don't use a card just to show general page content. The purpose of a card is to group pieces of information that should be visually separated from the main page content in order to emphasize the relationship of those pieces to each other.`,
-    }}
-    scale={0.4}
-    width="100%"
-  >
-    <CardContentBestPractice bestPractice={false} />
-  </Example>
-</BestPracticeGroup>
+<AccessibilitySection title='card' />
