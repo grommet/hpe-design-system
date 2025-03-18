@@ -8,11 +8,29 @@ import {
   Heading,
   ResponsiveContext,
 } from 'grommet';
-import { LinkNext, StatusGoodSmall } from 'grommet-icons';
+import {
+  LinkNext,
+  StatusGoodSmall,
+  StatusCriticalSmall,
+  StatusUnknownSmall,
+  StatusPlaceholderSmall,
+  MoreVertical,
+} from 'grommet-icons';
 import ContentPane from '../../../../components/ContentPane';
 import { ResourceAlerts } from './ResourceAlerts';
 import { ResourceTraits } from './ResourceTraits';
 import { ResourceOverview } from './ResourceOverview';
+
+const statusMap: { [key: string]: JSX.Element | null } = {
+  up: <StatusGoodSmall aria-label="up status" color="status-ok" />,
+  down: (
+    <StatusCriticalSmall aria-label="down status" color="status-critical" />
+  ),
+  unknown: (
+    <StatusUnknownSmall aria-label="unknown status" color="status-unknown" />
+  ),
+  undefined: <StatusPlaceholderSmall aria-label="undefined status" />,
+};
 
 interface ActionItem {
   label: string | JSX.Element;
@@ -38,11 +56,16 @@ const actionItems: ActionItem[] = [
 interface ResourceHeaderProps {
   name: string;
   ipAddress: string;
+  status: string;
 }
 
-const ResourceHeader: React.FC<ResourceHeaderProps> = ({ name, ipAddress }) => (
+const ResourceHeader: React.FC<ResourceHeaderProps> = ({
+  name,
+  ipAddress,
+  status,
+}) => (
   <Box pad={{ vertical: 'small' }} align="center" direction="row" gap="small">
-    <StatusGoodSmall color="status-ok" />
+    {statusMap[status]}
     <Box>
       <Text weight="bold">{name}</Text>
       <Text size="small">{ipAddress}</Text>
@@ -57,9 +80,10 @@ interface ResourceActionsProps {
 const ResourceActions: React.FC<ResourceActionsProps> = () => (
   <Menu
     dropAlign={{ top: 'bottom', right: 'right' }}
-    label="Actions"
+    // label="Actions"
     items={actionItems}
     onClick={() => {}}
+    icon={<MoreVertical />}
   />
 );
 
@@ -67,20 +91,22 @@ interface ResourceSectionsProps {
   size: string;
   name: string;
   ipAddress: string;
+  status: string;
 }
 const ResourceSections: React.FC<ResourceSectionsProps> = ({
   size,
   name,
   ipAddress,
+  status,
 }) => (
   <Box gap="small">
-    <Box border={{ side: 'top' }} />
-    <ResourceHeader name={name} ipAddress={ipAddress} />
-    <Box border={{ side: 'top' }} />
+    <Box border={{ side: 'top', color: 'border-weak' }} />
+    <ResourceHeader status={status} name={name} ipAddress={ipAddress} />
+    <Box border={{ side: 'top', color: 'border-weak' }} />
     <ResourceAlerts size={size} />
-    <Box border={{ side: 'top' }} />
+    <Box border={{ side: 'top', color: 'border-weak' }} />
     <ResourceOverview />
-    <Box border={{ side: 'top' }} />
+    <Box border={{ side: 'top', color: 'border-weak' }} />
     <ResourceTraits />
   </Box>
 );
@@ -97,6 +123,7 @@ export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
   layer,
   name,
   ipAddress,
+  status,
   onClose,
   ...rest
 }) => {
@@ -109,9 +136,13 @@ export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
     <ContentPane
       flex={false}
       heading={
-        <Box align="center" direction="row" gap="medium">
+        <Box align="center" direction="row" gap="xsmall">
           <Button onClick={onClose} icon={<LinkNext />} />
-          <Heading level={2} margin="none">
+          {/* the heading here sematically should be h2 however thats very large so
+          passing size to make it smaller */}
+          <Heading level={2} size="small" margin="none">
+            {/* instead of resource details do we maybe just put name
+             of the resource here their size of this is alot smaller 12px */}
             Resource Details
           </Heading>
         </Box>
@@ -125,7 +156,12 @@ export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
       height="fit-content"
       {...rest}
     >
-      <ResourceSections size={metricSize} name={name} ipAddress={ipAddress} />
+      <ResourceSections
+        size={metricSize}
+        name={name}
+        status={status}
+        ipAddress={ipAddress}
+      />
     </ContentPane>
   );
 

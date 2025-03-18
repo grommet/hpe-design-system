@@ -64,10 +64,10 @@ const Selector = ({
         border={{
           color: selected ? 'brand' : 'border',
         }}
-        // we would need to add the hover effect as well
-        // here for the same bevavior as toggleGroup and Select
-        // also need to update the hex color to the actual token
-        background={selected ? '#d1ffee' : undefined}
+        // having the selected green background is not enough
+        // to indicate selected state for accessibility
+        // so we need to look at what else we can do
+        background={selected ? 'background-selected-primary' : undefined}
       >
         {(indicator !== false || title || description || icon) && (
           <SelectorHeader

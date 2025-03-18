@@ -20,6 +20,8 @@ export interface nodeTableProps {
   setShowResultDetails: (showResultDetails: boolean) => void;
   setSelectedName: React.Dispatch<React.SetStateAction<string>>;
   setSelectedIpAddress: (ip: string) => void;
+  setStatus: (status: string) => void;
+  name: string;
 }
 
 export const defaultView = {
@@ -40,10 +42,15 @@ export const columns: (
   setShowResultDetails: (showResultDetails: boolean) => void,
   setName: (name: string) => void,
   setIpAddress: (ip: string) => void,
-) => ColumnConfig<Node>[] = (setShowResultDetails, setName, setIpAddress) => [
+  setStatus: (status: string) => void,
+) => ColumnConfig<Node>[] = (
+  setShowResultDetails,
+  setName,
+  setIpAddress,
+  setStatus,
+) => [
   {
     property: 'name',
-    pin: true,
     primary: true,
     header: 'Name',
     render: datum => (
@@ -74,6 +81,7 @@ export const columns: (
             setShowResultDetails(true);
             setName(datum.name);
             setIpAddress(datum['ip address']);
+            setStatus(datum.state);
           }}
         >
           {datum.name}
