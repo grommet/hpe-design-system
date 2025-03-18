@@ -52,6 +52,10 @@ export const columns: (
   {
     property: 'name',
     primary: true,
+    // if we have pin true and pass the rowProps for the background to change to our
+    // selected green it will not apply background to pinned becuse in grommet code
+    // pinned takes precedence over the rowProps background.
+    pin: true,
     header: 'Name',
     render: datum => (
       <Box
