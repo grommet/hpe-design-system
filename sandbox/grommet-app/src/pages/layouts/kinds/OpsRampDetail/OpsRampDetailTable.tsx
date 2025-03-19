@@ -30,6 +30,7 @@ export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
   setSelectedIpAddress,
   setStatus,
   name,
+  showResultDetails,
 }) => {
   const [total, setTotal] = useState(0);
   const [result, setResult] = useState<resultType>({
@@ -155,9 +156,11 @@ export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
             onSelect={() => {}}
             sortable
             primaryKey="name"
-            rowProps={{
-              [name]: { background: 'background-selected-primary' },
-            }}
+            rowProps={
+              showResultDetails
+                ? { [name]: { background: 'background-selected-primary' } }
+                : {}
+            }
           />
         </Box>
         <Pagination

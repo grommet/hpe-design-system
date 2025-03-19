@@ -89,6 +89,7 @@ export const OpsRampDetail: React.FC = () => {
                 setSelectedIpAddress={setSelectedIpAddress}
                 setStatus={setStatus}
                 name={selectedName}
+                showResultDetails={showResultDetails}
               />
             </ContentPane>
             {/* when screen is going from large to medium and side nav is open, 
