@@ -25,106 +25,81 @@ export const HPEAIUseCase = () => {
   };
 
   return (
-    <PageContent
-      pad={{
-        top: ['xsmall'].includes(breakpoint) ? 'xlarge' : 'none',
-        bottom: 'xlarge',
-        horizontal: 'xlarge',
-      }}
-      background={{
-        fill: 'horizontal',
-        image: 'url(/video-marketing-background.png)',
-        dark: false,
-      }}
-    >
-      <Box gap="medium">
-        {/* in marketing page they have 60px heading
+    <Box gap="medium">
+      {/* in marketing page they have 60px heading
         even with size xlarge we are at 48px  */}
-        <Heading size="xlarge" margin="none" level={2}>
-          AI use cases
-        </Heading>
-        <Grid columns={columns} rows={rows} gap={gap[breakpoint]}>
-          <CardTemplate
-            pad={null}
-            border={false}
-            media={
-              <Image
-                src="/VirtualAssistant.png"
-                alt="hpe cray supercomputing"
-                fit="cover"
-                // this is not ideal
-                style={{
-                  borderBottomLeftRadius: '12px',
-                  borderBottomRightRadius: '12px',
-                }}
-              />
-            }
-            title="HPE Cray Supercomputing"
-            description="Exascale technologies to unlock the next frontier of discovery, innovation, and achievement."
-            actions={
-              // button sizes are off in design they have 42px height and we have 36px
-              <Button
-                label="View the usecase brief"
-                reverse
-                primary
-                icon={<LinkNext />}
-              />
-            }
-          />
-          <CardTemplate
-            border={false}
-            pad={null}
-            media={
-              <Image
-                src="/automation.png"
-                alt="hpe cray supercomputing"
-                fit="cover"
-                // this is not ideal
-                style={{
-                  borderBottomLeftRadius: '12px',
-                  borderBottomRightRadius: '12px',
-                }}
-              />
-            }
-            title="HPE Cray Supercomputing"
-            description="Exascale technologies to unlock the next frontier of discovery, innovation, and achievement."
-            actions={
-              <Button
-                label="View the usecase brief"
-                reverse
-                primary
-                icon={<LinkNext />}
-              />
-            }
-          />
-          <CardTemplate
-            border={false}
-            pad={null}
-            media={
-              <Image
-                src="/ProductCreation.png"
-                alt="hpe cray supercomputing"
-                fit="cover"
-                // this is not ideal
-                style={{
-                  borderBottomLeftRadius: '12px',
-                  borderBottomRightRadius: '12px',
-                }}
-              />
-            }
-            title="HPE Cray Supercomputing"
-            description="Exascale technologies to unlock the next frontier of discovery, innovation, and achievement."
-            actions={
-              <Button
-                label="View the usecase brief"
-                reverse
-                primary
-                icon={<LinkNext />}
-              />
-            }
-          />
-        </Grid>
-      </Box>
-    </PageContent>
+      <Heading size="xlarge" margin="none" level={2}>
+        AI use cases
+      </Heading>
+      <Grid columns={columns} rows={rows} gap={gap[breakpoint]}>
+        <CardTemplate
+          pad={null}
+          border={false}
+          media={
+            <Image
+              src="/VirtualAssistant.png"
+              alt="hpe cray supercomputing"
+              fit="cover"
+            />
+          }
+          title="Virtual Assistants"
+          description="Deploy chatbots for seamless customer support."
+          actions={
+            // button sizes are off in design they have 42px height and we have 36px
+            <Button
+              label="View the usecase brief"
+              aria-label="View the usecase brief on Virtual Assistants"
+              reverse
+              primary
+              icon={<LinkNext />}
+            />
+          }
+        />
+        <CardTemplate
+          border={false}
+          pad={null}
+          media={
+            <Image
+              src="/automation.png"
+              alt="hpe cray supercomputing"
+              fit="cover"
+            />
+          }
+          title="Automation"
+          description="Deploy AI driven event and incident management."
+          actions={
+            <Button
+              label="View the usecase brief"
+              aria-label="View the usecase brief on automation"
+              reverse
+              primary
+              icon={<LinkNext />}
+            />
+          }
+        />
+        <CardTemplate
+          border={false}
+          pad={null}
+          media={
+            <Image
+              src="/ProductCreation.png"
+              alt="hpe cray supercomputing"
+              fit="cover"
+            />
+          }
+          title="Content and Product Creation"
+          description="Rapidly create and produce content for an insights-driven, customizable customer experience."
+          actions={
+            <Button
+              label="View the usecase brief"
+              aria-label="View the usecase brief on Content and Product Creation"
+              reverse
+              primary
+              icon={<LinkNext />}
+            />
+          }
+        />
+      </Grid>
+    </Box>
   );
 };

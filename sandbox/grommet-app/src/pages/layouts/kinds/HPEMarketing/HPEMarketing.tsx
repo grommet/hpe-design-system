@@ -28,7 +28,6 @@ export const HPEMarketing = () => {
       <HPEVideo />
       <HPEPrivateCloud />
       <HPEProducts />
-      <HPEAIUseCase />
     </Page>
   );
 };
