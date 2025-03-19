@@ -11,6 +11,7 @@ import { HPEProducts } from './HPEProducts';
 import { HPEAIUseCase } from './HPEAIUseCase';
 import { HPEArchitect } from './HPEArchitect';
 import { HPECustomerStories } from './CustomerStories';
+import { HPEAccelerate } from './HPEAccelerate';
 
 export const HPEMarketing = () => {
   const breakpoint = useContext(ResponsiveContext);
@@ -37,6 +38,7 @@ export const HPEMarketing = () => {
       <HPEAIUseCase />
       <HPEArchitect size={metricSize} />
       <HPECustomerStories />
+      <HPEAccelerate />
     </Page>
   );
 };
