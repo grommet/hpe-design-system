@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   Button,
@@ -9,8 +9,10 @@ import {
   Image,
   Text,
   Markdown,
+  ResponsiveContext,
 } from 'grommet';
 import { LinkNext } from 'grommet-icons';
+import { dimension } from 'hpe-design-tokens/grommet';
 
 const objectivesContent = [
   'Improve network **reliability and safety**',
@@ -29,20 +31,36 @@ const solutionContent = [
   'HPE Tech Care Service',
 ];
 
-const ImageCards = ({ background, size, alt, src, fit }) => (
-  <Box
-    flex={false}
-    round="medium"
-    // their sizes do scale down as the window gets smaller
-    height="439px"
-    width={size === 'small' ? '460px' : '720px'}
-    overflow="hidden"
-    background={background}
-    justify="center"
-  >
-    <Image fit={fit} alt={alt} src={src} />
-  </Box>
-);
+const ImageCards = ({ background, size, alt, src, fit }) => {
+  const breakpoint = useContext(ResponsiveContext);
+  return (
+    <Box
+      flex={false}
+      round="medium"
+      height={
+        breakpoint === 'xlarge'
+          ? dimension.hpe.container.large
+          : breakpoint === 'large' || breakpoint === 'medium'
+          ? dimension.hpe.container.medium
+          : undefined
+      }
+      width={
+        size === 'small'
+          ? breakpoint === 'large' || breakpoint === 'xlarge'
+            ? dimension.hpe.container.large
+            : breakpoint === 'medium'
+            ? dimension.hpe.container.medium
+            : dimension.hpe.container.xlarge
+          : dimension.hpe.container.xlarge
+      }
+      overflow="hidden"
+      background={background}
+      justify="center"
+    >
+      <Image fit={fit} alt={alt} src={src} />
+    </Box>
+  );
+};
 
 const NavigationalCards = ({
   title,
@@ -52,51 +70,86 @@ const NavigationalCards = ({
   background,
   primary = true,
   secondary = false,
-}) => (
-  <Box
-    background={background}
-    flex={false}
-    height="439px"
-    width={size === 'small' ? '460px' : '720px'}
-    pad="large"
-    gap="medium"
-    round="medium"
-    justify="between"
-  >
-    <Box gap="small">
-      <Heading weight="bold" size="xlarge" level={3} margin="none">
+}) => {
+  const breakpoint = useContext(ResponsiveContext);
+  return (
+    <Box
+      background={background}
+      flex={false}
+      height={
+        breakpoint === 'xlarge'
+          ? dimension.hpe.container.large
+          : breakpoint === 'large' || breakpoint === 'medium'
+          ? dimension.hpe.container.medium
+          : undefined
+      }
+      width={
+        size === 'small'
+          ? breakpoint === 'large' || breakpoint === 'xlarge'
+            ? dimension.hpe.container.large
+            : breakpoint === 'medium'
+            ? dimension.hpe.container.medium
+            : dimension.hpe.container.xlarge
+          : dimension.hpe.container.xlarge
+      }
+      pad="large"
+      gap="medium"
+      round="medium"
+      justify="between"
+    >
+      <Box gap="small">
+        <Heading weight="bold" size="xlarge" level={3} margin="none">
+          {title}
+        </Heading>
+        <Text>{desc}</Text>
+      </Box>
+      <Button
+        alignSelf="start"
+        reverse
+        icon={<LinkNext />}
+        primary={primary}
+        secondary={secondary}
+        label={label}
+        size="large"
+      />
+    </Box>
+  );
+};
+
+const BulletCards = ({ title, size, children, background }) => {
+  const breakpoint = useContext(ResponsiveContext);
+  return (
+    <Box
+      className="custom-scroll"
+      background={background}
+      flex={false}
+      height={
+        breakpoint === 'xlarge'
+          ? dimension.hpe.container.medium
+          : breakpoint === 'large' || breakpoint === 'medium'
+          ? dimension.hpe.container.medium
+          : undefined
+      }
+      width={
+        size === 'small'
+          ? breakpoint === 'large' || breakpoint === 'xlarge'
+            ? dimension.hpe.container.large
+            : breakpoint === 'medium'
+            ? dimension.hpe.container.medium
+            : dimension.hpe.container.xlarge
+          : dimension.hpe.container.xlarge
+      }
+      pad="large"
+      gap="small"
+      round="medium"
+    >
+      <Heading level={3} size="xlarge" weight="bold" margin="none">
         {title}
       </Heading>
-      <Text>{desc}</Text>
+      <Markdown>{children}</Markdown>
     </Box>
-    <Button
-      alignSelf="start"
-      reverse
-      icon={<LinkNext />}
-      primary={primary}
-      secondary={secondary}
-      label={label}
-      size="large"
-    />
-  </Box>
-);
-
-const BulletCards = ({ title, size, children, background }) => (
-  <Box
-    background={background}
-    flex={false}
-    height="439px"
-    width={size === 'small' ? '460px' : '720px'}
-    pad="large"
-    gap="small"
-    round="medium"
-  >
-    <Heading level={3} size="xlarge" weight="bold" margin="none">
-      {title}
-    </Heading>
-    <Markdown>{children}</Markdown>
-  </Box>
-);
+  );
+};
 
 export const HPECustomerStories = () => {
   const [index, setIndex] = React.useState(0);
@@ -123,6 +176,7 @@ export const HPECustomerStories = () => {
       pageContent */}
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab
+          // it would be nice to be able to have this tab apart of the pagecontent
           style={{ paddingLeft: '100px' }}
           title={
             <Box height="xsmall" width="xsmall">
@@ -135,6 +189,7 @@ export const HPECustomerStories = () => {
             margin="small"
             pad="large"
             // here they have style to their horizontal scroll where we dont just using brower default
+            // we would have to do some css to get it to look like theirs
             overflow={{ horizontal: 'auto' }}
             gap="large"
             fill="horizontal"
