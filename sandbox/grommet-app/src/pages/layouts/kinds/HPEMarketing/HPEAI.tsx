@@ -51,7 +51,7 @@ export const HPEAI = () => {
           ? { color: 'background', dark: true }
           : {
               fill: 'horizontal',
-              image: 'url(/public/marketing-background.png)',
+              image: 'url(/marketing-background.png)',
               dark: true,
             }
       }
@@ -89,7 +89,7 @@ export const HPEAI = () => {
               label="HPE ships first NVIDIA Grace Blackwell system"
               kind="cta-primary"
               alignSelf={
-                ['xsmall', 'small'].includes(breakpoint) ? 'none' : 'start'
+                ['xsmall', 'small'].includes(breakpoint) ? 'stretch' : 'start'
               }
               icon={<LinkNext size="small" />}
             />
