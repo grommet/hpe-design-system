@@ -43,7 +43,6 @@ export const HPEProducts = () => {
         dark: false,
         size: 'cover',
       }}
-      fill="horizontal"
     >
       <Box gap="medium">
         {/* the heading in design is alot bigger */}
