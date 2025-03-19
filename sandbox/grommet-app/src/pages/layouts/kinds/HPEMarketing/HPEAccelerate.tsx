@@ -18,7 +18,10 @@ export const HPEAccelerate = () => {
     ? ['auto']
     : { count: 2, size: 'auto' };
   const rows = ['auto'];
+  // trying to match what they had as far as gap
   const gap = {
+    xsmall: 'medium',
+    small: 'medium',
     medium: 'medium',
     large: 'large',
     xlarge: 'large',
@@ -61,6 +64,9 @@ export const HPEAccelerate = () => {
                 size={
                   ['large', 'xlarge'].includes(breakpoint) ? 'large' : undefined
                 }
+                alignSelf={
+                  ['xsmall', 'small'].includes(breakpoint) ? 'stretch' : 'start'
+                }
               />
             }
           />
@@ -85,6 +91,9 @@ export const HPEAccelerate = () => {
                 icon={<LinkNext />}
                 size={
                   ['large', 'xlarge'].includes(breakpoint) ? 'large' : undefined
+                }
+                alignSelf={
+                  ['xsmall', 'small'].includes(breakpoint) ? 'stretch' : 'start'
                 }
               />
             }
