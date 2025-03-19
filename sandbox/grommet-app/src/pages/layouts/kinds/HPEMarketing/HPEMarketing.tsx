@@ -8,6 +8,7 @@ import { MarketingBrochure } from './MarketingBrochure';
 import { HPEVideo } from './HPEVideo';
 import { HPEPrivateCloud } from './HPEPrivateCloud';
 import { HPEProducts } from './HPEProducts';
+import { HPEAIUseCase } from './HPEAIUseCase';
 
 export const HPEMarketing = () => {
   return (
