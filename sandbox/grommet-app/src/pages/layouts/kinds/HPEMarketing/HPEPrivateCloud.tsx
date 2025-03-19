@@ -15,7 +15,6 @@ import { ProductHightlight } from './ProductHighlight';
 export const HPEPrivateCloud = () => {
   const breakpoint = useContext(ResponsiveContext);
 
-
   const columns = ['xsmall', 'small'].includes(breakpoint)
     ? ['auto']
     : breakpoint === 'medium'
@@ -59,15 +58,11 @@ export const HPEPrivateCloud = () => {
         <Heading level={2} margin="none">
           Introducing HPE Private Cloud AI
         </Heading>
-        <Box
-          // these are not the correct sizes from the design
-          width="xlarge"
-          height="medium"
-          background={{
-            image: 'url(/privateCloud.png)',
-            dark: true,
-            size: 'cover',
-          }}
+        <Image
+          src="/privateCloud.png"
+          alt="HPE Private Cloud AI"
+          fit="contain"
+          style={{ width: '100vw' }}
         />
         <Text
           size={
