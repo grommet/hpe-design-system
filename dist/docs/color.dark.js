@@ -484,7 +484,7 @@ export default {
   "hpe.color.background.unknown": {
     "$type": "color",
     "$value": "rgba(255, 255, 255, 0.06)",
-    "$description": "Use for backgrounds communicating an unknown status.",
+    "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -500,7 +500,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.white.opacity6}",
-      "$description": "Use for backgrounds communicating an unknown status.",
+      "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -532,7 +532,7 @@ export default {
   "hpe.color.background.warning": {
     "$type": "color",
     "$value": "rgba(254, 201, 1, 0.12)",
-    "$description": "Use for backgrounds communicating warning or caution.",
+    "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -548,7 +548,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.yellow.400-Opacity12}",
-      "$description": "Use for backgrounds communicating warning or caution.",
+      "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -580,7 +580,7 @@ export default {
   "hpe.color.background.ok": {
     "$type": "color",
     "$value": "rgba(23, 208, 166, 0.3)",
-    "$description": "Use for backgrounds communicating success.",
+    "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -596,7 +596,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.green.500-Opacity30}",
-      "$description": "Use for backgrounds communicating success.",
+      "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -628,7 +628,7 @@ export default {
   "hpe.color.background.info": {
     "$type": "color",
     "$value": "rgba(0, 200, 255, 0.12)",
-    "$description": "Use for backgrounds communicating neutral information.",
+    "$description": "Use for backgrounds communicating neutral information. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -644,7 +644,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.blue.400-Opacity12}",
-      "$description": "Use for backgrounds communicating neutral information.",
+      "$description": "Use for backgrounds communicating neutral information. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -676,7 +676,7 @@ export default {
   "hpe.color.background.critical": {
     "$type": "color",
     "$value": "rgba(204, 31, 26, 0.3)",
-    "$description": "Use for backgrounds communicating errors or danger.",
+    "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -692,7 +692,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.red.800-Opacity30}",
-      "$description": "Use for backgrounds communicating errors or danger.",
+      "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1342,7 +1342,7 @@ export default {
   "hpe.color.border.critical": {
     "$type": "color",
     "$value": "#fc5a5a",
-    "$description": "Use for borders communicating errors or danger.",
+    "$description": "Use for borders communicating errors or danger. Keywords: status, critical",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1357,7 +1357,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.foreground.critical.DEFAULT.REST}",
-      "$description": "Use for borders communicating errors or danger.",
+      "$description": "Use for borders communicating errors or danger. Keywords: status, critical",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1388,7 +1388,7 @@ export default {
   "hpe.color.border.info": {
     "$type": "color",
     "$value": "rgba(255, 255, 255, 0.36)",
-    "$description": "Use for borders communicating neutral information.",
+    "$description": "Use for borders communicating neutral information. Keyword: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1405,7 +1405,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.border.default.REST}",
-      "$description": "Use for borders communicating neutral information.",
+      "$description": "Use for borders communicating neutral information. Keyword: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1438,7 +1438,7 @@ export default {
   "hpe.color.border.ok": {
     "$type": "color",
     "$value": "rgba(255, 255, 255, 0.36)",
-    "$description": "Use for borders communicating success.",
+    "$description": "Use for borders communicating success. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1455,7 +1455,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.border.default.REST}",
-      "$description": "Use for borders communicating success.",
+      "$description": "Use for borders communicating success. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1488,7 +1488,7 @@ export default {
   "hpe.color.border.warning": {
     "$type": "color",
     "$value": "rgba(255, 255, 255, 0.36)",
-    "$description": "Use for borders communicating warning or caution.",
+    "$description": "Use for borders communicating warning or caution. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1505,7 +1505,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.border.default.REST}",
-      "$description": "Use for borders communicating warning or caution.",
+      "$description": "Use for borders communicating warning or caution. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1538,7 +1538,7 @@ export default {
   "hpe.color.border.unknown": {
     "$type": "color",
     "$value": "rgba(255, 255, 255, 0.36)",
-    "$description": "Use for borders communicating an unknown status.",
+    "$description": "Use for borders communicating an unknown status. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1555,7 +1555,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.border.default.REST}",
-      "$description": "Use for borders communicating an unknown status.",
+      "$description": "Use for borders communicating an unknown status. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1952,7 +1952,7 @@ export default {
   "hpe.color.text.critical": {
     "$type": "color",
     "$value": "#fc5a5a",
-    "$description": "Use for text on standard backgrounds communicating errors or danger.",
+    "$description": "Use for text on standard backgrounds communicating errors or danger. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1967,7 +1967,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.foreground.critical.DEFAULT.REST}",
-      "$description": "Use for text on standard backgrounds communicating errors or danger.",
+      "$description": "Use for text on standard backgrounds communicating errors or danger. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1998,7 +1998,7 @@ export default {
   "hpe.color.text.info": {
     "$type": "color",
     "$value": "#ffffff",
-    "$description": "Use for text on standard backgrounds communicating neutral information.",
+    "$description": "Use for text on standard backgrounds communicating neutral information. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2013,7 +2013,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.text.default.REST}",
-      "$description": "Use for text on standard backgrounds communicating neutral information.",
+      "$description": "Use for text on standard backgrounds communicating neutral information. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2044,7 +2044,7 @@ export default {
   "hpe.color.text.ok": {
     "$type": "color",
     "$value": "#ffffff",
-    "$description": "Use for text on standard backgrounds communicating success.",
+    "$description": "Use for text on standard backgrounds communicating success. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2059,7 +2059,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.text.default.REST}",
-      "$description": "Use for text on standard backgrounds communicating success.",
+      "$description": "Use for text on standard backgrounds communicating success. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2090,7 +2090,7 @@ export default {
   "hpe.color.text.warning": {
     "$type": "color",
     "$value": "#ffffff",
-    "$description": "Use for text on standard backgrounds communicating warning or caution.",
+    "$description": "Use for text on standard backgrounds communicating warning or caution. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2105,7 +2105,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.text.default.REST}",
-      "$description": "Use for text on standard backgrounds communicating warning or caution.",
+      "$description": "Use for text on standard backgrounds communicating warning or caution. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2136,7 +2136,7 @@ export default {
   "hpe.color.text.unknown": {
     "$type": "color",
     "$value": "#ffffff",
-    "$description": "Use for text on standard backgrounds communicating an unknown status.",
+    "$description": "Use for text on standard backgrounds communicating an unknown status. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2151,7 +2151,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.text.default.REST}",
-      "$description": "Use for text on standard backgrounds communicating an unknown status.",
+      "$description": "Use for text on standard backgrounds communicating an unknown status. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3116,7 +3116,7 @@ export default {
   "hpe.color.icon.critical": {
     "$type": "color",
     "$value": "#fc5a5a",
-    "$description": "Use for icons communicating errors or danger.",
+    "$description": "Use for icons communicating errors or danger. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3133,7 +3133,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.foreground.critical.DEFAULT.REST}",
-      "$description": "Use for icons communicating errors or danger.",
+      "$description": "Use for icons communicating errors or danger. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3166,7 +3166,7 @@ export default {
   "hpe.color.icon.info": {
     "$type": "color",
     "$value": "#00739d",
-    "$description": "Use for icons communicating neutral information.",
+    "$description": "Use for icons communicating neutral information. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3183,7 +3183,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.blue.700}",
-      "$description": "Use for icons communicating neutral information.",
+      "$description": "Use for icons communicating neutral information. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3216,7 +3216,7 @@ export default {
   "hpe.color.icon.ok": {
     "$type": "color",
     "$value": "#17d0a6",
-    "$description": "Use for icons communicating success.",
+    "$description": "Use for icons communicating success. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3233,7 +3233,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.green.500}",
-      "$description": "Use for icons communicating success.",
+      "$description": "Use for icons communicating success. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3266,7 +3266,7 @@ export default {
   "hpe.color.icon.warning": {
     "$type": "color",
     "$value": "#d36d00",
-    "$description": "Use for icons communicating warning or caution.",
+    "$description": "Use for icons communicating warning or caution. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3283,7 +3283,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.orange.600}",
-      "$description": "Use for icons communicating warning or caution.",
+      "$description": "Use for icons communicating warning or caution. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3316,7 +3316,7 @@ export default {
   "hpe.color.icon.unknown": {
     "$type": "color",
     "$value": "#555555",
-    "$description": "Use for icons communicating unknown status.",
+    "$description": "Use for icons communicating unknown status. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3333,7 +3333,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.grey.800}",
-      "$description": "Use for icons communicating unknown status.",
+      "$description": "Use for icons communicating unknown status. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4528,7 +4528,7 @@ export default {
   "hpe.color.foreground.critical": {
     "$type": "color",
     "$value": "#fc5a5a",
-    "$description": "Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar.",
+    "$description": "Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4545,7 +4545,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.red.550}",
-      "$description": "Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar.",
+      "$description": "Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4578,7 +4578,7 @@ export default {
   "hpe.color.foreground.warning": {
     "$type": "color",
     "$value": "#d36d00",
-    "$description": "Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar.",
+    "$description": "Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4595,7 +4595,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.orange.600}",
-      "$description": "Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar.",
+      "$description": "Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4628,7 +4628,7 @@ export default {
   "hpe.color.foreground.unknown": {
     "$type": "color",
     "$value": "#757575",
-    "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar.",
+    "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4645,7 +4645,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.grey.700}",
-      "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar.",
+      "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
