@@ -7694,12 +7694,7 @@ graphlib@^2.1.5:
   dependencies:
     lodash "^4.17.15"
 
-grommet-icons@^4.12.4:
-  version "4.12.4"
-  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.12.4.tgz#23d2d994ca666197f3132e4b02edc11b39a1cc84"
-  integrity sha512-LB2u1X7B22wq6ib0DUPhdXmiYXvkg+Xx3eP1tVrKGqhfk+tTkX0nDyK7wFhH+7fvj2ebWjJMYia6G0zH1voGOw==
-
-"grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
+grommet-icons@^4.12.4, "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.12.4"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#67839aebf5b804c9a4a82db82ebec86d40d04680"
 
@@ -7712,7 +7707,7 @@ grommet-theme-hpe@^6.0.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.45.1"
-  resolved "https://github.com/grommet/grommet/tarball/stable#8c2e82b096ed5917fa25da3269c3dbefc0ee3f4e"
+  resolved "https://github.com/grommet/grommet/tarball/stable#97d46646d933d0f82c1d76f43b1dfbf2095e4417"
   dependencies:
     "@emotion/is-prop-valid" "^1.3.1"
     grommet-icons "^4.12.4"
