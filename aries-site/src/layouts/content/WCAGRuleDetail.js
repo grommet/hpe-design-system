@@ -59,7 +59,7 @@ const WCAGAccessibilityCardView = ({
     >
       <Box flex gap="small">
         <Paragraph margin="none">
-          <TextEmphasis>{ruleName}.</TextEmphasis>
+          <TextEmphasis>{ruleName}. </TextEmphasis>
           {!descriptionEndsWithColon ? (
             ruleDescription
           ) : (
