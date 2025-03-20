@@ -132,6 +132,7 @@ export const verifyReferences = (
 };
 
 const TOKENS_DIR = 'tokens';
+export const COPYRIGHT = 'Copyright Hewlett Packard Enterprise Development LP.';
 
 export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
   const tokenDirs = readdirSync(tokensDir, { withFileTypes: true })
