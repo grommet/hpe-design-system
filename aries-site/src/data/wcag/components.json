@@ -864,7 +864,7 @@
     ]
   },
   {
-    "fileInput": [
+    "fileinput": [
       {
         "rule": "1.1.1",
         "label": "Non-text content",
@@ -1132,13 +1132,13 @@
       {
         "rule": "2.4.4",
         "label": "Link Purpose (In Context)",
-        "status": "passed",
+        "status": "not-applicable",
         "notes": ""
       },
       {
         "rule": "2.4.5",
         "label": "Multiple Ways",
-        "status": "passed",
+        "status": "not-applicable",
         "notes": ""
       },
       {
