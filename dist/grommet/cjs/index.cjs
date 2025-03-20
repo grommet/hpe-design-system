@@ -1,3 +1,7 @@
+/**
+ * Copyright Hewlett Packard Enterprise Development LP.
+ */
+
 const dark = require('./color.dark.cjs');
 const light = require('./color.light.cjs');
 const components = require('./components.cjs');

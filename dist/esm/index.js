@@ -1,3 +1,5 @@
+// Copyright Hewlett Packard Enterprise Development LP.
+
 export { default as color } from './color.js';
 export { default as components } from './components.js';
 export { default as dimension } from './dimension.js';

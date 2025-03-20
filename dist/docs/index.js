@@ -1,3 +1,5 @@
+// Copyright Hewlett Packard Enterprise Development LP.
+
 export { default as dark } from './color.dark.js';
 export { default as light } from './color.light.js';
 export { default as components } from './components.js';

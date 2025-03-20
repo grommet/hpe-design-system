@@ -1,3 +1,7 @@
+/**
+ * Copyright Hewlett Packard Enterprise Development LP.
+ */
+
 const color = require('./color.cjs');
 const components = require('./components.cjs');
 const dimension = require('./dimension.cjs');
