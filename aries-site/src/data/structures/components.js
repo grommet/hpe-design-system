@@ -363,6 +363,7 @@ export const components = [
   },
   {
     name: 'FileInput',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Inputs',
     description:
       'An input field where a user can select and upload one or more files.',
