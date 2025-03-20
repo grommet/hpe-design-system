@@ -13,6 +13,9 @@ describe('HPEStyleDictionary', () => {
   const CJS_DIR = `${buildPath}/cjs/`;
   const CSS_DIR = `${buildPath}/css/`;
   const DOCS_DIR = `${buildPath}/docs/`;
+  const defaultOptions = {
+    fileHeader: 'hpe-file-header',
+  };
 
   beforeAll(async () => {
     const extendedDictionary = await HPEStyleDictionary.extend({
@@ -22,6 +25,7 @@ describe('HPEStyleDictionary', () => {
           transformGroup: 'js/w3c',
           buildPath: GROMMET_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'test-output.js',
@@ -33,6 +37,7 @@ describe('HPEStyleDictionary', () => {
           transformGroup: 'js/w3c',
           buildPath: GROMMET_CJS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'test-output.cjs',
@@ -44,6 +49,7 @@ describe('HPEStyleDictionary', () => {
           transformGroup: 'js/css',
           buildPath: ESM_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'test-output.js',
@@ -55,6 +61,7 @@ describe('HPEStyleDictionary', () => {
           transformGroup: 'js/css',
           buildPath: CJS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'test-output.cjs',
@@ -66,6 +73,7 @@ describe('HPEStyleDictionary', () => {
           transformGroup: 'css/w3c',
           buildPath: CSS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'test-output.css',
@@ -81,6 +89,7 @@ describe('HPEStyleDictionary', () => {
           transformGroup: 'js/w3c',
           buildPath: DOCS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'test-output.js',
@@ -99,6 +108,7 @@ describe('HPEStyleDictionary', () => {
     const output = fs.readFileSync(`${ESM_DIR}test-output.js`, 'utf8');
     const expectedOutput = `/**
  * Do not edit directly, this file was auto-generated.
+ * Copyright Hewlett Packard Enterprise Development LP.
  */
 
 export default {
@@ -138,6 +148,7 @@ export default {
     const output = fs.readFileSync(`${CJS_DIR}test-output.cjs`, 'utf8');
     const expectedOutput = `/**
  * Do not edit directly, this file was auto-generated.
+ * Copyright Hewlett Packard Enterprise Development LP.
  */
 
 module.exports = {
@@ -177,6 +188,7 @@ module.exports = {
     const output = fs.readFileSync(`${CSS_DIR}test-output.css`, 'utf8');
     const expectedOutput = `/**
  * Do not edit directly, this file was auto-generated.
+ * Copyright Hewlett Packard Enterprise Development LP.
  */
 
 :root {
@@ -196,6 +208,7 @@ module.exports = {
     const output = fs.readFileSync(`${GROMMET_DIR}test-output.js`, 'utf8');
     const expectedOutput = `/**
  * Do not edit directly, this file was auto-generated.
+ * Copyright Hewlett Packard Enterprise Development LP.
  */
 
 export default {
@@ -235,6 +248,7 @@ export default {
     const output = fs.readFileSync(`${GROMMET_CJS_DIR}test-output.cjs`, 'utf8');
     const expectedOutput = `/**
  * Do not edit directly, this file was auto-generated.
+ * Copyright Hewlett Packard Enterprise Development LP.
  */
 
 module.exports = {
@@ -274,6 +288,7 @@ module.exports = {
     const output = fs.readFileSync(`${DOCS_DIR}test-output.js`, 'utf8');
     const expectedOutput = `/**
  * Do not edit directly, this file was auto-generated.
+ * Copyright Hewlett Packard Enterprise Development LP.
  */
 
 export default {
