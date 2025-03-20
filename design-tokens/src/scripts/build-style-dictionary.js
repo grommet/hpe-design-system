@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import * as fs from 'fs';
 import { HPEStyleDictionary } from '../HPEStyleDictionary.ts';
-import { getThemeAndMode, numberToPixel } from '../utils.ts';
+import { getThemeAndMode, numberToPixel, COPYRIGHT } from '../utils.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -15,6 +15,9 @@ const PREFIX = 'hpe';
  * Design tokens that should only exist in Figma but not be output to hpe-design-tokens
  */
 const FIGMA_PREFIX = 'fig';
+const defaultOptions = {
+  fileHeader: 'hpe-file-header',
+};
 
 await HPEStyleDictionary.hasInitialized;
 
@@ -31,6 +34,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'primitives.js',
@@ -42,6 +46,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'primitives.cjs',
@@ -53,6 +58,7 @@ try {
         transformGroup: 'js/css',
         buildPath: ESM_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'primitives.js',
@@ -64,6 +70,7 @@ try {
         transformGroup: 'js/css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'primitives.cjs',
@@ -75,6 +82,7 @@ try {
         transformGroup: 'css/w3c',
         buildPath: CSS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'primitives.css',
@@ -89,6 +97,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: DOCS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [{ destination: 'primitives.js', format: 'jsonFlat' }],
       },
     },
@@ -113,6 +122,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.js',
@@ -126,6 +136,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.cjs',
@@ -139,6 +150,7 @@ try {
         transformGroup: 'js/css',
         buildPath: ESM_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.js',
@@ -152,6 +164,7 @@ try {
         transformGroup: 'js/css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.cjs',
@@ -165,6 +178,7 @@ try {
         transformGroup: 'css/w3c',
         buildPath: CSS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.css',
@@ -181,6 +195,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: DOCS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.js',
@@ -223,6 +238,7 @@ try {
           transformGroup: 'js/w3c',
           buildPath: GROMMET_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `color.${
@@ -237,6 +253,7 @@ try {
           transformGroup: 'js/w3c',
           buildPath: GROMMET_CJS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `color.${
@@ -251,6 +268,7 @@ try {
           transformGroup: 'js/css',
           buildPath: ESM_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'color.js',
@@ -263,6 +281,7 @@ try {
           transformGroup: 'js/css',
           buildPath: CJS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'color.cjs',
@@ -275,6 +294,7 @@ try {
           transformGroup: 'css/w3c',
           buildPath: CSS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `color.${
@@ -295,6 +315,7 @@ try {
           transformGroup: 'js/w3c',
           buildPath: DOCS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `color.${
@@ -341,6 +362,7 @@ try {
           transformGroup: 'js/w3c',
           buildPath: GROMMET_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `dimension.${
@@ -355,6 +377,7 @@ try {
           transformGroup: 'js/w3c',
           buildPath: GROMMET_CJS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `dimension.${
@@ -369,6 +392,7 @@ try {
           transformGroup: 'js/css',
           buildPath: ESM_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'dimension.js',
@@ -381,6 +405,7 @@ try {
           transformGroup: 'js/css',
           buildPath: CJS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'dimension.cjs',
@@ -393,6 +418,7 @@ try {
           transformGroup: 'css/w3c',
           buildPath: CSS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `dimension.${
@@ -416,6 +442,7 @@ try {
           transformGroup: 'js/w3c',
           buildPath: DOCS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `dimension.${
@@ -453,6 +480,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.js',
@@ -467,6 +495,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.cjs',
@@ -481,6 +510,7 @@ try {
         transformGroup: 'js/css',
         buildPath: ESM_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.js',
@@ -495,6 +525,7 @@ try {
         transformGroup: 'js/css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.cjs',
@@ -509,6 +540,7 @@ try {
         transformGroup: 'css/w3c',
         buildPath: CSS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.css',
@@ -526,6 +558,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: DOCS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.js',
@@ -548,6 +581,7 @@ try {
  * Create CommonJS index.js
  * ----------------------------------- */
 const collections = [];
+fs.appendFileSync(`${CJS_DIR}index.cjs`, `/**\n * ${COPYRIGHT}\n */\n\n`);
 fs.readdirSync(CJS_DIR)
   .filter(file => file !== 'index.cjs')
   .forEach(file => {
@@ -574,6 +608,7 @@ fs.appendFileSync(`${CJS_DIR}index.cjs`, output);
  * Create ESM index.js
  * ----------------------------------- */
 const esmCollections = [];
+fs.appendFileSync(`${ESM_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(ESM_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {
@@ -595,6 +630,7 @@ fs.readdirSync(ESM_DIR)
  * Create Grommet index.js
  * ----------------------------------- */
 const grommetCollections = [];
+fs.appendFileSync(`${GROMMET_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(GROMMET_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {
@@ -616,6 +652,10 @@ fs.readdirSync(GROMMET_DIR)
  * Create Grommet CommonJS index.js
  * ----------------------------------- */
 const grommetCjsCollections = [];
+fs.appendFileSync(
+  `${GROMMET_CJS_DIR}index.cjs`,
+  `/**\n * ${COPYRIGHT}\n */\n\n`,
+);
 fs.readdirSync(GROMMET_CJS_DIR)
   .filter(file => file !== 'index.cjs')
   .forEach(file => {
@@ -642,6 +682,7 @@ fs.appendFileSync(`${GROMMET_CJS_DIR}index.cjs`, grommetCjsOutput);
  * Create docs index.js
  * ----------------------------------- */
 const docsCollections = [];
+fs.appendFileSync(`${DOCS_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(DOCS_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {
