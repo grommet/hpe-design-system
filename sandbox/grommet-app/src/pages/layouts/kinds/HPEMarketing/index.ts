@@ -3,5 +3,6 @@ export * from './HPEMarketing';
 export * from './MarketingBrochure';
 export * from './HPEVideo';
 export * from './HPEPrivateCloud';
+export * from './HPEProducts';
 export * from './HPEVideo';
 export * from './ProductHighlight';
