@@ -12,8 +12,9 @@ import {
 ## Color pairing explained
 
 Pair colors correctly to ensure your design has sufficient contrast ratios and will remain so with color updates.
-- Standard background colors can be paired with any standard icon/text colors. 
-- Any ‘strong’ variant of a standard background should be paired with the ‘onStrong’ variant of text/icon. 
+
+- Standard background colors can be paired with any standard icon/text colors.
+- Any ‘strong’ variant of a standard background should be paired with the ‘onStrong’ variant of text/icon.
 - Specific-role background colors should be paired with their associated "on[Role]" icon/text color. For example, background-critical should be paired with text-onCritical.
 - Any "strong" variant of a specific-role background should be paired with the "on[Role]Strong" variant of text/icon.
 
@@ -28,6 +29,19 @@ Combine background and text and icon colors with confidence as all contrast rati
 **Work with**
 
 <StandardForegrounds />
+
+<Notification
+  status="info"
+  message="This may not be an exhaustive list of all compatible text and icon colors."
+  actions={[
+    {
+      label: 'See all design tokens',
+      href: '/design-tokens/all-design-tokens',
+    },
+  ]}
+  width={{ max: 'large' }}
+  margin={{ top: 'medium' }}
+/>
 
 ## Strong background and onStrong colors
 
@@ -49,13 +63,20 @@ Strong backgrounds have higher emphasis and are always paired with onStrong colo
 
 Some colors have pairings with added granular definition. For example, `color.background.primary.strong` is paired with `color.text.onPrimaryStrong`.
 
-Only some colors are chosen for this specific level of pairing, in order to enable styling management from the token level.
+Background colors that are not part of the standard set documented above will have a specific pairing with text and/or icon colors, to allow more fine-grained control of values at the token level. This means that if colors are updated at a future date, the design system will ensure that supported color pairings meet accessibility requirements.
 
 <Example>
   <SpecialtyBackgrounds />
 </Example>
 
-Refer to this table below as a guide to which background colors pair with 'on' colors.
+Refer to this table below for examples of background colors paired with "on" colors.
+
+<Notification
+  status="info"
+  message="This may not be an exhaustive list of all supported color pairings. The rule is that if a background color is not part of the standard backgrounds documented at the top of this page, then 'on' colors will be provided."
+  width={{ max: 'large' }}
+  margin={{ bottom: 'medium' }}
+/>
 
 | Example                                                                | Background color                         | Pairs with                                                             |
 | ---------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------------------------------------- |
