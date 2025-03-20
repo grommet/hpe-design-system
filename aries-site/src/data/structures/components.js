@@ -441,6 +441,7 @@ export const components = [
     description: 'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'About TextInput',
       'Password',
