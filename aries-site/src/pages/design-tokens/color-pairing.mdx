@@ -9,13 +9,17 @@ import {
   StrongBackgrounds,
 } from '../../examples';
 
-## Using background and foreground colors
+## Color pairing explained
 
-Backgrounds pair with text and icon colors, unless they have a specific color pairing. For example, `color.background.default` or `color.background.front` will work with `color.text.default` or `color.icon.strong`.
+Pair colors correctly to ensure your design has sufficient contrast ratios and will remain so with color updates.
+- Standard background colors can be paired with any standard icon/text colors. 
+- Any ‘strong’ variant of a standard background should be paired with the ‘onStrong’ variant of text/icon. 
+- Specific-role background colors should be paired with their associated "on[Role]" icon/text color. For example, background-critical should be paired with text-onCritical.
+- Any "strong" variant of a specific-role background should be paired with the "on[Role]Strong" variant of text/icon.
 
-## Accessible color pairings
+The general rule is to use the most specific color for the use-case. If a particular background color has a particular text/icon pair, use it.
 
-These background colors can be paired with the following text and icon colors and will meet accessibility requirements for color contrast.
+## Accessible standard color pairings
 
 Combine background and text and icon colors with confidence as all contrast ratios have been tested.
 
@@ -45,7 +49,7 @@ Strong backgrounds have higher emphasis and are always paired with onStrong colo
 
 Some colors have pairings with added granular definition. For example, `color.background.primary.strong` is paired with `color.text.onPrimaryStrong`.
 
-Only some colors are chosen for this specific level of pairing, in order to enable the styling management from the token level.
+Only some colors are chosen for this specific level of pairing, in order to enable styling management from the token level.
 
 <Example>
   <SpecialtyBackgrounds />

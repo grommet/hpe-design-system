@@ -17,9 +17,9 @@ HPE colors are stored in the form of design tokens. Rather than applying RGB or 
 
 Applying semantic colors as intended ensures your design:
 
-- Is aligned with the current theme and visual direction
-- Is accessible
-- Enables theme mode switching (light and dark. See [Theming]())
+- Is aligned with the current theme and visual direction.
+- Is accessible.
+- Enables theme mode switching (light and dark. See [Theming]()).
 - Improves maintenance (when themes are updated, designs are synchronised with token updates. See [design tokens overview](/design-tokens/overview).)
 
 ## Color names
@@ -35,7 +35,7 @@ By combining terms from our color categories, as described in [How to read desig
 
 ## Color categories
 
-The most used categories in color naming are property, variant, state and emphasis.
+Commonly used categories in color naming are `property`, `variant`, `state` and `emphasis`.
 
 ### Property
 
@@ -65,18 +65,18 @@ Stylistic variant of a token.
 
 ### State
 
-Some color names specificy to which state they apply.
+Color for specific states.
 
 | Example                                                                      | State    | Usage                                      | Token example                           |
 | ---------------------------------------------------------------------------- | -------- | ------------------------------------------ | --------------------------------------- |
 | <ColorPreview datum={{value: 'background-primary-hover'}} />                 | hover    | For hover states of a particular color.    | color.background.primary.hover          |
 | <ColorPreview datum={{value: 'background-selected-primary-strong-hover'}} /> | selected | For selected states of a particular color. | color.background.selected.primary.hover |
 
-### Emphasis
+### Scale
 
 Colors can come in a variety of levels of emphasis or tone, named accordingly with a weak or strong modifier.
 
-#### Background emphasis
+#### Background color scale
 
 Background color variants may have a range of shades.
 
@@ -92,8 +92,6 @@ Background color variants may have a range of shades.
 | -------------------------------------------------------------- | -------- |
 | <ColorPreview datum={{value: 'background-primary-xstrong'}} /> | xstrong  |
 | <ColorPreview datum={{value: 'background-primary-strong'}} />  | strong   |
-| <ColorPreview datum={{value: 'background-primary-weak'}} />    | weak     |
-| <ColorPreview datum={{value: 'background-primary-xweak'}} />   | xweak    |
 
 #### Text emphasis
 
