@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   TabsExample,
   TabStatesExample,
@@ -84,12 +84,6 @@ Considering the UX principles of consistency, simplicity, hierarchy, and respons
 
 Instead, it is recommended to use horizontal tabs already implemented in the Design System as they allow for a more simple page layout and information architecture and respond better on smaller resolutions.
 
-### Accessibility
-
-Accessibility features such as role and aria-selected are built into Tabs. When a tab is selected, aria-selected is switched to true and toggled to false for all other tabs within the group.
-
-If you would like to provide a custom aria-label for screen reader users, you can do so by providing a string to the a11yTitle prop.
-
 ## Variants
 
 Tabs can be used to control what information is presented to a user at a given time. They are effective for grouping information and allowing users to move between those groups without leaving their existing context.
@@ -121,3 +115,13 @@ An individual Tab can take on various states: enabled, hover, and active. The st
 >
   <TabStatesExample />
 </Example>
+
+## Accessibility
+
+Accessibility features such as role and aria-selected are built into Tabs. When a tab is selected, aria-selected is switched to true and toggled to false for all other tabs within the group.
+
+If you would like to provide a custom aria-label for screen reader users, you can do so by providing a string to the a11yTitle prop.
+
+### WCAG compliance
+
+<AccessibilitySection title="tabs" />
