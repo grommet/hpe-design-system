@@ -1489,14 +1489,14 @@
       {
         "rule": "2.4.11",
         "label": "Focus Not Obscured (Minimum)",
-        "status": "failed",
-        "notes": "TextInput with suggestions, the treatment of the suggestion that is in focus is not meeting requirement."
+        "status": "passed",
+        "notes": ""
       },
       {
         "rule": "2.4.12",
         "label": "Focus Not Obscured (Enhanced)",
-        "status": "failed",
-        "notes": "TextInput with suggestions, the treatment of the suggestion that is in focus is not meeting requirement."
+        "status": "passed",
+        "notes": ""
       },
       {
         "rule": "2.4.13",
@@ -1531,7 +1531,7 @@
       {
         "rule": "2.5.5",
         "label": "Target Size (Enhanced)",
-        "status": "passed",
+        "status": "failed",
         "notes": ""
       },
       {
