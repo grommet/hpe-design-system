@@ -1214,7 +1214,7 @@
       {
         "rule": "2.5.5",
         "label": "Target Size (Enhanced)",
-        "status": "passed",
+        "status": "failed",
         "notes": ""
       },
       {
