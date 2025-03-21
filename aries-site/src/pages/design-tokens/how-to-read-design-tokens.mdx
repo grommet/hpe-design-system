@@ -60,18 +60,26 @@ Semantic tokens represent global patterns.
 
 <Example height="auto">
   <TokenHighlight
-    highlight={['prefix', 'type', 'variant', 'element', 'scale', 'state']}
+    highlight={[
+      'prefix',
+      'type',
+      'subtype',
+      'variant',
+      'element',
+      'scale',
+      'state',
+    ]}
   />
 </Example>
 
-| prefix | type      | variant    | state    | scale  | Token                              |
-| ------ | --------- | ---------- | -------- | ------ | ---------------------------------- |
-| hpe    | color     | primary    | --       | strong | hpe.color.primary.strong           |
-| hpe    | spacing   | --         | --       | large  | hpe.spacing.large                  |
-| hpe    | color     | background | selected | weak   | hpe.color.background.selected.weak |
-| hpe    | radius    | --         | --       | large  | hpe.radius.large                   |
-| hpe    | text      | --         | --       | xlarge | hpe.text.xlarge                    |
-| hpe    | fontStack | primary    | --       | --     | hpe.fontStack.primary              |
+| prefix | type      | subtype    | variant | scale  | state | Token                                     |
+| ------ | --------- | ---------- | ------- | ------ | ----- | ----------------------------------------- |
+| hpe    | color     | --         | primary | strong | --    | hpe.color.primary.strong                  |
+| hpe    | spacing   | --         | --      | large  | --    | hpe.spacing.large                         |
+| hpe    | color     | background | primary | strong | hover | hpe.color.background.primary.strong.hover |
+| hpe    | radius    | --         | --      | large  | --    | hpe.radius.large                          |
+| hpe    | text      | --         | --      | xlarge | --    | hpe.text.xlarge                           |
+| hpe    | fontStack | --         | primary | --     | --    | hpe.fontStack.primary                     |
 
 ### Component
 
