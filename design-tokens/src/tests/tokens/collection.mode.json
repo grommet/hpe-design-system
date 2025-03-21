@@ -1,0 +1,75 @@
+{
+  "color": {
+    "background": {
+      "plum": {
+        "DEFAULT": {
+          "REST": {
+            "$value": "#f5f0f6",
+            "$type": "color",
+            "$description": "Plum background color"
+          },
+          "hover": {
+            "$value": "#f5d3f6",
+            "$type": "color",
+            "$description": "Plum background color hover"
+          }
+        },
+        "strong": {
+          "REST": {
+            "$value": "#f5f0f6",
+            "$type": "color",
+            "$description": "Plum background color"
+          }
+        }
+      }
+    }
+  },
+  "spacing": {
+    "medium": {
+      "$value": 96,
+      "$type": "number",
+      "$description": "Medium spacing value"
+    }
+  },
+  "fontStack": {
+    "primary": {
+      "$type": "fontFamily",
+      "$value": "'Metric', Arial, sans-serif",
+      "$description": "The main font stack for an application.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": ["FONT_FAMILY"],
+          "codeSyntax": {}
+        }
+      }
+    }
+  },
+  "base": {
+    "color": {
+      "white": {
+        "100": {
+          "$value": "#ffffff",
+          "$type": "color",
+          "$description": "White color"
+        }
+      }
+    }
+  },
+  "static": {
+    "container": {
+      "small": {
+        "$value": 192,
+        "$type": "number",
+        "$description": "Small container width"
+      }
+    }
+  },
+  "fontSize": {
+    "large": {
+      "$value": 24,
+      "$type": "number",
+      "$description": "Large font size"
+    }
+  }
+}
