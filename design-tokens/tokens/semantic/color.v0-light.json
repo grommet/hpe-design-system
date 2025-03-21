@@ -149,22 +149,6 @@
           }
         }
       },
-      "unknown": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.black.opacity4}",
-            "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "warning": {
         "DEFAULT": {
           "REST": {
@@ -197,12 +181,12 @@
           }
         }
       },
-      "info": {
+      "critical": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.background.contrast.DEFAULT.REST}",
-            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+            "$value": "{base.color.red.500-Opacity24}",
+            "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -213,12 +197,28 @@
           }
         }
       },
-      "critical": {
+      "unknown": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.red.500-Opacity24}",
-            "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
+            "$value": "{base.color.black.opacity4}",
+            "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{color.background.contrast.DEFAULT.REST}",
+            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
