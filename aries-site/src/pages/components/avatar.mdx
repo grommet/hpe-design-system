@@ -1,4 +1,8 @@
-import { BestPracticeGroup, Example } from '../../layouts';
+import {
+  AccessibilitySection,
+  BestPracticeGroup,
+  Example,
+} from '../../layouts';
 import {
   AvatarAccessibilityExample,
   AvatarDarkModeExample,
@@ -15,10 +19,12 @@ Avatars are used to enable users to quickly identify an object, whether that be 
 
 Avatars are always paired with additional information, such as a user's name, for better clarity. If possible, use an image or logo over initials.
 
-The consistent dimensions of an avatar ensure that readability and scanability of content surrounding the avatar is not compromised. For example, when scanning a [data table column that contains an avatar of a company’s logo](/components/avatar#datatable) and the company name, the company name stays aligned from one row to the next. 
+The consistent dimensions of an avatar ensure that readability and scanability of content surrounding the avatar is not compromised. For example, when scanning a [data table column that contains an avatar of a company’s logo](/components/avatar#datatable) and the company name, the company name stays aligned from one row to the next.
 
 ## When not to use
+
 Avatars are not the only components that provide visual representation. When applicable, use these over Avatars:
+
 - Use [Icons](/foundation/icons) when representing objects, actions, programs, or other communicative symbols.
 - Use an [image](/components/avatar#avatar-vs-image) when the context of the visual does not need to have equal height and width to maintain alignment of its surrounding content.
 
@@ -26,12 +32,11 @@ Avatars are not the only components that provide visual representation. When app
 
 Avatars can be displayed as an image, initials, or a logo. They come in three different sizes:
 
-| T-shirt size |  Dimensions (in pixels) |
-| ----------   | --------------|
-| **small**    |    24x24px    |
-| **medium**   |    48x48px    |
-| **large**    |    96x96px    |
-
+| T-shirt size | Dimensions (in pixels) |
+| ------------ | ---------------------- |
+| **small**    | 24x24px                |
+| **medium**   | 48x48px                |
+| **large**    | 96x96px                |
 
 The container of an avatar can be circular or a rounded square based on the use case.
 
@@ -46,30 +51,16 @@ The container of an avatar can be circular or a rounded square based on the use 
   <AvatarSizePreviewExample />
 </Example>
 
-## Accessibility
-
-Inform users of assistive technologies what the avatar represents by including an `a11yTitle`. This text will be read out by a screen reader when the user reaches the avatar.
-
-If the avatar acts as a button, the `a11yTitle` should also inform the user of what action will occur if clicked.
-
-<Example
-  horizontalLayout
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarAccessibilityExample.js"
-  width={{ min: 'medium' }}
->
-  <AvatarAccessibilityExample />
-</Example>
-
 ## Handling logos in dark mode
+
 When possible, provide both a light and dark mode version of a company logo. If a dark mode version of the logo is not available, apply `background={{ color: ‘background’, dark: false }}` to the avatar.
 
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarDarkModeExample.js"
->
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarDarkModeExample.js">
   <AvatarDarkModeExample />
 </Example>
 
 ## Avatar vs. Image
+
 Avatars are not always necessary when presenting a company logo, and in some cases an image is an appropriate choice. For example, when presenting a company’s logo within a grid of cards, an image can be used so that only the height is fixed and the width can grow to fit the logo’s proportions.
 
 In this case, the variable width of the logo does not affect the alignment of text from one card to the next.
@@ -89,8 +80,7 @@ Avatars are always used over images within DataTables to maintain visual alignme
     height="none"
     bestPractice={{
       type: 'do',
-      message:
-        'Use Avatars to align content.',
+      message: 'Use Avatars to align content.',
     }}
   >
     <AvatarDataTableIconExample />
@@ -134,7 +124,28 @@ When using avatars in a DataTable, always accompany the avatar with another piec
 
 When applicable, an avatar is aligned to the left of the title within a PageHeader. Use large-sized avatars within PageHeaders.
 
-<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarPageHeaderExample.js" height="medium" pad="small">
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarPageHeaderExample.js"
+  height="medium"
+  pad="small"
+>
   <AvatarPageHeaderExample />
 </Example>
 
+## Accessibility
+
+Inform users of assistive technologies what the avatar represents by including an `a11yTitle`. This text will be read out by a screen reader when the user reaches the avatar.
+
+If the avatar acts as a button, the `a11yTitle` should also inform the user of what action will occur if clicked.
+
+<Example
+  horizontalLayout
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/avatar/AvatarAccessibilityExample.js"
+  width={{ min: 'medium' }}
+>
+  <AvatarAccessibilityExample />
+</Example>
+
+### WCAG compliance
+
+<AccessibilitySection title="avatar" />
