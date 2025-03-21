@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
   FileInputConfirmRemoveExample,
@@ -11,7 +11,7 @@ import {
   componentName="FileInput"
   docs="https://v2.grommet.io/fileinput?theme=hpe"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/fileinput/FileInputSimpleExample.js"
-  figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?m=auto&node-id=387-1967&t=ufGX927CiBxjB3Q6-1"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=4005-3&t=ZqPsisuevR3KPp96-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/FileInput/FileInput.js"
 >
   <FileInputSimpleExample />
@@ -30,9 +30,6 @@ FileInput is a specialized input providing users a means to select a file or fil
 
 For additional configurations, such as defining accepted file type, all instrinsic HTML properties are supported. For a comprehensive list of these options, you can read more about [HTML input type="file"](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
 
-### Accessibility
-
-When using FileInput within a Form, the FormField wrapping the FileInput should have `htmlFor` and `name` properties that match the `id` and `name` properties placed onto the FileInput. Reference the [FileInput within a Form example](/templates/forms#required-and-optional-fields) to see how to implement.
 
 ## Variants
 
@@ -76,3 +73,9 @@ To see this behavior, add a file then click the "Trash" button to see the confir
   src="/fileinput-form-preview.png"
   alt="HPE Design System FileInput Form Example"
 />
+
+## Accessibility
+When using FileInput within a Form, the FormField wrapping the FileInput should have `htmlFor` and `name` properties that match the `id` and `name` properties placed onto the FileInput. Reference the [FileInput within a Form example](/templates/forms#required-and-optional-fields) to see how to implement.
+
+### WCAG compliance
+  <AccessibilitySection title='fileinput' />

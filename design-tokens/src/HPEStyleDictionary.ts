@@ -19,6 +19,7 @@ import {
   shadowCSS,
   valueToCssVar,
 } from './transforms/index.js';
+import { COPYRIGHT } from './utils.js';
 
 export const HPEStyleDictionary = new StyleDictionary({
   log: {
@@ -90,4 +91,10 @@ HPEStyleDictionary.registerTransformGroup({
 HPEStyleDictionary.registerTransformGroup({
   name: 'css/w3c',
   transforms: cssW3c,
+});
+HPEStyleDictionary.registerFileHeader({
+  name: 'hpe-file-header',
+  fileHeader: async (defaultMessages = []) => {
+    return [...defaultMessages, COPYRIGHT];
+  },
 });
