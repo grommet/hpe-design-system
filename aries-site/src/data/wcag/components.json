@@ -2608,6 +2608,400 @@
         "status": "not-applicable",
         "notes": ""
       }
+    ],
+    "avatar": [
+      {
+        "rule": "1.1.1",
+        "label": "Non-text content",
+        "status": "conditional",
+        "notes": "Requires caller to provide a11yTile prop for `aria-label` to be added to the element for screen readers"
+      },
+      {
+        "rule": "1.2",
+        "label": "Time-based Media",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.1",
+        "label": "Info and Relationships",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.2",
+        "label": "Meaningful Sequence",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.3",
+        "label": "Sensory Characteristics",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.4",
+        "label": "Orientation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.5",
+        "label": "Identify Input Purpose",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.3.6",
+        "label": "Identify Purpose",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.1",
+        "label": "Use of Color",
+        "status": "conditional",
+        "notes": "Based on the background color passed to the avatar. By default there is no background color"
+      },
+      {
+        "rule": "1.4.2",
+        "label": "Audio Control",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.3",
+        "label": "Contrast (Minimum)",
+        "status": "conditional",
+        "notes": "Based on the background color passed to the avatar. By default there is no background color"
+      },
+      {
+        "rule": "1.4.4",
+        "label": "Resize Text",
+        "status": "passed"
+      },
+      {
+        "rule": "1.4.5",
+        "label": "Images of Text",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.6",
+        "label": "Contrast (Enhanced)",
+        "status": "conditional",
+        "notes": "Based on the background color passed to the avatar. By default there is no background color"
+      },
+      {
+        "rule": "1.4.7",
+        "label": "Low or No Background Audio",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.8",
+        "label": "Visual Presentation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.9",
+        "label": "Images of Text (No Exception)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "1.4.10",
+        "label": "Reflow",
+        "status": "passed"
+      },
+      {
+        "rule": "1.4.11",
+        "label": "Non-text Contrast",
+        "status": "conditional",
+        "notes": "Based on contrast of non-text items (such as icons, border, etc) used with the avatar."
+      },
+      {
+        "rule": "1.4.12",
+        "label": "Text Spacing",
+        "status": "passed"
+      },
+      {
+        "rule": "1.4.13",
+        "label": "Content on Hover or Focus",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.1.1",
+        "label": "Keyboard",
+        "status": "passed"
+      },
+      {
+        "rule": "2.1.2",
+        "label": "No Keyboard Trap",
+        "status": "passed"
+      },
+      {
+        "rule": "2.1.3",
+        "label": "Keyboard (No Exception)",
+        "status": "passed"
+      },
+      {
+        "rule": "2.2.1",
+        "label": "Timing Adjustable",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.2",
+        "label": "Pause, Stop, Hide",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.3",
+        "label": "No Timing",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.4",
+        "label": "Interruptions",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.5",
+        "label": "Re-authenticating",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.2.6",
+        "label": "Timeouts",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.3.1",
+        "label": "Three Flashes or Below Threshold",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.3.2",
+        "label": "Three Flashes",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.3.3",
+        "label": "Animation from Interactions",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.1",
+        "label": "Bypass Blocks",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.2",
+        "label": "Page Titled",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.3",
+        "label": "Focus Order",
+        "status": "passed"
+      },
+      {
+        "rule": "2.4.4",
+        "label": "Link Purpose (In Context)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.5",
+        "label": "Multiple Ways",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.6",
+        "label": "Headings and Labels",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.7",
+        "label": "Focus Visible",
+        "status": "passed"
+      },
+      {
+        "rule": "2.4.8",
+        "label": "Location",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.9",
+        "label": "Link Purpose (Link Only)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.10",
+        "label": "Section Headings",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.4.11",
+        "label": "Focus Not Obscured (Minimum)",
+        "status": "passed"
+      },
+      {
+        "rule": "2.4.12",
+        "label": "Focus Not Obscured (Enhanced)",
+        "status": "passed"
+      },
+      {
+        "rule": "2.4.13",
+        "label": "Focus Appearance",
+        "status": "passed"
+      },
+      {
+        "rule": "2.5.1",
+        "label": "Pointer Gestures",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.2",
+        "label": "Pointer Cancellation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.3",
+        "label": "Label in Name",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.4",
+        "label": "Motion Actuation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.5",
+        "label": "Target Size (Enhanced)",
+        "status": "conditional",
+        "notes": "Implementer can set Avatar size to small (24x24) which is supported out of the box"
+      },
+      {
+        "rule": "2.5.6",
+        "label": "Concurrent Input Mechanisms",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.7",
+        "label": "Dragging Movements",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "2.5.8",
+        "label": "Target Size (Minimum)",
+        "status": "passed"
+      },
+      {
+        "rule": "3.1.1",
+        "label": "Language of Page",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.2",
+        "label": "Language of Parts",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.3",
+        "label": "Unusual Words",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.4",
+        "label": "Abbreviations",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.5",
+        "label": "Reading Level",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.1.6",
+        "label": "Pronunciation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.1",
+        "label": "On Focus",
+        "status": "passed"
+      },
+      {
+        "rule": "3.2.2",
+        "label": "On Input",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.3",
+        "label": "Consistent Navigation",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.4",
+        "label": "Consistent Identification",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.5",
+        "label": "Change on Request",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.2.6",
+        "label": "Consistent Help",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.1",
+        "label": "Error Identification",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.2",
+        "label": "Labels or Instructions",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.3",
+        "label": "Error Suggestion",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.4",
+        "label": "Error Prevention (Legal, Financial, Data)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.5",
+        "label": "Help",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.6",
+        "label": "Error Prevention (All)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.7",
+        "label": "Redundant Entry",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.8",
+        "label": "Accessible Authentication (Minimum)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "3.3.9",
+        "label": "Accessible Authentication (Enhanced)",
+        "status": "not-applicable"
+      },
+      {
+        "rule": "4.1.2",
+        "label": "Name, Role, Value",
+        "status": "conditional",
+        "notes": "Requires caller to provide a11yTitle prop to add `aria-label` to the element. Although, uses `role='figure'` for avatar container and `role='presentation'` for the image element."
+      },
+      {
+        "rule": "4.1.3",
+        "label": "Status Messages",
+        "status": "not-applicable"
+      }
     ]
   }
 ]
