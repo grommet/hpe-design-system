@@ -1467,7 +1467,7 @@
       {
         "rule": "1.4.10",
         "label": "Reflow",
-        "status": "not-applicable"
+        "status": "passed"
       },
       {
         "rule": "1.4.11",
@@ -1478,7 +1478,7 @@
       {
         "rule": "1.4.12",
         "label": "Text Spacing",
-        "status": "not-applicable"
+        "status": "passed"
       },
       {
         "rule": "1.4.13",
@@ -1558,7 +1558,7 @@
       {
         "rule": "2.4.3",
         "label": "Focus Order",
-        "status": "not-applicable"
+        "status": "passed"
       },
       {
         "rule": "2.4.4",
