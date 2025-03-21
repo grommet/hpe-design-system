@@ -1,3 +1,4 @@
+export * from './SelectClearExample';
 export * from './SelectDisabledExample';
 export * from './SelectExample';
 export * from './SelectPreview';
