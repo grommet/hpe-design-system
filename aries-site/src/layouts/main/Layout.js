@@ -250,6 +250,15 @@ export const Layout = ({
                   about this page.`,
                 }}
               />
+              <Question
+                name="email"
+                kind="textInput"
+                label="Email"
+                formProps={{
+                  help: `Please leave your email if you're open
+                   to us following up with you directly.`,
+                }}
+              />
             </Feedback>
           </>
         </Page>
