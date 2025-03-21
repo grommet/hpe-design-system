@@ -1030,7 +1030,7 @@
       {
         "rule": "1.4.12",
         "label": "Text Spacing",
-        "status": "failed",
+        "status": "passed",
         "notes": ""
       },
       {
@@ -1108,7 +1108,7 @@
       {
         "rule": "2.3.3",
         "label": "Animation from Interactions",
-        "status": "not-applicable",
+        "status": "conditional",
         "notes": ""
       },
       {
@@ -1366,7 +1366,7 @@
       {
         "rule": "4.1.2",
         "label": "Name, Role, Value",
-        "status": "conditional",
+        "status": "failed",
         "notes": "The component failed because the calendar dates are not read out when navigated, not due to the aria-label."
       },
       {
