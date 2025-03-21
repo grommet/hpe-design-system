@@ -2,7 +2,7 @@ name: Sync tokens to Figma
 on:
   push:
     branches:
-      - design-tokens
+      - demo/design-tokens
 
 jobs:
   sync-tokens-to-figma:
