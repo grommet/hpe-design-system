@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   CheckBoxDisabledExample,
   CheckBoxDescriptionExample,
@@ -60,11 +60,6 @@ height={{ min: 'small' }}
 - When using toggles the order of text and toggle can be controlled using the [reverse prop](https://v2.grommet.io/checkbox?theme=hpe#reverse). If the toggles
   are used in a group that contains only toggles then it is preferred to have the text on the left and the toggle on the right.
 
-### Accessibility
-
-CheckBox should be used inside of a FormField to ensure that a label is properly associated with the input. The labels on individual checkboxes should clearly describe the purpose of the checkbox.
-
-If a CheckBox is used outside of the context of a FormField, it is important to meet accessibility requirements in an alternate way. There should always be clear visual indication, either by text or icon, that describes the purpose of the checkbox.
 
 ## Variants
 
@@ -117,3 +112,12 @@ Used to indicate that CheckBox cannot be interacted with.
 >
   <CheckBoxDisabledExample />
 </Example>
+
+## Accessibility
+
+CheckBox should be used inside of a FormField to ensure that a label is properly associated with the input. The labels on individual checkboxes should clearly describe the purpose of the checkbox.
+
+If a CheckBox is used outside of the context of a FormField, it is important to meet accessibility requirements in an alternate way. There should always be clear visual indication, either by text or icon, that describes the purpose of the checkbox.
+
+### WCAG compliance
+  <AccessibilitySection title='checkbox' />
