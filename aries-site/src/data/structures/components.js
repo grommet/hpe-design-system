@@ -1547,6 +1547,7 @@ export const components = [
   },
   {
     name: 'Pagination',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Controls',
     description: `Pagination enables the user to  navigate between pages
