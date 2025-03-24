@@ -58,12 +58,13 @@ export const HPEPrivateCloud = () => {
         <Heading level={2} margin="none">
           Introducing HPE Private Cloud AI
         </Heading>
-        <Image
-          src="/privateCloud.png"
-          alt="HPE Private Cloud AI"
-          fit="contain"
-          style={{ width: '100vw' }}
-        />
+        <Box>
+          <Image
+            src="/privateCloud.png"
+            alt="HPE Private Cloud AI"
+            fit="cover"
+          />
+        </Box>
         <Text
           size={
             breakpoint === 'xlarge'
