@@ -3100,7 +3100,7 @@
         "rule": "1.3.6",
         "label": "Identify Purpose",
         "status": "failed",
-        "notes": "Screen reader reads out misleading information"
+        "notes": "the screenreader reads out the indeterminate state checkbox as unchecked without additional information. It feels like we are not giving the screenreader user the same information as a sighted user. The indeterminate state is different than the unchecked state."
       },
       {
         "rule": "1.4.1",

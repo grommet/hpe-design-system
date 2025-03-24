@@ -680,8 +680,6 @@ export const components = [
   {
     name: 'CheckBox',
     accessibility: 'Failed WCAG 2.2 A',
-    accessibility: 'Failed WCAG 2.2 AA',
-    accessibility: 'Failed WCAG 2.2 AAA',
     category: 'Inputs',
     description:
       'CheckBox is a square design element that when clicked accepts the choice offered.',
