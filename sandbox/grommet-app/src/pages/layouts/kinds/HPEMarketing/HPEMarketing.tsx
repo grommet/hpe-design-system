@@ -4,6 +4,7 @@ import { Box, Page, PageContent } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { RoutedAnchor } from '../../../../components';
 import { HPEAI } from './HPEAI';
+import { MarketingBrochure } from './MarketingBrochure';
 
 export const HPEMarketing = () => {
   return (
@@ -19,6 +20,7 @@ export const HPEMarketing = () => {
         </Box>
       </PageContent>
       <HPEAI />
+      <MarketingBrochure />
     </Page>
   );
 };
