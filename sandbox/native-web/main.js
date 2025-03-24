@@ -1,9 +1,9 @@
-import 'hpe-design-tokens/dist/css/base.css';
+import 'hpe-design-tokens/dist/css/primitives.css';
 import 'hpe-design-tokens/dist/css/color.light.css';
 import 'hpe-design-tokens/dist/css/color.dark.css';
 import 'hpe-design-tokens/dist/css/components.css';
 import 'hpe-design-tokens/dist/css/global.css';
-import 'hpe-design-tokens/dist/css/dimension.medium.css';
+import 'hpe-design-tokens/dist/css/dimension.css';
 import 'hpe-design-tokens/dist/css/dimension.small.css';
 import './css/fonts.css';
 import './css/components.css';
@@ -67,7 +67,7 @@ const CheckBox = ({ label, id }) => `
 `;
 
 document.querySelector('#app').innerHTML = `
-  <div class="globalHeader">
+  <div class="globalHeader" data-mode="dark">
       <div class="greenlake-badge">
       ${HPEGreenLakeBadge()}
       </div>
