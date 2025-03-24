@@ -370,7 +370,7 @@
       "rule": "1.1.1",
       "label": "Non-text Content",
       "status": "conditional",
-      "notes": "Ensure icons (e.g. chevrons for previous/next) have appropriate aria-labels if not purely decorative."
+      "notes": "Ensure icons (e.g. chevrons for previous/next) have appropriate aria-labels."
     },
     {
       "rule": "1.2.1",
@@ -455,7 +455,7 @@
     {
       "rule": "1.4.6",
       "label": "Contrast Enhanced",
-      "status": "passed"
+      "status": "failed"
     },
     {
       "rule": "1.4.7",
@@ -570,7 +570,8 @@
     {
       "rule": "2.4.4",
       "label": "Link Purpose (In Context)",
-      "status": "passed"
+      "status": "conditional",
+      "notes": "Ensure links have appropriate aria-labels."
     },
     {
       "rule": "2.4.5",
@@ -580,7 +581,8 @@
     {
       "rule": "2.4.6",
       "label": "Headings and Labels",
-      "status": "passed"
+      "status": "conditional",
+      "notes": "Ensure items have appropriate aria-labels."
     },
     {
       "rule": "2.4.7",
