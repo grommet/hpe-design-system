@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Page, PageContent } from 'grommet';
+import { Box, Page, PageContent, ResponsiveContext } from 'grommet';
 import { Previous } from 'grommet-icons';
 import { RoutedAnchor } from '../../../../components';
 import { HPEAI } from './HPEAI';
@@ -9,8 +9,13 @@ import { HPEVideo } from './HPEVideo';
 import { HPEPrivateCloud } from './HPEPrivateCloud';
 import { HPEProducts } from './HPEProducts';
 import { HPEAIUseCase } from './HPEAIUseCase';
+import { HPEArchitect } from './HPEArchitect';
 
 export const HPEMarketing = () => {
+  const breakpoint = useContext(ResponsiveContext);
+  const metricSize = ['xsmall', 'small', 'medium'].includes(breakpoint)
+    ? 'small'
+    : 'medium';
   return (
     <Page pad={{ bottom: 'xlarge' }}>
       <PageContent>
@@ -28,6 +33,7 @@ export const HPEMarketing = () => {
       <HPEVideo />
       <HPEPrivateCloud />
       <HPEProducts />
+      <HPEArchitect size={metricSize} />
     </Page>
   );
 };
