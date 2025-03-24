@@ -101,6 +101,15 @@ const theme = {
 }
 ```
 
+### Dark mode
+
+Building with [semantic design tokens](/design-tokens/overview#semantic-tokens) allows dark mode to be easily applied to an application. The dark mode CSS file is exported as part of the `hpe-design-tokens` package.
+
+To apply dark mode to an application:
+
+1. Import the [dark mode CSS file](#css-variables).
+2. Apply `data-mode="dark"` to the root element of the application.
+
 ### Generate CSS class names
 
 This code snippet provides a starting point for how to programmatically generate CSS class names for components using either the [ESM](#esm) or [CommonJS](#commonjs) outputs.
