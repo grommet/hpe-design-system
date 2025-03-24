@@ -129,7 +129,7 @@ export const HPEArchitect = ({ size }) => {
         </Box>
         <Box gridArea="hpeBook">
           <Image
-            a11yTitle="Architect an AI advantage book"
+            alt="Architect an AI advantage book"
             src="/hpe_book.png"
             fit="contain"
           />
