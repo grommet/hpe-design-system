@@ -63,7 +63,7 @@ export const HPEAI = () => {
         >
           {/* // this is off a little for the padding on top compared to page. */}
           <Box pad={{ top: padTop }}>
-            <Text weight="bold" size="small">
+            <Text weight={600} size="small">
               Artificial Intelligence (AI) solutions
             </Text>
           </Box>
