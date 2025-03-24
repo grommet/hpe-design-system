@@ -323,6 +323,7 @@ export const components = [
   },
   {
     name: 'DateInput',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Inputs',
     description:
       'A widget which allows the user to select a date or range of dates from a calendar.',
