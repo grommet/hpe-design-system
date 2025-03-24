@@ -3250,7 +3250,7 @@
         "rule": "2.3.3",
         "label": "Animation from Interactions",
         "status": "conditional",
-        "notes": ""
+        "notes": "Animation occurs during calendar month transitions and can be disabled by setting the animate prop on the Calendar component to false."
       },
       {
         "rule": "2.4.1",
