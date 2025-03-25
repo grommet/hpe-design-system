@@ -592,7 +592,7 @@
     {
       "rule": "2.4.8",
       "label": "Location",
-      "status": "passed"
+      "status": "not-applicable"
     },
     {
       "rule": "2.4.9",
