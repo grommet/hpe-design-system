@@ -85,6 +85,7 @@ module.exports = {
         "warning": "#d36d00",
         "unknown": "#555555",
         "primary": "#17d0a6",
+        "onStrong": "#222222",
         "onPrimaryStrong": "#ffffff",
         "onSelectedPrimaryStrong": "#ffffff",
         "onSelectedPrimary": "#ffffff"

@@ -51,6 +51,7 @@
   --hpe-color-icon-warning: var(--hpe-base-color-orange-600); /* Use for icons communicating warning or caution. Keywords: status */
   --hpe-color-icon-unknown: var(--hpe-base-color-grey-600); /* Use for icons communicating unknown status. Keywords: status */
   --hpe-color-icon-primary: var(--hpe-base-color-green-800); /* High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action. */
+  --hpe-color-icon-onStrong: var(--hpe-base-color-white-100); /* Icon color to be used on strong backgrounds. For example, background-neutral-xstrong. */
   --hpe-color-icon-onPrimaryStrong: var(--hpe-base-color-white-100); /* Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
   --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /* Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-decorative-green: var(--hpe-base-color-green-400); /* Use for decorative purposes when color has no specific meaning. */

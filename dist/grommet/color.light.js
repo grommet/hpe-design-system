@@ -85,6 +85,7 @@ export default {
         "warning": "#d36d00",
         "unknown": "#8c8c8c",
         "primary": "#006750",
+        "onStrong": "#ffffff",
         "onPrimaryStrong": "#ffffff",
         "onSelectedPrimaryStrong": "#ffffff",
         "onSelectedPrimary": "#2e2e2e"
