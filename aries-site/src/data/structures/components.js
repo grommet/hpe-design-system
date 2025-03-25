@@ -1594,6 +1594,7 @@ export const components = [
   },
   {
     name: 'Tag',
+    accessibility: 'Failed WCAG 2.2 A',
     available: true,
     category: 'Visualizations',
     description: `Tags are metadata attributes facilitating the identification, 
