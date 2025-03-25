@@ -369,8 +369,8 @@
     {
       "rule": "1.1.1",
       "label": "Non-text Content",
-      "status": "conditional",
-      "notes": "Ensure icons (e.g. chevrons for previous/next) have appropriate aria-labels."
+      "status": "passed",
+      "notes": ""
     },
     {
       "rule": "1.2.1",
