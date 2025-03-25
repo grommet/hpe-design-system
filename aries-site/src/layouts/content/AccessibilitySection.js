@@ -15,8 +15,8 @@ export const AccessibilitySection = ({ title, version }) => {
       return [];
     }
 
-    return componentData ? componentData : [];
-  }, [title]);
+    return componentData || [];
+  }, [title, componentData]);
 
   useEffect(() => {
     fetch(
