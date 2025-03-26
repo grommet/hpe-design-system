@@ -3414,52 +3414,6 @@ export default {
     ],
     "key": "{color.icon.primary.DEFAULT.REST}"
   },
-  "hpe.color.icon.onStrong": {
-    "$type": "color",
-    "$value": "#222222",
-    "$description": "Icon color to be used on strong backgrounds. For example, background-neutral-xstrong.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.grey.1200}",
-      "$description": "Icon color to be used on strong backgrounds. For example, background-neutral-xstrong.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.icon.onStrong",
-    "attributes": {
-      "category": "color",
-      "type": "icon",
-      "item": "onStrong",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "icon",
-      "onStrong",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.icon.onStrong.DEFAULT.REST}"
-  },
   "hpe.color.icon.onPrimaryStrong": {
     "$type": "color",
     "$value": "#ffffff",
@@ -3605,6 +3559,52 @@ export default {
       "REST"
     ],
     "key": "{color.icon.onSelectedPrimary.DEFAULT.REST}"
+  },
+  "hpe.color.icon.onStrong": {
+    "$type": "color",
+    "$value": "#222222",
+    "$description": "Icon color to be used on strong backgrounds. For example, background-neutral-xstrong.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.grey.1200}",
+      "$description": "Icon color to be used on strong backgrounds. For example, background-neutral-xstrong.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.icon.onStrong",
+    "attributes": {
+      "category": "color",
+      "type": "icon",
+      "item": "onStrong",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "icon",
+      "onStrong",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.icon.onStrong.DEFAULT.REST}"
   },
   "hpe.color.decorative.brand": {
     "$type": "color",

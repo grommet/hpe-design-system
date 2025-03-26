@@ -85,10 +85,10 @@ module.exports = {
         "warning": "var(--hpe-color-icon-warning)",
         "unknown": "var(--hpe-color-icon-unknown)",
         "primary": "var(--hpe-color-icon-primary)",
-        "onStrong": "var(--hpe-color-icon-onStrong)",
         "onPrimaryStrong": "var(--hpe-color-icon-onPrimaryStrong)",
         "onSelectedPrimaryStrong": "var(--hpe-color-icon-onSelectedPrimaryStrong)",
-        "onSelectedPrimary": "var(--hpe-color-icon-onSelectedPrimary)"
+        "onSelectedPrimary": "var(--hpe-color-icon-onSelectedPrimary)",
+        "onStrong": "var(--hpe-color-icon-onStrong)"
       },
       "decorative": {
         "brand": "var(--hpe-color-decorative-brand)",
