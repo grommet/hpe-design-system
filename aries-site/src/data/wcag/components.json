@@ -477,7 +477,7 @@
     {
       "rule": "1.4.6",
       "label": "Contrast Enhanced",
-      "status": "failed"
+      "status": "failed",
       "note": "Active pagination button does not meet 7:1 contrast ratio"
     },
     {
@@ -593,7 +593,6 @@
     {
       "rule": "2.4.4",
       "label": "Link Purpose (In Context)",
-      "status": "conditional",
       "status": "not-applicable"
     },
     {
