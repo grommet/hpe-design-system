@@ -47,7 +47,7 @@ export const HPEAIUseCase = () => {
           actions={
             // button sizes are off in design they have 42px height and we have 36px
             <Button
-              label="View the usecase brief"
+              label="View the use case brief"
               aria-label="View the usecase brief on Virtual Assistants"
               reverse
               primary
