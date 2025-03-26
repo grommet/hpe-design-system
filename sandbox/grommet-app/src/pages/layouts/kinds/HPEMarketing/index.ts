@@ -1,4 +1,5 @@
 export * from './HPEAI';
+export * from './HPEAIUseCase';
 export * from './HPEMarketing';
 export * from './MarketingBrochure';
 export * from './HPEVideo';
