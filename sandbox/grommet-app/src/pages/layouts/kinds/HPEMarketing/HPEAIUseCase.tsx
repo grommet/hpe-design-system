@@ -92,7 +92,7 @@ export const HPEAIUseCase = () => {
           actions={
             <Button
               label="View the usecase brief"
-              aria-label="View the usecase brief on Content and Product Creation"
+              aria-label="View the use case brief on Content and Product Creation"
               reverse
               primary
               icon={<LinkNext />}
