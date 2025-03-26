@@ -149,7 +149,7 @@ export const WCAGRuleDetail = ({ rules, version }) => {
                           ? item
                           : worst;
                       },
-                      { status: 'conditional' },
+                      { status: 'passed' },
                     ).status,
                   )}
                   <Heading margin={{ vertical: 'small' }} level={4}>
