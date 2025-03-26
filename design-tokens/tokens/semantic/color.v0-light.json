@@ -149,22 +149,6 @@
           }
         }
       },
-      "unknown": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.black.opacity4}",
-            "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "warning": {
         "DEFAULT": {
           "REST": {
@@ -197,12 +181,12 @@
           }
         }
       },
-      "info": {
+      "critical": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.background.contrast.DEFAULT.REST}",
-            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+            "$value": "{base.color.red.500-Opacity24}",
+            "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -213,12 +197,28 @@
           }
         }
       },
-      "critical": {
+      "unknown": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.red.500-Opacity24}",
-            "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
+            "$value": "{base.color.black.opacity4}",
+            "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{color.background.contrast.DEFAULT.REST}",
+            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1087,6 +1087,22 @@
             "$type": "color",
             "$value": "{base.color.green.600}",
             "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "onStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.white.100}",
+            "$description": "Icon color to be used on strong backgrounds. For example, background-neutral-xstrong.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
