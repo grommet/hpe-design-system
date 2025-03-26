@@ -1097,22 +1097,6 @@
           }
         }
       },
-      "onStrong": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.grey.1200}",
-            "$description": "Icon color to be used on strong backgrounds. For example, background-neutral-xstrong.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["TEXT_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "onPrimaryStrong": {
         "DEFAULT": {
           "REST": {
@@ -1155,6 +1139,22 @@
               "com.figma": {
                 "hiddenFromPublishing": false,
                 "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "onStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.grey.1200}",
+            "$description": "Icon color to be used on strong backgrounds. For example, background-neutral-xstrong.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"],
                 "codeSyntax": {}
               }
             }
