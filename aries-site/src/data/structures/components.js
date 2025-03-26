@@ -718,8 +718,6 @@ export const components = [
   {
     name: 'CheckBoxGroup',
     accessibility: 'Failed WCAG 2.2 A',
-    accessibility: 'Failed WCAG 2.2 AA',
-    accessibility: 'Failed WCAG 2.2 AAA',
     category: 'Inputs',
     description:
       'CheckBoxGroup is a component that presents related checkbox options.',
