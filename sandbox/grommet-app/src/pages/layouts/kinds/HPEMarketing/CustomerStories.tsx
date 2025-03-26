@@ -193,6 +193,7 @@ export const HPECustomerStories = () => {
                   src="/girl-drone.png"
                 />
               </Box>
+              {/* I used 900 for font weight here */}
               <Heading level={3} size="xlarge" weight={900} margin="none">
                 Elevating wireless connectivity to new heights with AI
               </Heading>
@@ -257,15 +258,13 @@ export const HPECustomerStories = () => {
               // we would have to do some css to get it to look like theirs
               overflow={{ horizontal: 'auto' }}
               gap="large"
-              fill="horizontal"
             >
               <Box direction="row" gap="large">
                 <NavigationalCards
                   title="Elevating wireless connectivity to new heights with AI"
                   desc="Researchers from KU Leuven are advancing network reliability while addressing the need for safety and energy efficiency."
                   label="Read the customer story"
-                  // this is a common color I see that we dont have
-                  background="#073634"
+                  background="background-primary-xstrong"
                   size={null}
                 />
                 <ImageCards
@@ -289,7 +288,11 @@ export const HPECustomerStories = () => {
                   src="/customer-service.png"
                   fit="cover"
                 />
-                <BulletCards size={null} background="#073634" title="Outcomes">
+                <BulletCards
+                  size={null}
+                  background="background-primary-xstrong"
+                  title="Outcomes"
+                >
                   {outcomeContent.map(item => `- ${item}`).join('\n')}
                 </BulletCards>
               </Box>
@@ -315,7 +318,11 @@ export const HPECustomerStories = () => {
                   background={null}
                   size="small"
                 />
-                <BulletCards size="small" background="#073634" title="Solution">
+                <BulletCards
+                  size="small"
+                  background="background-primary-xstrong"
+                  title="Solution"
+                >
                   {solutionContent.map(item => `- <u>${item}</u>`).join('\n')}
                 </BulletCards>
                 <ImageCards
@@ -329,7 +336,7 @@ export const HPECustomerStories = () => {
                   title="Digital Game Changers"
                   desc="From edge to hybrid cloud to AI, HPE customers are leading the way to what's next."
                   label="View all stories"
-                  background="#073634"
+                  background="background-primary-xstrong"
                   size="small"
                   // their secondary button looks like our old design where it is border only
                   secondary={true}
