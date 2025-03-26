@@ -69,7 +69,7 @@ export const HPEAIUseCase = () => {
           description="Deploy AI driven event and incident management."
           actions={
             <Button
-              label="View the usecase brief"
+              label="View the use case brief"
               aria-label="View the use case brief on automation"
               reverse
               primary
