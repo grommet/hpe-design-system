@@ -91,7 +91,7 @@ export const HPEAIUseCase = () => {
           description="Rapidly create and produce content for an insights-driven, customizable customer experience."
           actions={
             <Button
-              label="View the usecase brief"
+              label="View the use case brief"
               aria-label="View the use case brief on Content and Product Creation"
               reverse
               primary
