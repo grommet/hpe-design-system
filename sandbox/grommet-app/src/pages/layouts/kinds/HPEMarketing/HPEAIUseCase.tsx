@@ -47,8 +47,8 @@ export const HPEAIUseCase = () => {
           actions={
             // button sizes are off in design they have 42px height and we have 36px
             <Button
-              label="View the usecase brief"
-              aria-label="View the usecase brief on Virtual Assistants"
+              label="View the use case brief"
+              aria-label="View the use case brief on Virtual Assistants"
               reverse
               primary
               icon={<LinkNext />}
@@ -69,8 +69,8 @@ export const HPEAIUseCase = () => {
           description="Deploy AI driven event and incident management."
           actions={
             <Button
-              label="View the usecase brief"
-              aria-label="View the usecase brief on automation"
+              label="View the use case brief"
+              aria-label="View the use case brief on automation"
               reverse
               primary
               icon={<LinkNext />}
@@ -91,8 +91,8 @@ export const HPEAIUseCase = () => {
           description="Rapidly create and produce content for an insights-driven, customizable customer experience."
           actions={
             <Button
-              label="View the usecase brief"
-              aria-label="View the usecase brief on Content and Product Creation"
+              label="View the use case brief"
+              aria-label="View the use case brief on Content and Product Creation"
               reverse
               primary
               icon={<LinkNext />}
