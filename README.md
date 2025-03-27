@@ -1,28 +1,27 @@
-# hpe design-system monorepo
+# hpe-design-system
 
 ### HPE Design System Site
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/39e37d4a-4f9f-4946-8aeb-b8328b1821cd/deploy-status)](https://app.netlify.com/sites/keen-mayer-a86c8b/deploys) - https://design-system.hpe.design/
+[![Netlify Status](https://api.netlify.com/api/v1/badges/39e37d4a-4f9f-4946-8aeb-b8328b1821cd/deploy-status)](https://app.netlify.com/sites/keen-mayer-a86c8b/deploys)
 
-### Storybook
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e4cb8d72-f3c0-4490-a4d7-54273ac277ed/deploy-status)](https://app.netlify.com/sites/thirsty-shockley-2b7675/deploys) - http://storybook.hpe.design/
+https://design-system.hpe.design/
 
 # Welcome to HPE Design System
 
-Aries is a monorepo built from two modules.
+hpe-design-tokens is a monorepo containing core assets and documentation for the HPE Design System.
 
-1. aries-core
-2. aries-site (For designers and developers. This is the documentation site for the HPE Design System.)
+- aries-site: The documentation site for the design system.
+- design-tokens: The source code for [hpe-design-tokens](https://www.npmjs.com/package/hpe-design-tokens).
+- aries-core: Used for accessibility testing.
 
-The Monorepo is installed using [yarn](https://github.com/yarnpkg/yarn), and relies on [yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/).
+The monorepo is installed using [yarn](https://github.com/yarnpkg/yarn), and relies on [yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/).
 
 Packages are automatically linked together, meaning you can do cross-package work within the repo. woot-woot!
 
 ### Basic structure and configurations
 
 ```
-aries/
+hpe-design-system/
   aries-*/
     src/js/
       index.js
@@ -38,7 +37,7 @@ README.md                // workspace-wide information. shown in github
 yarn.lock                // the only lock file in the repo. all packages combined
 ```
 
-## Getting Started
+## Getting started
 
 ```
 yarn install
@@ -58,10 +57,10 @@ cd aries-site
 yarn start
 ```
 
-Running in production mode:
+Run in production mode:
 
 ```
-yarn build
+yarn start-server
 ```
 
 
