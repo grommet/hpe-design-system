@@ -8,7 +8,7 @@ https://design-system.hpe.design/
 
 # Welcome to HPE Design System
 
-hpe-design-tokens is a monorepo containing core assets and documentation for the HPE Design System.
+hpe-design-system is a monorepo containing core assets and documentation for the HPE Design System.
 
 - aries-site: The documentation site for the design system.
 - design-tokens: The source code for [hpe-design-tokens](https://www.npmjs.com/package/hpe-design-tokens).
