@@ -68,6 +68,7 @@ export const components = [
   },
   {
     name: 'Avatar',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description:
       'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
@@ -322,6 +323,7 @@ export const components = [
   },
   {
     name: 'DateInput',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Inputs',
     description:
       'A widget which allows the user to select a date or range of dates from a calendar.',
@@ -678,6 +680,7 @@ export const components = [
   },
   {
     name: 'CheckBox',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'CheckBox is a square design element that when clicked accepts the choice offered.',
