@@ -2,15 +2,10 @@ import { useState, useRef, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
-import styled, { ThemeContext } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { StatusGoodSmall } from 'grommet-icons';
 import { nameToSlug } from '../../utils';
 import { ViewContext } from '../../pages/_app';
-
-const SectionButton = styled(Button)`
-  border-radius: 0 ${props => props.theme.global.edgeSize.xsmall}
-    ${props => props.theme.global.edgeSize.xsmall} 0;
-`;
 
 const useActiveHeadingId = (headings, options) => {
   const [activeHeadingId, setActiveHeadingId] = useState();
@@ -82,15 +77,14 @@ export const InPageNavigation = ({ headings, title }) => {
       <Box
         pad={{ horizontal: 'small', bottom: 'small' }}
         flex={false}
-        border={{ side: 'left', color: 'border-weak', size: 'small' }}
+        border={{ side: 'left', color: 'transparent', size: 'small' }}
       >
         <Text
           color="text-strong"
-          weight="bold"
           // align with button labels
-          margin={{ left: theme.global.borderSize.small }}
+          margin={{ left: theme.button.size.small.default.pad.horizontal }}
         >
-          Jump to section
+          On this page
         </Text>
       </Box>
       <Nav gap="none" a11yTitle="Jump to section">
@@ -101,12 +95,6 @@ export const InPageNavigation = ({ headings, title }) => {
           // heading[1] refers to the full heading title matched by regex
           const headingTitle = heading[1];
           const active = activeId === nameToSlug(headingTitle);
-
-          const borderLeft = {
-            side: 'left',
-            size: active ? 'medium' : 'small',
-            color: active ? 'border-strong' : 'border-weak',
-          };
 
           let subsectionPad = 'small';
           if (level.length > 3) subsectionPad = 'large';
@@ -130,33 +118,21 @@ export const InPageNavigation = ({ headings, title }) => {
           }
 
           return (
-            <Link
-              key={index}
-              href={`#${nameToSlug(headingTitle)}`}
-              passHref
-              legacyBehavior
-            >
-              <SectionButton theme={theme} hoverIndicator>
-                <Box border={borderLeft}>
-                  <Box
-                    pad={{
-                      left: subsectionPad,
-                      vertical: theme.button.size.small.pad.vertical,
-                      right: theme.button.size.small.pad.horizontal,
-                    }}
-                    margin={
-                      active
-                        ? undefined
-                        : { left: theme.global.borderSize.small }
-                    }
-                    direction="row"
-                    align="top"
-                    gap="small"
-                  >
-                    <Text color="text-strong" size="small" weight="normal">
-                      {headingTitle}
-                    </Text>
-                    {showUpdate && pageUpdateReady && (
+            <Box pad={{ left: subsectionPad, right: 'xxsmall' }}>
+              <Link
+                key={index}
+                href={`#${nameToSlug(headingTitle)}`}
+                passHref
+                legacyBehavior
+              >
+                <Button
+                  active={active}
+                  justify="start"
+                  align="start"
+                  label={headingTitle}
+                  size="small"
+                  icon={
+                    showUpdate && pageUpdateReady ? (
                       <Box background={{ dark: true }} justify="top">
                         <StatusGoodSmall
                           a11yTitle="Section has been updated"
@@ -165,11 +141,11 @@ export const InPageNavigation = ({ headings, title }) => {
                           height="small"
                         />
                       </Box>
-                    )}
-                  </Box>
-                </Box>
-              </SectionButton>
-            </Link>
+                    ) : undefined
+                  }
+                />
+              </Link>
+            </Box>
           );
         })}
       </Nav>

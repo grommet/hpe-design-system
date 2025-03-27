@@ -563,7 +563,7 @@ export function generatePostVariablesPayload(
         postVariablesPayload.variables!.push({
           action: 'CREATE',
           id: variableId,
-          name: tokenName,
+          name: adjustedName,
           variableCollectionId,
           resolvedType: variableResolvedTypeFromToken(token),
           ...differences,

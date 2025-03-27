@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   ToggleGroupAnatomy,
   ToggleGroupSimple,
@@ -10,7 +10,7 @@ import {
   componentName="ToggleGroup"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/togglegroup/ToggleGroupSimple.js"
   docs="https://v2.grommet.io/togglegroup?theme=hpe"
-  figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?m=auto&node-id=27182-429&t=I27997ArWLDukWGZ-1"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=3778-6628&t=ZqPsisuevR3KPp96-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/ToggleGroup/ToggleGroup.js"
   height={{ min: 'small' }}
 >
@@ -73,10 +73,14 @@ With multiple selection, multiple buttons can be toggled on at the same time.
 
 ## Accessibility
 
-In icon-only cases, ensure each icon has a clear a11yTitle.
+In icon-only cases, ensure each icon has a clear `aria-label`.
 
 | Key                   | Interaction                                                                                                                    |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | **Tab**               | If nothing is toggled on, focuses on the first button in the group. Otherwise, focuses on the first button that is toggled on. |
 | **Left/Right Arrows** | Moves to other available buttons.                                                                                              |
 | **Space/Enter**       | Selects button with focus.                                                                                                     |
+
+### WCAG compliance
+
+<AccessibilitySection title="ToggleGroup" />

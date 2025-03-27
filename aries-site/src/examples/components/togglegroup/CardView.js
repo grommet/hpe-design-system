@@ -29,7 +29,7 @@ export const CardView = () => {
 
 const Card = ({ name, success, rocket }) => {
   return (
-    <GrommetCard>
+    <GrommetCard elevation="medium">
       <CardBody gap="medium">
         <Box gap="xsmall">
           <Box direction="row" align="center" gap="xsmall" flex>

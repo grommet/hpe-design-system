@@ -149,28 +149,12 @@
           }
         }
       },
-      "unknown": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.black.opacity4}",
-            "$description": "Use for backgrounds communicating an unknown status.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "warning": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
             "$value": "{base.color.orange.400-Opacity12}",
-            "$description": "Use for backgrounds communicating warning or caution.",
+            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -186,23 +170,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.green.400-Opacity12}",
-            "$description": "Use for backgrounds communicating success.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "info": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.blue.400-Opacity12}",
-            "$description": "Use for backgrounds communicating neutral information.",
+            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -218,7 +186,39 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.red.500-Opacity12}",
-            "$description": "Use for backgrounds communicating errors or danger.",
+            "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "unknown": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.black.opacity4}",
+            "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.blue.400-Opacity12}",
+            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -424,7 +424,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.red.800}",
-            "$description": "Use for borders communicating errors or danger.",
+            "$description": "Use for borders communicating errors or danger. Keywords: status, critical",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -440,7 +440,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.border.default.REST}",
-            "$description": "Use for borders communicating neutral information.",
+            "$description": "Use for borders communicating neutral information. Keyword: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -456,7 +456,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.border.default.REST}",
-            "$description": "Use for borders communicating success.",
+            "$description": "Use for borders communicating success. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -472,7 +472,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.border.default.REST}",
-            "$description": "Use for borders communicating warning or caution.",
+            "$description": "Use for borders communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -488,7 +488,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.border.default.REST}",
-            "$description": "Use for borders communicating an unknown status.",
+            "$description": "Use for borders communicating an unknown status. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -624,7 +624,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.red.800}",
-            "$description": "Use for text on standard backgrounds communicating errors or danger.",
+            "$description": "Use for text on standard backgrounds communicating errors or danger. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -640,7 +640,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.text.default.REST}",
-            "$description": "Use for text on standard backgrounds communicating neutral information.",
+            "$description": "Use for text on standard backgrounds communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -656,7 +656,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.text.default.REST}",
-            "$description": "Use for text on standard backgrounds communicating success.",
+            "$description": "Use for text on standard backgrounds communicating success. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -672,7 +672,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.text.default.REST}",
-            "$description": "Use for text on standard backgrounds communicating warning or caution.",
+            "$description": "Use for text on standard backgrounds communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -688,7 +688,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.text.default.REST}",
-            "$description": "Use for text on standard backgrounds communicating an unknown status.",
+            "$description": "Use for text on standard backgrounds communicating an unknown status. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1006,7 +1006,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.red.600}",
-            "$description": "Use for icons communicating errors or danger.",
+            "$description": "Use for icons communicating errors or danger. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1022,7 +1022,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.blue.900}",
-            "$description": "Use for icons communicating neutral information.",
+            "$description": "Use for icons communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1038,7 +1038,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.green.650}",
-            "$description": "Use for icons communicating success.",
+            "$description": "Use for icons communicating success. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1054,7 +1054,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.orange.600}",
-            "$description": "Use for icons communicating warning or caution.",
+            "$description": "Use for icons communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1070,7 +1070,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.grey.600}",
-            "$description": "Use for icons communicating unknown status.",
+            "$description": "Use for icons communicating unknown status. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1139,6 +1139,22 @@
               "com.figma": {
                 "hiddenFromPublishing": false,
                 "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "onStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.white.100}",
+            "$description": "Icon color to be used on strong backgrounds. For example, background-neutral-xstrong.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"],
                 "codeSyntax": {}
               }
             }
@@ -1482,7 +1498,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.red.600}",
-            "$description": "Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar.",
+            "$description": "Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1498,7 +1514,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.orange.600}",
-            "$description": "Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar.",
+            "$description": "Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1514,7 +1530,7 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.grey.600}",
-            "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar.",
+            "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,

@@ -90,10 +90,7 @@ const Index = () => (
           </Paragraph>
         </Box>
       </Intro>
-      <Stack guidingChild="last">
-        <Box background="background-front" margin={{ top: 'xlarge' }} fill />
-        <Featured {...widthProps} />
-      </Stack>
+      <Featured {...widthProps} />
       <WhatIs {...widthProps} />
       <Video {...widthProps} />
       <Highlights {...widthProps} />

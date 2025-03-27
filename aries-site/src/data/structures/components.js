@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { FileInput, Spinner } from 'grommet';
 import {
   AnchorPreview,
   AvatarPreview,
@@ -30,7 +31,7 @@ import { TagPreview } from '../../examples/cardPreviews/tag';
 export const components = [
   {
     name: 'Anchor',
-    accessibility: 'Passed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Controls',
     description:
       'Hyperlinks used with text-based navigation, such as inline text.',
@@ -67,6 +68,7 @@ export const components = [
   },
   {
     name: 'Avatar',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description:
       'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
@@ -153,6 +155,7 @@ export const components = [
       'A container providing at-a-glance information and easy access to more details.',
     seoDescription:
       'Cards are a container providing at-a-glance information and easy access to more details. See when to use cards and alternatives.',
+    accessibility: 'Passed WCAG 2.2 AA',
     preview: {
       image: {
         src: {
@@ -283,6 +286,7 @@ export const components = [
   },
   {
     name: 'Tabs',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Tabs are graphical elements usually arranged like column headings. They allow a user to access various sets of content without leaving their current page.',
@@ -319,6 +323,7 @@ export const components = [
   },
   {
     name: 'DateInput',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Inputs',
     description:
       'A widget which allows the user to select a date or range of dates from a calendar.',
@@ -360,6 +365,7 @@ export const components = [
   },
   {
     name: 'FileInput',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Inputs',
     description:
       'An input field where a user can select and upload one or more files.',
@@ -368,14 +374,7 @@ export const components = [
     relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
     sections: ['FileInput with multiple files', 'FileInput within a Form'],
     preview: {
-      image: {
-        src: {
-          light: '/componentImages/components-preview-fileinput.svg',
-          dark: '/componentImages/components-preview-fileinput-invert.svg',
-        },
-        alt: 'HPE Design System FileInput',
-        fit: 'contain',
-      },
+      component: () => <FileInput inert aria-hidden="true" tabIndex={-1} />,
     },
     tags: [
       'input fields',
@@ -446,6 +445,7 @@ export const components = [
     description: 'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'About TextInput',
       'Password',
@@ -545,6 +545,7 @@ export const components = [
       'Search is a field that allows a user to input keywords for content they are looking for.',
     seoDescription:
       'See HPE Design System Search input design and code examples.',
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'Placeholder',
       'Auto-suggestions',
@@ -679,6 +680,7 @@ export const components = [
   },
   {
     name: 'CheckBox',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'CheckBox is a square design element that when clicked accepts the choice offered.',
@@ -851,7 +853,7 @@ export const components = [
   },
   {
     name: 'Menu',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Menu is a component that contains a list of actions. When a user clicks an item in the menu, the menu closes and the action is executed.',
@@ -1403,13 +1405,15 @@ export const components = [
       'Spinner is a small motion graphic element that indicates a loading state for quick, asynchronous tasks.',
 
     preview: {
-      image: {
-        src: {
-          light: '/components-preview-spinner.svg',
-          dark: '/components-preview-spinner-invert.svg',
-        },
-        alt: 'HPE Spinner preview',
-      },
+      component: () => (
+        // eslint-disable-next-line grommet/spinner-message
+        <Spinner
+          animation={false}
+          aria-hidden="true"
+          size="large"
+          style={{ transform: 'rotate(75deg)' }}
+        />
+      ),
     },
     seoDescription:
       'Spinner is an animated graphic element loading state for quick asynchronous tasks.',
@@ -1677,6 +1681,7 @@ export const components = [
   },
   {
     name: 'PageHeader',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Layouts',
     description:
@@ -1758,6 +1763,7 @@ export const components = [
     category: 'Controls',
     description:
       'A group of related buttons that enable the user to toggle one or more options on or off.',
+    accessibility: 'Failed WCAG 2.2 AA',
     preview: {
       component: () => <ToggleGroupPreview />,
     },

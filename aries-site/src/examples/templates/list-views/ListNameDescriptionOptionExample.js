@@ -33,7 +33,6 @@ const data = [
 export const ListNameDescriptionOptionExample = () => (
   <Box width={{ max: 'xxlarge' }} margin="auto" fill>
     <List
-      background="background-front"
       data={data}
       action={(item, index) => <Text key={index}>{item.option}</Text>}
     >
