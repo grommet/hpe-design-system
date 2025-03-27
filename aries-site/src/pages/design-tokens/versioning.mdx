@@ -19,13 +19,13 @@ import { Example } from '../../layouts';
 
 ### ^1.0.0
 
-This release provides production-ready support with styles in alignment with the updated HPE theme.
+This release provides production-ready support with styles in alignment with the latest HPE theme (February 2025 - present).
 
-In the v2 Figma Component Library, this is the default theme.
+In the [new HPE Design System Figma Component Library](https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&t=NjHwxPFWYTvhZTP5-6), this is the default theme.
 
 ### ^0.9.0
 
-This release provides production-ready support with styles in alignment with the old HPE theme (grommet-theme-hpe v5).
+This release provides production-ready support with styles in alignment with the previous HPE theme (May 2023 - January 2025 [grommet-theme-hpe v5](https://github.com/grommet/grommet-theme-hpe/releases/tag/v5.8.0)).
 
 To ease adoption of design tokens, v0.9.0 allows teams with existing applications to adopt design tokens while maintaining styling that aligns with existing theming.
 
@@ -39,20 +39,20 @@ There are no breaking API changes from v0.9.0 to v1.0.0. The only changes are va
 
 HPE Design tokens follows the standards defined by semantic versioning with slight adaptations at the major version level to more appropriately align to hpe-design-tokens as a style delivery mechanism.
 
-Given a version number MAJOR.MINOR.PATCH, we’ll increment:
+Given a version number MAJOR.MINOR.PATCH, increments will occur when:
 
 **1. MAJOR version** when there is a significant change to HPE’s brand expression and/or there are incompatible changes to the API.
 
-Significant changes to the look and feel of HPE’s brand (even if no breaking changes to the namespace are made) will be signaled via a major change (the look and feel of the new major version is not compatible with the look and feel of the old).
+Significant changes to the look and feel of HPE’s brand &mdash; even if no breaking changes to the namespace are made &mdash; will be signaled via a major change (i.e. the look and feel of the new major version is not compatible with the look and feel of the previous).
 
-This will help to signal that if service A is on v1.y.z and service B is on v2.y.z, there will be a mismatch in overall experience.
+This signals that if service A is on v1.y.z and service B is on v2.y.z, there will be a mismatch in overall experience.
 
 **2. MINOR version** when there is functionality added in a backward compatible manner. Examples include:
 
 - Introducing a new token.
 - Updating a token value in an expected, minor way. For example, slightly darkening or lightening a text color based on user testing/feedback.
 
-**3. PATCH version** when we make backward compatible bug fixes. Examples include:
+**3. PATCH version** when backward compatible bug fixes are made. Examples include:
 
 - Fixing a typo in a token value.
 - Fixing a color value to meet accessibility requirements.
