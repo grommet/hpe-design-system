@@ -1,16 +1,24 @@
-import { Box, Grid, Image } from 'grommet';
+import { Box, Grid, Image, Notification } from 'grommet';
 import { Example } from '../../layouts';
 
 <Example
-  caption="Dashboard with ^0.9.0 (existing theme) applied on left and ^1.0.0 (updated theme) applied on right"
+  caption="Dashboard with ^0.9.0 (previous theme) applied on left and ^1.0.0 (updated theme) applied on right"
   width="100%"
 >
   <Grid columns={['flex', 'flex']} gap="medium" align="start">
     <Box>
-      <Image src="/hpe-design-tokens-v0.png" fit="contain" />
+      <Image
+        src="/hpe-design-tokens-v0.png"
+        alt="Dashboard with v0 hpe-design-tokens theme"
+        fit="contain"
+      />
     </Box>
     <Box>
-      <Image src="/hpe-design-tokens-v1.png" fit="contain" />
+      <Image
+        src="/hpe-design-tokens-v1.png"
+        alt="Dashboard with v1 hpe-design-tokens theme"
+        fit="contain"
+      />
     </Box>
   </Grid>
 </Example>
@@ -29,7 +37,14 @@ This release provides production-ready support with styles in alignment with the
 
 To ease adoption of design tokens, v0.9.0 allows teams with existing applications to adopt design tokens while maintaining styling that aligns with existing theming.
 
-In the v2 Figma Component Library, this can be opted into by changing variables to use the "v0" modes.
+In the [new HPE Design System Figma Component Library](https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&t=NjHwxPFWYTvhZTP5-6), this can be opted into by changing variables to use the "v0" modes.
+
+<Notification
+  status="info"
+  width={{ max: 'large' }}
+  title="Recommendation"
+  message="To ease adoption of hpe-design-tokens, it is recommended to use v0.9.0 for initial mapping of tokens to local components. This will achieve style parity with an application's current look and allow quality assurance against familiar styling. When ready, teams can simply upgrade to v1 to view the latest theme styles."
+/>
 
 ### Migrating from v0.9.0 to v1.0.0
 
