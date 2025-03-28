@@ -14,15 +14,15 @@ export const cssColorModes: FormatFn = async ({
     usesDtcg: true,
   });
   const dataTheme = theme ? `[data-theme=${theme}]` : '';
-  // TO DO "mode" is fairly coupled with concept of "dark" right now
-  // just confirm this would be able to expand to concepts like "high-contrast"
-  const dataMode = mode ? `[data-mode=${mode}]` : '';
+  // default mode is light
+  const dataMode = `[data-mode=${mode || 'light'}]`;
   return `${await fileHeader({
     file,
-  })}:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n
+    // if no mode specified, apply default mode (light) to root
+  })}:root${dataTheme}${mode ? dataMode : ''}, ${dataMode} {\n${darkTokens}\n}\n
 ${
-  dataMode
-    ? `@media (prefers-color-scheme: dark) {\n:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n}\n`
+  mode === 'dark'
+    ? `@media (prefers-color-scheme: dark) {\n:root${dataTheme}${dataMode}, ${dataMode} {\n${darkTokens}\n}\n}\n`
     : ''
 }
     `;
