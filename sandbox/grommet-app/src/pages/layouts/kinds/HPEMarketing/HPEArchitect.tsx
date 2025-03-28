@@ -65,12 +65,11 @@ export const HPEArchitect = ({ size }) => {
           </Box>
           <Box gap="large">
             <Grid rows="auto" columns={metricColumns} gap="medium">
-              {/* we do not have a text size for these values that should be in 
-                the metric they should be larger  */}
               <Metric
+                // they have 20px for text we have 18px
                 label="organizations have an official AI strategy in place"
                 value={
-                  <Text size="xxlarge" color="text-strong">
+                  <Text size="4xl" color="text-strong">
                     9 in 10
                   </Text>
                 }
@@ -80,13 +79,18 @@ export const HPEArchitect = ({ size }) => {
                 size={size}
                 alignSelf="start"
                 // the color here should be teal but is coming on dark teal we need light teal
-                border={{ side: 'left', color: '#82fff2', size: 'medium' }}
+                border={{
+                  side: 'left',
+                  color: 'decorative-teal',
+                  size: 'medium',
+                }}
                 pad={{ left: 'medium' }}
+                fill="vertical"
               />
               <Metric
                 label="of IT say AI has increased their security risks"
                 value={
-                  <Text size="xxlarge" color="text-strong">
+                  <Text size="4xl" color="text-strong">
                     94%
                   </Text>
                 }
@@ -94,14 +98,21 @@ export const HPEArchitect = ({ size }) => {
                 options={null}
                 unit={null}
                 size={size}
-                alignSelf="start"
-                border={{ side: 'left', color: '#82fff2', size: 'medium' }}
+                border={{
+                  side: 'left',
+                  color: 'decorative-teal',
+                  size: 'medium',
+                }}
                 pad={{ left: 'medium' }}
+                fill="vertical"
+                alignSelf="start"
+                // weird grommets justify doesnt work
+                style={{ justifyContent: 'start' }}
               />
               <Metric
                 label="of IT leaders are currently running their AI models on infrastructure they manage"
                 value={
-                  <Text size="xxlarge" color="text-strong">
+                  <Text size="4xl" color="text-strong">
                     80%
                   </Text>
                 }
@@ -110,8 +121,13 @@ export const HPEArchitect = ({ size }) => {
                 unit={null}
                 size={size}
                 alignSelf="start"
-                border={{ side: 'left', color: '#82fff2', size: 'medium' }}
+                border={{
+                  side: 'left',
+                  color: 'decorative-teal',
+                  size: 'medium',
+                }}
                 pad={{ left: 'medium' }}
+                fill="vertical"
               />
             </Grid>
             <Button
