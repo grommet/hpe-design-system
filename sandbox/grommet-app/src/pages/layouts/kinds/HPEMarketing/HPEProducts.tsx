@@ -103,6 +103,7 @@ export const HPEProducts = () => {
                 description="Exascale technologies to unlock the next frontier of discovery, innovation, and achievement."
                 actions={
                   <Button
+                    aria-label="Explore more about HPE Cray XD670"
                     label="Explore more"
                     reverse
                     primary
