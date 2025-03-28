@@ -99,7 +99,7 @@ export const HPEProducts = () => {
                     />
                   </Box>
                 }
-                title="HPE Cray Supercomputing"
+                title="HPE Cray XD670"
                 description="Exascale technologies to unlock the next frontier of discovery, innovation, and achievement."
                 actions={
                   <Button
