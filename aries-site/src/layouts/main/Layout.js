@@ -256,8 +256,7 @@ export const Layout = ({
                 kind="textInput"
                 label="Email"
                 formProps={{
-                  help: `Please leave your email if you're open
-                   to us following up with you directly.`,
+                  help: `Please leave your email if you would like direct follow up from a team member.`,
                 }}
               />
             </Feedback>
