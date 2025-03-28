@@ -23,7 +23,7 @@ export const CardTemplate = ({
       fill="vertical"
       // in design there is no background only border
       background="none"
-      border
+      border={{ color: 'border-weak' }}
       {...rest}
     >
       {media}
