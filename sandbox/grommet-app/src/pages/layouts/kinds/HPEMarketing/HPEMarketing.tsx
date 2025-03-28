@@ -10,6 +10,7 @@ import { HPEPrivateCloud } from './HPEPrivateCloud';
 import { HPEProducts } from './HPEProducts';
 import { HPEAIUseCase } from './HPEAIUseCase';
 import { HPEArchitect } from './HPEArchitect';
+import { HPECustomerStories } from './CustomerStories';
 
 export const HPEMarketing = () => {
   const breakpoint = useContext(ResponsiveContext);
@@ -34,6 +35,7 @@ export const HPEMarketing = () => {
       <HPEPrivateCloud />
       <HPEProducts />
       <HPEArchitect size={metricSize} />
+      <HPECustomerStories />
     </Page>
   );
 };
