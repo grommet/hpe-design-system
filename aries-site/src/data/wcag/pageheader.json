@@ -1,0 +1,317 @@
+[
+  {
+    "rule": "1.1.1",
+    "label": "Non-text Content",
+    "status": "conditional",
+    "notes": "Icons require aria-labels or alternative text if not purely decorative."
+  },
+  {
+    "rule": "1.2.1",
+    "label": "Audio-only and Video-only (Prerecorded)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.2.2",
+    "label": "Captions (Prerecorded)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.2.3",
+    "label": "Audio Description or Media Alternative (Prerecorded)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.2.4",
+    "label": "Captions (Live)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.2.5",
+    "label": "Audio Description (Prerecorded)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.2.6",
+    "label": "Sign Language (Prerecorded)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.2.7",
+    "label": "Extended Audio Description (Prerecorded)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.2.8",
+    "label": "Media Alternative (Prerecorded)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.2.9",
+    "label": "Audio-only (Live)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.3.1",
+    "label": "Info and Relationships",
+    "status": "passed"
+  },
+  {
+    "rule": "1.3.2",
+    "label": "Meaningful Sequence",
+    "status": "passed"
+  },
+  {
+    "rule": "1.3.3",
+    "label": "Sensory Characteristics",
+    "status": "passed"
+  },
+  {
+    "rule": "1.3.4",
+    "label": "Orientation",
+    "status": "passed"
+  },
+  {
+    "rule": "1.3.5",
+    "label": "Identify Input Purpose",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.4.3",
+    "label": "Contrast Minimum",
+    "status": "passed"
+  },
+  {
+    "rule": "1.4.4",
+    "label": "Resize Text",
+    "status": "passed"
+  },
+  {
+    "rule": "1.4.6",
+    "label": "Contrast Enhanced",
+    "status": "failed"
+  },
+  {
+    "rule": "1.4.7",
+    "label": "Contrast Enhanced",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.4.8",
+    "label": "Visual Presentation",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.4.9",
+    "label": "Images of Text (No Exception)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "1.4.10",
+    "label": "Reflow",
+    "status": "passed"
+  },
+  {
+    "rule": "1.4.11",
+    "label": "Non-text Contrast",
+    "status": "passed"
+  },
+  {
+    "rule": "1.4.12",
+    "label": "Text Spacing",
+    "status": "passed"
+  },
+  {
+    "rule": "1.4.13",
+    "label": "Content on Hover or Focus",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.1.1",
+    "label": "Keyboard",
+    "status": "passed"
+  },
+  {
+    "rule": "2.1.2",
+    "label": "No Keyboard Trap",
+    "status": "passed"
+  },
+  {
+    "rule": "2.1.3",
+    "label": "Keyboard (No Exception)",
+    "status": "passed"
+  },
+  {
+    "rule": "2.1.4",
+    "label": "Character Key Shortcuts",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.2.1",
+    "label": "Timing Adjustable",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.2.2",
+    "label": "Pause, Stop, Hide",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.2.3",
+    "label": "No Timing",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.2.4",
+    "label": "Interruptions",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.2.5",
+    "label": "Re-authenticating",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.2.6",
+    "label": "Timeouts",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.3.1",
+    "label": "Three Flashes or Below Threshold",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.3.2",
+    "label": "Three Flashes",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.4.1",
+    "label": "Bypass Blocks",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.4.2",
+    "label": "Page Titled",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.4.3",
+    "label": "Focus Order",
+    "status": "passed"
+  },
+  {
+    "rule": "2.4.4",
+    "label": "Link Purpose (In Context)",
+    "status": "conditional",
+    "notes": "If title contains links, they must have meaningful labels."
+  },
+  {
+    "rule": "2.4.5",
+    "label": "Multiple Ways",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.4.6",
+    "label": "Headings and Labels",
+    "status": "conditional",
+    "notes": "Headings and labels need to describe topic or purpose."
+  },
+  {
+    "rule": "2.4.7",
+    "label": "Focus Visible",
+    "status": "passed"
+  },
+  {
+    "rule": "2.4.8",
+    "label": "Multiple Ways",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.4.9",
+    "label": "Link Purpose (Link Only)",
+    "status": "conditional",
+    "notes": "Standalone links must have a clear purpose from their text alone."
+  },
+  {
+    "rule": "2.5.2",
+    "label": "Pointer Cancellation",
+    "status": "passed",
+    "notes": "Actions triggered only on pointer-up events"
+  },
+  {
+    "rule": "2.5.3",
+    "label": "Label in Name",
+    "status": "conditional"
+  },
+  {
+    "rule": "2.5.4",
+    "label": "Motion Actuation",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "3.1.1",
+    "label": "Language of Page",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "3.1.2",
+    "label": "Language of Parts",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "3.2.1",
+    "label": "On Focus",
+    "status": "passed"
+  },
+  {
+    "rule": "3.2.2",
+    "label": "On Input",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "3.2.3",
+    "label": "Consistent Navigation",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "3.2.4",
+    "label": "Consistent Identification",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "3.3.2",
+    "label": "Labels or Instructions",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "3.2.6",
+    "label": "Consistent Help",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "3.3.1",
+    "label": "Error Identification",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "3.3.3",
+    "label": "Error Suggestion",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "3.3.4",
+    "label": "Error Prevention (Legal, Financial, Data)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "4.1.2",
+    "label": "Name, Role, Value",
+    "status": "conditional"
+  },
+  {
+    "rule": "4.1.3",
+    "label": "Status Messages",
+    "status": "not-applicable"
+  }
+]

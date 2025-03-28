@@ -6,7 +6,7 @@ import {
   CreateTagSimple,
   TagResource,
 } from '../../examples';
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import { Tag } from 'grommet';
 
 <Example
@@ -124,3 +124,7 @@ Interacting with the tag will display items that share the same assigned value.
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Tab**         | Used to navigate between interactive tags. Focuses on tag if it is selectable. When there is a close icon present, icon receives focus. For read-only, screen reader will read alongside content from where it lives. |
 | **Space/Enter** | For interactive tags, selects the tag. For removable tags, remove the tag.                                                                                                                                            |
+
+### WCAG compliance
+
+<AccessibilitySection title="tag" />
