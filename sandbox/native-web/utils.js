@@ -1,12 +1,12 @@
 export const toggleThemeMode = element => {
   const handleChange = () => {
     if (element.getAttribute('id') === 'lightMode') {
-      element.classList.add('active');
-      document.querySelector('#darkMode').classList.remove('active');
+      element.classList.add('selected');
+      document.querySelector('#darkMode').classList.remove('selected');
       document.documentElement.setAttribute('data-mode', '');
     } else if (element.getAttribute('id') === 'darkMode') {
-      element.classList.add('active');
-      document.querySelector('#lightMode').classList.remove('active');
+      element.classList.add('selected');
+      document.querySelector('#lightMode').classList.remove('selected');
       document.documentElement.setAttribute('data-mode', 'dark');
     }
   };
@@ -17,12 +17,12 @@ export const toggleThemeMode = element => {
 export const toggleTheme = element => {
   const handleChange = () => {
     if (element.getAttribute('id') === 'currentTheme') {
-      element.classList.add('active');
-      document.querySelector('#warmTheme').classList.remove('active');
+      element.classList.add('selected');
+      document.querySelector('#warmTheme').classList.remove('selected');
       document.documentElement.setAttribute('data-theme', '');
     } else if (element.getAttribute('id') === 'warmTheme') {
-      element.classList.add('active');
-      document.querySelector('#currentTheme').classList.remove('active');
+      element.classList.add('selected');
+      document.querySelector('#currentTheme').classList.remove('selected');
       document.documentElement.setAttribute('data-theme', 'warm');
     }
   };

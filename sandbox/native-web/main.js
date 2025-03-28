@@ -42,7 +42,7 @@ const FormField = ({ label, help, placeholder, input }) => {
   }" type="text" placeholder="${placeholder}" />`;
 
   if (input)
-    content = `<div class="field-container ${
+    content = `<div class="${
       label || help ? 'margin-top' : ''
     }">${input}</div>`;
 
@@ -82,14 +82,14 @@ document.querySelector('#app').innerHTML = `
           <div role="group" class="row  border-weak border-xsmall 
           radius-medium">
             <button role="radio" id="lightMode" 
-              class="active radius-medium width-full">Light</button>
+              class="selected radius-medium width-full">Light</button>
             <button role="radio" id="darkMode" 
               class="radius-medium width-full">Dark</button>
           </div>
           <div role="group" class="row  border-weak border-xsmall 
           radius-medium">
             <button role="radio" id="currentTheme" 
-              class="active radius-medium width-full">Current theme</button>
+              class="selected radius-medium width-full">Current theme</button>
             <button role="radio" id="warmTheme" 
               class="radius-medium width-full">Warm theme</button>
           </div>
@@ -101,16 +101,12 @@ document.querySelector('#app').innerHTML = `
   <div class="page">
     <div class="pageContent">
       <div class="sandbox gap-medium align-start">
-        <h2>Component testing</h2>
+        <h1>Component testing</h1>
         <div class="row gap-small wrap">
           ${Button({ label: 'Default' })}
           ${Button({
             label: 'Secondary hover border color',
             kind: 'secondary',
-          })}
-          ${Button({
-            label: 'Secondary box-shadow approach',
-            kind: 'secondary box-shadow',
           })}
           ${Button({ label: 'Primary', kind: 'primary' })}
           ${Button({
