@@ -67,7 +67,7 @@ const CheckBox = ({ label, id }) => `
 `;
 
 document.querySelector('#app').innerHTML = `
-  <div class="globalHeader" data-mode="dark">
+  <div class="globalHeader">
       <div class="greenlake-badge">
       ${HPEGreenLakeBadge()}
       </div>
@@ -150,6 +150,14 @@ document.querySelector('#app').innerHTML = `
             <td>USA</td>
           </tr>
         </table>
+        <div class="scoped-dark-mode" data-mode="dark">
+          <span>Scoped dark mode section</span>
+          <div class="row gap-small">
+            ${Button({ label: 'Default' })}
+            ${Button({ label: 'Secondary', kind: 'secondary' })}
+            ${Button({ label: 'Primary', kind: 'primary' })}
+          </div>
+        </div>
       </div> 
     </div>
   </div> 
