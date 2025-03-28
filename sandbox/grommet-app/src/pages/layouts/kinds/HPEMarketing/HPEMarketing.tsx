@@ -33,7 +33,6 @@ export const HPEMarketing = () => {
       <HPEVideo />
       <HPEPrivateCloud />
       <HPEProducts />
-      <HPEAIUseCase />
       <HPEArchitect size={metricSize} />
     </Page>
   );
