@@ -92,8 +92,8 @@
   {
     "rule": "1.3.6",
     "label": "Identify Purpose",
-    "status": "failed",
-    "notes": "The close icon doesn't have a descriptive aria-label"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.4.1",
