@@ -2,7 +2,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Notification } from 'grommet';
 import { WCAGRuleDetail, WCAGRuleSummary } from '.';
-import componentData from '../../data/wcag/components.json';
 
 // title prop is the name of the component that will be passed in mdx file
 // version will be used so if we need to update the version of WCAG we can do it
@@ -10,14 +9,14 @@ import componentData from '../../data/wcag/components.json';
 export const AccessibilitySection = ({ title, version }) => {
   const [data, setData] = useState();
 
+  const componentData = require(`../../data/wcag/${title.toLowerCase()}.json`);
   const componentInfo = useMemo(() => {
     if (!title || !componentData) {
       return [];
     }
 
-    const component = componentData.find(item => item[title.toLowerCase()]);
-    return component ? component[title.toLowerCase()] : [];
-  }, [title]);
+    return componentData || [];
+  }, [title, componentData]);
 
   useEffect(() => {
     fetch(
