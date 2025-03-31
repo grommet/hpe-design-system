@@ -2,8 +2,8 @@
   {
     "rule": "1.1.1",
     "label": "Non-text content",
-    "status": "failed",
-    "notes": "There is no aria-label on the close icon button and no way for the implementer to provide one."
+    "status": "passed",
+    "notes": "There is an aria-label on the close icon button but no way for the implementer to choose their own."
   },
   {
     "rule": "1.2.1",
@@ -189,6 +189,12 @@
     "rule": "2.1.3",
     "label": "Keyboard (No Exception)",
     "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "2.1.4",
+    "label": "Character Key Shortcuts",
+    "status": "not-applicable",
     "notes": ""
   },
   {
