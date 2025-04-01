@@ -272,7 +272,7 @@ module.exports = {
  * Copyright Hewlett Packard Enterprise Development LP.
  */
 
-:root, [data-mode=light] {
+:root, [data-mode=auto], [data-mode=light] {
   --hpe-color-background-plum: #f5f0f6; /* Plum background color */
   --hpe-color-background-plum-hover: #f5d3f6; /* Plum background color hover */
   --hpe-color-background-plum-strong: #f5f0f6; /* Strong background color */
@@ -289,14 +289,14 @@ module.exports = {
  * Copyright Hewlett Packard Enterprise Development LP.
  */
 
-:root[data-mode=dark], [data-mode=dark] {
+[data-mode=dark] {
   --hpe-color-background-plum: #5e072b; /* Plum background color */
   --hpe-color-background-plum-hover: #960944; /* Plum background color hover */
   --hpe-color-background-plum-strong: #17020b; /* Strong background color */
 }
 
 @media (prefers-color-scheme: dark) {
-:root[data-mode=dark], [data-mode=dark] {
+[data-mode=auto], [data-mode=dark] {
   --hpe-color-background-plum: #5e072b; /* Plum background color */
   --hpe-color-background-plum-hover: #960944; /* Plum background color hover */
   --hpe-color-background-plum-strong: #17020b; /* Strong background color */

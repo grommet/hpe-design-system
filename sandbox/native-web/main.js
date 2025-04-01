@@ -152,6 +152,7 @@ document.querySelector('#app').innerHTML = `
         </table>
         <div class="scoped-dark-mode" data-mode="dark">
           <span>Scoped dark mode section</span>
+          <span style="color: inherit;">Text with inherit for color</span>
           <div class="row gap-small">
             ${Button({ label: 'Default' })}
             ${Button({ label: 'Secondary', kind: 'secondary' })}
