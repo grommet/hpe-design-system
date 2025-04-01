@@ -177,6 +177,7 @@
   --hpe-formField-default-medium-error-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-formField-default-medium-value-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-formField-default-input-group-container-rest-borderColor: var(--hpe-color-transparent);
+  --hpe-formField-default-input-group-container-error-rest-background: var(--hpe-color-background-critical);
   --hpe-formField-default-input-group-container-disabled-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-item-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-item-rest-borderColor: var(--hpe-color-transparent);
@@ -187,6 +188,7 @@
   --hpe-formField-default-input-group-item-readOnly-rest-borderColor: var(--hpe-color-transparent);
   --hpe-formField-default-input-container-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-container-hover-background: var(--hpe-color-transparent);
+  --hpe-formField-default-input-container-error-rest-background: var(--hpe-color-background-critical);
   --hpe-formField-default-input-container-disabled-rest-background: var(--hpe-color-transparent);
   --hpe-dataCell-default-rest-background: var(--hpe-color-transparent);
   --hpe-dataCell-default-hover-background: var(--hpe-color-transparent);
@@ -458,12 +460,10 @@
   --hpe-formField-default-medium-error-lineHeight: var(--hpe-text-xsmall-lineHeight);
   --hpe-formField-default-input-group-container-rest-background: var(--hpe-formField-default-input-container-rest-background);
   --hpe-formField-default-input-group-container-hover-borderColor: var(--hpe-formField-default-input-group-container-rest-borderColor);
-  --hpe-formField-default-input-group-container-error-rest-background: var(--hpe-color-background-critical);
   --hpe-formField-default-input-group-container-error-rest-borderColor: var(--hpe-color-border-critical);
   --hpe-formField-default-input-group-container-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-formField-default-input-container-rest-borderColor: var(--hpe-color-border-default);
   --hpe-formField-default-input-container-hover-borderColor: var(--hpe-color-border-default);
-  --hpe-formField-default-input-container-error-rest-background: var(--hpe-color-background-critical);
   --hpe-formField-default-input-container-error-rest-borderColor: var(--hpe-color-border-critical);
   --hpe-formField-default-input-container-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-formField-default-input-container-readOnly-rest-background: var(--hpe-color-background-back);

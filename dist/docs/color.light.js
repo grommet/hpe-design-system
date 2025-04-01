@@ -484,7 +484,7 @@ export default {
   },
   "hpe.color.background.warning": {
     "$type": "color",
-    "$value": "rgba(255, 188, 68, 0.12)",
+    "$value": "#fff3dd",
     "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -500,7 +500,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.orange.400-Opacity12}",
+      "$value": "#FFF3DD",
       "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -532,7 +532,7 @@ export default {
   },
   "hpe.color.background.ok": {
     "$type": "color",
-    "$value": "rgba(23, 235, 160, 0.12)",
+    "$value": "#e3fdf4",
     "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -548,7 +548,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.400-Opacity12}",
+      "$value": "#E3FDF4",
       "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -580,7 +580,7 @@ export default {
   },
   "hpe.color.background.critical": {
     "$type": "color",
-    "$value": "rgba(252, 97, 97, 0.12)",
+    "$value": "#ffecec",
     "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -596,7 +596,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.red.500-Opacity12}",
+      "$value": "#FFECEC",
       "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -676,7 +676,7 @@ export default {
   },
   "hpe.color.background.info": {
     "$type": "color",
-    "$value": "rgba(0, 200, 255, 0.12)",
+    "$value": "#e0f8ff",
     "$description": "Use for backgrounds communicating neutral information. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -692,7 +692,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.blue.400-Opacity12}",
+      "$value": "#E0F8FF",
       "$description": "Use for backgrounds communicating neutral information. Keywords: status",
       "$extensions": {
         "com.figma": {

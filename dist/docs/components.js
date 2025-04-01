@@ -32872,7 +32872,7 @@ export default {
   },
   "hpe.formField.default.input.group.container.error.rest.background": {
     "$type": "color",
-    "$value": "rgba(252, 97, 97, 0.12)",
+    "$value": "#ffecec",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -33778,7 +33778,7 @@ export default {
   },
   "hpe.formField.default.input.container.error.rest.background": {
     "$type": "color",
-    "$value": "rgba(252, 97, 97, 0.12)",
+    "$value": "#ffecec",
     "$description": "",
     "$extensions": {
       "com.figma": {
