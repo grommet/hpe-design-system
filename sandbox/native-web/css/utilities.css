@@ -163,7 +163,7 @@ path.text-text-strong {
 }
 
 .width-medium {
-  width: var(--hpe-content-medium);
+  width: var(--hpe-container-medium);
 }
 
 .width-full {
