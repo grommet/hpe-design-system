@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { Box, Button, Text } from 'grommet';
+import { Add } from 'grommet-icons';
 
 export const StrongBackgrounds = () => {
   const theme = useContext(ThemeContext);
@@ -25,6 +26,10 @@ export const StrongBackgrounds = () => {
               Aa
             </Text>
             <Text color="text-onStrong">color.text.onStrong</Text>
+          </Box>
+          <Box direction="row" gap="small">
+            <Add color="icon-onStrong" height="medium" />
+            <Text color="text-onStrong">color.icon.onStrong</Text>
           </Box>
         </Box>
       </Box>
