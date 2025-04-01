@@ -13,7 +13,6 @@ import {
   Tabs,
 } from 'grommet';
 import { Previous } from 'grommet-icons';
-import { hpe } from 'grommet-theme-hpe-v5';
 import { themes } from '../../themes/theme';
 import { ModeContext, TabContent } from './components';
 import {
@@ -90,7 +89,7 @@ const StickerSheet = () => {
 
   return (
     <Grommet
-      theme={hpe}
+      theme={themes.v1}
       background="background-back"
       themeMode={theme.dark ? 'dark' : 'light'}
     >
@@ -137,6 +136,7 @@ const StickerSheet = () => {
             <Notification
               status="info"
               message="This page provides a comparison between the existing and updated HPE theme. For each component, the version on the left is the existing styling and the verison on the right is the new styling."
+              width={{ max: 'large' }}
             />
             <Tabs
               activeIndex={activeIndex}

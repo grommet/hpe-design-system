@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grommet, Stack, ThemeContext } from 'grommet';
-import { hpe as hpeLegacy } from 'grommet-theme-hpe-v5';
+import { hpe as v0 } from 'grommet-theme-hpe-v5';
 import { themes } from '../../../themes/theme';
 import { ModeContext } from './ModeContext';
 
@@ -13,7 +13,7 @@ export const Compare = ({ children, ...rest }) => {
     return (
       <Box direction="row" gap="medium">
         <Grommet
-          theme={hpeLegacy}
+          theme={v0}
           themeMode={theme.dark ? 'dark' : 'light'}
           background="background-front"
         >
@@ -32,7 +32,7 @@ export const Compare = ({ children, ...rest }) => {
 
   return (
     <Stack {...rest}>
-      <ThemeContext.Extend value={hpeLegacy}>
+      <ThemeContext.Extend value={v0}>
         <Box
           align="start"
           style={
