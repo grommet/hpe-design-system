@@ -194,8 +194,9 @@ button[role='checkbox'][aria-checked='true'] svg {
 }
 
 .checkbox-container label {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: var(--hpe-checkbox-default-medium-label-fontSize);
+  line-height: var(--hpe-checkbox-default-medium-label-lineHeight);
+  font-weight: var(--hpe-checkbox-default-label-rest-fontWeight);
 }
 /* Card */
 .card {
