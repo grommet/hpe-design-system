@@ -500,7 +500,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#FFF3DD",
+      "$value": "#fff3dd",
       "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -548,7 +548,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#E3FDF4",
+      "$value": "#e3fdf4",
       "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -596,7 +596,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#FFECEC",
+      "$value": "#ffecec",
       "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -692,7 +692,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#E0F8FF",
+      "$value": "#e0f8ff",
       "$description": "Use for backgrounds communicating neutral information. Keywords: status",
       "$extensions": {
         "com.figma": {
