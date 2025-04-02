@@ -198,7 +198,7 @@ export const Example = ({
       // using "border" treatement to create separation from page background
       // a rare case when border is used to define page sections
       border={
-        exampleControls
+        exampleControls && !horizontalLayout
           ? [
               {
                 side: 'top',
