@@ -164,6 +164,24 @@ export const tokens = [
     tags: [],
   },
   {
+    name: 'Versioning',
+    type: 'Building with tokens',
+    description:
+      'Learn about how HPE Design Tokens is versioned and what version is right for your team.',
+    preview: {
+      component: () => <Text size="3xl">^1.0.0</Text>,
+    },
+    seoDescription:
+      'Learn about how HPE Design Tokens is versioned and what version is right for your team.',
+    sections: [],
+    relatedContent: [
+      'All design tokens',
+      'Using design tokens in code',
+      'Using design tokens in Figma',
+    ],
+    tags: [],
+  },
+  {
     name: 'All design tokens',
     type: 'Building with tokens',
     description: 'An overview of all available design tokens.',
