@@ -975,6 +975,7 @@ export const components = [
   {
     name: 'Layer',
     category: 'Layouts',
+    accessibility: 'Passed WCAG 2.2 AA',
     description:
       'Layer is a component allowing content to be displayed on top of the page the user is currently on.',
     previewComponent: {
