@@ -8,7 +8,6 @@ import data from '../../data/wcag/wcag.json';
 // version will be used so if we need to update the version of WCAG we can do it
 // easily component by component.
 export const AccessibilitySection = ({ title, version }) => {
-
   const componentData = require(`../../data/wcag/${title.toLowerCase()}.json`);
   const componentInfo = useMemo(() => {
     if (!title || !componentData) {
@@ -18,25 +17,25 @@ export const AccessibilitySection = ({ title, version }) => {
     return componentData || [];
   }, [title, componentData]);
 
-  // Temporarily commented out the fetch call because the link to the wcag.json 
+  // Temporarily commented out the fetch call because the link to the wcag.json
   // file no longer exists. As a temp. solution, we are using a local copy
   // of the file see wcag.json file in the data/wcag folder.
   // useEffect(() => {
-    // fetch(
-    //   'https://raw.githubusercontent.com/w3c/wcag/refs/heads/main/guidelines/wcag.json',
-    // )
-    //   .then(response => {
-    //     if (!response.ok) {
-    //       throw new Error('Error fetching data');
-    //     }
-    //     return response.json();
-    //   })
-    //   .then(fetchedData => {
-    //     setData(fetchedData);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error:', error);
-    //   });
+  // fetch(
+  //   'https://raw.githubusercontent.com/w3c/wcag/refs/heads/main/guidelines/wcag.json',
+  // )
+  //   .then(response => {
+  //     if (!response.ok) {
+  //       throw new Error('Error fetching data');
+  //     }
+  //     return response.json();
+  //   })
+  //   .then(fetchedData => {
+  //     setData(fetchedData);
+  //   })
+  //   .catch(error => {
+  //     console.error('Error:', error);
+  //   });
   // }, []);
 
   // create a map of each of the successCriteria ->
@@ -55,7 +54,7 @@ export const AccessibilitySection = ({ title, version }) => {
       });
     });
     return map;
-  }, [data]);
+  }, []);
 
   // Compare the component info with the success criteria
   // and return the status of each rule.
