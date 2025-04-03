@@ -255,6 +255,11 @@
     "status": "not-applicable"
   },
   {
+    "rule": "2.4.10",
+    "label": "Section Headings",
+    "status": "not-applicable"
+  },
+  {
     "rule": "2.4.11",
     "label": "Focus Not Obscured (Minimum)",
     "status": "passed"
@@ -290,6 +295,16 @@
     "rule": "2.5.4",
     "label": "Motion Actuation",
     "status": "not-applicable"
+  },
+  {
+    "rule": "2.5.5",
+    "label": "Target size (Enhanced)",
+    "status": "not-applicable"
+  },
+  {
+    "rule": "2.5.6",
+    "label": "Concurrent Input Mechanisms",
+    "status": "passed"
   },
   {
     "rule": "2.5.7",
@@ -335,6 +350,11 @@
     "rule": "3.3.2",
     "label": "Labels or Instructions",
     "status": "not-applicable"
+  },
+  {
+    "rule": "3.2.5",
+    "label": "Change on Request",
+    "status": "passed"
   },
   {
     "rule": "3.2.6",
