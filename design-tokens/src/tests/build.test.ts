@@ -86,6 +86,18 @@ const commonPlatforms = ({
   },
 });
 
+const colorModeFiles = fs
+  .readdirSync(`${TOKENS_DIR}/`)
+  .map(file => (file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined))
+  .filter(file => file !== undefined);
+
+const dimensionModeFiles = fs
+  .readdirSync(`${TOKENS_DIR}/`)
+  .map(file =>
+    file.includes('dimension') ? `${TOKENS_DIR}/${file}` : undefined,
+  )
+  .filter(file => file !== undefined);
+
 describe('HPEStyleDictionary', () => {
   beforeAll(async () => {
     let extendedDictionary = await HPEStyleDictionary.extend({
@@ -116,14 +128,7 @@ describe('HPEStyleDictionary', () => {
     /**
      * Color tokens, requires specific CSS overrides
      */
-    const colorModeFiles = fs
-      .readdirSync(`${TOKENS_DIR}/`)
-      .map(file =>
-        file.includes('color') ? `${TOKENS_DIR}/${file}` : undefined,
-      )
-      .filter(file => file !== undefined);
-
-    colorModeFiles.forEach(async file => {
+    for (const file of colorModeFiles) {
       const [theme, mode] = getThemeAndMode(file);
       extendedDictionary = await HPEStyleDictionary.extend({
         source: [file],
@@ -149,19 +154,12 @@ describe('HPEStyleDictionary', () => {
         },
       });
       await extendedDictionary.buildAllPlatforms();
-    });
+    }
 
     /**
      * Dimension tokens, requires specific CSS overrides
      */
-    const dimensionModeFiles = fs
-      .readdirSync(`${TOKENS_DIR}/`)
-      .map(file =>
-        file.includes('dimension') ? `${TOKENS_DIR}/${file}` : undefined,
-      )
-      .filter(file => file !== undefined);
-
-    dimensionModeFiles.forEach(async file => {
+    for (const file of dimensionModeFiles) {
       const mode = getThemeAndMode(file)[1];
       extendedDictionary = await HPEStyleDictionary.extend({
         source: [file],
@@ -192,7 +190,7 @@ describe('HPEStyleDictionary', () => {
         },
       });
       await extendedDictionary.buildAllPlatforms();
-    });
+    }
   });
 
   it('should support ESM format', () => {
