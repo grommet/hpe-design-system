@@ -98,7 +98,7 @@
   {
     "rule": "1.4.1",
     "label": "Use of Color",
-    "status": "failed",
+    "status": "passed",
     "notes": ""
   },
   {
@@ -158,8 +158,8 @@
   {
     "rule": "1.4.11",
     "label": "Non-text Contrast",
-    "status": "passed",
-    "notes": ""
+    "status": "failed",
+    "notes": "Suggestions doesn't have enough contrast or additional marker for active state."
   },
   {
     "rule": "1.4.12",
