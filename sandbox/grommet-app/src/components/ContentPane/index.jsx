@@ -45,7 +45,7 @@ ContentPane.propTypes = {
   actions: PropTypes.node,
   children: PropTypes.node.isRequired,
   contain: PropTypes.bool,
-  heading: PropTypes.string,
+  heading: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   level: PropTypes.number,
   skeleton: PropTypes.oneOfType([
     PropTypes.bool,
