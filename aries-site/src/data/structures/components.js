@@ -1169,6 +1169,7 @@ export const components = [
       'MaskedInput allows you to specify formatted text within a form field.',
     seoDescription:
       'MaskedInput allows you to specify formatted text within a form field.',
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'IP Address',
       'IP Range',
