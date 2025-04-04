@@ -32,7 +32,7 @@
     "build-search": "node src/scripts/site-contents.mjs"
   },
   "devDependencies": {
-    "@applitools/eyes-testcafe": "1.17.4",
+    "@applitools/eyes-testcafe": "6.2.22",
     "@testing-library/testcafe": "^5.0.1",
     "axe-core": "^4.9.0",
     "axe-testcafe": "^3.0.0",
