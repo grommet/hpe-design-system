@@ -445,7 +445,7 @@ export const components = [
     description: 'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Failed WCAG 2.2 AA',
     sections: [
       'About TextInput',
       'Password',
@@ -1169,6 +1169,7 @@ export const components = [
       'MaskedInput allows you to specify formatted text within a form field.',
     seoDescription:
       'MaskedInput allows you to specify formatted text within a form field.',
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'IP Address',
       'IP Range',
