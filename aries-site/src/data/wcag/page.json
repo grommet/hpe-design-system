@@ -128,7 +128,7 @@
   {
     "rule": "1.4.6",
     "label": "Contrast (Enhanced)",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": "If Text is within Page Content, it passes the contrast check."
   },
   {
