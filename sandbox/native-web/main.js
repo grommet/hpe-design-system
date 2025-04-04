@@ -150,6 +150,15 @@ document.querySelector('#app').innerHTML = `
             <td>USA</td>
           </tr>
         </table>
+        <div class="scoped-dark-mode" data-mode="dark">
+          <span>Scoped dark mode section</span>
+          <span style="color: inherit;">Text with inherit for color</span>
+          <div class="row gap-small">
+            ${Button({ label: 'Default' })}
+            ${Button({ label: 'Secondary', kind: 'secondary' })}
+            ${Button({ label: 'Primary', kind: 'primary' })}
+          </div>
+        </div>
       </div> 
     </div>
   </div> 

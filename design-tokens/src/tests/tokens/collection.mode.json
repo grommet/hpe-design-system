@@ -1,36 +1,4 @@
 {
-  "color": {
-    "background": {
-      "plum": {
-        "DEFAULT": {
-          "REST": {
-            "$value": "#f5f0f6",
-            "$type": "color",
-            "$description": "Plum background color"
-          },
-          "hover": {
-            "$value": "#f5d3f6",
-            "$type": "color",
-            "$description": "Plum background color hover"
-          }
-        },
-        "strong": {
-          "REST": {
-            "$value": "#f5f0f6",
-            "$type": "color",
-            "$description": "Plum background color"
-          }
-        }
-      }
-    }
-  },
-  "spacing": {
-    "medium": {
-      "$value": 96,
-      "$type": "number",
-      "$description": "Medium spacing value"
-    }
-  },
   "fontStack": {
     "primary": {
       "$type": "fontFamily",
@@ -63,13 +31,6 @@
         "$type": "number",
         "$description": "Small container width"
       }
-    }
-  },
-  "fontSize": {
-    "large": {
-      "$value": 24,
-      "$type": "number",
-      "$description": "Large font size"
     }
   }
 }

@@ -152,6 +152,14 @@ svg .border-weak {
   display: block;
 }
 
+.scoped-dark-mode {
+  background: var(--hpe-color-background-back);
+  border-radius: var(--hpe-radius-medium);
+  padding: var(--hpe-spacing-medium);
+  gap: var(--hpe-spacing-medium);
+  display: flex;
+}
+
 @container pageSection (max-width: 1200px) {
   .medium-flex {
     grid-template-columns: 1fr;

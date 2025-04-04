@@ -1,7 +1,12 @@
 /* eslint-disable max-len */
 import * as fs from 'fs';
 import { HPEStyleDictionary } from '../HPEStyleDictionary.ts';
-import { getThemeAndMode, numberToPixel, COPYRIGHT } from '../utils.ts';
+import {
+  filterColorTokens,
+  getThemeAndMode,
+  numberToPixel,
+  COPYRIGHT,
+} from '../utils.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -228,11 +233,35 @@ const colorModeFiles = fs
 const global = fs.readFileSync(`${TOKENS_DIR}/semantic/global.default.json`);
 const parsedGlobal = JSON.parse(global);
 
+// in order to support scoped modes, include component colors in CSS color files
+const componentTokens = fs.readFileSync(
+  `${TOKENS_DIR}/component/component.default.json`,
+);
+const parsedComponentTokens = JSON.parse(componentTokens);
+const componentColorTokens = filterColorTokens(parsedComponentTokens);
+delete componentColorTokens.fig; // remove figma specific tokens
+const tempDir = 'tokens/.tmp';
+if (fs.existsSync(tempDir)) {
+  fs.rmSync(tempDir, { recursive: true });
+}
+fs.mkdirSync(tempDir, { recursive: true });
+fs.appendFileSync(
+  `${tempDir}/component-color-tokens.default.json`,
+  JSON.stringify(componentColorTokens),
+  err => {
+    if (err) throw err;
+  },
+);
+
 try {
   colorModeFiles.forEach(async file => {
     const [theme, mode] = getThemeAndMode(file);
     extendedDictionary = await HPEStyleDictionary.extend({
-      source: [`${TOKENS_DIR}/primitive/primitives.default.json`, file],
+      source: [
+        `${TOKENS_DIR}/primitive/primitives.default.json`,
+        file,
+        `${TOKENS_DIR}/.tmp/component-color-tokens.default.json`, // temp file with component color tokens
+      ],
       platforms: {
         grommet: {
           transformGroup: 'js/w3c',
@@ -306,8 +335,12 @@ try {
                 mode: mode === 'dark' ? 'dark' : undefined,
                 theme,
               },
-              // TO DO revisit should "light" mode be part of base.css?
-              filter: token => token.filePath === file,
+              // include component colors in the CSS output to ensure
+              // proper CSS inheritance when doing scoped mode sections
+              // component color tokens should already be filtered to just
+              // color tokens, but adding this condition here for safety
+              filter: token =>
+                token.filePath === file || token.$type === 'color',
             },
           ],
         },
@@ -547,7 +580,10 @@ try {
             format: 'css/variables',
             filter: token =>
               token.filePath.includes(`${TOKENS_DIR}/component/`) &&
-              !token.path.includes(FIGMA_PREFIX),
+              !token.path.includes(FIGMA_PREFIX) &&
+              // color variables are included per CSS theme mode
+              // excluding here to minimize the CSS output
+              token.$type !== 'color',
             options: {
               outputReferences: true,
             },

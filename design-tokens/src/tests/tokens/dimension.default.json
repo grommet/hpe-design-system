@@ -1,0 +1,16 @@
+{
+  "spacing": {
+    "medium": {
+      "$value": 96,
+      "$type": "number",
+      "$description": "Medium spacing value"
+    }
+  },
+  "fontSize": {
+    "large": {
+      "$value": 24,
+      "$type": "number",
+      "$description": "Large font size"
+    }
+  }
+}
