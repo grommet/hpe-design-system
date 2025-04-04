@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   CheckBoxGroupDisabledExample,
   CheckBoxGroupDescriptionExample,
@@ -47,9 +47,6 @@ CheckBoxGroup should be used to present a group of options to the user. The user
 - When only one item can be selected from a list, use the [Select](/components/select) component instead.
 - When multiple selections can be made in a list that contains 5 or more items, use [SelectMultiple](/components/SelectMultiple).
 
-### Accessibility
-
-When using multiple checkboxes in a single FormField, use a CheckBoxGroup. If you're using a single checkbox, use [CheckBox](/components/checkbox).
 
 ## Variants
 
@@ -114,3 +111,9 @@ When many options are available and vertical space is limited, a scrollable chec
 >
   <CheckBoxGroupScrollExample />
 </Example>
+
+## Accessibility
+When using multiple checkboxes in a single FormField, use a CheckBoxGroup. If you're using a single checkbox, use [CheckBox](/components/checkbox).
+
+### WCAG compliance
+  <AccessibilitySection title='checkboxgroup' />

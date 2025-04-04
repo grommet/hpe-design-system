@@ -149,6 +149,54 @@
           }
         }
       },
+      "warning": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "#3c361e",
+            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "#1b5245",
+            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "critical": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "#552120",
+            "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
       "unknown": {
         "DEFAULT": {
           "REST": {
@@ -165,60 +213,12 @@
           }
         }
       },
-      "warning": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.yellow.400-Opacity12}",
-            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "ok": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.green.500-Opacity30}",
-            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "info": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.blue.400-Opacity12}",
+            "$value": "#1e363d",
             "$description": "Use for backgrounds communicating neutral information. Keywords: status",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "critical": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.red.800-Opacity30}",
-            "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1139,6 +1139,22 @@
               "com.figma": {
                 "hiddenFromPublishing": false,
                 "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "onStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.grey.1200}",
+            "$description": "Icon color to be used on strong backgrounds. For example, background-neutral-xstrong.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"],
                 "codeSyntax": {}
               }
             }

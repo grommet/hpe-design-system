@@ -323,6 +323,7 @@ export const components = [
   },
   {
     name: 'DateInput',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Inputs',
     description:
       'A widget which allows the user to select a date or range of dates from a calendar.',
@@ -679,6 +680,7 @@ export const components = [
   },
   {
     name: 'CheckBox',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'CheckBox is a square design element that when clicked accepts the choice offered.',
@@ -717,6 +719,7 @@ export const components = [
   },
   {
     name: 'CheckBoxGroup',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'CheckBoxGroup is a component that presents related checkbox options.',
@@ -1593,6 +1596,7 @@ export const components = [
   },
   {
     name: 'Tag',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Visualizations',
     description: `Tags are metadata attributes facilitating the identification, 

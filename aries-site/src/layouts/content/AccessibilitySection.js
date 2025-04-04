@@ -1,41 +1,42 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import { Notification } from 'grommet';
 import { WCAGRuleDetail, WCAGRuleSummary } from '.';
-import componentData from '../../data/wcag/components.json';
+import data from '../../data/wcag/wcag.json';
 
 // title prop is the name of the component that will be passed in mdx file
 // version will be used so if we need to update the version of WCAG we can do it
 // easily component by component.
 export const AccessibilitySection = ({ title, version }) => {
-  const [data, setData] = useState();
-
+  const componentData = require(`../../data/wcag/${title.toLowerCase()}.json`);
   const componentInfo = useMemo(() => {
     if (!title || !componentData) {
       return [];
     }
 
-    const component = componentData.find(item => item[title.toLowerCase()]);
-    return component ? component[title.toLowerCase()] : [];
-  }, [title]);
+    return componentData || [];
+  }, [title, componentData]);
 
-  useEffect(() => {
-    fetch(
-      'https://raw.githubusercontent.com/w3c/wcag/refs/heads/main/guidelines/wcag.json',
-    )
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error fetching data');
-        }
-        return response.json();
-      })
-      .then(fetchedData => {
-        setData(fetchedData);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  }, []);
+  // Temporarily commented out the fetch call because the link to the wcag.json
+  // file no longer exists. As a temp. solution, we are using a local copy
+  // of the file see wcag.json file in the data/wcag folder.
+  // useEffect(() => {
+  // fetch(
+  //   'https://raw.githubusercontent.com/w3c/wcag/refs/heads/main/guidelines/wcag.json',
+  // )
+  //   .then(response => {
+  //     if (!response.ok) {
+  //       throw new Error('Error fetching data');
+  //     }
+  //     return response.json();
+  //   })
+  //   .then(fetchedData => {
+  //     setData(fetchedData);
+  //   })
+  //   .catch(error => {
+  //     console.error('Error:', error);
+  //   });
+  // }, []);
 
   // create a map of each of the successCriteria ->
   // num to make it way easier and faster over time.
@@ -53,7 +54,7 @@ export const AccessibilitySection = ({ title, version }) => {
       });
     });
     return map;
-  }, [data]);
+  }, []);
 
   // Compare the component info with the success criteria
   // and return the status of each rule.
