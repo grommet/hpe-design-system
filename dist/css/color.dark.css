@@ -47,10 +47,10 @@
   --hpe-color-icon-strong: var(--hpe-base-color-white-100); /* Emphasized icon color for increased visual prominence. */
   --hpe-color-icon-weak: var(--hpe-base-color-white-opacity50); /* Subtle icon color for reduced visual prominence. */
   --hpe-color-icon-disabled: var(--hpe-base-color-white-opacity24); /* Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled. */
-  --hpe-color-icon-info: var(--hpe-base-color-blue-700); /* Use for icons communicating neutral information. Keywords: status */
+  --hpe-color-icon-info: var(--hpe-base-color-blue-400); /* Use for icons communicating neutral information. Keywords: status */
   --hpe-color-icon-ok: var(--hpe-base-color-green-500); /* Use for icons communicating success. Keywords: status */
   --hpe-color-icon-warning: var(--hpe-base-color-orange-600); /* Use for icons communicating warning or caution. Keywords: status */
-  --hpe-color-icon-unknown: var(--hpe-base-color-grey-800); /* Use for icons communicating unknown status. Keywords: status */
+  --hpe-color-icon-unknown: var(--hpe-base-color-grey-600); /* Use for icons communicating unknown status. Keywords: status */
   --hpe-color-icon-primary: var(--hpe-base-color-green-500); /* High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action. */
   --hpe-color-icon-onPrimaryStrong: var(--hpe-base-color-white-100); /* Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
   --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /* Icon color to be used for icon sitting on background-selected-strong. */
@@ -154,10 +154,10 @@
   --hpe-color-icon-strong: var(--hpe-base-color-white-100); /* Emphasized icon color for increased visual prominence. */
   --hpe-color-icon-weak: var(--hpe-base-color-white-opacity50); /* Subtle icon color for reduced visual prominence. */
   --hpe-color-icon-disabled: var(--hpe-base-color-white-opacity24); /* Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled. */
-  --hpe-color-icon-info: var(--hpe-base-color-blue-700); /* Use for icons communicating neutral information. Keywords: status */
+  --hpe-color-icon-info: var(--hpe-base-color-blue-400); /* Use for icons communicating neutral information. Keywords: status */
   --hpe-color-icon-ok: var(--hpe-base-color-green-500); /* Use for icons communicating success. Keywords: status */
   --hpe-color-icon-warning: var(--hpe-base-color-orange-600); /* Use for icons communicating warning or caution. Keywords: status */
-  --hpe-color-icon-unknown: var(--hpe-base-color-grey-800); /* Use for icons communicating unknown status. Keywords: status */
+  --hpe-color-icon-unknown: var(--hpe-base-color-grey-600); /* Use for icons communicating unknown status. Keywords: status */
   --hpe-color-icon-primary: var(--hpe-base-color-green-500); /* High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action. */
   --hpe-color-icon-onPrimaryStrong: var(--hpe-base-color-white-100); /* Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
   --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /* Icon color to be used for icon sitting on background-selected-strong. */

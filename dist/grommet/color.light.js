@@ -83,7 +83,7 @@ export default {
         "info": "#00567a",
         "ok": "#009a71",
         "warning": "#d36d00",
-        "unknown": "#8c8c8c",
+        "unknown": "#757575",
         "primary": "#006750",
         "onPrimaryStrong": "#ffffff",
         "onSelectedPrimaryStrong": "#ffffff",

@@ -3316,7 +3316,7 @@ export default {
   },
   "hpe.color.icon.unknown": {
     "$type": "color",
-    "$value": "#8c8c8c",
+    "$value": "#757575",
     "$description": "Use for icons communicating unknown status. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -3333,7 +3333,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.600}",
+      "$value": "{base.color.grey.700}",
       "$description": "Use for icons communicating unknown status. Keywords: status",
       "$extensions": {
         "com.figma": {

@@ -3166,7 +3166,7 @@ export default {
   },
   "hpe.color.icon.info": {
     "$type": "color",
-    "$value": "#00739d",
+    "$value": "#00c8ff",
     "$description": "Use for icons communicating neutral information. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -3183,7 +3183,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.blue.700}",
+      "$value": "{base.color.blue.400}",
       "$description": "Use for icons communicating neutral information. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -3316,7 +3316,7 @@ export default {
   },
   "hpe.color.icon.unknown": {
     "$type": "color",
-    "$value": "#555555",
+    "$value": "#8c8c8c",
     "$description": "Use for icons communicating unknown status. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -3333,7 +3333,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.800}",
+      "$value": "{base.color.grey.600}",
       "$description": "Use for icons communicating unknown status. Keywords: status",
       "$extensions": {
         "com.figma": {
