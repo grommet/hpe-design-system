@@ -410,7 +410,7 @@
   {
     "rule": "3.2.1",
     "label": "On Focus",
-    "status": "failed",
+    "status": "passed",
     "notes": ""
   },
   {
