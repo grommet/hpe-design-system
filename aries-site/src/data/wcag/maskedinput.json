@@ -170,7 +170,7 @@
   {
     "rule": "1.4.13",
     "label": "Content on Hover or Focus",
-    "status": "failed",
+    "status": "passed",
     "notes": ""
   },
   {
