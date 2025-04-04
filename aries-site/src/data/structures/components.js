@@ -1647,6 +1647,7 @@ export const components = [
   },
   {
     name: 'Page',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Layouts',
     description: `Page is a helpful container providing consistent layouts
