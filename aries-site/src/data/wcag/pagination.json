@@ -104,7 +104,7 @@
   },
   {
     "rule": "1.4.5",
-    "label": "Contrast Enhanced",
+    "label": "Images of text",
     "status": "not-applicable"
   },
   {
@@ -226,7 +226,8 @@
   {
     "rule": "2.4.4",
     "label": "Link Purpose (In Context)",
-    "status": "passed"
+    "status": "not-applicable",
+    "notes": "Buttons in pagination do not count as links" 
   },
   {
     "rule": "2.4.5",
@@ -236,8 +237,8 @@
   {
     "rule": "2.4.6",
     "label": "Headings and Labels",
-    "status": "conditional",
-    "notes": "Ensure items have appropriate aria-labels."
+    "status": "not-applicable",
+    "notes": "No headings"
   },
   {
     "rule": "2.4.7",
@@ -277,19 +278,18 @@
   {
     "rule": "2.5.1",
     "label": "Pointer Gestures",
-    "status": "passed"
+    "status": "not-applicable",
+    "notes": "Not using path-based or multipoint gestures in this component"
   },
   {
     "rule": "2.5.2",
     "label": "Pointer Cancellation",
-    "status": "passed",
-    "notes": "Actions triggered only on pointer-up events."
+    "status": "passed"
   },
   {
     "rule": "2.5.3",
     "label": "Label in Name",
-    "status": "failed",
-    "notes": "In the Items per page Select, the options do not have accessible names."
+    "status": "passed"
   },
   {
     "rule": "2.5.4",
@@ -334,7 +334,7 @@
   {
     "rule": "3.2.2",
     "label": "On Input",
-    "status": "failed"
+    "status": "passed"
   },
   {
     "rule": "3.2.3",
@@ -349,12 +349,12 @@
   {
     "rule": "3.3.2",
     "label": "Labels or Instructions",
-    "status": "not-applicable"
+    "status": "passed"
   },
   {
     "rule": "3.2.5",
     "label": "Change on Request",
-    "status": "passed"
+    "status": "not-applicable"
   },
   {
     "rule": "3.2.6",
@@ -379,7 +379,7 @@
   {
     "rule": "3.3.7",
     "label": "Redundant Entry",
-    "status": "passed"
+    "status": "not-applicable"
   },
   {
     "rule": "3.3.8",
