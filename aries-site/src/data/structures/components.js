@@ -1343,6 +1343,7 @@ export const components = [
       'RadioButtonGroup is a component that offers related options to a user, but only allows them to choose one.',
     seoDescription:
       'The RadioButtonGroup component is used when you want the user to choose only one out of a set of related options. See best UX practices, error messages, and how HPE styles the disabled state.',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: ['When to use RadioButtonGroup'],
     preview: {
       component: () => <RadioButtonGroupPreview />,
