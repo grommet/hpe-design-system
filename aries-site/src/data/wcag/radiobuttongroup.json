@@ -308,7 +308,7 @@
   {
     "rule": "2.5.5",
     "label": "Target Size (Enhanced)",
-    "status": "needs discussion",
+    "status": "failed",
     "notes": "Width of radio button plus label exceeds 44px. Vertical spacing between radio buttons is 12px, creating overall 48px when above small breakpoint."
   },
   {
