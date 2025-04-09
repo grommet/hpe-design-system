@@ -63,7 +63,7 @@
   {
     "rule": "1.3.3",
     "label": "Sensory Characteristics",
-    "status": "passed"
+    "status": "not-applicable"
   },
   {
     "rule": "1.3.4",
@@ -94,23 +94,26 @@
   {
     "rule": "1.4.3",
     "label": "Contrast Minimum",
-    "status": "passed"
+    "status": "not-applicable", 
+    "notes": "Text and images within a layer are not part of the Layer component"
   },
   {
     "rule": "1.4.4",
     "label": "Resize Text",
-    "status": "passed"
+    "status": "not-applicable",
+    "notes": "Text and images within a layer are not part of the Layer component"
   },
   {
     "rule": "1.4.5",
     "label": "Resize Text",
-    "status": "passed"
+    "status": "not-applicable",
+    "notes": "Text and images within a layer are not part of the Layer component"
   },
   {
     "rule": "1.4.6",
     "label": "Contrast Enhanced",
-    "status": "failed",
-    "notes": "Buttons do not meet 7:1 contrast ratio"
+    "status": "not-applicable",
+    "notes": "Text and images within a layer are not part of the Layer component"
   },
   {
     "rule": "1.4.7",
@@ -130,22 +133,25 @@
   {
     "rule": "1.4.10",
     "label": "Reflow",
-    "status": "passed"
+    "status": "conditional",
+    "notes": "Conditional based on the implementation of layer"
   },
   {
     "rule": "1.4.11",
     "label": "Non-text Contrast",
-    "status": "passed"
+    "status": "not-applicable"
   },
   {
     "rule": "1.4.12",
     "label": "Text Spacing",
-    "status": "passed"
+    "status": "not-applicable",
+    "notes": "Text in this component isn't directly related to the component itself"
   },
   {
     "rule": "1.4.13",
     "label": "Content on Hover or Focus",
-    "status": "passed"
+    "status": "passed",
+    "notes": "No content displayed on hover or focus that is directly tied to the layer component"
   },
   {
     "rule": "2.1.1",
@@ -208,6 +214,11 @@
     "status": "not-applicable"
   },
   {
+    "rule": "2.3.3",
+    "label": "Animation from Interactions",
+    "status": "conditional"
+  },
+  {
     "rule": "2.4.1",
     "label": "Bypass Blocks",
     "status": "not-applicable"
@@ -225,8 +236,7 @@
   {
     "rule": "2.4.4",
     "label": "Link Purpose (In Context)",
-    "status": "conditional",
-    "notes": "Implementation must have meaningful labels."
+    "status": "not-applicable"
   },
   {
     "rule": "2.4.5",
@@ -236,8 +246,7 @@
   {
     "rule": "2.4.6",
     "label": "Headings and Labels",
-    "status": "conditional",
-    "notes": "Headings and labels need to describe topic or purpose."
+    "status": "not-applicable"
   },
   {
     "rule": "2.4.7",
@@ -252,8 +261,7 @@
   {
     "rule": "2.4.9",
     "label": "Link Purpose (Link Only)",
-    "status": "conditional",
-    "notes":"Implementation to make sure links have aria-labels for link purpose"
+    "status": "not-applicable"
   },
   {
     "rule": "2.4.10",
@@ -296,18 +304,19 @@
   {
     "rule": "2.5.4",
     "label": "Motion Actuation",
-    "status": "not-applicable"
+    "status": "conditional",
+    "notes": "Implementation would need to allow the user to turn off animation"
   },
   {
     "rule": "2.5.5",
     "label": "Target Size (Enhanced)",
-    "status": "failed",
-    "notes": "Close button click area is 36x36"
+    "status": "conditional",
+    "notes": "Layer component does not enforce the use of a specific close button"
   },
   {
     "rule": "2.5.6",
     "label": "Concurrent Input Mechanisms",
-    "status": "passed"
+    "status": "not-applicable"
   },  
   {
     "rule": "2.5.7",
@@ -333,12 +342,12 @@
   {
     "rule": "3.2.1",
     "label": "On Focus",
-    "status": "passed"
+    "status": "not-applicable"
   },
   {
     "rule": "3.2.2",
     "label": "On Input",
-    "status": "passed"
+    "status": "not-applicable"
   },
   {
     "rule": "3.2.3",
@@ -348,12 +357,12 @@
   {
     "rule": "3.2.4",
     "label": "Consistent Identification",
-    "status": "passed"
+    "status": "not-applicable"
   },
   {
     "rule": "3.2.5",
     "label": "Change on Request",
-    "status": "passed"
+    "status": "not-applicable"
   },
   {
     "rule": "3.2.6",
@@ -384,8 +393,7 @@
   {
     "rule": "3.3.5",
     "label": "Help",
-    "status": "conditional",
-    "notes": "Context-sensitive hellp depends on implementation"
+    "status": "not-applicable"
   },
   {
     "rule": "3.3.6",
@@ -410,8 +418,7 @@
   {
     "rule": "4.1.2",
     "label": "Name, Role, Value",
-    "status": "conditional",
-    "notes": "Depends on implementation"
+    "status": "not-applicable"
   },
   {
     "rule": "4.1.3",
