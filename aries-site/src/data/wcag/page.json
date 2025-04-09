@@ -2,8 +2,8 @@
   {
     "rule": "1.1.1",
     "label": "Non-text content",
-    "status": "conditional",
-    "notes": "If an icon is provided, an aria-label can be added to the icon."
+    "status": "not-applicable",
+    "notes": ""
   },
   {
     "rule": "1.2.1",
@@ -62,26 +62,26 @@
   {
     "rule": "1.3.1",
     "label": "Info and Relationships",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "1.3.2",
     "label": "Meaningful Sequence",
-    "status": "passed",
-    "notes": ""
+    "status": "conditional",
+    "notes": "make sure the content is in a meaningful order."
   },
   {
     "rule": "1.3.3",
     "label": "Sensory Characteristics",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "1.3.4",
     "label": "Orientation",
-    "status": "passed",
-    "notes": ""
+    "status": "Passed",
+    "notes": "our page should behave appropriately when users switch between orientations."
   },
   {
     "rule": "1.3.5",
@@ -92,13 +92,13 @@
   {
     "rule": "1.3.6",
     "label": "Identify Purpose",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "1.4.1",
     "label": "Use of Color",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -110,13 +110,13 @@
   {
     "rule": "1.4.3",
     "label": "Contrast (Minimum)",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "1.4.4",
     "label": "Resize Text",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -128,8 +128,8 @@
   {
     "rule": "1.4.6",
     "label": "Contrast (Enhanced)",
-    "status": "failed",
-    "notes": "Placeholder text fails, other states pass."
+    "status": "not-applicable",
+    "notes": "If Text is within Page Content, it passes the contrast check."
   },
   {
     "rule": "1.4.7",
@@ -140,7 +140,7 @@
   {
     "rule": "1.4.8",
     "label": "Visual Presentation",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -158,37 +158,43 @@
   {
     "rule": "1.4.11",
     "label": "Non-text Contrast",
-    "status": "failed",
-    "notes": "Suggestions doesn't have enough contrast or additional marker for active state."
+    "status": "not-applicable",
+    "notes": ""
   },
   {
     "rule": "1.4.12",
     "label": "Text Spacing",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "1.4.13",
     "label": "Content on Hover or Focus",
-    "status": "failed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.1.1",
     "label": "Keyboard",
-    "status": "passed",
-    "notes": ""
+    "status": "not-applicable",
+    "notes": "This would only apply to the content within the page, not the page itself."
   },
   {
     "rule": "2.1.2",
     "label": "No Keyboard Trap",
-    "status": "passed",
-    "notes": ""
+    "status": "not-applicable",
+    "notes": "This would only apply to the content within the page, not the page itself."
   },
   {
     "rule": "2.1.3",
     "label": "Keyboard (No Exception)",
-    "status": "passed",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.1.4",
+    "label": "Character Key Shortcuts",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -260,8 +266,8 @@
   {
     "rule": "2.4.3",
     "label": "Focus Order",
-    "status": "passed",
-    "notes": ""
+    "status": "not-applicable",
+    "notes": "This would only apply to the content within the page, not the page itself."
   },
   {
     "rule": "2.4.4",
@@ -284,7 +290,7 @@
   {
     "rule": "2.4.7",
     "label": "Focus Visible",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -303,24 +309,24 @@
     "rule": "2.4.10",
     "label": "Section Headings",
     "status": "not-applicable",
-    "notes": ""
+    "notes": "applicable to the content within the page, not the page itself."
   },
   {
     "rule": "2.4.11",
     "label": "Focus Not Obscured (Minimum)",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.4.12",
     "label": "Focus Not Obscured (Enhanced)",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.4.13",
     "label": "Focus Appearance",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -332,13 +338,13 @@
   {
     "rule": "2.5.2",
     "label": "Pointer Cancellation",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.5.3",
     "label": "Label in Name",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -350,13 +356,13 @@
   {
     "rule": "2.5.5",
     "label": "Target Size (Enhanced)",
-    "status": "failed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.5.6",
     "label": "Concurrent Input Mechanisms",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -368,7 +374,7 @@
   {
     "rule": "2.5.8",
     "label": "Target Size (Minimum)",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -399,7 +405,7 @@
     "rule": "3.1.5",
     "label": "Reading Level",
     "status": "not-applicable",
-    "notes": ""
+    "notes": "doesnt manage the content of the page"
   },
   {
     "rule": "3.1.6",
@@ -410,13 +416,13 @@
   {
     "rule": "3.2.1",
     "label": "On Focus",
-    "status": "failed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "3.2.2",
     "label": "On Input",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -447,37 +453,37 @@
     "rule": "3.3.1",
     "label": "Error Identification",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": "related to FormField"
   },
   {
     "rule": "3.3.2",
     "label": "Labels or Instructions",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": "related to FormField"
   },
   {
     "rule": "3.3.3",
     "label": "Error Suggestion",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": "related to FormField"
   },
   {
     "rule": "3.3.4",
     "label": "Error Prevention (Legal, Financial, Data)",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": "related to FormField"
   },
   {
     "rule": "3.3.5",
     "label": "Help",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": "related to FormField"
   },
   {
     "rule": "3.3.6",
     "label": "Error Prevention (All)",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": "Dependant on FormField"
   },
   {
     "rule": "3.3.7",
@@ -500,8 +506,8 @@
   {
     "rule": "4.1.2",
     "label": "Name, Role, Value",
-    "status": "conditional",
-    "notes": "When not in FormField, caller must provide an aria-label or title."
+    "status": "not-applicable",
+    "notes": ""
   },
   {
     "rule": "4.1.3",
