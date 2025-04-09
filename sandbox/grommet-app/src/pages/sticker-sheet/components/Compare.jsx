@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grommet, Stack, ThemeContext } from 'grommet';
-import { hpe as v0 } from 'grommet-theme-hpe-v5';
-import { themes } from '../../../themes/theme';
+import { hpe } from 'grommet-theme-hpe';
+import { current as hpeCurrent } from '../../../themes/theme';
 import { ModeContext } from './ModeContext';
 
 export const Compare = ({ children, ...rest }) => {
@@ -13,14 +13,14 @@ export const Compare = ({ children, ...rest }) => {
     return (
       <Box direction="row" gap="medium">
         <Grommet
-          theme={v0}
+          theme={hpe}
           themeMode={theme.dark ? 'dark' : 'light'}
           background="background-front"
         >
           <Box align="start">{children}</Box>
         </Grommet>
         <Grommet
-          theme={themes.v1}
+          theme={hpeCurrent}
           themeMode={theme.dark ? 'dark' : 'light'}
           background="background-front"
         >
@@ -32,7 +32,7 @@ export const Compare = ({ children, ...rest }) => {
 
   return (
     <Stack {...rest}>
-      <ThemeContext.Extend value={v0}>
+      <ThemeContext.Extend value={hpe}>
         <Box
           align="start"
           style={
@@ -48,7 +48,7 @@ export const Compare = ({ children, ...rest }) => {
         </Box>
       </ThemeContext.Extend>
 
-      <ThemeContext.Extend value={themes.v1}>
+      <ThemeContext.Extend value={hpeCurrent}>
         <Box
           align="start"
           style={mode === 'v5' ? { visibility: 'hidden' } : {}}

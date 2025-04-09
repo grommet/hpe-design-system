@@ -1,4 +1,4 @@
-import { AccessibilitySection, Example } from '../../layouts';
+import { Example } from '../../layouts';
 import {
   MaskedDateExample,
   MaskedDisabledExample,
@@ -37,6 +37,12 @@ MaskedInput should be used anytime there is formalized syntax and should always 
 - Ensure any syntax separators are automatically inserted if needed, but also allow users to type them
 
 MaskedInput reduces the number of input fields needed by allowing multiple criteria to be consolidated into a single input. For example, you can [use MaskedInput to collect storage size amounts and units in a single input](#size-with-units).
+
+### Accessibility
+
+In every case possible, MaskedInput should be used inside of a FormField to ensure that a label is appropriately paired with the input. This behavior is important to screen reader users who need to know to which context the MaskedInput is referring.
+
+Placeholder text does not serve as a sufficient means of restricting syntax. As the user types, the input should auto-format to the intended format.
 
 ## Variants
 
@@ -142,13 +148,3 @@ Used to indicate that a MaskedInput cannot be interacted with.
 >
   <MaskedDisabledExample />
 </Example>
-
-## Accessibility
-
-In every case possible, MaskedInput should be used inside of a FormField to ensure that a label is appropriately paired with the input. This behavior is important to screen reader users who need to know to which context the MaskedInput is referring.
-
-Placeholder text does not serve as a sufficient means of restricting syntax. As the user types, the input should auto-format to the intended format.
-
-### WCAG compliance
-
-<AccessibilitySection title="MaskedInput" />

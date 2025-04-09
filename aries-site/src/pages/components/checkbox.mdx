@@ -36,13 +36,22 @@ There are three states which CheckBox provides:
 Checked and unchecked states refer to when an individual CheckBox is checked or when all options from a group are checked.
 
 ### CheckBox outside of FormField
-
 A checkbox might be used outside of a form field when:
 
 1. Serving as a UI control showing or hiding page content, such as revealing additional content or inputs which are only relevant when a particular feature is enabled.
-2. Scenarios in which having a form field label in addition to the checkbox label would be redundant for the user.
+2. Scenarios in which having a form field label in addition to the checkbox label would be redundant for the user. 
 3. Allowing a user to opt-in or acknowledge a disclaimer, such as a privacy policy or terms and conditions.
 4. Allowing an item to be selected within a list, table row, or drop down.
+
+By default, CheckBox has built-in pad to create space between the CheckBox and FormField border therefore when using checkbox alone `pad="none"` will need to be applied. When using CheckBox outside of FormField, it does not have a border or label. The hover indicator is applied to the checkbox itself.
+
+<Example 
+docs="https://v2.grommet.io/checkbox?theme=hpe#props" 
+code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/checkbox/CheckBoxSolelyExample.js" 
+height={{ min: 'small' }}
+>
+ <CheckBoxSolelyExample />
+</Example>
 
 ### Toggle
 
