@@ -532,7 +532,7 @@
       "weak": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.white.opacity50}",
+          "$value": "#ffffff9c",
           "$description": "Subtle text color for reduced visual prominence. Often used for supporting text.",
           "$extensions": {
             "com.figma": {
@@ -974,7 +974,7 @@
       "weak": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.white.opacity50}",
+          "$value": "{color.text.weak.REST}",
           "$description": "Subtle icon color for reduced visual prominence.",
           "$extensions": {
             "com.figma": {
