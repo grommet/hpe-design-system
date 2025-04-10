@@ -765,7 +765,7 @@ export const components = [
     relatedContent: ['Layer', 'Lists', 'Tabs'],
     seoDescription:
       'The accordion is a list with expanded and collapsed states. When clicked opened, it reveals more detail. See different behaviors, states, and icons.',
-      accessibility: 'Passed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: ['About Accordion'],
     tags: [
       'accordian',
