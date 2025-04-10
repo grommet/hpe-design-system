@@ -1,0 +1,102 @@
+import { Box, Notification, Text, Meter } from 'grommet';
+import { Trigger } from 'grommet-icons';
+import { ColorPreview } from '../../components';
+
+<Notification
+  status="info"
+  message="For a list of all colors, please visit"
+  actions={[
+    { label: 'All design tokens', href: '/design-tokens/all-design-tokens' },
+  ]}
+  width={{ max: 'large' }}
+/>
+
+## Applying color
+
+HPE colors are stored in the form of design tokens. Rather than applying RGB or hex values, we use semantic colors (otherwise called [semantic tokens](/design-tokens/overview#semantic-tokens)). Semantic color names describe when and where to apply them.
+
+Applying semantic colors as intended ensures your design:
+
+- Is aligned with the current theme and visual direction.
+- Is accessible.
+- Enables theme mode switching (light and dark. See [Theming]()).
+- Improves maintenance (when themes are updated, designs are synchronised with token updates. See [design tokens overview](/design-tokens/overview).)
+
+## Color names
+
+By combining terms from our color categories, as described in [How to read design tokens](/design-tokens/how-to-read-design-tokens), we form semantic color names.
+
+| Example                                                         | Token                             |
+| --------------------------------------------------------------- | --------------------------------- |
+| <ColorPreview datum={{value: 'background-back'}} />             | color.background.back             |
+| <ColorPreview datum={{value: 'background-selected-primary'}} /> | color.background.selected.primary |
+| <ColorPreview datum={{value: 'text-primary'}} />                | color.text.primary                |
+| <ColorPreview datum={{value: 'icon-strong'}} />                 | color.icon.strong                 |
+
+## Color categories
+
+Commonly used categories in color naming are [property](#property), [variant](#variant), [state](#state) and [scale](#scale).
+
+### Property
+
+The anatomical part of an element to be styled.
+
+| Example                                                                       | Property   | Usage                                        |
+| ----------------------------------------------------------------------------- | ---------- | -------------------------------------------- |
+| <ColorPreview datum={{value: 'background-back'}} />                           | background | Backgrounds, pages, fills and surfaces.      |
+| <ColorPreview datum={{value: 'background-front'}} border="border-selected" /> | border     | Borders around elements, dividers and rules. |
+| <Text size="xlarge">Aa</Text>                                                 | text       | Typography, such as paragraphs or labels.    |
+| <Trigger size="xlarge" />                                                     | icon       | Iconography.                                 |
+| <Box width="xsmall" ><Meter value={30}  thickness='small' round /></Box>      | foreground | Foreground graphics.                         |
+
+### Variant
+
+Stylistic variant of a token.
+
+| Example                                                        | Variant  | Usage                                                                         |
+| -------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------- |
+| <ColorPreview datum={{value: 'background-primary-strong'}} />  | primary  | Primary emphasis color for high visual prominence.                            |
+| <ColorPreview datum={{value: 'background-neutral-xstrong'}} /> | neutral  | Generic color that does not need any particular emphasis with regards to hue. |
+| <ColorPreview datum={{value: 'background-critical'}} />        | critical | Error or danger.                                                              |
+| <ColorPreview datum={{value: 'background-warning'}} />         | warning  | Warning or caution.                                                           |
+| <ColorPreview datum={{value: 'background-info'}} />            | info     | Informational content.                                                        |
+| <ColorPreview datum={{value: 'background-ok'}} />              | ok       | Success or everything is operating as expected.                               |
+| <ColorPreview datum={{value: 'text-onStrong'}} />              | onStrong | For content (text and icons) that sit on strong backgrounds.                  |
+
+### State
+
+Color for specific states.
+
+| Example                                                                      | State    | Usage                                      | Token example                           |
+| ---------------------------------------------------------------------------- | -------- | ------------------------------------------ | --------------------------------------- |
+| <ColorPreview datum={{value: 'background-hover'}} />                 | hover    | For hover states of a particular color.    | color.background.hover          |
+| <ColorPreview datum={{value: 'background-selected-primary-strong'}} /> | selected | For selected states of a particular color. | color.background.selected.primary.strong |
+
+### Scale
+
+Colors can come in a variety of levels of emphasis or tone, named accordingly with a weak or strong modifier.
+
+#### Background color scale
+
+Background color variants may have a range of shades.
+
+<Notification
+  status="info"
+  message="Note, for proper color contrast, strong background colors should always be paired with onStrong text and icon colors. See"
+  actions={[{ label: 'Color pairing', href: '/design-tokens/color-pairing' }]}
+  width={{ max: 'large' }}
+  margin={{ bottom: 'medium' }}
+/>
+
+| Example                                                        | Emphasis |
+| -------------------------------------------------------------- | -------- |
+| <ColorPreview datum={{value: 'background-primary-xstrong'}} /> | xstrong  |
+| <ColorPreview datum={{value: 'background-primary-strong'}} />  | strong   |
+
+#### Text emphasis
+
+| Example                                            | Emphasis |
+| -------------------------------------------------- | -------- |
+| <Text size="xlarge" color="text-strong">Aa</Text>  | strong   |
+| <Text size="xlarge" color="text-default">Aa</Text> | default  |
+| <Text size="xlarge" color="text-weak">Aa</Text>    | weak     |

@@ -532,7 +532,7 @@
       "weak": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.white.opacity50}",
+          "$value": "#ffffff9c",
           "$description": "Subtle text color for reduced visual prominence. Often used for supporting text.",
           "$extensions": {
             "com.figma": {
@@ -974,7 +974,7 @@
       "weak": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.white.opacity50}",
+          "$value": "{color.text.weak.REST}",
           "$description": "Subtle icon color for reduced visual prominence.",
           "$extensions": {
             "com.figma": {
@@ -1021,7 +1021,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.blue.700}",
+            "$value": "{base.color.blue.400}",
             "$description": "Use for icons communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -1069,7 +1069,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.grey.800}",
+            "$value": "{base.color.grey.600}",
             "$description": "Use for icons communicating unknown status. Keywords: status",
             "$extensions": {
               "com.figma": {

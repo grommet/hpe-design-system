@@ -1,5 +1,11 @@
 # hpe-design-tokens
 
+## 1.1.1
+
+### Patch Changes
+
+- 31ce600: - Fix contrast ratios for `hpe.color.icon.unknown` and `hpe.color.icon.info` on status backgrounds.
+
 ## 1.1.0
 
 ### Minor Changes

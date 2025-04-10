@@ -1,7 +1,7 @@
 {
   "name": "hpe-design-tokens",
   "description": "Design tokens for use with the HPE Design System.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "Apache-2.0",
   "type": "module",
   "module": "./dist/esm/index.js",
@@ -21,6 +21,8 @@
       "require": "./dist/css/*.css"
     }
   },
+  "repository": "https://github.com/grommet/hpe-design-system",
+  "homepage": "https://design-system.hpe.design/",
   "scripts": {
     "prettier:check": "prettier --check src/",
     "sync-tokens-to-figma": "tsx src/scripts/sync_tokens_to_figma.ts",

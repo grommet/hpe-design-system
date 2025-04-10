@@ -410,6 +410,7 @@ export const components = [
       'TextArea is a field used in forms to capture longer text. This component provides the user with space to type more characters than the TextInput field.',
     seoDescription:
       'When you need to allow the user to provide longer forms of content, use a TextArea component.',
+      accessibility: 'Passed WCAG 2.2 AA',
     sections: [],
     preview: {
       component: () => <TextAreaPreview />,
@@ -445,7 +446,7 @@ export const components = [
     description: 'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Failed WCAG 2.2 AA',
     sections: [
       'About TextInput',
       'Password',
@@ -1169,6 +1170,7 @@ export const components = [
       'MaskedInput allows you to specify formatted text within a form field.',
     seoDescription:
       'MaskedInput allows you to specify formatted text within a form field.',
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'IP Address',
       'IP Range',
@@ -1342,6 +1344,7 @@ export const components = [
       'RadioButtonGroup is a component that offers related options to a user, but only allows them to choose one.',
     seoDescription:
       'The RadioButtonGroup component is used when you want the user to choose only one out of a set of related options. See best UX practices, error messages, and how HPE styles the disabled state.',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: ['When to use RadioButtonGroup'],
     preview: {
       component: () => <RadioButtonGroupPreview />,
@@ -1550,6 +1553,7 @@ export const components = [
   },
   {
     name: 'Pagination',
+    accessibility: 'Failed WCAG 2.2 AA',
     available: true,
     category: 'Controls',
     description: `Pagination enables the user to  navigate between pages
@@ -1647,6 +1651,7 @@ export const components = [
   },
   {
     name: 'Page',
+    accessibility: 'Passed WCAG 2.2 AAA',
     available: true,
     category: 'Layouts',
     description: `Page is a helpful container providing consistent layouts
