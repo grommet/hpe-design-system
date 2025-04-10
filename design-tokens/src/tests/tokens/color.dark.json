@@ -1,0 +1,27 @@
+{
+  "color": {
+    "background": {
+      "plum": {
+        "DEFAULT": {
+          "REST": {
+            "$value": "#5e072b",
+            "$type": "color",
+            "$description": "Plum background color"
+          },
+          "hover": {
+            "$value": "#960944",
+            "$type": "color",
+            "$description": "Plum background color hover"
+          }
+        },
+        "strong": {
+          "REST": {
+            "$value": "#17020b",
+            "$type": "color",
+            "$description": "Strong background color"
+          }
+        }
+      }
+    }
+  }
+}
