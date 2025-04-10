@@ -35,11 +35,11 @@ By combining terms from our color categories, as described in [How to read desig
 
 ## Color categories
 
-Commonly used categories in color naming are `property`, `variant`, `state` and `emphasis`.
+Commonly used categories in color naming are [property](#property), [variant](#variant), [state](#state) and [scale](#scale).
 
 ### Property
 
-The type of thing to be styled.
+The anatomical part of an element to be styled.
 
 | Example                                                                       | Property   | Usage                                        |
 | ----------------------------------------------------------------------------- | ---------- | -------------------------------------------- |
@@ -69,8 +69,8 @@ Color for specific states.
 
 | Example                                                                      | State    | Usage                                      | Token example                           |
 | ---------------------------------------------------------------------------- | -------- | ------------------------------------------ | --------------------------------------- |
-| <ColorPreview datum={{value: 'background-primary-hover'}} />                 | hover    | For hover states of a particular color.    | color.background.primary.hover          |
-| <ColorPreview datum={{value: 'background-selected-primary-strong-hover'}} /> | selected | For selected states of a particular color. | color.background.selected.primary.hover |
+| <ColorPreview datum={{value: 'background-hover'}} />                 | hover    | For hover states of a particular color.    | color.background.hover          |
+| <ColorPreview datum={{value: 'background-selected-primary-strong'}} /> | selected | For selected states of a particular color. | color.background.selected.primary.strong |
 
 ### Scale
 
@@ -82,7 +82,7 @@ Background color variants may have a range of shades.
 
 <Notification
   status="info"
-  message="Note that strong background colors should be used with onStrong text and icon colors. See"
+  message="Note, for proper color contrast, strong background colors should always be paired with onStrong text and icon colors. See"
   actions={[{ label: 'Color pairing', href: '/design-tokens/color-pairing' }]}
   width={{ max: 'large' }}
   margin={{ bottom: 'medium' }}

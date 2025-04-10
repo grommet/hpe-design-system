@@ -5,7 +5,6 @@ import { Add } from 'grommet-icons';
 
 export const StrongBackgrounds = () => {
   const theme = useContext(ThemeContext);
-  console.log(theme);
   return (
     <Box gap="large">
       <Box

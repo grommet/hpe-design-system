@@ -57,6 +57,7 @@ export const tokens = [
       'Intentional color usage establishes hierarchy and supports consistency thus improving product experience. Learn how to use HPE colors to design balanced interfaces.',
     sections: [],
     relatedContent: [
+      'Color pairing',
       'Layout and spacing',
       'Global',
       'Element',
@@ -77,9 +78,10 @@ export const tokens = [
       ),
     },
     seoDescription:
-      'To support color accessibility, there are foreground and background color pairings that ensure accessible color combinations.',
+      'To support color accessibility, there are foreground and background color pairings that ensure accessible color contrast combinations.',
     sections: [],
     relatedContent: [
+      'Color usage',
       'Layout and spacing',
       'Global',
       'Element',
