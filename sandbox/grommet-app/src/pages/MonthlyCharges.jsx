@@ -26,7 +26,7 @@ export const MonthlyCharges = () => {
         <>
           <DataChart
             data={expenses.expenses}
-            pad={{ horizontal: 'large' }}
+            pad={{ horizontal: 'xlarge' }}
             series={[
               {
                 property: 'date',
@@ -47,17 +47,17 @@ export const MonthlyCharges = () => {
                 property: [
                   {
                     property: 'storage',
-                    thickness: 'small',
+                    thickness: 'xsmall',
                     color: 'graph-0',
                   },
                   {
                     property: 'compute',
-                    thickness: 'small',
+                    thickness: 'xsmall',
                     color: 'graph-1',
                   },
                   {
                     property: 'networking',
-                    thickness: 'small',
+                    thickness: 'xsmall',
                     color: 'graph-2',
                   },
                 ],

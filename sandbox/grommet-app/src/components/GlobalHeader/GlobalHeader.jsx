@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import {
@@ -36,10 +36,13 @@ export const GlobalHeader = ({
   activeTheme,
   backgroundBack,
   setBackgroundBack,
+  density,
+  setDensity,
   ...rest
 }) => {
   const theme = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
+  const [fontScale, setFontScale] = useState('default');
   return (
     <Page kind="full" {...rest}>
       <PageContent pad="none">
@@ -53,10 +56,10 @@ export const GlobalHeader = ({
               : 'background-front'
           }
           elevation={activeTheme === 'v1' ? 'none' : 'small'}
-          pad={{ horizontal: 'xsmall', vertical: 'small' }}
+          pad={{ horizontal: '3xsmall', vertical: 'xsmall' }}
         >
           <Box direction="row" gap="medium" flex>
-            <Box direction="row" gap="xsmall">
+            <Box direction="row" gap="3xsmall">
               <Button icon={<Menu />} />
               <Box border={{ side: 'left', color: 'border-weak' }} />
             </Box>
@@ -81,7 +84,7 @@ export const GlobalHeader = ({
               </Box>
             ) : undefined}
           </Box>
-          <Box direction="row" gap="xsmall">
+          <Box direction="row" gap="3xsmall">
             <Button icon={<HelpOption />} />
             <Button icon={<Catalog />} />
             <Button icon={<Notification />} />
@@ -111,40 +114,74 @@ export const GlobalHeader = ({
                     border={{ side: 'bottom', color: 'border-weak' }}
                     width="100%"
                   />
-                  <FormField
-                    label="Mode"
-                    alignSelf="start"
-                    htmlFor="theme-mode-toggle"
-                    name="theme-mode-toggle"
-                  >
-                    <ToggleGroup
-                      id="theme-mode-toggle"
+                  <Box>
+                    <FormField
+                      label="Mode"
+                      alignSelf="start"
+                      htmlFor="theme-mode-toggle"
                       name="theme-mode-toggle"
-                      options={[
-                        { label: 'Light', value: 'light' },
-                        { label: 'Dark', value: 'dark' },
-                      ]}
-                      border={{ size: 'none' }}
-                      value={darkMode ? ['dark'] : ['light']}
-                      onToggle={({ value }) =>
-                        setDarkMode(value === 'light' ? false : true)
-                      }
-                    />
-                  </FormField>
-                  <FormField
-                    label="Theme version"
-                    help="Version numbers represent hpe-design-tokens versions. v1 is the updated theme as of February 2025. v0 is the previous theme."
-                    htmlFor="theme-select__input"
-                    name="theme-select"
-                  >
-                    <Select
-                      id="theme-select"
+                    >
+                      <ToggleGroup
+                        id="theme-mode-toggle"
+                        name="theme-mode-toggle"
+                        options={[
+                          { label: 'Light', value: 'light' },
+                          { label: 'Dark', value: 'dark' },
+                        ]}
+                        border={{ size: 'none' }}
+                        value={darkMode ? ['dark'] : ['light']}
+                        onToggle={({ value }) =>
+                          setDarkMode(value === 'light' ? false : true)
+                        }
+                      />
+                    </FormField>
+                    <FormField
+                      label="Font scale"
+                      help="Setting font scale to small makes default (medium) text render as 16px and all other sizes scale down proportionally."
+                      htmlFor="theme-font-scale__input"
+                      name="theme-font-scale"
+                    >
+                      <Select
+                        id="theme-font-scale"
+                        name="theme-font-scale"
+                        options={['small', 'default']}
+                        onChange={({ option }) => {
+                          setFontScale(option);
+                          document.documentElement.style.fontSize =
+                            option === 'small' ? '0.8889rem' : '1rem';
+                        }}
+                        value={fontScale}
+                      />
+                    </FormField>
+                    <FormField
+                      label="Spacing"
+                      help="When spacing is set to compact, the spacing between elements is reduced by one t-shirt size."
+                      htmlFor="theme-spacing__input"
+                      name="theme-spacing"
+                    >
+                      <Select
+                        id="theme-spacing"
+                        name="theme-spacing"
+                        options={['compact', 'default']}
+                        onChange={({ option }) => setDensity(option)}
+                        value={density}
+                      />
+                    </FormField>
+                    <FormField
+                      label="Theme version"
+                      help="Version numbers represent hpe-design-tokens versions. v1 is the updated theme as of February 2025. v0 is the previous theme."
+                      htmlFor="theme-select__input"
                       name="theme-select"
-                      options={Object.keys(themes).map(theme => theme)}
-                      onChange={({ option }) => setActiveTheme(option)}
-                      value={activeTheme}
-                    />
-                  </FormField>
+                    >
+                      <Select
+                        id="theme-select"
+                        name="theme-select"
+                        options={Object.keys(themes).map(theme => theme)}
+                        onChange={({ option }) => setActiveTheme(option)}
+                        value={activeTheme}
+                      />
+                    </FormField>
+                  </Box>
                   <Anchor
                     alignSelf="start"
                     as={Link}
@@ -173,4 +210,6 @@ GlobalHeader.propTypes = {
   setBackgroundBack: PropTypes.func,
   workspace: PropTypes.string,
   setWorkspace: PropTypes.func,
+  density: PropTypes.string,
+  setDensity: PropTypes.func,
 };

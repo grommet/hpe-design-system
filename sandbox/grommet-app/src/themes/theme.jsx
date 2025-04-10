@@ -2194,10 +2194,39 @@ const buildTheme = (tokens, flags) => {
         },
       },
     },
-    nameValuePair: {
+    nameValueList: {
+      gap: {
+        column: 'xlarge',
+        row: 'xsmall',
+      },
+      pair: {
+        column: {
+          gap: {
+            column: 'xlarge',
+            row: 'medium',
+          },
+        },
+      },
       name: {
+        width: 'small',
+      },
+      value: {
+        width: 'medium',
+      },
+    },
+    nameValuePair: {
+      column: {
+        gap: '5xsmall',
+      },
+      name: {
+        // any text props
+
         color: 'text-strong',
         weight: global.hpe.fontWeight.medium,
+      },
+      value: {
+        // any text props
+        color: 'text',
       },
     },
     notification: {
@@ -2397,10 +2426,19 @@ const buildTheme = (tokens, flags) => {
           max: 'xxlarge',
         },
         xsmall: {
-          pad: { horizontal: 'large' },
+          pad: { horizontal: 'xlarge' },
+        },
+        small: {
+          pad: { horizontal: 'xlarge' },
+        },
+        medium: {
+          pad: { horizontal: 'medium' },
+        },
+        large: {
+          pad: { horizontal: 'xlarge' },
         },
         xlarge: {
-          pad: { horizontal: 'large' },
+          pad: { horizontal: 'xlarge' },
         },
       },
       narrow: {
@@ -2409,10 +2447,19 @@ const buildTheme = (tokens, flags) => {
           max: 'large',
         },
         xsmall: {
-          pad: { horizontal: 'large' },
+          pad: { horizontal: 'xlarge' },
+        },
+        small: {
+          pad: { horizontal: 'xlarge' },
+        },
+        medium: {
+          pad: { horizontal: 'medium' },
+        },
+        large: {
+          pad: { horizontal: 'xlarge' },
         },
         xlarge: {
-          pad: { horizontal: 'large' },
+          pad: { horizontal: 'xlarge' },
         },
       },
       full: {
@@ -2421,10 +2468,19 @@ const buildTheme = (tokens, flags) => {
           max: '100%',
         },
         xsmall: {
-          pad: { horizontal: 'large' },
+          pad: { horizontal: 'xlarge' },
+        },
+        small: {
+          pad: { horizontal: 'xlarge' },
+        },
+        medium: {
+          pad: { horizontal: 'medium' },
+        },
+        large: {
+          pad: { horizontal: 'xlarge' },
         },
         xlarge: {
-          pad: { horizontal: 'large' },
+          pad: { horizontal: 'xlarge' },
         },
       },
     },
@@ -2438,6 +2494,10 @@ const buildTheme = (tokens, flags) => {
       subtitle: {
         size: 'large',
       },
+      pad: {
+        top: 'xlarge',
+        bottom: 'medium',
+      },
       xsmall: {
         areas: [
           ['parent', 'parent'],
@@ -2446,7 +2506,37 @@ const buildTheme = (tokens, flags) => {
         ],
         columns: [['small', 'flex'], 'auto'],
         rows: ['auto', 'auto', 'auto'],
-        gap: { row: 'xsmall', column: 'medium' },
+        gap: { row: '3xsmall', column: 'medium' },
+      },
+      small: {
+        areas: [
+          ['parent', 'parent'],
+          ['title', 'actions'],
+          ['subtitle', 'actions'],
+        ],
+        columns: [['small', 'flex'], 'auto'],
+        rows: ['auto', 'auto', 'auto'],
+        gap: { row: '3xsmall', column: 'xlarge' },
+      },
+      medium: {
+        areas: [
+          ['parent', 'parent'],
+          ['title', 'actions'],
+          ['subtitle', 'actions'],
+        ],
+        columns: [['medium', 'flex'], 'auto'],
+        rows: ['auto', 'auto', 'auto'],
+        gap: { row: '3xsmall', column: 'medium' },
+      },
+      large: {
+        areas: [
+          ['parent', 'parent'],
+          ['title', 'actions'],
+          ['subtitle', 'actions'],
+        ],
+        columns: [['medium', 'flex'], 'auto'],
+        rows: ['auto', 'auto', 'auto'],
+        gap: { row: '3xsmall', column: 'xlarge' },
       },
       xlarge: {
         areas: [
@@ -2456,7 +2546,7 @@ const buildTheme = (tokens, flags) => {
         ],
         columns: [['medium', 'large'], 'auto'],
         rows: ['auto', 'auto', 'auto'],
-        gap: { row: 'xsmall', column: 'large' },
+        gap: { row: '3xsmall', column: 'xlarge' },
       },
     },
     pagination: {
@@ -2819,14 +2909,14 @@ const buildTheme = (tokens, flags) => {
         vertical: 'none',
         horizontal: 'none',
       },
-      extend: ({ theme }) => `border-radius: ${theme.global.edgeSize.xsmall};`,
+      extend: ({ theme }) => `border-radius: ${theme.global.radius.xsmall};`,
     },
     tabs: {
-      gap: 'xsmall',
+      gap: '3xsmall',
       header: {
         border: undefined,
         extend: ({ theme }) => `
-          border-radius: ${theme.global.edgeSize.xsmall};
+          border-radius: ${theme.global.radius.xsmall};
           & button[aria-selected="true"]:hover > div {
             background: ${getThemeColor(
               'background-selected-primary-strong-hover',

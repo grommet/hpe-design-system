@@ -42,7 +42,7 @@ const CarbonEmissions = () => {
     >
       <Box
         gap="medium"
-        pad={{ top: 'small' }}
+        pad={{ top: 'xsmall' }}
         flex={false}
         width="100%"
         animation={animation}
@@ -69,7 +69,7 @@ const CarbonEmissions = () => {
                   {
                     property: 'emissions',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: '3xsmall',
                     color: { color: 'graph-0', opacity: 'strong' },
                   },
                   {
@@ -140,7 +140,7 @@ const EnergyConsumption = () => {
                   {
                     property: 'energy',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: '3xsmall',
                     color: { color: 'graph-2', opacity: 'strong' },
                   },
                   {
@@ -215,7 +215,7 @@ const EnergyCost = () => {
                   {
                     property: 'cost',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: '3xsmall',
                     color: { color: 'graph-4', opacity: 'strong' },
                   },
                   {
@@ -269,7 +269,7 @@ export const SustainabilityInsights = () => {
                 <DataFilter
                   contentProps={{
                     width: 'medium',
-                    margin: { bottom: 'none', top: 'xsmall' },
+                    margin: { bottom: 'none', top: '3xsmall' },
                   }}
                   property="date"
                 >
