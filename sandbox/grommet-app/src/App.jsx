@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Grommet, Box, ThemeContext } from 'grommet';
+import { Grommet, Box } from 'grommet';
+import { ThemeContext } from 'grommet/contexts/ThemeContext';
 import { themes } from './themes/theme';
 import Sustainability from './pages/sustainability/index';
 import Home from './pages/index';
@@ -73,27 +74,6 @@ const App = () => {
           },
         },
       };
-    // else if (density === 'spacious')
-    //   return {
-    //     global: {
-    //       edgeSize: {
-    //         none: '0px',
-    //         hair: '1px',
-    //         '5xsmall': '4px',
-    //         '4xsmall': '6px',
-    //         '3xsmall': '8px',
-    //         xxsmall: '12px',
-    //         xsmall: '16px',
-    //         small: '24px',
-    //         medium: '32px',
-    //         large: '48px',
-    //         xlarge: '64px',
-    //         xxlarge: '96px',
-    //         '3xlarge': '112px', // TO DO get proper value
-    //         responsiveBreakpoint: 'small',
-    //       },
-    //     },
-    //   };
     if (density === 'default')
       return {
         global: {
