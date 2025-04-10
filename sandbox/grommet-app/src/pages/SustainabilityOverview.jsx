@@ -38,7 +38,7 @@ export const SustainabilityOverview = () => {
                   {
                     property: 'emissions',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: '3xsmall',
                     color: { color: 'graph-0', opacity: 'strong' },
                   },
                   {
@@ -74,7 +74,7 @@ export const SustainabilityOverview = () => {
                   {
                     property: 'energy',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: '3xsmall',
                     color: { color: 'graph-1', opacity: 'strong' },
                   },
                   {
@@ -105,7 +105,7 @@ export const SustainabilityOverview = () => {
                   {
                     property: 'cost',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: '3xsmall',
                     color: { color: 'graph-2', opacity: 'strong' },
                   },
                   {

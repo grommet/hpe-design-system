@@ -25,7 +25,7 @@ export const RecentServices = () => {
       heading="Recent services"
       level={2}
       actions={
-        <Box direction="row" gap="small" align="center">
+        <Box direction="row" gap="xsmall" align="center">
           <Button
             icon={cards ? <ListIcon /> : <Apps />}
             onClick={() => setCards(!cards)}
@@ -56,14 +56,14 @@ export const RecentServices = () => {
             data={recentServices}
             defaultItemProps={{
               border: { color: 'border-weak', side: 'bottom' },
-              pad: { vertical: 'small', horizontal: 'none' },
+              pad: { vertical: 'xsmall', horizontal: 'none' },
             }}
           >
             {datum => (
               <Grid
                 columns={['flex', 'flex', 'flex', 'auto']}
                 align={skeleton ? 'start' : 'center'}
-                gap="small"
+                gap="xsmall"
               >
                 <Box>
                   <Text weight={500} color="text-strong">

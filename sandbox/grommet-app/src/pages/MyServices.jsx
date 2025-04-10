@@ -8,7 +8,7 @@ export const MyServices = () => {
       <List
         data={services.services.slice(0, 5)}
         defaultItemProps={{
-          pad: { horizontal: 'none', vertical: 'small' },
+          pad: { horizontal: 'none', vertical: 'xsmall' },
         }}
       >
         {datum => (

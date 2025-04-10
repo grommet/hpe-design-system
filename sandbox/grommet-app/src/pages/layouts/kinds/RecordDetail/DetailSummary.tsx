@@ -6,11 +6,12 @@ import { sentenceCase } from '../../../../utils/format';
 const groupDetails = {
   status: {
     value: 'Okay',
-    render: () => <Box direction="row" gap="xsmall" align="center">
-      <StatusGoodSmall color='status-ok' />
-      <Text>Okay</Text>
-    </Box>
-    ,
+    render: () => (
+      <Box direction="row" gap="3xsmall" align="center">
+        <StatusGoodSmall color="status-ok" />
+        <Text>Okay</Text>
+      </Box>
+    ),
   },
   state: 'Job in progress',
   group: 'Server group name',
@@ -20,22 +21,19 @@ const groupDetails = {
 };
 
 const nameProps = {
-  width: ['xsmall', 'max-content']
+  width: ['xsmall', 'max-content'],
 };
 
 export const DetailSummary: React.FC = () => {
   return (
     <NameValueList nameProps={nameProps}>
       {Object.entries(groupDetails).map(([name, value]) => (
-        <NameValuePair
-          key={name}
-          name={sentenceCase(name)}
-        >
-          {typeof value === 'object' && 'render' in value ?
-            value.render() :
-            sentenceCase(value.toString())}
+        <NameValuePair key={name} name={sentenceCase(name)}>
+          {typeof value === 'object' && 'render' in value
+            ? value.render()
+            : sentenceCase(value.toString())}
         </NameValuePair>
       ))}
     </NameValueList>
   );
-}
+};

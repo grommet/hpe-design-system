@@ -94,7 +94,7 @@ const StickerSheet = () => {
       themeMode={theme.dark ? 'dark' : 'light'}
     >
       <ModeContext.Provider value={contextValue}>
-        <Page kind="full" pad={{ bottom: 'xlarge' }}>
+        <Page kind="full" pad={{ bottom: '3xlarge' }}>
           <PageContent align="start" gap="medium">
             <PageHeader
               title="Sticker sheet"
@@ -105,7 +105,7 @@ const StickerSheet = () => {
               }
               // hide actions from demo deploy
               // actions={
-              //   <Box direction="row" gap="xsmall">
+              //   <Box direction="row" gap="3xsmall">
               //     <FormField label="Layout">
               //       <CheckBox
               //         label="View side-by-side"

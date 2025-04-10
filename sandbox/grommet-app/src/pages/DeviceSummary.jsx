@@ -30,14 +30,14 @@ export const DeviceSummary = () => {
             size="small"
             thickness="medium"
           />
-          <Box align="center" pad={{ bottom: 'xsmall' }}>
+          <Box align="center" pad={{ bottom: '3xsmall' }}>
             <Text size="xxlarge" weight={500} color="text-strong">
               {347}
             </Text>
             <Text size="small">Total devices</Text>
           </Box>
         </Stack>
-        <Box gap="small">
+        <Box gap="xsmall">
           <Box direction="row" align="center" justify="between">
             <Legend label="Require assignments" color="graph-6" />
             <Text weight={500} color="text-strong">
