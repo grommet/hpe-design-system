@@ -14,7 +14,7 @@ export const cssColorModes: FormatFn = async ({
     usesDtcg: true,
   });
 
-  // TO DO should default mode be light or "auto" (light aligns with grommet-theme-hpe)
+  // default light aligns with grommet-theme-hpe
   const defaultMode = 'light';
   const mode: 'light' | 'dark' | 'auto' = modeArg || defaultMode;
   const defaultThemeAndMode = !theme && mode === 'light';
