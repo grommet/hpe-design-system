@@ -34544,7 +34544,7 @@ export default {
   },
   "hpe.formField.default.placeholder.rest.textColor": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#676767",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -34590,7 +34590,7 @@ export default {
   },
   "hpe.formField.default.placeholder.hover.textColor": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#676767",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -34636,7 +34636,7 @@ export default {
   },
   "hpe.formField.default.placeholder.error.rest.textColor": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#676767",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -34730,7 +34730,7 @@ export default {
   },
   "hpe.formField.default.placeholder.readOnly.rest.textColor": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#676767",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -39544,7 +39544,7 @@ export default {
   },
   "hpe.headerCell.default.units.rest.textColor": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#676767",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -39590,7 +39590,7 @@ export default {
   },
   "hpe.headerCell.default.units.hover.textColor": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#676767",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -39636,7 +39636,7 @@ export default {
   },
   "hpe.headerCell.default.units.pinned.rest.textColor": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#676767",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -39683,7 +39683,7 @@ export default {
   },
   "hpe.headerCell.default.units.pinned.hover.textColor": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#676767",
     "$description": "",
     "$extensions": {
       "com.figma": {

@@ -1996,7 +1996,7 @@ export default {
   },
   "hpe.text.xsmall.maxWidth": {
     "$type": "string",
-    "$value": "25em",
+    "$value": "30em",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2011,7 +2011,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "string",
-      "$value": "25em",
+      "$value": "30em",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2164,7 +2164,7 @@ export default {
   },
   "hpe.text.small.maxWidth": {
     "$type": "string",
-    "$value": "25em",
+    "$value": "30em",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2179,7 +2179,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "string",
-      "$value": "25em",
+      "$value": "30em",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2332,7 +2332,7 @@ export default {
   },
   "hpe.text.medium.maxWidth": {
     "$type": "string",
-    "$value": "25em",
+    "$value": "30em",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2347,7 +2347,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "string",
-      "$value": "25em",
+      "$value": "30em",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2500,7 +2500,7 @@ export default {
   },
   "hpe.text.large.maxWidth": {
     "$type": "string",
-    "$value": "25em",
+    "$value": "30em",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2515,7 +2515,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "string",
-      "$value": "25em",
+      "$value": "30em",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2668,7 +2668,7 @@ export default {
   },
   "hpe.text.xlarge.maxWidth": {
     "$type": "string",
-    "$value": "25em",
+    "$value": "30em",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2683,7 +2683,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "string",
-      "$value": "25em",
+      "$value": "30em",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2836,7 +2836,7 @@ export default {
   },
   "hpe.text.xxlarge.maxWidth": {
     "$type": "string",
-    "$value": "25em",
+    "$value": "30em",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2851,7 +2851,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "string",
-      "$value": "25em",
+      "$value": "30em",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3004,7 +3004,7 @@ export default {
   },
   "hpe.text.3xlarge.maxWidth": {
     "$type": "string",
-    "$value": "25em",
+    "$value": "30em",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3019,7 +3019,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "string",
-      "$value": "25em",
+      "$value": "30em",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3172,7 +3172,7 @@ export default {
   },
   "hpe.text.4xlarge.maxWidth": {
     "$type": "string",
-    "$value": "25em",
+    "$value": "30em",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3187,7 +3187,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "string",
-      "$value": "25em",
+      "$value": "30em",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3340,7 +3340,7 @@ export default {
   },
   "hpe.text.5xlarge.maxWidth": {
     "$type": "string",
-    "$value": "25em",
+    "$value": "30em",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -3355,7 +3355,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "string",
-      "$value": "25em",
+      "$value": "30em",
       "$description": "",
       "$extensions": {
         "com.figma": {

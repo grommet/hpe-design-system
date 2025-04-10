@@ -46,8 +46,8 @@ export default {
       "text": {
         "default": "#ffffff",
         "strong": "#ffffff",
-        "weak": "rgba(255, 255, 255, 0.5)",
-        "placeholder": "rgba(255, 255, 255, 0.5)",
+        "weak": "rgba(255, 255, 255, 0.61)",
+        "placeholder": "rgba(255, 255, 255, 0.61)",
         "disabled": "rgba(255, 255, 255, 0.24)",
         "onPrimaryStrong": "#ffffff",
         "primary": "#17d0a6",
@@ -77,7 +77,7 @@ export default {
       "icon": {
         "default": "#ffffff",
         "strong": "#ffffff",
-        "weak": "rgba(255, 255, 255, 0.5)",
+        "weak": "rgba(255, 255, 255, 0.61)",
         "disabled": "rgba(255, 255, 255, 0.24)",
         "critical": "#fc5a5a",
         "info": "#00c8ff",

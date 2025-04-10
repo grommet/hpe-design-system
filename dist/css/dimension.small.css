@@ -5,15 +5,15 @@
 
 @media (max-width: 768px) {
 :root {
-  --hpe-text-xsmall-maxWidth: 25em;
-  --hpe-text-small-maxWidth: 25em;
-  --hpe-text-medium-maxWidth: 25em;
-  --hpe-text-large-maxWidth: 25em;
-  --hpe-text-xlarge-maxWidth: 25em;
-  --hpe-text-xxlarge-maxWidth: 25em;
-  --hpe-text-3xlarge-maxWidth: 25em;
-  --hpe-text-4xlarge-maxWidth: 25em;
-  --hpe-text-5xlarge-maxWidth: 25em;
+  --hpe-text-xsmall-maxWidth: 30em;
+  --hpe-text-small-maxWidth: 30em;
+  --hpe-text-medium-maxWidth: 30em;
+  --hpe-text-large-maxWidth: 30em;
+  --hpe-text-xlarge-maxWidth: 30em;
+  --hpe-text-xxlarge-maxWidth: 30em;
+  --hpe-text-3xlarge-maxWidth: 30em;
+  --hpe-text-4xlarge-maxWidth: 30em;
+  --hpe-text-5xlarge-maxWidth: 30em;
   --hpe-heading-xlarge-fontSize: 1.75rem; /* Font size typically used on h1. */
   --hpe-heading-xlarge-lineHeight: 2rem; /* Line height typically used on h1. */
   --hpe-heading-large-fontSize: 1.5rem; /* Font size typically used on h2. */

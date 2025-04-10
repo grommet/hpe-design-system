@@ -46,8 +46,8 @@ module.exports = {
       "text": {
         "default": "#555555",
         "strong": "#2e2e2e",
-        "weak": "#757575",
-        "placeholder": "#757575",
+        "weak": "#676767",
+        "placeholder": "#676767",
         "disabled": "rgba(0, 0, 0, 0.24)",
         "onPrimaryStrong": "#ffffff",
         "primary": "#006750",
@@ -77,7 +77,7 @@ module.exports = {
       "icon": {
         "default": "#555555",
         "strong": "#2e2e2e",
-        "weak": "#757575",
+        "weak": "#676767",
         "disabled": "rgba(0, 0, 0, 0.24)",
         "critical": "#ec3331",
         "info": "#00567a",

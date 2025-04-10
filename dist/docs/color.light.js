@@ -1678,7 +1678,7 @@ export default {
   },
   "hpe.color.text.weak": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#676767",
     "$description": "Subtle text color for reduced visual prominence. Often used for supporting text.",
     "$extensions": {
       "com.figma": {
@@ -1693,7 +1693,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.700}",
+      "$value": "#676767",
       "$description": "Subtle text color for reduced visual prominence. Often used for supporting text.",
       "$extensions": {
         "com.figma": {
@@ -1722,7 +1722,7 @@ export default {
   },
   "hpe.color.text.placeholder": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#676767",
     "$description": "Placeholder text color.",
     "$extensions": {
       "com.figma": {
@@ -3018,7 +3018,7 @@ export default {
   },
   "hpe.color.icon.weak": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#676767",
     "$description": "Subtle icon color for reduced visual prominence.",
     "$extensions": {
       "com.figma": {
@@ -3035,7 +3035,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.700}",
+      "$value": "{color.text.weak.REST}",
       "$description": "Subtle icon color for reduced visual prominence.",
       "$extensions": {
         "com.figma": {

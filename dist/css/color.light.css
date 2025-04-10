@@ -8,6 +8,7 @@
   --hpe-color-background-ok: #e3fdf4; /* Use for backgrounds communicating success. Status color. Keywords: status */
   --hpe-color-background-critical: #ffecec; /* Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-info: #e0f8ff; /* Use for backgrounds communicating neutral information. Keywords: status */
+  --hpe-color-text-weak: #676767; /* Subtle text color for reduced visual prominence. Often used for supporting text. */
   --hpe-color-transparent: rgba(0, 0, 0, 0);
   --hpe-color-focus: #004233;
   --hpe-color-background-default: var(--hpe-base-color-white-100); /* Default background color to be used on containers. */
@@ -33,7 +34,7 @@
   --hpe-color-border-critical: var(--hpe-base-color-red-800); /* Use for borders communicating errors or danger. Keywords: status, critical */
   --hpe-color-text-default: var(--hpe-base-color-grey-800); /* Default text color that is accessible on standard background colors. */
   --hpe-color-text-strong: var(--hpe-base-color-grey-1000); /* Emphasized text color for increased visual prominence. */
-  --hpe-color-text-weak: var(--hpe-base-color-grey-700); /* Subtle text color for reduced visual prominence. Often used for supporting text. */
+  --hpe-color-text-placeholder: var(--hpe-color-text-weak); /* Placeholder text color. */
   --hpe-color-text-disabled: var(--hpe-base-color-black-opacity24); /* Disabled color for text. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-text-onPrimaryStrong: var(--hpe-base-color-white-100); /* Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
   --hpe-color-text-primary: var(--hpe-base-color-green-800);
@@ -43,7 +44,7 @@
   --hpe-color-text-onStrong: var(--hpe-base-color-white-100); /* Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
   --hpe-color-icon-default: var(--hpe-base-color-grey-800); /* Default icon color that is accessible on standard background colors. */
   --hpe-color-icon-strong: var(--hpe-base-color-grey-1000); /* Emphasized icon color for increased visual prominence. */
-  --hpe-color-icon-weak: var(--hpe-base-color-grey-700); /* Subtle icon color for reduced visual prominence. */
+  --hpe-color-icon-weak: var(--hpe-color-text-weak); /* Subtle icon color for reduced visual prominence. */
   --hpe-color-icon-disabled: var(--hpe-base-color-black-opacity24); /* Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-icon-critical: var(--hpe-base-color-red-600); /* Use for icons communicating errors or danger. Keywords: status */
   --hpe-color-icon-info: var(--hpe-base-color-blue-900); /* Use for icons communicating neutral information. Keywords: status */
@@ -82,7 +83,6 @@
   --hpe-color-border-ok: var(--hpe-color-border-default); /* Use for borders communicating success. Keywords: status */
   --hpe-color-border-warning: var(--hpe-color-border-default); /* Use for borders communicating warning or caution. Keywords: status */
   --hpe-color-border-unknown: var(--hpe-color-border-default); /* Use for borders communicating an unknown status. Keywords: status */
-  --hpe-color-text-placeholder: var(--hpe-color-text-weak); /* Placeholder text color. */
   --hpe-color-text-info: var(--hpe-color-text-default); /* Use for text on standard backgrounds communicating neutral information. Keywords: status */
   --hpe-color-text-ok: var(--hpe-color-text-default); /* Use for text on standard backgrounds communicating success. Keywords: status */
   --hpe-color-text-warning: var(--hpe-color-text-default); /* Use for text on standard backgrounds communicating warning or caution. Keywords: status */
