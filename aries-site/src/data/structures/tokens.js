@@ -40,6 +40,56 @@ export const tokens = [
     tags: [],
   },
   {
+    name: 'Color usage',
+    type: 'Getting started',
+    description:
+      'Intentional color usage establishes hierarchy and supports consistency thus improving product experience. Learn how to use HPE colors to design balanced interfaces.',
+    preview: {
+      component: () => (
+        <Box direction="row" gap="xsmall">
+          <Box background="icon-primary" pad="medium" round="small" />
+          <Box background="icon-info" pad="medium" round="small" />
+          <Box background="dataVis-categorical-40" pad="medium" round="small" />
+        </Box>
+      ),
+    },
+    seoDescription:
+      'Intentional color usage establishes hierarchy and supports consistency thus improving product experience. Learn how to use HPE colors to design balanced interfaces.',
+    sections: [],
+    relatedContent: [
+      'Color pairing',
+      'Layout and spacing',
+      'Global',
+      'Element',
+      'All design tokens',
+    ],
+    tags: [],
+  },
+  {
+    name: 'Color pairing',
+    type: 'Getting started',
+    description:
+      'To support color accessibility, there are foreground and background color pairings that ensure accessible color combinations.',
+    preview: {
+      component: () => (
+        <Box background="background-neutral-xstrong" pad="medium" round="small">
+          color.text.onStrong
+        </Box>
+      ),
+    },
+    seoDescription:
+      'To support color accessibility, there are foreground and background color pairings that ensure accessible color contrast combinations.',
+    sections: [],
+    relatedContent: [
+      'Color usage',
+      'Layout and spacing',
+      'Global',
+      'Element',
+      'All design tokens',
+    ],
+    tags: [],
+  },
+  {
     name: 'Layout and spacing',
     type: 'Getting started',
     description:
