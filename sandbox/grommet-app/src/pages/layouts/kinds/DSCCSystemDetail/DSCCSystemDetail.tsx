@@ -22,9 +22,9 @@ export const DSCCSystemDetail = () => {
 
   const summaryColumns = ['flex', 'flex', 'auto'];
 
-  const summaryRows = [['xsmall', 'auto']];
+  const summaryRows = [['3xsmall', 'auto']];
 
-  const summaryAreas = ['xsmall', 'small'].includes(breakpoint)
+  const summaryAreas = ['3xsmall', 'small'].includes(breakpoint)
     ? [
         ['summary-1', 'summary-2'],
         ['summary-3', 'summary-3'],
