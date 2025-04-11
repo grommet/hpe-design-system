@@ -36,9 +36,9 @@ export const OpsRampDetail: React.FC = () => {
   ];
 
   const columnsGap = {
-    xsmall: 'xsmall',
-    small: 'xsmall',
-    medium: 'small',
+    xsmall: '3xsmall',
+    small: '3xsmall',
+    medium: 'xsmall',
     large: 'medium',
     xlarge: 'medium',
   };
@@ -89,7 +89,6 @@ export const OpsRampDetail: React.FC = () => {
                 setSelectedIpAddress={setSelectedIpAddress}
                 setStatus={setStatus}
                 name={selectedName}
-                showResultDetails={showResultDetails}
               />
             </ContentPane>
             {/* when screen is going from large to medium and side nav is open, 

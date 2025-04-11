@@ -48,7 +48,7 @@ const App = () => {
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
 
-  const loading = useLoading(6000);
+  const loading = useLoading(0);
 
   return (
     <Grommet

@@ -8,7 +8,7 @@ import {
   DataTable,
   Pagination,
   ResponsiveContext,
-  Toolbar
+  Toolbar,
 } from 'grommet';
 import { DataTableActions } from './DataTableActions';
 
@@ -22,17 +22,21 @@ export const DataView = ({ data, columns, ...rest }) => {
           <DataSearch drop={['xsmall', 'small'].includes(breakpoint)} />
           <DataFilters drop />
         </Toolbar>
-        <DataTableActions responsive={breakpoint === 'xsmall'} flex justify="end" />
+        <DataTableActions
+          responsive={breakpoint === 'xsmall'}
+          flex
+          justify="end"
+        />
       </Toolbar>
-      <DataSummary />
+      <DataSummary margin={{ vertical: '3xsmall' }} />
       <Box overflow={{ horizontal: 'auto' }}>
-        <DataTable columns={columns} onSelect={() => { }} />
+        <DataTable columns={columns} onSelect={() => {}} />
       </Box>
       <Pagination
         summary
         stepOptions
         border={{ side: 'top', color: 'border' }}
-        pad={{ top: 'xsmall' }}
+        pad={{ top: '3xsmall' }}
       />
     </Data>
   );

@@ -6,7 +6,7 @@ import { MenuItemType } from './types';
 
 interface CollapsibleMenuProps {
   items: {
-    [key: string]: MenuItemType | MenuItemType[]
+    [key: string]: MenuItemType | MenuItemType[];
   };
   selected: MenuItemType;
   onSelect: (data: MenuItemType) => void;
@@ -24,7 +24,8 @@ export const CollapsibleMenu: React.FC<CollapsibleMenuProps> = ({
   const menuItems = Object.entries(items).map(([item, value]) => {
     let menuItem: JSX.Element;
     if (Array.isArray(value)) {
-      const open = expanded.includes(item) || value.some(item => item === (selected));
+      const open =
+        expanded.includes(item) || value.some(item => item === selected);
 
       menuItem = (
         <ExpandableMenuItem
@@ -49,13 +50,12 @@ export const CollapsibleMenu: React.FC<CollapsibleMenuProps> = ({
       );
     }
 
-    return (menuItem);
-  })
-
+    return menuItem;
+  });
 
   return (
-    <Box width={{ min: "small", max: 'medium' }} {...rest} >
+    <Box width={{ min: 'xsmall', max: 'medium' }} {...rest}>
       {menuItems}
-    </Box >
+    </Box>
   );
-}
+};

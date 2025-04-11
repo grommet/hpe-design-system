@@ -105,7 +105,7 @@ const StickerSheet = () => {
               }
               // hide actions from demo deploy
               // actions={
-              //   <Box direction="row" gap="xsmall">
+              //   <Box direction="row" gap="3xsmall">
               //     <FormField label="Layout">
               //       <CheckBox
               //         label="View side-by-side"

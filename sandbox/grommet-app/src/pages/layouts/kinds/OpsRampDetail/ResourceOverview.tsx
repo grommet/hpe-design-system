@@ -17,13 +17,13 @@ export const ResourceOverview: React.FC = () => {
   const [index, setIndex] = useState();
   const onActive = nextIndex => setIndex(nextIndex);
   return (
-    <Box gap="small">
+    <Box gap="xsmall">
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="Overview">
           <TabContent>
             <NameValueList
-              gap="small"
-              nameProps={{ width: ['xsmall', 'max-content'] }}
+              gap="xsmall"
+              nameProps={{ width: ['3xsmall', 'max-content'] }}
             >
               {Object.entries(defaultData).map(([name, value]) => {
                 return (
