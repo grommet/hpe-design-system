@@ -1,4 +1,5 @@
-import { colorApproximatelyEqual, parseColor, rgbToHex } from './color.js';
+import { describe, expect, it } from 'vitest';
+import { colorApproximatelyEqual, parseColor, rgbToHex } from '../color.js';
 
 const roundAlpha = (alpha: number): number => Math.round(alpha * 100) / 100;
 

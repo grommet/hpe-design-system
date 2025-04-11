@@ -8,6 +8,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
+import { ContentPane } from '../../../layouts';
 import { ShippingInfomation, ContactInformation } from './Shipping';
 
 export const ShippingExample = () => {
@@ -58,7 +59,7 @@ export const ShippingExample = () => {
   };
 
   return (
-    <Box gap="medium">
+    <ContentPane gap="medium">
       <Header
         direction="column"
         align="start"
@@ -100,6 +101,6 @@ export const ShippingExample = () => {
           </Box>
         </Form>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };

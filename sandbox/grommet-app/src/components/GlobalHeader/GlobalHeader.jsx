@@ -48,11 +48,11 @@ export const GlobalHeader = ({
           justify="between"
           align="center"
           background={
-            activeTheme === 'next'
+            activeTheme === 'v1'
               ? 'background-primary-xstrong'
               : 'background-front'
           }
-          elevation={activeTheme === 'next' ? 'none' : 'small'}
+          elevation={activeTheme === 'v1' ? 'none' : 'small'}
           pad={{ horizontal: 'xsmall', vertical: 'small' }}
         >
           <Box direction="row" gap="medium" flex>
@@ -64,7 +64,7 @@ export const GlobalHeader = ({
               <Box height="32px" width="90px" align="start">
                 <Image
                   src={`/hpe_greenlake_grn_${
-                    activeTheme === 'current' && !theme.dark ? 'pos' : 'rev'
+                    activeTheme === 'v0' && !theme.dark ? 'pos' : 'rev'
                   }_rgb.svg`}
                   fit="contain"
                   alt="HPE GreenLake badge"
@@ -132,7 +132,8 @@ export const GlobalHeader = ({
                     />
                   </FormField>
                   <FormField
-                    label="Theme"
+                    label="Theme version"
+                    help="Version numbers represent hpe-design-tokens versions. v1 is the updated theme as of February 2025. v0 is the previous theme."
                     htmlFor="theme-select__input"
                     name="theme-select"
                   >

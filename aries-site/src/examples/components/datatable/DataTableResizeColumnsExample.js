@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, DataTable, Heading, Text } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 const data = [
   {
@@ -176,12 +177,8 @@ const columns = [
 
 // designSystemDemo is used for DS site only, can be removed in production.
 export const DataTableResizeColumnsExample = ({ designSystemDemo }) => (
-  <>
-    <Heading
-      id="contact-info-heading"
-      level={3}
-      margin={{ bottom: 'medium', top: 'none' }}
-    >
+  <ContentPane gap="medium">
+    <Heading id="contact-info-heading" level={3} margin="none">
       Contact information
     </Heading>
     <Box
@@ -202,7 +199,7 @@ export const DataTableResizeColumnsExample = ({ designSystemDemo }) => (
         resizeable
       />
     </Box>
-  </>
+  </ContentPane>
 );
 
 DataTableResizeColumnsExample.propTypes = {

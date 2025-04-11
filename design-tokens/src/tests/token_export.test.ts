@@ -1,5 +1,6 @@
-import { ApiGetLocalVariablesResponse } from './figma_api.js';
-import { tokenFilesFromLocalVariables } from './token_export.js';
+import { describe, expect, it } from 'vitest';
+import { ApiGetLocalVariablesResponse } from '../figma_api.js';
+import { tokenFilesFromLocalVariables } from '../token_export.js';
 
 describe('tokenFilesFromLocalVariables', () => {
   it('ignores remote variables', () => {

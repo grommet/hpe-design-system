@@ -13,7 +13,7 @@ const primaryColors = [
   {
     name: 'brand',
     value: 'brand',
-    hex: colors['green!'],
+    hex: colors.brand.light, // same hex code for light and dark
   },
 ];
 
@@ -364,8 +364,8 @@ const statusColorsDark = [
 const focusColor = [
   {
     name: 'focus',
-    value: colors['teal!'],
-    hex: colors['teal!'],
+    value: colors.focus.light, // same in light and dark mode
+    hex: colors.focus.light, // same in light and dark mode
   },
 ];
 
@@ -413,31 +413,79 @@ const layerColor = [
   },
 ];
 
-const graphColor = [
+const graphColorsLight = [
   {
     name: 'graph-0',
-    value: colors['orange!'],
-    hex: colors['orange!'],
+    value: colors['graph-0'].light,
+    hex: colors['graph-0'].light,
   },
   {
     name: 'graph-1',
-    value: colors['blue!'],
-    hex: colors['blue!'],
+    value: colors['graph-1'].light,
+    hex: colors['graph-1'].light,
   },
   {
     name: 'graph-2',
-    value: colors['purple!'],
-    hex: colors['purple!'],
+    value: colors['graph-2'].light,
+    hex: colors['graph-2'].light,
   },
   {
     name: 'graph-3',
-    value: colors['yellow!'],
-    hex: colors['yellow!'],
+    value: colors['graph-3'].light,
+    hex: colors['graph-3'].light,
   },
   {
     name: 'graph-4',
-    value: colors['teal!'],
-    hex: colors['teal!'],
+    value: colors['graph-4'].light,
+    hex: colors['graph-4'].light,
+  },
+  {
+    name: 'graph-5',
+    value: colors['graph-5'].light,
+    hex: colors['graph-5'].light,
+  },
+  {
+    name: 'graph-6',
+    value: colors['graph-6'].light,
+    hex: colors['graph-6'].light,
+  },
+];
+
+const graphColorsDark = [
+  {
+    name: 'graph-0',
+    value: colors['graph-0'].dark,
+    hex: colors['graph-0'].dark,
+  },
+  {
+    name: 'graph-1',
+    value: colors['graph-1'].dark,
+    hex: colors['graph-1'].dark,
+  },
+  {
+    name: 'graph-2',
+    value: colors['graph-2'].dark,
+    hex: colors['graph-2'].dark,
+  },
+  {
+    name: 'graph-3',
+    value: colors['graph-3'].dark,
+    hex: colors['graph-3'].dark,
+  },
+  {
+    name: 'graph-4',
+    value: colors['graph-4'].dark,
+    hex: colors['graph-4'].dark,
+  },
+  {
+    name: 'graph-5',
+    value: colors['graph-5'].dark,
+    hex: colors['graph-5'].dark,
+  },
+  {
+    name: 'graph-6',
+    value: colors['graph-6'].dark,
+    hex: colors['graph-6'].dark,
   },
 ];
 
@@ -473,7 +521,10 @@ export const colorExamples = {
     elevationColorsDark,
     elevationColorsLight,
   },
-  graphColor,
+  graph: {
+    graphColorsDark,
+    graphColorsLight,
+  },
 };
 
 export const columns = [
