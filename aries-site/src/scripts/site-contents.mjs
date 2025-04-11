@@ -45,8 +45,9 @@ const mapContent = async files => {
         // Remove import statements, Examples markup, and other markup
         // Search for "import " instead of "import"
         // so that words like "important" are not flagged
+        // https://github.com/antonkc/MOR/blob/main/matchJsImports.md
         .replace(
-          /(import ...+?(?<=;))|(<[^<>]+>)|<Example(...+?)(?<=Example>)|<!--(...+?)(?<=-->)|<ThemeContext.Extend(...+?)(?<=>)|<\/ThemeContext.Extend>|\[|\]|const(...+?)(?<=;)|<(...+?)(?<=>)|`{3}(...+?)(?<=`{3})/g,
+          /(?:import[\s\n]*((?:([\s\n])type)?)(?=[\n\s*{])[\s\n]*)((?:(?:[_$\w][_$\w0-9]*)(?:[\s\n]+(?:as[\s\n]+(?:[_$\w][_$\w0-9]*)))?(?=(?:[\n\s]*,[\n\s]*[{*])|(?:[\n\s]+from)))?)[\s\n,]*((?:\*[\n\s]*(?:as[\s\n]+(?:[_$\w][_$\w0-9]*))(?=[\n\s]+from))?)[\s\n,]*((?:\{[n\s]*(?:(?:[_$\w][_$\w0-9]*)(?:[\s\n]+(?:as[\s\n]+(?:[_$\w][_$\w0-9]*)))?[\s\n]*,?[\s\n]*)*\}(?=[\n\s]*from))?)(?:[\s\n]*((?:from)?))[\s\n]*(?:["']([^"']*)(["']))[\s\n]*?;?|(<[^<>]+>)|<Example(...+?)(?<=Example>)|<!--(...+?)(?<=-->)|<ThemeContext.Extend(...+?)(?<=>)|<\/ThemeContext.Extend>|\[|\]|const(...+?)(?<=;)|<(...+?)(?<=>)|`{3}(...+?)(?<=`{3})/g,
           '',
         );
 

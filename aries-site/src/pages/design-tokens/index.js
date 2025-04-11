@@ -7,6 +7,7 @@ import {
   Grid,
   PageContent,
   Paragraph,
+  Notification,
 } from 'grommet';
 import { Meta, ContentCard } from '../../components';
 import { getCards, getPageDetails, nameToPath } from '../../utils';
@@ -26,6 +27,16 @@ const Tokens = () => (
       <Box pad={{ vertical: 'medium' }} justify="center" width="large">
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
+        <Notification
+          status="normal"
+          message="hpe-design-tokens are production ready."
+          actions={[
+            {
+              label: 'See which version is right for your team',
+              href: '/design-tokens/versioning',
+            },
+          ]}
+        />
       </Box>
       <Data data={cards} pad={{ bottom: 'large' }}>
         <DataContext.Consumer>

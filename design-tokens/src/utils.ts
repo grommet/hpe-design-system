@@ -81,28 +81,28 @@ export const verifyReferences = (
           collection.name === 'color' &&
           collection.key !== process.env['FIGMA_COLOR_COLLECTION_KEY']
         ) {
-          collection.variableIds.forEach(id =>
+          collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'dimension' &&
           collection.key !== process.env['FIGMA_DIMENSION_COLLECTION_KEY']
         ) {
-          collection.variableIds.forEach(id =>
+          collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'primitives' &&
           collection.key !== process.env['FIGMA_PRIMITIVES_COLLECTION_KEY']
         ) {
-          collection.variableIds.forEach(id =>
+          collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         } else if (
           collection.name === 'global' &&
           collection.key !== process.env['FIGMA_GLOBAL_COLLECTION_KEY']
         ) {
-          collection.variableIds.forEach(id =>
+          collection.variableIds?.forEach(id =>
             invalidVariables.push(tokens.meta.variables[id].id),
           );
         }
@@ -132,6 +132,7 @@ export const verifyReferences = (
 };
 
 const TOKENS_DIR = 'tokens';
+export const COPYRIGHT = 'Copyright Hewlett Packard Enterprise Development LP.';
 
 export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
   const tokenDirs = readdirSync(tokensDir, { withFileTypes: true })
@@ -140,7 +141,7 @@ export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
 
   const themes: { [key: string]: string[] } = {
     default: [],
-    v1: [],
+    v0: [],
   };
 
   const tokens = tokenDirs
@@ -152,20 +153,39 @@ export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
     .flat();
 
   tokens.forEach(file => {
-    if (!file.includes('v1')) themes.default.push(file);
-    else themes.v1.push(file);
+    if (!file.includes('v0')) themes.default.push(file);
+    else themes.v0.push(file);
   });
 
   themes.default.forEach(file => {
     let [fileName] = file.split('/').slice(-1);
     const collection = fileName.split('.')[0];
-    const exists = themes.v1.find(file => {
-      let [v1FileName] = file.split('/').slice(-1);
-      const v1Collection = v1FileName.split('.')[0];
-      return v1Collection === collection;
+    const exists = themes.v0.find(file => {
+      let [v0FileName] = file.split('/').slice(-1);
+      const v0Collection = v0FileName.split('.')[0];
+      return v0Collection === collection;
     });
-    if (!exists) themes.v1.push(file);
+    if (!exists) themes.v0.push(file);
   });
 
   return themes;
+};
+
+export const filterColorTokens = (tokens: { [key: string]: any }) => {
+  const result: { [key: string]: any } = {};
+
+  Object.keys(tokens).forEach(key => {
+    if (typeof tokens[key] === 'object' && !Array.isArray(tokens[key])) {
+      if (tokens[key].$type === 'color') {
+        result[key] = tokens[key];
+      } else {
+        const nestedResult = filterColorTokens(tokens[key]);
+        if (Object.keys(nestedResult).length > 0) {
+          result[key] = nestedResult;
+        }
+      }
+    }
+  });
+
+  return result;
 };

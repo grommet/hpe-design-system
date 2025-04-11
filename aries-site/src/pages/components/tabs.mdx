@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   TabsExample,
   TabStatesExample,
@@ -12,7 +12,7 @@ import { Notification } from 'grommet';
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tabs/TabsExample.js"
   designer="https://designer.grommet.io/tabs?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
   docs="https://v2.grommet.io/tabs?theme=hpe#props"
-  figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?m=auto&node-id=8985-115760&t=lWcnAUkXgGXaDOVl-1"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=59-31&t=ZqPsisuevR3KPp96-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Tabs/Tabs.js"
   template
   height={{ min: 'small' }}
@@ -84,12 +84,6 @@ Considering the UX principles of consistency, simplicity, hierarchy, and respons
 
 Instead, it is recommended to use horizontal tabs already implemented in the Design System as they allow for a more simple page layout and information architecture and respond better on smaller resolutions.
 
-### Accessibility
-
-Accessibility features such as role and aria-selected are built into Tabs. When a tab is selected, aria-selected is switched to true and toggled to false for all other tabs within the group.
-
-If you would like to provide a custom aria-label for screen reader users, you can do so by providing a string to the a11yTitle prop.
-
 ## Variants
 
 Tabs can be used to control what information is presented to a user at a given time. They are effective for grouping information and allowing users to move between those groups without leaving their existing context.
@@ -121,3 +115,13 @@ An individual Tab can take on various states: enabled, hover, and active. The st
 >
   <TabStatesExample />
 </Example>
+
+## Accessibility
+
+Accessibility features such as role and aria-selected are built into Tabs. When a tab is selected, aria-selected is switched to true and toggled to false for all other tabs within the group.
+
+If you would like to provide a custom aria-label for screen reader users, you can do so by providing a string to the a11yTitle prop.
+
+### WCAG compliance
+
+<AccessibilitySection title="tabs" />

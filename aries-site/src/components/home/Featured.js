@@ -1,13 +1,17 @@
 import React from 'react';
 
-import { Box, Grid, Heading, PageContent, Paragraph, Stack } from 'grommet';
+import { Box, Grid, Heading, PageContent, Paragraph } from 'grommet';
 import { ContentPreviewCard } from '../cards';
 import { nameToPath } from '../../utils';
 import { featured } from '../../data';
 
 const FeaturedLayout = ({ ...rest }) => (
   <PageContent {...rest}>
-    <Grid columns={{ count: 'fit', size: 'small' }} gap="large">
+    <Grid
+      columns={{ count: 'fit', size: 'small' }}
+      gap="large"
+      pad={{ bottom: 'large' }}
+    >
       {featured.map(({ name, description, icon, url }) => (
         <ContentPreviewCard
           key={name}
@@ -27,9 +31,4 @@ const FeaturedLayout = ({ ...rest }) => (
   </PageContent>
 );
 
-export const Featured = ({ ...rest }) => (
-  <Stack guidingChild="last">
-    <Box background="background-front" margin={{ top: 'xlarge' }} fill />
-    <FeaturedLayout {...rest} />
-  </Stack>
-);
+export const Featured = ({ ...rest }) => <FeaturedLayout {...rest} />;

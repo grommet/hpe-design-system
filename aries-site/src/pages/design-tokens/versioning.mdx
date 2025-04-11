@@ -1,0 +1,71 @@
+import { Box, Grid, Image, Notification } from 'grommet';
+import { Example } from '../../layouts';
+
+<Example
+  caption="Dashboard with ^0.9.0 (previous theme) applied on left and ^1.0.0 (updated theme) applied on right"
+  width="100%"
+>
+  <Grid columns={['flex', 'flex']} gap="medium" align="start">
+    <Box>
+      <Image
+        src="/hpe-design-tokens-v0.png"
+        alt="Dashboard with v0 hpe-design-tokens theme"
+        fit="contain"
+      />
+    </Box>
+    <Box>
+      <Image
+        src="/hpe-design-tokens-v1.png"
+        alt="Dashboard with v1 hpe-design-tokens theme"
+        fit="contain"
+      />
+    </Box>
+  </Grid>
+</Example>
+
+## Production-ready versions
+
+### ^1.0.0
+
+This release provides production-ready support with styles in alignment with the latest HPE theme (February 2025 - present).
+
+In the [new HPE Design System Figma Component Library](https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&t=NjHwxPFWYTvhZTP5-6), this is the default theme.
+
+### ^0.9.0
+
+This release provides production-ready support with styles in alignment with the previous HPE theme (May 2023 - January 2025 [grommet-theme-hpe v5](https://github.com/grommet/grommet-theme-hpe/releases/tag/v5.8.0)).
+
+In the [new HPE Design System Figma Component Library](https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&t=NjHwxPFWYTvhZTP5-6), this can be opted into by changing variables to use the "v0" modes.
+
+<Notification
+  status="info"
+  width={{ max: 'large' }}
+  title="Recommendation"
+  message="To ease adoption of hpe-design-tokens, it is recommended to use v0.9.0 for initial mapping of tokens to local components. This will achieve style parity with an application's current look and allow quality assurance against familiar styling. When ready, teams can simply upgrade to v1 to view the latest theme styles."
+/>
+
+### Migrating from v0.9.0 to v1.0.0
+
+v1 reflects styling of the updated HPE theme and only contains token value changes. There are no breaking API changes from v0.9.0 to v1.0.0.
+
+## Semantic versioning
+
+HPE Design tokens follows the standards defined by semantic versioning with slight adaptations at the major version level to align with hpe-design-tokens as a style delivery mechanism.
+
+Given a version number MAJOR.MINOR.PATCH, increments will occur when:
+
+**1. MAJOR version** when there is a significant change to HPE’s brand expression and/or there are incompatible changes to the API.
+
+Significant changes to the look and feel of HPE’s brand &mdash; even if no breaking changes to the namespace are made &mdash; will be signaled via a major change (i.e. the look and feel of the new major version is not compatible with the look and feel of the previous).
+
+This signals that if service A is on v1.y.z and service B is on v2.y.z, there will be a mismatch in overall experience.
+
+**2. MINOR version** when there is functionality added in a backward compatible manner. Examples include:
+
+- Introducing a new token.
+- Updating a token value in an expected, minor way. For example, slightly darkening or lightening a text color based on user testing/feedback.
+
+**3. PATCH version** when backward compatible bug fixes are made. Examples include:
+
+- Fixing a typo in a token value.
+- Fixing a color value to meet accessibility requirements.
