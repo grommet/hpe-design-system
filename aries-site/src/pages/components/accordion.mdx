@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import { AccordionExample } from '../../examples';
 
 <Example
@@ -33,8 +33,11 @@ Accordion has two states:
 
 **The accordion labels** should be kept short and to the point of the information following in each panel. Lengthy panel content will want to be avoided.
 
-### Accessibility
+## Accessibility
 
 Buttons are used for the accordion panels which makes them accessible by screen readers and keyboard. Having a very descriptive heading label helps so the user gets to the content section they are interested in faster. Users are able to click anywhere within the panel heading for the state to change to expanded.
 
 To help with readability, accordions should only have one panel open at a time.
+### WCAG compliance
+
+<AccessibilitySection title='accordion' />
