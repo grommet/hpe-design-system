@@ -689,7 +689,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 21,
+        "$value": 20,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -739,7 +739,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 25,
+        "$value": 24,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -789,7 +789,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 27,
+        "$value": 28,
         "$description": "",
         "$extensions": {
           "com.figma": {

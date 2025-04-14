@@ -3,7 +3,7 @@
     "xsmall": {
       "minHeight": {
         "$type": "number",
-        "$value": "{base.dimension.600}",
+        "$value": 24,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -75,7 +75,7 @@
       },
       "paddingY": {
         "$type": "number",
-        "$value": 3,
+        "$value": 4,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -88,7 +88,7 @@
       "paddingX": {
         "narrow": {
           "$type": "number",
-          "$value": "{static.spacing.5xsmall}",
+          "$value": 4,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -100,7 +100,7 @@
         },
         "default": {
           "$type": "number",
-          "$value": "{static.spacing.3xsmall}",
+          "$value": 8,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -112,7 +112,7 @@
         },
         "wide": {
           "$type": "number",
-          "$value": "{base.dimension.225}",
+          "$value": 12,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -177,7 +177,7 @@
       },
       "paddingY": {
         "$type": "number",
-        "$value": 3,
+        "$value": 4,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -213,7 +213,7 @@
       },
       "minHeight": {
         "$type": "number",
-        "$value": "{base.dimension.700}",
+        "$value": 28,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -274,7 +274,7 @@
       "paddingX": {
         "narrow": {
           "$type": "number",
-          "$value": "{static.spacing.5xsmall}",
+          "$value": 4,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -286,7 +286,7 @@
         },
         "default": {
           "$type": "number",
-          "$value": "{static.spacing.3xsmall}",
+          "$value": 8,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -298,7 +298,7 @@
         },
         "wide": {
           "$type": "number",
-          "$value": "{static.spacing.xsmall}",
+          "$value": 12,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -351,7 +351,7 @@
       },
       "minHeight": {
         "$type": "number",
-        "$value": "{base.dimension.900}",
+        "$value": 32,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -460,7 +460,7 @@
         },
         "wide": {
           "$type": "number",
-          "$value": "{base.dimension.450}",
+          "$value": 15,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -513,7 +513,7 @@
       },
       "minHeight": {
         "$type": "number",
-        "$value": "{base.dimension.1200}",
+        "$value": 40,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -585,7 +585,7 @@
       },
       "paddingY": {
         "$type": "number",
-        "$value": 9,
+        "$value": 7,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -598,7 +598,7 @@
       "paddingX": {
         "narrow": {
           "$type": "number",
-          "$value": "{base.dimension.225}",
+          "$value": 7,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -610,7 +610,7 @@
         },
         "default": {
           "$type": "number",
-          "$value": "{base.dimension.450}",
+          "$value": 14,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -622,7 +622,7 @@
         },
         "wide": {
           "$type": "number",
-          "$value": "{base.dimension.600}",
+          "$value": 21,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -675,7 +675,7 @@
       },
       "minHeight": {
         "$type": "number",
-        "$value": "{base.dimension.1800}",
+        "$value": 52,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -747,7 +747,7 @@
       },
       "paddingY": {
         "$type": "number",
-        "$value": 20,
+        "$value": 11,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -760,7 +760,7 @@
       "paddingX": {
         "narrow": {
           "$type": "number",
-          "$value": "{base.dimension.500}",
+          "$value": 11,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -772,7 +772,7 @@
         },
         "default": {
           "$type": "number",
-          "$value": "{base.dimension.600}",
+          "$value": 22,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -784,7 +784,7 @@
         },
         "wide": {
           "$type": "number",
-          "$value": 32,
+          "$value": 33,
           "$description": "",
           "$extensions": {
             "com.figma": {
