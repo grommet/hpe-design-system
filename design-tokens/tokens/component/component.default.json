@@ -2950,7 +2950,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 9,
+          "$value": "{button.default.large.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3268,7 +3268,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 20,
+          "$value": "{button.default.xlarge.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3670,7 +3670,7 @@
       "xsmall": {
         "paddingX": {
           "$type": "number",
-          "$value": 12,
+          "$value": "{element.xsmall.paddingX.wide}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3682,7 +3682,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 3,
+          "$value": "{element.xsmall.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3779,7 +3779,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 4,
+            "$value": 5,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -3987,7 +3987,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 5,
+            "$value": 6,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4195,7 +4195,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 8,
+            "$value": 7,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4487,7 +4487,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 12,
+            "$value": 9,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -4599,7 +4599,7 @@
           },
           "paddingY": {
             "$type": "number",
-            "$value": 23,
+            "$value": 13,
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -5038,7 +5038,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 3,
+          "$value": "{element.xsmall.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5246,7 +5246,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.default.small.paddingY}",
+          "$value": "{element.small.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5650,7 +5650,7 @@
       "large": {
         "paddingX": {
           "$type": "number",
-          "$value": "{base.dimension.250}",
+          "$value": "{element.large.paddingX.narrow}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5662,7 +5662,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 9,
+          "$value": "{element.large.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5968,7 +5968,7 @@
         },
         "paddingX": {
           "$type": "number",
-          "$value": "{button.default.xlarge.paddingX}",
+          "$value": "{element.xlarge.paddingX.narrow}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -5980,7 +5980,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": "{button.default.xlarge.paddingY}",
+          "$value": "{element.xlarge.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {

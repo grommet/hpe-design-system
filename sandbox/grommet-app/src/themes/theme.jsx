@@ -2344,7 +2344,7 @@ const buildTheme = (tokens, flags) => {
       pad: {
         bottom: components.hpe.element?.medium.paddingY,
         top: components.hpe.element?.medium.paddingY,
-        horizontal: components.hpe.element?.medium?.paddingX?.wide,
+        horizontal: components.hpe.element?.medium?.paddingX?.default,
       },
       margin: { vertical: 'none', horizontal: 'none' },
       extend: () => `border-radius: 6px;`,
