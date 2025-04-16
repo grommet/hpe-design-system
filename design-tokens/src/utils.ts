@@ -170,3 +170,22 @@ export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
 
   return themes;
 };
+
+export const filterColorTokens = (tokens: { [key: string]: any }) => {
+  const result: { [key: string]: any } = {};
+
+  Object.keys(tokens).forEach(key => {
+    if (typeof tokens[key] === 'object' && !Array.isArray(tokens[key])) {
+      if (tokens[key].$type === 'color') {
+        result[key] = tokens[key];
+      } else {
+        const nestedResult = filterColorTokens(tokens[key]);
+        if (Object.keys(nestedResult).length > 0) {
+          result[key] = nestedResult;
+        }
+      }
+    }
+  });
+
+  return result;
+};

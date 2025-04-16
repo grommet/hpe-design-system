@@ -12,4 +12,5 @@ export * from './NotificationMetric';
 export * from './PropertiesPane';
 export * from './RoutedAnchor';
 export * from './SkeletonContext';
+export * from './Selector';
 export * from './ToggleGroup';

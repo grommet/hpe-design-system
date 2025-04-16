@@ -6,23 +6,62 @@ export const cssColorModes: FormatFn = async ({
   file,
   options,
 }: FormatFnArguments) => {
-  const { outputReferences, theme, mode } = options;
-  const darkTokens = formattedVariables({
+  const { outputReferences, theme, mode: modeArg } = options;
+  const tokens = formattedVariables({
     format: 'css',
     dictionary,
     outputReferences,
     usesDtcg: true,
   });
+
+  // default light aligns with grommet-theme-hpe
+  const defaultMode = 'light';
+  const mode: 'light' | 'dark' | 'auto' = modeArg || defaultMode;
+  const defaultThemeAndMode = !theme && mode === 'light';
+  const dataMode = `[data-mode=${mode}]`;
   const dataTheme = theme ? `[data-theme=${theme}]` : '';
-  // TO DO "mode" is fairly coupled with concept of "dark" right now
-  // just confirm this would be able to expand to concepts like "high-contrast"
-  const dataMode = mode ? `[data-mode=${mode}]` : '';
+
+  // in future if we supported different themes and modes, the structure should look like
+  // [data-theme="theme-name"][data-mode="mode-name"]
+  const selector = `${dataTheme}${dataMode}`;
+  const autoModeSelector = `${dataTheme}[data-mode=auto]`;
+
+  /*
+   * Scenario 1: OS prefers light, no mode set -> light
+   *   root: ✅
+   *   scoped: ✅
+   * Scenario 2: OS prefers light, mode set to dark -> dark
+   *   root: ✅
+   *   scoped: ✅
+   * Scenario 3: OS prefers light, mode set to light -> light
+   *   root: ✅
+   *   scoped: ✅
+   * Scenario 4: OS prefers light, mode set to auto -> light
+   *   root: ✅
+   *   scoped: ✅
+   * Scenario 5: OS prefers dark, no mode set -> light (this assumes default mode is light)
+   *   root: ✅
+   *   scoped: ✅
+   * Scenario 6: OS prefers dark, mode set to light -> light
+   *   root: ✅
+   *   scoped: ✅
+   * Scenario 7: OS prefers dark, mode set to dark -> dark
+   *   root: ✅
+   *   scoped: ✅
+   * Scenario 8: OS prefers dark, mode set to auto -> dark
+   *   root: ✅
+   *   scoped: ✅
+   **/
+
   return `${await fileHeader({
     file,
-  })}:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n
+    // only apply to root if it's the default theme and mode
+  })}${defaultThemeAndMode ? ':root, ' : ''}${
+    mode === defaultMode ? `${autoModeSelector}, ` : ''
+  }${selector} {\n${tokens}\n}\n
 ${
-  dataMode
-    ? `@media (prefers-color-scheme: dark) {\n:root${dataTheme}${dataMode} {\n${darkTokens}\n}\n}\n`
+  mode === 'dark'
+    ? `@media (prefers-color-scheme: dark) {\n${autoModeSelector}, ${selector} {\n${tokens}\n}\n}\n`
     : ''
 }
     `;
