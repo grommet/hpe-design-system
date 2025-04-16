@@ -29,7 +29,7 @@ async function main() {
   const TOKENS_DIR = 'tokens';
   const tokenDirs = fs
     .readdirSync(TOKENS_DIR, { withFileTypes: true })
-    .filter(dir => dir.isDirectory())
+    .filter(dir => dir.isDirectory() && dir.name !== '.tmp')
     .map(dir => dir.name);
 
   const api = new FigmaApi(process.env.PERSONAL_ACCESS_TOKEN || '');
