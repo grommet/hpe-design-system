@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   AnnounceSpinnerExample,
   SpinnerExample,
@@ -37,6 +37,9 @@ For additional clarity for screen reader users, provide a [message](https://v2.g
 
 [Message](https://v2.grommet.io/spinner#message) can be provided as a string or as an object in the format of `{ start: ... , end: ... }`, where the "start" message is announced when the Spinner appears and the "end" message is announced when the Spinner closes.
 
+### WCAG compliance
+  <AccessibilitySection title='spinner' />
+
 ## Variants
 
 A Spinner can be used in various ways to indicate to the user that a task is in process.
@@ -74,3 +77,4 @@ A Spinner allows users to know when something is being loaded without explicitly
 >
   <ContentSpinnerExample />
 </Example>
+
