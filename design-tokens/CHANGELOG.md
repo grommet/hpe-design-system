@@ -1,5 +1,23 @@
 # hpe-design-tokens
 
+## 1.1.1
+
+### Patch Changes
+
+- 31ce600: - Fix contrast ratios for `hpe.color.icon.unknown` and `hpe.color.icon.info` on status backgrounds.
+
+## 1.1.0
+
+### Minor Changes
+
+- 06d0ab2: - Modified status backgrounds to use opaque values in order to avoid muddiness when placed on `color-background-back`.
+- 6fb75fd: - Added `icon.onStrong` for use on "strong" and "xstrong" backgrounds.
+
+### Patch Changes
+
+- 6feae82: - Added keyword of "status" to status color token descriptions to aid searchability in Figma.
+- e0a9bab: - Added copyright comment to production files.
+
 ## 1.0.1
 
 ### Patch Changes

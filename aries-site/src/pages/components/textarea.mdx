@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   TextAreaExample,
   TextAreaDisabledExample,
@@ -10,7 +10,7 @@ import {
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/textarea/TextAreaExample.js"
   designer="https://designer.grommet.io/textarea?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
   docs="https://v2.grommet.io/textarea?theme=hpe#props"
-  figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?type=design&node-id=26098-7315&mode=design"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=3026-1768&t=ZqPsisuevR3KPp96-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/TextArea/TextArea.js"
 >
   <TextAreaExample />
@@ -25,14 +25,6 @@ Use TextArea for multi-line input such as notes or comments. TextArea is used fr
 In order to give the user a hint about how long their response should be, set the initial size of the TextArea to the length of the response expected.
 
 In the context of a FormField, apply resize="vertical" on the TextArea to ensure the TextArea doesn't expand beyond the width of the FormField it is contained in. In other contexts, the TextArea should be allowed to resize both vertically and horizontally.
-
-### Accessibility
-
-In every case possible, TextArea should be used inside of a FormField to ensure that a label is appropriately paired with the input. This behavior is important to screen reader users who need to know what context the TextArea is referring to.
-
-If you need to use TextArea outside of the context of a FormField, it is important to make sure the TextArea is labeled in an alternate way to meet accessibility requirements.
-
-Placeholder text does not serve as a sufficient means of meeting accessibility requirements for labels. To meet accessbility requirements, placeholder text should be used in conjunction with a label or aria-labelledby attribute.
 
 ## Variants
 
@@ -59,3 +51,16 @@ Used to indicate that a TextArea cannot be interacted with.
 >
   <TextAreaDisabledExample />
 </Example>
+
+
+## Accessibility
+
+In every case possible, TextArea should be used inside of a FormField to ensure that a label is appropriately paired with the input. This behavior is important to screen reader users who need to know what context the TextArea is referring to.
+
+If you need to use TextArea outside of the context of a FormField, it is important to make sure the TextArea is labeled in an alternate way to meet accessibility requirements.
+
+Placeholder text does not serve as a sufficient means of meeting accessibility requirements for labels. To meet accessbility requirements, placeholder text should be used in conjunction with a label or aria-labelledby attribute.
+
+### WCAG compliance
+
+<AccessibilitySection title='textarea' />

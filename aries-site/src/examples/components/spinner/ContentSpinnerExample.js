@@ -20,6 +20,7 @@ import {
   Menu as MenuIcon,
   Notification,
 } from 'grommet-icons';
+import { ContentPane } from '../../../layouts';
 
 export const ContentSpinnerExample = () => {
   const [index, setIndex] = React.useState();
@@ -38,7 +39,7 @@ export const ContentSpinnerExample = () => {
             pad={{ vertical: 'small' }}
             responsive={false}
           >
-            <Hpe color="brand" />
+            <Hpe color="brand" height="medium" />
             <Box direction="row" gap="xsmall" wrap>
               <Text color="text-strong" weight="bold">
                 HPE
@@ -66,19 +67,22 @@ export const ContentSpinnerExample = () => {
         )}
       </Header>
       <PageHeader title="MLOPS139906-82-11570" />
-      <NameValueList
-        nameProps={{
-          width: ['xxsmall', 'small'],
-        }}
-      >
-        <NameValuePair name="Status">Active</NameValuePair>
-        <NameValuePair name="Appliance">
-          MLOPS on HPE container Platform
-        </NameValuePair>
-        <NameValuePair name="Started on">2020-11-22 04:05:31.0</NameValuePair>
-        <NameValuePair name="Last updated">2020-11-22 04:05:31.0</NameValuePair>
-      </NameValueList>
-
+      <ContentPane>
+        <NameValueList
+          nameProps={{
+            width: ['xxsmall', 'small'],
+          }}
+        >
+          <NameValuePair name="Status">Active</NameValuePair>
+          <NameValuePair name="Appliance">
+            MLOPS on HPE container Platform
+          </NameValuePair>
+          <NameValuePair name="Started on">2020-11-22 04:05:31.0</NameValuePair>
+          <NameValuePair name="Last updated">
+            2020-11-22 04:05:31.0
+          </NameValuePair>
+        </NameValueList>
+      </ContentPane>
       <Tabs
         margin={{ vertical: 'large' }}
         activeIndex={index}

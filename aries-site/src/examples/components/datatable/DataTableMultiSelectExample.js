@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  Anchor,
   Box,
-  Button,
   DataTable,
   Heading,
   Menu,
   ResponsiveContext,
   Text,
 } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 const data = [
   {
@@ -179,15 +180,12 @@ const columns = [
     property: 'orderName',
     header: 'Order name',
     render: datum => (
-      <Button onClick={() => onClickHandler(datum)}>
-        <Box pad={{ horizontal: 'small', vertical: 'xsmall' }}>
-          <Text truncate="tip" weight="bold">
-            {datum.orderName}
-          </Text>
-        </Box>
-      </Button>
+      <Anchor
+        href="#"
+        label={datum.orderName}
+        onClick={() => onClickHandler(datum)}
+      />
     ),
-    plain: true,
   },
   {
     property: 'purchaseOrder',
@@ -230,31 +228,33 @@ export const DataTableMultiSelectExample = () => {
   const [selected, setSelected] = React.useState([]);
 
   return (
-    <>
+    <ContentPane gap="medium">
       <Heading id="orders-heading" level={3} margin="none">
         Manage orders
       </Heading>
-      <TableControls selected={selected} />
-      <Box height={{ max: 'large' }} overflow="auto">
-        <DataTable
-          aria-describedby="orders-heading"
-          data={data}
-          primaryKey="id"
-          columns={[
-            {
-              primary: true,
-              property: 'id',
-              header: 'Id',
-              pin: ['xsmall', 'small'].includes(size),
-            },
-            ...columns,
-          ]}
-          pin={['xsmall', 'small'].includes(size)}
-          select={selected}
-          onSelect={setSelected}
-        />
+      <Box>
+        <TableControls selected={selected} />
+        <Box height={{ max: 'large' }} overflow="auto">
+          <DataTable
+            aria-describedby="orders-heading"
+            data={data}
+            primaryKey="id"
+            columns={[
+              {
+                primary: true,
+                property: 'id',
+                header: 'Id',
+                pin: ['xsmall', 'small'].includes(size),
+              },
+              ...columns,
+            ]}
+            pin={['xsmall', 'small'].includes(size)}
+            select={selected}
+            onSelect={setSelected}
+          />
+        </Box>
       </Box>
-    </>
+    </ContentPane>
   );
 };
 

@@ -1,9 +1,9 @@
-import 'hpe-design-tokens/dist/css/base.css';
+import 'hpe-design-tokens/dist/css/primitives.css';
 import 'hpe-design-tokens/dist/css/color.light.css';
 import 'hpe-design-tokens/dist/css/color.dark.css';
 import 'hpe-design-tokens/dist/css/components.css';
 import 'hpe-design-tokens/dist/css/global.css';
-import 'hpe-design-tokens/dist/css/dimension.medium.css';
+import 'hpe-design-tokens/dist/css/dimension.css';
 import 'hpe-design-tokens/dist/css/dimension.small.css';
 import './css/fonts.css';
 import './css/components.css';
@@ -42,7 +42,7 @@ const FormField = ({ label, help, placeholder, input }) => {
   }" type="text" placeholder="${placeholder}" />`;
 
   if (input)
-    content = `<div class="field-container ${
+    content = `<div class="${
       label || help ? 'margin-top' : ''
     }">${input}</div>`;
 
@@ -82,14 +82,14 @@ document.querySelector('#app').innerHTML = `
           <div role="group" class="row  border-weak border-xsmall 
           radius-medium">
             <button role="radio" id="lightMode" 
-              class="active radius-medium width-full">Light</button>
+              class="selected radius-medium width-full">Light</button>
             <button role="radio" id="darkMode" 
               class="radius-medium width-full">Dark</button>
           </div>
           <div role="group" class="row  border-weak border-xsmall 
           radius-medium">
             <button role="radio" id="currentTheme" 
-              class="active radius-medium width-full">Current theme</button>
+              class="selected radius-medium width-full">Current theme</button>
             <button role="radio" id="warmTheme" 
               class="radius-medium width-full">Warm theme</button>
           </div>
@@ -101,16 +101,12 @@ document.querySelector('#app').innerHTML = `
   <div class="page">
     <div class="pageContent">
       <div class="sandbox gap-medium align-start">
-        <h2>Component testing</h2>
+        <h1>Component testing</h1>
         <div class="row gap-small wrap">
           ${Button({ label: 'Default' })}
           ${Button({
             label: 'Secondary hover border color',
             kind: 'secondary',
-          })}
-          ${Button({
-            label: 'Secondary box-shadow approach',
-            kind: 'secondary box-shadow',
           })}
           ${Button({ label: 'Primary', kind: 'primary' })}
           ${Button({
@@ -154,6 +150,15 @@ document.querySelector('#app').innerHTML = `
             <td>USA</td>
           </tr>
         </table>
+        <div class="scoped-dark-mode" data-mode="dark">
+          <span>Scoped dark mode section</span>
+          <span style="color: inherit;">Text with inherit for color</span>
+          <div class="row gap-small">
+            ${Button({ label: 'Default' })}
+            ${Button({ label: 'Secondary', kind: 'secondary' })}
+            ${Button({ label: 'Primary', kind: 'primary' })}
+          </div>
+        </div>
       </div> 
     </div>
   </div> 

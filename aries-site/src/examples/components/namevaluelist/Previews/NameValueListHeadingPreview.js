@@ -1,9 +1,10 @@
 import React from 'react';
-import { Anchor, Box, Heading, NameValueList, NameValuePair } from 'grommet';
+import { Anchor, Heading, NameValueList, NameValuePair } from 'grommet';
 import { simpleData } from '../data';
+import { ContentPane } from '../../../../layouts';
 
 export const NameValueListHeadingPreview = () => (
-  <Box pad="small" gap="medium">
+  <ContentPane gap="medium">
     <Heading level={2} margin="none">
       NameValueList heading
     </Heading>
@@ -25,5 +26,5 @@ export const NameValueListHeadingPreview = () => (
         );
       })}
     </NameValueList>
-  </Box>
+  </ContentPane>
 );
