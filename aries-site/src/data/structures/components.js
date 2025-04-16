@@ -900,6 +900,7 @@ export const components = [
   },
   {
     name: 'Box',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'Boxes are containers that drive the layout of your content. Flexible props allow the behavior of content to be defined to optimize the user experience.',
