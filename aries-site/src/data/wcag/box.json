@@ -152,8 +152,8 @@
     {
       "rule": "1.4.10",
       "label": "Reflow",
-      "status": "passed",
-      "notes": ""
+      "status": "conditional",
+      "notes": "Use flexible layouts (e.g. flexbox or grid) and test with zoom and small screen widths to ensure content reflows without clipping or requiring horizontal scroll."
     },
     {
       "rule": "1.4.11",
