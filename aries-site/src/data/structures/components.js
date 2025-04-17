@@ -1215,7 +1215,6 @@ export const components = [
   },
   {
     name: 'NameValueList',
-    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description: 'A NameValueList displays a group of NameValuePairs.',
     seoDescription: 'A NameValueList displays a group of NameValuePairs.',
