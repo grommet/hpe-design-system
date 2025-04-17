@@ -31,14 +31,6 @@ Avoid showing multiple Loading Spinners on a single page.
 - When fetching data or content, where the expected response time is greater than ~300ms.
 - When loading more information into a Table or List.
 
-### Accessibility
-
-For additional clarity for screen reader users, provide a [message](https://v2.grommet.io/spinner#message) to the spinner that would explain to the user that the content is being loaded.
-
-[Message](https://v2.grommet.io/spinner#message) can be provided as a string or as an object in the format of `{ start: ... , end: ... }`, where the "start" message is announced when the Spinner appears and the "end" message is announced when the Spinner closes.
-
-### WCAG compliance
-  <AccessibilitySection title='spinner' />
 
 ## Variants
 
@@ -78,3 +70,11 @@ A Spinner allows users to know when something is being loaded without explicitly
   <ContentSpinnerExample />
 </Example>
 
+## Accessibility
+
+For additional clarity for screen reader users, provide a [message](https://v2.grommet.io/spinner#message) to the spinner that would explain to the user that the content is being loaded.
+
+[Message](https://v2.grommet.io/spinner#message) can be provided as a string or as an object in the format of `{ start: ... , end: ... }`, where the "start" message is announced when the Spinner appears and the "end" message is announced when the Spinner closes.
+
+### WCAG compliance
+  <AccessibilitySection title='spinner' />
