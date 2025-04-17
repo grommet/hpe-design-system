@@ -19,7 +19,7 @@ const ContentPane = ({
     <Box
       gap="medium"
       background={contain ? 'background-front' : undefined}
-      pad={contain ? { horizontal: 'medium', vertical: 'medium' } : undefined}
+      pad={contain ? { horizontal: 'large', vertical: 'large' } : undefined}
       round={contain ? 'xlarge' : 'none'}
       {...rest}
     >
