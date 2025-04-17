@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { DataChart, Grid, Notification, Skeleton, ThemeContext } from 'grommet';
+import { DataChart, Grid, Notification, Skeleton } from 'grommet';
+import { ThemeContext } from 'grommet/contexts/ThemeContext';
 import { DashboardCard } from '../components';
 import sustainability from '../mockData/sustainability.json';
 import { Metric } from '../components';
