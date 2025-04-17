@@ -1,11 +1,5 @@
-import {
-  Box,
-  DataChart,
-  Text,
-  Notification,
-  Skeleton,
-  ThemeContext,
-} from 'grommet';
+import { Box, DataChart, Text, Notification, Skeleton } from 'grommet';
+import { ThemeContext } from 'grommet/contexts/ThemeContext';
 import { DashboardCard, Legend } from '../components';
 import expenses from '../mockData/expenses.json';
 import { useContext } from 'react';
