@@ -96,6 +96,7 @@ export const DashboardCard = ({
                 data-icon={
                   !inline && workspace === 'Acme Next' ? 'dashboard' : ''
                 }
+                height="large"
               />
             )}
           </Box>
@@ -103,7 +104,7 @@ export const DashboardCard = ({
       </CardHeader>
       {children && (
         <CardBody
-          pad={{ horizontal: 'medium', bottom: !footer ? 'medium' : undefined }}
+          pad={{ horizontal: 'large', bottom: !footer ? 'large' : undefined }}
           {...inlineProps}
           animation={animation}
         >
@@ -112,7 +113,7 @@ export const DashboardCard = ({
       )}
       {footer && (
         <CardFooter
-          pad={{ horizontal: 'medium', bottom: 'medium', top: 'medium' }}
+          pad={{ horizontal: 'large', bottom: 'large', top: 'large' }}
           {...inlineProps}
           animation={animation}
         >

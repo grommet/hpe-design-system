@@ -989,9 +989,9 @@ const buildTheme = (tokens, flags) => {
         round: 'medium',
         extend: 'transition: box-shadow 0.3s ease-in-out;',
       },
-      body: { pad: 'medium' },
-      footer: { pad: { horizontal: 'medium', vertical: 'xsmall' } },
-      header: { pad: 'medium' },
+      body: { pad: 'large' },
+      footer: { pad: { horizontal: 'large', vertical: 'small' } },
+      header: { pad: 'large' },
       hover: { container: { elevation: 'medium' } },
     },
     carousel: {
