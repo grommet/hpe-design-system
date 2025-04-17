@@ -1147,6 +1147,7 @@ export const components = [
   },
   {
     name: 'Main',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Layouts',
     description:
       'The Main component is where you define the location and layout of the primary context of your content.',
