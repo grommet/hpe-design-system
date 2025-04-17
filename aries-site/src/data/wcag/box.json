@@ -144,12 +144,6 @@
       "notes": ""
     },
     {
-      "rule": "1.4.11",
-      "label": "Non-text Contrast",
-      "status": "not-applicable",
-      "notes": ""
-    },
-    {
       "rule": "1.4.10",
       "label": "Reflow",
       "status": "conditional",
