@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { DataChart, Grid, Notification, Skeleton } from 'grommet';
+import { DataChart, Grid, Notification, Skeleton, ThemeContext } from 'grommet';
 import { DashboardCard } from '../components';
 import sustainability from '../mockData/sustainability.json';
 import { Metric } from '../components';
 import { useContext } from 'react';
 import { SkeletonContext } from '../components';
+import { tshirtContextValue } from '../utils/format';
 
 export const SustainabilityOverview = () => {
   const skeleton = useContext(SkeletonContext);
@@ -31,30 +32,32 @@ export const SustainabilityOverview = () => {
             {skeleton ? (
               <Skeleton height="4xsmall" />
             ) : (
-              <DataChart
-                data={sustainability.sustainability.slice(0, 10)}
-                series={['date', 'emissions']}
-                chart={[
-                  {
-                    property: 'emissions',
-                    type: 'area',
-                    thickness: '3xsmall',
-                    color: { color: 'graph-0', opacity: 'strong' },
-                  },
-                  {
-                    property: 'emissions',
-                    type: 'line',
-                    thickness: '5xsmall',
-                    color: 'graph-0',
-                    round: true,
-                  },
-                ]}
-                axis={{
-                  x: false,
-                  y: false,
-                }}
-                size={{ height: '5xsmall' }}
-              />
+              <ThemeContext.Extend value={tshirtContextValue}>
+                <DataChart
+                  data={sustainability.sustainability.slice(0, 10)}
+                  series={['date', 'emissions']}
+                  chart={[
+                    {
+                      property: 'emissions',
+                      type: 'area',
+                      thickness: 'xsmall',
+                      color: { color: 'graph-0', opacity: 'strong' },
+                    },
+                    {
+                      property: 'emissions',
+                      type: 'line',
+                      thickness: 'xxsmall',
+                      color: 'graph-0',
+                      round: true,
+                    },
+                  ]}
+                  axis={{
+                    x: false,
+                    y: false,
+                  }}
+                  size={{ height: 'xxsmall' }}
+                />
+              </ThemeContext.Extend>
             )}
           </>
           <>
@@ -67,30 +70,32 @@ export const SustainabilityOverview = () => {
             {skeleton ? (
               <Skeleton height="4xsmall" />
             ) : (
-              <DataChart
-                data={sustainability.sustainability.slice(0, 10)}
-                series={['date', 'energy']}
-                chart={[
-                  {
-                    property: 'energy',
-                    type: 'area',
-                    thickness: '3xsmall',
-                    color: { color: 'graph-1', opacity: 'strong' },
-                  },
-                  {
-                    property: 'energy',
-                    type: 'line',
-                    thickness: '5xsmall',
-                    color: 'graph-1',
-                    round: true,
-                  },
-                ]}
-                axis={{
-                  x: false,
-                  y: false,
-                }}
-                size={{ height: '5xsmall' }}
-              />
+              <ThemeContext.Extend value={tshirtContextValue}>
+                <DataChart
+                  data={sustainability.sustainability.slice(0, 10)}
+                  series={['date', 'energy']}
+                  chart={[
+                    {
+                      property: 'energy',
+                      type: 'area',
+                      thickness: 'xsmall',
+                      color: { color: 'graph-1', opacity: 'strong' },
+                    },
+                    {
+                      property: 'energy',
+                      type: 'line',
+                      thickness: 'xxsmall',
+                      color: 'graph-1',
+                      round: true,
+                    },
+                  ]}
+                  axis={{
+                    x: false,
+                    y: false,
+                  }}
+                  size={{ height: '5xsmall' }}
+                />
+              </ThemeContext.Extend>
             )}
           </>
           <>
@@ -98,30 +103,32 @@ export const SustainabilityOverview = () => {
             {skeleton ? (
               <Skeleton height="4xsmall" />
             ) : (
-              <DataChart
-                data={sustainability.sustainability.slice(0, 10)}
-                series={['date', 'cost']}
-                chart={[
-                  {
-                    property: 'cost',
-                    type: 'area',
-                    thickness: '3xsmall',
-                    color: { color: 'graph-2', opacity: 'strong' },
-                  },
-                  {
-                    property: 'cost',
-                    type: 'line',
-                    thickness: '5xsmall',
-                    color: 'graph-2',
-                    round: true,
-                  },
-                ]}
-                axis={{
-                  x: false,
-                  y: false,
-                }}
-                size={{ height: '5xsmall' }}
-              />
+              <ThemeContext.Extend value={tshirtContextValue}>
+                <DataChart
+                  data={sustainability.sustainability.slice(0, 10)}
+                  series={['date', 'cost']}
+                  chart={[
+                    {
+                      property: 'cost',
+                      type: 'area',
+                      thickness: 'xsmall',
+                      color: { color: 'graph-2', opacity: 'strong' },
+                    },
+                    {
+                      property: 'cost',
+                      type: 'line',
+                      thickness: 'xxsmall',
+                      color: 'graph-2',
+                      round: true,
+                    },
+                  ]}
+                  axis={{
+                    x: false,
+                    y: false,
+                  }}
+                  size={{ height: '5xsmall' }}
+                />
+              </ThemeContext.Extend>
             )}
           </>
         </Grid>

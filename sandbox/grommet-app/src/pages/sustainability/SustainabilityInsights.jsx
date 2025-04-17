@@ -12,6 +12,7 @@ import {
   DataFilter,
   Skeleton,
   ToggleGroup,
+  ThemeContext,
 } from 'grommet';
 import { Hide, FormView } from 'grommet-icons';
 import { Card, Legend, Metric } from '../../components';
@@ -21,6 +22,7 @@ import {
   skeleton as skeletonAnimation,
 } from '../../utils/skeleton';
 import { SkeletonContext } from '../../components';
+import { tshirtContextValue } from '../../utils/format';
 
 const DisplayContext = createContext({});
 
@@ -52,40 +54,42 @@ const CarbonEmissions = () => {
           <Box gap="medium">
             <Legend label="Carbon emissions (MTCO2e)" color="graph-0" />
             {!skeleton ? (
-              <DataChart
-                data={mockData.sustainability.slice(0, 10)}
-                series={[
-                  {
-                    property: 'date',
-                    render: value =>
-                      Intl.DateTimeFormat(undefined, {
-                        month: 'short',
-                        day: 'numeric',
-                      }).format(new Date(value)),
-                  },
-                  'emissions',
-                ]}
-                chart={[
-                  {
-                    property: 'emissions',
-                    type: 'area',
-                    thickness: '3xsmall',
-                    color: { color: 'graph-0', opacity: 'strong' },
-                  },
-                  {
-                    property: 'emissions',
-                    type: 'line',
-                    thickness: '5xsmall',
-                    color: 'graph-0',
-                    round: true,
-                  },
-                ]}
-                axis={{
-                  x: { property: 'date', granularity: 'medium' },
-                  y: { property: 'emissions', granularity: 'fine' },
-                }}
-                guide={{ y: true }}
-              />
+              <ThemeContext.Extend value={tshirtContextValue}>
+                <DataChart
+                  data={mockData.sustainability.slice(0, 10)}
+                  series={[
+                    {
+                      property: 'date',
+                      render: value =>
+                        Intl.DateTimeFormat(undefined, {
+                          month: 'short',
+                          day: 'numeric',
+                        }).format(new Date(value)),
+                    },
+                    'emissions',
+                  ]}
+                  chart={[
+                    {
+                      property: 'emissions',
+                      type: 'area',
+                      thickness: '3xsmall',
+                      color: { color: 'graph-0', opacity: 'strong' },
+                    },
+                    {
+                      property: 'emissions',
+                      type: 'line',
+                      thickness: '5xsmall',
+                      color: 'graph-0',
+                      round: true,
+                    },
+                  ]}
+                  axis={{
+                    x: { property: 'date', granularity: 'medium' },
+                    y: { property: 'emissions', granularity: 'fine' },
+                  }}
+                  guide={{ y: true }}
+                />
+              </ThemeContext.Extend>
             ) : (
               <Skeleton height="xsmall" />
             )}
@@ -123,40 +127,42 @@ const EnergyConsumption = () => {
           <Box gap="medium">
             <Legend label="Energy consumption (kWh)" color="graph-2" />
             {!skeleton ? (
-              <DataChart
-                data={mockData.sustainability.slice(0, 10)}
-                series={[
-                  {
-                    property: 'date',
-                    render: value =>
-                      Intl.DateTimeFormat(undefined, {
-                        month: 'short',
-                        day: 'numeric',
-                      }).format(new Date(value)),
-                  },
-                  'energy',
-                ]}
-                chart={[
-                  {
-                    property: 'energy',
-                    type: 'area',
-                    thickness: '3xsmall',
-                    color: { color: 'graph-2', opacity: 'strong' },
-                  },
-                  {
-                    property: 'energy',
-                    type: 'line',
-                    thickness: '5xsmall',
-                    color: 'graph-2',
-                    round: true,
-                  },
-                ]}
-                axis={{
-                  x: { property: 'date', granularity: 'medium' },
-                  y: { property: 'energy', granularity: 'fine' },
-                }}
-                guide={{ y: true }}
-              />
+              <ThemeContext.Extend value={tshirtContextValue}>
+                <DataChart
+                  data={mockData.sustainability.slice(0, 10)}
+                  series={[
+                    {
+                      property: 'date',
+                      render: value =>
+                        Intl.DateTimeFormat(undefined, {
+                          month: 'short',
+                          day: 'numeric',
+                        }).format(new Date(value)),
+                    },
+                    'energy',
+                  ]}
+                  chart={[
+                    {
+                      property: 'energy',
+                      type: 'area',
+                      thickness: '3xsmall',
+                      color: { color: 'graph-2', opacity: 'strong' },
+                    },
+                    {
+                      property: 'energy',
+                      type: 'line',
+                      thickness: '5xsmall',
+                      color: 'graph-2',
+                      round: true,
+                    },
+                  ]}
+                  axis={{
+                    x: { property: 'date', granularity: 'medium' },
+                    y: { property: 'energy', granularity: 'fine' },
+                  }}
+                  guide={{ y: true }}
+                />
+              </ThemeContext.Extend>
             ) : (
               <Skeleton height="xsmall" />
             )}
@@ -198,40 +204,42 @@ const EnergyCost = () => {
           <Box gap="medium">
             <Legend label="Energy cost (USD)" color="graph-4" />
             {!skeleton ? (
-              <DataChart
-                data={mockData.sustainability.slice(0, 10)}
-                series={[
-                  {
-                    property: 'date',
-                    render: value =>
-                      Intl.DateTimeFormat(undefined, {
-                        month: 'short',
-                        day: 'numeric',
-                      }).format(new Date(value)),
-                  },
-                  'cost',
-                ]}
-                chart={[
-                  {
-                    property: 'cost',
-                    type: 'area',
-                    thickness: '3xsmall',
-                    color: { color: 'graph-4', opacity: 'strong' },
-                  },
-                  {
-                    property: 'cost',
-                    type: 'line',
-                    thickness: '5xsmall',
-                    color: 'graph-4',
-                    round: true,
-                  },
-                ]}
-                axis={{
-                  x: { property: 'date', granularity: 'medium' },
-                  y: { property: 'cost', granularity: 'fine' },
-                }}
-                guide={{ y: true }}
-              />
+              <ThemeContext.Extend value={tshirtContextValue}>
+                <DataChart
+                  data={mockData.sustainability.slice(0, 10)}
+                  series={[
+                    {
+                      property: 'date',
+                      render: value =>
+                        Intl.DateTimeFormat(undefined, {
+                          month: 'short',
+                          day: 'numeric',
+                        }).format(new Date(value)),
+                    },
+                    'cost',
+                  ]}
+                  chart={[
+                    {
+                      property: 'cost',
+                      type: 'area',
+                      thickness: '3xsmall',
+                      color: { color: 'graph-4', opacity: 'strong' },
+                    },
+                    {
+                      property: 'cost',
+                      type: 'line',
+                      thickness: '5xsmall',
+                      color: 'graph-4',
+                      round: true,
+                    },
+                  ]}
+                  axis={{
+                    x: { property: 'date', granularity: 'medium' },
+                    y: { property: 'cost', granularity: 'fine' },
+                  }}
+                  guide={{ y: true }}
+                />
+              </ThemeContext.Extend>
             ) : (
               <Skeleton height="xsmall" />
             )}
