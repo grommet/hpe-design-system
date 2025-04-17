@@ -12,8 +12,8 @@ import {
   DataFilter,
   Skeleton,
   ToggleGroup,
-  ThemeContext,
 } from 'grommet';
+import { ThemeContext } from 'grommet/contexts/ThemeContext';
 import { Hide, FormView } from 'grommet-icons';
 import { Card, Legend, Metric } from '../../components';
 import mockData from '../../mockData/sustainability.json';
