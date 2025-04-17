@@ -58,6 +58,7 @@ export const DashboardCard = ({
   return (
     <Card
       {...inlineProps}
+      fill="vertical"
       // this is just to demo hover state
       {...(!inline ? { onClick: () => {} } : {})}
       {...skeletonProps}
