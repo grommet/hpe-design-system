@@ -1407,6 +1407,7 @@ export const components = [
   },
   {
     name: 'Spinner',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Visualizations',
     description:
       'Spinner is a small motion graphic element that indicates a loading state for quick, asynchronous tasks.',
