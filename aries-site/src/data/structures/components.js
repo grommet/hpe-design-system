@@ -787,6 +787,7 @@ export const components = [
       'Header is a Box with a set of preset properties for introductory content.',
     seoDescription:
       'Header is a Box with a set of preset properties for introductory content.',
+    accessibility: 'Passed WCAG 2.2 AAA',
     sections: [
       'About Header',
       'Application Header',
@@ -900,6 +901,7 @@ export const components = [
   },
   {
     name: 'Box',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'Boxes are containers that drive the layout of your content. Flexible props allow the behavior of content to be defined to optimize the user experience.',
@@ -1148,6 +1150,7 @@ export const components = [
   },
   {
     name: 'Main',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'The Main component is where you define the location and layout of the primary context of your content.',
@@ -1216,6 +1219,7 @@ export const components = [
   },
   {
     name: 'NameValueList',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description: 'A NameValueList displays a group of NameValuePairs.',
     seoDescription: 'A NameValueList displays a group of NameValuePairs.',
@@ -1406,6 +1410,7 @@ export const components = [
   },
   {
     name: 'Spinner',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Visualizations',
     description:
       'Spinner is a small motion graphic element that indicates a loading state for quick, asynchronous tasks.',
