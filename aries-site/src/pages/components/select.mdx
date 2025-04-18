@@ -1,5 +1,6 @@
 import { Example } from '../../layouts';
 import {
+  SelectClearExample,
   SelectDisabledExample,
   SelectExample,
   SelectSearchExample,
@@ -80,4 +81,16 @@ Indicates that the Select input exists but cannot be interacted with until a pre
   height={{ min: 'small' }}
 >
   <SelectDisabledExample />
+</Example>
+
+### Clear selection
+
+Allow users to clear their selection if the select is not required. This prevents users from being locked into an option.
+
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectClearExample.js"
+  docs="https://v2.grommet.io/select?theme=hpe#props"
+  height={{ min: 'small' }}
+>
+  <SelectClearExample />
 </Example>
