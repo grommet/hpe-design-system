@@ -787,6 +787,7 @@ export const components = [
       'Header is a Box with a set of preset properties for introductory content.',
     seoDescription:
       'Header is a Box with a set of preset properties for introductory content.',
+    accessibility: 'Passed WCAG 2.2 AAA',
     sections: [
       'About Header',
       'Application Header',
@@ -978,6 +979,7 @@ export const components = [
   {
     name: 'Layer',
     category: 'Layouts',
+    accessibility: 'Passed WCAG 2.2 AA',
     description:
       'Layer is a component allowing content to be displayed on top of the page the user is currently on.',
     previewComponent: {
@@ -1148,6 +1150,7 @@ export const components = [
   },
   {
     name: 'Main',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'The Main component is where you define the location and layout of the primary context of your content.',
