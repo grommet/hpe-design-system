@@ -2511,9 +2511,9 @@
     "@radix-ui/react-slot" "1.2.0"
 
 "@radix-ui/react-select@^2.1.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-select/-/react-select-2.2.1.tgz#cc06158878ee38f2d3a4682efaa5105fd3f0e165"
-  integrity sha512-KVVf2ee/nTWIJRZLYvVlK23j555DuCCg4dPmRE4S5SqGEQf94qNH+X41pNz7LKnSEC7HbhBFyHYm2PpPfsOkrw==
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-select/-/react-select-2.2.2.tgz#96759b9dcf4e80f6f39c1ad706718f1b2928ba21"
+  integrity sha512-HjkVHtBkuq+r3zUAZ/CvNWUGKPfuicGDbgtZgiQuFmNcV5F+Tgy24ep2nsAW2nFgvhGPJVqeBZa6KyVN0EyrBA==
   dependencies:
     "@radix-ui/number" "1.1.1"
     "@radix-ui/primitive" "1.1.2"
@@ -2530,7 +2530,7 @@
     "@radix-ui/react-primitive" "2.1.0"
     "@radix-ui/react-slot" "1.2.0"
     "@radix-ui/react-use-callback-ref" "1.1.1"
-    "@radix-ui/react-use-controllable-state" "1.2.1"
+    "@radix-ui/react-use-controllable-state" "1.2.2"
     "@radix-ui/react-use-layout-effect" "1.1.1"
     "@radix-ui/react-use-previous" "1.1.1"
     "@radix-ui/react-visually-hidden" "1.2.0"
@@ -2545,15 +2545,15 @@
     "@radix-ui/react-compose-refs" "1.1.2"
 
 "@radix-ui/react-switch@^1.1.0":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-switch/-/react-switch-1.2.1.tgz#82ffa1037531d0be01b9b20bfce20fbb4abd729d"
-  integrity sha512-AYGSGuEWLh4tylZ+7QexBI4XlkWvRjFiWRybkkSzOS7yvadaNp7vvI+oUXBPO9pspi/24CYEUml8HnKxMoGbuw==
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-switch/-/react-switch-1.2.2.tgz#aee51a72b93b49d625e201e32c43deb7957e4641"
+  integrity sha512-7Z8n6L+ifMIIYZ83f28qWSceUpkXuslI2FJ34+kDMTiyj91ENdpdQ7VCidrzj5JfwfZTeano/BnGBbu/jqa5rQ==
   dependencies:
     "@radix-ui/primitive" "1.1.2"
     "@radix-ui/react-compose-refs" "1.1.2"
     "@radix-ui/react-context" "1.1.2"
     "@radix-ui/react-primitive" "2.1.0"
-    "@radix-ui/react-use-controllable-state" "1.2.1"
+    "@radix-ui/react-use-controllable-state" "1.2.2"
     "@radix-ui/react-use-previous" "1.1.1"
     "@radix-ui/react-use-size" "1.1.1"
 
@@ -2562,18 +2562,18 @@
   resolved "https://registry.yarnpkg.com/@radix-ui/react-use-callback-ref/-/react-use-callback-ref-1.1.1.tgz#62a4dba8b3255fdc5cc7787faeac1c6e4cc58d40"
   integrity sha512-FkBMwD+qbGQeMu1cOHnuGB6x4yzPjho8ap5WtbEJ26umhgqVXbhekKUQO+hZEL1vU92a3wHwdp0HAcqAUF5iDg==
 
-"@radix-ui/react-use-controllable-state@1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-use-controllable-state/-/react-use-controllable-state-1.2.1.tgz#c8ea507b71579640452163ed4248c9a9d96b06b3"
-  integrity sha512-Ef9+7lGO21GP9IV2Rk715KTBFrV1xfDrNSX1ix/rhvV8O3nAuXM3A1549dI8jr5zqS4xXX3vR+yp9+O37Gg23w==
+"@radix-ui/react-use-controllable-state@1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-use-controllable-state/-/react-use-controllable-state-1.2.2.tgz#905793405de57d61a439f4afebbb17d0645f3190"
+  integrity sha512-BjasUjixPFdS+NKkypcyyN5Pmg83Olst0+c6vGov0diwTEo6mgdqVR6hxcEgFuh4QrAs7Rc+9KuGJ9TVCj0Zzg==
   dependencies:
-    "@radix-ui/react-use-effect-event" "0.0.1"
+    "@radix-ui/react-use-effect-event" "0.0.2"
     "@radix-ui/react-use-layout-effect" "1.1.1"
 
-"@radix-ui/react-use-effect-event@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-use-effect-event/-/react-use-effect-event-0.0.1.tgz#23a49653b16c189e669cdbd6e7d7a6526b78e7b2"
-  integrity sha512-GUYSVhFnN8ieFGIcckBHGV9OyOiIfK3Y7k/zNt1jM4vGlGNrvoyUnTwrbsZ+OP12Hzl5tEYzAOc98zF+TPRtFA==
+"@radix-ui/react-use-effect-event@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-use-effect-event/-/react-use-effect-event-0.0.2.tgz#090cf30d00a4c7632a15548512e9152217593907"
+  integrity sha512-Qp8WbZOBe+blgpuUT+lw2xheLP8q0oatc9UpmiemEICxGvFLYmHm9QowVZGHtJlGbS6A6yJ3iViad/2cVjnOiA==
   dependencies:
     "@radix-ui/react-use-layout-effect" "1.1.1"
 
