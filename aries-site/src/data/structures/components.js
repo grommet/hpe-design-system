@@ -787,6 +787,7 @@ export const components = [
       'Header is a Box with a set of preset properties for introductory content.',
     seoDescription:
       'Header is a Box with a set of preset properties for introductory content.',
+    accessibility: 'Passed WCAG 2.2 AAA',
     sections: [
       'About Header',
       'Application Header',
