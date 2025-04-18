@@ -3,7 +3,7 @@
     "rule": "1.1.1",
     "label": "Non-text Content",
     "status": "conditional",
-    "notes": "Icons require aria-labels or alternative text if not purely decorative."
+    "notes": "Layers with a close icon must provide an aria-label or alternative text unless the icon is purely decorative."
   },
   {
     "rule": "1.2.1",
@@ -58,7 +58,8 @@
   {
     "rule": "1.3.2",
     "label": "Meaningful Sequence",
-    "status": "passed"
+    "status": "conditional",
+    "notes": "The implementation must use autoFocus on the close icon to ensure that when the modal opens, focus moves to the first interactive element within the Layer."
   },
   {
     "rule": "1.3.3",
@@ -84,7 +85,7 @@
   {
     "rule": "1.4.1",
     "label": "Use of color",
-    "status": "passed"
+    "status": "not-applicable"
   },
   {
     "rule": "1.4.2",
@@ -150,8 +151,7 @@
   {
     "rule": "1.4.13",
     "label": "Content on Hover or Focus",
-    "status": "passed",
-    "notes": "No content displayed on hover or focus that is directly tied to the layer component"
+    "status": "not-applicable"
   },
   {
     "rule": "2.1.1",
@@ -161,7 +161,8 @@
   {
     "rule": "2.1.2",
     "label": "No Keyboard Trap",
-    "status": "passed"
+    "status": "conditional",
+    "notes": "Implementation must ensure that onEsc is passed to allow the user to close the modal using the Escape key."
   },
   {
     "rule": "2.1.3",
@@ -231,7 +232,8 @@
   {
     "rule": "2.4.3",
     "label": "Focus Order",
-    "status": "passed"
+    "status": "conditional",
+    "notes": "For modal={false}, focus must move to the Layer’s Close button, which should have an a11yTitle that clarifies the user is in a Layer."
   },
   {
     "rule": "2.4.4",
@@ -292,14 +294,13 @@
   {
     "rule": "2.5.2",
     "label": "Pointer Cancellation",
-    "status": "passed",
-    "notes": "Actions triggered only on pointer-up events"
+    "status": "conditional",
+    "notes": "Implementation must ensure that pressing escape would trigger the Cancel action"
   },
   {
     "rule": "2.5.3",
     "label": "Label in Name",
-    "status": "conditional",
-    "notes": "Implementation must ensure that labels contain the text that is presented visually"
+    "status": "not-applicable"
   },
   {
     "rule": "2.5.4",
@@ -311,7 +312,7 @@
     "rule": "2.5.5",
     "label": "Target Size (Enhanced)",
     "status": "conditional",
-    "notes": "Layer component does not enforce the use of a specific close button"
+    "status": "not-applicable"
   },
   {
     "rule": "2.5.6",
@@ -342,7 +343,7 @@
   {
     "rule": "3.2.1",
     "label": "On Focus",
-    "status": "not-applicable"
+    "status": "passed"
   },
   {
     "rule": "3.2.2",
