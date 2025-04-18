@@ -68,7 +68,7 @@
     {
       "rule": "1.3.2",
       "label": "Meaningful Sequence",
-      "status": "not-applicable",
+      "status": "conditional",
       "notes": ""
     },
     {
