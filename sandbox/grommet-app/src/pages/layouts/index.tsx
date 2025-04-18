@@ -42,7 +42,7 @@ const LayoutsIndex = () => {
         <PageHeader title="Layouts" />
         <List
           data={layouts}
-          defaultItemProps={{ pad: { vertical: 'xxsmall' } }}
+          defaultItemProps={{ pad: { vertical: '5xsmall' } }}
         >
           {item => (
             <RoutedAnchor

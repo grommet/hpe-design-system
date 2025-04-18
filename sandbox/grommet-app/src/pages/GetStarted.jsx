@@ -13,7 +13,7 @@ export const GetStarted = ({ kind, heading }) => {
     kindStyles = {
       container: {
         background: { color: 'background-primary-weak' },
-        pad: 'xsmall',
+        pad: '3xsmall',
         border: true,
         round: 'xsmall',
       },

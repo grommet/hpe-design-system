@@ -6,7 +6,7 @@ import ContentPane from '../../../../components/ContentPane';
 export const ContentSizes = ({ theme }) => {
   return (
     <ContentPane overflow={{ horizontal: 'auto' }}>
-      <Box gap="small">
+      <Box gap="xsmall">
         {Object.keys(theme.global.size).map(
           size =>
             size !== 'responsiveBreakpoint' && (

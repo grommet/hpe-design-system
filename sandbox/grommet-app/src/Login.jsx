@@ -15,7 +15,7 @@ import ContentPane from './components/ContentPane';
 export const Login = ({ setAuthenticated }) => {
   return (
     <Page>
-      <PageContent pad={{ vertical: 'large' }} align="center">
+      <PageContent pad={{ vertical: 'xlarge' }} align="center">
         <ContentPane background="background-front" pad="medium" round="medium">
           <Box gap="medium">
             <Box>
@@ -50,7 +50,7 @@ export const Login = ({ setAuthenticated }) => {
                 label="Submit"
                 type="submit"
                 kind="primary"
-                margin={{ top: 'small' }}
+                margin={{ top: 'xsmall' }}
               />
             </Form>
           </Box>

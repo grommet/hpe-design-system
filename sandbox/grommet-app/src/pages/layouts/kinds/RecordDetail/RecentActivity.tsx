@@ -24,11 +24,12 @@ const recentActivities = [
     title: 'Server health',
     description: 'Network health changed to OK',
     datetime: '2025-01-21T14:20:21',
-  }, {
+  },
+  {
     title: 'Server health',
     description: 'Network health changed to OK',
     datetime: '2025-01-21T14:20:21',
-  }
+  },
 ].sort((a, b) => {
   return new Date(b.datetime).getTime() - new Date(a.datetime).getTime();
 });
@@ -39,22 +40,33 @@ interface ActivityItemProps {
   datetime: string;
 }
 
-const ActivityItem: React.FC<ActivityItemProps> = ({ title, description, datetime }) => {
+const ActivityItem: React.FC<ActivityItemProps> = ({
+  title,
+  description,
+  datetime,
+}) => {
   return (
-    <Box gap="xsmall">
-      <Text color="text-strong" weight={500}>{title}</Text>
+    <Box gap="3xsmall">
+      <Text color="text-strong" weight={500}>
+        {title}
+      </Text>
       <Paragraph margin="none">{description}</Paragraph>
-      <Text>{Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(datetime))}</Text>
+      <Text>
+        {Intl.DateTimeFormat(undefined, {
+          dateStyle: 'medium',
+          timeStyle: 'short',
+        }).format(new Date(datetime))}
+      </Text>
     </Box>
   );
-}
+};
 
 export const RecentActivity: React.FC = () => {
   return (
     <Box gap="medium">
       <List
         data={recentActivities}
-        defaultItemProps={{ pad: { 'vertical': 'small' } }}
+        defaultItemProps={{ pad: { vertical: 'xsmall' } }}
       >
         {datum => (
           <ActivityItem
@@ -64,7 +76,7 @@ export const RecentActivity: React.FC = () => {
           />
         )}
       </List>
-      <Anchor label="View all activity" href='#' />
+      <Anchor label="View all activity" href="#" />
     </Box>
   );
-} 
+};

@@ -10,7 +10,7 @@ const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
 export const Buttons = () => {
   return (
     <ContentPane>
-      <Box gap="small">
+      <Box gap="xsmall">
         {kinds.map(kind =>
           sizes.map(size =>
             states.map(state => (
@@ -27,7 +27,7 @@ export const Buttons = () => {
           ),
         )}
       </Box>
-      <Box gap="small">
+      <Box gap="xsmall">
         <Compare>
           <Button secondary icon={<User />} size="small" />
         </Compare>

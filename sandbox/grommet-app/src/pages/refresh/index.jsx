@@ -30,15 +30,15 @@ function Sustainability() {
       <Box
         background="background-front"
         border={{ side: 'right', color: 'border-weak' }}
-        pad="small"
-        gap="small"
+        pad="xsmall"
+        gap="xsmall"
       >
-        <Box align="center" pad="small" direction="row" justify="between">
+        <Box align="center" pad="xsmall" direction="row" justify="between">
           <Text size="large">Private Cloud</Text>
           <Button icon={<Sidebar />} />
         </Box>
         <Box border={{ side: 'bottom', color: 'border-weak' }} />
-        <Box gap="small">
+        <Box gap="xsmall">
           <Button kind="nav" align="start" label="Dashboard" />
           <Button kind="nav" align="start" label="Systems" />
           <Button
@@ -50,7 +50,7 @@ function Sustainability() {
             justify="between"
             reverse
           />
-          <Box pad={{ horizontal: 'small', vertical: 'xsmall' }} gap="small">
+          <Box pad={{ horizontal: 'xsmall', vertical: '3xsmall' }} gap="xsmall">
             <Button
               kind="nav"
               align="start"
@@ -68,16 +68,16 @@ function Sustainability() {
           <Button kind="nav" align="start" label="Reports" />
         </Box>
         <Box border={{ side: 'bottom', color: 'border-weak' }} />
-        <Box gap="small">
+        <Box gap="xsmall">
           <Button kind="nav" align="start" label="Tasks" />
           <Button kind="nav" align="start" label="Documentation" />
         </Box>
       </Box>
-      <Page pad={{ bottom: 'large' }}>
+      <Page pad={{ bottom: 'xlarge' }}>
         <PageContent>
           <PageHeader
             title={
-              <Box direction="row" align="center" gap="small">
+              <Box direction="row" align="center" gap="xsmall">
                 <VirtualMachine size="xlarge" />
                 <Heading level={1} margin="none">
                   Virtual Machines
@@ -96,9 +96,9 @@ function Sustainability() {
             }
           />
           <Box gap="medium" animation="fadeIn">
-            <Grid align="start" columns={['medium', 'flex']} gap="large">
+            <Grid align="start" columns={['medium', 'flex']} gap="xlarge">
               <ContentPane>
-                <Box gap="small">
+                <Box gap="xsmall">
                   <Button
                     align="start"
                     justify="start"

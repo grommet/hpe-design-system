@@ -13,7 +13,7 @@ export const ExpandableMenuItem = ({
   onSelect,
 }) => {
   return (
-    <Box key={item} gap="xsmall">
+    <Box key={item} gap="3xsmall">
       <Button
         label={
           <Box direction="row" align="center" justify="between">
@@ -38,7 +38,7 @@ export const ExpandableMenuItem = ({
               key={subItem.key}
               label={
                 <Box direction="row" align="center" justify="between">
-                  <Box direction="row" align="center" gap="small">
+                  <Box direction="row" align="center" gap="xsmall">
                     <Box width={dimension.hpe.icon.medium.size}>
                       {active && <LinkNext />}
                     </Box>

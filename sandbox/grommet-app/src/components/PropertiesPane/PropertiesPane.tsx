@@ -3,12 +3,7 @@ import { NameValueList, NameValuePair } from 'grommet';
 import ContentPane from '../ContentPane';
 import { sentenceCase } from '../../utils/format';
 
-export const PropertiesPane = ({
-  heading,
-  level,
-  properties,
-  ...rest
-}) => {
+export const PropertiesPane = ({ heading, level, properties, ...rest }) => {
   return (
     <ContentPane
       heading={heading}
@@ -17,13 +12,14 @@ export const PropertiesPane = ({
       skeleton={null}
       {...rest}
     >
-      <NameValueList nameProps={{ width: ['xsmall', 'max-content'] }}>
-        {properties && properties.map(({ key, value, render }) =>
-          <NameValuePair
-            key={key}
-            name={render ? render : sentenceCase(key)}
-          >{value}</NameValuePair>
-        )}
+      <NameValueList nameProps={{ width: ['3xsmall', 'max-content'] }}>
+        {properties &&
+          properties.map(({ key, value, render }) => (
+            <NameValuePair key={key} name={render ? render : sentenceCase(key)}>
+              {value}
+            </NameValuePair>
+          ))}
       </NameValueList>
-    </ContentPane>);
-}
+    </ContentPane>
+  );
+};
