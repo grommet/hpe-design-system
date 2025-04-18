@@ -4,11 +4,13 @@ import {
   Button,
   Form,
   FormField,
+  Main,
   Heading,
   Select,
   TextInput,
 } from 'grommet';
 import { ButtonGroup } from 'aries-core';
+import { ContentPane } from '../../../../layouts';
 import { FormChildObjects } from '../../FormChildObject';
 
 const permissionTemplate = {
@@ -106,58 +108,60 @@ export const EditRole = () => {
   };
 
   return (
-    <Box alignSelf="center" gap="medium" width="medium">
+    <ContentPane alignSelf="center" gap="medium" width="medium">
       <Heading level={2} margin="none">
         Edit role
       </Heading>
-      <Form
-        value={formValues}
-        onChange={onChange}
-        onSubmit={onSubmit}
-        validate="blur"
-        messages={{
-          required: 'This is a required field.',
-        }}
-      >
-        <Box gap="medium">
-          <FormField
-            htmlFor="role-name"
-            name="role-name"
-            label="Role name"
-            required
-          >
-            <TextInput id="role-name" name="role-name" />
-          </FormField>
-          <Box gap="small">
-            <Heading level={3} margin="none">
-              Permissions
-            </Heading>
-            <FormChildObjects
-              collection={{
-                name: 'Permissions',
-                itemName: 'permission',
-                parentName: 'role',
-              }}
-              fields={INPUT_MAP}
-              headingLevel={4}
-              onAdd={handleAdd}
-              onRemove={handleRemove}
-              onRemoveAll={handleRemoveAll}
-              primaryKey="name"
-              summarize={[{ name: 'access', showName: false }]}
-              values={formValues.permissions}
-            />
+      <Main>
+        <Form
+          value={formValues}
+          onChange={onChange}
+          onSubmit={onSubmit}
+          validate="blur"
+          messages={{
+            required: 'This is a required field.',
+          }}
+        >
+          <Box gap="medium">
+            <FormField
+              htmlFor="role-name"
+              name="role-name"
+              label="Role name"
+              required
+            >
+              <TextInput id="role-name" name="role-name" />
+            </FormField>
+            <Box gap="small">
+              <Heading level={3} margin="none">
+                Permissions
+              </Heading>
+              <FormChildObjects
+                collection={{
+                  name: 'Permissions',
+                  itemName: 'permission',
+                  parentName: 'role',
+                }}
+                fields={INPUT_MAP}
+                headingLevel={4}
+                onAdd={handleAdd}
+                onRemove={handleRemove}
+                onRemoveAll={handleRemoveAll}
+                primaryKey="name"
+                summarize={[{ name: 'access', showName: false }]}
+                values={formValues.permissions}
+              />
+            </Box>
+            <ButtonGroup pad={{ top: 'medium' }}>
+              <Button label="Save role" primary type="submit" />
+              <Button
+                label="Cancel"
+                a11yTitle="Cancel role changes"
+                onClick={() => {}}
+              />
+            </ButtonGroup>
           </Box>
-          <ButtonGroup pad={{ top: 'medium' }}>
-            <Button label="Save role" primary type="submit" />
-            <Button
-              label="Cancel"
-              a11yTitle="Cancel role changes"
-              onClick={() => {}}
-            />
-          </ButtonGroup>
-        </Box>
-      </Form>
-    </Box>
+        </Form>
+      </Main>
+    </ContentPane>
   );
 };

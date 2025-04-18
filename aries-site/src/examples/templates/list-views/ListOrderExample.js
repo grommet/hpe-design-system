@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-
 import { Box, Button, Heading, List } from 'grommet';
+import { ContentPane } from '../../../layouts';
 
 const movies = [
   { title: 'Ponyo', genre: 'Fantasy/Adventure' },
@@ -19,23 +19,21 @@ export const ListOrderExample = () => {
   const [allowReorder, setAllowReorder] = useState(true);
 
   return (
-    <Box
-      align="center"
-      background="background-front"
-      pad="large"
-      role="application"
-    >
+    <ContentPane role="application">
       <Box gap="small" width="large">
-        <Heading level={2} margin="none">
-          Favorite movies
-        </Heading>
-        <Button
-          label={allowReorder ? 'Done' : 'Reorder items'}
-          primary
-          alignSelf="end"
-          onClick={() => setAllowReorder(!allowReorder)}
-        />
+        <Box direction="row" justify="between">
+          <Heading level={2} margin="none">
+            Favorite movies
+          </Heading>
+          <Button
+            label={allowReorder ? 'Done' : 'Reorder items'}
+            secondary
+            alignSelf="end"
+            onClick={() => setAllowReorder(!allowReorder)}
+          />
+        </Box>
         <List
+          aria-label="Favorite movies"
           defaultItemProps={{
             align: 'start',
           }}
@@ -45,6 +43,6 @@ export const ListOrderExample = () => {
           secondaryKey="genre"
         />
       </Box>
-    </Box>
+    </ContentPane>
   );
 };

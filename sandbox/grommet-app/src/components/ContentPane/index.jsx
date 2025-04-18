@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Header, Heading } from 'grommet';
-import { BackgroundContext } from '../../App';
+import { BackgroundContext } from '../../contexts';
 
 const ContentPane = ({
   actions,
@@ -45,7 +45,7 @@ ContentPane.propTypes = {
   actions: PropTypes.node,
   children: PropTypes.node.isRequired,
   contain: PropTypes.bool,
-  heading: PropTypes.string,
+  heading: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   level: PropTypes.number,
   skeleton: PropTypes.oneOfType([
     PropTypes.bool,
@@ -53,12 +53,6 @@ ContentPane.propTypes = {
       height: PropTypes.string,
     }),
   ]),
-};
-
-ContentPane.defaultProps = {
-  actions: undefined,
-  contain: undefined,
-  skeleton: undefined,
 };
 
 export default ContentPane;

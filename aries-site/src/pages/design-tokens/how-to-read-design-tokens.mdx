@@ -1,11 +1,9 @@
 import { Example } from '../../layouts';
 import { Box, Text } from 'grommet';
-import { BetaNotification, TokenHighlight } from '../../examples';
-
-<BetaNotification />
+import { TokenHighlight } from '../../examples';
 
 <Example height={{ min: 'xsmall' }}>
-  <Text size="xlarge">hpe.button.primary.enabled.background</Text>
+  <Text size="xlarge">hpe.button.primary.rest.background</Text>
 </Example>
 
 A token is read in a left-to-right order, moving from general to specific.
@@ -26,18 +24,18 @@ These are all of the possible parts of a token name, but each [type of design to
   <TokenHighlight highlight="all" />
 </Example>
 
-| Category      | Definition                                                                                                                                                                                                         | Examples                                          | Notes                                                                                                                                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **prefix**    | Provides top-level encapsulation of a particular flavor of HPE theme. The prefix helps to avoid collisions and improve developer experience when scanning styles to identify those belonging to HPE Design Tokens. | hpe                                               | --                                                                                                                                                           |
-| **level**     | Identifies if a token is from the “base” (primitive) level of the tokens hierarchy.                                                                                                                                | base                                              | Primitive tokens point directly to raw values and should not be used directly by developers/designers.                                                       |
-| **type**      | The category of a token.                                                                                                                                                                                           | color, dimension, spacing, radius                 | --                                                                                                                                                           |
-| **component** | A specific component (such as button) or a family of related components (such as input).                                                                                                                           | anchor, button, formField, menu                   | For multi-word names, use camelCase.                                                                                                                         |
-| **size**      | The t-shirt size of the component family or individual component.                                                                                                                                                  | small, medium, large                              | --                                                                                                                                                           |
-| **variant**   | A stylistic variant of a token.                                                                                                                                                                                    | secondary, primary, critical, warning             | --                                                                                                                                                           |
-| **element**   | When a component has distinct pieces of anatomy, this refers to the specific sub-element.                                                                                                                          | item (in a menu), input (in a form field)         | --                                                                                                                                                           |
-| **scale**     | A size/emphasis modifier for primitive and semantic tokens.                                                                                                                                                        | strong, weak, 100, 200                            | --                                                                                                                                                           |
-| **state**     | Interactive or programmatically unique state.                                                                                                                                                                      | enabled, hover, readOnly, selected, indeterminate | --                                                                                                                                                           |
-| **property**  | An item’s style. This is required for component tokens.                                                                                                                                                            | background, borderRadius, lineHeight, fontSize    | It usually matches a CSS property, but it can also store other conceptual definitions such as size, paddingX, etc. For multi-word properties, use camelCase. |
+| Category      | Definition                                                                                                                                                                                                         | Examples                                       | Notes                                                                                                                                                        |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **prefix**    | Provides top-level encapsulation of a particular flavor of HPE theme. The prefix helps to avoid collisions and improve developer experience when scanning styles to identify those belonging to HPE Design Tokens. | hpe                                            | --                                                                                                                                                           |
+| **level**     | Identifies if a token is from the “base” (primitive) level of the tokens hierarchy.                                                                                                                                | base                                           | Primitive tokens point directly to raw values and should not be used directly by developers/designers.                                                       |
+| **type**      | The category of a token.                                                                                                                                                                                           | color, dimension, spacing, radius              | --                                                                                                                                                           |
+| **component** | A specific component (such as button) or a family of related components (such as input).                                                                                                                           | anchor, button, formField, menu                | For multi-word names, use camelCase.                                                                                                                         |
+| **variant**   | A stylistic variant of a token.                                                                                                                                                                                    | secondary, primary, critical, warning          | --                                                                                                                                                           |
+| **size**      | The t-shirt size of the component family or individual component.                                                                                                                                                  | small, medium, large                           | --                                                                                                                                                           |
+| **element**   | When a component has distinct pieces of anatomy, this refers to the specific sub-element.                                                                                                                          | item (in a menu), input (in a form field)      | --                                                                                                                                                           |
+| **scale**     | A size/emphasis modifier for primitive and semantic tokens.                                                                                                                                                        | strong, weak, 100, 200                         | --                                                                                                                                                           |
+| **state**     | Interactive or programmatically unique state.                                                                                                                                                                      | rest, hover, readOnly, selected, indeterminate | --                                                                                                                                                           |
+| **property**  | An item’s style. This is required for component tokens.                                                                                                                                                            | background, borderRadius, lineHeight, fontSize | It usually matches a CSS property, but it can also store other conceptual definitions such as size, paddingX, etc. For multi-word properties, use camelCase. |
 
 ## Types of design tokens
 
@@ -62,18 +60,26 @@ Semantic tokens represent global patterns.
 
 <Example height="auto">
   <TokenHighlight
-    highlight={['prefix', 'type', 'variant', 'element', 'scale', 'state']}
+    highlight={[
+      'prefix',
+      'type',
+      'subtype',
+      'variant',
+      'element',
+      'scale',
+      'state',
+    ]}
   />
 </Example>
 
-| prefix | type      | variant    | state    | scale  | Token                              |
-| ------ | --------- | ---------- | -------- | ------ | ---------------------------------- |
-| hpe    | color     | primary    | --       | strong | hpe.color.primary.strong           |
-| hpe    | spacing   | --         | --       | large  | hpe.spacing.large                  |
-| hpe    | color     | background | selected | weak   | hpe.color.background.selected.weak |
-| hpe    | radius    | --         | --       | large  | hpe.radius.large                   |
-| hpe    | text      | --         | --       | xlarge | hpe.text.xlarge                    |
-| hpe    | fontStack | primary    | --       | --     | hpe.fontStack.primary              |
+| prefix | type      | subtype    | variant | scale  | state | Token                                     |
+| ------ | --------- | ---------- | ------- | ------ | ----- | ----------------------------------------- |
+| hpe    | color     | --         | primary | strong | --    | hpe.color.primary.strong                  |
+| hpe    | spacing   | --         | --      | large  | --    | hpe.spacing.large                         |
+| hpe    | color     | background | primary | strong | hover | hpe.color.background.primary.strong.hover |
+| hpe    | radius    | --         | --      | large  | --    | hpe.radius.large                          |
+| hpe    | text      | --         | --      | xlarge | --    | hpe.text.xlarge                           |
+| hpe    | fontStack | --         | primary | --     | --    | hpe.fontStack.primary                     |
 
 ### Component
 
@@ -93,14 +99,14 @@ Component tokens represent tokens for specific components and should not be used
   />
 </Example>
 
-| prefix | component | size   | element | variant   | state    | property    | Token                                   |
-| ------ | --------- | ------ | ------- | --------- | -------- | ----------- | --------------------------------------- |
-| hpe    | button    | medium | --      | secondary | --       | borderWidth | hpe.button.medium.secondary.borderWidth |
-| hpe    | button    | --     | --      | primary   | disabled | background  | hpe.button.primary.disabled.background  |
-| hpe    | menu      | medium | item    | --        | --       | paddingX    | hpe.menu.medium.item.paddingX           |
-| hpe    | menu      | --     | item    | --        | enabled  | background  | hpe.menu.item.enabled.background        |
-| hpe    | select    | medium | option  | --        | --       | paddingY    | hpe.select.medium.option.paddingY       |
-| hpe    | select    | --     | option  | --        | enabled  | textColor   | hpe.select.option.enabled.textColor     |
+| prefix | component | variant   | size   | element | state    | property    | Token                                     |
+| ------ | --------- | --------- | ------ | ------- | -------- | ----------- | ----------------------------------------- |
+| hpe    | button    | secondary | medium | --      | --       | borderWidth | hpe.button.secondary.medium.borderWidth   |
+| hpe    | button    | primary   | --     | --      | disabled | background  | hpe.button.primary.disabled.background    |
+| hpe    | menu      | default   | medium | item    | --       | paddingX    | hpe.menu.default.medium.item.paddingX     |
+| hpe    | menu      | default   | item   | --      | rest     | background  | hpe.menu.default.item.rest.background     |
+| hpe    | select    | default   | medium | option  | --       | paddingY    | hpe.select.default.medium.option.paddingY |
+| hpe    | select    | default   |        | option  | rest     | textColor   | hpe.select.option.rest.textColor          |
 
 ## Token delimiters
 

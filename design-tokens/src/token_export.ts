@@ -1,8 +1,17 @@
-import fs from 'fs';
 import { rgbToHex } from './color.js';
 import { ApiGetLocalVariablesResponse, Variable } from './figma_api.js';
 import { Token, TokensFile } from './token_types.js';
-import { access } from './utils.js';
+import { access, isReference } from './utils.js';
+
+/**
+ * Supported color interaction states
+ */
+const interactions = ['hover', 'focus', 'active'];
+/**
+ * Supported color prominence modifiers
+ */
+const prominences = ['xweak', 'weak', 'default', 'strong', 'xstrong'];
+const exceptionColors = ['color/focus', 'color/transparent'];
 
 function tokenTypeFromVariable(variable: Variable) {
   if (variable.resolvedType === 'STRING' && variable.name.includes('fontStack'))
@@ -30,7 +39,25 @@ function tokenValueFromVariable(
   if (typeof value === 'object') {
     if ('type' in value && value.type === 'VARIABLE_ALIAS') {
       const aliasedVariable = localVariables[value.id];
-      return `{${aliasedVariable.name.replace(/\//g, '.')}}`;
+      let aliasedName = aliasedVariable.name;
+      if (
+        aliasedVariable.resolvedType === 'COLOR' &&
+        /^color/.test(aliasedName)
+      ) {
+        const temp = aliasedName.replaceAll('-', '/').split('/');
+        if (!exceptionColors.includes(temp.join('/'))) {
+          // last element of name should be interaction
+          if (!interactions.includes(temp[temp.length - 1])) {
+            temp.push('REST');
+          }
+          // second to last element of name should be prominence
+          if (!prominences.includes(temp[temp.length - 2])) {
+            temp.splice(temp.length - 1, 0, 'DEFAULT');
+          }
+        }
+        aliasedName = temp.join('/');
+      }
+      return `{${aliasedName.replace(/\//g, '.')}}`;
     } else if ('r' in value) {
       return rgbToHex(value);
     }
@@ -49,8 +76,6 @@ export function tokenFilesFromLocalVariables(
     localVariablesResponse.meta.variableCollections;
   const localVariables = localVariablesResponse.meta.variables;
   const shadows: { [key: string]: any } = {};
-  shadows.elevation = {};
-  const root = shadows.elevation; // TO DO this hard codes the concept of "elevation" in shadow naming
 
   Object.values(localVariables).forEach(variable => {
     // Skip remote variables because we only want to generate tokens for local variables
@@ -68,7 +93,8 @@ export function tokenFilesFromLocalVariables(
 
       let obj: any = tokenFiles[fileName];
 
-      if (variable.name.includes('outline')) {
+      // specific to "outline" but not something like "outlineOffset"
+      if (/outline\//.test(variable.name)) {
         const parts = variable.name.split('/');
         const keyPath = parts.slice(0, -1);
         const property = parts[parts.length - 1];
@@ -116,17 +142,26 @@ export function tokenFilesFromLocalVariables(
           obj = obj[groupName];
         });
 
+        let value = tokenValueFromVariable(
+          variable,
+          mode.modeId,
+          localVariables,
+        );
+        if (typeof value === 'string' && value.includes('shadow')) {
+          // convert {shadow.small.1.offsetY} --> {shadow.small}
+          value = `{${value.slice(1, -1).split('.').slice(0, -2).join('.')}}`;
+        }
+
         const token = {
           $type: 'shadow',
-          $value: [
-            {
-              [property]: tokenValueFromVariable(
-                variable,
-                mode.modeId,
-                localVariables,
-              ),
-            },
-          ],
+          $value:
+            typeof value === 'string' && isReference(value)
+              ? value
+              : [
+                  {
+                    [property]: value,
+                  },
+                ],
           $description: '',
           $extensions: {
             'com.figma': {
@@ -141,7 +176,8 @@ export function tokenFilesFromLocalVariables(
         const boxShadow = access(keyPath.join('.'), tokenFiles[fileName]);
         if (Object.keys(boxShadow).length === 0) {
           Object.assign(obj, token);
-        } else {
+          // if not a string reference
+        } else if (typeof boxShadow.$value === 'object') {
           const index =
             parseInt(parts[parts.length - 3], 10) >= 0
               ? parseInt(parts[parts.length - 3], 10)
@@ -153,12 +189,15 @@ export function tokenFilesFromLocalVariables(
             localVariables,
           );
         }
-      } else if (variable.name.includes('elevation')) {
+      } else if (/^shadow/.test(variable.name)) {
         const parts = variable.name.split('/');
         const shadow = parts.slice(1, 2).join('');
         const property = parts[parts.length - 1];
-        if (!(shadow in root))
-          root[shadow] = {
+        if (!(mode.modeId in shadows)) {
+          shadows[mode.modeId] = {};
+        }
+        if (!(shadow in shadows[mode.modeId])) {
+          shadows[mode.modeId][shadow] = {
             $type: 'shadow',
             $value: [
               {
@@ -178,53 +217,61 @@ export function tokenFilesFromLocalVariables(
               },
             },
           };
-        else {
-          // elevation/small/2/offsetY --> need index 1
+        } else {
+          // shadow/small/2/offsetY --> need index 1
           const index =
             parseInt(parts[parts.length - 3], 10) >= 0
               ? parseInt(parts[parts.length - 3], 10)
               : 0;
-          const partialShadow = root[shadow].$value[index];
+          const partialShadow = shadows[mode.modeId][shadow].$value[index];
           partialShadow[property] = tokenValueFromVariable(
             variable,
             mode.modeId,
             localVariables,
           );
         }
-        Object.assign(tokenFiles[fileName], { ...shadows });
+        Object.assign(tokenFiles[fileName], {
+          ...{ shadow: shadows[mode.modeId] }, // TO DO this hard codes naming concept of "shadow"
+        });
       } else {
-        variable.name.split('/').forEach(groupName => {
+        const isColor = /^color/.test(variable.name);
+        let adjustedName = variable.name;
+        // When pulling from Figma, we should fill out "DEFAULT" and "REST"
+        // to align to design token spec
+        // e.g. color/background/critical --> color/background/critical/DEFAULT/REST
+        if (isColor) {
+          const temp = variable.name.replaceAll('-', '/').split('/');
+          if (!exceptionColors.includes(temp.join('/'))) {
+            // last element of name should be interaction
+            if (!interactions.includes(temp[temp.length - 1])) {
+              temp.push('REST');
+            }
+            // second to last element of name should be prominence
+            if (!prominences.includes(temp[temp.length - 2])) {
+              temp.splice(temp.length - 1, 0, 'DEFAULT');
+            }
+          }
+          adjustedName = temp.join('/');
+        }
+
+        adjustedName.split('/').forEach(groupName => {
           obj[groupName] = obj[groupName] || {};
           obj = obj[groupName];
         });
 
         let token: Token;
-        // TO DO this is temp way of handling the gradient on the primary button background
-        // which is only stored in code but handled as a solid color in Figma
-        if (variable.name === 'button/primary/enabled/background') {
-          const componentTokens = fs.readFileSync(
-            'tokens/component/component.default.json',
-          );
-          const parsed = JSON.parse(componentTokens.toString());
-          token = parsed.button.primary.enabled.background;
-        } else {
-          token = {
-            $type: tokenTypeFromVariable(variable),
-            $value: tokenValueFromVariable(
-              variable,
-              mode.modeId,
-              localVariables,
-            ),
-            $description: variable.description,
-            $extensions: {
-              'com.figma': {
-                hiddenFromPublishing: variable.hiddenFromPublishing,
-                scopes: variable.scopes,
-                codeSyntax: variable.codeSyntax,
-              },
+        token = {
+          $type: tokenTypeFromVariable(variable),
+          $value: tokenValueFromVariable(variable, mode.modeId, localVariables),
+          $description: variable.description,
+          $extensions: {
+            'com.figma': {
+              hiddenFromPublishing: variable.hiddenFromPublishing,
+              scopes: variable.scopes,
+              codeSyntax: variable.codeSyntax,
             },
-          };
-        }
+          },
+        };
 
         Object.assign(obj, token);
       }

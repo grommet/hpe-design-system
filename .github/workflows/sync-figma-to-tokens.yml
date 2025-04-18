@@ -21,7 +21,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.18.0'
+          node-version: '20.16.x'
 
       - name: Set NPM version
         run: npm install -g npm@9.5.1
@@ -29,9 +29,11 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v3
 
+      - name: Upgrade stable branch dependencies
+        run: yarn upgrade grommet
+
       - name: Install dependencies
         run: yarn install
-        working-directory: design-tokens
 
       - name: Sync variables in Figma file to tokens
         run: yarn sync-figma-to-tokens -- --output tokens
@@ -41,9 +43,16 @@ jobs:
           FILE_KEY_SEMANTIC: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_SEMANTIC }}
           FILE_KEY_COMPONENT: ${{ secrets.GH_ACTION_FIGMA_FILE_KEY_COMPONENT }}
           PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_ACTION_VARIABLES_SYNC_FIGMA_TOKEN }}
+          FIGMA_COLOR_COLLECTION_KEY: ${{ secrets.GH_ACTION_FIGMA_COLOR_COLLECTION_KEY }}
+          FIGMA_DIMENSION_COLLECTION_KEY: ${{ secrets.GH_ACTION_FIGMA_DIMENSION_COLLECTION_KEY }}
+          FIGMA_PRIMITIVES_COLLECTION_KEY: ${{ secrets.GH_ACTION_FIGMA_PRIMITIVES_COLLECTION_KEY }}
+          FIGMA_GLOBAL_COLLECTION_KEY: ${{ secrets.GH_ACTION_FIGMA_GLOBAL_COLLECTION_KEY }}
       - name: Format token files with prettier
         run: yarn prettier tokens --write
         working-directory: design-tokens
+      - name: Build site search for pre-commit linting
+        run: yarn build-search
+        working-directory: aries-site
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:

@@ -1,14 +1,26 @@
 import React from 'react';
-import { PageHeader, Page, PageContent } from 'grommet';
+import {
+  PageHeader,
+  // Main,
+  Page,
+  PageContent,
+} from 'grommet';
 
 import { ListingEmptyState } from './ListingEmptyState';
+import { ContentPane } from '../../../layouts';
 
 export const PageEmptyState = ({ ...rest }) => {
   return (
     <Page>
       <PageContent gap="medium">
         <PageHeader title="Page title" subtitle="Description about the page." />
-        <ListingEmptyState {...rest} />
+        {/* Main is commented out for this example, but should be used in a
+        real application. */}
+        {/* <Main> */}
+        <ContentPane>
+          <ListingEmptyState {...rest} />
+        </ContentPane>
+        {/* </Main> */}
       </PageContent>
     </Page>
   );

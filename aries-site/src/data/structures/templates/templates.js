@@ -7,6 +7,7 @@ import {
   StatusIndicatorPreview,
   ToastPreview,
   SelectorPreview,
+  PopoverPreview,
 } from '../../../examples/cardPreviews';
 
 export const templates = [
@@ -243,6 +244,32 @@ export const templates = [
     ],
     sections: [],
     tags: [],
+  },
+  {
+    name: 'Popover',
+    available: true,
+    cardOrder: 5,
+    description: `A Popover is an overlay presenting contextual information
+     related to a specific UI element.`,
+    preview: {
+      component: () => <PopoverPreview />,
+      background: 'background-front',
+    },
+    seoDescription: `A Popover is an overlay presenting contextual information
+     related to a specific UI element. It is revealed and closed by click
+     events.`,
+    relatedContent: ['Tip'],
+    sections: ['Use cases', 'Anatomy', 'Content guidelines', 'Accessibility'],
+    tags: [
+      'popup',
+      'pop up',
+      'popover',
+      'tip',
+      'tooltip',
+      'modal',
+      'popover menu',
+      'inline popover',
+    ],
   },
   {
     name: 'User feedback collection',
@@ -587,7 +614,7 @@ export const templates = [
   {
     name: 'Navigation',
     available: true,
-    cardOrder: 5,
+    cardOrder: 7,
     description: 'The entry point for the expansive topic of Navigation.',
     preview: {
       image: {

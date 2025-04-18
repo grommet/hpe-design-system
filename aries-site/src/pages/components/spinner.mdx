@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   AnnounceSpinnerExample,
   SpinnerExample,
@@ -10,7 +10,7 @@ import {
   componentName="Spinner"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/spinner/SpinnerExample.js"
   docs="https://v2.grommet.io/spinner?theme=hpe"
-  figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?type=design&node-id=25680-28&mode=design"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2126-566&t=odY81eDKItjB8SI2-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Spinner/Spinner.js"
 >
   <SpinnerExample />
@@ -31,11 +31,6 @@ Avoid showing multiple Loading Spinners on a single page.
 - When fetching data or content, where the expected response time is greater than ~300ms.
 - When loading more information into a Table or List.
 
-### Accessibility
-
-For additional clarity for screen reader users, provide a [message](https://v2.grommet.io/spinner#message) to the spinner that would explain to the user that the content is being loaded.
-
-[Message](https://v2.grommet.io/spinner#message) can be provided as a string or as an object in the format of `{ start: ... , end: ... }`, where the "start" message is announced when the Spinner appears and the "end" message is announced when the Spinner closes.
 
 ## Variants
 
@@ -74,3 +69,12 @@ A Spinner allows users to know when something is being loaded without explicitly
 >
   <ContentSpinnerExample />
 </Example>
+
+## Accessibility
+
+For additional clarity for screen reader users, provide a [message](https://v2.grommet.io/spinner#message) to the spinner that would explain to the user that the content is being loaded.
+
+[Message](https://v2.grommet.io/spinner#message) can be provided as a string or as an object in the format of `{ start: ... , end: ... }`, where the "start" message is announced when the Spinner appears and the "end" message is announced when the Spinner closes.
+
+### WCAG compliance
+  <AccessibilitySection title='spinner' />

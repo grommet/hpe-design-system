@@ -3,7 +3,12 @@ import { Box, ResponsiveContext } from 'grommet';
 import { ColorRow, UsageExample } from '../../../layouts';
 
 import { colorExamples } from '../../../data';
-import { ElevationExample, TextExample } from '../..';
+import {
+  ElevationExample,
+  TextExample,
+  StatusExample,
+  GraphExample,
+} from '../..';
 
 const { coreColors, darkColors, lightColors, primaryColors } =
   colorExamples.palettes;
@@ -12,7 +17,11 @@ const { contrastDark, contrastLight, darkBackgrounds, lightBackgrounds } =
 const { borderDark, borderLight } = colorExamples.borders;
 const { inputDark, inputLight } = colorExamples.input;
 const { elevationColorsDark, elevationColorsLight } = colorExamples.elevation;
-const { focusColor, layerColor, graphColor } = colorExamples;
+const {
+  focusColor,
+  layerColor,
+  graph: { graphColorsDark, graphColorsLight },
+} = colorExamples;
 const { statusColorsDark, statusColorsLight, textColors } = colorExamples.text;
 
 const generateColorExamples = (colors, textColor, textSize) => (
@@ -144,14 +153,18 @@ export const TextDark = () => (
 );
 
 export const StatusLight = () => (
-  <UsageExample themeMode="light" label="Light Background" pad="none">
-    {statusColorsLight && generateColorExamples(statusColorsLight)}
+  <UsageExample themeMode="light" label="Light Background" justify="between">
+    {statusColorsLight.map(color => (
+      <StatusExample key={color.name} color={color.name} hex={color.value} />
+    ))}
   </UsageExample>
 );
 
 export const StatusDark = () => (
-  <UsageExample themeMode="dark" label="Dark Background" pad="none">
-    {statusColorsDark && generateColorExamples(statusColorsDark)}
+  <UsageExample themeMode="dark" label="Dark Background" justify="between">
+    {statusColorsDark.map(color => (
+      <StatusExample key={color.name} color={color.name} hex={color.value} />
+    ))}
   </UsageExample>
 );
 
@@ -215,5 +228,18 @@ export const ElevationDark = () => {
 
 export const Overlay = () => layerColor && generateColorExamples(layerColor);
 
-export const GraphColors = () =>
-  graphColor && generateColorExamples(graphColor);
+export const GraphColorsLight = () => (
+  <UsageExample themeMode="light" label="Light Background" justify="between">
+    {graphColorsLight?.map(color => (
+      <GraphExample key={color.name} color={color} />
+    ))}
+  </UsageExample>
+);
+
+export const GraphColorsDark = () => (
+  <UsageExample themeMode="dark" label="Dark Background" justify="between">
+    {graphColorsDark?.map(color => (
+      <GraphExample key={color.name} color={color} />
+    ))}
+  </UsageExample>
+);

@@ -12,6 +12,7 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { Apple, CreditCard } from 'grommet-icons';
+import { ContentPane } from '../../../layouts';
 
 const currentDate = new Date();
 const dateValidation = [
@@ -96,7 +97,7 @@ export const PayExample = () => {
     // Your submission logic here
   };
   return (
-    <Box gap="medium" width="medium">
+    <ContentPane gap="medium" width="medium">
       <Header
         direction="column"
         align="start"
@@ -131,7 +132,7 @@ export const PayExample = () => {
               label="Pay"
               type="button"
               primary
-              color="border"
+              color="background-neutral-xstrong"
               icon={<Apple />}
               gap="xxsmall"
               size="large"
@@ -200,6 +201,6 @@ export const PayExample = () => {
           </Box>
         </Form>
       </Box>
-    </Box>
+    </ContentPane>
   );
 };

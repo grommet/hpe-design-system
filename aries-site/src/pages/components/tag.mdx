@@ -1,144 +1,130 @@
-import { Example } from '../../layouts';
 import {
-  CreateTag,
-  CreateTagSimple,
   TagAnatomy,
-  TagBasicAnatomy,
+  TagAttention,
+  TagMetaData,
+  TagSimple,
+  CreateTagSimple,
   TagResource,
 } from '../../examples';
+import { AccessibilitySection, Example } from '../../layouts';
+import { Tag } from 'grommet';
 
-## Guidance
+<Example
+  componentName="Tag"
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
+  docs="https://v2.grommet.io/tag?theme=hpe"
+  figma=""
+  grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Tag/Tag.js"
+>
+  <TagSimple />
+</Example>
 
-Tags are simple attributes containing metadata. Tags:
+## Use cases
 
-- Are simple, brief and concise metadata describing a resource or content.
-- Organize and group resources by common characteristics or attributes.
-- May be included as an attribute in search, filter, or details of a resource.
-- Assist batch actions and selection of multiple resources.
+### Displaying metadata
+
+[Static tags](/components/tag#static) can be used to display non-critical, concise information with the purpose to annotate or label items. Tags can contain value only, or a name value pair to assist with classification.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js">
+  <TagMetaData />
+</Example>
+
+### Managing metadata
+
+Tags can be created, assigned and [removed](/components/tag#removable) from resources or items by a user.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js">
+  <CreateTagSimple />
+</Example>
+
+### Filtering
+
+[Interactive tags](/components/tag#interactive) can be activated by mouse or keyboard input to enable quick filtering.
+Interacting with the tag will display items that share the same assigned value.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js">
+  <TagResource />
+</Example>
+
+### Drawing attention
+
+[Highlight tags](/components/tag#highlight) can be used to draw attention to an element on the page. They are a decorative variant of the [static tag](/components/tag#static). Highlights should only contain descriptions that are temporary, such as “New”,
+“Updated”. As such they should not be used a permanent design feature.
+
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js">
+  <TagAttention />
+</Example>
 
 ## Anatomy
 
-The most basic tags consist of two primary elements:
-
-<Example caption="Diagram illustrating the primary elements of a tag." plain>
-  <TagBasicAnatomy />
-</Example>
-
-1. Border
-1. Value
-
-Tags can have additional elements depending on the tags’ intended use and context:
-
 <Example
-  caption="Diagram illustrating the primary and additional elements of a tag."
-  plain
+  caption="Diagram illustrating the four parts composing tag."
+  pad="small"
+  previewWidth="large"
+  height={{ min: 'small' }}
 >
   <TagAnatomy />
 </Example>
 
-1. Border
-1. Value
-1. Name
-1. Remove button
+| Label | Region                | Purpose                                                                                                                             | Required | Notes                                                 |
+| :---: | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | :------: | ----------------------------------------------------- |
+| **1** | **Container**         | Controls padding, border & background color.                                                                                        | Required | Behavior and style will change depending on tag type. |
+| **2** | **Name**              | Descriptive label or category that identifies what kind of data is stored in the associated value.For example “Country” or “Color”. | Optional | Up to 128 characters max.                             |
+| **3** | **Value**             | The specific descriptive data associated with an item. For example “USA” or “Green”.                                                | Required | Up to 256 characters max.                             |
+| **4** | **Close Icon Button** | Used to indicate that tag is removable.                                                                                             | Optional | Required for only removable tags.                     |
 
-Character requirements:
+## Types
 
-- Name: up to 128 characters
-- Value: up to 256 characters
+### Static
 
-### Remove button
+- Contains simple, concise information used to annotate, categorize, group or otherwise label items.
+- Used to display secondary or supplementary information related to an object or item.
+- Can be used to communicate the state or condition of something (e.g. published, deployed, new, updated, etc.). State is defined in [notification taxonomy](/components/notification#taxonomy).
+- A tag should not be used to convey system status, that is considered primary information.
+- Static tags are not interactive in any way.
 
-Applying the remove button (see element #4 in the [anatomy figure](#anatomy)) is dependent upon the use case and not a requirement.
-
-The remove tag button may be used when:
-
-1. Removing a tag in an editor.
-1. Removing a tag as filtering criteria.
-1. Clearing or removing a tag from a resource
-
-The remove tag button should not be used when:
-
-1. Displaying tags for a resource in a detail view. Use a [NameValueList](/components/namevaluelist) instead.
-1. Displaying tags where removal of the tag is not within an edit experience for the resource.
-
-To implement a Tag with a remove button, provide a function to the `onRemove` Tag property.
-
-### Background color
-
-Tags do not receive a background color. Instead, tags inherit the background of their container.
-
-## Name-value pair tags
-
-Name-value pairing with tags allow further organization and identification of resources. While this feature is not a requirement, name-value pairs can help users more clearly group resources.
-
-- In some hybrid use cases, it can be valid to have a mixture of tags with name-value and others with just value.
-
-### Creating name-value pair tags
-
-The experience for creating a Name-Value pair tag occurs in 2 steps: Create the name and then create the value. Alternatively, select an existing name and create a new value.
-
-## Assigning tags
-
-Currently, assigning tags occurs within an editor experience in a [modal](/components/layer#side-drawer-modal) or [wizard](/templates/wizard). This helps to focus the task for the user. Tags are first selected and/or created, then assigned to the resource.
-
-### Assigning value-only tags
-
-<Example
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTagSimple.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/AppContainer.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagPageHeader.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagResults.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/utils.js',
-  ]}
-  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/tag/CreateTagSimple.js"
-  docs="https://v2.grommet.io/tag?theme=hpe#props"
-  showResponsiveControls={['laptop', 'mobile']}
-  template
->
-  <CreateTagSimple />
+<Example horizontalLayout height="auto">
+  <Tag alignSelf="start" value="Static" />
 </Example>
 
-### Assigning name-value tags
+### Interactive
 
-<Example
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/CreateTag.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/AppContainer.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagPageHeader.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/TagResults.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/CreateTag/utils.js',
-  ]}
-  github="https://github.com/grommet/hpe-design-system/tree/master/aries-site/src/examples/components/tag/CreateTag"
-  docs="https://v2.grommet.io/tag?theme=hpe#props"
-  showResponsiveControls={['laptop', 'mobile']}
-  template
->
-  <CreateTag />
+- Interactive tags enable users to discover, filter, or navigate to identically tagged items.
+- An interactive tag can be actioned by mouse or keyboard.
+
+<Example horizontalLayout height="auto">
+  <Tag alignSelf="start" onClick={() => {}} value="Interactive" />
 </Example>
 
+### Removable
 
-## Filtering with tags
+- A removable tag is interactive via the "Close" icon button.
+- Can be used to dismiss a category/value set from a filtered view.
+- Can be used to remove a value that has been assigned to an item or resource.
 
-Filtering with tags allows the user to search, select, and remove tags from a set of filter criteria in order to find relevant data.
-
-### Filtering with tags on a detail page
-
-One example in which a tag can be used to facilitate quick associations amongst resources is to use the tag as a clickable filter from the detail of resource.
-
-<Example
-  code={[
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/TagResource.js',
-    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/tag/data.js',
-  ]}
-  docs="https://v2.grommet.io/tag?theme=hpe#props"
-  height="large"
-  template
-  showResponsiveControls={['fullScreen']}
->
-  <TagResource />
+<Example horizontalLayout height="auto">
+  <Tag alignSelf="start" value="Removable" onRemove={() => {}} />
 </Example>
 
-### Filtering with tags on a summary page
+### Highlight
 
-Example coming soon.
+- Used to indicate a temporary or transient state associated with an item - eg new, updated, promotional.
+- Draws attention but is no louder than a secondary/primary button.
+- A highlight tag is not interactive in any way.
+- A tags size should be limited to x-small or small.
+- Use “primary/blue” border for highlight tags. This treatment should be used sparingly.
+
+<Example horizontalLayout height="auto">
+  <Tag alignSelf="start" border={{ color: 'blue' }} value="Highlight" />
+</Example>
+
+## Accessibility
+
+| Key             | Interaction                                                                                                                                                                                                           |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tab**         | Used to navigate between interactive tags. Focuses on tag if it is selectable. When there is a close icon present, icon receives focus. For read-only, screen reader will read alongside content from where it lives. |
+| **Space/Enter** | For interactive tags, selects the tag. For removable tags, remove the tag.                                                                                                                                            |
+
+### WCAG compliance
+
+<AccessibilitySection title="tag" />

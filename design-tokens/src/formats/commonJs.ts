@@ -1,18 +1,19 @@
-import StyleDictionary from 'style-dictionary';
-import { FormatterArguments } from 'style-dictionary/types/Format.js';
+import { fileHeader, minifyDictionary } from 'style-dictionary/utils';
+import { FormatFn, FormatFnArguments } from 'style-dictionary/types';
 import { jsonToNestedValue } from './utils/jsonToNestedValue.js';
-const { fileHeader } = StyleDictionary.formatHelpers;
 
-export const commonJs = ({
+export const commonJs: FormatFn = async ({
   dictionary,
   file,
   platform = {},
-}: FormatterArguments) => {
+}: FormatFnArguments) => {
   const { prefix } = platform;
   const tokens = prefix ? { [prefix]: dictionary.tokens } : dictionary.tokens;
-  //
-  const output = `${fileHeader({ file })}module.exports = ${JSON.stringify(
-    jsonToNestedValue(tokens),
+
+  const output = `${await fileHeader({
+    file,
+  })}module.exports = ${JSON.stringify(
+    jsonToNestedValue(minifyDictionary(tokens, true)), // build in minify
     null,
     2,
   )}\n`;

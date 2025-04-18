@@ -5,7 +5,7 @@ import { Box, Text } from 'grommet';
 export const DataTableAnatomy = () => (
   <Box width="medium" margin={{ bottom: 'medium' }}>
     <AnatomySection
-      background="green!"
+      background="background-primary-xstrong"
       gap="xsmall"
       margin={{ bottom: 'small' }}
       pad={{ horizontal: 'small', top: 'xxsmall', bottom: 'xsmall' }}

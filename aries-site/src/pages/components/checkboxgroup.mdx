@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   CheckBoxGroupDisabledExample,
   CheckBoxGroupDescriptionExample,
@@ -12,7 +12,7 @@ import {
   componentName="CheckBoxGroup"
   docs="https://v2.grommet.io/checkboxgroup?theme=hpe#props"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/checkboxgroup/CheckBoxGroupSimpleExample.js"
-  figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?m=auto&node-id=5732-78041&t=G4lKMvv4NQil99de-1"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=3026-1769&t=ZqPsisuevR3KPp96-1"
   designer="https://designer.grommet.io/checkboxgroup?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/CheckBoxGroup/CheckBoxGroup.js"
 >
@@ -47,9 +47,6 @@ CheckBoxGroup should be used to present a group of options to the user. The user
 - When only one item can be selected from a list, use the [Select](/components/select) component instead.
 - When multiple selections can be made in a list that contains 5 or more items, use [SelectMultiple](/components/SelectMultiple).
 
-### Accessibility
-
-When using multiple checkboxes in a single FormField, use a CheckBoxGroup. If you're using a single checkbox, use [CheckBox](/components/checkbox).
 
 ## Variants
 
@@ -114,3 +111,9 @@ When many options are available and vertical space is limited, a scrollable chec
 >
   <CheckBoxGroupScrollExample />
 </Example>
+
+## Accessibility
+When using multiple checkboxes in a single FormField, use a CheckBoxGroup. If you're using a single checkbox, use [CheckBox](/components/checkbox).
+
+### WCAG compliance
+  <AccessibilitySection title='checkboxgroup' />

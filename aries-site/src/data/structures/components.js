@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { FileInput, Spinner } from 'grommet';
 import {
   AnchorPreview,
   AvatarPreview,
@@ -30,6 +31,7 @@ import { TagPreview } from '../../examples/cardPreviews/tag';
 export const components = [
   {
     name: 'Anchor',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Controls',
     description:
       'Hyperlinks used with text-based navigation, such as inline text.',
@@ -66,6 +68,7 @@ export const components = [
   },
   {
     name: 'Avatar',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description:
       'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
@@ -89,6 +92,7 @@ export const components = [
   },
   {
     name: 'Button',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Buttons are graphic elements that indicate to users that actions can be performed.',
@@ -151,6 +155,7 @@ export const components = [
       'A container providing at-a-glance information and easy access to more details.',
     seoDescription:
       'Cards are a container providing at-a-glance information and easy access to more details. See when to use cards and alternatives.',
+    accessibility: 'Passed WCAG 2.2 AA',
     preview: {
       image: {
         src: {
@@ -281,6 +286,7 @@ export const components = [
   },
   {
     name: 'Tabs',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Tabs are graphical elements usually arranged like column headings. They allow a user to access various sets of content without leaving their current page.',
@@ -317,6 +323,7 @@ export const components = [
   },
   {
     name: 'DateInput',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Inputs',
     description:
       'A widget which allows the user to select a date or range of dates from a calendar.',
@@ -358,6 +365,7 @@ export const components = [
   },
   {
     name: 'FileInput',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Inputs',
     description:
       'An input field where a user can select and upload one or more files.',
@@ -366,14 +374,7 @@ export const components = [
     relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
     sections: ['FileInput with multiple files', 'FileInput within a Form'],
     preview: {
-      image: {
-        src: {
-          light: '/componentImages/components-preview-fileinput.svg',
-          dark: '/componentImages/components-preview-fileinput-invert.svg',
-        },
-        alt: 'HPE Design System FileInput',
-        fit: 'contain',
-      },
+      component: () => <FileInput inert aria-hidden="true" tabIndex={-1} />,
     },
     tags: [
       'input fields',
@@ -409,6 +410,7 @@ export const components = [
       'TextArea is a field used in forms to capture longer text. This component provides the user with space to type more characters than the TextInput field.',
     seoDescription:
       'When you need to allow the user to provide longer forms of content, use a TextArea component.',
+      accessibility: 'Passed WCAG 2.2 AA',
     sections: [],
     preview: {
       component: () => <TextAreaPreview />,
@@ -444,6 +446,7 @@ export const components = [
     description: 'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
+    accessibility: 'Failed WCAG 2.2 AA',
     sections: [
       'About TextInput',
       'Password',
@@ -543,6 +546,7 @@ export const components = [
       'Search is a field that allows a user to input keywords for content they are looking for.',
     seoDescription:
       'See HPE Design System Search input design and code examples.',
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'Placeholder',
       'Auto-suggestions',
@@ -677,6 +681,7 @@ export const components = [
   },
   {
     name: 'CheckBox',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'CheckBox is a square design element that when clicked accepts the choice offered.',
@@ -715,6 +720,7 @@ export const components = [
   },
   {
     name: 'CheckBoxGroup',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'CheckBoxGroup is a component that presents related checkbox options.',
@@ -759,6 +765,7 @@ export const components = [
     relatedContent: ['Layer', 'Lists', 'Tabs'],
     seoDescription:
       'The accordion is a list with expanded and collapsed states. When clicked opened, it reveals more detail. See different behaviors, states, and icons.',
+    accessibility: 'Passed WCAG 2.2 AAA',
     sections: ['About Accordion'],
     tags: [
       'accordian',
@@ -849,6 +856,7 @@ export const components = [
   },
   {
     name: 'Menu',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Menu is a component that contains a list of actions. When a user clicks an item in the menu, the menu closes and the action is executed.',
@@ -892,6 +900,7 @@ export const components = [
   },
   {
     name: 'Box',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'Boxes are containers that drive the layout of your content. Flexible props allow the behavior of content to be defined to optimize the user experience.',
@@ -1139,6 +1148,7 @@ export const components = [
   },
   {
     name: 'Main',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'The Main component is where you define the location and layout of the primary context of your content.',
@@ -1163,6 +1173,7 @@ export const components = [
       'MaskedInput allows you to specify formatted text within a form field.',
     seoDescription:
       'MaskedInput allows you to specify formatted text within a form field.',
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'IP Address',
       'IP Range',
@@ -1206,6 +1217,7 @@ export const components = [
   },
   {
     name: 'NameValueList',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description: 'A NameValueList displays a group of NameValuePairs.',
     seoDescription: 'A NameValueList displays a group of NameValuePairs.',
@@ -1336,6 +1348,7 @@ export const components = [
       'RadioButtonGroup is a component that offers related options to a user, but only allows them to choose one.',
     seoDescription:
       'The RadioButtonGroup component is used when you want the user to choose only one out of a set of related options. See best UX practices, error messages, and how HPE styles the disabled state.',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: ['When to use RadioButtonGroup'],
     preview: {
       component: () => <RadioButtonGroupPreview />,
@@ -1395,18 +1408,21 @@ export const components = [
   },
   {
     name: 'Spinner',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Visualizations',
     description:
       'Spinner is a small motion graphic element that indicates a loading state for quick, asynchronous tasks.',
 
     preview: {
-      image: {
-        src: {
-          light: '/components-preview-spinner.svg',
-          dark: '/components-preview-spinner-invert.svg',
-        },
-        alt: 'HPE Spinner preview',
-      },
+      component: () => (
+        // eslint-disable-next-line grommet/spinner-message
+        <Spinner
+          animation={false}
+          aria-hidden="true"
+          size="large"
+          style={{ transform: 'rotate(75deg)' }}
+        />
+      ),
     },
     seoDescription:
       'Spinner is an animated graphic element loading state for quick asynchronous tasks.',
@@ -1542,6 +1558,7 @@ export const components = [
   },
   {
     name: 'Pagination',
+    accessibility: 'Failed WCAG 2.2 AA',
     available: true,
     category: 'Controls',
     description: `Pagination enables the user to  navigate between pages
@@ -1587,6 +1604,7 @@ export const components = [
   },
   {
     name: 'Tag',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Visualizations',
     description: `Tags are metadata attributes facilitating the identification, 
@@ -1638,6 +1656,7 @@ export const components = [
   },
   {
     name: 'Page',
+    accessibility: 'Passed WCAG 2.2 AAA',
     available: true,
     category: 'Layouts',
     description: `Page is a helpful container providing consistent layouts
@@ -1674,6 +1693,7 @@ export const components = [
   },
   {
     name: 'PageHeader',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Layouts',
     description:
@@ -1755,6 +1775,7 @@ export const components = [
     category: 'Controls',
     description:
       'A group of related buttons that enable the user to toggle one or more options on or off.',
+    accessibility: 'Failed WCAG 2.2 AA',
     preview: {
       component: () => <ToggleGroupPreview />,
     },

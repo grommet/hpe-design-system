@@ -4,6 +4,7 @@ import { DashboardCard } from '../components';
 import { AppsRounded, UserAdd } from 'grommet-icons';
 import { useContext } from 'react';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
+
 export const GetStarted = ({ kind, heading }) => {
   const size = useContext(ResponsiveContext);
   const skeleton = useLoading(150);
@@ -11,14 +12,14 @@ export const GetStarted = ({ kind, heading }) => {
   if (kind === 'next')
     kindStyles = {
       container: {
-        background: { color: 'background-brand-weak' },
+        background: { color: 'background-primary-weak' },
         pad: 'xsmall',
         border: true,
         round: 'xsmall',
       },
       icon: {
         size: 'xlarge',
-        color: 'foreground-brand-default',
+        color: 'icon-primary',
       },
     };
   return (
@@ -44,7 +45,7 @@ export const GetStarted = ({ kind, heading }) => {
               <Box {...kindStyles.container}>
                 <AppsRounded
                   size="xxlarge"
-                  color="primary"
+                  color="brand"
                   {...kindStyles.icon}
                 />
               </Box>

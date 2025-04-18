@@ -1,0 +1,48 @@
+import { Notification } from 'grommet';
+import { BestPracticeGroup, Example } from '../../layouts';
+import { ElementToken } from '../../examples';
+
+In the HPE Design System, an "element" refers to a core UI building block.
+
+Elements can contain foundational items like text or icons, but "can't be broken down any further without ceasing to be functional." (source: [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/#atoms))
+
+To understand what element tokens apply to, consider various UI components as levels from most fundamental to most composed:
+
+| Level                       | Example components                                  |
+| --------------------------- | --------------------------------------------------- |
+| **1. Typography, controls** | text, anchor, checkbox, radio button, toggle switch |
+| **2. Elements**             | button, input, select, menu, table cells            |
+| **3. Layout/compositional** | card, modal, toolbars                               |
+
+Many common "elements" (corresponding directly to native HTML tags or roles like button, input, select, etc.) have [component-specific design tokens](/design-tokens/how-to-read-design-tokens#component) published. These design tokens reference element tokens.
+
+## When to use
+
+Use element tokens when there is not a component-specific token available for an element. For example, a team may be designing a new component that is not offered by the design system. They can use element tokens to ensure that the new component aligns and adapts with the rest of the sizing system.
+
+Do not use element tokens for compositional components like cards, lists, or toolbars. Instead, use [semantic layout tokens](/design-tokens/layout-and-spacing).
+
+## Element sizes
+
+Element sizes are used to ensure consistent sizing and alignment across layouts. Sizes "xsmall"-"xlarge" are available.
+
+## Supported design tokens
+
+The following design tokens exist for each element size. Replace `[size]` with the desired size (e.g., `xsmall`, `small`, `medium`, `large`, `xlarge`).
+
+| Property                            | Notes                                                                                                                                      | Example                                   |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
+| **element.[size].minHeight**        | Ensures elements achieve the desired minimum height even if internal content varies.                                                       | <ElementToken token="ElementToken" />     |
+| **element.[size].width**            | Use for fixed size components like avatar, spinner, etc.                                                                                   | <ElementToken token="width" />            |
+| **element.[size].height**           | Use for fixed size components like avatar, spinner, etc.                                                                                   | <ElementToken token="height" />           |
+| **element.[size].paddingX.narrow**  | Use for components that should have equal horizontal and vertical padding. Often this applies to square components like icon-only buttons. | <ElementToken token="paddingX.narrow" />  |
+| **element.[size].paddingX.default** | Use for standard horizontal padding.                                                                                                       | <ElementToken token="paddingX.default" /> |
+| **element.[size].paddingX.wide**    | Use for components that are fully rounded or need more horizontal affordance.                                                              | <ElementToken token="paddingX.wide" />    |
+| **element.[size].paddingY**         | --                                                                                                                                         | <ElementToken token="paddingY" />         |
+| **element.[size].textToIconX**      | Use for spacing between text and icon.                                                                                                     | <ElementToken token="textToIconX" />      |
+| **element.[size].textToElementX**   | Use for spacing between text and an internal control like a checkbox.                                                                      | <ElementToken token="textToElementX" />   |
+| **element.[size].borderWidth**      | --                                                                                                                                         | <ElementToken token="borderWidth" />      |
+| **element.[size].lineHeight**       | --                                                                                                                                         | <ElementToken token="lineHeight" />       |
+| **element.[size].fontSize**         | --                                                                                                                                         | <ElementToken token="fontSize" />         |
+| **element.[size].fontWeight**       | --                                                                                                                                         | <ElementToken token="fontWeight" />       |
+| **element.[size].icon.size**        | Applies to width and height of icon.                                                                                                       | <ElementToken token="icon.size" />        |

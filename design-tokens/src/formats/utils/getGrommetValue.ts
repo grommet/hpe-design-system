@@ -1,7 +1,11 @@
-import { isReference } from '../../utils.js';
+import { usesReferences, getReferences } from 'style-dictionary/utils';
+import { excludedNameParts, isReference } from '../../utils.js';
 
 const tokenToGrommetRef = (value: string): string => {
-  const temp: string[] = value.slice(1, -1).split('.');
+  const temp: string[] = value
+    .slice(1, -1)
+    .split('.')
+    .filter(part => !excludedNameParts.includes(part));
   temp.shift();
   return temp.join('-');
 };
@@ -11,7 +15,7 @@ const tokenToGrommetRef = (value: string): string => {
  */
 export const getGrommetValue = (token: any, dictionary: any) => {
   let result;
-  const originalValue = token.original.value;
+  const originalValue = token.original.$value;
   if (token.$type === 'border') {
     let color = originalValue.color;
     if (
@@ -23,13 +27,16 @@ export const getGrommetValue = (token: any, dictionary: any) => {
 
     result = {
       color: color,
-      width: token.value.width,
-      style: token.value.style,
+      width: token.$value.width,
+      style: token.$value.style,
     };
+  } else if (token.$type === 'shadow' && isReference(originalValue)) {
+    // '{shadow.small}' --> 'small'
+    result = tokenToGrommetRef(originalValue);
   } else if (
     token.$type !== 'shadow' &&
     token.$type !== 'gradient' && // shadow and gradient are already transformed
-    dictionary.usesReference(originalValue) &&
+    usesReferences(originalValue, dictionary.tokens) &&
     !originalValue.split('.')[0].includes('base') &&
     !originalValue.split('.')[0].includes('fontWeight')
   ) {
@@ -47,7 +54,9 @@ export const getGrommetValue = (token: any, dictionary: any) => {
       result = tokenToGrommetRef(originalValue);
       if (result === 'full') result = '2em';
     } else {
-      const refs = dictionary.getReferences(originalValue);
+      const refs = getReferences(originalValue, dictionary.unfilteredTokens, {
+        usesDtcg: true,
+      });
       let grommetValue;
       refs.forEach((ref: any) => {
         grommetValue = getGrommetValue(ref, dictionary);
@@ -56,7 +65,7 @@ export const getGrommetValue = (token: any, dictionary: any) => {
       else result = grommetValue;
     }
     // references to "base" tokens or non-references should resolve to raw values
-  } else result = token.value;
+  } else result = token.$value;
 
   return result;
 };

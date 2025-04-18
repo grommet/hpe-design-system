@@ -1,4 +1,8 @@
-import { BestPracticeGroup, Example } from '../../layouts';
+import {
+  AccessibilitySection,
+  BestPracticeGroup,
+  Example,
+} from '../../layouts';
 import {
   ButtonBadCancelPreview,
   ButtonBadGroupPreview,
@@ -27,7 +31,7 @@ import {
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/DefaultButtonExample.js"
   designer="https://designer.grommet.io/button?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
   docs="https://v2.grommet.io/button?theme=hpe#props"
-  figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?type=design&node-id=4489%3A78687&t=DP7y1R7cWPyxjA2g-1"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2133-616&t=ZqPsisuevR3KPp96-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Button/Button.js"
 >
   <ButtonExample />
@@ -136,12 +140,6 @@ For buttons with icons ONLY, it is important that you show the two following ele
 1. Show the current state of the button through the use of an icon.
 
 2. Inform the user of what will happen when the button is clicked by including `a11yTitle` or `aria-label`.
-
-### Accessibility
-
-If pressing a Button results in a new URL, or the resultant UI makes sense as "a new browser tab," that is a link `<a>`. Everything else is a `<button>`.
-
-The distinction is important to screen reader users to know what's going to happen next. Will I navigate somewhere or will something happen on the page? So it's important to choose the right HTML element for the job.
 
 ## Primary buttons
 
@@ -381,3 +379,17 @@ For button groups on screen widths less than or equal to 576px (Grommet "small")
     <ButtonBadGroupPreview />
   </Example>
 </BestPracticeGroup>
+
+## Accessibility
+### A11y guidance
+The following guidance should be considered for each instance of the component and is the responsibility of the implementer. WCAG criteria provided directly by the Grommet component are summarized under [WCAG compliance](#wcag-compliance).
+
+If pressing a Button results in a new URL, or the resultant UI makes sense as "a new browser tab," that is a link `<a>`. Everything else is a `<button>`.
+
+The distinction is important to screen reader users to know what's going to happen next. Will I navigate somewhere or will something happen on the page? So it's important to choose the right HTML element for the job.
+
+If using an `<a>` tag, see the [WCAG rules for the Anchor component](/components/anchor#wcag-compliance).
+
+### WCAG compliance
+
+<AccessibilitySection title="button" />

@@ -220,7 +220,6 @@ export const Layout = ({
               margin={{ vertical: 'medium', horizontal: 'medium' }}
               elevation="large"
               onClick={onOpen}
-              color="purple!"
               label="Feedback"
               primary
               a11yTitle="This button launches a modal to give feedback."

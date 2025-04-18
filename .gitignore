@@ -3,6 +3,7 @@
 
 # testing
 /coverage
+*/src/tests/build
 
 #lock files
 *package-lock.json
@@ -31,3 +32,5 @@ report*
 .DS_Store
 .native-web
 .tailwind-app
+
+*storybook.log

@@ -11,7 +11,7 @@ import {
   VariableCodeSyntax,
 } from './figma_api.js';
 import { colorApproximatelyEqual, parseColor } from './color.js';
-import { areSetsEqual } from './utils.js';
+import { areSetsEqual, excludedNameParts, isReference } from './utils.js';
 import { Token, TokenOrTokenGroup, TokensFile } from './token_types.js';
 
 const shadowToVariables = (name: any, values: any) => {
@@ -63,14 +63,40 @@ const shadowToVariables = (name: any, values: any) => {
 const transformShadow = (name: string, token: any) => {
   let tokens = {};
   const value = token['$value'];
-  const shadowValues = !Array.isArray(value) ? [value] : value;
 
-  // loop through shadows and add the index to the name
-  for (const [index, stepValue] of shadowValues.entries()) {
-    tokens = {
-      ...tokens,
-      ...shadowToVariables(`${name}/${index + 1}`, stepValue),
-    };
+  // if shadow is referencing a shadow from the color collection,
+  // we need to determine how many shadows exist and build up
+  // the references for each shadow part
+  if (isReference(value)) {
+    // get that shadow from the global set to figure out how many shadows exist
+    const raw = fs.readFileSync('./tokens/semantic/color.light.json'); // using light mode to get reference
+    const parsed = JSON.parse(raw.toString());
+    const shadowRef = parsed.shadow[value.slice(1, -1).split('.')[1]].$value;
+    const numShadows = Array.isArray(shadowRef) ? shadowRef.length : 1;
+
+    const ref = value.slice(1, -1).split('.').join('/');
+    for (let i = 0; i < numShadows; i += 1) {
+      tokens = {
+        ...tokens,
+        ...shadowToVariables(`${name}/${i + 1}`, {
+          color: `{${ref}/${i + 1}/color}`,
+          offsetX: `{${ref}/${i + 1}/offsetX}`,
+          offsetY: `{${ref}/${i + 1}/offsetY}`,
+          blur: `{${ref}/${i + 1}/blur}`,
+          spread: `{${ref}/${i + 1}/spread}`,
+        }),
+      };
+    }
+  } else {
+    const shadowValues = !Array.isArray(value) ? [value] : value;
+
+    // loop through shadows and add the index to the name
+    for (const [index, stepValue] of shadowValues.entries()) {
+      tokens = {
+        ...tokens,
+        ...shadowToVariables(`${name}/${index + 1}`, stepValue),
+      };
+    }
   }
 
   return tokens;
@@ -201,10 +227,6 @@ function traverseCollection({
       Object.keys(borderTokens).forEach(borderToken => {
         tokens[borderToken] = borderTokens[borderToken];
       });
-      fs.writeFileSync(
-        './dist/mine.json',
-        JSON.stringify(borderTokens, null, 2),
-      );
     } else tokens[key] = object;
   } else {
     Object.entries<TokenOrTokenGroup>(object).forEach(([key2, object2]) => {
@@ -262,6 +284,25 @@ function isAlias(value: string) {
   return value.toString().trim().charAt(0) === '{';
 }
 
+/**
+ * When pushing to Figma, we should strip off "DEFAULT" and "REST" to match simplified token outputs.
+ * Also, format nested roles, prominence, or interaction to hyphenated ("-") approach
+ * e.g. color/background/critical/weak/DEFAULT/REST --> color/background/critical-weak
+ * @param alias
+ */
+const tokenAliasToFigmaAlias = (alias: string): string => {
+  const isColor = /^color/.test(alias);
+  let adjustedName = alias;
+  if (isColor) {
+    let parts = adjustedName.split('/');
+    parts = parts.filter(part => !excludedNameParts.includes(part));
+    const section = parts.slice(0, 2).join('/');
+    const name = parts.slice(2).join('-');
+    adjustedName = `${section}${name ? `/${name}` : ''}`;
+  }
+  return adjustedName;
+};
+
 function variableValueFromToken(
   token: Token,
   localVariablesByCollectionAndName: {
@@ -271,11 +312,12 @@ function variableValueFromToken(
   if (typeof token.$value === 'string' && isAlias(token.$value)) {
     // Assume aliases are in the format {group.subgroup.token} with any number of optional groups/subgroups
     // The Figma syntax for variable names is: group/subgroup/token
-    const value = token.$value
+    let value = token.$value
       .trim()
       .replace(/\./g, '/')
       .replace(/[\{\}]/g, '');
 
+    value = tokenAliasToFigmaAlias(value);
     // When mapping aliases to existing local variables, we assume that variable names
     // are unique *across all collections* in the Figma file
     // TO DO how will this work with our density token concept is there are repeated
@@ -503,8 +545,10 @@ export function generatePostVariablesPayload(
       localVariablesByCollectionAndName[variableCollection?.id] || {};
 
     Object.entries(tokens).forEach(([tokenName, token]) => {
-      const variable = localVariablesByName[tokenName];
-      const variableId = variable ? variable.id : tokenName;
+      const adjustedName = tokenAliasToFigmaAlias(tokenName);
+
+      const variable = localVariablesByName[adjustedName];
+      const variableId = variable ? variable.id : adjustedName;
       const variableInPayload = postVariablesPayload.variables!.find(
         v =>
           v.id === variableId &&
@@ -519,7 +563,7 @@ export function generatePostVariablesPayload(
         postVariablesPayload.variables!.push({
           action: 'CREATE',
           id: variableId,
-          name: tokenName,
+          name: adjustedName,
           variableCollectionId,
           resolvedType: variableResolvedTypeFromToken(token),
           ...differences,

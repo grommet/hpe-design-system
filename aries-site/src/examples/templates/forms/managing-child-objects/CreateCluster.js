@@ -12,6 +12,7 @@ import {
   TextInput,
 } from 'grommet';
 import { ButtonGroup } from 'aries-core';
+import { ContentPane } from '../../../../layouts';
 import { FormChildObjects } from '../../FormChildObject';
 
 const hostTemplate = {
@@ -43,11 +44,11 @@ const INPUT_MAP = {
       name={`hosts[${index}].host`}
       label="Host address"
       required
-      aria-required="true"
     >
       <TextInput
         id={`hosts[${index}].host`}
         name={`hosts[${index}].host`}
+        aria-required="true"
         {...rest}
       />
     </FormField>
@@ -59,12 +60,12 @@ const INPUT_MAP = {
         name={`hosts[${index}].cpu`}
         label="CPU cores"
         required
-        aria-required="true"
       >
         <Select
           id={`hosts[${index}].cpu`}
           name={`hosts[${index}].cpu`}
           options={[2, 4, 6, 8]}
+          aria-required="true"
           {...rest}
         />
       </FormField>
@@ -78,12 +79,12 @@ const INPUT_MAP = {
         name={`hosts[${index}].memory`}
         label="Memory (GB)"
         required
-        aria-required="true"
       >
         <Select
           id={`hosts[${index}].memory`}
           name={`hosts[${index}].memory`}
           options={[32, 64, 128, 256, 512]}
+          aria-required="true"
           {...rest}
         />
       </FormField>
@@ -135,7 +136,7 @@ export const CreateCluster = () => {
   };
 
   return (
-    <Box alignSelf="center" gap="medium" width="medium">
+    <ContentPane alignSelf="center" gap="medium" width="medium">
       <Heading level={2} margin="none">
         Create cluster
       </Heading>
@@ -152,9 +153,12 @@ export const CreateCluster = () => {
               name="cluster-name"
               label="Cluster name"
               required
-              aria-required="true"
             >
-              <TextInput id="cluster-name" name="cluster-name" />
+              <TextInput
+                aria-required="true"
+                id="cluster-name"
+                name="cluster-name"
+              />
             </FormField>
             <FormField
               htmlFor="resource-manager"
@@ -243,6 +247,6 @@ export const CreateCluster = () => {
           </ButtonGroup>
         </Box>
       </Form>
-    </Box>
+    </ContentPane>
   );
 };

@@ -21,9 +21,9 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.0",
     "jest": "^27.5.1",
-    "prettier": "^2.8.8",
-    "husky": "^8.0.0"
+    "prettier": "^2.8.8"
   },
   "workspaces": [
     "aries-core",
@@ -33,9 +33,10 @@
     "design-tokens-manager"
   ],
   "dependencies": {
+    "@changesets/cli": "^2.27.9",
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
-    "grommet-theme-hpe": "5.6.0",
+    "grommet-theme-hpe": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.11"

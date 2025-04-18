@@ -1,5 +1,10 @@
-import { readFileSync, readdirSync, writeFileSync } from 'fs';
-import { access, isReference, nonComponentTokens } from '../utils.js';
+import { readFileSync, writeFileSync } from 'fs';
+import {
+  access,
+  getThemeFiles,
+  isReference,
+  nonComponentTokens,
+} from '../utils.js';
 
 const getValue = (valueArg: any, tokens: { [key: string]: any }) => {
   let value = valueArg;
@@ -32,8 +37,8 @@ export const descend = (
       // this is special use case for `iconOnly` buttons
       // could be improved in future if needed to be more dynamic
       if (key === 'iconOnly') {
-        // [component, size, kind...]
-        const size = keyPath[1];
+        // [component, kind, size...]
+        const size = keyPath[2];
         contentHeight = tokens.size?.icon?.[size];
       }
       if (
@@ -84,26 +89,6 @@ export const descend = (
   });
 };
 
-const TOKENS_DIR = 'tokens';
-const tokenDirs = readdirSync(TOKENS_DIR, { withFileTypes: true })
-  .filter((dir: any) => dir.isDirectory())
-  .map((dir: any) => dir.name);
-
-const tokens = tokenDirs
-  .map(dir =>
-    readdirSync(`${TOKENS_DIR}/${dir}`).map(
-      file => `${TOKENS_DIR}/${dir}/${file}`,
-    ),
-  )
-  .flat();
-
-let allTokens = {};
-tokens.forEach(file => {
-  const raw = readFileSync(file);
-  const parsed = JSON.parse(raw.toString());
-  allTokens = { ...allTokens, ...parsed };
-});
-
 /**
  * Calculate and update paddingY values based on minHeight, lineHeight, and borderWidth
  */
@@ -114,13 +99,31 @@ const updatePaddingY = (tokens: { [key: string]: any }) => {
   return result;
 };
 
-const originalTokens = { ...allTokens };
-const updated = updatePaddingY(originalTokens);
-nonComponentTokens.forEach(category => {
-  delete updated[category];
-});
+const themes = getThemeFiles();
+Object.keys(themes).forEach(theme => {
+  console.log(`Updating theme: ${theme}`);
+  let allTokens = {};
+  themes[theme].forEach(file => {
+    const raw = readFileSync(file.toString());
+    const parsed = JSON.parse(raw.toString());
+    allTokens = { ...allTokens, ...parsed };
+  });
 
-writeFileSync(
-  './tokens/component/component.default.json',
-  JSON.stringify(updated, null, 2),
-);
+  const originalTokens = { ...allTokens };
+  const updated = updatePaddingY(originalTokens);
+  nonComponentTokens.forEach(category => {
+    delete updated[category];
+  });
+
+  writeFileSync(
+    `./tokens/component/element.default.json`,
+    JSON.stringify({ element: updated.element }, null, 2),
+  );
+
+  delete updated.element;
+
+  writeFileSync(
+    `./tokens/component/component.${theme}.json`,
+    JSON.stringify(updated, null, 2),
+  );
+});

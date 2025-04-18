@@ -1,17 +1,20 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import {
   Box,
   Button,
   List,
   Header,
+  // Main,
   Menu,
   PageHeader,
   ResponsiveContext,
   Text,
+  Page,
+  PageContent,
 } from 'grommet';
 import { Monitor, More, User, System, Hpe } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
+import { ContentPane } from '../../../layouts';
 
 const data = [
   {
@@ -82,9 +85,6 @@ const StyledList = () => {
           />
         </Box>
       )}
-      margin={
-        ['xsmall', 'small'].includes(size) ? { bottom: 'large' } : undefined
-      }
     >
       {(datum, index) => (
         <Box
@@ -112,7 +112,10 @@ const StyledList = () => {
 };
 
 const AppHeaderExample = () => (
-  <Header pad={{ vertical: 'small' }}>
+  <Header
+    background="background-front"
+    pad={{ vertical: 'xsmall', horizontal: 'medium' }}
+  >
     <Button>
       <Box
         direction="row"
@@ -145,40 +148,23 @@ const AppHeaderExample = () => (
   </Header>
 );
 
-const ScreenContainer = ({ mobile, ...rest }) => {
-  const size = useContext(ResponsiveContext);
-  return (
-    <Box
-      background="background"
-      width={['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
-      height={['xsmall', 'small'].includes(size) ? { max: 'large' } : undefined}
-      style={{ position: 'relative' }}
-      fill
-    >
-      <Box direction="row" width={{ max: 'xxlarge' }} margin="auto" fill>
-        <Box
-          overflow="auto"
-          pad={{ horizontal: 'medium', bottom: 'medium' }}
-          flex
-          {...rest}
-        />
-      </Box>
-    </Box>
-  );
-};
-
 export const ListScreenExample = ({ ...rest }) => (
-  <ScreenContainer {...rest}>
+  <Box {...rest}>
     <AppHeaderExample />
-    <PageHeader
-      title="User controls"
-      actions={<Button label="Manage" primary />}
-      pad={{ vertical: 'medium' }}
-    />
-    <StyledList />
-  </ScreenContainer>
+    {/* Main is commented out for this example, but should be used in a
+    real application. */}
+    {/* <Main> */}
+    <Page pad={{ bottom: 'large' }} flex={false}>
+      <PageContent>
+        <PageHeader
+          title="User controls"
+          actions={<Button label="Manage" primary />}
+        />
+        <ContentPane>
+          <StyledList />
+        </ContentPane>
+      </PageContent>
+    </Page>
+    {/* </Main> */}
+  </Box>
 );
-
-ScreenContainer.propTypes = {
-  mobile: PropTypes.bool,
-};

@@ -40,7 +40,7 @@ const data = [
 export const ListIconIdentifierExample = () => (
   <Box width={{ max: 'xxlarge' }} margin="auto" fill>
     <List
-      background="background-front"
+      aria-label="User status"
       data={data}
       action={item => <Text key={item.name}>{item.option}</Text>}
       onClickItem={e => {

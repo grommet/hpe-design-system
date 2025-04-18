@@ -1,0 +1,44 @@
+import { DesignTokensTable } from '../../components';
+import { ContentPane } from '../../layouts';
+
+## fontStack
+
+Font stack design tokens are a list of fonts that are used in the design system. The first font in the list is the primary font, and the rest are fallback fonts.
+
+To learn more about options for how fonts can be loaded, read [font delivery documentation](/foundation/typography#font-delivery).
+
+<ContentPane>
+  <DesignTokensTable active="semantic.fontStack" />
+</ContentPane>
+
+## breakpoint
+
+Breakpoint design tokens can be used for logic pertaining to layout adjustments as screen width changes. For example, a grid of cards may switch from a 3-column layout to a 2-column layout at the `medium` breakpoint.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.breakpoint" />
+</ContentPane>
+
+### Built-in breakpoint changes
+
+The values of semantic spacing and heading design tokens step down in size at the `small` breakpoint. These value shifts are built in to the system.
+
+## fontWeight
+
+Font weight design tokens are used to define the weight of text elements. Each [text size](/design-tokens/typography-system#text) has a default font weight, but this can be overridden by the `fontWeight` design tokens to add or remove emphasis based on the use case.
+
+The system uses `bold` sparingly because it can hurt readability at smaller text sizes and instead relies on the `medium` font weight to create visual emphasis.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.fontWeight" />
+</ContentPane>
+
+## focusIndicator
+
+This design token is used to define a standardized focus indicator for interactive elements. The focus indicator is a visual cue that helps users understand where they are in the interface and what element is currently in focus.
+
+This indicator should be used with the `:focus-visible` pseudo-class in CSS.
+
+<ContentPane>
+  <DesignTokensTable active="semantic.focusIndicator" />
+</ContentPane>

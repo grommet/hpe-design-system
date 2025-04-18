@@ -18,8 +18,8 @@ npm i hpe-design-tokens
 
 ## Usage
 
-For usage instructions, see [HPE Design System design tokens documentation](https://design-system.hpe.design/tokens).
+For usage instructions, see [HPE Design System design tokens documentation](https://design-system.hpe.design/design-tokens).
 
 ## License
 
-[Apache-2.0](https://github.com/grommet/hpe-design-system/blob/design-tokens-alpha/design-tokens/LICENSE)
+[Apache-2.0](https://github.com/grommet/hpe-design-system/blob/design-tokens-stable/LICENSE)

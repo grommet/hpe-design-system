@@ -27,14 +27,17 @@ const Tokens = () => (
       <Box pad={{ vertical: 'medium' }} justify="center" width="large">
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
+        <Notification
+          status="normal"
+          message="hpe-design-tokens are production ready."
+          actions={[
+            {
+              label: 'See which version is right for your team',
+              href: '/design-tokens/versioning',
+            },
+          ]}
+        />
       </Box>
-      <Notification
-        message={`Design tokens are in a beta phase. Accordingly, 
-          this documentation is a work in progress and will be 
-          updated as needed during this phase.`}
-        width="large"
-        margin={{ bottom: 'large' }}
-      />
       <Data data={cards} pad={{ bottom: 'large' }}>
         <DataContext.Consumer>
           {({ data }) => {
