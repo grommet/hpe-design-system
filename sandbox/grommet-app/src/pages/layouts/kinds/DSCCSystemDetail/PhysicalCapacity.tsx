@@ -7,7 +7,7 @@ export const PhysicalCapacity = ({ size, ...rest }) => {
     <DashboardCard
       title="Physical capacity"
       subtitle={null}
-      level={3}
+      level={2}
       hideCta
       icon={null}
       external={null}

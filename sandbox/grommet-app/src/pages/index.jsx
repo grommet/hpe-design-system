@@ -67,7 +67,7 @@ function Home() {
                     columns={
                       size === 'xlarge' ? ['flex', 'flex', 'flex'] : ['auto']
                     }
-                    gap="medium"
+                    gap="large"
                   >
                     <BillingSummary />
                     <DeviceSummary />
@@ -78,21 +78,21 @@ function Home() {
               <RecentServices />
               <Box
                 skeleton={insightsLoading ? skeletonAnimation : undefined}
-                gap="medium"
+                gap="large"
               >
                 <SkeletonContext.Provider
                   value={insightsLoading ? skeletonAnimation : undefined}
                 >
                   <Grid
                     columns={size === 'xlarge' ? ['medium', 'flex'] : ['auto']}
-                    gap="medium"
+                    gap="large"
                   >
                     <UserOverview />
                     <Notifications />
                   </Grid>
                   <Grid
                     columns={size === 'xlarge' ? ['flex', 'flex'] : ['auto']}
-                    gap="medium"
+                    gap="large"
                   >
                     <MonthlyCharges />
                     <ExpiringSubscriptions />

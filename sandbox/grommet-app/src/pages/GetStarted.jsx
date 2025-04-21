@@ -35,7 +35,7 @@ export const GetStarted = ({ kind, heading }) => {
             ? ['auto']
             : ['flex', 'flex']
         }
-        gap="medium"
+        gap="large"
       >
         <DashboardCard
           title="Find services"

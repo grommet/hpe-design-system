@@ -68,7 +68,7 @@ export const DSCCSystemDetail = () => {
             areas={summaryAreas}
             columns={summaryColumns}
             rows={summaryRows}
-            gap={['large', 'xlarge'].includes(breakpoint) ? 'medium' : 'small'}
+            gap={['large', 'xlarge'].includes(breakpoint) ? 'large' : 'medium'}
           >
             <SystemSummary gridArea="summary-1" size={metricSize} />
             <PhysicalCapacity gridArea="summary-2" size={metricSize} />
@@ -78,7 +78,7 @@ export const DSCCSystemDetail = () => {
             areas={detailAreas}
             columns={detailColumns}
             rows={detailRows}
-            gap={['large', 'xlarge'].includes(breakpoint) ? 'xlarge' : 'medium'}
+            gap={['large', 'xlarge'].includes(breakpoint) ? 'xlarge' : 'large'}
           >
             <DetailPane gridArea="detail-1" />
             <PropertiesGeneral gridArea="detail-2" />

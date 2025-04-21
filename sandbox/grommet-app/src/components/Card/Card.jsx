@@ -72,7 +72,7 @@ const DesignSystemCard = ({
             gap="none"
             align="start"
             // pad={adjustPad(direction, 'header', theme)}
-            pad={{ top: 'medium', horizontal: 'medium' }}
+            pad={{ top: 'large', horizontal: 'large' }}
           >
             {avatar && (
               <Avatar
@@ -100,7 +100,7 @@ const DesignSystemCard = ({
           </CardHeader>
           <CardBody
             align="start"
-            pad={{ bottom: 'medium', horizontal: 'medium' }}
+            pad={{ bottom: 'large', horizontal: 'large' }}
           >
             <Paragraph margin="none" maxLines={4}>
               {description}
