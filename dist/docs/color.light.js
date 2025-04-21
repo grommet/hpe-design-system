@@ -482,54 +482,6 @@ export default {
     ],
     "key": "{color.background.screenOverlay.DEFAULT.REST}"
   },
-  "hpe.color.background.warning": {
-    "$type": "color",
-    "$value": "#fff3dd",
-    "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#fff3dd",
-      "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.warning",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "warning",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "warning",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.background.warning.DEFAULT.REST}"
-  },
   "hpe.color.background.ok": {
     "$type": "color",
     "$value": "#e3fdf4",
@@ -577,54 +529,6 @@ export default {
       "REST"
     ],
     "key": "{color.background.ok.DEFAULT.REST}"
-  },
-  "hpe.color.background.critical": {
-    "$type": "color",
-    "$value": "#ffecec",
-    "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ffecec",
-      "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.critical",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "critical",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "critical",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.background.critical.DEFAULT.REST}"
   },
   "hpe.color.background.unknown": {
     "$type": "color",
@@ -674,6 +578,54 @@ export default {
     ],
     "key": "{color.background.unknown.DEFAULT.REST}"
   },
+  "hpe.color.background.warning": {
+    "$type": "color",
+    "$value": "#fff3dd",
+    "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#fff3dd",
+      "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.warning",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "warning",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "warning",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.warning.DEFAULT.REST}"
+  },
   "hpe.color.background.info": {
     "$type": "color",
     "$value": "#e0f8ff",
@@ -721,6 +673,54 @@ export default {
       "REST"
     ],
     "key": "{color.background.info.DEFAULT.REST}"
+  },
+  "hpe.color.background.critical": {
+    "$type": "color",
+    "$value": "#ffecec",
+    "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#ffecec",
+      "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.critical",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "critical",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "critical",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.critical.DEFAULT.REST}"
   },
   "hpe.color.background.primary.strong": {
     "$type": "color",
