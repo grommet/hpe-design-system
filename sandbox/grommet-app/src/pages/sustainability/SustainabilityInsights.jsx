@@ -261,6 +261,7 @@ export const SustainabilityInsights = () => {
           properties={{
             date: { label: 'Date range' },
           }}
+          gap="large"
         >
           <Toolbar
             align="end"
@@ -315,7 +316,7 @@ export const SustainabilityInsights = () => {
             ) : undefined}
           </Toolbar>
           <Box skeleton={skeleton ? skeletonAnimation : undefined}>
-            <Grid columns="medium" gap="medium" pad={{ vertical: 'medium' }}>
+            <Grid columns="medium" gap="large">
               <CarbonEmissions />
               <EnergyConsumption />
               <EnergyCost />

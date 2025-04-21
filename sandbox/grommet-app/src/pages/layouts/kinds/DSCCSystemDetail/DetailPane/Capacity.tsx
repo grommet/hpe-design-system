@@ -105,11 +105,11 @@ export const Capacity = () => {
                 y: { property: 'used', granularity: 'fine' },
               }}
               chart={[
-                { property: 'used', type: 'line', thickness: '5xsmall' },
+                { property: 'used', type: 'line', thickness: '4xsmall' },
                 {
                   property: 'total capacity',
                   type: 'line',
-                  thickness: '3xsmall',
+                  thickness: 'xxsmall',
                 },
               ]}
               size="fill"

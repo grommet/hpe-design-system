@@ -12,7 +12,10 @@ export const PropertiesPane = ({ heading, level, properties, ...rest }) => {
       skeleton={null}
       {...rest}
     >
-      <NameValueList nameProps={{ width: ['3xsmall', 'max-content'] }}>
+      <NameValueList
+        nameProps={{ width: ['3xsmall', 'max-content'] }}
+        pairProps={{ direction: 'column' }}
+      >
         {properties &&
           properties.map(({ key, value, render }) => (
             <NameValuePair key={key} name={render ? render : sentenceCase(key)}>

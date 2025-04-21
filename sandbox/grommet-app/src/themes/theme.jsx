@@ -206,29 +206,29 @@ const buildTheme = (tokens, flags) => {
           edgeSize: {
             none: large.hpe.spacing.none,
             hair: large.hpe.spacing.hair,
-            '5xsmall': large.hpe.spacing['5xsmall'],
-            '4xsmall': large.hpe.spacing['4xsmall'],
-            '3xsmall': large.hpe.spacing['3xsmall'],
-            xxsmall: large.hpe.spacing.xxsmall,
-            xsmall: large.hpe.spacing.xsmall,
-            small: large.hpe.spacing.small,
-            medium: large.hpe.spacing.medium,
-            large: large.hpe.spacing.large,
-            xlarge: large.hpe.spacing.xlarge,
-            xxlarge: large.hpe.spacing.xxlarge,
-            '3xlarge': large.hpe.spacing['3xlarge'],
+            '5xsmall': large.hpe.spacing.hair,
+            '4xsmall': large.hpe.spacing['5xsmall'],
+            '3xsmall': large.hpe.spacing['4xsmall'],
+            xxsmall: large.hpe.spacing['3xsmall'],
+            xsmall: large.hpe.spacing.xxsmall,
+            small: large.hpe.spacing.xsmall,
+            medium: large.hpe.spacing.small,
+            large: large.hpe.spacing.medium,
+            xlarge: large.hpe.spacing.large,
+            xxlarge: large.hpe.spacing.xlarge,
+            '3xlarge': large.hpe.spacing.xxlarge,
             responsiveBreakpoint: 'small',
           },
           radius: {
             none: large.hpe.radius.none,
             hair: large.hpe.radius.hair,
-            xxsmall: large.hpe.radius.xxsmall,
-            xsmall: large.hpe.radius.xsmall,
-            small: large.hpe.radius.small,
-            medium: large.hpe.radius.medium,
-            large: large.hpe.radius.large,
-            xlarge: large.hpe.radius.xlarge,
-            xxlarge: large.hpe.radius.xxlarge,
+            xxsmall: large.hpe.radius.hair,
+            xsmall: large.hpe.radius.xxsmall,
+            small: large.hpe.radius.xsmall,
+            medium: large.hpe.radius.small,
+            large: large.hpe.radius.medium,
+            xlarge: large.hpe.radius.large,
+            xxlarge: large.hpe.radius.xlarge,
             responsiveBreakpoint: 'small',
           },
           size: size(large),
@@ -986,12 +986,12 @@ const buildTheme = (tokens, flags) => {
       container: {
         background: 'background-front',
         elevation: 'none',
-        round: 'medium',
+        round: 'large',
         extend: 'transition: box-shadow 0.3s ease-in-out;',
       },
-      body: { pad: 'medium' },
-      footer: { pad: { horizontal: 'medium', vertical: 'xsmall' } },
-      header: { pad: 'medium' },
+      body: { pad: 'large' },
+      footer: { pad: { horizontal: 'large', vertical: 'small' } },
+      header: { pad: 'large' },
       hover: { container: { elevation: 'medium' } },
     },
     carousel: {
@@ -1730,6 +1730,7 @@ const buildTheme = (tokens, flags) => {
           background: 'background-active',
           icon: { pad: mediumIconOnlyPad },
         },
+        pad: { horizontal: 'medium', vertical: 'xsmall' },
       },
       primaryKey: { weight: global.hpe.fontWeight.medium },
     },
@@ -1786,6 +1787,18 @@ const buildTheme = (tokens, flags) => {
       },
     },
     nameValueList: {
+      // gap: {
+      //   column: 'large',
+      //   row: 'small',
+      // },
+      // pair: {
+      //   column: {
+      //     gap: {
+      //       column: 'large',
+      //       row: 'medium',
+      //     },
+      //   },
+      // },
       gap: {
         column: 'xlarge',
         row: 'xsmall',
@@ -1798,9 +1811,22 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
+      name: {
+        width: 'small',
+      },
+      value: {
+        width: 'medium',
+      },
     },
     nameValuePair: {
+      column: {
+        gap: '5xsmall',
+      },
       name: { color: 'text-strong', weight: global.hpe.fontWeight.medium },
+      value: {
+        // any text props
+        color: 'text',
+      },
     },
     notification: {
       close: { icon: Close },
@@ -1924,24 +1950,33 @@ const buildTheme = (tokens, flags) => {
           min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
           max: '3xlarge',
         },
-        xsmall: { pad: { horizontal: 'xlarge' } },
-        xlarge: { pad: { horizontal: 'xlarge' } },
+        xsmall: { pad: { horizontal: 'medium' } },
+        small: { pad: { horizontal: 'xlarge' } },
+        medium: { pad: { horizontal: 'large' } },
+        large: { pad: { horizontal: 'xxlarge' } },
+        xlarge: { pad: { horizontal: 'xxlarge' } },
       },
       narrow: {
         width: {
           min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
           max: 'xlarge',
         },
-        xsmall: { pad: { horizontal: 'xlarge' } },
-        xlarge: { pad: { horizontal: 'xlarge' } },
+        xsmall: { pad: { horizontal: 'medium' } },
+        small: { pad: { horizontal: 'xlarge' } },
+        medium: { pad: { horizontal: 'large' } },
+        large: { pad: { horizontal: 'xxlarge' } },
+        xlarge: { pad: { horizontal: 'xxlarge' } },
       },
       full: {
         width: {
           min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
           max: '100%',
         },
-        xsmall: { pad: { horizontal: 'xlarge' } },
-        xlarge: { pad: { horizontal: 'xlarge' } },
+        xsmall: { pad: { horizontal: 'medium' } },
+        small: { pad: { horizontal: 'xlarge' } },
+        medium: { pad: { horizontal: 'large' } },
+        large: { pad: { horizontal: 'xxlarge' } },
+        xlarge: { pad: { horizontal: 'xxlarge' } },
       },
     },
     pageHeader: {
@@ -2343,18 +2378,17 @@ const buildTheme = (tokens, flags) => {
       pad: {
         bottom: components.hpe.element?.medium.paddingY,
         top: components.hpe.element?.medium.paddingY,
-        horizontal: components.hpe.element?.medium?.paddingX?.wide,
+        horizontal: components.hpe.element?.medium?.paddingX?.default,
       },
       margin: { vertical: 'none', horizontal: 'none' },
-      extend: ({ theme }) =>
-        `border-radius: ${theme.global.edgeSize['3xsmall']};`,
+      extend: () => `border-radius: 6px;`,
     },
     tabs: {
       gap: '3xsmall',
       header: {
         border: undefined,
         extend: ({ theme }) => `
-          border-radius: ${theme.global.edgeSize['3xsmall']}; 
+          border-radius: 6px; 
           & button[aria-selected="true"]:hover:not([disabled]) > div {
             background: ${getThemeColor(
               'background-selected-primary-strong-hover',
