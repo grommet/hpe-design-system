@@ -8,7 +8,7 @@ export const SystemSummary = ({ size, ...rest }) => {
     <DashboardCard
       title="System"
       subtitle={null}
-      level={3}
+      level={2}
       hideCta
       icon={null}
       external={null}

@@ -986,12 +986,12 @@ const buildTheme = (tokens, flags) => {
       container: {
         background: 'background-front',
         elevation: 'none',
-        round: 'medium',
+        round: 'large',
         extend: 'transition: box-shadow 0.3s ease-in-out;',
       },
-      body: { pad: 'medium' },
-      footer: { pad: { horizontal: 'medium', vertical: 'xsmall' } },
-      header: { pad: 'medium' },
+      body: { pad: 'large' },
+      footer: { pad: { horizontal: 'large', vertical: 'small' } },
+      header: { pad: 'large' },
       hover: { container: { elevation: 'medium' } },
     },
     carousel: {
@@ -1787,6 +1787,18 @@ const buildTheme = (tokens, flags) => {
       },
     },
     nameValueList: {
+      // gap: {
+      //   column: 'large',
+      //   row: 'small',
+      // },
+      // pair: {
+      //   column: {
+      //     gap: {
+      //       column: 'large',
+      //       row: 'medium',
+      //     },
+      //   },
+      // },
       gap: {
         column: 'xlarge',
         row: 'xsmall',
@@ -1799,9 +1811,22 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
+      name: {
+        width: 'small',
+      },
+      value: {
+        width: 'medium',
+      },
     },
     nameValuePair: {
+      column: {
+        gap: '5xsmall',
+      },
       name: { color: 'text-strong', weight: global.hpe.fontWeight.medium },
+      value: {
+        // any text props
+        color: 'text',
+      },
     },
     notification: {
       close: { icon: Close },
@@ -1925,24 +1950,33 @@ const buildTheme = (tokens, flags) => {
           min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
           max: '3xlarge',
         },
-        xsmall: { pad: { horizontal: 'xlarge' } },
-        xlarge: { pad: { horizontal: 'xlarge' } },
+        xsmall: { pad: { horizontal: 'medium' } },
+        small: { pad: { horizontal: 'xlarge' } },
+        medium: { pad: { horizontal: 'large' } },
+        large: { pad: { horizontal: 'xxlarge' } },
+        xlarge: { pad: { horizontal: 'xxlarge' } },
       },
       narrow: {
         width: {
           min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
           max: 'xlarge',
         },
-        xsmall: { pad: { horizontal: 'xlarge' } },
-        xlarge: { pad: { horizontal: 'xlarge' } },
+        xsmall: { pad: { horizontal: 'medium' } },
+        small: { pad: { horizontal: 'xlarge' } },
+        medium: { pad: { horizontal: 'large' } },
+        large: { pad: { horizontal: 'xxlarge' } },
+        xlarge: { pad: { horizontal: 'xxlarge' } },
       },
       full: {
         width: {
           min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
           max: '100%',
         },
-        xsmall: { pad: { horizontal: 'xlarge' } },
-        xlarge: { pad: { horizontal: 'xlarge' } },
+        xsmall: { pad: { horizontal: 'medium' } },
+        small: { pad: { horizontal: 'xlarge' } },
+        medium: { pad: { horizontal: 'large' } },
+        large: { pad: { horizontal: 'xxlarge' } },
+        xlarge: { pad: { horizontal: 'xxlarge' } },
       },
     },
     pageHeader: {
