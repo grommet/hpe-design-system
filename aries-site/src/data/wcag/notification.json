@@ -194,7 +194,7 @@
   {
     "rule": "2.2.1",
     "label": "Timing Adjustable",
-    "status": "failed",
+    "status": "conditional",
     "notes": ""
   },
   {
@@ -206,7 +206,7 @@
   {
     "rule": "2.2.3",
     "label": "No Timing",
-    "status": "failed",
+    "status": "conditional",
     "notes": ""
   },
   {
@@ -266,7 +266,7 @@
   {
     "rule": "2.4.4",
     "label": "Link Purpose (In Context)",
-    "status": "failed",
+    "status": "conditional",
     "notes": "Need to give access to aria-label for link  to implementors"
   },
   {
