@@ -118,6 +118,10 @@ If you need to use TextInput outside of the context of a FormField, it is import
 
 Placeholder text does not serve as a sufficient means of meeting accessibility requirements for labels. To meet accessbility requirements, placeholder text should be used in conjunction with a label or aria-labelledby attribute.
 
+While Grommet's TextInput supports a `defaultSuggestion` prop, it is not recommended for use because it can lead to potential "context changes" on screen readers such as VoiceOver. This would fail [WCAG 3.2.1](https://www.w3.org/TR/WCAG22/#on-focus).
+
+Instead, order the suggestions such that the most relevant or likely are at the top.
+
 ### WCAG compliance
 
 <AccessibilitySection title="TextInput" />
