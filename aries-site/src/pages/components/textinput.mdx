@@ -118,7 +118,7 @@ If you need to use TextInput outside of the context of a FormField, it is import
 
 Placeholder text does not serve as a sufficient means of meeting accessibility requirements for labels. To meet accessbility requirements, placeholder text should be used in conjunction with a label or aria-labelledby attribute.
 
-Using the `defaultSuggestion` prop can cause accessibility issues. When the input receives focus, VoiceOver may jump straight to the suggestion, skipping over announcing the input field. This can violate WCAG 3.2.1: On Focus, which requires that focus does not trigger unexpected context changes.
+Using the `defaultSuggestion` prop can cause accessibility issues. When the input receives focus, VoiceOver may jump straight to the suggestion, skipping over announcing the input field. This can violate [WCAG 3.2.1](https://www.w3.org/TR/WCAG22/#on-focus): On Focus, which requires that focus does not trigger unexpected context changes.
 - Avoid using defaultSuggestion Instead, include the intended default suggestion at the top of the suggestions list.
 
 ### WCAG compliance
