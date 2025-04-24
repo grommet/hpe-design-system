@@ -1326,7 +1326,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.green1}",
+              "$value": "{base.color.dataVis.purple2}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1342,7 +1342,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.darkblue1}",
+              "$value": "{base.color.dataVis.gold1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1358,7 +1358,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.gold1}",
+              "$value": "{base.color.dataVis.pink1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1374,7 +1374,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.purple1}",
+              "$value": "{base.color.dataVis.blue1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1390,7 +1390,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.lightblue1}",
+              "$value": "#a78972",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1406,7 +1406,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.pink1}",
+              "$value": "{base.color.dataVis.purple1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1422,7 +1422,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.blue1}",
+              "$value": "{base.color.dataVis.darkblue2}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
