@@ -111,7 +111,7 @@
       "rule": "1.4.3",
       "label": "Contrast (Minimum)",
       "status": "not-applicable",
-      "notes": "Technically doesn't apply but recommended to have it be 3:1 contrast with page background"
+      "notes": ""
     },
     {
       "rule": "1.4.4",
@@ -158,8 +158,8 @@
     {
       "rule": "1.4.11",
       "label": "Non-text Contrast",
-      "status": "failed",
-      "notes": "It depends if skeletons are labeled as graphic objects, if so they must meet 3:1 contrast ratio. This seems like an open ended conversation and there isn't any actual classification for Skeletons. Relevant github discussion (https://github.com/w3c/wcag/issues/2048)."
+      "status": "not-applicable",
+      "notes": "Skeletons are visual placeholders that can't be click or tabbed to or activate anything. They would be exempt from this WCAG rule."
     },
     {
       "rule": "1.4.12",
@@ -428,14 +428,14 @@
     {
       "rule": "3.2.4",
       "label": "Consistent Identification",
-      "status": "conditional",
+      "status": "not-applicable",
       "notes": ""
     },
     {
       "rule": "3.2.5",
       "label": "Change on Request",
-      "status": "not-applicable",
-      "notes": ""
+      "status": "conditional",
+      "notes": "Skeletons should appear consistently and as expected by the user. Goal of this WCAG rule is to eliminate potential confusion that may be caused by unexpected changes of context."
     },
     {
       "rule": "3.2.6",
