@@ -1468,6 +1468,7 @@ export const components = [
   },
   {
     name: 'Skeleton',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Visualizations',
     description:
       'Skeletons are simplified placeholders mimicking the layout of content to be loaded, providing users with a visual preview while reducing perceived loading time.',
