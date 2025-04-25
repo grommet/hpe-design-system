@@ -410,7 +410,7 @@ export const components = [
       'TextArea is a field used in forms to capture longer text. This component provides the user with space to type more characters than the TextInput field.',
     seoDescription:
       'When you need to allow the user to provide longer forms of content, use a TextArea component.',
-      accessibility: 'Passed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [],
     preview: {
       component: () => <TextAreaPreview />,
@@ -1175,7 +1175,7 @@ export const components = [
       'MaskedInput allows you to specify formatted text within a form field.',
     seoDescription:
       'MaskedInput allows you to specify formatted text within a form field.',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Failed WCAG 2.2 AA',
     sections: [
       'IP Address',
       'IP Range',
@@ -1468,6 +1468,7 @@ export const components = [
   },
   {
     name: 'Skeleton',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Visualizations',
     description:
       'Skeletons are simplified placeholders mimicking the layout of content to be loaded, providing users with a visual preview while reducing perceived loading time.',
@@ -1561,7 +1562,7 @@ export const components = [
   },
   {
     name: 'Pagination',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Controls',
     description: `Pagination enables the user to  navigate between pages
