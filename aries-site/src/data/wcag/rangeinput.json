@@ -75,7 +75,7 @@
     "rule": "1.3.3",
     "label": "Sensory Characteristics",
     "status": "passed",
-    "notes": "Must provide clear instructions for assissitive technologies."
+    "notes": ""
   },
   {
     "rule": "1.3.4",
@@ -428,7 +428,7 @@
   {
     "rule": "3.2.4",
     "label": "Consistent Identification",
-    "status": "conditional",
+    "status": "passed",
     "notes": ""
   },
   {
