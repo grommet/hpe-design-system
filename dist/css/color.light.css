@@ -88,9 +88,9 @@
   --hpe-base-color-dataVis-pink2: #ba2880;
   --hpe-base-color-dataVis-blue2: #1f95e4;
   --hpe-base-color-dataVis-purple3: #9a3ac0;
+  --hpe-color-background-info: #e0f8ff; /** Use for backgrounds communicating neutral information. Keywords: status */
   --hpe-color-background-ok: #e3fdf4; /** Use for backgrounds communicating success. Status color. Keywords: status */
   --hpe-color-background-warning: #fff3dd; /** Use for backgrounds communicating warning or caution. Keywords: status */
-  --hpe-color-background-info: #e0f8ff; /** Use for backgrounds communicating neutral information. Keywords: status */
   --hpe-color-background-critical: #ffecec; /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-text-weak: #676767; /** Subtle text color for reduced visual prominence. Often used for supporting text. */
   --hpe-color-transparent: rgba(0, 0, 0, 0);
