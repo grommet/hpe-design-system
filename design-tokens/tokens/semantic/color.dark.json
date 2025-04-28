@@ -149,12 +149,12 @@
           }
         }
       },
-      "ok": {
+      "info": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#1b5245",
-            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+            "$value": "#1e363d",
+            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -181,12 +181,12 @@
           }
         }
       },
-      "warning": {
+      "ok": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#3c361e",
-            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
+            "$value": "#1b5245",
+            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -197,12 +197,12 @@
           }
         }
       },
-      "info": {
+      "warning": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#1e363d",
-            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+            "$value": "#3c361e",
+            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
