@@ -135,7 +135,7 @@
   --hpe-headerCell-default-medium-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-headerCell-default-medium-paddingBottom: var(--hpe-dataCell-default-medium-paddingBottom);
   --hpe-footerCell-default-medium-fontWeight: var(--hpe-fontWeight-medium);
-  --hpe-footerCell-default-medium-paddingTop: var(--hpe-dataCell-default-medium-paddingBottom); /* This intentionally uses paddingBottom because the border side is switched from dataCell. */
+  --hpe-footerCell-default-medium-paddingTop: var(--hpe-dataCell-default-medium-paddingBottom); /** This intentionally uses paddingBottom because the border side is switched from dataCell. */
   --hpe-radioButton-default-label-rest-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-radioButton-default-medium-control-height: var(--hpe-base-dimension-600);
   --hpe-radioButton-default-medium-control-width: var(--hpe-base-dimension-600);
@@ -266,7 +266,7 @@
   --hpe-checkbox-default-label-disabled-rest-fontWeight: var(--hpe-checkbox-default-label-rest-fontWeight);
   --hpe-checkbox-default-label-selected-rest-fontWeight: var(--hpe-checkbox-default-label-rest-fontWeight);
   --hpe-checkbox-default-label-selected-hover-fontWeight: var(--hpe-checkbox-default-label-rest-fontWeight);
-  --hpe-checkbox-default-medium-gapX: var(--hpe-static-spacing-xsmall); /* Space between checkbox control and value (label) */
+  --hpe-checkbox-default-medium-gapX: var(--hpe-static-spacing-xsmall); /** Space between checkbox control and value (label) */
   --hpe-checkbox-default-medium-control-borderRadius: var(--hpe-static-radius-xsmall);
   --hpe-switch-default-control-handle-rest-boxShadow: var(--hpe-shadow-small);
   --hpe-switch-default-control-handle-hover-boxShadow: var(--hpe-shadow-small);
@@ -304,7 +304,7 @@
   --hpe-radioButton-default-label-disabled-rest-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
   --hpe-radioButton-default-label-selected-rest-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
   --hpe-radioButton-default-label-selected-hover-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
-  --hpe-radioButton-default-medium-gapX: var(--hpe-static-spacing-xsmall); /* Space between checkbox control and value (label) */
+  --hpe-radioButton-default-medium-gapX: var(--hpe-static-spacing-xsmall); /** Space between checkbox control and value (label) */
   --hpe-anchor-default-xsmall-fontSize: var(--hpe-text-xsmall-fontSize);
   --hpe-anchor-default-xsmall-lineHeight: var(--hpe-text-xsmall-lineHeight);
   --hpe-anchor-default-small-fontSize: var(--hpe-text-small-fontSize);
@@ -449,7 +449,7 @@
   --hpe-headerCell-default-medium-gapX: var(--hpe-element-medium-textToIconX);
   --hpe-footerCell-default-medium-paddingX: var(--hpe-dataCell-default-medium-paddingX);
   --hpe-footerCell-default-medium-borderTopWidth: var(--hpe-dataCell-default-medium-borderBottomWidth);
-  --hpe-footerCell-default-medium-paddingBottom: var(--hpe-dataCell-default-medium-paddingTop); /* This intentionally uses paddingTop because the border side is switched from dataCell. */
+  --hpe-footerCell-default-medium-paddingBottom: var(--hpe-dataCell-default-medium-paddingTop); /** This intentionally uses paddingTop because the border side is switched from dataCell. */
   --hpe-footerCell-default-medium-gapX: var(--hpe-element-medium-textToIconX);
   --hpe-radioButton-default-medium-label-fontSize: var(--hpe-element-medium-fontSize);
   --hpe-radioButton-default-medium-label-lineHeight: var(--hpe-element-medium-lineHeight);
