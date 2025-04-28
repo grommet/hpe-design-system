@@ -255,9 +255,9 @@ module.exports = {
  */
 
 :root {
-  --hpe-fontStack-primary: 'Metric', Arial, sans-serif; /* The main font stack for an application. */
-  --hpe-base-color-white-100: #ffffff; /* White color */
-  --hpe-static-container-small: 192; /* Small container width */
+  --hpe-fontStack-primary: 'Metric', Arial, sans-serif; /** The main font stack for an application. */
+  --hpe-base-color-white-100: #ffffff; /** White color */
+  --hpe-static-container-small: 192; /** Small container width */
 }
 `;
     expect(output).toBe(expectedOutput);
@@ -271,9 +271,9 @@ module.exports = {
  */
 
 :root, [data-mode=auto], [data-mode=light] {
-  --hpe-color-background-plum: #f5f0f6; /* Plum background color */
-  --hpe-color-background-plum-hover: #f5d3f6; /* Plum background color hover */
-  --hpe-color-background-plum-strong: #f5f0f6; /* Strong background color */
+  --hpe-color-background-plum: #f5f0f6; /** Plum background color */
+  --hpe-color-background-plum-hover: #f5d3f6; /** Plum background color hover */
+  --hpe-color-background-plum-strong: #f5f0f6; /** Strong background color */
 }
 
 
@@ -288,16 +288,16 @@ module.exports = {
  */
 
 [data-mode=dark] {
-  --hpe-color-background-plum: #5e072b; /* Plum background color */
-  --hpe-color-background-plum-hover: #960944; /* Plum background color hover */
-  --hpe-color-background-plum-strong: #17020b; /* Strong background color */
+  --hpe-color-background-plum: #5e072b; /** Plum background color */
+  --hpe-color-background-plum-hover: #960944; /** Plum background color hover */
+  --hpe-color-background-plum-strong: #17020b; /** Strong background color */
 }
 
 @media (prefers-color-scheme: dark) {
 [data-mode=auto], [data-mode=dark] {
-  --hpe-color-background-plum: #5e072b; /* Plum background color */
-  --hpe-color-background-plum-hover: #960944; /* Plum background color hover */
-  --hpe-color-background-plum-strong: #17020b; /* Strong background color */
+  --hpe-color-background-plum: #5e072b; /** Plum background color */
+  --hpe-color-background-plum-hover: #960944; /** Plum background color hover */
+  --hpe-color-background-plum-strong: #17020b; /** Strong background color */
 }
 }
 
@@ -313,8 +313,8 @@ module.exports = {
  */
 
 :root {
-  --hpe-spacing-medium: 96px; /* Medium spacing value */
-  --hpe-fontSize-large: 1.5rem; /* Large font size */
+  --hpe-spacing-medium: 96px; /** Medium spacing value */
+  --hpe-fontSize-large: 1.5rem; /** Large font size */
 }`;
     expect(output).toBe(expectedOutput);
 
@@ -327,8 +327,8 @@ module.exports = {
 
 @media (max-width: 768px) {
 :root {
-  --hpe-spacing-medium: 72px; /* Medium spacing value */
-  --hpe-fontSize-large: 1.125rem; /* Large font size */
+  --hpe-spacing-medium: 72px; /** Medium spacing value */
+  --hpe-fontSize-large: 1.125rem; /** Large font size */
 }
 }
 `;
