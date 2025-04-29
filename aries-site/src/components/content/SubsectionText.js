@@ -29,19 +29,14 @@ const AccessibilityColorMap = accessibility => {
 
 export const SubsectionText = ({
   children,
-  level,
+  level = 2,
   size,
   accessibility,
   ...rest
 }) => (
   <StyledBox gap="xsmall" width="large" margin={{ bottom: 'medium' }}>
-    <Paragraph
-      size={size || TEXT_SIZE[level] || 'large'}
-      fill
-      margin="none"
-      {...rest}
-    >
-      <HighlightPhrase size={size || TEXT_SIZE[level] || 'large'}>
+    <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest}>
+      <HighlightPhrase size={size || TEXT_SIZE[level]}>
         {children}
       </HighlightPhrase>
     </Paragraph>
@@ -76,9 +71,4 @@ SubsectionText.propTypes = {
   ]),
   level: PropTypes.number,
   size: PropTypes.string,
-};
-
-SubsectionText.defaultProps = {
-  level: 2,
-  size: undefined,
 };
