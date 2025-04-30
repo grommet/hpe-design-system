@@ -260,13 +260,13 @@
   {
     "rule": "2.4.11",
     "label": "Focus Not Obscured (Minimum)",
-    "status": "failed",
-    "notes": "in a very small screen (320px width) the focus on the search inside the drop gets cut out."
+    "status": "passed"
   },
   {
     "rule": "2.4.12",
     "label": "Focus Not Obscured (Enhanced)",
-    "status": "failed"
+    "status": "failed",
+    "notes": "in a very small screen (320px width) the focus on the search inside the drop gets cut out."
   },
   {
     "rule": "2.4.13",
