@@ -1375,6 +1375,7 @@ export const components = [
   },
   {
     name: 'RangeInput',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'The RangeInput component is a slider control that provides a handle the user can move along a continuum to select a value.',
@@ -1468,6 +1469,7 @@ export const components = [
   },
   {
     name: 'Skeleton',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Visualizations',
     description:
       'Skeletons are simplified placeholders mimicking the layout of content to be loaded, providing users with a visual preview while reducing perceived loading time.',

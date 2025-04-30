@@ -4,7 +4,17 @@ import { Box, ResponsiveContext, Text } from 'grommet';
 
 import { colors } from '../../themes/aries';
 
-export const UsageExample = ({ children, label, themeMode, pad, ...rest }) => {
+export const UsageExample = ({
+  children,
+  label,
+  themeMode,
+  pad = {
+    horizontal: 'large',
+    vertical: 'large',
+    small: { horizontal: 'xlarge', vertical: 'xlarge' },
+  },
+  ...rest
+}) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
@@ -45,14 +55,4 @@ UsageExample.propTypes = {
       vertical: PropTypes.string,
     }),
   ]),
-};
-
-UsageExample.defaultProps = {
-  pad: {
-    horizontal: 'large',
-    vertical: 'large',
-    small: { horizontal: 'xlarge', vertical: 'xlarge' },
-  },
-  label: undefined,
-  themeMode: undefined,
 };
