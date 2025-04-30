@@ -1294,7 +1294,7 @@ export default {
   },
   "hpe.color.border.selected": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#006750",
     "$description": "Selected border color. Used for ‘selected’ state.",
     "$extensions": {
       "com.figma": {
@@ -1310,7 +1310,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.700}",
+      "$value": "{color.foreground.primary.DEFAULT.REST}",
       "$description": "Selected border color. Used for ‘selected’ state.",
       "$extensions": {
         "com.figma": {
@@ -4068,7 +4068,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.10": {
     "$type": "color",
-    "$value": "#01a982",
+    "$value": "#3c3aa1",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4083,7 +4083,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.green1}",
+      "$value": "{base.color.dataVis.purple2}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4115,7 +4115,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.20": {
     "$type": "color",
-    "$value": "#00384d",
+    "$value": "#b0840d",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4130,7 +4130,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.darkblue1}",
+      "$value": "{base.color.dataVis.gold1}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4162,7 +4162,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.30": {
     "$type": "color",
-    "$value": "#bd8d09",
+    "$value": "#a95589",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4177,7 +4177,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.gold1}",
+      "$value": "{base.color.dataVis.pink1}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4209,7 +4209,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.40": {
     "$type": "color",
-    "$value": "#7022ec",
+    "$value": "#2053d9",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4224,7 +4224,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.purple1}",
+      "$value": "{base.color.dataVis.blue1}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4256,7 +4256,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.50": {
     "$type": "color",
-    "$value": "#3e92cc",
+    "$value": "#a78972",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4271,7 +4271,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.lightblue1}",
+      "$value": "#a78972",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4303,7 +4303,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.60": {
     "$type": "color",
-    "$value": "#a70179",
+    "$value": "#7022ec",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4318,7 +4318,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.pink1}",
+      "$value": "{base.color.dataVis.purple1}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4350,7 +4350,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.70": {
     "$type": "color",
-    "$value": "#01609f",
+    "$value": "#38819c",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4365,7 +4365,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.blue1}",
+      "$value": "{base.color.dataVis.darkblue2}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4397,7 +4397,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.80": {
     "$type": "color",
-    "$value": "#7800a7",
+    "$value": "#470d69",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4524,7 +4524,7 @@ export default {
   },
   "hpe.color.foreground.primary": {
     "$type": "color",
-    "$value": "#01a982",
+    "$value": "#006750",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4541,7 +4541,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.brand}",
+      "$value": "{base.color.green.800}",
       "$description": "",
       "$extensions": {
         "com.figma": {

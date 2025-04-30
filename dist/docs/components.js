@@ -4901,7 +4901,7 @@ export default {
   },
   "hpe.select.default.option.marker.rest.background": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#006750",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4948,7 +4948,7 @@ export default {
   },
   "hpe.select.default.option.marker.hover.background": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#006750",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -20929,7 +20929,7 @@ export default {
   },
   "hpe.button.toolbar.selected.rest.borderColor": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#006750",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -21167,7 +21167,7 @@ export default {
   },
   "hpe.button.toolbar.selected.hover.borderColor": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#006750",
     "$description": "",
     "$extensions": {
       "com.figma": {

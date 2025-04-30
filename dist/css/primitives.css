@@ -58,7 +58,7 @@
   --hpe-base-color-green-125: #aafade;
   --hpe-base-color-green-400: #17eba0;
   --hpe-base-color-green-450: #00ebb5;
-  --hpe-base-color-green-500: #17d0a6;
+  --hpe-base-color-green-500: #1ed8ae;
   --hpe-base-color-green-600: #01a982; /** HPE Brand */
   --hpe-base-color-green-650: #009a71;
   --hpe-base-color-green-700: #008567;
@@ -108,18 +108,18 @@
   --hpe-base-color-dataVis-green1: #01a982;
   --hpe-base-color-dataVis-darkblue1: #00384d;
   --hpe-base-color-dataVis-purple1: #7022ec;
-  --hpe-base-color-dataVis-gold1: #bd8d09;
-  --hpe-base-color-dataVis-lightblue1: #3e92cc;
-  --hpe-base-color-dataVis-pink1: #a70179;
-  --hpe-base-color-dataVis-blue1: #01609f;
-  --hpe-base-color-dataVis-grape1: #7800a7;
-  --hpe-base-color-dataVis-darkblue2: #006f99;
-  --hpe-base-color-dataVis-purple2: #803bee;
-  --hpe-base-color-dataVis-gold2: #c0910e;
+  --hpe-base-color-dataVis-gold1: #b0840d;
+  --hpe-base-color-dataVis-lightblue1: #5c91e5;
+  --hpe-base-color-dataVis-pink1: #a95589;
+  --hpe-base-color-dataVis-blue1: #2053d9;
+  --hpe-base-color-dataVis-grape1: #470d69;
+  --hpe-base-color-dataVis-darkblue2: #38819c;
+  --hpe-base-color-dataVis-purple2: #3c3aa1;
+  --hpe-base-color-dataVis-gold2: #bd9d48;
   --hpe-base-color-dataVis-lightblue2: #78bff0;
-  --hpe-base-color-dataVis-pink2: #ba2880;
+  --hpe-base-color-dataVis-pink2: #c0649a;
   --hpe-base-color-dataVis-blue2: #1f95e4;
-  --hpe-base-color-dataVis-purple3: #9a3ac0;
+  --hpe-base-color-dataVis-purple3: #855aaa;
   --hpe-base-fontFamily-MetricHPEXS: MetricHPEXS;
   --hpe-base-fontFamily-code: Fira Mono;
   --hpe-base-fontFamily-primary: MetricHPEXS;

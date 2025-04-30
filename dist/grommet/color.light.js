@@ -36,7 +36,7 @@ export default {
         "default": "rgba(0, 0, 0, 0.36)",
         "weak": "rgba(0, 0, 0, 0.12)",
         "disabled": "rgba(0, 0, 0, 0.12)",
-        "selected": "#008567",
+        "selected": "#006750",
         "critical": "#cc1f1a",
         "info": "rgba(0, 0, 0, 0.36)",
         "ok": "rgba(0, 0, 0, 0.36)",
@@ -103,19 +103,19 @@ export default {
         "neutral-hover": "#757575"
       },
       "dataVis": {
-        "categorical-10": "#01a982",
-        "categorical-20": "#00384d",
-        "categorical-30": "#bd8d09",
-        "categorical-40": "#7022ec",
-        "categorical-50": "#3e92cc",
-        "categorical-60": "#a70179",
-        "categorical-70": "#01609f",
-        "categorical-80": "#7800a7"
+        "categorical-10": "#3c3aa1",
+        "categorical-20": "#b0840d",
+        "categorical-30": "#a95589",
+        "categorical-40": "#2053d9",
+        "categorical-50": "#a78972",
+        "categorical-60": "#7022ec",
+        "categorical-70": "#38819c",
+        "categorical-80": "#470d69"
       },
       "transparent": "rgba(0, 0, 0, 0)",
       "focus": "#004233",
       "foreground": {
-        "primary": "#01a982",
+        "primary": "#006750",
         "critical": "#ec3331",
         "warning": "#d36d00",
         "unknown": "#8c8c8c"
