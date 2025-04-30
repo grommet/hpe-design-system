@@ -266,7 +266,7 @@
   {
     "rule": "2.4.12",
     "label": "Focus Not Obscured (Enhanced)",
-    "status": "passed"
+    "status": "failed"
   },
   {
     "rule": "2.4.13",
