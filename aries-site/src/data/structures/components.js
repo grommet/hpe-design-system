@@ -622,7 +622,7 @@ export const components = [
   {
     name: 'SelectMultiple',
     category: 'Inputs',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     description:
       'SelectMultiple is a dropdown component that enables the user to quickly scan the list of options and choose more than one of the options.',
     seoDescription:
