@@ -149,12 +149,12 @@
           }
         }
       },
-      "ok": {
+      "info": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#e3fdf4",
-            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+            "$value": "#e0f8ff",
+            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -181,12 +181,12 @@
           }
         }
       },
-      "warning": {
+      "ok": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#fff3dd",
-            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
+            "$value": "#e3fdf4",
+            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -197,12 +197,12 @@
           }
         }
       },
-      "info": {
+      "warning": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#e0f8ff",
-            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+            "$value": "#fff3dd",
+            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -407,7 +407,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.700}",
+            "$value": "{color.foreground.primary.DEFAULT.REST}",
             "$description": "Selected border color. Used for ‘selected’ state.",
             "$extensions": {
               "com.figma": {
@@ -1326,7 +1326,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.green1}",
+              "$value": "{base.color.dataVis.purple2}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1342,7 +1342,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.darkblue1}",
+              "$value": "{base.color.dataVis.gold1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1358,7 +1358,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.gold1}",
+              "$value": "{base.color.dataVis.pink1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1374,7 +1374,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.purple1}",
+              "$value": "{base.color.dataVis.blue1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1390,7 +1390,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.lightblue1}",
+              "$value": "#a78972",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1406,7 +1406,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.pink1}",
+              "$value": "{base.color.dataVis.purple1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1422,7 +1422,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.dataVis.blue1}",
+              "$value": "{base.color.dataVis.darkblue2}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1481,7 +1481,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.brand}",
+            "$value": "{base.color.green.800}",
             "$description": "",
             "$extensions": {
               "com.figma": {

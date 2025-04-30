@@ -29,7 +29,7 @@ const AccessibilityColorMap = accessibility => {
 
 export const SubsectionText = ({
   children,
-  level,
+  level = 2,
   size,
   accessibility,
   ...rest
@@ -71,9 +71,4 @@ SubsectionText.propTypes = {
   ]),
   level: PropTypes.number,
   size: PropTypes.string,
-};
-
-SubsectionText.defaultProps = {
-  level: 2,
-  size: undefined,
 };
