@@ -2390,6 +2390,9 @@ const buildTheme = (tokens, flags) => {
         // page elements.
         extend: () => `
         padding-bottom: ${localDimension.hpe.borderWidth.medium};
+        & button {
+          border-radius: ${localDimension.hpe.radius.xxsmall};
+        }
         & button[aria-selected="true"] {
             position: relative;
             &::before {
