@@ -17,7 +17,7 @@
     "react-dom": "^19.1.0",
     "react-gsap": "^3.2.1",
     "react-router-dom": "^7.5.2",
-    "styled-components": "5.3.11"
+    "styled-components": "^6.1.17"
   },
   "devDependencies": {
     "@types/react": "^19.1.2",
