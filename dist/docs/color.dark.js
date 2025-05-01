@@ -482,10 +482,10 @@ export default {
     ],
     "key": "{color.background.screenOverlay.DEFAULT.REST}"
   },
-  "hpe.color.background.info": {
+  "hpe.color.background.warning": {
     "$type": "color",
-    "$value": "#1e363d",
-    "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+    "$value": "#3c361e",
+    "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -500,8 +500,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#1e363d",
-      "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+      "$value": "#3c361e",
+      "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -513,70 +513,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.info",
+    "name": "hpe.color.background.warning",
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "info",
+      "item": "warning",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "info",
+      "warning",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.background.info.DEFAULT.REST}"
-  },
-  "hpe.color.background.unknown": {
-    "$type": "color",
-    "$value": "rgba(255, 255, 255, 0.06)",
-    "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity6}",
-      "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.unknown",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "unknown",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "unknown",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.background.unknown.DEFAULT.REST}"
+    "key": "{color.background.warning.DEFAULT.REST}"
   },
   "hpe.color.background.ok": {
     "$type": "color",
@@ -626,54 +578,6 @@ export default {
     ],
     "key": "{color.background.ok.DEFAULT.REST}"
   },
-  "hpe.color.background.warning": {
-    "$type": "color",
-    "$value": "#3c361e",
-    "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#3c361e",
-      "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.warning",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "warning",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "warning",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.background.warning.DEFAULT.REST}"
-  },
   "hpe.color.background.critical": {
     "$type": "color",
     "$value": "#552120",
@@ -721,6 +625,102 @@ export default {
       "REST"
     ],
     "key": "{color.background.critical.DEFAULT.REST}"
+  },
+  "hpe.color.background.unknown": {
+    "$type": "color",
+    "$value": "rgba(255, 255, 255, 0.06)",
+    "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.white.opacity6}",
+      "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.unknown",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "unknown",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "unknown",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.unknown.DEFAULT.REST}"
+  },
+  "hpe.color.background.info": {
+    "$type": "color",
+    "$value": "#1e363d",
+    "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#1e363d",
+      "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.info",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "info",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "info",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.info.DEFAULT.REST}"
   },
   "hpe.color.background.primary.strong": {
     "$type": "color",
@@ -4083,7 +4083,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#7372cF",
+      "$value": "#7372cf",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4365,7 +4365,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#4d8dA8",
+      "$value": "#4d8da8",
       "$description": "",
       "$extensions": {
         "com.figma": {

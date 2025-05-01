@@ -4759,7 +4759,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#Bd9d48",
+      "$value": "#bd9d48",
       "$description": "",
       "$extensions": {
         "com.figma": {
