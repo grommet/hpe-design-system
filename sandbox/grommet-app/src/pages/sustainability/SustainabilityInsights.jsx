@@ -106,7 +106,7 @@ const EnergyConsumption = () => {
       level={2}
       border={{
         side: 'top',
-        color: 'graph-2',
+        color: 'graph-1',
         size: !open ? 'medium' : 'none',
       }}
       {...(skeleton ? skeletonProps : {})}
@@ -121,7 +121,7 @@ const EnergyConsumption = () => {
         <Metric value={325000} unit="kWh" />
         <Collapsible open={open}>
           <Box gap="medium">
-            <Legend label="Energy consumption (kWh)" color="graph-2" />
+            <Legend label="Energy consumption (kWh)" color="graph-1" />
             {!skeleton ? (
               <DataChart
                 data={mockData.sustainability.slice(0, 10)}
@@ -141,13 +141,13 @@ const EnergyConsumption = () => {
                     property: 'energy',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: { color: 'graph-2', opacity: 'strong' },
+                    color: { color: 'graph-1', opacity: 'strong' },
                   },
                   {
                     property: 'energy',
                     type: 'line',
                     thickness: 'xxsmall',
-                    color: 'graph-2',
+                    color: 'graph-1',
                     round: true,
                   },
                 ]}
@@ -177,7 +177,7 @@ const EnergyCost = () => {
       level={2}
       border={{
         side: 'top',
-        color: 'graph-4',
+        color: 'graph-2',
         size: !open ? 'medium' : 'none',
       }}
       {...(skeleton ? skeletonProps : {})}
@@ -196,7 +196,7 @@ const EnergyCost = () => {
         />
         <Collapsible open={open}>
           <Box gap="medium">
-            <Legend label="Energy cost (USD)" color="graph-4" />
+            <Legend label="Energy cost (USD)" color="graph-2" />
             {!skeleton ? (
               <DataChart
                 data={mockData.sustainability.slice(0, 10)}
@@ -216,13 +216,13 @@ const EnergyCost = () => {
                     property: 'cost',
                     type: 'area',
                     thickness: 'xsmall',
-                    color: { color: 'graph-4', opacity: 'strong' },
+                    color: { color: 'graph-2', opacity: 'strong' },
                   },
                   {
                     property: 'cost',
                     type: 'line',
                     thickness: 'xxsmall',
-                    color: 'graph-4',
+                    color: 'graph-2',
                     round: true,
                   },
                 ]}
