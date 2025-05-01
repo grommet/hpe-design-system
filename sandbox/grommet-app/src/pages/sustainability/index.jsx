@@ -25,10 +25,10 @@ function Sustainability() {
           parent={<Anchor as={Link} to="/" label="Home" icon={<Previous />} />}
           actions={<Button label="Export report" secondary />}
         />
-        <Box gap="medium" animation="fadeIn">
+        <Box animation="fadeIn">
           <Tabs alignControls="start">
             <Tab title="Insights">
-              <Box pad={{ vertical: 'medium' }}>
+              <Box pad={{ vertical: 'medium' }} gap="xlarge">
                 <SustainabilityInsights />
                 <ContentPane heading="Devices" level={2}>
                   <Devices />

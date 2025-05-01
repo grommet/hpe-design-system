@@ -1,13 +1,13 @@
-import React from "react";
-import { Box } from "grommet";
-import { DashboardCard, Metric } from "../../../../components";
+import React from 'react';
+import { Box } from 'grommet';
+import { DashboardCard, Metric } from '../../../../components';
 
 export const PerformanceSummary = ({ size, ...rest }) => {
   return (
     <DashboardCard
       title="Performance"
       subtitle="Last hour average"
-      level={3}
+      level={2}
       hideCta
       icon={null}
       external={null}
