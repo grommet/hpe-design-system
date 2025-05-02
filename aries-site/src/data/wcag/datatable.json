@@ -128,8 +128,8 @@
   {
     "rule": "1.4.6",
     "label": "Contrast (Enhanced)",
-    "status": "passed",
-    "notes": ""
+    "status": "failed",
+    "notes": "unit color is not passing the 4.5:1 contrast ratio requirement against the white background."
   },
   {
     "rule": "1.4.7",
@@ -158,8 +158,8 @@
   {
     "rule": "1.4.11",
     "label": "Non-text Contrast",
-    "status": "passed",
-    "notes": ""
+    "status": "failed",
+    "notes": "in the case where the datatable has clickable rows the color rgba (0, 0, 0, 0.04) is not sufficient contrast against the white background to meet the 3:1 contrast ratio requirement."
   },
   {
     "rule": "1.4.12",
