@@ -3,7 +3,7 @@
     "rule": "1.1.1",
     "label": "Non-text content",
     "status": "failed",
-    "notes": "Header sort buttons and search need better a11y text"
+    "notes": "Header sort buttons and search need better a11y text as well group expand/collapse buttons"
   },
   {
     "rule": "1.2.1",
@@ -86,13 +86,13 @@
   {
     "rule": "1.3.5",
     "label": "Identify Input Purpose",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "1.3.6",
     "label": "Identify Purpose",
-    "status": "not-applicable",
+    "status": "passed",
     "notes": ""
   },
   {
@@ -332,14 +332,14 @@
   {
     "rule": "2.5.1",
     "label": "Pointer Gestures",
-    "status": "not-applicable",
+    "status": "failed",
     "notes": ""
   },
   {
     "rule": "2.5.2",
     "label": "Pointer Cancellation",
     "status": "passed",
-    "notes": ""
+    "notes": "user can't operate the resize column control"
   },
   {
     "rule": "2.5.3",
