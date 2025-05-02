@@ -1486,6 +1486,7 @@ export const components = [
   },
   {
     name: 'DataTable',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Visualizations',
     description: 'DataTable presents data in a column and row format.',
     preview: {
