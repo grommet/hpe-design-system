@@ -164,8 +164,8 @@
   {
     "rule": "1.4.12",
     "label": "Text Spacing",
-    "status": "not-applicable",
-    "notes": ""
+    "status": "failed",
+    "notes": "heading text can overlap the search button in the header"
   },
   {
     "rule": "1.4.13",
