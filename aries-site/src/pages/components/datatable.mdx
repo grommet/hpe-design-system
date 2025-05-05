@@ -1,5 +1,5 @@
 import { Anchor, Box, Image } from 'grommet';
-import { Example } from '../../layouts';
+import { Example, AccessibilitySection } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
   PaginationTableExample,
@@ -211,16 +211,6 @@ For empty cells, add an `a11yTitle="No value"` to the Text component that would 
   <DataTableEmptyCellExample />
 </Example>
 
-### Accessibility
-
-To ensure screen readers are able to associate a page heading with a given DataTable, apply an `id` to the Heading and `aria-describedBy` to the DataTable, where the same string value is applied to both attributes. When a screen reader reaches the data table, it will announce the Heading content which provides the user with better context about the table data and purpose.
-
-For example, if on the Heading you apply `id="storage-pools-heading"`, on the DataTable you would apply `aria-describedBy="storage-pools-heading"`. In this example, the screen reader would properly associate "Storage Pools" as the description for the DataTable.
-
-```
-<Heading id="storage-pools-heading">Storage pools</Heading>
-<DataTable aria-describedBy="storage-pools-heading" />
-```
 
 ### Status and state
 
@@ -441,6 +431,20 @@ When a column has multi-line data, it may improve readability to align the data 
 >
   <DataTableVerticalListExample />
 </Example>
+
+## Accessibility
+To ensure screen readers are able to associate a page heading with a given DataTable, apply an `id` to the Heading and `aria-describedBy` to the DataTable, where the same string value is applied to both attributes. When a screen reader reaches the data table, it will announce the Heading content which provides the user with better context about the table data and purpose.
+
+For example, if on the Heading you apply `id="storage-pools-heading"`, on the DataTable you would apply `aria-describedBy="storage-pools-heading"`. In this example, the screen reader would properly associate "Storage Pools" as the description for the DataTable.
+
+```
+<Heading id="storage-pools-heading">Storage pools</Heading>
+<DataTable aria-describedBy="storage-pools-heading" />
+```
+### WCAG compliance
+  <AccessibilitySection title='datatable' />
+
+
 
 {/* To be added. Placeholders for future content. */}
 
