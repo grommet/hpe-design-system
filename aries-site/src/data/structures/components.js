@@ -446,7 +446,7 @@ export const components = [
     description: 'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [
       'About TextInput',
       'Password',
@@ -1176,7 +1176,7 @@ export const components = [
       'MaskedInput allows you to specify formatted text within a form field.',
     seoDescription:
       'MaskedInput allows you to specify formatted text within a form field.',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [
       'IP Address',
       'IP Range',
@@ -1782,7 +1782,7 @@ export const components = [
     category: 'Controls',
     description:
       'A group of related buttons that enable the user to toggle one or more options on or off.',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     preview: {
       component: () => <ToggleGroupPreview />,
     },

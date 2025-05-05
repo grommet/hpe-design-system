@@ -152,8 +152,8 @@
   {
     "rule": "1.4.10",
     "label": "Reflow",
-    "status": "failed",
-    "notes": "Unable to access calendar when scrolling on small viewport"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.4.11",
