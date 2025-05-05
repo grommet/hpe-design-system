@@ -23,7 +23,7 @@ function Sustainability() {
         <PageHeader
           title="Sustainability Insight Center"
           parent={<Anchor as={Link} to="/" label="Home" icon={<Previous />} />}
-          actions={<Button label="Export report" secondary />}
+          actions={<Button label="Export report" primary />}
         />
         <Box animation="fadeIn">
           <Tabs alignControls="start">

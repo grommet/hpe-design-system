@@ -48,9 +48,7 @@ export const GlobalHeader = ({
           justify="between"
           align="center"
           background={
-            activeTheme === 'v1'
-              ? 'background-primary-xstrong'
-              : 'background-front'
+            activeTheme === 'v1' ? 'background-front' : 'background-front'
           }
           elevation={activeTheme === 'v1' ? 'none' : 'small'}
           pad={{ horizontal: '3xsmall', vertical: 'xsmall' }}
@@ -64,7 +62,7 @@ export const GlobalHeader = ({
               <Box height="32px" width="90px" align="start">
                 <Image
                   src={`/hpe_greenlake_grn_${
-                    activeTheme === 'v0' && !theme.dark ? 'pos' : 'rev'
+                    !theme.dark ? 'pos' : 'rev'
                   }_rgb.svg`}
                   fit="contain"
                   alt="HPE GreenLake badge"

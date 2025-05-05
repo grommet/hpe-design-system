@@ -4,7 +4,7 @@
       "default": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.grey.1300}",
+          "$value": "#292D3A",
           "$description": "Default background color to be used on containers.",
           "$extensions": {
             "com.figma": {
@@ -19,7 +19,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.grey.1300}",
+            "$value": "#1D1F27",
             "$description": "Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on.",
             "$extensions": {
               "com.figma": {
@@ -35,7 +35,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.grey.1200}",
+            "$value": "#292D3A",
             "$description": "Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table.",
             "$extensions": {
               "com.figma": {
@@ -51,7 +51,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.grey.1100}",
+            "$value": "{color.background.front.DEFAULT.REST}",
             "$description": "Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers",
             "$extensions": {
               "com.figma": {
@@ -260,6 +260,34 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.green.1000}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "secondary": {
+        "strong": {
+          "REST": {
+            "$type": "color",
+            "$value": "#FFFFFF",
+            "$description": "The strong variant of background-cta.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "#D4D4D4",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -580,6 +608,22 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.white.100}",
+            "$description": "Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "onSecondaryStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "#292D3A",
             "$description": "Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility.",
             "$extensions": {
               "com.figma": {
@@ -1102,6 +1146,22 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.white.100}",
+            "$description": "Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "onSecondaryStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{color.text.onSecondaryStrong.DEFAULT.REST}",
             "$description": "Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios.",
             "$extensions": {
               "com.figma": {

@@ -594,7 +594,7 @@ const buildTheme = (tokens, flags) => {
       font: {
         family: global.hpe.fontStack.primary,
         face: `
-          @font-face {
+        @font-face {
             font-family: "Metric";
             src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff2") format('woff2'),
                  url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Regular.woff") format('woff');
@@ -627,6 +627,35 @@ const buildTheme = (tokens, flags) => {
             font-family: "Metric";
             src: url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Light.woff2") format('woff2'),
                  url("https://www.hpe.com/content/dam/hpe/fonts/metric-hpe-web/MetricHPE-Web-Light.woff") format('woff');
+            font-weight: 100;
+          }
+          @font-face {
+            font-family: "Graphik";
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Regular-Web.woff2") format('woff2');
+          }
+          @font-face {
+            font-family: "Graphik";
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Regular-Web.woff2") format('woff2');
+            font-weight: 400;
+          }
+          @font-face {
+            font-family: "Graphik";
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Bold-Web.woff2") format('woff2');
+            font-weight: 700;
+          }
+          @font-face {
+            font-family: "Graphik";
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Semibold-Web.woff2") format('woff2');
+            font-weight: 600;
+          }
+          @font-face {
+            font-family: "Graphik";
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Medium-Web.woff2") format('woff2');
+            font-weight: 500;
+          }
+          @font-face {
+            font-family: "Graphik";
+            src: url("https://www.hpe.com/content/dam/hpe/fonts/graphik/HPEGraphik-Extralight-Web.woff2") format('woff2');
             font-weight: 100;
           }`,
         size: large.hpe.text.medium.fontSize,
@@ -897,8 +926,14 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
-      extend: ({ colorValue, theme }) => {
+      extend: ({ colorValue, theme, kind }) => {
         let style = '';
+        if (kind === 'primary') {
+          style += `color: ${getThemeColor(
+            'text-onSecondaryStrong',
+            theme,
+          )} !important;`;
+        }
         if (colorValue) {
           // color prop is not recommended to be used, but providing
           // a better fallback behavior for hover styles to avoid

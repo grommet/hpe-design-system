@@ -51,7 +51,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.white.100}",
+            "$value": "{color.background.front.DEFAULT.REST}",
             "$description": "Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers",
             "$extensions": {
               "com.figma": {
@@ -121,7 +121,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.black.opacity4}",
+            "$value": "#d4d8d8",
             "$description": "Disabled background color. Using disabled colors ensures that disabled components are consistently styled.",
             "$extensions": {
               "com.figma": {
@@ -327,6 +327,34 @@
           }
         }
       },
+      "secondary": {
+        "strong": {
+          "REST": {
+            "$type": "color",
+            "$value": "#292D3A",
+            "$description": "The strong variant of background-cta.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "#535C66",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
       "neutral": {
         "xstrong": {
           "REST": {
@@ -391,7 +419,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.black.opacity12}",
+            "$value": "#d4d8d8",
             "$description": "Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled.",
             "$extensions": {
               "com.figma": {
@@ -504,7 +532,7 @@
       "default": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.grey.800}",
+          "$value": "#67686e",
           "$description": "Default text color that is accessible on standard background colors.",
           "$extensions": {
             "com.figma": {
@@ -518,7 +546,7 @@
       "strong": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.grey.1000}",
+          "$value": "#292d3a",
           "$description": "Emphasized text color for increased visual prominence.",
           "$extensions": {
             "com.figma": {
@@ -563,7 +591,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.black.opacity24}",
+            "$value": "#a0a2a8",
             "$description": "Disabled color for text. Using disabled colors ensures that disabled components are consistently styled.",
             "$extensions": {
               "com.figma": {
@@ -576,6 +604,22 @@
         }
       },
       "onPrimaryStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.white.100}",
+            "$description": "Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["TEXT_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "onSecondaryStrong": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
@@ -946,7 +990,7 @@
       "default": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.grey.800}",
+          "$value": "{color.text.default.REST}",
           "$description": "Default icon color that is accessible on standard background colors.",
           "$extensions": {
             "com.figma": {
@@ -960,7 +1004,7 @@
       "strong": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.grey.1000}",
+          "$value": "{color.text.strong.REST}",
           "$description": "Emphasized icon color for increased visual prominence.",
           "$extensions": {
             "com.figma": {
@@ -989,7 +1033,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.black.opacity24}",
+            "$value": "{color.text.disabled.DEFAULT.REST}",
             "$description": "Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled.",
             "$extensions": {
               "com.figma": {
@@ -1102,6 +1146,22 @@
           "REST": {
             "$type": "color",
             "$value": "{base.color.white.100}",
+            "$description": "Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "onSecondaryStrong": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{color.text.onSecondaryStrong.DEFAULT.REST}",
             "$description": "Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios.",
             "$extensions": {
               "com.figma": {
