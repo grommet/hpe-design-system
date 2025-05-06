@@ -449,6 +449,11 @@ const graphColorsLight = [
     value: colors['graph-6'].light,
     hex: colors['graph-6'].light,
   },
+  {
+    name: 'graph-7',
+    value: colors['graph-7'].light,
+    hex: colors['graph-7'].light,
+  },
 ];
 
 const graphColorsDark = [
@@ -486,6 +491,11 @@ const graphColorsDark = [
     name: 'graph-6',
     value: colors['graph-6'].dark,
     hex: colors['graph-6'].dark,
+  },
+  {
+    name: 'graph-7',
+    value: colors['graph-7'].dark,
+    hex: colors['graph-7'].dark,
   },
 ];
 
