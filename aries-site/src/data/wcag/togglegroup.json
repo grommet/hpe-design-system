@@ -109,8 +109,8 @@
   {
     "rule": "1.4.13",
     "label": "Content on Hover or Focus",
-    "status": "failed",
-    "notes": "With tip, the pointer reveals the tip, however when cursor tries to move over the tip, it disappears. Hover and focus states indicated by background color and border are okay."
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.1.1",
