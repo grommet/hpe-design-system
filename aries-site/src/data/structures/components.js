@@ -575,6 +575,7 @@ export const components = [
   },
   {
     name: 'Select',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'Select is a flexible input field that allows users to choose from a list of options.',
