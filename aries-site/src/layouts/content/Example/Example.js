@@ -198,7 +198,10 @@ export const Example = ({
       // using "border" treatement to create separation from page background
       // a rare case when border is used to define page sections
       border={
-        exampleControls && !horizontalLayout
+        // eslint-disable-next-line no-nested-ternary
+        plain
+          ? undefined
+          : exampleControls && !horizontalLayout
           ? [
               {
                 side: 'top',

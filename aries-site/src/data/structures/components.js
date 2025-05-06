@@ -410,7 +410,7 @@ export const components = [
       'TextArea is a field used in forms to capture longer text. This component provides the user with space to type more characters than the TextInput field.',
     seoDescription:
       'When you need to allow the user to provide longer forms of content, use a TextArea component.',
-      accessibility: 'Passed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [],
     preview: {
       component: () => <TextAreaPreview />,
@@ -446,7 +446,7 @@ export const components = [
     description: 'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [
       'About TextInput',
       'Password',
@@ -546,7 +546,7 @@ export const components = [
       'Search is a field that allows a user to input keywords for content they are looking for.',
     seoDescription:
       'See HPE Design System Search input design and code examples.',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [
       'Placeholder',
       'Auto-suggestions',
@@ -622,6 +622,7 @@ export const components = [
   {
     name: 'SelectMultiple',
     category: 'Inputs',
+    accessibility: 'Failed WCAG 2.2 AA',
     description:
       'SelectMultiple is a dropdown component that enables the user to quickly scan the list of options and choose more than one of the options.',
     seoDescription:
@@ -787,6 +788,7 @@ export const components = [
       'Header is a Box with a set of preset properties for introductory content.',
     seoDescription:
       'Header is a Box with a set of preset properties for introductory content.',
+    accessibility: 'Passed WCAG 2.2 AAA',
     sections: [
       'About Header',
       'Application Header',
@@ -900,6 +902,7 @@ export const components = [
   },
   {
     name: 'Box',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'Boxes are containers that drive the layout of your content. Flexible props allow the behavior of content to be defined to optimize the user experience.',
@@ -977,6 +980,7 @@ export const components = [
   {
     name: 'Layer',
     category: 'Layouts',
+    accessibility: 'Passed WCAG 2.2 AA',
     description:
       'Layer is a component allowing content to be displayed on top of the page the user is currently on.',
     previewComponent: {
@@ -1147,6 +1151,7 @@ export const components = [
   },
   {
     name: 'Main',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'The Main component is where you define the location and layout of the primary context of your content.',
@@ -1171,7 +1176,7 @@ export const components = [
       'MaskedInput allows you to specify formatted text within a form field.',
     seoDescription:
       'MaskedInput allows you to specify formatted text within a form field.',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [
       'IP Address',
       'IP Range',
@@ -1215,6 +1220,7 @@ export const components = [
   },
   {
     name: 'NameValueList',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description: 'A NameValueList displays a group of NameValuePairs.',
     seoDescription: 'A NameValueList displays a group of NameValuePairs.',
@@ -1290,6 +1296,7 @@ export const components = [
     designs, and guidance for how HPE applications can deliver end users 
     confidence and assurance by keeping them informed with timely, relevant 
     status of their systems and tasks.`,
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'State v.s. Status',
       'Notification Systems',
@@ -1369,6 +1376,7 @@ export const components = [
   },
   {
     name: 'RangeInput',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'The RangeInput component is a slider control that provides a handle the user can move along a continuum to select a value.',
@@ -1405,6 +1413,7 @@ export const components = [
   },
   {
     name: 'Spinner',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description:
       'Spinner is a small motion graphic element that indicates a loading state for quick, asynchronous tasks.',
@@ -1461,6 +1470,7 @@ export const components = [
   },
   {
     name: 'Skeleton',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Visualizations',
     description:
       'Skeletons are simplified placeholders mimicking the layout of content to be loaded, providing users with a visual preview while reducing perceived loading time.',
@@ -1476,6 +1486,7 @@ export const components = [
   },
   {
     name: 'DataTable',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Visualizations',
     description: 'DataTable presents data in a column and row format.',
     preview: {
@@ -1554,7 +1565,7 @@ export const components = [
   },
   {
     name: 'Pagination',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Controls',
     description: `Pagination enables the user to  navigate between pages
@@ -1771,7 +1782,7 @@ export const components = [
     category: 'Controls',
     description:
       'A group of related buttons that enable the user to toggle one or more options on or off.',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     preview: {
       component: () => <ToggleGroupPreview />,
     },

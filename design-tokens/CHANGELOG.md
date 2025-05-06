@@ -1,5 +1,26 @@
 # hpe-design-tokens
 
+## 1.3.0
+
+### Minor Changes
+
+- ead69c5: - Refined `dataVis.categorical` palette to remove use of green and avoid confusion with status-based charts.
+
+### Patch Changes
+
+- 833e765: - Fixed `color.foreground.primary`, `color.border.selected` to meet 4.5:1 contrast ratio on standard background colors.
+
+## 1.2.0
+
+### Minor Changes
+
+- 1ce78aa: - Added ability to scope subsection of page to specific theme mode.
+- a376d7a: - Updated `text.[size].maxWidth` from `25em` to `30em` to avoid prematurely wrapping; still adheres to WCAG AAA 80 character per line recommendation.
+
+### Patch Changes
+
+- bce1edc: - Updated `color.text.weak` to meet minimum 4.5:1 contrast ratio on supported standard background colors.
+
 ## 1.1.1
 
 ### Patch Changes
