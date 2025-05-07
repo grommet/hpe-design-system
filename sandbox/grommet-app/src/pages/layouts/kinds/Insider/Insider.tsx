@@ -1,10 +1,13 @@
 import React from 'react';
 import { 
+    Box,
+    dark,
     Page, 
     PageContent, 
     ThemeContext,
 } from 'grommet';
 import { Hero } from './Hero';
+import { Stories } from './Stories';
 
 export const Insider = () => {
     const theme = React.useContext(ThemeContext);
@@ -19,7 +22,14 @@ export const Insider = () => {
     const adjustedTheme = {
         global: {
             colors: {
-                'midnight-blue': '#1D1F27',
+                'bkg-component-primary': {
+                    light: '#FFFFFF',
+                    dark: '#1D1F27'
+                },
+                'bkg-card-primary': {
+                    light: '#F7F7F7',
+                    dark: '#292D3A'
+                }
             },
             edgeSize: {
                 '4xlarge': '96px',
@@ -33,6 +43,18 @@ export const Insider = () => {
                         height: '4.5rem',
                     }
                 },
+                2: {
+                    'xxlarge': {
+                        size: '4.5rem',
+                        height: '4.5rem',
+                    }
+                },
+                3: {
+                    'xxlarge': {
+                        size: '2.0rem',
+                        height: '2.5rem',
+                    }
+                },
             },
         }
     };
@@ -40,11 +62,23 @@ export const Insider = () => {
     return (
     <ThemeContext.Extend value={adjustedTheme}>
         <Page pad={{ bottom: '3xlarge' }}>
-            <PageContent 
-                background='midnight-blue'
-                pad='4xlarge'
+            <Box background={{dark: true}}>
+                <PageContent 
+                    background={{
+                        fill: 'horizontal', 
+                        color: 'bkg-component-primary'
+                    }}
+                >
+                    <Hero border={{style: 'dashed'}}/>
+                </PageContent>
+            </Box>
+            <PageContent
+                background={{
+                    fill: 'horizontal',
+                    color: 'bkg-component-primary'
+                }}
             >
-               <Hero />
+                <Stories border={{style: 'dashed'}}/>
             </PageContent>
         </Page>
     </ThemeContext.Extend>

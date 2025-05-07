@@ -8,17 +8,16 @@ import {
 } from 'grommet';
 import { LinkNext } from 'grommet-icons';
 
-export const Hero = () => {
+export const Hero = ({...rest}) => {
     return (
         <Grid 
-        border
         columns={['large', 'flex']}
         gap="3xlarge"
         pad={{ vertical: '4xlarge'}}
+        {...rest}
     >
         <Box 
             align='start' 
-            border
             gap="3xlarge"
         >
             <Box gap="xxlarge">
