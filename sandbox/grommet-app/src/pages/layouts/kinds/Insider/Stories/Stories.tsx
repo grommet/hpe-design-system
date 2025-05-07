@@ -1,6 +1,12 @@
 import React from "react";
 import { Box, Grid } from "grommet";
-import { CodeWars, EarningsQ2, HPEDiscover, HPENvidia } from "./stories/index";
+import { 
+    CelebrateTeam,
+    CodeWars, 
+    EarningsQ2, 
+    HPEDiscover, 
+    HPENvidia 
+} from "./stories/index";
 
 const areas = [
     ['story-1', 'story-1', 'story-2', 'story-2'],
@@ -25,9 +31,7 @@ export const Stories = ({...rest}) => {
             <HPENvidia gridArea="story-2" />
             <CodeWars gridArea="story-3" />
             <EarningsQ2 gridArea="story-4" />
-            <Box gridArea="story-5">
-                Story 5
-            </Box>
+            <CelebrateTeam gridArea="story-5" />
             <Box gridArea="story-6">
                 Story 6
             </Box>

@@ -21,7 +21,7 @@ export const StoryCard = ({
             <Box alignSelf="end" pad={pad}>
                 <Heading level={level} size={size} margin="none">{headline}</Heading>
                 <Paragraph>{description}</Paragraph>
-                <Anchor label={cta} icon={<LinkNext />} href={href} reverse />
+                <Anchor label={cta} icon={<LinkNext aria-label={undefined} />} href={href} reverse />
             </Box>
         </Box>
     );

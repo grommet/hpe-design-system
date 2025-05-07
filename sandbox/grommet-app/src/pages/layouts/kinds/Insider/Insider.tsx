@@ -69,7 +69,7 @@ export const Insider = () => {
                         color: 'bkg-component-primary'
                     }}
                 >
-                    <Hero border={{style: 'dashed'}}/>
+                    <Hero as="section" border={{style: 'dashed'}}/>
                 </PageContent>
             </Box>
             <PageContent
