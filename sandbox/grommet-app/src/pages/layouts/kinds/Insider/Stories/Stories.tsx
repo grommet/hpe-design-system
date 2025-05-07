@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Grid } from "grommet";
-import { HPEDiscover, HPENvidia } from "./stories/index";
+import { CodeWars, HPEDiscover, HPENvidia } from "./stories/index";
 
 const areas = [
     ['story-1', 'story-1', 'story-2', 'story-2'],
@@ -8,7 +8,7 @@ const areas = [
 ];
 
 const columns = ['flex', 'flex', 'flex', 'flex'];
-const rows = [['large', 'auto'], ['large', 'auto']];
+const rows = [['large', 'auto'], ['small', 'auto']];
 const gap = 'xxlarge';
 
 export const Stories = ({...rest}) => {
@@ -23,9 +23,7 @@ export const Stories = ({...rest}) => {
         >
             <HPEDiscover gridArea="story-1" />
             <HPENvidia gridArea="story-2" />
-            <Box gridArea="story-3">
-                Story 3
-            </Box>
+            <CodeWars gridArea="story-3" />
             <Box gridArea="story-4">
                 Story 4
             </Box>

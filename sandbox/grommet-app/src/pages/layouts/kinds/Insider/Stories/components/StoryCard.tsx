@@ -10,6 +10,7 @@ export const StoryCard = ({
     image, 
     level, 
     size,
+    pad = 'xxlarge',
     ...rest
 }) => {
     return (
@@ -17,7 +18,7 @@ export const StoryCard = ({
             <Box flex justify="center">
                 {image}
             </Box>
-            <Box alignSelf="end" pad="xxlarge">
+            <Box alignSelf="end" pad={pad}>
                 <Heading level={level} size={size} margin="none">{headline}</Heading>
                 <Paragraph>{description}</Paragraph>
                 <Anchor label={cta} icon={<LinkNext />} href={href} reverse />
