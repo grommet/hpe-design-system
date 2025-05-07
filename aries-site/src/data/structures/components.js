@@ -1778,6 +1778,24 @@ export const components = [
     ],
   },
   {
+    name: 'DataSearch',
+    available: true,
+    category: 'Data',
+    accessibility: 'Passed WCAG 2.2 AA',
+    description: 'A search input to search across data.',
+    preview: {
+      component: () => <DataHowTo />,
+    },
+    seoDescription: 'A search input to search across data.',
+    sections: [],
+    relatedContent: [
+      'Data',
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+    ],
+  },
+  {
     name: 'ToggleGroup',
     available: true,
     category: 'Controls',
