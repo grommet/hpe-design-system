@@ -3,7 +3,7 @@
     "rule": "1.1.1",
     "label": "Non-text content",
     "status": "conditional",
-    "notes": "If an icon is provided, an aria-label can be added to the icon."
+    "notes": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below."
   },
   {
     "rule": "1.2.1",
@@ -62,19 +62,19 @@
   {
     "rule": "1.3.1",
     "label": "Info and Relationships",
-    "status": "passed",
-    "notes": ""
+    "status": "conditional",
+    "notes": "Conditional on correct implementation of message property"
   },
   {
     "rule": "1.3.2",
     "label": "Meaningful Sequence",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "1.3.3",
     "label": "Sensory Characteristics",
-    "status": "passed",
+    "status": "conditional",
     "notes": ""
   },
   {
@@ -92,7 +92,7 @@
   {
     "rule": "1.3.6",
     "label": "Identify Purpose",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -110,13 +110,13 @@
   {
     "rule": "1.4.3",
     "label": "Contrast (Minimum)",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "1.4.4",
     "label": "Resize Text",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -128,8 +128,8 @@
   {
     "rule": "1.4.6",
     "label": "Contrast (Enhanced)",
-    "status": "failed",
-    "notes": "Placeholder text fails, other states pass."
+    "status": "not-applicable",
+    "notes": ""
   },
   {
     "rule": "1.4.7",
@@ -140,7 +140,7 @@
   {
     "rule": "1.4.8",
     "label": "Visual Presentation",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -164,31 +164,31 @@
   {
     "rule": "1.4.12",
     "label": "Text Spacing",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "1.4.13",
     "label": "Content on Hover or Focus",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.1.1",
     "label": "Keyboard",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.1.2",
     "label": "No Keyboard Trap",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.1.3",
     "label": "Keyboard (No Exception)",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -200,7 +200,7 @@
   {
     "rule": "2.2.2",
     "label": "Pause, Stop, Hide",
-    "status": "not-applicable",
+    "status": "conditional",
     "notes": ""
   },
   {
@@ -230,20 +230,20 @@
   {
     "rule": "2.3.1",
     "label": "Three Flashes or Below Threshold",
-    "status": "not-applicable",
+    "status": "passed",
     "notes": ""
   },
   {
     "rule": "2.3.2",
     "label": "Three Flashes",
-    "status": "not-applicable",
+    "status": "passed",
     "notes": ""
   },
   {
     "rule": "2.3.3",
     "label": "Animation from Interactions",
-    "status": "not-applicable",
-    "notes": ""
+    "status": "conditional",
+    "notes": "Motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed."
   },
   {
     "rule": "2.4.1",
@@ -260,7 +260,7 @@
   {
     "rule": "2.4.3",
     "label": "Focus Order",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -284,7 +284,7 @@
   {
     "rule": "2.4.7",
     "label": "Focus Visible",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -308,19 +308,19 @@
   {
     "rule": "2.4.11",
     "label": "Focus Not Obscured (Minimum)",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.4.12",
     "label": "Focus Not Obscured (Enhanced)",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.4.13",
     "label": "Focus Appearance",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -332,13 +332,13 @@
   {
     "rule": "2.5.2",
     "label": "Pointer Cancellation",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.5.3",
     "label": "Label in Name",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -350,13 +350,13 @@
   {
     "rule": "2.5.5",
     "label": "Target Size (Enhanced)",
-    "status": "failed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "2.5.6",
     "label": "Concurrent Input Mechanisms",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -368,7 +368,7 @@
   {
     "rule": "2.5.8",
     "label": "Target Size (Minimum)",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -410,13 +410,13 @@
   {
     "rule": "3.2.1",
     "label": "On Focus",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
     "rule": "3.2.2",
     "label": "On Input",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -428,8 +428,8 @@
   {
     "rule": "3.2.4",
     "label": "Consistent Identification",
-    "status": "not-applicable",
-    "notes": ""
+    "status": "conditional",
+    "notes": "Depends on implementation of consistent labels for spinners across a web app"
   },
   {
     "rule": "3.2.5",
@@ -447,37 +447,37 @@
     "rule": "3.3.1",
     "label": "Error Identification",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": ""
   },
   {
     "rule": "3.3.2",
     "label": "Labels or Instructions",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": ""
   },
   {
     "rule": "3.3.3",
     "label": "Error Suggestion",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": ""
   },
   {
     "rule": "3.3.4",
     "label": "Error Prevention (Legal, Financial, Data)",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": ""
   },
   {
     "rule": "3.3.5",
     "label": "Help",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": ""
   },
   {
     "rule": "3.3.6",
     "label": "Error Prevention (All)",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": ""
   },
   {
     "rule": "3.3.7",
@@ -501,12 +501,12 @@
     "rule": "4.1.2",
     "label": "Name, Role, Value",
     "status": "conditional",
-    "notes": "When not in FormField, caller must provide an aria-label or title."
+    "notes": "Must expose role (like status), accessible name (aria-label or text), and value if needed"
   },
   {
     "rule": "4.1.3",
     "label": "Status Messages",
-    "status": "not-applicable",
-    "notes": ""
+    "status": "conditional",
+    "notes": "If conveying a change (like loading), it must announce it automatically via aria-live, without stealing focus"
   }
 ]

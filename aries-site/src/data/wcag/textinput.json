@@ -158,8 +158,8 @@
   {
     "rule": "1.4.11",
     "label": "Non-text Contrast",
-    "status": "failed",
-    "notes": "Suggestions doesn't have enough contrast or additional marker for active state."
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.4.12",
@@ -170,7 +170,7 @@
   {
     "rule": "1.4.13",
     "label": "Content on Hover or Focus",
-    "status": "failed",
+    "status": "passed",
     "notes": ""
   },
   {
@@ -410,8 +410,8 @@
   {
     "rule": "3.2.1",
     "label": "On Focus",
-    "status": "failed",
-    "notes": ""
+    "status": "conditional",
+    "notes": "when using the defaultSuggestion prop this will fail so this prop should be used with caution."
   },
   {
     "rule": "3.2.2",

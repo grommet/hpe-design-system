@@ -15,7 +15,10 @@ const brands = {
 };
 
 export const AppIdentity = forwardRef(
-  ({ brand, logo = true, logoOnly, href, title, ...rest }, ref) => {
+  (
+    { brand, logo = true, logoOnly = false, href = '/', title, ...rest },
+    ref,
+  ) => {
     const textSize = 'medium';
 
     return (
@@ -52,10 +55,4 @@ AppIdentity.propTypes = {
   logoOnly: PropTypes.bool,
   href: PropTypes.string,
   title: PropTypes.string,
-};
-
-AppIdentity.defaultProps = {
-  logoOnly: false,
-  href: '/',
-  title: undefined,
 };

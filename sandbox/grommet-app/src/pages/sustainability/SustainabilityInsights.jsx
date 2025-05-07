@@ -110,7 +110,7 @@ const EnergyConsumption = () => {
       level={2}
       border={{
         side: 'top',
-        color: 'graph-2',
+        color: 'graph-1',
         size: !open ? 'medium' : 'none',
       }}
       {...(skeleton ? skeletonProps : {})}
@@ -125,44 +125,42 @@ const EnergyConsumption = () => {
         <Metric value={325000} unit="kWh" />
         <Collapsible open={open}>
           <Box gap="medium">
-            <Legend label="Energy consumption (kWh)" color="graph-2" />
+            <Legend label="Energy consumption (kWh)" color="graph-1" />
             {!skeleton ? (
-              <ThemeContext.Extend value={tshirtContextValue}>
-                <DataChart
-                  data={mockData.sustainability.slice(0, 10)}
-                  series={[
-                    {
-                      property: 'date',
-                      render: value =>
-                        Intl.DateTimeFormat(undefined, {
-                          month: 'short',
-                          day: 'numeric',
-                        }).format(new Date(value)),
-                    },
-                    'energy',
-                  ]}
-                  chart={[
-                    {
-                      property: 'energy',
-                      type: 'area',
-                      thickness: '3xsmall',
-                      color: { color: 'graph-2', opacity: 'strong' },
-                    },
-                    {
-                      property: 'energy',
-                      type: 'line',
-                      thickness: '5xsmall',
-                      color: 'graph-2',
-                      round: true,
-                    },
-                  ]}
-                  axis={{
-                    x: { property: 'date', granularity: 'medium' },
-                    y: { property: 'energy', granularity: 'fine' },
-                  }}
-                  guide={{ y: true }}
-                />
-              </ThemeContext.Extend>
+              <DataChart
+                data={mockData.sustainability.slice(0, 10)}
+                series={[
+                  {
+                    property: 'date',
+                    render: value =>
+                      Intl.DateTimeFormat(undefined, {
+                        month: 'short',
+                        day: 'numeric',
+                      }).format(new Date(value)),
+                  },
+                  'energy',
+                ]}
+                chart={[
+                  {
+                    property: 'energy',
+                    type: 'area',
+                    thickness: 'xsmall',
+                    color: { color: 'graph-1', opacity: 'strong' },
+                  },
+                  {
+                    property: 'energy',
+                    type: 'line',
+                    thickness: 'xxsmall',
+                    color: 'graph-1',
+                    round: true,
+                  },
+                ]}
+                axis={{
+                  x: { property: 'date', granularity: 'medium' },
+                  y: { property: 'energy', granularity: 'fine' },
+                }}
+                guide={{ y: true }}
+              />
             ) : (
               <Skeleton height="xsmall" />
             )}
@@ -183,7 +181,7 @@ const EnergyCost = () => {
       level={2}
       border={{
         side: 'top',
-        color: 'graph-4',
+        color: 'graph-2',
         size: !open ? 'medium' : 'none',
       }}
       {...(skeleton ? skeletonProps : {})}
@@ -202,44 +200,42 @@ const EnergyCost = () => {
         />
         <Collapsible open={open}>
           <Box gap="medium">
-            <Legend label="Energy cost (USD)" color="graph-4" />
+            <Legend label="Energy cost (USD)" color="graph-2" />
             {!skeleton ? (
-              <ThemeContext.Extend value={tshirtContextValue}>
-                <DataChart
-                  data={mockData.sustainability.slice(0, 10)}
-                  series={[
-                    {
-                      property: 'date',
-                      render: value =>
-                        Intl.DateTimeFormat(undefined, {
-                          month: 'short',
-                          day: 'numeric',
-                        }).format(new Date(value)),
-                    },
-                    'cost',
-                  ]}
-                  chart={[
-                    {
-                      property: 'cost',
-                      type: 'area',
-                      thickness: '3xsmall',
-                      color: { color: 'graph-4', opacity: 'strong' },
-                    },
-                    {
-                      property: 'cost',
-                      type: 'line',
-                      thickness: '5xsmall',
-                      color: 'graph-4',
-                      round: true,
-                    },
-                  ]}
-                  axis={{
-                    x: { property: 'date', granularity: 'medium' },
-                    y: { property: 'cost', granularity: 'fine' },
-                  }}
-                  guide={{ y: true }}
-                />
-              </ThemeContext.Extend>
+              <DataChart
+                data={mockData.sustainability.slice(0, 10)}
+                series={[
+                  {
+                    property: 'date',
+                    render: value =>
+                      Intl.DateTimeFormat(undefined, {
+                        month: 'short',
+                        day: 'numeric',
+                      }).format(new Date(value)),
+                  },
+                  'cost',
+                ]}
+                chart={[
+                  {
+                    property: 'cost',
+                    type: 'area',
+                    thickness: 'xsmall',
+                    color: { color: 'graph-2', opacity: 'strong' },
+                  },
+                  {
+                    property: 'cost',
+                    type: 'line',
+                    thickness: 'xxsmall',
+                    color: 'graph-2',
+                    round: true,
+                  },
+                ]}
+                axis={{
+                  x: { property: 'date', granularity: 'medium' },
+                  y: { property: 'cost', granularity: 'fine' },
+                }}
+                guide={{ y: true }}
+              />
             ) : (
               <Skeleton height="xsmall" />
             )}
