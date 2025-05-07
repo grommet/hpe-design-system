@@ -73,7 +73,7 @@ export const aries = deepMerge(hpe, {
     extend: 'font-weight: 500;',
   },
   tabs: {
-    gap: 'medium',
+    gap: dimension.hpe.spacing.small,
     header: {
       border: undefined,
       // padding-bottom ensures the marker is not cut off by subsequent
