@@ -11,7 +11,10 @@ export const CodeWars = ({...rest}) => {
             headline="HPE CodeWars 2025"
             description="Where the war is won with brainpower"
             cta="Volunteer today"
-            image={<Image src={image} alt="African American male wearing glasses sitting behind two monitors" />}
+            image={<Image src={image} 
+                alt="African American male wearing glasses sitting behind two monitors" 
+                fit='cover' 
+            />}
             href="#"
             background={undefined}
             pad={{top: 'xlarge'}}

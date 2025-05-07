@@ -12,8 +12,11 @@ export const HPENvidia = ({...rest}) => {
             description="Unlock the future of AI"
             cta="Read more"
             image={
-                <Box pad="4xlarge">
-                    <Image src={image} alt="HPE & Nvidia logos"/>
+                <Box 
+                    fill
+                    pad={{horizontal: '4xlarge'}}
+                >
+                    <Image src={image} alt="HPE & Nvidia logos" fit="contain"/>
                 </Box>
             }
             href="#"

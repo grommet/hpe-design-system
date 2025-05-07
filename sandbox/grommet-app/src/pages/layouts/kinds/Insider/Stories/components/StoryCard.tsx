@@ -14,13 +14,15 @@ export const StoryCard = ({
     ...rest
 }) => {
     return (
-        <Box as="article" {...rest}>
-            <Box flex justify="center">
+        <Box as="article" justify="between" {...rest}>
+            <Box flex>
                 {image}
             </Box>
-            <Box alignSelf="end" pad={pad}>
+            <Box pad={pad} gap="medium">
+                <Box gap="medium" height={{min: '3xsmall'}}>
                 <Heading level={level} size={size} margin="none">{headline}</Heading>
-                <Paragraph>{description}</Paragraph>
+                <Paragraph margin="none">{description}</Paragraph>
+                </Box>
                 <Anchor label={cta} icon={<LinkNext aria-label={undefined} />} href={href} reverse />
             </Box>
         </Box>

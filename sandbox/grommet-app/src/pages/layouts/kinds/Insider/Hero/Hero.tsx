@@ -40,6 +40,7 @@ export const Hero = ({...rest}) => {
                 onClick={() => {}}
                 primary
                 reverse
+                size='large'
             />
         </Box>
     </Grid>

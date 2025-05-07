@@ -11,7 +11,10 @@ export const HPEDiscover = ({...rest}) => {
             headline="Register for ATM Live! from Discover Las Vegas"
             description="Unlock the future of AI"
             cta="Register now"
-            image={<Image src={image} alt="HPE Discover Las Vegas 2025 logo" />}
+            image={<Image 
+                src={image} 
+                alt="HPE Discover Las Vegas 2025 logo" 
+            />}
             href="#"
             background="bkg-card-primary"
             {...rest} 

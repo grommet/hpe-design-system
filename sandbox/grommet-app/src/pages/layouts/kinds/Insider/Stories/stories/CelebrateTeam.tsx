@@ -11,7 +11,7 @@ export const CelebrateTeam = ({...rest}) => {
             headline="Celebrate your teammates"
             description="And save the date to be celebrated yourself!"
             cta="Browse celebrations"
-            image={<Image src={image} alt="Abstract purple and teal digital waves on black background" />}
+            image={<Image src={image} alt="Abstract purple and teal digital waves on black background"  fit='cover' />}
             href="#"
             background={undefined}
             pad={{top: 'xlarge'}}

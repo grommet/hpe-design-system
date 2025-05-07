@@ -78,7 +78,7 @@ export const Insider = () => {
                     color: 'bkg-component-primary'
                 }}
             >
-                <Stories border={{style: 'dashed'}}/>
+                <Stories as="section" border={{style: 'dashed'}}/>
             </PageContent>
         </Page>
     </ThemeContext.Extend>
