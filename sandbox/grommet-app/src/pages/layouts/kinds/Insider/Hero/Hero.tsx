@@ -10,10 +10,10 @@ import { LinkNext } from 'grommet-icons';
 
 export const Hero = ({...rest}) => {
     return (
-        <Grid 
+    <Grid 
         columns={['large', 'flex']}
         gap="3xlarge"
-        pad={{ vertical: '4xlarge'}}
+        pad={{ vertical: '4xlarge', horizontal: '4xlarge'}}
         {...rest}
     >
         <Box 
