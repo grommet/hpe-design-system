@@ -81,7 +81,7 @@ export const aries = deepMerge(hpe, {
       extend: ({ theme }) => `
       padding-bottom: ${dimension.hpe.borderWidth.medium};
       & button {
-        border-radius: ${dimension.hpe.radius.xxsmall};
+        border-radius: ${dimension.hpe.radius.xsmall};
       }
       & button[aria-selected="true"] {
           position: relative;
