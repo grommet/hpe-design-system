@@ -10,7 +10,7 @@ export const CelebrateTeam = ({...rest}) => {
             size={undefined}
             headline="Celebrate your teammates"
             description="And save the date to be celebrated yourself!"
-            cta="Browse events"
+            cta="Browse celebrations"
             image={<Image src={image} alt="Abstract purple and teal digital waves on black background" />}
             href="#"
             background={undefined}

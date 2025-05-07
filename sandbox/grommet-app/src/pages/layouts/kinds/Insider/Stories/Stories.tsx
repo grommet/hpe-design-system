@@ -5,7 +5,8 @@ import {
     CodeWars, 
     EarningsQ2, 
     HPEDiscover, 
-    HPENvidia 
+    HPENvidia,
+    ResourceGroupEvents
 } from "./stories/index";
 
 const areas = [
@@ -32,9 +33,7 @@ export const Stories = ({...rest}) => {
             <CodeWars gridArea="story-3" />
             <EarningsQ2 gridArea="story-4" />
             <CelebrateTeam gridArea="story-5" />
-            <Box gridArea="story-6">
-                Story 6
-            </Box>
+            <ResourceGroupEvents gridArea="story-6" />
         </Grid>
     );
 }
