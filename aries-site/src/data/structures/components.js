@@ -1940,6 +1940,7 @@ export const components = [
       'Filtering',
       'How to add search and filter to DataTable with Data',
       'How to add additional controls to a toolbar',
+      'Data',
     ],
   },
   {

@@ -1,6 +1,15 @@
 import { DataFilterExample } from '../../examples/components/';
 import { Example } from '../../layouts';
 
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/data/DataFilterExample.js"
+  docs="https://v2.grommet.io/datafilter"
+  height="auto"
+>
+  <DataFilterExample />
+</Example>
+
+## Guidance
 Based on the type of data for that property, DataFilter determines a suitable "smart default" for what kind of input to present. The "smart default" is determined based on the following criteria:
 
 | Type       | Number of options    | Default filter type        |
@@ -9,11 +18,3 @@ Based on the type of data for that property, DataFilter determines a suitable "s
 | **string** | 5-9 options          | SelectMultiple             |
 | **string** | More than 10 options | SelectMultiple with search |
 | **number** | --                   | RangeSelector              |
-
-<Example
-  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/data/DataFilterExample.js"
-  docs="https://v2.grommet.io/datafilter"
-  height="auto"
->
-  <DataFilterExample />
-</Example>
