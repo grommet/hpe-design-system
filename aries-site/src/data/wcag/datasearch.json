@@ -447,37 +447,37 @@
     "rule": "3.3.1",
     "label": "Error Identification",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": ""
   },
   {
     "rule": "3.3.2",
     "label": "Labels or Instructions",
-    "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "3.3.3",
     "label": "Error Suggestion",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": ""
   },
   {
     "rule": "3.3.4",
     "label": "Error Prevention (Legal, Financial, Data)",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": ""
   },
   {
     "rule": "3.3.5",
     "label": "Help",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": ""
   },
   {
     "rule": "3.3.6",
     "label": "Error Prevention (All)",
     "status": "not-applicable",
-    "notes": "Dependent on FormField."
+    "notes": ""
   },
   {
     "rule": "3.3.7",
@@ -501,7 +501,7 @@
     "rule": "4.1.2",
     "label": "Name, Role, Value",
     "status": "conditional",
-    "notes": "When not in FormField, caller must provide an aria-label or title."
+    "notes": "a caller may provide an aria-label or title through global grommet messages we should provide a easier way for them to provide label directly to component as well."
   },
   {
     "rule": "4.1.3",
