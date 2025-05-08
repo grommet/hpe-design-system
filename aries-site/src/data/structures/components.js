@@ -24,6 +24,15 @@ import {
   TextInputPreview,
   ToggleGroupPreview,
   DataHowTo,
+  DataFilterPreview,
+  DataFiltersPreview,
+  DataSearchPreview,
+  DataSortPreview,
+  DataSummaryPreview,
+  DataTableColumnsPreview,
+  DataTableGroupbyPreview,
+  DataViewPreview,
+  ToolBarPreview,
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
 import { TagPreview } from '../../examples/cardPreviews/tag';
@@ -1775,6 +1784,182 @@ export const components = [
       'Filtering',
       'How to add search and filter to DataTable with Data',
       'How to add additional controls to a toolbar',
+      'DataFilter',
+      'DataFilters',
+      'DataSearch',
+      'DataSort',
+      'DataSummary',
+      'DataTableColumns',
+      'DataTableGroupBy',
+      'DataView',
+      'Toolbar',
+    ],
+  },
+  {
+    name: 'DataFilter',
+    available: true,
+    category: 'Data',
+    description: 'An individual filter for a property in a data collection.',
+    preview: {
+      component: () => <DataFilterPreview />,
+    },
+    seoDescription: 'An individual filter for a property in a data collection.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+      'CheckBoxGroup',
+      'SelectMultiple',
+    ],
+  },
+  {
+    name: 'DataFilters',
+    available: true,
+    category: 'Data',
+    description: 'A group of DataFilters for a data collection.',
+    preview: {
+      component: () => <DataFiltersPreview />,
+    },
+    seoDescription: 'A group of DataFilters for a data collection.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataSearch',
+    available: true,
+    category: 'Data',
+    description: 'A search input to search across the data collection.',
+    preview: {
+      component: () => <DataSearchPreview />,
+    },
+    seoDescription: 'A search input to search across the data collection.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataSort',
+    available: true,
+    category: 'Data',
+    description:
+      'A control to allow the user to sort by a specific property and choose in what direction the sort should occur (ascending or descending).',
+    preview: {
+      component: () => <DataSortPreview />,
+    },
+    seoDescription:
+      'A control to allow the user to sort by a specific property and choose in what direction the sort should occur (ascending or descending).',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataSummary',
+    available: true,
+    category: 'Data',
+    description:
+      'A textual summary of the current state of the data collection.',
+    preview: {
+      component: () => <DataSummaryPreview />,
+    },
+    seoDescription:
+      'A textual summary of the current state of the data collection.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataTableColumns',
+    available: true,
+    category: 'Data',
+    description:
+      'A control to allow the user to hide or show columns from a DataTable and define the order they appear in.',
+    preview: {
+      component: () => <DataTableColumnsPreview />,
+    },
+    seoDescription:
+      'A control to allow the user to hide or show columns from a DataTable and define the order they appear in.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataTableGroupBy',
+    available: true,
+    category: 'Data',
+    description:
+      'A control to allow the user to group DataTable records by a specific property.',
+    preview: {
+      component: () => <DataTableGroupbyPreview />,
+    },
+    seoDescription:
+      'A control to allow the user to group DataTable records by a specific property.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataView',
+    available: true,
+    category: 'Data',
+    description:
+      'A control to allow the user to select a saved view, which will apply a pre-configured set of filters, search, and/or sort.',
+    preview: {
+      component: () => <DataViewPreview />,
+    },
+    seoDescription:
+      'A control to allow the user to select a saved view, which will apply a pre-configured set of filters, search, and/or sort.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'Toolbar',
+    available: true,
+    category: 'Data',
+    description:
+      'A layout component to enforce consistent spacing of toolbar controls.',
+    preview: {
+      component: () => <ToolBarPreview />,
+    },
+    seoDescription:
+      'A layout component to enforce consistent spacing of toolbar controls.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
     ],
   },
   {
