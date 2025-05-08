@@ -2,8 +2,8 @@
   {
     "rule": "1.1.1",
     "label": "Non-text content",
-    "status": "conditional",
-    "notes": "If an icon is provided, an aria-label can be added to the icon."
+    "status": "passed",
+    "notes": "DataSearch we provide an icon by default that comes with an aria-label"
   },
   {
     "rule": "1.2.1",
