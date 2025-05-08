@@ -6,7 +6,7 @@ export const Tags = () => {
   return (
     <ContentPane>
       <Compare>
-        <Box align="start" gap="small">
+        <Box align="start" gap="xsmall">
           <Tag value="Value" name="Name" />
           <Tag value="Value" name="Name" onRemove={() => {}} />
         </Box>

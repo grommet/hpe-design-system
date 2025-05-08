@@ -1,7 +1,6 @@
-import React from "react";
-import { Box, Grid, Meter, Text } from "grommet";
-import { DashboardCard, Metric } from "../../../../components";
-
+import React from 'react';
+import { Box, Grid, Meter, Text } from 'grommet';
+import { DashboardCard, Metric } from '../../../../components';
 
 export const PhysicalCapacity = ({ size, ...rest }) => {
   return (
@@ -18,10 +17,10 @@ export const PhysicalCapacity = ({ size, ...rest }) => {
       {...rest}
     >
       <Grid
-        gap="small"
+        gap="xsmall"
         areas={[
-          ["metric", "summary"],
-          ["meter", "meter"]
+          ['metric', 'summary'],
+          ['meter', 'meter'],
         ]}
         columns={['flex', 'flex']}
         rows={['auto']}
@@ -40,17 +39,22 @@ export const PhysicalCapacity = ({ size, ...rest }) => {
           max={100}
           values={[{ value: 34 }, { value: 13 }]}
           size="full"
-          thickness="small"
+          thickness="xsmall"
           round
         />
         <Box gridArea="summary" justify="end">
           <Text
-            size={["xsmall", "small", 'medium'].includes(size) ? "small" : "medium"}
+            size={
+              ['xsmall', 'small', 'medium'].includes(size) ? 'small' : 'medium'
+            }
           >
-            <Text color="text-strong" weight={500}>131.5</Text> of 281.1 TiB
+            <Text color="text-strong" weight={500}>
+              131.5
+            </Text>{' '}
+            of 281.1 TiB
           </Text>
         </Box>
       </Grid>
-    </DashboardCard >
+    </DashboardCard>
   );
 };

@@ -2,9 +2,9 @@ import React from 'react';
 import { Box, Text, Tag } from 'grommet';
 
 export const ResourceTraits: React.FC = () => (
-  <Box gap="small">
+  <Box gap="xsmall">
     <Text size="small">Traits</Text>
-    <Box direction="row" gap="xsmall">
+    <Box direction="row" gap="3xsmall">
       <Tag onClick={() => {}} value="" name="Other" />
       <Tag onClick={() => {}} value="" name="Gateway is connected" />
     </Box>

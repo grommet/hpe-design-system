@@ -133,7 +133,7 @@ export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
             <DataFilters layer />
             <DataSort drop />
           </Toolbar>
-          <Toolbar gap="xsmall">
+          <Toolbar gap="3xsmall">
             <Button
               kind="toolbar"
               icon={<Share />}
@@ -142,7 +142,7 @@ export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
             <Button tip="Actions" kind="toolbar" icon={<Actions />} />
           </Toolbar>
         </Toolbar>
-        <DataSummary />
+        <DataSummary margin={{ vertical: '3xsmall' }} />
         <Box overflow="auto">
           {/* instead of datatable should we change to list on smaller views */}
           <DataTable
@@ -167,7 +167,7 @@ export const OpsRampDetailTable: React.FC<nodeTableProps> = ({
           summary
           stepOptions
           border="top"
-          pad={{ vertical: 'xsmall', horizontal: 'small' }}
+          pad={{ vertical: '3xsmall', horizontal: 'xsmall' }}
         />
       </Box>
     </Data>

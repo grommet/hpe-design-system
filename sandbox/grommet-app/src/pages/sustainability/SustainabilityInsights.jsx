@@ -13,6 +13,7 @@ import {
   Skeleton,
   ToggleGroup,
 } from 'grommet';
+import { ThemeContext } from 'grommet/contexts/ThemeContext';
 import { Hide, FormView } from 'grommet-icons';
 import { Card, Legend, Metric } from '../../components';
 import mockData from '../../mockData/sustainability.json';
@@ -21,6 +22,7 @@ import {
   skeleton as skeletonAnimation,
 } from '../../utils/skeleton';
 import { SkeletonContext } from '../../components';
+import { tshirtContextValue } from '../../utils/format';
 
 const DisplayContext = createContext({});
 
@@ -42,7 +44,7 @@ const CarbonEmissions = () => {
     >
       <Box
         gap="medium"
-        pad={{ top: 'small' }}
+        pad={{ top: 'xsmall' }}
         flex={false}
         width="100%"
         animation={animation}
@@ -52,42 +54,44 @@ const CarbonEmissions = () => {
           <Box gap="medium">
             <Legend label="Carbon emissions (MTCO2e)" color="graph-0" />
             {!skeleton ? (
-              <DataChart
-                data={mockData.sustainability.slice(0, 10)}
-                series={[
-                  {
-                    property: 'date',
-                    render: value =>
-                      Intl.DateTimeFormat(undefined, {
-                        month: 'short',
-                        day: 'numeric',
-                      }).format(new Date(value)),
-                  },
-                  'emissions',
-                ]}
-                chart={[
-                  {
-                    property: 'emissions',
-                    type: 'area',
-                    thickness: 'xsmall',
-                    color: { color: 'graph-0', opacity: 'strong' },
-                  },
-                  {
-                    property: 'emissions',
-                    type: 'line',
-                    thickness: 'xxsmall',
-                    color: 'graph-0',
-                    round: true,
-                  },
-                ]}
-                axis={{
-                  x: { property: 'date', granularity: 'medium' },
-                  y: { property: 'emissions', granularity: 'fine' },
-                }}
-                guide={{ y: true }}
-              />
+              <ThemeContext.Extend value={tshirtContextValue}>
+                <DataChart
+                  data={mockData.sustainability.slice(0, 10)}
+                  series={[
+                    {
+                      property: 'date',
+                      render: value =>
+                        Intl.DateTimeFormat(undefined, {
+                          month: 'short',
+                          day: 'numeric',
+                        }).format(new Date(value)),
+                    },
+                    'emissions',
+                  ]}
+                  chart={[
+                    {
+                      property: 'emissions',
+                      type: 'area',
+                      thickness: '3xsmall',
+                      color: { color: 'graph-0', opacity: 'strong' },
+                    },
+                    {
+                      property: 'emissions',
+                      type: 'line',
+                      thickness: '5xsmall',
+                      color: 'graph-0',
+                      round: true,
+                    },
+                  ]}
+                  axis={{
+                    x: { property: 'date', granularity: 'medium' },
+                    y: { property: 'emissions', granularity: 'fine' },
+                  }}
+                  guide={{ y: true }}
+                />
+              </ThemeContext.Extend>
             ) : (
-              <Skeleton height="small" />
+              <Skeleton height="xsmall" />
             )}
           </Box>
         </Collapsible>
@@ -158,7 +162,7 @@ const EnergyConsumption = () => {
                 guide={{ y: true }}
               />
             ) : (
-              <Skeleton height="small" />
+              <Skeleton height="xsmall" />
             )}
           </Box>
         </Collapsible>
@@ -233,7 +237,7 @@ const EnergyCost = () => {
                 guide={{ y: true }}
               />
             ) : (
-              <Skeleton height="small" />
+              <Skeleton height="xsmall" />
             )}
           </Box>
         </Collapsible>
@@ -269,7 +273,7 @@ export const SustainabilityInsights = () => {
                 <DataFilter
                   contentProps={{
                     width: 'medium',
-                    margin: { bottom: 'none', top: 'xsmall' },
+                    margin: { bottom: 'none', top: '3xsmall' },
                   }}
                   property="date"
                 >

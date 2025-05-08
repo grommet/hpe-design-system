@@ -146,7 +146,7 @@ export const Form = () => {
             </FormField>
             <Box
               align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-              margin={{ top: 'medium', bottom: 'small' }}
+              margin={{ top: 'medium', bottom: 'xsmall' }}
             >
               <Button label="Create" primary type="submit" />
             </Box>

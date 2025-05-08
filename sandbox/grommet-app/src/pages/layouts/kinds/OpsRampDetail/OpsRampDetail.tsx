@@ -36,9 +36,9 @@ export const OpsRampDetail: React.FC = () => {
   ];
 
   const columnsGap = {
-    xsmall: 'xsmall',
-    small: 'xsmall',
-    medium: 'small',
+    xsmall: '3xsmall',
+    small: '3xsmall',
+    medium: 'xsmall',
     large: 'medium',
     xlarge: 'medium',
   };
