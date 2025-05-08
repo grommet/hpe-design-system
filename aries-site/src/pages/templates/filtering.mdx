@@ -14,7 +14,7 @@ export const DataSummaryExample = ({ filters }) => (
   </Text>
 );
 
-For details on the components that make up the filtering experience, see [Data documentation](/components/data).
+For details on the components that make up the filtering experience, see [Data documentation](/components/data), [DataFilters documentation](/components/datafilters), [DataSummary documentation](/components/datasummary), and [DataSearch documentation](/components/datasearch).
 
 <Example
   code={[
@@ -48,7 +48,7 @@ The way filters are displayed is dependent on the number of filters, data types 
 
 Filter types should suit both the type of data and number of options available. For example, rendering numeric data as a RangeSelector is more beneficial than rendering it as a CheckBoxGroup because it allows the user to more efficiently define a desired range.
 
-When building with [Data and friends](/components/data), a smart default input for a given property will be determined based on the type of data and the number of options. For details on which/how the default input type is chosen, see [DataFilter documentation](/components/data#datafilter).
+When building with [Data and friends](/components/data), a smart default input for a given property will be determined based on the type of data and the number of options. For details on which/how the default input type is chosen, see [DataFilter documentation](/components/datafilter).
 
 While the default input types are intended as smart defaults for the 80% case, other input types can be used if it better suits the use case.
 
@@ -69,7 +69,7 @@ The summary displayed beneath the filter controls should always reflect the user
 | **No filters, selections made**      | <DataSummaryExample />         | Z is the total number of items selected.                                                               |
 | **Filters applied, selections made** | <DataSummaryExample filters /> | Z is the total number of items selected.                                                               |
 
-When building with Grommet, [DataSummary](/components/data#datasummary) manages these messages automatically.
+When building with Grommet, [DataSummary](/components/datasummary) manages these messages automatically.
 
 ## Pagination
 
