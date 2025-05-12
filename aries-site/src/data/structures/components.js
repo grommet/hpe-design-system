@@ -1869,6 +1869,7 @@ export const components = [
   },
   {
     name: 'DataSummary',
+    accessibility: 'Passed WCAG 2.2 AAA',
     available: true,
     category: 'Data',
     description:
