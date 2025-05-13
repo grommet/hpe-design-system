@@ -500,8 +500,8 @@
   {
     "rule": "4.1.2",
     "label": "Name, Role, Value",
-    "status": "failed",
-    "notes": "we should add the role toolbar "
+    "status": "conditional",
+    "notes": "Add role=toolbar when the toolbar contains more than three controls. This helps users understand they are in a group of related controls and enables better keyboard navigation (e.g., using arrow keys). Avoid using role=toolbar for fewer than three controls, as it may confuse users by implying more complex navigation than necessary."
   },
   {
     "rule": "4.1.3",
