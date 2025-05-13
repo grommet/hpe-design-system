@@ -1,0 +1,512 @@
+[
+  {
+    "rule": "1.1.1",
+    "label": "Non-text content",
+    "status": "conditional",
+    "notes": "if using Layer for datafilters then Layer with a close icon must provide an aria-label or alternative text unless the icon is purely decorative"
+  },
+  {
+    "rule": "1.2.1",
+    "label": "Audio-only and Video-only (Prerecorded)",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.2.2",
+    "label": "Captions (Prerecorded)\n",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.2.3",
+    "label": "Audio Description or Media Alternative (Prerecorded)\n",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.2.4",
+    "label": "Captions (Live)\n",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.2.5",
+    "label": "Audio Description (Prerecorded)\n",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.2.6",
+    "label": "Sign Language (Prerecorded)\n",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.2.7",
+    "label": "Extended Audio Description (Prerecorded)\n",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.2.8",
+    "label": "Media Alternative (Prerecorded)\n",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.2.9",
+    "label": "Audio-only (Live)\n",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.3.1",
+    "label": "Info and Relationships",
+    "status": "failed",
+    "notes": "label on rangeSelector is not getting read by screen reader"
+  },
+  {
+    "rule": "1.3.2",
+    "label": "Meaningful Sequence",
+    "status": "failed",
+    "notes": "label on rangeSelector is not getting read by screen reader. If using Layer for datafilters the implementation must use autoFocus on the close icon to ensure that when the modal opens, focus moves to the first interactive element within the Layer. "
+  },
+  {
+    "rule": "1.3.3",
+    "label": "Sensory Characteristics",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "1.3.4",
+    "label": "Orientation",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "1.3.5",
+    "label": "Identify Input Purpose",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.3.6",
+    "label": "Identify Purpose",
+    "status": "conditional",
+    "notes": "Ensure that implementation utilizes appropriate ARIA landmarks or roles"
+  },
+  {
+    "rule": "1.4.1",
+    "label": "Use of Color",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "1.4.2",
+    "label": "Audio Control",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.4.3",
+    "label": "Contrast (Minimum)",
+    "status": "failed",
+    "notes": "The green color in the RangeSelector does not pass contrast"
+  },
+  {
+    "rule": "1.4.4",
+    "label": "Resize Text",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "1.4.5",
+    "label": "Images of Text",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.4.6",
+    "label": "Contrast (Enhanced)",
+    "status": "failed",
+    "notes": "selected option text has a 6.83.1 contrast ratio"
+  },
+  {
+    "rule": "1.4.7",
+    "label": "Low or No Background Audio",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.4.8",
+    "label": "Visual Presentation",
+    "status": "failed",
+    "notes": "focus idicator does not show when navigating through the list of options"
+  },
+  {
+    "rule": "1.4.9",
+    "label": "Images of Text (No Exception)",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.4.10",
+    "label": "Reflow",
+    "status": "conditional",
+    "notes": "Conditional based on the implementation of layer"
+  },
+  {
+    "rule": "1.4.11",
+    "label": "Non-text Contrast",
+    "status": "failed",
+    "notes": "green color in RangeSelector againts the white does not pass "
+  },
+  {
+    "rule": "1.4.12",
+    "label": "Text Spacing",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "1.4.13",
+    "label": "Content on Hover or Focus",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.1.1",
+    "label": "Keyboard",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "2.1.2",
+    "label": "No Keyboard Trap",
+    "status": "conditional",
+    "notes": "Implementation must ensure that onEsc is passed to allow the user to close the modal using the Escape key."
+  },
+  {
+    "rule": "2.1.3",
+    "label": "Keyboard (No Exception)",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "2.2.1",
+    "label": "Timing Adjustable",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.2.2",
+    "label": "Pause, Stop, Hide",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.2.3",
+    "label": "No Timing",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.2.4",
+    "label": "Interruptions",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.2.5",
+    "label": "Re-authenticating",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.2.6",
+    "label": "Timeouts",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.3.1",
+    "label": "Three Flashes or Below Threshold",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.3.2",
+    "label": "Three Flashes",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.3.3",
+    "label": "Animation from Interactions",
+    "status": "conditional",
+    "notes": "conditional based on layer implementation"
+  },
+  {
+    "rule": "2.4.1",
+    "label": "Bypass Blocks",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.4.2",
+    "label": "Page Titled",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.4.3",
+    "label": "Focus Order",
+    "status": "conditional",
+    "notes": "If using Layer for datafilters, for modal={false}, focus must move to the Layer’s Close button, which should have an a11yTitle that clarifies the user is in a Layer."
+  },
+  {
+    "rule": "2.4.4",
+    "label": "Link Purpose (In Context)",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.4.5",
+    "label": "Multiple Ways",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.4.6",
+    "label": "Headings and Labels",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.4.7",
+    "label": "Focus Visible",
+    "status": "failed",
+    "notes": "focus idicator does not show when navigating through the list of options on selectMultiple"
+  },
+  {
+    "rule": "2.4.8",
+    "label": "Location",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.4.9",
+    "label": "Link Purpose (Link Only)",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.4.10",
+    "label": "Section Headings",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.4.11",
+    "label": "Focus Not Obscured (Minimum)",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "2.4.12",
+    "label": "Focus Not Obscured (Enhanced)",
+    "status": "failed",
+    "notes": "focus on search is cut off on smaller screens 320px width"
+  },
+  {
+    "rule": "2.4.13",
+    "label": "Focus Appearance",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "2.5.1",
+    "label": "Pointer Gestures",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "2.5.2",
+    "label": "Pointer Cancellation",
+    "status": "conditional",
+    "notes": "Implementation must ensure that pressing escape would trigger the Cancel action for layer datafilters"
+  },
+  {
+    "rule": "2.5.3",
+    "label": "Label in Name",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "2.5.4",
+    "label": "Motion Actuation",
+    "status": "conditional",
+    "notes": "Implementation would need to allow the user to turn off animation if using Layer for datafilters"
+  },
+  {
+    "rule": "2.5.5",
+    "label": "Target Size (Enhanced)",
+    "status": "failed",
+    "notes": "does not meet 44X44 target size"
+  },
+  {
+    "rule": "2.5.6",
+    "label": "Concurrent Input Mechanisms",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "2.5.7",
+    "label": "Dragging Movements",
+    "status": "passed",
+    "notes": "move lower and upper slides with keyboard on rangeSelector"
+  },
+  {
+    "rule": "2.5.8",
+    "label": "Target Size (Minimum)",
+    "status": "failed",
+    "notes": "rangeselector slider "
+  },
+  {
+    "rule": "3.1.1",
+    "label": "Language of Page",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.1.2",
+    "label": "Language of Parts",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.1.3",
+    "label": "Unusual Words",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.1.4",
+    "label": "Abbreviations",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.1.5",
+    "label": "Reading Level",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.1.6",
+    "label": "Pronunciation",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.2.1",
+    "label": "On Focus",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "3.2.2",
+    "label": "On Input",
+    "status": "passed",
+    "notes": ""
+  },
+  {
+    "rule": "3.2.3",
+    "label": "Consistent Navigation",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.2.4",
+    "label": "Consistent Identification",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.2.5",
+    "label": "Change on Request",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.2.6",
+    "label": "Consistent Help",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.3.1",
+    "label": "Error Identification",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.3.2",
+    "label": "Labels or Instructions",
+    "status": "conditional",
+    "notes": "Implementor must provide label"
+  },
+  {
+    "rule": "3.3.3",
+    "label": "Error Suggestion",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.3.4",
+    "label": "Error Prevention (Legal, Financial, Data)",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.3.5",
+    "label": "Help",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.3.6",
+    "label": "Error Prevention (All)",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.3.7",
+    "label": "Redundant Entry",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.3.8",
+    "label": "Accessible Authentication (Minimum)",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "3.3.9",
+    "label": "Accessible Authentication (Enhanced)",
+    "status": "not-applicable",
+    "notes": ""
+  },
+  {
+    "rule": "4.1.2",
+    "label": "Name, Role, Value",
+    "status": "conditional",
+    "notes": "needs correct aria labels"
+  },
+  {
+    "rule": "4.1.3",
+    "label": "Status Messages",
+    "status": "not-applicable",
+    "notes": ""
+  }
+]

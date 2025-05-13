@@ -1816,6 +1816,7 @@ export const components = [
   },
   {
     name: 'DataFilters',
+    accessibility: 'Failed WCAG 2.2 A',
     available: true,
     category: 'Data',
     description: 'A group of DataFilters for a data collection.',
