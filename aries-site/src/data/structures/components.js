@@ -1946,6 +1946,7 @@ export const components = [
   },
   {
     name: 'Toolbar',
+    accessibility: 'Passed WCAG 2.2 AAA',
     available: true,
     category: 'Data',
     description:
