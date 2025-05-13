@@ -1888,6 +1888,7 @@ export const components = [
   },
   {
     name: 'DataTableColumns',
+    accessibility: 'Failed WCAG 2.2 A',
     available: true,
     category: 'Data',
     description:
