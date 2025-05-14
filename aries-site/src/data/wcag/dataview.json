@@ -314,8 +314,8 @@
   {
     "rule": "2.4.12",
     "label": "Focus Not Obscured (Enhanced)",
-    "status": "failed",
-    "notes": "smaller screen 320px the focus on search is not visable"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.4.13",
