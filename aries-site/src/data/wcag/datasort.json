@@ -128,8 +128,8 @@
   {
     "rule": "1.4.6",
     "label": "Contrast (Enhanced)",
-    "status": "passed",
-    "notes": ""
+    "status": "failed",
+    "notes": "Label text has contrast ratio of 7.45 which exceeds 7.1 requirement on background-front. Contrast ratio of 6.95 on background-back does not meet threshold RadioButtonGroup."
   },
   {
     "rule": "1.4.7",
@@ -146,7 +146,7 @@
   {
     "rule": "1.4.9",
     "label": "Images of Text (No Exception)",
-    "status": "passed",
+    "status": "not-applicable",
     "notes": ""
   },
   {
@@ -190,6 +190,11 @@
     "label": "Keyboard (No Exception)",
     "status": "passed",
     "notes": ""
+  },
+  {
+    "rule": "2.1.4",
+    "label": "Character Key Shortcuts",
+    "status": "not-applicable"
   },
   {
     "rule": "2.2.1",
@@ -278,8 +283,8 @@
   {
     "rule": "2.4.6",
     "label": "Headings and Labels",
-    "status": "not-applicable",
-    "notes": ""
+    "status": "passed",
+    "notes": "we do provide an label for datasort"
   },
   {
     "rule": "2.4.7",
@@ -351,7 +356,7 @@
     "rule": "2.5.5",
     "label": "Target Size (Enhanced)",
     "status": "failed",
-    "notes": ""
+    "notes": "Select hight is 36px plus 1 px padding in the storybook examples. Width of radio button plus label exceeds 44px. Vertical spacing between radio buttons is 12px, creating overall 48px when above small breakpoint."
   },
   {
     "rule": "2.5.6",
@@ -416,8 +421,8 @@
   {
     "rule": "3.2.2",
     "label": "On Input",
-    "status": "conditional",
-    "notes": "based on the implementation of the onChange function"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "3.2.3",
@@ -452,8 +457,8 @@
   {
     "rule": "3.3.2",
     "label": "Labels or Instructions",
-    "status": "conditional",
-    "notes": "Make sure the labels are clear for the select and radiobuttongroup"
+    "status": "passed",
+    "notes": "DataSort we provide a label for the Select component as well as radiobuttongroup inside the DataSort component"
   },
   {
     "rule": "3.3.3",
