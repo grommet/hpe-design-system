@@ -289,8 +289,8 @@
   {
     "rule": "2.4.7",
     "label": "Focus Visible",
-    "status": "failed",
-    "notes": "If someone used clear option as a prop"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.4.8",
