@@ -944,6 +944,7 @@ export const components = [
   },
   {
     name: 'Grid',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Layouts',
     description: `Grid is a component based on columns and rows used for organizing layouts. From scaffolding page layouts, to organizing elements within 
     a Card, Grid is a powerful tool for composing responsive, adaptive layouts.`,
