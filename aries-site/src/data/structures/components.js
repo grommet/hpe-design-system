@@ -1926,7 +1926,7 @@ export const components = [
   },
   {
     name: 'DataView',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description:
