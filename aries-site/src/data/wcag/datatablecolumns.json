@@ -98,8 +98,8 @@
   {
     "rule": "1.4.1",
     "label": "Use of Color",
-    "status": "failed",
-    "notes": "if the lock icon is suppose to portray meaning then the contrast does not pass"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.4.2",
@@ -159,7 +159,7 @@
     "rule": "1.4.11",
     "label": "Non-text Contrast",
     "status": "failed",
-    "notes": "the lock icon contrast does not pass"
+    "notes": "if the lock icon is suppose to portray meaning then the contrast does not pass"
   },
   {
     "rule": "1.4.12",
@@ -284,8 +284,8 @@
   {
     "rule": "2.4.7",
     "label": "Focus Visible",
-    "status": "failed",
-    "notes": "There is no focus indicator for the list arrows to move up and down only hover and cursor change"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.4.8",
@@ -332,7 +332,7 @@
   {
     "rule": "2.5.2",
     "label": "Pointer Cancellation",
-    "status": "not-applicable",
+    "status": "passed",
     "notes": ""
   },
   {
