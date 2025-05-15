@@ -1850,7 +1850,7 @@ export const components = [
   },
   {
     name: 'DataSort',
-    accessibility: 'Failed WCAG 2.2 AAA',
+    accessibility: 'Passed WCAG 2.2 AAA',
     available: true,
     category: 'Data',
     description:
