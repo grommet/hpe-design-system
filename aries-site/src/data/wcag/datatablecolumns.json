@@ -332,8 +332,8 @@
   {
     "rule": "2.5.2",
     "label": "Pointer Cancellation",
-    "status": "passed",
-    "notes": "user can use the escape key to abort the drag and drop"
+    "status": "not-applicable",
+    "notes": ""
   },
   {
     "rule": "2.5.3",
