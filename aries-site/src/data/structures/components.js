@@ -830,7 +830,7 @@ export const components = [
   },
   {
     name: 'Footer',
-    accessibility: 'Passed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'Footer is a Box with a set of preset properties. It is usually placed at the bottom of the page, which makes it predictable for users to find certain information or actions.',
