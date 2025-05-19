@@ -158,8 +158,8 @@
   {
     "rule": "1.4.11",
     "label": "Non-text Contrast",
-    "status": "failed",
-    "notes": "if the lock icon is suppose to portray meaning then the contrast does not pass"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.4.12",
