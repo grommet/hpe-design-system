@@ -249,7 +249,7 @@
     "rule": "2.4.1",
     "label": "Bypass Blocks",
     "status": "passed",
-    "notes": "Footer accessibility can be improved by using `role=\"contentinfo\"` and, if there are multiple footers on the page, adding an `aria-label` or `aria-labelledby` to distinguish them."
+    "notes": ""
   },
   {
     "rule": "2.4.2",
