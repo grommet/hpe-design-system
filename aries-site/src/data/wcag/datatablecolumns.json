@@ -69,7 +69,7 @@
     "rule": "1.3.2",
     "label": "Meaningful Sequence",
     "status": "failed",
-    "notes": "pinned columns are locked but not distunguished for screen readers. The title order of columns is not clear for screen readers as well as selected columns"
+    "notes": "pinned columns are locked but not distinguished for screen readers. The title order of columns is not clear for screen readers as well as selected columns"
   },
   {
     "rule": "1.3.3",
