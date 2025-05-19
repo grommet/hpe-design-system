@@ -320,8 +320,8 @@
   {
     "rule": "2.4.13",
     "label": "Focus Appearance",
-    "status": "failed",
-    "notes": "no focus indicator for up and down chevrons in list"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.5.1",
