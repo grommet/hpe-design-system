@@ -830,6 +830,7 @@ export const components = [
   },
   {
     name: 'Footer',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'Footer is a Box with a set of preset properties. It is usually placed at the bottom of the page, which makes it predictable for users to find certain information or actions.',
@@ -944,6 +945,7 @@ export const components = [
   },
   {
     name: 'Grid',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description: `Grid is a component based on columns and rows used for organizing layouts. From scaffolding page layouts, to organizing elements within 
     a Card, Grid is a powerful tool for composing responsive, adaptive layouts.`,
@@ -1833,6 +1835,7 @@ export const components = [
   },
   {
     name: 'DataSearch',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description: 'A search input to search across the data collection.',
@@ -1850,6 +1853,7 @@ export const components = [
   },
   {
     name: 'DataSort',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description:
@@ -1869,6 +1873,7 @@ export const components = [
   },
   {
     name: 'DataSummary',
+    accessibility: 'Passed WCAG 2.2 AAA',
     available: true,
     category: 'Data',
     description:
@@ -1908,6 +1913,7 @@ export const components = [
   },
   {
     name: 'DataTableGroupBy',
+    accessibility: 'Failed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description:
@@ -1946,6 +1952,7 @@ export const components = [
   },
   {
     name: 'Toolbar',
+    accessibility: 'Passed WCAG 2.2 AAA',
     available: true,
     category: 'Data',
     description:
