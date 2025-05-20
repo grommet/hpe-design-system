@@ -2,7 +2,7 @@ name: Update design-tokens-stable
 on:
   push:
     branches:
-      - design-tokens-v2
+      - design-tokens-v2-alpha
     paths:
       - design-tokens/**
 
