@@ -1,0 +1,107 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ * Copyright Hewlett Packard Enterprise Development LP.
+ */
+
+:root {
+  --hpe-icon-xsmall-size: 12;
+  --hpe-icon-small-size: 14;
+  --hpe-icon-medium-size: 16;
+  --hpe-icon-large-size: 20;
+  --hpe-icon-xlarge-size: 28;
+  --hpe-text-xsmall-fontSize: 0.75rem;
+  --hpe-text-xsmall-lineHeight: 1rem;
+  --hpe-text-xsmall-maxWidth: 30em;
+  --hpe-text-small-fontSize: 0.875rem;
+  --hpe-text-small-lineHeight: 1.25rem;
+  --hpe-text-small-maxWidth: 30em;
+  --hpe-text-medium-fontSize: 1rem;
+  --hpe-text-medium-lineHeight: 1.5rem;
+  --hpe-text-medium-maxWidth: 30em;
+  --hpe-text-large-fontSize: 1.25rem;
+  --hpe-text-large-lineHeight: 1.875rem;
+  --hpe-text-large-maxWidth: 30em;
+  --hpe-text-xlarge-fontSize: 1.75rem;
+  --hpe-text-xlarge-lineHeight: 2.375rem;
+  --hpe-text-xlarge-maxWidth: 30em;
+  --hpe-text-xxlarge-maxWidth: 30em;
+  --hpe-text-3xlarge-maxWidth: 30em;
+  --hpe-text-4xlarge-maxWidth: 30em;
+  --hpe-text-5xlarge-maxWidth: 30em;
+  --hpe-heading-xlarge-fontSize: 1.5rem; /** Font size typically used on h1. */
+  --hpe-heading-xlarge-lineHeight: 2rem; /** Line height typically used on h1. */
+  --hpe-heading-large-fontSize: 1.25rem; /** Font size typically used on h2. */
+  --hpe-heading-large-lineHeight: 1.5rem; /** Line height typically used on h2. */
+  --hpe-heading-medium-fontSize: 1.125rem; /** Font size typically used on h3. */
+  --hpe-heading-medium-lineHeight: 1.375rem; /** Line height typically used on h3. */
+  --hpe-heading-small-fontSize: 1rem; /** Font size typically used on h4. */
+  --hpe-heading-small-lineHeight: 1.25rem; /** Line height typically used on h4. */
+  --hpe-heading-xsmall-fontSize: 1rem; /** Font size typically used on h5. */
+  --hpe-heading-xsmall-lineHeight: 1.125rem; /** Line height typically used on h5. */
+  --hpe-heading-xxsmall-fontSize: 1rem; /** Font size typically used on h6. */
+  --hpe-heading-xxsmall-lineHeight: 1.125rem; /** Line height typically used on h6. */
+  --hpe-radius-full: var(--hpe-static-radius-full);
+  --hpe-icon-xxlarge-size: var(--hpe-base-dimension-900);
+  --hpe-text-xsmall-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-small-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-medium-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-large-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-xlarge-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-xxlarge-fontSize: var(--hpe-base-fontSize-600);
+  --hpe-text-xxlarge-lineHeight: var(--hpe-base-lineHeight-600);
+  --hpe-text-xxlarge-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-3xlarge-fontSize: var(--hpe-base-fontSize-700);
+  --hpe-text-3xlarge-lineHeight: var(--hpe-base-lineHeight-700);
+  --hpe-text-3xlarge-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-4xlarge-fontSize: var(--hpe-base-fontSize-800);
+  --hpe-text-4xlarge-lineHeight: var(--hpe-base-lineHeight-800);
+  --hpe-text-4xlarge-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-text-5xlarge-fontSize: var(--hpe-base-fontSize-900);
+  --hpe-text-5xlarge-lineHeight: var(--hpe-base-lineHeight-900);
+  --hpe-text-5xlarge-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-heading-xlarge-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h1. */
+  --hpe-heading-large-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h2. */
+  --hpe-heading-medium-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h3. */
+  --hpe-heading-small-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h4. */
+  --hpe-heading-xsmall-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h5. */
+  --hpe-heading-xxsmall-fontWeight: var(--hpe-fontWeight-semibold); /** Font weight typically used on h6. */
+  --hpe-spacing-none: var(--hpe-static-spacing-none);
+  --hpe-spacing-hair: var(--hpe-static-spacing-hair);
+  --hpe-spacing-5xsmall: var(--hpe-static-spacing-5xsmall);
+  --hpe-spacing-4xsmall: var(--hpe-static-spacing-4xsmall);
+  --hpe-spacing-3xsmall: var(--hpe-static-spacing-3xsmall);
+  --hpe-spacing-xxsmall: var(--hpe-static-spacing-xxsmall);
+  --hpe-spacing-xsmall: var(--hpe-static-spacing-xsmall);
+  --hpe-spacing-small: var(--hpe-static-spacing-small);
+  --hpe-spacing-medium: var(--hpe-static-spacing-medium);
+  --hpe-spacing-large: var(--hpe-static-spacing-large);
+  --hpe-spacing-xlarge: var(--hpe-static-spacing-xlarge);
+  --hpe-spacing-xxlarge: var(--hpe-static-spacing-xxlarge);
+  --hpe-spacing-3xlarge: var(--hpe-static-spacing-3xlarge);
+  --hpe-radius-none: var(--hpe-static-radius-none);
+  --hpe-radius-hair: var(--hpe-static-radius-hair);
+  --hpe-radius-xxsmall: var(--hpe-static-radius-xxsmall);
+  --hpe-radius-xsmall: var(--hpe-static-radius-xsmall);
+  --hpe-radius-small: var(--hpe-static-radius-small);
+  --hpe-radius-medium: var(--hpe-static-radius-medium);
+  --hpe-radius-large: var(--hpe-static-radius-large);
+  --hpe-radius-xlarge: var(--hpe-static-radius-xlarge);
+  --hpe-radius-xxlarge: var(--hpe-static-radius-xxlarge);
+  --hpe-borderWidth-none: var(--hpe-static-borderWidth-none);
+  --hpe-borderWidth-xsmall: var(--hpe-static-borderWidth-xsmall);
+  --hpe-borderWidth-small: var(--hpe-static-borderWidth-small);
+  --hpe-borderWidth-medium: var(--hpe-static-borderWidth-medium);
+  --hpe-borderWidth-large: var(--hpe-static-borderWidth-large);
+  --hpe-borderWidth-default: var(--hpe-static-borderWidth-xsmall);
+  --hpe-container-5xsmall: var(--hpe-static-container-5xsmall); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-4xsmall: var(--hpe-static-container-4xsmall);
+  --hpe-container-3xsmall: var(--hpe-static-container-3xsmall); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-xxsmall: var(--hpe-static-container-xxsmall);
+  --hpe-container-xsmall: var(--hpe-static-container-xsmall); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-small: var(--hpe-static-container-small);
+  --hpe-container-medium: var(--hpe-static-container-medium); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-large: var(--hpe-static-container-large);
+  --hpe-container-xlarge: var(--hpe-static-container-xlarge); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-xxlarge: var(--hpe-static-container-xxlarge); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+  --hpe-container-3xlarge: var(--hpe-static-container-3xlarge); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
+}
