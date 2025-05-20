@@ -493,6 +493,7 @@ export const components = [
   },
   {
     name: 'Tip',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Controls',
     description:
       'A Tip is a small layer that opens when the user moves the mouse pointer over an element. The intention is to offer helpful information in the immediate context.',
