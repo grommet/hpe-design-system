@@ -3,680 +3,510 @@
     "rule": "1.1.1",
     "label": "Non-text content",
     "Column1": "conditional",
-    "notes": "Implementor needs to apply the correct aria role",
-    "": "",
-    "__1": "This tip currently behaves like a tooltip (role=\"tooltip\"), which is not expected to receive focus.\nIf the design intent is to include actionable or more complex content, the role should be changed to dialog, and focus management should be implemented to meet 2.1.1 and 2.4.3."
+    "notes": "Implementor needs to apply the correct aria role"
   },
   {
     "rule": "1.2.1",
     "label": "Audio-only and Video-only (Prerecorded)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.2.2",
     "label": "Captions (Prerecorded)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.2.3",
     "label": "Audio Description or Media Alternative (Prerecorded)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.2.4",
     "label": "Captions (Live)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.2.5",
     "label": "Audio Description (Prerecorded)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.2.6",
     "label": "Sign Language (Prerecorded)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.2.7",
     "label": "Extended Audio Description (Prerecorded)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.2.8",
     "label": "Media Alternative (Prerecorded)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.2.9",
     "label": "Audio-only (Live)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.3.1",
     "label": "Info and Relationships",
     "Column1": "conditional",
-    "notes": "Tip needs to be given an aria-label, aria-labelledby, or aria-describedby so that the tip can clearly be associated with its trigger.",
-    "": "",
-    "__1": ""
+    "notes": "Tip needs to be given an aria-label, aria-labelledby, or aria-describedby so that the tip can clearly be associated with its trigger."
   },
   {
     "rule": "1.3.2",
     "label": "Meaningful Sequence",
     "Column1": "conditional",
-    "notes": "Screen reader users must encounter tip content at the appropriate time, ideally as part of a reading/interaction flow (e.g., using aria-describedby to have the tip content read after its trigger).",
-    "": "",
-    "__1": ""
+    "notes": "Screen reader users must encounter tip content at the appropriate time, ideally as part of a reading/interaction flow (e.g., using aria-describedby to have the tip content read after its trigger)."
   },
   {
     "rule": "1.3.3",
     "label": "Sensory Characteristics",
     "Column1": "conditional",
-    "notes": "Depend on how consuming teams use the tip.. Info tip CircleInformation conveys visual clues, e.g. shape\n\"Click informational icon button?",
-    "": "",
-    "__1": ""
+    "notes": "Depend on how consuming teams use the tip.. Info tip CircleInformation conveys visual clues, e.g. shape\n\"Click informational icon button?"
   },
   {
     "rule": "1.3.4",
     "label": "Orientation",
     "Column1": "passed",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.3.5",
     "label": "Identify Input Purpose",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.3.6",
     "label": "Identify Purpose",
     "Column1": "not-applicable",
-    "notes": "Tip is used to pass this accessibility check for other components but this doesn't apply to the tip itself.",
-    "": "",
-    "__1": ""
+    "notes": "Tip is used to pass this accessibility check for other components but this doesn't apply to the tip itself."
   },
   {
     "rule": "1.4.1",
     "label": "Use of Color",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.4.2",
     "label": "Audio Control",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.4.3",
     "label": "Contrast (Minimum)",
     "Column1": "passed",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.4.4",
     "label": "Resize Text",
     "Column1": "passed",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.4.5",
     "label": "Images of Text",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.4.6",
     "label": "Contrast (Enhanced)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.4.7",
     "label": "Low or No Background Audio",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.4.8",
     "label": "Visual Presentation",
     "Column1": "conditional",
-    "notes": "Depends on the length of the text, but it's recommended to keep Tips short so shouldn't apply in a majority of use cases.",
-    "": "",
-    "__1": ""
+    "notes": "Depends on the length of the text, but it's recommended to keep Tips short so shouldn't apply in a majority of use cases."
   },
   {
     "rule": "1.4.9",
     "label": "Images of Text (No Exception)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.4.10",
     "label": "Reflow",
     "Column1": "passed",
-    "notes": "",
-    "": "",
-    "__1": "Tip Context: Watch for fixed-width containers, poor positioning logic, or components that don�t scale with text zoom � a common fail point."
+    "notes": ""
   },
   {
     "rule": "1.4.11",
     "label": "Non-text Contrast",
     "Column1": "not-applicable",
-    "notes": "Tip has a border but it doesn't matter since that border isn't used to convey any specific meaning.",
-    "": "",
-    "__1": "Tip Context: If the tip has a border or icon (e.g., an �i� symbol), verify the 3:1 contrast � particularly between icon and background."
+    "notes": "Tip has a border but it doesn't matter since that border isn't used to convey any specific meaning."
   },
   {
     "rule": "1.4.12",
     "label": "Text Spacing",
     "Column1": "passed",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "1.4.13",
     "label": "Content on Hover or Focus",
     "Column1": "passed",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.1.1",
     "label": "Keyboard",
     "Column1": "passed",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.1.2",
     "label": "No Keyboard Trap",
     "Column1": "passed",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.1.3",
     "label": "Keyboard (No Exception)",
     "Column1": "passed",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.2.1",
     "label": "Timing Adjustable",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.2.2",
     "label": "Pause, Stop, Hide",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.2.3",
     "label": "No Timing",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.2.4",
     "label": "Interruptions",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.2.5",
     "label": "Re-authenticating",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.2.6",
     "label": "Timeouts",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.3.1",
     "label": "Three Flashes or Below Threshold",
     "Column1": "conditional",
-    "notes": "Dependent on tip animation",
-    "": "",
-    "__1": ""
+    "notes": "Dependent on tip animation"
   },
   {
     "rule": "2.3.2",
     "label": "Three Flashes",
     "Column1": "conditional",
-    "notes": "Dependent on tip animation",
-    "": "",
-    "__1": ""
+    "notes": "Dependent on tip animation"
   },
   {
     "rule": "2.3.3",
     "label": "Animation from Interactions",
     "Column1": "conditional",
-    "notes": "Dependent on tip animation",
-    "": "",
-    "__1": ""
+    "notes": "Dependent on tip animation"
   },
   {
     "rule": "2.4.1",
     "label": "Bypass Blocks",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.4.2",
     "label": "Page Titled",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.4.3",
     "label": "Focus Order",
     "Column1": "not-applicable",
-    "notes": "tip doesn't receive focus",
-    "": "",
-    "__1": ""
+    "notes": "tip doesn't receive focus"
   },
   {
     "rule": "2.4.4",
     "label": "Link Purpose (In Context)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.4.5",
     "label": "Multiple Ways",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.4.6",
     "label": "Headings and Labels",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.4.7",
     "label": "Focus Visible",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.4.8",
     "label": "Location",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.4.9",
     "label": "Link Purpose (Link Only)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.4.10",
     "label": "Section Headings",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.4.11",
     "label": "Focus Not Obscured (Minimum)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.4.12",
     "label": "Focus Not Obscured (Enhanced)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.4.13",
     "label": "Focus Appearance",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.5.1",
     "label": "Pointer Gestures",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.5.2",
     "label": "Pointer Cancellation",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.5.3",
     "label": "Label in Name",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.5.4",
     "label": "Motion Actuation",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.5.5",
     "label": "Target Size (Enhanced)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.5.6",
     "label": "Concurrent Input Mechanisms",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.5.7",
     "label": "Dragging Movements",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "2.5.8",
     "label": "Target Size (Minimum)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.1.1",
     "label": "Language of Page",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.1.2",
     "label": "Language of Parts",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.1.3",
     "label": "Unusual Words",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.1.4",
     "label": "Abbreviations",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.1.5",
     "label": "Reading Level",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.1.6",
     "label": "Pronunciation",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.2.1",
     "label": "On Focus",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.2.2",
     "label": "On Input",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.2.3",
     "label": "Consistent Navigation",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.2.4",
     "label": "Consistent Identification",
     "Column1": "conditional",
-    "notes": "Tips must be given the correct aria role consistently",
-    "": "",
-    "__1": ""
+    "notes": "Tips must be given the correct aria role consistently"
   },
   {
     "rule": "3.2.5",
     "label": "Change on Request",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.2.6",
     "label": "Consistent Help",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.3.1",
     "label": "Error Identification",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.3.2",
     "label": "Labels or Instructions",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.3.3",
     "label": "Error Suggestion",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.3.4",
     "label": "Error Prevention (Legal, Financial, Data)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.3.5",
     "label": "Help",
     "Column1": "not-applicable",
-    "notes": "Tip is used to pass this accessibility check for other components but this doesn't apply to the tip itself.",
-    "": "",
-    "__1": ""
+    "notes": "Tip is used to pass this accessibility check for other components but this doesn't apply to the tip itself."
   },
   {
     "rule": "3.3.6",
     "label": "Error Prevention (All)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.3.7",
     "label": "Redundant Entry",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.3.8",
     "label": "Accessible Authentication (Minimum)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "3.3.9",
     "label": "Accessible Authentication (Enhanced)",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   },
   {
     "rule": "4.1.2",
     "label": "Name, Role, Value",
     "Column1": "conditional",
-    "notes": "Tips must be given the correct aria role consistently",
-    "": "",
-    "__1": ""
+    "notes": "Tips must be given the correct aria role consistently"
   },
   {
     "rule": "4.1.3",
     "label": "Status Messages",
     "Column1": "not-applicable",
-    "notes": "",
-    "": "",
-    "__1": ""
+    "notes": ""
   }
 ]
