@@ -453,7 +453,7 @@
     "rule": "3.3.2",
     "label": "Labels or Instructions",
     "status": "conditional",
-    "notes": "provide clear labels and instructions"
+    "notes": "provide clear labels and instructions through view names"
   },
   {
     "rule": "3.3.3",
