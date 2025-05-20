@@ -25,6 +25,7 @@ import {
 // } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
 import { hpe as hpeV5 } from 'grommet-theme-hpe-v5';
+import { hpe as hpeV6 } from 'grommet-theme-hpe-v6';
 
 // // TO DO should these be added as tokens?
 // const backgrounds = {
@@ -3061,7 +3062,8 @@ export const optionBefore = ({ theme }) => css`
 //   },
 // );
 
-export const current = hpe;
+// Deep merge to allow for local testing overrides
+export const current = deepMerge(hpe, {});
 
 // need to extend hpe with new token namespace to "fill gaps" for sake of demo
 // when toggling between themes
@@ -3134,6 +3136,7 @@ const v5 = deepMerge(hpeV5, {
 });
 
 export const themes = {
-  v1: current,
+  v2: current,
+  v1: hpeV6,
   v0: v5,
 };
