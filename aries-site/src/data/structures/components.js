@@ -584,7 +584,7 @@ export const components = [
   },
   {
     name: 'Select',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Inputs',
     description:
       'Select is a flexible input field that allows users to choose from a list of options.',
@@ -632,7 +632,7 @@ export const components = [
   {
     name: 'SelectMultiple',
     category: 'Inputs',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Failed WCAG 2.2 A',
     description:
       'SelectMultiple is a dropdown component that enables the user to quickly scan the list of options and choose more than one of the options.',
     seoDescription:
@@ -1799,6 +1799,7 @@ export const components = [
   },
   {
     name: 'DataFilter',
+    accessibility: 'Failed WCAG 2.2 A',
     available: true,
     category: 'Data',
     description: 'An individual filter for a property in a data collection.',
@@ -1818,6 +1819,7 @@ export const components = [
   },
   {
     name: 'DataFilters',
+    accessibility: 'Failed WCAG 2.2 A',
     available: true,
     category: 'Data',
     description: 'A group of DataFilters for a data collection.',
@@ -1893,6 +1895,7 @@ export const components = [
   },
   {
     name: 'DataTableColumns',
+    accessibility: 'Failed WCAG 2.2 A',
     available: true,
     category: 'Data',
     description:
