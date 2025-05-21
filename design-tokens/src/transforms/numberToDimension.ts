@@ -28,7 +28,7 @@ export const numberToDimension: Transform = {
         'left',
         'bottom',
         'right',
-        'size', // for icon size
+        'size',
       ].find(v => token.path.includes(v))
     )
       return true;
