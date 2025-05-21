@@ -85,7 +85,7 @@
   --hpe-select-default-option-rest-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-select-default-option-selected-rest-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-select-default-option-selected-hover-fontWeight: var(--hpe-fontWeight-medium);
-  --hpe-button-primary-rest-fontWeight: var(--hpe-fontWeight-semibold);
+  --hpe-button-primary-rest-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-button-primary-xsmall-paddingX: var(--hpe-button-default-xsmall-paddingX);
   --hpe-button-primary-xsmall-paddingY: var(--hpe-button-default-xsmall-paddingY);
   --hpe-button-primary-xsmall-iconOnly-paddingY: var(--hpe-button-default-xsmall-iconOnly-paddingY);

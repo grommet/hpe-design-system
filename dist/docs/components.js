@@ -5315,7 +5315,7 @@ export default {
   },
   "hpe.button.primary.rest.fontWeight": {
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -5330,7 +5330,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.semibold}",
+      "$value": "{fontWeight.medium}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5551,7 +5551,7 @@ export default {
   },
   "hpe.button.primary.disabled.rest.fontWeight": {
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -5781,7 +5781,7 @@ export default {
   },
   "hpe.button.primary.hover.fontWeight": {
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -6017,7 +6017,7 @@ export default {
   },
   "hpe.button.primary.selected.rest.fontWeight": {
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -6255,7 +6255,7 @@ export default {
   },
   "hpe.button.primary.selected.hover.fontWeight": {
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "$description": "",
     "$extensions": {
       "com.figma": {
