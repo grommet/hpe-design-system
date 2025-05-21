@@ -692,7 +692,7 @@
         },
         "fontWeight": {
           "$type": "number",
-          "$value": "{fontWeight.semibold}",
+          "$value": "{fontWeight.medium}",
           "$description": "",
           "$extensions": {
             "com.figma": {
