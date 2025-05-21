@@ -2,8 +2,8 @@
   {
     "rule": "1.1.1",
     "label": "Non-text content",
-    "status": "conditional",
-    "notes": "Implementor needs to apply the correct aria role"
+    "status": "not-applicable",
+    "notes": ""
   },
   {
     "rule": "1.2.1",
@@ -63,7 +63,7 @@
     "rule": "1.3.1",
     "label": "Info and Relationships",
     "status": "conditional",
-    "notes": "Tip needs to be given an aria-label, aria-labelledby, or aria-describedby so that the tip can clearly be associated with its trigger."
+    "notes": "Tip needs to be given an aria-describedby so that the tip can clearly be associated with its trigger."
   },
   {
     "rule": "1.3.2",
