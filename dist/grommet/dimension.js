@@ -55,19 +55,19 @@ export default {
     },
     "icon": {
       "xsmall": {
-        "size": 12
+        "size": "12px"
       },
       "small": {
-        "size": 14
+        "size": "14px"
       },
       "medium": {
-        "size": 16
+        "size": "16px"
       },
       "large": {
-        "size": 20
+        "size": "20px"
       },
       "xlarge": {
-        "size": 28
+        "size": "28px"
       },
       "xxlarge": {
         "size": "36px"

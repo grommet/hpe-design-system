@@ -4,11 +4,11 @@
  */
 
 :root {
-  --hpe-icon-xsmall-size: 12;
-  --hpe-icon-small-size: 14;
-  --hpe-icon-medium-size: 16;
-  --hpe-icon-large-size: 20;
-  --hpe-icon-xlarge-size: 28;
+  --hpe-icon-xsmall-size: 12px;
+  --hpe-icon-small-size: 14px;
+  --hpe-icon-medium-size: 16px;
+  --hpe-icon-large-size: 20px;
+  --hpe-icon-xlarge-size: 28px;
   --hpe-text-xsmall-fontSize: 0.75rem;
   --hpe-text-xsmall-lineHeight: 1rem;
   --hpe-text-xsmall-maxWidth: 30em;

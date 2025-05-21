@@ -20,7 +20,7 @@ module.exports = {
           "wide": "9px"
         },
         "icon": {
-          "size": 12
+          "size": "12px"
         },
         "width": "24px",
         "height": "24px"
@@ -41,7 +41,7 @@ module.exports = {
           "wide": "12px"
         },
         "icon": {
-          "size": 14
+          "size": "14px"
         }
       },
       "medium": {
@@ -60,7 +60,7 @@ module.exports = {
           "wide": "18px"
         },
         "icon": {
-          "size": 16
+          "size": "16px"
         }
       },
       "large": {
@@ -79,7 +79,7 @@ module.exports = {
           "wide": "24px"
         },
         "icon": {
-          "size": 20
+          "size": "20px"
         }
       },
       "xlarge": {
@@ -98,7 +98,7 @@ module.exports = {
           "wide": "32px"
         },
         "icon": {
-          "size": 28
+          "size": "28px"
         }
       }
     },
@@ -404,7 +404,7 @@ module.exports = {
           "paddingX": "12px",
           "paddingY": "3px",
           "borderRadius": "9999px",
-          "borderWidth": "1px",
+          "borderWidth": "4px",
           "minHeight": "28px",
           "fontSize": "0.875rem",
           "lineHeight": "1.25rem",
@@ -413,7 +413,7 @@ module.exports = {
             "paddingX": "5px",
             "paddingY": "5px",
             "borderRadius": "9999px",
-            "borderWidth": "1px",
+            "borderWidth": "4px",
             "minHeight": "28px",
             "minWidth": "28px",
             "fontSize": "0.875rem",
@@ -425,7 +425,7 @@ module.exports = {
           "paddingX": "18px",
           "paddingY": "4px",
           "borderRadius": "9999px",
-          "borderWidth": "small",
+          "borderWidth": "4px",
           "minHeight": "36px",
           "fontSize": "1rem",
           "lineHeight": "1.5rem",
@@ -434,7 +434,7 @@ module.exports = {
             "paddingX": "8px",
             "paddingY": "8px",
             "borderRadius": "9999px",
-            "borderWidth": "small",
+            "borderWidth": "4px",
             "minHeight": "36px",
             "minWidth": "36px",
             "fontSize": "1rem",
@@ -446,14 +446,14 @@ module.exports = {
           "paddingX": "24px",
           "paddingY": "9px",
           "borderRadius": "9999px",
-          "borderWidth": "1px",
+          "borderWidth": "4px",
           "minHeight": "48px",
           "fontSize": "1.25rem",
           "lineHeight": "1.875rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "9999px",
-            "borderWidth": "1px",
+            "borderWidth": "4px",
             "minHeight": "48px",
             "minWidth": "48px",
             "fontSize": "1.25rem",
