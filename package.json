@@ -34,14 +34,16 @@
   ],
   "dependencies": {
     "@changesets/cli": "^2.27.9",
-    "grommet": "https://github.com/grommet/grommet/tarball/stable",
+    "grommet": "latest",
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
-    "grommet-theme-hpe": "latest",
+    "grommet-theme-hpe": "https://github.com/grommet/grommet-theme-hpe/tarball/v2-alpha-stable",
+    "hpe-design-tokens": "workspace:*",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "styled-components": "^6.1.17"
   },
   "scripts": {
     "prepare": "husky install"
-  }
+  },
+  "packageManager": "yarn@4.3.1"
 }

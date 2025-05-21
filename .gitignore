@@ -34,3 +34,11 @@ report*
 .tailwind-app
 
 *storybook.log
+
+#yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
