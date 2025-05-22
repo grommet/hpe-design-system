@@ -362,8 +362,8 @@
   {
     "rule": "2.5.7",
     "label": "Dragging Movements",
-    "status": "failed",
-    "notes": "Must allow users to type a number value into an input or click simple +/- buttons to adjust the volume"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.5.8",
