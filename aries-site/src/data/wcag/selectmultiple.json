@@ -286,7 +286,8 @@
   {
     "rule": "2.5.3",
     "label": "Label in Name",
-    "status": "failed"
+    "status": "conditional",
+    "notes": "Requires caller to follow format of htmlFor={`${id}__input`} on FormField."
   },
   {
     "rule": "2.5.4",

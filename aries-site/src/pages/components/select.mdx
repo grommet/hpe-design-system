@@ -82,5 +82,14 @@ Indicates that the Select input exists but cannot be interacted with until a pre
 
 Using Select as a form field is preferred for user experience. When Select is used in conjunction with FormField, users receive clear indication for the contents and purpose of the input. Additionally, this use promotes best practices in accessibility by ensuring user inputs are accompanied by labels used by assistive technologies.
 
+To properly associate FormField `label` with Grommet's Select component, ensure the Select has an `id` and the FormField has an `htmlFor` with the format of `${id}__input`.
+
+```
+<FormField label="Select option" htmlFor="select__input">
+  <Select id="select" options={['Option 1', 'Option 2']} />
+</FormField>
+```
+
 ### WCAG compliance
-  <AccessibilitySection title='select' />
+
+<AccessibilitySection title="select" />
