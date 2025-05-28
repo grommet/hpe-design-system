@@ -239,8 +239,8 @@
   {
     "rule": "2.4.7",
     "label": "Focus Visible",
-    "status": "failed",
-    "notes": "Focus indicator not shown when navigating through the list of options"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.4.8",
