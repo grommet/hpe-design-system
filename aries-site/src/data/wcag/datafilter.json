@@ -338,7 +338,7 @@
   {
     "rule": "2.5.3",
     "label": "Label in Name",
-    "status": "failed",
+    "status": "passed",
     "notes": ""
   },
   {
