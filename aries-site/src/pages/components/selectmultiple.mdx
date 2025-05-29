@@ -55,6 +55,14 @@ When multiple selections can be made in a list that contains 5 or more items.
 
 ## Accessibility
 
+To properly associate FormField `label` with Grommet's SelectMultiple component, ensure the SelectMultiple has an `id` and the FormField has an `htmlFor` with the format of `${id}__input`.
+
+```
+<FormField label="Select option" htmlFor="selectmultiple__input">
+  <SelectMultiple id="selectmultiple" options={['Option 1', 'Option 2']} />
+</FormField>
+```
+
 ### WCAG compliance
 
-<AccessibilitySection title='selectmultiple' />
+<AccessibilitySection title="selectmultiple" />
