@@ -2,8 +2,8 @@
   {
     "rule": "1.1.1",
     "label": "Non-text content",
-    "status": "failed",
-    "notes": "Skeletons are purely visual and contain no relevant meaning for screen readers so should be given aria-hidden=\"true\". Supporting documentation (https://adrianroselli.com/2020/11/more-accessible-skeletons.html)"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.2.1",
@@ -62,14 +62,14 @@
   {
     "rule": "1.3.1",
     "label": "Info and Relationships",
-    "status": "failed",
-    "notes": "Because skeletons do not have aria-hidden=\"true\" they may mess with the structure of the page for screen readers."
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.3.2",
     "label": "Meaningful Sequence",
-    "status": "failed",
-    "notes": "Hide skeletons aria-hidden=\"true\" and preserve logical flow."
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.3.3",
