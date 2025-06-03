@@ -78,7 +78,7 @@ To see this behavior, add a file then click the "Trash" button to see the confir
 When using FileInput within a Form, the FormField wrapping the FileInput should have `htmlFor` and `name` properties that match the `id` and `name` properties placed onto the FileInput. Reference the [FileInput within a Form example](/templates/forms#required-and-optional-fields) to see how to implement.
 
 **Filename truncation:**
-
+At the moment, we are recommending that implementers use the [renderFile prop](https://v2.grommet.io/fileinput#renderFile) to display the full file name in cases where truncation occurs and the full name needs to be visible.
 
 ```
 <FileInput
