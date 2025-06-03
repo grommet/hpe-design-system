@@ -79,7 +79,7 @@ When using FileInput within a Form, the FormField wrapping the FileInput should 
 
 **Filename truncation:**
 
-At the moment, we are recommending that implementers use the [renderFile prop](https://v2.grommet.io/fileinput#renderFile) to display the full file name in cases where truncation occurs and the full name needs to be visible.
+If displaying the entire file name is critical to the users understanding of the component and the name is getting truncated, the `renderFile` property should be used to display the full file name.
 
 ```
 <FileInput
