@@ -79,7 +79,7 @@ When using FileInput within a Form, the FormField wrapping the FileInput should 
 
 **Filename truncation:**
 
-If you need to display the full name of uploaded files instead of the default truncated filenames, you can use the `renderFile` prop. For more information, visit [the official documentation](https://v2.grommet.io/fileinput#renderFile).
+At the moment, we are recommending that implementers use the [renderFile prop](https://v2.grommet.io/fileinput#renderFile) to display the full file name in cases where truncation occurs and the full name needs to be visible. The default tooltip uses the native HTML title attribute, which is not accessible to keyboard users. Since this is a browser-level limitation and not an issue with Grommet itself, we're unable to address it directly.
 
 ```
 <FileInput
