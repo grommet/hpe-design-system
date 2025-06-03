@@ -170,8 +170,8 @@
   {
     "rule": "1.4.13",
     "label": "Content on Hover or Focus",
-    "status": "failed",
-    "notes": "Failing because when the file name truncates there isn't a way for keyboard users to access the tooltip"
+    "status": "passed",
+    "notes": "Initial note - Failing because when the file name truncates there isn't a way for keyboard users to access the tooltip. We might need to revisit this in the future. Updated note - At the moment we are recommending that implementers use `renderFile` prop to display full name in cases where they need to display the full file name."
   },
   {
     "rule": "2.1.1",
