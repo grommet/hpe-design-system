@@ -6080,9 +6080,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.5.160:
-  version "1.5.164"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.164.tgz#d85fa1a083f19a54fbf1f6e55f6cfcde300fe68d"
-  integrity sha512-TXBrF2aZenRjY3wbj5Yc0mZn43lMiSHNkzwPkIxx+vWUB35Kf8Gm/uOYmOJFNQ7SUwWAinbfxX73ANIud65wSA==
+  version "1.5.162"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.162.tgz#5305c15292a960f36e86f8b330da958f8ae1690d"
+  integrity sha512-hQA+Zb5QQwoSaXJWEAGEw1zhk//O7qDzib05Z4qTqZfNju/FAkrm5ZInp0JbTp4Z18A6bilopdZWEYrFSsfllA==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -7586,8 +7586,8 @@ grommet-theme-hpe@^6.0.0:
     hpe-design-tokens "~1.3.0"
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
-  version "2.34.2"
-  resolved "https://github.com/grommet/grommet/tarball/stable#92c2906cbc26ff345393d1687b83d349caf509de"
+  version "2.47.0"
+  resolved "https://github.com/grommet/grommet/tarball/stable#7eda3cbfa7eca141b22133c429ae8268cf76341a"
   dependencies:
     grommet-icons "^4.10.0"
     hoist-non-react-statics "^3.2.0"
