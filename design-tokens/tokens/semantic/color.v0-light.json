@@ -149,22 +149,6 @@
           }
         }
       },
-      "warning": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.orange.400-Opacity24}",
-            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "ok": {
         "DEFAULT": {
           "REST": {
@@ -197,12 +181,12 @@
           }
         }
       },
-      "unknown": {
+      "warning": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.black.opacity4}",
-            "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
+            "$value": "{base.color.orange.400-Opacity24}",
+            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -219,6 +203,22 @@
             "$type": "color",
             "$value": "{color.background.contrast.DEFAULT.REST}",
             "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "unknown": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.black.opacity4}",
+            "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
