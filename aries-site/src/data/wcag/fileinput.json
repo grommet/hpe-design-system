@@ -500,8 +500,8 @@
   {
     "rule": "4.1.2",
     "label": "Name, Role, Value",
-    "status": "failed",
-    "notes": "For a screenreader users we need to make it more clear the state of what files have been added and better confirmation of when a file is removed."
+    "status": "passed",
+    "notes": "For a screenreader users we need to make it more clear the state of what files have been added and better confirmation of when a file is removed. Updated note - based on Bill's feedback, our current implementation is sufficient."
   },
   {
     "rule": "4.1.3",
