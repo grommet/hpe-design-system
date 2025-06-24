@@ -8,7 +8,7 @@ export const aries = deepMerge(hpe, {
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
   buttonGroup: {
-    // any Box props
+    // any Box prop
     gap: 'small',
   },
   feedback: {
