@@ -1820,7 +1820,7 @@ export const components = [
   },
   {
     name: 'DataFilters',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description: 'A group of DataFilters for a data collection.',
