@@ -2,8 +2,8 @@
   {
     "rule": "1.1.1",
     "label": "Non-text content",
-    "status": "failed",
-    "notes": "Header sort buttons and search need better a11y text as well group expand/collapse buttons"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.2.1",
@@ -506,8 +506,8 @@
   {
     "rule": "4.1.2",
     "label": "Name, Role, Value",
-    "status": "failed",
-    "notes": "no appropriate hint/role for column resize, aria-sort for ascending/descending"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "4.1.3",
