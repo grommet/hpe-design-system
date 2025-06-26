@@ -8,6 +8,7 @@ import {
   ThumbsRating,
   TextArea,
   Text,
+  TextInput,
 } from 'grommet';
 
 export const Question = ({ formProps, label, inputProps, kind, name }) => {
@@ -28,6 +29,7 @@ export const Question = ({ formProps, label, inputProps, kind, name }) => {
       label: <Text>{label}</Text>,
     },
     textArea: { render: TextArea },
+    textInput: { render: TextInput },
     radioButtonGroup: { render: RadioButtonGroup },
     fileInput: { render: FileInput },
   };
