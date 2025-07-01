@@ -25,11 +25,12 @@ export const ContentCard = forwardRef(
         value={{
           card: {
             container: {
+              background: 'background-contrast',
               elevation: 'none',
             },
             hover: {
               container: {
-                background: 'background-hover',
+                background: 'background-contrast-hover',
                 elevation: 'none',
               },
             },

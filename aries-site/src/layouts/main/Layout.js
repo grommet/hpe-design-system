@@ -339,7 +339,6 @@ export const Layout = ({
     nav = (
       <Collapsible open={showSidebar} direction="horizontal">
         <Box
-          background="background-contrast"
           width="medium"
           pad={{ horizontal: 'medium', vertical: 'small' }}
           gap="medium"
@@ -375,7 +374,7 @@ export const Layout = ({
   return authenticated ? (
     <Box direction="row">
       {nav}
-      <Page>
+      <Page background="background-front" round="small">
         {/* I think Head is redundant at this point, 
               but left it as is for now */}
         <Head title={title} />

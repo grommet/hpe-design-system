@@ -17,7 +17,7 @@ const StyledHeader = ({
 
   return (
     <Header
-      background="background-primary-xstrong"
+      // background="background-primary-xstrong"
       pad={{
         vertical: 'small',
         horizontal: 'medium',

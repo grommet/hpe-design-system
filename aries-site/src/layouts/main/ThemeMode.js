@@ -22,7 +22,7 @@ export const ThemeMode = ({ children, ...rest }) => {
         // one level nested = hub page
         router.pathname.split('/').filter(part => part).length === 1
           ? 'background-back'
-          : 'background'
+          : 'background-back'
       }
       options={{
         layer: {
