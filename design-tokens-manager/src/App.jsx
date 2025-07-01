@@ -5,7 +5,7 @@ import { hpe } from 'grommet-theme-hpe';
 import { Github, Moon, Sun } from 'grommet-icons';
 import { Visualizer } from './routes/Visualizer';
 // import { Builder } from './routes/Builder';
-import { Docs } from './routes/Docs';
+// import { Docs } from './routes/Docs';
 import { Scaler } from './routes/Scaler/index';
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
             </Text>
           </Button>
           <Box direction="row" gap="xsmall">
-            <Button as={Link} to="/visualizer" label="Token Visualizer" />
+            {/* <Button as={Link} to="/visualizer" label="Token Visualizer" /> */}
             <Button as={Link} to="/scaler" label="Scale generator" />
             {/* <Button as={Link} to="/builder" label="Token builder" /> */}
             <Button
@@ -59,7 +59,7 @@ function App() {
           </Box>
         </Header>
         <Routes>
-          <Route path="/" element={<Docs />} />
+          <Route path="/" element={<Visualizer />} />
           {/* <Route path="/builder" element={<Builder />} /> */}
           <Route path="/visualizer" element={<Visualizer />} />
           <Route path="/scaler" element={<Scaler />} />
