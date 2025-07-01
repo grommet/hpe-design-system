@@ -24,7 +24,7 @@ const getStatusIcon = status => {
       return <StatusCriticalSmall alt="" color="status-critical" />;
     case 'conditional':
       return <CircleInformation alt="" />;
-    case 'exceptions':
+    case 'AAA not achieved':
       return <StatusWarningSmall alt="" color="status-warning" />;
     default:
       return <StatusGoodSmall alt="" color="status-ok" />;
@@ -33,7 +33,7 @@ const getStatusIcon = status => {
 
 const statusRank = {
   passed: 0,
-  'passed with exceptions': 1,
+  'AAA not achieved': 1,
   conditional: 2,
   failed: 3,
 };
@@ -46,35 +46,52 @@ const WCAGAccessibilityCardView = ({
   ruleNumber,
   status,
   version,
-}) => (
-  <Box
-    pad={{ vertical: 'small', horizontal: 'medium' }}
-    background="background-front"
-    round="small"
-    justify="between"
-    direction="row"
-    gap="small"
-  >
-    <Box flex gap="small">
-      <Paragraph margin="none">
-        <TextEmphasis>{ruleName}.</TextEmphasis> {ruleDescription}
-      </Paragraph>
-      <Box alignSelf="start" direction="row" align="center" gap="small">
-        <Tag size="small" value={`WCAG ${version} ${level}`} />
-        <Anchor
-          target="_blank"
-          size="small"
-          href={link}
-          label={`${ruleNumber} ${ruleName}`}
-        />
+}) => {
+  const descriptionEndsWithColon = ruleDescription.endsWith(':');
+  return (
+    <Box
+      pad={{ vertical: 'small', horizontal: 'medium' }}
+      background="background-front"
+      round="small"
+      justify="between"
+      direction="row"
+      gap="small"
+    >
+      <Box flex gap="small">
+        <Paragraph margin="none">
+          <TextEmphasis>{ruleName}. </TextEmphasis>
+          {!descriptionEndsWithColon ? (
+            ruleDescription
+          ) : (
+            <Text>
+              {ruleDescription}{' '}
+              <Anchor
+                label="Read more"
+                aria-label={`Read more about ${ruleName}`}
+                target="_blank"
+                size="small"
+                href={link}
+              />
+            </Text>
+          )}
+        </Paragraph>
+        <Box alignSelf="start" direction="row" align="center" gap="small">
+          <Tag size="small" value={`WCAG ${version} ${level}`} />
+          <Anchor
+            target="_blank"
+            size="small"
+            href={link}
+            label={`${ruleNumber} ${ruleName}`}
+          />
+        </Box>
+      </Box>
+      <Box alignSelf="start" align="center" direction="row" gap="xsmall">
+        {getStatusIcon(status)}
+        <Text>{status.charAt(0).toUpperCase() + status.slice(1)}</Text>
       </Box>
     </Box>
-    <Box alignSelf="start" align="center" direction="row" gap="xsmall">
-      {getStatusIcon(status)}
-      <Text>{status.charAt(0).toUpperCase() + status.slice(1)}</Text>
-    </Box>
-  </Box>
-);
+  );
+};
 
 export const WCAGRuleDetail = ({ rules, version }) => {
   // Group rules by accessibility principle
@@ -86,6 +103,12 @@ export const WCAGRuleDetail = ({ rules, version }) => {
       4: 'Robust',
     };
 
+    const defaultGrouping = {};
+
+    Object.values(principleMapping).forEach(principle => {
+      defaultGrouping[principle] = [];
+    });
+
     return ruleList.reduce((grouped, rule) => {
       const principleName = rule.num
         ? principleMapping[parseInt(rule.num.split('.')[0], 10)]
@@ -94,7 +117,7 @@ export const WCAGRuleDetail = ({ rules, version }) => {
         ...grouped,
         [principleName]: [...(grouped[principleName] || []), rule],
       };
-    }, {});
+    }, defaultGrouping);
   };
 
   const groupedRules = groupRulesByAccessibilityPrinciple(rules);
@@ -121,10 +144,6 @@ export const WCAGRuleDetail = ({ rules, version }) => {
                   {getStatusIcon(
                     groupedRules[group].reduce(
                       (worst, item) => {
-                        // Ignore rules with level "AAA"
-                        if (item.level === 'AAA' && item.status === 'failed') {
-                          return worst;
-                        }
                         return statusRank[item.status] >
                           statusRank[worst.status]
                           ? item
@@ -140,18 +159,27 @@ export const WCAGRuleDetail = ({ rules, version }) => {
               }
             >
               <Box pad={{ vertical: 'small' }} gap="small">
-                {groupedRules[group].map(item => (
-                  <WCAGAccessibilityCardView
-                    key={item.num}
-                    status={item.status}
-                    level={item.level}
-                    link={`https://www.w3.org/TR/WCAG22/#${item.id}`}
-                    ruleNumber={item.num}
-                    version={version}
-                    ruleName={item.handle}
-                    ruleDescription={item.title}
-                  />
-                ))}
+                {groupedRules[group].length === 0 && (
+                  <Paragraph>
+                    At this time, there are no WCAG '{group}' rules applicable
+                    to this component.
+                  </Paragraph>
+                )}
+                {/* Sort the rules by their status */}
+                {groupedRules[group]
+                  .sort((a, b) => statusRank[b.status] - statusRank[a.status])
+                  .map(item => (
+                    <WCAGAccessibilityCardView
+                      key={item.num}
+                      status={item.status}
+                      level={item.level}
+                      link={`https://www.w3.org/TR/WCAG22/#${item.id}`}
+                      ruleNumber={item.num}
+                      version={version}
+                      ruleName={item.handle}
+                      ruleDescription={item.title}
+                    />
+                  ))}
               </Box>
             </AccordionPanel>
           </Accordion>

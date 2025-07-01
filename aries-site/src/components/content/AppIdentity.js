@@ -10,12 +10,23 @@ const brands = {
   },
   aruba: {
     name: 'Aruba',
-    logo: <Aruba color="plain" />,
+    logo: <Aruba color="plain" height="medium" />,
   },
 };
 
 export const AppIdentity = forwardRef(
-  ({ brand, logo = true, logoOnly, href, title, boxProps, ...rest }, ref) => {
+  (
+    {
+      brand,
+      logo = true,
+      logoOnly = false,
+      href = '/',
+      title,
+      boxProps,
+      ...rest
+    },
+    ref,
+  ) => {
     const textSize = 'medium';
 
     return (
@@ -54,10 +65,4 @@ AppIdentity.propTypes = {
   logoOnly: PropTypes.bool,
   href: PropTypes.string,
   title: PropTypes.string,
-};
-
-AppIdentity.defaultProps = {
-  logoOnly: false,
-  href: '/',
-  title: undefined,
 };

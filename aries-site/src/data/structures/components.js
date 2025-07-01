@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { FileInput, Spinner } from 'grommet';
 import {
   AnchorPreview,
   AvatarPreview,
@@ -23,6 +24,15 @@ import {
   TextInputPreview,
   ToggleGroupPreview,
   DataHowTo,
+  DataFilterPreview,
+  DataFiltersPreview,
+  DataSearchPreview,
+  DataSortPreview,
+  DataSummaryPreview,
+  DataTableColumnsPreview,
+  DataTableGroupbyPreview,
+  DataViewPreview,
+  ToolBarPreview,
 } from '../../examples/cardPreviews';
 import { SelectPreview } from '../../examples/components/select';
 import { TagPreview } from '../../examples/cardPreviews/tag';
@@ -30,7 +40,7 @@ import { TagPreview } from '../../examples/cardPreviews/tag';
 export const components = [
   {
     name: 'Anchor',
-    accessibility: 'Passed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Controls',
     description:
       'Hyperlinks used with text-based navigation, such as inline text.',
@@ -67,6 +77,7 @@ export const components = [
   },
   {
     name: 'Avatar',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description:
       'An Avatar displays an image, logo, or initials to help users efficiently identify a person, company, or entity.',
@@ -153,6 +164,7 @@ export const components = [
       'A container providing at-a-glance information and easy access to more details.',
     seoDescription:
       'Cards are a container providing at-a-glance information and easy access to more details. See when to use cards and alternatives.',
+    accessibility: 'Passed WCAG 2.2 AA',
     preview: {
       image: {
         src: {
@@ -283,6 +295,7 @@ export const components = [
   },
   {
     name: 'Tabs',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Tabs are graphical elements usually arranged like column headings. They allow a user to access various sets of content without leaving their current page.',
@@ -319,6 +332,7 @@ export const components = [
   },
   {
     name: 'DateInput',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'A widget which allows the user to select a date or range of dates from a calendar.',
@@ -360,6 +374,7 @@ export const components = [
   },
   {
     name: 'FileInput',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Inputs',
     description:
       'An input field where a user can select and upload one or more files.',
@@ -368,14 +383,7 @@ export const components = [
     relatedContent: ['Forms', 'Select', 'TextInput', 'MaskedInput'],
     sections: ['FileInput with multiple files', 'FileInput within a Form'],
     preview: {
-      image: {
-        src: {
-          light: '/componentImages/components-preview-fileinput.svg',
-          dark: '/componentImages/components-preview-fileinput-invert.svg',
-        },
-        alt: 'HPE Design System FileInput',
-        fit: 'contain',
-      },
+      component: () => <FileInput inert aria-hidden="true" tabIndex={-1} />,
     },
     tags: [
       'input fields',
@@ -411,6 +419,7 @@ export const components = [
       'TextArea is a field used in forms to capture longer text. This component provides the user with space to type more characters than the TextInput field.',
     seoDescription:
       'When you need to allow the user to provide longer forms of content, use a TextArea component.',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [],
     preview: {
       component: () => <TextAreaPreview />,
@@ -446,6 +455,7 @@ export const components = [
     description: 'TextInput is a field used in forms to capture short entries.',
     seoDescription:
       'The TextInput component allows the user to input shorter forms of data and content.',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [
       'About TextInput',
       'Password',
@@ -483,6 +493,7 @@ export const components = [
   },
   {
     name: 'Tip',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Controls',
     description:
       'A Tip is a small layer that opens when the user moves the mouse pointer over an element. The intention is to offer helpful information in the immediate context.',
@@ -545,6 +556,7 @@ export const components = [
       'Search is a field that allows a user to input keywords for content they are looking for.',
     seoDescription:
       'See HPE Design System Search input design and code examples.',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [
       'Placeholder',
       'Auto-suggestions',
@@ -573,6 +585,7 @@ export const components = [
   },
   {
     name: 'Select',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'Select is a flexible input field that allows users to choose from a list of options.',
@@ -620,6 +633,7 @@ export const components = [
   {
     name: 'SelectMultiple',
     category: 'Inputs',
+    accessibility: 'Passed WCAG 2.2 AA',
     description:
       'SelectMultiple is a dropdown component that enables the user to quickly scan the list of options and choose more than one of the options.',
     seoDescription:
@@ -679,6 +693,7 @@ export const components = [
   },
   {
     name: 'CheckBox',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'CheckBox is a square design element that when clicked accepts the choice offered.',
@@ -717,6 +732,7 @@ export const components = [
   },
   {
     name: 'CheckBoxGroup',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'CheckBoxGroup is a component that presents related checkbox options.',
@@ -761,6 +777,7 @@ export const components = [
     relatedContent: ['Layer', 'Lists', 'Tabs'],
     seoDescription:
       'The accordion is a list with expanded and collapsed states. When clicked opened, it reveals more detail. See different behaviors, states, and icons.',
+    accessibility: 'Passed WCAG 2.2 AAA',
     sections: ['About Accordion'],
     tags: [
       'accordian',
@@ -782,6 +799,7 @@ export const components = [
       'Header is a Box with a set of preset properties for introductory content.',
     seoDescription:
       'Header is a Box with a set of preset properties for introductory content.',
+    accessibility: 'Passed WCAG 2.2 AAA',
     sections: [
       'About Header',
       'Application Header',
@@ -813,6 +831,7 @@ export const components = [
   },
   {
     name: 'Footer',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'Footer is a Box with a set of preset properties. It is usually placed at the bottom of the page, which makes it predictable for users to find certain information or actions.',
@@ -851,7 +870,7 @@ export const components = [
   },
   {
     name: 'Menu',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Controls',
     description:
       'Menu is a component that contains a list of actions. When a user clicks an item in the menu, the menu closes and the action is executed.',
@@ -895,6 +914,7 @@ export const components = [
   },
   {
     name: 'Box',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'Boxes are containers that drive the layout of your content. Flexible props allow the behavior of content to be defined to optimize the user experience.',
@@ -926,6 +946,7 @@ export const components = [
   },
   {
     name: 'Grid',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description: `Grid is a component based on columns and rows used for organizing layouts. From scaffolding page layouts, to organizing elements within 
     a Card, Grid is a powerful tool for composing responsive, adaptive layouts.`,
@@ -972,6 +993,7 @@ export const components = [
   {
     name: 'Layer',
     category: 'Layouts',
+    accessibility: 'Passed WCAG 2.2 AA',
     description:
       'Layer is a component allowing content to be displayed on top of the page the user is currently on.',
     previewComponent: {
@@ -1142,6 +1164,7 @@ export const components = [
   },
   {
     name: 'Main',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Layouts',
     description:
       'The Main component is where you define the location and layout of the primary context of your content.',
@@ -1166,6 +1189,7 @@ export const components = [
       'MaskedInput allows you to specify formatted text within a form field.',
     seoDescription:
       'MaskedInput allows you to specify formatted text within a form field.',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [
       'IP Address',
       'IP Range',
@@ -1209,6 +1233,7 @@ export const components = [
   },
   {
     name: 'NameValueList',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description: 'A NameValueList displays a group of NameValuePairs.',
     seoDescription: 'A NameValueList displays a group of NameValuePairs.',
@@ -1284,6 +1309,7 @@ export const components = [
     designs, and guidance for how HPE applications can deliver end users 
     confidence and assurance by keeping them informed with timely, relevant 
     status of their systems and tasks.`,
+    accessibility: 'Failed WCAG 2.2 A',
     sections: [
       'State v.s. Status',
       'Notification Systems',
@@ -1339,6 +1365,7 @@ export const components = [
       'RadioButtonGroup is a component that offers related options to a user, but only allows them to choose one.',
     seoDescription:
       'The RadioButtonGroup component is used when you want the user to choose only one out of a set of related options. See best UX practices, error messages, and how HPE styles the disabled state.',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: ['When to use RadioButtonGroup'],
     preview: {
       component: () => <RadioButtonGroupPreview />,
@@ -1362,6 +1389,7 @@ export const components = [
   },
   {
     name: 'RangeInput',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'The RangeInput component is a slider control that provides a handle the user can move along a continuum to select a value.',
@@ -1398,18 +1426,21 @@ export const components = [
   },
   {
     name: 'Spinner',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description:
       'Spinner is a small motion graphic element that indicates a loading state for quick, asynchronous tasks.',
 
     preview: {
-      image: {
-        src: {
-          light: '/components-preview-spinner.svg',
-          dark: '/components-preview-spinner-invert.svg',
-        },
-        alt: 'HPE Spinner preview',
-      },
+      component: () => (
+        // eslint-disable-next-line grommet/spinner-message
+        <Spinner
+          animation={false}
+          aria-hidden="true"
+          size="large"
+          style={{ transform: 'rotate(75deg)' }}
+        />
+      ),
     },
     seoDescription:
       'Spinner is an animated graphic element loading state for quick asynchronous tasks.',
@@ -1452,6 +1483,7 @@ export const components = [
   },
   {
     name: 'Skeleton',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description:
       'Skeletons are simplified placeholders mimicking the layout of content to be loaded, providing users with a visual preview while reducing perceived loading time.',
@@ -1467,6 +1499,7 @@ export const components = [
   },
   {
     name: 'DataTable',
+    accessibility: 'Failed WCAG 2.2 A',
     category: 'Visualizations',
     description: 'DataTable presents data in a column and row format.',
     preview: {
@@ -1545,6 +1578,7 @@ export const components = [
   },
   {
     name: 'Pagination',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Controls',
     description: `Pagination enables the user to  navigate between pages
@@ -1590,6 +1624,7 @@ export const components = [
   },
   {
     name: 'Tag',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Visualizations',
     description: `Tags are metadata attributes facilitating the identification, 
@@ -1641,6 +1676,7 @@ export const components = [
   },
   {
     name: 'Page',
+    accessibility: 'Passed WCAG 2.2 AAA',
     available: true,
     category: 'Layouts',
     description: `Page is a helpful container providing consistent layouts
@@ -1677,6 +1713,7 @@ export const components = [
   },
   {
     name: 'PageHeader',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Layouts',
     description:
@@ -1750,6 +1787,191 @@ export const components = [
       'Filtering',
       'How to add search and filter to DataTable with Data',
       'How to add additional controls to a toolbar',
+      'DataFilter',
+      'DataFilters',
+      'DataSearch',
+      'DataSort',
+      'DataSummary',
+      'DataTableColumns',
+      'DataTableGroupBy',
+      'DataView',
+      'Toolbar',
+    ],
+  },
+  {
+    name: 'DataFilter',
+    accessibility: 'Failed WCAG 2.2 AA',
+    available: true,
+    category: 'Data',
+    description: 'An individual filter for a property in a data collection.',
+    preview: {
+      component: () => <DataFilterPreview />,
+    },
+    seoDescription: 'An individual filter for a property in a data collection.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+      'CheckBoxGroup',
+      'SelectMultiple',
+    ],
+  },
+  {
+    name: 'DataFilters',
+    accessibility: 'Failed WCAG 2.2 AA',
+    available: true,
+    category: 'Data',
+    description: 'A group of DataFilters for a data collection.',
+    preview: {
+      component: () => <DataFiltersPreview />,
+    },
+    seoDescription: 'A group of DataFilters for a data collection.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataSearch',
+    accessibility: 'Passed WCAG 2.2 AA',
+    available: true,
+    category: 'Data',
+    description: 'A search input to search across the data collection.',
+    preview: {
+      component: () => <DataSearchPreview />,
+    },
+    seoDescription: 'A search input to search across the data collection.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataSort',
+    accessibility: 'Passed WCAG 2.2 AA',
+    available: true,
+    category: 'Data',
+    description:
+      'A control to allow the user to sort by a specific property and choose in what direction the sort should occur (ascending or descending).',
+    preview: {
+      component: () => <DataSortPreview />,
+    },
+    seoDescription:
+      'A control to allow the user to sort by a specific property and choose in what direction the sort should occur (ascending or descending).',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataSummary',
+    accessibility: 'Passed WCAG 2.2 AAA',
+    available: true,
+    category: 'Data',
+    description:
+      'A textual summary of the current state of the data collection.',
+    preview: {
+      component: () => <DataSummaryPreview />,
+    },
+    seoDescription:
+      'A textual summary of the current state of the data collection.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataTableColumns',
+    accessibility: 'Passed WCAG 2.2 AA',
+    available: true,
+    category: 'Data',
+    description:
+      'A control to allow the user to hide or show columns from a DataTable and define the order they appear in.',
+    preview: {
+      component: () => <DataTableColumnsPreview />,
+    },
+    seoDescription:
+      'A control to allow the user to hide or show columns from a DataTable and define the order they appear in.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataTableGroupBy',
+    accessibility: 'Failed WCAG 2.2 AA',
+    available: true,
+    category: 'Data',
+    description:
+      'A control to allow the user to group DataTable records by a specific property.',
+    preview: {
+      component: () => <DataTableGroupbyPreview />,
+    },
+    seoDescription:
+      'A control to allow the user to group DataTable records by a specific property.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'DataView',
+    accessibility: 'Passed WCAG 2.2 AA',
+    available: true,
+    category: 'Data',
+    description:
+      'A control to allow the user to select a saved view, which will apply a pre-configured set of filters, search, and/or sort.',
+    preview: {
+      component: () => <DataViewPreview />,
+    },
+    seoDescription:
+      'A control to allow the user to select a saved view, which will apply a pre-configured set of filters, search, and/or sort.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
+    ],
+  },
+  {
+    name: 'Toolbar',
+    accessibility: 'Passed WCAG 2.2 AAA',
+    available: true,
+    category: 'Data',
+    description:
+      'A layout component to enforce consistent spacing of toolbar controls.',
+    preview: {
+      component: () => <ToolBarPreview />,
+    },
+    seoDescription:
+      'A layout component to enforce consistent spacing of toolbar controls.',
+    sections: [],
+    relatedContent: [
+      'Filtering',
+      'How to add search and filter to DataTable with Data',
+      'How to add additional controls to a toolbar',
+      'Data',
     ],
   },
   {
@@ -1758,6 +1980,7 @@ export const components = [
     category: 'Controls',
     description:
       'A group of related buttons that enable the user to toggle one or more options on or off.',
+    accessibility: 'Passed WCAG 2.2 AA',
     preview: {
       component: () => <ToggleGroupPreview />,
     },

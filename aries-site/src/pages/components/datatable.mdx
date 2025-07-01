@@ -1,5 +1,5 @@
 import { Anchor, Box, Image } from 'grommet';
-import { Example } from '../../layouts';
+import { Example, AccessibilitySection } from '../../layouts';
 import { ExampleImagePreview } from '../../components';
 import {
   PaginationTableExample,
@@ -20,7 +20,7 @@ import {
   componentName="DataTable"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
-  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=3886-2&t=MbeGrKbJ20bkXyUL-1"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2556-326&t=odY81eDKItjB8SI2-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/DataTable/DataTable.js"
   showResponsiveControls={['laptop', 'mobile']}
   template
@@ -203,7 +203,7 @@ For empty cells, add an `a11yTitle="No value"` to the Text component that would 
   componentName="DataTable"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableEmptyCellExample.js"
   docs="https://v2.grommet.io/datatable?theme=hpe#props"
-  figma="https://www.figma.com/design/fupkQ4sOefx3qUVoV6WfJi/Template-Library?m=auto&node-id=3886-2&t=MbeGrKbJ20bkXyUL-1"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2556-326&t=odY81eDKItjB8SI2-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/DataTable/DataTable.js"
   showResponsiveControls={false}
   template
@@ -211,16 +211,6 @@ For empty cells, add an `a11yTitle="No value"` to the Text component that would 
   <DataTableEmptyCellExample />
 </Example>
 
-### Accessibility
-
-To ensure screen readers are able to associate a page heading with a given DataTable, apply an `id` to the Heading and `aria-describedBy` to the DataTable, where the same string value is applied to both attributes. When a screen reader reaches the data table, it will announce the Heading content which provides the user with better context about the table data and purpose.
-
-For example, if on the Heading you apply `id="storage-pools-heading"`, on the DataTable you would apply `aria-describedBy="storage-pools-heading"`. In this example, the screen reader would properly associate "Storage Pools" as the description for the DataTable.
-
-```
-<Heading id="storage-pools-heading">Storage pools</Heading>
-<DataTable aria-describedBy="storage-pools-heading" />
-```
 
 ### Status and state
 
@@ -441,6 +431,20 @@ When a column has multi-line data, it may improve readability to align the data 
 >
   <DataTableVerticalListExample />
 </Example>
+
+## Accessibility
+To ensure screen readers are able to associate a page heading with a given DataTable, apply an `id` to the Heading and `aria-describedBy` to the DataTable, where the same string value is applied to both attributes. When a screen reader reaches the data table, it will announce the Heading content which provides the user with better context about the table data and purpose.
+
+For example, if on the Heading you apply `id="storage-pools-heading"`, on the DataTable you would apply `aria-describedBy="storage-pools-heading"`. In this example, the screen reader would properly associate "Storage Pools" as the description for the DataTable.
+
+```
+<Heading id="storage-pools-heading">Storage pools</Heading>
+<DataTable aria-describedBy="storage-pools-heading" />
+```
+### WCAG compliance
+  <AccessibilitySection title='datatable' />
+
+
 
 {/* To be added. Placeholders for future content. */}
 

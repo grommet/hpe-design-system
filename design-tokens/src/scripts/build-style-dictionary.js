@@ -1,7 +1,12 @@
 /* eslint-disable max-len */
 import * as fs from 'fs';
 import { HPEStyleDictionary } from '../HPEStyleDictionary.ts';
-import { getThemeAndMode, numberToPixel } from '../utils.ts';
+import {
+  filterColorTokens,
+  getThemeAndMode,
+  numberToPixel,
+  COPYRIGHT,
+} from '../utils.ts';
 
 const TOKENS_DIR = 'tokens';
 const ESM_DIR = 'dist/esm/';
@@ -15,6 +20,9 @@ const PREFIX = 'hpe';
  * Design tokens that should only exist in Figma but not be output to hpe-design-tokens
  */
 const FIGMA_PREFIX = 'fig';
+const defaultOptions = {
+  fileHeader: 'hpe-file-header',
+};
 
 await HPEStyleDictionary.hasInitialized;
 
@@ -31,6 +39,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'primitives.js',
@@ -42,6 +51,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'primitives.cjs',
@@ -53,6 +63,7 @@ try {
         transformGroup: 'js/css',
         buildPath: ESM_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'primitives.js',
@@ -64,6 +75,7 @@ try {
         transformGroup: 'js/css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'primitives.cjs',
@@ -75,6 +87,7 @@ try {
         transformGroup: 'css/w3c',
         buildPath: CSS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'primitives.css',
@@ -89,6 +102,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: DOCS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [{ destination: 'primitives.js', format: 'jsonFlat' }],
       },
     },
@@ -113,6 +127,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.js',
@@ -126,6 +141,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.cjs',
@@ -139,6 +155,7 @@ try {
         transformGroup: 'js/css',
         buildPath: ESM_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.js',
@@ -152,6 +169,7 @@ try {
         transformGroup: 'js/css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.cjs',
@@ -165,6 +183,7 @@ try {
         transformGroup: 'css/w3c',
         buildPath: CSS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.css',
@@ -181,6 +200,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: DOCS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'global.js',
@@ -213,16 +233,41 @@ const colorModeFiles = fs
 const global = fs.readFileSync(`${TOKENS_DIR}/semantic/global.default.json`);
 const parsedGlobal = JSON.parse(global);
 
+// in order to support scoped modes, include component colors in CSS color files
+const componentTokens = fs.readFileSync(
+  `${TOKENS_DIR}/component/component.default.json`,
+);
+const parsedComponentTokens = JSON.parse(componentTokens);
+const componentColorTokens = filterColorTokens(parsedComponentTokens);
+delete componentColorTokens.fig; // remove figma specific tokens
+const tempDir = 'tokens/.tmp';
+if (fs.existsSync(tempDir)) {
+  fs.rmSync(tempDir, { recursive: true });
+}
+fs.mkdirSync(tempDir, { recursive: true });
+fs.appendFileSync(
+  `${tempDir}/component-color-tokens.default.json`,
+  JSON.stringify(componentColorTokens),
+  err => {
+    if (err) throw err;
+  },
+);
+
 try {
   colorModeFiles.forEach(async file => {
     const [theme, mode] = getThemeAndMode(file);
     extendedDictionary = await HPEStyleDictionary.extend({
-      source: [`${TOKENS_DIR}/primitive/primitives.default.json`, file],
+      source: [
+        `${TOKENS_DIR}/primitive/primitives.default.json`,
+        file,
+        `${TOKENS_DIR}/.tmp/component-color-tokens.default.json`, // temp file with component color tokens
+      ],
       platforms: {
         grommet: {
           transformGroup: 'js/w3c',
           buildPath: GROMMET_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `color.${
@@ -237,6 +282,7 @@ try {
           transformGroup: 'js/w3c',
           buildPath: GROMMET_CJS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `color.${
@@ -251,6 +297,7 @@ try {
           transformGroup: 'js/css',
           buildPath: ESM_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'color.js',
@@ -263,6 +310,7 @@ try {
           transformGroup: 'js/css',
           buildPath: CJS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'color.cjs',
@@ -275,6 +323,7 @@ try {
           transformGroup: 'css/w3c',
           buildPath: CSS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `color.${
@@ -286,8 +335,12 @@ try {
                 mode: mode === 'dark' ? 'dark' : undefined,
                 theme,
               },
-              // TO DO revisit should "light" mode be part of base.css?
-              filter: token => token.filePath === file,
+              // include component colors in the CSS output to ensure
+              // proper CSS inheritance when doing scoped mode sections
+              // component color tokens should already be filtered to just
+              // color tokens, but adding this condition here for safety
+              filter: token =>
+                token.filePath === file || token.$type === 'color',
             },
           ],
         },
@@ -295,6 +348,7 @@ try {
           transformGroup: 'js/w3c',
           buildPath: DOCS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `color.${
@@ -341,6 +395,7 @@ try {
           transformGroup: 'js/w3c',
           buildPath: GROMMET_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `dimension.${
@@ -355,6 +410,7 @@ try {
           transformGroup: 'js/w3c',
           buildPath: GROMMET_CJS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `dimension.${
@@ -369,6 +425,7 @@ try {
           transformGroup: 'js/css',
           buildPath: ESM_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'dimension.js',
@@ -381,6 +438,7 @@ try {
           transformGroup: 'js/css',
           buildPath: CJS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: 'dimension.cjs',
@@ -393,6 +451,7 @@ try {
           transformGroup: 'css/w3c',
           buildPath: CSS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `dimension.${
@@ -416,6 +475,7 @@ try {
           transformGroup: 'js/w3c',
           buildPath: DOCS_DIR,
           prefix: PREFIX,
+          options: defaultOptions,
           files: [
             {
               destination: `dimension.${
@@ -453,6 +513,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.js',
@@ -467,6 +528,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: GROMMET_CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.cjs',
@@ -481,6 +543,7 @@ try {
         transformGroup: 'js/css',
         buildPath: ESM_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.js',
@@ -495,6 +558,7 @@ try {
         transformGroup: 'js/css',
         buildPath: CJS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.cjs',
@@ -509,13 +573,17 @@ try {
         transformGroup: 'css/w3c',
         buildPath: CSS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.css',
             format: 'css/variables',
             filter: token =>
               token.filePath.includes(`${TOKENS_DIR}/component/`) &&
-              !token.path.includes(FIGMA_PREFIX),
+              !token.path.includes(FIGMA_PREFIX) &&
+              // color variables are included per CSS theme mode
+              // excluding here to minimize the CSS output
+              token.$type !== 'color',
             options: {
               outputReferences: true,
             },
@@ -526,6 +594,7 @@ try {
         transformGroup: 'js/w3c',
         buildPath: DOCS_DIR,
         prefix: PREFIX,
+        options: defaultOptions,
         files: [
           {
             destination: 'components.js',
@@ -548,6 +617,7 @@ try {
  * Create CommonJS index.js
  * ----------------------------------- */
 const collections = [];
+fs.appendFileSync(`${CJS_DIR}index.cjs`, `/**\n * ${COPYRIGHT}\n */\n\n`);
 fs.readdirSync(CJS_DIR)
   .filter(file => file !== 'index.cjs')
   .forEach(file => {
@@ -574,6 +644,7 @@ fs.appendFileSync(`${CJS_DIR}index.cjs`, output);
  * Create ESM index.js
  * ----------------------------------- */
 const esmCollections = [];
+fs.appendFileSync(`${ESM_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(ESM_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {
@@ -595,6 +666,7 @@ fs.readdirSync(ESM_DIR)
  * Create Grommet index.js
  * ----------------------------------- */
 const grommetCollections = [];
+fs.appendFileSync(`${GROMMET_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(GROMMET_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {
@@ -616,6 +688,10 @@ fs.readdirSync(GROMMET_DIR)
  * Create Grommet CommonJS index.js
  * ----------------------------------- */
 const grommetCjsCollections = [];
+fs.appendFileSync(
+  `${GROMMET_CJS_DIR}index.cjs`,
+  `/**\n * ${COPYRIGHT}\n */\n\n`,
+);
 fs.readdirSync(GROMMET_CJS_DIR)
   .filter(file => file !== 'index.cjs')
   .forEach(file => {
@@ -642,6 +718,7 @@ fs.appendFileSync(`${GROMMET_CJS_DIR}index.cjs`, grommetCjsOutput);
  * Create docs index.js
  * ----------------------------------- */
 const docsCollections = [];
+fs.appendFileSync(`${DOCS_DIR}index.js`, `// ${COPYRIGHT}\n\n`);
 fs.readdirSync(DOCS_DIR)
   .filter(file => file !== 'index.js')
   .forEach(file => {

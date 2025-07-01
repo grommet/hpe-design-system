@@ -101,6 +101,55 @@ const theme = {
 }
 ```
 
+### Theme modes
+
+Building with [semantic design tokens](/design-tokens/overview#semantic-tokens) allows theme modes, such as light and dark, to be easily applied to an application or, when appropriate, a subsection of a page.
+
+The supported theme modes are:
+
+- light
+- dark
+- auto (responsive to user's operating system preference)
+
+Light mode is the default theme mode. To apply light mode, no additional steps are needed.
+
+To apply dark mode:
+
+1. Import the [dark mode CSS file](#css-variables).
+2. Apply `data-mode="dark"` to the `html` tag of the application or to a subsection.
+
+```
+<html data-mode="dark">
+    ...
+</html>
+```
+
+or, to apply to a subsection of the page:
+
+```
+<html>
+    <body>
+      <div>
+        {/* some content */}
+      </div>
+      <div data-mode="dark">
+        {/* content to be presented in dark mode */}
+      </div>
+    </body>
+</html>
+```
+
+To apply auto mode:
+
+1. Import the [CSS color files](#css-variables).
+2. Apply `data-mode="auto"` to the `html` or root tag of the application.
+
+```
+<html data-mode="auto">
+    ...
+</html>
+```
+
 ### Generate CSS class names
 
 This code snippet provides a starting point for how to programmatically generate CSS class names for components using either the [ESM](#esm) or [CommonJS](#commonjs) outputs.

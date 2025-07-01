@@ -9,6 +9,8 @@ export * from './Legend';
 export * from './Metric';
 export * from './NavSidebar';
 export * from './NotificationMetric';
+export * from './PropertiesPane';
 export * from './RoutedAnchor';
 export * from './SkeletonContext';
+export * from './Selector';
 export * from './ToggleGroup';

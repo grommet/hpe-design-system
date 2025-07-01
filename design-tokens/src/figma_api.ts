@@ -14,13 +14,13 @@ export interface VariableModeChange {
 
 export interface VariableCollection {
   id: string;
-  key: string;
+  key?: string;
   name: string;
   modes: VariableMode[];
   defaultModeId: string;
   remote: boolean;
   hiddenFromPublishing: boolean;
-  variableIds: string[];
+  variableIds?: string[];
 }
 
 export interface VariableCollectionChange

@@ -1,0 +1,91 @@
+import { Box, Grid, Notification, Text } from 'grommet';
+import { Trigger } from 'grommet-icons';
+import { ContentPane, Example } from '../../layouts';
+import { ColorPreview } from '../../components';
+import {
+  SpecialtyBackgrounds,
+  StandardBackgrounds,
+  StandardForegrounds,
+  StrongBackgrounds,
+} from '../../examples';
+
+## Color pairing explained
+
+Pair colors correctly to ensure your design has sufficient contrast ratios and will remain so with color updates.
+
+- Standard background colors can be paired with any standard icon/text colors.
+- Any `strong` variant of a standard background should be paired with the `onStrong` variant of text/icon.
+- Specific-role background colors should be paired with their associated "on[Role]" icon/text color. For example, `background-critical` should be paired with `text-onCritical`.
+- Any "strong" variant of a specific-role background should be paired with the "on[Role]Strong" variant of text/icon.
+
+The general rule is to use the most specific color for the use-case. If a particular background color has a particular text/icon pair, use it.
+
+## Accessible standard color pairings
+
+Combine background and text and icon colors with confidence as all contrast ratios have been tested.
+
+<StandardBackgrounds />
+
+**Work with**
+
+<StandardForegrounds />
+
+<Notification
+  status="info"
+  message="This may not be an exhaustive list of all compatible text and icon colors."
+  actions={[
+    {
+      label: 'See all design tokens',
+      href: '/design-tokens/all-design-tokens',
+    },
+  ]}
+  width={{ max: 'large' }}
+  margin={{ top: 'medium' }}
+/>
+
+## Strong background and onStrong colors
+
+Strong backgrounds have higher emphasis and are always paired with onStrong colors. This ensures that content sitting on strong backgrounds, for example, text and icons, will always be visible and accessible, even if colors are updated at a future date.
+
+<Notification
+  status="info"
+  title="Color updates"
+  message="When color values are updated with new theme versions, the design system will ensure that supported color pairings meet accessibility requirements."
+  width={{ max: 'large' }}
+  margin={{ bottom: 'medium' }}
+/>
+
+<Example>
+  <StrongBackgrounds />
+</Example>
+
+## Specialty color pairings
+
+Some colors have pairings with added granular definition. For example, `color.background.primary.strong` is paired with `color.text.onPrimaryStrong`.
+
+Background colors that are not part of the standard set documented above will have a specific pairing with text and/or icon colors, to allow more fine-grained control of values at the token level. This means that if colors are updated at a future date, the design system will ensure that supported color pairings meet accessibility requirements.
+
+<Example>
+  <SpecialtyBackgrounds />
+</Example>
+
+Refer to this table below for examples of background colors paired with "on" colors.
+
+<Notification
+  status="info"
+  message="This may not be an exhaustive list of all supported color pairings. The rule is that if a background color is not part of the standard backgrounds documented at the top of this page, then 'on' colors will be provided."
+  width={{ max: 'large' }}
+  margin={{ bottom: 'medium' }}
+/>
+
+| Example                                                                                                                                                                                              | Background color                         | Pairs with                                                             |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------------------------------------- |
+| <ColorPreview datum={{value: 'background-critical'}} pad={{vertical: 'small', horizontal: 'medium'}}><Text size="large" color="text-onCritical">Aa</Text></ColorPreview>                             | color.background.critical                | color.text.onCritical, color.text.onCritical.strong                    |
+| <ColorPreview datum={{value: 'background-warning'}} pad={{vertical: 'small', horizontal: 'medium'}}><Text size="large" color="text-onWarning">Aa</Text></ColorPreview>                               | color.background.warning                 | color.text.onWarning, color.text.onWarning.strong                      |
+| <ColorPreview datum={{value: 'background-ok'}} pad={{vertical: 'small', horizontal: 'medium'}}><Text size="large" color="text-onOk">Aa</Text></ColorPreview>                                         | color.background.ok                      | color.text.onWarning, color.text.onWarning.strong                      |
+| <ColorPreview datum={{value: 'background-info'}} pad={{vertical: 'small', horizontal: 'medium'}}><Text size="large" color="text-onInfo">Aa</Text></ColorPreview>                                     | color.background.info                    | color.text.onInfo, color.text.onInfo.strong                            |
+| <ColorPreview datum={{value: 'background-unknown'}} pad={{vertical: 'small', horizontal: 'medium'}}><Text size="large" color="text-onUnknown">Aa</Text></ColorPreview>                               | color.background.unknown                 | color.text.onUnknown, color.text.onUnknown.strong                      |
+| <ColorPreview datum={{value: 'background-primary-strong'}} pad={{vertical: 'small', horizontal: 'medium'}}><Text size="large" color="text-onPrimaryStrong">Aa</Text></ColorPreview>                  | color.background.primary.strong          | color.text.onPrimaryStrong, color.icon.onPrimaryStrong                 |
+| <ColorPreview datum={{value: 'background-primary-xstrong'}} pad={{vertical: 'small', horizontal: 'medium'}}><Text size="large" color="text-onPrimaryStrong">Aa</Text></ColorPreview>                 | color.background.primary.xstrong         | color.text.onPrimaryStrong, color.icon.onPrimaryStrong                 |
+| <ColorPreview datum={{value: 'background-selected-primary'}} pad={{vertical: 'small', horizontal: 'medium'}}><Text size="large" color="text-onSelectedPrimary">Aa</Text></ColorPreview>              | color.background.selected.primary        | color.text.onSelectedPrimary, color.icon.onSelectedPrimary             |
+| <ColorPreview datum={{value: 'background-selected-primary-strong'}} pad={{vertical: 'small', horizontal: 'medium'}}><Text size="large" color="text-onSelectedPrimaryStrong">Aa</Text></ColorPreview> | color.background.selected.primary.strong | color.text.onSelectedPrimaryStrong, color.icon.onSelectedPrimaryStrong |

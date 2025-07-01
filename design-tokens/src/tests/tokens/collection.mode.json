@@ -1,0 +1,36 @@
+{
+  "fontStack": {
+    "primary": {
+      "$type": "fontFamily",
+      "$value": "'Metric', Arial, sans-serif",
+      "$description": "The main font stack for an application.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": true,
+          "scopes": ["FONT_FAMILY"],
+          "codeSyntax": {}
+        }
+      }
+    }
+  },
+  "base": {
+    "color": {
+      "white": {
+        "100": {
+          "$value": "#ffffff",
+          "$type": "color",
+          "$description": "White color"
+        }
+      }
+    }
+  },
+  "static": {
+    "container": {
+      "small": {
+        "$value": 192,
+        "$type": "number",
+        "$description": "Small container width"
+      }
+    }
+  }
+}

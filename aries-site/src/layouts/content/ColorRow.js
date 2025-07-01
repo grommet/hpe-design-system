@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 
-export const ColorRow = ({ colorSpec, textColor, textSize = 'small' }) => {
+export const ColorRow = ({
+  colorSpec,
+  textColor = 'text-strong',
+  textSize = 'small',
+}) => {
   const { value, name, hex } = colorSpec;
 
   return (
@@ -37,8 +41,4 @@ ColorRow.propTypes = {
   }).isRequired,
   textColor: PropTypes.string,
   textSize: PropTypes.string,
-};
-
-ColorRow.defaultProps = {
-  textColor: 'text-strong',
 };

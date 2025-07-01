@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import {
   SelectDisabledExample,
   SelectExample,
@@ -11,7 +11,7 @@ import {
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/select/SelectExample.js"
   designer="https://designer.grommet.io/select?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
   docs="https://v2.grommet.io/select?theme=hpe#props"
-  figma="https://www.figma.com/design/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?m=auto&node-id=8977-114817&t=ufGX927CiBxjB3Q6-1"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=3237-3123&t=ZqPsisuevR3KPp96-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Select/Select.js"
 >
   <SelectExample />
@@ -35,10 +35,6 @@ Because Select is flexible and familiar, the following questions are helpful to 
 ### Selecting multiple options
 
 If multiple selections are permitted and there are more than 5 options, use [SelectMultiple](/components/selectmultiple). Otherwise, consider using [CheckBoxGroup](/components/checkboxgroup).
-
-### Accessibility
-
-Using Select as a form field is preferred for user experience. When Select is used in conjunction with FormField, users receive clear indication for the contents and purpose of the input. Additionally, this use promotes best practices in accessibility by ensuring user inputs are accompanied by labels used by assistive technologies.
 
 ## Variants
 
@@ -81,3 +77,19 @@ Indicates that the Select input exists but cannot be interacted with until a pre
 >
   <SelectDisabledExample />
 </Example>
+
+## Accessibility
+
+Using Select as a form field is preferred for user experience. When Select is used in conjunction with FormField, users receive clear indication for the contents and purpose of the input. Additionally, this use promotes best practices in accessibility by ensuring user inputs are accompanied by labels used by assistive technologies.
+
+To properly associate FormField `label` with Grommet's Select component, ensure the Select has an `id` and the FormField has an `htmlFor` with the format of `${id}__input`.
+
+```
+<FormField label="Select option" htmlFor="select__input">
+  <Select id="select" options={['Option 1', 'Option 2']} />
+</FormField>
+```
+
+### WCAG compliance
+
+<AccessibilitySection title="select" />

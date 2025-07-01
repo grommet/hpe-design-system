@@ -1,4 +1,4 @@
-import { Example } from '../../layouts';
+import { AccessibilitySection, Example } from '../../layouts';
 import { AccordionExample } from '../../examples';
 
 <Example
@@ -6,7 +6,7 @@ import { AccordionExample } from '../../examples';
   docs="https://v2.grommet.io/accordion#props"
   designer="https://designer.grommet.io/accordion?id=HPE-design-system-hpedesignsystem-hpe-com&mode=edit"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/accordion/AccordionExample.js"
-  figma="https://www.figma.com/file/5uOrsL2qk8XwwH8C1ZpDb6/HPE-Design-System-Components?type=design&node-id=26093-4006&mode=design"
+  figma="https://www.figma.com/design/HDckqS2MWhINfC8EIQPMV1/HPE-Design-System-Components-V2?m=auto&node-id=2209-1760&t=xxvcTYIZfxpoGLlK-1"
   grommetSource="https://github.com/grommet/grommet/blob/master/src/js/components/Accordion/Accordion.js"
 >
   <AccordionExample />
@@ -33,8 +33,11 @@ Accordion has two states:
 
 **The accordion labels** should be kept short and to the point of the information following in each panel. Lengthy panel content will want to be avoided.
 
-### Accessibility
+## Accessibility
 
 Buttons are used for the accordion panels which makes them accessible by screen readers and keyboard. Having a very descriptive heading label helps so the user gets to the content section they are interested in faster. Users are able to click anywhere within the panel heading for the state to change to expanded.
 
 To help with readability, accordions should only have one panel open at a time.
+### WCAG compliance
+
+<AccessibilitySection title='accordion' />

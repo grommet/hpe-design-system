@@ -72,7 +72,12 @@ export const components = {
     </Box>
   ),
   pre: ({ children, ...rest }) => (
-    <Box width="large" round="xsmall" overflow="auto">
+    <Box
+      width="large"
+      round="xsmall"
+      overflow="auto"
+      margin={{ bottom: 'medium' }}
+    >
       <Stack anchor="top-right">
         <SyntaxHighlighter
           style={prism.light}
