@@ -47,7 +47,11 @@ export const buildTokenTree = tokens => {
         }
 
         // Add current mode if the token exists there
-        if (tree[mode][token]) {
+        const formattedToken = `hpe.${token
+          .split('.')
+          .filter(part => !['DEFAULT', 'REST'].includes(part))
+          .join('.')}`;
+        if (tree[mode][formattedToken]) {
           referenceModes.add(mode);
         } else {
           referenceModes.add('default');
@@ -55,7 +59,7 @@ export const buildTokenTree = tokens => {
 
         // Check each possible reference mode
         referenceModes.forEach(referenceMode => {
-          const reference = tree[referenceMode][`hpe.${token}`];
+          const reference = tree[referenceMode][formattedToken];
           if (reference) {
             if (!('usedBy' in reference)) {
               reference.usedBy = [];
