@@ -12,6 +12,7 @@ import {
   DataContext,
   DataSummary,
   Toolbar,
+  InfiniteScroll,
 } from 'grommet';
 import * as tokens from 'hpe-design-tokens/docs';
 import { EmptyState } from '../components/EmptyState';
@@ -73,23 +74,27 @@ const FilteredTokens = ({ selected, setSelected }) => {
       overflow="auto"
       style={{ height: 'calc(100vh - 196px)' }}
     >
-      {data.map(token => (
-        <Tag
-          key={`${token.name}-${token.mode}`}
-          badge={token.mode}
-          name={token.name}
-          onClick={() =>
-            selected.name === token.name && selected.mode === token.mode
-              ? setSelected({})
-              : setSelected({
-                  name: token.name,
-                  mode: token.mode,
-                  collection: token.collection,
-                })
-          }
-          active={selected.name === token.name && selected.mode === token.mode}
-        />
-      ))}
+      <InfiniteScroll items={data}>
+        {token => (
+          <Tag
+            key={`${token.name}-${token.mode}`}
+            badge={token.mode}
+            name={token.name}
+            onClick={() =>
+              selected.name === token.name && selected.mode === token.mode
+                ? setSelected({})
+                : setSelected({
+                    name: token.name,
+                    mode: token.mode,
+                    collection: token.collection,
+                  })
+            }
+            active={
+              selected.name === token.name && selected.mode === token.mode
+            }
+          />
+        )}
+      </InfiniteScroll>
     </Box>
   );
 };
