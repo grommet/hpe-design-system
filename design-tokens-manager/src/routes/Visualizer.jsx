@@ -1,8 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
+import { Fragment, useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {
   Page,
   Data,
+  Button,
   PageContent,
   Grid,
   Box,
@@ -16,7 +17,7 @@ import {
 } from 'grommet';
 import * as tokens from 'hpe-design-tokens/docs';
 import { EmptyState } from '../components/EmptyState';
-import { CircleInformation, LinkNext } from 'grommet-icons';
+import { CircleInformation, Close, LinkNext } from 'grommet-icons';
 import { buildTokenTree } from '../build-token-tree';
 
 const tree = buildTokenTree(tokens);
@@ -35,34 +36,52 @@ const TokenValue = ({ value }) => {
   return <Text size="small">{content}</Text>;
 };
 
-const Tag = ({ name, badge, value, ...rest }) => (
-  <StyledBox
-    gap="xsmall"
-    pad={{ horizontal: 'small', vertical: 'xsmall' }}
-    border
-    round="xsmall"
-    hoverIndicator
-    flex={false}
-    {...rest}
-  >
-    <Box direction="row" gap="small" align="center" flex={false}>
-      <Text weight={500} color="text-strong">
-        {name}
-      </Text>
-      <Box
-        background="background-contrast"
-        round="xsmall"
-        pad={{ horizontal: 'xsmall' }}
-        flex={false}
-      >
-        <Text size="small" weight={500}>
-          {badge}
-        </Text>
-      </Box>
-    </Box>
-    {value ? <TokenValue value={value} /> : undefined}
-  </StyledBox>
-);
+const Tag = ({ name, badge, value, onRemove, ...rest }) => {
+  const Wrapper = onRemove ? Box : Fragment;
+  const wrapperProps = onRemove
+    ? { direction: 'row', gap: 'small', align: 'start' }
+    : {};
+  return (
+    <StyledBox
+      gap="xsmall"
+      pad={{ horizontal: 'small', vertical: 'xsmall' }}
+      border
+      round="xsmall"
+      hoverIndicator
+      flex={false}
+      {...rest}
+    >
+      <Wrapper {...wrapperProps}>
+        <Box>
+          <Box direction="row" gap="small" align="center" flex={false}>
+            <Text weight={500} color="text-strong">
+              {name}
+            </Text>
+            <Box
+              background="background-contrast"
+              round="xsmall"
+              pad={{ horizontal: 'xsmall' }}
+              flex={false}
+            >
+              <Text size="small" weight={500}>
+                {badge}
+              </Text>
+            </Box>
+          </Box>
+          {value ? <TokenValue value={value} /> : undefined}
+        </Box>
+        {onRemove ? (
+          <Button
+            icon={<Close />}
+            onClick={onRemove}
+            size="xsmall"
+            tip="Clear selection"
+          />
+        ) : undefined}
+      </Wrapper>
+    </StyledBox>
+  );
+};
 
 const FilteredTokens = ({ selected, setSelected }) => {
   const { data } = useContext(DataContext);
@@ -122,7 +141,7 @@ const Legend = ({ kind }) => {
   );
 };
 
-const buildTree = (selectedToken, showValue) => {
+const buildTree = (selectedToken, showValue, setSelected) => {
   const { collection, mode, name } = selectedToken;
   const usedBy = tree[mode][name].usedBy;
   let background;
@@ -147,6 +166,7 @@ const buildTree = (selectedToken, showValue) => {
         badge={mode}
         value={showValue ? tree[mode][name]['$value'] : undefined}
         background={background}
+        onRemove={setSelected}
       />
       {usedBy?.length ? (
         <Box direction="row" gap="small" align="start" flex={false}>
@@ -228,7 +248,7 @@ const Visualizer = () => {
                   : {})}
               >
                 {selected.name ? (
-                  buildTree(selected, true)
+                  buildTree(selected, true, () => setSelected({}))
                 ) : (
                   <EmptyState
                     icon={
