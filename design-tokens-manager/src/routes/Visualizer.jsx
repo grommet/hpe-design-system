@@ -81,7 +81,11 @@ const FilteredTokens = ({ selected, setSelected }) => {
           onClick={() =>
             selected.name === token.name && selected.mode === token.mode
               ? setSelected({})
-              : setSelected({ name: token.name, mode: token.mode })
+              : setSelected({
+                  name: token.name,
+                  mode: token.mode,
+                  collection: token.collection,
+                })
           }
           active={selected.name === token.name && selected.mode === token.mode}
         />
@@ -90,9 +94,40 @@ const FilteredTokens = ({ selected, setSelected }) => {
   );
 };
 
+const Legend = ({ kind }) => {
+  let background;
+  if (kind === 'Semantic') {
+    background = 'background-info';
+  } else if (kind === 'Component') {
+    background = { color: 'decorative-purple', opacity: 'weak' };
+  } else if (kind === 'Primitive') {
+    background = 'background-unknown';
+  }
+  return (
+    <Box align="center" direction="row" gap="xsmall">
+      <Box
+        flex={false}
+        round="xxsmall"
+        pad="xsmall"
+        background={background}
+        border={{ color: 'border-weak' }}
+      />
+      <Text>{kind}</Text>
+    </Box>
+  );
+};
+
 const buildTree = (selectedToken, showValue) => {
-  const { mode, name } = selectedToken;
+  const { collection, mode, name } = selectedToken;
   const usedBy = tree[mode][name].usedBy;
+  let background;
+  if (collection === 'primitive') {
+    background = 'background-unknown';
+  } else if (collection === 'component') {
+    background = { color: 'decorative-purple', opacity: 'weak' };
+  } else if (collection === 'semantic') {
+    background = 'background-info';
+  }
 
   return (
     <Box
@@ -106,6 +141,7 @@ const buildTree = (selectedToken, showValue) => {
         name={name}
         badge={mode}
         value={showValue ? tree[mode][name]['$value'] : undefined}
+        background={background}
       />
       {usedBy?.length ? (
         <Box direction="row" gap="small" align="start" flex={false}>
@@ -130,6 +166,13 @@ const Visualizer = () => {
         nextTokensArr.push({
           name: token,
           mode: mode,
+          collection: tree[mode][token].filePath.includes('primitive')
+            ? 'primitive'
+            : tree[mode][token].filePath.includes('component')
+            ? 'component'
+            : tree[mode][token].filePath.includes('semantic')
+            ? 'semantic'
+            : undefined,
           ...tree[mode][token],
         }),
       );
@@ -161,27 +204,36 @@ const Visualizer = () => {
             <FilteredTokens selected={selected} setSelected={setSelected} />
           </Box>
           <PageContent
-            overflow="auto"
+            // overflow="auto"
             flex={false}
             round={{ corner: 'left', size: 'xsmall' }}
             background="background-front"
             fill
+            gap="medium"
           >
-            <Box
-              pad={{ vertical: 'medium' }}
-              {...(!selected.name
-                ? { align: 'center', justify: 'center', pad: 'xlarge' }
-                : {})}
-            >
-              {selected.name ? (
-                buildTree(selected, true)
-              ) : (
-                <EmptyState
-                  icon={<CircleInformation color="icon-info" size="xxlarge" />}
-                  title="No design token selected"
-                  description="Select a design token from the list to see its dependencies."
-                />
-              )}
+            <Box pad={{ vertical: 'medium' }} direction="row" gap="medium">
+              <Legend kind="Primitive" />
+              <Legend kind="Semantic" />
+              <Legend kind="Component" />
+            </Box>
+            <Box overflow="auto" fill>
+              <Box
+                {...(!selected.name
+                  ? { align: 'center', justify: 'center', pad: 'xlarge' }
+                  : {})}
+              >
+                {selected.name ? (
+                  buildTree(selected, true)
+                ) : (
+                  <EmptyState
+                    icon={
+                      <CircleInformation color="icon-info" size="xxlarge" />
+                    }
+                    title="No design token selected"
+                    description="Select a design token from the list to see its dependencies."
+                  />
+                )}
+              </Box>
             </Box>
           </PageContent>
         </Grid>

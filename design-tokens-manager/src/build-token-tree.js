@@ -70,10 +70,20 @@ export const buildTokenTree = tokens => {
               ref => ref.name === key && ref.mode === mode,
             );
 
+            let collection;
+            if (tree[mode][key].filePath.includes('primitive')) {
+              collection = 'primitive';
+            } else if (tree[mode][key].filePath.includes('component')) {
+              collection = 'component';
+            } else if (tree[mode][key].filePath.includes('semantic')) {
+              collection = 'semantic';
+            }
+
             if (!existingRef) {
               reference.usedBy.push({
                 name: key,
                 mode,
+                collection,
               });
             }
           }
