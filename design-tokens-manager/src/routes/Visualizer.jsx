@@ -14,8 +14,8 @@ import {
   Toolbar,
 } from 'grommet';
 import * as tokens from 'hpe-design-tokens/docs';
-
-import { LinkNext } from 'grommet-icons';
+import { EmptyState } from '../components/EmptyState';
+import { CircleInformation, LinkNext } from 'grommet-icons';
 import { buildTokenTree } from '../build-token-tree';
 
 const tree = buildTokenTree(tokens);
@@ -33,16 +33,18 @@ const TokenValue = ({ value }) => {
 
   return <Text size="small">{content}</Text>;
 };
+
 const Tag = ({ name, badge, value, ...rest }) => (
   <StyledBox
     gap="xsmall"
     pad={{ horizontal: 'small', vertical: 'xsmall' }}
     border
     round="xsmall"
+    hoverIndicator
     flex={false}
     {...rest}
   >
-    <Box direction="row" gap="small" align="center">
+    <Box direction="row" gap="small" align="center" flex={false}>
       <Text weight={500} color="text-strong">
         {name}
       </Text>
@@ -50,6 +52,7 @@ const Tag = ({ name, badge, value, ...rest }) => (
         background="background-contrast"
         round="xsmall"
         pad={{ horizontal: 'xsmall' }}
+        flex={false}
       >
         <Text size="small" weight={500}>
           {badge}
@@ -135,7 +138,7 @@ const Visualizer = () => {
   }, []);
 
   return (
-    <Page kind="full">
+    <Page kind="full" background="background-back">
       <Data
         data={tokensArr}
         properties={{
@@ -145,7 +148,7 @@ const Visualizer = () => {
         }}
       >
         <Grid columns={['medium', 'flex']}>
-          <Box gap="small" pad="medium" background="background-front">
+          <Box gap="small" pad="medium">
             <Box>
               <Toolbar>
                 <Box flex>
@@ -157,11 +160,28 @@ const Visualizer = () => {
             </Box>
             <FilteredTokens selected={selected} setSelected={setSelected} />
           </Box>
-          <PageContent overflow="auto" flex={false} fill>
-            <Box pad={{ vertical: 'medium' }}>
-              {selected.name
-                ? buildTree(selected, true)
-                : 'Select a token to see dependencies.'}
+          <PageContent
+            overflow="auto"
+            flex={false}
+            round={{ corner: 'left', size: 'xsmall' }}
+            background="background-front"
+            fill
+          >
+            <Box
+              pad={{ vertical: 'medium' }}
+              {...(!selected.name
+                ? { align: 'center', justify: 'center', pad: 'xlarge' }
+                : {})}
+            >
+              {selected.name ? (
+                buildTree(selected, true)
+              ) : (
+                <EmptyState
+                  icon={<CircleInformation color="icon-info" size="xxlarge" />}
+                  title="No design token selected"
+                  description="Select a design token from the list to see its dependencies."
+                />
+              )}
             </Box>
           </PageContent>
         </Grid>
