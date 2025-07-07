@@ -1389,7 +1389,7 @@ export const components = [
   },
   {
     name: 'RangeInput',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'The RangeInput component is a slider control that provides a handle the user can move along a continuum to select a value.',
