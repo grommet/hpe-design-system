@@ -158,8 +158,8 @@
   {
     "rule": "1.4.11",
     "label": "Non-text Contrast",
-    "status": "failed",
-    "notes": "- Filled portion of the track vs non filled portion fails contrast ratio requirements when range input is placed on top of background default, front, and back.\n- Filled portion of the track fails contrast ratio requirements when range input is placed on top of background back.\n- (Dark mode) Thumb vs non filled portion of the track fails contrast ratio requirements when range input is placed on top of background default, back, and front\n- (Dark mode) Focus indicator vs non filled portion of the track fails contrast ratio when range input is placed on top of background default, back, and front\n(Dark mode) Focus indicator fails contrast ratio when range input is placed on top of background default, back, and front"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.4.12",
