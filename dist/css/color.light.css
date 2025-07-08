@@ -93,8 +93,8 @@
   --hpe-color-background-ok: #e3fdf4; /** Use for backgrounds communicating success. Status color. Keywords: status */
   --hpe-color-background-critical: #ffecec; /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-info: #e0f8ff; /** Use for backgrounds communicating neutral information. Keywords: status */
-  --hpe-color-background-primary-strong: #292d3a; /** The strong variant of background-cta. */
-  --hpe-color-background-primary-strong-hover: #535c66;
+  --hpe-color-background-primary-strong: #292d3a; /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
+  --hpe-color-background-primary-strong-hover: #535c66; /** Hover variant of background-primary. */
   --hpe-color-border-disabled: #d4d8d8; /** Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-text-default: #67686e; /** Default text color that is accessible on standard background colors. */
   --hpe-color-text-strong: #292d3a; /** Emphasized text color for increased visual prominence. */
@@ -112,8 +112,8 @@
   --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity12); /** The background color for the overlay that sits behind modal layers. */
   --hpe-color-background-unknown: var(--hpe-base-color-black-opacity4); /** Use for backgrounds communicating an unknown status. Keywords: status */
   --hpe-color-background-primary-xstrong: var(--hpe-base-color-green-1000);
-  --hpe-color-background-selected-primary-strong: var(--hpe-base-color-green-700); /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
-  --hpe-color-background-selected-primary-strong-hover: var(--hpe-base-color-green-800); /** Hover variant of background-primary. */
+  --hpe-color-background-selected-primary-strong: var(--hpe-base-color-green-700); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-primary-strong-hover: var(--hpe-base-color-green-800); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-background-selected-primary: var(--hpe-base-color-green-100); /** Lower emphasis variant of background-selected-strong. */
   --hpe-color-background-selected-primary-hover: var(--hpe-base-color-green-125); /** Hover variant of background-selected-weak. */
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-1000); /** Highest emphasis variant of neutral palette. */

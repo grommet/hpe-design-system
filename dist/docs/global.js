@@ -7,9 +7,9 @@ export default {
   "hpe.focusIndicator.outline": {
     "$type": "border",
     "$value": {
-      "style": "solid",
+      "width": "2px",
       "color": "#004233",
-      "width": "2px"
+      "style": "solid"
     },
     "$description": "",
     "$extensions": {
@@ -24,9 +24,9 @@ export default {
     "original": {
       "$type": "border",
       "$value": {
-        "style": "solid",
+        "width": "{base.dimension.50}",
         "color": "{color.focus}",
-        "width": "{base.dimension.50}"
+        "style": "solid"
       },
       "$description": "",
       "$extensions": {

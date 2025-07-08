@@ -95,10 +95,10 @@
   --hpe-color-background-ok: #1b5245; /** Use for backgrounds communicating success. Status color. Keywords: status */
   --hpe-color-background-critical: #552120; /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-info: #1e363d; /** Use for backgrounds communicating neutral information. Keywords: status */
-  --hpe-color-background-primary-strong: #ffffff; /** The strong variant of background-cta. */
-  --hpe-color-background-primary-strong-hover: #d4d4d4;
-  --hpe-color-background-selected-primary-strong: #007c60; /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
-  --hpe-color-background-selected-primary-strong-hover: #00513f; /** Hover variant of background-primary. */
+  --hpe-color-background-primary-strong: #ffffff; /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
+  --hpe-color-background-primary-strong-hover: #d4d4d4; /** Hover variant of background-primary. */
+  --hpe-color-background-selected-primary-strong: #007c60; /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-primary-strong-hover: #00513f; /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-text-weak: rgba(255, 255, 255, 0.61); /** Subtle text color for reduced visual prominence. Often used for supporting text. */
   --hpe-color-dataVis-categorical-10: #7372cf;
   --hpe-color-dataVis-categorical-50: #a68a74;
@@ -627,10 +627,10 @@
   --hpe-color-background-ok: #1b5245; /** Use for backgrounds communicating success. Status color. Keywords: status */
   --hpe-color-background-critical: #552120; /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-info: #1e363d; /** Use for backgrounds communicating neutral information. Keywords: status */
-  --hpe-color-background-primary-strong: #ffffff; /** The strong variant of background-cta. */
-  --hpe-color-background-primary-strong-hover: #d4d4d4;
-  --hpe-color-background-selected-primary-strong: #007c60; /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
-  --hpe-color-background-selected-primary-strong-hover: #00513f; /** Hover variant of background-primary. */
+  --hpe-color-background-primary-strong: #ffffff; /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
+  --hpe-color-background-primary-strong-hover: #d4d4d4; /** Hover variant of background-primary. */
+  --hpe-color-background-selected-primary-strong: #007c60; /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-primary-strong-hover: #00513f; /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-text-weak: rgba(255, 255, 255, 0.61); /** Subtle text color for reduced visual prominence. Often used for supporting text. */
   --hpe-color-dataVis-categorical-10: #7372cf;
   --hpe-color-dataVis-categorical-50: #a68a74;

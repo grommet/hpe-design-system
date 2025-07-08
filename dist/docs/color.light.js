@@ -725,7 +725,7 @@ export default {
   "hpe.color.background.primary.strong": {
     "$type": "color",
     "$value": "#292d3a",
-    "$description": "The strong variant of background-cta.",
+    "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -740,8 +740,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#292D3A",
-      "$description": "The strong variant of background-cta.",
+      "$value": "#292d3a",
+      "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -773,7 +773,7 @@ export default {
   "hpe.color.background.primary.strong.hover": {
     "$type": "color",
     "$value": "#535c66",
-    "$description": "",
+    "$description": "Hover variant of background-primary.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -788,8 +788,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#535C66",
-      "$description": "",
+      "$value": "#535c66",
+      "$description": "Hover variant of background-primary.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -869,7 +869,7 @@ export default {
   "hpe.color.background.selected.primary.strong": {
     "$type": "color",
     "$value": "#008567",
-    "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
+    "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -885,7 +885,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.green.700}",
-      "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
+      "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -918,7 +918,7 @@ export default {
   "hpe.color.background.selected.primary.strong.hover": {
     "$type": "color",
     "$value": "#006750",
-    "$description": "Hover variant of background-primary.",
+    "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -934,7 +934,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.green.800}",
-      "$description": "Hover variant of background-primary.",
+      "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
