@@ -644,7 +644,7 @@
       "rest": {
         "background": {
           "$type": "color",
-          "$value": "{color.background.secondary.strong.REST}",
+          "$value": "{color.background.primary.strong.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -668,7 +668,7 @@
         },
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.onSecondaryStrong.DEFAULT.REST}",
+          "$value": "{color.text.onPrimaryStrong.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -680,7 +680,7 @@
         },
         "iconColor": {
           "$type": "color",
-          "$value": "{color.icon.onSecondaryStrong.DEFAULT.REST}",
+          "$value": "{color.icon.onPrimaryStrong.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -770,7 +770,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "{color.background.secondary.strong.hover}",
+          "$value": "{color.background.primary.strong.hover}",
           "$description": "",
           "$extensions": {
             "com.figma": {

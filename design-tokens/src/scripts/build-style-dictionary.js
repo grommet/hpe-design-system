@@ -224,7 +224,7 @@ try {
 const colorModeFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('color') && !file.includes('v0')
+    file.includes('color') && !file.includes('v1')
       ? `${TOKENS_DIR}/semantic/${file}`
       : undefined,
   )
@@ -373,7 +373,7 @@ try {
 const dimensionFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('dimension') && !file.includes('v0')
+    file.includes('dimension') && !file.includes('v1')
       ? `${TOKENS_DIR}/semantic/${file}`
       : undefined,
   )

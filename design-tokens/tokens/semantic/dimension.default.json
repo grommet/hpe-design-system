@@ -491,7 +491,7 @@
     "xsmall": {
       "size": {
         "$type": "number",
-        "$value": 12,
+        "$value": "{base.dimension.350}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -505,7 +505,7 @@
     "small": {
       "size": {
         "$type": "number",
-        "$value": 14,
+        "$value": "{base.dimension.400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -519,7 +519,7 @@
     "medium": {
       "size": {
         "$type": "number",
-        "$value": 16,
+        "$value": "{base.dimension.450}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -533,7 +533,7 @@
     "large": {
       "size": {
         "$type": "number",
-        "$value": 20,
+        "$value": "{base.dimension.550}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -547,7 +547,7 @@
     "xlarge": {
       "size": {
         "$type": "number",
-        "$value": 28,
+        "$value": "{base.dimension.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -577,7 +577,7 @@
     "xsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": 12,
+        "$value": "{base.fontSize.90}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -589,7 +589,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 16,
+        "$value": "{base.lineHeight.90}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -627,7 +627,7 @@
     "small": {
       "fontSize": {
         "$type": "number",
-        "$value": 14,
+        "$value": "{base.fontSize.100}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -639,7 +639,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 20,
+        "$value": "{base.lineHeight.100}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -677,7 +677,7 @@
     "medium": {
       "fontSize": {
         "$type": "number",
-        "$value": 16,
+        "$value": "{base.fontSize.200}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -689,7 +689,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 24,
+        "$value": "{base.lineHeight.200}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -727,7 +727,7 @@
     "large": {
       "fontSize": {
         "$type": "number",
-        "$value": 20,
+        "$value": "{base.fontSize.400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -739,7 +739,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 30,
+        "$value": "{base.lineHeight.300}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -777,7 +777,7 @@
     "xlarge": {
       "fontSize": {
         "$type": "number",
-        "$value": 28,
+        "$value": "{base.fontSize.500}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -789,7 +789,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 38,
+        "$value": "{base.lineHeight.400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -1029,7 +1029,7 @@
     "xlarge": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.medium}",
+        "$value": "{fontWeight.regular}",
         "$description": "Font weight typically used on h1.",
         "$extensions": {
           "com.figma": {
@@ -1041,7 +1041,7 @@
       },
       "fontSize": {
         "$type": "number",
-        "$value": 24,
+        "$value": 36,
         "$description": "Font size typically used on h1.",
         "$extensions": {
           "com.figma": {
@@ -1053,7 +1053,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 32,
+        "$value": 40,
         "$description": "Line height typically used on h1.",
         "$extensions": {
           "com.figma": {
@@ -1067,7 +1067,7 @@
     "large": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.medium}",
+        "$value": "{fontWeight.regular}",
         "$description": "Font weight typically used on h2.",
         "$extensions": {
           "com.figma": {
@@ -1079,7 +1079,7 @@
       },
       "fontSize": {
         "$type": "number",
-        "$value": 20,
+        "$value": 28,
         "$description": "Font size typically used on h2.",
         "$extensions": {
           "com.figma": {
@@ -1091,7 +1091,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 24,
+        "$value": 32,
         "$description": "Line height typically used on h2.",
         "$extensions": {
           "com.figma": {
@@ -1105,7 +1105,7 @@
     "medium": {
       "fontSize": {
         "$type": "number",
-        "$value": 18,
+        "$value": 24,
         "$description": "Font size typically used on h3.",
         "$extensions": {
           "com.figma": {
@@ -1117,7 +1117,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 22,
+        "$value": 28,
         "$description": "Line height typically used on h3.",
         "$extensions": {
           "com.figma": {
@@ -1129,7 +1129,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.medium}",
+        "$value": "{fontWeight.regular}",
         "$description": "Font weight typically used on h3.",
         "$extensions": {
           "com.figma": {
@@ -1143,7 +1143,7 @@
     "small": {
       "fontSize": {
         "$type": "number",
-        "$value": 16,
+        "$value": 20,
         "$description": "Font size typically used on h4.",
         "$extensions": {
           "com.figma": {
@@ -1155,7 +1155,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 20,
+        "$value": 24,
         "$description": "Line height typically used on h4.",
         "$extensions": {
           "com.figma": {
@@ -1167,7 +1167,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.medium}",
+        "$value": "{fontWeight.regular}",
         "$description": "Font weight typically used on h4.",
         "$extensions": {
           "com.figma": {
@@ -1181,7 +1181,7 @@
     "xsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": 16,
+        "$value": 18,
         "$description": "Font size typically used on h5.",
         "$extensions": {
           "com.figma": {
@@ -1193,7 +1193,7 @@
       },
       "lineHeight": {
         "$type": "number",
-        "$value": 18,
+        "$value": 20,
         "$description": "Line height typically used on h5.",
         "$extensions": {
           "com.figma": {

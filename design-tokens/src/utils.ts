@@ -141,7 +141,7 @@ export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
 
   const themes: { [key: string]: string[] } = {
     default: [],
-    v0: [],
+    v1: [],
   };
 
   const tokens = tokenDirs
@@ -153,19 +153,19 @@ export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
     .flat();
 
   tokens.forEach(file => {
-    if (!file.includes('v0')) themes.default.push(file);
-    else themes.v0.push(file);
+    if (!file.includes('v1')) themes.default.push(file);
+    else themes.v1.push(file);
   });
 
   themes.default.forEach(file => {
     let [fileName] = file.split('/').slice(-1);
     const collection = fileName.split('.')[0];
-    const exists = themes.v0.find(file => {
-      let [v0FileName] = file.split('/').slice(-1);
-      const v0Collection = v0FileName.split('.')[0];
-      return v0Collection === collection;
+    const exists = themes.v1.find(file => {
+      let [v1FileName] = file.split('/').slice(-1);
+      const v1Collection = v1FileName.split('.')[0];
+      return v1Collection === collection;
     });
-    if (!exists) themes.v0.push(file);
+    if (!exists) themes.v1.push(file);
   });
 
   return themes;
