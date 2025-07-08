@@ -1618,7 +1618,7 @@ export default {
   },
   "hpe.icon.xsmall.size": {
     "$type": "number",
-    "$value": "12px",
+    "$value": "14px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1633,7 +1633,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 12,
+      "$value": "{base.dimension.350}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1660,7 +1660,7 @@ export default {
   },
   "hpe.icon.small.size": {
     "$type": "number",
-    "$value": "14px",
+    "$value": "16px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1675,7 +1675,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 14,
+      "$value": "{base.dimension.400}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1702,7 +1702,7 @@ export default {
   },
   "hpe.icon.medium.size": {
     "$type": "number",
-    "$value": "16px",
+    "$value": "18px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1717,7 +1717,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 16,
+      "$value": "{base.dimension.450}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1744,7 +1744,7 @@ export default {
   },
   "hpe.icon.large.size": {
     "$type": "number",
-    "$value": "20px",
+    "$value": "22px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1759,7 +1759,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 20,
+      "$value": "{base.dimension.550}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1786,7 +1786,7 @@ export default {
   },
   "hpe.icon.xlarge.size": {
     "$type": "number",
-    "$value": "28px",
+    "$value": "24px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1801,7 +1801,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 28,
+      "$value": "{base.dimension.600}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1870,7 +1870,7 @@ export default {
   },
   "hpe.text.xsmall.fontSize": {
     "$type": "number",
-    "$value": "0.75rem",
+    "$value": "0.875rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1885,7 +1885,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 12,
+      "$value": "{base.fontSize.90}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1927,7 +1927,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 16,
+      "$value": "{base.lineHeight.90}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2038,7 +2038,7 @@ export default {
   },
   "hpe.text.small.fontSize": {
     "$type": "number",
-    "$value": "0.875rem",
+    "$value": "1rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2053,7 +2053,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 14,
+      "$value": "{base.fontSize.100}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2095,7 +2095,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 20,
+      "$value": "{base.lineHeight.100}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2206,7 +2206,7 @@ export default {
   },
   "hpe.text.medium.fontSize": {
     "$type": "number",
-    "$value": "1rem",
+    "$value": "1.125rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2221,7 +2221,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 16,
+      "$value": "{base.fontSize.200}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2263,7 +2263,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 24,
+      "$value": "{base.lineHeight.200}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2374,7 +2374,7 @@ export default {
   },
   "hpe.text.large.fontSize": {
     "$type": "number",
-    "$value": "1.25rem",
+    "$value": "1.375rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2389,7 +2389,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 20,
+      "$value": "{base.fontSize.400}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2416,7 +2416,7 @@ export default {
   },
   "hpe.text.large.lineHeight": {
     "$type": "number",
-    "$value": "1.875rem",
+    "$value": "1.75rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2431,7 +2431,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 30,
+      "$value": "{base.lineHeight.300}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2542,7 +2542,7 @@ export default {
   },
   "hpe.text.xlarge.fontSize": {
     "$type": "number",
-    "$value": "1.75rem",
+    "$value": "1.5rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2557,7 +2557,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 28,
+      "$value": "{base.fontSize.500}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -2584,7 +2584,7 @@ export default {
   },
   "hpe.text.xlarge.lineHeight": {
     "$type": "number",
-    "$value": "2.375rem",
+    "$value": "1.875rem",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2599,7 +2599,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 38,
+      "$value": "{base.lineHeight.400}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3382,7 +3382,7 @@ export default {
   },
   "hpe.heading.xlarge.fontWeight": {
     "$type": "number",
-    "$value": 500,
+    "$value": 400,
     "$description": "Font weight typically used on h1.",
     "$extensions": {
       "com.figma": {
@@ -3397,7 +3397,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
+      "$value": "{fontWeight.regular}",
       "$description": "Font weight typically used on h1.",
       "$extensions": {
         "com.figma": {
@@ -3424,7 +3424,7 @@ export default {
   },
   "hpe.heading.xlarge.fontSize": {
     "$type": "number",
-    "$value": "1.5rem",
+    "$value": "2.25rem",
     "$description": "Font size typically used on h1.",
     "$extensions": {
       "com.figma": {
@@ -3439,7 +3439,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 24,
+      "$value": 36,
       "$description": "Font size typically used on h1.",
       "$extensions": {
         "com.figma": {
@@ -3466,7 +3466,7 @@ export default {
   },
   "hpe.heading.xlarge.lineHeight": {
     "$type": "number",
-    "$value": "2rem",
+    "$value": "2.5rem",
     "$description": "Line height typically used on h1.",
     "$extensions": {
       "com.figma": {
@@ -3481,7 +3481,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 32,
+      "$value": 40,
       "$description": "Line height typically used on h1.",
       "$extensions": {
         "com.figma": {
@@ -3508,7 +3508,7 @@ export default {
   },
   "hpe.heading.large.fontWeight": {
     "$type": "number",
-    "$value": 500,
+    "$value": 400,
     "$description": "Font weight typically used on h2.",
     "$extensions": {
       "com.figma": {
@@ -3523,7 +3523,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
+      "$value": "{fontWeight.regular}",
       "$description": "Font weight typically used on h2.",
       "$extensions": {
         "com.figma": {
@@ -3550,7 +3550,7 @@ export default {
   },
   "hpe.heading.large.fontSize": {
     "$type": "number",
-    "$value": "1.25rem",
+    "$value": "1.75rem",
     "$description": "Font size typically used on h2.",
     "$extensions": {
       "com.figma": {
@@ -3565,7 +3565,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 20,
+      "$value": 28,
       "$description": "Font size typically used on h2.",
       "$extensions": {
         "com.figma": {
@@ -3592,7 +3592,7 @@ export default {
   },
   "hpe.heading.large.lineHeight": {
     "$type": "number",
-    "$value": "1.5rem",
+    "$value": "2rem",
     "$description": "Line height typically used on h2.",
     "$extensions": {
       "com.figma": {
@@ -3607,7 +3607,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 24,
+      "$value": 32,
       "$description": "Line height typically used on h2.",
       "$extensions": {
         "com.figma": {
@@ -3634,7 +3634,7 @@ export default {
   },
   "hpe.heading.medium.fontSize": {
     "$type": "number",
-    "$value": "1.125rem",
+    "$value": "1.5rem",
     "$description": "Font size typically used on h3.",
     "$extensions": {
       "com.figma": {
@@ -3649,7 +3649,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 18,
+      "$value": 24,
       "$description": "Font size typically used on h3.",
       "$extensions": {
         "com.figma": {
@@ -3676,7 +3676,7 @@ export default {
   },
   "hpe.heading.medium.lineHeight": {
     "$type": "number",
-    "$value": "1.375rem",
+    "$value": "1.75rem",
     "$description": "Line height typically used on h3.",
     "$extensions": {
       "com.figma": {
@@ -3691,7 +3691,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 22,
+      "$value": 28,
       "$description": "Line height typically used on h3.",
       "$extensions": {
         "com.figma": {
@@ -3718,7 +3718,7 @@ export default {
   },
   "hpe.heading.medium.fontWeight": {
     "$type": "number",
-    "$value": 500,
+    "$value": 400,
     "$description": "Font weight typically used on h3.",
     "$extensions": {
       "com.figma": {
@@ -3733,7 +3733,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
+      "$value": "{fontWeight.regular}",
       "$description": "Font weight typically used on h3.",
       "$extensions": {
         "com.figma": {
@@ -3760,7 +3760,7 @@ export default {
   },
   "hpe.heading.small.fontSize": {
     "$type": "number",
-    "$value": "1rem",
+    "$value": "1.25rem",
     "$description": "Font size typically used on h4.",
     "$extensions": {
       "com.figma": {
@@ -3775,7 +3775,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 16,
+      "$value": 20,
       "$description": "Font size typically used on h4.",
       "$extensions": {
         "com.figma": {
@@ -3802,7 +3802,7 @@ export default {
   },
   "hpe.heading.small.lineHeight": {
     "$type": "number",
-    "$value": "1.25rem",
+    "$value": "1.5rem",
     "$description": "Line height typically used on h4.",
     "$extensions": {
       "com.figma": {
@@ -3817,7 +3817,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 20,
+      "$value": 24,
       "$description": "Line height typically used on h4.",
       "$extensions": {
         "com.figma": {
@@ -3844,7 +3844,7 @@ export default {
   },
   "hpe.heading.small.fontWeight": {
     "$type": "number",
-    "$value": 500,
+    "$value": 400,
     "$description": "Font weight typically used on h4.",
     "$extensions": {
       "com.figma": {
@@ -3859,7 +3859,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
+      "$value": "{fontWeight.regular}",
       "$description": "Font weight typically used on h4.",
       "$extensions": {
         "com.figma": {
@@ -3886,7 +3886,7 @@ export default {
   },
   "hpe.heading.xsmall.fontSize": {
     "$type": "number",
-    "$value": "1rem",
+    "$value": "1.125rem",
     "$description": "Font size typically used on h5.",
     "$extensions": {
       "com.figma": {
@@ -3901,7 +3901,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 16,
+      "$value": 18,
       "$description": "Font size typically used on h5.",
       "$extensions": {
         "com.figma": {
@@ -3928,7 +3928,7 @@ export default {
   },
   "hpe.heading.xsmall.lineHeight": {
     "$type": "number",
-    "$value": "1.125rem",
+    "$value": "1.25rem",
     "$description": "Line height typically used on h5.",
     "$extensions": {
       "com.figma": {
@@ -3943,7 +3943,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 18,
+      "$value": 20,
       "$description": "Line height typically used on h5.",
       "$extensions": {
         "com.figma": {

@@ -22,15 +22,13 @@ export default {
         "critical": "#ffecec",
         "unknown": "rgba(0, 0, 0, 0.04)",
         "info": "#e0f8ff",
-        "primary-strong": "#008567",
-        "primary-strong-hover": "#006750",
+        "primary-strong": "#292d3a",
+        "primary-strong-hover": "#535c66",
         "primary-xstrong": "#093a2f",
         "selected-primary-strong": "#008567",
         "selected-primary-strong-hover": "#006750",
         "selected-primary": "#d1ffee",
         "selected-primary-hover": "#aafade",
-        "secondary-strong": "#292d3a",
-        "secondary-strong-hover": "#535c66",
         "neutral-xstrong": "#2e2e2e"
       },
       "border": {
@@ -52,7 +50,6 @@ export default {
         "placeholder": "#676767",
         "disabled": "#a0a2a8",
         "onPrimaryStrong": "#ffffff",
-        "onSecondaryStrong": "#ffffff",
         "primary": "#006750",
         "primary-hover": "#074b3b",
         "critical": "#cc1f1a",
@@ -89,7 +86,6 @@ export default {
         "unknown": "#757575",
         "primary": "#006750",
         "onPrimaryStrong": "#ffffff",
-        "onSecondaryStrong": "#ffffff",
         "onSelectedPrimaryStrong": "#ffffff",
         "onSelectedPrimary": "#292d3a",
         "onStrong": "#ffffff"

@@ -10,7 +10,7 @@ export default {
         "minHeight": "24px",
         "textToElementX": "3px",
         "textToIconX": "3px",
-        "fontSize": "0.75rem",
+        "fontSize": "0.875rem",
         "lineHeight": "1rem",
         "borderWidth": "default",
         "paddingY": "3px",
@@ -20,7 +20,7 @@ export default {
           "wide": "9px"
         },
         "icon": {
-          "size": "12px"
+          "size": "14px"
         },
         "width": "24px",
         "height": "24px"
@@ -28,7 +28,7 @@ export default {
       "small": {
         "borderWidth": "1px",
         "paddingY": "3px",
-        "fontSize": "0.875rem",
+        "fontSize": "1rem",
         "lineHeight": "1.25rem",
         "minHeight": "28px",
         "width": "28px",
@@ -41,11 +41,11 @@ export default {
           "wide": "12px"
         },
         "icon": {
-          "size": "14px"
+          "size": "16px"
         }
       },
       "medium": {
-        "fontSize": "1rem",
+        "fontSize": "1.125rem",
         "lineHeight": "1.5rem",
         "minHeight": "36px",
         "width": "36px",
@@ -60,12 +60,12 @@ export default {
           "wide": "18px"
         },
         "icon": {
-          "size": "16px"
+          "size": "18px"
         }
       },
       "large": {
-        "fontSize": "1.25rem",
-        "lineHeight": "1.875rem",
+        "fontSize": "1.375rem",
+        "lineHeight": "1.75rem",
         "minHeight": "48px",
         "width": "48px",
         "height": "48px",
@@ -79,12 +79,12 @@ export default {
           "wide": "24px"
         },
         "icon": {
-          "size": "20px"
+          "size": "22px"
         }
       },
       "xlarge": {
-        "fontSize": "1.75rem",
-        "lineHeight": "2.375rem",
+        "fontSize": "1.5rem",
+        "lineHeight": "1.875rem",
         "minHeight": "72px",
         "width": "72px",
         "height": "72px",
@@ -98,7 +98,7 @@ export default {
           "wide": "32px"
         },
         "icon": {
-          "size": "28px"
+          "size": "24px"
         }
       }
     },
@@ -111,7 +111,7 @@ export default {
             "minHeight": "36px",
             "borderRadius": "6px",
             "borderWidth": "1px",
-            "fontSize": "1rem",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "marker": {
               "width": "6px",
@@ -195,10 +195,10 @@ export default {
     "button": {
       "primary": {
         "rest": {
-          "background": "background-secondary-strong",
+          "background": "background-primary-strong",
           "borderColor": "transparent",
-          "textColor": "text-onSecondaryStrong",
-          "iconColor": "icon-onSecondaryStrong",
+          "textColor": "text-onPrimaryStrong",
+          "iconColor": "icon-onPrimaryStrong",
           "fontWeight": 500
         },
         "disabled": {
@@ -211,7 +211,7 @@ export default {
           }
         },
         "hover": {
-          "background": "background-secondary-strong-hover",
+          "background": "background-primary-strong-hover",
           "borderColor": "transparent",
           "textColor": "text-onPrimaryStrong",
           "iconColor": "icon-onPrimaryStrong",
@@ -239,7 +239,7 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "default",
           "minHeight": "24px",
-          "fontSize": "0.75rem",
+          "fontSize": "0.875rem",
           "iconOnly": {
             "paddingX": "4px",
             "paddingY": "4px",
@@ -247,7 +247,7 @@ export default {
             "borderWidth": "default",
             "minHeight": "24px",
             "minWidth": "24px",
-            "fontSize": "0.75rem",
+            "fontSize": "0.875rem",
             "lineHeight": "1rem",
             "gapX": "3px"
           },
@@ -260,7 +260,7 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "28px",
-          "fontSize": "0.875rem",
+          "fontSize": "1rem",
           "lineHeight": "1.25rem",
           "gapX": "6px",
           "iconOnly": {
@@ -270,7 +270,7 @@ export default {
             "borderWidth": "1px",
             "minHeight": "28px",
             "minWidth": "28px",
-            "fontSize": "0.875rem",
+            "fontSize": "1rem",
             "lineHeight": "1.25rem",
             "gapX": "6px"
           }
@@ -281,7 +281,7 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "36px",
-          "fontSize": "1rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
@@ -291,7 +291,7 @@ export default {
             "borderWidth": "1px",
             "minHeight": "36px",
             "minWidth": "36px",
-            "fontSize": "1rem",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
@@ -302,16 +302,16 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "48px",
-          "fontSize": "1.25rem",
-          "lineHeight": "1.875rem",
+          "fontSize": "1.375rem",
+          "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "9999px",
             "borderWidth": "1px",
             "minHeight": "48px",
             "minWidth": "48px",
-            "fontSize": "1.25rem",
-            "lineHeight": "1.875rem",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "12px",
             "paddingY": "12px"
@@ -323,8 +323,8 @@ export default {
             "borderWidth": "1px",
             "minHeight": "72px",
             "minWidth": "72px",
-            "fontSize": "1.75rem",
-            "lineHeight": "2.375rem",
+            "fontSize": "1.5rem",
+            "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "23px",
             "paddingY": "23px"
@@ -334,8 +334,8 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "72px",
-          "fontSize": "1.75rem",
-          "lineHeight": "2.375rem",
+          "fontSize": "1.5rem",
+          "lineHeight": "1.875rem",
           "gapX": "6px"
         }
       },
@@ -385,7 +385,7 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "default",
           "minHeight": "24px",
-          "fontSize": "0.75rem",
+          "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "gapX": "3px",
           "iconOnly": {
@@ -395,7 +395,7 @@ export default {
             "borderWidth": "default",
             "minHeight": "24px",
             "minWidth": "24px",
-            "fontSize": "0.75rem",
+            "fontSize": "0.875rem",
             "lineHeight": "1rem",
             "gapX": "3px"
           }
@@ -406,7 +406,7 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "4px",
           "minHeight": "28px",
-          "fontSize": "0.875rem",
+          "fontSize": "1rem",
           "lineHeight": "1.25rem",
           "gapX": "6px",
           "iconOnly": {
@@ -416,7 +416,7 @@ export default {
             "borderWidth": "4px",
             "minHeight": "28px",
             "minWidth": "28px",
-            "fontSize": "0.875rem",
+            "fontSize": "1rem",
             "lineHeight": "1.25rem",
             "gapX": "6px"
           }
@@ -427,7 +427,7 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "4px",
           "minHeight": "36px",
-          "fontSize": "1rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
@@ -437,7 +437,7 @@ export default {
             "borderWidth": "4px",
             "minHeight": "36px",
             "minWidth": "36px",
-            "fontSize": "1rem",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
@@ -448,16 +448,16 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "4px",
           "minHeight": "48px",
-          "fontSize": "1.25rem",
-          "lineHeight": "1.875rem",
+          "fontSize": "1.375rem",
+          "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "9999px",
             "borderWidth": "4px",
             "minHeight": "48px",
             "minWidth": "48px",
-            "fontSize": "1.25rem",
-            "lineHeight": "1.875rem",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "12px",
             "paddingY": "12px"
@@ -469,8 +469,8 @@ export default {
             "borderWidth": "1px",
             "minHeight": "72px",
             "minWidth": "72px",
-            "fontSize": "1.75rem",
-            "lineHeight": "2.375rem",
+            "fontSize": "1.5rem",
+            "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "23px",
             "paddingY": "23px"
@@ -480,8 +480,8 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "72px",
-          "fontSize": "1.75rem",
-          "lineHeight": "2.375rem",
+          "fontSize": "1.5rem",
+          "lineHeight": "1.875rem",
           "gapX": "6px"
         }
       },
@@ -531,7 +531,7 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "default",
           "minHeight": "24px",
-          "fontSize": "0.75rem",
+          "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "gapX": "3px",
           "iconOnly": {
@@ -541,7 +541,7 @@ export default {
             "borderWidth": "default",
             "minHeight": "24px",
             "minWidth": "24px",
-            "fontSize": "0.75rem",
+            "fontSize": "0.875rem",
             "lineHeight": "1rem",
             "gapX": "3px"
           }
@@ -552,7 +552,7 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "28px",
-          "fontSize": "0.875rem",
+          "fontSize": "1rem",
           "lineHeight": "1.25rem",
           "gapX": "6px",
           "iconOnly": {
@@ -562,7 +562,7 @@ export default {
             "borderWidth": "1px",
             "minHeight": "28px",
             "minWidth": "28px",
-            "fontSize": "0.875rem",
+            "fontSize": "1rem",
             "lineHeight": "1.25rem",
             "gapX": "6px"
           }
@@ -573,7 +573,7 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "36px",
-          "fontSize": "1rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
@@ -583,7 +583,7 @@ export default {
             "borderWidth": "1px",
             "minHeight": "36px",
             "minWidth": "36px",
-            "fontSize": "1rem",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
@@ -594,16 +594,16 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "48px",
-          "fontSize": "1.25rem",
-          "lineHeight": "1.875rem",
+          "fontSize": "1.375rem",
+          "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "9999px",
             "borderWidth": "1px",
             "minHeight": "48px",
             "minWidth": "48px",
-            "fontSize": "1.25rem",
-            "lineHeight": "1.875rem",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "12px",
             "paddingY": "12px"
@@ -615,8 +615,8 @@ export default {
             "borderWidth": "1px",
             "minHeight": "72px",
             "minWidth": "72px",
-            "fontSize": "1.75rem",
-            "lineHeight": "2.375rem",
+            "fontSize": "1.5rem",
+            "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "23px",
             "paddingY": "23px"
@@ -626,8 +626,8 @@ export default {
           "borderRadius": "9999px",
           "borderWidth": "1px",
           "minHeight": "72px",
-          "fontSize": "1.75rem",
-          "lineHeight": "2.375rem",
+          "fontSize": "1.5rem",
+          "lineHeight": "1.875rem",
           "gapX": "6px"
         }
       },
@@ -677,7 +677,7 @@ export default {
           "borderRadius": "6px",
           "borderWidth": "1px",
           "minHeight": "24px",
-          "fontSize": "0.75rem",
+          "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "iconOnly": {
             "paddingX": "4px",
@@ -686,7 +686,7 @@ export default {
             "borderWidth": "1px",
             "minHeight": "24px",
             "minWidth": "24px",
-            "fontSize": "0.75rem",
+            "fontSize": "0.875rem",
             "lineHeight": "1rem",
             "gapX": "3px"
           },
@@ -698,7 +698,7 @@ export default {
           "borderRadius": "6px",
           "borderWidth": "1px",
           "minHeight": "28px",
-          "fontSize": "0.875rem",
+          "fontSize": "1rem",
           "lineHeight": "1.25rem",
           "gapX": "3px",
           "iconOnly": {
@@ -708,7 +708,7 @@ export default {
             "borderWidth": "1px",
             "minHeight": "28px",
             "minWidth": "28px",
-            "fontSize": "0.875rem",
+            "fontSize": "1rem",
             "lineHeight": "1.25rem",
             "gapX": "3px"
           }
@@ -719,7 +719,7 @@ export default {
           "borderRadius": "6px",
           "borderWidth": "default",
           "minHeight": "36px",
-          "fontSize": "1rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px",
           "iconOnly": {
@@ -729,7 +729,7 @@ export default {
             "borderWidth": "default",
             "minHeight": "36px",
             "minWidth": "36px",
-            "fontSize": "1rem",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           }
@@ -740,16 +740,16 @@ export default {
           "borderRadius": "6px",
           "borderWidth": "default",
           "minHeight": "48px",
-          "fontSize": "1.25rem",
-          "lineHeight": "1.875rem",
+          "fontSize": "1.375rem",
+          "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "6px",
             "borderWidth": "default",
             "minHeight": "48px",
             "minWidth": "48px",
-            "fontSize": "1.25rem",
-            "lineHeight": "1.875rem",
+            "fontSize": "1.375rem",
+            "lineHeight": "1.75rem",
             "gapX": "6px",
             "paddingX": "14px",
             "paddingY": "12px"
@@ -761,8 +761,8 @@ export default {
             "borderWidth": "1px",
             "minHeight": "72px",
             "minWidth": "72px",
-            "fontSize": "1.75rem",
-            "lineHeight": "2.375rem",
+            "fontSize": "1.5rem",
+            "lineHeight": "1.875rem",
             "gapX": "6px",
             "paddingX": "23px",
             "paddingY": "23px"
@@ -772,8 +772,8 @@ export default {
           "borderRadius": "12px",
           "borderWidth": "1px",
           "minHeight": "72px",
-          "fontSize": "1.75rem",
-          "lineHeight": "2.375rem",
+          "fontSize": "1.5rem",
+          "lineHeight": "1.875rem",
           "gapX": "6px"
         }
       }
@@ -828,7 +828,7 @@ export default {
             "borderRadius": "6px",
             "borderWidth": "1px",
             "minHeight": "36px",
-            "fontSize": "1rem",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "gapX": "6px"
           },
@@ -926,7 +926,7 @@ export default {
         "medium": {
           "gapX": "12px",
           "label": {
-            "fontSize": "1rem",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem"
           },
           "control": {
@@ -1028,7 +1028,7 @@ export default {
         "medium": {
           "gapX": "12px",
           "label": {
-            "fontSize": "1rem",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem"
           },
           "control": {
@@ -1080,32 +1080,32 @@ export default {
             }
           },
           "label": {
-            "fontSize": "0.75rem",
+            "fontSize": "0.875rem",
             "lineHeight": "1rem",
             "fontWeight": 500
           },
           "placeholder": {
-            "fontSize": "1rem",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "fontWeight": 400
           },
           "help": {
-            "fontSize": "0.75rem",
+            "fontSize": "0.875rem",
             "lineHeight": "1rem",
             "fontWeight": 400
           },
           "info": {
-            "fontSize": "0.75rem",
+            "fontSize": "0.875rem",
             "lineHeight": "1rem",
             "fontWeight": 400
           },
           "error": {
-            "fontSize": "0.75rem",
+            "fontSize": "0.875rem",
             "lineHeight": "1rem",
             "fontWeight": 400
           },
           "value": {
-            "fontSize": "1rem",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem",
             "fontWeight": 400
           }
@@ -1376,7 +1376,7 @@ export default {
         },
         "medium": {
           "paddingX": "12px",
-          "fontSize": "1rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "fontWeight": 400,
           "borderBottomWidth": "1px",
@@ -1388,7 +1388,7 @@ export default {
       "primary": {
         "medium": {
           "paddingX": "12px",
-          "fontSize": "1rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "fontWeight": 500,
           "borderBottomWidth": "1px",
@@ -1485,7 +1485,7 @@ export default {
         },
         "medium": {
           "paddingX": "12px",
-          "fontSize": "1rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "fontWeight": 500,
           "borderBottomWidth": "1px",
@@ -1526,7 +1526,7 @@ export default {
         },
         "medium": {
           "paddingX": "12px",
-          "fontSize": "1rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "fontWeight": 500,
           "borderTopWidth": "1px",
@@ -1596,7 +1596,7 @@ export default {
         "medium": {
           "gapX": "12px",
           "label": {
-            "fontSize": "1rem",
+            "fontSize": "1.125rem",
             "lineHeight": "1.5rem"
           },
           "control": {
@@ -1628,28 +1628,28 @@ export default {
           }
         },
         "xsmall": {
-          "fontSize": "0.75rem",
+          "fontSize": "0.875rem",
           "lineHeight": "1rem",
           "gapX": "3px"
         },
         "small": {
-          "fontSize": "0.875rem",
+          "fontSize": "1rem",
           "lineHeight": "1.25rem",
           "gapX": "6px"
         },
         "medium": {
-          "fontSize": "1rem",
+          "fontSize": "1.125rem",
           "lineHeight": "1.5rem",
           "gapX": "6px"
         },
         "large": {
-          "fontSize": "1.25rem",
-          "lineHeight": "1.875rem",
+          "fontSize": "1.375rem",
+          "lineHeight": "1.75rem",
           "gapX": "6px"
         },
         "xlarge": {
-          "fontSize": "1.75rem",
-          "lineHeight": "2.375rem",
+          "fontSize": "1.5rem",
+          "lineHeight": "1.875rem",
           "gapX": "6px"
         },
         "xxlarge": {

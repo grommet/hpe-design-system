@@ -29,8 +29,6 @@ module.exports = {
         "selected-primary-strong-hover": "var(--hpe-color-background-selected-primary-strong-hover)",
         "selected-primary": "var(--hpe-color-background-selected-primary)",
         "selected-primary-hover": "var(--hpe-color-background-selected-primary-hover)",
-        "secondary-strong": "var(--hpe-color-background-secondary-strong)",
-        "secondary-strong-hover": "var(--hpe-color-background-secondary-strong-hover)",
         "neutral-xstrong": "var(--hpe-color-background-neutral-xstrong)"
       },
       "border": {
@@ -52,7 +50,6 @@ module.exports = {
         "placeholder": "var(--hpe-color-text-placeholder)",
         "disabled": "var(--hpe-color-text-disabled)",
         "onPrimaryStrong": "var(--hpe-color-text-onPrimaryStrong)",
-        "onSecondaryStrong": "var(--hpe-color-text-onSecondaryStrong)",
         "primary": "var(--hpe-color-text-primary)",
         "primary-hover": "var(--hpe-color-text-primary-hover)",
         "critical": "var(--hpe-color-text-critical)",
@@ -89,7 +86,6 @@ module.exports = {
         "unknown": "var(--hpe-color-icon-unknown)",
         "primary": "var(--hpe-color-icon-primary)",
         "onPrimaryStrong": "var(--hpe-color-icon-onPrimaryStrong)",
-        "onSecondaryStrong": "var(--hpe-color-icon-onSecondaryStrong)",
         "onSelectedPrimaryStrong": "var(--hpe-color-icon-onSelectedPrimaryStrong)",
         "onSelectedPrimary": "var(--hpe-color-icon-onSelectedPrimary)",
         "onStrong": "var(--hpe-color-icon-onStrong)"

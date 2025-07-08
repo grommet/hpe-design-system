@@ -724,8 +724,8 @@ export default {
   },
   "hpe.color.background.primary.strong": {
     "$type": "color",
-    "$value": "#008567",
-    "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
+    "$value": "#292d3a",
+    "$description": "The strong variant of background-cta.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -740,8 +740,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.700}",
-      "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
+      "$value": "#292D3A",
+      "$description": "The strong variant of background-cta.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -772,8 +772,8 @@ export default {
   },
   "hpe.color.background.primary.strong.hover": {
     "$type": "color",
-    "$value": "#006750",
-    "$description": "Hover variant of background-primary.",
+    "$value": "#535c66",
+    "$description": "",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -788,8 +788,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.800}",
-      "$description": "Hover variant of background-primary.",
+      "$value": "#535C66",
+      "$description": "",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -869,7 +869,7 @@ export default {
   "hpe.color.background.selected.primary.strong": {
     "$type": "color",
     "$value": "#008567",
-    "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+    "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -884,8 +884,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.primary.strong.REST}",
-      "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+      "$value": "{base.color.green.700}",
+      "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -918,7 +918,7 @@ export default {
   "hpe.color.background.selected.primary.strong.hover": {
     "$type": "color",
     "$value": "#006750",
-    "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+    "$description": "Hover variant of background-primary.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -933,8 +933,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.primary.strong.hover}",
-      "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
+      "$value": "{base.color.green.800}",
+      "$description": "Hover variant of background-primary.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1061,102 +1061,6 @@ export default {
       "hover"
     ],
     "key": "{color.background.selected.primary.DEFAULT.hover}"
-  },
-  "hpe.color.background.secondary.strong": {
-    "$type": "color",
-    "$value": "#292d3a",
-    "$description": "The strong variant of background-cta.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#292D3A",
-      "$description": "The strong variant of background-cta.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.secondary.strong",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "secondary",
-      "subitem": "strong",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "secondary",
-      "strong",
-      "REST"
-    ],
-    "key": "{color.background.secondary.strong.REST}"
-  },
-  "hpe.color.background.secondary.strong.hover": {
-    "$type": "color",
-    "$value": "#535c66",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#535C66",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.secondary.strong.hover",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "secondary",
-      "subitem": "strong",
-      "state": "hover"
-    },
-    "path": [
-      "color",
-      "background",
-      "secondary",
-      "strong",
-      "hover"
-    ],
-    "key": "{color.background.secondary.strong.hover}"
   },
   "hpe.color.background.neutral.xstrong": {
     "$type": "color",
@@ -1953,52 +1857,6 @@ export default {
       "REST"
     ],
     "key": "{color.text.onPrimaryStrong.DEFAULT.REST}"
-  },
-  "hpe.color.text.onSecondaryStrong": {
-    "$type": "color",
-    "$value": "#ffffff",
-    "$description": "Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.white.100}",
-      "$description": "Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "TEXT_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.text.onSecondaryStrong",
-    "attributes": {
-      "category": "color",
-      "type": "text",
-      "item": "onSecondaryStrong",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "text",
-      "onSecondaryStrong",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.text.onSecondaryStrong.DEFAULT.REST}"
   },
   "hpe.color.text.primary": {
     "$type": "color",
@@ -3605,56 +3463,6 @@ export default {
       "REST"
     ],
     "key": "{color.icon.onPrimaryStrong.DEFAULT.REST}"
-  },
-  "hpe.color.icon.onSecondaryStrong": {
-    "$type": "color",
-    "$value": "#ffffff",
-    "$description": "Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{color.text.onSecondaryStrong.DEFAULT.REST}",
-      "$description": "Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.icon.onSecondaryStrong",
-    "attributes": {
-      "category": "color",
-      "type": "icon",
-      "item": "onSecondaryStrong",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "icon",
-      "onSecondaryStrong",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.icon.onSecondaryStrong.DEFAULT.REST}"
   },
   "hpe.color.icon.onSelectedPrimaryStrong": {
     "$type": "color",

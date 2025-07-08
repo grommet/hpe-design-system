@@ -93,8 +93,8 @@
   --hpe-color-background-ok: #e3fdf4; /** Use for backgrounds communicating success. Status color. Keywords: status */
   --hpe-color-background-critical: #ffecec; /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-info: #e0f8ff; /** Use for backgrounds communicating neutral information. Keywords: status */
-  --hpe-color-background-secondary-strong: #292d3a; /** The strong variant of background-cta. */
-  --hpe-color-background-secondary-strong-hover: #535c66;
+  --hpe-color-background-primary-strong: #292d3a; /** The strong variant of background-cta. */
+  --hpe-color-background-primary-strong-hover: #535c66;
   --hpe-color-border-disabled: #d4d8d8; /** Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-text-default: #67686e; /** Default text color that is accessible on standard background colors. */
   --hpe-color-text-strong: #292d3a; /** Emphasized text color for increased visual prominence. */
@@ -111,9 +111,9 @@
   --hpe-color-background-contrast-hover: var(--hpe-base-color-black-opacity8); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
   --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity12); /** The background color for the overlay that sits behind modal layers. */
   --hpe-color-background-unknown: var(--hpe-base-color-black-opacity4); /** Use for backgrounds communicating an unknown status. Keywords: status */
-  --hpe-color-background-primary-strong: var(--hpe-base-color-green-700); /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
-  --hpe-color-background-primary-strong-hover: var(--hpe-base-color-green-800); /** Hover variant of background-primary. */
   --hpe-color-background-primary-xstrong: var(--hpe-base-color-green-1000);
+  --hpe-color-background-selected-primary-strong: var(--hpe-base-color-green-700); /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
+  --hpe-color-background-selected-primary-strong-hover: var(--hpe-base-color-green-800); /** Hover variant of background-primary. */
   --hpe-color-background-selected-primary: var(--hpe-base-color-green-100); /** Lower emphasis variant of background-selected-strong. */
   --hpe-color-background-selected-primary-hover: var(--hpe-base-color-green-125); /** Hover variant of background-selected-weak. */
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-1000); /** Highest emphasis variant of neutral palette. */
@@ -123,7 +123,6 @@
   --hpe-color-border-critical: var(--hpe-base-color-red-800); /** Use for borders communicating errors or danger. Keywords: status, critical */
   --hpe-color-text-placeholder: var(--hpe-color-text-weak); /** Placeholder text color. */
   --hpe-color-text-onPrimaryStrong: var(--hpe-base-color-white-100); /** Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
-  --hpe-color-text-onSecondaryStrong: var(--hpe-base-color-white-100); /** Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
   --hpe-color-text-primary: var(--hpe-base-color-green-800);
   --hpe-color-text-primary-hover: var(--hpe-base-color-green-900);
   --hpe-color-text-critical: var(--hpe-base-color-red-800); /** Use for text on standard backgrounds communicating errors or danger. Keywords: status */
@@ -191,12 +190,12 @@
   --hpe-select-default-option-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-select-default-option-marker-disabled-rest-background: var(--hpe-color-border-disabled);
   --hpe-select-default-drop-borderColor: var(--hpe-color-transparent);
-  --hpe-button-primary-rest-background: var(--hpe-color-background-secondary-strong);
+  --hpe-button-primary-rest-background: var(--hpe-color-background-primary-strong);
   --hpe-button-primary-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-primary-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-button-primary-disabled-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-primary-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-button-primary-hover-background: var(--hpe-color-background-secondary-strong-hover);
+  --hpe-button-primary-hover-background: var(--hpe-color-background-primary-strong-hover);
   --hpe-button-primary-hover-borderColor: var(--hpe-color-transparent);
   --hpe-button-primary-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-primary-selected-hover-borderColor: var(--hpe-color-transparent);
@@ -325,8 +324,6 @@
   --hpe-anchor-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-color-background-floating: var(--hpe-color-background-front); /** Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers */
   --hpe-color-background-hover: var(--hpe-color-background-contrast); /** Generic hover state of components that have no fill in their resting state. For example, menu items. */
-  --hpe-color-background-selected-primary-strong: var(--hpe-color-background-primary-strong); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
-  --hpe-color-background-selected-primary-strong-hover: var(--hpe-color-background-primary-strong-hover); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-border-selected: var(--hpe-color-foreground-primary); /** Selected border color. Used for ‘selected’ state. */
   --hpe-color-border-info: var(--hpe-color-border-default); /** Use for borders communicating neutral information. Keyword: status */
   --hpe-color-border-ok: var(--hpe-color-border-default); /** Use for borders communicating success. Keywords: status */
@@ -334,7 +331,6 @@
   --hpe-color-border-unknown: var(--hpe-color-border-default); /** Use for borders communicating an unknown status. Keywords: status */
   --hpe-color-text-anchor: var(--hpe-color-text-primary); /** Text color for headings. */
   --hpe-color-text-anchor-hover: var(--hpe-color-text-primary-hover); /** Text color for headings. */
-  --hpe-color-icon-onSecondaryStrong: var(--hpe-color-text-onSecondaryStrong); /** Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
   --hpe-color-icon-onSelectedPrimary: var(--hpe-color-icon-strong); /** Icon color to be used for icon sitting on non-strong background-selected variants. */
   --hpe-color-decorative-brand: var(--hpe-base-color-brand); /** The brand color. */
   --hpe-shadow-medium: var(--hpe-static-spacing-none) var(--hpe-static-spacing-3xsmall) var(--hpe-static-spacing-xsmall) var(--hpe-static-spacing-none) var(--hpe-base-color-black-opacity12) ;
@@ -346,7 +342,8 @@
   --hpe-select-default-option-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-select-default-option-selected-hover-background: var(--hpe-color-background-selected-primary-hover);
   --hpe-select-default-option-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-button-primary-rest-textColor: var(--hpe-color-text-onSecondaryStrong);
+  --hpe-button-primary-rest-textColor: var(--hpe-color-text-onPrimaryStrong);
+  --hpe-button-primary-rest-iconColor: var(--hpe-color-icon-onPrimaryStrong);
   --hpe-button-primary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-primary-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
@@ -390,14 +387,20 @@
   --hpe-checkbox-default-control-rest-borderColor: var(--hpe-color-border-default);
   --hpe-checkbox-default-control-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-control-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
+  --hpe-checkbox-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-checkbox-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-checkbox-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-checkbox-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-checkbox-default-control-indeterminate-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-checkbox-default-control-indeterminate-rest-iconColor: var(--hpe-color-icon-onPrimaryStrong);
+  --hpe-checkbox-default-control-indeterminate-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-checkbox-default-control-indeterminate-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
   --hpe-checkbox-default-label-selected-rest-textColor: var(--hpe-checkbox-default-label-rest-textColor);
   --hpe-checkbox-default-label-selected-hover-textColor: var(--hpe-checkbox-default-label-rest-textColor);
   --hpe-switch-default-control-track-rest-background: var(--hpe-color-decorative-neutral);
   --hpe-switch-default-control-track-hover-background: var(--hpe-color-decorative-neutral-hover);
+  --hpe-switch-default-control-track-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
+  --hpe-switch-default-control-track-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-switch-default-control-handle-rest-background: var(--hpe-color-background-front);
   --hpe-switch-default-control-handle-hover-background: var(--hpe-color-background-default);
   --hpe-switch-default-control-handle-selected-rest-background: var(--hpe-color-background-default);
@@ -453,7 +456,9 @@
   --hpe-footerCell-default-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
   --hpe-radioButton-default-control-rest-borderColor: var(--hpe-color-border-default);
   --hpe-radioButton-default-control-hover-borderColor: var(--hpe-color-border-strong);
+  --hpe-radioButton-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-radioButton-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-radioButton-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-radioButton-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-color-background-active: var(--hpe-color-background-hover); /** Standard active state color */
   --hpe-select-default-option-hover-background: var(--hpe-color-background-hover);
@@ -461,7 +466,6 @@
   --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-option-marker-rest-background: var(--hpe-color-border-selected);
   --hpe-select-default-option-marker-hover-background: var(--hpe-color-border-selected);
-  --hpe-button-primary-rest-iconColor: var(--hpe-color-icon-onSecondaryStrong);
   --hpe-button-secondary-rest-borderColor: var(--hpe-color-decorative-brand);
   --hpe-button-secondary-hover-borderColor: var(--hpe-color-border-selected);
   --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
@@ -479,12 +483,6 @@
   --hpe-menu-default-item-disabled-rest-iconColor: var(--hpe-button-default-disabled-rest-iconColor);
   --hpe-drop-default-background: var(--hpe-color-background-floating);
   --hpe-checkbox-default-control-hover-background: var(--hpe-color-background-hover);
-  --hpe-checkbox-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
-  --hpe-checkbox-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
-  --hpe-checkbox-default-control-indeterminate-rest-background: var(--hpe-color-background-selected-primary-strong);
-  --hpe-checkbox-default-control-indeterminate-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
-  --hpe-switch-default-control-track-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
-  --hpe-switch-default-control-track-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-formField-default-input-group-container-hover-background: var(--hpe-formField-default-input-group-container-rest-background);
   --hpe-formField-default-input-group-container-readOnly-rest-background: var(--hpe-formField-default-input-container-readOnly-rest-background);
   --hpe-formField-default-input-group-container-readOnly-rest-borderColor: var(--hpe-formField-default-input-container-readOnly-rest-borderColor);
@@ -520,8 +518,6 @@
   --hpe-footerCell-default-hover-borderColor: var(--hpe-footerCell-default-rest-borderColor);
   --hpe-footerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
-  --hpe-radioButton-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
-  --hpe-radioButton-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-anchor-default-rest-textColor: var(--hpe-color-text-anchor);
   --hpe-anchor-default-hover-textColor: var(--hpe-color-text-anchor-hover);
   --hpe-select-default-drop-background: var(--hpe-drop-default-background);
