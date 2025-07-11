@@ -57,7 +57,14 @@ Anchor content in fact and objectivity, free of bias and judgement.
 
 Content based in fact fosters clarity and reliability. Content based in opinion introduces ambiguity.
 
-Consider the connotations of content. Words like **_Error_** can unintentionally imply that the user is at fault and convey judgement of their actions.
+Consider the connotations of content. Words like **_Error_** can unintentionally suggest that the user is at fault or that their actions are being judged. However, an exception to this guidance applies when communicating with screen reader users—using **_Error_** in this context helps clearly signal that an issue must be resolved before continuing.
+
+```json
+"maxFile": "Error, sample.txt exceeds 5 files limit.",
+"maxSize": "Error, sample.txt exceeds 5.0 MB limit."
+```
+
+These messages begin with "Error," to ensure screen readers announce the severity upfront, helping screen reader users quickly understand that corrective action is needed.
 
 Consider content from the user's perspective and goals, not what the UI can do.
 
@@ -206,7 +213,7 @@ Sentence case should be applied on:
 
 Title case should only be applied on:
 
-- The title of an event, program, or website and for all proper nouns. 
+- The title of an event, program, or website and for all proper nouns.
 
 HPE brand and product names are proper nouns.
 
