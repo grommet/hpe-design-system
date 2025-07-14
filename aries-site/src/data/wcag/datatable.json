@@ -176,8 +176,8 @@
   {
     "rule": "2.1.1",
     "label": "Keyboard",
-    "status": "failed",
-    "notes": "no keyboard support for datatable column resize"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.1.2",
