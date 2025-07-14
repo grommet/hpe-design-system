@@ -260,8 +260,8 @@
   {
     "rule": "2.4.3",
     "label": "Focus Order",
-    "status": "failed",
-    "notes": "Failed because the calendar dates do not receive focus or get read out by the screen reader."
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.4.4",
@@ -500,8 +500,8 @@
   {
     "rule": "4.1.2",
     "label": "Name, Role, Value",
-    "status": "failed",
-    "notes": "The component failed because the calendar dates are not read out when navigated, not due to the aria-label."
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "4.1.3",

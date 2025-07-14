@@ -239,8 +239,8 @@
   {
     "rule": "2.4.7",
     "label": "Focus Visible",
-    "status": "failed",
-    "notes": "Focus indicator not shown when navigating through the list of options"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.4.8",
@@ -286,7 +286,8 @@
   {
     "rule": "2.5.3",
     "label": "Label in Name",
-    "status": "failed"
+    "status": "conditional",
+    "notes": "Requires caller to follow format of htmlFor={`${id}__input`} on FormField."
   },
   {
     "rule": "2.5.4",

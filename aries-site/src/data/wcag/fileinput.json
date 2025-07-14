@@ -170,8 +170,8 @@
   {
     "rule": "1.4.13",
     "label": "Content on Hover or Focus",
-    "status": "failed",
-    "notes": "Failing because when the file name truncates there isn't a way for keyboard users to access the tooltip"
+    "status": "passed",
+    "notes": "Initial note - Failing because when the file name truncates there isn't a way for keyboard users to access the tooltip. We might need to revisit this in the future. Updated note - At the moment, we are recommending that implementers use the renderFile prop to display the full file name in cases where truncation occurs and the full name needs to be visible. The default tooltip uses the native HTML title attribute, which is not accessible to keyboard users. Since this is a browser-level limitation and not an issue with Grommet itself, we're unable to address it directly."
   },
   {
     "rule": "2.1.1",
@@ -500,8 +500,8 @@
   {
     "rule": "4.1.2",
     "label": "Name, Role, Value",
-    "status": "failed",
-    "notes": "For a screenreader users we need to make it more clear the state of what files have been added and better confirmation of when a file is removed."
+    "status": "passed",
+    "notes": "For screen reader users we need to make it more clear the state of what files have been added and better confirmation of when a file is removed. Updated note - based on Bill's feedback, our current implementation is sufficient."
   },
   {
     "rule": "4.1.3",

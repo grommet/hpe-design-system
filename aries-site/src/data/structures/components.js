@@ -332,7 +332,7 @@ export const components = [
   },
   {
     name: 'DateInput',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'A widget which allows the user to select a date or range of dates from a calendar.',
@@ -493,6 +493,7 @@ export const components = [
   },
   {
     name: 'Tip',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Controls',
     description:
       'A Tip is a small layer that opens when the user moves the mouse pointer over an element. The intention is to offer helpful information in the immediate context.',
@@ -584,7 +585,7 @@ export const components = [
   },
   {
     name: 'Select',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'Select is a flexible input field that allows users to choose from a list of options.',
@@ -632,7 +633,7 @@ export const components = [
   {
     name: 'SelectMultiple',
     category: 'Inputs',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Passed WCAG 2.2 AA',
     description:
       'SelectMultiple is a dropdown component that enables the user to quickly scan the list of options and choose more than one of the options.',
     seoDescription:
@@ -1388,7 +1389,7 @@ export const components = [
   },
   {
     name: 'RangeInput',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'The RangeInput component is a slider control that provides a handle the user can move along a continuum to select a value.',
@@ -1482,7 +1483,7 @@ export const components = [
   },
   {
     name: 'Skeleton',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AAA',
     category: 'Visualizations',
     description:
       'Skeletons are simplified placeholders mimicking the layout of content to be loaded, providing users with a visual preview while reducing perceived loading time.',
@@ -1498,7 +1499,7 @@ export const components = [
   },
   {
     name: 'DataTable',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Visualizations',
     description: 'DataTable presents data in a column and row format.',
     preview: {
@@ -1799,7 +1800,7 @@ export const components = [
   },
   {
     name: 'DataFilter',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Failed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description: 'An individual filter for a property in a data collection.',
@@ -1819,7 +1820,7 @@ export const components = [
   },
   {
     name: 'DataFilters',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Failed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description: 'A group of DataFilters for a data collection.',
@@ -1895,7 +1896,7 @@ export const components = [
   },
   {
     name: 'DataTableColumns',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description:
@@ -1935,6 +1936,7 @@ export const components = [
   },
   {
     name: 'DataView',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description:

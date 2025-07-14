@@ -30,7 +30,6 @@ FileInput is a specialized input providing users a means to select a file or fil
 
 For additional configurations, such as defining accepted file type, all instrinsic HTML properties are supported. For a comprehensive list of these options, you can read more about [HTML input type="file"](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
 
-
 ## Variants
 
 FileInputs may be configured for uploading single or multiple files.
@@ -75,7 +74,13 @@ To see this behavior, add a file then click the "Trash" button to see the confir
 />
 
 ## Accessibility
+
 When using FileInput within a Form, the FormField wrapping the FileInput should have `htmlFor` and `name` properties that match the `id` and `name` properties placed onto the FileInput. Reference the [FileInput within a Form example](/templates/forms#required-and-optional-fields) to see how to implement.
 
+**Filename truncation:**
+
+If displaying the entire file name is critical to the users understanding of the component and the name is getting truncated, the `renderFile` property should be used to display the full file name.
+
 ### WCAG compliance
-  <AccessibilitySection title='fileinput' />
+
+<AccessibilitySection title="fileinput" />
