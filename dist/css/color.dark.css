@@ -91,10 +91,10 @@
   --hpe-color-background-default: #292d3a; /** Default background color to be used on containers. */
   --hpe-color-background-back: #1d1f27; /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
   --hpe-color-background-front: #292d3a; /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
-  --hpe-color-background-warning: #3c361e; /** Use for backgrounds communicating warning or caution. Keywords: status */
   --hpe-color-background-ok: #1b5245; /** Use for backgrounds communicating success. Status color. Keywords: status */
-  --hpe-color-background-critical: #552120; /** Use for backgrounds communicating errors or danger. Keywords: status */
+  --hpe-color-background-warning: #3c361e; /** Use for backgrounds communicating warning or caution. Keywords: status */
   --hpe-color-background-info: #1e363d; /** Use for backgrounds communicating neutral information. Keywords: status */
+  --hpe-color-background-critical: #552120; /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-primary-strong: #ffffff; /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
   --hpe-color-background-primary-strong-hover: #d4d4d4; /** Hover variant of background-primary. */
   --hpe-color-background-selected-primary-strong: #007c60; /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
@@ -272,8 +272,8 @@
   --hpe-color-text-warning: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating warning or caution. Keywords: status */
   --hpe-color-text-unknown: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating an unknown status. Keywords: status */
   --hpe-color-text-heading: var(--hpe-color-text-strong); /** Text color for headings. */
-  --hpe-color-text-anchor: var(--hpe-color-text-primary); /** Text color for headings. */
-  --hpe-color-text-anchor-hover: var(--hpe-color-text-primary-hover); /** Text color for headings. */
+  --hpe-color-text-anchor: var(--hpe-color-text-primary); /** Text color for anchors. */
+  --hpe-color-text-anchor-hover: var(--hpe-color-text-primary-hover); /** Text color for anchors on hover. */
   --hpe-color-text-onSelectedPrimary: var(--hpe-color-text-strong); /** Text color to be used for text sitting on non-strong variants of background-selected. */
   --hpe-color-text-onCritical-strong: var(--hpe-color-text-strong); /** Emphasized variant of text color to be used on background-critical. */
   --hpe-color-text-onCritical: var(--hpe-color-text-default); /** Text color to be used on background-critical. */
@@ -623,10 +623,10 @@
   --hpe-color-background-default: #292d3a; /** Default background color to be used on containers. */
   --hpe-color-background-back: #1d1f27; /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
   --hpe-color-background-front: #292d3a; /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
-  --hpe-color-background-warning: #3c361e; /** Use for backgrounds communicating warning or caution. Keywords: status */
   --hpe-color-background-ok: #1b5245; /** Use for backgrounds communicating success. Status color. Keywords: status */
-  --hpe-color-background-critical: #552120; /** Use for backgrounds communicating errors or danger. Keywords: status */
+  --hpe-color-background-warning: #3c361e; /** Use for backgrounds communicating warning or caution. Keywords: status */
   --hpe-color-background-info: #1e363d; /** Use for backgrounds communicating neutral information. Keywords: status */
+  --hpe-color-background-critical: #552120; /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-primary-strong: #ffffff; /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
   --hpe-color-background-primary-strong-hover: #d4d4d4; /** Hover variant of background-primary. */
   --hpe-color-background-selected-primary-strong: #007c60; /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
@@ -804,8 +804,8 @@
   --hpe-color-text-warning: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating warning or caution. Keywords: status */
   --hpe-color-text-unknown: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating an unknown status. Keywords: status */
   --hpe-color-text-heading: var(--hpe-color-text-strong); /** Text color for headings. */
-  --hpe-color-text-anchor: var(--hpe-color-text-primary); /** Text color for headings. */
-  --hpe-color-text-anchor-hover: var(--hpe-color-text-primary-hover); /** Text color for headings. */
+  --hpe-color-text-anchor: var(--hpe-color-text-primary); /** Text color for anchors. */
+  --hpe-color-text-anchor-hover: var(--hpe-color-text-primary-hover); /** Text color for anchors on hover. */
   --hpe-color-text-onSelectedPrimary: var(--hpe-color-text-strong); /** Text color to be used for text sitting on non-strong variants of background-selected. */
   --hpe-color-text-onCritical-strong: var(--hpe-color-text-strong); /** Emphasized variant of text color to be used on background-critical. */
   --hpe-color-text-onCritical: var(--hpe-color-text-default); /** Text color to be used on background-critical. */
