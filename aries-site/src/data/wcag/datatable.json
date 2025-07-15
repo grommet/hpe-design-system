@@ -158,8 +158,8 @@
   {
     "rule": "1.4.11",
     "label": "Non-text Contrast",
-    "status": "failed",
-    "notes": "in the case where the datatable has clickable rows the color rgba (0, 0, 0, 0.04) is not sufficient contrast against the white background to meet the 3:1 contrast ratio requirement."
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.4.12",
