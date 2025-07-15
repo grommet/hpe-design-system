@@ -12905,7 +12905,7 @@ export default {
   },
   "hpe.button.secondary.medium.paddingY": {
     "$type": "number",
-    "$value": "4px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -12920,7 +12920,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 4,
+      "$value": 2,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13675,7 +13675,7 @@ export default {
   },
   "hpe.button.secondary.large.paddingY": {
     "$type": "number",
-    "$value": "9px",
+    "$value": "6px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13690,7 +13690,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 9,
+      "$value": 6,
       "$description": "",
       "$extensions": {
         "com.figma": {

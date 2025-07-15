@@ -423,7 +423,7 @@ export default {
         },
         "medium": {
           "paddingX": "18px",
-          "paddingY": "4px",
+          "paddingY": "2px",
           "borderRadius": "9999px",
           "borderWidth": "4px",
           "minHeight": "36px",
@@ -444,7 +444,7 @@ export default {
         },
         "large": {
           "paddingX": "24px",
-          "paddingY": "9px",
+          "paddingY": "6px",
           "borderRadius": "9999px",
           "borderWidth": "4px",
           "minHeight": "48px",
