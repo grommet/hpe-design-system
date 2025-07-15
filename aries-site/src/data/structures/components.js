@@ -1309,7 +1309,7 @@ export const components = [
     designs, and guidance for how HPE applications can deliver end users 
     confidence and assurance by keeping them informed with timely, relevant 
     status of their systems and tasks.`,
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [
       'State v.s. Status',
       'Notification Systems',
