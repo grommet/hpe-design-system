@@ -1,18 +1,15 @@
 import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Box, CardBody, Image, Text } from 'grommet';
+import { Box, CardBody, Paragraph, ThemeContext } from 'grommet';
 import { Identifier } from 'aries-core';
-import { PreviewImageCard } from './PreviewCard';
 import { LinkCard } from './LinkCard';
-import { useDarkMode } from '../../utils';
 import { pageVisitTracker } from '../../utils/pageVisitTracker';
 import { NotificationTag } from '../../layouts/content/NotificationTag';
 import { ViewContext } from '../../pages/_app';
 
 export const ContentCard = forwardRef(
   ({ level, topic, minimal, ...rest }, ref) => {
-    const { description, name, parent, preview, render } = topic;
-    const darkMode = useDarkMode();
+    const { description, name, parent, render } = topic;
 
     const { contentHistory } = useContext(ViewContext);
     let showUpdate = false;
@@ -24,81 +21,70 @@ export const ContentCard = forwardRef(
     }
 
     return (
-      <LinkCard fill pad="medium" ref={ref} {...rest}>
-        <CardBody gap="large">
-          {!minimal && (
-            <PreviewImageCard
-              pad={preview?.pad || 'none'}
-              background={preview?.background}
-            >
-              {preview &&
-                (preview.image && preview.image.src ? (
-                  <Image
-                    src={
-                      darkMode.value
-                        ? preview.image.src.dark || preview.image.src
-                        : preview.image.src.light || preview.image.src
-                    }
-                    alt={preview.image.alt}
-                    fit={preview.image.fit || 'cover'}
-                  />
-                ) : (
-                  preview.component && (
-                    <Box
-                      style={{ pointerEvents: 'none' }}
-                      flex
-                      justify={preview.justify || 'center'}
-                      align="center"
-                    >
-                      {preview.component()}
-                    </Box>
-                  )
-                ))}
-            </PreviewImageCard>
-          )}
-          <Box gap="small">
-            <Identifier
-              title={render || name}
-              align="start"
-              gap="xsmall"
-              level={level}
-            >
-              {parent && parent.icon && !minimal && (
-                <Box
-                  direction="row"
-                  align="center"
-                  fill="horizontal"
-                  justify="between"
-                >
-                  <Box gap="xsmall" direction="row" align="center">
-                    {parent.icon('small', parent.color)}
-                    <Text>{parent.name}</Text>
+      <ThemeContext.Extend
+        value={{
+          card: {
+            container: {
+              background: 'background-contrast',
+              elevation: 'none',
+            },
+            hover: {
+              container: {
+                background: 'background-contrast-hover',
+                elevation: 'none',
+              },
+            },
+          },
+        }}
+      >
+        <LinkCard fill ref={ref} {...rest}>
+          <CardBody gap="large">
+            <Box gap="small">
+              <Identifier
+                title={render || name}
+                align="start"
+                gap="xsmall"
+                level={level}
+              >
+                {parent && parent.icon && !minimal && showUpdate && (
+                  <Box
+                    direction="row"
+                    align="center"
+                    fill="horizontal"
+                    justify="between"
+                  >
+                    {showUpdate && changeKind === 'Update' && (
+                      <NotificationTag
+                        backgroundColor="teal"
+                        a11yTitle={`There have been updates for ${
+                          render || name
+                        }`}
+                        value="Updated"
+                        size="small"
+                      />
+                    )}
+                    {showUpdate && changeKind === 'New' && (
+                      <NotificationTag
+                        backgroundColor="purple"
+                        a11yTitle={`There's a new item called ${
+                          render || name
+                        }`}
+                        value="New!"
+                        size="small"
+                      />
+                    )}
                   </Box>
-                  {showUpdate && changeKind === 'Update' && (
-                    <NotificationTag
-                      backgroundColor="teal"
-                      a11yTitle={`There have been updates for ${
-                        render || name
-                      }`}
-                      value="Updated"
-                      size="small"
-                    />
-                  )}
-                  {showUpdate && changeKind === 'New' && (
-                    <NotificationTag
-                      backgroundColor="purple"
-                      a11yTitle={`There's a new item called ${render || name}`}
-                      value="New!"
-                      size="small"
-                    />
-                  )}
-                </Box>
+                )}
+              </Identifier>
+              {description && (
+                <Paragraph maxLines={2} size="small">
+                  {description}
+                </Paragraph>
               )}
-            </Identifier>
-            {description && <Text size="small">{description}</Text>}
-          </Box>
-        </CardBody>
-      </LinkCard>
+            </Box>
+          </CardBody>
+        </LinkCard>
+      </ThemeContext.Extend>
     );
   },
 );

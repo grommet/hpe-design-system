@@ -1,31 +1,31 @@
 import React from 'react';
+import Link from 'next/link';
 
-import { Box, Grid, Heading, PageContent, Paragraph } from 'grommet';
-import { ContentPreviewCard } from '../cards';
+import { Box, Button, Grid, Heading, PageContent, Paragraph } from 'grommet';
+// import { ContentPreviewCard } from '../cards';
 import { nameToPath } from '../../utils';
 import { featured } from '../../data';
 
 const FeaturedLayout = ({ ...rest }) => (
-  <PageContent {...rest}>
-    <Grid
-      columns={{ count: 'fit', size: 'small' }}
-      gap="large"
-      pad={{ bottom: 'large' }}
-    >
-      {featured.map(({ name, description, icon, url }) => (
-        <ContentPreviewCard
-          key={name}
-          href={url || nameToPath(name)}
-          pad="medium"
-        >
-          <Box width="100%" round="xsmall">
-            {icon}
-          </Box>
-          <Heading level={2} margin={{ top: 'small', bottom: 'none' }}>
+  <PageContent gap="large" {...rest}>
+    <Heading level={2} margin="none">
+      Get started creating
+    </Heading>
+    <Grid columns={{ count: 'fit', size: 'small' }} gap="large">
+      {featured.map(({ name, description, url, label }) => (
+        <Box pad="medium" align="start" key={name}>
+          <Heading
+            level={2}
+            size="small"
+            margin={{ top: 'small', bottom: 'none' }}
+          >
             {name}
           </Heading>
-          <Paragraph size="small">{description}</Paragraph>
-        </ContentPreviewCard>
+          <Paragraph color="text-weak">{description}</Paragraph>
+          <Link passHref legacyBehavior href={nameToPath(name) || url}>
+            <Button secondary label={label} />
+          </Link>
+        </Box>
       ))}
     </Grid>
   </PageContent>
