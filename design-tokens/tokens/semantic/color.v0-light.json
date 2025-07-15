@@ -149,6 +149,22 @@
           }
         }
       },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.green.400-Opacity24}",
+            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
       "warning": {
         "DEFAULT": {
           "REST": {
@@ -165,12 +181,12 @@
           }
         }
       },
-      "ok": {
+      "info": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.400-Opacity24}",
-            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+            "$value": "{color.background.contrast.DEFAULT.REST}",
+            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -203,22 +219,6 @@
             "$type": "color",
             "$value": "{base.color.black.opacity4}",
             "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "info": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{color.background.contrast.DEFAULT.REST}",
-            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -720,7 +720,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.text.strong.REST}",
-            "$description": "Text color for headings.",
+            "$description": "Text color for anchors.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -732,7 +732,7 @@
           "hover": {
             "$type": "color",
             "$value": "{color.text.strong.REST}",
-            "$description": "Text color for headings.",
+            "$description": "Text color for anchors on hover.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
