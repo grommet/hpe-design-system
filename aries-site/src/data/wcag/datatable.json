@@ -375,7 +375,7 @@
     "rule": "2.5.8",
     "label": "Target Size (Minimum)",
     "status": "passed",
-    "notes": "column resize not large enough"
+    "notes": ""
   },
   {
     "rule": "3.1.1",
