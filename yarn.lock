@@ -2386,9 +2386,9 @@
     thingies "^1.20.0"
 
 "@jsonjoy.com/util@^1.1.2", "@jsonjoy.com/util@^1.3.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@jsonjoy.com/util/-/util-1.7.0.tgz#d87d2dfae39d34a7dc49e48850089af884a06557"
-  integrity sha512-breG4JCjVWedznFKdFrg62+WcS7WbbzhS6OerKB5qeNQEoqVbTXYyM3rQs+e8Il1DK4exAhsN86L9mmwj/X5kg==
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@jsonjoy.com/util/-/util-1.8.0.tgz#3b5d276f8c7ebab0599d92a81c829e4874920ec8"
+  integrity sha512-HeR0JQNEdBozt+FrfyM5T0X3R+fIN0D+BRDkxPP5o41fTWzHfeZEqtK16aTW8haU+h+SG7XYq9PP5kobvOmkSA==
 
 "@kwsites/file-exists@^1.1.1":
   version "1.1.1"
@@ -7632,7 +7632,7 @@ grommet-theme-hpe@^6.0.0:
 
 "grommet@https://github.com/grommet/grommet/tarball/stable":
   version "2.47.0"
-  resolved "https://github.com/grommet/grommet/tarball/stable#19ad551efa1a1f3e19ef47915087513786aa5320"
+  resolved "https://github.com/grommet/grommet/tarball/stable#d222c4070a6501e1dafb5f54e93e33f42bdcdc83"
   dependencies:
     "@emotion/is-prop-valid" "^1.3.1"
     grommet-icons "^4.12.4"
@@ -9753,9 +9753,9 @@ memfs@^3.4.1, memfs@^3.4.12, memfs@^3.4.3:
     fs-monkey "^1.0.4"
 
 memfs@^4.17.0:
-  version "4.18.0"
-  resolved "https://registry.yarnpkg.com/memfs/-/memfs-4.18.0.tgz#2fc00b92ac4733bfff866b3312ae32ba837354cf"
-  integrity sha512-iAapt2W+mfJWjoOgGJjgETwLjByanfdhr8b3yqfYr4ZyAXAbBv1icPoxPHksBlo/+XAclzv83dI/lyMJLiPlsA==
+  version "4.19.0"
+  resolved "https://registry.yarnpkg.com/memfs/-/memfs-4.19.0.tgz#0fc9ad79d3b0f302442029db1e969ae4a04fd823"
+  integrity sha512-urZngnWVS9n6NSuqAToEtrYh9tuCRKEcJGdEjVvZ6qeZTXMipOP4P9KhM9AuVKEOG8QCtJm/THNladyVJDL36g==
   dependencies:
     "@jsonjoy.com/json-pack" "^1.0.3"
     "@jsonjoy.com/util" "^1.3.0"
