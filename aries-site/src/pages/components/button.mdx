@@ -269,6 +269,14 @@ Icons may be incorporated into buttons, either inline with text or as an icon on
   <ButtonIconExample />
 </Example>
 
+### Button with badge
+
+The badge prop adds a small indicator to a Button to show extra information, like a notification or message count. You can use it in a few different ways depending on what you want to communicate:
+
+- If you just want to show something is new or needs attention, you can use a simple dot by setting badge to true.
+- If you want to show how many items there are — like 3 new messages — you can pass a number, and the badge will display it.
+- For large numbers, you can use an object with a value and a max. If the value goes over the max, the badge will show something like 99+, keeping things tidy and easy to read.
+
 ### Button states
 
 A button's visual state may be specified as appropriate in the application's context. For example, using "active" for the current item or "disabled" until a set of criteria are met. However, use of disabled controls is discouraged because it tends to elicit a "why?" response from users. It is better to leave buttons active and use messaging upon click to indicate that criteria have not been met. Buttons that do not apply (for reasons of context or permissions) should not be shown at all, rather than being shown as disabled.
