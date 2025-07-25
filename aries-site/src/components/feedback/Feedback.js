@@ -9,7 +9,7 @@ import {
   Heading,
   Layer,
   Text,
-  ResponsiveContext,
+  // ResponsiveContext,
 } from 'grommet';
 import { Close } from 'grommet-icons/icons/Close';
 
@@ -47,7 +47,7 @@ export const Feedback = ({
   title,
 }) => {
   const theme = useContext(ThemeContext);
-  const breakpoint = useContext(ResponsiveContext);
+  // const breakpoint = useContext(ResponsiveContext);
   // tracks if feedback has successfully been submitted
   const [successfulSubmit, setSuccessfulSubmit] = useState(false);
 
@@ -104,11 +104,9 @@ export const Feedback = ({
   if (modal)
     content = show && (
       <Layer
-        position={
-          !['xsmall', 'small'].includes(breakpoint) ? 'bottom-right' : 'center'
-        }
+        position="center"
         margin={{ vertical: 'xlarge', horizontal: 'medium' }}
-        modal={false}
+        modal
         onEsc={onClose}
         {...layerProps}
       >
@@ -122,7 +120,7 @@ export const Feedback = ({
 const FeedbackHeader = ({ children, title }) => {
   const theme = useContext(ThemeContext);
   return (
-    <Box {...theme?.feedback?.header}>
+    <Box {...theme?.feedback?.header} gap="small">
       <Heading {...theme?.feedback?.heading}>{title}</Heading>
       {children}
     </Box>
