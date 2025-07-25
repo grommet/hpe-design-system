@@ -888,7 +888,7 @@ module.exports = {
             "rest": {
               "background": "background-selected-primary-strong",
               "borderColor": "transparent",
-              "iconColor": "icon-onPrimaryStrong"
+              "iconColor": "icon-onSelectedPrimaryStrong"
             },
             "hover": {
               "background": "background-selected-primary-strong-hover",

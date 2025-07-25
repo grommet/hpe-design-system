@@ -482,10 +482,10 @@ export default {
     ],
     "key": "{color.background.screenOverlay.DEFAULT.REST}"
   },
-  "hpe.color.background.warning": {
+  "hpe.color.background.unknown": {
     "$type": "color",
-    "$value": "#fff3dd",
-    "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
+    "$value": "rgba(0, 0, 0, 0.04)",
+    "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -500,8 +500,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#fff3dd",
-      "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
+      "$value": "{base.color.black.opacity4}",
+      "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -513,22 +513,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.warning",
+    "name": "hpe.color.background.unknown",
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "warning",
+      "item": "unknown",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "warning",
+      "unknown",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.background.warning.DEFAULT.REST}"
+    "key": "{color.background.unknown.DEFAULT.REST}"
   },
   "hpe.color.background.ok": {
     "$type": "color",
@@ -578,6 +578,54 @@ export default {
     ],
     "key": "{color.background.ok.DEFAULT.REST}"
   },
+  "hpe.color.background.warning": {
+    "$type": "color",
+    "$value": "#fff3dd",
+    "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#fff3dd",
+      "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.warning",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "warning",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "warning",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.warning.DEFAULT.REST}"
+  },
   "hpe.color.background.critical": {
     "$type": "color",
     "$value": "#ffecec",
@@ -625,54 +673,6 @@ export default {
       "REST"
     ],
     "key": "{color.background.critical.DEFAULT.REST}"
-  },
-  "hpe.color.background.unknown": {
-    "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.04)",
-    "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.black.opacity4}",
-      "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.unknown",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "unknown",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "unknown",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.background.unknown.DEFAULT.REST}"
   },
   "hpe.color.background.info": {
     "$type": "color",
@@ -2229,7 +2229,7 @@ export default {
   "hpe.color.text.anchor": {
     "$type": "color",
     "$value": "#006750",
-    "$description": "Text color for headings.",
+    "$description": "Text color for anchors.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2245,7 +2245,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.text.primary.DEFAULT.REST}",
-      "$description": "Text color for headings.",
+      "$description": "Text color for anchors.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2277,7 +2277,7 @@ export default {
   "hpe.color.text.anchor.hover": {
     "$type": "color",
     "$value": "#074b3b",
-    "$description": "Text color for headings.",
+    "$description": "Text color for anchors on hover.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2293,7 +2293,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.text.primary.DEFAULT.hover}",
-      "$description": "Text color for headings.",
+      "$description": "Text color for anchors on hover.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2920,6 +2920,106 @@ export default {
     ],
     "key": "{color.text.onWarning.DEFAULT.REST}"
   },
+  "hpe.color.icon.primary.hover": {
+    "$type": "color",
+    "$value": "#074b3b",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.green.900}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.icon.primary.hover",
+    "attributes": {
+      "category": "color",
+      "type": "icon",
+      "item": "primary",
+      "subitem": "DEFAULT",
+      "state": "hover"
+    },
+    "path": [
+      "color",
+      "icon",
+      "primary",
+      "DEFAULT",
+      "hover"
+    ],
+    "key": "{color.icon.primary.DEFAULT.hover}"
+  },
+  "hpe.color.icon.primary": {
+    "$type": "color",
+    "$value": "#006750",
+    "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.green.800}",
+      "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL",
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.icon.primary",
+    "attributes": {
+      "category": "color",
+      "type": "icon",
+      "item": "primary",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "icon",
+      "primary",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.icon.primary.DEFAULT.REST}"
+  },
   "hpe.color.icon.default": {
     "$type": "color",
     "$value": "#555555",
@@ -3363,56 +3463,6 @@ export default {
       "REST"
     ],
     "key": "{color.icon.unknown.DEFAULT.REST}"
-  },
-  "hpe.color.icon.primary": {
-    "$type": "color",
-    "$value": "#006750",
-    "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.green.800}",
-      "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL",
-            "STROKE_COLOR"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.icon.primary",
-    "attributes": {
-      "category": "color",
-      "type": "icon",
-      "item": "primary",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "icon",
-      "primary",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.icon.primary.DEFAULT.REST}"
   },
   "hpe.color.icon.onPrimaryStrong": {
     "$type": "color",

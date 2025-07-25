@@ -4,15 +4,15 @@
  */
 
 :root {
-  --hpe-text-xsmall-maxWidth: 30em;
-  --hpe-text-small-maxWidth: 30em;
-  --hpe-text-medium-maxWidth: 30em;
-  --hpe-text-large-maxWidth: 30em;
-  --hpe-text-xlarge-maxWidth: 30em;
-  --hpe-text-xxlarge-maxWidth: 30em;
-  --hpe-text-3xlarge-maxWidth: 30em;
-  --hpe-text-4xlarge-maxWidth: 30em;
-  --hpe-text-5xlarge-maxWidth: 30em;
+  --hpe-text-xsmall-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-small-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-medium-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-large-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-xxlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-3xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-4xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
+  --hpe-text-5xlarge-maxWidth: 30em; /** For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation. */
   --hpe-heading-xlarge-fontSize: 2.25rem; /** Font size typically used on h1. */
   --hpe-heading-xlarge-lineHeight: 2.5rem; /** Line height typically used on h1. */
   --hpe-heading-large-fontSize: 1.75rem; /** Font size typically used on h2. */
@@ -92,7 +92,7 @@
   --hpe-borderWidth-small: var(--hpe-static-borderWidth-small);
   --hpe-borderWidth-medium: var(--hpe-static-borderWidth-medium);
   --hpe-borderWidth-large: var(--hpe-static-borderWidth-large);
-  --hpe-borderWidth-default: var(--hpe-static-borderWidth-xsmall);
+  --hpe-borderWidth-default: var(--hpe-static-borderWidth-xsmall); /** Default border-width for standard uses like border as visual separator. */
   --hpe-container-5xsmall: var(--hpe-static-container-5xsmall); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */
   --hpe-container-4xsmall: var(--hpe-static-container-4xsmall);
   --hpe-container-3xsmall: var(--hpe-static-container-3xsmall); /** Use to define the minimum/maximum width and height of containers or layout elements. For example, box, card and grids. */

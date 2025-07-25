@@ -27803,7 +27803,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onPrimaryStrong.DEFAULT.REST}",
+      "$value": "{color.icon.onSelectedPrimaryStrong.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {

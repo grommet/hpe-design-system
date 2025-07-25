@@ -1137,7 +1137,7 @@ export default {
   "hpe.borderWidth.default": {
     "$type": "number",
     "$value": "1px",
-    "$description": "",
+    "$description": "Default border-width for standard uses like border as visual separator.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -1153,7 +1153,7 @@ export default {
     "original": {
       "$type": "number",
       "$value": "{static.borderWidth.xsmall}",
-      "$description": "",
+      "$description": "Default border-width for standard uses like border as visual separator.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -1997,7 +1997,7 @@ export default {
   "hpe.text.xsmall.maxWidth": {
     "$type": "string",
     "$value": "30em",
-    "$description": "",
+    "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2012,7 +2012,7 @@ export default {
     "original": {
       "$type": "string",
       "$value": "30em",
-      "$description": "",
+      "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2165,7 +2165,7 @@ export default {
   "hpe.text.small.maxWidth": {
     "$type": "string",
     "$value": "30em",
-    "$description": "",
+    "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2180,7 +2180,7 @@ export default {
     "original": {
       "$type": "string",
       "$value": "30em",
-      "$description": "",
+      "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2333,7 +2333,7 @@ export default {
   "hpe.text.medium.maxWidth": {
     "$type": "string",
     "$value": "30em",
-    "$description": "",
+    "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2348,7 +2348,7 @@ export default {
     "original": {
       "$type": "string",
       "$value": "30em",
-      "$description": "",
+      "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2501,7 +2501,7 @@ export default {
   "hpe.text.large.maxWidth": {
     "$type": "string",
     "$value": "30em",
-    "$description": "",
+    "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2516,7 +2516,7 @@ export default {
     "original": {
       "$type": "string",
       "$value": "30em",
-      "$description": "",
+      "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2669,7 +2669,7 @@ export default {
   "hpe.text.xlarge.maxWidth": {
     "$type": "string",
     "$value": "30em",
-    "$description": "",
+    "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2684,7 +2684,7 @@ export default {
     "original": {
       "$type": "string",
       "$value": "30em",
-      "$description": "",
+      "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -2837,7 +2837,7 @@ export default {
   "hpe.text.xxlarge.maxWidth": {
     "$type": "string",
     "$value": "30em",
-    "$description": "",
+    "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -2852,7 +2852,7 @@ export default {
     "original": {
       "$type": "string",
       "$value": "30em",
-      "$description": "",
+      "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3005,7 +3005,7 @@ export default {
   "hpe.text.3xlarge.maxWidth": {
     "$type": "string",
     "$value": "30em",
-    "$description": "",
+    "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3020,7 +3020,7 @@ export default {
     "original": {
       "$type": "string",
       "$value": "30em",
-      "$description": "",
+      "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3173,7 +3173,7 @@ export default {
   "hpe.text.4xlarge.maxWidth": {
     "$type": "string",
     "$value": "30em",
-    "$description": "",
+    "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3188,7 +3188,7 @@ export default {
     "original": {
       "$type": "string",
       "$value": "30em",
-      "$description": "",
+      "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3341,7 +3341,7 @@ export default {
   "hpe.text.5xlarge.maxWidth": {
     "$type": "string",
     "$value": "30em",
-    "$description": "",
+    "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3356,7 +3356,7 @@ export default {
     "original": {
       "$type": "string",
       "$value": "30em",
-      "$description": "",
+      "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
