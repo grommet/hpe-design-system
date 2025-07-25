@@ -271,11 +271,11 @@ Icons may be incorporated into buttons, either inline with text or as an icon on
 
 ### Button with badge
 
-The badge prop adds a small indicator to a Button to show extra information, such as a notification or message count. It can be used in different ways depending on what needs to be communicated:
+The `badge` prop adds a small indicator to a Button to show extra information, such as a notification or message count. It can be used in different ways depending on what needs to be communicated:
 
 - To indicate that something is new or needs attention, the badge can be set to true to display a simple dot.
 - To show how many items there are — such as 3 new messages — a number can be passed, and the badge will display that value.
-- For large numbers, an object with value and max can be used. If the value exceeds the max, the badge will display something like 99+, keeping the visual presentation clean and readable.
+- For large numbers, an object with value and max can be used. If the value exceeds the max, the badge will display a "+" next to the max (e.g., 9+), keeping the visual presentation clean and readable. By default the max is 9, but this can be adjusted based on what max value best suits the use case.
 
 ### Button states
 
