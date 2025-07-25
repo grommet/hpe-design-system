@@ -368,8 +368,8 @@
   {
     "rule": "2.5.7",
     "label": "Dragging Movements",
-    "status": "failed",
-    "notes": "column resize can't be done via buttons"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.5.8",
