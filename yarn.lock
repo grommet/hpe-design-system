@@ -7609,12 +7609,7 @@ graphlib@^2.1.5:
   dependencies:
     lodash "^4.17.15"
 
-grommet-icons@^4.12.4:
-  version "4.14.0"
-  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.14.0.tgz#115e165c724d21f493b45c66b02f915d26a182b4"
-  integrity sha512-Y1XxECsP24nU5y1Xs+Xyz6Q4jduzzMUBOb6Dno9YfxZFgxw1ie3+Wwui04+3I6xf036NQJpEI/O8mfMgBaLWXg==
-
-"grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
+grommet-icons@^4.12.4, "grommet-icons@https://github.com/grommet/grommet-icons/tarball/stable":
   version "4.14.0"
   resolved "https://github.com/grommet/grommet-icons/tarball/stable#2f0aec275cbd7ea3377dc79bd39b1ec21e9e4535"
 
