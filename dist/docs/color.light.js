@@ -482,54 +482,6 @@ export default {
     ],
     "key": "{color.background.screenOverlay.DEFAULT.REST}"
   },
-  "hpe.color.background.ok": {
-    "$type": "color",
-    "$value": "#e3fdf4",
-    "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.light.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#e3fdf4",
-      "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.ok",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "ok",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "ok",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.background.ok.DEFAULT.REST}"
-  },
   "hpe.color.background.warning": {
     "$type": "color",
     "$value": "#fff3dd",
@@ -578,10 +530,10 @@ export default {
     ],
     "key": "{color.background.warning.DEFAULT.REST}"
   },
-  "hpe.color.background.info": {
+  "hpe.color.background.ok": {
     "$type": "color",
-    "$value": "#e0f8ff",
-    "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+    "$value": "#e3fdf4",
+    "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -596,8 +548,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#e0f8ff",
-      "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+      "$value": "#e3fdf4",
+      "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -609,22 +561,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.info",
+    "name": "hpe.color.background.ok",
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "info",
+      "item": "ok",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "info",
+      "ok",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.background.info.DEFAULT.REST}"
+    "key": "{color.background.ok.DEFAULT.REST}"
   },
   "hpe.color.background.critical": {
     "$type": "color",
@@ -644,7 +596,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#ffecec",
+      "$value": "{base.color.landmarkRed.50}",
       "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -722,6 +674,54 @@ export default {
     ],
     "key": "{color.background.unknown.DEFAULT.REST}"
   },
+  "hpe.color.background.info": {
+    "$type": "color",
+    "$value": "#e3f1ff",
+    "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.landmarkBlue.50}",
+      "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.info",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "info",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "info",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.info.DEFAULT.REST}"
+  },
   "hpe.color.background.primary.strong": {
     "$type": "color",
     "$value": "#292d3a",
@@ -740,7 +740,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#292d3a",
+      "$value": "{base.color.landmarkGrey.1000Updated}",
       "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
       "$extensions": {
         "com.figma": {
@@ -772,7 +772,7 @@ export default {
   },
   "hpe.color.background.primary.strong.hover": {
     "$type": "color",
-    "$value": "#535c66",
+    "$value": "#3e4550",
     "$description": "Hover variant of background-primary.",
     "$extensions": {
       "com.figma": {
@@ -788,7 +788,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#535c66",
+      "$value": "{base.color.landmarkGrey.800Updated}",
       "$description": "Hover variant of background-primary.",
       "$extensions": {
         "com.figma": {
@@ -1110,7 +1110,7 @@ export default {
   },
   "hpe.color.border.strong": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.72)",
+    "$value": "#3e4550",
     "$description": "Emphasized variant of border color.",
     "$extensions": {
       "com.figma": {
@@ -1125,7 +1125,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.black.opacity72}",
+      "$value": "{base.color.landmarkGrey.800Updated}",
       "$description": "Emphasized variant of border color.",
       "$extensions": {
         "com.figma": {
@@ -1154,7 +1154,7 @@ export default {
   },
   "hpe.color.border.default": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.36)",
+    "$value": "#b1b9be",
     "$description": "Default border color.",
     "$extensions": {
       "com.figma": {
@@ -1170,7 +1170,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.black.opacity36}",
+      "$value": "{base.color.landmarkGrey.500Updated}",
       "$description": "Default border color.",
       "$extensions": {
         "com.figma": {
@@ -1200,7 +1200,7 @@ export default {
   },
   "hpe.color.border.weak": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.12)",
+    "$value": "#d4d8db",
     "$description": "Subtle variant of border color for reduced visual emphasis.",
     "$extensions": {
       "com.figma": {
@@ -1216,7 +1216,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.black.opacity12}",
+      "$value": "{base.color.landmarkGrey.400Updated}",
       "$description": "Subtle variant of border color for reduced visual emphasis.",
       "$extensions": {
         "com.figma": {
@@ -1246,7 +1246,7 @@ export default {
   },
   "hpe.color.border.disabled": {
     "$type": "color",
-    "$value": "#d4d8d8",
+    "$value": "#d4d8db",
     "$description": "Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled.",
     "$extensions": {
       "com.figma": {
@@ -1262,7 +1262,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#d4d8d8",
+      "$value": "{base.color.landmarkGrey.400Updated}",
       "$description": "Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled.",
       "$extensions": {
         "com.figma": {
@@ -1388,7 +1388,7 @@ export default {
   },
   "hpe.color.border.info": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.36)",
+    "$value": "#b1b9be",
     "$description": "Use for borders communicating neutral information. Keyword: status",
     "$extensions": {
       "com.figma": {
@@ -1438,7 +1438,7 @@ export default {
   },
   "hpe.color.border.ok": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.36)",
+    "$value": "#b1b9be",
     "$description": "Use for borders communicating success. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -1488,7 +1488,7 @@ export default {
   },
   "hpe.color.border.warning": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.36)",
+    "$value": "#b1b9be",
     "$description": "Use for borders communicating warning or caution. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -1538,7 +1538,7 @@ export default {
   },
   "hpe.color.border.unknown": {
     "$type": "color",
-    "$value": "rgba(0, 0, 0, 0.36)",
+    "$value": "#b1b9be",
     "$description": "Use for borders communicating an unknown status. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -1588,7 +1588,7 @@ export default {
   },
   "hpe.color.text.default": {
     "$type": "color",
-    "$value": "#67686e",
+    "$value": "#3e4550",
     "$description": "Default text color that is accessible on standard background colors.",
     "$extensions": {
       "com.figma": {
@@ -1603,7 +1603,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#67686e",
+      "$value": "{base.color.landmarkGrey.800Updated}",
       "$description": "Default text color that is accessible on standard background colors.",
       "$extensions": {
         "com.figma": {
@@ -1648,7 +1648,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#292d3a",
+      "$value": "{base.color.landmarkGrey.1000Updated}",
       "$description": "Emphasized text color for increased visual prominence.",
       "$extensions": {
         "com.figma": {
@@ -1678,7 +1678,7 @@ export default {
   },
   "hpe.color.text.weak": {
     "$type": "color",
-    "$value": "#676767",
+    "$value": "#606a70",
     "$description": "Subtle text color for reduced visual prominence. Often used for supporting text.",
     "$extensions": {
       "com.figma": {
@@ -1693,7 +1693,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#676767",
+      "$value": "{base.color.landmarkGrey.650Entirelynew}",
       "$description": "Subtle text color for reduced visual prominence. Often used for supporting text.",
       "$extensions": {
         "com.figma": {
@@ -1722,7 +1722,7 @@ export default {
   },
   "hpe.color.text.placeholder": {
     "$type": "color",
-    "$value": "#676767",
+    "$value": "#606a70",
     "$description": "Placeholder text color.",
     "$extensions": {
       "com.figma": {
@@ -1998,7 +1998,7 @@ export default {
   },
   "hpe.color.text.info": {
     "$type": "color",
-    "$value": "#67686e",
+    "$value": "#3e4550",
     "$description": "Use for text on standard backgrounds communicating neutral information. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -2044,7 +2044,7 @@ export default {
   },
   "hpe.color.text.ok": {
     "$type": "color",
-    "$value": "#67686e",
+    "$value": "#3e4550",
     "$description": "Use for text on standard backgrounds communicating success. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -2090,7 +2090,7 @@ export default {
   },
   "hpe.color.text.warning": {
     "$type": "color",
-    "$value": "#67686e",
+    "$value": "#3e4550",
     "$description": "Use for text on standard backgrounds communicating warning or caution. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -2136,7 +2136,7 @@ export default {
   },
   "hpe.color.text.unknown": {
     "$type": "color",
-    "$value": "#67686e",
+    "$value": "#3e4550",
     "$description": "Use for text on standard backgrounds communicating an unknown status. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -2508,7 +2508,7 @@ export default {
   },
   "hpe.color.text.onCritical": {
     "$type": "color",
-    "$value": "#67686e",
+    "$value": "#3e4550",
     "$description": "Text color to be used on background-critical.",
     "$extensions": {
       "com.figma": {
@@ -2600,7 +2600,7 @@ export default {
   },
   "hpe.color.text.onInfo": {
     "$type": "color",
-    "$value": "#67686e",
+    "$value": "#3e4550",
     "$description": "Text color to be used on background-info.",
     "$extensions": {
       "com.figma": {
@@ -2692,7 +2692,7 @@ export default {
   },
   "hpe.color.text.onOk": {
     "$type": "color",
-    "$value": "#67686e",
+    "$value": "#3e4550",
     "$description": "Text color to be used on background-ok.",
     "$extensions": {
       "com.figma": {
@@ -2784,7 +2784,7 @@ export default {
   },
   "hpe.color.text.onUnknown": {
     "$type": "color",
-    "$value": "#67686e",
+    "$value": "#3e4550",
     "$description": "Text color to be used on background-unknown.",
     "$extensions": {
       "com.figma": {
@@ -2876,7 +2876,7 @@ export default {
   },
   "hpe.color.text.onWarning": {
     "$type": "color",
-    "$value": "#67686e",
+    "$value": "#3e4550",
     "$description": "Text color to be used on background-warning.",
     "$extensions": {
       "com.figma": {
@@ -2922,7 +2922,7 @@ export default {
   },
   "hpe.color.icon.default": {
     "$type": "color",
-    "$value": "#67686e",
+    "$value": "#3e4550",
     "$description": "Default icon color that is accessible on standard background colors.",
     "$extensions": {
       "com.figma": {
@@ -3018,7 +3018,7 @@ export default {
   },
   "hpe.color.icon.weak": {
     "$type": "color",
-    "$value": "#676767",
+    "$value": "#606a70",
     "$description": "Subtle icon color for reduced visual prominence.",
     "$extensions": {
       "com.figma": {
@@ -3166,7 +3166,7 @@ export default {
   },
   "hpe.color.icon.info": {
     "$type": "color",
-    "$value": "#00567a",
+    "$value": "#0055da",
     "$description": "Use for icons communicating neutral information. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -3183,7 +3183,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.blue.900}",
+      "$value": "{base.color.landmarkBlue.700updated}",
       "$description": "Use for icons communicating neutral information. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -3316,7 +3316,7 @@ export default {
   },
   "hpe.color.icon.unknown": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#606a70",
     "$description": "Use for icons communicating unknown status. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -3333,7 +3333,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.700}",
+      "$value": "{base.color.landmarkGrey.650Entirelynew}",
       "$description": "Use for icons communicating unknown status. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -3976,7 +3976,7 @@ export default {
   },
   "hpe.color.decorative.neutral": {
     "$type": "color",
-    "$value": "#8c8c8c",
+    "$value": "#7d8a92",
     "$description": "Highest emphasis variant of neutral palette.",
     "$extensions": {
       "com.figma": {
@@ -3991,7 +3991,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.600}",
+      "$value": "{base.color.landmarkGrey.600Updated}",
       "$description": "Highest emphasis variant of neutral palette.",
       "$extensions": {
         "com.figma": {
@@ -4022,7 +4022,7 @@ export default {
   },
   "hpe.color.decorative.neutral.hover": {
     "$type": "color",
-    "$value": "#757575",
+    "$value": "#606a70",
     "$description": "Highest emphasis variant of neutral palette.",
     "$extensions": {
       "com.figma": {
@@ -4037,7 +4037,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.700}",
+      "$value": "{base.color.landmarkGrey.650Entirelynew}",
       "$description": "Highest emphasis variant of neutral palette.",
       "$extensions": {
         "com.figma": {
@@ -4083,7 +4083,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.purple2}",
+      "$value": "{base.color.LandMarkDataVis.darkblue1}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4115,7 +4115,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.20": {
     "$type": "color",
-    "$value": "#b0840d",
+    "$value": "#7764fc",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4130,7 +4130,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.gold1}",
+      "$value": "{base.color.LandMarkDataVis.purple1}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4162,7 +4162,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.30": {
     "$type": "color",
-    "$value": "#a95589",
+    "$value": "#6c2b7c",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4177,7 +4177,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.pink1}",
+      "$value": "{base.color.LandMarkDataVis.plum}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4209,7 +4209,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.40": {
     "$type": "color",
-    "$value": "#2053d9",
+    "$value": "#b38a29",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4224,7 +4224,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.blue1}",
+      "$value": "{base.color.LandMarkDataVis.gold1}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4256,7 +4256,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.50": {
     "$type": "color",
-    "$value": "#a78972",
+    "$value": "#0055da",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4271,7 +4271,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#a78972",
+      "$value": "{base.color.LandMarkDataVis.blue1}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4303,7 +4303,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.60": {
     "$type": "color",
-    "$value": "#7022ec",
+    "$value": "#009eac",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4318,7 +4318,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.purple1}",
+      "$value": "{base.color.LandMarkDataVis.cyan}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4350,7 +4350,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.70": {
     "$type": "color",
-    "$value": "#38819c",
+    "$value": "#a32279",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4365,7 +4365,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.darkblue2}",
+      "$value": "{base.color.LandMarkDataVis.fuschia}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4397,7 +4397,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.80": {
     "$type": "color",
-    "$value": "#470d69",
+    "$value": "#d17243",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4412,7 +4412,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.dataVis.grape1}",
+      "$value": "{base.color.LandMarkDataVis.orange}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4484,7 +4484,7 @@ export default {
   },
   "hpe.color.focus": {
     "$type": "color",
-    "$value": "#004233",
+    "$value": "#292d3a",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4499,7 +4499,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#004233",
+      "$value": "{base.color.landmarkGrey.1000Updated}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4674,7 +4674,7 @@ export default {
   },
   "hpe.color.foreground.unknown": {
     "$type": "color",
-    "$value": "#8c8c8c",
+    "$value": "#7d8a92",
     "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status",
     "$extensions": {
       "com.figma": {
@@ -4691,7 +4691,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.600}",
+      "$value": "{base.color.landmarkGrey.600Updated}",
       "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status",
       "$extensions": {
         "com.figma": {

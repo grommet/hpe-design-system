@@ -143,6 +143,8 @@
   --hpe-anchor-default-rest-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-anchor-default-hover-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-anchor-default-disabled-rest-fontWeight: var(--hpe-fontWeight-medium);
+  --hpe-anchor-default-xxlarge-fontSize: var(--hpe-text-xxlarge-fontSize);
+  --hpe-anchor-default-5xlarge-fontSize: var(--hpe-text-5xlarge-fontSize);
   --hpe-element-xsmall-textToElementX: var(--hpe-static-spacing-5xsmall);
   --hpe-element-xsmall-textToIconX: var(--hpe-static-spacing-5xsmall);
   --hpe-element-xsmall-fontSize: var(--hpe-text-xsmall-fontSize);
@@ -318,13 +320,11 @@
   --hpe-anchor-default-large-lineHeight: var(--hpe-text-large-lineHeight);
   --hpe-anchor-default-xlarge-fontSize: var(--hpe-text-xlarge-fontSize);
   --hpe-anchor-default-xlarge-lineHeight: var(--hpe-text-xlarge-lineHeight);
-  --hpe-anchor-default-xxlarge-fontSize: var(--hpe-text-xxlarge-fontSize);
   --hpe-anchor-default-xxlarge-lineHeight: var(--hpe-text-xxlarge-lineHeight);
   --hpe-anchor-default-3xlarge-fontSize: var(--hpe-text-3xlarge-fontSize);
   --hpe-anchor-default-3xlarge-lineHeight: var(--hpe-text-3xlarge-lineHeight);
   --hpe-anchor-default-4xlarge-fontSize: var(--hpe-text-4xlarge-fontSize);
   --hpe-anchor-default-4xlarge-lineHeight: var(--hpe-text-4xlarge-lineHeight);
-  --hpe-anchor-default-5xlarge-fontSize: var(--hpe-text-5xlarge-fontSize);
   --hpe-anchor-default-5xlarge-lineHeight: var(--hpe-text-5xlarge-lineHeight);
   --hpe-element-xsmall-borderWidth: var(--hpe-borderWidth-default);
   --hpe-element-medium-borderWidth: var(--hpe-borderWidth-default);
