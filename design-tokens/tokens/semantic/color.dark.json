@@ -4,7 +4,7 @@
       "default": {
         "REST": {
           "$type": "color",
-          "$value": "#292d3a",
+          "$value": "{base.color.landmarkGrey.1300Updated}",
           "$description": "Default background color to be used on containers.",
           "$extensions": {
             "com.figma": {
@@ -19,7 +19,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#1d1f27",
+            "$value": "{base.color.landmarkGrey.1300Updated}",
             "$description": "Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on.",
             "$extensions": {
               "com.figma": {
@@ -35,7 +35,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#292d3a",
+            "$value": "{base.color.landmarkGrey.1000Updated}",
             "$description": "Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table.",
             "$extensions": {
               "com.figma": {
@@ -67,7 +67,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.white.opacity12}",
+            "$value": "{base.color.white.opacity7}",
             "$description": "Use to create a subtle differentiation between a component or container and the region it sits on.",
             "$extensions": {
               "com.figma": {
@@ -79,7 +79,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.white.opacity20}",
+            "$value": "{base.color.white.opacity12}",
             "$description": "Use to create a subtle differentiation between a component or container and the region it sits on.",
             "$extensions": {
               "com.figma": {
@@ -149,22 +149,6 @@
           }
         }
       },
-      "ok": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "#1b5245",
-            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "warning": {
         "DEFAULT": {
           "REST": {
@@ -181,12 +165,12 @@
           }
         }
       },
-      "info": {
+      "ok": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#1e363d",
-            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+            "$value": "{base.color.landmarkGreen.900}",
+            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -201,7 +185,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#552120",
+            "$value": "{base.color.landmarkRed.1000}",
             "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -229,11 +213,27 @@
           }
         }
       },
+      "info": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.landmarkBlue.1100}",
+            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
       "primary": {
         "strong": {
           "REST": {
             "$type": "color",
-            "$value": "#ffffff",
+            "$value": "{base.color.white.100}",
             "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
             "$extensions": {
               "com.figma": {
@@ -245,7 +245,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "#d4d4d4",
+            "$value": "{base.color.landmarkGrey.50}",
             "$description": "Hover variant of background-primary.",
             "$extensions": {
               "com.figma": {
@@ -504,7 +504,7 @@
       "default": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.white.100}",
+          "$value": "{base.color.landmarkGrey.50}",
           "$description": "Default text color that is accessible on standard background colors.",
           "$extensions": {
             "com.figma": {
@@ -532,7 +532,7 @@
       "weak": {
         "REST": {
           "$type": "color",
-          "$value": "#ffffff9c",
+          "$value": "{base.color.landmarkGrey.500Updated}",
           "$description": "Subtle text color for reduced visual prominence. Often used for supporting text.",
           "$extensions": {
             "com.figma": {
@@ -579,7 +579,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.white.100}",
+            "$value": "{base.color.landmarkGrey.1000Updated}",
             "$description": "Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility.",
             "$extensions": {
               "com.figma": {
@@ -595,7 +595,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.500}",
+            "$value": "{base.color.landmarkGreen.550(new color)}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -607,7 +607,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.green.450}",
+            "$value": "{base.color.landmarkGreen.500Updated}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1021,7 +1021,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.blue.400}",
+            "$value": "{base.color.landmarkBlue.200}",
             "$description": "Use for icons communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -1037,7 +1037,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.500}",
+            "$value": "{base.color.landmarkGreen.550(new color)}",
             "$description": "Use for icons communicating success. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -1069,7 +1069,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.grey.600}",
+            "$value": "{base.color.landmarkGrey.600Updated}",
             "$description": "Use for icons communicating unknown status. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -1085,7 +1085,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.500}",
+            "$value": "{base.color.landmarkGreen.550(new color)}",
             "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
             "$extensions": {
               "com.figma": {
@@ -1101,7 +1101,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.white.100}",
+            "$value": "{base.color.landmarkGrey.1000Updated}",
             "$description": "Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios.",
             "$extensions": {
               "com.figma": {
@@ -1295,7 +1295,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.grey.500}",
+            "$value": "{base.color.landmarkGrey.500Updated}",
             "$description": "Highest emphasis variant of neutral palette.",
             "$extensions": {
               "com.figma": {
@@ -1307,7 +1307,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.grey.400}",
+            "$value": "{base.color.landmarkGrey.400Updated}",
             "$description": "Highest emphasis variant of neutral palette.",
             "$extensions": {
               "com.figma": {
@@ -1466,7 +1466,7 @@
     },
     "focus": {
       "$type": "color",
-      "$value": "#004233",
+      "$value": "{base.color.landmarkGreen.550(new color)}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1481,7 +1481,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.500}",
+            "$value": "{base.color.landmarkGreen.550(new color)}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1497,7 +1497,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.red.550}",
+            "$value": "{base.color.red.500}",
             "$description": "Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -1529,7 +1529,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.grey.700}",
+            "$value": "{base.color.landmarkGrey.600Updated}",
             "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status",
             "$extensions": {
               "com.figma": {
