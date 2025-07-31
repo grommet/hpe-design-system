@@ -1,5 +1,15 @@
 # hpe-design-tokens
 
+## 1.4.0
+
+### Minor Changes
+
+- 73eb9d1: - Added `color.icon.primary.hover`.
+
+### Patch Changes
+
+- 73eb9d1: - Fixed value of `checkbox.control.indeterminate.rest.iconColor` to `color.icon.onSelectedPrimaryStrong`.
+
 ## 1.3.0
 
 ### Minor Changes
