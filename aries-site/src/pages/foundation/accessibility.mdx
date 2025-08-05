@@ -59,6 +59,29 @@ While supplemental attributes may need to be implemented and accessibility testi
 
 For guidance on setting up your development environment, see [Developer Guidance](/foundation/developer-guidance).
 
+## Accessibility support at different levels
+Accessibility is a shared responsibility across the product development process. The HPE Design System provides foundational support, while designers and developers must ensure that accessibility is met in real-world implementations.
+
+It is important to understand what is offered in terms of accessibility by the Design System and what is expected from the consumers of the Design System.
+
+| Accessibility consideration | Description | Grommet + HPE Theme | Design tokens only (separate lib) |
+|-----------------------------|-------------|----------------------|-----------------------------------|
+| **Core assets**             |             |                      |                                   |
+| Color                       | Contrast ratios | <Box align="center"> <CheckBox checked={true} /> </Box> | Review and apply: [Color palette](https://design-system.hpe.design/foundation/color?q=color) [Color usage](https://design-system.hpe.design/design-tokens/color-usage) [Color pairing](https://design-system.hpe.design/design-tokens/color-pairing) |
+| Typography                  | Font legibility, stroke widths, size, text scaling, line height, spacing, styling | <Box align="center"> <CheckBox checked={true} /> </Box>| [Typography](https://design-system.hpe.design/foundation/typography?q=typo) [Typography system](https://design-system.hpe.design/design-tokens/typography-system) |
+| **Components**              |             |                      |                                   |
+| Component behavior          | Keyboard navigation, ARIA support, focus handling | <Box align="center"> <CheckBox checked={true} /> </Box> | Must implement accessible behaviors manually |
+| Focus style & states        | -           | <Box align="center"> <CheckBox checked={true} /> </Box> | [Component states](https://design-system.hpe.design/design-tokens/component-states) |
+| ARIA roles & attributes     | Must provide context-specific ARIA values | <Box align="center"> <CheckBox checked={true} /> </Box> | Fully responsible for correct use of ARIA roles, relationships, and properties |
+| Responsiveness              | Sizing at different breakpoints | <Box align="center"> <CheckBox checked={true} /> </Box> | [Layout and spacing](https://design-system.hpe.design/design-tokens/layout-and-spacing) |
+| Semantic HTML & Structure   | Use semantic elements (e.g., <Text size="xsmall">`<Button>` `<Section>` `<Nav>`</Text>) | <Box align="center"> <CheckBox checked={true} /> </Box> | Must ensure correct semantic structure is applied |
+| **Content**                 |             |                      |                                   |
+| Alt text & descriptions     | - | Must provide descriptive alt text for images and media | Must provide descriptive alt text for images and media |
+| Labeling                    | Forms, buttons, error messages, etc. | Must supply meaningful and descriptive labels | Must supply meaningful and descriptive labels
+| Readability                 | Provide examples, placeholder text, and documentation using plain, clear language. | Review Design System guidance around [Voice and Tone](https://design-system.hpe.design/foundation/voice-and-tone?q=voice) | Review Design System guidance around [Voice and Tone](https://design-system.hpe.design/foundation/voice-and-tone?q=voice)
+
+
+
 ## Testing for accessibility
 
 The following are actions you can incorporate into your workflow to better test and ensure accessibility across the board:
@@ -113,25 +136,3 @@ As a designer or developer, we are morally responsible for creating accessible p
 - [WebAIM Introduction to Web Accessibility](https://webaim.org/intro/): An introduction on how accessibility improves the Web for all users.
 - [The A11y Project Checklist](https://www.a11yproject.com/checklist/): A checklist using WCAG 2.1 as a reference for developers and designers to ensure their product's accessibility.
 - [U.S. Web Design System Principles](https://designsystem.digital.gov/design-principles/#embrace-accessibility): These principles and key guidelines outline how you should approach accessibility from a design system perspective.
-
-## Accessibility support at different levels
-Accessibility is a shared responsibility across the product development process. The HPE Design System provides foundational support, while designers and developers must ensure that accessibility is met in real-world implementations.
-
-It is important to understand what is offered in terms of accessibility by the Design System and what is expected from the consumers of the Design System.
-
-| Accessibility consideration | Description | Grommet + HPE Theme | Design tokens only (separate lib) |
-|-----------------------------|-------------|----------------------|-----------------------------------|
-| **Core assets**             |             |                      |                                   |
-| Color                       | Contrast ratios | <Box align="center"> <CheckBox checked={true} /> </Box> | Review and apply: [Color palette](https://design-system.hpe.design/foundation/color?q=color) [Color usage](https://design-system.hpe.design/design-tokens/color-usage) [Color pairing](https://design-system.hpe.design/design-tokens/color-pairing) |
-| Typography                  | Font legibility, stroke widths, size, text scaling, line height, spacing, styling | <Box align="center"> <CheckBox checked={true} /> </Box>| [Typography](https://design-system.hpe.design/foundation/typography?q=typo) [Typography system](https://design-system.hpe.design/design-tokens/typography-system) |
-| **Components**              |             |                      |                                   |
-| Component behavior          | Keyboard navigation, ARIA support, focus handling | <Box align="center"> <CheckBox checked={true} /> </Box> | Must implement accessible behaviors manually |
-| Focus style & states        | -           | <Box align="center"> <CheckBox checked={true} /> </Box> | [Component states](https://design-system.hpe.design/design-tokens/component-states) |
-| ARIA roles & attributes     | Must provide context-specific ARIA values | <Box align="center"> <CheckBox checked={true} /> </Box> | Fully responsible for correct use of ARIA roles, relationships, and properties |
-| Responsiveness              | Sizing at different breakpoints | <Box align="center"> <CheckBox checked={true} /> </Box> | [Layout and spacing](https://design-system.hpe.design/design-tokens/layout-and-spacing) |
-| Semantic HTML & Structure   | Use semantic elements (e.g., <Text size="xsmall">`<Button>` `<Section>` `<Nav>`</Text>) | <Box align="center"> <CheckBox checked={true} /> </Box> | Must ensure correct semantic structure is applied |
-| **Content**                 |             |                      |                                   |
-| Alt text & descriptions     | - | Must provide descriptive alt text for images and media | Must provide descriptive alt text for images and media |
-| Labeling                    | Forms, buttons, error messages, etc. | Must supply meaningful and descriptive labels | Must supply meaningful and descriptive labels
-| Readability                 | Provide examples, placeholder text, and documentation using plain, clear language. | Review Design System guidance around [Voice and Tone](https://design-system.hpe.design/foundation/voice-and-tone?q=voice) | Review Design System guidance around [Voice and Tone](https://design-system.hpe.design/foundation/voice-and-tone?q=voice)
-
