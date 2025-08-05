@@ -35,7 +35,6 @@ if ls /app/pb_data/*.ts 1> /dev/null 2>&1; then
 else
     echo "No .ts files found to copy."
 fi
-
 # Function to backup data to Cloud Storage on exit
 backup_to_cloud() {
     echo "Backing up data to Cloud Storage..."
