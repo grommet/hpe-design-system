@@ -2,8 +2,8 @@
   {
     "rule": "1.1.1",
     "label": "Non-text content",
-    "status": "failed",
-    "notes": "Error icon is getting read out it is just not providing meaningful information to a screenreader user that the file is too large"
+    "status": "passed",
+    "notes": "Fixed in Grommet PR #7679. original issue: Error icon is getting read out it is just not providing meaningful information to a screen reader user that the file is too large"
   },
   {
     "rule": "1.2.1",
@@ -62,8 +62,8 @@
   {
     "rule": "1.3.1",
     "label": "Info and Relationships",
-    "status": "failed",
-    "notes": "Information given through presentation (the icon displayed when a file size is too large) is not available in text nor can it be programmatically determined."
+    "status": "passed",
+    "notes": "Fixed in Grommet PR #7679. Original issue: Information given through presentation (the icon displayed when a file size is too large) is not available in text nor can it be programmatically determined."
   },
   {
     "rule": "1.3.2",
@@ -500,8 +500,8 @@
   {
     "rule": "4.1.2",
     "label": "Name, Role, Value",
-    "status": "failed",
-    "notes": "For a screenreader users we need to make it more clear the state of what files have been added and better confirmation of when a file is removed."
+    "status": "passed",
+    "notes": "For screen reader users we need to make it more clear the state of what files have been added and better confirmation of when a file is removed. Updated note - based on Bill's feedback, our current implementation is sufficient."
   },
   {
     "rule": "4.1.3",

@@ -149,28 +149,12 @@
           }
         }
       },
-      "warning": {
+      "info": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#fff3dd",
-            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "ok": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "#e3fdf4",
-            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+            "$value": "#e0f8ff",
+            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -197,6 +181,22 @@
           }
         }
       },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "#e3fdf4",
+            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
       "unknown": {
         "DEFAULT": {
           "REST": {
@@ -213,12 +213,12 @@
           }
         }
       },
-      "info": {
+      "warning": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#e0f8ff",
-            "$description": "Use for backgrounds communicating neutral information. Keywords: status",
+            "$value": "#fff3dd",
+            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -720,7 +720,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.text.primary.DEFAULT.REST}",
-            "$description": "Text color for headings.",
+            "$description": "Text color for anchors.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -732,7 +732,7 @@
           "hover": {
             "$type": "color",
             "$value": "{color.text.primary.DEFAULT.hover}",
-            "$description": "Text color for headings.",
+            "$description": "Text color for anchors on hover.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1087,6 +1087,18 @@
             "$type": "color",
             "$value": "{base.color.green.800}",
             "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{base.color.green.900}",
+            "$description": "",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
