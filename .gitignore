@@ -34,3 +34,7 @@ report*
 .tailwind-app
 
 *storybook.log
+
+# Ignore PocketBase data directory
+apps/pocketbase_app/pb_data/
+apps/pocketbase_app/pocketbase
