@@ -16,38 +16,14 @@ else
 fi
 
 # Copy other files if they exist
+cp /app/pb_data/*.db "$LOCAL_DATA_DIR/" 2>/dev/null || true
+cp /app/pb_data/*.ts "$LOCAL_DATA_DIR/" 2>/dev/null || true
 
 # Function to backup data to Cloud Storage on exit
 backup_to_cloud() {
     echo "Backing up data to Cloud Storage..."
     cp "$LOCAL_DATA_DIR"/*.db /app/pb_data/ 2>/dev/null || true
-if ls /app/pb_data/*.db 1> /dev/null 2>&1; then
-    echo "Copying additional .db files to local storage..."
-    cp /app/pb_data/*.db "$LOCAL_DATA_DIR/"
-else
-    echo "No additional .db files found to copy."
-fi
-if ls /app/pb_data/*.ts 1> /dev/null 2>&1; then
-    echo "Copying .ts files to local storage..."
-    cp /app/pb_data/*.ts "$LOCAL_DATA_DIR/"
-else
-    echo "No .ts files found to copy."
-fi
-# Function to backup data to Cloud Storage on exit
-backup_to_cloud() {
-    echo "Backing up data to Cloud Storage..."
-    if ls "$LOCAL_DATA_DIR"/*.db 1> /dev/null 2>&1; then
-        echo "Copying .db files back to Cloud Storage..."
-        cp "$LOCAL_DATA_DIR"/*.db /app/pb_data/
-    else
-        echo "No .db files found to backup."
-    fi
-    if ls "$LOCAL_DATA_DIR"/*.ts 1> /dev/null 2>&1; then
-        echo "Copying .ts files back to Cloud Storage..."
-        cp "$LOCAL_DATA_DIR"/*.ts /app/pb_data/
-    else
-        echo "No .ts files found to backup."
-    fi
+    cp "$LOCAL_DATA_DIR"/*.ts /app/pb_data/ 2>/dev/null || true
     echo "Backup complete"
 }
 
