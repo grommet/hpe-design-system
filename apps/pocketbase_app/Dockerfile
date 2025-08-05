@@ -8,7 +8,6 @@ WORKDIR /app
 EXPOSE 8080
 
 # Download PocketBase from GitHub
-# Download PocketBase from GitHub
 # You can override the PocketBase version at build time with:
 #   docker build --build-arg PB_VERSION=0.30.0 .
 ARG PB_VERSION=0.29.1
