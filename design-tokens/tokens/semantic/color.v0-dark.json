@@ -149,38 +149,6 @@
           }
         }
       },
-      "ok": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.green.500-Opacity30}",
-            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "warning": {
-        "DEFAULT": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.yellow.400-Opacity12}",
-            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
       "info": {
         "DEFAULT": {
           "REST": {
@@ -213,12 +181,44 @@
           }
         }
       },
+      "ok": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.green.500-Opacity30}",
+            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
       "unknown": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
             "$value": "{base.color.white.opacity6}",
             "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "warning": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.yellow.400-Opacity12}",
+            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1087,6 +1087,18 @@
             "$type": "color",
             "$value": "{base.color.green.600}",
             "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{base.color.green.450}",
+            "$description": "",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
