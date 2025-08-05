@@ -16,7 +16,6 @@ else
 fi
 
 # Copy other files if they exist
-cp /app/pb_data/*.ts "$LOCAL_DATA_DIR/" 2>/dev/null || true
 
 # Function to backup data to Cloud Storage on exit
 backup_to_cloud() {
