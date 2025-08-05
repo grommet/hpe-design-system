@@ -34,10 +34,3 @@ report*
 .tailwind-app
 
 *storybook.log
-
-# PocketBase - Ignore binary and data files
-apps/pocketbase_app/pocketbase
-apps/pocketbase_app/pb_data/
-apps/pocketbase_app/pb_data/*
-apps/pocketbase_app/*.db
-apps/pocketbase_app/logs/
