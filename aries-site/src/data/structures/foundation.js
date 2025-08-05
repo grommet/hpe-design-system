@@ -47,6 +47,7 @@ export const foundation = [
     name: 'Accessibility transcript file',
     description: 'Transcription for accessibility at HPE with Bill Tipton',
     searchable: false,
+    sideNav: false,
   },
   {
     name: 'Our brand',
@@ -111,16 +112,14 @@ export const foundation = [
     name: 'Developer guidance',
     category: 'Philosophy',
     cardOrder: 1,
-    description: `Resources for setting up your application
-     with the HPE Design System library and HPE theme.`,
+    description: 'Find guides, tools, and docs to get your app running.',
     preview: {
       image: {
         src: '/extendImages/extend-preview-developer-guidance.svg',
         alt: 'HPE Developer Guidance Preview',
       },
     },
-    seoDescription: `Resources for setting up your application with
-     the HPE Design System library and HPE theme.`,
+    seoDescription: 'Find guides, tools, and docs to get your app running.',
     sections: [
       'Getting started',
       'Preferred environment',
@@ -135,9 +134,7 @@ export const foundation = [
     name: 'Designer guidance',
     category: 'Philosophy',
     cardOrder: 2,
-    description: `Starter files, patterns, interactions, and workflows on
-       how to succeed using the design resources from HPE Design
-        System and the HPE Brand.`,
+    description: 'Access our Figma UI kits, components, and styles.',
     preview: {
       image: {
         src: {
