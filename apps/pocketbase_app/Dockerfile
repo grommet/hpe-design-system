@@ -50,22 +50,22 @@ COPY ./pb_public ./pb_public
 # Create user and directories in a single layer
 RUN mkdir -p /app/pb_data && \
   addgroup -g 1001 -S pocketbase && \
-  adduser -u 1001 -S pocketbase -G pocketbase && \
-  mkdir -p /tmp && \
-  chmod 1777 /tmp
+  adduser -u 1001 -S pocketbase -G pocketbase
 
 # Copy startup script and set permissions
 COPY startup.sh /app/startup.sh
 RUN chmod 755 /app/startup.sh && \
   chown -R pocketbase:pocketbase /app && \
-  chmod 750 /app/pb_data /app/pb_migrations /app/pb_hooks /app/pb_public
+  find /app -type d -exec chmod 750 {} \; && \
+  find /app -type f -name "*.sh" -exec chmod 755 {} \; && \
+  find /app -type f ! -name "*.sh" ! -name "pocketbase" -exec chmod 644 {} \;
 
 # Switch to non-root user for security
 USER pocketbase
 
 # Add health check using the correct PocketBase health endpoint
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:${PORT:-8080}/api/health || exit 1
+  CMD curl -f http://localhost:8080/api/health || exit 1
 
 # Use a simple shell command execution
 CMD ["/app/startup.sh"]
