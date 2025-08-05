@@ -154,7 +154,7 @@ Cloud Run is a serverless platform that automatically scales your stateless cont
 
     - Replace `YOUR_PROJECT_ID`, `YOUR_REGION` (e.g., `us-central1`), and `YOUR_BUCKET_NAME`.
     - `--allow-unauthenticated`: Allows public access to your PocketBase instance (adjust based on your security needs).
-    - `--max-instances=1`: **This is critical for PocketBase with SQLite.** SQLite is a file-based database, and having multiple instances simultaneously writing to the same file on Cloud Storage can lead to data corruption. By setting `max-instances=1`, you ensure only one PocketBase instance is running at a time.
+    - `--max-instances=1`: **This is critical for PocketBase with SQLite.** SQLite is a file-based database, and having multiple instances write simultaneously to the same file on Cloud Storage can lead to data corruption. By setting `max-instances=1`, you ensure only one PocketBase instance is running at a time.
     - `--add-volume` and `--update-volume-mount`: These configure the Cloud Storage bucket to be mounted as a file system within your container at `/cloud/storage`. PocketBase will then use this path for its data.
     - `--port 8090`: Specifies the port your PocketBase application listens on.
 
