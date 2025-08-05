@@ -6,17 +6,18 @@ echo "Starting PocketBase setup..."
 LOCAL_DATA_DIR="/tmp/pb_data_local"
 mkdir -p "$LOCAL_DATA_DIR"
 
-# Copy database from Cloud Storage to local storage for better performance
-echo "Copying database from Cloud Storage to local storage..."
-if [ -f "/app/pb_data/data.db" ]; then
-    cp /app/pb_data/data.db "$LOCAL_DATA_DIR/"
-    echo "Database copied successfully"
+# Copy database and other files from Cloud Storage to local storage for better performance
+echo "Copying files from Cloud Storage to local storage..."
+
+# Copy all database files
+if ls /app/pb_data/*.db 1> /dev/null 2>&1; then
+    cp /app/pb_data/*.db "$LOCAL_DATA_DIR/"
+    echo "Database files copied successfully"
 else
-    echo "No existing database found, will create new one"
+    echo "No existing database files found, will create new ones"
 fi
 
-# Copy other files if they exist
-cp /app/pb_data/*.db "$LOCAL_DATA_DIR/" 2>/dev/null || true
+# Copy TypeScript files if they exist
 cp /app/pb_data/*.ts "$LOCAL_DATA_DIR/" 2>/dev/null || true
 
 # Function to backup data to Cloud Storage on exit
