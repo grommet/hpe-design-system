@@ -146,7 +146,6 @@ Cloud Run is a serverless platform that automatically scales your stateless cont
         --region YOUR_REGION \
         --allow-unauthenticated \
         --set-env-vars POCKETBASE_DB_PATH=/cloud/storage/pb_data/data.db \
-        --set-cloudsql-instances=YOUR_CLOUD_SQL_INSTANCE_CONNECTION_NAME \ # ONLY if you are using Cloud SQL (less common for PocketBase)
         --add-volume=name=pocketbase-storage,type=cloud-storage,bucket=YOUR_BUCKET_NAME \
         --update-volume-mount=volume=pocketbase-storage,mount-path=/cloud/storage \
         --max-instances=1 \ # Crucial for SQLite persistence
