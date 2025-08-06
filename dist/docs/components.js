@@ -434,7 +434,7 @@ export default {
   },
   "hpe.element.xsmall.icon.size": {
     "$type": "number",
-    "$value": "14px",
+    "$value": "12px",
     "$description": "",
     "$extensions": {
       "com.figma": {

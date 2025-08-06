@@ -55,22 +55,22 @@ export default {
     },
     "icon": {
       "xsmall": {
-        "size": "14px"
+        "size": "12px"
       },
       "small": {
-        "size": "16px"
+        "size": "14px"
       },
       "medium": {
-        "size": "18px"
+        "size": "16px"
       },
       "large": {
-        "size": "22px"
+        "size": "18px"
       },
       "xlarge": {
-        "size": "24px"
+        "size": "20px"
       },
       "xxlarge": {
-        "size": "36px"
+        "size": "32px"
       }
     },
     "text": {

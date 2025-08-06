@@ -1618,7 +1618,7 @@ export default {
   },
   "hpe.icon.xsmall.size": {
     "$type": "number",
-    "$value": "14px",
+    "$value": "12px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1633,7 +1633,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.350}",
+      "$value": "{base.dimension.300}",
       "$description": "",
       "$extensions": {
         "com.figma": {

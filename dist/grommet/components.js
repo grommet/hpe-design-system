@@ -20,7 +20,7 @@ export default {
           "wide": "9px"
         },
         "icon": {
-          "size": "14px"
+          "size": "12px"
         },
         "width": "24px",
         "height": "24px"

@@ -1618,6 +1618,48 @@ export default {
   },
   "hpe.icon.xsmall.size": {
     "$type": "number",
+    "$value": "12px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.icon.xsmall.size",
+    "attributes": {
+      "category": "icon",
+      "type": "xsmall",
+      "item": "size"
+    },
+    "path": [
+      "icon",
+      "xsmall",
+      "size"
+    ],
+    "key": "{icon.xsmall.size}"
+  },
+  "hpe.icon.small.size": {
+    "$type": "number",
     "$value": "14px",
     "$description": "",
     "$extensions": {
@@ -1645,20 +1687,20 @@ export default {
         }
       }
     },
-    "name": "hpe.icon.xsmall.size",
+    "name": "hpe.icon.small.size",
     "attributes": {
       "category": "icon",
-      "type": "xsmall",
+      "type": "small",
       "item": "size"
     },
     "path": [
       "icon",
-      "xsmall",
+      "small",
       "size"
     ],
-    "key": "{icon.xsmall.size}"
+    "key": "{icon.small.size}"
   },
-  "hpe.icon.small.size": {
+  "hpe.icon.medium.size": {
     "$type": "number",
     "$value": "16px",
     "$description": "",
@@ -1687,20 +1729,20 @@ export default {
         }
       }
     },
-    "name": "hpe.icon.small.size",
+    "name": "hpe.icon.medium.size",
     "attributes": {
       "category": "icon",
-      "type": "small",
+      "type": "medium",
       "item": "size"
     },
     "path": [
       "icon",
-      "small",
+      "medium",
       "size"
     ],
-    "key": "{icon.small.size}"
+    "key": "{icon.medium.size}"
   },
-  "hpe.icon.medium.size": {
+  "hpe.icon.large.size": {
     "$type": "number",
     "$value": "18px",
     "$description": "",
@@ -1729,48 +1771,6 @@ export default {
         }
       }
     },
-    "name": "hpe.icon.medium.size",
-    "attributes": {
-      "category": "icon",
-      "type": "medium",
-      "item": "size"
-    },
-    "path": [
-      "icon",
-      "medium",
-      "size"
-    ],
-    "key": "{icon.medium.size}"
-  },
-  "hpe.icon.large.size": {
-    "$type": "number",
-    "$value": "22px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "WIDTH_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.550}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "name": "hpe.icon.large.size",
     "attributes": {
       "category": "icon",
@@ -1786,7 +1786,7 @@ export default {
   },
   "hpe.icon.xlarge.size": {
     "$type": "number",
-    "$value": "24px",
+    "$value": "20px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1801,7 +1801,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.600}",
+      "$value": "{base.dimension.500}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1828,7 +1828,7 @@ export default {
   },
   "hpe.icon.xxlarge.size": {
     "$type": "number",
-    "$value": "36px",
+    "$value": "32px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1843,7 +1843,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.900}",
+      "$value": "{base.dimension.800}",
       "$description": "",
       "$extensions": {
         "com.figma": {

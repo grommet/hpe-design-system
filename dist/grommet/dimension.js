@@ -55,7 +55,7 @@ export default {
     },
     "icon": {
       "xsmall": {
-        "size": "14px"
+        "size": "12px"
       },
       "small": {
         "size": "14px"

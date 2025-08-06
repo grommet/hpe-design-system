@@ -23,7 +23,7 @@
   --hpe-heading-xsmall-lineHeight: 1.25rem; /** Line height typically used on h5. */
   --hpe-heading-xxsmall-lineHeight: 1.125rem; /** Line height typically used on h6. */
   --hpe-radius-full: var(--hpe-static-radius-full);
-  --hpe-icon-xsmall-size: var(--hpe-base-dimension-350);
+  --hpe-icon-xsmall-size: var(--hpe-base-dimension-300);
   --hpe-icon-small-size: var(--hpe-base-dimension-350);
   --hpe-icon-medium-size: var(--hpe-base-dimension-400);
   --hpe-icon-large-size: var(--hpe-base-dimension-450);
