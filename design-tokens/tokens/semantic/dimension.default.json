@@ -1067,7 +1067,7 @@
     "large": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.medium}",
+        "$value": "{fontWeight.regular}",
         "$description": "Font weight typically used on h2.",
         "$extensions": {
           "com.figma": {
@@ -1129,7 +1129,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.medium}",
+        "$value": "{fontWeight.regular}",
         "$description": "Font weight typically used on h3.",
         "$extensions": {
           "com.figma": {
