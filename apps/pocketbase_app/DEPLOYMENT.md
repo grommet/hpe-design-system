@@ -373,5 +373,5 @@ If experiencing performance issues:
 ---
 
 **Project**: HPE Design System  
-**Last Updated**: January 2025  
+**Last Updated**: August 2025  
 **Version**: 2.0
