@@ -167,8 +167,9 @@
   --hpe-base-color-LandMarkDataVis-gold1: var(--hpe-base-color-landmarkGold-Color);
   --hpe-base-color-LandMarkDataVis-blue1: var(--hpe-base-color-landmarkBlue-700updated);
   --hpe-color-background-default: var(--hpe-base-color-white-100); /** Default background color to be used on containers. */
-  --hpe-color-background-back: var(--hpe-base-color-grey-50); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
-  --hpe-color-background-front: var(--hpe-base-color-white-100); /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
+  --hpe-color-background-back: var(--hpe-base-color-white-100); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
+  --hpe-color-background-front: var(--hpe-base-color-grey-50); /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
+  --hpe-color-background-floating: var(--hpe-base-color-white-100); /** Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers */
   --hpe-color-background-contrast: var(--hpe-base-color-black-opacity4); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
   --hpe-color-background-contrast-hover: var(--hpe-base-color-black-opacity8); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
   --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity12); /** The background color for the overlay that sits behind modal layers. */
@@ -320,7 +321,6 @@
   --hpe-radioButton-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-radioButton-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-anchor-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-color-background-floating: var(--hpe-color-background-front); /** Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers */
   --hpe-color-background-hover: var(--hpe-color-background-contrast); /** Generic hover state of components that have no fill in their resting state. For example, menu items. */
   --hpe-color-border-selected: var(--hpe-color-foreground-primary); /** Selected border color. Used for ‘selected’ state. */
   --hpe-color-border-info: var(--hpe-color-border-default); /** Use for borders communicating neutral information. Keyword: status */
@@ -404,6 +404,7 @@
   --hpe-button-toolbar-selected-hover-iconColor: var(--hpe-color-icon-primary);
   --hpe-menu-default-item-disabled-rest-textColor: var(--hpe-button-default-disabled-rest-textColor);
   --hpe-menu-default-group-separator-background: var(--hpe-color-border-default);
+  --hpe-drop-default-background: var(--hpe-color-background-floating);
   --hpe-checkbox-default-control-rest-borderColor: var(--hpe-color-border-default);
   --hpe-checkbox-default-control-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
@@ -501,6 +502,7 @@
   --hpe-select-default-option-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
   --hpe-select-default-option-marker-rest-background: var(--hpe-color-border-selected);
   --hpe-select-default-option-marker-hover-background: var(--hpe-color-border-selected);
+  --hpe-select-default-drop-background: var(--hpe-drop-default-background);
   --hpe-button-secondary-rest-borderColor: var(--hpe-color-decorative-brand);
   --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-secondary-hover-borderColor: var(--hpe-color-border-selected);
@@ -518,7 +520,7 @@
   --hpe-menu-default-item-rest-textColor: var(--hpe-button-default-rest-textColor);
   --hpe-menu-default-item-hover-background: var(--hpe-color-background-hover);
   --hpe-menu-default-item-disabled-rest-iconColor: var(--hpe-button-default-disabled-rest-iconColor);
-  --hpe-drop-default-background: var(--hpe-color-background-floating);
+  --hpe-menu-default-drop-background: var(--hpe-drop-default-background);
   --hpe-checkbox-default-control-hover-background: var(--hpe-color-background-hover);
   --hpe-checkbox-default-label-selected-rest-textColor: var(--hpe-checkbox-default-label-rest-textColor);
   --hpe-checkbox-default-label-selected-hover-textColor: var(--hpe-checkbox-default-label-rest-textColor);
@@ -572,14 +574,12 @@
   --hpe-anchor-default-hover-textColor: var(--hpe-color-text-anchor-hover);
   --hpe-select-default-option-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
-  --hpe-select-default-drop-background: var(--hpe-drop-default-background);
   --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
   --hpe-button-default-hover-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-button-default-selected-rest-background: var(--hpe-color-background-active);
   --hpe-button-toolbar-hover-iconColor: var(--hpe-button-toolbar-rest-iconColor);
   --hpe-menu-default-item-rest-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-menu-default-item-hover-textColor: var(--hpe-button-default-hover-textColor);
-  --hpe-menu-default-drop-background: var(--hpe-drop-default-background);
   --hpe-dataCell-default-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-default-selected-rest-background: var(--hpe-color-background-active);

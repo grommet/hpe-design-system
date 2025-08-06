@@ -8,8 +8,8 @@ module.exports = {
     "color": {
       "background": {
         "default": "#ffffff",
-        "back": "#f7f7f7",
-        "front": "#ffffff",
+        "back": "#ffffff",
+        "front": "#f7f7f7",
         "floating": "#ffffff",
         "contrast": "rgba(0, 0, 0, 0.04)",
         "contrast-hover": "rgba(0, 0, 0, 0.08)",

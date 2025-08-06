@@ -52,7 +52,7 @@ export default {
   },
   "hpe.color.background.back": {
     "$type": "color",
-    "$value": "#f7f7f7",
+    "$value": "#ffffff",
     "$description": "Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on.",
     "$extensions": {
       "com.figma": {
@@ -68,7 +68,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.50}",
+      "$value": "{base.color.white.100}",
       "$description": "Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on.",
       "$extensions": {
         "com.figma": {
@@ -100,7 +100,7 @@ export default {
   },
   "hpe.color.background.front": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#f7f7f7",
     "$description": "Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table.",
     "$extensions": {
       "com.figma": {
@@ -116,7 +116,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.white.100}",
+      "$value": "{base.color.grey.50}",
       "$description": "Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table.",
       "$extensions": {
         "com.figma": {
@@ -164,7 +164,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.front.DEFAULT.REST}",
+      "$value": "{base.color.white.100}",
       "$description": "Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers",
       "$extensions": {
         "com.figma": {

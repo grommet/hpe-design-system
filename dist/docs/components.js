@@ -29267,7 +29267,7 @@ export default {
   },
   "hpe.switch.default.control.handle.rest.background": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#f7f7f7",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -33076,7 +33076,7 @@ export default {
   },
   "hpe.formField.default.input.group.container.readOnly.rest.background": {
     "$type": "color",
-    "$value": "#f7f7f7",
+    "$value": "#ffffff",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -33978,7 +33978,7 @@ export default {
   },
   "hpe.formField.default.input.container.readOnly.rest.background": {
     "$type": "color",
-    "$value": "#f7f7f7",
+    "$value": "#ffffff",
     "$description": "",
     "$extensions": {
       "com.figma": {
