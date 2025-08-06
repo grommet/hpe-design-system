@@ -40,6 +40,13 @@ export const GlobalHeader = ({
 }) => {
   const theme = useContext(ThemeContext);
   const breakpoint = useContext(ResponsiveContext);
+  const logoSrc =
+    activeTheme === 'v2'
+      ? `/hpe-grnlk-${!theme.dark ? 'pos' : 'rev'}-rgb.svg`
+      : `/hpe_greenlake_grn_${
+          activeTheme !== 'v1' && !theme.dark ? 'pos' : 'rev'
+        }_rgb.svg`;
+
   return (
     <Page kind="full" {...rest}>
       <PageContent pad="none">
@@ -63,14 +70,12 @@ export const GlobalHeader = ({
               <Box border={{ side: 'left', color: 'border-weak' }} />
             </Box>
             <Link to="/">
-              <Box height="32px" width="90px" align="start">
-                <Image
-                  src={`/hpe_greenlake_grn_${
-                    activeTheme !== 'v1' && !theme.dark ? 'pos' : 'rev'
-                  }_rgb.svg`}
-                  fit="contain"
-                  alt="HPE GreenLake badge"
-                />
+              <Box
+                height="32px"
+                width={activeTheme === 'v2' ? '125px' : '90px'}
+                align="start"
+              >
+                <Image src={logoSrc} fit="contain" alt="HPE GreenLake badge" />
               </Box>
             </Link>
             {!['xsmall', 'small'].includes(breakpoint) ? (

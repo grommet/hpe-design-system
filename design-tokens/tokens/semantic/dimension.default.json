@@ -505,7 +505,7 @@
     "small": {
       "size": {
         "$type": "number",
-        "$value": "{base.dimension.400}",
+        "$value": "{base.dimension.350}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -519,7 +519,7 @@
     "medium": {
       "size": {
         "$type": "number",
-        "$value": "{base.dimension.450}",
+        "$value": "{base.dimension.400}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -533,7 +533,7 @@
     "large": {
       "size": {
         "$type": "number",
-        "$value": "{base.dimension.550}",
+        "$value": "{base.dimension.450}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -547,7 +547,7 @@
     "xlarge": {
       "size": {
         "$type": "number",
-        "$value": "{base.dimension.600}",
+        "$value": "{base.dimension.500}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -561,7 +561,7 @@
     "xxlarge": {
       "size": {
         "$type": "number",
-        "$value": "{base.dimension.900}",
+        "$value": "{base.dimension.800}",
         "$description": "",
         "$extensions": {
           "com.figma": {

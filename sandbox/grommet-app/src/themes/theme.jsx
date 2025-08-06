@@ -2207,6 +2207,7 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
+      primaryKey: { weight: global.hpe.fontWeight.medium },
     },
     maskedInput: {
       container: {
@@ -3079,9 +3080,7 @@ const buildTheme = (tokens, flags) => {
       },
     },
     toggleGroup: {
-      button: {
-        kind: 'toolbar',
-      },
+      button: { kind: 'toolbar' },
       container: {
         border: false,
         extend: ({ theme }) => `
