@@ -108,7 +108,7 @@ Update the `cloud-run-service.yaml` file with your project ID:
 
 ```bash
 # Replace the project ID in the YAML file
-sed -i '' "s/hpe-design-system-adoption/$GOOGLE_CLOUD_PROJECT/g" cloud-run-service.yaml
+sed -i "s/hpe-design-system-adoption/$GOOGLE_CLOUD_PROJECT/g" cloud-run-service.yaml
 ```
 
 ### Step 5: Deploy to Cloud Run
