@@ -491,7 +491,7 @@
     "xsmall": {
       "size": {
         "$type": "number",
-        "$value": "{base.dimension.350}",
+        "$value": "{base.dimension.300}",
         "$description": "",
         "$extensions": {
           "com.figma": {
