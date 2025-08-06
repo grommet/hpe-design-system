@@ -48,7 +48,9 @@ export const GlobalHeader = ({
           justify="between"
           align="center"
           background={
-            activeTheme === 'v1'
+            activeTheme === 'v2'
+              ? 'transparent'
+              : activeTheme === 'v1'
               ? 'background-primary-xstrong'
               : 'background-front'
           }

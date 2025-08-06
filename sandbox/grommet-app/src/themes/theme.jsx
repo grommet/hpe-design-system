@@ -2253,6 +2253,9 @@ const buildTheme = (tokens, flags) => {
         },
       },
     },
+    meter: {
+      gap: 'xxsmall',
+    },
     nameValuePair: {
       name: {
         color: 'text-strong',
