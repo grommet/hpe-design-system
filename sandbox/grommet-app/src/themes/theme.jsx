@@ -2880,7 +2880,7 @@ const buildTheme = (tokens, flags) => {
       extend: 'font-weight: 500;',
     },
     tabs: {
-      gap: 'medium',
+      gap: 'small',
       header: {
         border: undefined,
         // padding-bottom ensures the marker is not cut off by subsequent
