@@ -26,13 +26,29 @@ The fastest way to deploy is using the provided automation script:
 ```bash
 # Set your project configuration
 export GOOGLE_CLOUD_PROJECT="your-project-id"
-export BUCKET_NAME="ds-pocketbase"
+export BUCKET_NAME="ds-pocketbase"  # Optional, defaults to ${PROJECT_ID}-pocketbase-data
 
 # Run the deployment script
 ./deploy.sh
 ```
 
-This script handles all the manual steps below automatically.
+This script handles all the manual steps below automatically and uses environment variable substitution to make the configuration portable across different Google Cloud projects.
+
+## Configuration Files
+
+This deployment includes two YAML configuration files:
+
+### `cloud-run-service.yaml` (Static)
+The main configuration file with project-specific values for the HPE Design System project. This file works out-of-the-box for the default project.
+
+### `cloud-run-service.template.yaml` (Portable Template)
+A templated version that uses environment variable placeholders:
+- `${PROJECT_ID}` - Your Google Cloud Project ID
+- `${SERVICE_ACCOUNT_NAME}` - Service account name (defaults to "pocketbase-service-account")
+- `${SERVICE_NAME}` - Cloud Run service name (defaults to "pocketbase-app")
+- `${BUCKET_NAME}` - Cloud Storage bucket name
+
+The deploy script automatically processes this template with `envsubst` to generate a project-specific configuration.
 
 ## Manual Deployment Steps
 
@@ -73,6 +89,21 @@ docker push gcr.io/$GOOGLE_CLOUD_PROJECT/pocketbase-app
 
 ### Step 4: Configure YAML Deployment
 
+If you're using the template approach, the deploy script handles this automatically. For manual deployment, you have two options:
+
+#### Option A: Use the Template (Recommended)
+```bash
+# Set environment variables
+export PROJECT_ID="your-project-id"
+export SERVICE_ACCOUNT_NAME="pocketbase-service-account"
+export SERVICE_NAME="pocketbase-app"
+export BUCKET_NAME="your-bucket-name"
+
+# Generate the configuration
+envsubst < cloud-run-service.template.yaml > cloud-run-service.generated.yaml
+```
+
+#### Option B: Edit the Static File
 Update the `cloud-run-service.yaml` file with your project ID:
 
 ```bash
@@ -85,6 +116,10 @@ sed -i '' "s/hpe-design-system-adoption/$GOOGLE_CLOUD_PROJECT/g" cloud-run-servi
 Deploy using the YAML configuration:
 
 ```bash
+# If using the template approach
+gcloud run services replace cloud-run-service.generated.yaml --region=us-central1
+
+# If using the static file
 gcloud run services replace cloud-run-service.yaml --region=us-central1
 ```
 

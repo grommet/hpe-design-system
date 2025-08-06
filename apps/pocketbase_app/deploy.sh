@@ -5,12 +5,20 @@
 
 set -e
 
+# Load environment variables from .env file if it exists
+if [ -f .env ]; then
+    echo "📋 Loading configuration from .env file..."
+    set -a  # automatically export all variables
+    source .env
+    set +a
+fi
+
 # Configuration - Update these values for your project
 PROJECT_ID="${GOOGLE_CLOUD_PROJECT:-your-project-id}"
 REGION="${REGION:-us-central1}"
-SERVICE_NAME="pocketbase-app"
+SERVICE_NAME="${SERVICE_NAME:-pocketbase-app}"
 BUCKET_NAME="${BUCKET_NAME:-${PROJECT_ID}-pocketbase-data}"
-SERVICE_ACCOUNT_NAME="pocketbase-service-account"
+SERVICE_ACCOUNT_NAME="${SERVICE_ACCOUNT_NAME:-pocketbase-service-account}"
 IMAGE_NAME="gcr.io/${PROJECT_ID}/${SERVICE_NAME}"
 
 echo "🚀 Deploying PocketBase to Google Cloud Run"
@@ -76,20 +84,17 @@ docker build -t "$IMAGE_NAME:latest" .
 echo "📦 Pushing image to Container Registry..."
 docker push "$IMAGE_NAME:latest"
 
-# Deploy to Cloud Run
+# Generate the Cloud Run service configuration from template
+echo "📝 Generating Cloud Run service configuration..."
+export PROJECT_ID="$PROJECT_ID"
+export SERVICE_ACCOUNT_NAME="$SERVICE_ACCOUNT_NAME"
+export SERVICE_NAME="$SERVICE_NAME"
+export BUCKET_NAME="$BUCKET_NAME"
+envsubst < cloud-run-service.template.yaml > cloud-run-service.generated.yaml
+
+# Deploy to Cloud Run using kubectl/gcloud
 echo "🚀 Deploying to Cloud Run..."
-gcloud run deploy "$SERVICE_NAME" \
-    --image="$IMAGE_NAME:latest" \
-    --region="$REGION" \
-    --service-account="$SERVICE_ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com" \
-    --memory="2Gi" \
-    --cpu="1" \
-    --allow-unauthenticated \
-    --execution-environment=gen2 \
-    --set-env-vars="GCS_BUCKET_NAME=$BUCKET_NAME" \
-    --add-volume=name=gcs-data,type=cloud-storage,bucket="$BUCKET_NAME" \
-    --add-volume-mount=volume=gcs-data,mount-path=/app/pb_data \
-    --port=8080
+gcloud run services replace cloud-run-service.generated.yaml --region="$REGION"
 
 echo "✅ Deployment complete!"
 

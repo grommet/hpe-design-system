@@ -2,6 +2,22 @@
 
 PocketBase is a simple, self-contained backend solution that combines a real-time database, authentication, file storage, and an admin dashboard in a single binary. This project demonstrates how to deploy PocketBase on Google Cloud Run with persistent data storage using Cloud Storage volume mounting.
 
+> **🔧 Portable Configuration**: This deployment now supports templated YAML configurations that work across different Google Cloud projects. See the deployment guide for details.
+
+## Quick Start
+
+For any Google Cloud project:
+
+```bash
+# 1. Set your project ID
+export GOOGLE_CLOUD_PROJECT="your-project-id"
+
+# 2. Run the deployment script
+./deploy.sh
+```
+
+The script will automatically configure all resources using your project ID.
+
 ## Features
 
 - 🚀 **Serverless**: Deploy on Google Cloud Run with automatic scaling

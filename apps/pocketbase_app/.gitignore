@@ -8,5 +8,11 @@ pb_data/
 # PocketBase logs
 logs/
 
+# Generated configuration files
+cloud-run-service.generated.yaml
+
+# Environment files
+.env
+
 # Temporary data directory used by startup script
 /tmp/pb_data_local/
