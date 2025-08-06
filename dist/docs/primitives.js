@@ -2674,666 +2674,6 @@ export default {
     ],
     "key": "{base.color.green.500-Opacity30}"
   },
-  "hpe.base.color.landmarkPlum.100": {
-    "$type": "color",
-    "$value": "#c98ad4",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#c98ad4",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkPlum.100",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkPlum",
-      "subitem": "100"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkPlum",
-      "100"
-    ],
-    "key": "{base.color.landmarkPlum.100}"
-  },
-  "hpe.base.color.landmarkPlum.200": {
-    "$type": "color",
-    "$value": "#a455b3",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#a455b3",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkPlum.200",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkPlum",
-      "subitem": "200"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkPlum",
-      "200"
-    ],
-    "key": "{base.color.landmarkPlum.200}"
-  },
-  "hpe.base.color.landmarkPlum.300": {
-    "$type": "color",
-    "$value": "#873492",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#873492",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkPlum.300",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkPlum",
-      "subitem": "300"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkPlum",
-      "300"
-    ],
-    "key": "{base.color.landmarkPlum.300}"
-  },
-  "hpe.base.color.landmarkPlum.400": {
-    "$type": "color",
-    "$value": "#6c2b7c",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#6c2b7c",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkPlum.400",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkPlum",
-      "subitem": "400"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkPlum",
-      "400"
-    ],
-    "key": "{base.color.landmarkPlum.400}"
-  },
-  "hpe.base.color.landmarkPlum.500": {
-    "$type": "color",
-    "$value": "#5e1f68",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#5e1f68",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkPlum.500",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkPlum",
-      "subitem": "500"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkPlum",
-      "500"
-    ],
-    "key": "{base.color.landmarkPlum.500}"
-  },
-  "hpe.base.color.landmarkGold.100": {
-    "$type": "color",
-    "$value": "#f9cc61",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#f9cc61",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkGold.100",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkGold",
-      "subitem": "100"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkGold",
-      "100"
-    ],
-    "key": "{base.color.landmarkGold.100}"
-  },
-  "hpe.base.color.landmarkGold.200": {
-    "$type": "color",
-    "$value": "#ecbe4f",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ecbe4f",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkGold.200",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkGold",
-      "subitem": "200"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkGold",
-      "200"
-    ],
-    "key": "{base.color.landmarkGold.200}"
-  },
-  "hpe.base.color.landmarkGold.300": {
-    "$type": "color",
-    "$value": "#deb146",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#deb146",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkGold.300",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkGold",
-      "subitem": "300"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkGold",
-      "300"
-    ],
-    "key": "{base.color.landmarkGold.300}"
-  },
-  "hpe.base.color.landmarkGold.400": {
-    "$type": "color",
-    "$value": "#c89e3a",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#c89e3a",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkGold.400",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkGold",
-      "subitem": "400"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkGold",
-      "400"
-    ],
-    "key": "{base.color.landmarkGold.400}"
-  },
-  "hpe.base.color.landmarkGold.Color": {
-    "$type": "color",
-    "$value": "#b38a29",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#b38a29",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkGold.Color",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkGold",
-      "subitem": "Color"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkGold",
-      "Color"
-    ],
-    "key": "{base.color.landmarkGold.Color}"
-  },
-  "hpe.base.color.landmarkFuschia.100": {
-    "$type": "color",
-    "$value": "#fc9ddc",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#fc9ddc",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkFuschia.100",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkFuschia",
-      "subitem": "100"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkFuschia",
-      "100"
-    ],
-    "key": "{base.color.landmarkFuschia.100}"
-  },
-  "hpe.base.color.landmarkFuschia.200": {
-    "$type": "color",
-    "$value": "#db72b8",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#db72b8",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkFuschia.200",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkFuschia",
-      "subitem": "200"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkFuschia",
-      "200"
-    ],
-    "key": "{base.color.landmarkFuschia.200}"
-  },
-  "hpe.base.color.landmarkFuschia.300": {
-    "$type": "color",
-    "$value": "#cc54a4",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#cc54a4",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkFuschia.300",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkFuschia",
-      "subitem": "300"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkFuschia",
-      "300"
-    ],
-    "key": "{base.color.landmarkFuschia.300}"
-  },
-  "hpe.base.color.landmarkFuschia.400": {
-    "$type": "color",
-    "$value": "#ad4089",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#ad4089",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkFuschia.400",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkFuschia",
-      "subitem": "400"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkFuschia",
-      "400"
-    ],
-    "key": "{base.color.landmarkFuschia.400}"
-  },
-  "hpe.base.color.landmarkFuschia.500": {
-    "$type": "color",
-    "$value": "#7f245c",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#7f245c",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.landmarkFuschia.500",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "landmarkFuschia",
-      "subitem": "500"
-    },
-    "path": [
-      "base",
-      "color",
-      "landmarkFuschia",
-      "500"
-    ],
-    "key": "{base.color.landmarkFuschia.500}"
-  },
   "hpe.base.color.landmarkPurple.100": {
     "$type": "color",
     "$value": "#b7a2fc",
@@ -3773,6 +3113,666 @@ export default {
       "500"
     ],
     "key": "{base.color.landmarkCyan.500}"
+  },
+  "hpe.base.color.landmarkFuschia.100": {
+    "$type": "color",
+    "$value": "#fc9ddc",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#fc9ddc",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkFuschia.100",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkFuschia",
+      "subitem": "100"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkFuschia",
+      "100"
+    ],
+    "key": "{base.color.landmarkFuschia.100}"
+  },
+  "hpe.base.color.landmarkFuschia.200": {
+    "$type": "color",
+    "$value": "#db72b8",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#db72b8",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkFuschia.200",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkFuschia",
+      "subitem": "200"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkFuschia",
+      "200"
+    ],
+    "key": "{base.color.landmarkFuschia.200}"
+  },
+  "hpe.base.color.landmarkFuschia.300": {
+    "$type": "color",
+    "$value": "#cc54a4",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#cc54a4",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkFuschia.300",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkFuschia",
+      "subitem": "300"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkFuschia",
+      "300"
+    ],
+    "key": "{base.color.landmarkFuschia.300}"
+  },
+  "hpe.base.color.landmarkFuschia.400": {
+    "$type": "color",
+    "$value": "#ad4089",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#ad4089",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkFuschia.400",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkFuschia",
+      "subitem": "400"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkFuschia",
+      "400"
+    ],
+    "key": "{base.color.landmarkFuschia.400}"
+  },
+  "hpe.base.color.landmarkFuschia.500": {
+    "$type": "color",
+    "$value": "#7f245c",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#7f245c",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkFuschia.500",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkFuschia",
+      "subitem": "500"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkFuschia",
+      "500"
+    ],
+    "key": "{base.color.landmarkFuschia.500}"
+  },
+  "hpe.base.color.landmarkPlum.100": {
+    "$type": "color",
+    "$value": "#c98ad4",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#c98ad4",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkPlum.100",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkPlum",
+      "subitem": "100"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkPlum",
+      "100"
+    ],
+    "key": "{base.color.landmarkPlum.100}"
+  },
+  "hpe.base.color.landmarkPlum.200": {
+    "$type": "color",
+    "$value": "#a455b3",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#a455b3",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkPlum.200",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkPlum",
+      "subitem": "200"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkPlum",
+      "200"
+    ],
+    "key": "{base.color.landmarkPlum.200}"
+  },
+  "hpe.base.color.landmarkPlum.300": {
+    "$type": "color",
+    "$value": "#873492",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#873492",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkPlum.300",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkPlum",
+      "subitem": "300"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkPlum",
+      "300"
+    ],
+    "key": "{base.color.landmarkPlum.300}"
+  },
+  "hpe.base.color.landmarkPlum.400": {
+    "$type": "color",
+    "$value": "#6c2b7c",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#6c2b7c",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkPlum.400",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkPlum",
+      "subitem": "400"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkPlum",
+      "400"
+    ],
+    "key": "{base.color.landmarkPlum.400}"
+  },
+  "hpe.base.color.landmarkPlum.500": {
+    "$type": "color",
+    "$value": "#5e1f68",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#5e1f68",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkPlum.500",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkPlum",
+      "subitem": "500"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkPlum",
+      "500"
+    ],
+    "key": "{base.color.landmarkPlum.500}"
+  },
+  "hpe.base.color.landmarkGold.100": {
+    "$type": "color",
+    "$value": "#f9cc61",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#f9cc61",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkGold.100",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkGold",
+      "subitem": "100"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkGold",
+      "100"
+    ],
+    "key": "{base.color.landmarkGold.100}"
+  },
+  "hpe.base.color.landmarkGold.200": {
+    "$type": "color",
+    "$value": "#ecbe4f",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#ecbe4f",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkGold.200",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkGold",
+      "subitem": "200"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkGold",
+      "200"
+    ],
+    "key": "{base.color.landmarkGold.200}"
+  },
+  "hpe.base.color.landmarkGold.300": {
+    "$type": "color",
+    "$value": "#deb146",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#deb146",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkGold.300",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkGold",
+      "subitem": "300"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkGold",
+      "300"
+    ],
+    "key": "{base.color.landmarkGold.300}"
+  },
+  "hpe.base.color.landmarkGold.400": {
+    "$type": "color",
+    "$value": "#c89e3a",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#c89e3a",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkGold.400",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkGold",
+      "subitem": "400"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkGold",
+      "400"
+    ],
+    "key": "{base.color.landmarkGold.400}"
+  },
+  "hpe.base.color.landmarkGold.Color": {
+    "$type": "color",
+    "$value": "#b38a29",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#b38a29",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.landmarkGold.Color",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "landmarkGold",
+      "subitem": "Color"
+    },
+    "path": [
+      "base",
+      "color",
+      "landmarkGold",
+      "Color"
+    ],
+    "key": "{base.color.landmarkGold.Color}"
   },
   "hpe.base.color.landmarkGreen.650": {
     "$type": "color",
