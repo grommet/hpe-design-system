@@ -1256,17 +1256,29 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
-      extend: ({ sizeProp, hasIcon, hasLabel, kind, plain }) => {
+      extend: ({ colorValue, theme, kind, disabled }) => {
         let style = '';
-        const iconOnly = hasIcon && !hasLabel;
-        // kind and size specific icon-only padding
-        if (
-          !plain &&
-          iconOnly &&
-          components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingY &&
-          components.hpe.button[kind]?.[sizeProp]?.iconOnly?.paddingX
-        )
-          style += `padding: ${components.hpe.button[kind][sizeProp].iconOnly.paddingY} ${components.hpe.button[kind][sizeProp].iconOnly.paddingX}`;
+        if (kind === 'primary' && !disabled) {
+          // Temporary fix for grommet bug with light/dark logic. This temp fix will override the color prop on an icon, so this is
+          // not a long term solution. Also, reliance on !important is not ideal.
+          style += `color: ${getThemeColor(
+            'text-onSecondaryStrong',
+            theme,
+          )} !important;`;
+          const iconColor = theme.dark
+            ? dark.hpe.color.icon.onSecondaryStrong
+            : light.hpe.color.icon.onSecondaryStrong;
+          style += `svg { stroke: ${iconColor}; fill: ${iconColor}; }`;
+        }
+        if (colorValue) {
+          // color prop is not recommended to be used, but providing
+          // a better fallback behavior for hover styles to avoid
+          // "kind" hover background from applying
+          // https://github.com/grommet/grommet/issues/7504
+          style += `
+                  &:hover { background: ${getThemeColor(colorValue, theme)}; }
+                `;
+        }
         return style;
       },
     },
