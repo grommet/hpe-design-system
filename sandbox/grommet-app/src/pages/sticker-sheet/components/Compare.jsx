@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grommet, Stack, ThemeContext } from 'grommet';
-import { hpe as v0 } from 'grommet-theme-hpe-v5';
 import { themes } from '../../../themes/theme';
 import { ModeContext } from './ModeContext';
 
@@ -13,16 +12,16 @@ export const Compare = ({ children, ...rest }) => {
     return (
       <Box direction="row" gap="medium">
         <Grommet
-          theme={v0}
+          theme={themes.v1}
           themeMode={theme.dark ? 'dark' : 'light'}
-          background="background-front"
+          background="transparent"
         >
           <Box align="start">{children}</Box>
         </Grommet>
         <Grommet
-          theme={themes.v1}
+          theme={themes.v2}
           themeMode={theme.dark ? 'dark' : 'light'}
-          background="background-front"
+          background="transparent"
         >
           <Box align="start">{children}</Box>
         </Grommet>
@@ -32,7 +31,7 @@ export const Compare = ({ children, ...rest }) => {
 
   return (
     <Stack {...rest}>
-      <ThemeContext.Extend value={v0}>
+      <ThemeContext.Extend value={themes.v1}>
         <Box
           align="start"
           style={
