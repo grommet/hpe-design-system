@@ -1,222 +1,342 @@
 # PocketBase Cloud Run Deployment Guide
 
-This guide explains how to deploy the HPE Design System PocketBase backend to Google Cloud Run with persistent data storage.
+> **📖 For project overview and quick start instructions, see [README.md](./README.md)**
+
+This guide provides comprehensive step-by-step instructions for deploying PocketBase on Google Cloud Run with persistent data storage using Cloud Storage volumes.
 
 ## Overview
 
 This deployment uses:
-
-- **Google Cloud Run**: Serverless container platform
-- **Google Cloud Storage**: Persistent data storage via FUSE mounting
-- **Docker**: Containerized PocketBase application
-- **SQLite**: Local database with cloud backup for optimal performance
+- **Cloud Run**: Serverless container platform
+- **Cloud Storage**: Persistent data storage via volume mounting
+- **YAML Configuration**: Declarative service definition
+- **Single Instance**: SQLite-safe configuration (maxScale: 1)
 
 ## Prerequisites
 
-1. **Google Cloud Project** with billing enabled
-2. **gcloud CLI** installed and authenticated
-3. **Docker** installed and running
-4. **Existing PocketBase data** (optional) in `pb_data/` directory
+- Google Cloud Project with billing enabled
+- Google Cloud SDK (`gcloud`) installed and authenticated
+- Docker installed locally
+- Basic familiarity with Cloud Run and Cloud Storage
 
-## Initial Setup
+## Automated Deployment
 
-### 1. Enable Required APIs
-
-```bash
-gcloud services enable run.googleapis.com
-gcloud services enable cloudbuild.googleapis.com
-gcloud services enable storage.googleapis.com
-```
-
-### 2. Create Cloud Storage Bucket
+The fastest way to deploy is using the provided automation script:
 
 ```bash
-# Replace 'your-bucket-name' with a unique bucket name
-gsutil mb gs://your-bucket-name
+# Set your project configuration
+export GOOGLE_CLOUD_PROJECT="your-project-id"
+export BUCKET_NAME="ds-pocketbase"
+
+# Run the deployment script
+./deploy.sh
 ```
 
-### 3. Configure Docker Authentication
+This script handles all the manual steps below automatically.
+
+## Manual Deployment Steps
+
+### Step 1: Create Cloud Storage Bucket
+
+Create a bucket to store your PocketBase data:
 
 ```bash
-gcloud auth configure-docker
+gsutil mb -l us-central1 gs://ds-pocketbase
 ```
 
-## Deployment Steps
+### Step 2: Create Service Account
 
-### 1. Prepare Your Data (If You Have Existing PocketBase Data)
-
-If you have existing PocketBase data, upload it to Cloud Storage:
+Create a service account with Cloud Storage permissions:
 
 ```bash
-# Upload your existing pb_data to Cloud Storage
-gsutil -m cp -r ./pb_data/* gs://your-bucket-name/
+# Create service account
+gcloud iam service-accounts create pocketbase-service-account \
+    --display-name="PocketBase Service Account"
+
+# Grant storage admin role
+gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT \
+    --member="serviceAccount:pocketbase-service-account@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com" \
+    --role="roles/storage.admin"
 ```
 
-### 2. Build and Push Docker Image
+### Step 3: Build and Push Container Image
+
+Build the Docker image for Cloud Run:
 
 ```bash
 # Build for linux/amd64 platform (required for Cloud Run)
-docker build --platform linux/amd64 -t gcr.io/YOUR-PROJECT-ID/pocketbase-app .
+docker build --platform linux/amd64 -t gcr.io/$GOOGLE_CLOUD_PROJECT/pocketbase-app .
 
 # Push to Google Container Registry
-docker push gcr.io/YOUR-PROJECT-ID/pocketbase-app
+docker push gcr.io/$GOOGLE_CLOUD_PROJECT/pocketbase-app
 ```
 
-### 3. Deploy to Cloud Run
+### Step 4: Configure YAML Deployment
+
+Update the `cloud-run-service.yaml` file with your project ID:
 
 ```bash
-gcloud run deploy pocketbase-app \
-  --image gcr.io/YOUR-PROJECT-ID/pocketbase-app \
-  --platform managed \
-  --region us-central1 \
-  --add-volume name=pocketbase-volume,type=cloud-storage,bucket=your-bucket-name \
-  --add-volume-mount volume=pocketbase-volume,mount-path=/app/pb_data \
-  --memory 1Gi \
-  --cpu 1 \
-  --min-instances 1 \
-  --max-instances 1 \
-  --port 8080 \
-  --allow-unauthenticated \
-  --project=YOUR-PROJECT-ID
+# Replace the project ID in the YAML file
+sed -i '' "s/hpe-design-system-adoption/$GOOGLE_CLOUD_PROJECT/g" cloud-run-service.yaml
 ```
 
-**Important Notes:**
+### Step 5: Deploy to Cloud Run
 
-- `max-instances=1` is **required** for SQLite to prevent database corruption
-- `min-instances=1` ensures consistent performance and data availability
-- Replace `YOUR-PROJECT-ID` and `your-bucket-name` with your actual values
+Deploy using the YAML configuration:
 
-## Setting Up Admin Access
+```bash
+gcloud run services replace cloud-run-service.yaml --region=us-central1
+```
 
-After deployment, you need to create admin credentials:
+## YAML Configuration Details
 
-### Option 1: Fresh Installation
+The `cloud-run-service.yaml` file contains the complete service definition:
 
-Visit your deployed admin dashboard at `https://your-service-url/_/` and create the first admin user.
+### Key Configuration Sections
 
-### Option 2: Existing Data with Lost Credentials
+#### Service Metadata
+```yaml
+metadata:
+  name: pocketbase-app
+  labels:
+    cloud.googleapis.com/location: us-central1
+  annotations:
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+```
 
-1. **Run PocketBase locally** with your data:
+#### Container Configuration
+```yaml
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: "1"  # SQLite safety
+        run.googleapis.com/cpu-throttling: "false"
+        run.googleapis.com/startup-cpu-boost: "true"
+        run.googleapis.com/execution-environment: gen2
+```
 
-   ```bash
-   ./pocketbase serve --http=127.0.0.1:8080
-   ```
+#### Volume Mounting
+```yaml
+volumes:
+- name: pocketbase-data
+  csi:
+    driver: gcsfuse.run.googleapis.com
+    volumeAttributes:
+      bucketName: ds-pocketbase
 
-2. **Access local admin** at `http://127.0.0.1:8080/_/` and create/reset admin user
+containers:
+- volumeMounts:
+  - name: pocketbase-data
+    mountPath: /app/pb_data
+```
 
-3. **Upload updated database**:
+#### Resource Limits
+```yaml
+resources:
+  limits:
+    cpu: 1000m
+    memory: 2Gi
+```
 
-   ```bash
-   gsutil cp ./pb_data/data.db gs://your-bucket-name/
-   ```
+#### Health Checks
+```yaml
+startupProbe:
+  httpGet:
+    path: /api/health
+    port: 8080
+  timeoutSeconds: 240
+  periodSeconds: 240
+  failureThreshold: 20
+```
 
-4. **Restart Cloud Run** to pick up changes:
-   ```bash
-   gcloud run deploy pocketbase-app \
-     --image gcr.io/YOUR-PROJECT-ID/pocketbase-app \
-     --platform managed \
-     --region us-central1 \
-     --add-volume name=pocketbase-volume,type=cloud-storage,bucket=your-bucket-name \
-     --add-volume-mount volume=pocketbase-volume,mount-path=/app/pb_data \
-     --memory 1Gi \
-     --cpu 1 \
-     --min-instances 1 \
-     --max-instances 1 \
-     --port 8080 \
-     --allow-unauthenticated \
-     --set-env-vars RESTART_TIME=$(date +%s) \
-     --project=YOUR-PROJECT-ID
-   ```
+## Post-Deployment Setup
 
-## Architecture Details
+### 1. Access Your Service
 
-### Data Flow
+After deployment, get your service URL:
 
-1. **Startup**: Container copies database from Cloud Storage to local `/tmp/pb_data_local/`
-2. **Runtime**: PocketBase runs with local SQLite database for optimal performance
-3. **Shutdown**: Automatic backup copies data back to Cloud Storage
+```bash
+gcloud run services describe pocketbase-app --region=us-central1 --format="value(status.url)"
+```
 
-### Key Files
+### 2. Create Admin User
 
-- **`Dockerfile`**: Multi-stage build with Alpine Linux
-- **`startup.sh`**: Handles data copying and backup logic
-- **`pb_data/`**: Local PocketBase data directory
-- **Cloud Storage**: Persistent storage for database backups
+For a fresh installation:
+1. Visit `https://your-service-url/_/`
+2. Create your first admin user account
+3. Configure your database schema as needed
 
-### Performance Benefits
+### 3. Upload Existing Data (Optional)
 
-- **Local SQLite**: Eliminates Cloud Storage FUSE performance issues
-- **Automatic Backup**: Data persists between deployments
-- **Single Instance**: Prevents SQLite corruption from concurrent access
+If you have existing PocketBase data:
 
-## URLs and Access
+```bash
+# Upload your local pb_data directory
+gsutil -m cp -r ./pb_data/* gs://ds-pocketbase/
+```
 
-After successful deployment:
+## Verification
 
-- **Service URL**: `https://your-service-name-hash.us-central1.run.app`
-- **Admin Dashboard**: `https://your-service-name-hash.us-central1.run.app/_/`
-- **REST API**: `https://your-service-name-hash.us-central1.run.app/api/`
+### Check Service Status
+
+```bash
+# View service details
+gcloud run services describe pocketbase-app --region=us-central1
+
+# Check if service is ready
+gcloud run services list --filter="metadata.name=pocketbase-app"
+```
+
+### Monitor Logs
+
+```bash
+# View recent logs
+gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=pocketbase-app" \
+    --limit=20 --project=$GOOGLE_CLOUD_PROJECT
+```
+
+### Test Health Endpoint
+
+```bash
+# Test the health check endpoint
+curl https://your-service-url/api/health
+```
+
+## Important Configuration Notes
+
+### SQLite Safety
+
+The configuration includes `autoscaling.knative.dev/maxScale: "1"` which is **critical** for SQLite:
+
+- **Why needed**: SQLite doesn't support concurrent writes from multiple processes
+- **Impact**: Limits horizontal scaling but ensures data integrity
+- **Alternative**: For high concurrency, consider migrating to PostgreSQL
+
+### Startup Configuration
+
+Extended startup probe settings accommodate Cloud Storage volume mounting:
+
+- **Timeout**: 240 seconds per check
+- **Failures**: Up to 20 failures allowed
+- **Total time**: Up to 80 minutes for service to become ready
+
+### Resource Allocation
+
+The service is configured with:
+
+- **CPU**: 1000m (1 full CPU core)
+- **Memory**: 2Gi (adequate for most PocketBase workloads)
+- **CPU Throttling**: Disabled for consistent performance
+
+## Updating the Deployment
+
+To update your deployment:
+
+### 1. Update Container Image
+
+```bash
+# Build new image
+docker build --platform linux/amd64 -t gcr.io/$GOOGLE_CLOUD_PROJECT/pocketbase-app .
+
+# Push updated image
+docker push gcr.io/$GOOGLE_CLOUD_PROJECT/pocketbase-app
+```
+
+### 2. Redeploy Service
+
+```bash
+# Redeploy using YAML (automatically pulls latest image)
+gcloud run services replace cloud-run-service.yaml --region=us-central1
+```
+
+### 3. Verify Update
+
+```bash
+# Check that new revision is deployed
+gcloud run revisions list --service=pocketbase-app --region=us-central1
+```
 
 ## Troubleshooting
 
-### Check Logs
-
-```bash
-gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=pocketbase-app" --limit=20 --project=YOUR-PROJECT-ID
-```
-
 ### Common Issues
 
-1. **Admin Login Fails**
+#### Service Won't Start
 
-   - Follow "Setting Up Admin Access" section above
-   - Ensure database was copied correctly to Cloud Storage
+**Symptoms**: Service stays in "Deploying" state or fails to start
 
-2. **Container Fails to Start**
+**Solutions**:
+1. Check that Cloud Storage bucket exists and is accessible
+2. Verify service account has `storage.admin` role
+3. Ensure Docker image was built for `linux/amd64` platform
+4. Check logs for volume mounting errors
 
-   - Check that image was built for `linux/amd64` platform
-   - Verify Cloud Storage bucket exists and is accessible
+#### Data Not Persisting
 
-3. **Data Not Persisting**
+**Symptoms**: Data disappears after redeployment
 
-   - Verify volume mount configuration
-   - Check startup.sh backup logic in logs
+**Solutions**:
+1. Verify Cloud Storage volume is properly mounted in logs
+2. Check bucket name in YAML matches actual bucket
+3. Ensure startup script validates volume mounting
 
-4. **Performance Issues**
-   - Confirm PocketBase is using local storage (`/tmp/pb_data_local/`)
-   - Check that only 1 instance is running
+#### Slow Startup Times
 
-## Updating the Application
+**Symptoms**: Service takes several minutes to become ready
 
-1. **Make your changes** to code/configuration
-2. **Rebuild and push** the Docker image
-3. **Redeploy** using the same `gcloud run deploy` command
+**Expected Behavior**: First deployment can take 2-3 minutes due to:
+- Cloud Storage volume mounting
+- Container image download
+- PocketBase initialization
 
-The startup script will automatically handle data migration and backup.
+### Log Analysis
+
+Look for these key log messages:
+
+```
+✅ Cloud Storage volume mounted at /app/pb_data
+🚀 Starting PocketBase server on :8080
+```
+
+### Performance Optimization
+
+If experiencing performance issues:
+
+1. **Monitor resource usage** in Cloud Run metrics
+2. **Adjust memory/CPU** limits in YAML if needed  
+3. **Consider data optimization** in PocketBase schema
 
 ## Security Considerations
 
-- **Admin Access**: Use strong passwords for admin accounts
-- **API Security**: Configure PocketBase authentication rules as needed
-- **Network**: Cloud Run provides HTTPS by default
-- **Data**: Cloud Storage provides encryption at rest
+### Network Security
+- Service uses HTTPS by default
+- Cloud Run provides automatic TLS termination
+
+### Access Control
+- Admin dashboard should use strong passwords
+- Consider configuring PocketBase authentication rules
+- Service account follows principle of least privilege
+
+### Data Security
+- Cloud Storage provides encryption at rest
+- Data in transit is encrypted via HTTPS
+- Consider additional backup strategies for critical data
 
 ## Cost Optimization
 
-- **Single Instance**: Minimizes compute costs
-- **Cloud Storage**: Pay only for data stored
-- **Cloud Run**: Scales to zero when not in use (with min-instances=0, but not recommended for this setup)
+### Resource Efficiency
+- Service scales to zero when not in use
+- Single instance (maxScale: 1) minimizes costs
+- Pay-per-request pricing model
 
-## Support
-
-For issues specific to this deployment setup, check:
-
-1. **Cloud Run logs** for startup/runtime errors
-2. **Cloud Storage** for data persistence issues
-3. **PocketBase documentation** for application-specific questions
+### Storage Costs
+- Cloud Storage pricing based on data volume
+- Consider lifecycle policies for old data
+- Monitor storage usage in Cloud Console
 
 ---
 
 **Project**: HPE Design System  
-**Last Updated**: August 2025  
-**Version**: 1.0
+**Last Updated**: January 2025  
+**Version**: 2.0

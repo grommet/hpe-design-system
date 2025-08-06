@@ -2,50 +2,43 @@
 
 echo "Starting PocketBase setup..."
 
-# Create local pb_data directory
-LOCAL_DATA_DIR="/tmp/pb_data_local"
-mkdir -p "$LOCAL_DATA_DIR"
+# PocketBase data directory (will be mounted by Cloud Run)
+DATA_DIR="/app/pb_data"
 
-# Copy database and other files from Cloud Storage to local storage for better performance
-echo "Copying files from Cloud Storage to local storage..."
-
-# Copy all database files
-if ls /app/pb_data/*.db 1> /dev/null 2>&1; then
-    cp /app/pb_data/*.db "$LOCAL_DATA_DIR/"
-    echo "Database files copied successfully"
+# Check if the data directory is properly mounted
+if [ -d "$DATA_DIR" ]; then
+    echo "✅ Data directory exists: $DATA_DIR"
+    
+    # Check if it's writable
+    if [ -w "$DATA_DIR" ]; then
+        echo "✅ Data directory is writable"
+    else
+        echo "⚠️  Data directory is not writable, attempting to fix permissions..."
+        # This might not work if we're not root, but it's worth trying
+        chmod 755 "$DATA_DIR" 2>/dev/null || true
+    fi
+    
+    # List existing files (for debugging)
+    echo "Current contents of $DATA_DIR:"
+    ls -la "$DATA_DIR" 2>/dev/null || echo "Directory is empty or unreadable"
 else
-    echo "No existing database files found, will create new ones"
+    echo "❌ Data directory does not exist: $DATA_DIR"
+    echo "Creating local data directory as fallback..."
+    mkdir -p "$DATA_DIR"
 fi
 
-# Copy TypeScript files if they exist
-cp /app/pb_data/*.ts "$LOCAL_DATA_DIR/" 2>/dev/null || true
-
-# Function to backup data to Cloud Storage on exit
-backup_to_cloud() {
-    echo "Backing up data to Cloud Storage..."
-    
-    # Backup database files if they exist
-    if ls "$LOCAL_DATA_DIR"/*.db 1> /dev/null 2>&1; then
-        cp "$LOCAL_DATA_DIR"/*.db /app/pb_data/
-        echo "Database files backed up successfully"
-    else
-        echo "No database files to backup"
-    fi
-    
-    # Backup TypeScript files if they exist
-    if ls "$LOCAL_DATA_DIR"/*.ts 1> /dev/null 2>&1; then
-        cp "$LOCAL_DATA_DIR"/*.ts /app/pb_data/
-        echo "TypeScript files backed up successfully"
-    else
-        echo "No TypeScript files to backup"
-    fi
-    
-    echo "Backup complete"
+# Function to handle graceful shutdown
+cleanup() {
+    echo "Shutting down PocketBase gracefully..."
+    # PocketBase should handle its own cleanup
+    exit 0
 }
 
 # Set up signal handlers for graceful shutdown
-trap 'backup_to_cloud; exit 0' SIGTERM SIGINT
+trap cleanup SIGTERM SIGINT
 
-# Start PocketBase using local data directory
-echo "Starting PocketBase server with local database..."
-exec ./pocketbase serve --dir="$LOCAL_DATA_DIR" --http=0.0.0.0:${PORT:-8080}
+# Start PocketBase
+echo "Starting PocketBase server..."
+echo "Data directory: $DATA_DIR"
+echo "Port: ${PORT:-8080}"
+exec ./pocketbase serve --dir="$DATA_DIR" --http=0.0.0.0:${PORT:-8080}
