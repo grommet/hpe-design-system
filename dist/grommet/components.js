@@ -41,7 +41,7 @@ export default {
           "wide": "12px"
         },
         "icon": {
-          "size": "16px"
+          "size": "14px"
         }
       },
       "medium": {
@@ -60,7 +60,7 @@ export default {
           "wide": "18px"
         },
         "icon": {
-          "size": "18px"
+          "size": "16px"
         }
       },
       "large": {
@@ -79,7 +79,7 @@ export default {
           "wide": "24px"
         },
         "icon": {
-          "size": "22px"
+          "size": "18px"
         }
       },
       "xlarge": {
@@ -98,7 +98,7 @@ export default {
           "wide": "32px"
         },
         "icon": {
-          "size": "24px"
+          "size": "20px"
         }
       }
     },

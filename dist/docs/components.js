@@ -1074,7 +1074,7 @@ export default {
   },
   "hpe.element.small.icon.size": {
     "$type": "number",
-    "$value": "16px",
+    "$value": "14px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1630,7 +1630,7 @@ export default {
   },
   "hpe.element.medium.icon.size": {
     "$type": "number",
-    "$value": "18px",
+    "$value": "16px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2186,7 +2186,7 @@ export default {
   },
   "hpe.element.large.icon.size": {
     "$type": "number",
-    "$value": "22px",
+    "$value": "18px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -2742,7 +2742,7 @@ export default {
   },
   "hpe.element.xlarge.icon.size": {
     "$type": "number",
-    "$value": "24px",
+    "$value": "20px",
     "$description": "",
     "$extensions": {
       "com.figma": {

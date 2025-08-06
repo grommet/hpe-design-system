@@ -24,11 +24,11 @@
   --hpe-heading-xxsmall-lineHeight: 1.125rem; /** Line height typically used on h6. */
   --hpe-radius-full: var(--hpe-static-radius-full);
   --hpe-icon-xsmall-size: var(--hpe-base-dimension-350);
-  --hpe-icon-small-size: var(--hpe-base-dimension-400);
-  --hpe-icon-medium-size: var(--hpe-base-dimension-450);
-  --hpe-icon-large-size: var(--hpe-base-dimension-550);
-  --hpe-icon-xlarge-size: var(--hpe-base-dimension-600);
-  --hpe-icon-xxlarge-size: var(--hpe-base-dimension-900);
+  --hpe-icon-small-size: var(--hpe-base-dimension-350);
+  --hpe-icon-medium-size: var(--hpe-base-dimension-400);
+  --hpe-icon-large-size: var(--hpe-base-dimension-450);
+  --hpe-icon-xlarge-size: var(--hpe-base-dimension-500);
+  --hpe-icon-xxlarge-size: var(--hpe-base-dimension-800);
   --hpe-text-xsmall-fontSize: var(--hpe-base-fontSize-80);
   --hpe-text-xsmall-lineHeight: var(--hpe-base-lineHeight-90);
   --hpe-text-xsmall-fontWeight: var(--hpe-fontWeight-regular);
