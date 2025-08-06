@@ -3508,7 +3508,7 @@ export default {
   },
   "hpe.heading.large.fontWeight": {
     "$type": "number",
-    "$value": 500,
+    "$value": 400,
     "$description": "Font weight typically used on h2.",
     "$extensions": {
       "com.figma": {
@@ -3523,7 +3523,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
+      "$value": "{fontWeight.regular}",
       "$description": "Font weight typically used on h2.",
       "$extensions": {
         "com.figma": {
@@ -3718,7 +3718,7 @@ export default {
   },
   "hpe.heading.medium.fontWeight": {
     "$type": "number",
-    "$value": 500,
+    "$value": 400,
     "$description": "Font weight typically used on h3.",
     "$extensions": {
       "com.figma": {
@@ -3733,7 +3733,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.medium}",
+      "$value": "{fontWeight.regular}",
       "$description": "Font weight typically used on h3.",
       "$extensions": {
         "com.figma": {

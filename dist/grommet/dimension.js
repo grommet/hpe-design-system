@@ -136,14 +136,14 @@ export default {
         "lineHeight": "2.5rem"
       },
       "large": {
-        "fontWeight": 500,
+        "fontWeight": 400,
         "fontSize": "1.5rem",
         "lineHeight": "2rem"
       },
       "medium": {
         "fontSize": "1.375rem",
         "lineHeight": "1.75rem",
-        "fontWeight": 500
+        "fontWeight": 400
       },
       "small": {
         "fontSize": "1.125rem",
