@@ -1632,7 +1632,7 @@ const buildTheme = (tokens, flags) => {
           components.hpe.formField.default.medium.input.container.borderRadius,
       },
       icon: {
-        size: 'small',
+        size: 'medium',
       },
     },
     dataTable: {
@@ -2952,8 +2952,9 @@ const buildTheme = (tokens, flags) => {
       },
     },
     tag: {
+      background: 'background-contrast',
       border: {
-        color: 'border-weak',
+        color: 'transparent',
       },
       icons: {
         remove: Close,
