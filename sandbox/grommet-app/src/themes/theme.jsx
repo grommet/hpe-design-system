@@ -2952,7 +2952,6 @@ const buildTheme = (tokens, flags) => {
       },
     },
     tag: {
-      background: 'background-contrast',
       border: {
         color: 'transparent',
       },
