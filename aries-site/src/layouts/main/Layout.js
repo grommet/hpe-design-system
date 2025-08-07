@@ -289,7 +289,7 @@ export const Layout = ({
                   about this page.`,
                 }}
               />
-              <Question
+              {/* <Question
                 name="email"
                 kind="textInput"
                 label="Email (optional)"
@@ -297,7 +297,7 @@ export const Layout = ({
                   help: `Please leave your email if you would
                    like direct follow up from a team member.`,
                 }}
-              />
+              /> */}
             </Feedback>
           </>
         </Page>
