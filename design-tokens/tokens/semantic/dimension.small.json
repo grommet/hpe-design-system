@@ -1067,7 +1067,7 @@
     "large": {
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.regular}",
+        "$value": "{fontWeight.medium}",
         "$description": "Font weight typically used on h2.",
         "$extensions": {
           "com.figma": {
@@ -1129,7 +1129,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.regular}",
+        "$value": "{fontWeight.medium}",
         "$description": "Font weight typically used on h3.",
         "$extensions": {
           "com.figma": {
@@ -1205,7 +1205,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.semibold}",
+        "$value": "{fontWeight.medium}",
         "$description": "Font weight typically used on h5.",
         "$extensions": {
           "com.figma": {
@@ -1243,7 +1243,7 @@
       },
       "fontWeight": {
         "$type": "number",
-        "$value": "{fontWeight.semibold}",
+        "$value": "{fontWeight.medium}",
         "$description": "Font weight typically used on h6.",
         "$extensions": {
           "com.figma": {

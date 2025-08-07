@@ -6782,7 +6782,7 @@
             },
             "iconColor": {
               "$type": "color",
-              "$value": "{color.icon.onPrimaryStrong.DEFAULT.REST}",
+              "$value": "{color.icon.onSelectedPrimaryStrong.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -6820,7 +6820,7 @@
             },
             "iconColor": {
               "$type": "color",
-              "$value": "{color.icon.onPrimaryStrong.DEFAULT.REST}",
+              "$value": "{color.icon.onSelectedPrimaryStrong.DEFAULT.REST}",
               "$description": "",
               "$extensions": {
                 "com.figma": {

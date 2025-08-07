@@ -1358,7 +1358,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.plum}",
+              "$value": "{base.color.LandMarkDataVis.gold1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1374,7 +1374,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.gold1}",
+              "$value": "{base.color.LandMarkDataVis.blue1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1390,7 +1390,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.blue1}",
+              "$value": "{base.color.LandMarkDataVis.fuschia}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1422,7 +1422,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.fuschia}",
+              "$value": "{base.color.LandMarkDataVis.orange}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1438,7 +1438,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.orange}",
+              "$value": "{base.color.LandMarkDataVis.plum}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
