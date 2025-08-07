@@ -53,7 +53,7 @@ const App = () => {
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
 
-  const [showSupporting, setShowSupporting] = useState(true);
+  const [showSupporting, setShowSupporting] = useState(false);
   const supportingContextValue = useMemo(
     () => ({ showSupporting, setShowSupporting }),
     [showSupporting],
