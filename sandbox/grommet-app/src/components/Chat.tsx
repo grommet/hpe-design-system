@@ -63,7 +63,7 @@ export const Chat = () => {
 
   return (
     <Box
-      background="background-contrast"
+      background="background-back"
       width="medium"
       flex={false}
       fill="vertical"
