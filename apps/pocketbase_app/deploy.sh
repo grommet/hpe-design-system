@@ -68,10 +68,15 @@ fi
 
 # Grant necessary permissions to the service account
 echo "🔐 Granting permissions to service account..."
+# Grant specific Cloud Storage permissions (principle of least privilege)
 gcloud projects add-iam-policy-binding "$PROJECT_ID" \
     --member="serviceAccount:$SERVICE_ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com" \
-    --role="roles/storage.admin"
+    --role="roles/storage.objectAdmin"
 
+# Also grant bucket-level access for the specific bucket
+gsutil iam ch "serviceAccount:$SERVICE_ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com:roles/storage.legacyBucketReader" gs://"$BUCKET_NAME"
+
+# Grant logging permissions
 gcloud projects add-iam-policy-binding "$PROJECT_ID" \
     --member="serviceAccount:$SERVICE_ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com" \
     --role="roles/logging.logWriter"
