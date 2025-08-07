@@ -1,4 +1,5 @@
 export * from './Collection';
+export * from './Dashboard';
 export * from './DSCCSystemDetail';
 export * from './EmptyState';
 export * from './Form';
