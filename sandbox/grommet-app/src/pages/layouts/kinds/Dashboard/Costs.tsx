@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, CardBody, Card, Heading, Text } from 'grommet';
-import { StatusWarning } from 'grommet-icons';
+import { Box, CardBody, Card, DataChart, Heading, Text } from 'grommet';
+import sustainability from '../../../../mockData/sustainability.json';
 
 export const Costs = () => (
   <Card>
@@ -19,7 +19,26 @@ export const Costs = () => (
           Month-to-date costs
         </Text>
       </Box>
-      <StatusWarning color="icon-warning" size="xxlarge" />
+      <Box width="small">
+        <DataChart
+          data={sustainability.sustainability.slice(0, 10)}
+          series={['date', 'emissions']}
+          chart={[
+            {
+              property: 'emissions',
+              type: 'line',
+              thickness: 'xxsmall',
+              color: 'foreground-primary',
+              round: true,
+            },
+          ]}
+          axis={{
+            x: false,
+            y: false,
+          }}
+          size={{ height: 'xxsmall' }}
+        />
+      </Box>
     </CardBody>
   </Card>
 );
