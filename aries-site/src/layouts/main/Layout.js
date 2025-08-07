@@ -40,6 +40,8 @@ import { getRelatedContent, getPageDetails } from '../../utils';
 import { siteContents } from '../../data/search/contentForSearch';
 import { UpdateNotification } from '../content/UpdateNotification';
 import { ViewContext } from '../../pages/_app';
+// eslint-disable-next-line max-len
+import { emailValidation } from '../../examples/templates/forms/utils/FormValidation';
 
 export const Layout = ({
   backgroundImage,
@@ -287,6 +289,16 @@ export const Layout = ({
                 formProps={{
                   help: `Here's your chance to tell us your thoughts 
                   about this page.`,
+                }}
+              />
+              <Question
+                name="email"
+                kind="maskedInput"
+                label="Email (optional)"
+                formProps={{
+                  validate: emailValidation,
+                  help: `Please leave your email if you would
+                   like direct follow up from a team member.`,
                 }}
               />
             </Feedback>

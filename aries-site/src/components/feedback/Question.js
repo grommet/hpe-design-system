@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   FileInput,
   FormField,
+  MaskedInput,
   RadioButtonGroup,
   StarRating,
   ThumbsRating,
@@ -30,6 +31,7 @@ export const Question = ({ formProps, label, inputProps, kind, name }) => {
     textArea: { render: TextArea },
     radioButtonGroup: { render: RadioButtonGroup },
     fileInput: { render: FileInput },
+    maskedInput: { render: MaskedInput },
   };
 
   const Input = formats[kind].render;
