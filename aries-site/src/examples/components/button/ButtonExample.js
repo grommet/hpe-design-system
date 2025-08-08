@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import {
   Grommet,
   Box,
@@ -52,6 +51,7 @@ const getKindProps = (kind) => {
   const [a11yTitle, setA11yTitle] = useState('');
   const [href, setHref] = useState('');
 
+  // eslint-disable-next-line react/prop-types
   const generateButtonJSX = () => {
     const props = [];
 
@@ -255,6 +255,5 @@ const getKindProps = (kind) => {
   
 }
 
-ButtonExample.propTypes = {};
 
 export { ButtonExample };
