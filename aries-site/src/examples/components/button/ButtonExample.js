@@ -69,7 +69,8 @@ const ButtonExample = () => {
     if (href) props.push(`href='${href}'`);
     if (success || busy) {
       props.push(
-        'messages={{ busy: \'button is in a busy state\', success: \'button action succeeded\' }}',
+        `messages={{ busy: 'button is in a busy state', ` +
+        `success: 'button action succeeded' }}`,
       );
     }
 
