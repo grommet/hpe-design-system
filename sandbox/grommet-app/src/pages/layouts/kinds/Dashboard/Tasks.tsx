@@ -3,10 +3,14 @@ import { Box, CardBody, Card, Heading, Text } from 'grommet';
 import { LinkNext, StatusWarning } from 'grommet-icons';
 
 export const Tasks = () => (
-  <Card background="transparent" border={{ side: 'all', color: 'border-weak' }}>
+  <Card
+    background="transparent"
+    border={{ side: 'all', color: 'border-weak' }}
+    onClick={() => {}}
+  >
     <CardBody direction="row" gap="medium" justify="between" align="center">
       <Box gap="xsmall">
-        <Heading level={2} margin="none">
+        <Heading level={2} margin="none" size="small">
           Tasks (1 of 3)
         </Heading>
         <Text size="xlarge" weight={500} color="text-strong">

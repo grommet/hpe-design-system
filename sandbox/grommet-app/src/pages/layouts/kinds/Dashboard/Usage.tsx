@@ -3,7 +3,7 @@ import { Grid, Box, Card, CardBody, Text, Heading, Meter } from 'grommet';
 import { Legend } from '../../../../components';
 
 export const Usage = () => (
-  <Card>
+  <Card onClick={() => {}}>
     <CardBody gap="small">
       <Box direction="row" justify="between">
         <Heading level={2} margin="none">

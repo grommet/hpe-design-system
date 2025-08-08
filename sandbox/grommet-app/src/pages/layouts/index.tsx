@@ -11,6 +11,7 @@ import {
   OpsRampDetail,
   RecordDetail,
   DSCCSystemDetail,
+  Results,
 } from './kinds';
 
 const layouts = [
@@ -21,6 +22,7 @@ const layouts = [
   'Detail - OpsRamp',
   'Empty state',
   'Form',
+  'Results',
   'Home',
   'List',
   'Login',
@@ -73,6 +75,7 @@ const routes = [
     element={<DSCCSystemDetail />}
   />,
   <Route key="dashboard" path="dashboard" element={<Dashboard />} />,
+  <Route key="results" path="results" element={<Results />} />,
   <Route key="empty-state" path="empty-state" element={<EmptyState />} />,
   <Route key="form" path="/layouts/form" element={<Form />} />,
   <Route

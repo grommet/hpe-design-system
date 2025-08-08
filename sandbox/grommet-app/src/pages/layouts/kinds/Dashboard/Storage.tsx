@@ -3,7 +3,7 @@ import { Box, Card, CardBody, Heading, Paragraph } from 'grommet';
 import { GenAIFill } from 'grommet-icons';
 
 export const Storage = () => (
-  <Card>
+  <Card onClick={() => {}}>
     <CardBody direction="row" gap="small">
       <Box
         alignSelf="start"
@@ -15,7 +15,7 @@ export const Storage = () => (
         <GenAIFill />
       </Box>
       <Box gap="xsmall">
-        <Heading level={2} margin="none">
+        <Heading level={2} margin="none" size="small">
           Storage
         </Heading>
         <Paragraph size="small" margin="none">

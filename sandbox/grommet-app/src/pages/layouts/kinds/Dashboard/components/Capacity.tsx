@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Card, CardBody, CardFooter, Text, Meter } from 'grommet';
+import { Box, Card, CardBody, CardFooter, Heading, Text, Meter } from 'grommet';
 
 export const Capacity = () => (
-  <Card>
+  <Card onClick={() => {}}>
     <CardBody direction="row" gap="medium" align="center">
       <Meter
         type="pie"
@@ -24,7 +24,9 @@ export const Capacity = () => (
         size="xsmall"
       />
       <Box>
-        <Text>Capacity</Text>
+        <Heading level={2} margin="none" size="xsmall" weight={400}>
+          Capacity
+        </Heading>
         <Text size="large" color="text-strong" weight={500}>
           32% used
         </Text>

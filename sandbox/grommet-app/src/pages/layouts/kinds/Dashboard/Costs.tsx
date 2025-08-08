@@ -3,10 +3,10 @@ import { Box, CardBody, Card, DataChart, Heading, Text } from 'grommet';
 import sustainability from '../../../../mockData/sustainability.json';
 
 export const Costs = () => (
-  <Card>
+  <Card onClick={() => {}}>
     <CardBody direction="row" gap="medium" justify="between" align="center">
       <Box gap="xsmall">
-        <Heading level={2} margin="none">
+        <Heading level={2} margin="none" size="small">
           Costs
         </Heading>
         <Text size="xlarge" weight={500} color="text-strong">

@@ -17,7 +17,6 @@ import {
 } from './contexts';
 import { useLoading } from './utils/skeleton';
 import './app.css';
-import { Chat } from './components/Chat';
 
 const appHeaderHeight = '60px';
 export const appHeight = `calc(100vh - ${appHeaderHeight})`;
@@ -92,7 +91,7 @@ const App = () => {
               <SupportingContext.Provider value={supportingContextValue}>
                 <BrowserRouter>
                   <Box direction="row">
-                    <Box>
+                    <Box flex>
                       <GlobalHeader
                         darkMode={darkMode}
                         setDarkMode={setDarkMode}
@@ -119,7 +118,7 @@ const App = () => {
                         </Route>
                       </Routes>
                     </Box>
-                    {showSupporting ? <Chat /> : undefined}
+                    {showSupporting ? showSupporting : undefined}
                   </Box>
                 </BrowserRouter>
               </SupportingContext.Provider>

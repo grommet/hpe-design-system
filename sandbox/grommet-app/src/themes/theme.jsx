@@ -2021,6 +2021,7 @@ const buildTheme = (tokens, flags) => {
         },
       },
     },
+    // TO DO this approach loses responsive typography
     heading: {
       color: 'text-heading',
       weight: large.hpe.heading.xlarge.fontWeight,
@@ -2029,11 +2030,23 @@ const buildTheme = (tokens, flags) => {
           font: {
             weight: large.hpe.heading.xlarge.fontWeight,
           },
+          xxsmall: {
+            // this value is off because we didn't have the same typography system before
+            // TO DO could hard code with v6 backwards compatibility flag
+            size: large.hpe.heading.xxsmall.fontSize,
+            height: large.hpe.heading.xxsmall.lineHeight,
+          },
+          xsmall: {
+            // this value is off because we didn't have the same typography system before
+            // TO DO could hard code with v6 backwards compatibility flag
+            size: large.hpe.heading.xsmall.fontSize,
+            height: large.hpe.heading.xsmall.lineHeight,
+          },
           small: {
             // this value is off because we didn't have the same typography system before
             // TO DO could hard code with v6 backwards compatibility flag
-            size: large.hpe.heading.large.fontSize,
-            height: large.hpe.heading.large.lineHeight,
+            size: large.hpe.heading.small.fontSize,
+            height: large.hpe.heading.small.lineHeight,
           },
           medium: {
             size: large.hpe.heading.xlarge.fontSize,
@@ -2041,40 +2054,56 @@ const buildTheme = (tokens, flags) => {
           },
           large: {
             // Q: missing tokens
-            size: '48px',
-            height: '48px',
+            size: large.hpe.heading.large.fontSize,
+            height: large.hpe.heading.large.fontSize,
           },
           xlarge: {
             // Q: missing tokens
-            size: '60px',
-            height: '60px',
+            size: large.hpe.heading.xlarge.fontSize,
+            height: large.hpe.heading.xlarge.fontSize,
           },
         },
         2: {
           font: {
             weight: large.hpe.heading.large.fontWeight,
           },
+          xxsmall: {
+            size: large.hpe.heading.xxsmall.fontSize,
+            height: large.hpe.heading.xxsmall.lineHeight,
+          },
+          xsmall: {
+            size: large.hpe.heading.xsmall.fontSize,
+            height: large.hpe.heading.xsmall.lineHeight,
+          },
           small: {
-            size: large.hpe.heading.medium.fontSize,
-            height: large.hpe.heading.medium.lineHeight,
+            size: large.hpe.heading.small.fontSize,
+            height: large.hpe.heading.small.lineHeight,
           },
           medium: {
             size: large.hpe.heading.large.fontSize,
             height: large.hpe.heading.large.lineHeight,
           },
           large: {
-            size: large.hpe.heading.xlarge.fontSize,
-            height: large.hpe.heading.xlarge.lineHeight,
+            size: large.hpe.heading.large.fontSize,
+            height: large.hpe.heading.large.lineHeight,
           },
           xlarge: {
             // Q: missing tokens
-            size: '48px',
-            height: '48px',
+            size: large.hpe.heading.xlarge.fontSize,
+            height: large.hpe.heading.xlarge.fontSize,
           },
         },
         3: {
           font: {
             weight: large.hpe.heading.medium.fontWeight,
+          },
+          xxsmall: {
+            size: large.hpe.heading.xxsmall.fontSize,
+            height: large.hpe.heading.xxsmall.lineHeight,
+          },
+          xsmall: {
+            size: large.hpe.heading.xsmall.fontSize,
+            height: large.hpe.heading.xsmall.lineHeight,
           },
           small: {
             size: large.hpe.heading.small.fontSize,
@@ -2097,67 +2126,106 @@ const buildTheme = (tokens, flags) => {
           font: {
             weight: large.hpe.heading.small.fontWeight,
           },
-          small: {
+          xxsmall: {
+            size: large.hpe.heading.xxsmall.fontSize,
+            height: large.hpe.heading.xxsmall.lineHeight,
+          },
+          xsmall: {
             size: large.hpe.heading.xsmall.fontSize,
             height: large.hpe.heading.xsmall.lineHeight,
+          },
+          small: {
+            size: large.hpe.heading.small.fontSize,
+            height: large.hpe.heading.small.lineHeight,
           },
           medium: {
             size: large.hpe.heading.small.fontSize,
             height: large.hpe.heading.small.lineHeight,
           },
           large: {
-            size: large.hpe.heading.medium.fontSize,
-            height: large.hpe.heading.medium.lineHeight,
-          },
-          xlarge: {
             size: large.hpe.heading.large.fontSize,
             height: large.hpe.heading.large.lineHeight,
+          },
+          xlarge: {
+            size: large.hpe.heading.xlarge.fontSize,
+            height: large.hpe.heading.xlarge.lineHeight,
           },
         },
         5: {
           font: {
             weight: large.hpe.heading.xsmall.fontWeight,
           },
-          small: {
+          xxsmall: {
             size: large.hpe.heading.xxsmall.fontSize,
             height: large.hpe.heading.xxsmall.lineHeight,
+          },
+          xsmall: {
+            size: large.hpe.heading.xsmall.fontSize,
+            height: large.hpe.heading.xsmall.lineHeight,
+          },
+          small: {
+            size: large.hpe.heading.small.fontSize,
+            height: large.hpe.heading.small.lineHeight,
           },
           medium: {
             size: large.hpe.heading.xsmall.fontSize,
             height: large.hpe.heading.xsmall.lineHeight,
           },
           large: {
-            size: large.hpe.heading.small.fontSize,
-            height: large.hpe.heading.small.lineHeight,
+            size: large.hpe.heading.large.fontSize,
+            height: large.hpe.heading.large.lineHeight,
           },
           xlarge: {
-            size: large.hpe.heading.medium.fontSize,
-            height: large.hpe.heading.medium.lineHeight,
+            size: large.hpe.heading.xlarge.fontSize,
+            height: large.hpe.heading.xlarge.lineHeight,
           },
         },
         6: {
           font: {
             weight: large.hpe.heading.xxsmall.fontWeight,
           },
-          small: {
+          xxsmall: {
             size: large.hpe.heading.xxsmall.fontSize,
             height: large.hpe.heading.xxsmall.lineHeight,
+          },
+          xsmall: {
+            size: large.hpe.heading.xsmall.fontSize,
+            height: large.hpe.heading.xsmall.lineHeight,
+          },
+          small: {
+            size: large.hpe.heading.small.fontSize,
+            height: large.hpe.heading.small.lineHeight,
           },
           medium: {
             size: large.hpe.heading.xxsmall.fontSize,
             height: large.hpe.heading.xxsmall.lineHeight,
           },
           large: {
-            size: large.hpe.heading.small.fontSize,
+            size: large.hpe.heading.large.fontSize,
             height: large.hpe.heading.small.lineHeight,
           },
           xlarge: {
-            size: large.hpe.heading.medium.fontSize,
-            height: large.hpe.heading.medium.lineHeight,
+            size: large.hpe.heading.xlarge.fontSize,
+            height: large.hpe.heading.xlarge.lineHeight,
           },
         },
       },
-      extend: () => '',
+      // TO DO build in responsive styles here
+      extend: ({ size, weight }) => {
+        let style = '';
+        let fontSize = '';
+        let lineHeight = '';
+        let fontWeight = '';
+        if (size) {
+          fontSize = large.hpe.heading[size].fontSize;
+          lineHeight = large.hpe.heading[size].lineHeight;
+          fontWeight = large.hpe.heading[size].fontWeight;
+        }
+        if (fontWeight && !weight) style += `font-weight: ${fontWeight};`;
+        if (fontSize) style += `font-size: ${fontSize};`;
+        if (lineHeight) style += `line-height: ${lineHeight};`;
+        return style;
+      },
     },
     icon: {
       disableScaleDown: true,
@@ -2953,7 +3021,7 @@ const buildTheme = (tokens, flags) => {
     },
     tag: {
       border: {
-        color: 'transparent',
+        color: 'border-weak',
       },
       icons: {
         remove: Close,

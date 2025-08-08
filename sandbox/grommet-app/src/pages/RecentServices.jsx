@@ -1,19 +1,8 @@
 import { useState } from 'react';
-import {
-  Anchor,
-  List,
-  Grid,
-  Text,
-  Heading,
-  Box,
-  Button,
-  Skeleton,
-  CardBody,
-  Menu,
-} from 'grommet';
+import { Anchor, List, Grid, Text, Box, Button, Skeleton } from 'grommet';
 import { Link } from 'react-router-dom';
 import services from '../mockData/services.json';
-import { Apps, List as ListIcon, More } from 'grommet-icons';
+import { Apps, List as ListIcon } from 'grommet-icons';
 import { Card } from '../components';
 import ContentPane from '../components/ContentPane';
 import { useLoading, skeleton as skeletonAnimation } from '../utils/skeleton';
@@ -34,7 +23,7 @@ export const RecentServices = ({ compact }) => {
 
   if (compact)
     return (
-      <Card title="Recent services" level={2}>
+      <Card title="Recent services" level={2} onClick={() => {}}>
         <List
           data={recentServices}
           defaultItemProps={{
