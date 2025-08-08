@@ -2350,7 +2350,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.default.xsmall.borderWidth}",
+          "$value": "{static.borderWidth.small}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2558,7 +2558,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.medium}",
+          "$value": "{static.borderWidth.small}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2742,7 +2742,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 2,
+          "$value": 4,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2766,7 +2766,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.medium}",
+          "$value": "{static.borderWidth.small}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2950,7 +2950,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 6,
+          "$value": 8,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2974,7 +2974,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.medium}",
+          "$value": "{static.borderWidth.small}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3268,7 +3268,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 20,
+          "$value": 19,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3292,7 +3292,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{button.default.xlarge.borderWidth}",
+          "$value": "{static.borderWidth.small}",
           "$description": "",
           "$extensions": {
             "com.figma": {
