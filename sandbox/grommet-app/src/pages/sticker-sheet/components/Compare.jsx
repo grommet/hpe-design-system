@@ -14,14 +14,14 @@ export const Compare = ({ children, ...rest }) => {
         <Grommet
           theme={themes.v1}
           themeMode={theme.dark ? 'dark' : 'light'}
-          background="transparent"
+          background={theme.dark ? 'background-front' : 'transparent'}
         >
           <Box align="start">{children}</Box>
         </Grommet>
         <Grommet
           theme={themes.v2}
           themeMode={theme.dark ? 'dark' : 'light'}
-          background="transparent"
+          background={theme.dark ? 'background-front' : 'transparent'}
         >
           <Box align="start">{children}</Box>
         </Grommet>

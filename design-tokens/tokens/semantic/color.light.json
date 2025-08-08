@@ -233,7 +233,7 @@
         "strong": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkGrey.1000Updated}",
+            "$value": "{base.color.landmarkGreen.700Updated}",
             "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
             "$extensions": {
               "com.figma": {
@@ -245,7 +245,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.landmarkGrey.800Updated}",
+            "$value": "{base.color.landmarkGreen.800}",
             "$description": "Hover variant of background-primary.",
             "$extensions": {
               "com.figma": {
@@ -259,7 +259,7 @@
         "xstrong": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.1000}",
+            "$value": "{base.color.landmarkGreen.1000}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -276,7 +276,7 @@
           "strong": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.green.700}",
+              "$value": "{base.color.landmarkGreen.700Updated}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -288,7 +288,7 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{base.color.green.800}",
+              "$value": "{base.color.landmarkGreen.800}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -328,6 +328,20 @@
         }
       },
       "neutral": {
+        "strong": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.landmarkGrey.800Updated}",
+            "$description": "Highest emphasis variant of neutral palette.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
         "xstrong": {
           "REST": {
             "$type": "color",

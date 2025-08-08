@@ -328,6 +328,20 @@
         }
       },
       "neutral": {
+        "strong": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.grey.1000}",
+            "$description": "Highest emphasis variant of neutral palette.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
         "xstrong": {
           "REST": {
             "$type": "color",

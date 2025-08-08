@@ -791,68 +791,6 @@
           }
         }
       },
-      "landmarkPurple": {
-        "100": {
-          "$type": "color",
-          "$value": "#ffffff",
-          "$description": "Purple 3",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "200": {
-          "$type": "color",
-          "$value": "#ffffff",
-          "$description": "Purple 2",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "300": {
-          "$type": "color",
-          "$value": "#ffffff",
-          "$description": "Purple",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "400": {
-          "$type": "color",
-          "$value": "#ffffff",
-          "$description": "Purple 4",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "500": {
-          "$type": "color",
-          "$value": "#ffffff",
-          "$description": "Purple 5",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        }
-      },
       "landmarkGold": {
         "100": {
           "$type": "color",
@@ -927,7 +865,69 @@
           }
         }
       },
-      "landmarkPlum": {
+      "landmarkPurple": {
+        "100": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "$description": "Purple 3",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "200": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "$description": "Purple 2",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "300": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "$description": "Purple",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "400": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "$description": "Purple 4",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "500": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "$description": "Purple 5",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "landmarkFuschia": {
         "100": {
           "$type": "color",
           "$value": "#ffffff",
@@ -989,7 +989,7 @@
           }
         }
       },
-      "landmarkFuschia": {
+      "landmarkPlum": {
         "100": {
           "$type": "color",
           "$value": "#ffffff",
@@ -1222,7 +1222,7 @@
             }
           }
         },
-        "550(new color)": {
+        "550New": {
           "$type": "color",
           "$value": "#05cc93",
           "$description": "",

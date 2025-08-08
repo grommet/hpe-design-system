@@ -2953,7 +2953,7 @@ const buildTheme = (tokens, flags) => {
         border: undefined,
         // padding-bottom ensures the marker is not cut off by subsequent
         // page elements.
-        extend: () => `
+        extend: ({ theme }) => `
         padding-bottom: ${large.hpe.borderWidth.medium};
         & button[aria-selected="true"] {
             position: relative;
@@ -2966,7 +2966,11 @@ const buildTheme = (tokens, flags) => {
               bottom: -${large.hpe.borderWidth.medium};
               left: 0;
               right: 0;
-              background: ${light.hpe.color.border.selected};
+              background: ${
+                theme.dark
+                  ? dark.hpe.color.border.selected
+                  : light.hpe.color.border.selected
+              };
             }
             }`,
       },
