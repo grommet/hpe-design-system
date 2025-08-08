@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Grommet,
   Box,
@@ -7,37 +7,36 @@ import {
   Select,
   FormField,
   TextInput,
-} from "grommet";
-import { Add } from "grommet-icons";
-import { hpe } from "grommet-theme-hpe";
+} from 'grommet';
+import { Add } from 'grommet-icons';
+import { hpe } from 'grommet-theme-hpe';
 
-const kindOptions = ["primary", "secondary", "default", "toolbar"];
+const kindOptions = ['primary', 'secondary', 'default', 'toolbar'];
 const sizeOptions = [
-  { label: "xsmall", value: "xsmall" },
-  { label: "small", value: "small" },
-  { label: "medium", value: "medium" },
-  { label: "large", value: "large" },
-  { label: "xlarge", value: "xlarge" },
-  { label: "xxlarge", value: "xxlarge" },
+  { label: 'xsmall', value: 'xsmall' },
+  { label: 'small', value: 'small' },
+  { label: 'medium', value: 'medium' },
+  { label: 'large', value: 'large' },
+  { label: 'xlarge', value: 'xlarge' },
 ];
 
 const getKindProps = (kind) => {
   switch (kind) {
-    case "primary":
+    case 'primary':
       return { primary: true };
-    case "secondary":
+    case 'secondary':
       return { secondary: true };
-    case "default":
+    case 'default':
       return { default: true };
-    case "toolbar":
-      return { kind: "toolbar" };
+    case 'toolbar':
+      return { kind: 'toolbar' };
     default:
       return {};
   }
 };
 
-function GrommetButtonPlayground() {
-  const [kind, setKind] = useState("primary");
+export const ButtonExample = () => {
+  const [kind, setKind] = useState('primary');
   const [active, setActive] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [badge, setBadge] = useState(false);
@@ -45,18 +44,18 @@ function GrommetButtonPlayground() {
   const [badgeMax, setBadgeMax] = useState(9);
   const [busy, setBusy] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [label, setLabel] = useState("Click me");
-  const [size, setSize] = useState("medium");
+  const [label, setLabel] = useState('Click me');
+  const [size, setSize] = useState('medium');
   const [showIcon, setShowIcon] = useState(false);
   const [reverse, setReverse] = useState(false);
-  const [a11yTitle, setA11yTitle] = useState("");
-  const [href, setHref] = useState("");
+  const [a11yTitle, setA11yTitle] = useState('');
+  const [href, setHref] = useState('');
 
   const generateButtonJSX = () => {
     const props = [];
 
-    props.push(`label="${label}"`);
-    if (size) props.push(`size="${size}"`);
+    props.push(`label='${label}'`);
+    if (size) props.push(`size='${size}'`);
     if (active) props.push(`active`);
     if (disabled) props.push(`disabled`);
     if (badge) {
@@ -65,37 +64,37 @@ function GrommetButtonPlayground() {
     if (busy) props.push(`busy`);
     if (showIcon) props.push(`icon={<Add />}`);
     if (reverse) props.push(`reverse`);
-    if (a11yTitle) props.push(`a11yTitle="${a11yTitle}"`);
-    if (href) props.push(`href="${href}"`);
+    if (a11yTitle) props.push(`a11yTitle='${a11yTitle}'`);
+    if (href) props.push(`href='${href}'`);
     if (success || busy) {
       props.push(
-        `messages={{ busy: "button is in a busy state", success: "button action succeeded" }}`
+        `messages={{ busy: 'button is in a busy state', success: 'button action succeeded' }}`
       );
     }
 
     switch (kind) {
-      case "primary":
+      case 'primary':
         props.push(`primary`);
         break;
-      case "secondary":
+      case 'secondary':
         props.push(`secondary`);
         break;
-      case "default":
+      case 'default':
         props.push(`default`);
         break;
-      case "toolbar":
-        props.push(`kind="toolbar"`);
+      case 'toolbar':
+        props.push(`kind='toolbar'`);
         break;
     }
 
-    return `<Button ${props.join(" ")} />`;
+    return `<Button ${props.join(' ')} />`;
   };
 
   return (
     <Grommet theme={hpe} >
-      <Box direction="row" width="1200px" responsive pad="medium" gap="medium" >
+      <Box direction='row' width='1200px' responsive pad='medium' gap='medium' >
         {/* LEFT: Button Preview */}
-        <Box flex align="center" justify="center" background="background">
+        <Box flex align='center' justify='center' background='background'>
           <Button
             label={label}
             size={size}
@@ -106,8 +105,8 @@ function GrommetButtonPlayground() {
             busy={busy}
             success={success}
             messages={{
-              busy: "button is in a busy state",
-              success: "button action succeeded",
+              busy: 'button is in a busy state',
+              success: 'button action succeeded',
             }}
             reverse={reverse}
             a11yTitle={a11yTitle || undefined}
@@ -118,30 +117,30 @@ function GrommetButtonPlayground() {
 
         {/* RIGHT: Control Panel */}
         <Box
-          width="medium"
-          gap="xxsmall"
-          background="background-back"
-          pad="small"
-          round="small"
+          width='medium'
+          gap='xxsmall'
+          background='background-back'
+          pad='small'
+          round='small'
         >
-          <FormField label="Button Label">
+          <FormField label='Button Label'>
             <TextInput
               value={label}
               onChange={(event) => setLabel(event.target.value)}
             />
           </FormField>
-          <FormField label="Button Kind">
+          <FormField label='Button Kind'>
             <Select
               options={kindOptions}
               value={kind}
               onChange={({ option }) => setKind(option)}
             />
           </FormField>
-          <FormField label="Size">
+          <FormField label='Size'>
             <Select
               options={sizeOptions}
-              labelKey="label"
-              valueKey={{ key: "value", reduce: true }}
+              labelKey='label'
+              valueKey={{ key: 'value', reduce: true }}
               value={size}
               onChange={({ option }) => {
                 if (!option.disabled) setSize(option.value);
@@ -149,7 +148,7 @@ function GrommetButtonPlayground() {
             />
           </FormField>
 
-          <FormField label="a11yTitle">
+          <FormField label='a11yTitle'>
             <TextInput
               value={a11yTitle}
               onChange={(e) => setA11yTitle(e.target.value)}
@@ -157,15 +156,15 @@ function GrommetButtonPlayground() {
           </FormField>
 
           <CheckBox
-            label="Show Icon"
+            label='Show Icon'
             checked={showIcon}
             onChange={(e) => setShowIcon(e.target.checked)}
           />
 
           {showIcon && (
-            <Box pad={{ left: "large" }} gap="xsmall">
+            <Box pad={{ left: 'large' }} gap='xsmall'>
               <CheckBox
-                label="Reverse icon order"
+                label='Reverse icon order'
                 checked={reverse}
                 onChange={(e) => setReverse(e.target.checked)}
               />
@@ -173,19 +172,19 @@ function GrommetButtonPlayground() {
           )}
 
           <CheckBox
-            label="Active"
+            label='Active'
             checked={active}
             onChange={(event) => setActive(event.target.checked)}
           />
 
           <CheckBox
-            label="Disabled"
+            label='Disabled'
             checked={disabled}
             onChange={(e) => setDisabled(e.target.checked)}
           />
 
           <CheckBox
-            label="Busy"
+            label='Busy'
             checked={busy}
             onChange={(event) => {
               const isChecked = event.target.checked;
@@ -195,7 +194,7 @@ function GrommetButtonPlayground() {
           />
 
           <CheckBox
-            label="Success"
+            label='Success'
             checked={success}
             onChange={(event) => {
               const isChecked = event.target.checked;
@@ -205,53 +204,51 @@ function GrommetButtonPlayground() {
           />
 
           <CheckBox
-            label="Show Badge"
+            label='Show Badge'
             checked={badge}
             onChange={(e) => setBadge(e.target.checked)}
           />
 
           {badge && (
-            <Box pad={{ left: "large" }} gap="xsmall" direction="row">
-              <FormField label="Badge value">
+            <Box pad={{ left: 'large' }} gap='xsmall' direction='row'>
+              <FormField label='Badge value'>
                 <TextInput
-                  type="number"
+                  type='number'
                   value={badgeValue}
                   onChange={(e) => setBadgeValue(Number(e.target.value))}
                 />
               </FormField>
               <FormField
-                label="Max value (default is 9)"
-                //info="Default max value in HPE theme is 9"
+                label='Max value (default is 9)'
+                //info='Default max value in HPE theme is 9'
               >
                 <TextInput
-                  type="number"
+                  type='number'
                   value={badgeMax}
                   onChange={(e) => setBadgeMax(Number(e.target.value))}
                 />
               </FormField>
             </Box>
           )}
-          <Box pad="xsmall" round="small">
+          <Box pad='xsmall' round='small'>
             <FormField
-              label="href (link)"
-              help="converts button to styled link"
+              label='href (link)'
+              help='converts button to styled link'
             >
               <TextInput
                 value={href}
                 onChange={(e) => setHref(e.target.value)}
-                placeholder="https://example.com"
+                placeholder='https://example.com'
               />
             </FormField>
           </Box>
         </Box>
       </Box>
-      <Box pad="medium" background="dark-1" round="small" margin="medium">
-        <code style={{ whiteSpace: "pre-wrap", fontFamily: "monospace" }}>
+      <Box pad='medium' background='dark-1' round='small' margin='medium'>
+        <code style={{ whiteSpace: 'pre-wrap', fontFamily: 'monospace' }}>
           {generateButtonJSX()}
         </code>
       </Box>
     </Grommet>
   );
 }
-// Keep your function name as is, then add this at the bottom:
-export { GrommetButtonPlayground as ButtonExample };
