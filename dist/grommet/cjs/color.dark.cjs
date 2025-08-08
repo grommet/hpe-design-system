@@ -22,14 +22,15 @@ module.exports = {
         "critical": "#552120",
         "unknown": "rgba(255, 255, 255, 0.06)",
         "info": "#2b3547",
-        "primary-strong": "#ffffff",
-        "primary-strong-hover": "#f7f7f7",
+        "primary-strong": "#007c60",
+        "primary-strong-hover": "#00513f",
         "primary-xstrong": "#093a2f",
         "selected-primary-strong": "#007c60",
         "selected-primary-strong-hover": "#00513f",
         "selected-primary": "#093a2f",
         "selected-primary-hover": "#074b3b",
-        "neutral-xstrong": "#f7f7f7"
+        "neutral-strong": "#e6e8e9",
+        "neutral-xstrong": "#ffffff"
       },
       "border": {
         "strong": "rgba(255, 255, 255, 0.72)",

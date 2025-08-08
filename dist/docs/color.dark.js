@@ -724,7 +724,7 @@ export default {
   },
   "hpe.color.background.primary.strong": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#007c60",
     "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
     "$extensions": {
       "com.figma": {
@@ -740,7 +740,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.white.100}",
+      "$value": "#007c60",
       "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
       "$extensions": {
         "com.figma": {
@@ -772,7 +772,7 @@ export default {
   },
   "hpe.color.background.primary.strong.hover": {
     "$type": "color",
-    "$value": "#f7f7f7",
+    "$value": "#00513f",
     "$description": "Hover variant of background-primary.",
     "$extensions": {
       "com.figma": {
@@ -788,7 +788,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.landmarkGrey.50}",
+      "$value": "#00513f",
       "$description": "Hover variant of background-primary.",
       "$extensions": {
         "com.figma": {
@@ -1062,9 +1062,9 @@ export default {
     ],
     "key": "{color.background.selected.primary.DEFAULT.hover}"
   },
-  "hpe.color.background.neutral.xstrong": {
+  "hpe.color.background.neutral.strong": {
     "$type": "color",
-    "$value": "#f7f7f7",
+    "$value": "#e6e8e9",
     "$description": "Highest emphasis variant of neutral palette.",
     "$extensions": {
       "com.figma": {
@@ -1079,7 +1079,53 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.50}",
+      "$value": "{base.color.landmarkGrey.200}",
+      "$description": "Highest emphasis variant of neutral palette.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.neutral.strong",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "neutral",
+      "subitem": "strong",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "neutral",
+      "strong",
+      "REST"
+    ],
+    "key": "{color.background.neutral.strong.REST}"
+  },
+  "hpe.color.background.neutral.xstrong": {
+    "$type": "color",
+    "$value": "#ffffff",
+    "$description": "Highest emphasis variant of neutral palette.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
       "$description": "Highest emphasis variant of neutral palette.",
       "$extensions": {
         "com.figma": {
@@ -1875,7 +1921,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.landmarkGreen.550(new color)}",
+      "$value": "{base.color.landmarkGreen.550New}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3233,7 +3279,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.landmarkGreen.550(new color)}",
+      "$value": "{base.color.landmarkGreen.550New}",
       "$description": "Use for icons communicating success. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -3383,7 +3429,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.landmarkGreen.550(new color)}",
+      "$value": "{base.color.landmarkGreen.550New}",
       "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
       "$extensions": {
         "com.figma": {
@@ -4499,7 +4545,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.landmarkGreen.550(new color)}",
+      "$value": "{base.color.landmarkGreen.550New}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4541,7 +4587,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.landmarkGreen.550(new color)}",
+      "$value": "{base.color.landmarkGreen.550New}",
       "$description": "",
       "$extensions": {
         "com.figma": {

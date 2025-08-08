@@ -136,14 +136,14 @@ module.exports = {
         "lineHeight": "2rem"
       },
       "large": {
-        "fontWeight": 400,
+        "fontWeight": 500,
         "fontSize": "1.5rem",
         "lineHeight": "1.75rem"
       },
       "medium": {
         "fontSize": "1.25rem",
         "lineHeight": "1.5rem",
-        "fontWeight": 400
+        "fontWeight": 500
       },
       "small": {
         "fontSize": "1.125rem",
@@ -153,12 +153,12 @@ module.exports = {
       "xsmall": {
         "fontSize": "1rem",
         "lineHeight": "1.125rem",
-        "fontWeight": 600
+        "fontWeight": 500
       },
       "xxsmall": {
         "fontSize": "1rem",
         "lineHeight": "1.125rem",
-        "fontWeight": 600
+        "fontWeight": 500
       }
     }
   }

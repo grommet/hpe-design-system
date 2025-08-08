@@ -724,7 +724,7 @@ export default {
   },
   "hpe.color.background.primary.strong": {
     "$type": "color",
-    "$value": "#292d3a",
+    "$value": "#068667",
     "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
     "$extensions": {
       "com.figma": {
@@ -740,7 +740,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.landmarkGrey.1000Updated}",
+      "$value": "{base.color.landmarkGreen.700Updated}",
       "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
       "$extensions": {
         "com.figma": {
@@ -772,7 +772,7 @@ export default {
   },
   "hpe.color.background.primary.strong.hover": {
     "$type": "color",
-    "$value": "#3e4550",
+    "$value": "#006750",
     "$description": "Hover variant of background-primary.",
     "$extensions": {
       "com.figma": {
@@ -788,7 +788,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.landmarkGrey.800Updated}",
+      "$value": "{base.color.landmarkGreen.800}",
       "$description": "Hover variant of background-primary.",
       "$extensions": {
         "com.figma": {
@@ -836,7 +836,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.1000}",
+      "$value": "{base.color.landmarkGreen.1000}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -868,7 +868,7 @@ export default {
   },
   "hpe.color.background.selected.primary.strong": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#068667",
     "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
     "$extensions": {
       "com.figma": {
@@ -884,7 +884,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.700}",
+      "$value": "{base.color.landmarkGreen.700Updated}",
       "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
@@ -933,7 +933,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.800}",
+      "$value": "{base.color.landmarkGreen.800}",
       "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
       "$extensions": {
         "com.figma": {
@@ -1061,6 +1061,52 @@ export default {
       "hover"
     ],
     "key": "{color.background.selected.primary.DEFAULT.hover}"
+  },
+  "hpe.color.background.neutral.strong": {
+    "$type": "color",
+    "$value": "#3e4550",
+    "$description": "Highest emphasis variant of neutral palette.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.light.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.landmarkGrey.800Updated}",
+      "$description": "Highest emphasis variant of neutral palette.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.neutral.strong",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "neutral",
+      "subitem": "strong",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "neutral",
+      "strong",
+      "REST"
+    ],
+    "key": "{color.background.neutral.strong.REST}"
   },
   "hpe.color.background.neutral.xstrong": {
     "$type": "color",
@@ -4162,7 +4208,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.30": {
     "$type": "color",
-    "$value": "#6c2b7c",
+    "$value": "#b0840d",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4177,7 +4223,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.LandMarkDataVis.plum}",
+      "$value": "{base.color.LandMarkDataVis.gold1}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4209,7 +4255,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.40": {
     "$type": "color",
-    "$value": "#b38a29",
+    "$value": "#0055da",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4224,7 +4270,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.LandMarkDataVis.gold1}",
+      "$value": "{base.color.LandMarkDataVis.blue1}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4256,7 +4302,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.50": {
     "$type": "color",
-    "$value": "#0055da",
+    "$value": "#ad4089",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4271,7 +4317,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.LandMarkDataVis.blue1}",
+      "$value": "{base.color.LandMarkDataVis.fuschia}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4303,7 +4349,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.60": {
     "$type": "color",
-    "$value": "#009eac",
+    "$value": "#04909d",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4350,7 +4396,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.70": {
     "$type": "color",
-    "$value": "#a32279",
+    "$value": "#d17243",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4365,7 +4411,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.LandMarkDataVis.fuschia}",
+      "$value": "{base.color.LandMarkDataVis.orange}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4397,7 +4443,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.80": {
     "$type": "color",
-    "$value": "#d17243",
+    "$value": "#6c2b7c",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4412,7 +4458,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.LandMarkDataVis.orange}",
+      "$value": "{base.color.LandMarkDataVis.plum}",
       "$description": "",
       "$extensions": {
         "com.figma": {

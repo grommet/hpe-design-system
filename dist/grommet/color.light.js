@@ -22,13 +22,14 @@ export default {
         "critical": "#ffecec",
         "unknown": "rgba(0, 0, 0, 0.04)",
         "info": "#e3f1ff",
-        "primary-strong": "#292d3a",
-        "primary-strong-hover": "#3e4550",
+        "primary-strong": "#068667",
+        "primary-strong-hover": "#006750",
         "primary-xstrong": "#093a2f",
-        "selected-primary-strong": "#008567",
+        "selected-primary-strong": "#068667",
         "selected-primary-strong-hover": "#006750",
         "selected-primary": "#d1ffee",
         "selected-primary-hover": "#aafade",
+        "neutral-strong": "#3e4550",
         "neutral-xstrong": "#2e2e2e"
       },
       "border": {
@@ -105,12 +106,12 @@ export default {
       "dataVis": {
         "categorical-10": "#3c3aa1",
         "categorical-20": "#7764fc",
-        "categorical-30": "#6c2b7c",
-        "categorical-40": "#b38a29",
-        "categorical-50": "#0055da",
-        "categorical-60": "#009eac",
-        "categorical-70": "#a32279",
-        "categorical-80": "#d17243"
+        "categorical-30": "#b0840d",
+        "categorical-40": "#0055da",
+        "categorical-50": "#ad4089",
+        "categorical-60": "#04909d",
+        "categorical-70": "#d17243",
+        "categorical-80": "#6c2b7c"
       },
       "transparent": "rgba(0, 0, 0, 0)",
       "focus": "#292d3a",

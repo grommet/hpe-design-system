@@ -29,6 +29,7 @@ module.exports = {
         "selected-primary-strong-hover": "var(--hpe-color-background-selected-primary-strong-hover)",
         "selected-primary": "var(--hpe-color-background-selected-primary)",
         "selected-primary-hover": "var(--hpe-color-background-selected-primary-hover)",
+        "neutral-strong": "var(--hpe-color-background-neutral-strong)",
         "neutral-xstrong": "var(--hpe-color-background-neutral-xstrong)"
       },
       "border": {

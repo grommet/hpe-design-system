@@ -68,16 +68,17 @@
   --hpe-base-color-green-400-Opacity12: rgba(23, 235, 160, 0.12);
   --hpe-base-color-green-400-Opacity24: rgba(23, 235, 160, 0.24);
   --hpe-base-color-green-500-Opacity30: rgba(23, 208, 166, 0.3);
+  --hpe-base-color-landmarkGold-100: #f9cc61;
+  --hpe-base-color-landmarkGold-200: #ecbe4f;
+  --hpe-base-color-landmarkGold-300: #deb146;
+  --hpe-base-color-landmarkGold-400: #c89e3a;
+  --hpe-base-color-landmarkGold-500: #b38a29;
+  --hpe-base-color-landmarkGold-550: #b0840d;
   --hpe-base-color-landmarkPurple-100: #b7a2fc; /** Purple 3 */
   --hpe-base-color-landmarkPurple-200: #9b84fc; /** Purple 2 */
   --hpe-base-color-landmarkPurple-300: #7764fc; /** Purple */
   --hpe-base-color-landmarkPurple-400: #5d45d6; /** Purple 4 */
   --hpe-base-color-landmarkPurple-500: #3c3aa1; /** Purple 5 */
-  --hpe-base-color-landmarkCyan-100: #99f0f9;
-  --hpe-base-color-landmarkCyan-200: #62e5f6;
-  --hpe-base-color-landmarkCyan-300: #00dbe4;
-  --hpe-base-color-landmarkCyan-400: #00a4b3;
-  --hpe-base-color-landmarkCyan-500: #04909d;
   --hpe-base-color-landmarkFuschia-100: #fc9ddc;
   --hpe-base-color-landmarkFuschia-200: #db72b8;
   --hpe-base-color-landmarkFuschia-300: #cc54a4;
@@ -88,11 +89,11 @@
   --hpe-base-color-landmarkPlum-300: #873492;
   --hpe-base-color-landmarkPlum-400: #6c2b7c;
   --hpe-base-color-landmarkPlum-500: #5e1f68;
-  --hpe-base-color-landmarkGold-100: #f9cc61;
-  --hpe-base-color-landmarkGold-200: #ecbe4f;
-  --hpe-base-color-landmarkGold-300: #deb146;
-  --hpe-base-color-landmarkGold-400: #c89e3a;
-  --hpe-base-color-landmarkGold-Color: #b38a29;
+  --hpe-base-color-landmarkCyan-100: #99f0f9;
+  --hpe-base-color-landmarkCyan-200: #62e5f6;
+  --hpe-base-color-landmarkCyan-300: #00dbe4;
+  --hpe-base-color-landmarkCyan-400: #00a4b3;
+  --hpe-base-color-landmarkCyan-500: #04909d;
   --hpe-base-color-landmarkGreen-650: #009a71;
   --hpe-base-color-landmarkGreen-800: #006750;
   --hpe-base-color-landmarkGreen-900: #074b3b;
@@ -102,13 +103,14 @@
   --hpe-base-color-landmarkGreen-400Same: #00e0af;
   --hpe-base-color-landmarkGreen-450Updated: #66ebcf;
   --hpe-base-color-landmarkGreen-500Updated: #00e0af; /** Landmark Primary Green */
-  --hpe-base-color-landmarkGreen-550(new color): #05cc93;
+  --hpe-base-color-landmarkGreen-550New: #05cc93;
   --hpe-base-color-landmarkGreen-600Same: #01a982; /** HPE Brand */
   --hpe-base-color-landmarkGreen-700Updated: #068667;
   --hpe-base-color-landmarkGreen-400-Opacity12: rgba(23, 235, 160, 0.12);
   --hpe-base-color-landmarkGreen-400-Opacity24: rgba(23, 235, 160, 0.24);
   --hpe-base-color-landmarkGreen-500-Opacity30: rgba(23, 208, 166, 0.3);
   --hpe-base-color-landmarkGrey-50: #f7f7f7;
+  --hpe-base-color-landmarkGrey-200: #e6e8e9;
   --hpe-base-color-landmarkGrey-1100: #292929;
   --hpe-base-color-landmarkGrey-1200: #222222;
   --hpe-base-color-landmarkGrey-400Updated: #d4d8db;
@@ -184,8 +186,6 @@
   --hpe-base-color-dataVis-pink2: #c0649a;
   --hpe-base-color-dataVis-blue2: #1f95e4;
   --hpe-base-color-dataVis-purple3: #855aaa;
-  --hpe-base-color-LandMarkDataVis-cyan: #009eac;
-  --hpe-base-color-LandMarkDataVis-fuschia: #a32279;
   --hpe-base-color-LandMarkDataVis-orange: #d17243;
   --hpe-base-fontFamily-MetricHPEXS: HPE Graphik;
   --hpe-base-fontFamily-code: Fira Mono;
@@ -217,8 +217,10 @@
   --hpe-base-color-LandMarkDataVis-darkblue1: var(--hpe-base-color-landmarkPurple-500);
   --hpe-base-color-LandMarkDataVis-purple1: var(--hpe-base-color-landmarkPurple-300);
   --hpe-base-color-LandMarkDataVis-plum: var(--hpe-base-color-landmarkPlum-400);
-  --hpe-base-color-LandMarkDataVis-gold1: var(--hpe-base-color-landmarkGold-Color);
+  --hpe-base-color-LandMarkDataVis-gold1: var(--hpe-base-color-landmarkGold-550);
   --hpe-base-color-LandMarkDataVis-blue1: var(--hpe-base-color-landmarkBlue-700updated);
+  --hpe-base-color-LandMarkDataVis-cyan: var(--hpe-base-color-landmarkCyan-500);
+  --hpe-base-color-LandMarkDataVis-fuschia: var(--hpe-base-color-landmarkFuschia-400);
   --hpe-static-spacing-none: var(--hpe-base-dimension-0);
   --hpe-static-spacing-hair: var(--hpe-base-dimension-25);
   --hpe-static-spacing-5xsmall: var(--hpe-base-dimension-75);

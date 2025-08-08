@@ -55,16 +55,16 @@
   --hpe-text-5xlarge-lineHeight: var(--hpe-base-lineHeight-900);
   --hpe-text-5xlarge-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-heading-xlarge-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h1. */
-  --hpe-heading-large-fontWeight: var(--hpe-fontWeight-regular); /** Font weight typically used on h2. */
+  --hpe-heading-large-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h2. */
   --hpe-heading-large-fontSize: var(--hpe-base-fontSize-500); /** Font size typically used on h2. */
   --hpe-heading-medium-fontSize: var(--hpe-base-fontSize-400); /** Font size typically used on h3. */
-  --hpe-heading-medium-fontWeight: var(--hpe-fontWeight-regular); /** Font weight typically used on h3. */
+  --hpe-heading-medium-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h3. */
   --hpe-heading-small-fontSize: var(--hpe-base-fontSize-200); /** Font size typically used on h4. */
   --hpe-heading-small-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h4. */
   --hpe-heading-xsmall-fontSize: var(--hpe-base-fontSize-100); /** Font size typically used on h5. */
   --hpe-heading-xsmall-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h5. */
   --hpe-heading-xxsmall-fontSize: var(--hpe-base-fontSize-90); /** Font size typically used on h6. */
-  --hpe-heading-xxsmall-fontWeight: var(--hpe-fontWeight-semibold); /** Font weight typically used on h6. */
+  --hpe-heading-xxsmall-fontWeight: var(--hpe-fontWeight-medium); /** Font weight typically used on h6. */
   --hpe-spacing-none: var(--hpe-static-spacing-none);
   --hpe-spacing-hair: var(--hpe-static-spacing-hair);
   --hpe-spacing-5xsmall: var(--hpe-static-spacing-5xsmall);

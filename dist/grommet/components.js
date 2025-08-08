@@ -195,10 +195,10 @@ export default {
     "button": {
       "primary": {
         "rest": {
-          "background": "background-primary-strong",
+          "background": "background-neutral-xstrong",
           "borderColor": "transparent",
-          "textColor": "text-onPrimaryStrong",
-          "iconColor": "icon-onPrimaryStrong",
+          "textColor": "text-onStrong",
+          "iconColor": "text-onStrong",
           "fontWeight": 500
         },
         "disabled": {
@@ -211,10 +211,10 @@ export default {
           }
         },
         "hover": {
-          "background": "background-primary-strong-hover",
+          "background": "background-neutral-strong",
           "borderColor": "transparent",
-          "textColor": "text-onPrimaryStrong",
-          "iconColor": "icon-onPrimaryStrong",
+          "textColor": "text-onStrong",
+          "iconColor": "icon-onStrong",
           "fontWeight": 500
         },
         "selected": {
@@ -383,7 +383,7 @@ export default {
           "paddingX": "12px",
           "paddingY": "3px",
           "borderRadius": "9999px",
-          "borderWidth": "default",
+          "borderWidth": "2px",
           "minHeight": "24px",
           "fontSize": "0.75rem",
           "lineHeight": "1rem",
@@ -392,7 +392,7 @@ export default {
             "paddingX": "4px",
             "paddingY": "4px",
             "borderRadius": "9999px",
-            "borderWidth": "default",
+            "borderWidth": "2px",
             "minHeight": "24px",
             "minWidth": "24px",
             "fontSize": "0.75rem",
@@ -404,7 +404,7 @@ export default {
           "paddingX": "12px",
           "paddingY": "3px",
           "borderRadius": "9999px",
-          "borderWidth": "4px",
+          "borderWidth": "2px",
           "minHeight": "28px",
           "fontSize": "0.875rem",
           "lineHeight": "1.25rem",
@@ -413,7 +413,7 @@ export default {
             "paddingX": "5px",
             "paddingY": "5px",
             "borderRadius": "9999px",
-            "borderWidth": "4px",
+            "borderWidth": "2px",
             "minHeight": "28px",
             "minWidth": "28px",
             "fontSize": "0.875rem",
@@ -423,9 +423,9 @@ export default {
         },
         "medium": {
           "paddingX": "18px",
-          "paddingY": "2px",
+          "paddingY": "4px",
           "borderRadius": "9999px",
-          "borderWidth": "4px",
+          "borderWidth": "2px",
           "minHeight": "36px",
           "fontSize": "1rem",
           "lineHeight": "1.5rem",
@@ -434,7 +434,7 @@ export default {
             "paddingX": "8px",
             "paddingY": "8px",
             "borderRadius": "9999px",
-            "borderWidth": "4px",
+            "borderWidth": "2px",
             "minHeight": "36px",
             "minWidth": "36px",
             "fontSize": "1rem",
@@ -444,16 +444,16 @@ export default {
         },
         "large": {
           "paddingX": "24px",
-          "paddingY": "6px",
+          "paddingY": "8px",
           "borderRadius": "9999px",
-          "borderWidth": "4px",
+          "borderWidth": "2px",
           "minHeight": "48px",
           "fontSize": "1.125rem",
           "lineHeight": "1.75rem",
           "gapX": "6px",
           "iconOnly": {
             "borderRadius": "9999px",
-            "borderWidth": "4px",
+            "borderWidth": "2px",
             "minHeight": "48px",
             "minWidth": "48px",
             "fontSize": "1.125rem",
@@ -466,7 +466,7 @@ export default {
         "xlarge": {
           "iconOnly": {
             "borderRadius": "9999px",
-            "borderWidth": "1px",
+            "borderWidth": "2px",
             "minHeight": "72px",
             "minWidth": "72px",
             "fontSize": "1.25rem",
@@ -476,9 +476,9 @@ export default {
             "paddingY": "23px"
           },
           "paddingX": "32px",
-          "paddingY": "20px",
+          "paddingY": "19px",
           "borderRadius": "9999px",
-          "borderWidth": "1px",
+          "borderWidth": "2px",
           "minHeight": "72px",
           "fontSize": "1.25rem",
           "lineHeight": "1.875rem",
@@ -888,12 +888,12 @@ export default {
             "rest": {
               "background": "background-selected-primary-strong",
               "borderColor": "transparent",
-              "iconColor": "icon-onPrimaryStrong"
+              "iconColor": "icon-onSelectedPrimaryStrong"
             },
             "hover": {
               "background": "background-selected-primary-strong-hover",
               "borderColor": "transparent",
-              "iconColor": "icon-onPrimaryStrong"
+              "iconColor": "icon-onSelectedPrimaryStrong"
             }
           }
         },

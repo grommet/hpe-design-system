@@ -5131,7 +5131,7 @@ export default {
   },
   "hpe.button.primary.rest.background": {
     "$type": "color",
-    "$value": "#292d3a",
+    "$value": "#2e2e2e",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -5147,7 +5147,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.primary.strong.REST}",
+      "$value": "{color.background.neutral.xstrong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5238,7 +5238,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.onPrimaryStrong.DEFAULT.REST}",
+      "$value": "{color.text.onStrong.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5284,7 +5284,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onPrimaryStrong.DEFAULT.REST}",
+      "$value": "{color.text.onStrong.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5613,7 +5613,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.primary.strong.hover}",
+      "$value": "{color.background.neutral.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5704,7 +5704,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.onPrimaryStrong.DEFAULT.REST}",
+      "$value": "{color.text.onStrong.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5750,7 +5750,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onPrimaryStrong.DEFAULT.REST}",
+      "$value": "{color.icon.onStrong.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11453,7 +11453,7 @@ export default {
   },
   "hpe.button.secondary.xsmall.borderWidth": {
     "$type": "number",
-    "$value": "1px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -11469,7 +11469,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.xsmall.borderWidth}",
+      "$value": "{static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -11813,7 +11813,7 @@ export default {
   },
   "hpe.button.secondary.xsmall.iconOnly.borderWidth": {
     "$type": "number",
-    "$value": "1px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -12223,7 +12223,7 @@ export default {
   },
   "hpe.button.secondary.small.borderWidth": {
     "$type": "number",
-    "$value": "4px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -12239,7 +12239,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.borderWidth.medium}",
+      "$value": "{static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12583,7 +12583,7 @@ export default {
   },
   "hpe.button.secondary.small.iconOnly.borderWidth": {
     "$type": "number",
-    "$value": "4px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -12905,7 +12905,7 @@ export default {
   },
   "hpe.button.secondary.medium.paddingY": {
     "$type": "number",
-    "$value": "2px",
+    "$value": "4px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -12920,7 +12920,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 2,
+      "$value": 4,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -12993,7 +12993,7 @@ export default {
   },
   "hpe.button.secondary.medium.borderWidth": {
     "$type": "number",
-    "$value": "4px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13009,7 +13009,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.borderWidth.medium}",
+      "$value": "{static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13353,7 +13353,7 @@ export default {
   },
   "hpe.button.secondary.medium.iconOnly.borderWidth": {
     "$type": "number",
-    "$value": "4px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13675,7 +13675,7 @@ export default {
   },
   "hpe.button.secondary.large.paddingY": {
     "$type": "number",
-    "$value": "6px",
+    "$value": "8px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13690,7 +13690,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 6,
+      "$value": 8,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -13763,7 +13763,7 @@ export default {
   },
   "hpe.button.secondary.large.borderWidth": {
     "$type": "number",
-    "$value": "4px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -13779,7 +13779,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{static.borderWidth.medium}",
+      "$value": "{static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14031,7 +14031,7 @@ export default {
   },
   "hpe.button.secondary.large.iconOnly.borderWidth": {
     "$type": "number",
-    "$value": "4px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -14447,7 +14447,7 @@ export default {
   },
   "hpe.button.secondary.xlarge.iconOnly.borderWidth": {
     "$type": "number",
-    "$value": "1px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -14861,7 +14861,7 @@ export default {
   },
   "hpe.button.secondary.xlarge.paddingY": {
     "$type": "number",
-    "$value": "20px",
+    "$value": "19px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -14876,7 +14876,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 20,
+      "$value": 19,
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -14949,7 +14949,7 @@ export default {
   },
   "hpe.button.secondary.xlarge.borderWidth": {
     "$type": "number",
-    "$value": "1px",
+    "$value": "2px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -14965,7 +14965,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{button.default.xlarge.borderWidth}",
+      "$value": "{static.borderWidth.small}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27395,7 +27395,7 @@ export default {
   },
   "hpe.checkbox.default.control.selected.rest.background": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#068667",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -27689,7 +27689,7 @@ export default {
   },
   "hpe.checkbox.default.control.indeterminate.rest.background": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#068667",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -27803,7 +27803,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onPrimaryStrong.DEFAULT.REST}",
+      "$value": "{color.icon.onSelectedPrimaryStrong.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -27950,7 +27950,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onPrimaryStrong.DEFAULT.REST}",
+      "$value": "{color.icon.onSelectedPrimaryStrong.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -29067,7 +29067,7 @@ export default {
   },
   "hpe.switch.default.control.track.selected.rest.background": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#068667",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -41568,7 +41568,7 @@ export default {
   },
   "hpe.radioButton.default.control.selected.rest.background": {
     "$type": "color",
-    "$value": "#008567",
+    "$value": "#068667",
     "$description": "",
     "$extensions": {
       "com.figma": {
