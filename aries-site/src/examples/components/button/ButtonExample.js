@@ -20,7 +20,7 @@ const sizeOptions = [
   { label: 'xlarge', value: 'xlarge' },
 ];
 
-const getKindProps = (kind) => {
+const getKindProps = kind => {
   switch (kind) {
     case 'primary':
       return { primary: true };
@@ -35,7 +35,7 @@ const getKindProps = (kind) => {
   }
 };
 
- const ButtonExample = () => {
+const ButtonExample = () => {
   const [kind, setKind] = useState('primary');
   const [active, setActive] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -69,7 +69,7 @@ const getKindProps = (kind) => {
     if (href) props.push(`href='${href}'`);
     if (success || busy) {
       props.push(
-        `messages={{ busy: 'button is in a busy state', success: 'button action succeeded' }}`
+        `messages={{ busy: 'button is in a busy state', success: 'button action succeeded' }}`,
       );
     }
 
@@ -92,10 +92,10 @@ const getKindProps = (kind) => {
   };
 
   return (
-    <Grommet theme={hpe} >
-      <Box direction='row' width='1200px' responsive pad='medium' gap='medium' >
+    <Grommet theme={hpe}>
+      <Box direction="row" width="1200px" responsive pad="medium" gap="medium">
         {/* LEFT: Button Preview */}
-        <Box flex align='center' justify='center' background='background'>
+        <Box flex align="center" justify="center" background="background">
           <Button
             label={label}
             size={size}
@@ -118,29 +118,29 @@ const getKindProps = (kind) => {
 
         {/* RIGHT: Control Panel */}
         <Box
-          width='medium'
-          gap='xxsmall'
-          background='background-back'
-          pad='small'
-          round='small'
+          width="medium"
+          gap="xxsmall"
+          background="background-back"
+          pad="small"
+          round="small"
         >
-          <FormField label='Button Label'>
+          <FormField label="Button Label">
             <TextInput
               value={label}
-              onChange={(event) => setLabel(event.target.value)}
+              onChange={event => setLabel(event.target.value)}
             />
           </FormField>
-          <FormField label='Button Kind'>
+          <FormField label="Button Kind">
             <Select
               options={kindOptions}
               value={kind}
               onChange={({ option }) => setKind(option)}
             />
           </FormField>
-          <FormField label='Size'>
+          <FormField label="Size">
             <Select
               options={sizeOptions}
-              labelKey='label'
+              labelKey="label"
               valueKey={{ key: 'value', reduce: true }}
               value={size}
               onChange={({ option }) => {
@@ -149,45 +149,45 @@ const getKindProps = (kind) => {
             />
           </FormField>
 
-          <FormField label='a11yTitle'>
+          <FormField label="a11yTitle">
             <TextInput
               value={a11yTitle}
-              onChange={(e) => setA11yTitle(e.target.value)}
+              onChange={e => setA11yTitle(e.target.value)}
             />
           </FormField>
 
           <CheckBox
-            label='Show Icon'
+            label="Show Icon"
             checked={showIcon}
-            onChange={(e) => setShowIcon(e.target.checked)}
+            onChange={e => setShowIcon(e.target.checked)}
           />
 
           {showIcon && (
-            <Box pad={{ left: 'large' }} gap='xsmall'>
+            <Box pad={{ left: 'large' }} gap="xsmall">
               <CheckBox
-                label='Reverse icon order'
+                label="Reverse icon order"
                 checked={reverse}
-                onChange={(e) => setReverse(e.target.checked)}
+                onChange={e => setReverse(e.target.checked)}
               />
             </Box>
           )}
 
           <CheckBox
-            label='Active'
+            label="Active"
             checked={active}
-            onChange={(event) => setActive(event.target.checked)}
+            onChange={event => setActive(event.target.checked)}
           />
 
           <CheckBox
-            label='Disabled'
+            label="Disabled"
             checked={disabled}
-            onChange={(e) => setDisabled(e.target.checked)}
+            onChange={e => setDisabled(e.target.checked)}
           />
 
           <CheckBox
-            label='Busy'
+            label="Busy"
             checked={busy}
-            onChange={(event) => {
+            onChange={event => {
               const isChecked = event.target.checked;
               setBusy(isChecked);
               if (isChecked) setSuccess(false); // mutually exclusive
@@ -195,9 +195,9 @@ const getKindProps = (kind) => {
           />
 
           <CheckBox
-            label='Success'
+            label="Success"
             checked={success}
-            onChange={(event) => {
+            onChange={event => {
               const isChecked = event.target.checked;
               setSuccess(isChecked);
               if (isChecked) setBusy(false); // mutually exclusive
@@ -205,55 +205,52 @@ const getKindProps = (kind) => {
           />
 
           <CheckBox
-            label='Show Badge'
+            label="Show Badge"
             checked={badge}
-            onChange={(e) => setBadge(e.target.checked)}
+            onChange={e => setBadge(e.target.checked)}
           />
 
           {badge && (
-            <Box pad={{ left: 'large' }} gap='xsmall' direction='row'>
-              <FormField label='Badge value'>
+            <Box pad={{ left: 'large' }} gap="xsmall" direction="row">
+              <FormField label="Badge value">
                 <TextInput
-                  type='number'
+                  type="number"
                   value={badgeValue}
-                  onChange={(e) => setBadgeValue(Number(e.target.value))}
+                  onChange={e => setBadgeValue(Number(e.target.value))}
                 />
               </FormField>
               <FormField
-                label='Max value (default is 9)'
-                //info='Default max value in HPE theme is 9'
+                label="Max value (default is 9)"
               >
                 <TextInput
-                  type='number'
+                  type="number"
                   value={badgeMax}
-                  onChange={(e) => setBadgeMax(Number(e.target.value))}
+                  onChange={e => setBadgeMax(Number(e.target.value))}
                 />
               </FormField>
             </Box>
           )}
-          <Box pad='xsmall' round='small'>
+          <Box pad="xsmall" round="small">
             <FormField
-              label='href (link)'
-              help='converts button to styled link'
+              label="href (link)"
+              help="converts button to styled link"
             >
               <TextInput
                 value={href}
-                onChange={(e) => setHref(e.target.value)}
-                placeholder='https://example.com'
+                onChange={e => setHref(e.target.value)}
+                placeholder="https://example.com"
               />
             </FormField>
           </Box>
         </Box>
       </Box>
-      <Box pad='medium' background='dark-1' round='small' margin='medium'>
+      <Box pad="medium" background="dark-1" round="small" margin="medium">
         <code style={{ whiteSpace: 'pre-wrap', fontFamily: 'monospace' }}>
           {generateButtonJSX()}
         </code>
       </Box>
     </Grommet>
   );
-  
-}
-
+};
 
 export { ButtonExample };
