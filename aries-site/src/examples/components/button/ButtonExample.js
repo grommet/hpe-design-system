@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Grommet,
   Box,
@@ -35,7 +36,7 @@ const getKindProps = (kind) => {
   }
 };
 
-export const ButtonExample = () => {
+ const ButtonExample = () => {
   const [kind, setKind] = useState('primary');
   const [active, setActive] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -251,4 +252,9 @@ export const ButtonExample = () => {
       </Box>
     </Grommet>
   );
+  
 }
+
+ButtonExample.propTypes = {};
+
+export { ButtonExample };
