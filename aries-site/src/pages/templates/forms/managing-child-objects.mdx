@@ -6,6 +6,7 @@ import {
   CreateRole,
   ExpandedStateAnatomy,
   EditRole,
+  TopLevelPlacement,
 } from '../../../examples/templates/forms';
 
 This pattern improves productivity by focusing a user's attention solely on the current
@@ -45,13 +46,13 @@ context.
   <ExpandedStateAnatomy />
 </Example>
 
-| Label | Region            | Purpose                                                     |                  Required                   | Notes                                                                                                                                                                 |
-| :---: | ----------------- | ----------------------------------------------------------- | :-----------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1** | **Header**        | Identifies the child and controls the hide detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and hides detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Hide detail."                     |
-| **2** | **Label**         | Uniquely identifies each child object.                      | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children.                                                    |
-| **3** | **Collapse icon** | Visual treatment indicating hide detail behavior.           | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormUp".                                                                                                                                                |
-| **4** | **Body**          | Flexible region for presenting an object's detail.          | <Checkmark a11yTitle="true" size="small" /> | Detail presentation may vary by the use case.                                                                                                                         |
-| **5** | **Remove button** | Removes/deletes the child from its parent.                  |               Case depending                | <span>Always provide unless at least one child object is required by the parent. See [Required children](#required-children) for detail.</span> Icon name is "Trash". |
+| Label | Region            | Purpose                                                     |                  Required                   | Notes                                                                                                                                                                                                                                                      |
+| :---: | ----------------- | ----------------------------------------------------------- | :-----------------------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1** | **Header**        | Identifies the child and controls the hide detail behavior. | <Checkmark a11yTitle="true" size="small" /> | The entirety of the container is focusable and hides detail with a mouse click, Enter key, or Spacebar. The aria-label should read "Hide detail."                                                                                                          |
+| **2** | **Label**         | Uniquely identifies each child object.                      | <Checkmark a11yTitle="true" size="small" /> | Should be implemented as a semantically correct heading to allow screen reader users to traverse between children.                                                                                                                                         |
+| **3** | **Collapse icon** | Visual treatment indicating hide detail behavior.           | <Checkmark a11yTitle="true" size="small" /> | Icon name is "FormUp".                                                                                                                                                                                                                                     |
+| **4** | **Body**          | Flexible region for presenting an object's detail.          | <Checkmark a11yTitle="true" size="small" /> | Detail presentation may vary by the use case.                                                                                                                                                                                                              |
+| **5** | **Remove button** | Removes/deletes the child from its parent.                  |               Case depending                | <span>Always provide unless at least one child object is required by the parent. See [Required children](#required-children) for detail. See [Remove Object Alternative](#remove-object-alternative) for alternate use case. </span> Icon name is "Trash". |
 
 ## Examples
 
@@ -110,4 +111,24 @@ to allow a user the ability to easily remove all associations with a single acti
   showResponsiveControls={[]}
 >
   <EditRole />
+
+</Example>
+
+### Remove object alternative
+
+When providing the option to remove an entire object, consider using this alternative when the nesting of the remove action can be a deteriment to the user experience. This can occur if the user is expecting the remove action to be higher in the visual hierarchy due to it being an expected/priority action, such as when editing and manipulating a collection of objects.
+
+<Example
+  code={[
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/forms/managing-child-objects/TopLevelPlacement.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObjects.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/FormChildObjectAlternative.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/templates/FormChildObject/ChildHeader.js',
+    'https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-core/src/js/components/layouts/ButtonGroup/ButtonGroup.js',
+  ]}
+  github="https://github.com/grommet/hpe-design-system/blob/master/aries-site/src/examples/templates/forms/managing-child-objects/TopLevelPlacement.js"
+  showResponsiveControls={[]}
+>
+  <TopLevelPlacement />
+
 </Example>
