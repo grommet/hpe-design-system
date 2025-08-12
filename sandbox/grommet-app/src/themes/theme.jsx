@@ -280,6 +280,31 @@ const getTextSize = size => {
   return size;
 };
 
+const headingLevelToSize = {
+  1: 'xlarge',
+  2: 'large',
+  3: 'medium',
+  4: 'small',
+  5: 'xsmall',
+  6: 'xxsmall',
+};
+const breakpointStyle = (global, content, responsive) => {
+  const breakpoint = global.hpe.breakpoint.small;
+  const st =
+    responsive === 'container'
+      ? css`
+          @container ${breakpoint && `(max-width: ${breakpoint})`} {
+            ${content}
+          }
+        `
+      : css`
+          @media only screen ${breakpoint && `and (max-width: ${breakpoint})`} {
+            ${content}
+          }
+        `;
+  return st.join('');
+};
+
 const buildTheme = (tokens, flags) => {
   const {
     primitives,
@@ -2021,7 +2046,6 @@ const buildTheme = (tokens, flags) => {
         },
       },
     },
-    // TO DO this approach loses responsive typography
     heading: {
       color: 'text-heading',
       weight: large.hpe.heading.xlarge.fontWeight,
@@ -2031,20 +2055,14 @@ const buildTheme = (tokens, flags) => {
             weight: large.hpe.heading.xlarge.fontWeight,
           },
           xxsmall: {
-            // this value is off because we didn't have the same typography system before
-            // TO DO could hard code with v6 backwards compatibility flag
             size: large.hpe.heading.xxsmall.fontSize,
             height: large.hpe.heading.xxsmall.lineHeight,
           },
           xsmall: {
-            // this value is off because we didn't have the same typography system before
-            // TO DO could hard code with v6 backwards compatibility flag
             size: large.hpe.heading.xsmall.fontSize,
             height: large.hpe.heading.xsmall.lineHeight,
           },
           small: {
-            // this value is off because we didn't have the same typography system before
-            // TO DO could hard code with v6 backwards compatibility flag
             size: large.hpe.heading.small.fontSize,
             height: large.hpe.heading.small.lineHeight,
           },
@@ -2053,12 +2071,10 @@ const buildTheme = (tokens, flags) => {
             height: large.hpe.heading.xlarge.lineHeight,
           },
           large: {
-            // Q: missing tokens
             size: large.hpe.heading.large.fontSize,
             height: large.hpe.heading.large.fontSize,
           },
           xlarge: {
-            // Q: missing tokens
             size: large.hpe.heading.xlarge.fontSize,
             height: large.hpe.heading.xlarge.fontSize,
           },
@@ -2088,7 +2104,6 @@ const buildTheme = (tokens, flags) => {
             height: large.hpe.heading.large.lineHeight,
           },
           xlarge: {
-            // Q: missing tokens
             size: large.hpe.heading.xlarge.fontSize,
             height: large.hpe.heading.xlarge.fontSize,
           },
@@ -2210,8 +2225,7 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
-      // TO DO build in responsive styles here
-      extend: ({ size, weight }) => {
+      extend: ({ size, level, weight, responsive }) => {
         let style = '';
         let fontSize = '';
         let lineHeight = '';
@@ -2224,6 +2238,27 @@ const buildTheme = (tokens, flags) => {
         if (fontWeight && !weight) style += `font-weight: ${fontWeight};`;
         if (fontSize) style += `font-size: ${fontSize};`;
         if (lineHeight) style += `line-height: ${lineHeight};`;
+        style += breakpointStyle(
+          localGlobal,
+          `
+            font-size: ${
+              small.hpe.heading[size || headingLevelToSize[level || 1]].fontSize
+            };
+            line-height: ${
+              small.hpe.heading[size || headingLevelToSize[level || 1]]
+                .lineHeight
+            };
+            ${
+              !weight
+                ? `font-weight: ${
+                    small.hpe.heading[size || headingLevelToSize[level || 1]]
+                      .fontWeight
+                  }`
+                : ''
+            };
+          `,
+          responsive,
+        );
         return style;
       },
     },
