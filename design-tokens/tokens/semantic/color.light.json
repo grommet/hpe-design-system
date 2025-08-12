@@ -1555,6 +1555,88 @@
           }
         }
       }
+    },
+    "surface": {
+      "low": {
+        "default": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.landmarkGrey.50}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "base": {
+        "default": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.white.100}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
+      "high": {
+        "default": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.landmarkGrey.50}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        },
+        "secondary": {
+          "DEFAULT": {
+            "REST": {
+              "$type": "color",
+              "$value": "{base.color.white.100}",
+              "$description": "",
+              "$extensions": {
+                "com.figma": {
+                  "hiddenFromPublishing": false,
+                  "scopes": ["ALL_SCOPES"],
+                  "codeSyntax": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "highest": {
+        "default": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.landmarkGrey.50}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      }
     }
   },
   "shadow": {
