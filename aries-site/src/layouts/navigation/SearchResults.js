@@ -6,7 +6,7 @@ import {
   Keyboard,
   List,
   ResponsiveContext,
-  Pagination,
+  // Pagination,
   Text,
 } from 'grommet';
 import { Close } from 'grommet-icons';
@@ -15,7 +15,7 @@ import { TextEmphasis } from 'aries-core';
 import { SearchInput, SearchResult } from '.';
 
 const defaultPage = { begin: 0, end: 4 };
-const step = defaultPage.end - defaultPage.begin;
+// const step = defaultPage.end - defaultPage.begin;
 
 export const SearchResults = ({
   allSuggestions,
@@ -68,7 +68,7 @@ export const SearchResults = ({
     setPage(defaultPage);
   }, [query]);
 
-  const matches = paginatedResults.filter(result =>
+  const matches = results.filter(result =>
     result.value.matchLocation
       ? ['Title', 'Content'].some(item =>
           result.value.matchLocation.includes(item),
@@ -83,95 +83,101 @@ export const SearchResults = ({
 
   return (
     <Box
-      background="background-front"
-      round="small"
-      pad={{ horizontal: 'medium', top: 'small', bottom: 'large' }}
-      gap="small"
+      background={{ color: 'background-front', dark: false }}
+      round="medium"
       width="large"
-      fill="vertical"
+      height={{ max: '576px' }}
       {...rest}
     >
-      <Button
-        a11yTitle="Close search results"
-        icon={<Close />}
-        onClick={onClose}
-        alignSelf="end"
-      />
-      <Box
-        background="background-contrast"
-        flex={false}
-        round="xsmall"
-        margin={{ horizontal: 'small' }}
-      >
-        <Keyboard onEsc={onClose} onEnter={onEnter}>
-          <SearchInput
-            ref={searchRef}
-            placeholder="Search"
-            value={query}
-            onChange={onChange}
-            size={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'medium'}
-          />
-        </Keyboard>
+      <Box align="center" direction="row" pad="medium" gap="small" flex={false}>
+        <Box flex round="xsmall">
+          <Keyboard onEsc={onClose} onEnter={onEnter}>
+            <SearchInput
+              ref={searchRef}
+              placeholder="Search"
+              value={query}
+              onChange={onChange}
+              size={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'medium'}
+            />
+          </Keyboard>
+        </Box>
+        <Button
+          a11yTitle="Close search results"
+          icon={<Close />}
+          onClick={onClose}
+        />
       </Box>
-      <Box overflow="auto" pad="xsmall">
-        {matches.length > 0 && (
-          <List
-            data={matches}
-            onClickItem={onSelect}
-            border={{ side: 'bottom', color: 'border-weak' }}
+      {query && (
+        <>
+          <Box fill="horizontal" border={{ side: 'bottom', color: 'border' }} />
+          <Box
+            overflow={{ vertical: 'auto', horizontal: 'hidden' }}
+            pad="medium"
           >
-            {datum => <SearchResult query={query} result={datum.value} />}
-          </List>
-        )}
-        {similarMatches.length > 0 && (
-          <Box flex={false}>
-            <Box
-              gap="xsmall"
-              pad={{ horizontal: 'medium', top: 'large', bottom: 'medium' }}
-            >
-              <TextEmphasis
-                size={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'large'}
+            {matches.length > 0 && (
+              <List
+                data={matches}
+                onClickItem={onSelect}
+                border={{ side: 'bottom', color: 'border-weak' }}
               >
-                Similar to '{query}'
-              </TextEmphasis>
-              <Text
-                size={!['xsmall', 'small'].includes(size) ? 'large' : 'medium'}
-              >
-                You may also be interested in this related content:
-              </Text>
-            </Box>
-            <List
-              data={similarMatches}
-              onClickItem={onSelect}
-              border={{ side: 'bottom', color: 'border-weak' }}
-            >
-              {datum => <SearchResult query={query} result={datum.value} />}
-            </List>{' '}
-          </Box>
-        )}
-        {results.length === 0 && (
-          <SearchResult
-            query={query}
-            result={{
-              title: `No results found for "${query}".`,
-              description: `Try using an alternate phrasing, synonym, 
+                {datum => <SearchResult query={query} result={datum.value} />}
+              </List>
+            )}
+            {similarMatches.length > 0 && (
+              <Box flex={false}>
+                <Box
+                  gap="xsmall"
+                  pad={{ horizontal: 'medium', top: 'large', bottom: 'medium' }}
+                >
+                  <TextEmphasis
+                    size={
+                      !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large'
+                    }
+                  >
+                    Similar to '{query}'
+                  </TextEmphasis>
+                  <Text
+                    size={
+                      !['xsmall', 'small'].includes(size) ? 'large' : 'medium'
+                    }
+                  >
+                    You may also be interested in this related content:
+                  </Text>
+                </Box>
+                <List
+                  data={similarMatches}
+                  onClickItem={onSelect}
+                  border={{ side: 'bottom', color: 'border-weak' }}
+                >
+                  {datum => <SearchResult query={query} result={datum.value} />}
+                </List>{' '}
+              </Box>
+            )}
+            {results.length === 0 && (
+              <SearchResult
+                query={query}
+                result={{
+                  title: `No results found for "${query}".`,
+                  description: `Try using an alternate phrasing, synonym, 
               or reducing your search term to its stem by removing extensions
               such as "ing", "ed", "s", etc. Alternatively, reach out 
               on Slack at #hpe-design-system channel and a team member will 
               be happy to assist.`,
+                }}
+              />
+            )}
+          </Box>
+          {/* <Pagination
+            alignSelf={['xsmall', 'small'].includes(size) ? 'center' : 'end'}
+            numberItems={results.length}
+            page={Math.floor(page.end / step)}
+            onChange={({ startIndex, endIndex }) => {
+              setPage({ begin: startIndex, end: endIndex });
             }}
-          />
-        )}
-      </Box>
-      <Pagination
-        alignSelf={['xsmall', 'small'].includes(size) ? 'center' : 'end'}
-        numberItems={results.length}
-        page={Math.floor(page.end / step)}
-        onChange={({ startIndex, endIndex }) => {
-          setPage({ begin: startIndex, end: endIndex });
-        }}
-        step={step}
-      />
+            step={step}
+          /> */}
+        </>
+      )}
     </Box>
   );
 };

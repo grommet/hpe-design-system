@@ -31,13 +31,13 @@ export const ExampleControls = ({
         background: 'background-contrast',
         border: [
           {
-            side: 'vertical',
+            side: 'top',
             color: 'border-weak',
           },
-          {
-            side: 'bottom',
-            color: 'border-weak',
-          },
+          // {
+          //   side: 'bottom',
+          //   color: 'border-weak',
+          // },
         ],
         pad: { horizontal: 'medium', vertical: 'small' },
       }

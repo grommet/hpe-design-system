@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
+import styled from 'styled-components';
 import {
   Box,
+  Button,
   Card,
   Grid,
   Heading,
@@ -18,8 +20,7 @@ import {
   Featured,
   Hero,
   Highlights,
-  Quote,
-  Video,
+  // Quote,
   WhatIs,
 } from '../components/home';
 import { getPageDetails } from '../utils';
@@ -28,7 +29,12 @@ const title = 'Home';
 const pageDetails = getPageDetails(title);
 
 // These make a box width limited to xxlarge but centered
-const widthProps = { margin: 'auto' };
+const widthProps = {};
+
+const StyledBox = styled(Box)`
+
+  }
+`;
 
 const Intro = ({ children }) => {
   const size = useContext(ResponsiveContext);
@@ -78,23 +84,56 @@ const Index = () => (
   <>
     <Meta title={title} description={pageDetails.seoDescription} />
     <Box>
-      <Intro>
-        {/* custom width ensures "and deliver" is on second line */}
-        <Box width={{ max: '700px' }}>
-          <Heading margin="none" size="large">
-            Design, develop and deliver
-          </Heading>
-          <Paragraph size="xlarge">
-            Empower designers and developers to quickly create accessible
-            enterprise app experiences.
-          </Paragraph>
+      <Stack guidingChild="last" interactiveChild="last">
+        <Box
+          background={{ image: 'datawave-white-3', opacity: 'weak' }}
+          style={{
+            WebkitMaskImage:
+              'linear-gradient(to bottom, black, 90%, transparent)',
+            maskImage:
+              // eslint-disable-next-line max-len
+              'linear-gradient(to bottom, transparent, 5%, black, 90%, transparent)',
+          }}
+          height="large"
+        >
+          <Box height="large" />
         </Box>
-      </Intro>
-      <Featured {...widthProps} />
+        <StyledBox pad={{ vertical: 'xlarge' }} gap="xlarge">
+          <Box>
+            <PageContent>
+              <Box align="start" gap="medium">
+                <Heading margin="none">Built for the enterprise by HPE</Heading>
+                <Paragraph color="text-weak" size="xlarge" margin="none">
+                  Empower designers and developers to quickly collaborate and
+                  create accessible enterprise experiences for HPE.
+                </Paragraph>
+                <Button label="Get started" primary />
+              </Box>
+            </PageContent>
+          </Box>
+          <PageContent>
+            <Box
+              fill="horizontal"
+              border={{ side: 'bottom', color: 'border-weak' }}
+            />
+          </PageContent>
+          <Featured {...widthProps} />
+        </StyledBox>
+      </Stack>
+      <PageContent>
+        <Box
+          fill="horizontal"
+          border={{ side: 'bottom', color: 'border-weak' }}
+        />
+      </PageContent>
       <WhatIs {...widthProps} />
-      <Video {...widthProps} />
       <Highlights {...widthProps} />
-      <Quote />
+      <PageContent>
+        <Box
+          fill="horizontal"
+          border={{ side: 'bottom', color: 'border-weak' }}
+        />
+      </PageContent>
       <Community {...widthProps} />
     </Box>
   </>
