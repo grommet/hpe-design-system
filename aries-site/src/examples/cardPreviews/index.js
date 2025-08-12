@@ -37,6 +37,6 @@ export * from './status-indicator';
 export * from './tabs';
 export * from './textarea';
 export * from './textinput';
-export * from './toast-notification';
+export * from './toast-notification.tsx';
 export * from './togglegroup';
 export * from './toolbar';

@@ -12,7 +12,7 @@ export const ToastPreview = ({ card, message, title }) => {
         gap="medium"
         elevation="medium"
         round="xsmall"
-        width={card ? null : 'medium'}
+        width={card ? undefined : 'medium'}
         pad={{ horizontal: 'small', vertical: 'xsmall' }}
         background={{ color: 'background-front' }}
       >
@@ -29,7 +29,7 @@ export const ToastPreview = ({ card, message, title }) => {
         </Box>
         <Close
           id="close-button"
-          allyTitle="Dismiss notification"
+          a11yTitle="Dismiss notification"
           height="medium"
         />
       </Box>
