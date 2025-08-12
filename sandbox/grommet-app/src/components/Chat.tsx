@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Box, Button, Spinner, Text, TextArea } from 'grommet';
 import {
   Add,
@@ -13,19 +13,25 @@ import {
 import { SupportingContext } from '../contexts/SupportingContext';
 
 const UserMessage = ({ message }) => (
-  <Box alignSelf="end" background="background-front" round="small" pad="small">
+  <Box
+    flex={false}
+    alignSelf="end"
+    background="background-front"
+    round="small"
+    pad="small"
+  >
     <Text>{message}</Text>
   </Box>
 );
 
 const ResponseMessage = ({ message }) => (
-  <Box alignSelf="start">
+  <Box flex={false} alignSelf="start">
     <Text>{message}</Text>
   </Box>
 );
 
 const Solution = ({ title, description, count = 1 }) => (
-  <Box gap="xsmall">
+  <Box gap="xsmall" flex={false}>
     <Text size="xsmall">Solution {count}</Text>
     <Box
       alignSelf="start"
@@ -60,19 +66,27 @@ const AgentWorking = () => (
 );
 export const Chat = () => {
   const { setShowSupporting } = useContext(SupportingContext);
+  const scrollRef = React.useRef<any>(null);
 
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, []);
   return (
     <Box
       background="background-back"
       width="medium"
       flex={false}
-      fill="vertical"
+      // fill="vertical"
+      height="100vh"
     >
+      {/* header */}
       <Box
         direction="row"
         justify="between"
         pad={{ start: 'medium', vertical: 'small', end: 'xsmall' }}
-        flex={false}
+        // flex={false}
       >
         <Box direction="row" align="center" gap="small">
           <GenAIFill />
@@ -87,7 +101,8 @@ export const Chat = () => {
         </Box>
       </Box>
       <Box
-        overflow={{ vertical: 'scroll' }}
+        ref={scrollRef}
+        overflow="auto"
         pad={{ horizontal: 'small' }}
         gap="medium"
         flex
@@ -106,6 +121,7 @@ export const Chat = () => {
         <ResponseMessage message="Do these options resonate? Let me know if you have other areas you want me to explore in the migration." />
         <AgentWorking />
       </Box>
+      {/* footer */}
       <Box flex={false} pad="small">
         <Box
           background="background-front"

@@ -57,6 +57,10 @@ const App = () => {
     () => ({ showSupporting, setShowSupporting }),
     [showSupporting],
   );
+  const overflowProps = useMemo(
+    () => (showSupporting ? { height: '100vh', overflow: 'auto' } : {}),
+    [showSupporting],
+  );
 
   const loading = useLoading(6000);
 
@@ -91,34 +95,40 @@ const App = () => {
               <SupportingContext.Provider value={supportingContextValue}>
                 <BrowserRouter>
                   <Box direction="row">
-                    <Box flex>
-                      <GlobalHeader
-                        darkMode={darkMode}
-                        setDarkMode={setDarkMode}
-                        setActiveTheme={setActiveTheme}
-                        activeTheme={activeTheme}
-                        backgroundBack={backgroundBack}
-                        setBackgroundBack={setBackgroundBack}
-                        workspace={workspace}
-                        setWorkspace={setWorkspace}
-                        style={{ position: 'relative', zIndex: 1 }}
-                      />
-                      <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route
-                          path="/sustainability"
-                          element={<Sustainability />}
+                    <Box flex {...overflowProps}>
+                      <Box flex={false}>
+                        <GlobalHeader
+                          darkMode={darkMode}
+                          setDarkMode={setDarkMode}
+                          setActiveTheme={setActiveTheme}
+                          activeTheme={activeTheme}
+                          backgroundBack={backgroundBack}
+                          setBackgroundBack={setBackgroundBack}
+                          workspace={workspace}
+                          setWorkspace={setWorkspace}
+                          style={{ position: 'relative', zIndex: 1 }}
                         />
-                        <Route
-                          path="/sticker-sheet"
-                          element={<StickerSheet />}
-                        />
-                        <Route path="/layouts" element={<Layouts />}>
-                          {layoutRoutes}
-                        </Route>
-                      </Routes>
+                        <Routes>
+                          <Route path="/" element={<Home />} />
+                          <Route
+                            path="/sustainability"
+                            element={<Sustainability />}
+                          />
+                          <Route
+                            path="/sticker-sheet"
+                            element={<StickerSheet />}
+                          />
+                          <Route path="/layouts" element={<Layouts />}>
+                            {layoutRoutes}
+                          </Route>
+                        </Routes>
+                      </Box>
                     </Box>
-                    {showSupporting ? showSupporting : undefined}
+                    <Box height="100vh" overflow="auto">
+                      <Box flex={false}>
+                        {showSupporting ? showSupporting : undefined}
+                      </Box>
+                    </Box>
                   </Box>
                 </BrowserRouter>
               </SupportingContext.Provider>
