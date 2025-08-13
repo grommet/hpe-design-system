@@ -1,26 +1,30 @@
 import { useState } from 'react';
-import { type BoxProps, Button, Collapsible, List, Nav, Sidebar } from 'grommet';
-import {
-	Down,
-	Sidebar as SidebarIcon,
-	Up,
-} from 'grommet-icons';
-import { NavItem, NavItemType } from './NavItem';
+import { type BoxProps, Nav } from 'grommet';
+import { NavItemType } from './NavItem';
 import { NavContainer } from './NavContainer';
+import { NavList } from './NavList';
 
 interface NavigationMenuProps extends BoxProps {
   items: NavItemType[];
 }
 
-export const NavigationMenu = ({ items, ...rest }: NavigationMenuProps) => {
-	const [open, setOpen] = useState(false);
-	const [expanded, setExpanded] = useState<string[]>([]);
+export const NavigationPane = ({ items, ...rest }: NavigationMenuProps) => {
+	const [open, setOpen] = useState(true);
+
 
 	return (
 		<NavContainer open={open} setOpen={setOpen} {...rest}>
 			{open && (
 				<Nav a11yTitle="Main menu" gap="xsmall">
-					<List
+					<NavList items={items} />
+				</Nav>
+			)}
+		</NavContainer>
+	);
+};
+
+
+{/* <List
 						role="menubar"
 						data={items}
 						defaultItemProps={{
@@ -90,11 +94,4 @@ export const NavigationMenu = ({ items, ...rest }: NavigationMenuProps) => {
 							}
 							return result;
 						}}
-					</List>
-				</Nav>
-			)}
-		</NavContainer>
-	);
-};
-
-
+					</List> */}

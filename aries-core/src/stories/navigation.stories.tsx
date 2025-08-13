@@ -1,6 +1,6 @@
-import { Grid, Main, Page, PageContent, PageHeader } from 'grommet';
+import { Box, Grid, Main, Page, PageContent, PageHeader } from 'grommet';
 import { AppsRounded as Components } from 'grommet-icons';
-import { NavigationMenu, type NavItemType } from '../js/components';
+import { NavigationPane, type NavItemType } from '../js/components';
 
 const gridAreas = [
   ['nav', 'header', 'aside'],
@@ -55,16 +55,14 @@ export const NavigationMenuExample = () => {
       columns={['auto', 'flex', 'auto']}
       rows={['auto', 'flex']}
       border
-      // height={{ min: '100vh' }}
-      height="100%"
     >
-      <NavigationMenu
+      <NavigationPane
         gridArea="nav"
         items={navItems}
         background="background-front"
       />
       <Main gridArea="main">
-        <Page background="background-back" fill>
+        <Page background="background-back">
           <PageContent>
             <PageHeader title="Navigation" />
           </PageContent>
