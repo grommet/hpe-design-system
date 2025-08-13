@@ -10,13 +10,13 @@ interface NavigationMenuProps extends BoxProps {
 
 export const NavigationPane = ({ items, ...rest }: NavigationMenuProps) => {
 	const [open, setOpen] = useState(true);
-
+	const [activeItem, setActiveItem] = useState<string | undefined>(undefined);
 
 	return (
 		<NavContainer open={open} setOpen={setOpen} {...rest}>
 			{open && (
 				<Nav a11yTitle="Main menu" gap="xsmall">
-					<NavList items={items} />
+					<NavList items={items} activeItem={activeItem} setActiveItem={setActiveItem} />
 				</Nav>
 			)}
 		</NavContainer>

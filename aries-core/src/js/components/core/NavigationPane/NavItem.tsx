@@ -39,12 +39,14 @@ const ItemLabel = ({ icon, label }: ItemLabelProps) => {
 interface ItemContainerProps {
   active: boolean | undefined;
   children: React.ReactNode;
+  gap?: string;
   hover: boolean;
 }
 
 const ItemContainer = ({
   active,
   children,
+  gap = 'xsmall',
   hover,
   ...rest
 }: ItemContainerProps) => {
@@ -59,7 +61,7 @@ const ItemContainer = ({
         direction="row"
         align="center"
         background={hover ? 'background-hover' : undefined}
-        gap="xsmall"
+        gap={gap}
         pad={{ vertical: 'xsmall', left: 'xsmall', right: 'small' }}
         round="xsmall"
         flex
@@ -84,10 +86,16 @@ interface NavItemProps {
   children?: React.ReactNode;
   icon?: React.ReactNode;
   label: string;
+  level?: number;
   onClick?: () => void;
   url?: string;
   [key: string]: unknown; // For additional props like 'id', 'aria-label', etc.
 }
+
+const indent = {
+  1: 'small',
+  2: 'medium',
+};
 
 export const NavItem = ({
   active,
@@ -102,17 +110,22 @@ export const NavItem = ({
 }: NavItemProps) => {
   return (
     <>
-    <Button href={url} plain onClick={onClick} {...rest}>
-      {({ hover }) => {
-        return (
-          <ItemContainer active={active} hover={hover}>
-            <ItemLabel icon={icon} label={label} />
-            {actions}
-          </ItemContainer>
-        );
-      }}
-    </Button>
-    {children}
+      <Button
+        // href={url}
+        plain
+        onClick={onClick}
+        {...rest}
+      >
+        {({ hover }) => {
+          return (
+            <ItemContainer active={active} gap={indent[level]} hover={hover}>
+              <ItemLabel icon={icon} label={label} />
+              {actions}
+            </ItemContainer>
+          );
+        }}
+      </Button>
+      {children}
     </>
   );
 };

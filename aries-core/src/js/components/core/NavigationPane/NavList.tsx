@@ -1,20 +1,33 @@
 import { Collapsible, List } from 'grommet';
 import { Down, Up } from 'grommet-icons';
 import { NavItem, NavItemType } from './NavItem';
-import { useState } from 'react';
-
+import { useMemo, useState } from 'react';
 
 interface NavListProps {
   items: NavItemType[];
   [key: string]: any; // For additional props like 'role', 'aria-labelledby', etc.
 }
 
-export const NavList = ({ items }: NavListProps) => {
-    const [expanded, setExpanded] = useState<string[]>([]);
+export const NavList = ({ items, activeItem, setActiveItem }: NavListProps) => {
+  const [expanded, setExpanded] = useState<string[]>([]);
+
+  const adjustedItems = useMemo(() => 
+    items.map(item => {
+      const adjustedItem = { ...item };
+      if (item.children) {
+        adjustedItem.children = item.children.map(child => ({
+          ...child,
+          level: (item.level || 0) + 1, // Increment level for children
+        }));
+      }
+      return adjustedItem;
+    }), 
+    [items]
+  );
 
   return (
     <List
-      data={items}
+      data={adjustedItems}
       defaultItemProps={{
         pad: { vertical: 'xsmall' },
       }}
@@ -25,6 +38,7 @@ export const NavList = ({ items }: NavListProps) => {
           result = (
             <NavItem
               id={item.label}
+              level={item.level}
               label={item.label}
               icon={item.icon}
               actions={
@@ -51,6 +65,8 @@ export const NavList = ({ items }: NavListProps) => {
                   role="menu"
                   aria-labelledby={item.label}
                   items={item.children}
+                  activeItem={activeItem}
+                  setActiveItem={setActiveItem}
                 />
               </Collapsible>
             </NavItem>
@@ -58,10 +74,13 @@ export const NavList = ({ items }: NavListProps) => {
         } else {
           result = (
             <NavItem
+              id={item.label}
+              level={item.level}
               label={item.label}
-              href={item.url}
+              url={item.url}
               icon={item.icon}
-              active={location.pathname.includes(item.url || '')}
+              active={activeItem === item.label}
+              onClick={() => setActiveItem(item.label)}
             />
           );
         }
