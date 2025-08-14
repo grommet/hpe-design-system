@@ -5,13 +5,14 @@ import { NavContainer } from './NavContainer';
 import { NavList } from './NavList';
 
 interface NavigationMenuProps extends BoxProps {
+	activeItem?: string;
+	setActiveItem?: (item: string | undefined) => void;
   items: NavItemType[];
 	title?: string;
 }
 
-export const NavigationMenu = ({ items, title, ...rest }: NavigationMenuProps) => {
+export const NavigationMenu = ({ activeItem, setActiveItem, items, title, ...rest }: NavigationMenuProps) => {
 	const [open, setOpen] = useState(true);
-	const [activeItem, setActiveItem] = useState<string | undefined>(undefined);
 
 	return (
 		<NavContainer open={open} setOpen={setOpen} title={title} {...rest}>
