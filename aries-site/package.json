@@ -16,7 +16,7 @@
     "remark-gfm": "^4.0.0"
   },
   "scripts": {
-    "build": "yarn build-search && next build",
+    "build": "yarn build-search && yarn generate-sitemap && next build",
     "build-design-tokens": "cd ../design-tokens && yarn build",
     "export": "yarn build",
     "postexport": "node next.postexport.js",
@@ -29,7 +29,8 @@
     "test:windows": "start-server-and-test start-server 3030 \"testcafe chrome\"",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
-    "build-search": "node src/scripts/site-contents.mjs"
+    "build-search": "node src/scripts/site-contents.mjs",
+    "generate-sitemap": "node scripts/generate-sitemap.mjs"
   },
   "devDependencies": {
     "@applitools/eyes-testcafe": "1.17.4",

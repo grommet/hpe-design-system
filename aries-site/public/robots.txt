@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://design-system.hpe.design/sitemap.xml
