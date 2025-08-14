@@ -86,7 +86,7 @@ interface NavItemProps {
   children?: React.ReactNode;
   icon?: React.ReactNode;
   label: string;
-  level?: number;
+  level?: 1 | 2;
   onClick?: () => void;
   url?: string;
   [key: string]: unknown; // For additional props like 'id', 'aria-label', etc.
@@ -118,7 +118,7 @@ export const NavItem = ({
       >
         {({ hover }) => {
           return (
-            <ItemContainer active={active} gap={indent[level]} hover={hover}>
+            <ItemContainer active={active} gap={level ? indent[level] : undefined} hover={hover}>
               <ItemLabel icon={icon} label={label} />
               {actions}
             </ItemContainer>

@@ -3,8 +3,10 @@ import { Down, Up } from 'grommet-icons';
 import { NavItem, NavItemType } from './NavItem';
 import { useMemo, useState } from 'react';
 
+type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
+
 interface NavListProps {
-  items: NavItemType[];
+  items: NavItemWithLevel[];
   [key: string]: any; // For additional props like 'role', 'aria-labelledby', etc.
 }
 
