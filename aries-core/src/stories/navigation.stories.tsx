@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavigationMenu } from '../js/components';
 
 export const NavigationMenuExample = () => {
