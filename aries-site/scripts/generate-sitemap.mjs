@@ -1,10 +1,9 @@
 import { readdir, writeFile } from 'fs/promises';
 import { resolve } from 'path';
 
-const DOMAIN = 'https://design-system.hpe.design'; // Update with your actual domain
+const DOMAIN = process.env.DOMAIN || 'https://design-system.hpe.design';
 const OUTPUT_PATH = './public/sitemap.xml';
 
-// Get current date in ISO format
 const getCurrentDate = () => new Date().toISOString().split('T')[0];
 
 // Convert file path to URL path
@@ -55,45 +54,6 @@ const getFileSystemPages = async () => {
     .sort();
 };
 
-// Get pages from known structure (manually defined based on your site)
-const getKnownStructurePages = () => {
-  const pages = [];
-  
-  // Main sections based on what I observed in your site
-  const mainSections = [
-    'components',
-    'foundation', 
-    'templates',
-    'learn',
-    'design-tokens',
-  ];
-  
-  mainSections.forEach(section => {
-    pages.push(`/${section}`);
-  });
-  
-  // Additional known pages that might not be in file system scan
-  const additionalPages = [
-    // Component sub-pages
-    '/components/card/call-to-action-card',
-    '/components/card/navigational-card',
-    '/components/layer/center-layer',
-    '/components/layer/side-drawer-layer',
-    '/components/layer/fullscreen-layer',
-    
-    // Template sub-pages
-    '/templates/forms/managing-child-objects',
-    
-    // Learn articles
-    '/learn/grid-fundamentals-part-one',
-    '/learn/the-box-model-part-one',
-    '/learn/how-to-add-search-and-filter-to-datatable-with-data',
-    '/learn/how-to-add-additional-controls-to-a-toolbar',
-  ];
-  
-  return [...pages, ...additionalPages];
-};
-
 // Generate XML sitemap
 const generateSitemapXML = (urls) => {
   const currentDate = getCurrentDate();
@@ -136,19 +96,14 @@ const generateSitemap = async () => {
   try {
     console.log('🚀 Generating sitemap...');
     
-    // Get pages from both file system and known structure
     const fileSystemPages = await getFileSystemPages();
-    const knownPages = getKnownStructurePages();
-    
-    // Combine and deduplicate
-    const allPages = [...new Set([...fileSystemPages, ...knownPages])];
-    
-    console.log(`📄 Found ${allPages.length} pages`);
-    console.log('Pages found:', allPages);
-    
+
+    console.log(`📄 Found ${fileSystemPages.length} pages in file system`);
+    console.log('📄 Pages from file system:', fileSystemPages);
+
     // Generate sitemap XML
-    const sitemapXML = generateSitemapXML(allPages);
-    
+    const sitemapXML = generateSitemapXML(fileSystemPages);
+
     // Write to file
     await writeFile(OUTPUT_PATH, sitemapXML, 'utf8');
     

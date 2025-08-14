@@ -1,6 +1,6 @@
 import { structure } from '../../data';
 
-const DOMAIN = 'https://design-system.hpe.design'; // Update with your actual domain
+const DOMAIN = process.env.DOMAIN || 'https://design-system.hpe.design';
 
 // Convert page name to URL slug
 const nameToSlug = (name) => {

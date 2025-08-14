@@ -82,11 +82,13 @@ Access: `http://localhost:3000/api/sitemap.xml` (when server is running)
 
 ## Domain Configuration
 
-Update the domain in both files:
+The domain is now configured via environment variables. Copy `.env.example` to `.env` and update:
 
-```javascript
-const DOMAIN = 'https://design-system.hpe.design'; // Update this
+```properties
+DOMAIN=https://design-system.hpe.design
 ```
+
+Both the build script and API route will automatically use the `DOMAIN` environment variable.
 
 ## Search Engine Integration
 
