@@ -15,9 +15,9 @@ export const NavigationMenu = ({ activeItem, setActiveItem, items, title, ...res
 	const [open, setOpen] = useState(true);
 
 	return (
-		<NavContainer open={open} setOpen={setOpen} title={title} {...rest}>
+		<NavContainer open={open} setOpen={setOpen} title={title} overflow="auto" {...rest}>
 			{open && (
-				<Nav a11yTitle={title ? `${title} main menu` : 'Main menu'} gap="xsmall">
+				<Nav a11yTitle={title ? `${title} main menu` : 'Main menu'} gap="xsmall" >
 					<NavList items={items} activeItem={activeItem} setActiveItem={setActiveItem} />
 				</Nav>
 			)}

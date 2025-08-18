@@ -1,6 +1,48 @@
-import { Box, Button, Heading, Sidebar } from 'grommet';
+import { Box, Button, Heading } from 'grommet';
 import { Sidebar as SidebarIcon } from 'grommet-icons';
 import { ScreenReaderOnly } from '../ScreenReaderOnly';
+
+interface NavHeaderProps {
+  title?: string;
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+
+const NavHeader = ({ title, open, setOpen }: NavHeaderProps) => {
+  const heading = (
+    <Heading level={3} margin="none">
+      {title}
+    </Heading>
+  );
+
+  return (
+    <>
+      <ScreenReaderOnly>{heading}</ScreenReaderOnly>
+      <Box
+        direction="row"
+        align="center"
+        background="background-front"
+        gap="medium"
+        justify="between"
+        pad={{ top: 'xsmall', right: 'small', bottom: 'xsmall', left: 'small' }}
+        style={{
+          position: 'sticky',
+          top: 0,
+        }}
+        flex={false}
+      >
+        {open && heading}
+        <Button
+          icon={<SidebarIcon />}
+          active={open}
+          tip={open ? 'Close navigation' : 'Open navigation'}
+          alignSelf="end"
+          onClick={() => setOpen(!open)}
+        />
+      </Box>
+    </>
+  );
+};
 
 interface NavContainerProps {
   children: React.ReactNode;
@@ -17,40 +59,14 @@ export const NavContainer = ({
   title,
   ...rest
 }: NavContainerProps) => {
-  const heading = (
-    <Heading level={3} margin="none">
-      {title}
-    </Heading>
-  );
-
   return (
-    <Sidebar
-      header={
-        <>
-          <ScreenReaderOnly>{heading}</ScreenReaderOnly>
-          <Box
-            direction="row"
-            align="center"
-            gap="small"
-            justify="between"
-            pad="small"
-          >
-            {open && heading}
-            <Button
-              icon={<SidebarIcon />}
-              active={open}
-              tip={open ? 'Close navigation' : 'Open navigation'}
-              alignSelf="end"
-              onClick={() => setOpen(!open)}
-            />
-          </Box>
-        </>
-      }
-      pad={{ horizontal: 'small', vertical: 'small' }}
+    <Box
+      pad={{ horizontal: 'small', vertical: 'xsmall' }}
       width={open ? { min: 'small' } : undefined}
       {...rest}
     >
+      <NavHeader title={title} open={open} setOpen={setOpen} />
       {children}
-    </Sidebar>
+    </Box>
   );
 };

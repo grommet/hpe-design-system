@@ -85,6 +85,7 @@ export const NavigationMenuExample = () => {
       columns={['auto', 'flex', 'auto']}
       rows={['auto', 'flex']}
       border
+      height='100vh'
     >
       <NavigationMenu
         gridArea="nav"
