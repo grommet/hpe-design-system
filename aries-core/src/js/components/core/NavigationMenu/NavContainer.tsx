@@ -10,7 +10,7 @@ interface NavHeaderProps {
 
 const NavHeader = ({ title, open, setOpen }: NavHeaderProps) => {
   const heading = (
-    <Heading level={3} margin="none">
+    <Heading level={2} size="small" margin="none">
       {title}
     </Heading>
   );
