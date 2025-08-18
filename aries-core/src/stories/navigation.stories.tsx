@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Button,
   Grid,
@@ -10,7 +11,6 @@ import {
 } from 'grommet';
 import { AppsRounded as Components } from 'grommet-icons';
 import { NavigationMenu, type NavItemType } from '../js/components';
-import { useState } from 'react';
 
 const gridAreas = [
   ['nav', 'header', 'aside'],
@@ -119,4 +119,8 @@ export const NavigationMenuExample = () => {
 
 export default {
   title: 'Navigation',
+  component: NavigationMenu,
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
