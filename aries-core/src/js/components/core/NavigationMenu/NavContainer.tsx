@@ -17,7 +17,7 @@ const NavHeader = ({ title, open, setOpen }: NavHeaderProps) => {
 
   return (
     <>
-      <ScreenReaderOnly>{heading}</ScreenReaderOnly>
+      {!open && <ScreenReaderOnly>{heading}</ScreenReaderOnly>}
       <Box
         direction="row"
         align="center"

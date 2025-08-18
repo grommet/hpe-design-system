@@ -10,21 +10,22 @@ interface NavListProps {
   [key: string]: any; // For additional props like 'role', 'aria-labelledby', etc.
 }
 
-export const NavList = ({ items, activeItem, setActiveItem }: NavListProps) => {
+export const NavList = ({ items, activeItem, setActiveItem, ...rest }: NavListProps) => {
   const [expanded, setExpanded] = useState<string[]>([]);
 
-  const adjustedItems = useMemo(() => 
-    items.map(item => {
-      const adjustedItem = { ...item };
-      if (item.children) {
-        adjustedItem.children = item.children.map(child => ({
-          ...child,
-          level: (item.level || 0) + 1, // Increment level for children
-        }));
-      }
-      return adjustedItem;
-    }), 
-    [items]
+  const adjustedItems = useMemo(
+    () =>
+      items.map(item => {
+        const adjustedItem = { ...item };
+        if (item.children) {
+          adjustedItem.children = item.children.map(child => ({
+            ...child,
+            level: (item.level || 0) + 1, // Increment level for children
+          }));
+        }
+        return adjustedItem;
+      }),
+    [items],
   );
 
   return (
@@ -32,10 +33,14 @@ export const NavList = ({ items, activeItem, setActiveItem }: NavListProps) => {
       data={adjustedItems}
       defaultItemProps={{
         pad: { vertical: 'xsmall' },
+        role: 'none',
       }}
+      role="menubar"
+      {...rest}
     >
       {item => {
         let result = null;
+        const expandedItem = expanded.includes(item.label);
         if (item.children) {
           result = (
             <NavItem
@@ -44,12 +49,14 @@ export const NavList = ({ items, activeItem, setActiveItem }: NavListProps) => {
               label={item.label}
               icon={item.icon}
               actions={
-                expanded.includes(item.label) ? (
+                expandedItem ? (
                   <Up aria-hidden="true" />
                 ) : (
                   <Down aria-hidden="true" />
                 )
               }
+              aria-haspopup={!!item.children}
+              aria-expanded={expandedItem}
               onClick={() => {
                 setExpanded(prev => {
                   let result: string[];
@@ -62,7 +69,7 @@ export const NavList = ({ items, activeItem, setActiveItem }: NavListProps) => {
                 });
               }}
             >
-              <Collapsible open={expanded.includes(item.label)}>
+              <Collapsible open={expandedItem}>
                 <NavList
                   role="menu"
                   aria-labelledby={item.label}

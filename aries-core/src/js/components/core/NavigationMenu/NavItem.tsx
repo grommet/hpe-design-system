@@ -1,4 +1,5 @@
 import { Box, Button, Text } from 'grommet';
+import React from 'react';
 
 interface ActiveMarkerProps {
   active: boolean | undefined;
@@ -114,6 +115,7 @@ export const NavItem = ({
         // href={url}
         plain
         onClick={onClick}
+        role="menuitem"
         {...rest}
       >
         {({ hover }) => {
