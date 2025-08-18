@@ -9,7 +9,7 @@ import {
   PageHeader,
   Text,
 } from 'grommet';
-import { AppsRounded as Components } from 'grommet-icons';
+import { AppsRounded as Components, Storage, Network, ShieldSecurity, GenAI, Servers } from 'grommet-icons';
 import { NavigationMenu, type NavItemType } from '../js/components';
 
 const gridAreas = [
@@ -40,6 +40,7 @@ const navItems: NavItemType[] = [
           { label: 'Object Storage', url: '/object-storage' },
           { label: 'File Storage', url: '/file-storage' },
         ],
+        icon: <Storage aria-hidden="true" />,
       },
       {
         label: 'Compute',
@@ -47,6 +48,7 @@ const navItems: NavItemType[] = [
           { label: 'Virtual Machines', url: '/virtual-machines' },
           { label: 'Containers', url: '/containers' },
         ],
+        icon: <Servers aria-hidden="true" />,
       },
       {
         label: 'Networking',
@@ -54,6 +56,7 @@ const navItems: NavItemType[] = [
           { label: 'VPC', url: '/vpc' },
           { label: 'Load Balancers', url: '/load-balancers' },
         ],
+        icon: <Network aria-hidden="true" />,
       },
       {
         label: 'Security',
@@ -61,6 +64,7 @@ const navItems: NavItemType[] = [
           { label: 'IAM', url: '/iam' },
           { label: 'KMS', url: '/kms' },
         ],
+        icon: <ShieldSecurity aria-hidden="true" />,
       },
       {
         label: 'AI',
@@ -71,6 +75,7 @@ const navItems: NavItemType[] = [
             url: '/natural-language-processing',
           },
         ],
+        icon: <GenAI aria-hidden="true" />,
       },
     ],
   },
