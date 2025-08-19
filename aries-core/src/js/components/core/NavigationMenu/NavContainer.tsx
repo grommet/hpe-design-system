@@ -46,6 +46,7 @@ const NavHeader = ({ title, open, setOpen }: NavHeaderProps) => {
 
 interface NavContainerProps {
   children: React.ReactNode;
+  header?: React.ReactNode;
   open: boolean;
   setOpen: (open: boolean) => void;
   title?: string;
@@ -54,6 +55,7 @@ interface NavContainerProps {
 
 export const NavContainer = ({
   children,
+  header,
   open,
   setOpen,
   title,
@@ -65,7 +67,7 @@ export const NavContainer = ({
       width={open ? { min: 'small' } : undefined}
       {...rest}
     >
-      <NavHeader title={title} open={open} setOpen={setOpen} />
+      {header || <NavHeader title={title} open={open} setOpen={setOpen} />}
       {children}
     </Box>
   );

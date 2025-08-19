@@ -7,10 +7,13 @@ type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
 
 interface NavListProps {
   items: NavItemWithLevel[];
+  activeItem?: string;
+  setActiveItem?: (item: string | undefined) => void;
+  onSelect?: () => void;
   [key: string]: any; // For additional props like 'role', 'aria-labelledby', etc.
 }
 
-export const NavList = ({ items, activeItem, setActiveItem, ...rest }: NavListProps) => {
+export const NavList = ({ items, activeItem, setActiveItem, onSelect, ...rest }: NavListProps) => {
   const [expanded, setExpanded] = useState<string[]>([]);
 
   const adjustedItems = useMemo(
@@ -76,6 +79,7 @@ export const NavList = ({ items, activeItem, setActiveItem, ...rest }: NavListPr
                   items={item.children}
                   activeItem={activeItem}
                   setActiveItem={setActiveItem}
+                  onSelect={onSelect}
                 />
               </Collapsible>
             </NavItem>
@@ -89,7 +93,10 @@ export const NavList = ({ items, activeItem, setActiveItem, ...rest }: NavListPr
               url={item.url}
               icon={item.icon}
               active={activeItem === item.label}
-              onClick={() => setActiveItem(item.label)}
+              onClick={() => {
+                setActiveItem?.(item.label)
+                onSelect?.()
+              }}
             />
           );
         }
