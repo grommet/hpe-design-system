@@ -84,6 +84,7 @@ export const NavigationMenuExample = () => {
                     activeItem={activeItem}
                     setActiveItem={setActiveItem}
                     items={navItems}
+                    gap="medium"
                     header={
                       <Header>
                         <Heading level={2} margin="none">My menu's title</Heading>

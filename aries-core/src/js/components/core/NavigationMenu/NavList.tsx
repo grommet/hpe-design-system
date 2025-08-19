@@ -1,7 +1,7 @@
 import { Collapsible, List } from 'grommet';
 import { Down, Up } from 'grommet-icons';
 import { NavItem, NavItemType } from './NavItem';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
 
@@ -30,6 +30,32 @@ export const NavList = ({ items, activeItem, setActiveItem, onSelect, ...rest }:
       }),
     [items],
   );
+
+   // If activeItem is a child, ensure its parent is expanded
+   // Make to account for several levels of nesting
+  useEffect(() => {
+    if (activeItem) {
+      const findParents = (itemsList: NavItemWithLevel[], target: string, parents: string[] = []): string[] | null => {
+        for (const item of itemsList) {
+          if (item.label === target) {
+            return parents;
+          }
+          if (item.children) {
+            const result = findParents(item.children, target, [...parents, item.label]);
+            if (result) {
+              return result;
+            }
+          }
+        }
+        return null;
+      };
+
+      const parents = findParents(adjustedItems, activeItem);
+      if (parents) {
+        setExpanded(prev => Array.from(new Set([...prev, ...parents])));
+      }
+    }
+  }, [activeItem, adjustedItems, expanded]);
 
   return (
     <List
