@@ -31,31 +31,34 @@ export const NavList = ({ items, activeItem, setActiveItem, onSelect, ...rest }:
     [items],
   );
 
-   // If activeItem is a child, ensure its parent is expanded
-   // Make to account for several levels of nesting
-  useEffect(() => {
-    if (activeItem) {
-      const findParents = (itemsList: NavItemWithLevel[], target: string, parents: string[] = []): string[] | null => {
-        for (const item of itemsList) {
-          if (item.label === target) {
-            return parents;
-          }
-          if (item.children) {
-            const result = findParents(item.children, target, [...parents, item.label]);
-            if (result) {
-              return result;
-            }
+  // Find parents of active item to ensure they're expanded
+  const parentsToExpand = useMemo(() => {
+    if (!activeItem) return [];
+    
+    const findParents = (itemsList: NavItemWithLevel[], target: string, parents: string[] = []): string[] | null => {
+      for (const item of itemsList) {
+        if (item.label === target) {
+          return parents;
+        }
+        if (item.children) {
+          const result = findParents(item.children, target, [...parents, item.label]);
+          if (result) {
+            return result;
           }
         }
-        return null;
-      };
-
-      const parents = findParents(adjustedItems, activeItem);
-      if (parents) {
-        setExpanded(prev => Array.from(new Set([...prev, ...parents])));
       }
+      return null;
+    };
+
+    return findParents(adjustedItems, activeItem) || [];
+  }, [activeItem, adjustedItems]);
+
+  // Update expanded state when parents change
+  useEffect(() => {
+    if (parentsToExpand.length > 0) {
+      setExpanded(prev => Array.from(new Set([...prev, ...parentsToExpand])));
     }
-  }, [activeItem, adjustedItems, expanded]);
+  }, [parentsToExpand]);
 
   return (
     <List
