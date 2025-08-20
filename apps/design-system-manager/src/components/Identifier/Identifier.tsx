@@ -1,19 +1,19 @@
 import {
-	Box,
-	Heading,
-	Paragraph,
-	type BoxProps,
-	type HeadingProps,
-	Text,
+  Box,
+  Heading,
+  Paragraph,
+  type BoxProps,
+  type HeadingProps,
+  Text,
 } from 'grommet';
 
 interface IdentifierProps extends BoxProps {
-	description?: string;
-	heading: string;
-	icon?: React.ReactNode;
-	level: HeadingProps['level'];
-	pretitle?: string;
-	size?: 'small' | 'medium' | 'large';
+  description?: string;
+  heading: string;
+  icon?: React.ReactNode;
+  level: HeadingProps['level'];
+  pretitle?: string;
+  size?: 'small' | 'medium' | 'large';
 }
 
 const sizeMap = {
@@ -23,31 +23,28 @@ const sizeMap = {
 };
 
 export const Identifier = ({
-	description,
-	heading,
-	icon,
-	level,
-	pretitle,
-	size = 'medium',
-	...rest
+  description,
+  heading,
+  icon,
+  level,
+  pretitle,
+  size = 'medium',
+  ...rest
 }: IdentifierProps) => {
-
-	return (
-		<Box direction="row" gap="small" flex={false} {...rest}>
-			<Box pad={{top: 'xsmall'}}>
-				{icon}
-			</Box>
-			<Box flex={false}>
-				{pretitle && <Text size={sizeMap[size].pretitle}>{pretitle}</Text>}
-				<Heading level={level} margin="none" size={sizeMap[size].heading}>
-					{heading}
-				</Heading>
-				{description && (
-					<Paragraph margin="none" size={sizeMap[size].description}>
-						{description}
-					</Paragraph>
-				)}
-			</Box>
-		</Box>
-	);
+  return (
+    <Box direction="row" gap="small" {...rest}>
+      {icon && <Box pad={{ top: 'xsmall' }}>{icon}</Box>}
+      <Box flex={false}>
+        {pretitle && <Text size={sizeMap[size].pretitle}>{pretitle}</Text>}
+        <Heading level={level} margin="none" size={sizeMap[size].heading}>
+          {heading}
+        </Heading>
+        {description && (
+          <Paragraph margin="none" size={sizeMap[size].description}>
+            {description}
+          </Paragraph>
+        )}
+      </Box>
+    </Box>
+  );
 };

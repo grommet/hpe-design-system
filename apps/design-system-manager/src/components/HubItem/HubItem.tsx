@@ -15,12 +15,11 @@ export const HubItem = ({ href, label, icon }: HubItemProps) => {
 			{({hover}) => 
 			<ContentContainer
 				as="section"
-				tabIndex={-1}
 				elevation={hover ? 'small' : undefined}
 			>
 				<Header>
 					<Identifier heading={label} level={1} size="small" icon={icon} />
-					<LinkNext color="brand" />
+					<LinkNext aria-hidden="true" color="brand" />
 				</Header>
 			</ContentContainer>}
 		</RoutedButton>
