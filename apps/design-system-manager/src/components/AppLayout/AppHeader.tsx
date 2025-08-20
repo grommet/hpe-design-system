@@ -37,7 +37,7 @@ export const AppHeader = ({ ...rest }) => {
 					<RoutedButton href="/">
 						<Box direction="row" align="center" gap="xsmall">
 							<Text color="text-strong" weight="bold">
-								ACME
+								HPE
 							</Text>
 							<Text color="text-strong" weight={500}>
 								Design System Manager
