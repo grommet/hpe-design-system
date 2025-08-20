@@ -30,7 +30,8 @@
     "aries-site",
     "design-tokens",
     "sandbox/*",
-    "design-tokens-manager"
+    "design-tokens-manager",
+    "design-system-manager"
   ],
   "dependencies": {
     "@changesets/cli": "^2.27.9",
