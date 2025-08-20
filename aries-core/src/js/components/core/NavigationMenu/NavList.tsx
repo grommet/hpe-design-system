@@ -1,6 +1,6 @@
 import { Collapsible, List } from 'grommet';
 import { Down, Up } from 'grommet-icons';
-import { NavItem, NavItemType } from './NavItem';
+import { NavItem, NavItemType } from './NavItem/NavItem';
 import { useEffect, useMemo, useState } from 'react';
 
 type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
