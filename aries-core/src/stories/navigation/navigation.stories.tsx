@@ -68,15 +68,18 @@ export const NavigationMenuExample = () => {
       <Box gridArea="nav" as="aside" background="background-front">
         {mobile ? (
           <>
-            <Button
-              a11yTitle="Open navigation menu"
-              icon={<Sidebar />}
-              onClick={() => setOpenLayer(true)}
-            />
+            <Box justify="center" fill pad={{ horizontal: 'xsmall' }}>
+              <Button
+                a11yTitle="Open navigation menu"
+                icon={<Sidebar />}
+                onClick={() => setOpenLayer(true)}
+              />
+            </Box>
             {openLayer && (
               <Layer
                 onEsc={() => setOpenLayer(false)}
                 onClickOutside={() => setOpenLayer(false)}
+                position="left"
               >
                 <Box overflow="auto">
                   <NavigationMenu
@@ -86,8 +89,15 @@ export const NavigationMenuExample = () => {
                     items={navItems}
                     gap="medium"
                     header={
-                      <Header>
-                        <Heading level={2} margin="none">My menu's title</Heading>
+                      <Header
+                        pad={{ horizontal: 'medium', vertical: 'small' }}
+                        direction="row"
+                        align="center"
+                        justify="between"
+                      >
+                        <Heading level={2} margin="none">
+                          My menu's title
+                        </Heading>
                         <Button
                           icon={<Close aria-hidden={true} />}
                           a11yTitle="Close navigation menu"
@@ -99,7 +109,11 @@ export const NavigationMenuExample = () => {
                       </Header>
                     }
                     onSelect={() => {
-                      announce(`Selected ${activeItem}. ${messages.layerClose}`, 'assertive', 2000);
+                      announce(
+                        `Selected ${activeItem}. ${messages.layerClose}`,
+                        'assertive',
+                        2000,
+                      );
                       setOpenLayer(false);
                     }}
                   />
