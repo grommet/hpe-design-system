@@ -13,13 +13,15 @@ interface IdentifierProps extends BoxProps {
   icon?: React.ReactNode;
   level: HeadingProps['level'];
   pretitle?: string;
-  size?: 'small' | 'medium' | 'large';
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 }
 
 const sizeMap = {
+  xsmall: { heading: 'xsmall', description: 'small', pretitle: 'xsmall' },
   small: { heading: 'small', description: 'medium', pretitle: 'small' },
   medium: { heading: 'medium', description: 'large', pretitle: 'medium' },
   large: { heading: 'large', description: 'xlarge', pretitle: 'large' },
+  xlarge: { heading: 'xlarge', description: 'xxlarge', pretitle: 'xlarge' },
 };
 
 export const Identifier = ({
