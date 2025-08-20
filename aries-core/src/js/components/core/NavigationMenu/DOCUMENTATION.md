@@ -2,30 +2,91 @@
 
 ## Overview
 
-The Navigation Menu component system provides a hierarchical, accessible navigation interface for applications. It consists of several interconnected components that work together to create an interactive navigation experience.
+The Navigation Menu component system provides a hierarchical, accessible navigation interface for applications. It consists of several interconnected components that work together to create an interactive navigation experience with collapsible functionality.
 
 ## Component Architecture
 
 ```mermaid
 graph TD
-    A[NavList] --> B[List - Grommet]
-    A --> C[NavItem]
-    C --> D[Button - Grommet]
-    C --> E[ItemContainer]
-    C --> F[Collapsible - Grommet]
-    E --> G[ActiveMarker]
-    E --> H[ItemLabel]
-    H --> I[Text - Grommet]
-    H --> J[Icon - React.ReactNode]
+    A[NavigationMenu] --> B[NavContainer]
+    B --> C[Nav - Grommet]
+    C --> D[NavList]
+    D --> E[List - Grommet]
+    D --> F[NavItem]
+    F --> G[Button - Grommet]
+    F --> H[ItemContainer]
+    F --> I[Collapsible - Grommet]
+    H --> J[ActiveMarker]
+    H --> K[ItemLabel]
+    K --> L[Text - Grommet]
+    K --> M[Icon - React.ReactNode]
 
-    style A fill:#e1f5fe
-    style C fill:#f3e5f5
-    style E fill:#fff3e0
-    style G fill:#e8f5e8
+    style A fill:#e3f2fd
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#e1f5fe
+    style F fill:#fff3e0
     style H fill:#e8f5e8
+    style J fill:#ffebee
+    style K fill:#e8f5e8
 ```
 
 ## Components
+
+### NavigationMenu (Root Component)
+
+The root component that provides the complete navigation interface with collapsible functionality.
+
+**Props:**
+
+- `activeItem?: string` - The ID of the currently active navigation item
+- `setActiveItem?: (item: string | undefined) => void` - Callback to handle active item changes
+- `header?: React.ReactNode` - Custom header content for the navigation
+- `items: NavItem[]` - Array of navigation items to display
+- `open: boolean` - Controls whether the navigation is expanded or collapsed
+- `title?: string` - Title text displayed in the navigation header
+- `onSelect?: () => void` - Callback function triggered when an item is selected
+
+**Features:**
+
+- **Collapsible Interface**: Toggle between expanded and collapsed states
+- **Active State Management**: Track and highlight the currently active item
+- **Custom Header Support**: Optional header with title and custom content
+- **Item Selection**: Handle user interactions with navigation items
+- **Responsive Design**: Adapts to different screen sizes and contexts
+
+**Usage Example:**
+
+```tsx
+<NavigationMenu
+  items={navigationItems}
+  open={isOpen}
+  title="Main Navigation"
+  activeItem={currentActiveItem}
+  setActiveItem={setCurrentActiveItem}
+  onSelect={handleItemSelect}
+/>
+```
+
+### NavContainer
+
+Layout container component that provides the header functionality and manages the collapsible state.
+
+**Props:**
+
+- `children: React.ReactNode` - Child content (typically NavList)
+- `header?: React.ReactNode` - Custom header content
+- `open: boolean` - Whether the navigation is expanded
+- `setOpen: (open: boolean) => void` - Function to toggle open/closed state
+- `title?: string` - Title for the navigation header
+- `...rest` - Additional props for styling (pad, width, etc.)
+
+**Features:**
+
+- **Sticky Header**: Header remains visible when scrolling
+- **Toggle Button**: Built-in expand/collapse functionality
+- **Screen Reader Support**: Accessible title handling
+- **Responsive Width**: Dynamic width based on open state
 
 ### NavList
 
@@ -139,7 +200,7 @@ type NavItemWithLevel = NavItemType & {
 
 ## Usage Examples
 
-### Basic Navigation
+### Basic Navigation Menu
 
 ```tsx
 const basicNavItems: NavItemType[] = [
@@ -155,14 +216,17 @@ const basicNavItems: NavItemType[] = [
   },
 ];
 
-<NavList
+<NavigationMenu
   items={basicNavItems}
+  open={isOpen}
+  title="Main Menu"
   activeItem="Dashboard"
   setActiveItem={setActiveItem}
+  onSelect={handleItemSelect}
 />;
 ```
 
-### Hierarchical Navigation
+### Hierarchical Navigation Menu
 
 ```tsx
 const hierarchicalNavItems: NavItemType[] = [
@@ -185,15 +249,55 @@ const hierarchicalNavItems: NavItemType[] = [
   },
 ];
 
-<NavList
+<NavigationMenu
   items={hierarchicalNavItems}
+  open={isOpen}
+  title="HPE Design System"
   activeItem="Button"
   setActiveItem={setActiveItem}
-  onSelect={() => console.log('Item selected')}
+  onSelect={handleItemSelect}
 />;
 ```
 
-### Accessible Navigation
+### Navigation Menu with Custom Header
+
+```tsx
+<NavigationMenu
+  items={navItems}
+  open={isOpen}
+  header={<CustomHeaderComponent />}
+  activeItem={activeItem}
+  setActiveItem={setActiveItem}
+  onSelect={() => console.log('Item selected')}
+/>
+```
+
+### Using NavList Directly (Advanced)
+
+For more direct control, you can use NavList without the NavigationMenu wrapper:
+
+```tsx
+<NavList
+  items={navItems}
+  activeItem="Button"
+  setActiveItem={setActiveItem}
+  onSelect={() => console.log('Item selected')}
+/>
+```
+
+### Accessible Navigation Menu
+
+```tsx
+<NavigationMenu
+  items={navItems}
+  open={isOpen}
+  title="Accessible Navigation"
+  activeItem={activeItem}
+  setActiveItem={setActiveItem}
+/>
+```
+
+### Advanced NavList with Accessibility
 
 ```tsx
 <NavList
@@ -210,18 +314,32 @@ const hierarchicalNavItems: NavItemType[] = [
 ```mermaid
 sequenceDiagram
     participant User
+    participant NavigationMenu
+    participant NavContainer
     participant NavList
     participant NavItem
     participant State
 
+    User->>NavigationMenu: Provide props (open, items, etc.)
+    NavigationMenu->>NavContainer: Pass header, title, open state
+    NavContainer->>NavList: Pass items, activeItem, callbacks
+
     User->>NavItem: Click item
     NavItem->>NavList: onClick()
-    NavList->>State: setActiveItem()
-    State->>NavList: activeItem updated
+    NavList->>NavigationMenu: setActiveItem() via props
+    NavigationMenu->>State: activeItem updated
+    State->>NavigationMenu: Re-render with new activeItem
+    NavigationMenu->>NavList: Pass updated activeItem
     NavList->>NavList: parentsToExpand calculated
     NavList->>State: setExpanded()
     State->>NavItem: Re-render with new state
     NavItem->>User: Visual feedback
+
+    User->>NavContainer: Click toggle button
+    NavContainer->>NavigationMenu: setOpen() via callback
+    NavigationMenu->>State: open state updated
+    State->>NavContainer: Re-render with new open state
+    NavContainer->>User: Navigation expands/collapses
 ```
 
 ## Accessibility Features
