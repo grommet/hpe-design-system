@@ -136,7 +136,6 @@ export const NavigationMenuExample = () => {
             <Text weight="bold">HPE</Text> Design System
           </Text>
         </Button>
-        {breakpoint}
         <ButtonGroup>
           <Button
             a11yTitle="Toggle help content"
