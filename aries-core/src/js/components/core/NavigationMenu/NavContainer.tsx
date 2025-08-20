@@ -8,7 +8,7 @@ interface NavHeaderProps {
   setOpen: (open: boolean) => void;
 }
 
-const NavHeader = ({ title, open, setOpen }: NavHeaderProps) => {
+const NavHeader = ({ title, open, setOpen, ...rest }: NavHeaderProps) => {
   const heading = (
     <Heading level={2} size="small" margin="none">
       {title}
@@ -24,12 +24,13 @@ const NavHeader = ({ title, open, setOpen }: NavHeaderProps) => {
         background="background-front"
         gap="medium"
         justify="between"
-        pad={{ top: 'xsmall', right: 'small', bottom: 'xsmall', left: 'small' }}
+        pad="small"
         style={{
           position: 'sticky',
           top: 0,
         }}
         flex={false}
+        {...rest}
       >
         {open && heading}
         <Button
@@ -63,7 +64,7 @@ export const NavContainer = ({
 }: NavContainerProps) => {
   return (
     <Box
-      pad={{ horizontal: 'small', vertical: 'xsmall' }}
+      pad={{ horizontal: 'small' }}
       width={open ? { min: 'small' } : undefined}
       {...rest}
     >

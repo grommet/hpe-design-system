@@ -56,6 +56,7 @@ const ItemContainer = ({
       direction="row"
       background={active ? 'background-active' : undefined}
       round="xsmall"
+      responsive={false}
       {...rest}
     >
       <Box
@@ -65,6 +66,7 @@ const ItemContainer = ({
         gap={gap}
         pad={{ vertical: 'xsmall', left: 'xsmall', right: 'small' }}
         round="xsmall"
+        responsive={false}
         flex
       >
         <ActiveMarker active={active} hover={hover} />
