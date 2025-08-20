@@ -4,18 +4,20 @@ import { ContentContainer, Identifier, RoutedButton } from '../../components';
 import type { ReactNode } from "react";
 
 export interface HubItemProps {
+	fill?: boolean;
 	href: string;
-	label: string;
 	icon?: ReactNode;
+	label: string;
 }
 
-export const HubItem = ({ href, label, icon }: HubItemProps) => {
+export const HubItem = ({ href, label, icon, fill }: HubItemProps) => {
 	return (
 		<RoutedButton href={href} plain>
 			{({hover}) => 
 			<ContentContainer
 				as="section"
 				elevation={hover ? 'small' : undefined}
+				fill={fill}
 			>
 				<Header>
 					<Identifier heading={label} level={1} size="small" icon={icon} />
