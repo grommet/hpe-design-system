@@ -24,7 +24,7 @@ export const EmptyState = ({
   let icon = iconProp;
   if (iconProp && !iconProp.props.size)
     icon = cloneElement(iconProp, {
-      size: 'xlarge',
+      size: 'xxlarge',
     });
 
   return (

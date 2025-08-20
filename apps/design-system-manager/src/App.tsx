@@ -4,7 +4,7 @@ import { hpe } from 'grommet-theme-hpe';
 
 import { router } from './router';
 import { AppLayout, RequireAuth } from './components';
-import { Home, SignIn, SignUp } from './pages';
+import { Home, NotFound, SignIn, SignUp } from './pages';
 import { PocketProvider } from './contexts';
 
 function App() {
@@ -34,6 +34,7 @@ function App() {
                   );
                 })}
               </Route>
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </AppLayout>
         </BrowserRouter>

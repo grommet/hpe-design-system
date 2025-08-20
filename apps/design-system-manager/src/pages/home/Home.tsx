@@ -35,7 +35,6 @@ export const Home = () => {
                 key={action.label}
                 href={action.href}
                 label={action.label}
-                size="xsmall"
                 fill
               />
             ))}
