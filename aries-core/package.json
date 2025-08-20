@@ -25,6 +25,7 @@
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "babel-loader": "^8.2.5",
+    "chromatic": "^13.1.3",
     "del": "^6.1.1",
     "dotenv": "^8.2.0",
     "fs-extra": "^11.1.0",
@@ -46,7 +47,8 @@
     "test": "jest",
     "release-stable": "babel-node ./tools/release-stable",
     "storybook": "yarn build-design-tokens && storybook dev -p 6006",
-    "build-storybook": "yarn build-design-tokens && yarn build-site-search && storybook build"
+    "build-storybook": "yarn build-design-tokens && yarn build-site-search && storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_465954b6a5707dd"
   },
   "keywords": [
     "aries",

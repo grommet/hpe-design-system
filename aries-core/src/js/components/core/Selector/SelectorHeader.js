@@ -14,7 +14,7 @@ const SelectorIndicator = ({ selected, indicator, ...rest }) => {
     <Box
       border={{
         color: selected ? 'transparent' : 'border',
-        size: 'xsmall',
+        size: '3xsmall',
       }}
       round={round}
       height={theme.global.edgeSize[size]}
@@ -44,10 +44,10 @@ const SelectorHeader = ({
       height: undefined,
     });
   return (
-    <Box direction="row" gap="xsmall" flex={false}>
+    <Box direction="row" gap="3xsmall" flex={false}>
       {direction === 'row' && icon}
       <Box flex>
-        <Box gap="xsmall" flex>
+        <Box gap="3xsmall" flex>
           {/* if we use columnn, we dont need any padding on icon, 
         if we use row we do need the pad on icon. */}
           {direction === 'column' && icon}

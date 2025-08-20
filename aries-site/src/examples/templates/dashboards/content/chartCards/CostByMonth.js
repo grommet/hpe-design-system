@@ -120,7 +120,7 @@ export const CostByMonth = ({ period }) => {
       {values && (     
         <Box gap="medium">
           <NameValueList
-            valueProps={{ width: ['xsmall', 'auto'] }}
+            valueProps={{ width: ['3xsmall', 'auto'] }}
             pairProps={{ direction: 'column' }}
             layout="grid"
           >

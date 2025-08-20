@@ -50,7 +50,7 @@ export const FirmwareBaselines = ({ ...rest }) => {
         { label: 'Share', onClick: () => {} },
       ]}
       defaultItemProps={{
-        pad: { vertical: 'small', right: 'small' },
+        pad: { vertical: 'xsmall', right: 'xsmall' },
       }}
       {...rest}
     />

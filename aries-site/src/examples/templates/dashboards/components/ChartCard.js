@@ -27,8 +27,8 @@ export const ChartCard = ({
       <CardHeader
         pad={
           ['xsmall', 'small'].includes(size)
-            ? { horizontal: 'large', top: 'large', bottom: header.pad }
-            : { horizontal: header.pad, top: header.pad, bottom: 'small' }
+            ? { horizontal: 'xlarge', top: 'xlarge', bottom: header.pad }
+            : { horizontal: header.pad, top: header.pad, bottom: 'xsmall' }
         }
       >
         <DashboardCardHeader title={title} level={2} subtitle={subtitle} />
@@ -36,8 +36,8 @@ export const ChartCard = ({
       <CardBody
         pad={
           ['xsmall', 'small'].includes(size)
-            ? { horizontal: 'large', top: body.pad, bottom: 'large' }
-            : { horizontal: body.pad, top: 'small', bottom: body.pad }
+            ? { horizontal: 'xlarge', top: body.pad, bottom: 'xlarge' }
+            : { horizontal: body.pad, top: 'xsmall', bottom: body.pad }
         }
       >
         {children}
@@ -46,7 +46,7 @@ export const ChartCard = ({
         <CardFooter
           pad={
             ['xsmall', 'small'].includes(size)
-              ? { horizontal: 'large', top: body.pad, bottom: 'large' }
+              ? { horizontal: 'xlarge', top: body.pad, bottom: 'xlarge' }
               : footerTheme.pad
           }
           border={{ side: 'top', color: 'border-weak' }}

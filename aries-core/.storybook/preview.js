@@ -14,7 +14,7 @@ export default {
 
       return (
         <Grommet theme={hpe} themeMode={mode}>
-          <Box pad="xsmall">
+          <Box pad="3xsmall">
             <Story />
           </Box>
         </Grommet>

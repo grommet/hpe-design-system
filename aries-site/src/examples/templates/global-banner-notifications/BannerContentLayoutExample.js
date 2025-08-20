@@ -20,14 +20,14 @@ export const BannerContentLayoutExample = () => (
   <AppContainer>
     <Box>
       <ContentArea
-        pad={{ horizontal: 'large', vertical: 'small' }}
+        pad={{ horizontal: 'xlarge', vertical: 'xsmall' }}
         direction="row"
         icon
         title="HPE Service Name"
         gap="none"
         justify="between"
       >
-        <Box align="center" direction="row" gap="small">
+        <Box align="center" direction="row" gap="xsmall">
           <>
             <Button icon={<HelpOption />} a11yTitle="Help" title="Help" />
             <Button icon={<HomeRounded />} a11yTitle="Home" title="Home" />
@@ -71,11 +71,11 @@ const parentGrid = {
     xlarge: ['auto', 'medium'],
   },
   gap: {
-    xsmall: 'large',
-    small: 'large',
+    xsmall: 'xlarge',
+    small: 'xlarge',
     medium: 'medium',
-    large: 'large',
-    xlarge: 'large',
+    large: 'xlarge',
+    xlarge: 'xlarge',
   },
 };
 
@@ -84,8 +84,8 @@ const firstChildGrid = {
     xsmall: '100%',
     small: '100%',
     medium: '100%',
-    large: ['auto', ['small', 'medium']],
-    xlarge: ['auto', ['small', 'medium']],
+    large: ['auto', ['xsmall', 'medium']],
+    xlarge: ['auto', ['xsmall', 'medium']],
   },
   gap: 'medium',
 };
@@ -134,5 +134,5 @@ const Content = () => {
 };
 
 const ContentBlock = ({ ...rest }) => (
-  <ContentArea height="small" round="small" {...rest} />
+  <ContentArea height="xsmall" round="medium" {...rest} />
 );

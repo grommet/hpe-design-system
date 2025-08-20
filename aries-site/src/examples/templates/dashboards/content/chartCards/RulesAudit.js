@@ -89,7 +89,7 @@ export const RulesAudit = ({ period }) => {
   }, [rules]);
 
   const nextScheduledAudit = nextAudit && (
-    <Box direction="row" gap="xsmall">
+    <Box direction="row" gap="3xsmall">
       {/* Placing the icon within a Text component ensures the icon is 
       aligned with the accompanying Text's line height, even when lengthy 
       text may wrap. */}
@@ -111,7 +111,7 @@ export const RulesAudit = ({ period }) => {
     <ChartCard title="Compliance" subtitle={period} footer={nextScheduledAudit}>
       <Box gap="medium">
         <NameValueList
-         valueProps={{ width: ['xsmall', 'auto'] }}
+         valueProps={{ width: ['3xsmall', 'auto'] }}
          pairProps={{ direction: 'column' }}
          layout="grid"
         >

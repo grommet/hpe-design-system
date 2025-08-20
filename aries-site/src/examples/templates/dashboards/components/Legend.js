@@ -9,12 +9,12 @@ export const Legend = ({ values, ...rest }) => {
   return (
     <List
       data={values}
-      defaultItemProps={{ pad: { vertical: 'xxsmall' } }}
+      defaultItemProps={{ pad: { vertical: '5xsmall' } }}
       {...rest}
     >
       {datum => (
-        <Box direction="row" gap="small" justify="between">
-          <Box direction="row" align="center" gap="xsmall">
+        <Box direction="row" gap="xsmall" justify="between">
+          <Box direction="row" align="center" gap="3xsmall">
             <Box background={datum.color} height={size} width={size} round />
             <Text>{datum.label}</Text>
           </Box>

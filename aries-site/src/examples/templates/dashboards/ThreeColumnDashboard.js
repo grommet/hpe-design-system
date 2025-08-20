@@ -14,8 +14,8 @@ import { CostByMonth, CostByService, CostByYear, RulesAudit } from './content';
 export const ThreeColumnDashboard = () => (
   <AppContainer background="background-back">
     <ContentArea title="Global Header" />
-    <Page pad={{ bottom: 'xlarge' }}>
-      <PageContent gap="large">
+    <Page pad={{ bottom: '3xlarge' }}>
+      <PageContent gap="xlarge">
         <PageHeader title="Dashboard" />
         <Content />
       </PageContent>
@@ -29,26 +29,26 @@ const parentGrid = {
     xsmall: ['100%'],
     small: ['100%'],
     medium: [
-      ['small', 'large'],
-      ['small', 'large'],
+      ['xsmall', 'xlarge'],
+      ['xsmall', 'xlarge'],
     ],
     large: [
-      ['small', 'medium'],
-      ['small', 'medium'],
-      ['small', 'medium'],
+      ['xsmall', 'medium'],
+      ['xsmall', 'medium'],
+      ['xsmall', 'medium'],
     ],
     xlarge: [
-      ['medium', 'large'],
-      ['medium', 'large'],
-      ['medium', 'large'],
+      ['medium', 'xlarge'],
+      ['medium', 'xlarge'],
+      ['medium', 'xlarge'],
     ],
   },
   gap: {
-    xsmall: 'large',
-    small: 'large',
+    xsmall: 'xlarge',
+    small: 'xlarge',
     medium: 'medium',
-    large: 'large',
-    xlarge: 'large',
+    large: 'xlarge',
+    xlarge: 'xlarge',
   },
 };
 

@@ -37,12 +37,12 @@ const data = [
 ];
 
 export const ListNameOptionActionExample = () => (
-  <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+  <Box width={{ max: '5xlarge' }} margin="auto" fill>
     <List
       data={data}
       action={(item, index) => (
         <Box key={index} direction="row" align="center" gap="medium">
-          <Box direction="row" gap="small" align="center">
+          <Box direction="row" gap="xsmall" align="center">
             <Text>{item.option}</Text>
             <item.icon color={item.color} size="small" />
           </Box>

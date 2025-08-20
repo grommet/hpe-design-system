@@ -126,7 +126,7 @@ export const CostByService = ({ period, notification }) => {
     gap: {
       xsmall: 'medium',
       small: 'medium',
-      medium: 'small',
+      medium: 'xsmall',
       large: 'medium',
       xlarge: 'medium',
     },
@@ -148,8 +148,8 @@ export const CostByService = ({ period, notification }) => {
               alignSelf="start"
               height={{
                 max: `${
-                  parseMetricToNum(theme.global.size.small) +
-                  parseMetricToNum(theme.global.size.xsmall)
+                  parseMetricToNum(theme.global.size.xsmall) +
+                  parseMetricToNum(theme.global.size['3xsmall'])
                 }px`,
               }}
             >
@@ -163,7 +163,7 @@ export const CostByService = ({ period, notification }) => {
               />
             </Box>
             <NameValueList
-              valueProps={{ width: ['xsmall', 'auto'] }}
+              valueProps={{ width: ['3xsmall', 'auto'] }}
               pairProps={{ direction: 'column' }}
               layout="grid"
               gridArea="measure"

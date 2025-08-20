@@ -31,7 +31,7 @@ const data = [
 ];
 
 export const ListNameDescriptionOptionExample = () => (
-  <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+  <Box width={{ max: '5xlarge' }} margin="auto" fill>
     <List
       data={data}
       action={(item, index) => <Text key={index}>{item.option}</Text>}
