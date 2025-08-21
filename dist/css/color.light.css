@@ -251,8 +251,9 @@
   --hpe-button-primary-hover-borderColor: var(--hpe-color-transparent);
   --hpe-button-primary-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-primary-selected-hover-borderColor: var(--hpe-color-transparent);
-  --hpe-button-secondary-rest-background: var(--hpe-color-transparent);
-  --hpe-button-secondary-disabled-rest-background: var(--hpe-color-transparent);
+  --hpe-button-secondary-rest-borderColor: var(--hpe-color-transparent);
+  --hpe-button-secondary-disabled-rest-background: var(--hpe-color-background-disabled);
+  --hpe-button-secondary-disabled-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-secondary-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-button-secondary-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-secondary-selected-hover-borderColor: var(--hpe-color-transparent);
@@ -386,10 +387,11 @@
   --hpe-button-primary-selected-hover-background: var(--hpe-color-background-primary-xstrong);
   --hpe-button-primary-selected-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-selected-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
-  --hpe-button-secondary-rest-borderColor: var(--hpe-color-decorative-brand);
-  --hpe-button-secondary-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-button-secondary-hover-background: var(--hpe-button-secondary-rest-background);
-  --hpe-button-secondary-disabled-rest-borderColor: var(--hpe-color-border-disabled);
+  --hpe-button-secondary-rest-background: var(--hpe-color-background-contrast);
+  --hpe-button-secondary-rest-textColor: var(--hpe-color-text-primary);
+  --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-primary);
+  --hpe-button-secondary-hover-background: var(--hpe-color-background-contrast-hover);
+  --hpe-button-secondary-hover-borderColor: var(--hpe-button-secondary-rest-borderColor);
   --hpe-button-secondary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-secondary-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-button-secondary-selected-rest-textColor: var(--hpe-color-text-primary);
@@ -514,9 +516,8 @@
   --hpe-select-default-option-marker-rest-background: var(--hpe-color-border-selected);
   --hpe-select-default-option-marker-hover-background: var(--hpe-color-border-selected);
   --hpe-select-default-drop-background: var(--hpe-drop-default-background);
-  --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-strong);
-  --hpe-button-secondary-hover-borderColor: var(--hpe-color-border-selected);
   --hpe-button-secondary-hover-textColor: var(--hpe-button-secondary-rest-textColor);
+  --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
   --hpe-button-default-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-default-hover-background: var(--hpe-color-background-hover);
   --hpe-button-default-hover-textColor: var(--hpe-button-default-rest-textColor);
@@ -584,7 +585,6 @@
   --hpe-anchor-default-hover-textColor: var(--hpe-color-text-anchor-hover);
   --hpe-select-default-option-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
-  --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
   --hpe-button-default-hover-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-button-default-selected-rest-background: var(--hpe-color-background-active);
   --hpe-button-toolbar-hover-iconColor: var(--hpe-button-toolbar-rest-iconColor);
