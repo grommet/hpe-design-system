@@ -2000,7 +2000,7 @@
       "rest": {
         "background": {
           "$type": "color",
-          "$value": "{color.transparent}",
+          "$value": "{color.background.contrast.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2012,7 +2012,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{color.decorative.brand.DEFAULT.REST}",
+          "$value": "{color.transparent}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2024,7 +2024,7 @@
         },
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.strong.REST}",
+          "$value": "{color.text.primary.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2036,7 +2036,7 @@
         },
         "iconColor": {
           "$type": "color",
-          "$value": "{color.icon.strong.REST}",
+          "$value": "{color.icon.primary.DEFAULT.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2062,7 +2062,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "{button.secondary.rest.background}",
+          "$value": "{color.background.contrast.DEFAULT.hover}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2074,7 +2074,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{color.border.selected.DEFAULT.REST}",
+          "$value": "{button.secondary.rest.borderColor}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2125,7 +2125,7 @@
         "rest": {
           "background": {
             "$type": "color",
-            "$value": "{color.transparent}",
+            "$value": "{color.background.disabled.DEFAULT.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2137,7 +2137,7 @@
           },
           "borderColor": {
             "$type": "color",
-            "$value": "{color.border.disabled.DEFAULT.REST}",
+            "$value": "{color.transparent}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -2350,7 +2350,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.small}",
+          "$value": "{button.default.xsmall.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2558,7 +2558,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.small}",
+          "$value": "{button.default.small.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2742,7 +2742,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 4,
+          "$value": "{element.medium.paddingY}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2766,7 +2766,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.small}",
+          "$value": "{button.default.medium.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2950,7 +2950,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 8,
+          "$value": 9,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2974,7 +2974,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.small}",
+          "$value": "{button.default.large.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3268,7 +3268,7 @@
         },
         "paddingY": {
           "$type": "number",
-          "$value": 19,
+          "$value": 20,
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -3292,7 +3292,7 @@
         },
         "borderWidth": {
           "$type": "number",
-          "$value": "{static.borderWidth.small}",
+          "$value": "{button.default.xlarge.borderWidth}",
           "$description": "",
           "$extensions": {
             "com.figma": {
