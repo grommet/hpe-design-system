@@ -219,14 +219,14 @@ export default {
         },
         "selected": {
           "rest": {
-            "background": "background-primary-xstrong",
+            "background": "background-neutral-xstrong",
             "borderColor": "transparent",
             "textColor": "text-onPrimaryStrong",
             "iconColor": "icon-onPrimaryStrong",
             "fontWeight": 500
           },
           "hover": {
-            "background": "background-primary-xstrong",
+            "background": "background-neutral-strong",
             "borderColor": "transparent",
             "textColor": "text-onPrimaryStrong",
             "iconColor": "icon-onPrimaryStrong",

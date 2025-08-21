@@ -369,10 +369,10 @@
   --hpe-button-primary-hover-background: var(--hpe-color-background-neutral-strong);
   --hpe-button-primary-hover-textColor: var(--hpe-color-text-onStrong);
   --hpe-button-primary-hover-iconColor: var(--hpe-color-icon-onStrong);
-  --hpe-button-primary-selected-rest-background: var(--hpe-color-background-primary-xstrong);
+  --hpe-button-primary-selected-rest-background: var(--hpe-color-background-neutral-xstrong);
   --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-onPrimaryStrong);
-  --hpe-button-primary-selected-hover-background: var(--hpe-color-background-primary-xstrong);
+  --hpe-button-primary-selected-hover-background: var(--hpe-color-background-neutral-strong);
   --hpe-button-primary-selected-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-selected-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
   --hpe-button-secondary-rest-background: var(--hpe-color-background-contrast);
@@ -983,10 +983,10 @@
   --hpe-button-primary-hover-background: var(--hpe-color-background-neutral-strong);
   --hpe-button-primary-hover-textColor: var(--hpe-color-text-onStrong);
   --hpe-button-primary-hover-iconColor: var(--hpe-color-icon-onStrong);
-  --hpe-button-primary-selected-rest-background: var(--hpe-color-background-primary-xstrong);
+  --hpe-button-primary-selected-rest-background: var(--hpe-color-background-neutral-xstrong);
   --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-onPrimaryStrong);
-  --hpe-button-primary-selected-hover-background: var(--hpe-color-background-primary-xstrong);
+  --hpe-button-primary-selected-hover-background: var(--hpe-color-background-neutral-strong);
   --hpe-button-primary-selected-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-selected-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
   --hpe-button-secondary-rest-background: var(--hpe-color-background-contrast);
