@@ -833,7 +833,7 @@
         "rest": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.primary.xstrong.REST}",
+            "$value": "{color.background.neutral.xstrong.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -895,7 +895,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.primary.xstrong.REST}",
+            "$value": "{color.background.neutral.strong.REST}",
             "$description": "",
             "$extensions": {
               "com.figma": {
