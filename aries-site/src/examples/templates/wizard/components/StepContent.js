@@ -67,7 +67,7 @@ export const StepContent = ({ onSubmit }) => {
         pad={
           ['xsmall', 'small'].includes(size)
             ? { horizontal: 'medium' }
-            : '3xsmall'
+            : '5xsmall'
         }
       >
         <StepHeader />

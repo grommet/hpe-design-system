@@ -82,7 +82,7 @@ const ComposedToolbar = () => {
           <DataFilter
             property="delivery"
             // override HPE theme margin to align with search + filter
-            contentProps={{ margin: { bottom: 'none', top: 'xsmall' } }}
+            contentProps={{ margin: { bottom: 'none', top: '3xsmall' } }}
             // override Grommet theme margin to align with search + filter
             margin="none"
           >
