@@ -18,19 +18,19 @@ module.exports = {
         "disabled": "#d4d8d8",
         "screenOverlay": "rgba(0, 0, 0, 0.12)",
         "warning": "#fff3dd",
-        "ok": "#e3fdf4",
+        "ok": "#d1ffee",
         "critical": "#ffecec",
         "unknown": "rgba(0, 0, 0, 0.04)",
         "info": "#e3f1ff",
         "primary-strong": "#068667",
         "primary-strong-hover": "#006750",
-        "primary-xstrong": "#093a2f",
+        "primary-xstrong": "#093d32",
         "selected-primary-strong": "#068667",
         "selected-primary-strong-hover": "#006750",
         "selected-primary": "#d1ffee",
         "selected-primary-hover": "#aafade",
         "neutral-strong": "#3e4550",
-        "neutral-xstrong": "#2e2e2e"
+        "neutral-xstrong": "#292d3a"
       },
       "border": {
         "strong": "#3e4550",
@@ -52,7 +52,7 @@ module.exports = {
         "disabled": "#a0a2a8",
         "onPrimaryStrong": "#ffffff",
         "primary": "#006750",
-        "primary-hover": "#074b3b",
+        "primary-hover": "#074738",
         "critical": "#cc1f1a",
         "info": "#3e4550",
         "ok": "#3e4550",
@@ -60,7 +60,7 @@ module.exports = {
         "unknown": "#3e4550",
         "heading": "#292d3a",
         "anchor": "#006750",
-        "anchor-hover": "#074b3b",
+        "anchor-hover": "#074738",
         "onSelectedPrimaryStrong": "#ffffff",
         "onSelectedPrimary": "#292d3a",
         "onStrong": "#ffffff",
@@ -93,13 +93,13 @@ module.exports = {
       },
       "decorative": {
         "brand": "#01a982",
-        "green": "#17eba0",
-        "purple": "#f740ff",
-        "teal": "#82fff2",
-        "blue": "#00c8ff",
-        "red": "#fc6161",
-        "orange": "#ffbc44",
-        "yellow": "#ffeb59",
+        "green": "#05cc93",
+        "purple": "#7764fc",
+        "teal": "rgba(0, 0, 0, 0)",
+        "blue": "#0070f8",
+        "red": "rgba(0, 0, 0, 0)",
+        "orange": "rgba(0, 0, 0, 0)",
+        "yellow": "rgba(0, 0, 0, 0)",
         "neutral": "#7d8a92",
         "neutral-hover": "#606a70"
       },
@@ -120,6 +120,13 @@ module.exports = {
         "critical": "#ec3331",
         "warning": "#d36d00",
         "unknown": "#7d8a92"
+      },
+      "surface": {
+        "low-default": "#f7f7f7",
+        "base-default": "#ffffff",
+        "high-default": "#f7f7f7",
+        "high-secondary": "#ffffff",
+        "highest-default": "#f7f7f7"
       }
     },
     "shadow": {

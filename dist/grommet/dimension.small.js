@@ -131,27 +131,27 @@ export default {
     },
     "heading": {
       "xlarge": {
-        "fontWeight": 400,
-        "fontSize": "1.75rem",
+        "fontWeight": 500,
+        "fontSize": "1.5rem",
         "lineHeight": "2rem"
       },
       "large": {
         "fontWeight": 500,
-        "fontSize": "1.5rem",
+        "fontSize": "1.375rem",
         "lineHeight": "1.75rem"
       },
       "medium": {
-        "fontSize": "1.25rem",
+        "fontSize": "1.125rem",
         "lineHeight": "1.5rem",
         "fontWeight": 500
       },
       "small": {
-        "fontSize": "1.125rem",
+        "fontSize": "1rem",
         "lineHeight": "1.25rem",
         "fontWeight": 500
       },
       "xsmall": {
-        "fontSize": "1rem",
+        "fontSize": "0.875rem",
         "lineHeight": "1.125rem",
         "fontWeight": 500
       },

@@ -5131,7 +5131,7 @@ export default {
   },
   "hpe.button.primary.rest.background": {
     "$type": "color",
-    "$value": "#2e2e2e",
+    "$value": "#292d3a",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -5825,7 +5825,7 @@ export default {
   },
   "hpe.button.primary.selected.rest.background": {
     "$type": "color",
-    "$value": "#093a2f",
+    "$value": "#093d32",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -6063,7 +6063,7 @@ export default {
   },
   "hpe.button.primary.selected.hover.background": {
     "$type": "color",
-    "$value": "#093a2f",
+    "$value": "#093d32",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -42778,7 +42778,7 @@ export default {
   },
   "hpe.anchor.default.hover.textColor": {
     "$type": "color",
-    "$value": "#074b3b",
+    "$value": "#074738",
     "$description": "",
     "$extensions": {
       "com.figma": {

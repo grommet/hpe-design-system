@@ -120,6 +120,13 @@ module.exports = {
         "critical": "var(--hpe-color-foreground-critical)",
         "warning": "var(--hpe-color-foreground-warning)",
         "unknown": "var(--hpe-color-foreground-unknown)"
+      },
+      "surface": {
+        "low-default": "var(--hpe-color-surface-low-default)",
+        "base-default": "var(--hpe-color-surface-base-default)",
+        "high-default": "var(--hpe-color-surface-high-default)",
+        "high-secondary": "var(--hpe-color-surface-high-secondary)",
+        "highest-default": "var(--hpe-color-surface-highest-default)"
       }
     },
     "shadow": {

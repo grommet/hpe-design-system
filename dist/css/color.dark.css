@@ -4,113 +4,21 @@
  */
 
 [data-mode=dark] {
-  --hpe-base-color-red-500: #fc6161;
-  --hpe-base-color-red-550: #fc5a5a;
-  --hpe-base-color-red-600: #ec3331;
-  --hpe-base-color-red-750: #c54e4b;
-  --hpe-base-color-red-800: #cc1f1a;
-  --hpe-base-color-red-850: #a2423d;
-  --hpe-base-color-red-500-Opacity12: rgba(252, 97, 97, 0.12);
-  --hpe-base-color-red-500-Opacity24: rgba(252, 97, 97, 0.24);
-  --hpe-base-color-red-800-Opacity30: rgba(204, 31, 26, 0.3);
-  --hpe-base-color-orange-400: #ffbc44;
-  --hpe-base-color-orange-600: #d36d00;
-  --hpe-base-color-orange-700: #9b6310;
-  --hpe-base-color-orange-400-Opacity12: rgba(255, 188, 68, 0.12);
-  --hpe-base-color-orange-400-Opacity24: rgba(255, 188, 68, 0.24);
-  --hpe-base-color-yellow-200: #ffeb59;
-  --hpe-base-color-yellow-400: #fec901;
-  --hpe-base-color-yellow-700: #8d741c;
-  --hpe-base-color-yellow-400-Opacity12: rgba(254, 201, 1, 0.12);
-  --hpe-base-color-green-100: #d1ffee;
-  --hpe-base-color-green-125: #aafade;
-  --hpe-base-color-green-400: #17eba0;
-  --hpe-base-color-green-450: #00ebb5;
-  --hpe-base-color-green-500: #1ed8ae;
-  --hpe-base-color-green-600: #01a982; /** HPE Brand */
-  --hpe-base-color-green-650: #009a71;
-  --hpe-base-color-green-700: #008567;
-  --hpe-base-color-green-800: #006750;
-  --hpe-base-color-green-900: #074b3b;
-  --hpe-base-color-green-1000: #093a2f;
-  --hpe-base-color-green-400-Opacity12: rgba(23, 235, 160, 0.12);
-  --hpe-base-color-green-400-Opacity24: rgba(23, 235, 160, 0.24);
-  --hpe-base-color-green-500-Opacity30: rgba(23, 208, 166, 0.3);
-  --hpe-base-color-landmarkGold-100: #f9cc61;
-  --hpe-base-color-landmarkGold-200: #ecbe4f;
-  --hpe-base-color-landmarkGold-300: #deb146;
-  --hpe-base-color-landmarkGold-400: #c89e3a;
-  --hpe-base-color-landmarkGold-500: #b38a29;
-  --hpe-base-color-landmarkGold-550: #b0840d;
-  --hpe-base-color-landmarkPurple-100: #b7a2fc; /** Purple 3 */
-  --hpe-base-color-landmarkPurple-200: #9b84fc; /** Purple 2 */
-  --hpe-base-color-landmarkPurple-300: #7764fc; /** Purple */
-  --hpe-base-color-landmarkPurple-400: #5d45d6; /** Purple 4 */
-  --hpe-base-color-landmarkPurple-500: #3c3aa1; /** Purple 5 */
-  --hpe-base-color-landmarkFuschia-100: #fc9ddc;
-  --hpe-base-color-landmarkFuschia-200: #db72b8;
-  --hpe-base-color-landmarkFuschia-300: #cc54a4;
-  --hpe-base-color-landmarkFuschia-400: #ad4089;
-  --hpe-base-color-landmarkFuschia-500: #7f245c;
-  --hpe-base-color-landmarkPlum-100: #c98ad4;
-  --hpe-base-color-landmarkPlum-200: #a455b3;
-  --hpe-base-color-landmarkPlum-300: #873492;
-  --hpe-base-color-landmarkPlum-400: #6c2b7c;
-  --hpe-base-color-landmarkPlum-500: #5e1f68;
-  --hpe-base-color-landmarkCyan-100: #99f0f9;
-  --hpe-base-color-landmarkCyan-200: #62e5f6;
-  --hpe-base-color-landmarkCyan-300: #00dbe4;
-  --hpe-base-color-landmarkCyan-400: #00a4b3;
-  --hpe-base-color-landmarkCyan-500: #04909d;
-  --hpe-base-color-landmarkGreen-650: #009a71;
-  --hpe-base-color-landmarkGreen-800: #006750;
-  --hpe-base-color-landmarkGreen-900: #074b3b;
-  --hpe-base-color-landmarkGreen-1000: #093a2f;
-  --hpe-base-color-landmarkGreen-100Same: #d1ffee;
-  --hpe-base-color-landmarkGreen-125Same: #aafade;
-  --hpe-base-color-landmarkGreen-400Same: #00e0af;
-  --hpe-base-color-landmarkGreen-450Updated: #66ebcf;
-  --hpe-base-color-landmarkGreen-500Updated: #00e0af; /** Landmark Primary Green */
-  --hpe-base-color-landmarkGreen-550New: #05cc93;
-  --hpe-base-color-landmarkGreen-600Same: #01a982; /** HPE Brand */
-  --hpe-base-color-landmarkGreen-700Updated: #068667;
-  --hpe-base-color-landmarkGreen-400-Opacity12: rgba(23, 235, 160, 0.12);
-  --hpe-base-color-landmarkGreen-400-Opacity24: rgba(23, 235, 160, 0.24);
-  --hpe-base-color-landmarkGreen-500-Opacity30: rgba(23, 208, 166, 0.3);
-  --hpe-base-color-landmarkGrey-50: #f7f7f7;
-  --hpe-base-color-landmarkGrey-200: #e6e8e9;
-  --hpe-base-color-landmarkGrey-1100: #292929;
-  --hpe-base-color-landmarkGrey-1200: #222222;
-  --hpe-base-color-landmarkGrey-400Updated: #d4d8db;
-  --hpe-base-color-landmarkGrey-500Updated: #b1b9be;
-  --hpe-base-color-landmarkGrey-600Updated: #7d8a92;
-  --hpe-base-color-landmarkGrey-650Entirelynew: #606a70;
-  --hpe-base-color-landmarkGrey-700Updated: #535c66;
-  --hpe-base-color-landmarkGrey-800Updated: #3e4550;
-  --hpe-base-color-landmarkGrey-1000Updated: #292d3a;
-  --hpe-base-color-landmarkGrey-1300Updated: #1d1f27;
-  --hpe-base-color-landmarkBlue-50: #e3f1ff;
-  --hpe-base-color-landmarkBlue-200: #65aef9;
-  --hpe-base-color-landmarkBlue-300: #3994f7;
-  --hpe-base-color-landmarkBlue-500: #0070f8;
-  --hpe-base-color-landmarkBlue-1100: #2b3547;
-  --hpe-base-color-landmarkBlue-700updated: #0055da;
-  --hpe-base-color-landmarkBlue-900updated: #003cae;
-  --hpe-base-color-landmarkRed-50: #ffecec;
-  --hpe-base-color-landmarkRed-500: #fc6161;
-  --hpe-base-color-landmarkRed-600: #ec3331;
-  --hpe-base-color-landmarkRed-800: #cc1f1a;
-  --hpe-base-color-landmarkRed-850: #a2423d;
-  --hpe-base-color-landmarkRed-1000: #552120;
-  --hpe-base-color-teal-200: #82fff2;
-  --hpe-base-color-teal-400: #00e8cf;
-  --hpe-base-color-teal-700: #117b82;
-  --hpe-base-color-blue-400: #00c8ff;
-  --hpe-base-color-blue-700: #00739d;
-  --hpe-base-color-blue-900: #00567a;
-  --hpe-base-color-blue-400-Opacity12: rgba(0, 200, 255, 0.12);
-  --hpe-base-color-purple-500: #f740ff;
-  --hpe-base-color-purple-900: #6633bc;
+  --hpe-base-color-purple-100: #b7a2fc; /** Purple 3 */
+  --hpe-base-color-purple-200: #9b84fc; /** Purple 2 */
+  --hpe-base-color-purple-300: #7764fc; /** Purple */
+  --hpe-base-color-purple-400: #5d45d6; /** Purple 4 */
+  --hpe-base-color-purple-500: #3c3aa1; /** Purple 5 */
+  --hpe-base-color-white-100: #ffffff;
+  --hpe-base-color-white-opacity6: rgba(255, 255, 255, 0.06);
+  --hpe-base-color-white-opacity7: rgba(255, 255, 255, 0.07);
+  --hpe-base-color-white-opacity10: rgba(255, 255, 255, 0.1);
+  --hpe-base-color-white-opacity12: rgba(255, 255, 255, 0.12);
+  --hpe-base-color-white-opacity20: rgba(255, 255, 255, 0.2);
+  --hpe-base-color-white-opacity24: rgba(255, 255, 255, 0.24);
+  --hpe-base-color-white-opacity36: rgba(255, 255, 255, 0.36);
+  --hpe-base-color-white-opacity50: rgba(255, 255, 255, 0.5);
+  --hpe-base-color-white-opacity72: rgba(255, 255, 255, 0.72);
   --hpe-base-color-black-opacity4: rgba(0, 0, 0, 0.04);
   --hpe-base-color-black-opacity8: rgba(0, 0, 0, 0.08);
   --hpe-base-color-black-opacity12: rgba(0, 0, 0, 0.12);
@@ -120,119 +28,217 @@
   --hpe-base-color-black-opacity50: rgba(0, 0, 0, 0.5);
   --hpe-base-color-black-opacity72: rgba(0, 0, 0, 0.72);
   --hpe-base-color-black-opacity100: #000000;
+  --hpe-base-color-fuschia-100: #fc9ddc;
+  --hpe-base-color-fuschia-200: #db72b8;
+  --hpe-base-color-fuschia-300: #cc54a4;
+  --hpe-base-color-fuschia-400: #ad4089;
+  --hpe-base-color-fuschia-500: #7f245c;
+  --hpe-base-color-orange-50: #fff3dd;
+  --hpe-base-color-orange-500: #ec8c25;
+  --hpe-base-color-orange-600: #d36d00;
+  --hpe-base-color-orange-1000: #3c361e;
+  --hpe-base-color-plum-100: #c98ad4;
+  --hpe-base-color-plum-200: #a455b3;
+  --hpe-base-color-plum-300: #873492;
+  --hpe-base-color-plum-400: #6c2b7c;
+  --hpe-base-color-plum-500: #5e1f68;
+  --hpe-base-color-gold-100: #f9cc61;
+  --hpe-base-color-gold-200: #ecbe4f;
+  --hpe-base-color-gold-300: #deb146;
+  --hpe-base-color-gold-400: #c89e3a;
+  --hpe-base-color-gold-500: #b38a29;
+  --hpe-base-color-gold-550: #b0840d;
+  --hpe-base-color-cyan-100: #99f0f9;
+  --hpe-base-color-cyan-200: #62e5f6;
+  --hpe-base-color-cyan-300: #00dbe4;
+  --hpe-base-color-cyan-400: #00a4b3;
+  --hpe-base-color-cyan-500: #04909d;
+  --hpe-base-color-green-100: #d1ffee;
+  --hpe-base-color-green-125: #aafade;
+  --hpe-base-color-green-400: #00e0af;
+  --hpe-base-color-green-450: #66ebcf;
+  --hpe-base-color-green-500: #00e0af; /** Landmark Primary Green */
+  --hpe-base-color-green-550: #05cc93;
+  --hpe-base-color-green-600: #01a982; /** HPE Brand */
+  --hpe-base-color-green-650: #009a71;
+  --hpe-base-color-green-800: #006750;
+  --hpe-base-color-green-900: #074738;
+  --hpe-base-color-green-1000: #093d32;
+  --hpe-base-color-green-700Updated: #068667;
   --hpe-base-color-grey-50: #f7f7f7;
-  --hpe-base-color-grey-400: #cccccc;
-  --hpe-base-color-grey-500: #bbbbbb;
-  --hpe-base-color-grey-600: #8c8c8c;
-  --hpe-base-color-grey-700: #757575;
-  --hpe-base-color-grey-800: #555555;
-  --hpe-base-color-grey-1000: #2e2e2e;
-  --hpe-base-color-grey-1100: #292929;
-  --hpe-base-color-grey-1200: #222222;
-  --hpe-base-color-grey-1300: #1c1c1c;
-  --hpe-base-color-white-100: #ffffff;
-  --hpe-base-color-white-opacity6: rgba(255, 255, 255, 0.06);
-  --hpe-base-color-white-opacity7: rgba(255, 255, 255, 0.07);
-  --hpe-base-color-white-opacity12: rgba(255, 255, 255, 0.12);
-  --hpe-base-color-white-opacity20: rgba(255, 255, 255, 0.2);
-  --hpe-base-color-white-opacity24: rgba(255, 255, 255, 0.24);
-  --hpe-base-color-white-opacity36: rgba(255, 255, 255, 0.36);
-  --hpe-base-color-white-opacity50: rgba(255, 255, 255, 0.5);
-  --hpe-base-color-white-opacity72: rgba(255, 255, 255, 0.72);
-  --hpe-base-color-dataVis-green1: #01a982;
-  --hpe-base-color-dataVis-darkblue1: #00384d;
-  --hpe-base-color-dataVis-purple1: #7022ec;
-  --hpe-base-color-dataVis-gold1: #b0840d;
-  --hpe-base-color-dataVis-lightblue1: #5c91e5;
-  --hpe-base-color-dataVis-pink1: #a95589;
-  --hpe-base-color-dataVis-blue1: #2053d9;
-  --hpe-base-color-dataVis-grape1: #470d69;
-  --hpe-base-color-dataVis-darkblue2: #38819c;
-  --hpe-base-color-dataVis-purple2: #3c3aa1;
-  --hpe-base-color-dataVis-gold2: #bd9d48;
-  --hpe-base-color-dataVis-lightblue2: #78bff0;
-  --hpe-base-color-dataVis-pink2: #c0649a;
-  --hpe-base-color-dataVis-blue2: #1f95e4;
-  --hpe-base-color-dataVis-purple3: #855aaa;
-  --hpe-base-color-LandMarkDataVis-orange: #d17243;
-  --hpe-color-background-warning: #3c361e; /** Use for backgrounds communicating warning or caution. Keywords: status */
-  --hpe-color-background-primary-strong: #007c60; /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
-  --hpe-color-background-primary-strong-hover: #00513f; /** Hover variant of background-primary. */
-  --hpe-color-background-selected-primary-strong: #007c60; /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
-  --hpe-color-background-selected-primary-strong-hover: #00513f; /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-base-color-grey-400: #d4d8db;
+  --hpe-base-color-grey-500: #b1b9be;
+  --hpe-base-color-grey-600: #7d8a92;
+  --hpe-base-color-grey-650: #606a70;
+  --hpe-base-color-grey-700: #535c66;
+  --hpe-base-color-grey-800: #3e4550;
+  --hpe-base-color-grey-1000: #292d3a;
+  --hpe-base-color-grey-1200: #22252e;
+  --hpe-base-color-grey-1300: #1d1f27;
+  --hpe-base-color-grey-200Entirelynew: #e6e8e9;
+  --hpe-base-color-blue-50: #e3f1ff;
+  --hpe-base-color-blue-200: #65aef9;
+  --hpe-base-color-blue-300: #3994f7;
+  --hpe-base-color-blue-500: #0070f8;
+  --hpe-base-color-blue-700: #0055da;
+  --hpe-base-color-blue-1100: #2b3547;
+  --hpe-base-color-blue-900updated: #003cae;
+  --hpe-base-color-red-50: #ffecec;
+  --hpe-base-color-red-400: #ff7b7b;
+  --hpe-base-color-red-500: #fc6161;
+  --hpe-base-color-red-600: #ec3331;
+  --hpe-base-color-red-800: #cc1f1a;
+  --hpe-base-color-red-1000: #552120;
+  --hpe-base-color-dataVis-orange: #d17243;
+  --hpe-deprecated-base-color-red-500: #fc6161;
+  --hpe-deprecated-base-color-red-550: #fc5a5a;
+  --hpe-deprecated-base-color-red-600: #ec3331;
+  --hpe-deprecated-base-color-red-750: #c54e4b;
+  --hpe-deprecated-base-color-red-800: #cc1f1a;
+  --hpe-deprecated-base-color-red-850: #a2423d;
+  --hpe-deprecated-base-color-red-500-Opacity12: rgba(252, 97, 97, 0.12);
+  --hpe-deprecated-base-color-red-500-Opacity24: rgba(252, 97, 97, 0.24);
+  --hpe-deprecated-base-color-red-800-Opacity30: rgba(204, 31, 26, 0.3);
+  --hpe-deprecated-base-color-orange-400: #ffbc44;
+  --hpe-deprecated-base-color-orange-600: #d36d00;
+  --hpe-deprecated-base-color-orange-700: #9b6310;
+  --hpe-deprecated-base-color-orange-500New: #ec8c25;
+  --hpe-deprecated-base-color-orange-400-Opacity12: rgba(255, 188, 68, 0.12);
+  --hpe-deprecated-base-color-orange-400-Opacity24: rgba(255, 188, 68, 0.24);
+  --hpe-deprecated-base-color-yellow-200: #ffeb59;
+  --hpe-deprecated-base-color-yellow-400: #fec901;
+  --hpe-deprecated-base-color-yellow-700: #8d741c;
+  --hpe-deprecated-base-color-yellow-400-Opacity12: rgba(254, 201, 1, 0.12);
+  --hpe-deprecated-base-color-green-100: #d1ffee;
+  --hpe-deprecated-base-color-green-125: #aafade;
+  --hpe-deprecated-base-color-green-400: #17eba0;
+  --hpe-deprecated-base-color-green-450: #00ebb5;
+  --hpe-deprecated-base-color-green-500: #1ed8ae;
+  --hpe-deprecated-base-color-green-600: #01a982; /** HPE Brand */
+  --hpe-deprecated-base-color-green-650: #009a71;
+  --hpe-deprecated-base-color-green-700: #008567;
+  --hpe-deprecated-base-color-green-800: #006750;
+  --hpe-deprecated-base-color-green-900: #074b3b;
+  --hpe-deprecated-base-color-green-1000: #093a2f;
+  --hpe-deprecated-base-color-green-400-Opacity12: rgba(23, 235, 160, 0.12);
+  --hpe-deprecated-base-color-green-400-Opacity24: rgba(23, 235, 160, 0.24);
+  --hpe-deprecated-base-color-green-500-Opacity30: rgba(23, 208, 166, 0.3);
+  --hpe-deprecated-base-color-teal-200: #82fff2;
+  --hpe-deprecated-base-color-teal-400: #00e8cf;
+  --hpe-deprecated-base-color-teal-700: #117b82;
+  --hpe-deprecated-base-color-blue-400: #00c8ff;
+  --hpe-deprecated-base-color-blue-700: #00739d;
+  --hpe-deprecated-base-color-blue-900: #00567a;
+  --hpe-deprecated-base-color-blue-400-Opacity12: rgba(0, 200, 255, 0.12);
+  --hpe-deprecated-base-color-purple-500: #f740ff;
+  --hpe-deprecated-base-color-purple-900: #6633bc;
+  --hpe-deprecated-base-color-grey-50: #f7f7f7;
+  --hpe-deprecated-base-color-grey-400: #cccccc;
+  --hpe-deprecated-base-color-grey-500: #bbbbbb;
+  --hpe-deprecated-base-color-grey-600: #8c8c8c;
+  --hpe-deprecated-base-color-grey-700: #757575;
+  --hpe-deprecated-base-color-grey-800: #555555;
+  --hpe-deprecated-base-color-grey-1000: #2e2e2e;
+  --hpe-deprecated-base-color-grey-1100: #292929;
+  --hpe-deprecated-base-color-grey-1200: #222222;
+  --hpe-deprecated-base-color-grey-1300: #1c1c1c;
+  --hpe-deprecated-base-color-dataVis-green1: #01a982;
+  --hpe-deprecated-base-color-dataVis-darkblue1: #00384d;
+  --hpe-deprecated-base-color-dataVis-purple1: #7022ec;
+  --hpe-deprecated-base-color-dataVis-gold1: #b0840d;
+  --hpe-deprecated-base-color-dataVis-lightblue1: #5c91e5;
+  --hpe-deprecated-base-color-dataVis-pink1: #a95589;
+  --hpe-deprecated-base-color-dataVis-blue1: #2053d9;
+  --hpe-deprecated-base-color-dataVis-grape1: #470d69;
+  --hpe-deprecated-base-color-dataVis-darkblue2: #38819c;
+  --hpe-deprecated-base-color-dataVis-purple2: #3c3aa1;
+  --hpe-deprecated-base-color-dataVis-gold2: #bd9d48;
+  --hpe-deprecated-base-color-dataVis-lightblue2: #78bff0;
+  --hpe-deprecated-base-color-dataVis-pink2: #c0649a;
+  --hpe-deprecated-base-color-dataVis-blue2: #1f95e4;
+  --hpe-deprecated-base-color-dataVis-purple3: #855aaa;
   --hpe-color-dataVis-categorical-10: #7372cf;
   --hpe-color-dataVis-categorical-50: #a68a74;
   --hpe-color-dataVis-categorical-60: #b889ff;
   --hpe-color-dataVis-categorical-70: #4d8da8;
   --hpe-color-transparent: rgba(0, 0, 0, 0);
-  --hpe-base-color-brand: var(--hpe-base-color-green-600);
-  --hpe-base-color-LandMarkDataVis-darkblue1: var(--hpe-base-color-landmarkPurple-500);
-  --hpe-base-color-LandMarkDataVis-purple1: var(--hpe-base-color-landmarkPurple-300);
-  --hpe-base-color-LandMarkDataVis-plum: var(--hpe-base-color-landmarkPlum-400);
-  --hpe-base-color-LandMarkDataVis-gold1: var(--hpe-base-color-landmarkGold-550);
-  --hpe-base-color-LandMarkDataVis-blue1: var(--hpe-base-color-landmarkBlue-700updated);
-  --hpe-base-color-LandMarkDataVis-cyan: var(--hpe-base-color-landmarkCyan-500);
-  --hpe-base-color-LandMarkDataVis-fuschia: var(--hpe-base-color-landmarkFuschia-400);
-  --hpe-color-background-default: var(--hpe-base-color-landmarkGrey-1300Updated); /** Default background color to be used on containers. */
-  --hpe-color-background-back: var(--hpe-base-color-landmarkGrey-1300Updated); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
-  --hpe-color-background-front: var(--hpe-base-color-landmarkGrey-1000Updated); /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
-  --hpe-color-background-contrast: var(--hpe-base-color-white-opacity7); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
-  --hpe-color-background-contrast-hover: var(--hpe-base-color-white-opacity12); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
+  --hpe-base-color-dataVis-darkblue1: var(--hpe-base-color-purple-500);
+  --hpe-base-color-dataVis-purple1: var(--hpe-base-color-purple-300);
+  --hpe-base-color-dataVis-plum: var(--hpe-base-color-plum-400);
+  --hpe-base-color-dataVis-gold1: var(--hpe-base-color-gold-550);
+  --hpe-base-color-dataVis-blue1: var(--hpe-base-color-blue-700);
+  --hpe-base-color-dataVis-cyan: var(--hpe-base-color-cyan-500);
+  --hpe-base-color-dataVis-fuschia: var(--hpe-base-color-fuschia-400);
+  --hpe-deprecated-base-color-brand: var(--hpe-deprecated-base-color-green-600);
+  --hpe-color-background-default: var(--hpe-base-color-grey-1300); /** Default background color to be used on containers. */
+  --hpe-color-background-back: var(--hpe-base-color-grey-1300); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
+  --hpe-color-background-front: var(--hpe-base-color-grey-1000); /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
+  --hpe-color-background-floating: var(--hpe-base-color-grey-1200); /** Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers */
+  --hpe-color-background-contrast: var(--hpe-base-color-white-opacity6); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
+  --hpe-color-background-contrast-hover: var(--hpe-base-color-white-opacity10); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /** Generic hover state of components that have no fill in their resting state. For example, menu items. */
   --hpe-color-background-active: var(--hpe-base-color-white-opacity6); /** Standard active state color */
   --hpe-color-background-disabled: var(--hpe-base-color-white-opacity7); /** Disabled background color. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity12); /** The background color for the overlay that sits behind modal layers. */
-  --hpe-color-background-ok: var(--hpe-base-color-landmarkGreen-900); /** Use for backgrounds communicating success. Status color. Keywords: status */
-  --hpe-color-background-critical: var(--hpe-base-color-landmarkRed-1000); /** Use for backgrounds communicating errors or danger. Keywords: status */
+  --hpe-color-background-warning: var(--hpe-base-color-orange-1000); /** Use for backgrounds communicating warning or caution. Keywords: status */
+  --hpe-color-background-ok: var(--hpe-base-color-green-1000); /** Use for backgrounds communicating success. Status color. Keywords: status */
+  --hpe-color-background-critical: var(--hpe-base-color-red-1000); /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6); /** Use for backgrounds communicating an unknown status. Keywords: status */
-  --hpe-color-background-info: var(--hpe-base-color-landmarkBlue-1100); /** Use for backgrounds communicating neutral information. Keywords: status */
-  --hpe-color-background-primary-xstrong: var(--hpe-base-color-green-1000);
+  --hpe-color-background-info: var(--hpe-base-color-blue-1100); /** Use for backgrounds communicating neutral information. Keywords: status */
+  --hpe-color-background-primary-strong: var(--hpe-base-color-green-600); /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
+  --hpe-color-background-primary-strong-hover: var(--hpe-base-color-green-550); /** Hover variant of background-primary. */
+  --hpe-color-background-primary-xstrong: var(--hpe-base-color-green-450);
   --hpe-color-background-selected-primary: var(--hpe-base-color-green-1000); /** Lower emphasis variant of background-selected-strong. */
   --hpe-color-background-selected-primary-hover: var(--hpe-base-color-green-900); /** Hover variant of background-selected-weak. */
-  --hpe-color-background-neutral-strong: var(--hpe-base-color-landmarkGrey-200); /** Highest emphasis variant of neutral palette. */
+  --hpe-color-background-neutral-strong: var(--hpe-base-color-grey-200Entirelynew); /** Highest emphasis variant of neutral palette. */
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-white-100); /** Highest emphasis variant of neutral palette. */
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /** Emphasized variant of border color. */
   --hpe-color-border-default: var(--hpe-base-color-white-opacity36); /** Default border color. */
   --hpe-color-border-weak: var(--hpe-base-color-white-opacity12); /** Subtle variant of border color for reduced visual emphasis. */
   --hpe-color-border-disabled: var(--hpe-base-color-white-opacity12); /** Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled. */
-  --hpe-color-text-default: var(--hpe-base-color-landmarkGrey-50); /** Default text color that is accessible on standard background colors. */
+  --hpe-color-text-default: var(--hpe-base-color-grey-50); /** Default text color that is accessible on standard background colors. */
   --hpe-color-text-strong: var(--hpe-base-color-white-100); /** Emphasized text color for increased visual prominence. */
-  --hpe-color-text-weak: var(--hpe-base-color-landmarkGrey-500Updated); /** Subtle text color for reduced visual prominence. Often used for supporting text. */
+  --hpe-color-text-weak: var(--hpe-base-color-grey-500); /** Subtle text color for reduced visual prominence. Often used for supporting text. */
   --hpe-color-text-disabled: var(--hpe-base-color-white-opacity24); /** Disabled color for text. Using disabled colors ensures that disabled components are consistently styled. */
-  --hpe-color-text-onPrimaryStrong: var(--hpe-base-color-landmarkGrey-1000Updated); /** Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
-  --hpe-color-text-primary: var(--hpe-base-color-landmarkGreen-550New);
-  --hpe-color-text-primary-hover: var(--hpe-base-color-landmarkGreen-500Updated);
-  --hpe-color-text-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /** Text color to be used for text sitting on background-selected-strong. */
-  --hpe-color-text-onStrong: var(--hpe-base-color-grey-1200); /** Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
+  --hpe-color-text-onPrimaryStrong: var(--hpe-base-color-grey-1000); /** Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
+  --hpe-color-text-primary: var(--hpe-base-color-green-550);
+  --hpe-color-text-primary-hover: var(--hpe-base-color-green-500);
+  --hpe-color-text-critical: var(--hpe-base-color-red-400); /** Use for text on standard backgrounds communicating errors or danger. Keywords: status */
+  --hpe-color-text-onStrong: var(--hpe-base-color-grey-1000); /** Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
   --hpe-color-icon-default: var(--hpe-base-color-white-100); /** Default icon color that is accessible on standard background colors. */
   --hpe-color-icon-strong: var(--hpe-base-color-white-100); /** Emphasized icon color for increased visual prominence. */
   --hpe-color-icon-disabled: var(--hpe-base-color-white-opacity24); /** Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled. */
-  --hpe-color-icon-info: var(--hpe-base-color-landmarkBlue-200); /** Use for icons communicating neutral information. Keywords: status */
-  --hpe-color-icon-ok: var(--hpe-base-color-landmarkGreen-550New); /** Use for icons communicating success. Keywords: status */
-  --hpe-color-icon-warning: var(--hpe-base-color-orange-600); /** Use for icons communicating warning or caution. Keywords: status */
-  --hpe-color-icon-unknown: var(--hpe-base-color-landmarkGrey-600Updated); /** Use for icons communicating unknown status. Keywords: status */
-  --hpe-color-icon-primary: var(--hpe-base-color-landmarkGreen-550New); /** High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action. */
-  --hpe-color-icon-onPrimaryStrong: var(--hpe-base-color-landmarkGrey-1000Updated); /** Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
-  --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /** Icon color to be used for icon sitting on background-selected-strong. */
-  --hpe-color-icon-onStrong: var(--hpe-base-color-grey-1200); /** Icon color to be used on strong backgrounds. For example, background-neutral-xstrong. */
-  --hpe-color-decorative-green: var(--hpe-base-color-green-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-purple: var(--hpe-base-color-purple-900); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-teal: var(--hpe-base-color-teal-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-blue: var(--hpe-base-color-blue-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-red: var(--hpe-base-color-red-850); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-orange: var(--hpe-base-color-orange-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-yellow: var(--hpe-base-color-yellow-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-neutral: var(--hpe-base-color-landmarkGrey-500Updated); /** Highest emphasis variant of neutral palette. */
-  --hpe-color-decorative-neutral-hover: var(--hpe-base-color-landmarkGrey-400Updated); /** Highest emphasis variant of neutral palette. */
-  --hpe-color-dataVis-categorical-20: var(--hpe-base-color-dataVis-gold2);
-  --hpe-color-dataVis-categorical-30: var(--hpe-base-color-dataVis-pink2);
-  --hpe-color-dataVis-categorical-40: var(--hpe-base-color-dataVis-lightblue1);
-  --hpe-color-dataVis-categorical-80: var(--hpe-base-color-dataVis-purple3);
-  --hpe-color-focus: var(--hpe-base-color-landmarkGreen-550New);
-  --hpe-color-foreground-primary: var(--hpe-base-color-landmarkGreen-550New);
+  --hpe-color-icon-info: var(--hpe-base-color-blue-200); /** Use for icons communicating neutral information. Keywords: status */
+  --hpe-color-icon-ok: var(--hpe-base-color-green-550); /** Use for icons communicating success. Keywords: status */
+  --hpe-color-icon-warning: var(--hpe-deprecated-base-color-orange-500New); /** Use for icons communicating warning or caution. Keywords: status */
+  --hpe-color-icon-unknown: var(--hpe-base-color-grey-600); /** Use for icons communicating unknown status. Keywords: status */
+  --hpe-color-icon-primary: var(--hpe-base-color-green-550); /** High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action. */
+  --hpe-color-icon-onPrimaryStrong: var(--hpe-base-color-grey-1000); /** Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
+  --hpe-color-icon-onStrong: var(--hpe-base-color-grey-1000); /** Icon color to be used on strong backgrounds. For example, background-neutral-xstrong. */
+  --hpe-color-decorative-brand: var(--hpe-base-color-green-600); /** The brand color. */
+  --hpe-color-decorative-green: var(--hpe-base-color-green-700Updated); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-purple: var(--hpe-base-color-purple-500); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-teal: var(--hpe-color-transparent); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-blue: var(--hpe-base-color-blue-900updated); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-red: var(--hpe-color-transparent); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-orange: var(--hpe-color-transparent); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-yellow: var(--hpe-color-transparent); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-neutral: var(--hpe-base-color-grey-500); /** Highest emphasis variant of neutral palette. */
+  --hpe-color-decorative-neutral-hover: var(--hpe-base-color-grey-400); /** Highest emphasis variant of neutral palette. */
+  --hpe-color-dataVis-categorical-20: var(--hpe-deprecated-base-color-dataVis-gold2);
+  --hpe-color-dataVis-categorical-30: var(--hpe-deprecated-base-color-dataVis-pink2);
+  --hpe-color-dataVis-categorical-40: var(--hpe-deprecated-base-color-dataVis-lightblue1);
+  --hpe-color-dataVis-categorical-80: var(--hpe-deprecated-base-color-dataVis-purple3);
+  --hpe-color-focus: var(--hpe-base-color-green-550);
+  --hpe-color-foreground-primary: var(--hpe-base-color-green-550);
   --hpe-color-foreground-critical: var(--hpe-base-color-red-500); /** Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar. Keywords: status */
-  --hpe-color-foreground-warning: var(--hpe-base-color-orange-600); /** Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. Keywords: status */
-  --hpe-color-foreground-unknown: var(--hpe-base-color-landmarkGrey-600Updated); /** Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status */
+  --hpe-color-foreground-warning: var(--hpe-deprecated-base-color-orange-500New); /** Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. Keywords: status */
+  --hpe-color-foreground-unknown: var(--hpe-base-color-grey-600); /** Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status */
+  --hpe-color-surface-low-default: var(--hpe-base-color-grey-1000);
+  --hpe-color-surface-base-default: var(--hpe-base-color-grey-1300);
+  --hpe-color-surface-high-default: var(--hpe-base-color-grey-1000);
+  --hpe-color-surface-high-secondary: var(--hpe-base-color-grey-1300);
+  --hpe-color-surface-highest-default: var(--hpe-base-color-grey-1000);
   --hpe-shadow-small: 0 var(--hpe-base-dimension-50) var(--hpe-base-dimension-100) var(--hpe-base-color-black-opacity24) ;
   --hpe-select-default-option-rest-background: var(--hpe-color-transparent);
   --hpe-select-default-option-rest-borderColor: var(--hpe-color-transparent);
@@ -267,20 +273,14 @@
   --hpe-menu-default-drop-borderColor: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-disabled-rest-background: var(--hpe-color-transparent);
-  --hpe-checkbox-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-checkbox-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-checkbox-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-checkbox-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
-  --hpe-checkbox-default-control-indeterminate-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-checkbox-default-control-indeterminate-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-checkbox-default-control-indeterminate-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-checkbox-default-control-indeterminate-hover-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-track-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-track-hover-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-track-disabled-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-switch-default-control-track-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-switch-default-control-track-selected-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-switch-default-control-track-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-switch-default-control-track-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-handle-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-handle-hover-borderColor: var(--hpe-color-transparent);
@@ -313,11 +313,10 @@
   --hpe-footerCell-default-pinned-hover-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-hover-background: var(--hpe-color-transparent);
-  --hpe-radioButton-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-radioButton-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-radioButton-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-radioButton-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
-  --hpe-color-background-floating: var(--hpe-color-background-front); /** Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers */
+  --hpe-color-background-selected-primary-strong: var(--hpe-color-background-primary-strong); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-primary-strong-hover: var(--hpe-color-background-primary-strong-hover); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-border-selected: var(--hpe-color-foreground-primary); /** Selected border color. Used for ‘selected’ state. */
   --hpe-color-border-critical: var(--hpe-color-foreground-critical); /** Use for borders communicating errors or danger. Keywords: status, critical */
   --hpe-color-border-info: var(--hpe-color-border-default); /** Use for borders communicating neutral information. Keyword: status */
@@ -325,7 +324,6 @@
   --hpe-color-border-warning: var(--hpe-color-border-default); /** Use for borders communicating warning or caution. Keywords: status */
   --hpe-color-border-unknown: var(--hpe-color-border-default); /** Use for borders communicating an unknown status. Keywords: status */
   --hpe-color-text-placeholder: var(--hpe-color-text-weak); /** Placeholder text color. */
-  --hpe-color-text-critical: var(--hpe-color-foreground-critical); /** Use for text on standard backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-text-info: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating neutral information. Keywords: status */
   --hpe-color-text-ok: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating success. Keywords: status */
   --hpe-color-text-warning: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating warning or caution. Keywords: status */
@@ -333,6 +331,7 @@
   --hpe-color-text-heading: var(--hpe-color-text-strong); /** Text color for headings. */
   --hpe-color-text-anchor: var(--hpe-color-text-primary); /** Text color for anchors. */
   --hpe-color-text-anchor-hover: var(--hpe-color-text-primary-hover); /** Text color for anchors on hover. */
+  --hpe-color-text-onSelectedPrimaryStrong: var(--hpe-color-text-onStrong); /** Text color to be used for text sitting on background-selected-strong. */
   --hpe-color-text-onSelectedPrimary: var(--hpe-color-text-strong); /** Text color to be used for text sitting on non-strong variants of background-selected. */
   --hpe-color-text-onCritical-strong: var(--hpe-color-text-strong); /** Emphasized variant of text color to be used on background-critical. */
   --hpe-color-text-onCritical: var(--hpe-color-text-default); /** Text color to be used on background-critical. */
@@ -346,8 +345,8 @@
   --hpe-color-text-onWarning: var(--hpe-color-text-default); /** Text color to be used on background-warning. */
   --hpe-color-icon-weak: var(--hpe-color-text-weak); /** Subtle icon color for reduced visual prominence. */
   --hpe-color-icon-critical: var(--hpe-color-foreground-critical); /** Use for icons communicating errors or danger. Keywords: status */
+  --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-color-icon-onStrong); /** Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-icon-onSelectedPrimary: var(--hpe-color-icon-strong); /** Icon color to be used for icon sitting on non-strong background-selected variants. */
-  --hpe-color-decorative-brand: var(--hpe-base-color-brand); /** The brand color. */
   --hpe-shadow-medium: var(--hpe-static-spacing-none) var(--hpe-static-spacing-3xsmall) var(--hpe-static-spacing-xsmall) var(--hpe-static-spacing-none) var(--hpe-base-color-black-opacity36) ;
   --hpe-shadow-large: var(--hpe-static-spacing-none) var(--hpe-static-spacing-xsmall) var(--hpe-static-spacing-medium) var(--hpe-static-spacing-none) var(--hpe-base-color-black-opacity48) ;
   --hpe-select-default-option-rest-textColor: var(--hpe-color-text-default);
@@ -376,6 +375,7 @@
   --hpe-button-primary-selected-hover-background: var(--hpe-color-background-primary-xstrong);
   --hpe-button-primary-selected-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-selected-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
+  --hpe-button-secondary-rest-borderColor: var(--hpe-color-decorative-brand);
   --hpe-button-secondary-rest-textColor: var(--hpe-color-text-strong);
   --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-secondary-hover-background: var(--hpe-button-secondary-rest-background);
@@ -413,15 +413,12 @@
   --hpe-button-toolbar-selected-hover-iconColor: var(--hpe-color-icon-primary);
   --hpe-menu-default-item-hover-background: var(--hpe-color-background-hover);
   --hpe-menu-default-group-separator-background: var(--hpe-color-border-default);
+  --hpe-drop-default-background: var(--hpe-color-background-floating);
   --hpe-checkbox-default-control-rest-borderColor: var(--hpe-color-border-default);
   --hpe-checkbox-default-control-hover-background: var(--hpe-color-background-hover);
   --hpe-checkbox-default-control-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-checkbox-default-control-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
-  --hpe-checkbox-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-checkbox-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-checkbox-default-control-indeterminate-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-checkbox-default-control-indeterminate-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-hover-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
@@ -472,6 +469,8 @@
   --hpe-formField-default-info-error-rest-textColor: var(--hpe-color-text-default);
   --hpe-formField-default-info-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-info-readOnly-rest-textColor: var(--hpe-color-text-default);
+  --hpe-formField-default-error-rest-textColor: var(--hpe-color-text-critical);
+  --hpe-formField-default-error-hover-textColor: var(--hpe-color-text-critical);
   --hpe-formField-default-value-rest-textColor: var(--hpe-color-text-strong);
   --hpe-formField-default-value-hover-textColor: var(--hpe-color-text-strong);
   --hpe-formField-default-value-error-rest-textColor: var(--hpe-color-text-strong);
@@ -502,8 +501,6 @@
   --hpe-radioButton-default-control-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-radioButton-default-control-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-radioButton-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
-  --hpe-radioButton-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-radioButton-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-radioButton-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-hover-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
@@ -516,7 +513,7 @@
   --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-option-marker-rest-background: var(--hpe-color-border-selected);
   --hpe-select-default-option-marker-hover-background: var(--hpe-color-border-selected);
-  --hpe-button-secondary-rest-borderColor: var(--hpe-color-decorative-brand);
+  --hpe-select-default-drop-background: var(--hpe-drop-default-background);
   --hpe-button-secondary-hover-borderColor: var(--hpe-color-border-selected);
   --hpe-button-secondary-hover-textColor: var(--hpe-button-secondary-rest-textColor);
   --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
@@ -532,9 +529,19 @@
   --hpe-menu-default-item-rest-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-menu-default-item-disabled-rest-textColor: var(--hpe-button-default-disabled-rest-textColor);
   --hpe-menu-default-item-disabled-rest-iconColor: var(--hpe-button-default-disabled-rest-iconColor);
-  --hpe-drop-default-background: var(--hpe-color-background-floating);
+  --hpe-menu-default-drop-background: var(--hpe-drop-default-background);
+  --hpe-checkbox-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
+  --hpe-checkbox-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-checkbox-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
+  --hpe-checkbox-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-checkbox-default-control-indeterminate-rest-background: var(--hpe-color-background-selected-primary-strong);
+  --hpe-checkbox-default-control-indeterminate-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-checkbox-default-control-indeterminate-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
+  --hpe-checkbox-default-control-indeterminate-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-label-selected-rest-textColor: var(--hpe-checkbox-default-label-rest-textColor);
   --hpe-checkbox-default-label-selected-hover-textColor: var(--hpe-checkbox-default-label-rest-textColor);
+  --hpe-switch-default-control-track-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
+  --hpe-switch-default-control-track-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-switch-default-label-selected-rest-textColor: var(--hpe-switch-default-label-rest-textColor);
   --hpe-switch-default-label-selected-hover-textColor: var(--hpe-switch-default-label-rest-textColor);
   --hpe-formField-default-input-group-container-hover-background: var(--hpe-formField-default-input-group-container-rest-background);
@@ -542,10 +549,8 @@
   --hpe-formField-default-input-group-container-readOnly-rest-background: var(--hpe-formField-default-input-container-readOnly-rest-background);
   --hpe-formField-default-input-group-container-readOnly-rest-borderColor: var(--hpe-formField-default-input-container-readOnly-rest-borderColor);
   --hpe-formField-default-input-container-error-rest-borderColor: var(--hpe-color-border-critical);
-  --hpe-formField-default-error-rest-textColor: var(--hpe-color-text-critical);
   --hpe-formField-default-error-rest-iconColor: var(--hpe-color-icon-critical);
   --hpe-formField-default-error-hover-iconColor: var(--hpe-color-icon-critical);
-  --hpe-formField-default-error-hover-textColor: var(--hpe-color-text-critical);
   --hpe-dataCell-default-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
   --hpe-dataCell-default-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
@@ -594,12 +599,14 @@
   --hpe-footerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
   --hpe-footerCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
+  --hpe-radioButton-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
+  --hpe-radioButton-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-radioButton-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
+  --hpe-radioButton-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-anchor-default-rest-textColor: var(--hpe-color-text-anchor);
   --hpe-anchor-default-hover-textColor: var(--hpe-color-text-anchor-hover);
-  --hpe-select-default-drop-background: var(--hpe-drop-default-background);
   --hpe-menu-default-item-hover-textColor: var(--hpe-button-default-hover-textColor);
   --hpe-menu-default-item-hover-iconColor: var(--hpe-button-default-hover-iconColor);
-  --hpe-menu-default-drop-background: var(--hpe-drop-default-background);
   --hpe-dataCell-primary-hover-borderColor: var(--hpe-dataCell-default-hover-borderColor);
   --hpe-dataCell-primary-disabled-rest-borderColor: var(--hpe-dataCell-default-disabled-rest-borderColor);
   --hpe-headerCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-hover-borderColor);
@@ -611,113 +618,21 @@
 
 @media (prefers-color-scheme: dark) {
 [data-mode=auto], [data-mode=dark] {
-  --hpe-base-color-red-500: #fc6161;
-  --hpe-base-color-red-550: #fc5a5a;
-  --hpe-base-color-red-600: #ec3331;
-  --hpe-base-color-red-750: #c54e4b;
-  --hpe-base-color-red-800: #cc1f1a;
-  --hpe-base-color-red-850: #a2423d;
-  --hpe-base-color-red-500-Opacity12: rgba(252, 97, 97, 0.12);
-  --hpe-base-color-red-500-Opacity24: rgba(252, 97, 97, 0.24);
-  --hpe-base-color-red-800-Opacity30: rgba(204, 31, 26, 0.3);
-  --hpe-base-color-orange-400: #ffbc44;
-  --hpe-base-color-orange-600: #d36d00;
-  --hpe-base-color-orange-700: #9b6310;
-  --hpe-base-color-orange-400-Opacity12: rgba(255, 188, 68, 0.12);
-  --hpe-base-color-orange-400-Opacity24: rgba(255, 188, 68, 0.24);
-  --hpe-base-color-yellow-200: #ffeb59;
-  --hpe-base-color-yellow-400: #fec901;
-  --hpe-base-color-yellow-700: #8d741c;
-  --hpe-base-color-yellow-400-Opacity12: rgba(254, 201, 1, 0.12);
-  --hpe-base-color-green-100: #d1ffee;
-  --hpe-base-color-green-125: #aafade;
-  --hpe-base-color-green-400: #17eba0;
-  --hpe-base-color-green-450: #00ebb5;
-  --hpe-base-color-green-500: #1ed8ae;
-  --hpe-base-color-green-600: #01a982; /** HPE Brand */
-  --hpe-base-color-green-650: #009a71;
-  --hpe-base-color-green-700: #008567;
-  --hpe-base-color-green-800: #006750;
-  --hpe-base-color-green-900: #074b3b;
-  --hpe-base-color-green-1000: #093a2f;
-  --hpe-base-color-green-400-Opacity12: rgba(23, 235, 160, 0.12);
-  --hpe-base-color-green-400-Opacity24: rgba(23, 235, 160, 0.24);
-  --hpe-base-color-green-500-Opacity30: rgba(23, 208, 166, 0.3);
-  --hpe-base-color-landmarkGold-100: #f9cc61;
-  --hpe-base-color-landmarkGold-200: #ecbe4f;
-  --hpe-base-color-landmarkGold-300: #deb146;
-  --hpe-base-color-landmarkGold-400: #c89e3a;
-  --hpe-base-color-landmarkGold-500: #b38a29;
-  --hpe-base-color-landmarkGold-550: #b0840d;
-  --hpe-base-color-landmarkPurple-100: #b7a2fc; /** Purple 3 */
-  --hpe-base-color-landmarkPurple-200: #9b84fc; /** Purple 2 */
-  --hpe-base-color-landmarkPurple-300: #7764fc; /** Purple */
-  --hpe-base-color-landmarkPurple-400: #5d45d6; /** Purple 4 */
-  --hpe-base-color-landmarkPurple-500: #3c3aa1; /** Purple 5 */
-  --hpe-base-color-landmarkFuschia-100: #fc9ddc;
-  --hpe-base-color-landmarkFuschia-200: #db72b8;
-  --hpe-base-color-landmarkFuschia-300: #cc54a4;
-  --hpe-base-color-landmarkFuschia-400: #ad4089;
-  --hpe-base-color-landmarkFuschia-500: #7f245c;
-  --hpe-base-color-landmarkPlum-100: #c98ad4;
-  --hpe-base-color-landmarkPlum-200: #a455b3;
-  --hpe-base-color-landmarkPlum-300: #873492;
-  --hpe-base-color-landmarkPlum-400: #6c2b7c;
-  --hpe-base-color-landmarkPlum-500: #5e1f68;
-  --hpe-base-color-landmarkCyan-100: #99f0f9;
-  --hpe-base-color-landmarkCyan-200: #62e5f6;
-  --hpe-base-color-landmarkCyan-300: #00dbe4;
-  --hpe-base-color-landmarkCyan-400: #00a4b3;
-  --hpe-base-color-landmarkCyan-500: #04909d;
-  --hpe-base-color-landmarkGreen-650: #009a71;
-  --hpe-base-color-landmarkGreen-800: #006750;
-  --hpe-base-color-landmarkGreen-900: #074b3b;
-  --hpe-base-color-landmarkGreen-1000: #093a2f;
-  --hpe-base-color-landmarkGreen-100Same: #d1ffee;
-  --hpe-base-color-landmarkGreen-125Same: #aafade;
-  --hpe-base-color-landmarkGreen-400Same: #00e0af;
-  --hpe-base-color-landmarkGreen-450Updated: #66ebcf;
-  --hpe-base-color-landmarkGreen-500Updated: #00e0af; /** Landmark Primary Green */
-  --hpe-base-color-landmarkGreen-550New: #05cc93;
-  --hpe-base-color-landmarkGreen-600Same: #01a982; /** HPE Brand */
-  --hpe-base-color-landmarkGreen-700Updated: #068667;
-  --hpe-base-color-landmarkGreen-400-Opacity12: rgba(23, 235, 160, 0.12);
-  --hpe-base-color-landmarkGreen-400-Opacity24: rgba(23, 235, 160, 0.24);
-  --hpe-base-color-landmarkGreen-500-Opacity30: rgba(23, 208, 166, 0.3);
-  --hpe-base-color-landmarkGrey-50: #f7f7f7;
-  --hpe-base-color-landmarkGrey-200: #e6e8e9;
-  --hpe-base-color-landmarkGrey-1100: #292929;
-  --hpe-base-color-landmarkGrey-1200: #222222;
-  --hpe-base-color-landmarkGrey-400Updated: #d4d8db;
-  --hpe-base-color-landmarkGrey-500Updated: #b1b9be;
-  --hpe-base-color-landmarkGrey-600Updated: #7d8a92;
-  --hpe-base-color-landmarkGrey-650Entirelynew: #606a70;
-  --hpe-base-color-landmarkGrey-700Updated: #535c66;
-  --hpe-base-color-landmarkGrey-800Updated: #3e4550;
-  --hpe-base-color-landmarkGrey-1000Updated: #292d3a;
-  --hpe-base-color-landmarkGrey-1300Updated: #1d1f27;
-  --hpe-base-color-landmarkBlue-50: #e3f1ff;
-  --hpe-base-color-landmarkBlue-200: #65aef9;
-  --hpe-base-color-landmarkBlue-300: #3994f7;
-  --hpe-base-color-landmarkBlue-500: #0070f8;
-  --hpe-base-color-landmarkBlue-1100: #2b3547;
-  --hpe-base-color-landmarkBlue-700updated: #0055da;
-  --hpe-base-color-landmarkBlue-900updated: #003cae;
-  --hpe-base-color-landmarkRed-50: #ffecec;
-  --hpe-base-color-landmarkRed-500: #fc6161;
-  --hpe-base-color-landmarkRed-600: #ec3331;
-  --hpe-base-color-landmarkRed-800: #cc1f1a;
-  --hpe-base-color-landmarkRed-850: #a2423d;
-  --hpe-base-color-landmarkRed-1000: #552120;
-  --hpe-base-color-teal-200: #82fff2;
-  --hpe-base-color-teal-400: #00e8cf;
-  --hpe-base-color-teal-700: #117b82;
-  --hpe-base-color-blue-400: #00c8ff;
-  --hpe-base-color-blue-700: #00739d;
-  --hpe-base-color-blue-900: #00567a;
-  --hpe-base-color-blue-400-Opacity12: rgba(0, 200, 255, 0.12);
-  --hpe-base-color-purple-500: #f740ff;
-  --hpe-base-color-purple-900: #6633bc;
+  --hpe-base-color-purple-100: #b7a2fc; /** Purple 3 */
+  --hpe-base-color-purple-200: #9b84fc; /** Purple 2 */
+  --hpe-base-color-purple-300: #7764fc; /** Purple */
+  --hpe-base-color-purple-400: #5d45d6; /** Purple 4 */
+  --hpe-base-color-purple-500: #3c3aa1; /** Purple 5 */
+  --hpe-base-color-white-100: #ffffff;
+  --hpe-base-color-white-opacity6: rgba(255, 255, 255, 0.06);
+  --hpe-base-color-white-opacity7: rgba(255, 255, 255, 0.07);
+  --hpe-base-color-white-opacity10: rgba(255, 255, 255, 0.1);
+  --hpe-base-color-white-opacity12: rgba(255, 255, 255, 0.12);
+  --hpe-base-color-white-opacity20: rgba(255, 255, 255, 0.2);
+  --hpe-base-color-white-opacity24: rgba(255, 255, 255, 0.24);
+  --hpe-base-color-white-opacity36: rgba(255, 255, 255, 0.36);
+  --hpe-base-color-white-opacity50: rgba(255, 255, 255, 0.5);
+  --hpe-base-color-white-opacity72: rgba(255, 255, 255, 0.72);
   --hpe-base-color-black-opacity4: rgba(0, 0, 0, 0.04);
   --hpe-base-color-black-opacity8: rgba(0, 0, 0, 0.08);
   --hpe-base-color-black-opacity12: rgba(0, 0, 0, 0.12);
@@ -727,119 +642,217 @@
   --hpe-base-color-black-opacity50: rgba(0, 0, 0, 0.5);
   --hpe-base-color-black-opacity72: rgba(0, 0, 0, 0.72);
   --hpe-base-color-black-opacity100: #000000;
+  --hpe-base-color-fuschia-100: #fc9ddc;
+  --hpe-base-color-fuschia-200: #db72b8;
+  --hpe-base-color-fuschia-300: #cc54a4;
+  --hpe-base-color-fuschia-400: #ad4089;
+  --hpe-base-color-fuschia-500: #7f245c;
+  --hpe-base-color-orange-50: #fff3dd;
+  --hpe-base-color-orange-500: #ec8c25;
+  --hpe-base-color-orange-600: #d36d00;
+  --hpe-base-color-orange-1000: #3c361e;
+  --hpe-base-color-plum-100: #c98ad4;
+  --hpe-base-color-plum-200: #a455b3;
+  --hpe-base-color-plum-300: #873492;
+  --hpe-base-color-plum-400: #6c2b7c;
+  --hpe-base-color-plum-500: #5e1f68;
+  --hpe-base-color-gold-100: #f9cc61;
+  --hpe-base-color-gold-200: #ecbe4f;
+  --hpe-base-color-gold-300: #deb146;
+  --hpe-base-color-gold-400: #c89e3a;
+  --hpe-base-color-gold-500: #b38a29;
+  --hpe-base-color-gold-550: #b0840d;
+  --hpe-base-color-cyan-100: #99f0f9;
+  --hpe-base-color-cyan-200: #62e5f6;
+  --hpe-base-color-cyan-300: #00dbe4;
+  --hpe-base-color-cyan-400: #00a4b3;
+  --hpe-base-color-cyan-500: #04909d;
+  --hpe-base-color-green-100: #d1ffee;
+  --hpe-base-color-green-125: #aafade;
+  --hpe-base-color-green-400: #00e0af;
+  --hpe-base-color-green-450: #66ebcf;
+  --hpe-base-color-green-500: #00e0af; /** Landmark Primary Green */
+  --hpe-base-color-green-550: #05cc93;
+  --hpe-base-color-green-600: #01a982; /** HPE Brand */
+  --hpe-base-color-green-650: #009a71;
+  --hpe-base-color-green-800: #006750;
+  --hpe-base-color-green-900: #074738;
+  --hpe-base-color-green-1000: #093d32;
+  --hpe-base-color-green-700Updated: #068667;
   --hpe-base-color-grey-50: #f7f7f7;
-  --hpe-base-color-grey-400: #cccccc;
-  --hpe-base-color-grey-500: #bbbbbb;
-  --hpe-base-color-grey-600: #8c8c8c;
-  --hpe-base-color-grey-700: #757575;
-  --hpe-base-color-grey-800: #555555;
-  --hpe-base-color-grey-1000: #2e2e2e;
-  --hpe-base-color-grey-1100: #292929;
-  --hpe-base-color-grey-1200: #222222;
-  --hpe-base-color-grey-1300: #1c1c1c;
-  --hpe-base-color-white-100: #ffffff;
-  --hpe-base-color-white-opacity6: rgba(255, 255, 255, 0.06);
-  --hpe-base-color-white-opacity7: rgba(255, 255, 255, 0.07);
-  --hpe-base-color-white-opacity12: rgba(255, 255, 255, 0.12);
-  --hpe-base-color-white-opacity20: rgba(255, 255, 255, 0.2);
-  --hpe-base-color-white-opacity24: rgba(255, 255, 255, 0.24);
-  --hpe-base-color-white-opacity36: rgba(255, 255, 255, 0.36);
-  --hpe-base-color-white-opacity50: rgba(255, 255, 255, 0.5);
-  --hpe-base-color-white-opacity72: rgba(255, 255, 255, 0.72);
-  --hpe-base-color-dataVis-green1: #01a982;
-  --hpe-base-color-dataVis-darkblue1: #00384d;
-  --hpe-base-color-dataVis-purple1: #7022ec;
-  --hpe-base-color-dataVis-gold1: #b0840d;
-  --hpe-base-color-dataVis-lightblue1: #5c91e5;
-  --hpe-base-color-dataVis-pink1: #a95589;
-  --hpe-base-color-dataVis-blue1: #2053d9;
-  --hpe-base-color-dataVis-grape1: #470d69;
-  --hpe-base-color-dataVis-darkblue2: #38819c;
-  --hpe-base-color-dataVis-purple2: #3c3aa1;
-  --hpe-base-color-dataVis-gold2: #bd9d48;
-  --hpe-base-color-dataVis-lightblue2: #78bff0;
-  --hpe-base-color-dataVis-pink2: #c0649a;
-  --hpe-base-color-dataVis-blue2: #1f95e4;
-  --hpe-base-color-dataVis-purple3: #855aaa;
-  --hpe-base-color-LandMarkDataVis-orange: #d17243;
-  --hpe-color-background-warning: #3c361e; /** Use for backgrounds communicating warning or caution. Keywords: status */
-  --hpe-color-background-primary-strong: #007c60; /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
-  --hpe-color-background-primary-strong-hover: #00513f; /** Hover variant of background-primary. */
-  --hpe-color-background-selected-primary-strong: #007c60; /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
-  --hpe-color-background-selected-primary-strong-hover: #00513f; /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-base-color-grey-400: #d4d8db;
+  --hpe-base-color-grey-500: #b1b9be;
+  --hpe-base-color-grey-600: #7d8a92;
+  --hpe-base-color-grey-650: #606a70;
+  --hpe-base-color-grey-700: #535c66;
+  --hpe-base-color-grey-800: #3e4550;
+  --hpe-base-color-grey-1000: #292d3a;
+  --hpe-base-color-grey-1200: #22252e;
+  --hpe-base-color-grey-1300: #1d1f27;
+  --hpe-base-color-grey-200Entirelynew: #e6e8e9;
+  --hpe-base-color-blue-50: #e3f1ff;
+  --hpe-base-color-blue-200: #65aef9;
+  --hpe-base-color-blue-300: #3994f7;
+  --hpe-base-color-blue-500: #0070f8;
+  --hpe-base-color-blue-700: #0055da;
+  --hpe-base-color-blue-1100: #2b3547;
+  --hpe-base-color-blue-900updated: #003cae;
+  --hpe-base-color-red-50: #ffecec;
+  --hpe-base-color-red-400: #ff7b7b;
+  --hpe-base-color-red-500: #fc6161;
+  --hpe-base-color-red-600: #ec3331;
+  --hpe-base-color-red-800: #cc1f1a;
+  --hpe-base-color-red-1000: #552120;
+  --hpe-base-color-dataVis-orange: #d17243;
+  --hpe-deprecated-base-color-red-500: #fc6161;
+  --hpe-deprecated-base-color-red-550: #fc5a5a;
+  --hpe-deprecated-base-color-red-600: #ec3331;
+  --hpe-deprecated-base-color-red-750: #c54e4b;
+  --hpe-deprecated-base-color-red-800: #cc1f1a;
+  --hpe-deprecated-base-color-red-850: #a2423d;
+  --hpe-deprecated-base-color-red-500-Opacity12: rgba(252, 97, 97, 0.12);
+  --hpe-deprecated-base-color-red-500-Opacity24: rgba(252, 97, 97, 0.24);
+  --hpe-deprecated-base-color-red-800-Opacity30: rgba(204, 31, 26, 0.3);
+  --hpe-deprecated-base-color-orange-400: #ffbc44;
+  --hpe-deprecated-base-color-orange-600: #d36d00;
+  --hpe-deprecated-base-color-orange-700: #9b6310;
+  --hpe-deprecated-base-color-orange-500New: #ec8c25;
+  --hpe-deprecated-base-color-orange-400-Opacity12: rgba(255, 188, 68, 0.12);
+  --hpe-deprecated-base-color-orange-400-Opacity24: rgba(255, 188, 68, 0.24);
+  --hpe-deprecated-base-color-yellow-200: #ffeb59;
+  --hpe-deprecated-base-color-yellow-400: #fec901;
+  --hpe-deprecated-base-color-yellow-700: #8d741c;
+  --hpe-deprecated-base-color-yellow-400-Opacity12: rgba(254, 201, 1, 0.12);
+  --hpe-deprecated-base-color-green-100: #d1ffee;
+  --hpe-deprecated-base-color-green-125: #aafade;
+  --hpe-deprecated-base-color-green-400: #17eba0;
+  --hpe-deprecated-base-color-green-450: #00ebb5;
+  --hpe-deprecated-base-color-green-500: #1ed8ae;
+  --hpe-deprecated-base-color-green-600: #01a982; /** HPE Brand */
+  --hpe-deprecated-base-color-green-650: #009a71;
+  --hpe-deprecated-base-color-green-700: #008567;
+  --hpe-deprecated-base-color-green-800: #006750;
+  --hpe-deprecated-base-color-green-900: #074b3b;
+  --hpe-deprecated-base-color-green-1000: #093a2f;
+  --hpe-deprecated-base-color-green-400-Opacity12: rgba(23, 235, 160, 0.12);
+  --hpe-deprecated-base-color-green-400-Opacity24: rgba(23, 235, 160, 0.24);
+  --hpe-deprecated-base-color-green-500-Opacity30: rgba(23, 208, 166, 0.3);
+  --hpe-deprecated-base-color-teal-200: #82fff2;
+  --hpe-deprecated-base-color-teal-400: #00e8cf;
+  --hpe-deprecated-base-color-teal-700: #117b82;
+  --hpe-deprecated-base-color-blue-400: #00c8ff;
+  --hpe-deprecated-base-color-blue-700: #00739d;
+  --hpe-deprecated-base-color-blue-900: #00567a;
+  --hpe-deprecated-base-color-blue-400-Opacity12: rgba(0, 200, 255, 0.12);
+  --hpe-deprecated-base-color-purple-500: #f740ff;
+  --hpe-deprecated-base-color-purple-900: #6633bc;
+  --hpe-deprecated-base-color-grey-50: #f7f7f7;
+  --hpe-deprecated-base-color-grey-400: #cccccc;
+  --hpe-deprecated-base-color-grey-500: #bbbbbb;
+  --hpe-deprecated-base-color-grey-600: #8c8c8c;
+  --hpe-deprecated-base-color-grey-700: #757575;
+  --hpe-deprecated-base-color-grey-800: #555555;
+  --hpe-deprecated-base-color-grey-1000: #2e2e2e;
+  --hpe-deprecated-base-color-grey-1100: #292929;
+  --hpe-deprecated-base-color-grey-1200: #222222;
+  --hpe-deprecated-base-color-grey-1300: #1c1c1c;
+  --hpe-deprecated-base-color-dataVis-green1: #01a982;
+  --hpe-deprecated-base-color-dataVis-darkblue1: #00384d;
+  --hpe-deprecated-base-color-dataVis-purple1: #7022ec;
+  --hpe-deprecated-base-color-dataVis-gold1: #b0840d;
+  --hpe-deprecated-base-color-dataVis-lightblue1: #5c91e5;
+  --hpe-deprecated-base-color-dataVis-pink1: #a95589;
+  --hpe-deprecated-base-color-dataVis-blue1: #2053d9;
+  --hpe-deprecated-base-color-dataVis-grape1: #470d69;
+  --hpe-deprecated-base-color-dataVis-darkblue2: #38819c;
+  --hpe-deprecated-base-color-dataVis-purple2: #3c3aa1;
+  --hpe-deprecated-base-color-dataVis-gold2: #bd9d48;
+  --hpe-deprecated-base-color-dataVis-lightblue2: #78bff0;
+  --hpe-deprecated-base-color-dataVis-pink2: #c0649a;
+  --hpe-deprecated-base-color-dataVis-blue2: #1f95e4;
+  --hpe-deprecated-base-color-dataVis-purple3: #855aaa;
   --hpe-color-dataVis-categorical-10: #7372cf;
   --hpe-color-dataVis-categorical-50: #a68a74;
   --hpe-color-dataVis-categorical-60: #b889ff;
   --hpe-color-dataVis-categorical-70: #4d8da8;
   --hpe-color-transparent: rgba(0, 0, 0, 0);
-  --hpe-base-color-brand: var(--hpe-base-color-green-600);
-  --hpe-base-color-LandMarkDataVis-darkblue1: var(--hpe-base-color-landmarkPurple-500);
-  --hpe-base-color-LandMarkDataVis-purple1: var(--hpe-base-color-landmarkPurple-300);
-  --hpe-base-color-LandMarkDataVis-plum: var(--hpe-base-color-landmarkPlum-400);
-  --hpe-base-color-LandMarkDataVis-gold1: var(--hpe-base-color-landmarkGold-550);
-  --hpe-base-color-LandMarkDataVis-blue1: var(--hpe-base-color-landmarkBlue-700updated);
-  --hpe-base-color-LandMarkDataVis-cyan: var(--hpe-base-color-landmarkCyan-500);
-  --hpe-base-color-LandMarkDataVis-fuschia: var(--hpe-base-color-landmarkFuschia-400);
-  --hpe-color-background-default: var(--hpe-base-color-landmarkGrey-1300Updated); /** Default background color to be used on containers. */
-  --hpe-color-background-back: var(--hpe-base-color-landmarkGrey-1300Updated); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
-  --hpe-color-background-front: var(--hpe-base-color-landmarkGrey-1000Updated); /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
-  --hpe-color-background-contrast: var(--hpe-base-color-white-opacity7); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
-  --hpe-color-background-contrast-hover: var(--hpe-base-color-white-opacity12); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
+  --hpe-base-color-dataVis-darkblue1: var(--hpe-base-color-purple-500);
+  --hpe-base-color-dataVis-purple1: var(--hpe-base-color-purple-300);
+  --hpe-base-color-dataVis-plum: var(--hpe-base-color-plum-400);
+  --hpe-base-color-dataVis-gold1: var(--hpe-base-color-gold-550);
+  --hpe-base-color-dataVis-blue1: var(--hpe-base-color-blue-700);
+  --hpe-base-color-dataVis-cyan: var(--hpe-base-color-cyan-500);
+  --hpe-base-color-dataVis-fuschia: var(--hpe-base-color-fuschia-400);
+  --hpe-deprecated-base-color-brand: var(--hpe-deprecated-base-color-green-600);
+  --hpe-color-background-default: var(--hpe-base-color-grey-1300); /** Default background color to be used on containers. */
+  --hpe-color-background-back: var(--hpe-base-color-grey-1300); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
+  --hpe-color-background-front: var(--hpe-base-color-grey-1000); /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
+  --hpe-color-background-floating: var(--hpe-base-color-grey-1200); /** Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers */
+  --hpe-color-background-contrast: var(--hpe-base-color-white-opacity6); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
+  --hpe-color-background-contrast-hover: var(--hpe-base-color-white-opacity10); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
   --hpe-color-background-hover: var(--hpe-base-color-white-opacity6); /** Generic hover state of components that have no fill in their resting state. For example, menu items. */
   --hpe-color-background-active: var(--hpe-base-color-white-opacity6); /** Standard active state color */
   --hpe-color-background-disabled: var(--hpe-base-color-white-opacity7); /** Disabled background color. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity12); /** The background color for the overlay that sits behind modal layers. */
-  --hpe-color-background-ok: var(--hpe-base-color-landmarkGreen-900); /** Use for backgrounds communicating success. Status color. Keywords: status */
-  --hpe-color-background-critical: var(--hpe-base-color-landmarkRed-1000); /** Use for backgrounds communicating errors or danger. Keywords: status */
+  --hpe-color-background-warning: var(--hpe-base-color-orange-1000); /** Use for backgrounds communicating warning or caution. Keywords: status */
+  --hpe-color-background-ok: var(--hpe-base-color-green-1000); /** Use for backgrounds communicating success. Status color. Keywords: status */
+  --hpe-color-background-critical: var(--hpe-base-color-red-1000); /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-unknown: var(--hpe-base-color-white-opacity6); /** Use for backgrounds communicating an unknown status. Keywords: status */
-  --hpe-color-background-info: var(--hpe-base-color-landmarkBlue-1100); /** Use for backgrounds communicating neutral information. Keywords: status */
-  --hpe-color-background-primary-xstrong: var(--hpe-base-color-green-1000);
+  --hpe-color-background-info: var(--hpe-base-color-blue-1100); /** Use for backgrounds communicating neutral information. Keywords: status */
+  --hpe-color-background-primary-strong: var(--hpe-base-color-green-600); /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
+  --hpe-color-background-primary-strong-hover: var(--hpe-base-color-green-550); /** Hover variant of background-primary. */
+  --hpe-color-background-primary-xstrong: var(--hpe-base-color-green-450);
   --hpe-color-background-selected-primary: var(--hpe-base-color-green-1000); /** Lower emphasis variant of background-selected-strong. */
   --hpe-color-background-selected-primary-hover: var(--hpe-base-color-green-900); /** Hover variant of background-selected-weak. */
-  --hpe-color-background-neutral-strong: var(--hpe-base-color-landmarkGrey-200); /** Highest emphasis variant of neutral palette. */
+  --hpe-color-background-neutral-strong: var(--hpe-base-color-grey-200Entirelynew); /** Highest emphasis variant of neutral palette. */
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-white-100); /** Highest emphasis variant of neutral palette. */
   --hpe-color-border-strong: var(--hpe-base-color-white-opacity72); /** Emphasized variant of border color. */
   --hpe-color-border-default: var(--hpe-base-color-white-opacity36); /** Default border color. */
   --hpe-color-border-weak: var(--hpe-base-color-white-opacity12); /** Subtle variant of border color for reduced visual emphasis. */
   --hpe-color-border-disabled: var(--hpe-base-color-white-opacity12); /** Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled. */
-  --hpe-color-text-default: var(--hpe-base-color-landmarkGrey-50); /** Default text color that is accessible on standard background colors. */
+  --hpe-color-text-default: var(--hpe-base-color-grey-50); /** Default text color that is accessible on standard background colors. */
   --hpe-color-text-strong: var(--hpe-base-color-white-100); /** Emphasized text color for increased visual prominence. */
-  --hpe-color-text-weak: var(--hpe-base-color-landmarkGrey-500Updated); /** Subtle text color for reduced visual prominence. Often used for supporting text. */
+  --hpe-color-text-weak: var(--hpe-base-color-grey-500); /** Subtle text color for reduced visual prominence. Often used for supporting text. */
   --hpe-color-text-disabled: var(--hpe-base-color-white-opacity24); /** Disabled color for text. Using disabled colors ensures that disabled components are consistently styled. */
-  --hpe-color-text-onPrimaryStrong: var(--hpe-base-color-landmarkGrey-1000Updated); /** Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
-  --hpe-color-text-primary: var(--hpe-base-color-landmarkGreen-550New);
-  --hpe-color-text-primary-hover: var(--hpe-base-color-landmarkGreen-500Updated);
-  --hpe-color-text-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /** Text color to be used for text sitting on background-selected-strong. */
-  --hpe-color-text-onStrong: var(--hpe-base-color-grey-1200); /** Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
+  --hpe-color-text-onPrimaryStrong: var(--hpe-base-color-grey-1000); /** Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
+  --hpe-color-text-primary: var(--hpe-base-color-green-550);
+  --hpe-color-text-primary-hover: var(--hpe-base-color-green-500);
+  --hpe-color-text-critical: var(--hpe-base-color-red-400); /** Use for text on standard backgrounds communicating errors or danger. Keywords: status */
+  --hpe-color-text-onStrong: var(--hpe-base-color-grey-1000); /** Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
   --hpe-color-icon-default: var(--hpe-base-color-white-100); /** Default icon color that is accessible on standard background colors. */
   --hpe-color-icon-strong: var(--hpe-base-color-white-100); /** Emphasized icon color for increased visual prominence. */
   --hpe-color-icon-disabled: var(--hpe-base-color-white-opacity24); /** Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled. */
-  --hpe-color-icon-info: var(--hpe-base-color-landmarkBlue-200); /** Use for icons communicating neutral information. Keywords: status */
-  --hpe-color-icon-ok: var(--hpe-base-color-landmarkGreen-550New); /** Use for icons communicating success. Keywords: status */
-  --hpe-color-icon-warning: var(--hpe-base-color-orange-600); /** Use for icons communicating warning or caution. Keywords: status */
-  --hpe-color-icon-unknown: var(--hpe-base-color-landmarkGrey-600Updated); /** Use for icons communicating unknown status. Keywords: status */
-  --hpe-color-icon-primary: var(--hpe-base-color-landmarkGreen-550New); /** High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action. */
-  --hpe-color-icon-onPrimaryStrong: var(--hpe-base-color-landmarkGrey-1000Updated); /** Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
-  --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /** Icon color to be used for icon sitting on background-selected-strong. */
-  --hpe-color-icon-onStrong: var(--hpe-base-color-grey-1200); /** Icon color to be used on strong backgrounds. For example, background-neutral-xstrong. */
-  --hpe-color-decorative-green: var(--hpe-base-color-green-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-purple: var(--hpe-base-color-purple-900); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-teal: var(--hpe-base-color-teal-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-blue: var(--hpe-base-color-blue-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-red: var(--hpe-base-color-red-850); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-orange: var(--hpe-base-color-orange-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-yellow: var(--hpe-base-color-yellow-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-neutral: var(--hpe-base-color-landmarkGrey-500Updated); /** Highest emphasis variant of neutral palette. */
-  --hpe-color-decorative-neutral-hover: var(--hpe-base-color-landmarkGrey-400Updated); /** Highest emphasis variant of neutral palette. */
-  --hpe-color-dataVis-categorical-20: var(--hpe-base-color-dataVis-gold2);
-  --hpe-color-dataVis-categorical-30: var(--hpe-base-color-dataVis-pink2);
-  --hpe-color-dataVis-categorical-40: var(--hpe-base-color-dataVis-lightblue1);
-  --hpe-color-dataVis-categorical-80: var(--hpe-base-color-dataVis-purple3);
-  --hpe-color-focus: var(--hpe-base-color-landmarkGreen-550New);
-  --hpe-color-foreground-primary: var(--hpe-base-color-landmarkGreen-550New);
+  --hpe-color-icon-info: var(--hpe-base-color-blue-200); /** Use for icons communicating neutral information. Keywords: status */
+  --hpe-color-icon-ok: var(--hpe-base-color-green-550); /** Use for icons communicating success. Keywords: status */
+  --hpe-color-icon-warning: var(--hpe-deprecated-base-color-orange-500New); /** Use for icons communicating warning or caution. Keywords: status */
+  --hpe-color-icon-unknown: var(--hpe-base-color-grey-600); /** Use for icons communicating unknown status. Keywords: status */
+  --hpe-color-icon-primary: var(--hpe-base-color-green-550); /** High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action. */
+  --hpe-color-icon-onPrimaryStrong: var(--hpe-base-color-grey-1000); /** Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
+  --hpe-color-icon-onStrong: var(--hpe-base-color-grey-1000); /** Icon color to be used on strong backgrounds. For example, background-neutral-xstrong. */
+  --hpe-color-decorative-brand: var(--hpe-base-color-green-600); /** The brand color. */
+  --hpe-color-decorative-green: var(--hpe-base-color-green-700Updated); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-purple: var(--hpe-base-color-purple-500); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-teal: var(--hpe-color-transparent); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-blue: var(--hpe-base-color-blue-900updated); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-red: var(--hpe-color-transparent); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-orange: var(--hpe-color-transparent); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-yellow: var(--hpe-color-transparent); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-neutral: var(--hpe-base-color-grey-500); /** Highest emphasis variant of neutral palette. */
+  --hpe-color-decorative-neutral-hover: var(--hpe-base-color-grey-400); /** Highest emphasis variant of neutral palette. */
+  --hpe-color-dataVis-categorical-20: var(--hpe-deprecated-base-color-dataVis-gold2);
+  --hpe-color-dataVis-categorical-30: var(--hpe-deprecated-base-color-dataVis-pink2);
+  --hpe-color-dataVis-categorical-40: var(--hpe-deprecated-base-color-dataVis-lightblue1);
+  --hpe-color-dataVis-categorical-80: var(--hpe-deprecated-base-color-dataVis-purple3);
+  --hpe-color-focus: var(--hpe-base-color-green-550);
+  --hpe-color-foreground-primary: var(--hpe-base-color-green-550);
   --hpe-color-foreground-critical: var(--hpe-base-color-red-500); /** Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar. Keywords: status */
-  --hpe-color-foreground-warning: var(--hpe-base-color-orange-600); /** Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. Keywords: status */
-  --hpe-color-foreground-unknown: var(--hpe-base-color-landmarkGrey-600Updated); /** Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status */
+  --hpe-color-foreground-warning: var(--hpe-deprecated-base-color-orange-500New); /** Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. Keywords: status */
+  --hpe-color-foreground-unknown: var(--hpe-base-color-grey-600); /** Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status */
+  --hpe-color-surface-low-default: var(--hpe-base-color-grey-1000);
+  --hpe-color-surface-base-default: var(--hpe-base-color-grey-1300);
+  --hpe-color-surface-high-default: var(--hpe-base-color-grey-1000);
+  --hpe-color-surface-high-secondary: var(--hpe-base-color-grey-1300);
+  --hpe-color-surface-highest-default: var(--hpe-base-color-grey-1000);
   --hpe-shadow-small: 0 var(--hpe-base-dimension-50) var(--hpe-base-dimension-100) var(--hpe-base-color-black-opacity24) ;
   --hpe-select-default-option-rest-background: var(--hpe-color-transparent);
   --hpe-select-default-option-rest-borderColor: var(--hpe-color-transparent);
@@ -874,20 +887,14 @@
   --hpe-menu-default-drop-borderColor: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-disabled-rest-background: var(--hpe-color-transparent);
-  --hpe-checkbox-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-checkbox-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-checkbox-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-checkbox-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
-  --hpe-checkbox-default-control-indeterminate-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-checkbox-default-control-indeterminate-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-checkbox-default-control-indeterminate-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-checkbox-default-control-indeterminate-hover-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-track-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-track-hover-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-track-disabled-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-switch-default-control-track-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-switch-default-control-track-selected-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-switch-default-control-track-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-switch-default-control-track-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-handle-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-handle-hover-borderColor: var(--hpe-color-transparent);
@@ -920,11 +927,10 @@
   --hpe-footerCell-default-pinned-hover-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-hover-background: var(--hpe-color-transparent);
-  --hpe-radioButton-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-radioButton-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-radioButton-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-radioButton-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
-  --hpe-color-background-floating: var(--hpe-color-background-front); /** Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers */
+  --hpe-color-background-selected-primary-strong: var(--hpe-color-background-primary-strong); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
+  --hpe-color-background-selected-primary-strong-hover: var(--hpe-color-background-primary-strong-hover); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-border-selected: var(--hpe-color-foreground-primary); /** Selected border color. Used for ‘selected’ state. */
   --hpe-color-border-critical: var(--hpe-color-foreground-critical); /** Use for borders communicating errors or danger. Keywords: status, critical */
   --hpe-color-border-info: var(--hpe-color-border-default); /** Use for borders communicating neutral information. Keyword: status */
@@ -932,7 +938,6 @@
   --hpe-color-border-warning: var(--hpe-color-border-default); /** Use for borders communicating warning or caution. Keywords: status */
   --hpe-color-border-unknown: var(--hpe-color-border-default); /** Use for borders communicating an unknown status. Keywords: status */
   --hpe-color-text-placeholder: var(--hpe-color-text-weak); /** Placeholder text color. */
-  --hpe-color-text-critical: var(--hpe-color-foreground-critical); /** Use for text on standard backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-text-info: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating neutral information. Keywords: status */
   --hpe-color-text-ok: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating success. Keywords: status */
   --hpe-color-text-warning: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating warning or caution. Keywords: status */
@@ -940,6 +945,7 @@
   --hpe-color-text-heading: var(--hpe-color-text-strong); /** Text color for headings. */
   --hpe-color-text-anchor: var(--hpe-color-text-primary); /** Text color for anchors. */
   --hpe-color-text-anchor-hover: var(--hpe-color-text-primary-hover); /** Text color for anchors on hover. */
+  --hpe-color-text-onSelectedPrimaryStrong: var(--hpe-color-text-onStrong); /** Text color to be used for text sitting on background-selected-strong. */
   --hpe-color-text-onSelectedPrimary: var(--hpe-color-text-strong); /** Text color to be used for text sitting on non-strong variants of background-selected. */
   --hpe-color-text-onCritical-strong: var(--hpe-color-text-strong); /** Emphasized variant of text color to be used on background-critical. */
   --hpe-color-text-onCritical: var(--hpe-color-text-default); /** Text color to be used on background-critical. */
@@ -953,8 +959,8 @@
   --hpe-color-text-onWarning: var(--hpe-color-text-default); /** Text color to be used on background-warning. */
   --hpe-color-icon-weak: var(--hpe-color-text-weak); /** Subtle icon color for reduced visual prominence. */
   --hpe-color-icon-critical: var(--hpe-color-foreground-critical); /** Use for icons communicating errors or danger. Keywords: status */
+  --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-color-icon-onStrong); /** Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-icon-onSelectedPrimary: var(--hpe-color-icon-strong); /** Icon color to be used for icon sitting on non-strong background-selected variants. */
-  --hpe-color-decorative-brand: var(--hpe-base-color-brand); /** The brand color. */
   --hpe-shadow-medium: var(--hpe-static-spacing-none) var(--hpe-static-spacing-3xsmall) var(--hpe-static-spacing-xsmall) var(--hpe-static-spacing-none) var(--hpe-base-color-black-opacity36) ;
   --hpe-shadow-large: var(--hpe-static-spacing-none) var(--hpe-static-spacing-xsmall) var(--hpe-static-spacing-medium) var(--hpe-static-spacing-none) var(--hpe-base-color-black-opacity48) ;
   --hpe-select-default-option-rest-textColor: var(--hpe-color-text-default);
@@ -983,6 +989,7 @@
   --hpe-button-primary-selected-hover-background: var(--hpe-color-background-primary-xstrong);
   --hpe-button-primary-selected-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-selected-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
+  --hpe-button-secondary-rest-borderColor: var(--hpe-color-decorative-brand);
   --hpe-button-secondary-rest-textColor: var(--hpe-color-text-strong);
   --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-secondary-hover-background: var(--hpe-button-secondary-rest-background);
@@ -1020,15 +1027,12 @@
   --hpe-button-toolbar-selected-hover-iconColor: var(--hpe-color-icon-primary);
   --hpe-menu-default-item-hover-background: var(--hpe-color-background-hover);
   --hpe-menu-default-group-separator-background: var(--hpe-color-border-default);
+  --hpe-drop-default-background: var(--hpe-color-background-floating);
   --hpe-checkbox-default-control-rest-borderColor: var(--hpe-color-border-default);
   --hpe-checkbox-default-control-hover-background: var(--hpe-color-background-hover);
   --hpe-checkbox-default-control-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-checkbox-default-control-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
-  --hpe-checkbox-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-checkbox-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-checkbox-default-control-indeterminate-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-checkbox-default-control-indeterminate-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-hover-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
@@ -1079,6 +1083,8 @@
   --hpe-formField-default-info-error-rest-textColor: var(--hpe-color-text-default);
   --hpe-formField-default-info-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-info-readOnly-rest-textColor: var(--hpe-color-text-default);
+  --hpe-formField-default-error-rest-textColor: var(--hpe-color-text-critical);
+  --hpe-formField-default-error-hover-textColor: var(--hpe-color-text-critical);
   --hpe-formField-default-value-rest-textColor: var(--hpe-color-text-strong);
   --hpe-formField-default-value-hover-textColor: var(--hpe-color-text-strong);
   --hpe-formField-default-value-error-rest-textColor: var(--hpe-color-text-strong);
@@ -1109,8 +1115,6 @@
   --hpe-radioButton-default-control-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-radioButton-default-control-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-radioButton-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
-  --hpe-radioButton-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-radioButton-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-radioButton-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-hover-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
@@ -1123,7 +1127,7 @@
   --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-option-marker-rest-background: var(--hpe-color-border-selected);
   --hpe-select-default-option-marker-hover-background: var(--hpe-color-border-selected);
-  --hpe-button-secondary-rest-borderColor: var(--hpe-color-decorative-brand);
+  --hpe-select-default-drop-background: var(--hpe-drop-default-background);
   --hpe-button-secondary-hover-borderColor: var(--hpe-color-border-selected);
   --hpe-button-secondary-hover-textColor: var(--hpe-button-secondary-rest-textColor);
   --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
@@ -1139,9 +1143,19 @@
   --hpe-menu-default-item-rest-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-menu-default-item-disabled-rest-textColor: var(--hpe-button-default-disabled-rest-textColor);
   --hpe-menu-default-item-disabled-rest-iconColor: var(--hpe-button-default-disabled-rest-iconColor);
-  --hpe-drop-default-background: var(--hpe-color-background-floating);
+  --hpe-menu-default-drop-background: var(--hpe-drop-default-background);
+  --hpe-checkbox-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
+  --hpe-checkbox-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-checkbox-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
+  --hpe-checkbox-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-checkbox-default-control-indeterminate-rest-background: var(--hpe-color-background-selected-primary-strong);
+  --hpe-checkbox-default-control-indeterminate-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-checkbox-default-control-indeterminate-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
+  --hpe-checkbox-default-control-indeterminate-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-label-selected-rest-textColor: var(--hpe-checkbox-default-label-rest-textColor);
   --hpe-checkbox-default-label-selected-hover-textColor: var(--hpe-checkbox-default-label-rest-textColor);
+  --hpe-switch-default-control-track-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
+  --hpe-switch-default-control-track-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-switch-default-label-selected-rest-textColor: var(--hpe-switch-default-label-rest-textColor);
   --hpe-switch-default-label-selected-hover-textColor: var(--hpe-switch-default-label-rest-textColor);
   --hpe-formField-default-input-group-container-hover-background: var(--hpe-formField-default-input-group-container-rest-background);
@@ -1149,10 +1163,8 @@
   --hpe-formField-default-input-group-container-readOnly-rest-background: var(--hpe-formField-default-input-container-readOnly-rest-background);
   --hpe-formField-default-input-group-container-readOnly-rest-borderColor: var(--hpe-formField-default-input-container-readOnly-rest-borderColor);
   --hpe-formField-default-input-container-error-rest-borderColor: var(--hpe-color-border-critical);
-  --hpe-formField-default-error-rest-textColor: var(--hpe-color-text-critical);
   --hpe-formField-default-error-rest-iconColor: var(--hpe-color-icon-critical);
   --hpe-formField-default-error-hover-iconColor: var(--hpe-color-icon-critical);
-  --hpe-formField-default-error-hover-textColor: var(--hpe-color-text-critical);
   --hpe-dataCell-default-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
   --hpe-dataCell-default-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
@@ -1201,12 +1213,14 @@
   --hpe-footerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
   --hpe-footerCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
+  --hpe-radioButton-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
+  --hpe-radioButton-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-radioButton-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
+  --hpe-radioButton-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-anchor-default-rest-textColor: var(--hpe-color-text-anchor);
   --hpe-anchor-default-hover-textColor: var(--hpe-color-text-anchor-hover);
-  --hpe-select-default-drop-background: var(--hpe-drop-default-background);
   --hpe-menu-default-item-hover-textColor: var(--hpe-button-default-hover-textColor);
   --hpe-menu-default-item-hover-iconColor: var(--hpe-button-default-hover-iconColor);
-  --hpe-menu-default-drop-background: var(--hpe-drop-default-background);
   --hpe-dataCell-primary-hover-borderColor: var(--hpe-dataCell-default-hover-borderColor);
   --hpe-dataCell-primary-disabled-rest-borderColor: var(--hpe-dataCell-default-disabled-rest-borderColor);
   --hpe-headerCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-hover-borderColor);

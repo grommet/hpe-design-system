@@ -3382,7 +3382,7 @@ export default {
   },
   "hpe.heading.xlarge.fontWeight": {
     "$type": "number",
-    "$value": 400,
+    "$value": 500,
     "$description": "Font weight typically used on h1.",
     "$extensions": {
       "com.figma": {
@@ -3397,7 +3397,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.regular}",
+      "$value": "{fontWeight.medium}",
       "$description": "Font weight typically used on h1.",
       "$extensions": {
         "com.figma": {
@@ -3424,7 +3424,7 @@ export default {
   },
   "hpe.heading.xlarge.fontSize": {
     "$type": "number",
-    "$value": "1.75rem",
+    "$value": "1.5rem",
     "$description": "Font size typically used on h1.",
     "$extensions": {
       "com.figma": {
@@ -3439,7 +3439,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 28,
+      "$value": 24,
       "$description": "Font size typically used on h1.",
       "$extensions": {
         "com.figma": {
@@ -3550,7 +3550,7 @@ export default {
   },
   "hpe.heading.large.fontSize": {
     "$type": "number",
-    "$value": "1.5rem",
+    "$value": "1.375rem",
     "$description": "Font size typically used on h2.",
     "$extensions": {
       "com.figma": {
@@ -3565,7 +3565,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 24,
+      "$value": 22,
       "$description": "Font size typically used on h2.",
       "$extensions": {
         "com.figma": {
@@ -3634,7 +3634,7 @@ export default {
   },
   "hpe.heading.medium.fontSize": {
     "$type": "number",
-    "$value": "1.25rem",
+    "$value": "1.125rem",
     "$description": "Font size typically used on h3.",
     "$extensions": {
       "com.figma": {
@@ -3649,7 +3649,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 20,
+      "$value": 18,
       "$description": "Font size typically used on h3.",
       "$extensions": {
         "com.figma": {
@@ -3760,7 +3760,7 @@ export default {
   },
   "hpe.heading.small.fontSize": {
     "$type": "number",
-    "$value": "1.125rem",
+    "$value": "1rem",
     "$description": "Font size typically used on h4.",
     "$extensions": {
       "com.figma": {
@@ -3775,7 +3775,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 18,
+      "$value": 16,
       "$description": "Font size typically used on h4.",
       "$extensions": {
         "com.figma": {
@@ -3886,7 +3886,7 @@ export default {
   },
   "hpe.heading.xsmall.fontSize": {
     "$type": "number",
-    "$value": "1rem",
+    "$value": "0.875rem",
     "$description": "Font size typically used on h5.",
     "$extensions": {
       "com.figma": {
@@ -3901,7 +3901,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 16,
+      "$value": 14,
       "$description": "Font size typically used on h5.",
       "$extensions": {
         "com.figma": {
