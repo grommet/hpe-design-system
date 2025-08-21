@@ -306,17 +306,7 @@ const breakpointStyle = (global, content, responsive) => {
 };
 
 const buildTheme = (tokens, flags) => {
-  const {
-    primitives,
-    light,
-    dark,
-    small,
-    large,
-    elevationlight,
-    elevationdark,
-    global,
-    components,
-  } = tokens;
+  const { primitives, light, dark, small, large, global, components } = tokens;
 
   const flatColors = flattenObject(light, '-');
   const tokenColors = {};
@@ -489,6 +479,9 @@ const buildTheme = (tokens, flags) => {
   };
 
   const size = breakpoint => ({
+    '5xsmall': breakpoint.hpe.container['5xsmall'],
+    '4xsmall': breakpoint.hpe.container['4xsmall'],
+    '3xsmall': breakpoint.hpe.container['3xsmall'],
     xxsmall: breakpoint.hpe.container.xxsmall,
     xsmall: breakpoint.hpe.container.xsmall,
     small: breakpoint.hpe.container.small,
@@ -496,6 +489,7 @@ const buildTheme = (tokens, flags) => {
     large: breakpoint.hpe.container.large,
     xlarge: breakpoint.hpe.container.xlarge,
     xxlarge: breakpoint.hpe.container.xxlarge,
+    '3xlarge': breakpoint.hpe.container['3xlarge'],
     full: '100%',
   });
 
@@ -509,7 +503,6 @@ const buildTheme = (tokens, flags) => {
             medium: large.hpe.borderWidth.medium,
             default: large.hpe.borderWidth.default,
             large: large.hpe.borderWidth.large,
-            xlarge: large.hpe.borderWidth.xlarge,
           },
           edgeSize: {
             none: large.hpe.spacing.none,
@@ -537,6 +530,7 @@ const buildTheme = (tokens, flags) => {
             large: large.hpe.radius.large,
             xlarge: large.hpe.radius.xlarge,
             xxlarge: large.hpe.radius.xxlarge,
+            // full: large.hpe.radius.full,
             responsiveBreakpoint: 'small',
           },
           size: size(large),
@@ -552,17 +546,21 @@ const buildTheme = (tokens, flags) => {
                 medium: small.hpe.borderWidth.medium,
                 default: small.hpe.borderWidth.default,
                 large: small.hpe.borderWidth.large,
-                xlarge: small.hpe.borderWidth.xlarge,
               },
               edgeSize: {
                 none: small.hpe.spacing.none,
                 hair: small.hpe.spacing.hair,
+                '5xsmall': small.hpe.spacing['5xsmall'],
+                '4xsmall': small.hpe.spacing['4xsmall'],
+                '3xsmall': small.hpe.spacing['3xsmall'],
                 xxsmall: small.hpe.spacing.xxsmall,
                 xsmall: small.hpe.spacing.xsmall,
                 small: small.hpe.spacing.small,
                 medium: small.hpe.spacing.medium,
                 large: small.hpe.spacing.large,
                 xlarge: small.hpe.spacing.xlarge,
+                xxlarge: small.hpe.spacing.xxlarge,
+                '3xlarge': small.hpe.spacing['3xlarge'],
                 responsiveBreakpoint: 'small',
               },
               radius: {
@@ -575,6 +573,7 @@ const buildTheme = (tokens, flags) => {
                 large: small.hpe.radius.large,
                 xlarge: small.hpe.radius.xlarge,
                 xxlarge: small.hpe.radius.xxlarge,
+                // full: small.hpe.radius.full,
                 responsiveBreakpoint: 'small',
               },
               size: size(small),
@@ -591,17 +590,21 @@ const buildTheme = (tokens, flags) => {
                 medium: small.hpe.borderWidth.medium,
                 default: small.hpe.borderWidth.default,
                 large: small.hpe.borderWidth.large,
-                xlarge: small.hpe.borderWidth.xlarge,
               },
               edgeSize: {
                 none: small.hpe.spacing.none,
                 hair: small.hpe.spacing.hair,
+                '5xsmall': small.hpe.spacing['5xsmall'],
+                '4xsmall': small.hpe.spacing['4xsmall'],
+                '3xsmall': small.hpe.spacing['3xsmall'],
                 xxsmall: small.hpe.spacing.xxsmall,
                 xsmall: small.hpe.spacing.xsmall,
                 small: small.hpe.spacing.small,
                 medium: small.hpe.spacing.medium,
                 large: small.hpe.spacing.large,
                 xlarge: small.hpe.spacing.xlarge,
+                xxlarge: small.hpe.spacing.xxlarge,
+                '3xlarge': small.hpe.spacing['3xlarge'],
                 responsiveBreakpoint: 'small',
               },
               radius: {
@@ -614,6 +617,7 @@ const buildTheme = (tokens, flags) => {
                 large: small.hpe.radius.large,
                 xlarge: small.hpe.radius.xlarge,
                 xxlarge: small.hpe.radius.xxlarge,
+                // full: small.hpe.radius.full,
                 responsiveBreakpoint: 'small',
               },
               size: size(small),
@@ -1033,8 +1037,24 @@ const buildTheme = (tokens, flags) => {
         shadow: {
           color: focusBoxShadowParts[focusBoxShadowParts.length - 1],
           size: focusBoxShadowParts[focusBoxShadowParts.length - 2],
+          blur: '0px',
         },
         twoColor: true,
+        inset: {
+          border: undefined,
+          outline: {
+            color: global.hpe.focusIndicator.outline.color,
+            size: global.hpe.focusIndicator.outline.width,
+            offset: `-${global.hpe.focusIndicator.outline.width}`,
+          },
+          shadow: {
+            color: focusBoxShadowParts[focusBoxShadowParts.length - 1],
+            size: '4px',
+            blur: '0px',
+            inset: true,
+          },
+          twoColor: true,
+        },
       },
       active: {
         background: 'background-active',
@@ -1044,7 +1064,7 @@ const buildTheme = (tokens, flags) => {
         background: components.hpe.drop.default.background,
         border: {
           radius:
-            dimensions.edgeSize[components.hpe.drop.default.borderRadius] ||
+            dimensions.radius[components.hpe.drop.default.borderRadius] ||
             components.hpe.drop.default.borderRadius,
         },
         margin: components.hpe.drop.default.margin,
@@ -1054,6 +1074,15 @@ const buildTheme = (tokens, flags) => {
          * at a z-index of 101. This adjustment brings Drop in alignment with Layer
          * which needs an elevated z-index to sit atop the Global header. */
         zIndex: components.hpe.drop.default.zIndex,
+        extend: () => `
+          [class*=MaskedInput__ContainerBox] {
+            padding-block: ${components.hpe.select.default.medium.drop.paddingY};
+            padding-inline: ${components.hpe.select.default.medium.drop.paddingX};
+            gap: ${components.hpe.select.default.medium.drop.gapY};
+            display: flex;
+            flex-direction: column;
+          }
+        `,
       },
       elevation: {
         // Elevation values were derived from this Figma file.
@@ -1061,26 +1090,14 @@ const buildTheme = (tokens, flags) => {
         // Naming in Figma file is strong/default/weak vs. Grommet t-shirt sizing.
         // As defined here, default is currently mapping to medium.
         light: {
-          small: elevationlight
-            ? elevationlight.hpe.elevation.small
-            : light.hpe.shadow.small,
-          medium: elevationlight
-            ? elevationlight.hpe.elevation.medium
-            : light.hpe.shadow.medium,
-          large: elevationlight
-            ? elevationlight.hpe.elevation.large
-            : light.hpe.shadow.large,
+          small: light.hpe.shadow.small,
+          medium: light.hpe.shadow.medium,
+          large: light.hpe.shadow.large,
         },
         dark: {
-          small: elevationdark
-            ? elevationdark.hpe.elevation.small
-            : dark.hpe.shadow.small,
-          medium: elevationdark
-            ? elevationdark.hpe.elevation.medium
-            : dark.hpe.shadow.medium,
-          large: elevationdark
-            ? elevationdark.hpe.elevation.large
-            : dark.hpe.shadow.large,
+          small: dark.hpe.shadow.small,
+          medium: dark.hpe.shadow.medium,
+          large: dark.hpe.shadow.large,
         },
       },
       hover: {
@@ -1093,37 +1110,23 @@ const buildTheme = (tokens, flags) => {
       },
     },
     accordion: {
-      panel: {
-        border: {
-          side: 'horizontal',
-          color: 'border',
-        },
-      },
+      panel: { border: { side: 'horizontal', color: 'border' } },
       heading: {
         level: 3,
-        margin: { vertical: 'medium', horizontal: 'xsmall' },
+        margin: { vertical: 'medium', horizontal: '3xsmall' },
       },
-      hover: {
-        background: 'background-hover',
-        heading: {
-          color: undefined,
-        },
-      },
+      hover: { background: 'background-hover', heading: { color: undefined } },
       border: undefined,
-      icons: {
-        collapse: Up,
-        expand: Down,
-        color: 'text',
-      },
+      icons: { collapse: Up, expand: Down, color: 'text' },
+      icon: { container: { pad: { horizontal: 'xsmall' } } },
+      label: { container: { pad: { horizontal: '3xsmall' } } },
     },
     anchor: {
       color: components.hpe.anchor.default.rest.textColor,
       textDecoration: components.hpe.anchor.default.rest.textDecoration,
       fontWeight: components.hpe.anchor.default.rest.fontWeight,
-      gap: components.hpe.anchor.default.medium.gapX, // TO DO not size specific
-      icon: {
-        color: 'icon-primary',
-      },
+      gap: components.hpe.anchor.default.medium.gapX,
+      icon: { color: 'icon-primary' },
       hover: {
         textDecoration: components.hpe.anchor.default.hover.textDecoration,
         extend: ({ theme }) =>
@@ -1131,6 +1134,9 @@ const buildTheme = (tokens, flags) => {
             components.hpe.anchor.default.hover.textColor,
             theme,
           )};`,
+      },
+      iconOnly: {
+        pad: 'xsmall',
       },
       size: anchorSizeTheme,
     },
@@ -1158,6 +1164,11 @@ const buildTheme = (tokens, flags) => {
           '4xl': '5xl',
           '5xl': '6xl',
         },
+      },
+    },
+    box: {
+      border: {
+        size: '3xsmall',
       },
     },
     button: {
@@ -1309,22 +1320,13 @@ const buildTheme = (tokens, flags) => {
     },
     calendar: {
       day: {
-        adjacent: {
-          color: 'text-weak',
-        },
-        hover: {
-          background: 'background-hover',
-          color: 'text-strong',
-        },
+        adjacent: { color: 'text-weak' },
+        hover: { background: 'background-hover', color: 'text-strong' },
         selected: {
           background: 'background-selected-primary-strong',
           color: 'text-onSelectedPrimaryStrong',
-          hover: {
-            background: 'background-selected-primary-strong-hover',
-          },
-          font: {
-            weight: global.hpe.fontWeight.medium,
-          },
+          hover: { background: 'background-selected-primary-strong-hover' },
+          font: { weight: global.hpe.fontWeight.medium },
         },
         inRange: {
           color: 'text-onSelectedPrimary',
@@ -1332,65 +1334,73 @@ const buildTheme = (tokens, flags) => {
             background: 'background-selected-primary-hover',
             color: 'text-onSelectedPrimary',
           },
-          font: {
-            weight: global.hpe.fontWeight.medium,
-          },
+          font: { weight: global.hpe.fontWeight.medium },
         },
         extend: '',
       },
-      range: {
-        background: 'background-selected-primary',
-      },
-      icons: {
-        // next: Next,
-        // previous: Previous,
-      },
+      range: { background: 'background-selected-primary' },
+      // icons: { next: Next, previous: Previous },
       small: {
         fontSize: '13.6px',
         lineHeight: 1.375,
         daySize: '27.43px',
+        day: { round: 'full' },
+        range: {
+          round: 'none',
+          start: { round: { corner: 'left', size: 'full' } },
+          end: { round: { corner: 'right', size: 'full' } },
+        },
         title: {
           size: 'medium',
           weight: global.hpe.fontWeight.normal,
           color: 'text-strong',
+          container: {
+            pad: {
+              horizontal: '3xsmall',
+            },
+          },
         },
       },
       medium: {
         fontSize: '18px',
         lineHeight: 1.45,
         daySize: '54.86px',
-        day: {
-          round: 'full',
-        },
+        day: { round: 'full' },
         range: {
           round: 'none',
-          start: {
-            round: {
-              corner: 'left',
-              size: 'full',
-            },
-          },
-          end: {
-            round: {
-              corner: 'right',
-              size: 'full',
-            },
-          },
+          start: { round: { corner: 'left', size: 'full' } },
+          end: { round: { corner: 'right', size: 'full' } },
         },
         title: {
           size: 'large',
           weight: global.hpe.fontWeight.normal,
           color: 'text-strong',
+          container: {
+            pad: {
+              horizontal: 'xsmall',
+            },
+          },
         },
       },
       large: {
         fontSize: '31.2px',
         lineHeight: 1.11,
         daySize: '109.71px',
+        day: { round: 'full' },
+        range: {
+          round: 'none',
+          start: { round: { corner: 'left', size: 'full' } },
+          end: { round: { corner: 'right', size: 'full' } },
+        },
         title: {
           size: 'xlarge',
           weight: global.hpe.fontWeight.normal,
           color: 'text-strong',
+          container: {
+            pad: {
+              horizontal: 'medium',
+            },
+          },
         },
       },
     },
@@ -1398,28 +1408,30 @@ const buildTheme = (tokens, flags) => {
       container: {
         background: 'background-front',
         elevation: 'none',
+        round: 'medium',
         extend: 'transition: box-shadow 0.3s ease-in-out;',
       },
-      body: {
-        pad: 'medium',
-      },
-      footer: {
-        pad: { horizontal: 'medium', vertical: 'small' },
-      },
-      header: {
-        pad: 'medium',
-      },
-      hover: {
-        container: {
-          elevation: 'medium',
+      body: { pad: 'medium' },
+      footer: { pad: { horizontal: 'medium', vertical: 'xsmall' } },
+      header: { pad: 'medium' },
+      hover: { container: { elevation: 'medium' } },
+    },
+    cards: { grid: { columns: 'xsmall', gap: 'medium' } },
+    carousel: {
+      disabled: {
+        icons: {
+          color: 'icon-disabled',
         },
       },
+    },
+    chart: {
+      height: 'xsmall',
+      thickness: 'medium',
+      width: 'medium',
     },
     checkBox: {
       hover: {
         border: {
-          // applies directly to control (checkbox and toggle switch)
-          // TO DO remove from applying to switch
           color: undefined,
           width:
             dimensions.borderSize[
@@ -1427,9 +1439,7 @@ const buildTheme = (tokens, flags) => {
             ] || components.hpe.checkbox.default.medium.control.borderWidth,
         },
         // applies to container around control and label
-        background: {
-          color: undefined,
-        },
+        background: { color: undefined },
         extend: ({ theme, toggle, checked }) => {
           let borderColor;
           if (toggle) {
@@ -1513,21 +1523,20 @@ const buildTheme = (tokens, flags) => {
             &:hover {
               ${!disabled ? `background: ${hoverBackground};` : ''}
             }
-            ${(checked || indeterminate) && 'border: none;'}
           `;
         },
       },
       icon: {
-        extend: ({ theme }) => `stroke-width: 2px;
+        extend: ({ theme, disabled }) => `stroke-width: 2px;
         stroke: ${getThemeColor(
-          components.hpe.checkbox.default.control.selected.rest.iconColor,
+          disabled
+            ? components.hpe.checkbox.default.control.disabled.rest.iconColor
+            : components.hpe.checkbox.default.control.selected.rest.iconColor,
           theme,
         )}`,
       },
       gap: components.hpe.checkbox.default.medium.gapX,
-      label: {
-        align: 'start',
-      },
+      label: { align: 'start' },
       pad: 'none',
       size: components.hpe.checkbox.default.medium.control.width,
       toggle: {
@@ -1612,9 +1621,6 @@ const buildTheme = (tokens, flags) => {
         `;
         },
       },
-      // HPE Design System guidance states that pad="none" should be applied on CheckBox
-      // when its used outside of a FormField. We will apply this hover treatment in
-      // those instances.
       extend: ({ disabled, theme }) => css`
       font-weight: ${components.hpe.checkbox.default.label.rest.fontWeight};
       width: auto;
@@ -1630,7 +1636,7 @@ const buildTheme = (tokens, flags) => {
       ${
         // override built in disabled opacity: 0.5 from grommet
         disabled &&
-        `opacity: 1;
+        `opacity: 1; 
         color: ${getThemeColor(
           components.hpe.checkbox.default.label.disabled.rest.textColor,
           theme,
@@ -1640,15 +1646,68 @@ const buildTheme = (tokens, flags) => {
     `,
     },
     checkBoxGroup: {
-      container: {
-        cssGap: true,
-        gap: 'small', // TO DO missing token
-        margin: 'none',
-      },
+      container: { cssGap: true, gap: 'xsmall', margin: 'none' },
     },
     data: {
-      button: {
-        kind: 'toolbar',
+      button: { kind: 'toolbar' },
+      toolbar: {
+        gap: 'medium',
+      },
+    },
+    dataChart: {
+      gap: 'xsmall',
+      detail: {
+        gap: '3xsmall',
+      },
+      legend: {
+        margin: { top: 'xsmall' },
+        gap: 'xsmall',
+        item: {
+          gap: '3xsmall',
+          pad: { horizontal: 'xsmall', vertical: '3xsmall' },
+        },
+      },
+      size: {
+        height: 'xsmall',
+      },
+      thickness: {
+        veryDense: 'hair',
+        dense: '3xsmall',
+        heavy: 'xsmall',
+        moderate: 'medium',
+        light: 'xlarge',
+        sparse: '3xlarge',
+      },
+      thicknessPad: {
+        xlarge: 'xlarge',
+        large: 'medium',
+        medium: 'xsmall',
+        small: '3xsmall',
+        xsmall: '5xsmall',
+      },
+    },
+    dataFilter: {
+      rangeSelector: {
+        size: 'full',
+        round: 'medium',
+      },
+      selectMultiple: {
+        dropHeight: 'medium',
+      },
+    },
+    dataFilters: {
+      clearControl: {
+        margin: { start: 'xsmall' },
+      },
+      footer: {
+        actions: {
+          margin: { top: 'medium' },
+          gap: 'xsmall',
+        },
+      },
+      pad: 'medium',
+      width: {
+        min: 'medium',
       },
     },
     dateInput: {
@@ -1656,16 +1715,19 @@ const buildTheme = (tokens, flags) => {
         round:
           components.hpe.formField.default.medium.input.container.borderRadius,
       },
-      icon: {
-        size: 'medium',
-      },
+      icon: { size: 'small' },
+      button: { margin: 'xsmall' },
+    },
+    dataSummary: {
+      margin: { vertical: '3xsmall' },
+      separator: { margin: { horizontal: 'xsmall' } },
     },
     dataTable: {
       body: {
         extend: ({ theme }) => `
           /* Margin and padding allow room for focus on table body */
-          margin: ${theme.global.edgeSize.xxsmall} 0px;
-          padding: 0px ${theme.global.edgeSize.xxsmall};
+          margin: ${theme.global.edgeSize['5xsmall']} 0px;
+          padding: 0px ${theme.global.edgeSize['5xsmall']};
         `,
         selected: {
           background:
@@ -1680,17 +1742,22 @@ const buildTheme = (tokens, flags) => {
             }`,
         },
       },
+      expand: {
+        size: '5xsmall',
+      },
       groupHeader: {
         // background: undefined,
         // border: undefined,
         // pad: undefined,
       },
-      groupEnd: {
-        border: { side: 'bottom', size: 'xsmall' },
-      },
+      groupEnd: { border: { side: 'bottom', size: 'xsmall' } },
       header: {
         border: { side: 'bottom' },
         color: components.hpe.headerCell.default.rest.textColor,
+        pad: {
+          horizontal: components.hpe.headerCell.default.medium.paddingX,
+          vertical: '3xsmall',
+        },
         extend: ({ column, sort, sortable, theme }) =>
           `
             ${
@@ -1720,9 +1787,7 @@ const buildTheme = (tokens, flags) => {
               `
             };
           `,
-        font: {
-          weight: components.hpe.headerCell.default.medium.fontWeight,
-        },
+        font: { weight: components.hpe.headerCell.default.medium.fontWeight },
         gap: components.hpe.headerCell.default.medium.gapX,
         hover: {
           background: {
@@ -1731,6 +1796,9 @@ const buildTheme = (tokens, flags) => {
         },
         units: {
           color: components.hpe.headerCell.default.units.rest.textColor,
+          margin: {
+            left: '3xsmall',
+          },
         },
       },
       icons: {
@@ -1742,21 +1810,15 @@ const buildTheme = (tokens, flags) => {
       },
       pinned: {
         header: {
-          background: {
-            opacity: 'strong',
-          },
+          background: { opacity: 'strong' },
           extend: 'backdrop-filter: blur(12px);',
         },
         body: {
-          background: {
-            opacity: 'strong',
-          },
+          background: { opacity: 'strong' },
           extend: 'backdrop-filter: blur(12px);',
         },
         footer: {
-          background: {
-            opacity: 'strong',
-          },
+          background: { opacity: 'strong' },
           extend: 'backdrop-filter: blur(12px);',
         },
       },
@@ -1765,20 +1827,44 @@ const buildTheme = (tokens, flags) => {
         color: components.hpe.dataCell.primary.rest.textColor,
       },
       resize: {
-        // Q: missing tokens
-        border: {
-          color: 'border',
-          side: 'end',
+        border: { color: 'border', side: 'end' },
+        hover: { border: { color: 'border-strong', size: 'small' } },
+      },
+      search: {
+        pad: {
+          left: 'xsmall',
         },
-        hover: {
-          border: {
-            color: 'border-strong',
-            size: 'small',
+        text: {
+          pad: {
+            horizontal: 'xsmall',
           },
+        },
+      },
+      sort: {
+        gap: '3xsmall',
+      },
+    },
+    distribution: { gap: '3xsmall' },
+    dataTableColumns: {
+      tabs: {
+        pad: 'xsmall',
+      },
+      selectColumns: {
+        pad: {
+          vertical: 'xsmall',
+        },
+        gap: '3xsmall',
+      },
+      orderColumns: {
+        pad: {
+          top: 'xsmall',
         },
       },
     },
     fileInput: {
+      anchor: {
+        margin: 'xsmall',
+      },
       border: {
         color:
           components.hpe.formField.default.input.container.rest.borderColor,
@@ -1789,44 +1875,27 @@ const buildTheme = (tokens, flags) => {
       },
       button: {
         background: components.hpe.button.secondary.rest.background,
-        border: {
-          radius: components.hpe.button.default.medium.borderRadius,
-        },
+        border: { radius: components.hpe.button.default.medium.borderRadius },
         pad: {
           vertical: components.hpe.button.default.medium.paddingY,
           horizontal: components.hpe.button.default.medium.paddingX,
         },
         color: components.hpe.button.secondary.rest.textColor,
-        font: {
-          weight: components.hpe.button.secondary.rest.fontWeight,
-        },
+        font: { weight: components.hpe.button.secondary.rest.fontWeight },
         hover: {
           background: components.hpe.button.secondary.hover.background,
           color: components.hpe.button.secondary.hover.textColor,
         },
       },
-      dragOver: {
-        background: 'background-hover',
-        border: 'none',
-      },
-      hover: {
-        border: {
-          color: 'border',
-        },
-      },
-      icons: {
-        // remove: Close,
-      },
-      label: {
-        margin: 'small',
-      },
-      message: {
-        color: 'placeholder',
-        margin: 'small',
-      },
-      pad: { horizontal: 'xsmall' },
+      dragOver: { background: 'background-hover', border: 'none' },
+      hover: { border: { color: 'border' } },
+      icons: { remove: Close },
+      label: { margin: 'xsmall', gap: '3xsmall' },
+      message: { color: 'placeholder', margin: 'xsmall' },
+      pad: { horizontal: '3xsmall' },
       extend: `border-radius: ${components.hpe.formField.default.medium.input.container.borderRadius};`,
     },
+    footer: { gap: 'medium' },
     formField: {
       extend: ({ theme }) =>
         `
@@ -1846,7 +1915,7 @@ const buildTheme = (tokens, flags) => {
                 components.hpe.formField.default.medium.input.group.item
                   .paddingX
               };
-              &:hover {
+              &:hover:not([disabled]) {
                 background: ${getThemeColor(
                   components.hpe.formField.default.input.container.hover
                     .background,
@@ -1885,12 +1954,12 @@ const buildTheme = (tokens, flags) => {
                     .paddingX
                 };
                 border-radius: ${
-                  dimensions.edgeSize[
+                  dimensions.radius[
                     components.hpe.formField.default.medium.input.group.item
                       .borderRadius
                   ]
                 };
-                &:hover {
+                &:hover:not([disabled]) {
                   background: ${getThemeColor(
                     components.hpe.formField.default.input.group.item.hover
                       .background,
@@ -1901,11 +1970,7 @@ const buildTheme = (tokens, flags) => {
             }
           }
       `,
-      content: {
-        // Q: missing tokens
-        margin: { vertical: 'xsmall' },
-        pad: 'none',
-      },
+      content: { margin: { vertical: '3xsmall' }, pad: 'none' },
       border: {
         error: {
           color:
@@ -1958,6 +2023,31 @@ const buildTheme = (tokens, flags) => {
             }; `,
         },
       },
+      thumbsRating: {
+        container: {
+          extend: ({ error }) =>
+            `border-color: ${
+              error
+                ? components.hpe.formField.default.input.group.container.error
+                    .rest.borderColor
+                : components.hpe.formField.default.input.group.container.rest
+                    .borderColor
+            }; `,
+        },
+      },
+      starRating: {
+        container: {
+          extend: ({ error }) =>
+            `border-color: ${
+              error
+                ? components.hpe.formField.default.input.group.container.error
+                    .rest.borderColor
+                : components.hpe.formField.default.input.group.container.rest
+                    .borderColor
+            };
+            `,
+        },
+      },
       disabled: {
         background:
           components.hpe.formField.default.input.group.container.disabled.rest
@@ -1983,20 +2073,13 @@ const buildTheme = (tokens, flags) => {
             components.hpe.formField.default.input.container.error.rest
               .background,
         },
-        container: {
-          gap: 'xsmall', // Q: missing token
-        },
+        container: { gap: '3xsmall' },
         icon: (
           <CircleAlert size="small" color={light.hpe.color.icon.critical} />
         ),
         size: 'xsmall',
         color: components.hpe.formField.default.error.rest.textColor,
-        margin: {
-          // Q: missing token
-          bottom: 'xsmall',
-          top: 'none',
-          horizontal: 'none',
-        },
+        margin: { bottom: '3xsmall', top: 'none', horizontal: 'none' },
       },
       focus: {
         containerFocus: false,
@@ -2008,44 +2091,28 @@ const buildTheme = (tokens, flags) => {
       help: {
         size: 'xsmall',
         color: components.hpe.formField.default.help.rest.color,
-        margin: 'none', // TO DO missing token
+        margin: 'none',
       },
       info: {
         size: 'xsmall',
         color: components.hpe.formField.default.info.rest.color,
-        margin: {
-          // Q: missing token
-          bottom: 'xsmall',
-          top: 'none',
-          horizontal: 'none',
-        },
+        margin: { bottom: '3xsmall', top: 'none', horizontal: 'none' },
       },
       label: {
         size: 'xsmall',
         color: components.hpe.formField.default.label.rest.textColor,
-        margin: {
-          // Q: missing token
-          bottom: 'none',
-          top: 'xsmall',
-          horizontal: 'none',
-        },
+        margin: { bottom: 'none', top: '3xsmall', horizontal: 'none' },
         requiredIndicator: true,
         weight: components.hpe.formField.default.medium.label.fontWeight,
       },
-      margin: {
-        bottom: 'none', // TO DO missing token
-      },
+      margin: { bottom: 'none' },
       round:
         components.hpe.formField.default.medium.input.container.borderRadius,
-      // TO DO no tokens
       survey: {
-        label: {
-          margin: { bottom: 'none' },
-          size: 'medium',
-          weight: 500,
-        },
+        label: { margin: { bottom: 'none' }, size: 'medium', weight: 500 },
       },
     },
+    header: { gap: 'medium' },
     heading: {
       color: 'text-heading',
       weight: large.hpe.heading.xlarge.fontWeight,
@@ -2276,16 +2343,9 @@ const buildTheme = (tokens, flags) => {
     },
     layer: {
       background: 'background-floating',
-      border: {
-        radius: 'small',
-        intelligentRounding: true,
-      },
-      container: {
-        elevation: 'large',
-      },
-      overlay: {
-        background: 'background-screenOverlay',
-      },
+      border: { radius: 'medium', intelligentRounding: true },
+      container: { elevation: 'large', height: { min: '5xsmall' } },
+      overlay: { background: 'background-screenOverlay' },
       /* HPE Global Header/Footer Service a.k.a. HPE Common HFWS sets the header
        * at a z-index of 101. This adjustment allows for Layer modals and side-drawers
        * to sit atop the Global header. */
@@ -2294,21 +2354,18 @@ const buildTheme = (tokens, flags) => {
     list: {
       container: {
         // any box props
-        gap: 'xsmall',
+        gap: '3xsmall',
         // extend: undefined,
       },
       item: {
         border: undefined,
-        disabled: {
-          color: 'text-disabled',
-          cursor: 'default',
-        },
+        disabled: { color: 'text-disabled', cursor: 'default' },
         pinned: {
           background: 'background-active',
-          icon: {
-            pad: mediumIconOnlyPad,
-          },
+          icon: { pad: mediumIconOnlyPad },
         },
+        pad: { horizontal: 'medium', vertical: 'xsmall' },
+        gap: 'medium',
       },
       primaryKey: { weight: global.hpe.fontWeight.medium },
     },
@@ -2370,30 +2427,64 @@ const buildTheme = (tokens, flags) => {
       },
     },
     meter: {
-      gap: 'xxsmall',
+      gap: '5xsmall',
+    },
+    nameValueList: {
+      gap: {
+        column: 'xlarge',
+        row: 'xsmall',
+      },
+      pair: {
+        column: {
+          gap: {
+            column: 'xlarge',
+            row: 'medium',
+          },
+        },
+      },
+      name: {
+        width: 'xsmall',
+      },
+      value: {
+        width: 'medium',
+      },
     },
     nameValuePair: {
-      name: {
-        color: 'text-strong',
-        weight: global.hpe.fontWeight.medium,
+      column: {
+        gap: '5xsmall',
       },
+      name: { color: 'text-strong', weight: global.hpe.fontWeight.medium },
     },
+    nav: { gap: 'medium' },
     notification: {
-      close: {
-        icon: Close,
-      },
+      close: { icon: Close },
       container: {
         round: 'xsmall',
+        pad: { horizontal: 'xsmall', vertical: '3xsmall' },
       },
       direction: 'column',
+      gap: 'xsmall',
       global: {
         direction: 'row',
         container: {
           round: 'none',
+          pad: {
+            horizontal: 'xlarge',
+            vertical: '3xsmall',
+          },
         },
+      },
+      iconContainer: {
+        pad: { right: 'xsmall' },
+      },
+      textContainer: {
+        // any box props
+        gap: 'medium',
       },
       message: {
         color: 'text',
+        fill: true,
+        text: { margin: { right: '3xsmall' } },
       },
       title: {
         // any text props
@@ -2403,218 +2494,201 @@ const buildTheme = (tokens, flags) => {
       critical: {
         background: 'background-critical',
         color: 'icon-critical',
-        message: {
-          color: 'text-onCritical',
-        },
-        title: {
-          color: 'text-onCritical-strong',
-        },
+        message: { color: 'text-onCritical' },
+        title: { color: 'text-onCritical-strong' },
         global: {
           background: 'background-critical',
-          message: {
-            color: 'text-onCritical',
-          },
-          title: {
-            color: 'text-onCritical-strong',
-          },
+          message: { color: 'text-onCritical' },
+          title: { color: 'text-onCritical-strong' },
         },
         toast: {
           background: 'background-front',
-          message: {
-            color: 'text',
-          },
-          title: {
-            color: 'text-strong',
-          },
+          message: { color: 'text' },
+          title: { color: 'text-strong' },
         },
       },
       warning: {
         background: 'background-warning',
         color: 'icon-warning',
-        message: {
-          color: 'text-onWarning',
-        },
-        title: {
-          color: 'text-onWarning-strong',
-        },
+        message: { color: 'text-onWarning' },
+        title: { color: 'text-onWarning-strong' },
         global: {
           background: 'background-warning',
-          message: {
-            color: 'text-onWarning',
-          },
-          title: {
-            color: 'text-onWarning-strong',
-          },
+          message: { color: 'text-onWarning' },
+          title: { color: 'text-onWarning-strong' },
         },
         toast: {
           background: 'background-front',
-          message: {
-            color: 'text',
-          },
-          title: {
-            color: 'text-strong',
-          },
+          message: { color: 'text' },
+          title: { color: 'text-strong' },
         },
       },
       normal: {
         background: 'background-ok',
         color: 'icon-ok',
-        message: {
-          color: 'text-onOk',
-        },
-        title: {
-          color: 'text-onOk-strong',
-        },
+        message: { color: 'text-onOk' },
+        title: { color: 'text-onOk-strong' },
         global: {
           background: 'background-ok',
-          message: {
-            color: 'text-onOk',
-          },
-          title: {
-            color: 'text-onOk-strong',
-          },
+          message: { color: 'text-onOk' },
+          title: { color: 'text-onOk-strong' },
         },
         toast: {
           background: 'background-front',
-          message: {
-            color: 'text',
-          },
-          title: {
-            color: 'text-strong',
-          },
+          message: { color: 'text' },
+          title: { color: 'text-strong' },
         },
       },
       unknown: {
         background: 'background-unknown',
         color: 'icon-unknown',
-        message: {
-          color: 'text-onUnknown',
-        },
-        title: {
-          color: 'text-onUnknown-strong',
-        },
+        message: { color: 'text-onUnknown' },
+        title: { color: 'text-onUnknown-strong' },
         global: {
           background: 'background-unknown',
-          message: {
-            color: 'text-onUnknown',
-          },
-          title: {
-            color: 'text-onUnknown-strong',
-          },
+          message: { color: 'text-onUnknown' },
+          title: { color: 'text-onUnknown-strong' },
         },
         toast: {
           background: 'background-front',
-          message: {
-            color: 'text',
-          },
-          title: {
-            color: 'text-strong',
-          },
+          message: { color: 'text' },
+          title: { color: 'text-strong' },
         },
       },
       info: {
         background: 'background-info',
         color: 'icon-info',
-        message: {
-          color: 'text-onInfo',
-        },
-        title: {
-          color: 'text-onInfo-strong',
-        },
+        message: { color: 'text-onInfo' },
+        title: { color: 'text-onInfo-strong' },
         global: {
           background: 'background-info',
-          message: {
-            color: 'text-onInfo',
-          },
-          title: {
-            color: 'text-onInfo-strong',
-          },
+          message: { color: 'text-onInfo' },
+          title: { color: 'text-onInfo-strong' },
         },
         toast: {
           background: 'background-front',
-          message: {
-            color: 'text',
-          },
-          title: {
-            color: 'text-strong',
-          },
+          message: { color: 'text' },
+          title: { color: 'text-strong' },
         },
       },
       undefined: {
         background: 'background-unknown',
-        message: {
-          color: 'text-onUnknown',
-        },
-        title: {
-          color: 'text-onUnknown-strong',
-        },
+        message: { color: 'text-onUnknown' },
+        title: { color: 'text-onUnknown-strong' },
         global: {
           background: 'background-ok',
-          message: {
-            color: 'text-onUnknown',
-          },
-          title: {
-            color: 'text-onUnknown-strong',
-          },
+          message: { color: 'text-onUnknown' },
+          title: { color: 'text-onUnknown-strong' },
         },
         toast: {
           background: 'background-front',
-          message: {
-            color: 'text',
-          },
-          title: {
-            color: 'text-strong',
-          },
+          message: { color: 'text' },
+          title: { color: 'text-strong' },
         },
       },
+      actions: { margin: { right: '3xsmall' } },
     },
     page: {
       wide: {
         width: {
           min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
-          max: 'xxlarge',
+          max: '3xlarge',
         },
-        xsmall: {
-          pad: { horizontal: 'large' },
+        xsmall: { pad: { horizontal: 'xlarge' } },
+        small: {
+          pad: { horizontal: 'xlarge' },
         },
-        xlarge: {
-          pad: { horizontal: 'large' },
+        medium: {
+          pad: { horizontal: 'medium' },
         },
+        large: {
+          pad: { horizontal: 'xlarge' },
+        },
+        xlarge: { pad: { horizontal: 'xlarge' } },
       },
       narrow: {
         width: {
           min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
-          max: 'large',
+          max: 'xlarge',
         },
-        xsmall: {
-          pad: { horizontal: 'large' },
+        xsmall: { pad: { horizontal: 'xlarge' } },
+        small: {
+          pad: { horizontal: 'xlarge' },
         },
-        xlarge: {
-          pad: { horizontal: 'large' },
+        medium: {
+          pad: { horizontal: 'medium' },
         },
+        large: {
+          pad: { horizontal: 'xlarge' },
+        },
+        xlarge: { pad: { horizontal: 'xlarge' } },
       },
       full: {
         width: {
           min: '336px', // 336 + 24 (margin) + 24 (margin) = 384 (e.g. 'medium')
           max: '100%',
         },
-        xsmall: {
-          pad: { horizontal: 'large' },
+        xsmall: { pad: { horizontal: 'xlarge' } },
+        small: {
+          pad: { horizontal: 'xlarge' },
         },
-        xlarge: {
-          pad: { horizontal: 'large' },
+        medium: {
+          pad: { horizontal: 'medium' },
         },
+        large: {
+          pad: { horizontal: 'xlarge' },
+        },
+        xlarge: { pad: { horizontal: 'xlarge' } },
       },
     },
     pageHeader: {
+      pad: {
+        top: 'xlarge',
+        bottom: 'medium',
+      },
       responsive: {
+        actions: {
+          // any box props
+          pad: {
+            top: 'xsmall',
+          },
+        },
         breakpoints: ['xsmall', 'small'],
       },
       // title: {
       //   size: undefined,
       // },
-      subtitle: {
-        size: 'large',
+      subtitle: { size: 'large' },
+      size: {
+        small: {
+          pad: {
+            top: 'medium',
+            bottom: 'xsmall',
+          },
+          subtitle: {
+            size: 'small',
+          },
+          title: {
+            size: 'small',
+          },
+        },
+        // medium: {
+        //   // pad: undefined,
+        //   // subtitle: {},
+        //   // title: {},
+        // },
+        large: {
+          pad: {
+            top: '3xlarge',
+            bottom: 'xlarge',
+          },
+          subtitle: {
+            size: 'large',
+          },
+          title: {
+            size: 'large',
+          },
+        },
       },
       xsmall: {
         areas: [
@@ -2622,9 +2696,39 @@ const buildTheme = (tokens, flags) => {
           ['title', 'actions'],
           ['subtitle', 'actions'],
         ],
-        columns: [['small', 'flex'], 'auto'],
+        columns: [['xsmall', 'flex'], 'auto'],
         rows: ['auto', 'auto', 'auto'],
-        gap: { row: 'xsmall', column: 'medium' },
+        gap: { row: '3xsmall', column: 'medium' },
+      },
+      small: {
+        areas: [
+          ['parent', 'parent'],
+          ['title', 'actions'],
+          ['subtitle', 'actions'],
+        ],
+        columns: [['xsmall', 'flex'], 'auto'],
+        rows: ['auto', 'auto', 'auto'],
+        gap: { row: '3xsmall', column: 'xlarge' },
+      },
+      medium: {
+        areas: [
+          ['parent', 'parent'],
+          ['title', 'actions'],
+          ['subtitle', 'actions'],
+        ],
+        columns: [['medium', 'flex'], 'auto'],
+        rows: ['auto', 'auto', 'auto'],
+        gap: { row: '3xsmall', column: 'medium' },
+      },
+      large: {
+        areas: [
+          ['parent', 'parent'],
+          ['title', 'actions'],
+          ['subtitle', 'actions'],
+        ],
+        columns: [['medium', 'flex'], 'auto'],
+        rows: ['auto', 'auto', 'auto'],
+        gap: { row: '3xsmall', column: 'xlarge' },
       },
       xlarge: {
         areas: [
@@ -2634,23 +2738,17 @@ const buildTheme = (tokens, flags) => {
         ],
         columns: [['medium', 'large'], 'auto'],
         rows: ['auto', 'auto', 'auto'],
-        gap: { row: 'xsmall', column: 'large' },
+        gap: { row: '3xsmall', column: 'xlarge' },
       },
     },
     pagination: {
       button: {
         color: components.hpe.button.default.rest.textColor,
-        border: {
-          radius: components.hpe.button.default.medium.borderRadius,
-        },
-        font: {
-          weight: components.hpe.button.default.rest.fontWeight,
-        },
+        border: { radius: components.hpe.button.default.medium.borderRadius },
+        font: { weight: components.hpe.button.default.rest.fontWeight },
         active: {
           background: components.hpe.button.default.selected.rest.background,
-          border: {
-            radius: components.hpe.button.default.medium.borderRadius,
-          },
+          border: { radius: components.hpe.button.default.medium.borderRadius },
           color: components.hpe.button.default.selected.rest.textColor,
           font: {
             weight: components.hpe.button.default.selected.rest.fontWeight,
@@ -2658,19 +2756,20 @@ const buildTheme = (tokens, flags) => {
         },
         hover: {
           background: components.hpe.button.default.hover.background,
-          border: {
-            radius: components.hpe.button.default.medium.borderRadius,
-          },
+          border: { radius: components.hpe.button.default.medium.borderRadius },
           color: components.hpe.button.default.hover.textColor,
-          font: {
-            weight: components.hpe.button.default.hover.fontWeight,
+          font: { weight: components.hpe.button.default.hover.fontWeight },
+          active: {
+            background: components.hpe.button.default.selected.hover.background,
+            color: components.hpe.button.default.selected.hover.textColor,
+            font: {
+              weight: components.hpe.button.default.selected.hover.fontWeight,
+            },
           },
         },
         disabled: {
           background: components.hpe.button.default.disabled.rest.background,
-          border: {
-            radius: components.hpe.button.default.medium.borderRadius,
-          },
+          border: { radius: components.hpe.button.default.medium.borderRadius },
           color: components.hpe.button.default.disabled.rest.textColor,
           font: {
             weight: components.hpe.button.default.disabled.rest.fontWeight,
@@ -2685,10 +2784,7 @@ const buildTheme = (tokens, flags) => {
                   components.hpe.button.default.small.borderWidth
                 ] || components.hpe.button.default.small.borderWidth,
             },
-            pad: {
-              vertical: '4px',
-              horizontal: '4px',
-            },
+            pad: { vertical: '4px', horizontal: '4px' },
             font: {
               size: components.hpe.element?.small.fontSize,
               height: components.hpe.element?.small.lineHeight,
@@ -2704,10 +2800,7 @@ const buildTheme = (tokens, flags) => {
                   components.hpe.button.default.medium.borderWidth
                 ] || components.hpe.button.default.medium.borderWidth,
             },
-            pad: {
-              vertical: '4px',
-              horizontal: '4px',
-            },
+            pad: { vertical: '4px', horizontal: '4px' },
             font: {
               size: components.hpe.element?.medium.fontSize,
               height: components.hpe.element?.medium.lineHeight,
@@ -2723,10 +2816,7 @@ const buildTheme = (tokens, flags) => {
                   components.hpe.button.default.large.borderWidth
                 ] || components.hpe.button.default.large.borderWidth,
             },
-            pad: {
-              vertical: '4px',
-              horizontal: '4px',
-            },
+            pad: { vertical: '4px', horizontal: '4px' },
             font: {
               size: components.hpe.element?.large.fontSize,
               height: components.hpe.element?.large.lineHeight,
@@ -2736,11 +2826,22 @@ const buildTheme = (tokens, flags) => {
           },
         },
       },
+      container: {
+        gap: {
+          column: '3xsmall',
+          row: 'xsmall',
+        },
+      },
+      controls: {
+        gap: '5xsmall',
+      },
+      step: {
+        container: {
+          gap: '3xsmall',
+        },
+      },
     },
-    paragraph: {
-      // TO DO this is enabling more than xxlarge
-      ...paragraphTheme,
-    },
+    paragraph: { ...paragraphTheme, skeleton: { gap: '3xsmall' } },
     radioButton: {
       border: {
         color: components.hpe.radioButton.default.control.rest.borderColor,
@@ -2771,7 +2872,7 @@ const buildTheme = (tokens, flags) => {
               )};
             }
           }
-          &:has(input[checked]):hover {
+          &:has(input[checked]):hover:not([disabled]) {
               & div:has(> svg[aria-hidden="true"]) {
                 background: ${getThemeColor(
                   components.hpe.radioButton.default.control.selected.hover
@@ -2789,9 +2890,7 @@ const buildTheme = (tokens, flags) => {
       },
       gap: components.hpe.radioButton.default.medium.gapX,
       hover: {
-        background: {
-          color: 'transparent',
-        },
+        background: { color: 'transparent' },
         border: {
           color: components.hpe.radioButton.default.control.hover.borderColor,
         },
@@ -2803,59 +2902,111 @@ const buildTheme = (tokens, flags) => {
       icons: {
         circle: () => (
           <Blank
+            preserveAspectRatio="xMidYMid meet" // Forces uniform scaling. Part of grommet code but lost when passing custom icon.
             color={
               components.hpe.radioButton.default.control.selected.rest.iconColor
             }
+            size={components.hpe.radioButton.default.medium.control.width} // width and height are identical, so choosing one.
           >
-            <circle cx="12" cy="12" r="8" />
+            <circle cx={12} cy={12} r={6} />
           </Blank>
         ),
       },
     },
     radioButtonGroup: {
-      container: {
-        cssGap: true,
-        gap: 'small', // TO DO should be token?
-        margin: 'none',
-      },
+      container: { cssGap: true, gap: 'xsmall', margin: 'none' },
     },
     rangeInput: {
       thumb: {
         color: 'background-primary-strong',
+        extend: 'border-color: transparent;', // fix for FireFox
       },
       track: {
-        lower: {
-          color: 'background-primary-strong',
-        },
+        lower: { color: 'background-primary-strong' },
         upper: {
-          color: primitives.hpe.base.color['grey-500'],
+          // hard-coding opaque version of 'border-weak' due to unresolved grommet bug
+          // https://github.com/grommet/grommet/issues/6739
+          color: { light: '#e0e0e0', dark: '#616161' },
         },
-        extend: () => `border-radius: ${large.hpe.radius.full};`,
+        extend: ({ theme }) => `
+        border-radius: ${large.hpe.radius.full};
+        // firefox only selector, since pseudo-element
+        // isn't supported
+        @-moz-document url-prefix() {
+          border: 1px solid ${getThemeColor('border-strong', theme)};
+        }`,
       },
+      disabled: {
+        opacity: 1,
+        track: { color: 'background-disabled' },
+        thumb: {
+          // opaque version of background-front + background-disabled
+          // to avoid stacking transparencies
+          color: { light: 'rgb(245, 245, 245)', dark: 'rgb(44, 44, 44)' },
+        },
+      },
+      // primitives.hpe.base.dimension[100] = 4px which meets WCAG minimum size
+      // for visual indicator (minimum 3px)
+      extend: ({ disabled, theme }) => `
+        &::before {
+          display: block;
+          position: absolute;
+          content: '';
+          width: ${primitives.hpe.base.dimension[100]};
+          height: ${primitives.hpe.base.dimension[100]};
+          border-radius: ${large.hpe.radius.full};
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          background: ${getThemeColor(
+            disabled ? 'background-disabled' : 'background-neutral-xstrong',
+            theme,
+          )};
+        }
+    `,
+    },
+    rangeSelector: {
+      edge: {
+        size: `${primitives.hpe.base.dimension[600]}`,
+      },
+      label: { margin: { horizontal: 'xsmall' } },
     },
     select: {
       clear: {
         container: {
-          background: undefined,
-          pad: {
-            horizontal: '12px',
-            vertical: '6px',
+          background: 'transparent',
+          pad: components.hpe.select.default.medium.drop.paddingX,
+        },
+        text: undefined,
+        button: {
+          border: {
+            radius: components.hpe.select.default.medium.option.borderRadius,
+            size: components.hpe.select.default.medium.option.borderWidth,
           },
-          margin: {
-            horizontal: components.hpe.select.default.medium.drop.paddingX,
+          padding: {
+            horizontal: components.hpe.select.default.medium.option.paddingX,
+            vertical: components.hpe.select.default.medium.option.paddingY,
           },
           hover: {
-            background: 'background-hover',
+            background: components.hpe.select.default.option.hover.background,
+            color: 'text-strong',
           },
-          round: 'xsmall',
-        },
-        text: {
-          color: components.hpe.button.default.rest.textColor,
-          weight: components.hpe.button.default.rest.fontWeight,
+          color: 'text-strong',
+          font: {
+            weight: components.hpe.select.default.option.rest.fontWeight,
+          },
         },
       },
+      container: {
+        extend: () =>
+          `
+          div:has(input[type="search"]) {
+            padding-bottom: 0;
+          }
+        `,
+      },
       control: {
-        extend: ({ disabled, theme }) => css`
+        extend: ({ disabled }) => css`
           ${disabled &&
           `
           opacity: 0.3;
@@ -2872,27 +3023,16 @@ const buildTheme = (tokens, flags) => {
               border-radius: ${dimensions.edgeSize[
                 components.hpe.select.default.medium.option.borderRadius
               ] || components.hpe.select.default.medium.option.borderRadius};
-              &:hover {
-                background: ${getThemeColor(
-                  components.hpe.select.default.option.hover.backgroud,
-                  theme,
-                )};
-              }
             }
           }
         `,
       },
-      emptySearchMessage: {
-        container: {
-          pad: option.pad,
-        },
-      },
+      emptySearchMessage: { container: { pad: option.pad } },
       icons: {
         color: 'icon',
         down: Down,
-        // this was not in token
         margin: {
-          left: 'small',
+          left: 'xsmall',
           // setting right margin to 12px because on small
           // screens, Select responsive padding sizes down
           // which brings the icon too tight with edge of
@@ -2916,8 +3056,14 @@ const buildTheme = (tokens, flags) => {
           }
         `,
       },
+      search: { pad: '3xsmall' },
     },
     selectMultiple: {
+      help: {
+        container: {
+          pad: '3xsmall',
+        },
+      },
       listbox: {
         extend: () => `
           padding-block: ${components.hpe.select.default.medium.drop.paddingY};
@@ -2934,7 +3080,34 @@ const buildTheme = (tokens, flags) => {
           }
         `,
       },
+      option: {
+        pad: '3xsmall',
+      },
+      search: {
+        pad: '3xsmall',
+      },
+      showMore: {
+        pad: {
+          horizontal: 'xsmall',
+          bottom: 'xsmall',
+          top: '3xsmall',
+        },
+      },
+      summary: {
+        gap: 'xsmall',
+        height: {
+          min: '5xsmall',
+        },
+        pad: '3xsmall',
+        showSelectedInline: {
+          pad: {
+            left: '3xsmall',
+            vertical: '3xsmall',
+          },
+        },
+      },
     },
+    sidebar: { gap: 'xlarge', pad: 'xsmall' },
     spinner: {
       container: {
         pad: 'none',
@@ -2946,6 +3119,7 @@ const buildTheme = (tokens, flags) => {
           { color: 'transparent', side: 'left', size: 'medium' },
         ],
       },
+      responsive: false,
       size: {
         xsmall: components.hpe.element?.xsmall.minHeight,
         small: components.hpe.element?.small.minHeight,
@@ -2981,6 +3155,7 @@ const buildTheme = (tokens, flags) => {
       },
       margin: { vertical: 'none', horizontal: 'none' },
       extend: 'font-weight: 500;',
+      gap: 'xsmall',
     },
     tabs: {
       gap: 'small',
@@ -2990,6 +3165,9 @@ const buildTheme = (tokens, flags) => {
         // page elements.
         extend: ({ theme }) => `
         padding-bottom: ${large.hpe.borderWidth.medium};
+        & button {
+          border-radius: ${large.hpe.radius.xsmall}; // radius on focus
+        }
         & button[aria-selected="true"] {
             position: relative;
             &::before {
@@ -2997,32 +3175,47 @@ const buildTheme = (tokens, flags) => {
               position: absolute;
               content: '';
               height: ${large.hpe.borderWidth.medium};
-              border-radius: 9999px;
+              border-radius: ${large.hpe.radius.full};
               bottom: -${large.hpe.borderWidth.medium};
               left: 0;
               right: 0;
-              background: ${
-                theme.dark
-                  ? dark.hpe.color.border.selected
-                  : light.hpe.color.border.selected
-              };
+              background: ${getThemeColor('border-selected', theme)};
             }
-            }`,
+        }`,
+        previousButton: { pad: { vertical: '3xsmall', horizontal: 'xsmall' } },
+        nextButton: { pad: { vertical: '3xsmall', horizontal: 'xsmall' } },
+      },
+      nextButton: {
+        pad: { horizontal: 'xsmall', vertical: '3xsmall' },
+      },
+      previousButton: {
+        pad: { horizontal: 'xsmall', vertical: '3xsmall' },
       },
       step: { xsmall: 1, xlarge: 3 },
     },
     table: {
+      caption: {
+        margin: { bottom: '5xsmall' },
+      },
       header: {
+        border: {
+          side: 'bottom',
+          color: components.hpe.headerCell.default.rest.borderColor,
+        },
         extend: `
-          > div {
+          > div { 
             height: 100%;
             justify-content: center;
           }
           // align onSelect checkbox to center of header cell
-          label {
+          label { 
             justify-content: center;
           }
         `,
+        pad: {
+          vertical: '3xsmall',
+          horizontal: 'xsmall',
+        },
       },
       body: {
         pad: {
@@ -3031,50 +3224,37 @@ const buildTheme = (tokens, flags) => {
           horizontal: components.hpe.dataCell.default.medium.paddingX,
         },
         border: {
-          side: 'bottom', // TO DO this causes issues on the last row with the footer border
+          side: 'bottom',
           color: components.hpe.dataCell.default.rest.borderColor,
         },
-        extend: ({ theme }) =>
-          `
-            &:hover {
-              button {
-                background: ${
-                  theme.global.colors['background-hover'][
-                    theme.dark ? 'dark' : 'light'
-                  ]
-                };
-              }
-            }
-          `,
       },
-      row: {
-        hover: {
-          background: 'background-hover',
-        },
-      },
+      row: { hover: { background: 'background-hover' } },
       footer: {
+        pad: {
+          top: '3xsmall',
+          bottom: '3xsmall',
+          horizontal: components.hpe.footerCell.default.medium.paddingX,
+        },
         extend: `
           font-weight: ${components.hpe.footerCell.default.fontWeight};
         `,
       },
+      extend: () => `& tbody tr:last-child td {
+        border-color: transparent;
+      }
+      & tbody tr:last-child th {
+        border-color: transparent;
+      }`,
     },
     tag: {
-      border: {
-        color: 'border-weak',
-      },
-      icons: {
-        remove: Close,
-      },
+      border: { color: 'border-weak' },
+      icons: { remove: Close },
       pad: {
         horizontal: components.hpe.element?.medium?.paddingX?.default,
         vertical: components.hpe.element?.medium.paddingY,
       },
-      remove: {
-        kind: 'default',
-      },
-      value: {
-        weight: global.hpe.fontWeight.medium,
-      },
+      remove: { kind: 'default', margin: { right: '3xsmall' } },
+      value: { weight: global.hpe.fontWeight.medium },
       round: 'xsmall',
       size: {
         xsmall: {
@@ -3097,26 +3277,15 @@ const buildTheme = (tokens, flags) => {
             vertical: components.hpe.element?.small.paddingY,
             horizontal: components.hpe.element?.small?.paddingX?.default,
           },
-          remove: {
-            size: 'xsmall',
-            margin: {
-              right: '2px',
-            },
-          },
+          remove: { size: 'xsmall', margin: { right: '2px' } },
         },
-        // TO DO tag rounding is overriding "default" rounding, do we expect this?
         medium: {
           icon: undefined,
           pad: {
             vertical: components.hpe.element?.medium.paddingY,
             horizontal: components.hpe.element?.medium?.paddingX?.default,
           },
-          remove: {
-            size: 'small',
-            margin: {
-              right: 'xxsmall',
-            },
-          },
+          remove: { size: 'small', margin: { right: '5xsmall' } },
         },
         large: {
           icon: undefined,
@@ -3124,12 +3293,7 @@ const buildTheme = (tokens, flags) => {
             vertical: components.hpe.element?.large.paddingY,
             horizontal: components.hpe.element?.large?.paddingX?.default,
           },
-          remove: {
-            size: 'medium',
-            margin: {
-              right: 'xxsmall',
-            },
-          },
+          remove: { size: 'medium', margin: { right: '5xsmall' } },
         },
         xlarge: {
           icon: undefined,
@@ -3137,17 +3301,15 @@ const buildTheme = (tokens, flags) => {
             vertical: components.hpe.element?.xlarge.paddingY,
             horizontal: components.hpe.element?.xlarge?.paddingX?.default,
           },
-          remove: {
-            size: 'large',
-            margin: {
-              right: 'xsmall',
-            },
-          },
+          remove: { size: 'large', margin: { right: '3xsmall' } },
         },
       },
     },
     text: {
       ...textTheme,
+      skeleton: {
+        margin: { vertical: '3xsmall' },
+      },
     },
     textInput: {
       container: {
@@ -3166,30 +3328,22 @@ const buildTheme = (tokens, flags) => {
     tip: {
       content: {
         background: 'background-floating',
-        border: {
-          color: 'border-weak',
-        },
-        margin: 'xxsmall',
+        border: { color: 'border-weak' },
+        margin: '3xsmall',
         elevation: 'small',
-        pad: {
-          vertical: 'none',
-          horizontal: 'small',
-        },
+        pad: { vertical: 'none', horizontal: 'xsmall' },
         round: components.hpe.drop.default.borderRadius,
       },
     },
     thumbsRating: {
-      like: {
-        color: 'background-selected-primary-strong',
-      },
-      dislike: {
-        color: 'background-selected-primary-strong',
-      },
+      like: { color: 'background-selected-primary-strong' },
+      dislike: { color: 'background-selected-primary-strong' },
     },
     toggleGroup: {
       button: { kind: 'toolbar' },
       container: {
         border: false,
+        round: 'xsmall',
         extend: ({ theme }) => `
         gap: ${
           dimensions.edgeSize[large.hpe.spacing['5xsmall']] ||
@@ -3200,6 +3354,22 @@ const buildTheme = (tokens, flags) => {
         }`,
       },
       divider: false,
+    },
+    toolbar: {
+      gap: 'xsmall',
+      small: {
+        gap: 'xsmall',
+      },
+    },
+    video: {
+      scrubber: {
+        thickness: 'xsmall',
+      },
+      time: {
+        container: {
+          pad: { horizontal: 'xsmall' },
+        },
+      },
     },
     // Theme-Designer only parameters
     name: 'HPE 1',
@@ -3222,7 +3392,7 @@ export const current = buildTheme(
   {
     // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
     // with old t-shirt sizes
-    'v6-backwards-compatibility': true,
+    'v6-backwards-compatibility': false,
   },
 );
 
