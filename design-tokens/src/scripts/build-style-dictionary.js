@@ -20,6 +20,7 @@ const PREFIX = 'hpe';
  * Design tokens that should only exist in Figma but not be output to hpe-design-tokens
  */
 const FIGMA_PREFIX = 'fig';
+const DEPRECATED_PREFIX = 'deprecated';
 const defaultOptions = {
   fileHeader: 'hpe-file-header',
 };
@@ -44,6 +45,9 @@ try {
           {
             destination: 'primitives.js',
             format: 'javascript/esm',
+            filter: token =>
+              token.filePath.includes(`${TOKENS_DIR}/primitive/`) &&
+              !token.path.includes(DEPRECATED_PREFIX),
           },
         ],
       },
@@ -56,6 +60,9 @@ try {
           {
             destination: 'primitives.cjs',
             format: 'javascript/commonJs',
+            filter: token =>
+              token.filePath.includes(`${TOKENS_DIR}/primitive/`) &&
+              !token.path.includes(DEPRECATED_PREFIX),
           },
         ],
       },
@@ -68,6 +75,9 @@ try {
           {
             destination: 'primitives.js',
             format: 'javascript/esm',
+            filter: token =>
+              token.filePath.includes(`${TOKENS_DIR}/primitive/`) &&
+              !token.path.includes(DEPRECATED_PREFIX),
           },
         ],
       },
@@ -80,6 +90,9 @@ try {
           {
             destination: 'primitives.cjs',
             format: 'javascript/commonJs',
+            filter: token =>
+              token.filePath.includes(`${TOKENS_DIR}/primitive/`) &&
+              !token.path.includes(DEPRECATED_PREFIX),
           },
         ],
       },
@@ -92,6 +105,9 @@ try {
           {
             destination: 'primitives.css',
             format: 'css/variables',
+            filter: token =>
+              token.filePath.includes(`${TOKENS_DIR}/primitive/`) &&
+              !token.path.includes(DEPRECATED_PREFIX),
             options: {
               outputReferences: true,
             },
@@ -103,7 +119,15 @@ try {
         buildPath: DOCS_DIR,
         prefix: PREFIX,
         options: defaultOptions,
-        files: [{ destination: 'primitives.js', format: 'jsonFlat' }],
+        files: [
+          {
+            destination: 'primitives.js',
+            format: 'jsonFlat',
+            filter: token =>
+              token.filePath.includes(`${TOKENS_DIR}/primitive/`) &&
+              !token.path.includes(DEPRECATED_PREFIX),
+          },
+        ],
       },
     },
   });

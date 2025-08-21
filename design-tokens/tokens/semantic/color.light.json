@@ -153,7 +153,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#fff3dd",
+            "$value": "{base.color.orange.50}",
             "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -169,7 +169,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#e3fdf4",
+            "$value": "{base.color.green.100}",
             "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -185,7 +185,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkRed.50}",
+            "$value": "{base.color.red.50}",
             "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -217,7 +217,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkBlue.50}",
+            "$value": "{base.color.blue.50}",
             "$description": "Use for backgrounds communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -233,7 +233,7 @@
         "strong": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkGreen.700Updated}",
+            "$value": "{base.color.green.700Updated}",
             "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
             "$extensions": {
               "com.figma": {
@@ -245,7 +245,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.landmarkGreen.800}",
+            "$value": "{base.color.green.800}",
             "$description": "Hover variant of background-primary.",
             "$extensions": {
               "com.figma": {
@@ -259,7 +259,7 @@
         "xstrong": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkGreen.1000}",
+            "$value": "{base.color.green.1000}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -276,7 +276,7 @@
           "strong": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.landmarkGreen.700Updated}",
+              "$value": "{base.color.green.700Updated}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -288,7 +288,7 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{base.color.landmarkGreen.800}",
+              "$value": "{base.color.green.800}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -331,7 +331,7 @@
         "strong": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkGrey.800Updated}",
+            "$value": "{base.color.grey.800}",
             "$description": "Highest emphasis variant of neutral palette.",
             "$extensions": {
               "com.figma": {
@@ -362,7 +362,7 @@
       "strong": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.landmarkGrey.800Updated}",
+          "$value": "{base.color.grey.800}",
           "$description": "Emphasized variant of border color.",
           "$extensions": {
             "com.figma": {
@@ -376,7 +376,7 @@
       "default": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.landmarkGrey.500Updated}",
+          "$value": "{base.color.grey.500}",
           "$description": "Default border color.",
           "$extensions": {
             "com.figma": {
@@ -390,7 +390,7 @@
       "weak": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.landmarkGrey.400Updated}",
+          "$value": "{base.color.grey.400}",
           "$description": "Subtle variant of border color for reduced visual emphasis.",
           "$extensions": {
             "com.figma": {
@@ -405,7 +405,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkGrey.400Updated}",
+            "$value": "{base.color.grey.400}",
             "$description": "Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled.",
             "$extensions": {
               "com.figma": {
@@ -518,7 +518,7 @@
       "default": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.landmarkGrey.800Updated}",
+          "$value": "{base.color.grey.800}",
           "$description": "Default text color that is accessible on standard background colors.",
           "$extensions": {
             "com.figma": {
@@ -532,7 +532,7 @@
       "strong": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.landmarkGrey.1000Updated}",
+          "$value": "{base.color.grey.1000}",
           "$description": "Emphasized text color for increased visual prominence.",
           "$extensions": {
             "com.figma": {
@@ -546,7 +546,7 @@
       "weak": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.landmarkGrey.650Entirelynew}",
+          "$value": "{base.color.grey.650}",
           "$description": "Subtle text color for reduced visual prominence. Often used for supporting text.",
           "$extensions": {
             "com.figma": {
@@ -1035,7 +1035,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkBlue.700updated}",
+            "$value": "{base.color.blue.700}",
             "$description": "Use for icons communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -1083,7 +1083,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkGrey.650Entirelynew}",
+            "$value": "{base.color.grey.650}",
             "$description": "Use for icons communicating unknown status. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -1168,7 +1168,12 @@
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
-                "scopes": ["TEXT_FILL"],
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "TEXT_FILL",
+                  "STROKE_COLOR"
+                ],
                 "codeSyntax": {}
               }
             }
@@ -1181,7 +1186,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.brand}",
+            "$value": "{base.color.green.600}",
             "$description": "The brand color.",
             "$extensions": {
               "com.figma": {
@@ -1197,7 +1202,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.400}",
+            "$value": "{base.color.green.550}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1213,7 +1218,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.purple.500}",
+            "$value": "{base.color.purple.300}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1229,7 +1234,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.teal.200}",
+            "$value": "{color.transparent}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1245,7 +1250,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.blue.400}",
+            "$value": "{base.color.blue.500}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1261,7 +1266,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.red.500}",
+            "$value": "{color.transparent}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1277,7 +1282,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.orange.400}",
+            "$value": "{color.transparent}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1293,7 +1298,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.yellow.200}",
+            "$value": "{color.transparent}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1309,7 +1314,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkGrey.600Updated}",
+            "$value": "{base.color.grey.600}",
             "$description": "Highest emphasis variant of neutral palette.",
             "$extensions": {
               "com.figma": {
@@ -1321,7 +1326,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.landmarkGrey.650Entirelynew}",
+            "$value": "{base.color.grey.650}",
             "$description": "Highest emphasis variant of neutral palette.",
             "$extensions": {
               "com.figma": {
@@ -1340,7 +1345,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.darkblue1}",
+              "$value": "{base.color.dataVis.darkblue1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1356,7 +1361,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.purple1}",
+              "$value": "{base.color.dataVis.purple1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1372,7 +1377,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.gold1}",
+              "$value": "{base.color.dataVis.gold1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1388,7 +1393,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.blue1}",
+              "$value": "{base.color.dataVis.blue1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1404,7 +1409,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.fuschia}",
+              "$value": "{base.color.dataVis.fuschia}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1420,7 +1425,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.cyan}",
+              "$value": "{base.color.dataVis.cyan}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1436,7 +1441,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.orange}",
+              "$value": "{base.color.dataVis.orange}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1452,7 +1457,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{base.color.LandMarkDataVis.plum}",
+              "$value": "{base.color.dataVis.plum}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1480,7 +1485,7 @@
     },
     "focus": {
       "$type": "color",
-      "$value": "{base.color.landmarkGrey.1000Updated}",
+      "$value": "{base.color.grey.1000}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1543,7 +1548,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkGrey.600Updated}",
+            "$value": "{base.color.grey.600}",
             "$description": "Use for foreground regions communicating unknown status. Often used to color values in a meter or progress bar. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -1561,7 +1566,7 @@
         "default": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkGrey.50}",
+            "$value": "{base.color.grey.50}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1593,7 +1598,7 @@
         "default": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkGrey.50}",
+            "$value": "{base.color.grey.50}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1625,7 +1630,7 @@
         "default": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.landmarkGrey.50}",
+            "$value": "{base.color.grey.50}",
             "$description": "",
             "$extensions": {
               "com.figma": {
