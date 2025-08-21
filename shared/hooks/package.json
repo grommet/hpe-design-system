@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.ts"
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js"
   },
   "scripts": {
+    "build": "tsc",
     "lint": "eslint . --max-warnings 0",
     "check-types": "tsc --noEmit",
     "test": "vitest"
