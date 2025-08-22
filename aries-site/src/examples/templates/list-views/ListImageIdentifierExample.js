@@ -62,8 +62,8 @@ export const ListImageIdentifierExample = () => (
             <Image alt={datum.alt} src={datum.image} fit="cover" />
           </Box>
           <Box>
-            <TextEmphasis size="xlarge">{datum.name}</TextEmphasis>
-            <Text size="xsmall">{datum.description}</Text>
+            <TextEmphasis size="large">{datum.name}</TextEmphasis>
+            <Text size="small">{datum.description}</Text>
           </Box>
         </Box>
       )}
