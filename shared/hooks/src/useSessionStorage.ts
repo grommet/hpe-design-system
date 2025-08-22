@@ -42,7 +42,11 @@ export const useSessionStorage = <T>(key: string, initialValue: T) => {
         ) {
           setStoredValue(initialValue);
         } else {
-          setStoredValue(JSON.parse(event.newValue || 'null'));
+          try {
+            setStoredValue(JSON.parse(event.newValue));
+          } catch (error) {
+            setStoredValue(initialValue);
+          }
         }
       }
     };
