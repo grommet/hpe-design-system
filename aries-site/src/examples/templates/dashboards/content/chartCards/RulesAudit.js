@@ -158,7 +158,7 @@ const AuditResultsChart = ({ data, ...rest }) => (
               label: `${datum.result[0].toUpperCase()}${datum.result.slice(1)}`,
             },
           ]}
-          thickness="small"
+          thickness="xsmall"
         />
         <Box align="end">
           <Text>{datum.count}</Text>

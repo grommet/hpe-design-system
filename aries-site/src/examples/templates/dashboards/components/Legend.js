@@ -4,7 +4,7 @@ import { Box, List, Text, ThemeContext } from 'grommet';
 
 export const Legend = ({ values, ...rest }) => {
   const theme = useContext(ThemeContext);
-  const size = theme.global.edgeSize.small;
+  const size = theme.global.edgeSize.xsmall;
 
   return (
     <List
