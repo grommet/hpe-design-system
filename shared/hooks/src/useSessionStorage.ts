@@ -14,7 +14,7 @@ export const useSessionStorage = <T>(key: string, initialValue: T) => {
       const item = sessionStorage.getItem(key);
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
-      console.error(error);
+      console.error('Failed to read from sessionStorage:', error);
       return initialValue;
     }
   });
