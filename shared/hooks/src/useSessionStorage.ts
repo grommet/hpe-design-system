@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 export const useSessionStorage = <T>(key: string, initialValue: T) => {
   // Check if we are in a browser environment vs. server-side rendering where window is not defined
   const isBrowser = typeof window !== 'undefined';
+
   const [storedValue, setStoredValue] = useState<T>(() => {
     if (!isBrowser) {
       return initialValue;
@@ -23,7 +24,9 @@ export const useSessionStorage = <T>(key: string, initialValue: T) => {
       const valueToStore =
         value instanceof Function ? value(storedValue) : value;
       setStoredValue(valueToStore);
-      sessionStorage.setItem(key, JSON.stringify(valueToStore));
+      if (isBrowser) {
+        sessionStorage.setItem(key, JSON.stringify(valueToStore));
+      }
     } catch (error) {
       console.error(error);
     }
@@ -43,11 +46,16 @@ export const useSessionStorage = <T>(key: string, initialValue: T) => {
         }
       }
     };
-    window.addEventListener('storage', onStorageChange);
+
+    if (isBrowser) {
+      window.addEventListener('storage', onStorageChange);
+    }
     return () => {
-      window.removeEventListener('storage', onStorageChange);
+      if (isBrowser) {
+        window.removeEventListener('storage', onStorageChange);
+      }
     };
-  }, []);
+  }, [key, initialValue]);
 
   return [storedValue, setValue] as const;
 };
