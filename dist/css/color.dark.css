@@ -88,10 +88,10 @@
   --hpe-base-color-dataVis-pink2: #c0649a;
   --hpe-base-color-dataVis-blue2: #1f95e4;
   --hpe-base-color-dataVis-purple3: #855aaa;
+  --hpe-color-background-warning: #3c361e; /** Use for backgrounds communicating warning or caution. Keywords: status */
   --hpe-color-background-info: #1e363d; /** Use for backgrounds communicating neutral information. Keywords: status */
   --hpe-color-background-critical: #552120; /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-ok: #1b5245; /** Use for backgrounds communicating success. Status color. Keywords: status */
-  --hpe-color-background-warning: #3c361e; /** Use for backgrounds communicating warning or caution. Keywords: status */
   --hpe-color-background-primary-strong: #007c60; /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
   --hpe-color-background-primary-strong-hover: #00513f; /** Hover variant of background-primary. */
   --hpe-color-text-weak: rgba(255, 255, 255, 0.61); /** Subtle text color for reduced visual prominence. Often used for supporting text. */
@@ -621,10 +621,10 @@
   --hpe-base-color-dataVis-pink2: #c0649a;
   --hpe-base-color-dataVis-blue2: #1f95e4;
   --hpe-base-color-dataVis-purple3: #855aaa;
+  --hpe-color-background-warning: #3c361e; /** Use for backgrounds communicating warning or caution. Keywords: status */
   --hpe-color-background-info: #1e363d; /** Use for backgrounds communicating neutral information. Keywords: status */
   --hpe-color-background-critical: #552120; /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-ok: #1b5245; /** Use for backgrounds communicating success. Status color. Keywords: status */
-  --hpe-color-background-warning: #3c361e; /** Use for backgrounds communicating warning or caution. Keywords: status */
   --hpe-color-background-primary-strong: #007c60; /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
   --hpe-color-background-primary-strong-hover: #00513f; /** Hover variant of background-primary. */
   --hpe-color-text-weak: rgba(255, 255, 255, 0.61); /** Subtle text color for reduced visual prominence. Often used for supporting text. */
