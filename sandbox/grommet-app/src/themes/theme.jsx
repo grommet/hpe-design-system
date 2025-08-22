@@ -2049,180 +2049,87 @@ const buildTheme = (tokens, flags) => {
     heading: {
       color: 'text-heading',
       weight: large.hpe.heading.xlarge.fontWeight,
+      // medium size object per level is the default styling for the level
+      // and will apply when no `size` prop is applied to heading.
+      // if size prop is applied, we will apply the standardized heading size tokens.
       level: {
         1: {
           font: {
             weight: large.hpe.heading.xlarge.fontWeight,
           },
-          xxsmall: {
-            size: large.hpe.heading.xxsmall.fontSize,
-            height: large.hpe.heading.xxsmall.lineHeight,
-          },
-          xsmall: {
-            size: large.hpe.heading.xsmall.fontSize,
-            height: large.hpe.heading.xsmall.lineHeight,
-          },
-          small: {
-            size: large.hpe.heading.small.fontSize,
-            height: large.hpe.heading.small.lineHeight,
-          },
+          xsmall: undefined,
+          small: undefined,
           medium: {
             size: large.hpe.heading.xlarge.fontSize,
             height: large.hpe.heading.xlarge.lineHeight,
           },
-          large: {
-            size: large.hpe.heading.large.fontSize,
-            height: large.hpe.heading.large.fontSize,
-          },
-          xlarge: {
-            size: large.hpe.heading.xlarge.fontSize,
-            height: large.hpe.heading.xlarge.fontSize,
-          },
+          large: undefined,
+          xlarge: undefined,
         },
         2: {
           font: {
             weight: large.hpe.heading.large.fontWeight,
           },
-          xxsmall: {
-            size: large.hpe.heading.xxsmall.fontSize,
-            height: large.hpe.heading.xxsmall.lineHeight,
-          },
-          xsmall: {
-            size: large.hpe.heading.xsmall.fontSize,
-            height: large.hpe.heading.xsmall.lineHeight,
-          },
-          small: {
-            size: large.hpe.heading.small.fontSize,
-            height: large.hpe.heading.small.lineHeight,
-          },
+          xsmall: undefined,
+          small: undefined,
           medium: {
             size: large.hpe.heading.large.fontSize,
             height: large.hpe.heading.large.lineHeight,
           },
-          large: {
-            size: large.hpe.heading.large.fontSize,
-            height: large.hpe.heading.large.lineHeight,
-          },
-          xlarge: {
-            size: large.hpe.heading.xlarge.fontSize,
-            height: large.hpe.heading.xlarge.fontSize,
-          },
+          large: undefined,
+          xlarge: undefined,
         },
         3: {
           font: {
             weight: large.hpe.heading.medium.fontWeight,
           },
-          xxsmall: {
-            size: large.hpe.heading.xxsmall.fontSize,
-            height: large.hpe.heading.xxsmall.lineHeight,
-          },
-          xsmall: {
-            size: large.hpe.heading.xsmall.fontSize,
-            height: large.hpe.heading.xsmall.lineHeight,
-          },
-          small: {
-            size: large.hpe.heading.small.fontSize,
-            height: large.hpe.heading.small.lineHeight,
-          },
+          xsmall: undefined,
+          small: undefined,
           medium: {
             size: large.hpe.heading.medium.fontSize,
             height: large.hpe.heading.medium.lineHeight,
           },
-          large: {
-            size: large.hpe.heading.large.fontSize,
-            height: large.hpe.heading.large.lineHeight,
-          },
-          xlarge: {
-            size: large.hpe.heading.xlarge.fontSize,
-            height: large.hpe.heading.xlarge.lineHeight,
-          },
+          large: undefined,
+          xlarge: undefined,
         },
         4: {
           font: {
             weight: large.hpe.heading.small.fontWeight,
           },
-          xxsmall: {
-            size: large.hpe.heading.xxsmall.fontSize,
-            height: large.hpe.heading.xxsmall.lineHeight,
-          },
-          xsmall: {
-            size: large.hpe.heading.xsmall.fontSize,
-            height: large.hpe.heading.xsmall.lineHeight,
-          },
-          small: {
-            size: large.hpe.heading.small.fontSize,
-            height: large.hpe.heading.small.lineHeight,
-          },
+          xsmall: undefined,
+          small: undefined,
           medium: {
             size: large.hpe.heading.small.fontSize,
             height: large.hpe.heading.small.lineHeight,
           },
-          large: {
-            size: large.hpe.heading.large.fontSize,
-            height: large.hpe.heading.large.lineHeight,
-          },
-          xlarge: {
-            size: large.hpe.heading.xlarge.fontSize,
-            height: large.hpe.heading.xlarge.lineHeight,
-          },
+          large: undefined,
+          xlarge: undefined,
         },
         5: {
           font: {
             weight: large.hpe.heading.xsmall.fontWeight,
           },
-          xxsmall: {
-            size: large.hpe.heading.xxsmall.fontSize,
-            height: large.hpe.heading.xxsmall.lineHeight,
-          },
-          xsmall: {
-            size: large.hpe.heading.xsmall.fontSize,
-            height: large.hpe.heading.xsmall.lineHeight,
-          },
-          small: {
-            size: large.hpe.heading.small.fontSize,
-            height: large.hpe.heading.small.lineHeight,
-          },
+          xsmall: undefined,
+          small: undefined,
           medium: {
             size: large.hpe.heading.xsmall.fontSize,
             height: large.hpe.heading.xsmall.lineHeight,
           },
-          large: {
-            size: large.hpe.heading.large.fontSize,
-            height: large.hpe.heading.large.lineHeight,
-          },
-          xlarge: {
-            size: large.hpe.heading.xlarge.fontSize,
-            height: large.hpe.heading.xlarge.lineHeight,
-          },
+          large: undefined,
+          xlarge: undefined,
         },
         6: {
           font: {
             weight: large.hpe.heading.xxsmall.fontWeight,
           },
-          xxsmall: {
-            size: large.hpe.heading.xxsmall.fontSize,
-            height: large.hpe.heading.xxsmall.lineHeight,
-          },
-          xsmall: {
-            size: large.hpe.heading.xsmall.fontSize,
-            height: large.hpe.heading.xsmall.lineHeight,
-          },
-          small: {
-            size: large.hpe.heading.small.fontSize,
-            height: large.hpe.heading.small.lineHeight,
-          },
+          xsmall: undefined,
+          small: undefined,
           medium: {
             size: large.hpe.heading.xxsmall.fontSize,
             height: large.hpe.heading.xxsmall.lineHeight,
           },
-          large: {
-            size: large.hpe.heading.large.fontSize,
-            height: large.hpe.heading.small.lineHeight,
-          },
-          xlarge: {
-            size: large.hpe.heading.xlarge.fontSize,
-            height: large.hpe.heading.xlarge.lineHeight,
-          },
+          large: undefined,
+          xlarge: undefined,
         },
       },
       extend: ({ size, level, weight, responsive }) => {
@@ -2230,35 +2137,28 @@ const buildTheme = (tokens, flags) => {
         let fontSize = '';
         let lineHeight = '';
         let fontWeight = '';
-        if (size) {
-          fontSize = large.hpe.heading[size].fontSize;
-          lineHeight = large.hpe.heading[size].lineHeight;
-          fontWeight = large.hpe.heading[size].fontWeight;
-        }
+        fontSize = large.hpe.heading[size]?.fontSize;
+        lineHeight = large.hpe.heading[size]?.lineHeight;
+        fontWeight = large.hpe.heading[size]?.fontWeight;
         if (fontWeight && !weight) style += `font-weight: ${fontWeight};`;
         if (fontSize) style += `font-size: ${fontSize};`;
         if (lineHeight) style += `line-height: ${lineHeight};`;
-        style += breakpointStyle(
-          localGlobal,
-          `
-            font-size: ${
-              small.hpe.heading[size || headingLevelToSize[level || 1]].fontSize
-            };
-            line-height: ${
-              small.hpe.heading[size || headingLevelToSize[level || 1]]
-                .lineHeight
-            };
-            ${
-              !weight
-                ? `font-weight: ${
-                    small.hpe.heading[size || headingLevelToSize[level || 1]]
-                      .fontWeight
-                  }`
-                : ''
-            };
-          `,
-          responsive,
-        );
+        if (size) {
+          const responsiveSize = size || headingLevelToSize[level || 1];
+          style += breakpointStyle(
+            localGlobal,
+            `
+              font-size: ${small.hpe.heading[responsiveSize].fontSize};
+              line-height: ${small.hpe.heading[responsiveSize].lineHeight};
+              ${
+                !weight
+                  ? `font-weight: ${small.hpe.heading[responsiveSize].fontWeight}`
+                  : ''
+              };
+            `,
+            responsive,
+          );
+        }
         return style;
       },
     },
