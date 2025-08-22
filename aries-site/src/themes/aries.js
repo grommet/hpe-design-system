@@ -9,7 +9,7 @@ export const aries = deepMerge(hpe, {
   // to be quickly tested
   buttonGroup: {
     // any Box props
-    gap: 'small',
+    gap: 'xsmall',
   },
   feedback: {
     closeButton: {
@@ -23,7 +23,7 @@ export const aries = deepMerge(hpe, {
       align: 'start',
       direction: 'row',
       justify: 'between',
-      gap: 'xsmall',
+      gap: '3xsmall',
     },
     heading: {
       level: 2,
@@ -37,7 +37,7 @@ export const aries = deepMerge(hpe, {
       },
       direction: 'row',
       justify: 'start',
-      gap: 'xsmall',
+      gap: '3xsmall',
     },
     success: {
       color: 'text-strong',

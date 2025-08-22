@@ -130,7 +130,7 @@ const columns = [
         );
 
       return (
-        <Box direction="row" align="center" gap="xsmall">
+        <Box direction="row" align="center" gap="3xsmall">
           {icon}
           <Text>{datum.success}</Text>
         </Box>
@@ -346,7 +346,7 @@ export const QuickFilter = () => {
                 summary
                 stepOptions
                 border="top"
-                pad={{ vertical: 'xsmall', horizontal: 'small' }}
+                pad={{ vertical: '3xsmall', horizontal: 'xsmall' }}
               />
             </Box>
           </Data>

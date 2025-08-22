@@ -9,11 +9,11 @@ export const WizardHeader = ({ setOpen, titleId, cancelId, previousId }) => {
   const { activeIndex, activeStep, setActiveIndex, steps, wizardTitle } =
     useContext(WizardContext);
   return (
-    <Header background="background-contrast" pad="small" responsive={false}>
+    <Header background="background-contrast" pad="xsmall" responsive={false}>
       <Box
         direction="row"
         align="center"
-        width={{ max: 'xxlarge' }}
+        width={{ max: '5xlarge' }}
         margin="auto"
         justify="center"
         fill="horizontal"

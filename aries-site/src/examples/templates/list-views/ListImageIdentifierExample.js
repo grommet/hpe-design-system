@@ -46,7 +46,7 @@ const data = [
 ];
 
 export const ListImageIdentifierExample = () => (
-  <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+  <Box width={{ max: '5xlarge' }} margin="auto" fill>
     <List
       // eslint-disable-next-line max-len
       aria-label="Locations of people and image showing the locations where people are currently situated"
@@ -57,13 +57,13 @@ export const ListImageIdentifierExample = () => (
       }}
     >
       {(datum, index) => (
-        <Box direction="row" gap="small" key={index}>
-          <Box width="xxsmall" height="xxsmall">
+        <Box direction="row" gap="xsmall" key={index}>
+          <Box width="5xsmall" height="5xsmall">
             <Image alt={datum.alt} src={datum.image} fit="cover" />
           </Box>
           <Box>
-            <TextEmphasis size="large">{datum.name}</TextEmphasis>
-            <Text size="small">{datum.description}</Text>
+            <TextEmphasis size="xlarge">{datum.name}</TextEmphasis>
+            <Text size="xsmall">{datum.description}</Text>
           </Box>
         </Box>
       )}
