@@ -3,8 +3,6 @@ import {
   Box,
   Data,
   DataContext,
-  DataSearch,
-  DataSummary,
   Heading,
   Grid,
   PageContent,
@@ -12,6 +10,7 @@ import {
 } from 'grommet';
 import { Meta, ContentCard } from '../../components';
 import { getCards, getPageDetails, nameToPath } from '../../utils';
+import { PageIntro } from '../../layouts';
 
 const title = 'Learn';
 const pageDetails = getPageDetails(title);
@@ -25,13 +24,11 @@ const Learn = () => (
       canonicalUrl="https://design-system.hpe.design/learn"
     />
     <PageContent>
-      <Box pad={{ vertical: 'medium' }} justify="center" width="large">
+      <PageIntro>
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
-      </Box>
+      </PageIntro>
       <Data data={cards} pad={{ bottom: 'large' }}>
-        <DataSearch width={{ max: 'medium', width: '100%' }} />
-        <DataSummary />
         <DataContext.Consumer>
           {({ data }) => {
             const gettingStarted = data.filter(
@@ -74,13 +71,12 @@ const Learn = () => (
                       </Heading>
                       <Grid
                         columns="medium"
-                        gap="medium"
+                        gap="large"
                         rows={[['auto', 'full']]}
                       >
                         {type.data.map(item => (
                           <ContentCard
                             key={item.name}
-                            pad="small"
                             topic={item}
                             href={item.href || nameToPath(item.name)}
                             level={3}
