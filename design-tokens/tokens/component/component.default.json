@@ -9476,7 +9476,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{element.medium.minHeight}",
+          "$value": "{base.dimension.1200}",
           "$description": "",
           "$extensions": {
             "com.figma": {
