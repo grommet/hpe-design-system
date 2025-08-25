@@ -28,9 +28,16 @@ A React hook that provides a simple way to manage browser sessionStorage with Re
 
 - **Type-safe**: Full TypeScript support with generic typing
 - **SSR-compatible**: Safely handles server-side rendering scenarios
-- **Cross-tab synchronization**: Automatically syncs changes across browser tabs
 - **Error handling**: Graceful fallback when sessionStorage is unavailable
 - **Function updates**: Supports both direct values and updater functions
+
+##### To Do
+
+Consider supporting in the future. Session storage is isolated to a specific browser tab and is not shared across multiple tabs or windows.
+- **Cross-tab synchronization**: Automatically syncs changes across browser tabs
+
+Possible approach [useSyncExternalStore + BroadcastChannel API](#store-state-across-tabs).
+
 
 #### Usage
 
@@ -126,14 +133,6 @@ setItems(prev => [...prev, 'new item']);
 
 // Remove item
 setItems(prev => prev.filter(item => item !== 'item to remove'));
-```
-
-##### Cross-tab Synchronization
-```typescript
-const [sharedState, setSharedState] = useSessionStorage('shared', 'initial');
-
-// When this value changes in another tab, this component will automatically
-// re-render with the new value
 ```
 
 #### Error Handling
@@ -238,3 +237,112 @@ When contributing to this package:
 ## License
 
 This package is part of the HPE Design System and follows the same license terms as the main project.
+
+## Opportunities
+
+### Store state across tabs
+
+Potential approach:
+
+1. Create external store
+
+```javascript
+// src/store/broadcastStore.js
+let currentMessage = null;
+const listeners = new Set();
+let channel;
+
+// Function to get the latest snapshot of the state
+export function getSnapshot() {
+  return currentMessage;
+}
+
+// Function to subscribe to changes in the store
+export function subscribe(callback) {
+  listeners.add(callback);
+  return () => {
+    listeners.delete(callback);
+  };
+}
+
+// Function to send a message via the BroadcastChannel
+export function sendMessage(message, channelName) {
+  if (!channel) {
+    channel = new BroadcastChannel(channelName);
+    channel.onmessage = (event) => {
+      // Update the state and notify listeners
+      currentMessage = event.data;
+      listeners.forEach(listener => listener());
+    };
+  }
+  channel.postMessage(message);
+}
+
+// Initialize the channel once
+export function initChannel(channelName) {
+  if (!channel) {
+    channel = new BroadcastChannel(channelName);
+    channel.onmessage = (event) => {
+      // Update the state and notify listeners
+      currentMessage = event.data;
+      listeners.forEach(listener => listener());
+    };
+  }
+}
+```
+
+2. Create custom hook
+
+```javascript
+// src/hooks/useBroadcastChannel.js
+import { useSyncExternalStore } from 'react';
+import { getSnapshot, subscribe } from '../store/broadcastStore';
+
+export function useBroadcastChannel() {
+  return useSyncExternalStore(subscribe, getSnapshot);
+}
+```
+
+3. Use the hook
+
+```javascript
+// src/components/BroadcastComponent.js
+import React, { useEffect, useState } from 'react';
+import { sendMessage, initChannel } from '../store/broadcastStore';
+import { useBroadcastChannel } from '../hooks/useBroadcastChannel';
+
+const channelName = 'my-app-channel';
+
+function BroadcastComponent() {
+  const latestMessage = useBroadcastChannel();
+  const [inputValue, setInputValue] = useState('');
+
+  // Initialize the channel when the component mounts
+  useEffect(() => {
+    initChannel(channelName);
+  }, []);
+
+  const handleSendMessage = () => {
+    if (inputValue) {
+      sendMessage(inputValue, channelName);
+      setInputValue(''); // Clear the input after sending
+    }
+  };
+
+  return (
+    <div>
+      <h1>Cross-Tab State Sync</h1>
+      <p>Latest message from another tab: <b>{latestMessage || 'No messages yet.'}</b></p>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Type a message..."
+      />
+      <button onClick={handleSendMessage}>Send Message</button>
+    </div>
+  );
+}
+
+export default BroadcastComponent;
+```
