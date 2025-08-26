@@ -88,9 +88,10 @@ export const NavigationMenuExample = () => {
                     setActiveItem={setActiveItem}
                     items={navItems}
                     gap="medium"
+                    width={undefined} // full width when in mobile
                     header={
                       <Header
-                        pad={{ horizontal: 'medium', vertical: 'small' }}
+                        pad={{ left: 'medium', right: 'xsmall', vertical: 'small' }}
                         direction="row"
                         align="center"
                         justify="between"
