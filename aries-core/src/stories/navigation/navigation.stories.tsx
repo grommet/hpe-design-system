@@ -65,7 +65,7 @@ export const NavigationMenuExample = () => {
       rows={['auto', 'flex']}
       height="100vh"
     >
-      <Box gridArea="nav" as="aside" background="background-front">
+      <Box gridArea="nav" as="aside" aria-label='navigation' background="background-front">
         {mobile ? (
           <>
             <Box justify="center" fill pad={{ horizontal: 'xsmall' }}>
