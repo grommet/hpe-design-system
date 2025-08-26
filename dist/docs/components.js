@@ -10243,7 +10243,7 @@ export default {
   },
   "hpe.button.secondary.rest.textColor": {
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -10258,7 +10258,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.primary.DEFAULT.REST}",
+      "$value": "{color.text.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10287,7 +10287,7 @@ export default {
   },
   "hpe.button.secondary.rest.iconColor": {
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -10304,7 +10304,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.primary.DEFAULT.REST}",
+      "$value": "{color.icon.strong.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -10471,7 +10471,7 @@ export default {
   },
   "hpe.button.secondary.hover.textColor": {
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -10515,7 +10515,7 @@ export default {
   },
   "hpe.button.secondary.hover.iconColor": {
     "$type": "color",
-    "$value": "#006750",
+    "$value": "#292d3a",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -40099,7 +40099,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.medium.minHeight}",
+      "$value": "{dataCell.default.medium.minHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -41249,7 +41249,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.medium.minHeight}",
+      "$value": "{dataCell.default.medium.minHeight}",
       "$description": "",
       "$extensions": {
         "com.figma": {

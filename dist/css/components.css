@@ -300,8 +300,6 @@
   --hpe-dataCell-default-medium-borderBottomWidth: var(--hpe-static-borderWidth-xsmall);
   --hpe-dataCell-default-medium-paddingTop: var(--hpe-static-spacing-xsmall);
   --hpe-dataCell-default-medium-minHeight: var(--hpe-element-medium-minHeight);
-  --hpe-headerCell-default-medium-minHeight: var(--hpe-element-medium-minHeight);
-  --hpe-footerCell-default-medium-minHeight: var(--hpe-element-medium-minHeight);
   --hpe-radioButton-default-label-hover-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
   --hpe-radioButton-default-label-disabled-rest-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
   --hpe-radioButton-default-label-selected-rest-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
@@ -447,10 +445,12 @@
   --hpe-headerCell-default-medium-borderBottomWidth: var(--hpe-dataCell-default-medium-borderBottomWidth);
   --hpe-headerCell-default-medium-paddingTop: var(--hpe-dataCell-default-medium-paddingTop);
   --hpe-headerCell-default-medium-gapX: var(--hpe-element-medium-textToIconX);
+  --hpe-headerCell-default-medium-minHeight: var(--hpe-dataCell-default-medium-minHeight);
   --hpe-footerCell-default-medium-paddingX: var(--hpe-dataCell-default-medium-paddingX);
   --hpe-footerCell-default-medium-borderTopWidth: var(--hpe-dataCell-default-medium-borderBottomWidth);
   --hpe-footerCell-default-medium-paddingBottom: var(--hpe-dataCell-default-medium-paddingTop); /** This intentionally uses paddingTop because the border side is switched from dataCell. */
   --hpe-footerCell-default-medium-gapX: var(--hpe-element-medium-textToIconX);
+  --hpe-footerCell-default-medium-minHeight: var(--hpe-dataCell-default-medium-minHeight);
   --hpe-radioButton-default-medium-label-fontSize: var(--hpe-element-medium-fontSize);
   --hpe-radioButton-default-medium-label-lineHeight: var(--hpe-element-medium-lineHeight);
   --hpe-radioButton-default-medium-control-borderWidth: var(--hpe-borderWidth-default);

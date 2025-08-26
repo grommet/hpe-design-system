@@ -343,15 +343,15 @@ module.exports = {
         "rest": {
           "background": "background-contrast",
           "borderColor": "transparent",
-          "textColor": "text-primary",
-          "iconColor": "icon-primary",
+          "textColor": "text-strong",
+          "iconColor": "icon-strong",
           "fontWeight": 500
         },
         "hover": {
           "background": "background-contrast-hover",
           "borderColor": "transparent",
-          "textColor": "text-primary",
-          "iconColor": "icon-primary",
+          "textColor": "text-strong",
+          "iconColor": "icon-strong",
           "fontWeight": 500
         },
         "disabled": {

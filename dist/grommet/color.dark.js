@@ -30,7 +30,7 @@ export default {
         "selected-primary": "#093d32",
         "selected-primary-hover": "#074738",
         "neutral-strong": "#e6e8e9",
-        "neutral-xstrong": "#ffffff"
+        "neutral-xstrong": "#f7f7f7"
       },
       "border": {
         "strong": "rgba(255, 255, 255, 0.72)",
@@ -96,6 +96,7 @@ export default {
         "green": "#068667",
         "purple": "#3c3aa1",
         "teal": "rgba(0, 0, 0, 0)",
+        "cyan": "#04909d",
         "blue": "#003cae",
         "red": "rgba(0, 0, 0, 0)",
         "orange": "rgba(0, 0, 0, 0)",
@@ -114,19 +115,12 @@ export default {
         "categorical-80": "#855aaa"
       },
       "transparent": "rgba(0, 0, 0, 0)",
-      "focus": "#05cc93",
+      "focus": "#292d3a",
       "foreground": {
         "primary": "#05cc93",
         "critical": "#fc6161",
         "warning": "#ec8c25",
         "unknown": "#7d8a92"
-      },
-      "surface": {
-        "low-default": "#292d3a",
-        "base-default": "#1d1f27",
-        "high-default": "#292d3a",
-        "high-secondary": "#1d1f27",
-        "highest-default": "#292d3a"
       }
     },
     "shadow": {

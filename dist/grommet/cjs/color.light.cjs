@@ -96,6 +96,7 @@ module.exports = {
         "green": "#05cc93",
         "purple": "#7764fc",
         "teal": "rgba(0, 0, 0, 0)",
+        "cyan": "#62e5f6",
         "blue": "#0070f8",
         "red": "rgba(0, 0, 0, 0)",
         "orange": "rgba(0, 0, 0, 0)",
@@ -120,13 +121,6 @@ module.exports = {
         "critical": "#ec3331",
         "warning": "#d36d00",
         "unknown": "#7d8a92"
-      },
-      "surface": {
-        "low-default": "#f7f7f7",
-        "base-default": "#ffffff",
-        "high-default": "#f7f7f7",
-        "high-secondary": "#ffffff",
-        "highest-default": "#f7f7f7"
       }
     },
     "shadow": {

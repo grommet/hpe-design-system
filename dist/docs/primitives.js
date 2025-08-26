@@ -2732,6 +2732,50 @@ export default {
     ],
     "key": "{base.color.grey.50}"
   },
+  "hpe.base.color.grey.200": {
+    "$type": "color",
+    "$value": "#e6e8e9",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#e6e8e9",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.grey.200",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "grey",
+      "subitem": "200"
+    },
+    "path": [
+      "base",
+      "color",
+      "grey",
+      "200"
+    ],
+    "key": "{base.color.grey.200}"
+  },
   "hpe.base.color.grey.400": {
     "$type": "color",
     "$value": "#d4d8db",
@@ -3127,50 +3171,6 @@ export default {
       "1300"
     ],
     "key": "{base.color.grey.1300}"
-  },
-  "hpe.base.color.grey.200Entirelynew": {
-    "$type": "color",
-    "$value": "#e6e8e9",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#e6e8e9",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.grey.200Entirelynew",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "grey",
-      "subitem": "200Entirelynew"
-    },
-    "path": [
-      "base",
-      "color",
-      "grey",
-      "200Entirelynew"
-    ],
-    "key": "{base.color.grey.200Entirelynew}"
   },
   "hpe.base.color.blue.50": {
     "$type": "color",

@@ -1079,7 +1079,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.grey.200Entirelynew}",
+      "$value": "{base.color.grey.200}",
       "$description": "Highest emphasis variant of neutral palette.",
       "$extensions": {
         "com.figma": {
@@ -1110,7 +1110,7 @@ export default {
   },
   "hpe.color.background.neutral.xstrong": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#f7f7f7",
     "$description": "Highest emphasis variant of neutral palette.",
     "$extensions": {
       "com.figma": {
@@ -1125,7 +1125,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.white.100}",
+      "$value": "{base.color.grey.50}",
       "$description": "Highest emphasis variant of neutral palette.",
       "$extensions": {
         "com.figma": {
@@ -3329,7 +3329,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{deprecated.base.color.orange.500New}",
+      "$value": "{base.color.orange.500}",
       "$description": "Use for icons communicating warning or caution. Keywords: status",
       "$extensions": {
         "com.figma": {
@@ -3841,6 +3841,52 @@ export default {
       "REST"
     ],
     "key": "{color.decorative.teal.DEFAULT.REST}"
+  },
+  "hpe.color.decorative.cyan": {
+    "$type": "color",
+    "$value": "#04909d",
+    "$description": "Use for decorative purposes when color has no specific meaning.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.cyan.500}",
+      "$description": "Use for decorative purposes when color has no specific meaning.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.decorative.cyan",
+    "attributes": {
+      "category": "color",
+      "type": "decorative",
+      "item": "cyan",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "decorative",
+      "cyan",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.decorative.cyan.DEFAULT.REST}"
   },
   "hpe.color.decorative.blue": {
     "$type": "color",
@@ -4536,7 +4582,7 @@ export default {
   },
   "hpe.color.focus": {
     "$type": "color",
-    "$value": "#05cc93",
+    "$value": "#292d3a",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4551,7 +4597,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.550}",
+      "$value": "{base.color.grey.1000}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4773,237 +4819,6 @@ export default {
       "REST"
     ],
     "key": "{color.foreground.unknown.DEFAULT.REST}"
-  },
-  "hpe.color.surface.low.default": {
-    "$type": "color",
-    "$value": "#292d3a",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.grey.1000}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.surface.low.default",
-    "attributes": {
-      "category": "color",
-      "type": "surface",
-      "item": "low",
-      "subitem": "default",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "surface",
-      "low",
-      "default",
-      "REST"
-    ],
-    "key": "{color.surface.low.default.REST}"
-  },
-  "hpe.color.surface.base.default": {
-    "$type": "color",
-    "$value": "#1d1f27",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.grey.1300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.surface.base.default",
-    "attributes": {
-      "category": "color",
-      "type": "surface",
-      "item": "base",
-      "subitem": "default",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "surface",
-      "base",
-      "default",
-      "REST"
-    ],
-    "key": "{color.surface.base.default.REST}"
-  },
-  "hpe.color.surface.high.default": {
-    "$type": "color",
-    "$value": "#292d3a",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.grey.1000}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.surface.high.default",
-    "attributes": {
-      "category": "color",
-      "type": "surface",
-      "item": "high",
-      "subitem": "default",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "surface",
-      "high",
-      "default",
-      "REST"
-    ],
-    "key": "{color.surface.high.default.REST}"
-  },
-  "hpe.color.surface.high.secondary": {
-    "$type": "color",
-    "$value": "#1d1f27",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.grey.1300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.surface.high.secondary",
-    "attributes": {
-      "category": "color",
-      "type": "surface",
-      "item": "high",
-      "subitem": "secondary",
-      "state": "DEFAULT"
-    },
-    "path": [
-      "color",
-      "surface",
-      "high",
-      "secondary",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.surface.high.secondary.DEFAULT.REST}"
-  },
-  "hpe.color.surface.highest.default": {
-    "$type": "color",
-    "$value": "#292d3a",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.grey.1000}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.surface.highest.default",
-    "attributes": {
-      "category": "color",
-      "type": "surface",
-      "item": "highest",
-      "subitem": "default",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "surface",
-      "highest",
-      "default",
-      "REST"
-    ],
-    "key": "{color.surface.highest.default.REST}"
   },
   "hpe.shadow.small": {
     "$type": "shadow",
