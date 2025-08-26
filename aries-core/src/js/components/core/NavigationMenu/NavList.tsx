@@ -1,7 +1,7 @@
-import { Collapsible, List } from 'grommet';
+import { AnnounceContext, Collapsible, List } from 'grommet';
 import { Down, Up } from 'grommet-icons';
 import { NavItem, NavItemType } from './NavItem/NavItem';
-import { useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 
 type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
 
@@ -13,8 +13,15 @@ interface NavListProps {
   [key: string]: any; // For additional props like 'role', 'aria-labelledby', etc.
 }
 
-export const NavList = ({ items, activeItem, setActiveItem, onSelect, ...rest }: NavListProps) => {
+export const NavList = ({
+  items,
+  activeItem,
+  setActiveItem,
+  onSelect,
+  ...rest
+}: NavListProps) => {
   const [expanded, setExpanded] = useState<string[]>([]);
+  const announce = useContext(AnnounceContext);
 
   const adjustedItems = useMemo(
     () =>
@@ -34,14 +41,21 @@ export const NavList = ({ items, activeItem, setActiveItem, onSelect, ...rest }:
   // Find parents of active item to ensure they're expanded
   const parentsToExpand = useMemo(() => {
     if (!activeItem) return [];
-    
-    const findParents = (itemsList: NavItemWithLevel[], target: string, parents: string[] = []): string[] | null => {
+
+    const findParents = (
+      itemsList: NavItemWithLevel[],
+      target: string,
+      parents: string[] = [],
+    ): string[] | null => {
       for (const item of itemsList) {
         if (item.label === target) {
           return parents;
         }
         if (item.children) {
-          const result = findParents(item.children, target, [...parents, item.label]);
+          const result = findParents(item.children, target, [
+            ...parents,
+            item.label,
+          ]);
           if (result) {
             return result;
           }
@@ -126,8 +140,9 @@ export const NavList = ({ items, activeItem, setActiveItem, onSelect, ...rest }:
               active={active}
               aria-current={active ? 'page' : undefined}
               onClick={() => {
-                setActiveItem?.(item.label)
-                onSelect?.()
+                setActiveItem?.(item.label);
+                onSelect?.();
+                announce(`Selected ${item.label}.`, 'assertive', 2000);
               }}
             />
           );

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { use, useContext, useEffect, useState } from 'react';
 import {
   AnnounceContext,
   Box,
@@ -40,8 +40,8 @@ export const NavigationMenuExample = () => {
   const mobile = breakpoint === 'xsmall';
   const navTitle = "My menu's title";
   const messages = {
-    layerOpen: `${navTitle} navigation menu opened.`,
-    layerClose: `${navTitle} navigation menu closed.`,
+    layerOpen: `${navTitle} navigation opened.`,
+    layerClose: `${navTitle} navigation closed.`,
   };
 
   // Remove layer when breakpoint changes to non-mobile
@@ -51,12 +51,17 @@ export const NavigationMenuExample = () => {
     }
   }, [mobile, openLayer]);
 
-  // Announce when layer opens
   useEffect(() => {
-    if (openLayer) {
-      announce(messages.layerOpen, 'assertive', 2000);
-    }
-  }, [openLayer, announce, messages.layerOpen]);
+    const timer = setTimeout(() => {
+      if (openLayer) {
+        announce(messages.layerOpen, 'assertive', 1000);
+      } else {
+        announce(messages.layerClose, 'assertive', 1000);
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [openLayer, announce, messages]);
 
   return (
     <Grid
@@ -65,7 +70,12 @@ export const NavigationMenuExample = () => {
       rows={['auto', 'flex']}
       height="100vh"
     >
-      <Box gridArea="nav" as="aside" aria-label='navigation' background="background-front">
+      <Box
+        gridArea="nav"
+        as="aside"
+        aria-label="navigation"
+        background="background-front"
+      >
         {mobile ? (
           <>
             <Box justify="center" fill pad={{ horizontal: 'xsmall' }}>
@@ -91,7 +101,11 @@ export const NavigationMenuExample = () => {
                     width={undefined} // full width when in mobile
                     header={
                       <Header
-                        pad={{ left: 'medium', right: 'xsmall', vertical: 'small' }}
+                        pad={{
+                          left: 'medium',
+                          right: 'xsmall',
+                          vertical: 'small',
+                        }}
                         direction="row"
                         align="center"
                         justify="between"
@@ -103,19 +117,14 @@ export const NavigationMenuExample = () => {
                           icon={<Close aria-hidden={true} />}
                           a11yTitle="Close navigation menu"
                           onClick={() => {
-                            announce(messages.layerClose, 'assertive', 2000);
                             setOpenLayer(false);
                           }}
                         />
                       </Header>
                     }
                     onSelect={() => {
-                      announce(
-                        `Selected ${activeItem}. ${messages.layerClose}`,
-                        'assertive',
-                        2000,
-                      );
-                      setOpenLayer(false);
+                      // announce(messages.layerClose, 'assertive', 2000);
+                      // setOpenLayer(false);
                     }}
                   />
                 </Box>

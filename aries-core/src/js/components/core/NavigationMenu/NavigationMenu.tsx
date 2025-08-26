@@ -47,7 +47,7 @@ export const NavigationMenu = ({
         <Nav
           id={navigationId}
           hidden={!open}
-          a11yTitle={title ? `${title} main menu` : 'Main menu'}
+          a11yTitle={title ? `${title}` : 'Navigation menu'}
           gap="xsmall"
         >
           <NavList
