@@ -1246,6 +1246,22 @@
           }
         }
       },
+      "cyan": {
+        "DEFAULT": {
+          "REST": {
+            "$type": "color",
+            "$value": "{base.color.cyan.200}",
+            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          }
+        }
+      },
       "blue": {
         "DEFAULT": {
           "REST": {
@@ -1554,88 +1570,6 @@
               "com.figma": {
                 "hiddenFromPublishing": false,
                 "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      }
-    },
-    "surface": {
-      "low": {
-        "default": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.grey.50}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["ALL_SCOPES"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "base": {
-        "default": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.white.100}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["ALL_SCOPES"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        }
-      },
-      "high": {
-        "default": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.grey.50}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["ALL_SCOPES"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        },
-        "secondary": {
-          "DEFAULT": {
-            "REST": {
-              "$type": "color",
-              "$value": "{base.color.white.100}",
-              "$description": "",
-              "$extensions": {
-                "com.figma": {
-                  "hiddenFromPublishing": false,
-                  "scopes": ["ALL_SCOPES"],
-                  "codeSyntax": {}
-                }
-              }
-            }
-          }
-        }
-      },
-      "highest": {
-        "default": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.grey.50}",
-            "$description": "",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["ALL_SCOPES"],
                 "codeSyntax": {}
               }
             }

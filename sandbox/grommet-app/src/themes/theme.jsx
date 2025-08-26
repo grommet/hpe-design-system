@@ -1336,7 +1336,16 @@ const buildTheme = (tokens, flags) => {
             weight: global.hpe.fontWeight.medium,
           },
         },
-        extend: '',
+        extend: ({ isSelected, theme }) =>
+          // grommet logic was incorrectly switching to wrong theme mode
+          // so overriding in extend
+          isSelected
+            ? `color: ${
+                theme.global.colors['text-onSelectedPrimaryStrong'][
+                  theme.dark ? 'dark' : 'light'
+                ]
+              };`
+            : '',
       },
       range: {
         background: 'background-selected-primary',
