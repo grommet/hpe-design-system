@@ -2024,7 +2024,7 @@
         },
         "textColor": {
           "$type": "color",
-          "$value": "{color.text.primary.DEFAULT.REST}",
+          "$value": "{color.text.strong.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2036,7 +2036,7 @@
         },
         "iconColor": {
           "$type": "color",
-          "$value": "{color.icon.primary.DEFAULT.REST}",
+          "$value": "{color.icon.strong.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -10246,7 +10246,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{element.medium.minHeight}",
+          "$value": "{dataCell.default.medium.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -10562,7 +10562,7 @@
         },
         "minHeight": {
           "$type": "number",
-          "$value": "{element.medium.minHeight}",
+          "$value": "{dataCell.default.medium.minHeight}",
           "$description": "",
           "$extensions": {
             "com.figma": {
