@@ -1382,7 +1382,7 @@ module.exports = {
           "borderBottomWidth": "1px",
           "paddingTop": "12px",
           "paddingBottom": "11px",
-          "minHeight": "36px"
+          "minHeight": "48px"
         }
       },
       "primary": {
@@ -1492,7 +1492,7 @@ module.exports = {
           "paddingTop": "12px",
           "paddingBottom": "11px",
           "gapX": "6px",
-          "minHeight": "36px"
+          "minHeight": "48px"
         }
       }
     },
@@ -1533,7 +1533,7 @@ module.exports = {
           "paddingTop": "11px",
           "paddingBottom": "12px",
           "gapX": "6px",
-          "minHeight": "36px"
+          "minHeight": "48px"
         }
       }
     },

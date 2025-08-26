@@ -130,6 +130,7 @@
   --hpe-formField-default-medium-error-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-formField-default-medium-value-fontWeight: var(--hpe-fontWeight-regular);
   --hpe-dataCell-default-medium-fontWeight: var(--hpe-fontWeight-regular);
+  --hpe-dataCell-default-medium-minHeight: var(--hpe-base-dimension-1200);
   --hpe-dataCell-primary-medium-fontWeight: var(--hpe-fontWeight-medium);
   --hpe-dataCell-primary-medium-paddingBottom: var(--hpe-dataCell-default-medium-paddingBottom);
   --hpe-headerCell-default-medium-fontWeight: var(--hpe-fontWeight-medium);
@@ -297,9 +298,8 @@
   --hpe-dataCell-default-medium-paddingX: var(--hpe-static-spacing-xsmall);
   --hpe-dataCell-default-medium-borderBottomWidth: var(--hpe-static-borderWidth-xsmall);
   --hpe-dataCell-default-medium-paddingTop: var(--hpe-static-spacing-xsmall);
-  --hpe-dataCell-default-medium-minHeight: var(--hpe-element-medium-minHeight);
-  --hpe-headerCell-default-medium-minHeight: var(--hpe-element-medium-minHeight);
-  --hpe-footerCell-default-medium-minHeight: var(--hpe-element-medium-minHeight);
+  --hpe-headerCell-default-medium-minHeight: var(--hpe-dataCell-default-medium-minHeight);
+  --hpe-footerCell-default-medium-minHeight: var(--hpe-dataCell-default-medium-minHeight);
   --hpe-radioButton-default-label-hover-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
   --hpe-radioButton-default-label-disabled-rest-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
   --hpe-radioButton-default-label-selected-rest-fontWeight: var(--hpe-radioButton-default-label-rest-fontWeight);
