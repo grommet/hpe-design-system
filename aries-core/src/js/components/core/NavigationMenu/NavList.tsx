@@ -114,6 +114,8 @@ export const NavList = ({ items, activeItem, setActiveItem, onSelect, ...rest }:
             </NavItem>
           );
         } else {
+          const active = activeItem === item.label;
+
           result = (
             <NavItem
               id={item.label}
@@ -121,7 +123,8 @@ export const NavList = ({ items, activeItem, setActiveItem, onSelect, ...rest }:
               label={item.label}
               url={item.url}
               icon={item.icon}
-              active={activeItem === item.label}
+              active={active}
+              aria-current={active ? 'page' : undefined}
               onClick={() => {
                 setActiveItem?.(item.label)
                 onSelect?.()
