@@ -1,6 +1,7 @@
 import { Box, Button, Heading } from 'grommet';
 import { Sidebar as SidebarIcon } from 'grommet-icons';
 import { ScreenReaderOnly } from '../../ScreenReaderOnly';
+import { useEffect, useState } from 'react';
 
 interface NavHeaderProps {
   title?: string;
@@ -10,11 +11,17 @@ interface NavHeaderProps {
 }
 
 export const NavHeader = ({ title, navigationId, open, setOpen, ...rest }: NavHeaderProps) => {
+  const [autoFocus, setAutoFocus] = useState(false);
   const heading = (
     <Heading level={2} size="small" margin="none">
       {title}
     </Heading>
   );
+
+  // After mount set autoFocus to true
+  useEffect(() => {
+    setAutoFocus(true);
+  }, []);
 
   return (
     <>
@@ -39,6 +46,7 @@ export const NavHeader = ({ title, navigationId, open, setOpen, ...rest }: NavHe
           aria-expanded={open}
           active={open}
           alignSelf="end"
+          autoFocus={autoFocus}
           icon={<SidebarIcon aria-hidden />}
           onClick={() => setOpen(!open)}
           tip={open ? 'Close navigation' : 'Open navigation'}
