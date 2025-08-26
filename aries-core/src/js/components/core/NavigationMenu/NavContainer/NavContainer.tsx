@@ -4,6 +4,7 @@ import { NavHeader } from './NavHeader';
 interface NavContainerProps {
   children: React.ReactNode;
   header?: React.ReactNode;
+  navigationId?: string;
   open: boolean;
   setOpen: (open: boolean) => void;
   title?: string;
@@ -13,6 +14,7 @@ interface NavContainerProps {
 export const NavContainer = ({
   children,
   header,
+  navigationId,
   open,
   setOpen,
   title,
@@ -24,7 +26,14 @@ export const NavContainer = ({
       width={open ? { min: 'small' } : undefined}
       {...rest}
     >
-      {header || <NavHeader title={title} open={open} setOpen={setOpen} />}
+      {header || (
+        <NavHeader
+          title={title}
+          navigationId={navigationId}
+          open={open}
+          setOpen={setOpen}
+        />
+      )}
       {children}
     </Box>
   );

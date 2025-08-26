@@ -4,11 +4,12 @@ import { ScreenReaderOnly } from '../../ScreenReaderOnly';
 
 interface NavHeaderProps {
   title?: string;
+  navigationId?: string;
   open: boolean;
   setOpen: (open: boolean) => void;
 }
 
-export const NavHeader = ({ title, open, setOpen, ...rest }: NavHeaderProps) => {
+export const NavHeader = ({ title, navigationId, open, setOpen, ...rest }: NavHeaderProps) => {
   const heading = (
     <Heading level={2} size="small" margin="none">
       {title}
@@ -34,11 +35,13 @@ export const NavHeader = ({ title, open, setOpen, ...rest }: NavHeaderProps) => 
       >
         {open && heading}
         <Button
-          icon={<SidebarIcon />}
+          aria-controls={open ? navigationId : undefined}
+          aria-expanded={open}
           active={open}
-          tip={open ? 'Close navigation' : 'Open navigation'}
           alignSelf="end"
+          icon={<SidebarIcon aria-hidden />}
           onClick={() => setOpen(!open)}
+          tip={open ? 'Close navigation' : 'Open navigation'}
         />
       </Box>
     </>

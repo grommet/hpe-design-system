@@ -25,6 +25,8 @@ export const NavigationMenu = ({
   ...rest
 }: NavigationMenuProps) => {
   const [open, setOpen] = useState(openProp);
+  const navigationId = 'navigation-menu';
+
   useEffect(() => {
     if (openProp !== undefined) {
       setOpen(openProp);
@@ -34,6 +36,7 @@ export const NavigationMenu = ({
   return (
     <NavContainer
       header={header}
+      navigationId={navigationId}
       open={open}
       setOpen={setOpen}
       title={title}
@@ -42,6 +45,8 @@ export const NavigationMenu = ({
     >
       {open && (
         <Nav
+          id={navigationId}
+          hidden={!open}
           a11yTitle={title ? `${title} main menu` : 'Main menu'}
           gap="xsmall"
         >
