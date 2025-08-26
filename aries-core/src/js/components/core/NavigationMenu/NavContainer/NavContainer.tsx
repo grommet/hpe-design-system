@@ -23,7 +23,8 @@ export const NavContainer = ({
   return (
     <Box
       pad={{ horizontal: 'small' }}
-      width={open ? { min: 'small' } : undefined}
+      // replace width with 'small' when grommet-theme-hpe v7 is released.
+      width={open ? '256px' : undefined}
       {...rest}
     >
       {header || (
