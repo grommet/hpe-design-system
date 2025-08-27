@@ -4,29 +4,27 @@ import {
   Box,
   Button,
   Grid,
-  Header,
-  Heading,
   Layer,
   Main,
   Page,
   PageContent,
   PageHeader,
   ResponsiveContext,
-  Text,
 } from 'grommet';
-import { ButtonGroup, NavigationMenu } from '../../js/components';
+import { NavigationMenu } from '../../js/components';
 import { navItems } from './nav-items';
-import { Close, GenAI, HelpOption, Sidebar } from 'grommet-icons';
+import {AppHeader, Genie, Help, LayerHeader } from './content';
+import { Sidebar } from 'grommet-icons';
 
 const gridAreas = [
-  ['nav', 'header', 'aside'],
-  ['nav', 'main', 'aside'],
+  ['nav', 'header', 'context-pane'],
+  ['nav', 'main', 'context-pane'],
 ];
 
 const responsiveGridAreas = {
   xsmall: [
-    ['nav', 'header', 'aside'],
-    ['main', 'main', 'aside'],
+    ['nav', 'header', 'context-pane'],
+    ['main', 'main', 'context-pane'],
   ],
 };
 
@@ -38,7 +36,14 @@ export const NavigationMenuExample = () => {
   const announce = useContext(AnnounceContext);
 
   const mobile = breakpoint === 'xsmall';
-  const navTitle = "My menu's title";
+  const navTitle = 'Services';
+  const navigationMenuProps = {
+    title: navTitle,
+    activeItem,
+    setActiveItem,
+    items: navItems,
+  };
+
   const messages = {
     layerOpen: `${navTitle} navigation opened.`,
     layerClose: `${navTitle} navigation closed.`,
@@ -51,17 +56,17 @@ export const NavigationMenuExample = () => {
     }
   }, [mobile, openLayer]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (openLayer) {
-        announce(messages.layerOpen, 'assertive', 1000);
-      } else {
-        announce(messages.layerClose, 'assertive', 1000);
-      }
-    }, 500);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (openLayer) {
+  //       announce(messages.layerOpen, 'assertive', 1000);
+  //     } else {
+  //       announce(messages.layerClose, 'assertive', 1000);
+  //     }
+  //   }, 500);
 
-    return () => clearTimeout(timer);
-  }, [openLayer, announce, messages]);
+  //   return () => clearTimeout(timer);
+  // }, [openLayer, announce, messages]);
 
   return (
     <Grid
@@ -93,35 +98,10 @@ export const NavigationMenuExample = () => {
               >
                 <Box overflow="auto">
                   <NavigationMenu
-                    title={navTitle}
-                    activeItem={activeItem}
-                    setActiveItem={setActiveItem}
-                    items={navItems}
+                    {...navigationMenuProps}
                     gap="medium"
                     width={undefined} // full width when in mobile
-                    header={
-                      <Header
-                        pad={{
-                          left: 'medium',
-                          right: 'xsmall',
-                          vertical: 'small',
-                        }}
-                        direction="row"
-                        align="center"
-                        justify="between"
-                      >
-                        <Heading level={2} margin="none">
-                          My menu's title
-                        </Heading>
-                        <Button
-                          icon={<Close aria-hidden={true} />}
-                          a11yTitle="Close navigation menu"
-                          onClick={() => {
-                            setOpenLayer(false);
-                          }}
-                        />
-                      </Header>
-                    }
+                    header={<LayerHeader onClose={() => setOpenLayer(false)} />}
                     onSelect={() => {
                       // announce(messages.layerClose, 'assertive', 2000);
                       // setOpenLayer(false);
@@ -132,39 +112,15 @@ export const NavigationMenuExample = () => {
             )}
           </>
         ) : (
-          <NavigationMenu
-            title={navTitle}
-            activeItem={activeItem}
-            setActiveItem={setActiveItem}
-            items={navItems}
-          />
+          <NavigationMenu {...navigationMenuProps} />
         )}
       </Box>
-      <Header gridArea="header" pad="small">
-        <Button onClick={() => setActiveItem('Home')} plain>
-          <Text>
-            <Text weight="bold">HPE</Text> Design System
-          </Text>
-        </Button>
-        <ButtonGroup>
-          <Button
-            a11yTitle="Toggle help content"
-            icon={<HelpOption aria-hidden={true} />}
-            active={contextContent === 'help'}
-            onClick={() =>
-              setContextContent(contextContent === 'help' ? '' : 'help')
-            }
-          />
-          <Button
-            a11yTitle="Toggle genie content"
-            icon={<GenAI aria-hidden={true} />}
-            active={contextContent === 'genie'}
-            onClick={() =>
-              setContextContent(contextContent === 'genie' ? '' : 'genie')
-            }
-          />
-        </ButtonGroup>
-      </Header>
+      <AppHeader
+        gridArea="header"
+        contextContent={contextContent}
+        setContextContent={setContextContent}
+        setActiveItem={setActiveItem}
+      />
       <Main
         gridArea="main"
         background="background-back"
@@ -177,16 +133,12 @@ export const NavigationMenuExample = () => {
         </Page>
       </Main>
       {contextContent && (
-        <Box gridArea="aside" as="aside" background="background-front">
+        <Box gridArea="context-pane" as="aside" background="background-front">
           {contextContent === 'help' && (
-            <Box pad="medium">
-              <Heading level={3}>My help content</Heading>
-            </Box>
+            <Help />
           )}
           {contextContent === 'genie' && (
-            <Box pad="medium">
-              <Heading level={3}>My genie content</Heading>
-            </Box>
+            <Genie />
           )}
         </Box>
       )}
