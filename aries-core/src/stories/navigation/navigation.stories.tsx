@@ -11,10 +11,10 @@ import {
   PageHeader,
   ResponsiveContext,
 } from 'grommet';
-import { NavigationMenu } from '../../js/components';
-import { navItems } from './nav-items';
-import {AppHeader, Genie, Help, LayerHeader } from './content';
 import { Sidebar } from 'grommet-icons';
+import { useSessionStorage } from '@shared/hooks';
+import { NavigationMenu } from '../../js/components';
+import { AppHeader, Genie, Help, LayerHeader, navItems } from './content';
 
 const gridAreas = [
   ['nav', 'header', 'context-pane'],
@@ -29,19 +29,23 @@ const responsiveGridAreas = {
 };
 
 export const NavigationMenuExample = () => {
-  const [contextContent, setContextContent] = useState('');
-  const [activeItem, setActiveItem] = useState<string | undefined>('Home');
-  const [openLayer, setOpenLayer] = useState(false);
+  const [contextContent, setContextContent] = useSessionStorage('contextContent', '');
+  const [activeItem, setActiveItem] = useSessionStorage<string | undefined>('activeItem', 'Home');
+  const [open, setOpen] = useSessionStorage<boolean>('open', true);
+  const [openLayer, setOpenLayer] = useState<boolean>(false);
   const breakpoint = useContext(ResponsiveContext);
   const announce = useContext(AnnounceContext);
 
   const mobile = breakpoint === 'xsmall';
   const navTitle = 'Services';
+
   const navigationMenuProps = {
     title: navTitle,
     activeItem,
     setActiveItem,
     items: navItems,
+    open,
+    setOpen
   };
 
   const messages = {
@@ -134,12 +138,8 @@ export const NavigationMenuExample = () => {
       </Main>
       {contextContent && (
         <Box gridArea="context-pane" as="aside" background="background-front">
-          {contextContent === 'help' && (
-            <Help />
-          )}
-          {contextContent === 'genie' && (
-            <Genie />
-          )}
+          {contextContent === 'help' && <Help />}
+          {contextContent === 'genie' && <Genie />}
         </Box>
       )}
     </Grid>

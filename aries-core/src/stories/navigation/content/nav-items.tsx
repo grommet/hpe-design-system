@@ -6,7 +6,7 @@ import {
   ShieldSecurity,
   GenAI,
 } from 'grommet-icons';
-import { type NavItemType } from '../../js/components';
+import { type NavItemType } from '../../../js/components';
 
 export const navItems: NavItemType[] = [
   {
