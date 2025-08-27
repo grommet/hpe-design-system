@@ -22,7 +22,7 @@ import {
 } from 'grommet-icons';
 // import { hpe } from 'grommet-theme-hpe';
 import { hpe as hpeV5 } from 'grommet-theme-hpe-v5';
-import { hpe as hpeV6 } from 'grommet-theme-hpe';
+import { hpe as hpeV6 } from 'grommet-theme-hpe-v6';
 
 // // TO DO should these be added as tokens?
 const backgrounds = {

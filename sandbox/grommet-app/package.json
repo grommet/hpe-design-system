@@ -10,10 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "grommet-theme-hpe-v5": "npm:grommet-theme-hpe@5.8.0",
-    "grommet-theme-hpe": "^6",
-    "hpe-design-tokens": "^1",
     "hpe-design-tokens-local": "*",
+    "grommet-theme-hpe-v5": "npm:grommet-theme-hpe@5.8.0",
+    "grommet-theme-hpe-v6": "npm:grommet-theme-hpe@6",
     "gsap": "^3.12.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
