@@ -7754,7 +7754,7 @@ grommet-icons@^4.12.4:
   resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-5.8.0.tgz#689fafe3c055fd5021f9475afdbfb258de658b60"
   integrity sha512-YmKmE7WI3fSimoovD5NogIy1Pag0c4lqyDHH076fEl3lhEpNZ4cgJtcLk+TxhHM5cq9AEfA8ebioNTkoEpYEhQ==
 
-grommet-theme-hpe@^6, grommet-theme-hpe@latest:
+grommet-theme-hpe@^6, grommet-theme-hpe@^6.0.0:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/grommet-theme-hpe/-/grommet-theme-hpe-6.5.1.tgz#83b4f765ed25cb4a988b22e9b9b3d6740e432f6d"
   integrity sha512-0ObM7dEGlhECYlrupxrjR+Z/kIoYxJD/tVFEh/vawpO4jU05LKRRKvkM97vrKFqAP9N64mbc52Tk17tJnSrwKw==
