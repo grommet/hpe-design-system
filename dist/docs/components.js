@@ -5131,7 +5131,7 @@ export default {
   },
   "hpe.button.primary.rest.background": {
     "$type": "color",
-    "$value": "#292d3a",
+    "$value": "#0070f8",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -5147,7 +5147,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.background.neutral.xstrong.REST}",
+      "$value": "{color.decorative.blue.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {

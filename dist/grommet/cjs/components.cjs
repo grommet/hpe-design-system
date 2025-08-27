@@ -195,7 +195,7 @@ module.exports = {
     "button": {
       "primary": {
         "rest": {
-          "background": "background-neutral-xstrong",
+          "background": "decorative-blue",
           "borderColor": "transparent",
           "textColor": "text-onStrong",
           "iconColor": "text-onStrong",

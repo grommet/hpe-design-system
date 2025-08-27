@@ -356,7 +356,7 @@
   --hpe-select-default-option-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-select-default-option-selected-hover-background: var(--hpe-color-background-selected-primary-hover);
   --hpe-select-default-option-marker-disabled-rest-background: var(--hpe-color-border-disabled);
-  --hpe-button-primary-rest-background: var(--hpe-color-background-neutral-xstrong);
+  --hpe-button-primary-rest-background: var(--hpe-color-decorative-blue);
   --hpe-button-primary-rest-textColor: var(--hpe-color-text-onStrong);
   --hpe-button-primary-rest-iconColor: var(--hpe-color-text-onStrong);
   --hpe-button-primary-disabled-rest-background: var(--hpe-color-background-disabled);
@@ -966,7 +966,7 @@
   --hpe-select-default-option-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-select-default-option-selected-hover-background: var(--hpe-color-background-selected-primary-hover);
   --hpe-select-default-option-marker-disabled-rest-background: var(--hpe-color-border-disabled);
-  --hpe-button-primary-rest-background: var(--hpe-color-background-neutral-xstrong);
+  --hpe-button-primary-rest-background: var(--hpe-color-decorative-blue);
   --hpe-button-primary-rest-textColor: var(--hpe-color-text-onStrong);
   --hpe-button-primary-rest-iconColor: var(--hpe-color-text-onStrong);
   --hpe-button-primary-disabled-rest-background: var(--hpe-color-background-disabled);
