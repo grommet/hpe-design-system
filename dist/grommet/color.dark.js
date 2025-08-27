@@ -76,7 +76,7 @@ export default {
         "onWarning": "#f7f7f7"
       },
       "icon": {
-        "default": "#ffffff",
+        "default": "#f7f7f7",
         "strong": "#ffffff",
         "weak": "#b1b9be",
         "disabled": "rgba(255, 255, 255, 0.24)",

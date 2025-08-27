@@ -116,7 +116,6 @@
   --hpe-color-background-primary-strong-hover: var(--hpe-base-color-green-800); /** Hover variant of background-primary. */
   --hpe-color-background-primary-xstrong: var(--hpe-base-color-green-1000);
   --hpe-color-background-selected-primary-strong: var(--hpe-base-color-green-700Updated); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
-  --hpe-color-background-selected-primary-strong-hover: var(--hpe-base-color-green-800); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-background-selected-primary: var(--hpe-base-color-green-100); /** Lower emphasis variant of background-selected-strong. */
   --hpe-color-background-selected-primary-hover: var(--hpe-base-color-green-125); /** Hover variant of background-selected-weak. */
   --hpe-color-background-neutral-strong: var(--hpe-base-color-grey-800); /** Highest emphasis variant of neutral palette. */
@@ -261,6 +260,7 @@
   --hpe-radioButton-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-anchor-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-color-background-hover: var(--hpe-color-background-contrast); /** Generic hover state of components that have no fill in their resting state. For example, menu items. */
+  --hpe-color-background-selected-primary-strong-hover: var(--hpe-color-background-primary-strong-hover); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-border-selected: var(--hpe-color-foreground-primary); /** Selected border color. Used for ‘selected’ state. */
   --hpe-color-border-info: var(--hpe-color-border-default); /** Use for borders communicating neutral information. Keyword: status */
   --hpe-color-border-ok: var(--hpe-color-border-default); /** Use for borders communicating success. Keywords: status */
@@ -311,8 +311,8 @@
   --hpe-button-primary-hover-textColor: var(--hpe-color-text-onStrong);
   --hpe-button-primary-hover-iconColor: var(--hpe-color-icon-onStrong);
   --hpe-button-primary-selected-rest-background: var(--hpe-color-background-neutral-xstrong);
-  --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-onPrimaryStrong);
-  --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-onPrimaryStrong);
+  --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-onStrong);
+  --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-onStrong);
   --hpe-button-primary-selected-hover-background: var(--hpe-color-background-neutral-strong);
   --hpe-button-primary-selected-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-selected-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
@@ -352,18 +352,15 @@
   --hpe-checkbox-default-control-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-checkbox-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-checkbox-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-checkbox-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-checkbox-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-control-indeterminate-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-checkbox-default-control-indeterminate-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-checkbox-default-control-indeterminate-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-checkbox-default-control-indeterminate-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-hover-textColor: var(--hpe-color-text-default);
   --hpe-switch-default-control-track-rest-background: var(--hpe-color-decorative-neutral);
   --hpe-switch-default-control-track-hover-background: var(--hpe-color-decorative-neutral-hover);
   --hpe-switch-default-control-track-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
-  --hpe-switch-default-control-track-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-switch-default-control-handle-rest-background: var(--hpe-color-background-front);
   --hpe-switch-default-control-handle-hover-background: var(--hpe-color-background-default);
   --hpe-switch-default-control-handle-selected-rest-background: var(--hpe-color-background-default);
@@ -428,7 +425,6 @@
   --hpe-radioButton-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-radioButton-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-radioButton-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-radioButton-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-radioButton-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-radioButton-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-hover-textColor: var(--hpe-color-text-default);
@@ -461,8 +457,11 @@
   --hpe-menu-default-item-disabled-rest-iconColor: var(--hpe-button-default-disabled-rest-iconColor);
   --hpe-menu-default-drop-background: var(--hpe-drop-default-background);
   --hpe-checkbox-default-control-hover-background: var(--hpe-color-background-hover);
+  --hpe-checkbox-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
+  --hpe-checkbox-default-control-indeterminate-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-checkbox-default-label-selected-rest-textColor: var(--hpe-checkbox-default-label-rest-textColor);
   --hpe-checkbox-default-label-selected-hover-textColor: var(--hpe-checkbox-default-label-rest-textColor);
+  --hpe-switch-default-control-track-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-switch-default-label-selected-rest-textColor: var(--hpe-switch-default-label-rest-textColor);
   --hpe-switch-default-label-selected-hover-textColor: var(--hpe-switch-default-label-rest-textColor);
   --hpe-formField-default-input-group-container-hover-background: var(--hpe-formField-default-input-group-container-rest-background);
@@ -509,6 +508,7 @@
   --hpe-footerCell-default-hover-borderColor: var(--hpe-footerCell-default-rest-borderColor);
   --hpe-footerCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
   --hpe-footerCell-default-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
+  --hpe-radioButton-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-anchor-default-rest-textColor: var(--hpe-color-text-anchor);
   --hpe-anchor-default-hover-textColor: var(--hpe-color-text-anchor-hover);
   --hpe-select-default-option-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);

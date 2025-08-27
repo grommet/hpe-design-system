@@ -221,8 +221,8 @@ module.exports = {
           "rest": {
             "background": "background-neutral-xstrong",
             "borderColor": "transparent",
-            "textColor": "text-onPrimaryStrong",
-            "iconColor": "icon-onPrimaryStrong",
+            "textColor": "text-onStrong",
+            "iconColor": "icon-onStrong",
             "fontWeight": 500
           },
           "hover": {

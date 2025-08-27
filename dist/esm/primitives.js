@@ -136,7 +136,6 @@ export default {
         "38400": "var(--hpe-base-dimension-38400)"
       },
       "fontFamily": {
-        "MetricHPEXS": "var(--hpe-base-fontFamily-MetricHPEXS)",
         "code": "var(--hpe-base-fontFamily-code)",
         "primary": "var(--hpe-base-fontFamily-primary)"
       },

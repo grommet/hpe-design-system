@@ -5316,48 +5316,6 @@ export default {
     ],
     "key": "{base.dimension.38400}"
   },
-  "hpe.base.fontFamily.MetricHPEXS": {
-    "$type": "string",
-    "$value": "HPE Graphik",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FONT_FAMILY"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "string",
-      "$value": "HPE Graphik",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FONT_FAMILY"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.fontFamily.MetricHPEXS",
-    "attributes": {
-      "category": "base",
-      "type": "fontFamily",
-      "item": "MetricHPEXS"
-    },
-    "path": [
-      "base",
-      "fontFamily",
-      "MetricHPEXS"
-    ],
-    "key": "{base.fontFamily.MetricHPEXS}"
-  },
   "hpe.base.fontFamily.code": {
     "$type": "string",
     "$value": "Fira Mono",

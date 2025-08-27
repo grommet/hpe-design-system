@@ -136,7 +136,6 @@ export default {
         "38400": "1536px"
       },
       "fontFamily": {
-        "MetricHPEXS": "HPE Graphik",
         "code": "Fira Mono",
         "primary": "HPE Graphik"
       },

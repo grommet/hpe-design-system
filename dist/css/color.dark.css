@@ -137,9 +137,6 @@
   --hpe-color-text-primary-hover: var(--hpe-base-color-green-500);
   --hpe-color-text-critical: var(--hpe-base-color-red-400); /** Use for text on standard backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-text-onStrong: var(--hpe-base-color-grey-1000); /** Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
-  --hpe-color-icon-default: var(--hpe-base-color-white-100); /** Default icon color that is accessible on standard background colors. */
-  --hpe-color-icon-strong: var(--hpe-base-color-white-100); /** Emphasized icon color for increased visual prominence. */
-  --hpe-color-icon-disabled: var(--hpe-base-color-white-opacity24); /** Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-icon-info: var(--hpe-base-color-blue-200); /** Use for icons communicating neutral information. Keywords: status */
   --hpe-color-icon-ok: var(--hpe-base-color-green-550); /** Use for icons communicating success. Keywords: status */
   --hpe-color-icon-warning: var(--hpe-base-color-orange-500); /** Use for icons communicating warning or caution. Keywords: status */
@@ -272,20 +269,19 @@
   --hpe-color-text-onUnknown: var(--hpe-color-text-default); /** Text color to be used on background-unknown. */
   --hpe-color-text-onWarning-strong: var(--hpe-color-text-strong); /** Emphasized variant of text color to be used on background-warning. */
   --hpe-color-text-onWarning: var(--hpe-color-text-default); /** Text color to be used on background-warning. */
+  --hpe-color-icon-default: var(--hpe-color-text-default); /** Default icon color that is accessible on standard background colors. */
+  --hpe-color-icon-strong: var(--hpe-color-text-strong); /** Emphasized icon color for increased visual prominence. */
   --hpe-color-icon-weak: var(--hpe-color-text-weak); /** Subtle icon color for reduced visual prominence. */
+  --hpe-color-icon-disabled: var(--hpe-color-text-disabled); /** Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-icon-critical: var(--hpe-color-foreground-critical); /** Use for icons communicating errors or danger. Keywords: status */
   --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-color-icon-onStrong); /** Icon color to be used for icon sitting on background-selected-strong. */
-  --hpe-color-icon-onSelectedPrimary: var(--hpe-color-icon-strong); /** Icon color to be used for icon sitting on non-strong background-selected variants. */
   --hpe-shadow-medium: var(--hpe-static-spacing-none) var(--hpe-static-spacing-3xsmall) var(--hpe-static-spacing-xsmall) var(--hpe-static-spacing-none) var(--hpe-base-color-black-opacity36) ;
   --hpe-shadow-large: var(--hpe-static-spacing-none) var(--hpe-static-spacing-xsmall) var(--hpe-static-spacing-medium) var(--hpe-static-spacing-none) var(--hpe-base-color-black-opacity48) ;
   --hpe-select-default-option-rest-textColor: var(--hpe-color-text-default);
-  --hpe-select-default-option-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-select-default-option-hover-background: var(--hpe-color-background-hover);
   --hpe-select-default-option-hover-textColor: var(--hpe-color-text-default);
-  --hpe-select-default-option-hover-iconColor: var(--hpe-color-icon-default);
   --hpe-select-default-option-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-select-default-option-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-select-default-option-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-select-default-option-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-select-default-option-selected-hover-background: var(--hpe-color-background-selected-primary-hover);
   --hpe-select-default-option-marker-disabled-rest-background: var(--hpe-color-border-disabled);
@@ -294,24 +290,21 @@
   --hpe-button-primary-rest-iconColor: var(--hpe-color-text-onStrong);
   --hpe-button-primary-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-button-primary-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-button-primary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-primary-hover-background: var(--hpe-color-background-neutral-strong);
   --hpe-button-primary-hover-textColor: var(--hpe-color-text-onStrong);
   --hpe-button-primary-hover-iconColor: var(--hpe-color-icon-onStrong);
   --hpe-button-primary-selected-rest-background: var(--hpe-color-background-neutral-xstrong);
-  --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-onPrimaryStrong);
-  --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-onPrimaryStrong);
+  --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-onStrong);
+  --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-onStrong);
   --hpe-button-primary-selected-hover-background: var(--hpe-color-background-neutral-strong);
   --hpe-button-primary-selected-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-selected-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
   --hpe-button-secondary-rest-background: var(--hpe-color-background-contrast);
   --hpe-button-secondary-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-secondary-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-button-secondary-hover-borderColor: var(--hpe-button-secondary-rest-borderColor);
   --hpe-button-secondary-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-button-secondary-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-button-secondary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-secondary-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-button-secondary-selected-rest-textColor: var(--hpe-color-text-primary);
   --hpe-button-secondary-selected-rest-iconColor: var(--hpe-color-icon-primary);
@@ -319,9 +312,7 @@
   --hpe-button-secondary-selected-hover-textColor: var(--hpe-color-text-primary);
   --hpe-button-secondary-selected-hover-iconColor: var(--hpe-color-icon-primary);
   --hpe-button-default-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-button-default-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-button-default-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-default-hover-background: var(--hpe-color-background-hover);
   --hpe-button-default-hover-borderColor: var(--hpe-button-default-rest-borderColor);
   --hpe-button-default-selected-rest-background: var(--hpe-color-background-active);
@@ -330,11 +321,9 @@
   --hpe-button-default-selected-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-button-default-selected-hover-borderColor: var(--hpe-button-default-selected-rest-borderColor);
   --hpe-button-toolbar-rest-textColor: var(--hpe-color-text-default);
-  --hpe-button-toolbar-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-button-toolbar-hover-background: var(--hpe-color-background-hover);
   --hpe-button-toolbar-hover-borderColor: var(--hpe-button-toolbar-rest-borderColor);
   --hpe-button-toolbar-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-button-toolbar-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-toolbar-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-button-toolbar-selected-rest-textColor: var(--hpe-color-text-primary);
   --hpe-button-toolbar-selected-rest-iconColor: var(--hpe-color-icon-primary);
@@ -348,7 +337,6 @@
   --hpe-checkbox-default-control-hover-background: var(--hpe-color-background-hover);
   --hpe-checkbox-default-control-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
-  --hpe-checkbox-default-control-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-checkbox-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-hover-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
@@ -375,15 +363,10 @@
   --hpe-formField-default-input-container-readOnly-rest-background: var(--hpe-color-background-back);
   --hpe-formField-default-input-container-readOnly-rest-borderColor: var(--hpe-color-border-weak);
   --hpe-formField-default-label-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-formField-default-label-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-label-hover-textColor: var(--hpe-color-text-strong);
-  --hpe-formField-default-label-hover-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-label-error-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-formField-default-label-error-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-formField-default-label-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-formField-default-label-readOnly-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-formField-default-label-readOnly-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-placeholder-rest-textColor: var(--hpe-color-text-weak);
   --hpe-formField-default-placeholder-hover-textColor: var(--hpe-color-text-weak);
   --hpe-formField-default-placeholder-error-rest-textColor: var(--hpe-color-text-weak);
@@ -407,10 +390,8 @@
   --hpe-formField-default-value-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-value-readOnly-rest-textColor: var(--hpe-color-text-strong);
   --hpe-dataCell-default-rest-textColor: var(--hpe-color-text-default);
-  --hpe-dataCell-default-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-dataCell-default-rest-borderColor: var(--hpe-color-border-weak);
   --hpe-dataCell-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-dataCell-default-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-dataCell-default-disabled-rest-background: var(--hpe-dataCell-default-rest-background);
   --hpe-dataCell-default-selected-rest-background: var(--hpe-color-background-active);
   --hpe-dataCell-default-selected-hover-background: var(--hpe-color-background-contrast-hover);
@@ -421,7 +402,6 @@
   --hpe-dataCell-primary-selected-rest-background: var(--hpe-color-background-active);
   --hpe-dataCell-primary-selected-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-headerCell-default-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-headerCell-default-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-headerCell-default-rest-borderColor: var(--hpe-color-border-default);
   --hpe-headerCell-default-hover-background: var(--hpe-color-background-hover);
   --hpe-headerCell-default-units-rest-textColor: var(--hpe-color-text-weak);
@@ -437,28 +417,33 @@
   --hpe-radioButton-default-label-selected-rest-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-selected-hover-textColor: var(--hpe-color-text-default);
   --hpe-anchor-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
+  --hpe-color-icon-onSelectedPrimary: var(--hpe-color-icon-strong); /** Icon color to be used for icon sitting on non-strong background-selected variants. */
+  --hpe-select-default-option-rest-iconColor: var(--hpe-color-icon-default);
+  --hpe-select-default-option-hover-iconColor: var(--hpe-color-icon-default);
+  --hpe-select-default-option-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-select-default-option-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-select-default-option-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-option-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-option-marker-rest-background: var(--hpe-color-border-selected);
   --hpe-select-default-option-marker-hover-background: var(--hpe-color-border-selected);
   --hpe-select-default-drop-background: var(--hpe-drop-default-background);
+  --hpe-button-primary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
+  --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-secondary-hover-textColor: var(--hpe-button-secondary-rest-textColor);
-  --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
+  --hpe-button-secondary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
+  --hpe-button-default-rest-iconColor: var(--hpe-color-icon-strong);
+  --hpe-button-default-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-default-hover-textColor: var(--hpe-button-default-rest-textColor);
-  --hpe-button-default-hover-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-button-default-selected-hover-textColor: var(--hpe-button-default-selected-rest-textColor);
   --hpe-button-default-selected-hover-iconColor: var(--hpe-button-default-selected-rest-iconColor);
+  --hpe-button-toolbar-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-button-toolbar-hover-textColor: var(--hpe-button-toolbar-rest-textColor);
-  --hpe-button-toolbar-hover-iconColor: var(--hpe-button-toolbar-rest-iconColor);
+  --hpe-button-toolbar-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-toolbar-selected-rest-borderColor: var(--hpe-color-border-selected);
   --hpe-button-toolbar-selected-hover-borderColor: var(--hpe-color-border-selected);
   --hpe-menu-default-item-rest-textColor: var(--hpe-button-default-rest-textColor);
-  --hpe-menu-default-item-rest-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-menu-default-item-disabled-rest-textColor: var(--hpe-button-default-disabled-rest-textColor);
-  --hpe-menu-default-item-disabled-rest-iconColor: var(--hpe-button-default-disabled-rest-iconColor);
   --hpe-menu-default-drop-background: var(--hpe-drop-default-background);
+  --hpe-checkbox-default-control-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-checkbox-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-checkbox-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
@@ -478,71 +463,86 @@
   --hpe-formField-default-input-group-container-readOnly-rest-background: var(--hpe-formField-default-input-container-readOnly-rest-background);
   --hpe-formField-default-input-group-container-readOnly-rest-borderColor: var(--hpe-formField-default-input-container-readOnly-rest-borderColor);
   --hpe-formField-default-input-container-error-rest-borderColor: var(--hpe-color-border-critical);
+  --hpe-formField-default-label-rest-iconColor: var(--hpe-color-icon-strong);
+  --hpe-formField-default-label-hover-iconColor: var(--hpe-color-icon-strong);
+  --hpe-formField-default-label-error-rest-iconColor: var(--hpe-color-icon-strong);
+  --hpe-formField-default-label-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
+  --hpe-formField-default-label-readOnly-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-error-rest-iconColor: var(--hpe-color-icon-critical);
   --hpe-formField-default-error-hover-iconColor: var(--hpe-color-icon-critical);
+  --hpe-dataCell-default-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-dataCell-default-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-dataCell-default-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
+  --hpe-dataCell-default-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-dataCell-default-disabled-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-dataCell-default-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-default-selected-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-dataCell-default-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-default-selected-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-dataCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-dataCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-pinned-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-hover-textColor: var(--hpe-dataCell-primary-rest-textColor);
   --hpe-dataCell-primary-hover-iconColor: var(--hpe-dataCell-primary-rest-iconColor);
   --hpe-dataCell-primary-disabled-rest-textColor: var(--hpe-dataCell-default-disabled-rest-textColor);
-  --hpe-dataCell-primary-disabled-rest-iconColor: var(--hpe-dataCell-default-disabled-rest-iconColor);
   --hpe-dataCell-primary-disabled-rest-background: var(--hpe-dataCell-default-disabled-rest-background);
   --hpe-dataCell-primary-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-dataCell-primary-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-primary-selected-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-dataCell-primary-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-primary-selected-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-dataCell-primary-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-primary-pinned-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-dataCell-primary-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-primary-pinned-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
+  --hpe-headerCell-default-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-headerCell-default-hover-textColor: var(--hpe-headerCell-default-rest-textColor);
-  --hpe-headerCell-default-hover-iconColor: var(--hpe-headerCell-default-rest-iconColor);
   --hpe-headerCell-default-hover-borderColor: var(--hpe-headerCell-default-rest-borderColor);
   --hpe-headerCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-headerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-headerCell-default-units-pinned-rest-textColor: var(--hpe-headerCell-default-units-rest-textColor);
   --hpe-headerCell-default-units-pinned-hover-textColor: var(--hpe-headerCell-default-units-rest-textColor);
   --hpe-footerCell-default-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-footerCell-default-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-hover-borderColor: var(--hpe-footerCell-default-rest-borderColor);
   --hpe-footerCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-footerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-footerCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-radioButton-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-radioButton-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-radioButton-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-radioButton-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-anchor-default-rest-textColor: var(--hpe-color-text-anchor);
   --hpe-anchor-default-hover-textColor: var(--hpe-color-text-anchor-hover);
+  --hpe-select-default-option-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
+  --hpe-button-default-hover-iconColor: var(--hpe-button-default-rest-iconColor);
+  --hpe-button-toolbar-hover-iconColor: var(--hpe-button-toolbar-rest-iconColor);
+  --hpe-menu-default-item-rest-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-menu-default-item-hover-textColor: var(--hpe-button-default-hover-textColor);
-  --hpe-menu-default-item-hover-iconColor: var(--hpe-button-default-hover-iconColor);
+  --hpe-menu-default-item-disabled-rest-iconColor: var(--hpe-button-default-disabled-rest-iconColor);
+  --hpe-dataCell-default-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
+  --hpe-dataCell-default-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-dataCell-default-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-dataCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
+  --hpe-dataCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-primary-hover-borderColor: var(--hpe-dataCell-default-hover-borderColor);
+  --hpe-dataCell-primary-disabled-rest-iconColor: var(--hpe-dataCell-default-disabled-rest-iconColor);
   --hpe-dataCell-primary-disabled-rest-borderColor: var(--hpe-dataCell-default-disabled-rest-borderColor);
+  --hpe-dataCell-primary-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-dataCell-primary-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-dataCell-primary-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
+  --hpe-dataCell-primary-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
+  --hpe-headerCell-default-hover-iconColor: var(--hpe-headerCell-default-rest-iconColor);
+  --hpe-headerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-headerCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-hover-borderColor);
+  --hpe-footerCell-default-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-hover-textColor: var(--hpe-footerCell-default-rest-textColor);
-  --hpe-footerCell-default-hover-iconColor: var(--hpe-footerCell-default-rest-iconColor);
+  --hpe-footerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-hover-borderColor);
+  --hpe-footerCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-pinned-hover-borderColor: var(--hpe-dataCell-default-hover-borderColor);
+  --hpe-menu-default-item-hover-iconColor: var(--hpe-button-default-hover-iconColor);
+  --hpe-footerCell-default-hover-iconColor: var(--hpe-footerCell-default-rest-iconColor);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -680,9 +680,6 @@
   --hpe-color-text-primary-hover: var(--hpe-base-color-green-500);
   --hpe-color-text-critical: var(--hpe-base-color-red-400); /** Use for text on standard backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-text-onStrong: var(--hpe-base-color-grey-1000); /** Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
-  --hpe-color-icon-default: var(--hpe-base-color-white-100); /** Default icon color that is accessible on standard background colors. */
-  --hpe-color-icon-strong: var(--hpe-base-color-white-100); /** Emphasized icon color for increased visual prominence. */
-  --hpe-color-icon-disabled: var(--hpe-base-color-white-opacity24); /** Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-icon-info: var(--hpe-base-color-blue-200); /** Use for icons communicating neutral information. Keywords: status */
   --hpe-color-icon-ok: var(--hpe-base-color-green-550); /** Use for icons communicating success. Keywords: status */
   --hpe-color-icon-warning: var(--hpe-base-color-orange-500); /** Use for icons communicating warning or caution. Keywords: status */
@@ -815,20 +812,19 @@
   --hpe-color-text-onUnknown: var(--hpe-color-text-default); /** Text color to be used on background-unknown. */
   --hpe-color-text-onWarning-strong: var(--hpe-color-text-strong); /** Emphasized variant of text color to be used on background-warning. */
   --hpe-color-text-onWarning: var(--hpe-color-text-default); /** Text color to be used on background-warning. */
+  --hpe-color-icon-default: var(--hpe-color-text-default); /** Default icon color that is accessible on standard background colors. */
+  --hpe-color-icon-strong: var(--hpe-color-text-strong); /** Emphasized icon color for increased visual prominence. */
   --hpe-color-icon-weak: var(--hpe-color-text-weak); /** Subtle icon color for reduced visual prominence. */
+  --hpe-color-icon-disabled: var(--hpe-color-text-disabled); /** Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-icon-critical: var(--hpe-color-foreground-critical); /** Use for icons communicating errors or danger. Keywords: status */
   --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-color-icon-onStrong); /** Icon color to be used for icon sitting on background-selected-strong. */
-  --hpe-color-icon-onSelectedPrimary: var(--hpe-color-icon-strong); /** Icon color to be used for icon sitting on non-strong background-selected variants. */
   --hpe-shadow-medium: var(--hpe-static-spacing-none) var(--hpe-static-spacing-3xsmall) var(--hpe-static-spacing-xsmall) var(--hpe-static-spacing-none) var(--hpe-base-color-black-opacity36) ;
   --hpe-shadow-large: var(--hpe-static-spacing-none) var(--hpe-static-spacing-xsmall) var(--hpe-static-spacing-medium) var(--hpe-static-spacing-none) var(--hpe-base-color-black-opacity48) ;
   --hpe-select-default-option-rest-textColor: var(--hpe-color-text-default);
-  --hpe-select-default-option-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-select-default-option-hover-background: var(--hpe-color-background-hover);
   --hpe-select-default-option-hover-textColor: var(--hpe-color-text-default);
-  --hpe-select-default-option-hover-iconColor: var(--hpe-color-icon-default);
   --hpe-select-default-option-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-select-default-option-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-select-default-option-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-select-default-option-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-select-default-option-selected-hover-background: var(--hpe-color-background-selected-primary-hover);
   --hpe-select-default-option-marker-disabled-rest-background: var(--hpe-color-border-disabled);
@@ -837,24 +833,21 @@
   --hpe-button-primary-rest-iconColor: var(--hpe-color-text-onStrong);
   --hpe-button-primary-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-button-primary-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-button-primary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-primary-hover-background: var(--hpe-color-background-neutral-strong);
   --hpe-button-primary-hover-textColor: var(--hpe-color-text-onStrong);
   --hpe-button-primary-hover-iconColor: var(--hpe-color-icon-onStrong);
   --hpe-button-primary-selected-rest-background: var(--hpe-color-background-neutral-xstrong);
-  --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-onPrimaryStrong);
-  --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-onPrimaryStrong);
+  --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-onStrong);
+  --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-onStrong);
   --hpe-button-primary-selected-hover-background: var(--hpe-color-background-neutral-strong);
   --hpe-button-primary-selected-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-selected-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
   --hpe-button-secondary-rest-background: var(--hpe-color-background-contrast);
   --hpe-button-secondary-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-secondary-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-button-secondary-hover-borderColor: var(--hpe-button-secondary-rest-borderColor);
   --hpe-button-secondary-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-button-secondary-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-button-secondary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-secondary-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-button-secondary-selected-rest-textColor: var(--hpe-color-text-primary);
   --hpe-button-secondary-selected-rest-iconColor: var(--hpe-color-icon-primary);
@@ -862,9 +855,7 @@
   --hpe-button-secondary-selected-hover-textColor: var(--hpe-color-text-primary);
   --hpe-button-secondary-selected-hover-iconColor: var(--hpe-color-icon-primary);
   --hpe-button-default-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-button-default-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-button-default-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-default-hover-background: var(--hpe-color-background-hover);
   --hpe-button-default-hover-borderColor: var(--hpe-button-default-rest-borderColor);
   --hpe-button-default-selected-rest-background: var(--hpe-color-background-active);
@@ -873,11 +864,9 @@
   --hpe-button-default-selected-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-button-default-selected-hover-borderColor: var(--hpe-button-default-selected-rest-borderColor);
   --hpe-button-toolbar-rest-textColor: var(--hpe-color-text-default);
-  --hpe-button-toolbar-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-button-toolbar-hover-background: var(--hpe-color-background-hover);
   --hpe-button-toolbar-hover-borderColor: var(--hpe-button-toolbar-rest-borderColor);
   --hpe-button-toolbar-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-button-toolbar-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-toolbar-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-button-toolbar-selected-rest-textColor: var(--hpe-color-text-primary);
   --hpe-button-toolbar-selected-rest-iconColor: var(--hpe-color-icon-primary);
@@ -891,7 +880,6 @@
   --hpe-checkbox-default-control-hover-background: var(--hpe-color-background-hover);
   --hpe-checkbox-default-control-hover-borderColor: var(--hpe-color-border-strong);
   --hpe-checkbox-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
-  --hpe-checkbox-default-control-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-checkbox-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-hover-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
@@ -918,15 +906,10 @@
   --hpe-formField-default-input-container-readOnly-rest-background: var(--hpe-color-background-back);
   --hpe-formField-default-input-container-readOnly-rest-borderColor: var(--hpe-color-border-weak);
   --hpe-formField-default-label-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-formField-default-label-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-label-hover-textColor: var(--hpe-color-text-strong);
-  --hpe-formField-default-label-hover-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-label-error-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-formField-default-label-error-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-formField-default-label-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-formField-default-label-readOnly-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-formField-default-label-readOnly-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-placeholder-rest-textColor: var(--hpe-color-text-weak);
   --hpe-formField-default-placeholder-hover-textColor: var(--hpe-color-text-weak);
   --hpe-formField-default-placeholder-error-rest-textColor: var(--hpe-color-text-weak);
@@ -950,10 +933,8 @@
   --hpe-formField-default-value-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-value-readOnly-rest-textColor: var(--hpe-color-text-strong);
   --hpe-dataCell-default-rest-textColor: var(--hpe-color-text-default);
-  --hpe-dataCell-default-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-dataCell-default-rest-borderColor: var(--hpe-color-border-weak);
   --hpe-dataCell-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-dataCell-default-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-dataCell-default-disabled-rest-background: var(--hpe-dataCell-default-rest-background);
   --hpe-dataCell-default-selected-rest-background: var(--hpe-color-background-active);
   --hpe-dataCell-default-selected-hover-background: var(--hpe-color-background-contrast-hover);
@@ -964,7 +945,6 @@
   --hpe-dataCell-primary-selected-rest-background: var(--hpe-color-background-active);
   --hpe-dataCell-primary-selected-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-headerCell-default-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-headerCell-default-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-headerCell-default-rest-borderColor: var(--hpe-color-border-default);
   --hpe-headerCell-default-hover-background: var(--hpe-color-background-hover);
   --hpe-headerCell-default-units-rest-textColor: var(--hpe-color-text-weak);
@@ -980,28 +960,33 @@
   --hpe-radioButton-default-label-selected-rest-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-selected-hover-textColor: var(--hpe-color-text-default);
   --hpe-anchor-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
+  --hpe-color-icon-onSelectedPrimary: var(--hpe-color-icon-strong); /** Icon color to be used for icon sitting on non-strong background-selected variants. */
+  --hpe-select-default-option-rest-iconColor: var(--hpe-color-icon-default);
+  --hpe-select-default-option-hover-iconColor: var(--hpe-color-icon-default);
+  --hpe-select-default-option-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-select-default-option-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-select-default-option-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-option-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-option-marker-rest-background: var(--hpe-color-border-selected);
   --hpe-select-default-option-marker-hover-background: var(--hpe-color-border-selected);
   --hpe-select-default-drop-background: var(--hpe-drop-default-background);
+  --hpe-button-primary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
+  --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-secondary-hover-textColor: var(--hpe-button-secondary-rest-textColor);
-  --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
+  --hpe-button-secondary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
+  --hpe-button-default-rest-iconColor: var(--hpe-color-icon-strong);
+  --hpe-button-default-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-default-hover-textColor: var(--hpe-button-default-rest-textColor);
-  --hpe-button-default-hover-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-button-default-selected-hover-textColor: var(--hpe-button-default-selected-rest-textColor);
   --hpe-button-default-selected-hover-iconColor: var(--hpe-button-default-selected-rest-iconColor);
+  --hpe-button-toolbar-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-button-toolbar-hover-textColor: var(--hpe-button-toolbar-rest-textColor);
-  --hpe-button-toolbar-hover-iconColor: var(--hpe-button-toolbar-rest-iconColor);
+  --hpe-button-toolbar-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-toolbar-selected-rest-borderColor: var(--hpe-color-border-selected);
   --hpe-button-toolbar-selected-hover-borderColor: var(--hpe-color-border-selected);
   --hpe-menu-default-item-rest-textColor: var(--hpe-button-default-rest-textColor);
-  --hpe-menu-default-item-rest-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-menu-default-item-disabled-rest-textColor: var(--hpe-button-default-disabled-rest-textColor);
-  --hpe-menu-default-item-disabled-rest-iconColor: var(--hpe-button-default-disabled-rest-iconColor);
   --hpe-menu-default-drop-background: var(--hpe-drop-default-background);
+  --hpe-checkbox-default-control-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-checkbox-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-checkbox-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
@@ -1021,71 +1006,86 @@
   --hpe-formField-default-input-group-container-readOnly-rest-background: var(--hpe-formField-default-input-container-readOnly-rest-background);
   --hpe-formField-default-input-group-container-readOnly-rest-borderColor: var(--hpe-formField-default-input-container-readOnly-rest-borderColor);
   --hpe-formField-default-input-container-error-rest-borderColor: var(--hpe-color-border-critical);
+  --hpe-formField-default-label-rest-iconColor: var(--hpe-color-icon-strong);
+  --hpe-formField-default-label-hover-iconColor: var(--hpe-color-icon-strong);
+  --hpe-formField-default-label-error-rest-iconColor: var(--hpe-color-icon-strong);
+  --hpe-formField-default-label-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
+  --hpe-formField-default-label-readOnly-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-error-rest-iconColor: var(--hpe-color-icon-critical);
   --hpe-formField-default-error-hover-iconColor: var(--hpe-color-icon-critical);
+  --hpe-dataCell-default-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-dataCell-default-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-dataCell-default-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
+  --hpe-dataCell-default-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-dataCell-default-disabled-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-dataCell-default-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-default-selected-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-dataCell-default-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-default-selected-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-dataCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-dataCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-pinned-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-hover-textColor: var(--hpe-dataCell-primary-rest-textColor);
   --hpe-dataCell-primary-hover-iconColor: var(--hpe-dataCell-primary-rest-iconColor);
   --hpe-dataCell-primary-disabled-rest-textColor: var(--hpe-dataCell-default-disabled-rest-textColor);
-  --hpe-dataCell-primary-disabled-rest-iconColor: var(--hpe-dataCell-default-disabled-rest-iconColor);
   --hpe-dataCell-primary-disabled-rest-background: var(--hpe-dataCell-default-disabled-rest-background);
   --hpe-dataCell-primary-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-dataCell-primary-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-primary-selected-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
-  --hpe-dataCell-primary-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-primary-selected-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-dataCell-primary-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-primary-pinned-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-dataCell-primary-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-primary-pinned-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
+  --hpe-headerCell-default-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-headerCell-default-hover-textColor: var(--hpe-headerCell-default-rest-textColor);
-  --hpe-headerCell-default-hover-iconColor: var(--hpe-headerCell-default-rest-iconColor);
   --hpe-headerCell-default-hover-borderColor: var(--hpe-headerCell-default-rest-borderColor);
   --hpe-headerCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-headerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-headerCell-default-units-pinned-rest-textColor: var(--hpe-headerCell-default-units-rest-textColor);
   --hpe-headerCell-default-units-pinned-hover-textColor: var(--hpe-headerCell-default-units-rest-textColor);
   --hpe-footerCell-default-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-footerCell-default-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-hover-borderColor: var(--hpe-footerCell-default-rest-borderColor);
   --hpe-footerCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-footerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-footerCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-radioButton-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-radioButton-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-radioButton-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-radioButton-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-anchor-default-rest-textColor: var(--hpe-color-text-anchor);
   --hpe-anchor-default-hover-textColor: var(--hpe-color-text-anchor-hover);
+  --hpe-select-default-option-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
+  --hpe-button-default-hover-iconColor: var(--hpe-button-default-rest-iconColor);
+  --hpe-button-toolbar-hover-iconColor: var(--hpe-button-toolbar-rest-iconColor);
+  --hpe-menu-default-item-rest-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-menu-default-item-hover-textColor: var(--hpe-button-default-hover-textColor);
-  --hpe-menu-default-item-hover-iconColor: var(--hpe-button-default-hover-iconColor);
+  --hpe-menu-default-item-disabled-rest-iconColor: var(--hpe-button-default-disabled-rest-iconColor);
+  --hpe-dataCell-default-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
+  --hpe-dataCell-default-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-dataCell-default-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-dataCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
+  --hpe-dataCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-primary-hover-borderColor: var(--hpe-dataCell-default-hover-borderColor);
+  --hpe-dataCell-primary-disabled-rest-iconColor: var(--hpe-dataCell-default-disabled-rest-iconColor);
   --hpe-dataCell-primary-disabled-rest-borderColor: var(--hpe-dataCell-default-disabled-rest-borderColor);
+  --hpe-dataCell-primary-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-dataCell-primary-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-dataCell-primary-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
+  --hpe-dataCell-primary-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
+  --hpe-headerCell-default-hover-iconColor: var(--hpe-headerCell-default-rest-iconColor);
+  --hpe-headerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-headerCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-hover-borderColor);
+  --hpe-footerCell-default-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-hover-textColor: var(--hpe-footerCell-default-rest-textColor);
-  --hpe-footerCell-default-hover-iconColor: var(--hpe-footerCell-default-rest-iconColor);
+  --hpe-footerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-hover-borderColor);
+  --hpe-footerCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-pinned-hover-borderColor: var(--hpe-dataCell-default-hover-borderColor);
+  --hpe-menu-default-item-hover-iconColor: var(--hpe-button-default-hover-iconColor);
+  --hpe-footerCell-default-hover-iconColor: var(--hpe-footerCell-default-rest-iconColor);
 }
 }
 

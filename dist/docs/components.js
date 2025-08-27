@@ -5936,7 +5936,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.text.onPrimaryStrong.DEFAULT.REST}",
+      "$value": "{color.text.onStrong.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -5984,7 +5984,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{color.icon.onPrimaryStrong.DEFAULT.REST}",
+      "$value": "{color.icon.onStrong.DEFAULT.REST}",
       "$description": "",
       "$extensions": {
         "com.figma": {

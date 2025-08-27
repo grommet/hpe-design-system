@@ -2968,7 +2968,7 @@ export default {
   },
   "hpe.color.icon.default": {
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#f7f7f7",
     "$description": "Default icon color that is accessible on standard background colors.",
     "$extensions": {
       "com.figma": {
@@ -2985,7 +2985,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.white.100}",
+      "$value": "{color.text.default.REST}",
       "$description": "Default icon color that is accessible on standard background colors.",
       "$extensions": {
         "com.figma": {
@@ -3033,7 +3033,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.white.100}",
+      "$value": "{color.text.strong.REST}",
       "$description": "Emphasized icon color for increased visual prominence.",
       "$extensions": {
         "com.figma": {
@@ -3129,7 +3129,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.white.opacity24}",
+      "$value": "{color.text.disabled.DEFAULT.REST}",
       "$description": "Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled.",
       "$extensions": {
         "com.figma": {
