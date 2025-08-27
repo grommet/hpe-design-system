@@ -14,7 +14,7 @@ const SelectorIndicator = ({ selected, indicator, ...rest }) => {
     <Box
       border={{
         color: selected ? 'transparent' : 'border',
-        size: '3xsmall',
+        size: 'xsmall',
       }}
       round={round}
       height={theme.global.edgeSize[size]}
