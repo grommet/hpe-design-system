@@ -4,12 +4,14 @@ import { List, Page, PageContent, PageHeader } from 'grommet';
 import { RoutedAnchor } from '../../components';
 import {
   Collection,
+  Dashboard,
   EmptyState,
   Form,
   NavigationalSidebar,
   OpsRampDetail,
   RecordDetail,
   DSCCSystemDetail,
+  Results,
 } from './kinds';
 
 const layouts = [
@@ -20,6 +22,7 @@ const layouts = [
   'Detail - OpsRamp',
   'Empty state',
   'Form',
+  'Results',
   'Home',
   'List',
   'Login',
@@ -71,7 +74,8 @@ const routes = [
     path="detail-dscc-system"
     element={<DSCCSystemDetail />}
   />,
-  <Route key="dashboard" path="dashboard" element={<div>Dashboard</div>} />,
+  <Route key="dashboard" path="dashboard" element={<Dashboard />} />,
+  <Route key="results" path="results" element={<Results />} />,
   <Route key="empty-state" path="empty-state" element={<EmptyState />} />,
   <Route key="form" path="/layouts/form" element={<Form />} />,
   <Route
