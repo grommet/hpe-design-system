@@ -1,100 +1,74 @@
 import React from 'react';
 
-import {
-  Anchor,
-  Box,
-  Grid,
-  Heading,
-  Image,
-  PageContent,
-  Paragraph,
-} from 'grommet';
-import { useDarkMode } from '../../utils';
+import { Box, Grid, Heading, PageContent, Paragraph } from 'grommet';
 
 const whatIsContent = [
   {
-    image: {
-      src: '/whatis/base.svg',
-      alt: 'Base elements',
-    },
-    text: 'Base elements and styles form the rudiments of composition.',
+    heading: 'Foundation',
+    text: `The core elements of HPE that encompass the voice, language, 
+    and visuals that personify our brand`,
   },
   {
-    image: {
-      src: '/whatis/combining.svg',
-      alt: 'Combining elements',
-    },
-    text: 'Combining base elements to make templates.',
+    heading: 'Components',
+    // eslint-disable-next-line max-len
+    text: `A vetted set of reusable interface elements for use in apps 
+    and websites delivered in React and Figma.`,
   },
   {
-    image: {
-      src: '/whatis/tools.svg',
-      alt: 'Tools',
-    },
-    text: 'Use tools to help expand and connect elements.',
+    heading: 'Design tokens',
+    text: `Standardized design attributes for color, fonts, and spacing 
+    ensuring consistency across digital products.`,
   },
   {
-    image: {
-      src: '/whatis/tailor.svg',
-      alt: 'Tailored solution',
-    },
-    text: 'Tailor the code, resources, and tools into one solution.',
-  },
-  {
-    image: {
-      src: '/whatis/app.svg',
-      alt: 'Application',
-    },
-    text: 'Put it all together to make an application.',
+    heading: 'Icons',
+    text: `500+ open source glyphs that have been curated for theming 
+    and customization with the HPE design system.`,
   },
 ];
 
 export const WhatIs = ({ ...rest }) => {
-  const darkMode = useDarkMode();
-
   return (
-    <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
+    <PageContent>
       <Box
-        fill
         pad={{
-          vertical: 'medium',
+          top: 'xlarge',
+          bottom: 'medium',
         }}
         gap="xlarge"
         {...rest}
       >
-        <Box justify="center" align="center" width="large" alignSelf="center">
-          <Heading level={2} size="large">
+        <Box gap="medium" align="start">
+          <Heading level={2} margin="none">
             What is the HPE Design System?
           </Heading>
-          <Paragraph size="xlarge" fill textAlign="center" margin="none">
-            The HPE Design System was created to empower designers, developers,
-            and others in contributing to an evolving design language that
-            supports HPE's pursuit in making great customer app experiences. For
-            other contexts check&nbsp;
-            <Anchor href="https://brandcentral.hpe.com/home">
-              HPE Brand Central
-            </Anchor>
-            .
+          <Paragraph color="text-weak" size="xlarge" margin="none">
+            Our design system empowers designers and developers to deliver the
+            next generation of IT systems on a dynamic open source UI framework
+            that supports HPE, our partners, and the community in its pursuit of
+            making functional, accessible, and inclusive experiences.
           </Paragraph>
         </Box>
-        <Grid columns={{ count: 'fit', size: '160px' }} justify="center" fill>
-          {whatIsContent.map(({ image, text }, index) => (
-            <Box key={`whatis-${index}`} width="120px">
-              <Box width="120px" height="120px">
-                <Image
-                  src={
-                    darkMode.value
-                      ? image.src.dark || image.src
-                      : image.src.light || image.src
-                  }
-                  fit="contain"
-                  alt={image.alt}
-                />
-              </Box>
-              <Paragraph size="small">{text}</Paragraph>
+        <Box
+          fill="horizontal"
+          border={{ side: 'bottom', color: 'border-weak' }}
+        />
+        <Grid columns={['flex', 'flex', 'flex', 'flex']} gap="large">
+          {whatIsContent.map(({ heading, text, tag }, index) => (
+            <Box key={`whatis-${index}`}>
+              <Heading level={3} margin="none">
+                {heading}
+              </Heading>
+              <Paragraph color="text-weak" size="large">
+                {text}
+              </Paragraph>
+              {tag}
             </Box>
           ))}
         </Grid>
+        <Box
+          fill="horizontal"
+          border={{ side: 'bottom', color: 'border-weak' }}
+        />
       </Box>
     </PageContent>
   );

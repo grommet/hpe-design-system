@@ -21,32 +21,32 @@ const coreColors = [
   {
     name: 'purple!',
     value: 'purple!',
-    hex: colors['purple!'],
+    hex: colors['purple!'].light,
   },
   {
     name: 'teal!',
     value: 'teal!',
-    hex: colors['teal!'],
+    hex: colors['teal!'].light,
   },
   {
     name: 'blue!',
     value: 'blue!',
-    hex: colors['blue!'],
+    hex: colors['blue!'].light,
   },
   {
     name: 'red!',
     value: 'red!',
-    hex: colors['red!'],
+    hex: colors['red!'].light,
   },
   {
     name: 'orange!',
     value: 'orange!',
-    hex: colors['orange!'],
+    hex: colors['orange!'].light,
   },
   {
     name: 'yellow!',
     value: 'yellow!',
-    hex: colors['yellow!'],
+    hex: colors['yellow!'].light,
   },
 ];
 

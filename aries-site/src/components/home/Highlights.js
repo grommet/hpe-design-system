@@ -4,7 +4,6 @@ import {
   Button,
   Grid,
   Heading,
-  Image,
   PageContent,
   Paragraph,
   ResponsiveContext,
@@ -13,41 +12,29 @@ import {
 import Link from 'next/link';
 
 import { ContentPreviewCard } from '../cards';
-import { nameToPath, useDarkMode } from '../../utils';
+import { nameToPath } from '../../utils';
 import { highlights } from '../../data';
 
 const HighlightsLayout = () => {
   const size = useContext(ResponsiveContext);
-  const darkMode = useDarkMode();
 
   return (
     <Grid
       columns={!['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
       gap="large"
     >
-      {highlights.map(({ name, summary, image }) => {
+      {highlights.map(({ name, summary }) => {
         const href = nameToPath(name);
         return (
           <ContentPreviewCard key={name} href={href} pad="medium">
             <Box direction="row" align="center" gap="medium">
-              <Box width="small" round="xsmall">
-                {image && (
-                  <Image
-                    src={
-                      darkMode.value
-                        ? image.src.dark || image.src
-                        : image.src.light || image.src
-                    }
-                    alt={image.alt}
-                    fit={image.fit || 'contain'}
-                  />
-                )}
-              </Box>
-              <Box gap="xsmall">
+              <Box gap="small">
                 <Heading level={3} margin="none">
                   {name}
                 </Heading>
-                <Paragraph margin="none">{summary}</Paragraph>
+                <Paragraph color="text-weak" margin="none">
+                  {summary}
+                </Paragraph>
               </Box>
             </Box>
           </ContentPreviewCard>
@@ -58,29 +45,15 @@ const HighlightsLayout = () => {
 };
 
 export const Highlights = ({ ...rest }) => (
-  <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
-    <Box fill gap="medium" pad={{ vertical: 'large' }} {...rest}>
-      <Box justify="center" align="center" gap="large">
-        <Heading margin="none" level={2} size="large">
-          Highlights
-        </Heading>
-        <Box width="large" pad={{ bottom: 'medium' }}>
-          <Paragraph size="xlarge" fill textAlign="center" margin="none">
-            The HPE Design System team is committed to conducting thorough
-            research so you don't have to think about it. Just find what you
-            need, design and deliver quickly!
-          </Paragraph>
-        </Box>
-      </Box>
-      <HighlightsLayout />
-      <Box
-        fill="horizontal"
-        align="center"
-        justify="center"
-        pad={{ vertical: 'medium' }}
-      >
-        <Link href="/showmore" passHref legacyBehavior>
-          <Button primary label="Show me more" />
+  <PageContent>
+    <Box fill pad={{ vertical: 'large' }} gap="xlarge" {...rest}>
+      <Heading alignSelf="center" margin="none" level={2}>
+        Popular resources
+      </Heading>
+      <Box gap="large">
+        <HighlightsLayout />
+        <Link href="/components" passHref legacyBehavior>
+          <Button alignSelf="center" primary label="View all components" />
         </Link>
       </Box>
     </Box>

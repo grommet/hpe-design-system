@@ -109,6 +109,8 @@ export const Example = ({
     showResponsiveControls,
     template,
     overflow,
+    background: 'background-back',
+    round: 'none',
   };
 
   // Affects how the Example can behave/display within the outer container
@@ -205,15 +207,16 @@ export const Example = ({
           ? [
               {
                 side: 'top',
-                color: 'border-weak',
+                color: 'transparent',
               },
               {
                 side: 'vertical',
-                color: 'border-weak',
+                color: 'transparent',
               },
             ]
-          : { color: 'border-weak' }
+          : { color: 'transparent' }
       }
+      round={exampleControls ? { corner: 'top', size: 'small' } : 'small'}
     >
       <ExampleWrapper
         background={
@@ -245,10 +248,10 @@ export const Example = ({
 
   if (!horizontalLayout)
     content = (
-      <>
+      <Box>
         {content}
         {exampleControls}
-      </>
+      </Box>
     );
 
   if (caption)
@@ -272,6 +275,7 @@ export const Example = ({
         width={previewWidth || undefined}
         margin={{ vertical: 'small' }}
         gap="large"
+        cssGap
       >
         <>
           {/* For use with templates or page layouts to toggle between laptop,

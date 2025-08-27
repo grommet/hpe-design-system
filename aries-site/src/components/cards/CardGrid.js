@@ -9,8 +9,9 @@ export const CardGrid = ({ cards, headingLevel, minimal, ...rest }) => (
   <Grid
     columns="medium"
     rows={[['auto', 'full']]}
-    gap="medium"
+    gap="large"
     justify="center"
+    margin={{ top: 'small' }}
     {...rest}
   >
     {cards &&

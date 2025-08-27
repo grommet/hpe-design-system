@@ -11,6 +11,7 @@ import {
 } from 'grommet';
 import { Meta, ContentCard } from '../../components';
 import { getCards, getPageDetails, nameToPath } from '../../utils';
+import { PageIntro } from '../../layouts';
 
 const title = 'Design tokens';
 const pageDetails = getPageDetails(title);
@@ -24,7 +25,7 @@ const Tokens = () => (
       canonicalUrl="https://design-system.hpe.design/design-tokens"
     />
     <PageContent>
-      <Box pad={{ vertical: 'medium' }} justify="center" width="large">
+      <PageIntro>
         <Heading margin="none">{title}</Heading>
         <Paragraph size="large">{pageDetails.description}</Paragraph>
         <Notification
@@ -37,7 +38,7 @@ const Tokens = () => (
             },
           ]}
         />
-      </Box>
+      </PageIntro>
       <Data data={cards} pad={{ bottom: 'large' }}>
         <DataContext.Consumer>
           {({ data }) => {
@@ -70,12 +71,11 @@ const Tokens = () => (
                       <Grid
                         columns="medium"
                         rows={[['auto', 'full']]}
-                        gap="medium"
+                        gap="large"
                       >
                         {type.data.map(item => (
                           <ContentCard
                             key={item.name}
-                            pad="small"
                             topic={item}
                             href={item.href || nameToPath(item.name)}
                             level={3}

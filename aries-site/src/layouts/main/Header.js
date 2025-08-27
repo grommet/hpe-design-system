@@ -1,46 +1,46 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { Box, Button, Header, ResponsiveContext } from 'grommet';
-import { Search as SearchIcon } from 'grommet-icons';
+import { Box, Button, Header } from 'grommet';
+import { Search as SearchIcon, Sidebar, Menu } from 'grommet-icons';
 import { ThemeModeToggle, AppIdentity } from '../../components';
 
-import { getPageDetails, nameToPath } from '../../utils';
 import { Search } from '../navigation';
 
-const StyledHeader = ({ ...rest }) => {
-  const pageDetails = getPageDetails('Home');
-  const navItems = pageDetails.pages.map(topic => getPageDetails(topic));
+const StyledHeader = ({
+  sidebarLayout,
+  onToggleNav,
+  showNavControl,
+  ...rest
+}) => {
   const [showSearch, setShowSearch] = useState(false);
-  const size = useContext(ResponsiveContext);
-  const router = useRouter();
 
   return (
     <Header
+      // background="background-primary-xstrong"
       pad={{
-        vertical: 'medium',
+        vertical: 'small',
+        horizontal: 'medium',
       }}
       {...rest}
     >
-      <Link href="/" passHref legacyBehavior>
-        <AppIdentity brand="hpe" logo={false} title="Design System" />
-      </Link>
+      <Box direction="row" align="center" gap="medium">
+        {showNavControl ? (
+          <Button
+            a11yTitle="Show navigation panel"
+            icon={sidebarLayout ? <Sidebar /> : <Menu />}
+            onClick={() => onToggleNav(true)}
+          />
+        ) : undefined}
+        <Link href="/" passHref legacyBehavior>
+          <AppIdentity
+            brand="hpe"
+            title="Design System"
+            boxProps={{ pad: 'none' }}
+          />
+        </Link>
+      </Box>
       <Box direction="row" align="center" gap="xsmall">
-        {!['xsmall', 'small'].includes(size) &&
-          navItems.map(item => (
-            <Link
-              key={item.name}
-              href={nameToPath(item.name)}
-              passHref
-              legacyBehavior
-            >
-              <Button
-                key={item.name}
-                label={item.name}
-                active={router.pathname === nameToPath(item.name)}
-              />
-            </Link>
-          ))}
         <Button
           a11yTitle="Search"
           id="search-button"
@@ -54,4 +54,9 @@ const StyledHeader = ({ ...rest }) => {
   );
 };
 
+StyledHeader.propTypes = {
+  sidebarLayout: PropTypes.bool,
+  onToggleNav: PropTypes.func,
+  showNavControl: PropTypes.bool,
+};
 export { StyledHeader as Header };

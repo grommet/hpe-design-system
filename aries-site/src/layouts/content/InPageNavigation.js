@@ -2,10 +2,18 @@ import { useState, useRef, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { Box, Button, Nav, Text } from 'grommet';
-import { ThemeContext } from 'styled-components';
-import { StatusGoodSmall } from 'grommet-icons';
+import {
+  // styled,
+  ThemeContext,
+} from 'styled-components';
+// import { StatusGoodSmall } from 'grommet-icons';
 import { nameToSlug } from '../../utils';
 import { ViewContext } from '../../pages/_app';
+
+// const SectionButton = styled(Button)`
+//   border-radius: 0 ${props => props.theme.global.edgeSize.xsmall}
+//     ${props => props.theme.global.edgeSize.xsmall} 0;
+// `;
 
 const useActiveHeadingId = (headings, options) => {
   const [activeHeadingId, setActiveHeadingId] = useState();
@@ -58,7 +66,10 @@ export const InPageNavigation = ({ headings, title }) => {
   // align "Jump to section" with page title at start
   const marginTop = `${large + medium}px`;
 
-  const { pageUpdateReady, contentHistory } = useContext(ViewContext);
+  const {
+    // pageUpdateReady,
+    contentHistory,
+  } = useContext(ViewContext);
 
   return (
     <Box
@@ -77,14 +88,13 @@ export const InPageNavigation = ({ headings, title }) => {
       <Box
         pad={{ horizontal: 'small', bottom: 'small' }}
         flex={false}
-        border={{ side: 'left', color: 'transparent', size: 'small' }}
+        gap="small"
       >
-        <Text
-          color="text-strong"
-          // align with button labels
-          margin={{ left: theme.button.size.small.default.pad.horizontal }}
-        >
+        <Text color="text" size="small">
           On this page
+        </Text>
+        <Text size="large" style={{ fontWeight: 500 }}>
+          {title}
         </Text>
       </Box>
       <Nav gap="none" a11yTitle="Jump to section">
@@ -96,12 +106,12 @@ export const InPageNavigation = ({ headings, title }) => {
           const headingTitle = heading[1];
           const active = activeId === nameToSlug(headingTitle);
 
-          let subsectionPad = 'small';
-          if (level.length > 3) subsectionPad = 'large';
-          else if (level.length === 3) subsectionPad = 'medium';
+          let subsectionPad;
+          if (level.length > 3) subsectionPad = 'medium';
+          else if (level.length === 3) subsectionPad = 'small';
 
           let sectionList;
-          let showUpdate = false;
+          // let showUpdate = false;
 
           if (
             contentHistory &&
@@ -112,27 +122,46 @@ export const InPageNavigation = ({ headings, title }) => {
             sectionList = contentHistory[title].sections;
             Object.values(sectionList).forEach(val => {
               if (val.toLowerCase() === headingTitle.toLowerCase()) {
-                showUpdate = true;
+                // showUpdate = true;
               }
             });
           }
 
           return (
-            <Box pad={{ left: subsectionPad, right: 'xxsmall' }}>
-              <Link
-                key={index}
-                href={`#${nameToSlug(headingTitle)}`}
-                passHref
-                legacyBehavior
-              >
-                <Button
-                  active={active}
-                  justify="start"
-                  align="start"
-                  label={headingTitle}
-                  size="small"
-                  icon={
-                    showUpdate && pageUpdateReady ? (
+            <Link
+              key={index}
+              href={`#${nameToSlug(headingTitle)}`}
+              passHref
+              legacyBehavior
+            >
+              <Button
+                label={headingTitle}
+                active={active}
+                size="small"
+                align="start"
+                margin={{ left: subsectionPad }}
+              />
+              {/* <SectionButton theme={theme} hoverIndicator>
+                <Box border={borderLeft}>
+                  <Box
+                    pad={{
+                      left: subsectionPad,
+                      vertical: theme.button.size.small.pad.vertical,
+                      right: theme.button.size.small.pad.horizontal,
+                    }}
+                    margin={
+                      active
+                        ? undefined
+                        : { left: theme.global.borderSize.small }
+                    }
+                    direction="row"
+                    align="top"
+                    gap="small"
+                  >
+                    <Text color="text-strong" size="small" weight="normal">
+                      {headingTitle}
+                    </Text>
+                    {showUpdate && pageUpdateReady && (
                       <Box background={{ dark: true }} justify="top">
                         <StatusGoodSmall
                           a11yTitle="Section has been updated"
@@ -141,11 +170,11 @@ export const InPageNavigation = ({ headings, title }) => {
                           height="small"
                         />
                       </Box>
-                    ) : undefined
-                  }
-                />
-              </Link>
-            </Box>
+                    )}
+                  </Box>
+                </Box>
+              </SectionButton> */}
+            </Link>
           );
         })}
       </Nav>
