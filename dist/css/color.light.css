@@ -107,10 +107,10 @@
   --hpe-color-background-contrast: var(--hpe-base-color-black-opacity4); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
   --hpe-color-background-contrast-hover: var(--hpe-base-color-black-opacity8); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
   --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity12); /** The background color for the overlay that sits behind modal layers. */
-  --hpe-color-background-unknown: var(--hpe-base-color-black-opacity4); /** Use for backgrounds communicating an unknown status. Keywords: status */
   --hpe-color-background-warning: var(--hpe-base-color-orange-50); /** Use for backgrounds communicating warning or caution. Keywords: status */
-  --hpe-color-background-critical: var(--hpe-base-color-red-50); /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-ok: var(--hpe-base-color-green-100); /** Use for backgrounds communicating success. Status color. Keywords: status */
+  --hpe-color-background-critical: var(--hpe-base-color-red-50); /** Use for backgrounds communicating errors or danger. Keywords: status */
+  --hpe-color-background-unknown: var(--hpe-base-color-black-opacity4); /** Use for backgrounds communicating an unknown status. Keywords: status */
   --hpe-color-background-info: var(--hpe-base-color-blue-50); /** Use for backgrounds communicating neutral information. Keywords: status */
   --hpe-color-background-primary-strong: var(--hpe-base-color-green-700Updated); /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
   --hpe-color-background-primary-strong-hover: var(--hpe-base-color-green-800); /** Hover variant of background-primary. */

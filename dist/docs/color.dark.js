@@ -482,54 +482,6 @@ export default {
     ],
     "key": "{color.background.screenOverlay.DEFAULT.REST}"
   },
-  "hpe.color.background.unknown": {
-    "$type": "color",
-    "$value": "rgba(255, 255, 255, 0.06)",
-    "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/color.dark.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.white.opacity6}",
-      "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "FRAME_FILL",
-            "SHAPE_FILL"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.color.background.unknown",
-    "attributes": {
-      "category": "color",
-      "type": "background",
-      "item": "unknown",
-      "subitem": "DEFAULT",
-      "state": "REST"
-    },
-    "path": [
-      "color",
-      "background",
-      "unknown",
-      "DEFAULT",
-      "REST"
-    ],
-    "key": "{color.background.unknown.DEFAULT.REST}"
-  },
   "hpe.color.background.warning": {
     "$type": "color",
     "$value": "#3c361e",
@@ -577,6 +529,54 @@ export default {
       "REST"
     ],
     "key": "{color.background.warning.DEFAULT.REST}"
+  },
+  "hpe.color.background.ok": {
+    "$type": "color",
+    "$value": "#093d32",
+    "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.green.1000}",
+      "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.background.ok",
+    "attributes": {
+      "category": "color",
+      "type": "background",
+      "item": "ok",
+      "subitem": "DEFAULT",
+      "state": "REST"
+    },
+    "path": [
+      "color",
+      "background",
+      "ok",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.background.ok.DEFAULT.REST}"
   },
   "hpe.color.background.critical": {
     "$type": "color",
@@ -626,10 +626,10 @@ export default {
     ],
     "key": "{color.background.critical.DEFAULT.REST}"
   },
-  "hpe.color.background.ok": {
+  "hpe.color.background.unknown": {
     "$type": "color",
-    "$value": "#093d32",
-    "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+    "$value": "rgba(255, 255, 255, 0.06)",
+    "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -644,8 +644,8 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.1000}",
-      "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+      "$value": "{base.color.white.opacity6}",
+      "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -657,22 +657,22 @@ export default {
         }
       }
     },
-    "name": "hpe.color.background.ok",
+    "name": "hpe.color.background.unknown",
     "attributes": {
       "category": "color",
       "type": "background",
-      "item": "ok",
+      "item": "unknown",
       "subitem": "DEFAULT",
       "state": "REST"
     },
     "path": [
       "color",
       "background",
-      "ok",
+      "unknown",
       "DEFAULT",
       "REST"
     ],
-    "key": "{color.background.ok.DEFAULT.REST}"
+    "key": "{color.background.unknown.DEFAULT.REST}"
   },
   "hpe.color.background.info": {
     "$type": "color",
