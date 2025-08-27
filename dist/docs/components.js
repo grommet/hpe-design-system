@@ -37302,7 +37302,7 @@ export default {
   },
   "hpe.dataCell.default.medium.minHeight": {
     "$type": "number",
-    "$value": "36px",
+    "$value": "48px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -37317,7 +37317,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{element.medium.minHeight}",
+      "$value": "{base.dimension.1200}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -40084,7 +40084,7 @@ export default {
   },
   "hpe.headerCell.default.medium.minHeight": {
     "$type": "number",
-    "$value": "36px",
+    "$value": "48px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -41234,7 +41234,7 @@ export default {
   },
   "hpe.footerCell.default.medium.minHeight": {
     "$type": "number",
-    "$value": "36px",
+    "$value": "48px",
     "$description": "",
     "$extensions": {
       "com.figma": {
