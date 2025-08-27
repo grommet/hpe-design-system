@@ -644,7 +644,7 @@
       "rest": {
         "background": {
           "$type": "color",
-          "$value": "{color.decorative.cyan.DEFAULT.REST}",
+          "$value": "{color.background.neutral.xstrong.REST}",
           "$description": "",
           "$extensions": {
             "com.figma": {
