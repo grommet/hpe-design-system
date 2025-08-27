@@ -195,7 +195,7 @@ export default {
     "button": {
       "primary": {
         "rest": {
-          "background": "decorative-blue",
+          "background": "decorative-cyan",
           "borderColor": "transparent",
           "textColor": "text-onStrong",
           "iconColor": "text-onStrong",
