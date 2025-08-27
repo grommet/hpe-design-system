@@ -1108,6 +1108,18 @@
                 "codeSyntax": {}
               }
             }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{deprecated.base.color.green.450}",
+            "$description": "",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+                "codeSyntax": {}
+              }
+            }
           }
         }
       },

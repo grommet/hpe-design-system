@@ -149,12 +149,12 @@
           }
         }
       },
-      "unknown": {
+      "warning": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.black.opacity4}",
-            "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
+            "$value": "{base.color.orange.50}",
+            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -165,12 +165,12 @@
           }
         }
       },
-      "warning": {
+      "ok": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.orange.50}",
-            "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
+            "$value": "{base.color.green.100}",
+            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -197,12 +197,12 @@
           }
         }
       },
-      "ok": {
+      "unknown": {
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.100}",
-            "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
+            "$value": "{base.color.black.opacity4}",
+            "$description": "Use for backgrounds communicating an unknown status. Keywords: status",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
