@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { Grommet } from 'grommet';
@@ -75,12 +75,12 @@ describe('NavigationMenu', () => {
       // Navigate to a deeply nested item (Servers)
       const serversButton = screen.getByRole('menuitem', { name: /servers/i });
       
-      // Focus on the servers button
-      serversButton.focus();
+      // Focus on the servers button using user interaction
+      await user.tab();
       expect(serversButton).toHaveFocus();
 
       // Press Escape - should focus on Hardware (immediate parent)
-      fireEvent.keyDown(serversButton, { key: 'Escape', code: 'Escape' });
+      await user.keyboard('{Escape}');
       
       // Check that focus moved to Hardware button (immediate parent)
       expect(hardwareButton).toHaveFocus();
@@ -100,15 +100,15 @@ describe('NavigationMenu', () => {
 
       // Focus on a deeply nested item
       const storageButton = screen.getByRole('menuitem', { name: /storage/i });
-      storageButton.focus();
+      await user.click(storageButton);
       expect(storageButton).toHaveFocus();
 
       // First Escape - should focus on Hardware (immediate parent)
-      fireEvent.keyDown(storageButton, { key: 'Escape', code: 'Escape' });
+      await user.keyboard('{Escape}');
       expect(hardwareButton).toHaveFocus();
 
       // Second Escape - should focus on Products (grandparent)
-      fireEvent.keyDown(hardwareButton, { key: 'Escape', code: 'Escape' });
+      await user.keyboard('{Escape}');
       expect(productsButton).toHaveFocus();
     });
 
@@ -124,7 +124,7 @@ describe('NavigationMenu', () => {
       expect(screen.getByRole('menuitem', { name: /hardware/i })).toBeInTheDocument();
 
       // Press Escape on the Products button
-      fireEvent.keyDown(productsButton, { key: 'Escape', code: 'Escape' });
+      await user.keyboard('{Escape}');
 
       // Verify submenu is collapsed - Hardware should no longer be visible
       expect(screen.queryByRole('menuitem', { name: /hardware/i })).not.toBeInTheDocument();
@@ -140,11 +140,11 @@ describe('NavigationMenu', () => {
 
       // Focus on Software (second-level item without children)
       const softwareButton = screen.getByRole('menuitem', { name: /software/i });
-      softwareButton.focus();
+      await user.click(softwareButton);
       expect(softwareButton).toHaveFocus();
 
       // Press Escape - should focus on Products (immediate parent)
-      fireEvent.keyDown(softwareButton, { key: 'Escape', code: 'Escape' });
+      await user.keyboard('{Escape}');
       expect(productsButton).toHaveFocus();
     });
   });

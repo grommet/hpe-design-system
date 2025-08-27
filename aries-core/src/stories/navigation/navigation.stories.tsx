@@ -16,6 +16,39 @@ import { useSessionStorage } from '@shared/hooks';
 import { NavigationMenu } from '../../js/components';
 import { AppHeader, Genie, Help, LayerHeader, navItems } from './content';
 
+const nestedMenuItems: NavItemType[] = [
+  {
+    label: 'Home',
+    url: '/home',
+  },
+  {
+    label: 'Products',
+    children: [
+      {
+        label: 'Hardware',
+        children: [
+          {
+            label: 'Servers',
+            url: '/products/hardware/servers',
+          },
+          {
+            label: 'Storage',
+            url: '/products/hardware/storage',
+          },
+        ],
+      },
+      {
+        label: 'Software',
+        url: '/products/software',
+      },
+    ],
+  },
+  {
+    label: 'Services',
+    url: '/services',
+  },
+];
+
 const gridAreas = [
   ['nav', 'header', 'context-pane'],
   ['nav', 'main', 'context-pane'],
@@ -43,7 +76,7 @@ export const NavigationMenuExample = () => {
     title: navTitle,
     activeItem,
     setActiveItem,
-    items: navItems,
+    items: nestedMenuItems,
     open,
     setOpen
   };
