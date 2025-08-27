@@ -11,7 +11,7 @@ import {
   // small as localSmall,
   // global as localGlobal,
   components as localComponents,
-} from 'hpe-design-tokens/grommet';
+} from 'hpe-design-tokens-local/grommet';
 // import {
 //   Down,
 //   Blank,
