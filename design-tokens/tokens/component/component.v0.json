@@ -2074,7 +2074,7 @@
         },
         "borderColor": {
           "$type": "color",
-          "$value": "{base.color.green.700}",
+          "$value": "{deprecated.base.color.green.700}",
           "$description": "",
           "$extensions": {
             "com.figma": {
