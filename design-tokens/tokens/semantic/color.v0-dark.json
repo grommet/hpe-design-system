@@ -1180,7 +1180,12 @@
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
-                "scopes": ["TEXT_FILL"],
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "TEXT_FILL",
+                  "STROKE_COLOR"
+                ],
                 "codeSyntax": {}
               }
             }

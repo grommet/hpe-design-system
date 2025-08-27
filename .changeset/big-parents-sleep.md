@@ -2,6 +2,10 @@
 'hpe-design-tokens': major
 ---
 
+**Primitives**
+
+- Deprecated `base.fontFamily.MetricHPEXS`.
+
 **Color (light)**
 
 - Added `color.background.neutral.strong`.
