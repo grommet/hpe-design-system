@@ -6,7 +6,7 @@ export const DashboardCard = ({ card, ...rest }) => {
   const { background, cta, description, descriptionColor, icon, title } = card;
   return (
     <Card background={background || 'background'} fill {...rest}>
-      <CardBody gap="small" align="start" flex="grow">
+      <CardBody gap='xsmall' align="start" flex="grow">
         {icon}
         <Heading margin="none" level={2}>
           {title}

@@ -38,7 +38,7 @@ const data = [
 ];
 
 export const ListIconIdentifierExample = () => (
-  <Box width={{ max: 'xxlarge' }} margin="auto" fill>
+  <Box width={{ max: '3xlarge' }} margin="auto" fill>
     <List
       aria-label="User status"
       data={data}
@@ -49,7 +49,7 @@ export const ListIconIdentifierExample = () => (
       }}
     >
       {datum => (
-        <Box key={datum.name} direction="row" gap="small" align="center">
+        <Box key={datum.name} direction="row" gap='xsmall' align="center">
           {datum.icon}
           <TextEmphasis>{datum.name}</TextEmphasis>
         </Box>

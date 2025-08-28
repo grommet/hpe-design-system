@@ -70,7 +70,7 @@ export const CollapsedStateAnatomy = () => {
           gridArea={annotations.container.annotation}
           id={annotations.container.annotation}
           target="1"
-          margin={{ bottom: 'large', horizontal: 'auto' }}
+          margin={{ bottom: 'xlarge', horizontal: 'auto' }}
         />
         <Annotation
           gridArea={annotations.label.annotation}
@@ -93,7 +93,7 @@ export const CollapsedStateAnatomy = () => {
           id={annotations.border.annotation}
           kind="style"
           target="5"
-          margin={{ bottom: 'large', horizontal: 'auto' }}
+          margin={{ bottom: 'xlarge', horizontal: 'auto' }}
         />
         {/* this Box is for defining the anatomy diagram */}
         <Box

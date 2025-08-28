@@ -131,7 +131,7 @@ export const EditRole = () => {
             >
               <TextInput id="role-name" name="role-name" />
             </FormField>
-            <Box gap="small">
+            <Box gap='xsmall'>
               <Heading level={3} margin="none">
                 Permissions
               </Heading>

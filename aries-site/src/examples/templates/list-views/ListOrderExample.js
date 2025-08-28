@@ -20,7 +20,7 @@ export const ListOrderExample = () => {
 
   return (
     <ContentPane role="application">
-      <Box gap="small" width="large">
+      <Box gap='xsmall' width='xlarge'>
         <Box direction="row" justify="between">
           <Heading level={2} margin="none">
             Favorite movies

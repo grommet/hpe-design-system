@@ -4,7 +4,7 @@ import { Box, List, Text, ThemeContext } from 'grommet';
 
 export const Legend = ({ values, ...rest }) => {
   const theme = useContext(ThemeContext);
-  const size = theme.global.edgeSize.small;
+  const size = theme.global.edgeSize.xsmall;
 
   return (
     <List
@@ -13,8 +13,8 @@ export const Legend = ({ values, ...rest }) => {
       {...rest}
     >
       {datum => (
-        <Box direction="row" gap="small" justify="between">
-          <Box direction="row" align="center" gap="xsmall">
+        <Box direction="row" gap='xsmall' justify="between">
+          <Box direction="row" align="center" gap='3xsmall'>
             <Box background={datum.color} height={size} width={size} round />
             <Text>{datum.label}</Text>
           </Box>

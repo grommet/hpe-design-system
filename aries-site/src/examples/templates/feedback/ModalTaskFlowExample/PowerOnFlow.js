@@ -7,7 +7,7 @@ import { ButtonGroup, ModalBody, ModalFooter } from 'aries-core';
 const steps = {
   'confirm-power-on': {
     body: (
-      <Box gap="small">
+      <Box gap='xsmall'>
         <Text size="large">You are powering on 1 device:</Text>
         <Text size="large">FTCUSAMountain_ML350Gen10_testcluster</Text>
       </Box>
@@ -26,7 +26,7 @@ const steps = {
   },
   'powering-on': {
     body: (
-      <Box gap="small">
+      <Box gap='xsmall'>
         <Text size="large">You are powering on 1 device:</Text>
         <Spinner
           alignSelf="center"
@@ -46,7 +46,7 @@ const steps = {
   },
   'power-on-success': {
     body: (
-      <Box align="center" gap="xsmall" direction="row">
+      <Box align="center" gap='3xsmall' direction="row">
         <StatusGoodSmall color="green" size="small" />
         <Text size="large">Power on initiated for 1 device.</Text>
       </Box>
