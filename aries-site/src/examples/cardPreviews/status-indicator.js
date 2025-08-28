@@ -10,7 +10,7 @@ import { Box } from 'grommet';
 
 export const StatusIndicatorPreview = () => (
   <Box align="center" justify="center" fill background="background-back">
-    <Box direction="row" gap="small">
+    <Box direction="row" gap='xsmall'>
       <StatusGoodSmall color="status-ok" />
       <StatusWarningSmall color="status-warning" />
       <StatusCriticalSmall color="status-critical" />
@@ -20,7 +20,7 @@ export const StatusIndicatorPreview = () => (
 );
 
 export const StatusBox = ({ toast }) => (
-  <Box direction="row" gap="large" pad={{ bottom: 'medium' }}>
+  <Box direction="row" gap='xlarge' pad={{ bottom: 'medium' }}>
     <Box align="center">
       <StatusGoodSmall color="status-ok" />
       Normal

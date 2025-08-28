@@ -8,7 +8,7 @@ export const GridPreview = () => (
         count: 4,
         size: 'auto',
       }}
-      gap="small"
+      gap='xsmall'
     >
       <Box fill background="background-back" />
       <Box background="background-back" />
