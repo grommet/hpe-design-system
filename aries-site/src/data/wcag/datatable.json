@@ -164,8 +164,8 @@
   {
     "rule": "1.4.12",
     "label": "Text Spacing",
-    "status": "failed",
-    "notes": "heading text can overlap the search button in the header"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "1.4.13",
@@ -368,14 +368,14 @@
   {
     "rule": "2.5.7",
     "label": "Dragging Movements",
-    "status": "failed",
-    "notes": "column resize can't be done via buttons"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "2.5.8",
     "label": "Target Size (Minimum)",
-    "status": "failed",
-    "notes": "column resize not large enough"
+    "status": "passed",
+    "notes": ""
   },
   {
     "rule": "3.1.1",

@@ -960,7 +960,7 @@
       "default": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.white.100}",
+          "$value": "{color.text.default.REST}",
           "$description": "Default icon color that is accessible on standard background colors.",
           "$extensions": {
             "com.figma": {
@@ -974,7 +974,7 @@
       "strong": {
         "REST": {
           "$type": "color",
-          "$value": "{base.color.white.100}",
+          "$value": "{color.text.strong.REST}",
           "$description": "Emphasized icon color for increased visual prominence.",
           "$extensions": {
             "com.figma": {
@@ -1003,7 +1003,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.white.opacity24}",
+            "$value": "{color.text.disabled.DEFAULT.REST}",
             "$description": "Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled.",
             "$extensions": {
               "com.figma": {
@@ -1101,6 +1101,18 @@
             "$type": "color",
             "$value": "{base.color.green.550}",
             "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{base.color.green.450}",
+            "$description": "",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,

@@ -1,5 +1,23 @@
 # hpe-design-tokens
 
+## 1.4.1
+
+### Patch Changes
+
+- aaa738d: - Fixed `dataCell.default.medium.minHeight` to point to `base.dimension.1200` instead of `element.medium.minHeight`.
+  - Fixed `headerCell.default.medium.minHeight` to point to `dataCell.default.medium.minHeight` instead of `element.medium.minHeight`.
+  - Fixed `footerCell.default.medium.minHeight` to point to `dataCell.default.medium.minHeight` instead of `element.medium.minHeight`.
+
+## 1.4.0
+
+### Minor Changes
+
+- 73eb9d1: - Added `color.icon.primary.hover`.
+
+### Patch Changes
+
+- 73eb9d1: - Fixed value of `checkbox.control.indeterminate.rest.iconColor` from `color.icon.onPrimaryStrong` to `color.icon.onSelectedPrimaryStrong`. No visual change for this theme version, but fixes reference to be more scalable to future theme changes.
+
 ## 1.3.0
 
 ### Minor Changes

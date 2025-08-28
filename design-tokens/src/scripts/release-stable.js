@@ -28,25 +28,6 @@ if (process.env.CI) {
           fs.copyFile(path.resolve(file), `${localFolder}/${file}`),
         ),
       )
-      .then(() => {
-        const packageJsonPath = path.resolve(`${localFolder}/package.json`);
-        const packageJson = JSON.parse(
-          fs.readFileSync(packageJsonPath, 'utf8'),
-        );
-
-        if (packageJson.name === 'hpe-design-tokens-local') {
-          packageJson.name = 'hpe-design-tokens';
-          fs.writeFileSync(
-            packageJsonPath,
-            JSON.stringify(packageJson, null, 2),
-          );
-          console.log("Renamed package to 'hpe-design-tokens'.");
-        } else {
-          console.error(
-            "Package name is already correct or not 'hpe-design-tokens-local'.",
-          );
-        }
-      })
       .then(() =>
         fs.copyFile(
           `${path.resolve('src')}/types/esm/index.d.ts`,

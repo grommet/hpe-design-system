@@ -288,7 +288,7 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{base.color.green.800}",
+              "$value": "{color.background.primary.strong.hover}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -1101,6 +1101,18 @@
             "$type": "color",
             "$value": "{base.color.green.800}",
             "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{base.color.green.900}",
+            "$description": "",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,

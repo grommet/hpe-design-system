@@ -248,7 +248,7 @@ try {
 const colorModeFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('color') && !file.includes('v1')
+    file.includes('color') && !file.includes('v1') && !file.includes('v0')
       ? `${TOKENS_DIR}/semantic/${file}`
       : undefined,
   )
@@ -364,7 +364,9 @@ try {
               // component color tokens should already be filtered to just
               // color tokens, but adding this condition here for safety
               filter: token =>
-                token.filePath === file || token.$type === 'color',
+                token.filePath === file ||
+                (token.$type === 'color' &&
+                  !token.path.includes(DEPRECATED_PREFIX)),
             },
           ],
         },
@@ -397,7 +399,7 @@ try {
 const dimensionFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('dimension') && !file.includes('v1')
+    file.includes('dimension') && !file.includes('v1') && !file.includes('v0')
       ? `${TOKENS_DIR}/semantic/${file}`
       : undefined,
   )

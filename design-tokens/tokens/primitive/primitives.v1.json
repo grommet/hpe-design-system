@@ -1531,18 +1531,6 @@
       }
     },
     "fontFamily": {
-      "MetricHPEXS": {
-        "$type": "string",
-        "$value": "MetricHPEXS",
-        "$description": "",
-        "$extensions": {
-          "com.figma": {
-            "hiddenFromPublishing": false,
-            "scopes": ["FONT_FAMILY"],
-            "codeSyntax": {}
-          }
-        }
-      },
       "code": {
         "$type": "string",
         "$value": "Fira Mono",

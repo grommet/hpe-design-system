@@ -137,7 +137,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.black.opacity12}",
+            "$value": "{base.color.black.opacity50}",
             "$description": "The background color for the overlay that sits behind modal layers.",
             "$extensions": {
               "com.figma": {
@@ -153,7 +153,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#3c361e",
+            "$value": "{deprecated.base.color.yellow.400-Opacity12}",
             "$description": "Use for backgrounds communicating warning or caution. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -169,7 +169,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#1b5245",
+            "$value": "{deprecated.base.color.green.500-Opacity30}",
             "$description": "Use for backgrounds communicating success. Status color. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -185,7 +185,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#552120",
+            "$value": "{deprecated.base.color.red.800-Opacity30}",
             "$description": "Use for backgrounds communicating errors or danger. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -217,7 +217,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "#1e363d",
+            "$value": "{color.background.contrast.DEFAULT.REST}",
             "$description": "Use for backgrounds communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -233,7 +233,7 @@
         "strong": {
           "REST": {
             "$type": "color",
-            "$value": "#007c60",
+            "$value": "{deprecated.base.color.green.600}",
             "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
             "$extensions": {
               "com.figma": {
@@ -245,7 +245,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "#00513f",
+            "$value": "{deprecated.base.color.green.700}",
             "$description": "Hover variant of background-primary.",
             "$extensions": {
               "com.figma": {
@@ -276,7 +276,7 @@
           "strong": {
             "REST": {
               "$type": "color",
-              "$value": "{color.background.primary.strong.REST}",
+              "$value": "{deprecated.base.color.brand}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -288,7 +288,7 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.background.primary.strong.hover}",
+              "$value": "{deprecated.base.color.brand}",
               "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
               "$extensions": {
                 "com.figma": {
@@ -331,7 +331,7 @@
         "strong": {
           "REST": {
             "$type": "color",
-            "$value": "{deprecated.base.color.grey.50}",
+            "$value": "{color.transparent}",
             "$description": "Highest emphasis variant of neutral palette.",
             "$extensions": {
               "com.figma": {
@@ -421,7 +421,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.foreground.primary.DEFAULT.REST}",
+            "$value": "{deprecated.base.color.green.600}",
             "$description": "Selected border color. Used for ‘selected’ state.",
             "$extensions": {
               "com.figma": {
@@ -437,7 +437,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.foreground.critical.DEFAULT.REST}",
+            "$value": "{color.border.default.REST}",
             "$description": "Use for borders communicating errors or danger. Keywords: status, critical",
             "$extensions": {
               "com.figma": {
@@ -546,7 +546,7 @@
       "weak": {
         "REST": {
           "$type": "color",
-          "$value": "#ffffff9c",
+          "$value": "{base.color.white.opacity50}",
           "$description": "Subtle text color for reduced visual prominence. Often used for supporting text.",
           "$extensions": {
             "com.figma": {
@@ -637,7 +637,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.foreground.critical.DEFAULT.REST}",
+            "$value": "{color.text.default.REST}",
             "$description": "Use for text on standard backgrounds communicating errors or danger. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -733,7 +733,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.text.primary.DEFAULT.REST}",
+            "$value": "{color.text.strong.REST}",
             "$description": "Text color for anchors.",
             "$extensions": {
               "com.figma": {
@@ -745,7 +745,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.text.primary.DEFAULT.hover}",
+            "$value": "{color.text.strong.REST}",
             "$description": "Text color for anchors on hover.",
             "$extensions": {
               "com.figma": {
@@ -988,7 +988,7 @@
       "weak": {
         "REST": {
           "$type": "color",
-          "$value": "{color.text.weak.REST}",
+          "$value": "{base.color.white.opacity50}",
           "$description": "Subtle icon color for reduced visual prominence.",
           "$extensions": {
             "com.figma": {
@@ -1019,7 +1019,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{color.foreground.critical.DEFAULT.REST}",
+            "$value": "{deprecated.base.color.red.550}",
             "$description": "Use for icons communicating errors or danger. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -1035,7 +1035,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{deprecated.base.color.blue.400}",
+            "$value": "{color.icon.default.REST}",
             "$description": "Use for icons communicating neutral information. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -1083,7 +1083,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{deprecated.base.color.grey.600}",
+            "$value": "{deprecated.base.color.grey.700}",
             "$description": "Use for icons communicating unknown status. Keywords: status",
             "$extensions": {
               "com.figma": {
@@ -1099,7 +1099,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{deprecated.base.color.green.500}",
+            "$value": "{deprecated.base.color.green.600}",
             "$description": "High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action.",
             "$extensions": {
               "com.figma": {
@@ -1373,7 +1373,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "#7372cf",
+              "$value": "{deprecated.base.color.dataVis.green1}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1389,7 +1389,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.gold2}",
+              "$value": "{deprecated.base.color.dataVis.darkblue2}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1405,7 +1405,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.pink2}",
+              "$value": "{deprecated.base.color.dataVis.gold2}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1421,7 +1421,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.lightblue1}",
+              "$value": "{deprecated.base.color.dataVis.purple2}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1437,7 +1437,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "#a68a74",
+              "$value": "{deprecated.base.color.dataVis.lightblue2}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1453,7 +1453,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "#b889ff",
+              "$value": "{deprecated.base.color.dataVis.pink2}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1469,7 +1469,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "#4d8da8",
+              "$value": "{deprecated.base.color.dataVis.blue2}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1513,7 +1513,7 @@
     },
     "focus": {
       "$type": "color",
-      "$value": "#004233",
+      "$value": "{deprecated.base.color.teal.400}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1528,7 +1528,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{deprecated.base.color.green.500}",
+            "$value": "{deprecated.base.color.brand}",
             "$description": "",
             "$extensions": {
               "com.figma": {
