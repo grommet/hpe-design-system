@@ -26,7 +26,7 @@ export const AppIdentity = forwardRef(
           gap="medium"
           // pad maintains accessible hit target
           // non-responsive maintains same dimensions for mobile
-          pad={{ vertical: "xsmall" }}
+          pad={{ vertical: 'xsmall' }}
           responsive={false}
         >
           {brand && brands[brand].logo}
