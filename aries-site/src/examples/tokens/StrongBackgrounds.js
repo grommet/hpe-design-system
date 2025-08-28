@@ -6,27 +6,27 @@ import { Add } from 'grommet-icons';
 export const StrongBackgrounds = () => {
   const theme = useContext(ThemeContext);
   return (
-    <Box gap="large">
+    <Box gap='xlarge'>
       <Box
         background={{
           color: 'background-neutral-xstrong',
           dark: theme.dark,
         }}
         pad="medium"
-        round="medium"
+        round='xlarge'
         gap="medium"
       >
         <Text color="text-onStrong" size="large" weight={500}>
           color.background.neutral.xstrong
         </Text>
-        <Box gap="small">
-          <Box direction="row" gap="small">
+        <Box gap='xsmall'>
+          <Box direction="row" gap='xsmall'>
             <Text color="text-onStrong" weight={500}>
               Aa
             </Text>
             <Text color="text-onStrong">color.text.onStrong</Text>
           </Box>
-          <Box direction="row" gap="small">
+          <Box direction="row" gap='xsmall'>
             <Add color="icon-onStrong" height="medium" />
             <Text color="text-onStrong">color.icon.onStrong</Text>
           </Box>
@@ -35,7 +35,7 @@ export const StrongBackgrounds = () => {
       <Box
         background="background-contrast"
         pad="medium"
-        round="medium"
+        round='xlarge'
         align="center"
         gap="medium"
       >

@@ -4,24 +4,24 @@ import { Add } from 'grommet-icons';
 
 export const SpecialtyBackgrounds = () => {
   return (
-    <Box align="center" gap="large">
+    <Box align="center" gap='xlarge'>
       <Box
         background={{ color: 'background-primary-strong', dark: false }}
         pad="medium"
-        round="medium"
+        round='xlarge'
         gap="medium"
       >
         <Text color="text-onStrong" size="large" weight={500}>
           color.background.primary.strong
         </Text>
-        <Box gap="small">
-          <Box direction="row" gap="small">
+        <Box gap='xsmall'>
+          <Box direction="row" gap='xsmall'>
             <Text color="text-onStrong" weight={500}>
               Aa
             </Text>
             <Text color="text-onPrimaryStrong">color.text.onPrimaryStrong</Text>
           </Box>
-          <Box direction="row" gap="small">
+          <Box direction="row" gap='xsmall'>
             <Add color="icon-onPrimaryStrong" height="medium" />
             <Text color="text-onPrimaryStrong">color.icon.onPrimaryStrong</Text>
           </Box>
@@ -30,7 +30,7 @@ export const SpecialtyBackgrounds = () => {
       <Box
         background="background-contrast"
         pad="medium"
-        round="medium"
+        round='xlarge'
         align="center"
         gap="medium"
       >
