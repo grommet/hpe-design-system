@@ -76,7 +76,7 @@ describe('NavigationMenu', () => {
       const serversButton = screen.getByRole('menuitem', { name: /servers/i });
       
       // Focus on the servers button using user interaction
-      await user.tab();
+      await user.click(serversButton);
       expect(serversButton).toHaveFocus();
 
       // Press Escape - should focus on Hardware (immediate parent)

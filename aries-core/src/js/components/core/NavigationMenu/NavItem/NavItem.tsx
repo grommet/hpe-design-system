@@ -1,4 +1,6 @@
-import { Button } from 'grommet';
+import { Button, Keyboard } from 'grommet';
+import { KeyboardType } from 'grommet/utils';
+import { forwardRef } from 'react';
 import { ItemContainer } from './ItemContainer';
 import { ItemLabel } from './ItemLabel';
 
@@ -17,6 +19,7 @@ interface NavItemProps {
   label: string;
   level?: 1 | 2;
   onClick?: () => void;
+  onEsc?: KeyboardType | undefined;
   url?: string;
   [key: string]: unknown; // For additional props like 'id', 'aria-label', etc.
 }
@@ -27,34 +30,51 @@ const indent = {
   2: 'medium',
 };
 
-export const NavItem = ({
-  active,
-  actions,
-  children,
-  icon,
-  label,
-  level,
-  onClick,
-  url,
-  ...rest
-}: NavItemProps) => {
-  return (
-    <>
-      <Button plain onClick={onClick} role="menuitem" {...rest}>
-        {({ hover }) => {
-          return (
-            <ItemContainer
-              active={active}
-              gap={level ? indent[level] : undefined}
-              hover={hover}
-            >
-              <ItemLabel icon={icon} label={label} />
-              {actions}
-            </ItemContainer>
-          );
-        }}
-      </Button>
-      {children}
-    </>
-  );
-};
+export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
+  (
+    {
+      active,
+      actions,
+      children,
+      icon,
+      label,
+      level,
+      onClick,
+      onEsc,
+      url,
+      ...rest
+    },
+    ref,
+  ) => {
+    return (
+      <>
+        <Keyboard onEsc={onEsc as KeyboardType | undefined}>
+          <Button
+            plain
+            onClick={onClick}
+            role="menuitem"
+            ref={ref as any}
+            {...(rest as any)}
+          >
+            {({ hover }) => {
+              return (
+                <ItemContainer
+                  active={active as boolean | undefined}
+                  gap={level ? indent[level as keyof typeof indent] : undefined}
+                  hover={hover}
+                >
+                  <ItemLabel
+                    icon={icon as React.ReactNode}
+                    label={label as string}
+                  />
+                  {actions as React.ReactNode}
+                </ItemContainer>
+              );
+            }}
+          </Button>
+        </Keyboard>
+        {children}
+      </>
+    );
+  },
+);

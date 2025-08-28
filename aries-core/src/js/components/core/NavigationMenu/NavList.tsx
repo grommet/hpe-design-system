@@ -1,7 +1,7 @@
-import { AnnounceContext, Collapsible, List } from 'grommet';
+import { AnnounceContext, Collapsible, Keyboard, List } from 'grommet';
 import { Down, Up } from 'grommet-icons';
 import { NavItem, NavItemType } from './NavItem/NavItem';
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 type NavItemWithLevel = NavItemType & { level?: 1 | 2 };
 
@@ -10,6 +10,7 @@ interface NavListProps {
   activeItem?: string;
   setActiveItem?: (item: string | undefined) => void;
   onSelect?: () => void;
+  onEscapeToParent?: () => void;
   [key: string]: any; // For additional props like 'role', 'aria-labelledby', etc.
 }
 
@@ -18,10 +19,12 @@ export const NavList = ({
   activeItem,
   setActiveItem,
   onSelect,
+  onEscapeToParent,
   ...rest
 }: NavListProps) => {
   const [expanded, setExpanded] = useState<string[]>([]);
   const announce = useContext(AnnounceContext);
+  const parentRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
 
   const adjustedItems = useMemo(
     () =>
@@ -74,6 +77,32 @@ export const NavList = ({
     }
   }, [parentsToExpand]);
 
+  const updateExpanded = (item: NavItemWithLevel) => {
+    setExpanded(prev => {
+      if (prev.includes(item.label)) {
+        return prev.filter(i => i !== item.label);
+      }
+      return [...prev, item.label];
+    });
+  };
+
+  const onEscape = (
+    event: React.KeyboardEvent<HTMLButtonElement>,
+    { expandedItem, item }: { expandedItem: boolean; item: NavItemWithLevel },
+  ) => {
+    if (expandedItem) {
+      // If this parent item is expanded, collapse it
+      event.preventDefault();
+      event.stopPropagation();
+      updateExpanded(item);
+    } else if (onEscapeToParent) {
+      // If not expanded but has parent, escape to parent
+      event.preventDefault();
+      event.stopPropagation();
+      onEscapeToParent();
+    }
+  };
+
   return (
     <List
       data={adjustedItems}
@@ -87,13 +116,28 @@ export const NavList = ({
       {item => {
         let result = null;
         const expandedItem = expanded.includes(item.label);
+        const navItemProps = {
+          id: item.label,
+          level: item.level,
+          label: item.label,
+          url: item.url,
+          icon: item.icon,
+          onEsc: (event: React.KeyboardEvent<HTMLButtonElement>) => {
+            onEscape(event, { expandedItem, item });
+          },
+        };
+
         if (item.children) {
           result = (
             <NavItem
-              id={item.label}
-              level={item.level}
-              label={item.label}
-              icon={item.icon}
+              ref={(el: HTMLButtonElement | null) => {
+                if (el) {
+                  parentRefs.current.set(item.label, el);
+                } else {
+                  parentRefs.current.delete(item.label);
+                }
+              }}
+              {...navItemProps}
               actions={
                 expandedItem ? (
                   <Up aria-hidden="true" />
@@ -104,15 +148,14 @@ export const NavList = ({
               aria-haspopup={!!item.children}
               aria-expanded={expandedItem}
               onClick={() => {
-                setExpanded(prev => {
-                  let result: string[];
-                  if (prev.includes(item.label)) {
-                    result = prev.filter(i => i !== item.label);
-                  } else {
-                    result = [...prev, item.label];
-                  }
-                  return result;
-                });
+                updateExpanded(item);
+                // announce(
+                //   `${item.label} menu ${
+                //     expandedItem ? 'collapsed' : 'expanded'
+                //   }.`,
+                //   'polite',
+                //   2000,
+                // );
               }}
             >
               <Collapsible open={expandedItem}>
@@ -123,6 +166,12 @@ export const NavList = ({
                   activeItem={activeItem}
                   setActiveItem={setActiveItem}
                   onSelect={onSelect}
+                  onEscapeToParent={() => {
+                    // Collapse this parent menu and focus on it
+                    updateExpanded(item);
+                    const parentElement = parentRefs.current.get(item.label);
+                    parentElement?.focus();
+                  }}
                 />
               </Collapsible>
             </NavItem>
@@ -132,11 +181,7 @@ export const NavList = ({
 
           result = (
             <NavItem
-              id={item.label}
-              level={item.level}
-              label={item.label}
-              url={item.url}
-              icon={item.icon}
+              {...navItemProps}
               active={active}
               aria-current={active ? 'page' : undefined}
               onClick={() => {
