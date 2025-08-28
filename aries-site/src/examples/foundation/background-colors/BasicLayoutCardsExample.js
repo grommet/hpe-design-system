@@ -22,7 +22,7 @@ export const BasicLayoutCardsExample = () => {
           border={{ color: 'border-weak', side: 'bottom' }}
           background="background"
           fill="horizontal"
-          pad={{ horizontal: 'medium', vertical: 'small' }}
+          pad={{ horizontal: 'medium', vertical: 'xsmall' }}
         >
           <AppIdentity title="App Name" brand="hpe" />
         </Header>
@@ -41,7 +41,7 @@ export const BasicLayoutCardsExample = () => {
               primary
             />
             <Grid
-              columns="small"
+              columns='xsmall'
               gap={!['xsmall', 'small'].includes(size) ? 'medium' : 'small'}
               fill
             >
@@ -57,7 +57,7 @@ export const BasicLayoutCardsExample = () => {
             greater detail behind this summary information.
             `);
                   }}
-                  height="small"
+                  height='xsmall'
                   title={`Card ${datum + 1}`}
                   level={2}
                 />
@@ -77,7 +77,7 @@ const AppContainer = ({ ...rest }) => {
       direction={['xsmall', 'small'].includes(size) ? 'column-reverse' : 'row'}
       fill
       margin="auto"
-      width={{ max: 'xxlarge' }}
+      width={{ max: '3xlarge' }}
       {...rest}
     />
   );

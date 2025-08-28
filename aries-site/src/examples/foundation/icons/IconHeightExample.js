@@ -4,7 +4,7 @@ import { Add } from 'grommet-icons';
 
 export const IconHeightExample = () => (
   <Box gap="medium">
-    <Box direction="row" gap="small" align="start">
+    <Box direction="row" gap='xsmall' align="start">
       <Add height="medium" />
       <Paragraph margin="none">
         Here is a paragraph alongside an icon. The parent Box has
@@ -12,7 +12,7 @@ export const IconHeightExample = () => (
         icon is necessary to ensure it aligns with the first line of text.
       </Paragraph>
     </Box>
-    <Box direction="row" gap="small" align="start">
+    <Box direction="row" gap='xsmall' align="start">
       <Add />
       <Paragraph margin="none">
         Here is another paragraph. In this case, the icon does not have

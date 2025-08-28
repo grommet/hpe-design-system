@@ -23,7 +23,7 @@ export const LayeredLayoutFixedExample = () => {
             border={{ color: 'border-weak', side: 'bottom' }}
             background="background-front"
             fill="horizontal"
-            pad={{ horizontal: 'medium', vertical: 'small' }}
+            pad={{ horizontal: 'medium', vertical: 'xsmall' }}
           >
             <AppIdentity title="App Name" brand="hpe" />
           </Header>
@@ -53,7 +53,7 @@ export const LayeredLayoutFixedExample = () => {
             greater detail behind this summary information.
             `);
                   }}
-                  height="small"
+                  height='xsmall'
                 />
               ))}
             </Grid>
@@ -71,7 +71,7 @@ const AppContainer = ({ ...rest }) => {
       direction={['xsmall', 'small'].includes(size) ? 'column-reverse' : 'row'}
       fill
       margin="auto"
-      width={{ max: 'xxlarge' }}
+      width={{ max: '3xlarge' }}
       {...rest}
     />
   );

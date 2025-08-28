@@ -19,7 +19,7 @@ export const BasicLayoutExample = () => {
             border={{ color: 'border-weak', side: 'bottom' }}
             background="background"
             fill="horizontal"
-            pad={{ horizontal: 'medium', vertical: 'small' }}
+            pad={{ horizontal: 'medium', vertical: 'xsmall' }}
           >
             <AppIdentity title="App Name" brand="hpe" />
           </Header>
@@ -29,7 +29,7 @@ export const BasicLayoutExample = () => {
               gap="medium"
               wrap
             >
-              <Box width={{ min: 'small' }} flex>
+              <Box width={{ min: 'xsmall' }} flex>
                 <Paragraph margin="none">
                   This is the main page content. It may include buttons, tables,
                   forms, or any other kind of component.
@@ -42,8 +42,8 @@ export const BasicLayoutExample = () => {
               <Box
                 background="background-contrast"
                 pad={{ horizontal: 'medium' }}
-                round="small"
-                width={{ min: 'small', max: 'medium' }}
+                round='medium'
+                width={{ min: 'xsmall', max: 'medium' }}
               >
                 <Paragraph>
                   Here is some text that is supplementing the main content.
@@ -68,7 +68,7 @@ const AppContainer = ({ ...rest }) => {
       direction={['xsmall', 'small'].includes(size) ? 'column-reverse' : 'row'}
       fill
       margin="auto"
-      width={{ max: 'xxlarge' }}
+      width={{ max: '3xlarge' }}
       {...rest}
     />
   );

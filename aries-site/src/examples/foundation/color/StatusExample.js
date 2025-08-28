@@ -16,7 +16,7 @@ export const StatusExample = ({ color, hex }) => {
   else if (color.includes('unknown')) Icon = StatusUnknownSmall;
 
   return (
-    <Box align="center" gap="small" margin={{ horizontal: 'small' }}>
+    <Box align="center" gap='xsmall' margin={{ horizontal: 'xsmall' }}>
       <Icon size="xxlarge" color={color} />
       <Box align="center">
         <Text color="text-strong" weight={600} size="small">

@@ -108,8 +108,8 @@ export const TextLight = () => (
     label="Light Background"
     justify="between"
     pad={{
-      horizontal: 'large',
-      bottom: 'large',
+      horizontal: 'xlarge',
+      bottom: 'xlarge',
       top: 'medium',
       small: {
         horizontal: 'medium',
@@ -135,8 +135,8 @@ export const TextDark = () => (
     label="Dark Background"
     justify="between"
     pad={{
-      horizontal: 'large',
-      bottom: 'large',
+      horizontal: 'xlarge',
+      bottom: 'xlarge',
       top: 'medium',
       small: {
         horizontal: 'medium',
@@ -181,8 +181,8 @@ export const ElevationLight = () => {
       direction="row-responsive"
       gap={['xsmall', 'small'].includes(size) ? 'medium' : undefined}
       pad={{
-        horizontal: 'large',
-        vertical: 'large',
+        horizontal: 'xlarge',
+        vertical: 'xlarge',
         small: { horizontal: 'medium', vertical: 'large' },
       }}
     >
@@ -209,8 +209,8 @@ export const ElevationDark = () => {
       direction="row-responsive"
       gap={['xsmall', 'small'].includes(size) ? 'medium' : undefined}
       pad={{
-        horizontal: 'large',
-        vertical: 'large',
+        horizontal: 'xlarge',
+        vertical: 'xlarge',
         small: { horizontal: 'medium', vertical: 'large' },
       }}
     >
