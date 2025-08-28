@@ -15,7 +15,7 @@ export const Pagination = ({ ...rest }) => {
         wrap
         align="center"
         justify="between"
-        pad={{ vertical: 'xsmall' }}
+        pad={{ vertical: '3xsmall' }}
         style={{ columnGap: '12px', rowGap: '6px' }}
         // in order to align with DataTable
         flex="grow"
