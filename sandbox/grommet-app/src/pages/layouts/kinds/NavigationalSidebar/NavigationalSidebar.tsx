@@ -17,7 +17,9 @@ export const NavigationalSidebar = () => {
         items={navItems}
         height={appHeight}
       />
-      <Page pad={{ bottom: "xlarge" }}>
+      <Page pad={{
+        bottom: '3xlarge'
+      }}>
         <PageContent alignSelf="start">
           <PageHeader
             title="Navigational sidebar"

@@ -28,7 +28,7 @@ const AlertItem: React.FC<AlertItemProps> = ({
     size={size}
     label={label}
     value={
-      <Box direction="row" align="center" gap="xsmall">
+      <Box direction="row" align="center" gap='3xsmall'>
         <Icon color={color} />
         <Text size={metricSizes[size].value} color="text-strong" weight={500}>
           {value}
@@ -57,7 +57,9 @@ const AlertMetric: React.FC<AlertMetricProps> = ({ label, size, value }) => (
 );
 
 const TicketNotesSummary: React.FC = () => (
-  <Box pad={{ vertical: 'small' }} direction="row" gap="small">
+  <Box pad={{
+    vertical: 'xsmall'
+  }} direction="row" gap='xsmall'>
     <Text>
       Tickets: <Anchor href="#">1</Anchor>
     </Text>
@@ -118,7 +120,7 @@ export const ResourceAlerts: React.FC<ResourceAlertsProps> = ({ size }) => {
     <Box>
       <Text size="small">Resource Alerts</Text>
       {/* in design the pad is 18px */}
-      <Grid pad="small" columns={columns}>
+      <Grid pad='xsmall' columns={columns}>
         {alertData.map(({ label, Icon, color, value }) => (
           <AlertItem
             key={label}

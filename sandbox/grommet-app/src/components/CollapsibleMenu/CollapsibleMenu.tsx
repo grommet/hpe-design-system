@@ -54,7 +54,10 @@ export const CollapsibleMenu: React.FC<CollapsibleMenuProps> = ({
 
 
   return (
-    <Box width={{ min: "small", max: 'medium' }} {...rest} >
+    <Box width={{
+      min: 'xsmall',
+      max: 'medium'
+    }} {...rest} >
       {menuItems}
     </Box >
   );

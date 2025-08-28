@@ -6,7 +6,7 @@ import { Compare } from '../../components';
 export const Icons = () => {
   return (
     <ContentPane>
-      <Box gap="small">
+      <Box gap='xsmall'>
         <Compare>
           <User size="small" />
         </Compare>

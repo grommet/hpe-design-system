@@ -6,7 +6,7 @@ import { sentenceCase } from '../../../../utils/format';
 const groupDetails = {
   status: {
     value: 'Okay',
-    render: () => <Box direction="row" gap="xsmall" align="center">
+    render: () => <Box direction="row" gap='3xsmall' align="center">
       <StatusGoodSmall color='status-ok' />
       <Text>Okay</Text>
     </Box>

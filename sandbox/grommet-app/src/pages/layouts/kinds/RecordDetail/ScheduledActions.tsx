@@ -22,7 +22,7 @@ export const ScheduledActions = ({ ...rest }) => {
     >
       {datum => (
         <Box direction='row' align='center' gap={{ column: "medium" }} wrap>
-          <Box width="small">
+          <Box width='xsmall'>
             <Text color="text-strong" weight={500}>{datum.action}</Text>
           </Box>
           <Box direction='row' align="center" gap="medium">

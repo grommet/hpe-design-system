@@ -48,7 +48,10 @@ export const CollectionMenu: React.FC<CollectionMenuProps> =
           )}
         </Select>
       </FormField> :
-      <Box width={{ min: "small", max: 'medium' }} {...rest} >
+      <Box width={{
+        min: 'xsmall',
+        max: 'medium'
+      }} {...rest} >
         {Object.entries(items).map(([item, value]) => {
           const open = expanded.includes(item) || value.some(item => item === (selected));
           value.some(item => item === (selected)) && !expanded.includes(item) && setExpanded([...expanded, item]);
@@ -80,5 +83,5 @@ export const CollectionMenu: React.FC<CollectionMenuProps> =
             </React.Fragment>
           )
         })}
-      </Box >
+      </Box >;
   }

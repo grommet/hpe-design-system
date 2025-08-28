@@ -64,13 +64,13 @@ export const DashboardCard = ({
       {...rest}
     >
       <CardHeader align="start" animation={animation} {...inlineProps}>
-        <Box direction="row" gap="small" align="start">
+        <Box direction="row" gap='xsmall' align="start">
           {icon && (
             <Box flex={false}>
-              {skeleton ? <Skeleton height="xxsmall" width="xxsmall" /> : icon}
+              {skeleton ? <Skeleton height='5xsmall' width='5xsmall' /> : icon}
             </Box>
           )}
-          <Box gap="xsmall" flex={false}>
+          <Box gap='3xsmall' flex={false}>
             <Heading level={level} margin="none">
               {title}
             </Heading>
@@ -80,7 +80,7 @@ export const DashboardCard = ({
         {!hideCta ? (
           <Box flex={false}>
             {skeleton ? (
-              <Skeleton pad="small" />
+              <Skeleton pad='xsmall' />
             ) : external ? (
               <ShareRounded
                 a11yTitle={`Go to ${title}`}
@@ -116,7 +116,7 @@ export const DashboardCard = ({
           {...inlineProps}
           animation={animation}
         >
-          {skeleton ? <Skeleton height="xxsmall" /> : footer}
+          {skeleton ? <Skeleton height='5xsmall' /> : footer}
         </CardFooter>
       )}
     </Card>

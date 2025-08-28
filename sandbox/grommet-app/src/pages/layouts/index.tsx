@@ -37,7 +37,9 @@ const Layouts = () => {
 
 const LayoutsIndex = () => {
   return (
-    <Page pad={{ bottom: 'xlarge' }}>
+    <Page pad={{
+      bottom: '3xlarge'
+    }}>
       <PageContent>
         <PageHeader title="Layouts" />
         <List
