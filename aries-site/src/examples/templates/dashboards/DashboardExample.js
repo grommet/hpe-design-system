@@ -22,7 +22,7 @@ export const DashboardExample = () => {
           <PageContent>
             <Box flex={false}>
               {user ? (
-                <Box gap="large">
+                <Box gap='xlarge'>
                   <Greeting />
                   <DashboardGrid />
                 </Box>
@@ -43,7 +43,7 @@ export const DashboardExample = () => {
 const DemoPageContent = () => {
   const { setUser } = useContext(UserContext);
   return (
-    <Box align="center" gap="small">
+    <Box align="center" gap='xsmall'>
       <Text>This button is for demo purposes only.</Text>
       <Button label="Sign In" primary onClick={() => setUser(defaultUser)} />
     </Box>

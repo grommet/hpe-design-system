@@ -23,7 +23,7 @@ export const DashboardFooter = () => {
   return (
     <Footer
       direction="row-responsive"
-      pad={{ horizontal: 'medium', vertical: 'small' }}
+      pad={{ horizontal: 'medium', vertical: 'xsmall' }}
       wrap
     >
       <Box direction="row" gap="medium">

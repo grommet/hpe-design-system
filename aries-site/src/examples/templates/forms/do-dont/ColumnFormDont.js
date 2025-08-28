@@ -63,8 +63,8 @@ export const ColumnFormDont = () => {
       <Header
         direction="column"
         align="start"
-        gap="xxsmall"
-        pad={{ horizontal: 'xxsmall' }}
+        gap='5xsmall'
+        pad={{ horizontal: '5xsmall' }}
       >
         {/* Use semantically correct heading level and adjust size as 
       needed. In this instance, this example is presented within an 
@@ -78,7 +78,7 @@ export const ColumnFormDont = () => {
       </Header>
       <Box
         // Padding used to prevent focus from being cutoff
-        pad={{ horizontal: 'xxsmall' }}
+        pad={{ horizontal: '5xsmall' }}
       >
         <Form
           value={formValues}
@@ -91,13 +91,13 @@ export const ColumnFormDont = () => {
           method="post"
           validate="submit"
         >
-          <Box gap="large" direction="row">
+          <Box gap='xlarge' direction="row">
             <ShippingInfomation name="shippingDontExample" />
             <Box>
               <ContactInformation name="shippingDontExample" />
               <Box
                 align={['xsmall', 'small'].includes(size) ? undefined : 'start'}
-                margin={{ vertical: 'small' }}
+                margin={{ vertical: 'xsmall' }}
               >
                 <Button label="Continue" primary type="submit" />
               </Box>

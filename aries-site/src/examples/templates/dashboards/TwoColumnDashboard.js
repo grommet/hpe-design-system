@@ -24,8 +24,8 @@ import {
 export const TwoColumnDashboard = () => (
   <AppContainer background="background-back">
     <ContentArea title="Global Header" />
-    <Page pad={{ bottom: 'xlarge' }}>
-      <PageContent gap="large">
+    <Page pad={{ bottom: '3xlarge' }}>
+      <PageContent gap='xlarge'>
         <PageHeader title="Dashboard" />
         <Content />
       </PageContent>
@@ -97,12 +97,13 @@ const Content = () => {
     // Main is commented out for this example, but should be used in a
     // real application.
     // <Main>
+    // </Main>
     <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
       {/* RecentActivity is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
       {['xsmall', 'small'].includes(size) && <RecentActivity />}
-      <Box gap="large">
-        <Box gap="small">
+      <Box gap='xlarge'>
+        <Box gap='xsmall'>
           <Heading level={2} margin="none">
             Servers
           </Heading>
@@ -111,7 +112,7 @@ const Content = () => {
             <ServerAttention />
           </Grid>
         </Box>
-        <Box gap="small">
+        <Box gap='xsmall'>
           <Heading level={2} margin="none">
             Firmware
           </Heading>
@@ -128,7 +129,7 @@ const Content = () => {
         </Box>
       </Box>
       {!['xsmall', 'small'].includes(size) && (
-        <Box gap="large">
+        <Box gap='xlarge'>
           {/* fragment is used to create a gap spacing element 
             for alignment to column 1 */}
           <></>
@@ -136,6 +137,5 @@ const Content = () => {
         </Box>
       )}
     </Grid>
-    // </Main>
   );
 };
