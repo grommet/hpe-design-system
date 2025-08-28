@@ -13,7 +13,7 @@ export const ElevationExample = ({ color, hex }) => {
 
   return (
     <Box
-      margin={{ horizontal: 'small' }}
+      margin={{ horizontal: 'xsmall' }}
       elevation={elevations[color]}
       pad="medium"
     >

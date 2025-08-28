@@ -25,7 +25,7 @@ export const TimezoneExample = ({ bestPractice = true }) => {
 
   return (
     <Box gap="medium">
-      <Box gap="small">
+      <Box gap='xsmall'>
         <Text>
           This user is located in San Francisco, California and should see:
         </Text>
@@ -34,8 +34,7 @@ export const TimezoneExample = ({ bestPractice = true }) => {
           status="warning"
         />
       </Box>
-
-      <Box gap="small">
+      <Box gap='xsmall'>
         <Text>{`This user is located in Sydney, Australia and should ${
           !bestPractice ? 'NOT' : ''
         } see:`}</Text>

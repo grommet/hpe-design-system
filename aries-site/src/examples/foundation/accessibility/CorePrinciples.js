@@ -68,7 +68,7 @@ export const CorePrinciples = () => {
   const theme = useContext(ThemeContext);
 
   return (
-    <Grid columns="small" gap="large" pad={{ vertical: 'medium' }}>
+    <Grid columns="xsmall" gap="xlarge" pad={{ vertical: 'medium' }}>
       {corePrinciplesObjects.map(item => (
         <Box key={item.name}>
           <Image
@@ -77,7 +77,9 @@ export const CorePrinciples = () => {
           />
           <Box pad={{ top: 'medium' }}>
             <Text size="xlarge">{item.name}</Text>
-            <Paragraph margin={{ top: 'xsmall' }}>{item.description}</Paragraph>
+            <Paragraph margin={{ top: '3xsmall' }}>
+              {item.description}
+            </Paragraph>
           </Box>
         </Box>
       ))}
