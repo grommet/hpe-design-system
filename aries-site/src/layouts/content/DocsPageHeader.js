@@ -32,7 +32,7 @@ export const DocsPageHeader = ({ title, topic, render }) => {
           {page.description}
         </SubsectionText>
       }
-      margin={{ bottom: 'small' }}
+      margin={{ bottom: 'xsmall' }}
     >
       {page.status && <Status status={page.status} />}
     </PageHeader>
