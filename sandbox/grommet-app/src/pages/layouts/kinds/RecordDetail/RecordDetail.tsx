@@ -53,7 +53,9 @@ export const RecordDetail: React.FC = () => {
   const areas = ['xsmall', 'small'].includes(breakpoint) ? areasSmall : areasDefault;
 
   return (
-    <Page pad={{ bottom: 'xlarge' }} flex="grow">
+    <Page pad={{
+      bottom: '3xlarge'
+    }} flex="grow">
       <PageContent>
         <PageHeader
           title="Server group name"

@@ -64,7 +64,9 @@ const ResourceHeader: React.FC<ResourceHeaderProps> = ({
   ipAddress,
   status,
 }) => (
-  <Box pad={{ vertical: 'small' }} align="center" direction="row" gap="small">
+  <Box pad={{
+    vertical: 'xsmall'
+  }} align="center" direction="row" gap='xsmall'>
     {statusMap[status]}
     <Box>
       <Text weight="bold">{name}</Text>
@@ -99,7 +101,7 @@ const ResourceSections: React.FC<ResourceSectionsProps> = ({
   ipAddress,
   status,
 }) => (
-  <Box gap="small">
+  <Box gap='xsmall'>
     <Box border={{ side: 'top', color: 'border-weak' }} />
     <ResourceHeader status={status} name={name} ipAddress={ipAddress} />
     <Box border={{ side: 'top', color: 'border-weak' }} />
@@ -136,7 +138,7 @@ export const ResourceDetails: React.FC<ResourceDetailsProps> = ({
     <ContentPane
       flex={false}
       heading={
-        <Box align="center" direction="row" gap="xsmall">
+        <Box align="center" direction="row" gap='3xsmall'>
           <Button onClick={onClose} icon={<LinkNext />} />
           {/* the heading here sematically should be h2 however thats very large so
           passing size to make it smaller */}

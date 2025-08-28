@@ -6,7 +6,7 @@ import { Compare } from '../../components/Compare';
 export const Texts = ({ textSizes }) => {
   return (
     <ContentPane>
-      <Box gap="small">
+      <Box gap='xsmall'>
         {textSizes.map(size => (
           <Compare guidingChild="last" key={size}>
             <Text size={size} key={size}>

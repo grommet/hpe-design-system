@@ -9,7 +9,7 @@ export const Headings = () => {
     <ContentPane>
       <Box gap="medium">
         {HEADING_LEVELS.map(level => (
-          <Box gap="small" key={level}>
+          <Box gap='xsmall' key={level}>
             {/* Heading sizes are not relevant to product teams because our guidance
                   discourages use of them. */}
             {/* {['small', 'medium', 'large', 'xlarge'].map(size => ( */}

@@ -60,7 +60,7 @@ const Selector = ({
         pad={pad}
         round={round}
         selected={selected}
-        gap="xsmall"
+        gap='3xsmall'
         border={{
           color: selected ? 'brand' : 'border',
         }}

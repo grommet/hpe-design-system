@@ -18,7 +18,7 @@ export const PhysicalCapacity = ({ size, ...rest }) => {
       {...rest}
     >
       <Grid
-        gap="small"
+        gap='xsmall'
         areas={[
           ["metric", "summary"],
           ["meter", "meter"]

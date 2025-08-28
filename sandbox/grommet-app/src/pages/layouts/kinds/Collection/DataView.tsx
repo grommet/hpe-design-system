@@ -32,7 +32,9 @@ export const DataView = ({ data, columns, ...rest }) => {
         summary
         stepOptions
         border={{ side: 'top', color: 'border' }}
-        pad={{ top: 'xsmall' }}
+        pad={{
+          top: '3xsmall'
+        }}
       />
     </Data>
   );

@@ -25,7 +25,7 @@ export const RecentServices = () => {
       heading="Recent services"
       level={2}
       actions={
-        <Box direction="row" gap="small" align="center">
+        <Box direction="row" gap='xsmall' align="center">
           <Button
             icon={cards ? <ListIcon /> : <Apps />}
             onClick={() => setCards(!cards)}
@@ -39,7 +39,7 @@ export const RecentServices = () => {
         animation={!skeleton ? 'fadeIn' : undefined}
       >
         {cards ? (
-          <Grid columns="small" gap="medium">
+          <Grid columns='xsmall' gap="medium">
             {recentServices.map(service => (
               <Card
                 key={service.name}
@@ -63,7 +63,7 @@ export const RecentServices = () => {
               <Grid
                 columns={['flex', 'flex', 'flex', 'auto']}
                 align={skeleton ? 'start' : 'center'}
-                gap="small"
+                gap='xsmall'
               >
                 <Box>
                   <Text weight={500} color="text-strong">
@@ -84,7 +84,7 @@ export const RecentServices = () => {
                   </Text>
                 </Box>
                 {skeleton ? (
-                  <Skeleton fill="vertical" width="xsmall" />
+                  <Skeleton fill="vertical" width='3xsmall' />
                 ) : (
                   <Link to={datum.href}>
                     <Button

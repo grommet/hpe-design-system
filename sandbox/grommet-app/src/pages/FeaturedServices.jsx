@@ -7,7 +7,7 @@ import ContentPane from '../components/ContentPane';
 import { skeleton as skeletonAnimation, useLoading } from '../utils/skeleton';
 
 const TabContent = ({ data, ...rest }) => (
-  <Grid columns="small" gap="medium" pad={{ vertical: 'medium' }} {...rest}>
+  <Grid columns='xsmall' gap="medium" pad={{ vertical: 'medium' }} {...rest}>
     {data.map((service, index) => (
       <Card
         key={index}

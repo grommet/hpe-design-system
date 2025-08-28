@@ -40,7 +40,7 @@ export const Selects = () => {
                 background={
                   selected ? 'background-selected-primary' : undefined
                 }
-                pad={{ horizontal: 'small', vertical: 'xsmall' }}
+                pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
                 round="xsmall"
                 selected={selected}
               >
