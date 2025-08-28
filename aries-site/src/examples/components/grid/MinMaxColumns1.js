@@ -13,7 +13,7 @@ const columns = [
 ];
 
 export const MinMaxColumns1 = () => (
-  <Grid columns={columns} gap="xsmall">
+  <Grid columns={columns} gap='3xsmall'>
     <ContentArea title="1" {...contentAreaProps}>
       <ContentLabel>[ 'xxsmall', 'xsmall' ]</ContentLabel>
     </ContentArea>

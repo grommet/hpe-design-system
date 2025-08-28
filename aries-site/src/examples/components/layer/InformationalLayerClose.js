@@ -7,7 +7,7 @@ export const InformationalLayerClose = () => (
   <LayerContainer margin={{ bottom: 'medium' }} width={{ max: 'medium' }}>
     <LayerHeader informational />
     <Box
-      height="small"
+      height='xsmall'
       align="center"
       justify="center"
       border={{ style: 'dashed' }}

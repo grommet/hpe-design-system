@@ -70,7 +70,7 @@ export const ButtonAlignmentTable = () => (
     alignSelf="start"
     elevation="none"
     pad="medium"
-    width="large"
+    width='xlarge'
     round="xsmall"
   >
     {/* style tag is necessary in order for table not 
@@ -83,7 +83,7 @@ export const ButtonAlignmentTable = () => (
               border="bottom"
               key={c.property}
               scope="col"
-              pad={{ vertical: 'small' }}
+              pad={{ vertical: 'xsmall' }}
             >
               <TextEmphasis>{c.label}</TextEmphasis>
             </TableCell>
@@ -97,12 +97,12 @@ export const ButtonAlignmentTable = () => (
               <TableCell
                 key={c.property}
                 border={{ side: 'bottom', color: 'border-weak' }}
-                pad={{ vertical: 'small' }}
+                pad={{ vertical: 'xsmall' }}
               >
                 {c.property === 'alignment' ? (
                   datum[c.property]
                 ) : (
-                  <Box direction="row" gap="xsmall" wrap>
+                  <Box direction="row" gap='3xsmall' wrap>
                     {datum[c.property].map((item, index) => (
                       <Fragment key={index}>
                         {item.href ? (

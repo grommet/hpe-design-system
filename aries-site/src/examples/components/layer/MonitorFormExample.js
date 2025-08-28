@@ -164,7 +164,7 @@ export const MonitorFormExample = ({ sticky }) => {
           >
             <TextInput id="email" name="email" />
           </FormField>
-          <Box direction="row" gap="small" pad={{ top: 'medium' }}>
+          <Box direction="row" gap='xsmall' pad={{ top: 'medium' }}>
             <Button label="Add monitor" primary type="submit" />
             <Button label="Cancel" onClick={onClose} />
           </Box>

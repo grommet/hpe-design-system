@@ -22,7 +22,7 @@ export const CenterInformational = ({ containerRef }) => {
           modal={false}
         >
           <Box pad="medium">
-            <Box direction="row" align="start" gap="small">
+            <Box direction="row" align="start" gap='xsmall'>
               <Box gap="medium">
                 <Heading level={2} margin="none">
                   Firmware update initiated

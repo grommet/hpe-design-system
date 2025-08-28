@@ -7,7 +7,7 @@ export const LayerContainer = ({ ...rest }) => (
     elevation="large"
     gap="medium"
     pad="medium"
-    round="small"
+    round='medium'
     {...rest}
   />
 );

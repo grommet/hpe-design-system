@@ -7,7 +7,7 @@ export const CheckBoxGroupValidationExample = () => {
   const [message, setMessage] = useState(demoErrorMessage);
 
   return (
-    <Box width="small">
+    <Box width='xsmall'>
       <Form>
         <FormField
           name="required-field"

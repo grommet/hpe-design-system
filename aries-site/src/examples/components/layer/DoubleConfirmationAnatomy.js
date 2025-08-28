@@ -38,7 +38,7 @@ export const DoubleConfirmationAnatomy = () => {
         columns={columns}
         rows={rows}
         areas={areas}
-        gap={{ column: 'large' }}
+        gap={{ column: 'xlarge' }}
       >
         <Annotation
           alignSelf="center"
@@ -69,7 +69,7 @@ const LayerContent = ({ ...rest }) => (
   <Card
     id="layer-container"
     alignSelf="start"
-    round="small"
+    round='medium'
     elevation="large"
     {...rest}
   >
@@ -82,19 +82,19 @@ const LayerContent = ({ ...rest }) => (
           Your changes will not be applied.
         </Paragraph>
       </Box>
-      <Box pad="small" />
+      <Box pad='xsmall' />
       <Box
         id="confirmation-footer"
         direction="row"
         border={{ style: 'dashed' }}
         justify="end"
         flex={false}
-        gap="small"
+        gap='xsmall'
       >
         <Button label="Cancel" />
         <Button label="Discard" primary />
       </Box>
-      <Box pad="small" id="bottom-pad" />
+      <Box pad='xsmall' id="bottom-pad" />
     </CardBody>
   </Card>
 );

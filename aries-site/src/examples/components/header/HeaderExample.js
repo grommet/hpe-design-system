@@ -27,7 +27,10 @@ export const HeaderExample = () => {
   }, [focused, setFocused]);
 
   return (
-    <Header fill="horizontal" pad={{ horizontal: 'medium', vertical: 'small' }}>
+    <Header
+      fill="horizontal"
+      pad={{ horizontal: 'medium', vertical: 'xsmall' }}
+    >
       <Button>
         <Box
           direction="row"
@@ -35,13 +38,13 @@ export const HeaderExample = () => {
           gap="medium"
           // pad maintains accessible hit target
           // non-responsive maintains same dimensions for mobile
-          pad={{ vertical: 'xsmall' }}
+          pad={{ vertical: '3xsmall' }}
           responsive={false}
         >
           <Hpe color="brand" height="medium" />
           {(!['xsmall', 'small'].includes(size) ||
             (['xsmall', 'small'].includes(size) && !focused)) && (
-            <Box direction="row" gap="xsmall" wrap>
+            <Box direction="row" gap="3xsmall" wrap>
               <Text color="text-strong" weight="bold">
                 HPE
               </Text>

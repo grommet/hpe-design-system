@@ -7,7 +7,7 @@ import { contentAreaProps } from './utils';
 const columns = 'xsmall';
 
 export const UniformColumns = () => (
-  <Grid columns={columns} gap="xsmall">
+  <Grid columns={columns} gap='3xsmall'>
     <ContentArea title="1" {...contentAreaProps} />
     <ContentArea title="2" {...contentAreaProps} />
     <ContentArea title="3" {...contentAreaProps} />

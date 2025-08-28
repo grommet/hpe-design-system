@@ -7,7 +7,7 @@ export const CheckBoxGroupScrollExample = () => (
     {/* eslint-disable-next-line grommet/formfield-htmlfor-id, 
     grommet/formfield-name */}
     <FormField name="scroll-checkbox" label="Label" htmlFor="scroll-checkbox">
-      <Box width="medium" overflow="auto" height="small">
+      <Box width="medium" overflow="auto" height='xsmall'>
         <CheckBoxGroup
           name="scroll-checkbox"
           id="scroll-checkbox"

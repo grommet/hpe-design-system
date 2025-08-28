@@ -14,7 +14,7 @@ export const HeaderNavigationExample = () => {
     <Header fill="horizontal">
       <AppIdentity href="#" brand="hpe" title="App Name" />
       {!['xsmall', 'small'].includes(size) ? (
-        <Nav direction="row" gap="small">
+        <Nav direction="row" gap='xsmall'>
           {items.map(item => (
             <Button label={item.label} key={item.label} />
           ))}

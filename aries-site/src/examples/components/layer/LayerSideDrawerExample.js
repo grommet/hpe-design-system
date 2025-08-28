@@ -25,15 +25,14 @@ const LayerForm = ({ setOpen }) => {
 
   return (
     <Box gap="medium">
-      <Header align="start" pad={{ horizontal: 'xxsmall' }}>
-        <Box gap="xxsmall">
+      <Header align="start" pad={{ horizontal: '5xsmall' }}>
+        <Box gap='5xsmall'>
           <Heading level={2} margin="none" id="layer-title">
             Form header
           </Heading>
           <Text id="layer-desc">a subtitle if needed</Text>
         </Box>
       </Header>
-
       <Form
         validate="blur"
         method="post"
@@ -96,8 +95,8 @@ const LayerForm = ({ setOpen }) => {
         </FormField>
         <Box
           direction="row"
-          gap="small"
-          margin={{ top: 'medium', bottom: 'small' }}
+          gap='xsmall'
+          margin={{ top: 'medium', bottom: 'xsmall' }}
         >
           <Button label="Submit form" primary type="submit" />
           <Button label="Cancel" onClick={() => setOpen(false)} />
