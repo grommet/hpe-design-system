@@ -1,0 +1,2009 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components loads 1`] = `
+{
+  "Accessibility": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Achievement": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Action": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Actions": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Ad": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Add": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "AddCircle": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Aed": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Aggregate": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "AiGen": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "AiGenFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "AiSystems": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Aid": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Alarm": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Alert": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "AlertCircle": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Analytics": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Anchor": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Announce": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "App": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Apps": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "AppsRounded": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Archive": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Article": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Ascend": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Ascending": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "AssistListening": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Atm": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Attachment": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Attraction": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Baby": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "BackTen": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Bar": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "BarChart": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Basket": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Battery": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "BatteryEmpty": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "BatteryFull": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "BatteryLow": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Beacon": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Bike": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "BladesHorizontal": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "BladesVertical": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Blank": [Function],
+  "Blog": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Bluetooth": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Book": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Bookmark": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Braille": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Briefcase": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Brush": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Bucket": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Bug": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Bundle": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Bus": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "BusinessService": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Cafeteria": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Calculator": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Calendar": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CalendarDay": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CalendarMonth": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CalendarWeek": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Camera": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Car": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CaretDown": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CaretLeft": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CaretRight": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CaretUp": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Cart": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Catalog": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Certificate": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Channel": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ChapterAdd": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ChapterNext": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ChapterPrevious": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Chat": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ChatConversation": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Checkbox": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CheckboxSelected": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Checkmark": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Clear": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Clipboard": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Clock": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Clone": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Close": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ClosedCaption": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Cloud": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CloudAdd": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CloudComputer": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CloudDownload": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CloudLocked": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CloudOffline": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CloudSoftware": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CloudUpload": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Cluster": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CoatCheck": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Code": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Coffee": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Columns": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Command": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Compare": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Compass": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Compliance": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Configure": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Connect": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Connectivity": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Console": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Contact": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ContactInfo": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Contract": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Copy": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Cpu": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "CreditCard": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Css3": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Cube": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Cubes": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Currency": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Cursor": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Cut": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Cycle": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Dashboard": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Database": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Deliver": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Deploy": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Descend": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Descending": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Desktop": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Detach": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Device": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Diamond": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Directions": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DisabledOutline": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Disc": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Dislike": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DislikeFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Document": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentCloud": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentConfig": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentCsv": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentDownload": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentExcel": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentImage": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentLocked": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentMissing": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentNotes": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentOutlook": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentPdf": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentPerformance": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentPpt": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentRtf": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentSound": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentStore": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentTest": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentText": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentThreat": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentTime": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentTransfer": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentTxt": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentUpdate": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentUpload": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentUser": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentVerified": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentVideo": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentWarning": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentWindows": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentWord": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DocumentZip": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Domain": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Down": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Download": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Drag": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Drawer": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "DriveCage": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Duplicate": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Edit": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Eject": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Elevator": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Emergency": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "EmptyCircle": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Erase": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Escalator": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Expand": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Fan": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "FastForward": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Favorite": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Filter": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "FingerPrint": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Fireball": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Firewall": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Fiveg": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Flag": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Flows": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Focus": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Folder": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "FolderAdd": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "FolderCycle": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "FolderOpen": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "FolderSearch": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ForwardTen": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Gallery": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Gamepad": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Gateway": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Gem": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Gift": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Globe": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Gpu": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Grid": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Group": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Grow": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Halt": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Help": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "HelpBook": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "HelpCenter": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Hide": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "History": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Home": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Host": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "HostMaintenance": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Html5": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "IceCream": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Image": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Impact": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "InProgress": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Inbox": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Indicator": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Info": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "InformationCircle": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Inherit": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Insecure": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Inspect": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Install": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Integration": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Iteration": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Java": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Js": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Key": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Keyboard": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Language": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Layer": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Left": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "License": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Like": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "LikeFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "LineChart": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Link": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "LinkBottom": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "LinkDown": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "LinkLeft": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "LinkRight": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "LinkTop": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "LinkUp": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "List": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ListOrdered": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ListUnordered": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Local": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Location": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "LocationPin": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Lock": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Lodging": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Login": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Logout": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Lounge": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Magic": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Mail": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Manual": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Map": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "MapAdd": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "MapLocation": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Meeting": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Memory": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Menu": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Microphone": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Mode": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Money": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Monitor": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Moon": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "More": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "MoreVertical": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Mouse": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Multimedia": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Multiple": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Music": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Navigate": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Network": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "NetworkDrive": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "NetworkSwitch": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "New": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "NewWindow": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Nodes": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Note": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Notes": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Notification": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ObjectGroup": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ObjectUngroup": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "OfflineStorage": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Optimize": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Organization": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Overview": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Package": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Paint": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Pan": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Pause": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "PauseFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Performance": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "PersonalComputer": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Phone": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "PhoneFlip": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "PhoneHorizontal": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "PhoneVertical": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "PieChart": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Pin": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Play": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "PlayCircle": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "PlayFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Plug": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Power": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "PowerCycle": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "PowerForceShutdown": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "PowerReset": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Print": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Projects": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Qr": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Radial": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "RadialSelected": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Redo": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Refresh": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Resources": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Restaurant": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Restroom": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "RestroomMen": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "RestroomUnisex": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "RestroomWomen": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Resume": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Return": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Revert": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Rewind": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Right": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Risk": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Robot": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "RotateLeft": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "RotateRight": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Rss": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Run": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Sans": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Satellite": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Save": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Scan": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ScheduleNew": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "SchedulePlay": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Schedules": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Scorecard": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Script": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Sd": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Search": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "SearchAdvanced": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Secure": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Select": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Selection": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Semantics": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Send": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Sensor": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "SensorLocked": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "SensorOff": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Server": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ServerCluster": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Servers": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ServicePlay": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Services": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Settings": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Share": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Shield": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ShieldCheck": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ShieldEmergency": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ShieldSecurity": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ShieldUnsecure": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Shift": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Shop": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Sidebar": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Sign": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Spa": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Split": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Splits": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Stakeholder": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Star": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StarFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StarHalf": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StarHalfFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusCritical": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusCriticalFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusDisabled": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusDisabledFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusGood": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusGoodFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusInfo": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusInfoFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusPlaceholder": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusUnknown": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusUnknownFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusWarning": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StatusWarningFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Steps": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Stop": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StopCircle": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StopFill": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Storage": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "StreetView": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Subtract": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "SubtractCircle": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Sun": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Support": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Swim": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Switch": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Sync": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "System": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Table": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "TableAdd": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "TableAddColumn": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "TableSearch": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Tag": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Tape": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Target": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Task": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Tasks": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Technology": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Temperature": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Template": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Test": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "TestDesktop": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "TextWrap": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Theme": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Threats": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ThreeD": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ThreeDEffects": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Ticket": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Time": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Tip": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Toast": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Tools": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Tooltip": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Train": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Transaction": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Trash": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Tree": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "TreeNode": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Trigger": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Trophy": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Troubleshoot": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Tty": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Undo": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Unlink": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Unlock": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Unsorted": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Up": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Update": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Upgrade": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Upload": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "UsbKey": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "User": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "UserAdd": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "UserAdmin": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "UserExpert": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "UserFemale": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "UserManager": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "UserNew": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "UserPolice": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "UserSettings": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "UserWorker": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Validate": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Vend": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Video": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "View": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "VirtualMachine": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "VirtualStorage": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "VmMaintenance": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Volume": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "VolumeControl": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "VolumeLow": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "VolumeMute": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Vulnerability": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Waypoint": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Webcam": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Wheelchair": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "WheelchairActive": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Wifi": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "WifiLocked": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "WifiLow": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "WifiMedium": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "WifiNone": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "WifiOff": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Workshop": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "Yoga": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ZoomIn": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "ZoomOut": {
+    "$$typeof": Symbol(react.forward_ref),
+    "render": [Function],
+  },
+  "__esModule": true,
+  "base": {
+    "global": {
+      "colors": {
+        "icon": "#666666",
+      },
+    },
+    "icon": {
+      "size": {
+        "large": "48px",
+        "medium": "24px",
+        "small": "12px",
+        "xlarge": "96px",
+      },
+    },
+  },
+  "defaultProps": {
+    "theme": {
+      "global": {
+        "colors": {
+          "icon": "#666666",
+        },
+      },
+      "icon": {
+        "size": {
+          "large": "48px",
+          "medium": "24px",
+          "small": "12px",
+          "xlarge": "96px",
+        },
+      },
+    },
+  },
+  "extendDefaultTheme": [Function],
+}
+`;
