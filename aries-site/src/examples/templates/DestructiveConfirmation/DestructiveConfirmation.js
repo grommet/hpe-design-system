@@ -81,7 +81,7 @@ export const DestructiveConfirmation = ({
         }}
       >
         <Box gap="medium">
-          <ModalBody gap="small">
+          <ModalBody gap='xsmall'>
             <Notification
               status="critical"
               message="This action cannot be undone."
@@ -105,7 +105,7 @@ export const DestructiveConfirmation = ({
             </FormField>
           </ModalBody>
           <ModalFooter justify="end">
-            <Box direction="row" gap="small">
+            <Box direction="row" gap='xsmall'>
               <Button
                 label="Cancel"
                 onClick={() => {

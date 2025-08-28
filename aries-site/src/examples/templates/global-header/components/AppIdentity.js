@@ -35,7 +35,7 @@ export const AppIdentity = forwardRef(
             gap="medium"
             // pad maintains accessible hit target
             // non-responsive maintains same dimensions for mobile
-            pad={{ vertical: 'small' }}
+            pad={{ vertical: 'xsmall' }}
             responsive={false}
           >
             {/* If user is logged in, show the application specific logo.
@@ -43,10 +43,10 @@ export const AppIdentity = forwardRef(
             show HPE logo */}
             {brand && user ? brands[brand].logo : brands.hpe.logo}
             {!logoOnly && (
-              <Box direction="row" gap="xsmall" wrap>
+              <Box direction="row" gap="3xsmall" wrap>
                 {user ? (
                   // user is signed in, display service name
-                  <Box direction="row" gap="xsmall">
+                  <Box direction="row" gap="3xsmall">
                     <Text weight="bold" color="text-strong">
                       {brands[brand].name}
                     </Text>

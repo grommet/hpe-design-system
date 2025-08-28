@@ -58,7 +58,7 @@ export const FilterCheckBoxGroup = ({ attr }) => {
         name={property}
         label={label}
         flex={false}
-        width={{ max: 'medium', min: 'small' }}
+        width={{ max: 'medium', min: 'xsmall' }}
         {...contentProps}
       >
         <CheckBoxGroup

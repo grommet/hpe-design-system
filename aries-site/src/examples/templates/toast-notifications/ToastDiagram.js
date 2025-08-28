@@ -45,12 +45,12 @@ const connections = [
 export const ToastDiagram = () => (
   <Stack>
     <Box gap="medium" pad={{ bottom: 'medium' }}>
-      <Box direction="row" gap="xlarge">
+      <Box direction="row" gap='3xlarge'>
         <Box
           id="1"
           border
           round="full"
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+          pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
         >
           1
         </Box>
@@ -58,7 +58,7 @@ export const ToastDiagram = () => (
           id="2"
           border
           round="full"
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+          pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
         >
           2
         </Box>
@@ -66,7 +66,7 @@ export const ToastDiagram = () => (
           id="3"
           border
           round="full"
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+          pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
         >
           3
         </Box>
@@ -74,7 +74,7 @@ export const ToastDiagram = () => (
           id="4"
           border
           round="full"
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+          pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
         >
           4
         </Box>

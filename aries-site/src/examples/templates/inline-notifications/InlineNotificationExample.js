@@ -58,7 +58,7 @@ export const InlineNotificationExample = ({ containerRef }) => {
           target={containerRef && containerRef.current}
           title="Access token created"
         >
-          <ModalBody gap="small">
+          <ModalBody gap='xsmall'>
             <Paragraph margin="none">
               You successfully created an access token for{' '}
               <TextEmphasis>{credentialName}</TextEmphasis>.
@@ -96,7 +96,7 @@ export const InlineNotificationExample = ({ containerRef }) => {
                   content: copyTip,
                 }}
                 // margin aligns button with form fields bottom margin
-                margin={{ bottom: 'xsmall' }}
+                margin={{ bottom: '3xsmall' }}
               />
             </Box>
           </ModalBody>

@@ -17,7 +17,7 @@ export const ContentArea = ({
   // If the ThemeContext is scaled, as it can be in the mock browser, we do
   // not want the scaled theme to be applied to ContentArea. This resets
   // to scale = 1.
-  <ThemeContext.Extend value={aries}>
+  (<ThemeContext.Extend value={aries}>
     <Box
       background={background}
       border={
@@ -29,7 +29,7 @@ export const ContentArea = ({
       {...rest}
     >
       {icon ? (
-        <Box align="center" gap="small" direction="row">
+        <Box align="center" gap='xsmall' direction="row">
           <Hpe color="brand" />
           <TextEmphasis size="small">{title}</TextEmphasis>
         </Box>
@@ -38,7 +38,7 @@ export const ContentArea = ({
       )}
       {children}
     </Box>
-  </ThemeContext.Extend>
+  </ThemeContext.Extend>)
 );
 
 ContentArea.propTypes = {

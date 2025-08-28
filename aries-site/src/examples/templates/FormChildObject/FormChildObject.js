@@ -60,7 +60,7 @@ export const FormChildObject = ({
         />
       </Button>
       <Collapsible open={open}>
-        <Box pad="small">{children}</Box>
+        <Box pad='xsmall'>{children}</Box>
         <Box pad={{ bottom: 'medium' }}>
           {onRemove && (
             <Button
