@@ -4,8 +4,8 @@ import { Close } from 'grommet-icons';
 import { TextEmphasis } from 'aries-core';
 
 export const TipExitExample = () => (
-  <Box gap="small" direction="row" align="start">
-    <Box width="small">
+  <Box gap='xsmall' direction="row" align="start">
+    <Box width='xsmall'>
       <TextEmphasis size="large">Add service</TextEmphasis>
       <Paragraph margin="none">
         Visit the HPE catalog to start adding all of your favorite services.

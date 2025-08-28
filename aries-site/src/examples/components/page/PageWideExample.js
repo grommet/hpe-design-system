@@ -23,8 +23,8 @@ import { TextEmphasis } from 'aries-core';
 import { demoStyle } from './demoStyle';
 
 export const PageWideExample = () => (
-  <Page flex="grow" pad={{ vertical: 'large' }} {...demoStyle}>
-    <PageContent gap="large" {...demoStyle}>
+  <Page flex="grow" pad={{ vertical: 'xlarge' }} {...demoStyle}>
+    <PageContent gap='xlarge' {...demoStyle}>
       <PageHeader title="Wide page" />
       <SummaryMetrics />
       <Section1 />
@@ -34,7 +34,7 @@ export const PageWideExample = () => (
 );
 
 const SummaryMetrics = () => (
-  <Grid columns={{ count: 'fill', size: 'medium' }} rows="xsmall" gap="small">
+  <Grid columns={{ count: 'fill', size: 'medium' }} rows='3xsmall' gap='xsmall'>
     {new Array(3).fill({}).map((_, index) => (
       <Card key={index} />
     ))}
@@ -77,7 +77,7 @@ const Section1 = () => {
                   label: 'Item',
                   description: 'Description',
                 })}
-                pad={{ vertical: 'small' }}
+                pad={{ vertical: 'xsmall' }}
                 action={(item, index) => (
                   <Box key={index} direction="row" align="center" gap="medium">
                     <TextEmphasis

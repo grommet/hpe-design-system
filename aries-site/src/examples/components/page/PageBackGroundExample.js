@@ -99,7 +99,7 @@ export const PageBackGroundExample = () => (
 const Hero = () => (
   <Box height={{ min: 'medium' }}>
     <Grid
-      columns={['flex', 'large']}
+      columns={['flex', 'xlarge']}
       rows={['auto', 'auto']}
       areas={[
         ['empty', 'heading'],
@@ -110,7 +110,7 @@ const Hero = () => (
         gridArea="heading"
         level={1}
         size="large"
-        margin={{ top: 'large', bottom: 'medium' }}
+        margin={{ top: 'xlarge', bottom: 'medium' }}
       >
         Building better, together, with Design Thinking.
       </Heading>
@@ -123,7 +123,7 @@ const Hero = () => (
         <Paragraph
           gridArea="introduction"
           size="xlarge"
-          margin={{ bottom: 'large', top: 'none' }}
+          margin={{ bottom: 'xlarge', top: 'none' }}
         >
           Explore how Design Thinking fosters empathy, creativity, and
           ultimately better products and services.
@@ -134,7 +134,7 @@ const Hero = () => (
 );
 
 const Empathize = () => (
-  <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
+  <Box height={{ min: 'medium' }} pad={{ vertical: '3xlarge' }}>
     <Grid columns={['1/2', '1/2']}>
       <Box>
         <Heading level={2} size="large" margin="none">
@@ -171,7 +171,7 @@ const Define = () => {
   const theme = useContext(ThemeContext);
 
   return (
-    <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
+    <Box height={{ min: 'medium' }} pad={{ vertical: '3xlarge' }}>
       <Grid columns={['1/2', '1/2']}>
         <Box height="medium">
           <Image
@@ -209,7 +209,7 @@ const Ideate = () => {
   const theme = useContext(ThemeContext);
 
   return (
-    <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
+    <Box height={{ min: 'medium' }} pad={{ vertical: '3xlarge' }}>
       <Grid columns={['1/2', '1/2']}>
         <Box>
           <Heading level={2} size="large" margin="none">
@@ -246,9 +246,9 @@ const Ideate = () => {
 const Prototype = () => {
   const theme = useContext(ThemeContext);
   return (
-    <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
+    <Box height={{ min: 'medium' }} pad={{ vertical: '3xlarge' }}>
       <Grid columns={['1/2', '1/2']}>
-        <Box height="medium" pad={{ horizontal: 'large' }}>
+        <Box height="medium" pad={{ horizontal: 'xlarge' }}>
           <Image
             src={
               theme.dark
@@ -280,7 +280,7 @@ const Prototype = () => {
 };
 
 const Test = () => (
-  <Box height={{ min: 'medium' }} pad={{ vertical: 'xlarge' }}>
+  <Box height={{ min: 'medium' }} pad={{ vertical: '3xlarge' }}>
     <Grid columns={['1/2', '1/2']}>
       <Box>
         <Heading level={2} size="large" margin={{ bottom: 'none' }}>
@@ -314,8 +314,8 @@ const Test = () => (
 const CallToAction = () => (
   <Box
     alignSelf="center"
-    height={{ min: 'large' }}
-    pad={{ vertical: 'xlarge' }}
+    height={{ min: 'xlarge' }}
+    pad={{ vertical: '3xlarge' }}
   >
     <Heading level={2} size="large" margin="none">
       Get started with Design Thinking today

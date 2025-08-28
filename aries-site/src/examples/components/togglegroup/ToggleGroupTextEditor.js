@@ -21,7 +21,7 @@ const options = [
 ];
 
 export const ToggleGroupTextEditor = () => (
-  <Box pad="large">
+  <Box pad='xlarge'>
     <ToggleGroup a11yTitle="Format text" options={options} multiple />
   </Box>
 );

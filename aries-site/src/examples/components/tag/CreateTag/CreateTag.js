@@ -89,7 +89,7 @@ export const CreateTag = () => {
               ? [['auto', 'medium'], ['auto', 'medium'], 'auto']
               : '100%'
           }
-          gap={{ column: 'medium', row: 'small' }}
+          gap={{ column: 'medium', row: 'xsmall' }}
         >
           <FormField
             label="Name"
@@ -203,7 +203,7 @@ export const CreateTag = () => {
       </Form>
       <TagResults>
         {currentTags.length === 0 ? (
-          <Text margin="xsmall">No tags have been assigned.</Text>
+          <Text margin='3xsmall'>No tags have been assigned.</Text>
         ) : (
           currentTags.map((t, index) => (
             <Tag
@@ -211,7 +211,7 @@ export const CreateTag = () => {
               alignSelf="start"
               name={t.name}
               value={t.value}
-              margin="xsmall"
+              margin='3xsmall'
               onRemove={() => {
                 setCurrentTags(
                   currentTags.filter(

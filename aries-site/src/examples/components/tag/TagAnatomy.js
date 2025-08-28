@@ -46,8 +46,8 @@ const connections = [
 
 export const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['xsmall', 'small', 'xsmall']}
-    gap={{ column: 'small', row: 'medium' }}
+    columns={['3xsmall', 'xsmall', '3xsmall']}
+    gap={{ column: 'xsmall', row: 'medium' }}
     justify="center"
     {...rest}
   />
@@ -121,8 +121,8 @@ export const TagAnatomy = () => {
         <Box
           margin={{
             left: `${
-              parseInt(theme.global.edgeSize.large, 10) -
-              parseInt(theme.global.edgeSize.xsmall, 10)
+              parseInt(theme.global.edgeSize.xlarge, 10) -
+              parseInt(theme.global.edgeSize['3xsmall'], 10)
             }px`,
           }}
         >

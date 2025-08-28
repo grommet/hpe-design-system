@@ -57,7 +57,7 @@ const data = [
 
 export const TopLevelPageHeaderExample = () => (
   <Page>
-    <Box align="center" pad="small" background="background-front" flex={false}>
+    <Box align="center" pad='xsmall' background="background-front" flex={false}>
       <TextEmphasis>Global Header</TextEmphasis>
     </Box>
     <PageContent>
@@ -75,7 +75,7 @@ export const TopLevelPageHeaderExample = () => (
             // eslint-disable-next-line no-alert
             onClick={() => alert('This should navigate to the child page.')}
           >
-            <CardHeader align="start" direction="column" gap="xsmall">
+            <CardHeader align="start" direction="column" gap='3xsmall'>
               {datum.icon}
               <Heading level={2} margin="none">
                 {datum.title}

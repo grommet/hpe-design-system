@@ -54,9 +54,9 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['24px', 'small', 'medium', '300px']}
+    columns={['24px', 'xsmall', 'medium', '300px']}
     justify="center"
-    gap={{ column: 'none', row: 'small' }}
+    gap={{ column: 'none', row: 'xsmall' }}
     {...rest}
   />
 );
@@ -88,14 +88,14 @@ export const PaginationAnatomy = () => (
           id="border"
           border={{ side: 'top' }}
           width="12px"
-          pad={{ vertical: 'xsmall' }}
+          pad={{ vertical: '3xsmall' }}
         />
         <Box
           fill
           border={{ side: 'top' }}
           id="summary"
           justify="center"
-          pad={{ vertical: 'xsmall' }}
+          pad={{ vertical: '3xsmall' }}
         >
           <Text>Showing 1-20 of 100 items</Text>
         </Box>
@@ -103,16 +103,16 @@ export const PaginationAnatomy = () => (
           border={{ side: 'top' }}
           id="step"
           direction="row"
-          gap="xsmall"
+          gap='3xsmall'
           fill
           justify="end"
           align="center"
-          pad={{ vertical: 'xsmall' }}
+          pad={{ vertical: '3xsmall' }}
         >
           <Text>Items per page</Text>
           <Select
             value="10"
-            width="xxsmall"
+            width='5xsmall'
             options={['5', '10', '15']}
             tabIndex={-1}
           />
@@ -121,7 +121,7 @@ export const PaginationAnatomy = () => (
           align="end"
           fill
           border={{ side: 'top' }}
-          pad={{ vertical: 'xsmall' }}
+          pad={{ vertical: '3xsmall' }}
         >
           <Pagination id="pagination" numberItems={5} step={1} />
         </Box>

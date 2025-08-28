@@ -6,7 +6,7 @@ import { ContentPane } from '../../../layouts';
 
 export const ChildPageHeaderExample = () => (
   <Page>
-    <Box align="center" pad="small" background="background-front" flex={false}>
+    <Box align="center" pad='xsmall' background="background-front" flex={false}>
       <TextEmphasis>Global Header</TextEmphasis>
     </Box>
     <PageContent>

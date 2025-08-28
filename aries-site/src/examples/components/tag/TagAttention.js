@@ -10,7 +10,7 @@ export const TagAttention = () => {
           <Tag
             border={{ color: 'blue' }}
             value="New"
-            margin={{ bottom: 'xsmall' }}
+            margin={{ bottom: '3xsmall' }}
           />
         }
         title="Compute Ops Management"
