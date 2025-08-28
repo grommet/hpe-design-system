@@ -8,7 +8,7 @@ export const DateInputSimpleExample = () => {
     setValue(nextValue);
   };
   return (
-    <Box align="center" pad="large">
+    <Box align="center" pad='xlarge'>
       <DateInput
         aria-label="dateinput"
         name="dateinput"

@@ -101,7 +101,7 @@ export const DataTableSingleSelectExample = () => {
           />
         }
       />
-      <Box gap="small">
+      <Box gap='xsmall'>
         <Heading level={2} margin="none">
           Details
         </Heading>

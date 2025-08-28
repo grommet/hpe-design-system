@@ -65,14 +65,14 @@ const LayerContent = ({ informational, ...rest }) => (
     />
     <Box
       border={{ style: 'dashed' }}
-      height="small"
+      height='xsmall'
       align="center"
       justify="center"
     >
       Layer body content goes here.
     </Box>
     {!informational ? (
-      <Box direction="row" gap="small" justify="end" flex={false}>
+      <Box direction="row" gap='xsmall' justify="end" flex={false}>
         <Button label="Cancel" />
         <Button label="Confirm action" primary id="layer-actions" />
       </Box>

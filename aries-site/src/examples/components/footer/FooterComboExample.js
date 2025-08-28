@@ -25,7 +25,7 @@ export const FooterComboExample = () => {
         <Box
           direction={!['xsmall', 'small'].includes(size) ? 'row' : 'column'}
           align={!['xsmall', 'small'].includes(size) ? 'center' : undefined}
-          gap="xsmall"
+          gap='3xsmall'
         >
           <Text size="small">
             &copy; {year} Hewlett Packard Enterprise Development LP
@@ -34,7 +34,7 @@ export const FooterComboExample = () => {
         <Box
           direction="row"
           align={!['xsmall', 'small'].includes(size) ? 'center' : undefined}
-          gap="xsmall"
+          gap='3xsmall'
           wrap
         >
           {footerLinks.map(link => (

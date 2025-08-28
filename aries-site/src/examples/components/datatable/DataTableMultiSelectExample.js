@@ -234,7 +234,7 @@ export const DataTableMultiSelectExample = () => {
       </Heading>
       <Box>
         <TableControls selected={selected} />
-        <Box height={{ max: 'large' }} overflow="auto">
+        <Box height={{ max: 'xlarge' }} overflow="auto">
           <DataTable
             aria-describedby="orders-heading"
             data={data}
@@ -275,7 +275,7 @@ const TableControls = ({ selected }) => {
       direction="row"
       fill="horizontal"
       justify="between"
-      pad={{ vertical: 'small' }}
+      pad={{ vertical: 'xsmall' }}
       flex={false}
     >
       <Box justify="center">

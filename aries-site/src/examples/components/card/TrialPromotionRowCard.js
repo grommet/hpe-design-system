@@ -20,7 +20,7 @@ export const TrialPromotionRowCard = () => (
       />
     }
     onClick={() => {}}
-    width="large"
+    width='xlarge'
     direction="row"
   />
 );
