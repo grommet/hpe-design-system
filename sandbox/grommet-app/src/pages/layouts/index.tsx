@@ -40,12 +40,12 @@ const Layouts = () => {
 
 const LayoutsIndex = () => {
   return (
-    <Page pad={{ bottom: 'xlarge' }}>
+    <Page pad={{ bottom: '3xlarge' }}>
       <PageContent>
         <PageHeader title="Layouts" />
         <List
           data={layouts}
-          defaultItemProps={{ pad: { vertical: 'xxsmall' } }}
+          defaultItemProps={{ pad: { vertical: '5xsmall' } }}
         >
           {item => (
             <RoutedAnchor

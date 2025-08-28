@@ -8,10 +8,10 @@ import { MoreVertical } from 'grommet-icons';
 export const AcccessPoints = () => {
   const skeleton = useContext(SkeletonContext);
   return skeleton ? (
-    <Skeleton height="small" />
+    <Skeleton height="xsmall" />
   ) : (
     <Box align="center" gap="medium">
-      <Box direction="row" justify="between" gap="small" fill="horizontal">
+      <Box direction="row" justify="between" gap="xsmall" fill="horizontal">
         <Text>Denver Access Points, last 24 hours</Text>
         <Menu icon={<MoreVertical />} items={[]} />
       </Box>

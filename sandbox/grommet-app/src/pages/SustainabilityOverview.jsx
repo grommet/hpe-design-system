@@ -29,7 +29,7 @@ export const SustainabilityOverview = () => {
               size="small"
             />
             {skeleton ? (
-              <Skeleton height="xxsmall" />
+              <Skeleton height="5xsmall" />
             ) : (
               <DataChart
                 data={sustainability.sustainability.slice(0, 10)}
@@ -53,7 +53,7 @@ export const SustainabilityOverview = () => {
                   x: false,
                   y: false,
                 }}
-                size={{ height: 'xxsmall' }}
+                size={{ height: '5xsmall' }}
               />
             )}
           </>
@@ -65,7 +65,7 @@ export const SustainabilityOverview = () => {
               size="small"
             />
             {skeleton ? (
-              <Skeleton height="xxsmall" />
+              <Skeleton height="5xsmall" />
             ) : (
               <DataChart
                 data={sustainability.sustainability.slice(0, 10)}
@@ -89,14 +89,14 @@ export const SustainabilityOverview = () => {
                   x: false,
                   y: false,
                 }}
-                size={{ height: 'xxsmall' }}
+                size={{ height: '5xsmall' }}
               />
             )}
           </>
           <>
             <Metric label="Energy cost" unit="USD" value={48750} size="small" />
             {skeleton ? (
-              <Skeleton height="xxsmall" />
+              <Skeleton height="5xsmall" />
             ) : (
               <DataChart
                 data={sustainability.sustainability.slice(0, 10)}
@@ -120,7 +120,7 @@ export const SustainabilityOverview = () => {
                   x: false,
                   y: false,
                 }}
-                size={{ height: 'xxsmall' }}
+                size={{ height: '5xsmall' }}
               />
             )}
           </>

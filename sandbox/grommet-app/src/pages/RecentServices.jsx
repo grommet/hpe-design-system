@@ -33,7 +33,7 @@ export const RecentServices = ({ compact }) => {
           alignSelf="stretch"
         >
           {datum => (
-            <Box gap="xsmall">
+            <Box gap="3xsmall">
               <Box>
                 <Text weight={500} color="text-strong">
                   {datum.name}
@@ -50,7 +50,7 @@ export const RecentServices = ({ compact }) => {
   let content;
   if (cards)
     content = (
-      <Grid columns="small" gap="medium">
+      <Grid columns="xsmall" gap="medium">
         {recentServices.map(service => (
           <Card
             key={service.name}
@@ -76,7 +76,7 @@ export const RecentServices = ({ compact }) => {
           <Grid
             columns={['flex', 'flex', 'flex', 'auto']}
             align={skeleton ? 'start' : 'center'}
-            gap="small"
+            gap="xsmall"
           >
             <Box>
               <Text weight={500} color="text-strong">
@@ -97,7 +97,7 @@ export const RecentServices = ({ compact }) => {
               </Text>
             </Box>
             {skeleton ? (
-              <Skeleton fill="vertical" width="xsmall" />
+              <Skeleton fill="vertical" width="3xsmall" />
             ) : (
               <Link to={datum.href}>
                 <Button
@@ -117,7 +117,7 @@ export const RecentServices = ({ compact }) => {
       heading="Recent services"
       level={2}
       actions={
-        <Box direction="row" gap="small" align="center">
+        <Box direction="row" gap="xsmall" align="center">
           <Button
             icon={cards ? <ListIcon /> : <Apps />}
             onClick={() => setCards(!cards)}

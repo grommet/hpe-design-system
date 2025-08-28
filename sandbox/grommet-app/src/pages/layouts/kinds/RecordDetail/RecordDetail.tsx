@@ -23,8 +23,10 @@ import { ScheduledJobs } from './ScheduledJobs';
 export const RecordDetail: React.FC = () => {
   const [scheduledJobs, setScheduledJobs] = React.useState<boolean>(false);
   const breakpoint = useContext(ResponsiveContext);
-  const columns = (scheduledJobs || ['xsmall', 'small'].includes(breakpoint)) ?
-    ['flex', 'auto'] : ['flex', 'medium'];
+  const columns =
+    scheduledJobs || ['xsmall', 'small'].includes(breakpoint)
+      ? ['flex', 'auto']
+      : ['flex', 'medium'];
   const rows = ['auto'];
   const gap = {
     xsmall: 'small',
@@ -50,7 +52,9 @@ export const RecordDetail: React.FC = () => {
     ['context-pane', 'unassigned'],
   ];
 
-  const areas = ['xsmall', 'small'].includes(breakpoint) ? areasSmall : areasDefault;
+  const areas = ['xsmall', 'small'].includes(breakpoint)
+    ? areasSmall
+    : areasDefault;
 
   return (
     <Page pad={{ bottom: 'xlarge' }} flex="grow">
@@ -58,18 +62,29 @@ export const RecordDetail: React.FC = () => {
         <PageHeader
           title="Server group name"
           subtitle="2 servers"
-          parent={<RoutedAnchor as={Link} to="/layouts" label="Layouts" icon={<Previous />} />}
+          parent={
+            <RoutedAnchor
+              as={Link}
+              to="/layouts"
+              label="Layouts"
+              icon={<Previous />}
+            />
+          }
         />
         <Grid areas={areas} columns={columns} rows={rows} gap={gap[breakpoint]}>
           <Box gridArea="notification">
             <Notification
               status="info"
               message="1 job is scheduled."
-              actions={[{
-                label: 'View',
-                href: '#',
-                onClick: () => { setScheduledJobs(true) },
-              }]}
+              actions={[
+                {
+                  label: 'View',
+                  href: '#',
+                  onClick: () => {
+                    setScheduledJobs(true);
+                  },
+                },
+              ]}
             />
           </Box>
           <ContentPane
@@ -100,17 +115,18 @@ export const RecordDetail: React.FC = () => {
           >
             <ILOSecurity />
           </ContentPane>
-          <Box gridArea='context-pane' gap="medium">
-            {scheduledJobs &&
+          <Box gridArea="context-pane" gap="medium">
+            {scheduledJobs && (
               <Jobs
                 layer={['xsmall', 'small', 'medium'].includes(breakpoint)}
                 onClose={() => setScheduledJobs(false)}
-                animation={['xsmall', 'small', 'medium'].includes(breakpoint) ?
-                  false :
-                  ["slideLeft", "fadeIn"]
+                animation={
+                  ['xsmall', 'small', 'medium'].includes(breakpoint)
+                    ? false
+                    : ['slideLeft', 'fadeIn']
                 }
               />
-            }
+            )}
             <ContentPane
               heading="Recent activity"
               level={2}
@@ -124,7 +140,7 @@ export const RecordDetail: React.FC = () => {
       </PageContent>
     </Page>
   );
-}
+};
 
 const Jobs = ({ animation, layer, onClose, ...rest }) => {
   const content = (
@@ -156,4 +172,4 @@ const Jobs = ({ animation, layer, onClose, ...rest }) => {
   }
 
   return content;
-}
+};

@@ -1,6 +1,6 @@
-import React from "react";
-import { Box, Tab, Tabs } from "grommet";
-import { Capacity } from "./Capacity";
+import React from 'react';
+import { Box, Tab, Tabs } from 'grommet';
+import { Capacity } from './Capacity';
 
 export const DetailPane = ({ ...rest }) => {
   const [activeIndex, setActiveIndex] = React.useState(1);
@@ -14,7 +14,7 @@ export const DetailPane = ({ ...rest }) => {
       >
         <Tab title="Issues">Issues</Tab>
         <Tab title="Capacity">
-          <Box pad={{ top: "medium" }}>
+          <Box pad={{ top: 'medium' }}>
             <Capacity />
           </Box>
         </Tab>

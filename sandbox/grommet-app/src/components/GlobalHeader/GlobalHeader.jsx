@@ -62,10 +62,10 @@ export const GlobalHeader = ({
               : 'background-front'
           }
           elevation={activeTheme !== 'v0' ? 'none' : 'small'}
-          pad={{ horizontal: 'xsmall', vertical: 'small' }}
+          pad={{ horizontal: '3xsmall', vertical: 'xsmall' }}
         >
           <Box direction="row" gap="medium" flex>
-            <Box direction="row" gap="xsmall">
+            <Box direction="row" gap="3xsmall">
               <Button icon={<Menu />} />
               <Box border={{ side: 'left', color: 'border-weak' }} />
             </Box>
@@ -88,7 +88,7 @@ export const GlobalHeader = ({
               </Box>
             ) : undefined}
           </Box>
-          <Box direction="row" gap="xsmall">
+          <Box direction="row" gap="3xsmall">
             <Button icon={<HelpOption />} />
             <Button icon={<Catalog />} />
             <Button icon={<Notification />} />

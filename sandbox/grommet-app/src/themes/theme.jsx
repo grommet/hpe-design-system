@@ -23,6 +23,7 @@ import {
 // import { hpe } from 'grommet-theme-hpe';
 import { hpe as hpeV5 } from 'grommet-theme-hpe-v5';
 import { hpe as hpeV6 } from 'grommet-theme-hpe-v6';
+import { hpe } from 'grommet-theme-hpe';
 
 // // TO DO should these be added as tokens?
 const backgrounds = {
@@ -3288,25 +3289,25 @@ const buildTheme = (tokens, flags) => {
   });
 };
 
-export const current = buildTheme(
-  {
-    primitives: localPrimitives,
-    light: localLight,
-    dark: localDark,
-    small: localSmall,
-    large: localDimension,
-    global: localGlobal,
-    components: localComponents,
-  },
-  {
-    // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
-    // with old t-shirt sizes
-    'v6-backwards-compatibility': false,
-  },
-);
+// export const current = buildTheme(
+//   {
+//     primitives: localPrimitives,
+//     light: localLight,
+//     dark: localDark,
+//     small: localSmall,
+//     large: localDimension,
+//     global: localGlobal,
+//     components: localComponents,
+//   },
+//   {
+//     // For grommet-theme-hpe v6.0.0, maintain backwards compatibility
+//     // with old t-shirt sizes
+//     'v6-backwards-compatibility': false,
+//   },
+// );
 
 // Deep merge to allow for local testing overrides
-// export const current = deepMerge(hpe, {});
+export const current = deepMerge(hpe, {});
 
 // need to extend hpe with new token namespace to "fill gaps" for sake of demo
 // when toggling between themes

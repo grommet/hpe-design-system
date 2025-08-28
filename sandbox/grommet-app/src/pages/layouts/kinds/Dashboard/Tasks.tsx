@@ -9,7 +9,7 @@ export const Tasks = () => (
     onClick={() => {}}
   >
     <CardBody direction="row" gap="medium" justify="between" align="center">
-      <Box gap="xsmall">
+      <Box gap="3xsmall">
         <Heading level={2} margin="none" size="small">
           Tasks (1 of 3)
         </Heading>

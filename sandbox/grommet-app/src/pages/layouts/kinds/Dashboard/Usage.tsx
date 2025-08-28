@@ -4,7 +4,7 @@ import { Legend } from '../../../../components';
 
 export const Usage = () => (
   <Card onClick={() => {}}>
-    <CardBody gap="small">
+    <CardBody gap="xsmall">
       <Box direction="row" justify="between">
         <Heading level={2} margin="none">
           Usage
@@ -27,7 +27,7 @@ export const Usage = () => (
           max={100}
         />
       </Box>
-      <Grid columns={['flex', 'flex']} gap="xsmall">
+      <Grid columns={['flex', 'flex']} gap="3xsmall">
         <Legend color="graph-0" label="MySQL" />
         <Legend color="graph-1" label="VMware" />
         <Legend color="graph-2" label="NAS" />

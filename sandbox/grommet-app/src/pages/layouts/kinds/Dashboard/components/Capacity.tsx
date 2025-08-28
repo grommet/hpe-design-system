@@ -21,7 +21,7 @@ export const Capacity = () => (
             color: 'background-contrast',
           },
         ]}
-        size="xsmall"
+        size="3xsmall"
       />
       <Box>
         <Heading level={2} margin="none" size="xsmall" weight={400}>
@@ -32,16 +32,16 @@ export const Capacity = () => (
         </Text>
       </Box>
     </CardBody>
-    <CardFooter pad={{ top: 'none', horizontal: 'medium', bottom: 'small' }}>
+    <CardFooter pad={{ top: 'none', horizontal: 'medium', bottom: 'xsmall' }}>
       <Box
         border={{ side: 'top', color: 'border-weak' }}
-        pad={{ top: 'small' }}
+        pad={{ top: 'xsmall' }}
         fill="horizontal"
         direction="row"
-        gap="xsmall"
+        gap="3xsmall"
         align="center"
       >
-        <Box round background="graph-1" pad="xsmall" flex={false} />
+        <Box round background="graph-1" pad="3xsmall" flex={false} />
         <Text>Projected usage by month close (+34%)</Text>
       </Box>
     </CardFooter>

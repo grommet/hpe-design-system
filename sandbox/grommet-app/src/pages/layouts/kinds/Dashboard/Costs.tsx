@@ -5,7 +5,7 @@ import sustainability from '../../../../mockData/sustainability.json';
 export const Costs = () => (
   <Card onClick={() => {}}>
     <CardBody direction="row" gap="medium" justify="between" align="center">
-      <Box gap="xsmall">
+      <Box gap="3xsmall">
         <Heading level={2} margin="none" size="small">
           Costs
         </Heading>
@@ -19,7 +19,7 @@ export const Costs = () => (
           Month-to-date costs
         </Text>
       </Box>
-      <Box width="small">
+      <Box width="xsmall">
         <DataChart
           data={sustainability.sustainability.slice(0, 10)}
           series={['date', 'emissions']}
@@ -36,7 +36,7 @@ export const Costs = () => (
             x: false,
             y: false,
           }}
-          size={{ height: 'xxsmall' }}
+          size={{ height: '5xsmall' }}
         />
       </Box>
     </CardBody>

@@ -19,14 +19,16 @@ export const MenuItem: React.FC<MenuItemProps> = ({
     <Button
       key={item.key}
       label={
-        <Box direction="row" justify="between" width={{ min: "small" }}>
+        <Box direction="row" justify="between" width={{ min: 'small' }}>
           <Text>{item.label}</Text>
           <Text>{item.count}</Text>
         </Box>
       }
-      onClick={() => { onSelect(item) }}
+      onClick={() => {
+        onSelect(item);
+      }}
       active={selected.key === item.key}
       {...rest}
     />
   );
-}
+};

@@ -16,4 +16,4 @@ export const PropertiesRelated = ({ ...rest }) => {
       {...rest}
     />
   );
-}
+};

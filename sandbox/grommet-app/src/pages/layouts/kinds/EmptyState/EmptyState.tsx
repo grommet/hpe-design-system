@@ -20,16 +20,22 @@ import { DataTableActions } from './DataTableActions';
 import { tableColumns } from './tableColumns';
 import bareMetal from '../../../../mockData/bareMetal.json';
 
-
 const EmptyStatePage = ({ ...rest }) => {
-  const data = bareMetal["Las Vegas"];
+  const data = bareMetal['Las Vegas'];
 
   return (
-    <Page pad={{ bottom: "xlarge" }} {...rest}>
+    <Page pad={{ bottom: '3xlarge' }} {...rest}>
       <PageContent>
         <PageHeader
           title="Bare Metal"
-          parent={<RoutedAnchor as={Link} label="Layouts" to="/layouts" icon={<Previous />} />}
+          parent={
+            <RoutedAnchor
+              as={Link}
+              label="Layouts"
+              to="/layouts"
+              icon={<Previous />}
+            />
+          }
         />
         <ContentPane
           heading="Las Vegas"
@@ -48,16 +54,18 @@ const EmptyStatePage = ({ ...rest }) => {
             <DataSummary />
             <DataTable
               columns={tableColumns}
-              onSelect={() => { }}
-              placeholder={data.length === 0 &&
-                <Box pad="xlarge">
-                  <EmptyState
-                    title="No Bare Metal instances"
-                    level={3}
-                    actions={<Button label="Add an instance" primary />}
-                    icon={<DriveCage size="xxlarge" />}
-                  />
-                </Box>
+              onSelect={() => {}}
+              placeholder={
+                data.length === 0 && (
+                  <Box pad="3xlarge">
+                    <EmptyState
+                      title="No Bare Metal instances"
+                      level={3}
+                      actions={<Button label="Add an instance" primary />}
+                      icon={<DriveCage size="xxlarge" />}
+                    />
+                  </Box>
+                )
               }
             />
           </Data>
@@ -65,6 +73,6 @@ const EmptyStatePage = ({ ...rest }) => {
       </PageContent>
     </Page>
   );
-}
+};
 
 export { EmptyStatePage as EmptyState };

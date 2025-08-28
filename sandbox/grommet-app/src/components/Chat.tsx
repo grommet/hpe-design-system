@@ -17,8 +17,8 @@ const UserMessage = ({ message }) => (
     flex={false}
     alignSelf="end"
     background="background-front"
-    round="small"
-    pad="small"
+    round="medium"
+    pad="xsmall"
   >
     <Text>{message}</Text>
   </Box>
@@ -31,13 +31,13 @@ const ResponseMessage = ({ message }) => (
 );
 
 const Solution = ({ title, description, count = 1 }) => (
-  <Box gap="xsmall" flex={false}>
+  <Box gap="3xsmall" flex={false}>
     <Text size="xsmall">Solution {count}</Text>
     <Box
       alignSelf="start"
       background="background-info"
-      round="small"
-      pad="small"
+      round="medium"
+      pad="xsmall"
     >
       <Text weight={500} color="text-strong" size="small">
         {title}
@@ -52,9 +52,9 @@ const AgentWorking = () => (
     alignSelf="start"
     align="center"
     direction="row"
-    gap="small"
+    gap="xsmall"
     round
-    pad={{ vertical: 'small', horizontal: 'medium' }}
+    pad={{ vertical: 'xsmall', horizontal: 'medium' }}
     background="background-info"
     flex={false}
   >
@@ -85,10 +85,10 @@ export const Chat = () => {
       <Box
         direction="row"
         justify="between"
-        pad={{ start: 'medium', vertical: 'small', end: 'xsmall' }}
+        pad={{ start: 'medium', vertical: 'xsmall', end: '3xsmall' }}
         // flex={false}
       >
-        <Box direction="row" align="center" gap="small">
+        <Box direction="row" align="center" gap="xsmall">
           <GenAIFill />
           <Text size="large" weight={500} color="text-strong">
             GreenLake Intelligence
@@ -103,7 +103,7 @@ export const Chat = () => {
       <Box
         ref={scrollRef}
         overflow="auto"
-        pad={{ horizontal: 'small' }}
+        pad={{ horizontal: 'xsmall' }}
         gap="medium"
         flex
       >
@@ -122,11 +122,11 @@ export const Chat = () => {
         <AgentWorking />
       </Box>
       {/* footer */}
-      <Box flex={false} pad="small">
+      <Box flex={false} pad="xsmall">
         <Box
           background="background-front"
-          round="small"
-          pad="xsmall"
+          round="medium"
+          pad="3xsmall"
           elevation="small"
         >
           <TextArea

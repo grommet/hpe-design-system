@@ -21,12 +21,12 @@ export const MonthlyCharges = () => {
       }
     >
       {skeleton ? (
-        <Skeleton height="small" />
+        <Skeleton height="xsmall" />
       ) : (
         <>
           <DataChart
             data={expenses.expenses}
-            pad={{ horizontal: 'large' }}
+            pad={{ horizontal: 'xlarge' }}
             series={[
               {
                 property: 'date',

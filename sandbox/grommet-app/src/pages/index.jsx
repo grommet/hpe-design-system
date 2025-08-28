@@ -31,7 +31,7 @@ function Home() {
   const insightsLoading = useLoading(2000);
   const sidePanelLoading = useLoading(250);
   return (
-    <Page pad={{ top: 'large', bottom: 'xlarge' }}>
+    <Page pad={{ top: 'xlarge', bottom: '3xlarge' }}>
       <PageContent gap="medium" responsive="container">
         <ResponsiveContext.Consumer>
           {size => (
@@ -41,7 +41,7 @@ function Home() {
                   ? ['flex', 'medium']
                   : ['auto']
               }
-              gap="large"
+              gap="xlarge"
             >
               <Box gap="medium">
                 <PageHeader
@@ -51,7 +51,7 @@ function Home() {
                   }
                   pad="none"
                 />
-                <Box gap="large" animation="fadeIn">
+                <Box gap="xlarge" animation="fadeIn">
                   <Box
                     skeleton={getStartedLoading ? skeletonAnimation : undefined}
                   >
@@ -111,11 +111,11 @@ function Home() {
                   </Box>
                 </Box>
               </Box>
-              <ContentPane alignSelf="start" pad="large" animation="fadeIn">
+              <ContentPane alignSelf="start" pad="xlarge" animation="fadeIn">
                 <SkeletonContext.Provider
                   value={sidePanelLoading ? skeletonAnimation : undefined}
                 >
-                  <Box gap="large">
+                  <Box gap="xlarge">
                     <QuickActions icons />
                     <Divider />
                     <Recommended inline />

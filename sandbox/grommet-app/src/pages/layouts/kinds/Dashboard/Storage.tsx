@@ -4,17 +4,17 @@ import { GenAIFill } from 'grommet-icons';
 
 export const Storage = () => (
   <Card onClick={() => {}}>
-    <CardBody direction="row" gap="small">
+    <CardBody direction="row" gap="xsmall">
       <Box
         alignSelf="start"
-        round="small"
-        pad="small"
+        round="medium"
+        pad="xsmall"
         background="background-contrast"
         flex={false}
       >
         <GenAIFill />
       </Box>
-      <Box gap="xsmall">
+      <Box gap="3xsmall">
         <Heading level={2} margin="none" size="small">
           Storage
         </Heading>

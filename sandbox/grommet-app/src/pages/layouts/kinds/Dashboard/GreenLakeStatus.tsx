@@ -5,11 +5,11 @@ import { StatusGood } from 'grommet-icons';
 export const GreenLakeStatus = () => (
   <Card background="background-ok" onClick={() => {}}>
     <CardBody direction="row" gap="medium" justify="between" align="center">
-      <Box gap="xsmall">
+      <Box gap="3xsmall">
         <Heading level={2} margin="none" size="small">
           HPE GreenLake status
         </Heading>
-        <Box direction="row" gap="xsmall" align="center">
+        <Box direction="row" gap="3xsmall" align="center">
           <StatusGood color="icon-ok" size="large" />
           <Text size="xlarge" weight={500} color="text-strong">
             Operational

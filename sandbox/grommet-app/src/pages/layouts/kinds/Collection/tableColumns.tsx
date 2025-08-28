@@ -1,4 +1,4 @@
-import { ColumnConfig } from "grommet";
+import { ColumnConfig } from 'grommet';
 
 interface VirtualMachine {
   name: string;

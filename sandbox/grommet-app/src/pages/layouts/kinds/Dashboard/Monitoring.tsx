@@ -5,7 +5,7 @@ import { StatusWarning } from 'grommet-icons';
 export const Monitoring = () => (
   <Card background="background-warning" onClick={() => {}}>
     <CardBody direction="row" gap="medium" justify="between" align="center">
-      <Box gap="xsmall">
+      <Box gap="3xsmall">
         <Heading level={2} margin="none" size="small">
           Monitoring
         </Heading>

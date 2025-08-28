@@ -32,7 +32,7 @@ export const ExpiringSubscriptions = () => {
             new Date(datum.subscription.expiration).getTime() < Date.now();
           return (
             <Box skeleton={skeleton ? { depth: 2 } : undefined}>
-              <Box direction="row" gap="xsmall">
+              <Box direction="row" gap="3xsmall">
                 {!skeleton ? (
                   expired ? (
                     <StatusCriticalSmall

@@ -42,7 +42,7 @@ const CarbonEmissions = () => {
     >
       <Box
         gap="medium"
-        pad={{ top: 'small' }}
+        pad={{ top: 'xsmall' }}
         flex={false}
         width="100%"
         animation={animation}
@@ -87,7 +87,7 @@ const CarbonEmissions = () => {
                 guide={{ y: true }}
               />
             ) : (
-              <Skeleton height="small" />
+              <Skeleton height="xsmall" />
             )}
           </Box>
         </Collapsible>
@@ -158,7 +158,7 @@ const EnergyConsumption = () => {
                 guide={{ y: true }}
               />
             ) : (
-              <Skeleton height="small" />
+              <Skeleton height="xsmall" />
             )}
           </Box>
         </Collapsible>
@@ -233,7 +233,7 @@ const EnergyCost = () => {
                 guide={{ y: true }}
               />
             ) : (
-              <Skeleton height="small" />
+              <Skeleton height="xsmall" />
             )}
           </Box>
         </Collapsible>

@@ -28,7 +28,7 @@ export const Dashboard = () => {
   const { setShowSupporting } = useContext(SupportingContext);
   const breakpoint = useContext(ResponsiveContext);
   return (
-    <Page kind="full" pad={{ bottom: 'large' }}>
+    <Page kind="full" pad={{ bottom: 'xlarge' }}>
       <PageContent>
         <PageHeader
           title="Hub"
@@ -61,7 +61,7 @@ export const Dashboard = () => {
                     gap="medium"
                   >
                     <RecentServices compact={true} />
-                    <Grid gap="small">
+                    <Grid gap="xsmall">
                       <Networking />
                       <Storage />
                       <Box align="center">
@@ -81,7 +81,7 @@ export const Dashboard = () => {
                     columns={size === 'xsmall' ? ['auto'] : ['flex', 'flex']}
                     gap="medium"
                   >
-                    <Grid gap="small">
+                    <Grid gap="xsmall">
                       <Capacity />
                       <Usage />
                     </Grid>
@@ -106,7 +106,7 @@ export const Dashboard = () => {
             gap="medium"
           >
             <Notifications />
-            <Box background="background-front" round="small" pad="medium">
+            <Box background="background-front" round="medium" pad="medium">
               Locations
             </Box>
           </Grid>

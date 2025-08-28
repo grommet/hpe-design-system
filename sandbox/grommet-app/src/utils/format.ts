@@ -3,4 +3,4 @@ export const sentenceCase = (str: string | number) => {
   if (typeof adjustedStr === 'number') adjustedStr = adjustedStr.toString();
   adjustedStr = adjustedStr.toLowerCase();
   return adjustedStr.charAt(0).toUpperCase() + adjustedStr.slice(1);
-}
+};

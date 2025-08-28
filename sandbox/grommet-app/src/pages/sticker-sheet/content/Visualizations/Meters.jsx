@@ -26,7 +26,7 @@ export const Meters = () => {
             },
           ]}
           max={100}
-          size="small"
+          size="xsmall"
           thickness="medium"
         />
       </Compare>

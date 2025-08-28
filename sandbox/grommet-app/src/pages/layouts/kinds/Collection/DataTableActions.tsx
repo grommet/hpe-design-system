@@ -7,36 +7,35 @@ export const DataTableActions = ({ responsive, ...rest }) => {
     [
       {
         label: 'Move location',
-        onClick: () => { }
+        onClick: () => {},
       },
     ],
     [
       {
         label: 'Power on',
-        onClick: () => { }
+        onClick: () => {},
       },
       {
         label: 'Power off',
-        onClick: () => { }
+        onClick: () => {},
       },
       {
         label: 'Reboot',
-        onClick: () => { }
+        onClick: () => {},
       },
-    ]
-  ]
+    ],
+  ];
 
-  const label = "Actions";
-
+  const label = 'Actions';
 
   return (
     <Box direction="row" {...rest}>
       <Menu
         label={responsive ? undefined : label}
         items={tableActions}
-        kind='toolbar'
+        kind="toolbar"
         icon={responsive ? <MoreVertical /> : undefined}
       />
     </Box>
   );
-}
+};
