@@ -16,7 +16,7 @@ const Templates = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/templates"
     />
-    <PageContent gap="large">
+    <PageContent gap='xlarge'>
       <PageIntro>
         <Box justify="center" fill>
           <Heading margin="none">{title}</Heading>
@@ -25,7 +25,7 @@ const Templates = () => (
           </Paragraph>
         </Box>
       </PageIntro>
-      <CardGrid cards={cards} pad={{ bottom: 'large' }} headingLevel={2} />
+      <CardGrid cards={cards} pad={{ bottom: 'xlarge' }} headingLevel={2} />
     </PageContent>
   </>
 );
