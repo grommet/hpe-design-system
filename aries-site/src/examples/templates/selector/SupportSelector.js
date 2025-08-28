@@ -63,7 +63,7 @@ export const SupportSelector = () => {
       <PageContent>
         <ContentPane>
           <Box gap="medium">
-            <Box gap="small">
+            <Box gap='xsmall'>
               <Heading margin="none">What can we help you with?</Heading>
               <Text>Choose a product to continue.</Text>
             </Box>
@@ -74,8 +74,8 @@ export const SupportSelector = () => {
               type="search"
               width="medium"
             />
-            <Box gap="large">
-              <Box gap="small">
+            <Box gap='xlarge'>
+              <Box gap='xsmall'>
                 <Text>Services</Text>
                 <SelectorGroup
                   a11yTitle="Select service products"
@@ -90,7 +90,7 @@ export const SupportSelector = () => {
                   ))}
                 </SelectorGroup>
               </Box>
-              <Box gap="small">
+              <Box gap='xsmall'>
                 <Text>Devices</Text>
                 <SelectorGroup
                   multiple

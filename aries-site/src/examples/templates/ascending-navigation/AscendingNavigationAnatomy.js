@@ -43,7 +43,7 @@ const AnatomyGrid = ({ ...rest }) => {
           ? ['medium', 'medium']
           : ['small', 'small']
       }
-      rows={['xxsmall', 'auto']}
+      rows={['5xsmall', 'auto']}
       gap="none"
       justify="center"
       {...rest}

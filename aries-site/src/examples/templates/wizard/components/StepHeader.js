@@ -6,7 +6,7 @@ import { WizardContext } from '.';
 export const StepHeader = ({ summaryId, titleId, descriptionId }) => {
   const { activeIndex, activeStep, id, steps } = useContext(WizardContext);
   return (
-    <Box id={id} gap="xsmall" flex={false}>
+    <Box id={id} gap='3xsmall' flex={false}>
       <Text id={summaryId}>
         Step {activeStep} of {steps.length}
       </Text>

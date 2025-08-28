@@ -47,13 +47,13 @@ const DesignSystemCard = ({
             {avatar && (
               <Avatar
                 flex={false}
-                pad={{ bottom: 'small' }}
+                pad={{ bottom: 'xsmall' }}
                 a11yTitle={`${title} icon`}
-                round="medium"
+                round='xlarge'
                 src={avatar}
               />
             )}
-            {icon && <Box pad={{ bottom: 'small' }}>{icon}</Box>}
+            {icon && <Box pad={{ bottom: 'xsmall' }}>{icon}</Box>}
             {pretitle && <Text size="small">{pretitle}</Text>}
             {title && typeof title === 'string' ? (
               <Heading level={level} margin="none">
@@ -63,7 +63,7 @@ const DesignSystemCard = ({
               title
             )}
             {subtitle && (
-              <Box pad={{ bottom: 'xsmall' }}>
+              <Box pad={{ bottom: '3xsmall' }}>
                 <Text size="small">{subtitle}</Text>
               </Box>
             )}
@@ -77,7 +77,7 @@ const DesignSystemCard = ({
           <CardFooter
             align="stretch"
             direction="column"
-            gap="small"
+            gap='xsmall'
             pad={adjustPad(direction, 'footer', theme)}
           >
             {notification}

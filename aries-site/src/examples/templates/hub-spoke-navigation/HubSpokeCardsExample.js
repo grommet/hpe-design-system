@@ -179,7 +179,7 @@ export const HubSpokeCardsExample = () => {
         <Button
           alignSelf="start"
           icon={<Previous />}
-          gap="xxsmall"
+          gap='5xsmall'
           label={parent}
           onClick={() => setCurrentPage(getPageDetails(parent))}
         />
@@ -218,7 +218,7 @@ const AppContainer = ({ ...rest }) => {
       overflow="auto"
       pad={{
         horizontal: !['xsmall', 'small'].includes(size) ? 'large' : 'medium',
-        bottom: 'large',
+        bottom: 'xlarge',
       }}
       {...rest}
     />
@@ -226,7 +226,7 @@ const AppContainer = ({ ...rest }) => {
 };
 
 const AppHeader = ({ setCurrentPage }) => (
-  <Header fill="horizontal" height="xsmall">
+  <Header fill="horizontal" height='3xsmall'>
     <AppIdentity
       name="Service"
       onClick={() => setCurrentPage(getPageDetails('Home'))}
@@ -246,11 +246,11 @@ const AppIdentity = ({ name, ...rest }) => (
       gap="medium"
       // pad maintains accessible hit target
       // non-responsive maintains same dimensions for mobile
-      pad={{ vertical: 'small' }}
+      pad={{ vertical: 'xsmall' }}
       responsive={false}
     >
       <Hpe color="brand" />
-      <Box direction="row" gap="xsmall" wrap>
+      <Box direction="row" gap='3xsmall' wrap>
         <Text color="text-strong" weight="bold">
           HPE
         </Text>
@@ -265,7 +265,7 @@ AppIdentity.propTypes = {
 };
 
 const GridLayout = ({ items, onClick }) => (
-  <Grid columns={{ count: 'fit', size: 'small' }} rows="small" gap="medium">
+  <Grid columns={{ count: 'fit', size: 'xsmall' }} rows='xsmall' gap="medium">
     {items &&
       items.map((item, index) => (
         <Card
@@ -274,10 +274,10 @@ const GridLayout = ({ items, onClick }) => (
           fill
           onClick={() => onClick(item.name)}
           pad="medium"
-          round="small"
+          round='medium'
         >
           {item && (
-            <Header justify="start" gap="small">
+            <Header justify="start" gap='xsmall'>
               {item.icon}
               <Text>{item.name}</Text>
             </Header>
@@ -293,7 +293,7 @@ GridLayout.propTypes = {
 };
 
 const ListLayout = ({ items, setCurrentPage }) => (
-  <List data={items} border={{ size: '0' }} pad={{ vertical: 'xsmall' }}>
+  <List data={items} border={{ size: '0' }} pad={{ vertical: '3xsmall' }}>
     {(datum, index) => {
       const page = getPageDetails(datum) || '';
       const { name, icon, status } = page;
@@ -306,19 +306,19 @@ const ListLayout = ({ items, setCurrentPage }) => (
             background="background-front"
             flex={false}
             gap="medium"
-            height="xxsmall"
+            height='5xsmall'
             justify="between"
-            pad="small"
+            pad='xsmall'
             round="xsmall"
           >
             {page && (
               <>
-                <Box direction="row" align="center" gap="xsmall">
+                <Box direction="row" align="center" gap='3xsmall'>
                   {icon}
                   <TextEmphasis>{name}</TextEmphasis>
                 </Box>
                 {status && (
-                  <Box direction="row" align="center" gap="xsmall">
+                  <Box direction="row" align="center" gap='3xsmall'>
                     <Text>{status}</Text>
                     <Box
                       background={`status-${status}`}
@@ -352,7 +352,7 @@ const PanesLayout = ({ content, items, setCurrentPage }) => {
           key={index}
           background="background-front"
           height="medium"
-          margin={{ vertical: 'small' }}
+          margin={{ vertical: 'xsmall' }}
           round="xsmall"
         >
           {content.status && (

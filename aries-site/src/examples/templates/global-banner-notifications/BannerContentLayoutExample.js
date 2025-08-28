@@ -20,14 +20,14 @@ export const BannerContentLayoutExample = () => (
   <AppContainer>
     <Box>
       <ContentArea
-        pad={{ horizontal: 'large', vertical: 'small' }}
+        pad={{ horizontal: 'xlarge', vertical: 'xsmall' }}
         direction="row"
         icon
         title="HPE Service Name"
         gap="none"
         justify="between"
       >
-        <Box align="center" direction="row" gap="small">
+        <Box align="center" direction="row" gap='xsmall'>
           <>
             <Button icon={<HelpOption />} a11yTitle="Help" title="Help" />
             <Button icon={<HomeRounded />} a11yTitle="Home" title="Home" />
@@ -108,6 +108,7 @@ const Content = () => {
     // Main is commented out for this example, but should be used in a
     // real application.
     // <Main>
+    // </Main>
     <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
       {/* Content Block 1 is top priority content. At narrow breakpoints, 
           place as first content element. Otherwise, place in second column. */}
@@ -129,10 +130,9 @@ const Content = () => {
         <ContentBlock title="1" fill="vertical" />
       )}
     </Grid>
-    // </Main>
   );
 };
 
 const ContentBlock = ({ ...rest }) => (
-  <ContentArea height="small" round="small" {...rest} />
+  <ContentArea height='xsmall' round='medium' {...rest} />
 );

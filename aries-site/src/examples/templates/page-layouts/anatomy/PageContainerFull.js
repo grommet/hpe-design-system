@@ -37,12 +37,12 @@ export const PageContainerFull = () => {
       justify="between"
       fill="vertical"
       margin={{ horizontal: annotationMargin }}
-      pad={{ top: 'xlarge' }}
+      pad={{ top: '3xlarge' }}
     >
       <LinkPrevious id="full-left-edge" color="text-strong" />
       <Box
         id="full-container"
-        pad={{ horizontal: 'xsmall' }}
+        pad={{ horizontal: '3xsmall' }}
         background="orange"
       >
         <TextEmphasis>{PAGE_CONTAINER_WIDTH}</TextEmphasis>
@@ -57,7 +57,7 @@ export const PageContainerFull = () => {
         title="App Container"
         border
         flex={false}
-        gap="small"
+        gap='xsmall'
         round="xsmall"
         width={diagramWidth}
       >
@@ -73,7 +73,7 @@ export const PageContainerFull = () => {
               alignSelf="center"
               border
               flex={false}
-              gap="small"
+              gap='xsmall'
               width={PAGE_CONTAINER_SCALE}
             >
               <ContentArea
@@ -85,7 +85,7 @@ export const PageContainerFull = () => {
                 title="Other Content"
                 background="orange"
                 border
-                height="small"
+                height='xsmall'
               />
             </ContentArea>
           </ContentArea>

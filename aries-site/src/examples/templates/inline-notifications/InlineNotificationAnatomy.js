@@ -24,8 +24,8 @@ const NotificationContent = ({ ...rest }) => (
   >
     <Box
       direction="row"
-      gap="xsmall"
-      pad={{ horizontal: 'small', vertical: 'xsmall' }}
+      gap='3xsmall'
+      pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
     >
       <StatusWarningSmall
         gridArea="icon"
@@ -37,7 +37,7 @@ const NotificationContent = ({ ...rest }) => (
         <TextEmphasis id="title" alignSelf="start">
           Title
         </TextEmphasis>
-        <Box direction="row" gap="xsmall">
+        <Box direction="row" gap='3xsmall'>
           <Paragraph id="message" margin="none">
             Message
           </Paragraph>

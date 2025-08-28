@@ -49,14 +49,14 @@ const AnatomyGrid = ({ ...rest }) => (
   <Grid
     columns={[
       '12px',
-      'xxsmall',
-      'small',
-      'xxsmall',
-      ['xsmall', 'large'],
+      '5xsmall',
       'xsmall',
+      '5xsmall',
+      ['xsmall', 'large'],
+      '3xsmall',
     ]}
     justify="center"
-    gap={{ row: 'small' }}
+    gap={{ row: 'xsmall' }}
     fill
     {...rest}
   />
@@ -67,7 +67,7 @@ const AnatomyBox = ({ children, id, ...rest }) => (
     id={id}
     justify="center"
     fill="horizontal"
-    pad={{ vertical: 'xsmall' }}
+    pad={{ vertical: '3xsmall' }}
     background="validation-critical"
     {...rest}
   >
@@ -76,7 +76,7 @@ const AnatomyBox = ({ children, id, ...rest }) => (
 );
 
 export const BannerNotificationDiagram = () => (
-  <Stack margin={{ bottom: 'small' }}>
+  <Stack margin={{ bottom: 'xsmall' }}>
     <AnatomyGrid>
       <Box />
       <Annotation id={1} target="1" />

@@ -33,7 +33,7 @@ export const StatusIndicator = ({ status }) => {
   const statusIcon = React.cloneElement(icon, { color, size: 'small' });
 
   return (
-    <Box direction="row" align="center" gap="xxsmall">
+    <Box direction="row" align="center" gap='5xsmall'>
       {statusIcon}
       <Text>{label}</Text>
     </Box>

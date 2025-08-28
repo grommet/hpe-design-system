@@ -48,7 +48,7 @@ export const PageBannerExample = () => {
             <Tabs justify="start" activeIndex={active}>
               <Tab title="Projects" onClick={() => setActive(0)}>
                 <Box pad={{ vertical: 'medium' }}>
-                  <Grid columns="medium" rows="small" gap="medium">
+                  <Grid columns="medium" rows='xsmall' gap="medium">
                     {[0, 1, 2, 3, 4].map(index => (
                       <Card title={`Project${index}`} key={index} level={2} />
                     ))}
@@ -57,7 +57,7 @@ export const PageBannerExample = () => {
               </Tab>
               <Tab title="Applications" onClick={() => setActive(1)}>
                 <Box pad={{ vertical: 'medium' }}>
-                  <Grid columns="medium" rows="small" gap="medium">
+                  <Grid columns="medium" rows='xsmall' gap="medium">
                     {[0, 1, 2, 3, 4].map(index => (
                       <Card
                         title={`Application${index}`}

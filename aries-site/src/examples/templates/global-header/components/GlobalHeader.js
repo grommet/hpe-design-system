@@ -14,7 +14,7 @@ export const GlobalHeader = () => {
       fill="horizontal"
       pad={{
         horizontal: !['xsmall', 'small'].includes(size) ? 'medium' : 'small',
-        vertical: 'small',
+        vertical: 'xsmall',
       }}
     >
       <AppIdentity title="Service Name" brand="hpe" />

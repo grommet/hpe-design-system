@@ -17,7 +17,7 @@ export const PromotionExample = () => (
   <Page>
     <PageContent flex={false}>
       <PageHeader title="Services" />
-      <Box gap="medium" pad={{ bottom: 'large' }}>
+      <Box gap="medium" pad={{ bottom: 'xlarge' }}>
         <Grid columns="medium" gap="medium">
           {services.map((service, index) => (
             <ServiceCard service={service} key={index} upgrade={index === 1} />
@@ -43,7 +43,7 @@ const ServiceCard = ({ service, upgrade }) => {
       title={service.title}
       description={service.description}
       icon={
-        <Box height="xxsmall" alignSelf="start" flex={false}>
+        <Box height='5xsmall' alignSelf="start" flex={false}>
           <Image
             src={service.src}
             alt={`${service.title} logo`}

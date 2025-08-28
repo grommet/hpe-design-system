@@ -37,10 +37,10 @@ export const PageContainerWide = () => {
       justify="between"
       fill="vertical"
       margin={{ horizontal: annotationMargin }}
-      pad={{ top: 'xlarge' }}
+      pad={{ top: '3xlarge' }}
     >
       <LinkPrevious id="left-edge" color="text-strong" />
-      <Box id="label" pad={{ horizontal: 'xsmall' }} background="orange">
+      <Box id="label" pad={{ horizontal: '3xsmall' }} background="orange">
         <TextEmphasis>{PAGE_CONTAINER_WIDTH}</TextEmphasis>
       </Box>
       <LinkNext id="right-edge" color="text-strong" />
@@ -53,7 +53,7 @@ export const PageContainerWide = () => {
         title="App Container"
         border
         flex={false}
-        gap="small"
+        gap='xsmall'
         round="xsmall"
         width={diagramWidth}
       >
@@ -69,7 +69,7 @@ export const PageContainerWide = () => {
               alignSelf="center"
               border
               flex={false}
-              gap="small"
+              gap='xsmall'
               width={PAGE_CONTAINER_SCALE}
             >
               <ContentArea
@@ -81,7 +81,7 @@ export const PageContainerWide = () => {
                 title="Other Content"
                 background="orange"
                 border
-                height="small"
+                height='xsmall'
               />
             </ContentArea>
           </ContentArea>
