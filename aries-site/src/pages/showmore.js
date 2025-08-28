@@ -38,7 +38,7 @@ cardOrder.splice(0, 0, ...featuredCards);
 const ShowMore = () => (
   <>
     <Meta title={title} description={pageDetails.seoDescription} />
-    <PageContent gap="large">
+    <PageContent gap='xlarge'>
       <PageIntro>
         <Box justify="center" fill>
           <Heading margin="none">Highlights</Heading>

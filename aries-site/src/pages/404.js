@@ -30,7 +30,7 @@ const Visual = () => {
 };
 
 const Message = () => (
-  <Box align="start" gap="small">
+  <Box align="start" gap='xsmall'>
     <Heading margin="none">Oops, there’s nothing here.</Heading>
     <Paragraph margin="none" size="large">
       The page you’re looking for could not be found.
@@ -58,8 +58,8 @@ const Custom404 = () => {
           columns={
             !['xsmall', 'small'].includes(size) ? ['medium', 'auto'] : '100%'
           }
-          gap="large"
-          pad={{ top: 'large' }}
+          gap='xlarge'
+          pad={{ top: 'xlarge' }}
           fill
         >
           {first}

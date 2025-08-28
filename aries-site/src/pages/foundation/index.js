@@ -16,7 +16,7 @@ const Foundation = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/foundation"
     />
-    <PageContent gap="large">
+    <PageContent gap='xlarge'>
       <PageIntro>
         <Box justify="center" fill>
           <Heading margin="none">{title}</Heading>

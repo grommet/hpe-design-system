@@ -18,7 +18,7 @@ export const UsageExample = ({
   const size = React.useContext(ResponsiveContext);
 
   return (
-    <Box gap="xsmall" margin={{ vertical: 'xsmall' }}>
+    <Box gap='3xsmall' margin={{ vertical: '3xsmall' }}>
       <Text weight={400} size="small">
         {label}
       </Text>

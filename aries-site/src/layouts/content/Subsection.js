@@ -62,7 +62,7 @@ export const Subsection = ({
     <Box
       as="section"
       id={id}
-      margin={{ bottom: 'small' }}
+      margin={{ bottom: 'xsmall' }}
       fill="horizontal"
       gap={gap}
       onMouseOver={() => setOver(true)}
@@ -80,7 +80,7 @@ export const Subsection = ({
         {
           showHeading && (
             <Header>
-              <Box align="start" gap="small">
+              <Box align="start" gap='xsmall'>
                 {level === 1 && topic && (
                   <Link
                     href={`/${topic.toLowerCase()}`}
@@ -88,7 +88,7 @@ export const Subsection = ({
                     legacyBehavior
                   >
                     <Button {...rest}>
-                      <Box align="center" direction="row" gap="small">
+                      <Box align="center" direction="row" gap='xsmall'>
                         {parent.icon('small', parent.color)}
                         <Text color="text">{parent.name}</Text>
                       </Box>

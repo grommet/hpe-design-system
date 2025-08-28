@@ -27,7 +27,7 @@ const STATUS_MAP = {
 };
 
 const StatusLabel = ({ icon, label }) => (
-  <Box justify="between" align="center" direction="row" gap="xsmall">
+  <Box justify="between" align="center" direction="row" gap='3xsmall'>
     {icon}
     <Text>{label}</Text>
   </Box>
@@ -54,10 +54,10 @@ export const WCAGRuleSummary = ({ statuses = [] }) => {
 
   return (
     <Box
-      pad={{ vertical: 'small', horizontal: 'medium' }}
+      pad={{ vertical: 'xsmall', horizontal: 'medium' }}
       alignSelf="start"
       background="background-front"
-      round="small"
+      round='medium'
     >
       <NameValueList
         nameProps={{ width: 'max-content' }}

@@ -48,12 +48,12 @@ const Intro = ({ children }) => {
         fill
         {...widthProps}
       >
-        <Box width="small" />
+        <Box width='xsmall' />
         <Hero />
       </PageContent>
       <PageContent height={{ min: 'medium' }} justify="center" {...widthProps}>
         <Grid
-          gap="large"
+          gap='xlarge'
           columns={
             ['xsmall', 'small'].includes(size) ? ['auto'] : ['3/4', 'auto']
           }
@@ -62,7 +62,7 @@ const Intro = ({ children }) => {
             {children}
           </Card>
           {!['xsmall', 'small'].includes(size) && (
-            <Card background="none" elevation="none" height="small" />
+            <Card background="none" elevation="none" height='xsmall' />
           )}
         </Grid>
       </PageContent>

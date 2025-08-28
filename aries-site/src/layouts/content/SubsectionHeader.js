@@ -13,7 +13,7 @@ export const SubsectionHeader = ({ children, level }) => {
     <Box
       direction="row"
       align="center"
-      gap="small"
+      gap='xsmall'
       id={id}
       margin={{ top: level === 3 ? 'medium' : 'large' }}
       onMouseOver={() => setOver(true)}
@@ -21,7 +21,7 @@ export const SubsectionHeader = ({ children, level }) => {
       onMouseOut={() => setOver(false)}
       onBlur={() => setOver(false)}
     >
-      <Heading margin={{ vertical: 'small' }} level={level}>
+      <Heading margin={{ vertical: 'xsmall' }} level={level}>
         <HighlightPhrase size="inherit">{children}</HighlightPhrase>
       </Heading>
       <Button
