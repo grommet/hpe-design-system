@@ -35,7 +35,7 @@ const areas = [
 
 export const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['xsmall', 'medium', 'xsmall']}
+    columns={['3xsmall', 'medium', '3xsmall']}
     rows={rows}
     areas={areas}
     justify="center"
@@ -59,7 +59,7 @@ export const SelectMultipleInput = ({ id, ...rest }) => (
           id={id}
           background="background-front"
           direction="row"
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+          pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
           justify="between"
           round="xxsmall"
         >
@@ -76,7 +76,7 @@ SelectMultipleInput.propTypes = {
 };
 
 const Highlight = ({ ...rest }) => (
-  <Box pad={{ horizontal: 'xsmall' }} border={{ style: 'dashed' }} {...rest} />
+  <Box pad={{ horizontal: '3xsmall' }} border={{ style: 'dashed' }} {...rest} />
 );
 
 const DropElement = ({ ...rest }) => (
@@ -84,7 +84,7 @@ const DropElement = ({ ...rest }) => (
     width="medium"
     background="background-front"
     elevation="medium"
-    pad="xsmall"
+    pad='3xsmall'
     round="xxsmall"
     {...rest}
   />
@@ -111,7 +111,7 @@ SelectMultipleSelected.propTypes = {
 };
 
 export const SelectMultipleSearch = ({ id, ...rest }) => (
-  <DropElement pad={{ horizontal: 'xsmall' }} {...rest}>
+  <DropElement pad={{ horizontal: '3xsmall' }} {...rest}>
     <Highlight id={id} background="teal" pad="none">
       <TextInput placeholder="Search" />
     </Highlight>
@@ -123,7 +123,7 @@ SelectMultipleSearch.propTypes = {
 };
 
 export const SelectMultipleLimit = ({ id, limit, ...rest }) => (
-  <DropElement pad={{ horizontal: 'xsmall', top: 'xsmall' }} {...rest}>
+  <DropElement pad={{ horizontal: '3xsmall', top: '3xsmall' }} {...rest}>
     <Highlight id={id} background="validation-warning">
       <Text size="small">{`Select up to ${limit}`}</Text>
     </Highlight>
@@ -137,7 +137,7 @@ SelectMultipleLimit.propTypes = {
 
 export const SelectMultipleOptions = ({ id, ...rest }) => (
   <DropElement {...rest}>
-    <Highlight id={id} background="background-back" pad="xsmall">
+    <Highlight id={id} background="background-back" pad='3xsmall'>
       {options.map(label => (
         <Highlight
           id={label === highlightedOption ? 'listItem' : undefined}
@@ -148,7 +148,7 @@ export const SelectMultipleOptions = ({ id, ...rest }) => (
           <CheckBox
             label={label}
             checked={selected.includes(label)}
-            pad="xsmall"
+            pad='3xsmall'
           />
         </Highlight>
       ))}

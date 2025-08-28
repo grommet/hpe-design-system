@@ -11,7 +11,7 @@ import { anatomyData } from '../data';
 export const NameValueListAnatomyPreview = () => {
   const size = useContext(ResponsiveContext);
   return (
-    <Box pad="small">
+    <Box pad='xsmall'>
       <NameValueList
         pairProps={{
           direction:

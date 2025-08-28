@@ -11,7 +11,7 @@ export const SidebarExample = () => {
       pad="medium"
       flex={false}
       // height for demo purposes only, remove in production
-      height="large"
+      height='xlarge'
     >
       <Avatar
         margin={{ bottom: 'medium' }}

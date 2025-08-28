@@ -3,7 +3,7 @@ import { Anchor, Box, NameValueList, NameValuePair } from 'grommet';
 import { simpleData } from '../data';
 
 export const NameValueListSimpleExample = () => (
-  <Box pad="small">
+  <Box pad='xsmall'>
     <NameValueList valueProps={{ width: ['auto', 'medium'] }}>
       {Object.entries(simpleData).map(([name, value]) => {
         let date;

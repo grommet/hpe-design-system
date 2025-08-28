@@ -70,10 +70,10 @@ export const DashBoardSkeletonExample = () => {
                       height="24px"
                       background="background"
                       flex="grow"
-                      margin={{ bottom: 'small' }}
+                      margin={{ bottom: 'xsmall' }}
                     />
                   ) : (
-                    <Box pad={{ bottom: 'small' }}>{item?.icon}</Box>
+                    <Box pad={{ bottom: 'xsmall' }}>{item?.icon}</Box>
                   )}
                   {/* adjust level according to correct semantic heading level 
                   for your layout */}

@@ -45,8 +45,8 @@ const connections = [
 
 const AnatomyGrid = ({ ...rest }) => (
   <Grid
-    columns={['xxsmall', ['small', 'medium']]}
-    gap={{ column: 'small', row: 'medium' }}
+    columns={['5xsmall', ['small', 'medium']]}
+    gap={{ column: 'xsmall', row: 'medium' }}
     justify="center"
     {...rest}
   />

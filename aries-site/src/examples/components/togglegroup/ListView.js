@@ -23,12 +23,12 @@ export const ListView = () => {
 const ListItem = ({ name, success, rocket, date }) => {
   return (
     <Box direction="row" gap="medium" align="start">
-      <Box gap="xsmall" flex>
-        <Box direction="row" gap="small">
+      <Box gap='3xsmall' flex>
+        <Box direction="row" gap='xsmall'>
           <Text color="text-strong" weight={500}>
             {name}
           </Text>
-          <Box direction="row" align="center" gap="xsmall" flex>
+          <Box direction="row" align="center" gap='3xsmall' flex>
             {success === 'Successful' ? (
               <StatusGoodSmall color="status-ok" height="medium" />
             ) : (
@@ -39,8 +39,7 @@ const ListItem = ({ name, success, rocket, date }) => {
         </Box>
         <Text>{rocket}</Text>
       </Box>
-
-      <Box direction="row" gap="small" justify="end" align="center">
+      <Box direction="row" gap='xsmall' justify="end" align="center">
         {date ? (
           <Text>
             {Intl.DateTimeFormat(undefined, { dateStyle: 'medium' }).format(

@@ -61,7 +61,7 @@ export const NameValueListEditExample = () => {
               // https://github.com/grommet/eslint-plugin-grommet/issues/48
               // eslint-disable-next-line max-len
               // eslint-disable-next-line grommet/formfield-htmlfor-id, grommet/formfield-name
-              <FormField
+              (<FormField
                 label={name}
                 htmlFor={name}
                 name={name}
@@ -115,11 +115,11 @@ export const NameValueListEditExample = () => {
                     }}
                   />
                 )}
-              </FormField>
+              </FormField>)
             ))}
             <Box
               direction="row"
-              gap="small"
+              gap='xsmall'
               align="center"
               margin={{ top: 'medium' }}
             >

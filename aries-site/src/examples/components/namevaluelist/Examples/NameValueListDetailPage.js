@@ -21,7 +21,7 @@ export const NameValueListDetailPage = () => {
       <PageHeader title="Demo_Cluster_5" />
       <Tabs activeIndex={index} onActive={onActive} justify="start">
         <Tab title="Overview">
-          <Box pad={{ vertical: 'small' }}>
+          <Box pad={{ vertical: 'xsmall' }}>
             <ContentPane gap="medium">
               <Heading margin="none" level={2}>
                 Details
@@ -30,7 +30,7 @@ export const NameValueListDetailPage = () => {
                 {Object.entries(emptyServerData).map(([name, value]) => (
                   <NameValuePair key={name} name={name}>
                     {name === 'Health' ? (
-                      <Box align="center" gap="xsmall" direction="row">
+                      <Box align="center" gap='3xsmall' direction="row">
                         <StatusGoodSmall size="small" color="status-ok" />
                         {value}
                       </Box>
@@ -44,12 +44,12 @@ export const NameValueListDetailPage = () => {
           </Box>
         </Tab>
         <Tab title="Policies">
-          <Box margin="small">
+          <Box margin='xsmall'>
             <ContentPane>Policies information</ContentPane>
           </Box>
         </Tab>
         <Tab title="Services">
-          <Box margin="small">
+          <Box margin='xsmall'>
             <ContentPane>Services information</ContentPane>
           </Box>
         </Tab>

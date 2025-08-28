@@ -58,10 +58,10 @@ export const SinglePageContent = ({ containerRef }) => {
     <Page
       background="background-back"
       flex="grow"
-      pad={{ vertical: 'large' }}
+      pad={{ vertical: 'xlarge' }}
       {...demoStyle}
     >
-      <PageContent gap="large" {...demoStyle}>
+      <PageContent gap="xlarge" {...demoStyle}>
         <PageHeader
           title="Explore datasets"
           subtitle={`Explore datasets from a variety of sources without reliance
@@ -88,7 +88,11 @@ const Datasets = ({ data, categories }) => {
   const { filteredResults } = useFilters();
 
   return filteredResults.length !== data.length ? (
-    <Grid columns={{ count: 'fill', size: 'small' }} rows="small" gap="small">
+    <Grid
+      columns={{ count: 'fill', size: 'xsmall' }}
+      rows="xsmall"
+      gap="xsmall"
+    >
       {filteredResults &&
         filteredResults.map(source => <Card key={source.id} />)}
     </Grid>
@@ -113,7 +117,11 @@ const Category = ({ category }) => (
         <Anchor href="#" label="See all" />
       </Text>
     </Header>
-    <Grid columns={{ count: 'fill', size: 'small' }} rows="small" gap="small">
+    <Grid
+      columns={{ count: 'fill', size: 'xsmall' }}
+      rows="xsmall"
+      gap="xsmall"
+    >
       {category &&
         category.sources.slice(0, 7).map(source => <Card key={source.id} />)}
     </Grid>

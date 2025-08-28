@@ -41,7 +41,7 @@ export const MenuRecordActionsExample = () => {
 
   return (
     <>
-      <Box gap="small" width="medium">
+      <Box gap='xsmall' width="medium">
         <Heading level={2} size="small" margin="none">
           Server groups
         </Heading>
@@ -53,11 +53,11 @@ export const MenuRecordActionsExample = () => {
         >
           {(datum, index) => (
             <Box direction="row" justify="between" align="start">
-              <Box gap="xsmall" fill>
+              <Box gap='3xsmall' fill>
                 <TextEmphasis>{datum.name}</TextEmphasis>
-                <Box gap="xxsmall">
+                <Box gap='5xsmall'>
                   <Text>{datum.servers.length} Servers</Text>
-                  <Box direction="row" gap="xsmall" align="center">
+                  <Box direction="row" gap='3xsmall' align="center">
                     {STATUS_MAP[datum.status].icon}
                     {STATUS_MAP[datum.status].label}
                   </Box>
