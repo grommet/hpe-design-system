@@ -14,7 +14,8 @@
     "noUnusedParameters": true,
     "noEmitOnError": true,
     "removeComments": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@types"]
   },
   "exclude": ["node_modules"]
 }
