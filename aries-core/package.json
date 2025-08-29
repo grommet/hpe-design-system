@@ -14,7 +14,7 @@
     "test": "jest",
     "release-stable": "babel-node ./tools/release-stable",
     "storybook": "yarn build-design-tokens && yarn build-shared-hooks && storybook dev -p 6006",
-    "build-storybook": "yarn build-design-tokens && yarn build-site-search && storybook build"
+    "build-storybook": "yarn build-design-tokens && yarn build-shared-hooks && yarn build-site-search && storybook build"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
