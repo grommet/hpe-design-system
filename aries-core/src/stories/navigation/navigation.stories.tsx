@@ -108,7 +108,7 @@ export const NavigationMenuExample = () => {
                     header={<LayerHeader onClose={() => setOpenLayer(false)} />}
                     onSelect={() => {
                       // announce(messages.layerClose, 'assertive', 2000);
-                      // setOpenLayer(false);
+                      setOpenLayer(false);
                     }}
                   />
                 </Box>
