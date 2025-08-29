@@ -158,7 +158,7 @@ describe('Icon', () => {
   });
 
   test('all icons', () => {
-    Object.keys(Icons).forEach((iconKey) => {
+    Object.keys(Icons).forEach(iconKey => {
       const Instance = Icons[iconKey];
       if (Instance !== true) {
         const { container } = render(<Instance />);

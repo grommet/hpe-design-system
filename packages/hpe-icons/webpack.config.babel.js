@@ -18,9 +18,9 @@ export default {
   entry: './src/js/index.js',
   output: {
     path: path.resolve('./dist'),
-    filename: 'grommet-icons.min.js',
+    filename: 'hpe-icons.min.js',
     libraryTarget: 'var',
-    library: 'GrommetIcons',
+    library: 'HpeIcons',
   },
   externals: {
     'react': 'React',

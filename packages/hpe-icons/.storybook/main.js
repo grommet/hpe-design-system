@@ -1,13 +1,3 @@
-// module.exports = {
-//   stories: ['../src/js/icon.stories.js'],
-//   framework: {
-//     name: '@storybook/react-webpack5',
-//     options: {
-//       strictMode: true,
-//     },
-//   },
-// };
-
 import { join, dirname } from 'path';
 import { createRequire } from 'module';
 

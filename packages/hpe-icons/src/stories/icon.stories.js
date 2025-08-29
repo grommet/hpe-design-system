@@ -63,12 +63,12 @@
 //   );
 // };
 
-import { Accessibility } from './../js/icons/Accessibility.js';
- 
+import { Accessibility } from '../js/icons/Accessibility';
+
 export default {
   component: Accessibility,
 };
- 
+
 export const Primary = {
   args: {
     size: 'medium',

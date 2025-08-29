@@ -96,7 +96,7 @@ export function iconPad(props) {
 // ensure icons that rely on urls don't have id collision
 // Date.now + Math.random is unique enough for icon use cases
 export const generatePrefix = (name) =>
-  `_grommeticons-${name}-${
+  `_hpeicons-${name}-${
     // don't include time-based/random id generation in snapshot tests to avoid
     // needing to update snapshots with every commit
     process.env.NODE_ENV !== 'test' ? Date.now() + Math.random() : ''
