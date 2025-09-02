@@ -4,6 +4,18 @@
   "description": "Design System for HPE",
   "license": "Apache-2.0",
   "main": "src/js/index.js",
+  "scripts": {
+    "build-design-tokens": "cd ../design-tokens && yarn build",
+    "build-shared-hooks": "cd ../shared/hooks && yarn build",
+    "build-site-search": "cd ../aries-site && node src/scripts/site-contents.mjs",
+    "build": "yarn build-design-tokens && yarn build-shared-hooks && webpack --mode production && babel ./src/js/ --out-dir ./dist --config-file ./babel.config.js --ignore 'src/**/*.test.js,src/**/__tests__,src/**/stories'",
+    "lint": "eslint src",
+    "lint-fix": "eslint src --fix",
+    "test": "jest",
+    "release-stable": "babel-node ./tools/release-stable",
+    "storybook": "yarn build-design-tokens && yarn build-shared-hooks && storybook dev -p 6006",
+    "build-storybook": "yarn build-design-tokens && yarn build-shared-hooks && yarn build-site-search && storybook build"
+  },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.5",
@@ -22,6 +34,10 @@
     "@storybook/react": "^8.3.6",
     "@storybook/react-webpack5": "^8.3.6",
     "@storybook/test": "^8.3.6",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "babel-loader": "^8.2.5",
@@ -36,17 +52,6 @@
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
-  },
-  "scripts": {
-    "build-design-tokens": "cd ../design-tokens && yarn build",
-    "build-site-search": "cd ../aries-site && node src/scripts/site-contents.mjs",
-    "build": "yarn build-design-tokens && webpack --mode production && babel ./src/js/ --out-dir ./dist --config-file ./babel.config.js --ignore 'src/**/*.test.js,src/**/__tests__,src/**/stories'",
-    "lint": "eslint src",
-    "lint-fix": "eslint src --fix",
-    "test": "jest",
-    "release-stable": "babel-node ./tools/release-stable",
-    "storybook": "yarn build-design-tokens && storybook dev -p 6006",
-    "build-storybook": "yarn build-design-tokens && yarn build-site-search && storybook build"
   },
   "keywords": [
     "aries",
