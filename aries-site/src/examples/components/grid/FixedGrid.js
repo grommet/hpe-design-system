@@ -7,7 +7,7 @@ const columns = ['xsmall', 'small', 'xxsmall'];
 const rows = ['xsmall', 'small'];
 
 export const FixedGrid = () => (
-  <Grid columns={columns} rows={rows} gap="xsmall">
+  <Grid columns={columns} rows={rows} gap='3xsmall'>
     {/* By default, Grid children fill grid cells left to right. */}
     <ContentArea title="1" background="red" border />
     <ContentArea title="2" background="purple" border />

@@ -89,13 +89,13 @@ const LayerContent = ({ closeId, informational, ...rest }) => (
     alignSelf="start"
     elevation="large"
     round={{
-      size: 'small',
+      size: 'medium',
       corner: 'left',
     }}
     {...rest}
   >
     <CardBody gap="medium">
-      <Box direction="row" align="start" gap="small" flex={false}>
+      <Box direction="row" align="start" gap='xsmall' flex={false}>
         <LayerHeader
           onClose={() => {}}
           subtitle="An optional, concise subtitle for added context."
@@ -112,7 +112,7 @@ const LayerContent = ({ closeId, informational, ...rest }) => (
         Layer body content goes here.
       </Box>
       {!informational ? (
-        <Box direction="row" gap="small" flex={false}>
+        <Box direction="row" gap='xsmall' flex={false}>
           <Button label="Confirm action" primary />
           <Button label="Cancel" id="layer-actions" />
         </Box>

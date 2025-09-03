@@ -6,13 +6,13 @@ export const DataTableAnatomy = () => (
   <Box width="medium" margin={{ bottom: 'medium' }}>
     <AnatomySection
       background="background-primary-xstrong"
-      gap="xsmall"
-      margin={{ bottom: 'small' }}
-      pad={{ horizontal: 'small', top: 'xxsmall', bottom: 'xsmall' }}
+      gap='3xsmall'
+      margin={{ bottom: 'xsmall' }}
+      pad={{ horizontal: 'xsmall', top: '5xsmall', bottom: '3xsmall' }}
     >
       <AnatomyLabel>Table controls</AnatomyLabel>
       <Box direction="row" justify="between">
-        <Box direction="row" gap="small">
+        <Box direction="row" gap='xsmall'>
           <AnatomySection background="background-contrast">
             <AnatomyLabel>Search</AnatomyLabel>
           </AnatomySection>
@@ -25,13 +25,13 @@ export const DataTableAnatomy = () => (
         </AnatomySection>
       </Box>
     </AnatomySection>
-    <AnatomySection background="purple!" margin={{ bottom: 'xxsmall' }}>
+    <AnatomySection background="purple!" margin={{ bottom: '5xsmall' }}>
       <AnatomyLabel>Table header</AnatomyLabel>
     </AnatomySection>
     <AnatomySection
       background="orange"
-      height="small"
-      margin={{ bottom: 'xxsmall' }}
+      height='xsmall'
+      margin={{ bottom: '5xsmall' }}
     >
       <AnatomyLabel>Table body</AnatomyLabel>
     </AnatomySection>
@@ -44,7 +44,7 @@ export const DataTableAnatomy = () => (
 const AnatomySection = ({ background, ...rest }) => (
   <Box
     background={background}
-    pad={{ horizontal: 'small', vertical: 'xxsmall' }}
+    pad={{ horizontal: 'xsmall', vertical: '5xsmall' }}
     round="xxsmall"
     {...rest}
   />

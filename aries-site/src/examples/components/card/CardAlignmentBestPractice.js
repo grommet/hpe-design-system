@@ -5,7 +5,7 @@ import { Box, Button, Card, CardBody, Heading, Paragraph } from 'grommet';
 export const CardAlignmentBestPractice = ({ bestPractice = true }) => (
   <Card>
     <CardBody align={!bestPractice ? 'center' : 'start'} gap="medium">
-      <Box align={!bestPractice ? 'center' : undefined} gap="small">
+      <Box align={!bestPractice ? 'center' : undefined} gap='xsmall'>
         <Heading level={3} margin="none">
           HPE GreenLake Trial
         </Heading>

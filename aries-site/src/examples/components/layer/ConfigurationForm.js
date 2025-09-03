@@ -64,7 +64,7 @@ const AddApplication = ({ ...rest }) => {
       <Box flex={false}>
         <LayerForm id="application-form" />
       </Box>
-      <Box direction="row" gap="small" flex={false}>
+      <Box direction="row" gap='xsmall' flex={false}>
         <Button
           form="application-form"
           label="Add application"
@@ -173,7 +173,7 @@ const columns = [
 const ApplicationsPage = () => {
   const { setShowLayer } = useConfirmation();
   return (
-    <Page pad={{ bottom: 'large' }}>
+    <Page pad={{ bottom: 'xlarge' }}>
       <PageContent>
         <ContentPane gap="medium">
           <Heading id="applications-heading" level={2} margin="none">

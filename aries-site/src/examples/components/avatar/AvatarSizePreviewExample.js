@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Avatar, Box, Text } from 'grommet';
 
 export const AvatarSizePreviewExample = () => (
-  <Box direction="row-responsive" gap="large">
+  <Box direction="row-responsive" gap='xlarge'>
     <AvatarContainer
       alt="Eric Soderberg image"
       size="small"
@@ -18,7 +18,7 @@ export const AvatarSizePreviewExample = () => (
       JS
     </AvatarContainer>
     <AvatarContainer
-      round="medium"
+      round='xlarge'
       alt="shape logo"
       size="large"
       src="/Shape.svg"
@@ -36,7 +36,7 @@ const AvatarContainer = ({
   src,
   title,
 }) => (
-  <Box direction="column" align="center" gap="small" width="small">
+  <Box direction="column" align="center" gap='xsmall' width='xsmall'>
     <Avatar
       round={round}
       a11yTitle={alt}

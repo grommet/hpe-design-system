@@ -6,9 +6,9 @@ const Node = ({ id, ...rest }) => (
   <Box
     id={id}
     basis="xxsmall"
-    margin="small"
+    margin='xsmall'
     pad="medium"
-    round="small"
+    round='medium'
     background={{ color: 'background', dark: true }}
     {...rest}
   />

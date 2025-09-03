@@ -5,7 +5,7 @@ export const AccordionExample = ({ ...rest }) => {
   const pad = 'small';
 
   return (
-    <Accordion width="large" {...rest}>
+    <Accordion width='xlarge' {...rest}>
       <AccordionPanel label="Our company">
         <Box pad={pad}>We are HPE.</Box>
       </AccordionPanel>
