@@ -61,7 +61,7 @@ export const columns: (
       <Box
         align="center"
         direction="row"
-        gap="xsmall"
+        gap='3xsmall'
         width={{ min: 'max-content' }}
       >
         {datum.state === 'up' ? (

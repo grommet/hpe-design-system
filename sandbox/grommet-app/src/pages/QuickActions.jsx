@@ -23,7 +23,7 @@ export const QuickActions = ({ edit = true, icons }) => {
         </Heading>
         {edit && <Button label="Edit" icon={<Edit />} reverse />}
       </Box>
-      <Box gap="small" animation={!skeleton ? 'fadeIn' : undefined}>
+      <Box gap='xsmall' animation={!skeleton ? 'fadeIn' : undefined}>
         {skeleton ? (
           <Skeleton height={theme.text.medium.size} />
         ) : (

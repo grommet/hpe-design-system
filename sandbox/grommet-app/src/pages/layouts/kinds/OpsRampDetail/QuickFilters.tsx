@@ -14,7 +14,7 @@ const MiniSelector = ({ value, count, icon, title }) => {
       value={value}
       title={
         <Box align="center">
-          <Box direction="row" align="center" gap="xsmall">
+          <Box direction="row" align="center" gap='3xsmall'>
             {icon}
             <Text size="small">{title}</Text>
             <Text weight={500} color="text-strong">
@@ -27,9 +27,9 @@ const MiniSelector = ({ value, count, icon, title }) => {
       direction={null}
       description={null}
       indicator={false}
-      pad={{ horizontal: 'xsmall', vertical: 'xsmall' }}
-      round="small"
-      margin={{ bottom: 'xsmall' }}
+      pad={{ horizontal: '3xsmall', vertical: '3xsmall' }}
+      round='medium'
+      margin={{ bottom: '3xsmall' }}
     />
   );
 };
@@ -68,7 +68,7 @@ export const QuickFilters: React.FC<{
         onView(nextView);
         setValue(value);
       }}
-      gap="xsmall"
+      gap='3xsmall'
       layout="fit"
     >
       {[

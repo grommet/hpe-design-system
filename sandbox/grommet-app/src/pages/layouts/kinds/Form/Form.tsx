@@ -44,7 +44,7 @@ export const Form = () => {
   const [numFiles, setNumFiles] = useState(0);
 
   return (
-    <Page pad={{ bottom: 'xlarge' }} kind="narrow">
+    <Page pad={{ bottom: '3xlarge' }} kind="narrow">
       <PageContent>
         <PageHeader
           title="Form"
@@ -146,7 +146,7 @@ export const Form = () => {
             </FormField>
             <Box
               align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-              margin={{ top: 'medium', bottom: 'small' }}
+              margin={{ top: 'medium', bottom: 'xsmall' }}
             >
               <Button label="Create" primary type="submit" />
             </Box>

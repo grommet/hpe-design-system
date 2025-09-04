@@ -25,7 +25,7 @@ const EmptyStatePage = ({ ...rest }) => {
   const data = bareMetal["Las Vegas"];
 
   return (
-    <Page pad={{ bottom: "xlarge" }} {...rest}>
+    <Page pad={{ bottom: '3xlarge' }} {...rest}>
       <PageContent>
         <PageHeader
           title="Bare Metal"
@@ -50,7 +50,7 @@ const EmptyStatePage = ({ ...rest }) => {
               columns={tableColumns}
               onSelect={() => { }}
               placeholder={data.length === 0 &&
-                <Box pad="xlarge">
+                <Box pad='3xlarge'>
                   <EmptyState
                     title="No Bare Metal instances"
                     level={3}

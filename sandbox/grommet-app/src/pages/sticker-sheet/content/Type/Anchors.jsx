@@ -6,7 +6,7 @@ import { Compare } from '../../components';
 export const Anchors = ({ textSizes }) => {
   return (
     <ContentPane>
-      <Box gap="small">
+      <Box gap='xsmall'>
         {textSizes.map(size => (
           <Compare key={size}>
             <Anchor size={size} key={size}>

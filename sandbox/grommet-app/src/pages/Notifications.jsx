@@ -45,13 +45,13 @@ export const Notifications = () => {
   return (
     <DashboardCard title="Notifications" level={2} skeleton={false}>
       <Box gap="medium">
-        <Box direction="row" gap="xsmall">
+        <Box direction="row" gap='3xsmall'>
           <NotificationMetric status="critical" value={1} />
           <NotificationMetric status="warning" value={6} />
           <NotificationMetric status="ok" value={86} />
           <NotificationMetric status="info" value={17} />
         </Box>
-        <Box gap="small">
+        <Box gap='xsmall'>
           <Heading level={3} margin="none">
             Recents
           </Heading>
@@ -59,7 +59,7 @@ export const Notifications = () => {
             data={notifications.notifications}
             defaultItemProps={{
               border: { side: 'top', color: 'border-weak' },
-              pad: 'small',
+              pad: 'xsmall',
             }}
           >
             {datum => (
@@ -69,7 +69,7 @@ export const Notifications = () => {
                 gap="medium"
                 skeleton={skeleton}
               >
-                <Box direction="row" gap="small">
+                <Box direction="row" gap='xsmall'>
                   {!skeleton ? statuses[datum.status].iconCompact : undefined}
                   <Box flex={false}>
                     <Text weight={500} color="text-strong">
