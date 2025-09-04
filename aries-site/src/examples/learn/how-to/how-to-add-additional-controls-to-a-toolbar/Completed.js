@@ -16,9 +16,9 @@ import { Pagination } from './components/Pagination';
 
 const ResultsWrapper = ({ ...rest }) => (
   // style needed to ensure pagination controls stay aligned with datatable
-  <Box align="start">
+  (<Box align="start">
     <Box style={{ display: 'inline-block' }} {...rest} />
-  </Box>
+  </Box>)
 );
 
 export const Completed = () => {

@@ -4,7 +4,7 @@ export const TypographyStyles = () => (
     <Box
       fill
       background={{ color: 'background-front', dark: false }}
-      pad={{ vertical: 'xlarge' }}
+      pad={{ vertical: '3xlarge' }}
     >
       <Box
         background={{

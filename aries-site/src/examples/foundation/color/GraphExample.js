@@ -4,12 +4,12 @@ import { Box, Text } from 'grommet';
 
 export const GraphExample = ({ color }) => {
   return (
-    <Box align="center" key={color.name} gap="small">
+    <Box align="center" key={color.name} gap='xsmall'>
       <Box
         background={color.value}
-        height="xxsmall"
-        width="xxsmall"
-        round="small"
+        height='5xsmall'
+        width='5xsmall'
+        round='medium'
       />
       <Box align="center">
         <Text weight={500} size="small">

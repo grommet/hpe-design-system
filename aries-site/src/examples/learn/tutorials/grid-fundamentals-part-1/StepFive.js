@@ -14,7 +14,7 @@ const ProductsPage = () => {
   return (
     <>
       <Heading level={1}>Products</Heading>
-      <Grid columns={minColumnWidth} gap="small">
+      <Grid columns={minColumnWidth} gap='xsmall'>
         {productList.map(product => (
           <ProductCard key={product.id} level={2} product={product} />
         ))}

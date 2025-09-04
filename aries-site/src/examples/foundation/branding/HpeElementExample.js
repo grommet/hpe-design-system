@@ -8,7 +8,7 @@ export const HpeElementExample = () => {
   return (
     <Box direction="row" align="center" gap="medium">
       <Hpe color="brand" />
-      <Box direction="row" gap="xsmall">
+      <Box direction="row" gap='3xsmall'>
         <Text size={textSize} weight="bold">
           HPE
         </Text>

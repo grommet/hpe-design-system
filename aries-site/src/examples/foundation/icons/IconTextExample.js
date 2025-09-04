@@ -3,7 +3,7 @@ import { Box, Button } from 'grommet';
 import { Chat } from 'grommet-icons';
 
 export const IconTextExample = () => (
-    <Box pad="xsmall">
-      <Button gap="small" alignSelf="start" icon={<Chat />} label="Chat" />
+    <Box pad='3xsmall'>
+      <Button gap='xsmall' alignSelf="start" icon={<Chat />} label="Chat" />
     </Box>
   );

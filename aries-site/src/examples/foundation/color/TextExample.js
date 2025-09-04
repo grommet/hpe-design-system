@@ -8,7 +8,7 @@ export const TextExample = ({ color, hex }) => {
   const exampleTextSize = ['xsmall', 'small'].includes(size) ? '60px' : '84px';
 
   return (
-    <Box align="center" margin={{ horizontal: 'small' }}>
+    <Box align="center" margin={{ horizontal: 'xsmall' }}>
       <Box direction="row" align="center">
         <Text color={color} weight={700} size={exampleTextSize}>
           A

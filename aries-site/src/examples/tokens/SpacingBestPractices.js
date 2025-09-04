@@ -21,7 +21,7 @@ export const SpacingBestPractices = ({ bestPractice = true }) => {
             border={highlightBorder}
             width="100%"
           />
-          <Box gap="xsmall" direction="row" align="center">
+          <Box gap='3xsmall' direction="row" align="center">
             <Checkmark />
             <Text>Label</Text>
           </Box>
@@ -41,7 +41,7 @@ export const SpacingBestPractices = ({ bestPractice = true }) => {
   }
 
   return (
-    <Box border="border" round="small" overflow="hidden" direction="row">
+    <Box border="border" round='medium' overflow="hidden" direction="row">
       <Box
         width={dimension.hpe.spacing.small}
         border={highlightBorder}
@@ -53,7 +53,7 @@ export const SpacingBestPractices = ({ bestPractice = true }) => {
           border={highlightBorder}
           width="100%"
         />
-        <Box gap="xsmall">
+        <Box gap='3xsmall'>
           <Box
             height={dimension.hpe.spacing.small}
             background="background-contrast"
