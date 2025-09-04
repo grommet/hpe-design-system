@@ -17,8 +17,8 @@ export const ResponsiveContentLayoutExample = () => {
   return (
     <AppContainer background="background-back">
       <ContentArea title="Global Header" />
-      <Page pad={{ bottom: 'large' }}>
-        <PageContent gap="large">
+      <Page pad={{ bottom: 'xlarge' }}>
+        <PageContent gap='xlarge'>
           <PageHeader
             /* for dev purposes, will be replaced with dashboard content */
             title={`Dashboard @ '${size}' breakpoint`}
@@ -77,6 +77,7 @@ const Content = () => {
     // Main is commented out for this example, but should be used in a
     // real application.
     // <Main>
+    // </Main>
     <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
       {/* Content Block 1 is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
@@ -98,10 +99,9 @@ const Content = () => {
         <ContentBlock title="1" fill="vertical" />
       )}
     </Grid>
-    // </Main>
   );
 };
 
 const ContentBlock = ({ ...rest }) => (
-  <ContentArea height="small" round="small" {...rest} />
+  <ContentArea height='xsmall' round='medium' {...rest} />
 );

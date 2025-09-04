@@ -5,10 +5,10 @@ import { states } from '../utils/FormValidation';
 
 export const ShippingInfomation = ({ name }) => (
   <Box>
-    <Text size="large" margin={{ bottom: 'xsmall', top: 'none' }}>
+    <Text size="large" margin={{ bottom: '3xsmall', top: 'none' }}>
       Shipping information
     </Text>
-    <Text margin={{ horizontal: 'none', vertical: 'xsmall' }} size="xsmall">
+    <Text margin={{ horizontal: 'none', vertical: '3xsmall' }} size="xsmall">
       Shipping address *
     </Text>
     <FormField

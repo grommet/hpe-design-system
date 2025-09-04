@@ -67,7 +67,7 @@ const StyledList = () => {
   return (
     <List
       data={data}
-      pad="small"
+      pad='xsmall'
       action={(item, index) => (
         <Box key={index} direction="row" align="center" gap="medium">
           {!['xsmall', 'small'].includes(size) && (
@@ -114,18 +114,18 @@ const StyledList = () => {
 const AppHeaderExample = () => (
   <Header
     background="background-front"
-    pad={{ vertical: 'xsmall', horizontal: 'medium' }}
+    pad={{ vertical: '3xsmall', horizontal: 'medium' }}
   >
     <Button>
       <Box
         direction="row"
         align="start"
         gap="medium"
-        pad={{ vertical: 'small' }}
+        pad={{ vertical: 'xsmall' }}
         responsive={false}
       >
         <Hpe color="plain" height="medium" />
-        <Box direction="row" gap="xsmall" wrap>
+        <Box direction="row" gap='3xsmall' wrap>
           <Text weight="bold" color="text-strong">
             HPE
           </Text>
@@ -135,7 +135,7 @@ const AppHeaderExample = () => (
         </Box>
       </Box>
     </Button>
-    <Box direction="row" gap="small">
+    <Box direction="row" gap='xsmall'>
       <Menu
         label="Master Control"
         items={[
@@ -154,7 +154,7 @@ export const ListScreenExample = ({ ...rest }) => (
     {/* Main is commented out for this example, but should be used in a
     real application. */}
     {/* <Main> */}
-    <Page pad={{ bottom: 'large' }} flex={false}>
+    <Page pad={{ bottom: 'xlarge' }} flex={false}>
       <PageContent>
         <PageHeader
           title="User controls"

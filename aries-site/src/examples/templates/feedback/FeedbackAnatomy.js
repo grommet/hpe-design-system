@@ -64,7 +64,7 @@ const FeedbackContent = () => (
       border={{ style: 'dashed' }}
       align="center"
       justify="center"
-      height="xsmall"
+      height='3xsmall'
     >
       Body containing feedback questions.
     </Box>

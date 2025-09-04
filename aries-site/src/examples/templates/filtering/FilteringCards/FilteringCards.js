@@ -67,7 +67,7 @@ const Users = () => {
             aria-label={`User card for ${datum.name}`}
             key={datum.id}
             // margin ensures focus on cards is not cutoff
-            margin="xxsmall"
+            margin='5xsmall'
             onClick={() => {
               // eslint-disable-next-line no-alert
               alert(`
@@ -76,10 +76,10 @@ const Users = () => {
               `);
             }}
             icon={
-              <Box align="center" direction="row" gap="xsmall">
+              <Box align="center" direction="row" gap='3xsmall'>
                 <Box
                   background={datum.status === 'Online' ? 'brand' : 'text-weak'}
-                  pad="xsmall"
+                  pad='3xsmall'
                   round
                 />
                 <Text color="text-strong">{datum.status}</Text>

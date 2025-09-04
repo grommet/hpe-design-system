@@ -54,7 +54,7 @@ const INPUT_MAP = {
     </FormField>
   ),
   cpu: ({ key, index, ...rest }) => (
-    <Box key={key} width="xsmall">
+    <Box key={key} width='3xsmall'>
       <FormField
         htmlFor={`hosts[${index}].cpu`}
         name={`hosts[${index}].cpu`}
@@ -72,7 +72,7 @@ const INPUT_MAP = {
     </Box>
   ),
   memory: ({ key, index, ...rest }) => (
-    <Box key={key} width="xsmall">
+    <Box key={key} width='3xsmall'>
       <FormField
         key={key}
         htmlFor={`hosts[${index}].memory`}
@@ -195,8 +195,8 @@ export const CreateCluster = () => {
                 >
                   <Box
                     direction="row"
-                    gap="small"
-                    pad={{ horizontal: 'small', vertical: 'xsmall' }}
+                    gap='xsmall'
+                    pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
                   >
                     <Text>0%</Text>
                     <RangeInput
@@ -211,7 +211,7 @@ export const CreateCluster = () => {
               </>
             )}
           </>
-          <Box gap="small">
+          <Box gap='xsmall'>
             <Heading level={3} margin="none">
               Hosts
             </Heading>

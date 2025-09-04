@@ -210,23 +210,23 @@ export const PersistentFiltering = ({ containerRef }) => {
   return (
     <Box
       background="background"
-      gap="large"
-      width={{ max: 'xxlarge' }}
+      gap='xlarge'
+      width={{ max: '3xlarge' }}
       margin="auto"
       overflow="auto"
-      pad={{ horizontal: 'medium', top: 'small' }}
+      pad={{ horizontal: 'medium', top: 'xsmall' }}
       fill
     >
       <Header>
-        <Box gap="xsmall">
+        <Box gap='3xsmall'>
           <Heading
             color="text-strong"
             level={1}
-            margin={{ bottom: 'small', top: 'none' }}
+            margin={{ bottom: 'xsmall', top: 'none' }}
           >
             Sites
           </Heading>
-          <Box align="center" direction="row" gap="small">
+          <Box align="center" direction="row" gap='xsmall'>
             {!['xsmall', 'small'].includes(size) || searchFocused ? (
               <Box width="medium">
                 <StyledTextInput
@@ -318,8 +318,8 @@ const ActiveFilters = ({
   return (
     <Box
       direction="row"
-      gap="xsmall"
-      pad={{ horizontal: 'medium', vertical: 'xxsmall' }}
+      gap='3xsmall'
+      pad={{ horizontal: 'medium', vertical: '5xsmall' }}
       flex={false}
       wrap
     >
@@ -337,7 +337,7 @@ const ActiveFilters = ({
                     key={index}
                     label={allFilters[key].name}
                     icon={<Close />}
-                    gap="xsmall"
+                    gap='3xsmall'
                     onClick={() => {
                       const nextFilters = filters;
                       delete nextFilters[key];
@@ -356,7 +356,7 @@ const ActiveFilters = ({
                   key={option}
                   label={option}
                   icon={<Close />}
-                  gap="xsmall"
+                  gap='3xsmall'
                   onClick={() => {
                     const nextValue = value.filter(a => a !== option);
                     const nextFilters = {
@@ -378,7 +378,7 @@ const ActiveFilters = ({
               key={index}
               label={value}
               icon={<Close />}
-              gap="xsmall"
+              gap='3xsmall'
               onClick={() => {
                 const nextFilters = filters;
                 delete nextFilters[key];
@@ -483,7 +483,7 @@ const Filters = ({
 
   return ['xsmall', 'small'].includes(size) ? (
     <>
-      <Box align="center" direction="row" gap="small">
+      <Box align="center" direction="row" gap='xsmall'>
         <Button
           a11yTitle="Filter"
           kind="toolbar"
@@ -516,7 +516,7 @@ const Filters = ({
           <Box
             alignSelf="center"
             width={{ min: 'medium' }}
-            pad={{ horizontal: 'large', vertical: 'medium' }}
+            pad={{ horizontal: 'xlarge', vertical: 'medium' }}
             gap="medium"
             fill="vertical"
           >
@@ -535,10 +535,10 @@ const Filters = ({
               />
             </Header>
             {/* pad needed so focus indicator doesn't get cut off */}
-            <Box pad="xxsmall" overflow="auto" flex>
+            <Box pad='5xsmall' overflow="auto" flex>
               {content}
             </Box>
-            <Box align="center" direction="row" gap="small">
+            <Box align="center" direction="row" gap='xsmall'>
               <Button
                 label="Apply filters"
                 onClick={() => {
@@ -566,7 +566,7 @@ const Filters = ({
       width="medium"
       gap="medium"
       border={{ side: 'right' }}
-      pad={{ right: 'medium', left: 'xxsmall' }}
+      pad={{ right: 'medium', left: '5xsmall' }}
       fill="vertical"
       overflow="auto"
     >
@@ -796,7 +796,7 @@ EmployeeCountFilter.propTypes = {
 };
 
 const RecordSummary = ({ data, filtering }) => (
-  <Box direction="row" gap="xxsmall">
+  <Box direction="row" gap='5xsmall'>
     <Text size="small" weight="bold">
       {data.length}
     </Text>
@@ -804,7 +804,7 @@ const RecordSummary = ({ data, filtering }) => (
       {filtering ? `result${data.length > 1 ? 's' : ''} of ` : 'items'}
     </Text>
     {filtering && (
-      <Box direction="row" gap="xxsmall">
+      <Box direction="row" gap='5xsmall'>
         <Text size="small" weight="bold">
           {allData.length}
         </Text>
@@ -841,17 +841,17 @@ const Results = ({ data }) => {
             `);
             }}
           >
-            <Box height="small" fill="horizontal">
+            <Box height='xsmall' fill="horizontal">
               <Image alt={datum.alt} src={datum.image} fit="cover" />
             </Box>
-            <CardBody gap="xsmall" pad="medium" justify="between">
+            <CardBody gap='3xsmall' pad="medium" justify="between">
               <Box flex={false}>
-                <Box align="center" direction="row" gap="xsmall">
+                <Box align="center" direction="row" gap='3xsmall'>
                   <Box
                     background={
                       datum.status === 'Online' ? 'brand' : 'text-weak'
                     }
-                    pad="xsmall"
+                    pad='3xsmall'
                     round
                   />
                   <Text color="text-strong">{datum.status}</Text>

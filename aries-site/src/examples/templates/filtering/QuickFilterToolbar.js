@@ -63,7 +63,7 @@ export const QuickFilterToolbar = () => (
           <ComposedToolbar />
           <DataSummary />
           <DataTable aria-describedby="storage-heading" columns={columns} />
-          <Box border="top" pad={{ vertical: 'xsmall' }}>
+          <Box border="top" pad={{ vertical: '3xsmall' }}>
             <Pagination summary stepOptions />
           </Box>
         </Data>

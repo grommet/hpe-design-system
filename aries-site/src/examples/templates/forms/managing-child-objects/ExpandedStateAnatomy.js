@@ -67,7 +67,7 @@ export const ExpandedStateAnatomy = () => {
           gridArea={annotations.container.annotation}
           id={annotations.container.annotation}
           target="1"
-          margin={{ bottom: 'large', horizontal: 'auto' }}
+          margin={{ bottom: 'xlarge', horizontal: 'auto' }}
         />
         <Annotation
           gridArea={annotations.label.annotation}
@@ -113,9 +113,9 @@ export const ExpandedStateAnatomy = () => {
             id={annotations.body.element}
             align="center"
             border={{ style: 'dashed' }}
-            height="small"
+            height='xsmall'
             justify="center"
-            margin={{ horizontal: 'small', top: 'medium', bottom: 'small' }}
+            margin={{ horizontal: 'xsmall', top: 'medium', bottom: 'xsmall' }}
           >
             <Text>Body</Text>
           </Box>
