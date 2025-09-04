@@ -9,6 +9,8 @@ import {
   useConfirmation,
 } from './components';
 
+const modalTitle = 'Add application modal';
+
 export const LayerExample = () => {
   const announce = useContext(AnnounceContext);
 
@@ -22,7 +24,7 @@ export const LayerExample = () => {
                 <Button
                   label="Show me the layer"
                   onClick={() => {
-                    announce('Add application modal opened.', 'polite');
+                    announce(`${modalTitle} opened.`, 'polite');
                     setShowLayer(true);
                   }}
                   primary
@@ -45,7 +47,7 @@ const AddApplication = ({ ...rest }) => {
   const { onClose } = useConfirmation();
 
   const closeLayer = () => {
-    announce('Add application modal closed.', 'polite');
+    announce(`${modalTitle} closed.`, 'polite');
     onClose();
   };
 
