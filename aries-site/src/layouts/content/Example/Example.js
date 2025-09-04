@@ -270,8 +270,8 @@ export const Example = ({
     <>
       <Box
         width={previewWidth || undefined}
-        margin={{ vertical: 'small' }}
-        gap="large"
+        margin={{ vertical: 'xsmall' }}
+        gap='xlarge'
       >
         <>
           {/* For use with templates or page layouts to toggle between laptop,
@@ -319,7 +319,7 @@ export const Example = ({
                     ? 'between'
                     : 'end'
                 }
-                pad="xxsmall"
+                pad='5xsmall'
                 background="#111"
               >
                 {(template || screenContainer || showResponsiveControls) && (

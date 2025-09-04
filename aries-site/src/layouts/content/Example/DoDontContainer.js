@@ -23,12 +23,12 @@ export const DoDontContainer = ({
     }
 
     bestPractice = (
-      <Box gap="xsmall">
+      <Box gap='3xsmall'>
         <Box
-          pad="xsmall"
+          pad='3xsmall'
           background={background}
           fill="horizontal"
-          margin={{ top: 'small' }}
+          margin={{ top: 'xsmall' }}
           round="xxsmall"
         />
         <Box>

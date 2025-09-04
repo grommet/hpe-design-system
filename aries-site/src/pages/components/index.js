@@ -16,7 +16,7 @@ const Components = () => (
       description={pageDetails.seoDescription}
       canonicalUrl="https://design-system.hpe.design/components"
     />
-    <PageContent gap="large">
+    <PageContent gap='xlarge'>
       <PageIntro>
         <Box justify="center" fill>
           <Heading margin="none">{title}</Heading>

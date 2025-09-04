@@ -8,7 +8,7 @@ const StyledFigure = styled.figure`
 `;
 
 const StyledCaption = ({ ...rest }) => (
-  <Text as="figcaption" margin={{ top: 'xsmall' }} size="small" {...rest} />
+  <Text as="figcaption" margin={{ top: '3xsmall' }} size="small" {...rest} />
 );
 
 export const FigureWrapper = ({ caption, children }) => (
