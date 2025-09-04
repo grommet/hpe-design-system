@@ -29,8 +29,8 @@ export const JobList = (
         <Box
           key={datum.id}
           background="background-contrast"
-          round="small"
-          pad={{ left: 'small', right: 'xsmall', vertical: 'small' }}
+          round='medium'
+          pad={{ left: 'xsmall', right: '3xsmall', vertical: 'xsmall' }}
           gap="medium"
         >
           <Box direction="row" justify="between">

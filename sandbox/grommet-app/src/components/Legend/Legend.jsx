@@ -2,10 +2,10 @@ import { Box, Text } from 'grommet';
 import PropTypes from 'prop-types';
 
 export const Legend = ({ color, label }) => (
-  <Box direction="row" align="center" gap="xsmall">
+  <Box direction="row" align="center" gap='3xsmall'>
     <Box
       flex={false}
-      pad="xsmall"
+      pad='3xsmall'
       round
       background={color}
       responsive={false}

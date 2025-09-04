@@ -1460,7 +1460,7 @@ export const Devices = () => {
             icon={<More />}
             dropAlign={{ top: 'bottom', left: 'left' }}
             dropContent={
-              <Box align="start" gap="small" pad="small">
+              <Box align="start" gap='xsmall' pad='xsmall'>
                 <DataView />
                 <Toolbar>
                   <DataTableColumns drop options={options} />
@@ -1476,7 +1476,7 @@ export const Devices = () => {
         </Box>
       </Toolbar>
       <Box skeleton={skeleton}>
-        <DataSummary margin={{ bottom: 'none', top: 'xsmall' }} />
+        <DataSummary margin={{ bottom: 'none', top: '3xsmall' }} />
       </Box>
       <Box overflow={{ horizontal: 'auto' }} skeleton={skeleton}>
         <DataTable
@@ -1493,7 +1493,7 @@ export const Devices = () => {
         summary
         stepOptions={!skeleton ? true : false}
         border="top"
-        pad={{ vertical: 'xsmall' }}
+        pad={{ vertical: '3xsmall' }}
         skeleton={skeleton}
       />
     </Data>

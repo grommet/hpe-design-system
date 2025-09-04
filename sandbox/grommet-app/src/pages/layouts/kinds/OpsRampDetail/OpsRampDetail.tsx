@@ -57,7 +57,7 @@ export const OpsRampDetail: React.FC = () => {
         setExpanded={() => {}}
         sideBarOpen={!isSidebarCollapsed}
       />
-      <Page pad={{ bottom: 'xlarge' }}>
+      <Page pad={{ bottom: '3xlarge' }}>
         <PageContent>
           <PageHeader
             title="Kubernetes"

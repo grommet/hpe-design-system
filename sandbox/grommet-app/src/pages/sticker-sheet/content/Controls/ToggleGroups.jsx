@@ -6,7 +6,7 @@ import { Compare } from '../../components/Compare';
 export const ToggleGroups = () => {
   return (
     <ContentPane>
-      <Box gap="small">
+      <Box gap='xsmall'>
         <Compare>
           <ToggleGroup
             a11yTitle="Choose view"
