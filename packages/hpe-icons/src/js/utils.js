@@ -11,9 +11,9 @@ export function deepMerge(target, ...sources) {
   }
   // making sure to not change target (immutable)
   const output = { ...target };
-  sources.forEach((source) => {
+  sources.forEach(source => {
     if (isObject(source)) {
-      Object.keys(source).forEach((key) => {
+      Object.keys(source).forEach(key => {
         if (isObject(source[key])) {
           if (!output[key]) {
             output[key] = { ...source[key] };
@@ -31,19 +31,6 @@ export function deepMerge(target, ...sources) {
 
 export const parseMetricToNum = (string = '') =>
   parseFloat(string.match(/\d+(\.\d+)?/), 10);
-
-// scaleProps sets path properties to prevent scaling the stroke
-// when the theme doesn't want it for small sizes.
-export function useScaleProps(props) {
-  const theme = useContext(ThemeContext);
-  const { size } = props;
-  const result = {};
-  if (theme?.icon?.disableScaleDown) {
-    const dimension = parseMetricToNum(theme.icon.size[size] || size);
-    if (dimension < 24) result.vectorEffect = 'non-scaling-stroke';
-  }
-  return result;
-}
 
 const calculatePad = (value, iconDimension) =>
   `${(value - iconDimension) / 2}px`;
@@ -93,19 +80,9 @@ export function iconPad(props) {
   return style;
 }
 
-// ensure icons that rely on urls don't have id collision
-// Date.now + Math.random is unique enough for icon use cases
-export const generatePrefix = (name) =>
-  `_hpeicons-${name}-${
-    // don't include time-based/random id generation in snapshot tests to avoid
-    // needing to update snapshots with every commit
-    process.env.NODE_ENV !== 'test' ? Date.now() + Math.random() : ''
-  }`;
-
 export default {
   deepMerge,
   isObject,
   parseMetricToNum,
   iconPad,
-  useScaleProps,
 };
