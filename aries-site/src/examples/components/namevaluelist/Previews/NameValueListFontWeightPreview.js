@@ -3,7 +3,7 @@ import { Box, NameValueList, NameValuePair } from 'grommet';
 import { fontData } from '../data';
 
 export const NameValueListFontWeightPreview = () => (
-  <Box pad="small">
+  <Box pad='xsmall'>
     <NameValueList>
       {Object.entries(fontData).map(([name, value]) => (
         <NameValuePair key={name} name={name}>

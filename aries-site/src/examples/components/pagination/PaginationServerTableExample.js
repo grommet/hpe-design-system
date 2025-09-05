@@ -111,7 +111,7 @@ export const PaginationServerTableExample = () => {
         step={limit}
         onSort={opts => setSort(opts)}
         fill
-        gap="small"
+        gap='xsmall'
       />
       {numberItems > limit && (
         <Box
@@ -119,7 +119,7 @@ export const PaginationServerTableExample = () => {
           fill="horizontal"
           border="top"
           justify="end"
-          pad={{ vertical: 'xsmall' }}
+          pad={{ vertical: '3xsmall' }}
         >
           <Text>
             Showing {pageResultStart}-{pageResultEnd} of {numberItems}

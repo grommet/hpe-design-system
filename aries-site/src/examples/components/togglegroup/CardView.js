@@ -31,8 +31,8 @@ const Card = ({ name, success, rocket }) => {
   return (
     <GrommetCard elevation="medium">
       <CardBody gap="medium">
-        <Box gap="xsmall">
-          <Box direction="row" align="center" gap="xsmall" flex>
+        <Box gap='3xsmall'>
+          <Box direction="row" align="center" gap='3xsmall' flex>
             {success === 'Successful' ? (
               <StatusGoodSmall color="status-ok" height="medium" />
             ) : (

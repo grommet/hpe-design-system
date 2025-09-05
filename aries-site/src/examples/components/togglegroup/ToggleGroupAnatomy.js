@@ -51,10 +51,10 @@ const AnatomyBox = ({ id, children, ...rest }) => {
     <Box
       id={id}
       fill="horizontal"
-      pad="xsmall"
+      pad='3xsmall'
       justify="center"
       align="center"
-      gap="xsmall"
+      gap='3xsmall'
       direction="row"
       {...rest}
     >

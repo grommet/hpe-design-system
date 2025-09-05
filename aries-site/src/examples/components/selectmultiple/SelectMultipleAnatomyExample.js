@@ -77,7 +77,7 @@ export const SelectMultipleAnatomyExample = () => (
       <Annotation id={1} target="1" gridArea="a1" margin={{ top: '26px' }} />
       <Annotation id={2} target="2" gridArea="a2" />
       <Annotation id={3} target="3" gridArea="a3" />
-      <Annotation id={4} target="4" gridArea="a4" margin={{ top: 'xsmall' }} />
+      <Annotation id={4} target="4" gridArea="a4" margin={{ top: '3xsmall' }} />
       <Annotation id={5} target="5" gridArea="a5" />
       <Annotation id={6} target="6" gridArea="a6" margin={{ top: '38px' }} />
     </AnatomyGrid>

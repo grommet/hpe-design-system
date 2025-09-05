@@ -88,7 +88,7 @@ export const PageHeaderAnatomy = ({ background }) => {
                 ['annotation-1b', 'pageheader', 'null-2'],
               ]
         }
-        gap={{ column: 'small' }}
+        gap={{ column: 'xsmall' }}
       >
         <Annotation id={2} target="2" gridArea="annotation-2" />
         <Annotation id="1a" target="1a" gridArea="annotation-1a" />

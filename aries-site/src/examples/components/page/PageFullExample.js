@@ -28,7 +28,7 @@ export const PageFullExample = () => (
     <PageContent fill {...demoStyle}>
       <PageHeader title="Full page" />
       <ContentPane>
-        <Grid columns={['medium', 'flex']} rows={['large']} border>
+        <Grid columns={['medium', 'flex']} rows={['xlarge']} border>
           <ServerList />
           <Box
             background={{
@@ -45,12 +45,12 @@ export const PageFullExample = () => (
 
 const ServerList = () => (
   <Box overflow="auto">
-    <List data={serverhealth} pad={{ bottom: 'xsmall' }}>
+    <List data={serverhealth} pad={{ bottom: '3xsmall' }}>
       {datum => (
         <Box
           border={{ side: 'bottom', color: 'border-weak' }}
-          pad="xsmall"
-          height={{ min: 'xsmall' }}
+          pad='3xsmall'
+          height={{ min: '3xsmall' }}
           justify="between"
         >
           <Header align="start">

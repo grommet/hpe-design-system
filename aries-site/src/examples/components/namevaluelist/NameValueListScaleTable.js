@@ -69,18 +69,18 @@ const columns = [
 ];
 
 export const NameValueListScaleTable = () => (
-  <Box pad="small" align="start">
+  <Box pad='xsmall' align="start">
     <Table>
       <TableHeader>
         <TableRow>
           {columns.map(c => (
             <TableCell
-              size="small"
+              size='xsmall'
               align="center"
               border
               key={c.property}
               scope="col"
-              pad={{ vertical: 'small' }}
+              pad={{ vertical: 'xsmall' }}
             >
               <TextEmphasis>{c.label}</TextEmphasis>
             </TableCell>
@@ -95,7 +95,7 @@ export const NameValueListScaleTable = () => (
                 align="center"
                 border
                 key={c.property}
-                pad={{ vertical: 'small' }}
+                pad={{ vertical: 'xsmall' }}
               >
                 <Text color="text-strong">{datum[c.property]}</Text>
               </TableCell>

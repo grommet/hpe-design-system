@@ -30,8 +30,8 @@ export const PaginationCardsExample = () => {
   };
 
   return (
-    <Box gap="medium" overflow="auto" pad="xsmall">
-      <Box flex={false} pad="xsmall">
+    <Box gap="medium" overflow="auto" pad='3xsmall'>
+      <Box flex={false} pad='3xsmall'>
         <Grid columns="medium" gap="medium">
           {currentData.map(datum => (
             <CardResult item={datum} key={datum.entry} />
@@ -41,7 +41,7 @@ export const PaginationCardsExample = () => {
       <Box
         align="center"
         border="top"
-        pad={{ vertical: 'xsmall' }}
+        pad={{ vertical: '3xsmall' }}
         direction={
           !['xsmall', 'small'].includes(size) ? 'row' : 'column-reverse'
         }
