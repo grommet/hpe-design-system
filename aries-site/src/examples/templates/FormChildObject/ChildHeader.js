@@ -23,10 +23,10 @@ export const ChildHeader = ({
       id={annotationIds?.container}
       background={background}
       border={borderStyle}
-      height={{ min: 'xxsmall' }}
+      height={{ min: '5xsmall' }}
       onMouseEnter={() => setBackground('background-contrast')}
       onMouseLeave={() => setBackground(null)}
-      pad="small"
+      pad='xsmall'
       {...rest}
     >
       <Box>

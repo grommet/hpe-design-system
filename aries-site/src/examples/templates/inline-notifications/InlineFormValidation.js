@@ -32,7 +32,7 @@ export const FormValidation = () => {
             label="Use manager"
           />
         </FormField>
-        <Box gap="small" pad={{ top: 'medium' }}>
+        <Box gap='xsmall' pad={{ top: 'medium' }}>
           <Notification
             status="critical"
             icon={<CircleInformation height="medium" />}

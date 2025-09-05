@@ -18,7 +18,7 @@ export const HeaderNav = () => {
   const [open, setOpen] = useState();
 
   return user ? (
-    <Nav align="center" direction="row" gap="small">
+    <Nav align="center" direction="row" gap='xsmall'>
       {!['xsmall', 'small'].includes(size) && (
         <>
           <Button icon={<HelpOption />} a11yTitle="Help" title="Help" />
@@ -50,7 +50,7 @@ const UserDetails = () => {
   const { user, setUser } = useContext(UserContext);
   return (
     <Box width="medium">
-      <Box pad="medium" direction="row" gap="small">
+      <Box pad="medium" direction="row" gap='xsmall'>
         {user && !user.image ? (
           <Avatar background="blue!" flex={false} size="large">
             <Text size="xlarge" color="text-strong">
@@ -60,7 +60,7 @@ const UserDetails = () => {
         ) : (
           <Avatar src={user.image} size="large" />
         )}
-        <Box pad={{ vertical: 'small' }}>
+        <Box pad={{ vertical: 'xsmall' }}>
           <TextEmphasis size="large">
             {`${user.firstName} ${user.lastName}`}
           </TextEmphasis>
@@ -75,7 +75,7 @@ const UserDetails = () => {
         direction="row"
         align="center"
         justify="between"
-        pad={{ horizontal: 'xsmall', vertical: 'small' }}
+        pad={{ horizontal: '3xsmall', vertical: 'xsmall' }}
       >
         <Button label="My Profile" />
         <Button label="Sign Out" onClick={() => setUser()} />

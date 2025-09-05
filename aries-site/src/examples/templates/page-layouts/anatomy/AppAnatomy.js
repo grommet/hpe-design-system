@@ -12,7 +12,7 @@ export const AppAnatomy = () => {
     <ContentArea
       title="App Container"
       border
-      gap="small"
+      gap='xsmall'
       round="xsmall"
       height={height}
       width={width}

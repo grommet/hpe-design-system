@@ -39,7 +39,7 @@ export const FormChildObjects = ({
     <ButtonGroup
       justify="end"
       border={{ side: 'top', color: 'border-weak' }}
-      pad={{ top: 'small' }}
+      pad={{ top: 'xsmall' }}
     >
       {/* keep at least one child when child objects are required by parent */}
       {values?.length >= 2 && !required && (
