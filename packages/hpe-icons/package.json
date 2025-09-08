@@ -1,8 +1,20 @@
 {
   "name": "hpe-icons",
-  "private": true,
-  "version": "0.0.0",
+  "description": "HPE Icons for use with the HPE Design System.",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/grommet/hpe-design-system/packages/hpe-icons",
   "type": "module",
+  "exports": {
+    "./grommet": {
+      "import": "./dist/grommet/index.js",
+      "require": "./dist/grommet/cjs/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
