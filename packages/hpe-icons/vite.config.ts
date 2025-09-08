@@ -6,9 +6,16 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: ['src/index.ts'],
+      entry: {
+        'hpe-icons': 'src/js/index.ts',
+        'grommet/hpe-icons': 'src/js/grommet/index.ts',
+      },
       name: 'hpe-icons',
-      fileName: 'hpe-icons',
+      fileName: (format, entryName) => {
+        return format === 'es'
+          ? `${entryName}.js`
+          : `${entryName}.${format}.js`;
+      },
       formats: ['es', 'cjs'],
     },
     outDir: 'dist',
