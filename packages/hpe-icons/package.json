@@ -8,7 +8,7 @@
   "exports": {
     "./grommet": {
       "import": "./dist/grommet/hpe-icons.js",
-      "require": "./dist/grommet/cjs/hpe-icons.cjs"
+      "require": "./dist/grommet/hpe-icons.cjs"
     }
   },
   "files": [

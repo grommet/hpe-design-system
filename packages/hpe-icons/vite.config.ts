@@ -12,9 +12,7 @@ export default defineConfig({
       },
       name: 'hpe-icons',
       fileName: (format, entryName) => {
-        return format === 'es'
-          ? `${entryName}.js`
-          : `${entryName}.${format}.js`;
+        return format === 'es' ? `${entryName}.js` : `${entryName}.${format}`;
       },
       formats: ['es', 'cjs'],
     },
