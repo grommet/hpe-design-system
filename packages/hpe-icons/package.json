@@ -7,8 +7,8 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/hpe-icons.js",
+      "require": "./dist/hpe-icons.cjs"
     },
     "./grommet": {
       "import": "./dist/grommet/hpe-icons.js",
