@@ -42,7 +42,7 @@ const MAPS = {
 };
 
 // Determine which size mapping to use based on the prop name
-const getMapForProp = (prop) => {
+const getMapForProp = prop => {
   if (SPACING_PROPS.includes(prop)) return MAPS.spacing;
   if (BORDER_PROPS.includes(prop)) return MAPS.border;
   if (CONTAINER_PROPS.includes(prop) || prop === 'columns' || prop === 'rows')
@@ -62,7 +62,7 @@ const replaceSize = (prop, value, fileInfo = {}) => {
 };
 
 // helper for compatibility with JS + TS parser
-const isStringLiteral = (n) =>
+const isStringLiteral = n =>
   n &&
   ((n.type === 'Literal' && typeof n.value === 'string') ||
     n.type === 'StringLiteral');
@@ -74,7 +74,6 @@ const deepReplaceSize = (prop, node, fileInfo) => {
 
   // String literal
   if (isStringLiteral(node)) {
-    // const node = node;
     const newValue = replaceSize(prop, node.value, fileInfo);
     if (newValue !== node.value) {
       node.value = newValue;
@@ -86,7 +85,7 @@ const deepReplaceSize = (prop, node, fileInfo) => {
     // Use container map for columns/rows arrays
     let arrayProp = prop;
     if (prop === 'columns' || prop === 'rows') arrayProp = 'width';
-    node.elements = node.elements.map((el) =>
+    node.elements = node.elements.map(el =>
       deepReplaceSize(arrayProp, el, fileInfo),
     );
     return node;
@@ -107,7 +106,7 @@ const deepReplaceSize = (prop, node, fileInfo) => {
     }
     // For other call expressions, transform arguments normally
     if (node.arguments) {
-      node.arguments = node.arguments.map((arg) =>
+      node.arguments = node.arguments.map(arg =>
         deepReplaceSize(prop, arg, fileInfo),
       );
     }
@@ -116,7 +115,7 @@ const deepReplaceSize = (prop, node, fileInfo) => {
 
   // Object
   if (node.type === 'ObjectExpression') {
-    node.properties.forEach((p) => {
+    node.properties.forEach(p => {
       // Key-based mapping for container props (e.g., width, height)
       const keyName = p.key && (p.key.name || p.key.value);
       let valueProp = prop;
@@ -153,7 +152,8 @@ const getFileInfo = (file, node) => ({
   line: node.loc ? node.loc.start.line : undefined,
 });
 
-// Improved scanning function - only flag variable declarations and suspicious patterns
+// Improved scanning function - only flag variable 
+// declarations and suspicious patterns
 const scanForTshirtSizes = (file, root, j) => {
   const tshirtSizes = [
     'xxsmall',
@@ -172,7 +172,7 @@ const scanForTshirtSizes = (file, root, j) => {
   let foundAny = false;
 
   // scan for const/let/var declarations with t-shirt size values
-  root.find(j.VariableDeclarator).forEach((path) => {
+  root.find(j.VariableDeclarator).forEach(path => {
     const { id, init } = path.node;
 
     if (!init) return;
@@ -188,19 +188,20 @@ const scanForTshirtSizes = (file, root, j) => {
       }
 
       console.warn(
+        // eslint-disable-next-line max-len
         `  ⚠️  Line ${line}: const ${varName} = "${init.value}" - may need manual review`,
       );
     }
 
-    // Check for object assignments: const padding = { top: 'small', left: 'large' }
+    // Check for object assignments: const 
+    // padding = { top: 'small', left: 'large' }
     if (init.type === 'ObjectExpression') {
       let hasAnyTshirtSize = false;
       const foundSizes = [];
 
       // Check if this object has style-related properties
-      const hasStyleProps = init.properties.some((prop) => {
+      const hasStyleProps = init.properties.some(prop => {
         if (prop.type === 'Property' || prop.type === 'ObjectProperty') {
-          // ADD ObjectProperty HERE
           const keyName = prop.key.name || prop.key.value;
           return [
             'pad',
@@ -224,7 +225,7 @@ const scanForTshirtSizes = (file, root, j) => {
       });
 
       // Check if this object has t-shirt size keys
-      const hasTshirtSizeKeys = init.properties.some((prop) => {
+      const hasTshirtSizeKeys = init.properties.some(prop => {
         if (prop.type === 'Property' || prop.type === 'ObjectProperty') {
           const keyName = prop.key.name || prop.key.value;
           const isMatch = tshirtSizes.includes(keyName);
@@ -234,7 +235,7 @@ const scanForTshirtSizes = (file, root, j) => {
       });
 
       // Add this after the existing hasTshirtSizeKeys check:
-      const tshirtSizeKeyCount = init.properties.filter((prop) => {
+      const tshirtSizeKeyCount = init.properties.filter(prop => {
         if (prop.type === 'Property' || prop.type === 'ObjectProperty') {
           const keyName = prop.key.name || prop.key.value;
           const isMatch = tshirtSizes.includes(keyName);
@@ -252,9 +253,8 @@ const scanForTshirtSizes = (file, root, j) => {
       // 2. Have t-shirt size keys (like { xsmall: 'value', small: 'value' })
       // This excludes random objects like { name: 'small', type: 'medium' }
       if (hasStyleProps || hasTshirtSizeKeys || mostlyTshirtSizeKeys) {
-        init.properties.forEach((prop) => {
+        init.properties.forEach(prop => {
           if (prop.type === 'Property' || prop.type === 'ObjectProperty') {
-            // ADD ObjectProperty HERE
             // Check if property key is a t-shirt size
             const propKey = prop.key.name || prop.key.value;
             if (tshirtSizes.includes(propKey)) {
@@ -291,13 +291,14 @@ const scanForTshirtSizes = (file, root, j) => {
       }
     }
 
-    // Check for array assignments: const sizes = ['small', 'large'] or nested arrays
+    // Check for array assignments: const sizes = 
+    // ['small', 'large'] or nested arrays
     if (init.type === 'ArrayExpression') {
       let hasAnyTshirtSize = false;
       const foundSizes = [];
 
       const checkArrayForTshirtSizes = (elements, depth = 0) => {
-        elements.forEach((element, index) => {
+        elements.forEach((element) => {
           if (isStringLiteral(element) && tshirtSizes.includes(element.value)) {
             hasAnyTshirtSize = true;
             foundSizes.push(`"${element.value}"`);
@@ -328,19 +329,20 @@ const scanForTshirtSizes = (file, root, j) => {
       }
     }
 
-    // Check for conditional expressions: const size = condition ? 'small' : 'medium'
+    // Check for conditional expressions: const 
+    // size = condition ? 'small' : 'medium'
     if (init.type === 'ConditionalExpression') {
       let hasAnyTshirtSize = false;
       const foundSizes = [];
 
-      const checkConditionalForTshirtSizes = (node) => {
+      const checkConditionalForTshirtSizes = node => {
         if (isStringLiteral(node) && tshirtSizes.includes(node.value)) {
           hasAnyTshirtSize = true;
           foundSizes.push(`"${node.value}"`);
         }
         // Handle arrays in conditionals
         if (node.type === 'ArrayExpression') {
-          node.elements.forEach((element) => {
+          node.elements.forEach(element => {
             checkConditionalForTshirtSizes(element);
           });
         }
@@ -358,14 +360,14 @@ const scanForTshirtSizes = (file, root, j) => {
             node.callee.object &&
             node.callee.object.type === 'ArrayExpression'
           ) {
-            node.callee.object.elements.forEach((element) => {
+            node.callee.object.elements.forEach(element => {
               checkConditionalForTshirtSizes(element);
             });
           }
         }
       };
 
-      checkConditionalForTshirtSizes(init.test); // ✅ ADD THIS LINE
+      checkConditionalForTshirtSizes(init.test);
       checkConditionalForTshirtSizes(init.consequent);
       checkConditionalForTshirtSizes(init.alternate);
 
@@ -386,13 +388,14 @@ const scanForTshirtSizes = (file, root, j) => {
       }
     }
 
-    // Check for destructuring with default values: const { round = 'xxsmall', size = 'medium' } = indicator;
+    // Check for destructuring with default values: 
+    // const { round = 'xxsmall', size = 'medium' } = indicator;
     if (id.type === 'ObjectPattern') {
       let hasAnyTshirtSize = false;
       const foundSizes = [];
 
-      const checkDestructuringForTshirtSizes = (pattern) => {
-        pattern.properties.forEach((prop) => {
+      const checkDestructuringForTshirtSizes = pattern => {
+        pattern.properties.forEach(prop => {
           if (prop.type === 'Property') {
             // Handle simple destructuring: { round, size }
             if (prop.value.type === 'Identifier') {
@@ -400,7 +403,8 @@ const scanForTshirtSizes = (file, root, j) => {
               return;
             }
 
-            // Handle destructuring with defaults: { round = 'xxsmall', size = 'medium' }
+            // Handle destructuring with defaults: 
+            // { round = 'xxsmall', size = 'medium' }
             if (prop.value.type === 'AssignmentPattern') {
               const keyName = prop.key.name || prop.key.value;
               const defaultValue = prop.value.right;
@@ -416,7 +420,7 @@ const scanForTshirtSizes = (file, root, j) => {
 
               // Check for complex default values (conditionals, etc.)
               if (defaultValue.type === 'ConditionalExpression') {
-                const checkConditionalInDefault = (node) => {
+                const checkConditionalInDefault = node => {
                   if (
                     isStringLiteral(node) &&
                     tshirtSizes.includes(node.value)
@@ -461,8 +465,9 @@ const scanForTshirtSizes = (file, root, j) => {
     }
   });
 
-  // scan for assignment expressions with style objects (e.g., kindStyles = { ... })
-  root.find(j.AssignmentExpression).forEach((path) => {
+  // scan for assignment expressions with style objects 
+  // (e.g., kindStyles = { ... })
+  root.find(j.AssignmentExpression).forEach(path => {
     const { left, right } = path.node;
 
     // Only check object assignments
@@ -471,7 +476,7 @@ const scanForTshirtSizes = (file, root, j) => {
       const foundSizes = [];
 
       // Check if this object has style-related properties or t-shirt size keys
-      const hasStyleProps = right.properties.some((prop) => {
+      const hasStyleProps = right.properties.some(prop => {
         if (prop.type === 'Property') {
           const keyName = prop.key.name || prop.key.value;
           return [
@@ -495,7 +500,7 @@ const scanForTshirtSizes = (file, root, j) => {
         return false;
       });
 
-      const hasTshirtSizeKeys = right.properties.some((prop) => {
+      const hasTshirtSizeKeys = right.properties.some(prop => {
         if (prop.type === 'Property') {
           const keyName = prop.key.name || prop.key.value;
           return tshirtSizes.includes(keyName);
@@ -503,14 +508,15 @@ const scanForTshirtSizes = (file, root, j) => {
         return false;
       });
 
-      // Check nested objects for style properties (like container: { pad: 'xsmall' })
-      const hasNestedStyleProps = right.properties.some((prop) => {
+      // Check nested objects for style properties (like 
+      // container: { pad: 'xsmall' })
+      const hasNestedStyleProps = right.properties.some(prop => {
         if (
           prop.type === 'Property' &&
           prop.value &&
           prop.value.type === 'ObjectExpression'
         ) {
-          return prop.value.properties.some((nestedProp) => {
+          return prop.value.properties.some(nestedProp => {
             if (nestedProp.type === 'Property') {
               const keyName = nestedProp.key.name || nestedProp.key.value;
               return [
@@ -538,9 +544,10 @@ const scanForTshirtSizes = (file, root, j) => {
 
       // Process if it has style-related properties or nested style properties
       if (hasStyleProps || hasTshirtSizeKeys || hasNestedStyleProps) {
-        // Helper function to recursively check for t-shirt sizes in nested objects
+        // Helper function to recursively check for t-shirt sizes in 
+        // nested objects
         const checkObjectForTshirtSizes = (obj, prefix = '') => {
-          obj.properties.forEach((prop) => {
+          obj.properties.forEach(prop => {
             if (prop.type === 'Property') {
               const propKey = prop.key.name || prop.key.value;
               const fullKey = prefix ? `${prefix}.${propKey}` : propKey;
@@ -590,7 +597,7 @@ const scanForTshirtSizes = (file, root, j) => {
   });
 
   // scan for theme.global.edgeSize references
-  root.find(j.MemberExpression).forEach((path) => {
+  root.find(j.MemberExpression).forEach(path => {
     const { node } = path;
 
     // Check for theme.global.edgeSize.xxx pattern
@@ -614,6 +621,7 @@ const scanForTshirtSizes = (file, root, j) => {
         }
 
         console.warn(
+          // eslint-disable-next-line max-len
           `  ⚠️  Line ${line}: theme.global.edgeSize.${sizeName} - may need manual review`,
         );
       }
@@ -622,7 +630,7 @@ const scanForTshirtSizes = (file, root, j) => {
 
   // scan for obvious style objects that might contain t-shirt sizes
   // Look for objects with style-related property names
-  root.find(j.ObjectExpression).forEach((path) => {
+  root.find(j.ObjectExpression).forEach(path => {
     const { node } = path;
 
     // Skip if this is already handled by VariableDeclarator above
@@ -644,7 +652,7 @@ const scanForTshirtSizes = (file, root, j) => {
     if (isPartOfVariableDeclarator || isPartOfAssignmentExpression) return;
 
     // Check if this object has style-related properties
-    const hasStyleProps = node.properties.some((prop) => {
+    const hasStyleProps = node.properties.some(prop => {
       if (prop.type === 'Property') {
         const keyName = prop.key.name || prop.key.value;
         return [
@@ -662,7 +670,7 @@ const scanForTshirtSizes = (file, root, j) => {
 
     // Only flag if it looks like a style object
     if (hasStyleProps) {
-      node.properties.forEach((prop) => {
+      node.properties.forEach(prop => {
         if (
           prop.type === 'Property' &&
           isStringLiteral(prop.value) &&
@@ -677,6 +685,7 @@ const scanForTshirtSizes = (file, root, j) => {
           }
 
           console.warn(
+            // eslint-disable-next-line max-len
             `  ⚠️  Line ${line}: Object with ${propKey}: "${prop.value.value}" - may need manual review`,
           );
         }
@@ -701,9 +710,9 @@ module.exports = (file, api, options) => {
   const grommetIconComponents = new Set();
 
   // Find all imports from 'grommet-icons'
-  root.find(j.ImportDeclaration).forEach((path) => {
+  root.find(j.ImportDeclaration).forEach(path => {
     if (path.node.source.value === 'grommet-icons') {
-      path.node.specifiers.forEach((specifier) => {
+      path.node.specifiers.forEach(specifier => {
         if (specifier.type === 'ImportSpecifier') {
           grommetIconComponents.add(specifier.imported.name);
         }
@@ -712,7 +721,7 @@ module.exports = (file, api, options) => {
   });
 
   // Helper function to check if a component is imported from grommet-icons
-  const isGrommetIconComponent = (elementName) =>
+  const isGrommetIconComponent = elementName =>
     grommetIconComponents.has(elementName);
 
   // Replace theme.global.edgeSize.xxx references
@@ -723,7 +732,7 @@ module.exports = (file, api, options) => {
         property: { name: 'edgeSize' },
       },
     })
-    .forEach((path) => {
+    .forEach(path => {
       const prop = path.node.property;
 
       // Only transform identifiers (e.g., theme.global.edgeSize.small)
@@ -750,7 +759,8 @@ module.exports = (file, api, options) => {
         if (newKey && newKey !== oldKey) {
           if (/^\d/.test(newKey)) {
             // starts with a number → use bracket notation
-            // by setting computed to true, jscodeshift will convert to bracket notation
+            // by setting computed to true, jscodeshift will convert 
+            // to bracket notation
             // stringLiteral ensure it's a string type
             path.node.property = j.stringLiteral(newKey);
             path.node.computed = true;
@@ -780,9 +790,10 @@ module.exports = (file, api, options) => {
     'chart',
   ];
 
-  // Replace string literal, object, array, and conditional props (deep traversal)
-  ALL_PROPS.forEach((prop) => {
-    root.find(j.JSXAttribute, { name: { name: prop } }).forEach((path) => {
+  // Replace string literal, object, array, and conditional 
+  // props (deep traversal)
+  ALL_PROPS.forEach(prop => {
+    root.find(j.JSXAttribute, { name: { name: prop } }).forEach(path => {
       const val = path.node.value;
       if (val) {
         const fileInfo = getFileInfo(file, path.node);
@@ -822,9 +833,10 @@ module.exports = (file, api, options) => {
         // Deep traverse expression containers
         if (val.type === 'JSXExpressionContainer') {
           if (isSpecialContainer) {
-            // For special containers, only transform nested pad, margin, round, height, width, thickness
+            // For special containers, only transform nested pad, margin, 
+            // round, height, width, thickness
             if (val.expression.type === 'ObjectExpression') {
-              val.expression.properties.forEach((propNode) => {
+              val.expression.properties.forEach(propNode => {
                 if (propNode.type === 'Property') {
                   const keyName =
                     propNode.key && (propNode.key.name || propNode.key.value);
@@ -850,7 +862,8 @@ module.exports = (file, api, options) => {
                         propNode.value = j.stringLiteral(newValue);
                       }
                     } else {
-                      // Handle complex structures (arrays, objects, conditionals)
+                      // Handle complex structures (arrays, objects, 
+                      // conditionals)
                       propNode.value = deepReplaceSize(
                         keyName,
                         propNode.value,
@@ -863,9 +876,9 @@ module.exports = (file, api, options) => {
             }
             // Handle arrays within special containers (like chart prop)
             if (val.expression.type === 'ArrayExpression') {
-              val.expression.elements.forEach((element) => {
+              val.expression.elements.forEach(element => {
                 if (element && element.type === 'ObjectExpression') {
-                  element.properties.forEach((propNode) => {
+                  element.properties.forEach(propNode => {
                     if (propNode.type === 'Property') {
                       const keyName =
                         propNode.key &&
@@ -914,10 +927,11 @@ module.exports = (file, api, options) => {
   });
 
   // Replace variable assignments and array/string/object literals
-  root.find(j.VariableDeclarator).forEach((path) => {
+  root.find(j.VariableDeclarator).forEach(path => {
     const { id } = path.node;
     const { init } = path.node;
-    // Only handle variables named after known props or common names (pad, columns, rows, etc.)
+    // Only handle variables named after known props or common names 
+    // (pad, columns, rows, etc.)
     const varNames = [
       ...ALL_PROPS,
       'columns',
@@ -936,7 +950,7 @@ module.exports = (file, api, options) => {
     }
     // For destructured assignment: const { pad } = ...
     if (id.type === 'ObjectPattern') {
-      id.properties.forEach((p) => {
+      id.properties.forEach(p => {
         if (p.key && varNames.includes(p.key.name)) {
           prop = p.key.name;
         }
@@ -949,7 +963,7 @@ module.exports = (file, api, options) => {
   });
 
   // Replace assignment expressions (e.g., pad = ...)
-  root.find(j.AssignmentExpression).forEach((path) => {
+  root.find(j.AssignmentExpression).forEach(path => {
     const { left } = path.node;
     const { right } = path.node;
     const varNames = [
@@ -976,14 +990,14 @@ module.exports = (file, api, options) => {
   // Handle components with container size mapping (Meter, TableCell, Cards)
   //  test -> <Chart size="small" />
   ['Meter', 'TableCell', 'Cards', 'DataChart', 'Chart'].forEach(
-    (componentName) => {
+    componentName => {
       root
         .find(j.JSXElement, {
           openingElement: {
             name: { name: componentName },
           },
         })
-        .forEach((path) => {
+        .forEach(path => {
           const { attributes } = path.node.openingElement;
           attributes.forEach((attr, index) => {
             if (attr.type === 'JSXAttribute' && attr.name.name === 'size') {
@@ -1004,14 +1018,14 @@ module.exports = (file, api, options) => {
   );
 
   // Handle components with spacing size mapping (RangeSelector)
-  ['RangeSelector'].forEach((componentName) => {
+  ['RangeSelector'].forEach(componentName => {
     root
       .find(j.JSXElement, {
         openingElement: {
           name: { name: componentName },
         },
       })
-      .forEach((path) => {
+      .forEach(path => {
         const { attributes } = path.node.openingElement;
         attributes.forEach((attr, index) => {
           if (attr.type === 'JSXAttribute' && attr.name.name === 'size') {
@@ -1037,7 +1051,7 @@ module.exports = (file, api, options) => {
         name: { name: 'DataChart' },
       },
     })
-    .forEach((path) => {
+    .forEach(path => {
       const { attributes } = path.node.openingElement;
       attributes.forEach((attr, index) => {
         if (attr.type === 'JSXAttribute' && attr.name.name === 'size') {
@@ -1052,7 +1066,8 @@ module.exports = (file, api, options) => {
             }
           }
 
-          // Handle object: <DataChart size={{ height: "small", width: "large" }} />
+          // Handle object: <DataChart size={{ height: "small", width: 
+          // "large" }} />
           if (
             attr.value &&
             attr.value.type === 'JSXExpressionContainer' &&
@@ -1087,7 +1102,7 @@ module.exports = (file, api, options) => {
         name: { name: 'Grid' },
       },
     })
-    .forEach((path) => {
+    .forEach(path => {
       const { attributes } = path.node.openingElement;
       attributes.forEach((attr, index) => {
         if (
@@ -1120,7 +1135,7 @@ module.exports = (file, api, options) => {
     });
 
   // Transform default parameter values for both arrow and function declarations
-  root.find(j.AssignmentPattern).forEach((path) => {
+  root.find(j.AssignmentPattern).forEach(path => {
     const { left } = path.node;
     const { right } = path.node;
     if (
@@ -1139,16 +1154,17 @@ module.exports = (file, api, options) => {
     }
   });
 
-  // Transform size props within function calls (e.g., cloneElement, createElement, etc.)
-  root.find(j.CallExpression).forEach((path) => {
+  // Transform size props within function calls (e.g., cloneElement, 
+  // createElement, etc.)
+  root.find(j.CallExpression).forEach(path => {
     const callExpr = path.node;
 
     // Check if this call expression has object literal arguments
     if (callExpr.arguments && callExpr.arguments.length > 0) {
-      callExpr.arguments.forEach((arg) => {
+      callExpr.arguments.forEach(arg => {
         // Look for object expressions that might contain size props
         if (arg.type === 'ObjectExpression') {
-          arg.properties.forEach((prop) => {
+          arg.properties.forEach(prop => {
             if (prop.type === 'Property' || prop.type === 'ObjectProperty') {
               const keyName = prop.key && (prop.key.name || prop.key.value);
 
