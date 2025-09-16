@@ -1,6 +1,6 @@
 {
   "name": "hpe-design-system-codemods",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A codemod package for transformations related to the HPE Design System.",
   "keywords": [],
   "author": "",
