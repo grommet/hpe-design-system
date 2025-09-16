@@ -5,8 +5,8 @@
   "keywords": [],
   "author": "",
   "license": "Apache-2.0",
-  "repository": "https://github.com/grommet/hpe-design-system/packages/codemods",
-  "homepage": "https://github.com/grommet/hpe-design-system/packages/codemods",
+  "repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/codemods",
+  "homepage": "https://github.com/grommet/hpe-design-system/tree/master/packages/codemods",
   "files": [
     "bin/",
     "transforms/",
