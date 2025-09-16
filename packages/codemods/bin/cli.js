@@ -266,7 +266,7 @@ if (!args.includes('--scan')) {
     );
   } else {
     console.log(
-      '✅ Grommet Theme HPE v6 → v7 automated transformations complete!',
+      '✅ Grommet Theme HPE v6 → v7 automated transformations complete.',
     );
     console.log('');
     console.log('📋 What happened:');

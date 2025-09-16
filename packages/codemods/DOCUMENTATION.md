@@ -11,8 +11,8 @@ Available codemod transformations:
 ## Table of Contents
 
 - [Installation](#installation)
-- [Transforms](#transforms)
 - [Quick Start](#quick-start)
+- [Transforms](#transforms)
 - [CLI Options](#cli-options)
 - [Usage Examples](#usage-examples)
 - [Migration Details](#migration-details)
@@ -22,12 +22,6 @@ Available codemod transformations:
 - [License](#license)
 
 ## Installation
-
-### Global Installation (Recommended)
-
-```bash
-yarn install -g hpe-design-system-codemods
-```
 
 ### Using npx (No Installation Required)
 
@@ -43,6 +37,38 @@ cd hpe-design-system-codemods
 yarn install
 ```
 
+## Quick Start
+
+### 1. Preview Changes (Dry Run)
+
+See what changes would be made without modifying files:
+
+```bash
+npx hpe-design-system-codemods <codemod transform> <path> --dry
+```
+
+### 2. Apply Transformations
+
+Apply the actual transformations:
+
+```bash
+npx hpe-design-system-codemods <codemod transform> <path> src/
+```
+
+### 3. Scan for Changes
+
+Scan your codebase to see areas that need manual transforming.
+
+```bash
+npx hpe-design-system-codemods <codemod transform> <path> --scan
+```
+
+## Supported File Types
+
+- `.js` - JavaScript files
+- `.jsx` - React JSX files
+- `.ts` - TypeScript files
+- `.tsx` - TypeScript JSX files
 
 ## Transforms
 
@@ -50,42 +76,9 @@ yarn install
 
 This transform handles the migration of t-shirt size properties from Grommet HPE theme v6 to v7. It uses [jscodeshift](https://github.com/facebook/jscodeshift) to parse and transform JavaScript, TypeScript, JSX, and TSX files, specifically targeting the migration of t-shirt size prop values.
 
-#### Quick Start
-
-##### 1. Preview Changes (Dry Run)
-
-See what changes would be made without modifying files:
-
-```bash
-npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/ --dry
-```
-
-##### 2. Apply Transformations
-
-Apply the actual transformations:
-
-```bash
-npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/
-```
-
-##### 3. Scan for Changes
-
-Scan your codebase to see areas that need manual transforming.
-
-```bash
-npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/ --scan
-```
-
-#### Supported File Types
-
-- `.js` - JavaScript files
-- `.jsx` - React JSX files
-- `.ts` - TypeScript files
-- `.tsx` - TypeScript JSX files
-
 #### Property Categories
 
-The codemod handles different categories of properties with specific size mappings:
+This transform handles different categories of properties with specific size mappings:
 
 ##### Spacing Properties
 
