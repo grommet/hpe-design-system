@@ -1,6 +1,10 @@
-# Grommet Theme HPE Codemod
+# HPE Design System Codemods
 
-A codemod project for migrating Grommet theme versions.
+A codemod project to assist migrations for package versions related to the HPE Design System.
+
+Available codemod transformations:
+
+- [Grommet-theme-hpe v6 to v7](#Grommet-theme-hpe-v6-to-v7)
 
 ## Features
 
@@ -20,7 +24,7 @@ yarn install
 you can run the codemod directly with npx:
 
 ```
-npx hpe-design-system-codemods migrate-theme-v6-to-v7 <path> [options]
+npx hpe-design-system-codemods <codemod-transform> <path> [options]
 ```
 
 ## Codemod transforms
@@ -29,6 +33,12 @@ npx hpe-design-system-codemods migrate-theme-v6-to-v7 <path> [options]
 
 - Automated migration of t-shirt size props (e.g., `gap`, `margin`, `pad`, `thickness`, `border`, `height`, `width`, `round`, etc.)
 - Scan mode to detect t-shirt sizes without making changes.
+
+#### Usage
+
+```
+npx hpe-design-system-codemods migrate-theme-v6-to-v7 <path> [options]
+```
 
 #### Options
 

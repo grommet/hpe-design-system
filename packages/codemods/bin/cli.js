@@ -12,7 +12,7 @@ const args = process.argv.slice(2);
 const getAllFiles = (dir, exts) => {
   let results = [];
   const list = fs.readdirSync(dir);
-  list.forEach((file) => {
+  list.forEach(file => {
     const filePath = path.join(dir, file);
     const stat = fs.statSync(filePath);
     if (stat && stat.isDirectory()) {
@@ -116,11 +116,11 @@ if (fs.existsSync(target) && fs.statSync(target).isDirectory()) {
 }
 
 // Batch files by extension for faster processing
-const tsFiles = filesToProcess.filter((f) => {
+const tsFiles = filesToProcess.filter(f => {
   const ext = path.extname(f).toLowerCase();
   return ext === '.ts' || ext === '.tsx';
 });
-const jsFiles = filesToProcess.filter((f) => {
+const jsFiles = filesToProcess.filter(f => {
   const ext = path.extname(f).toLowerCase();
   return ext === '.js' || ext === '.jsx';
 });
@@ -140,7 +140,7 @@ function runJscodeshift({ files, parser, extensions, scan }) {
     if (verboseFlag) cmd += ` ${verboseFlag}`;
     if (quoteFlag) cmd += ` ${quoteFlag}`;
   }
-  cmd += ` ${files.map((f) => `"${f}"`).join(' ')}`;
+  cmd += ` ${files.map(f => `"${f}"`).join(' ')}`;
 
   // For verbose 2, process files individually to show which ones are changed
   if (!scan && verboseLevel === 2) {
@@ -154,14 +154,13 @@ function runJscodeshift({ files, parser, extensions, scan }) {
         const file = line.split(' ')[2];
         if (line.includes(target)) {
           totalFiles++;
-          if (line.includes('OK')){
+          if (line.includes('OK')) {
             changedFiles++;
             if (dry) {
               console.log(`🔍 Would update t-shirt sizes: ${file}`);
-            }
-            else {
+            } else {
               console.log(`✅ Updated t-shirt sizes: ${file}`);
-            } 
+            }
           }
         }
       });
@@ -180,11 +179,15 @@ function runJscodeshift({ files, parser, extensions, scan }) {
     if (totalFiles > 0 && (changedFiles > 0 || hadError)) {
       if (dry) {
         console.log(
-          `\n🔍 T-shirt size migration preview: ${changedFiles} files would be updated, ${totalFiles - changedFiles} files unchanged (${totalFiles} total files processed)`,
+          `\n🔍 T-shirt size migration preview: ${changedFiles} files would be updated, ${
+            totalFiles - changedFiles
+          } files unchanged (${totalFiles} total files processed)`,
         );
       } else {
         console.log(
-          `\n🎯 T-shirt size migration complete: ${changedFiles} files updated, ${totalFiles - changedFiles} files unchanged (${totalFiles} total files processed)`,
+          `\n🎯 T-shirt size automated transformations complete: ${changedFiles} files updated, ${
+            totalFiles - changedFiles
+          } files unchanged (${totalFiles} total files processed)`,
         );
       }
     }
@@ -257,14 +260,14 @@ if (!args.includes('--scan')) {
     );
     console.log('');
     console.log('🔍 Next steps:');
-    console.log(
-      ' • Remove --dry flag to apply the changes',
-    );
+    console.log(' • Remove --dry flag to apply the changes');
     console.log(
       ' • Use --scan to see potential manual changes that may need manual review or fix',
     );
   } else {
-    console.log('✅ Grommet Theme HPE v6 → v7 migration complete!');
+    console.log(
+      '✅ Grommet Theme HPE v6 → v7 automated transformations complete!',
+    );
     console.log('');
     console.log('📋 What happened:');
     console.log(

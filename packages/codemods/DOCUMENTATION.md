@@ -1,14 +1,18 @@
-# Grommet Theme HPE Codemod Documentation
+# HPE Design System Codemods Documentation
 
 ## Overview
 
-`hpe-design-system-codemods` is a sophisticated code transformation tool designed to automatically migrate Grommet HPE theme code from version 6 to version 7. It uses [jscodeshift](https://github.com/facebook/jscodeshift) to parse and transform JavaScript, TypeScript, JSX, and TSX files, specifically targeting the migration of t-shirt size prop values.
+`hpe-design-system-codemods` is a codemod project to assist migrations for package versions related to the HPE Design System.
+
+Available codemod transformations:
+
+- [Grommet-theme-hpe v6 to v7](#Grommet-theme-hpe-v6-to-v7)
 
 ## Table of Contents
 
 - [Installation](#installation)
-- [Quick Start](#quick-start)
 - [Transforms](#transforms)
+- [Quick Start](#quick-start)
 - [CLI Options](#cli-options)
 - [Usage Examples](#usage-examples)
 - [Migration Details](#migration-details)
@@ -28,7 +32,7 @@ yarn install -g hpe-design-system-codemods
 ### Using npx (No Installation Required)
 
 ```bash
-npx hpe-design-system-codemods migrate-theme-v6-to-v7 <path> [options]
+npx hpe-design-system-codemods <codemode transform> <path> [options]
 ```
 
 ### Local Development
@@ -39,9 +43,16 @@ cd hpe-design-system-codemods
 yarn install
 ```
 
-## Quick Start
 
-### 1. Preview Changes (Dry Run)
+## Transforms
+
+### migrate-theme-v6-to-v7
+
+This transform handles the migration of t-shirt size properties from Grommet HPE theme v6 to v7. It uses [jscodeshift](https://github.com/facebook/jscodeshift) to parse and transform JavaScript, TypeScript, JSX, and TSX files, specifically targeting the migration of t-shirt size prop values.
+
+#### Quick Start
+
+##### 1. Preview Changes (Dry Run)
 
 See what changes would be made without modifying files:
 
@@ -49,7 +60,7 @@ See what changes would be made without modifying files:
 npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/ --dry
 ```
 
-### 2. Apply Transformations
+##### 2. Apply Transformations
 
 Apply the actual transformations:
 
@@ -57,19 +68,13 @@ Apply the actual transformations:
 npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/
 ```
 
-### 3. Scan for Changes
+##### 3. Scan for Changes
 
 Scan your codebase to see areas that need manual transforming.
 
 ```bash
 npx hpe-design-system-codemods migrate-theme-v6-to-v7 src/ --scan
 ```
-
-## Transforms
-
-### migrate-theme-v6-to-v7
-
-This transform handles the migration of t-shirt size properties from Grommet HPE theme v6 to v7. It automatically updates size values across different property categories.
 
 #### Supported File Types
 
