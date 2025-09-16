@@ -1,0 +1,26 @@
+{
+  "name": "hpe-design-system-codemods",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "description": "",
+  "bin": {
+    "hpe-design-system-codemods": "bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "transforms/",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "jscodeshift": "^17.3.0"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4"
+  }
+}

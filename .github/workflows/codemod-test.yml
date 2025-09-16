@@ -1,0 +1,21 @@
+name: Codemod test
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: yarn install
+        working-directory: packages/codemods
+      - name: Run tests
+        run: yarn test
+        working-directory: packages/codemods
