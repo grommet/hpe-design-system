@@ -1,22 +1,27 @@
 {
   "name": "hpe-design-system-codemods",
   "version": "0.1.0",
-  "scripts": {
-    "test": "vitest run"
-  },
+  "description": "A codemod package for transformations related to the HPE Design System.",
   "keywords": [],
   "author": "",
   "license": "Apache-2.0",
-  "description": "",
-  "bin": {
-    "hpe-design-system-codemods": "bin/cli.js"
-  },
+  "repository": "https://github.com/grommet/hpe-design-system/packages/codemods",
+  "homepage": "https://github.com/grommet/hpe-design-system/packages/codemods",
   "files": [
     "bin/",
     "transforms/",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "DOCUMENTATION.md",
+    "COPYRIGHT.md",
+    "CHANGELOG.md"
   ],
+  "bin": {
+    "hpe-design-system-codemods": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "vitest run"
+  },
   "dependencies": {
     "jscodeshift": "^17.3.0"
   },
