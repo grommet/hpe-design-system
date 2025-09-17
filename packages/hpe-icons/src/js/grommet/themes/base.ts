@@ -1,5 +1,8 @@
 import { light, dimension } from 'hpe-design-tokens/grommet';
 
+console.log('dimension', dimension.hpe.icon);
+console.log('light', light.hpe.color.icon);
+
 type ThemeType = {
   global: {
     colors: {
@@ -16,6 +19,13 @@ export const base: ThemeType = {
     },
   },
   icon: {
-    size: dimension.hpe.icon.size,
+    size: {
+      xsmall: dimension.hpe.icon.xsmall.size,
+      small: dimension.hpe.icon.small.size,
+      medium: dimension.hpe.icon.medium.size,
+      large: dimension.hpe.icon.large.size,
+      xlarge: dimension.hpe.icon.xlarge.size,
+      xxlarge: dimension.hpe.icon.xxlarge.size,
+    },
   },
 };
