@@ -9,7 +9,16 @@ type ThemeType = {
       icon: (typeof light)['hpe']['color']['icon'][keyof (typeof light)['hpe']['color']['icon']];
     };
   };
-  icon: (typeof dimension)['hpe']['icon'];
+  icon: {
+    size: {
+      xsmall: string;
+      small: string;
+      medium: string;
+      large: string;
+      xlarge: string;
+      xxlarge: string;
+    };
+  };
 };
 
 export const base: ThemeType = {

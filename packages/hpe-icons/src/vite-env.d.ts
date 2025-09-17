@@ -29,14 +29,12 @@ declare module 'hpe-design-tokens/grommet' {
   export const dimension: {
     hpe: {
       icon: {
-        size: {
-          xsmall: string;
-          small: string;
-          medium: string;
-          large: string;
-          xlarge: string;
-          xxlarge: string;
-        };
+        xsmall: { size: string };
+        small: { size: string };
+        medium: { size: string };
+        large: { size: string };
+        xlarge: { size: string };
+        xxlarge: { size: string };
       };
     };
   };
