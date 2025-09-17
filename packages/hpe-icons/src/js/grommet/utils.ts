@@ -81,15 +81,15 @@ interface CalculatePadParams {
 const calculatePad = ({ value, iconDimension }: CalculatePadParams): string =>
   `${(value - iconDimension) / 2}px`;
 
-// iconPad applies padding to icon to ensure it aligns
-// with text line-height or desired width
 interface IconPadProps {
   height?: string;
   size?: string;
   width?: string;
 }
 
-export function iconPad(props: IconPadProps): string {
+// useIconPad applies padding to icon to ensure it aligns
+// with text line-height or desired width
+export function useIconPad(props: IconPadProps): string {
   const { height, size = 'medium', width } = props;
   const theme = useContext(ThemeContext);
   const iconDimension = parseMetricToNum(theme?.icon?.size?.[size] || size);
@@ -149,6 +149,6 @@ export default {
   deepMerge,
   isObject,
   parseMetricToNum,
-  iconPad,
+  useIconPad,
   useScaleProps,
 };

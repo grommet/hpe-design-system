@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { defaultProps } from './default-props';
-import { iconPad, parseMetricToNum } from './utils';
+import { useIconPad, parseMetricToNum } from './utils';
 
 // Returns the specific color that should be used according to the theme.
 // If 'dark' is supplied, it takes precedence over 'theme.dark'.
@@ -120,7 +120,7 @@ const StyledIcon = styled(IconInner).withConfig({
     `;
   }}
   ${({ color }) => color !== 'plain' && colorCss}
-  ${(props) => (props.height || props.width) && iconPad(props)}
+  ${(props) => (props.height || props.width) && useIconPad(props)}
   ${({ theme }) => theme && theme.icon.extend}
 `;
 
