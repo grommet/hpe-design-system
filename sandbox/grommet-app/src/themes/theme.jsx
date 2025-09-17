@@ -3124,7 +3124,7 @@ const newColors = {
   'graph-6': 'graph-1',
 };
 
-const v5 = deepMerge(hpe, {
+const v0 = deepMerge(hpe, {
   global: {
     colors: {
       ...newColors,
@@ -3134,5 +3134,5 @@ const v5 = deepMerge(hpe, {
 
 export const themes = {
   v1: current,
-  v0: v5,
+  v0: v0,
 };
