@@ -1,11 +1,28 @@
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    icon?: {
+      disableScaleDown?: boolean;
+      size?: Record<string, string>;
+    };
+    text?: Record<string, { height: string }>;
+  }
+}
+
 export function isObject(item: unknown): item is Record<string, unknown> {
   return !!item && typeof item === 'object' && !Array.isArray(item);
 }
 
-export function deepMerge(target, ...sources) {
+type ThemeObject = {
+  [key: string]: unknown;
+};
+
+export const deepMerge = (
+  target: ThemeObject,
+  ...sources: Partial<ThemeObject>[]
+): ThemeObject => {
   if (!sources.length) {
     return target;
   }
@@ -18,7 +35,10 @@ export function deepMerge(target, ...sources) {
           if (!output[key]) {
             output[key] = { ...source[key] };
           } else {
-            output[key] = deepMerge(output[key], source[key]);
+            output[key] = deepMerge(
+              output[key] as ThemeObject,
+              source[key] as ThemeObject,
+            );
           }
         } else {
           output[key] = source[key];
@@ -27,30 +47,49 @@ export function deepMerge(target, ...sources) {
     }
   });
   return output;
-}
+};
 
 export const parseMetricToNum = (string = '') =>
   parseFloat(string.match(/\d+(\.\d+)?/)?.[0] || '0');
 
 // scaleProps sets path properties to prevent scaling the stroke
 // when the theme doesn't want it for small sizes.
-export function useScaleProps(props) {
+interface ScaleProps {
+  size: string;
+}
+
+interface ScaleResult {
+  vectorEffect?: string;
+}
+
+export function useScaleProps(props: ScaleProps): ScaleResult {
   const theme = useContext(ThemeContext);
   const { size } = props;
-  const result = {};
+  const result: ScaleResult = {};
   if (theme?.icon?.disableScaleDown) {
-    const dimension = parseMetricToNum(theme.icon.size[size] || size);
+    const dimension = parseMetricToNum(theme.icon?.size?.[size] ?? size);
     if (dimension < 24) result.vectorEffect = 'non-scaling-stroke';
   }
   return result;
 }
 
-const calculatePad = (value, iconDimension) =>
+interface CalculatePadParams {
+  value: number;
+  iconDimension: number;
+}
+
+const calculatePad = ({ value, iconDimension }: CalculatePadParams): string =>
   `${(value - iconDimension) / 2}px`;
 
 // iconPad applies padding to icon to ensure it aligns
 // with text line-height or desired width
-export function iconPad(props) {
+interface IconPadProps {
+  height?: string;
+  size?: string;
+  width?: string;
+}
+
+export function iconPad(props: IconPadProps): string {
   const { height, size = 'medium', width } = props;
   const theme = useContext(ThemeContext);
   const iconDimension = parseMetricToNum(theme?.icon?.size?.[size] || size);
@@ -68,24 +107,28 @@ export function iconPad(props) {
   }
   if (height && theme?.text?.[height]?.height) {
     // the unit on theme text
-    const [unit] = theme.text[height].height.match(/(px|rem)/);
+    const [unit] = theme.text[height].height.match(
+      /(px|rem)/,
+    ) as RegExpMatchArray;
     let lineHeight = parseMetricToNum(theme.text[height].height);
     if (unit === 'rem') lineHeight *= rootFontSize;
 
     if (lineHeight > iconDimension) {
-      const pad = calculatePad(lineHeight, iconDimension);
+      const pad = calculatePad({ value: lineHeight, iconDimension });
       style += `padding-top: ${pad}; padding-bottom: ${pad};`;
     }
   }
 
   if (width && theme?.text?.[width]?.height) {
     // the unit on theme text
-    const [unit] = theme.text[width].height.match(/(px|rem)/);
+    const [unit] = theme.text[width].height.match(
+      /(px|rem)/,
+    ) as RegExpMatchArray;
     let desiredWidth = parseMetricToNum(theme.text[width].height);
     if (unit === 'rem') desiredWidth *= rootFontSize;
 
     if (desiredWidth > iconDimension) {
-      const pad = calculatePad(desiredWidth, iconDimension);
+      const pad = calculatePad({ value: desiredWidth, iconDimension });
       style += `padding-left: ${pad}; padding-right: ${pad};`;
     }
   }
@@ -95,7 +138,7 @@ export function iconPad(props) {
 
 // ensure icons that rely on urls don't have id collision
 // Date.now + Math.random is unique enough for icon use cases
-export const generatePrefix = name =>
+export const generatePrefix = (name: string) =>
   `_grommeticons-${name}-${
     // don't include time-based/random id generation in snapshot tests to avoid
     // needing to update snapshots with every commit

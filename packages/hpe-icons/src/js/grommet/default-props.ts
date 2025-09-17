@@ -10,6 +10,5 @@ interface Theme {
 }
 
 export const extendDefaultTheme = (theme: Theme): void => {
-  // defaultProps.theme = deepMerge(base, theme);
-  defaultProps.theme = base;
+  defaultProps.theme = deepMerge(base, theme);
 };
