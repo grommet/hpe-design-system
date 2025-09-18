@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
-import { StyledIcon } from '../StyledIcon';
+import { StyledIcon, type StyledIconProps } from '../StyledIcon';
 
-const Accessibility = forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+const Accessibility = forwardRef<SVGSVGElement, StyledIconProps>(
   (props, ref) => (
     <StyledIcon
       ref={ref}

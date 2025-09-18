@@ -102,8 +102,6 @@ const StyledIcon = styled(IconInner).withConfig({
   ${({ size: sizeProp = 'medium', theme, viewBox }) => {
     const [, , w, h] = (viewBox || '0 0 24 24').split(' ');
     const scale = w / h;
-    console.log('theme in styled icon', theme);
-    console.log('sizeProp in styled icon', sizeProp);
     const size = theme.icon.size[sizeProp] || sizeProp;
     const dimension = parseMetricToNum(size);
     // grab rem, em, px value from resolved size value

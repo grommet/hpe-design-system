@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
-import { StyledIcon } from '../StyledIcon';
+import { StyledIcon, type StyledIconProps } from '../StyledIcon';
 
-const Achievement = forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+const Achievement = forwardRef<SVGSVGElement, StyledIconProps>(
   (props, ref) => (
     <StyledIcon
       ref={ref}
