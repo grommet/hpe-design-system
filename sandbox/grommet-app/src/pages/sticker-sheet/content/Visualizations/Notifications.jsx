@@ -11,7 +11,7 @@ export const Notifications = () => {
             status="critical"
             message="This is a critical notification. It should be used to alert the user of a critical issue."
             title="this is a title"
-            width="large"
+            width='xlarge'
           />
         </Compare>
         <Compare>
@@ -20,7 +20,7 @@ export const Notifications = () => {
             message="This is a warning notification. It should be used to indicate caution to the user."
             title="this is a title"
             onClose={() => {}}
-            width="large"
+            width='xlarge'
           />
         </Compare>
         <Compare>
@@ -29,7 +29,7 @@ export const Notifications = () => {
             message="This is a success notification. It should be used to inform the user of a successful action."
             title="this is a title"
             onClose={() => {}}
-            width="large"
+            width='xlarge'
           />
         </Compare>
         <Compare>
@@ -38,7 +38,7 @@ export const Notifications = () => {
             message="This is an information notification. It should be used for teriary information."
             title="this is a title"
             onClose={() => {}}
-            width="large"
+            width='xlarge'
           />
         </Compare>
         <Compare>
@@ -47,7 +47,7 @@ export const Notifications = () => {
             message="This is an unknown notification. It should be used when that status can't be inferred."
             title="this is a title"
             onClose={() => {}}
-            width="large"
+            width='xlarge'
           />
         </Compare>
       </Box>
