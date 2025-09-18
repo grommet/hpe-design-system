@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grommet, Stack, ThemeContext } from 'grommet';
-import { hpe as v0 } from 'grommet-theme-hpe-v5';
+import { hpe as v0 } from 'grommet-theme-hpe';
 import { themes } from '../../../themes/theme';
 import { ModeContext } from './ModeContext';
 

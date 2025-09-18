@@ -24,7 +24,6 @@ import {
 //   Unsorted,
 // } from 'grommet-icons';
 import { hpe } from 'grommet-theme-hpe';
-import { hpe as hpeV5 } from 'grommet-theme-hpe-v5';
 
 // // TO DO should these be added as tokens?
 // const backgrounds = {
@@ -3125,7 +3124,7 @@ const newColors = {
   'graph-6': 'graph-1',
 };
 
-const v5 = deepMerge(hpeV5, {
+const v0 = deepMerge(hpe, {
   global: {
     colors: {
       ...newColors,
@@ -3135,5 +3134,5 @@ const v5 = deepMerge(hpeV5, {
 
 export const themes = {
   v1: current,
-  v0: v5,
+  v0: v0,
 };
