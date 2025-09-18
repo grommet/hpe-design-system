@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
 import * as Icons from './icons';
 
 const meta: Meta = {
@@ -23,12 +22,9 @@ interface IconArgs {
 const Icon = {
   render: (args: IconArgs) => {
     const { iconName } = args;
-    console.log('args in story', args);
     const IconComponent = Icons[iconName || 'Accessibility'];
     return (
-      // <ThemeProvider theme={theme}>
         <IconComponent />
-      // </ThemeProvider>
     );
   },
   argTypes: {

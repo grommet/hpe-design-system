@@ -5,10 +5,6 @@ export const defaultProps = {
   theme: base,
 };
 
-interface Theme {
-  [key: string]: unknown;
-}
-
-export const extendDefaultTheme = (theme: Theme): void => {
+export const extendDefaultTheme = (theme) => {
   defaultProps.theme = deepMerge(base, theme);
 };

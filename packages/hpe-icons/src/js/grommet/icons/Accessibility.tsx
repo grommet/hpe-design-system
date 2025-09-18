@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { StyledIcon } from '../StyledIcon';
 
-const Accessibility = forwardRef((props, ref) => (
+const Accessibility = forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => (
   <StyledIcon
     ref={ref}
     viewBox="0 0 24 24"

@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { defaultProps } from './default-props';
@@ -80,6 +80,10 @@ const colorCss = css`
 `;
 
 const IconInner = forwardRef(
+  // Copying implementation from original https://github.com/grommet/grommet-icons/blob/5bf81317fdadc3d030205f391e0ebd16e4e75a05/src/js/StyledIcon.js
+  // Disabling eslint rule for unused vars. Need to confirm whether 
+  // it was intentional to not pass color, size, theme to the svg.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ({ a11yTitle, color, size, theme, ...rest }, ref) => (
     <svg ref={ref} aria-label={a11yTitle} {...rest} />
   ),
@@ -97,6 +101,8 @@ const StyledIcon = styled(IconInner).withConfig({
   ${({ size: sizeProp = 'medium', theme, viewBox }) => {
     const [, , w, h] = (viewBox || '0 0 24 24').split(' ');
     const scale = w / h;
+    console.log('theme in styled icon', theme);
+    console.log('sizeProp in styled icon', sizeProp);
     const size = theme.icon.size[sizeProp] || sizeProp;
     const dimension = parseMetricToNum(size);
     // grab rem, em, px value from resolved size value
