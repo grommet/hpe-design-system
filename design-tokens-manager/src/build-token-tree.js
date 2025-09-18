@@ -4,13 +4,13 @@ export const buildTokenTree = tokens => {
   Object.keys(tokens).forEach(collection => {
     let mode = collection;
     if (
-      collection === 'base' ||
+      collection === 'primitives' ||
       collection === 'components' ||
-      collection === 'global'
+      collection === 'global' ||
+      collection === 'dimension'
     ) {
       mode = 'default';
-    } else if (collection.includes('elevation'))
-      mode = collection.replace('elevation', '');
+    }
 
     const flat = Object.fromEntries(
       Object.keys(tokens[collection]).map(token => [
@@ -25,45 +25,70 @@ export const buildTokenTree = tokens => {
   Object.keys(tree).forEach(mode => {
     Object.keys(tree[mode]).forEach(key => {
       // if it's a reference, add it to the "usedBy" for the referenced token
-      const value = tree[mode][key].original.value;
+      const value = tree[mode][key].original.$value;
       if (/^{.*}$/.test(value)) {
         const token = value.slice(1, -1);
-        // for color tokens, add it to the used by for "light" and "dark" modes
-        // for dimension tokens, addit to the used by for "large" and "small"
-        // otherwise, mode is "default"
-        const referenceModes = [];
-        if (mode === 'default') {
-          if (token.includes('component')) referenceModes.push('default');
-          if (tree[mode][key].$type === 'color')
-            referenceModes.push(...['light', 'dark']);
-          else if (tree[mode][key].$type === 'number')
-            referenceModes.push(...['large', 'small']);
-        } else {
-          referenceModes.push(tree[mode][token] ? mode : 'default');
+        // Determine which modes to check for references
+        const referenceModes = new Set();
+
+        // Add default mode for component tokens
+        if (token.includes('component')) {
+          referenceModes.add('default');
         }
+
+        // For default mode, add specific modes based on token type
+        if (mode === 'default') {
+          if (tree[mode][key].$type === 'color') {
+            referenceModes.add('light');
+            referenceModes.add('dark');
+          } else if (tree[mode][key].$type === 'number') {
+            referenceModes.add('small');
+          }
+        }
+
+        // Add current mode if the token exists there
+        const formattedToken = `hpe.${token
+          .split('.')
+          .filter(part => !['DEFAULT', 'REST'].includes(part))
+          .join('.')}`;
+        if (tree[mode][formattedToken]) {
+          referenceModes.add(mode);
+        } else {
+          referenceModes.add('default');
+        }
+
+        // Check each possible reference mode
         referenceModes.forEach(referenceMode => {
-          // if this is the first reference, create `usedBy`
-          const reference = tree[referenceMode][`hpe.${token}`];
+          const reference = tree[referenceMode][formattedToken];
           if (reference) {
             if (!('usedBy' in reference)) {
-              reference.usedBy = [
-                {
-                  name: key,
-                  mode,
-                },
-              ];
-            } else if (
-              !reference.usedBy.find(
-                ref => ref.name === key && ref.mode === mode,
-              )
-            ) {
+              reference.usedBy = [];
+            }
+
+            // Check if this reference already exists
+            const existingRef = reference.usedBy.find(
+              ref => ref.name === key && ref.mode === mode,
+            );
+
+            let collection;
+            if (tree[mode][key].filePath.includes('primitive')) {
+              collection = 'primitive';
+            } else if (tree[mode][key].filePath.includes('component')) {
+              collection = 'component';
+            } else if (tree[mode][key].filePath.includes('semantic')) {
+              collection = 'semantic';
+            }
+
+            if (!existingRef) {
               reference.usedBy.push({
                 name: key,
                 mode,
+                collection,
               });
             }
           }
         });
+        // });
       }
     });
   });

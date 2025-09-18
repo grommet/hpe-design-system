@@ -332,7 +332,7 @@ export const components = [
   },
   {
     name: 'DateInput',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'A widget which allows the user to select a date or range of dates from a calendar.',
@@ -374,7 +374,7 @@ export const components = [
   },
   {
     name: 'FileInput',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'An input field where a user can select and upload one or more files.',
@@ -1309,7 +1309,7 @@ export const components = [
     designs, and guidance for how HPE applications can deliver end users 
     confidence and assurance by keeping them informed with timely, relevant 
     status of their systems and tasks.`,
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Passed WCAG 2.2 AA',
     sections: [
       'State v.s. Status',
       'Notification Systems',
@@ -1389,7 +1389,7 @@ export const components = [
   },
   {
     name: 'RangeInput',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'The RangeInput component is a slider control that provides a handle the user can move along a continuum to select a value.',
@@ -1499,7 +1499,7 @@ export const components = [
   },
   {
     name: 'DataTable',
-    accessibility: 'Failed WCAG 2.2 A',
+    accessibility: 'Failed WCAG 2.2 AA',
     category: 'Visualizations',
     description: 'DataTable presents data in a column and row format.',
     preview: {

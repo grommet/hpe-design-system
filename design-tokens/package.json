@@ -1,7 +1,7 @@
 {
   "name": "hpe-design-tokens",
   "description": "Design tokens for use with the HPE Design System.",
-  "version": "1.3.0",
+  "version": "1.4.1",
   "license": "Apache-2.0",
   "type": "module",
   "module": "./dist/esm/index.js",

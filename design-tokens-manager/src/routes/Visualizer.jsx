@@ -1,8 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
+import { Fragment, useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {
   Page,
   Data,
+  Button,
   PageContent,
   Grid,
   Box,
@@ -12,10 +13,11 @@ import {
   DataContext,
   DataSummary,
   Toolbar,
+  InfiniteScroll,
 } from 'grommet';
 import * as tokens from 'hpe-design-tokens/docs';
-
-import { LinkNext } from 'grommet-icons';
+import { EmptyState } from '../components/EmptyState';
+import { CircleInformation, Close, LinkNext } from 'grommet-icons';
 import { buildTokenTree } from '../build-token-tree';
 
 const tree = buildTokenTree(tokens);
@@ -33,32 +35,53 @@ const TokenValue = ({ value }) => {
 
   return <Text size="small">{content}</Text>;
 };
-const Tag = ({ name, badge, value, ...rest }) => (
-  <StyledBox
-    gap="xsmall"
-    pad={{ horizontal: 'small', vertical: 'xsmall' }}
-    border
-    round="xsmall"
-    flex={false}
-    {...rest}
-  >
-    <Box direction="row" gap="small" align="center">
-      <Text weight={500} color="text-strong">
-        {name}
-      </Text>
-      <Box
-        background="background-contrast"
-        round="xsmall"
-        pad={{ horizontal: 'xsmall' }}
-      >
-        <Text size="small" weight={500}>
-          {badge}
-        </Text>
-      </Box>
-    </Box>
-    {value ? <TokenValue value={value} /> : undefined}
-  </StyledBox>
-);
+
+const Tag = ({ name, badge, value, onRemove, ...rest }) => {
+  const Wrapper = onRemove ? Box : Fragment;
+  const wrapperProps = onRemove
+    ? { direction: 'row', gap: 'small', align: 'start' }
+    : {};
+  return (
+    <StyledBox
+      gap="xsmall"
+      pad={{ horizontal: 'small', vertical: 'xsmall' }}
+      border
+      round="xsmall"
+      hoverIndicator
+      flex={false}
+      {...rest}
+    >
+      <Wrapper {...wrapperProps}>
+        <Box>
+          <Box direction="row" gap="small" align="center" flex={false}>
+            <Text weight={500} color="text-strong">
+              {name}
+            </Text>
+            <Box
+              background="background-contrast"
+              round="xsmall"
+              pad={{ horizontal: 'xsmall' }}
+              flex={false}
+            >
+              <Text size="small" weight={500}>
+                {badge}
+              </Text>
+            </Box>
+          </Box>
+          {value ? <TokenValue value={value} /> : undefined}
+        </Box>
+        {onRemove ? (
+          <Button
+            icon={<Close />}
+            onClick={onRemove}
+            size="xsmall"
+            tip="Clear selection"
+          />
+        ) : undefined}
+      </Wrapper>
+    </StyledBox>
+  );
+};
 
 const FilteredTokens = ({ selected, setSelected }) => {
   const { data } = useContext(DataContext);
@@ -70,26 +93,65 @@ const FilteredTokens = ({ selected, setSelected }) => {
       overflow="auto"
       style={{ height: 'calc(100vh - 196px)' }}
     >
-      {data.map(token => (
-        <Tag
-          key={`${token.name}-${token.mode}`}
-          badge={token.mode}
-          name={token.name}
-          onClick={() =>
-            selected.name === token.name && selected.mode === token.mode
-              ? setSelected({})
-              : setSelected({ name: token.name, mode: token.mode })
-          }
-          active={selected.name === token.name && selected.mode === token.mode}
-        />
-      ))}
+      <InfiniteScroll items={data}>
+        {token => (
+          <Tag
+            key={`${token.name}-${token.mode}`}
+            badge={token.mode}
+            name={token.name}
+            onClick={() =>
+              selected.name === token.name && selected.mode === token.mode
+                ? setSelected({})
+                : setSelected({
+                    name: token.name,
+                    mode: token.mode,
+                    collection: token.collection,
+                  })
+            }
+            active={
+              selected.name === token.name && selected.mode === token.mode
+            }
+          />
+        )}
+      </InfiniteScroll>
     </Box>
   );
 };
 
-const buildTree = (selectedToken, showValue) => {
-  const { mode, name } = selectedToken;
+const Legend = ({ kind }) => {
+  let background;
+  if (kind === 'Semantic') {
+    background = 'background-info';
+  } else if (kind === 'Component') {
+    background = { color: 'decorative-purple', opacity: 'weak' };
+  } else if (kind === 'Primitive') {
+    background = 'background-unknown';
+  }
+  return (
+    <Box align="center" direction="row" gap="xsmall">
+      <Box
+        flex={false}
+        round="xxsmall"
+        pad="xsmall"
+        background={background}
+        border={{ color: 'border-weak' }}
+      />
+      <Text>{kind}</Text>
+    </Box>
+  );
+};
+
+const buildTree = (selectedToken, showValue, setSelected) => {
+  const { collection, mode, name } = selectedToken;
   const usedBy = tree[mode][name].usedBy;
+  let background;
+  if (collection === 'primitive') {
+    background = 'background-unknown';
+  } else if (collection === 'component') {
+    background = { color: 'decorative-purple', opacity: 'weak' };
+  } else if (collection === 'semantic') {
+    background = 'background-info';
+  }
 
   return (
     <Box
@@ -103,6 +165,8 @@ const buildTree = (selectedToken, showValue) => {
         name={name}
         badge={mode}
         value={showValue ? tree[mode][name]['$value'] : undefined}
+        background={background}
+        onRemove={setSelected}
       />
       {usedBy?.length ? (
         <Box direction="row" gap="small" align="start" flex={false}>
@@ -127,6 +191,13 @@ const Visualizer = () => {
         nextTokensArr.push({
           name: token,
           mode: mode,
+          collection: tree[mode][token].filePath.includes('primitive')
+            ? 'primitive'
+            : tree[mode][token].filePath.includes('component')
+            ? 'component'
+            : tree[mode][token].filePath.includes('semantic')
+            ? 'semantic'
+            : undefined,
           ...tree[mode][token],
         }),
       );
@@ -135,7 +206,7 @@ const Visualizer = () => {
   }, []);
 
   return (
-    <Page kind="full">
+    <Page kind="full" background="background-back">
       <Data
         data={tokensArr}
         properties={{
@@ -145,7 +216,7 @@ const Visualizer = () => {
         }}
       >
         <Grid columns={['medium', 'flex']}>
-          <Box gap="small" pad="medium" background="background-front">
+          <Box gap="small" pad="medium">
             <Box>
               <Toolbar>
                 <Box flex>
@@ -157,11 +228,37 @@ const Visualizer = () => {
             </Box>
             <FilteredTokens selected={selected} setSelected={setSelected} />
           </Box>
-          <PageContent overflow="auto" flex={false} fill>
-            <Box pad={{ vertical: 'medium' }}>
-              {selected.name
-                ? buildTree(selected, true)
-                : 'Select a token to see dependencies.'}
+          <PageContent
+            // overflow="auto"
+            flex={false}
+            round={{ corner: 'left', size: 'xsmall' }}
+            background="background-front"
+            fill
+            gap="medium"
+          >
+            <Box pad={{ vertical: 'medium' }} direction="row" gap="medium">
+              <Legend kind="Primitive" />
+              <Legend kind="Semantic" />
+              <Legend kind="Component" />
+            </Box>
+            <Box overflow="auto" fill>
+              <Box
+                {...(!selected.name
+                  ? { align: 'center', justify: 'center', pad: 'xlarge' }
+                  : {})}
+              >
+                {selected.name ? (
+                  buildTree(selected, true, () => setSelected({}))
+                ) : (
+                  <EmptyState
+                    icon={
+                      <CircleInformation color="icon-info" size="xxlarge" />
+                    }
+                    title="No design token selected"
+                    description="Select a design token from the list to see its dependencies."
+                  />
+                )}
+              </Box>
             </Box>
           </PageContent>
         </Grid>

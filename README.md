@@ -37,6 +37,17 @@ README.md                // workspace-wide information. shown in github
 yarn.lock                // the only lock file in the repo. all packages combined
 ```
 
+## design-tokens structure
+
+- `design-tokens/`
+   - `tokens/`: The design tokens source files.
+   - `src/`:
+      - `formats/`: Custom [style-dictionary format functions](https://styledictionary.com/reference/hooks/formats/).
+      - `scripts/`: Build, pre-commit, and Github Actions related scripts.
+      - `tests/`: Vitests that run pre-commit to ensure no unexpected changes to tokens output formats. These tests do not test the actual design token outputs, but rather use mock design token objects to ensure predictable, consistent output.
+      - `transforms/`: Custom [style-dictionary transforms](https://styledictionary.com/reference/hooks/transforms/).
+      - `types/`: Type declarations for package exports. These should be enhanced in future to include auto-generated type definitions that match the full outputs.
+    
 ## Getting started
 
 ```
