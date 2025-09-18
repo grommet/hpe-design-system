@@ -7,4 +7,6 @@ export interface StyledIconProps extends SVGProps<SVGSVGElement> {
   size?: string | number;
 }
 
-export const StyledIcon: ForwardRefExoticComponent<StyledIconProps & RefAttributes<SVGSVGElement>>;
+export const StyledIcon: ForwardRefExoticComponent<
+  StyledIconProps & RefAttributes<SVGSVGElement>
+>;
