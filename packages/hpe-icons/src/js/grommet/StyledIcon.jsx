@@ -80,7 +80,8 @@ const colorCss = css`
 `;
 
 const IconInner = forwardRef(
-  // Copying implementation from original https://github.com/grommet/grommet-icons/blob/5bf81317fdadc3d030205f391e0ebd16e4e75a05/src/js/StyledIcon.js
+  // Copying implementation from original 
+  // https://github.com/grommet/grommet-icons/blob/master/src/js/StyledIcon.js
   // Disabling eslint rule for unused vars. Need to confirm whether 
   // it was intentional to not pass color, size, theme to the svg.
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
