@@ -1,5 +1,3 @@
-import { light, dark, dimension } from 'hpe-design-tokens/grommet';
-
 type IconColorType =
   | string
   | {
@@ -15,12 +13,12 @@ type ThemeType = {
   };
   icon: {
     size: {
-      xsmall: string;
+      xsmall?: string;
       small: string;
       medium: string;
       large: string;
       xlarge: string;
-      xxlarge: string;
+      xxlarge?: string;
     };
   };
 };
@@ -29,19 +27,17 @@ export const base: ThemeType = {
   global: {
     colors: {
       icon: {
-        light: light.hpe.color.icon.default,
-        dark: dark.hpe.color.icon.default,
+        light: '#555555',
+        dark: '#FFFFFF',
       },
     },
   },
   icon: {
     size: {
-      xsmall: dimension.hpe.icon.xsmall.size,
-      small: dimension.hpe.icon.small.size,
-      medium: dimension.hpe.icon.medium.size,
-      large: dimension.hpe.icon.large.size,
-      xlarge: dimension.hpe.icon.xlarge.size,
-      xxlarge: dimension.hpe.icon.xxlarge.size,
+      small: '14px',
+      medium: '18px',
+      large: '24px',
+      xlarge: '36px',
     },
   },
 };
