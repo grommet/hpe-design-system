@@ -52,27 +52,6 @@ export const deepMerge = (
 export const parseMetricToNum = (string = '') =>
   parseFloat(string.match(/\d+(\.\d+)?/)?.[0] || '0');
 
-// scaleProps sets path properties to prevent scaling the stroke
-// when the theme doesn't want it for small sizes.
-interface ScaleProps {
-  size: string;
-}
-
-interface ScaleResult {
-  vectorEffect?: string;
-}
-
-export function useScaleProps(props: ScaleProps): ScaleResult {
-  const theme = useContext(ThemeContext);
-  const { size } = props;
-  const result: ScaleResult = {};
-  if (theme?.icon?.disableScaleDown) {
-    const dimension = parseMetricToNum(theme.icon?.size?.[size] ?? size);
-    if (dimension < 24) result.vectorEffect = 'non-scaling-stroke';
-  }
-  return result;
-}
-
 interface CalculatePadParams {
   value: number;
   iconDimension: number;
@@ -150,5 +129,4 @@ export default {
   isObject,
   parseMetricToNum,
   useIconPad,
-  useScaleProps,
 };
