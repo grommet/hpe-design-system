@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grommet, Stack, ThemeContext } from 'grommet';
-import { hpe as v0 } from 'grommet-theme-hpe';
+import { hpe as v0 } from 'grommet-theme-hpe-v6';
 import { themes } from '../../../themes/theme';
 import { ModeContext } from './ModeContext';
 
@@ -51,7 +51,7 @@ export const Compare = ({ children, ...rest }) => {
       <ThemeContext.Extend value={themes.v1}>
         <Box
           align="start"
-          style={mode === 'v5' ? { visibility: 'hidden' } : {}}
+          style={mode === 'v6' ? { visibility: 'hidden' } : {}}
         >
           {children}
         </Box>
