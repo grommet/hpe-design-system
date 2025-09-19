@@ -133,5 +133,5 @@ Apache-2.0 License. See [LICENSE](./LICENSE) file for details.
 ## Related
 
 - [HPE Design System](https://design-system.hpe.design/)
-- [Grommet](https://v2.grommet.io/)
+- [HPE theme for Grommet](https://github.com/grommet/grommet-theme-hpe/tree/master)
 - [Design Tokens](../design-tokens)
