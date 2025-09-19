@@ -19,13 +19,13 @@ export const EmptyState = ({
 }) => {
   let icon = iconProp;
   if (iconProp && !iconProp.props.size)
-    icon = cloneElement(iconProp, { size: 'xlarge' });
+    icon = cloneElement(iconProp, { size: "xxlarge" });
 
   return (
     <Box gap="medium" align={align} flex={false}>
-      <Box align={align} gap="small">
+      <Box align={align} gap="xsmall">
         {icon}
-        <Box align={align} gap="xsmall">
+        <Box align={align} gap="3xsmall">
           <Heading margin="none" level={level}>
             {title}
           </Heading>

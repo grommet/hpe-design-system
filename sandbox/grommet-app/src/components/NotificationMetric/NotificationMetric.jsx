@@ -39,10 +39,10 @@ export const NotificationMetric = ({ status, value }) => {
     <Box
       background={background}
       direction="row"
-      gap={{ column: 'small', row: 'xsmall' }}
+      gap={{ column: "xsmall", row: "3xsmall" }}
       align="start"
-      pad={{ vertical: 'small', horizontal: 'medium' }}
-      round="small"
+      pad={{ vertical: "xsmall", horizontal: 'medium' }}
+      round="medium"
       wrap
       skeleton={skeleton ? { depth: 2 } : undefined}
     >

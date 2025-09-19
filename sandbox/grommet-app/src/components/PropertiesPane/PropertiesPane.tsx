@@ -17,7 +17,7 @@ export const PropertiesPane = ({
       skeleton={null}
       {...rest}
     >
-      <NameValueList nameProps={{ width: ['xsmall', 'max-content'] }}>
+      <NameValueList nameProps={{ width: ["3xsmall", 'max-content'] }}>
         {properties && properties.map(({ key, value, render }) =>
           <NameValuePair
             key={key}
@@ -25,5 +25,6 @@ export const PropertiesPane = ({
           >{value}</NameValuePair>
         )}
       </NameValueList>
-    </ContentPane>);
+    </ContentPane>
+  );
 }
