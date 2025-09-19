@@ -29,7 +29,7 @@
     "aries-core",
     "aries-site",
     "design-tokens",
-    "packages/hpe-icons",
+    "packages/*",
     "sandbox/*",
     "design-tokens-manager",
     "shared/*"
