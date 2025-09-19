@@ -3,7 +3,7 @@ import { Box } from 'grommet';
 
 export const TabContent = ({ children }) => {
   return (
-    <Box gap="medium" pad={{ vertical: 'small' }} align="start">
+    <Box gap="medium" pad={{ vertical: "xsmall" }} align="start">
       {children}
     </Box>
   );

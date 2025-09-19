@@ -58,7 +58,7 @@ export const Capacity = () => {
     >
       <Data data={capacityData}>
         <Box gap="medium">
-          <Box gap="xxsmall">
+          <Box gap="5xsmall">
             <Toolbar>
               <ToggleGroup
                 a11yTitle="Choose chart timeframe"

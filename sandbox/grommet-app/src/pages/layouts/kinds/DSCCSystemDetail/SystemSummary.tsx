@@ -18,11 +18,11 @@ export const SystemSummary = ({ size, ...rest }) => {
       onClick={null}
       {...rest}
     >
-      <Box direction="row" gap={{ column: 'medium', row: 'small' }} wrap>
+      <Box direction="row" gap={{ column: 'medium', row: "xsmall" }} wrap>
         <Metric
           label="Call home"
           value={
-            <Box direction="row" align="center" gap="xsmall">
+            <Box direction="row" align="center" gap="3xsmall">
               <StatusGoodSmall color="status-ok" />
               <Text size={metricSizes[size].value} color="text-strong" weight={500}>On</Text>
             </Box>

@@ -18,7 +18,7 @@ export const PhysicalCapacity = ({ size, ...rest }) => {
       {...rest}
     >
       <Grid
-        gap="small"
+        gap="xsmall"
         areas={[
           ["metric", "summary"],
           ["meter", "meter"]
@@ -40,7 +40,7 @@ export const PhysicalCapacity = ({ size, ...rest }) => {
           max={100}
           values={[{ value: 34 }, { value: 13 }]}
           size="full"
-          thickness="small"
+          thickness="xsmall"
           round
         />
         <Box gridArea="summary" justify="end">

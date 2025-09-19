@@ -24,7 +24,7 @@ export const ExpiringSubscriptions = () => {
         data={services.services.filter(service => service.subscription)}
         defaultItemProps={{
           border: { side: 'bottom', color: 'border-weak' },
-          pad: { vertical: 'xsmall' },
+          pad: { vertical: "3xsmall" },
         }}
       >
         {datum => {
@@ -32,7 +32,7 @@ export const ExpiringSubscriptions = () => {
             new Date(datum.subscription.expiration).getTime() < Date.now();
           return (
             <Box skeleton={skeleton ? { depth: 2 } : undefined}>
-              <Box direction="row" gap="xsmall">
+              <Box direction="row" gap="3xsmall">
                 {!skeleton ? (
                   expired ? (
                     <StatusCriticalSmall

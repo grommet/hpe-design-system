@@ -94,7 +94,7 @@ const StickerSheet = () => {
       themeMode={theme.dark ? 'dark' : 'light'}
     >
       <ModeContext.Provider value={contextValue}>
-        <Page kind="full" pad={{ bottom: 'xlarge' }}>
+        <Page kind="full" pad={{ bottom: "3xlarge" }}>
           <PageContent align="start" gap="medium">
             <PageHeader
               title="Sticker sheet"
@@ -136,7 +136,7 @@ const StickerSheet = () => {
             <Notification
               status="info"
               message="This page provides a comparison between the existing and updated HPE theme. For each component, the version on the left is the existing styling and the verison on the right is the new styling."
-              width={{ max: 'large' }}
+              width={{ max: "xlarge" }}
             />
             <Tabs
               activeIndex={activeIndex}

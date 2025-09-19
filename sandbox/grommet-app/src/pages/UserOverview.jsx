@@ -37,15 +37,15 @@ export const UserOverview = () => {
               color: skeleton ? 'background-contrast' : 'graph-2',
             },
           ]}
-          size="small"
+          size="xsmall"
         />
 
-        <Box gap="small" skeleton={skeleton ? { depth: 1 } : undefined}>
+        <Box gap="xsmall" skeleton={skeleton ? { depth: 1 } : undefined}>
           <Box
             direction="row"
             align="center"
             justify="between"
-            pad={{ bottom: 'small' }}
+            pad={{ bottom: "xsmall" }}
             border={{ side: 'bottom', color: 'border-weak' }}
           >
             <Text weight={500} size="small">

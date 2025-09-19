@@ -18,7 +18,7 @@ import ContentPane from '../../components/ContentPane';
 
 function Sustainability() {
   return (
-    <Page pad={{ bottom: 'large' }}>
+    <Page pad={{ bottom: "xlarge" }}>
       <PageContent>
         <PageHeader
           title="Sustainability Insight Center"
@@ -39,7 +39,7 @@ function Sustainability() {
               <Box pad={{ vertical: 'medium' }}>
                 <ContentPane alignSelf="start">
                   <Box gap="medium" align="start" flex={false}>
-                    <Box align="start" gap="xsmall">
+                    <Box align="start" gap="3xsmall">
                       <Heading margin="none" level={2}>
                         No resources to manage
                       </Heading>

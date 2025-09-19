@@ -42,7 +42,7 @@ const CarbonEmissions = () => {
     >
       <Box
         gap="medium"
-        pad={{ top: 'small' }}
+        pad={{ top: "xsmall" }}
         flex={false}
         width="100%"
         animation={animation}
@@ -69,13 +69,13 @@ const CarbonEmissions = () => {
                   {
                     property: 'emissions',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: "3xsmall",
                     color: { color: 'graph-0', opacity: 'strong' },
                   },
                   {
                     property: 'emissions',
                     type: 'line',
-                    thickness: 'xxsmall',
+                    thickness: "5xsmall",
                     color: 'graph-0',
                     round: true,
                   },
@@ -87,7 +87,7 @@ const CarbonEmissions = () => {
                 guide={{ y: true }}
               />
             ) : (
-              <Skeleton height="small" />
+              <Skeleton height="xsmall" />
             )}
           </Box>
         </Collapsible>
@@ -140,13 +140,13 @@ const EnergyConsumption = () => {
                   {
                     property: 'energy',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: "3xsmall",
                     color: { color: 'graph-1', opacity: 'strong' },
                   },
                   {
                     property: 'energy',
                     type: 'line',
-                    thickness: 'xxsmall',
+                    thickness: "5xsmall",
                     color: 'graph-1',
                     round: true,
                   },
@@ -158,7 +158,7 @@ const EnergyConsumption = () => {
                 guide={{ y: true }}
               />
             ) : (
-              <Skeleton height="small" />
+              <Skeleton height="xsmall" />
             )}
           </Box>
         </Collapsible>
@@ -215,13 +215,13 @@ const EnergyCost = () => {
                   {
                     property: 'cost',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: "3xsmall",
                     color: { color: 'graph-2', opacity: 'strong' },
                   },
                   {
                     property: 'cost',
                     type: 'line',
-                    thickness: 'xxsmall',
+                    thickness: "5xsmall",
                     color: 'graph-2',
                     round: true,
                   },
@@ -233,7 +233,7 @@ const EnergyCost = () => {
                 guide={{ y: true }}
               />
             ) : (
-              <Skeleton height="small" />
+              <Skeleton height="xsmall" />
             )}
           </Box>
         </Collapsible>
@@ -269,7 +269,7 @@ export const SustainabilityInsights = () => {
                 <DataFilter
                   contentProps={{
                     width: 'medium',
-                    margin: { bottom: 'none', top: 'xsmall' },
+                    margin: { bottom: 'none', top: "3xsmall" },
                   }}
                   property="date"
                 >

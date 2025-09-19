@@ -27,7 +27,7 @@ const iLOSecurity = {
 }
 
 const nameProps = {
-  width: ['xsmall', 'max-content']
+  width: ["3xsmall", 'max-content']
 };
 
 export const ILOSecurity: React.FC = () => {
@@ -38,7 +38,7 @@ export const ILOSecurity: React.FC = () => {
           key={key}
           name={sentenceCase(detail.label)}
         >
-          <Box direction="row" align="center" gap="small">
+          <Box direction="row" align="center" gap="xsmall">
             {React.cloneElement(statusMap.get(key)!.icon, { color: statusMap.get(key)!.color })}
             {detail.servers.length} servers
           </Box>

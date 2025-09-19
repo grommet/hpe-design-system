@@ -6,7 +6,7 @@ import ContentPane from '../../../../components/ContentPane';
 export const Spacing = ({ theme }) => {
   return (
     <ContentPane>
-      <Box gap="small">
+      <Box gap="xsmall">
         {Object.keys(theme.global.edgeSize).map(
           size =>
             size !== 'responsiveBreakpoint' && (
@@ -19,7 +19,7 @@ export const Spacing = ({ theme }) => {
                       opacity: 'medium',
                     }}
                     pad={{ left: size }}
-                    height="xxsmall"
+                    height="5xsmall"
                     flex={false}
                   />
                   <Text size="small">{size}</Text>

@@ -29,7 +29,7 @@ export const SustainabilityOverview = () => {
               size="small"
             />
             {skeleton ? (
-              <Skeleton height="xxsmall" />
+              <Skeleton height="5xsmall" />
             ) : (
               <DataChart
                 data={sustainability.sustainability.slice(0, 10)}
@@ -38,13 +38,13 @@ export const SustainabilityOverview = () => {
                   {
                     property: 'emissions',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: "3xsmall",
                     color: { color: 'graph-0', opacity: 'strong' },
                   },
                   {
                     property: 'emissions',
                     type: 'line',
-                    thickness: 'xxsmall',
+                    thickness: "5xsmall",
                     color: 'graph-0',
                     round: true,
                   },
@@ -53,7 +53,7 @@ export const SustainabilityOverview = () => {
                   x: false,
                   y: false,
                 }}
-                size={{ height: 'xxsmall' }}
+                size={{ height: "5xsmall" }}
               />
             )}
           </>
@@ -65,7 +65,7 @@ export const SustainabilityOverview = () => {
               size="small"
             />
             {skeleton ? (
-              <Skeleton height="xxsmall" />
+              <Skeleton height="5xsmall" />
             ) : (
               <DataChart
                 data={sustainability.sustainability.slice(0, 10)}
@@ -74,13 +74,13 @@ export const SustainabilityOverview = () => {
                   {
                     property: 'energy',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: "3xsmall",
                     color: { color: 'graph-1', opacity: 'strong' },
                   },
                   {
                     property: 'energy',
                     type: 'line',
-                    thickness: 'xxsmall',
+                    thickness: "5xsmall",
                     color: 'graph-1',
                     round: true,
                   },
@@ -89,14 +89,14 @@ export const SustainabilityOverview = () => {
                   x: false,
                   y: false,
                 }}
-                size={{ height: 'xxsmall' }}
+                size={{ height: "5xsmall" }}
               />
             )}
           </>
           <>
             <Metric label="Energy cost" unit="USD" value={48750} size="small" />
             {skeleton ? (
-              <Skeleton height="xxsmall" />
+              <Skeleton height="5xsmall" />
             ) : (
               <DataChart
                 data={sustainability.sustainability.slice(0, 10)}
@@ -105,13 +105,13 @@ export const SustainabilityOverview = () => {
                   {
                     property: 'cost',
                     type: 'area',
-                    thickness: 'xsmall',
+                    thickness: "3xsmall",
                     color: { color: 'graph-2', opacity: 'strong' },
                   },
                   {
                     property: 'cost',
                     type: 'line',
-                    thickness: 'xxsmall',
+                    thickness: "5xsmall",
                     color: 'graph-2',
                     round: true,
                   },
@@ -120,7 +120,7 @@ export const SustainabilityOverview = () => {
                   x: false,
                   y: false,
                 }}
-                size={{ height: 'xxsmall' }}
+                size={{ height: "5xsmall" }}
               />
             )}
           </>

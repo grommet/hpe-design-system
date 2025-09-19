@@ -7,7 +7,7 @@ const PARAGRAPH_SIZES = ['small', 'medium', 'large', 'xlarge', 'xxlarge'];
 export const Paragraphs = () => {
   return (
     <ContentPane>
-      <Box gap="small">
+      <Box gap="xsmall">
         {PARAGRAPH_SIZES.map(size => (
           <Compare key={size}>
             <Paragraph size={size} key={size} margin="none">

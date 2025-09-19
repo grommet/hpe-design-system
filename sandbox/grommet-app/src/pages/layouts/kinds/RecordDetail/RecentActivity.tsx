@@ -41,7 +41,7 @@ interface ActivityItemProps {
 
 const ActivityItem: React.FC<ActivityItemProps> = ({ title, description, datetime }) => {
   return (
-    <Box gap="xsmall">
+    <Box gap="3xsmall">
       <Text color="text-strong" weight={500}>{title}</Text>
       <Paragraph margin="none">{description}</Paragraph>
       <Text>{Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(datetime))}</Text>

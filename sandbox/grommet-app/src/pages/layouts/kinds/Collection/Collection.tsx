@@ -55,11 +55,11 @@ const reponsiveGrid = (size: ResponsiveBreakpointType) => {
     xlarge: ['auto', 'flex'],
   };
   const gap = {
-    xsmall: 'small',
-    small: 'small',
+    xsmall: "xsmall",
+    small: "xsmall",
     medium: 'medium',
     large: 'medium',
-    xlarge: 'large',
+    xlarge: "xlarge",
   };
 
   return {
@@ -121,7 +121,7 @@ export const Collection = ({ ...rest }) => {
         level={2}
         actions={undefined}
         skeleton={undefined}
-        round="small"
+        round="medium"
         contain={!compactMenu}
       >
         {collectionMenu}
@@ -131,7 +131,7 @@ export const Collection = ({ ...rest }) => {
         level={2}
         actions={undefined}
         skeleton={undefined}
-        round="small"
+        round="medium"
       >
         <DataView data={dataSet.data} columns={responsiveColumns} />
       </ContentPane>
@@ -139,7 +139,7 @@ export const Collection = ({ ...rest }) => {
   );
 
   return (
-    <Page pad={{ bottom: "xlarge" }} {...rest}>
+    <Page pad={{ bottom: "3xlarge" }} {...rest}>
       <PageContent>
         <PageHeader
           title="Virtual Machines"
