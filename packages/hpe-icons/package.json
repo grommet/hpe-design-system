@@ -6,10 +6,6 @@
   "repository": "https://github.com/grommet/hpe-design-system/packages/hpe-icons",
   "type": "module",
   "exports": {
-    ".": {
-      "import": "./dist/hpe-icons.js",
-      "require": "./dist/hpe-icons.cjs"
-    },
     "./grommet": {
       "import": "./dist/grommet/hpe-icons.js",
       "require": "./dist/grommet/hpe-icons.cjs"
@@ -32,8 +28,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
