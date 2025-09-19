@@ -15,8 +15,8 @@ import ContentPane from './components/ContentPane';
 export const Login = ({ setAuthenticated }) => {
   return (
     <Page>
-      <PageContent pad={{ vertical: 'large' }} align="center">
-        <ContentPane background="background-front" pad="medium" round="medium">
+      <PageContent pad={{ vertical: "xlarge" }} align="center">
+        <ContentPane background="background-front" pad="medium" round="xlarge">
           <Box gap="medium">
             <Box>
               <Heading margin="none">HPE Design System Demo</Heading>
@@ -50,7 +50,7 @@ export const Login = ({ setAuthenticated }) => {
                 label="Submit"
                 type="submit"
                 kind="primary"
-                margin={{ top: 'small' }}
+                margin={{ top: "xsmall" }}
               />
             </Form>
           </Box>
