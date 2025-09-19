@@ -1,27 +1,37 @@
 /// <reference types="vite/client" />
 
+type IconColorTokens = {
+  default: string;
+  strong: string;
+  medium: string;
+  weak: string;
+  disabled: string;
+  critical: string;
+  info: string;
+  ok: string;
+  warning: string;
+  unknown: string;
+  primary: string;
+  'primary-hover': string;
+  onPrimaryStrong: string;
+  onSelectedPrimaryStrong: string;
+  onSelectedPrimary: string;
+  onStrong: string;
+};
+
 declare module 'hpe-design-tokens/grommet' {
   export const light: {
     hpe: {
       color: {
-        icon: {
-          default: string;
-          strong: string;
-          medium: string;
-          weak: string;
-          disabled: string;
-          critical: string;
-          info: string;
-          ok: string;
-          warning: string;
-          unknown: string;
-          primary: string;
-          'primary-hover': string;
-          onPrimaryStrong: string;
-          onSelectedPrimaryStrong: string;
-          onSelectedPrimary: string;
-          onStrong: string;
-        };
+        icon: IconColorTokens;
+      };
+    };
+  };
+
+  export const dark: {
+    hpe: {
+      color: {
+        icon: IconColorTokens;
       };
     };
   };
