@@ -91,7 +91,6 @@ yarn build
 
 ### Scripts
 
-- `yarn dev` - Start development server
 - `yarn build` - Build the library for production
 - `yarn lint` - Run ESLint
 - `yarn storybook` - Start Storybook for icon exploration
