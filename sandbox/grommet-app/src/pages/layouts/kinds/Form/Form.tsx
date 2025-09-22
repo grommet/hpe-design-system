@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Heading,
   Box,
   Button,
   CheckBox,
@@ -23,9 +22,6 @@ import ContentPane from '../../../../components/ContentPane';
 
 const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
 const weakness = ['Fire', 'PB & J', 'Kryptonite'];
-
-const levels = [1, 2, 3, 4, 5, 6];
-const sizes = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 export const Form = () => {
   const [formValues, setFormValues] = React.useState({
@@ -61,21 +57,6 @@ export const Form = () => {
             />
           }
         />
-        <Box gap="small">
-          {levels.map(level => (
-            <Heading level={level} margin="none">
-              Heading {level}
-            </Heading>
-          ))}
-          {['xlarge', 'large', 'medium', 'small', 'xsmall', 'xxsmall'].map(
-            size =>
-              levels.map(level => (
-                <Heading size={size} level={level} margin="none">
-                  Heading {level} - {size}
-                </Heading>
-              )),
-          )}
-        </Box>
         <ContentPane
           width={{ min: 'medium', max: 'medium' }}
           heading="Create a new character"

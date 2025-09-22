@@ -3,9 +3,9 @@
     "outline": {
       "$type": "border",
       "$value": {
-        "width": "{base.dimension.50}",
+        "style": "solid",
         "color": "{color.focus}",
-        "style": "solid"
+        "width": "{base.dimension.50}"
       },
       "$description": "",
       "$extensions": {
@@ -52,7 +52,7 @@
   "fontStack": {
     "primary": {
       "$type": "fontFamily",
-      "$value": "'Graphik', Arial, sans-serif",
+      "$value": "'Metric', Arial, sans-serif",
       "$description": "The main font stack for an application.",
       "$extensions": {
         "com.figma": {

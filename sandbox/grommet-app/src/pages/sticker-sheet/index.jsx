@@ -89,7 +89,7 @@ const StickerSheet = () => {
 
   return (
     <Grommet
-      theme={themes.v2}
+      theme={themes.v1}
       background="background-back"
       themeMode={theme.dark ? 'dark' : 'light'}
     >
