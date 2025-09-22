@@ -10,7 +10,11 @@ import { Login } from './Login';
 import { GlobalHeader } from './components/GlobalHeader';
 import { FloatingActionButton } from './components';
 import { HPEGreenLakeBadge } from './components/HPEGreenLakeBadge';
-import { BackgroundContext, WorkspaceContext } from './contexts';
+import {
+  BackgroundContext,
+  SupportingContext,
+  WorkspaceContext,
+} from './contexts';
 import { useLoading } from './utils/skeleton';
 import './app.css';
 
@@ -48,6 +52,16 @@ const App = () => {
   const [workspace, setWorkspace] = useState('Acme Production');
   const workspaceContextValue = useMemo(() => ({ workspace }), [workspace]);
 
+  const [showSupporting, setShowSupporting] = useState(false);
+  const supportingContextValue = useMemo(
+    () => ({ showSupporting, setShowSupporting }),
+    [showSupporting],
+  );
+  const overflowProps = useMemo(
+    () => (showSupporting ? { height: '100vh', overflow: 'auto' } : {}),
+    [showSupporting],
+  );
+
   const loading = useLoading(6000);
 
   return (
@@ -78,27 +92,46 @@ const App = () => {
         ) : (
           <BackgroundContext.Provider value={contextValue}>
             <WorkspaceContext.Provider value={workspaceContextValue}>
-              <BrowserRouter>
-                <GlobalHeader
-                  darkMode={darkMode}
-                  setDarkMode={setDarkMode}
-                  setActiveTheme={setActiveTheme}
-                  activeTheme={activeTheme}
-                  backgroundBack={backgroundBack}
-                  setBackgroundBack={setBackgroundBack}
-                  workspace={workspace}
-                  setWorkspace={setWorkspace}
-                  style={{ position: 'relative', zIndex: 1 }}
-                />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/sustainability" element={<Sustainability />} />
-                  <Route path="/sticker-sheet" element={<StickerSheet />} />
-                  <Route path="/layouts" element={<Layouts />}>
-                    {layoutRoutes}
-                  </Route>
-                </Routes>
-              </BrowserRouter>
+              <SupportingContext.Provider value={supportingContextValue}>
+                <BrowserRouter>
+                  <Box direction="row">
+                    <Box flex {...overflowProps}>
+                      <Box flex={false}>
+                        <GlobalHeader
+                          darkMode={darkMode}
+                          setDarkMode={setDarkMode}
+                          setActiveTheme={setActiveTheme}
+                          activeTheme={activeTheme}
+                          backgroundBack={backgroundBack}
+                          setBackgroundBack={setBackgroundBack}
+                          workspace={workspace}
+                          setWorkspace={setWorkspace}
+                          style={{ position: 'relative', zIndex: 1 }}
+                        />
+                        <Routes>
+                          <Route path="/" element={<Home />} />
+                          <Route
+                            path="/sustainability"
+                            element={<Sustainability />}
+                          />
+                          <Route
+                            path="/sticker-sheet"
+                            element={<StickerSheet />}
+                          />
+                          <Route path="/layouts" element={<Layouts />}>
+                            {layoutRoutes}
+                          </Route>
+                        </Routes>
+                      </Box>
+                    </Box>
+                    <Box height="100vh" overflow="auto">
+                      <Box flex={false}>
+                        {showSupporting ? showSupporting : undefined}
+                      </Box>
+                    </Box>
+                  </Box>
+                </BrowserRouter>
+              </SupportingContext.Provider>
               {window.location.pathname === '/next' ? (
                 <FloatingActionButton label="Ask HPE" />
               ) : undefined}
