@@ -55,22 +55,22 @@ module.exports = {
     },
     "icon": {
       "xsmall": {
-        "size": "14px"
+        "size": "12px"
       },
       "small": {
-        "size": "16px"
+        "size": "14px"
       },
       "medium": {
-        "size": "18px"
+        "size": "16px"
       },
       "large": {
-        "size": "22px"
+        "size": "18px"
       },
       "xlarge": {
-        "size": "24px"
+        "size": "20px"
       },
       "xxlarge": {
-        "size": "36px"
+        "size": "32px"
       }
     },
     "text": {
@@ -131,34 +131,34 @@ module.exports = {
     },
     "heading": {
       "xlarge": {
-        "fontWeight": 400,
-        "fontSize": "1.75rem",
+        "fontWeight": 500,
+        "fontSize": "1.5rem",
         "lineHeight": "2rem"
       },
       "large": {
-        "fontWeight": 400,
-        "fontSize": "1.5rem",
+        "fontWeight": 500,
+        "fontSize": "1.375rem",
         "lineHeight": "1.75rem"
       },
       "medium": {
-        "fontSize": "1.25rem",
+        "fontSize": "1.125rem",
         "lineHeight": "1.5rem",
-        "fontWeight": 400
+        "fontWeight": 500
       },
       "small": {
-        "fontSize": "1.125rem",
+        "fontSize": "1rem",
         "lineHeight": "1.25rem",
         "fontWeight": 500
       },
       "xsmall": {
-        "fontSize": "1rem",
+        "fontSize": "0.875rem",
         "lineHeight": "1.125rem",
-        "fontWeight": 600
+        "fontWeight": 500
       },
       "xxsmall": {
         "fontSize": "1rem",
         "lineHeight": "1.125rem",
-        "fontWeight": 600
+        "fontWeight": 500
       }
     }
   }

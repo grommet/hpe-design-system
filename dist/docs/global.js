@@ -7,9 +7,9 @@ export default {
   "hpe.focusIndicator.outline": {
     "$type": "border",
     "$value": {
-      "style": "solid",
-      "color": "#004233",
-      "width": "2px"
+      "width": "2px",
+      "color": "#292d3a",
+      "style": "solid"
     },
     "$description": "",
     "$extensions": {
@@ -24,9 +24,9 @@ export default {
     "original": {
       "$type": "border",
       "$value": {
-        "style": "solid",
+        "width": "{base.dimension.50}",
         "color": "{color.focus}",
-        "width": "{base.dimension.50}"
+        "style": "solid"
       },
       "$description": "",
       "$extensions": {
@@ -134,7 +134,7 @@ export default {
   },
   "hpe.fontStack.primary": {
     "$type": "fontFamily",
-    "$value": "'Metric', Arial, sans-serif",
+    "$value": "'Graphik', Arial, sans-serif",
     "$description": "The main font stack for an application.",
     "$extensions": {
       "com.figma": {
@@ -149,7 +149,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "fontFamily",
-      "$value": "'Metric', Arial, sans-serif",
+      "$value": "'Graphik', Arial, sans-serif",
       "$description": "The main font stack for an application.",
       "$extensions": {
         "com.figma": {

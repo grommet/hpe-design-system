@@ -1618,6 +1618,48 @@ export default {
   },
   "hpe.icon.xsmall.size": {
     "$type": "number",
+    "$value": "12px",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/dimension.small.json",
+    "isSource": true,
+    "original": {
+      "$type": "number",
+      "$value": "{base.dimension.300}",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.icon.xsmall.size",
+    "attributes": {
+      "category": "icon",
+      "type": "xsmall",
+      "item": "size"
+    },
+    "path": [
+      "icon",
+      "xsmall",
+      "size"
+    ],
+    "key": "{icon.xsmall.size}"
+  },
+  "hpe.icon.small.size": {
+    "$type": "number",
     "$value": "14px",
     "$description": "",
     "$extensions": {
@@ -1645,20 +1687,20 @@ export default {
         }
       }
     },
-    "name": "hpe.icon.xsmall.size",
+    "name": "hpe.icon.small.size",
     "attributes": {
       "category": "icon",
-      "type": "xsmall",
+      "type": "small",
       "item": "size"
     },
     "path": [
       "icon",
-      "xsmall",
+      "small",
       "size"
     ],
-    "key": "{icon.xsmall.size}"
+    "key": "{icon.small.size}"
   },
-  "hpe.icon.small.size": {
+  "hpe.icon.medium.size": {
     "$type": "number",
     "$value": "16px",
     "$description": "",
@@ -1687,20 +1729,20 @@ export default {
         }
       }
     },
-    "name": "hpe.icon.small.size",
+    "name": "hpe.icon.medium.size",
     "attributes": {
       "category": "icon",
-      "type": "small",
+      "type": "medium",
       "item": "size"
     },
     "path": [
       "icon",
-      "small",
+      "medium",
       "size"
     ],
-    "key": "{icon.small.size}"
+    "key": "{icon.medium.size}"
   },
-  "hpe.icon.medium.size": {
+  "hpe.icon.large.size": {
     "$type": "number",
     "$value": "18px",
     "$description": "",
@@ -1729,48 +1771,6 @@ export default {
         }
       }
     },
-    "name": "hpe.icon.medium.size",
-    "attributes": {
-      "category": "icon",
-      "type": "medium",
-      "item": "size"
-    },
-    "path": [
-      "icon",
-      "medium",
-      "size"
-    ],
-    "key": "{icon.medium.size}"
-  },
-  "hpe.icon.large.size": {
-    "$type": "number",
-    "$value": "22px",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "WIDTH_HEIGHT"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/semantic/dimension.small.json",
-    "isSource": true,
-    "original": {
-      "$type": "number",
-      "$value": "{base.dimension.550}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "WIDTH_HEIGHT"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
     "name": "hpe.icon.large.size",
     "attributes": {
       "category": "icon",
@@ -1786,7 +1786,7 @@ export default {
   },
   "hpe.icon.xlarge.size": {
     "$type": "number",
-    "$value": "24px",
+    "$value": "20px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1801,7 +1801,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.600}",
+      "$value": "{base.dimension.500}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -1828,7 +1828,7 @@ export default {
   },
   "hpe.icon.xxlarge.size": {
     "$type": "number",
-    "$value": "36px",
+    "$value": "32px",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -1843,7 +1843,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{base.dimension.900}",
+      "$value": "{base.dimension.800}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -3382,7 +3382,7 @@ export default {
   },
   "hpe.heading.xlarge.fontWeight": {
     "$type": "number",
-    "$value": 400,
+    "$value": 500,
     "$description": "Font weight typically used on h1.",
     "$extensions": {
       "com.figma": {
@@ -3397,7 +3397,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.regular}",
+      "$value": "{fontWeight.medium}",
       "$description": "Font weight typically used on h1.",
       "$extensions": {
         "com.figma": {
@@ -3424,7 +3424,7 @@ export default {
   },
   "hpe.heading.xlarge.fontSize": {
     "$type": "number",
-    "$value": "1.75rem",
+    "$value": "1.5rem",
     "$description": "Font size typically used on h1.",
     "$extensions": {
       "com.figma": {
@@ -3439,7 +3439,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 28,
+      "$value": 24,
       "$description": "Font size typically used on h1.",
       "$extensions": {
         "com.figma": {
@@ -3508,7 +3508,7 @@ export default {
   },
   "hpe.heading.large.fontWeight": {
     "$type": "number",
-    "$value": 400,
+    "$value": 500,
     "$description": "Font weight typically used on h2.",
     "$extensions": {
       "com.figma": {
@@ -3523,7 +3523,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.regular}",
+      "$value": "{fontWeight.medium}",
       "$description": "Font weight typically used on h2.",
       "$extensions": {
         "com.figma": {
@@ -3550,7 +3550,7 @@ export default {
   },
   "hpe.heading.large.fontSize": {
     "$type": "number",
-    "$value": "1.5rem",
+    "$value": "1.375rem",
     "$description": "Font size typically used on h2.",
     "$extensions": {
       "com.figma": {
@@ -3565,7 +3565,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 24,
+      "$value": 22,
       "$description": "Font size typically used on h2.",
       "$extensions": {
         "com.figma": {
@@ -3634,7 +3634,7 @@ export default {
   },
   "hpe.heading.medium.fontSize": {
     "$type": "number",
-    "$value": "1.25rem",
+    "$value": "1.125rem",
     "$description": "Font size typically used on h3.",
     "$extensions": {
       "com.figma": {
@@ -3649,7 +3649,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 20,
+      "$value": 18,
       "$description": "Font size typically used on h3.",
       "$extensions": {
         "com.figma": {
@@ -3718,7 +3718,7 @@ export default {
   },
   "hpe.heading.medium.fontWeight": {
     "$type": "number",
-    "$value": 400,
+    "$value": 500,
     "$description": "Font weight typically used on h3.",
     "$extensions": {
       "com.figma": {
@@ -3733,7 +3733,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.regular}",
+      "$value": "{fontWeight.medium}",
       "$description": "Font weight typically used on h3.",
       "$extensions": {
         "com.figma": {
@@ -3760,7 +3760,7 @@ export default {
   },
   "hpe.heading.small.fontSize": {
     "$type": "number",
-    "$value": "1.125rem",
+    "$value": "1rem",
     "$description": "Font size typically used on h4.",
     "$extensions": {
       "com.figma": {
@@ -3775,7 +3775,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 18,
+      "$value": 16,
       "$description": "Font size typically used on h4.",
       "$extensions": {
         "com.figma": {
@@ -3886,7 +3886,7 @@ export default {
   },
   "hpe.heading.xsmall.fontSize": {
     "$type": "number",
-    "$value": "1rem",
+    "$value": "0.875rem",
     "$description": "Font size typically used on h5.",
     "$extensions": {
       "com.figma": {
@@ -3901,7 +3901,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": 16,
+      "$value": 14,
       "$description": "Font size typically used on h5.",
       "$extensions": {
         "com.figma": {
@@ -3970,7 +3970,7 @@ export default {
   },
   "hpe.heading.xsmall.fontWeight": {
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "$description": "Font weight typically used on h5.",
     "$extensions": {
       "com.figma": {
@@ -3985,7 +3985,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.semibold}",
+      "$value": "{fontWeight.medium}",
       "$description": "Font weight typically used on h5.",
       "$extensions": {
         "com.figma": {
@@ -4096,7 +4096,7 @@ export default {
   },
   "hpe.heading.xxsmall.fontWeight": {
     "$type": "number",
-    "$value": 600,
+    "$value": 500,
     "$description": "Font weight typically used on h6.",
     "$extensions": {
       "com.figma": {
@@ -4111,7 +4111,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "number",
-      "$value": "{fontWeight.semibold}",
+      "$value": "{fontWeight.medium}",
       "$description": "Font weight typically used on h6.",
       "$extensions": {
         "com.figma": {
