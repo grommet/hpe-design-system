@@ -15,102 +15,10 @@ const dates = [
   '2024-03-02T20:19:00.000Z',
 ];
 
-// eslint-disable-next-line react/prop-types
-export const RecentServices = ({ compact }) => {
+export const RecentServices = () => {
   const [cards, setCards] = useState(false);
-  const recentServices = services.services.slice(0, compact ? 4 : 5);
+  const recentServices = services.services.slice(0, 5);
   const skeleton = useLoading(1000);
-
-  if (compact)
-    return (
-      <Card title="Recent services" level={2} onClick={() => {}}>
-        <List
-          data={recentServices}
-          defaultItemProps={{
-            border: { color: 'border-weak', side: 'bottom' },
-            pad: { vertical: 'small', horizontal: 'none' },
-          }}
-          alignSelf="stretch"
-        >
-          {datum => (
-            <Box gap="xsmall">
-              <Box>
-                <Text weight={500} color="text-strong">
-                  {datum.name}
-                </Text>
-              </Box>
-
-              <Text size="small">{datum.category}</Text>
-            </Box>
-          )}
-        </List>
-      </Card>
-    );
-
-  let content;
-  if (cards)
-    content = (
-      <Grid columns="small" gap="medium">
-        {recentServices.map(service => (
-          <Card
-            key={service.name}
-            title={service.name}
-            subtitle={service.category}
-            description={service.description}
-            level={3}
-            actions={<Button label="Launch" secondary />}
-          />
-        ))}
-      </Grid>
-    );
-  else
-    content = (
-      <List
-        data={recentServices}
-        defaultItemProps={{
-          border: { color: 'border-weak', side: 'bottom' },
-          pad: { vertical: 'small', horizontal: 'none' },
-        }}
-      >
-        {datum => (
-          <Grid
-            columns={['flex', 'flex', 'flex', 'auto']}
-            align={skeleton ? 'start' : 'center'}
-            gap="small"
-          >
-            <Box>
-              <Text weight={500} color="text-strong">
-                {datum.name}
-              </Text>
-            </Box>
-            <Box>
-              <Text>{datum.category}</Text>
-            </Box>
-            <Box>
-              <Text>
-                {Intl.DateTimeFormat(undefined, {
-                  timeStyle: 'short',
-                  dateStyle: 'medium',
-                }).format(
-                  new Date(dates[Math.floor(Math.random() * dates.length)]),
-                )}
-              </Text>
-            </Box>
-            {skeleton ? (
-              <Skeleton fill="vertical" width="xsmall" />
-            ) : (
-              <Link to={datum.href}>
-                <Button
-                  label="Launch"
-                  a11yTitle={`Launch ${datum.name}`}
-                  secondary
-                />
-              </Link>
-            )}
-          </Grid>
-        )}
-      </List>
-    );
 
   return (
     <ContentPane
@@ -130,7 +38,66 @@ export const RecentServices = ({ compact }) => {
         skeleton={skeleton ? skeletonAnimation : undefined}
         animation={!skeleton ? 'fadeIn' : undefined}
       >
-        {content}
+        {cards ? (
+          <Grid columns="small" gap="medium">
+            {recentServices.map(service => (
+              <Card
+                key={service.name}
+                title={service.name}
+                subtitle={service.category}
+                description={service.description}
+                level={3}
+                actions={<Button label="Launch" secondary />}
+              />
+            ))}
+          </Grid>
+        ) : (
+          <List
+            data={recentServices}
+            defaultItemProps={{
+              border: { color: 'border-weak', side: 'bottom' },
+              pad: { vertical: 'small', horizontal: 'none' },
+            }}
+          >
+            {datum => (
+              <Grid
+                columns={['flex', 'flex', 'flex', 'auto']}
+                align={skeleton ? 'start' : 'center'}
+                gap="small"
+              >
+                <Box>
+                  <Text weight={500} color="text-strong">
+                    {datum.name}
+                  </Text>
+                </Box>
+                <Box>
+                  <Text>{datum.category}</Text>
+                </Box>
+                <Box>
+                  <Text>
+                    {Intl.DateTimeFormat(undefined, {
+                      timeStyle: 'short',
+                      dateStyle: 'medium',
+                    }).format(
+                      new Date(dates[Math.floor(Math.random() * dates.length)]),
+                    )}
+                  </Text>
+                </Box>
+                {skeleton ? (
+                  <Skeleton fill="vertical" width="xsmall" />
+                ) : (
+                  <Link to={datum.href}>
+                    <Button
+                      label="Launch"
+                      a11yTitle={`Launch ${datum.name}`}
+                      secondary
+                    />
+                  </Link>
+                )}
+              </Grid>
+            )}
+          </List>
+        )}
       </Box>
     </ContentPane>
   );
