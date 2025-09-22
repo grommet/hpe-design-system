@@ -15,7 +15,7 @@ export default {
       "boxShadow": "0 0 0 2px #ffffff "
     },
     "fontStack": {
-      "primary": "'Graphik', Arial, sans-serif"
+      "primary": "'Metric', Arial, sans-serif"
     },
     "breakpoint": {
       "xsmall": "576px",

@@ -4,21 +4,47 @@
  */
 
 :root, [data-mode=auto], [data-mode=light] {
-  --hpe-base-color-purple-100: #b7a2fc; /** Purple 3 */
-  --hpe-base-color-purple-200: #9b84fc; /** Purple 2 */
-  --hpe-base-color-purple-400: #7764fc; /** Purple */
-  --hpe-base-color-purple-700: #5d45d6; /** Purple 4 */
-  --hpe-base-color-purple-900: #3c3aa1; /** Purple 5 */
-  --hpe-base-color-white-100: #ffffff;
-  --hpe-base-color-white-opacity6: rgba(255, 255, 255, 0.06);
-  --hpe-base-color-white-opacity7: rgba(255, 255, 255, 0.07);
-  --hpe-base-color-white-opacity10: rgba(255, 255, 255, 0.1);
-  --hpe-base-color-white-opacity12: rgba(255, 255, 255, 0.12);
-  --hpe-base-color-white-opacity20: rgba(255, 255, 255, 0.2);
-  --hpe-base-color-white-opacity24: rgba(255, 255, 255, 0.24);
-  --hpe-base-color-white-opacity36: rgba(255, 255, 255, 0.36);
-  --hpe-base-color-white-opacity50: rgba(255, 255, 255, 0.5);
-  --hpe-base-color-white-opacity72: rgba(255, 255, 255, 0.72);
+  --hpe-base-color-red-500: #fc6161;
+  --hpe-base-color-red-550: #fc5a5a;
+  --hpe-base-color-red-600: #ec3331;
+  --hpe-base-color-red-750: #c54e4b;
+  --hpe-base-color-red-800: #cc1f1a;
+  --hpe-base-color-red-850: #a2423d;
+  --hpe-base-color-red-500-Opacity12: rgba(252, 97, 97, 0.12);
+  --hpe-base-color-red-500-Opacity24: rgba(252, 97, 97, 0.24);
+  --hpe-base-color-red-800-Opacity30: rgba(204, 31, 26, 0.3);
+  --hpe-base-color-orange-400: #ffbc44;
+  --hpe-base-color-orange-600: #d36d00;
+  --hpe-base-color-orange-700: #9b6310;
+  --hpe-base-color-orange-400-Opacity12: rgba(255, 188, 68, 0.12);
+  --hpe-base-color-orange-400-Opacity24: rgba(255, 188, 68, 0.24);
+  --hpe-base-color-yellow-200: #ffeb59;
+  --hpe-base-color-yellow-400: #fec901;
+  --hpe-base-color-yellow-700: #8d741c;
+  --hpe-base-color-yellow-400-Opacity12: rgba(254, 201, 1, 0.12);
+  --hpe-base-color-green-100: #d1ffee;
+  --hpe-base-color-green-125: #aafade;
+  --hpe-base-color-green-400: #17eba0;
+  --hpe-base-color-green-450: #00ebb5;
+  --hpe-base-color-green-500: #1ed8ae;
+  --hpe-base-color-green-600: #01a982; /** HPE Brand */
+  --hpe-base-color-green-650: #009a71;
+  --hpe-base-color-green-700: #008567;
+  --hpe-base-color-green-800: #006750;
+  --hpe-base-color-green-900: #074b3b;
+  --hpe-base-color-green-1000: #093a2f;
+  --hpe-base-color-green-400-Opacity12: rgba(23, 235, 160, 0.12);
+  --hpe-base-color-green-400-Opacity24: rgba(23, 235, 160, 0.24);
+  --hpe-base-color-green-500-Opacity30: rgba(23, 208, 166, 0.3);
+  --hpe-base-color-teal-200: #82fff2;
+  --hpe-base-color-teal-400: #00e8cf;
+  --hpe-base-color-teal-700: #117b82;
+  --hpe-base-color-blue-400: #00c8ff;
+  --hpe-base-color-blue-700: #00739d;
+  --hpe-base-color-blue-900: #00567a;
+  --hpe-base-color-blue-400-Opacity12: rgba(0, 200, 255, 0.12);
+  --hpe-base-color-purple-500: #f740ff;
+  --hpe-base-color-purple-900: #6633bc;
   --hpe-base-color-black-opacity4: rgba(0, 0, 0, 0.04);
   --hpe-base-color-black-opacity8: rgba(0, 0, 0, 0.08);
   --hpe-base-color-black-opacity12: rgba(0, 0, 0, 0.12);
@@ -28,139 +54,109 @@
   --hpe-base-color-black-opacity50: rgba(0, 0, 0, 0.5);
   --hpe-base-color-black-opacity72: rgba(0, 0, 0, 0.72);
   --hpe-base-color-black-opacity100: #000000;
-  --hpe-base-color-fuschia-100: #fc9ddc;
-  --hpe-base-color-fuschia-200: #db72b8;
-  --hpe-base-color-fuschia-300: #cc54a4;
-  --hpe-base-color-fuschia-700: #ad4089;
-  --hpe-base-color-fuschia-900: #7f245c;
-  --hpe-base-color-orange-50: #fff3dd;
-  --hpe-base-color-orange-500: #ec8c25;
-  --hpe-base-color-orange-600: #d36d00;
-  --hpe-base-color-orange-1000: #3c361e;
-  --hpe-base-color-plum-100: #c98ad4;
-  --hpe-base-color-plum-200: #a455b3;
-  --hpe-base-color-plum-600: #873492;
-  --hpe-base-color-plum-700: #6c2b7c;
-  --hpe-base-color-plum-900: #5e1f68;
-  --hpe-base-color-coral-100: #fc988b;
-  --hpe-base-color-coral-200: #e5786a;
-  --hpe-base-color-coral-300: #d25f4b;
-  --hpe-base-color-coral-400: #c64f3a;
-  --hpe-base-color-coral-500: #b4422a;
-  --hpe-base-color-gold-100: #f9cc61;
-  --hpe-base-color-gold-200: #ecbe4f;
-  --hpe-base-color-gold-300: #deb146;
-  --hpe-base-color-gold-400: #c89e3a;
-  --hpe-base-color-gold-500: #b38a29;
-  --hpe-base-color-gold-550: #b0840d;
-  --hpe-base-color-cyan-100: #99f0f9;
-  --hpe-base-color-cyan-200: #62e5f6;
-  --hpe-base-color-cyan-300: #00dbe4;
-  --hpe-base-color-cyan-400: #00a4b3;
-  --hpe-base-color-cyan-500: #04909d;
-  --hpe-base-color-green-100: #d1ffee;
-  --hpe-base-color-green-125: #aafade;
-  --hpe-base-color-green-400: #00e0af;
-  --hpe-base-color-green-450: #66ebcf;
-  --hpe-base-color-green-500: #00e0af; /** Landmark Primary Green */
-  --hpe-base-color-green-550: #05cc93;
-  --hpe-base-color-green-600: #01a982; /** HPE Brand */
-  --hpe-base-color-green-650: #009a71;
-  --hpe-base-color-green-700: #068667;
-  --hpe-base-color-green-800: #006750;
-  --hpe-base-color-green-900: #074738;
-  --hpe-base-color-green-1000: #093d32;
   --hpe-base-color-grey-50: #f7f7f7;
-  --hpe-base-color-grey-200: #e6e8e9;
-  --hpe-base-color-grey-400: #d4d8db;
-  --hpe-base-color-grey-500: #b1b9be;
-  --hpe-base-color-grey-600: #7d8a92;
-  --hpe-base-color-grey-650: #606a70;
-  --hpe-base-color-grey-700: #535c66;
-  --hpe-base-color-grey-800: #3e4550;
-  --hpe-base-color-grey-1000: #292d3a;
-  --hpe-base-color-grey-1200: #22252e;
-  --hpe-base-color-grey-1300: #1d1f27;
-  --hpe-base-color-blue-50: #e3f1ff;
-  --hpe-base-color-blue-200: #65aef9;
-  --hpe-base-color-blue-300: #3994f7;
-  --hpe-base-color-blue-500: #0070f8;
-  --hpe-base-color-blue-700: #0055da;
-  --hpe-base-color-blue-900: #003cae;
-  --hpe-base-color-blue-1100: #2b3547;
-  --hpe-base-color-red-50: #ffecec;
-  --hpe-base-color-red-400: #ff7b7b;
-  --hpe-base-color-red-500: #fc6161;
-  --hpe-base-color-red-600: #ec3331;
-  --hpe-base-color-red-800: #cc1f1a;
-  --hpe-base-color-red-1000: #552120;
-  --hpe-color-background-disabled: #d4d8d8; /** Disabled background color. Using disabled colors ensures that disabled components are consistently styled. */
-  --hpe-color-text-disabled: #a0a2a8; /** Disabled color for text. Using disabled colors ensures that disabled components are consistently styled. */
+  --hpe-base-color-grey-400: #cccccc;
+  --hpe-base-color-grey-500: #bbbbbb;
+  --hpe-base-color-grey-600: #8c8c8c;
+  --hpe-base-color-grey-700: #757575;
+  --hpe-base-color-grey-800: #555555;
+  --hpe-base-color-grey-1000: #2e2e2e;
+  --hpe-base-color-grey-1100: #292929;
+  --hpe-base-color-grey-1200: #222222;
+  --hpe-base-color-grey-1300: #1c1c1c;
+  --hpe-base-color-white-100: #ffffff;
+  --hpe-base-color-white-opacity6: rgba(255, 255, 255, 0.06);
+  --hpe-base-color-white-opacity7: rgba(255, 255, 255, 0.07);
+  --hpe-base-color-white-opacity12: rgba(255, 255, 255, 0.12);
+  --hpe-base-color-white-opacity20: rgba(255, 255, 255, 0.2);
+  --hpe-base-color-white-opacity24: rgba(255, 255, 255, 0.24);
+  --hpe-base-color-white-opacity36: rgba(255, 255, 255, 0.36);
+  --hpe-base-color-white-opacity50: rgba(255, 255, 255, 0.5);
+  --hpe-base-color-white-opacity72: rgba(255, 255, 255, 0.72);
+  --hpe-base-color-dataVis-green1: #01a982;
+  --hpe-base-color-dataVis-darkblue1: #00384d;
+  --hpe-base-color-dataVis-purple1: #7022ec;
+  --hpe-base-color-dataVis-gold1: #b0840d;
+  --hpe-base-color-dataVis-lightblue1: #5c91e5;
+  --hpe-base-color-dataVis-pink1: #a95589;
+  --hpe-base-color-dataVis-blue1: #2053d9;
+  --hpe-base-color-dataVis-grape1: #470d69;
+  --hpe-base-color-dataVis-darkblue2: #38819c;
+  --hpe-base-color-dataVis-purple2: #3c3aa1;
+  --hpe-base-color-dataVis-gold2: #bd9d48;
+  --hpe-base-color-dataVis-lightblue2: #78bff0;
+  --hpe-base-color-dataVis-pink2: #c0649a;
+  --hpe-base-color-dataVis-blue2: #1f95e4;
+  --hpe-base-color-dataVis-purple3: #855aaa;
+  --hpe-color-background-warning: #fff3dd; /** Use for backgrounds communicating warning or caution. Keywords: status */
+  --hpe-color-background-info: #e0f8ff; /** Use for backgrounds communicating neutral information. Keywords: status */
+  --hpe-color-background-critical: #ffecec; /** Use for backgrounds communicating errors or danger. Keywords: status */
+  --hpe-color-background-ok: #e3fdf4; /** Use for backgrounds communicating success. Status color. Keywords: status */
+  --hpe-color-text-weak: #676767; /** Subtle text color for reduced visual prominence. Often used for supporting text. */
+  --hpe-color-dataVis-categorical-50: #a78972;
   --hpe-color-transparent: rgba(0, 0, 0, 0);
+  --hpe-color-focus: #004233;
+  --hpe-base-color-brand: var(--hpe-base-color-green-600);
   --hpe-color-background-default: var(--hpe-base-color-white-100); /** Default background color to be used on containers. */
-  --hpe-color-background-back: var(--hpe-base-color-white-100); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
-  --hpe-color-background-front: var(--hpe-base-color-grey-50); /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
+  --hpe-color-background-back: var(--hpe-base-color-grey-50); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
+  --hpe-color-background-front: var(--hpe-base-color-white-100); /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
   --hpe-color-background-floating: var(--hpe-base-color-white-100); /** Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers */
   --hpe-color-background-contrast: var(--hpe-base-color-black-opacity4); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
   --hpe-color-background-contrast-hover: var(--hpe-base-color-black-opacity8); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
+  --hpe-color-background-disabled: var(--hpe-base-color-black-opacity4); /** Disabled background color. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-background-screenOverlay: var(--hpe-base-color-black-opacity12); /** The background color for the overlay that sits behind modal layers. */
-  --hpe-color-background-warning: var(--hpe-base-color-orange-50); /** Use for backgrounds communicating warning or caution. Keywords: status */
-  --hpe-color-background-ok: var(--hpe-base-color-green-100); /** Use for backgrounds communicating success. Status color. Keywords: status */
-  --hpe-color-background-critical: var(--hpe-base-color-red-50); /** Use for backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-background-unknown: var(--hpe-base-color-black-opacity4); /** Use for backgrounds communicating an unknown status. Keywords: status */
-  --hpe-color-background-info: var(--hpe-base-color-blue-50); /** Use for backgrounds communicating neutral information. Keywords: status */
   --hpe-color-background-primary-strong: var(--hpe-base-color-green-700); /** The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence. */
   --hpe-color-background-primary-strong-hover: var(--hpe-base-color-green-800); /** Hover variant of background-primary. */
   --hpe-color-background-primary-xstrong: var(--hpe-base-color-green-1000);
   --hpe-color-background-selected-primary: var(--hpe-base-color-green-100); /** Lower emphasis variant of background-selected-strong. */
   --hpe-color-background-selected-primary-hover: var(--hpe-base-color-green-125); /** Hover variant of background-selected-weak. */
-  --hpe-color-background-neutral-strong: var(--hpe-base-color-grey-800); /** Highest emphasis variant of neutral palette. */
   --hpe-color-background-neutral-xstrong: var(--hpe-base-color-grey-1000); /** Highest emphasis variant of neutral palette. */
-  --hpe-color-border-strong: var(--hpe-base-color-grey-800); /** Emphasized variant of border color. */
-  --hpe-color-border-default: var(--hpe-base-color-grey-500); /** Default border color. */
-  --hpe-color-border-weak: var(--hpe-base-color-grey-400); /** Subtle variant of border color for reduced visual emphasis. */
-  --hpe-color-border-disabled: var(--hpe-base-color-grey-400); /** Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled. */
+  --hpe-color-border-strong: var(--hpe-base-color-black-opacity72); /** Emphasized variant of border color. */
+  --hpe-color-border-default: var(--hpe-base-color-black-opacity36); /** Default border color. */
+  --hpe-color-border-weak: var(--hpe-base-color-black-opacity12); /** Subtle variant of border color for reduced visual emphasis. */
+  --hpe-color-border-disabled: var(--hpe-base-color-black-opacity12); /** Disabled color for borders. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-border-critical: var(--hpe-base-color-red-800); /** Use for borders communicating errors or danger. Keywords: status, critical */
   --hpe-color-text-default: var(--hpe-base-color-grey-800); /** Default text color that is accessible on standard background colors. */
   --hpe-color-text-strong: var(--hpe-base-color-grey-1000); /** Emphasized text color for increased visual prominence. */
-  --hpe-color-text-weak: var(--hpe-base-color-grey-650); /** Subtle text color for reduced visual prominence. Often used for supporting text. */
+  --hpe-color-text-placeholder: var(--hpe-color-text-weak); /** Placeholder text color. */
+  --hpe-color-text-disabled: var(--hpe-base-color-black-opacity24); /** Disabled color for text. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-text-onPrimaryStrong: var(--hpe-base-color-white-100); /** Text color to be used for text sitting on a primary background. This text and background pairing helps ensure accessibility. */
   --hpe-color-text-primary: var(--hpe-base-color-green-800);
   --hpe-color-text-primary-hover: var(--hpe-base-color-green-900);
   --hpe-color-text-critical: var(--hpe-base-color-red-800); /** Use for text on standard backgrounds communicating errors or danger. Keywords: status */
   --hpe-color-text-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /** Text color to be used for text sitting on background-selected-strong. */
   --hpe-color-text-onStrong: var(--hpe-base-color-white-100); /** Text color to be used on strong backgrounds. For example, background-neutral-xstrong. */
-  --hpe-color-icon-disabled: var(--hpe-color-text-disabled); /** Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled. */
+  --hpe-color-icon-default: var(--hpe-base-color-grey-800); /** Default icon color that is accessible on standard background colors. */
+  --hpe-color-icon-strong: var(--hpe-base-color-grey-1000); /** Emphasized icon color for increased visual prominence. */
+  --hpe-color-icon-weak: var(--hpe-color-text-weak); /** Subtle icon color for reduced visual prominence. */
+  --hpe-color-icon-disabled: var(--hpe-base-color-black-opacity24); /** Disabled color for icons. Using disabled colors ensures that disabled components are consistently styled. */
   --hpe-color-icon-critical: var(--hpe-base-color-red-600); /** Use for icons communicating errors or danger. Keywords: status */
-  --hpe-color-icon-info: var(--hpe-base-color-blue-700); /** Use for icons communicating neutral information. Keywords: status */
+  --hpe-color-icon-info: var(--hpe-base-color-blue-900); /** Use for icons communicating neutral information. Keywords: status */
   --hpe-color-icon-ok: var(--hpe-base-color-green-650); /** Use for icons communicating success. Keywords: status */
   --hpe-color-icon-warning: var(--hpe-base-color-orange-600); /** Use for icons communicating warning or caution. Keywords: status */
-  --hpe-color-icon-unknown: var(--hpe-base-color-grey-650); /** Use for icons communicating unknown status. Keywords: status */
+  --hpe-color-icon-unknown: var(--hpe-base-color-grey-700); /** Use for icons communicating unknown status. Keywords: status */
   --hpe-color-icon-primary: var(--hpe-base-color-green-800); /** High emphasis color for icons that should draw from the primary palette. Often used to highlight that interacting with a given element will result in an action. */
   --hpe-color-icon-primary-hover: var(--hpe-base-color-green-900);
   --hpe-color-icon-onPrimaryStrong: var(--hpe-base-color-white-100); /** Icon color to be used when icon sits on primary background. This icon and background pairing ensures accessible contrast ratios. */
   --hpe-color-icon-onSelectedPrimaryStrong: var(--hpe-base-color-white-100); /** Icon color to be used for icon sitting on background-selected-strong. */
   --hpe-color-icon-onStrong: var(--hpe-base-color-white-100); /** Icon color to be used on strong backgrounds. For example, background-neutral-xstrong. */
-  --hpe-color-decorative-brand: var(--hpe-base-color-green-600); /** The brand color. */
-  --hpe-color-decorative-green: var(--hpe-base-color-green-550); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-purple: var(--hpe-base-color-purple-400); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-teal: var(--hpe-color-transparent); /** [DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-cyan: var(--hpe-base-color-cyan-200); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-blue: var(--hpe-base-color-blue-500); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-red: var(--hpe-color-transparent); /** [DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-orange: var(--hpe-color-transparent); /** [DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-yellow: var(--hpe-color-transparent); /** [DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-green: var(--hpe-base-color-green-400); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-purple: var(--hpe-base-color-purple-500); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-teal: var(--hpe-base-color-teal-200); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-blue: var(--hpe-base-color-blue-400); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-red: var(--hpe-base-color-red-500); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-orange: var(--hpe-base-color-orange-400); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-yellow: var(--hpe-base-color-yellow-200); /** Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-neutral: var(--hpe-base-color-grey-600); /** Highest emphasis variant of neutral palette. */
-  --hpe-color-decorative-neutral-hover: var(--hpe-base-color-grey-650); /** Highest emphasis variant of neutral palette. */
-  --hpe-color-dataVis-categorical-10: var(--hpe-base-color-blue-500);
-  --hpe-color-dataVis-categorical-20: var(--hpe-base-color-green-650);
-  --hpe-color-dataVis-categorical-30: var(--hpe-base-color-purple-400);
-  --hpe-color-dataVis-categorical-40: var(--hpe-base-color-blue-900);
-  --hpe-color-dataVis-categorical-50: var(--hpe-base-color-fuschia-300);
-  --hpe-color-dataVis-categorical-60: var(--hpe-base-color-cyan-500);
-  --hpe-color-dataVis-categorical-70: var(--hpe-base-color-plum-700);
-  --hpe-color-dataVis-categorical-80: var(--hpe-base-color-coral-300);
-  --hpe-color-focus: var(--hpe-base-color-grey-1000);
+  --hpe-color-decorative-neutral-hover: var(--hpe-base-color-grey-700); /** Highest emphasis variant of neutral palette. */
+  --hpe-color-dataVis-categorical-10: var(--hpe-base-color-dataVis-purple2);
+  --hpe-color-dataVis-categorical-20: var(--hpe-base-color-dataVis-gold1);
+  --hpe-color-dataVis-categorical-30: var(--hpe-base-color-dataVis-pink1);
+  --hpe-color-dataVis-categorical-40: var(--hpe-base-color-dataVis-blue1);
+  --hpe-color-dataVis-categorical-60: var(--hpe-base-color-dataVis-purple1);
+  --hpe-color-dataVis-categorical-70: var(--hpe-base-color-dataVis-darkblue2);
+  --hpe-color-dataVis-categorical-80: var(--hpe-base-color-dataVis-grape1);
   --hpe-color-foreground-primary: var(--hpe-base-color-green-800);
   --hpe-color-foreground-critical: var(--hpe-base-color-red-600); /** Use for foreground regions communicating error or danger. Often used to color values in a meter or progress bar. Keywords: status */
   --hpe-color-foreground-warning: var(--hpe-base-color-orange-600); /** Use for foreground regions communicating warning or caution. Often used to color values in a meter or progress bar. Keywords: status */
@@ -169,36 +165,28 @@
   --hpe-select-default-option-rest-background: var(--hpe-color-transparent);
   --hpe-select-default-option-rest-borderColor: var(--hpe-color-transparent);
   --hpe-select-default-option-hover-borderColor: var(--hpe-color-transparent);
-  --hpe-select-default-option-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-select-default-option-disabled-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-select-default-option-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-select-default-option-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-select-default-option-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-select-default-drop-borderColor: var(--hpe-color-transparent);
   --hpe-button-primary-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-button-primary-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-button-primary-disabled-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-button-primary-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-button-primary-hover-borderColor: var(--hpe-color-transparent);
   --hpe-button-primary-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-primary-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-button-secondary-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-button-secondary-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-button-secondary-disabled-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-button-secondary-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-button-secondary-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-secondary-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-button-default-rest-background: var(--hpe-color-transparent);
   --hpe-button-default-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-default-disabled-rest-background: var(--hpe-color-transparent);
   --hpe-button-default-disabled-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-button-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-button-default-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-toolbar-rest-background: var(--hpe-color-transparent);
   --hpe-button-toolbar-rest-borderColor: var(--hpe-color-transparent);
   --hpe-button-toolbar-disabled-rest-background: var(--hpe-color-transparent);
   --hpe-button-toolbar-disabled-rest-borderColor: var(--hpe-color-transparent);
-  --hpe-button-toolbar-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-menu-default-item-rest-background: var(--hpe-color-transparent);
   --hpe-menu-default-item-rest-borderColor: var(--hpe-color-transparent);
   --hpe-menu-default-item-hover-borderColor: var(--hpe-color-transparent);
@@ -211,21 +199,18 @@
   --hpe-checkbox-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-indeterminate-rest-borderColor: var(--hpe-color-transparent);
   --hpe-checkbox-default-control-indeterminate-hover-borderColor: var(--hpe-color-transparent);
-  --hpe-checkbox-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-switch-default-control-track-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-track-hover-borderColor: var(--hpe-color-transparent);
-  --hpe-switch-default-control-track-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-switch-default-control-track-disabled-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-track-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-track-selected-hover-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-handle-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-handle-hover-borderColor: var(--hpe-color-transparent);
-  --hpe-switch-default-control-handle-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-switch-default-control-handle-disabled-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-handle-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-switch-default-control-handle-selected-hover-borderColor: var(--hpe-color-transparent);
-  --hpe-switch-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-input-group-container-rest-borderColor: var(--hpe-color-transparent);
+  --hpe-formField-default-input-group-container-error-rest-background: var(--hpe-color-background-critical);
   --hpe-formField-default-input-group-container-disabled-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-item-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-group-item-rest-borderColor: var(--hpe-color-transparent);
@@ -236,32 +221,30 @@
   --hpe-formField-default-input-group-item-readOnly-rest-borderColor: var(--hpe-color-transparent);
   --hpe-formField-default-input-container-rest-background: var(--hpe-color-transparent);
   --hpe-formField-default-input-container-hover-background: var(--hpe-color-transparent);
+  --hpe-formField-default-input-container-error-rest-background: var(--hpe-color-background-critical);
   --hpe-formField-default-input-container-disabled-rest-background: var(--hpe-color-transparent);
-  --hpe-formField-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-formField-default-placeholder-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-formField-default-help-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-formField-default-info-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-formField-default-value-disabled-rest-textColor: var(--hpe-color-text-disabled);
+  --hpe-formField-default-placeholder-rest-textColor: var(--hpe-color-text-weak);
+  --hpe-formField-default-placeholder-hover-textColor: var(--hpe-color-text-weak);
+  --hpe-formField-default-placeholder-error-rest-textColor: var(--hpe-color-text-weak);
+  --hpe-formField-default-placeholder-readOnly-rest-textColor: var(--hpe-color-text-weak);
   --hpe-dataCell-default-rest-background: var(--hpe-color-transparent);
   --hpe-dataCell-default-hover-background: var(--hpe-color-transparent);
-  --hpe-dataCell-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-dataCell-default-pinned-rest-background: var(--hpe-color-transparent);
   --hpe-dataCell-default-pinned-hover-background: var(--hpe-color-transparent);
   --hpe-dataCell-primary-pinned-rest-background: var(--hpe-color-transparent);
   --hpe-dataCell-primary-pinned-hover-background: var(--hpe-color-transparent);
   --hpe-headerCell-default-rest-background: var(--hpe-color-transparent);
   --hpe-headerCell-default-pinned-rest-background: var(--hpe-color-transparent);
+  --hpe-headerCell-default-units-rest-textColor: var(--hpe-color-text-weak);
+  --hpe-headerCell-default-units-hover-textColor: var(--hpe-color-text-weak);
   --hpe-footerCell-default-rest-background: var(--hpe-color-transparent);
   --hpe-footerCell-default-hover-background: var(--hpe-color-transparent);
   --hpe-footerCell-default-pinned-rest-background: var(--hpe-color-transparent);
   --hpe-footerCell-default-pinned-hover-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-rest-background: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-hover-background: var(--hpe-color-transparent);
-  --hpe-radioButton-default-control-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-radioButton-default-control-selected-rest-borderColor: var(--hpe-color-transparent);
   --hpe-radioButton-default-control-selected-hover-borderColor: var(--hpe-color-transparent);
-  --hpe-radioButton-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
-  --hpe-anchor-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-color-background-hover: var(--hpe-color-background-contrast); /** Generic hover state of components that have no fill in their resting state. For example, menu items. */
   --hpe-color-background-selected-primary-strong: var(--hpe-color-background-primary-strong); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
   --hpe-color-background-selected-primary-strong-hover: var(--hpe-color-background-primary-strong-hover); /** Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs. */
@@ -270,7 +253,6 @@
   --hpe-color-border-ok: var(--hpe-color-border-default); /** Use for borders communicating success. Keywords: status */
   --hpe-color-border-warning: var(--hpe-color-border-default); /** Use for borders communicating warning or caution. Keywords: status */
   --hpe-color-border-unknown: var(--hpe-color-border-default); /** Use for borders communicating an unknown status. Keywords: status */
-  --hpe-color-text-placeholder: var(--hpe-color-text-weak); /** Placeholder text color. */
   --hpe-color-text-info: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating neutral information. Keywords: status */
   --hpe-color-text-ok: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating success. Keywords: status */
   --hpe-color-text-warning: var(--hpe-color-text-default); /** Use for text on standard backgrounds communicating warning or caution. Keywords: status */
@@ -289,34 +271,42 @@
   --hpe-color-text-onUnknown: var(--hpe-color-text-default); /** Text color to be used on background-unknown. */
   --hpe-color-text-onWarning-strong: var(--hpe-color-text-strong); /** Emphasized variant of text color to be used on background-warning. */
   --hpe-color-text-onWarning: var(--hpe-color-text-default); /** Text color to be used on background-warning. */
-  --hpe-color-icon-default: var(--hpe-color-text-default); /** Default icon color that is accessible on standard background colors. */
-  --hpe-color-icon-strong: var(--hpe-color-text-strong); /** Emphasized icon color for increased visual prominence. */
-  --hpe-color-icon-weak: var(--hpe-color-text-weak); /** Subtle icon color for reduced visual prominence. */
+  --hpe-color-icon-onSelectedPrimary: var(--hpe-color-icon-strong); /** Icon color to be used for icon sitting on non-strong background-selected variants. */
+  --hpe-color-decorative-brand: var(--hpe-base-color-brand); /** The brand color. */
   --hpe-shadow-medium: var(--hpe-static-spacing-none) var(--hpe-static-spacing-3xsmall) var(--hpe-static-spacing-xsmall) var(--hpe-static-spacing-none) var(--hpe-base-color-black-opacity12) ;
   --hpe-shadow-large: var(--hpe-static-spacing-none) var(--hpe-static-spacing-xsmall) var(--hpe-static-spacing-medium) var(--hpe-static-spacing-none) var(--hpe-base-color-black-opacity24) ;
   --hpe-select-default-option-rest-textColor: var(--hpe-color-text-default);
+  --hpe-select-default-option-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-select-default-option-hover-textColor: var(--hpe-color-text-default);
+  --hpe-select-default-option-hover-iconColor: var(--hpe-color-icon-default);
+  --hpe-select-default-option-disabled-rest-background: var(--hpe-color-background-disabled);
+  --hpe-select-default-option-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-select-default-option-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-select-default-option-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-select-default-option-selected-hover-background: var(--hpe-color-background-selected-primary-hover);
   --hpe-select-default-option-marker-disabled-rest-background: var(--hpe-color-border-disabled);
-  --hpe-button-primary-rest-background: var(--hpe-color-background-neutral-xstrong);
-  --hpe-button-primary-rest-textColor: var(--hpe-color-text-onStrong);
-  --hpe-button-primary-rest-iconColor: var(--hpe-color-text-onStrong);
+  --hpe-button-primary-rest-background: var(--hpe-color-background-primary-strong);
+  --hpe-button-primary-rest-textColor: var(--hpe-color-text-onPrimaryStrong);
+  --hpe-button-primary-rest-iconColor: var(--hpe-color-icon-onPrimaryStrong);
+  --hpe-button-primary-disabled-rest-background: var(--hpe-color-background-disabled);
+  --hpe-button-primary-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-button-primary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
-  --hpe-button-primary-hover-background: var(--hpe-color-background-neutral-strong);
-  --hpe-button-primary-hover-textColor: var(--hpe-color-text-onStrong);
-  --hpe-button-primary-hover-iconColor: var(--hpe-color-icon-onStrong);
-  --hpe-button-primary-selected-rest-background: var(--hpe-color-background-neutral-xstrong);
-  --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-onStrong);
-  --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-onStrong);
-  --hpe-button-primary-selected-hover-background: var(--hpe-color-background-neutral-strong);
+  --hpe-button-primary-hover-background: var(--hpe-color-background-primary-strong-hover);
+  --hpe-button-primary-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
+  --hpe-button-primary-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
+  --hpe-button-primary-selected-rest-background: var(--hpe-color-background-primary-xstrong);
+  --hpe-button-primary-selected-rest-textColor: var(--hpe-color-text-onPrimaryStrong);
+  --hpe-button-primary-selected-rest-iconColor: var(--hpe-color-icon-onPrimaryStrong);
+  --hpe-button-primary-selected-hover-background: var(--hpe-color-background-primary-xstrong);
   --hpe-button-primary-selected-hover-textColor: var(--hpe-color-text-onPrimaryStrong);
   --hpe-button-primary-selected-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
   --hpe-button-secondary-rest-background: var(--hpe-color-background-contrast);
-  --hpe-button-secondary-rest-textColor: var(--hpe-color-text-strong);
+  --hpe-button-secondary-rest-textColor: var(--hpe-color-text-primary);
+  --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-primary);
   --hpe-button-secondary-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-button-secondary-hover-borderColor: var(--hpe-button-secondary-rest-borderColor);
+  --hpe-button-secondary-disabled-rest-background: var(--hpe-color-background-disabled);
+  --hpe-button-secondary-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-button-secondary-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-secondary-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-button-secondary-selected-rest-textColor: var(--hpe-color-text-primary);
@@ -325,6 +315,8 @@
   --hpe-button-secondary-selected-hover-textColor: var(--hpe-color-text-primary);
   --hpe-button-secondary-selected-hover-iconColor: var(--hpe-color-icon-primary);
   --hpe-button-default-rest-textColor: var(--hpe-color-text-strong);
+  --hpe-button-default-rest-iconColor: var(--hpe-color-icon-strong);
+  --hpe-button-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-button-default-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-default-hover-borderColor: var(--hpe-button-default-rest-borderColor);
   --hpe-button-default-selected-rest-textColor: var(--hpe-color-text-primary);
@@ -332,7 +324,9 @@
   --hpe-button-default-selected-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-button-default-selected-hover-borderColor: var(--hpe-button-default-selected-rest-borderColor);
   --hpe-button-toolbar-rest-textColor: var(--hpe-color-text-default);
+  --hpe-button-toolbar-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-button-toolbar-hover-borderColor: var(--hpe-button-toolbar-rest-borderColor);
+  --hpe-button-toolbar-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-button-toolbar-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-button-toolbar-selected-rest-background: var(--hpe-color-background-selected-primary);
   --hpe-button-toolbar-selected-rest-textColor: var(--hpe-color-text-primary);
@@ -340,7 +334,6 @@
   --hpe-button-toolbar-selected-hover-background: var(--hpe-color-background-selected-primary-hover);
   --hpe-button-toolbar-selected-hover-textColor: var(--hpe-color-text-primary);
   --hpe-button-toolbar-selected-hover-iconColor: var(--hpe-color-icon-primary);
-  --hpe-menu-default-item-disabled-rest-textColor: var(--hpe-button-default-disabled-rest-textColor);
   --hpe-menu-default-group-separator-background: var(--hpe-color-border-default);
   --hpe-drop-default-background: var(--hpe-color-background-floating);
   --hpe-checkbox-default-control-rest-borderColor: var(--hpe-color-border-default);
@@ -350,45 +343,51 @@
   --hpe-checkbox-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-checkbox-default-control-indeterminate-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
-  --hpe-checkbox-default-control-indeterminate-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
+  --hpe-checkbox-default-control-indeterminate-hover-iconColor: var(--hpe-color-icon-onPrimaryStrong);
   --hpe-checkbox-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-checkbox-default-label-hover-textColor: var(--hpe-color-text-default);
+  --hpe-checkbox-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-switch-default-control-track-rest-background: var(--hpe-color-decorative-neutral);
   --hpe-switch-default-control-track-hover-background: var(--hpe-color-decorative-neutral-hover);
+  --hpe-switch-default-control-track-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-switch-default-control-handle-rest-background: var(--hpe-color-background-front);
   --hpe-switch-default-control-handle-hover-background: var(--hpe-color-background-default);
+  --hpe-switch-default-control-handle-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-switch-default-control-handle-selected-rest-background: var(--hpe-color-background-default);
   --hpe-switch-default-control-handle-selected-hover-background: var(--hpe-color-background-default);
   --hpe-switch-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-switch-default-label-hover-textColor: var(--hpe-color-text-default);
+  --hpe-switch-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-input-group-container-rest-background: var(--hpe-formField-default-input-container-rest-background);
   --hpe-formField-default-input-group-container-hover-borderColor: var(--hpe-formField-default-input-group-container-rest-borderColor);
-  --hpe-formField-default-input-group-container-error-rest-background: var(--hpe-color-background-critical);
   --hpe-formField-default-input-group-container-error-rest-borderColor: var(--hpe-color-border-critical);
   --hpe-formField-default-input-group-container-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-formField-default-input-container-rest-borderColor: var(--hpe-color-border-default);
   --hpe-formField-default-input-container-hover-borderColor: var(--hpe-color-border-default);
-  --hpe-formField-default-input-container-error-rest-background: var(--hpe-color-background-critical);
   --hpe-formField-default-input-container-error-rest-borderColor: var(--hpe-color-border-critical);
   --hpe-formField-default-input-container-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-formField-default-input-container-readOnly-rest-background: var(--hpe-color-background-back);
   --hpe-formField-default-input-container-readOnly-rest-borderColor: var(--hpe-color-border-weak);
   --hpe-formField-default-label-rest-textColor: var(--hpe-color-text-strong);
+  --hpe-formField-default-label-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-label-hover-textColor: var(--hpe-color-text-strong);
+  --hpe-formField-default-label-hover-iconColor: var(--hpe-color-icon-strong);
   --hpe-formField-default-label-error-rest-textColor: var(--hpe-color-text-strong);
+  --hpe-formField-default-label-error-rest-iconColor: var(--hpe-color-icon-strong);
+  --hpe-formField-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-label-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-formField-default-label-readOnly-rest-textColor: var(--hpe-color-text-strong);
-  --hpe-formField-default-placeholder-rest-textColor: var(--hpe-color-text-weak);
-  --hpe-formField-default-placeholder-hover-textColor: var(--hpe-color-text-weak);
-  --hpe-formField-default-placeholder-error-rest-textColor: var(--hpe-color-text-weak);
-  --hpe-formField-default-placeholder-readOnly-rest-textColor: var(--hpe-color-text-weak);
+  --hpe-formField-default-label-readOnly-rest-iconColor: var(--hpe-color-icon-strong);
+  --hpe-formField-default-placeholder-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-help-rest-textColor: var(--hpe-color-text-default);
   --hpe-formField-default-help-hover-textColor: var(--hpe-color-text-default);
   --hpe-formField-default-help-error-rest-textColor: var(--hpe-color-text-default);
+  --hpe-formField-default-help-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-help-readOnly-rest-textColor: var(--hpe-color-text-default);
   --hpe-formField-default-info-rest-textColor: var(--hpe-color-text-default);
   --hpe-formField-default-info-hover-textColor: var(--hpe-color-text-default);
   --hpe-formField-default-info-error-rest-textColor: var(--hpe-color-text-default);
+  --hpe-formField-default-info-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-info-readOnly-rest-textColor: var(--hpe-color-text-default);
   --hpe-formField-default-error-rest-textColor: var(--hpe-color-text-critical);
   --hpe-formField-default-error-rest-iconColor: var(--hpe-color-icon-critical);
@@ -397,9 +396,12 @@
   --hpe-formField-default-value-rest-textColor: var(--hpe-color-text-strong);
   --hpe-formField-default-value-hover-textColor: var(--hpe-color-text-strong);
   --hpe-formField-default-value-error-rest-textColor: var(--hpe-color-text-strong);
+  --hpe-formField-default-value-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-formField-default-value-readOnly-rest-textColor: var(--hpe-color-text-strong);
   --hpe-dataCell-default-rest-textColor: var(--hpe-color-text-default);
+  --hpe-dataCell-default-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-dataCell-default-rest-borderColor: var(--hpe-color-border-weak);
+  --hpe-dataCell-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-dataCell-default-disabled-rest-iconColor: var(--hpe-color-icon-disabled);
   --hpe-dataCell-default-disabled-rest-background: var(--hpe-dataCell-default-rest-background);
   --hpe-dataCell-default-selected-hover-background: var(--hpe-color-background-contrast-hover);
@@ -407,46 +409,50 @@
   --hpe-dataCell-primary-rest-iconColor: var(--hpe-color-text-strong);
   --hpe-dataCell-primary-rest-background: var(--hpe-dataCell-default-rest-background);
   --hpe-dataCell-primary-hover-background: var(--hpe-dataCell-default-hover-background);
-  --hpe-dataCell-primary-disabled-rest-textColor: var(--hpe-dataCell-default-disabled-rest-textColor);
   --hpe-dataCell-primary-selected-hover-background: var(--hpe-color-background-contrast-hover);
   --hpe-headerCell-default-rest-textColor: var(--hpe-color-text-strong);
+  --hpe-headerCell-default-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-headerCell-default-rest-borderColor: var(--hpe-color-border-default);
-  --hpe-headerCell-default-units-rest-textColor: var(--hpe-color-text-weak);
-  --hpe-headerCell-default-units-hover-textColor: var(--hpe-color-text-weak);
+  --hpe-headerCell-default-units-pinned-rest-textColor: var(--hpe-headerCell-default-units-rest-textColor);
+  --hpe-headerCell-default-units-pinned-hover-textColor: var(--hpe-headerCell-default-units-rest-textColor);
   --hpe-footerCell-default-rest-borderColor: var(--hpe-color-border-default);
   --hpe-radioButton-default-control-rest-borderColor: var(--hpe-color-border-default);
   --hpe-radioButton-default-control-hover-borderColor: var(--hpe-color-border-strong);
+  --hpe-radioButton-default-control-disabled-rest-background: var(--hpe-color-background-disabled);
   --hpe-radioButton-default-control-disabled-rest-borderColor: var(--hpe-color-border-disabled);
   --hpe-radioButton-default-control-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-radioButton-default-control-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimaryStrong);
   --hpe-radioButton-default-label-rest-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-hover-textColor: var(--hpe-color-text-default);
+  --hpe-radioButton-default-label-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-radioButton-default-label-selected-rest-textColor: var(--hpe-color-text-default);
   --hpe-radioButton-default-label-selected-hover-textColor: var(--hpe-color-text-default);
+  --hpe-anchor-default-disabled-rest-textColor: var(--hpe-color-text-disabled);
   --hpe-color-background-active: var(--hpe-color-background-hover); /** Standard active state color */
-  --hpe-color-icon-onSelectedPrimary: var(--hpe-color-icon-strong); /** Icon color to be used for icon sitting on non-strong background-selected variants. */
-  --hpe-select-default-option-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-select-default-option-hover-background: var(--hpe-color-background-hover);
-  --hpe-select-default-option-hover-iconColor: var(--hpe-color-icon-default);
   --hpe-select-default-option-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
+  --hpe-select-default-option-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-option-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
+  --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-select-default-option-marker-rest-background: var(--hpe-color-border-selected);
   --hpe-select-default-option-marker-hover-background: var(--hpe-color-border-selected);
   --hpe-select-default-drop-background: var(--hpe-drop-default-background);
-  --hpe-button-secondary-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-button-secondary-hover-textColor: var(--hpe-button-secondary-rest-textColor);
-  --hpe-button-default-rest-iconColor: var(--hpe-color-icon-strong);
+  --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
   --hpe-button-default-hover-background: var(--hpe-color-background-hover);
   --hpe-button-default-hover-textColor: var(--hpe-button-default-rest-textColor);
+  --hpe-button-default-hover-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-button-default-selected-hover-textColor: var(--hpe-button-default-selected-rest-textColor);
   --hpe-button-default-selected-hover-iconColor: var(--hpe-button-default-selected-rest-iconColor);
-  --hpe-button-toolbar-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-button-toolbar-hover-background: var(--hpe-color-background-hover);
   --hpe-button-toolbar-hover-textColor: var(--hpe-button-toolbar-rest-textColor);
+  --hpe-button-toolbar-hover-iconColor: var(--hpe-button-toolbar-rest-iconColor);
   --hpe-button-toolbar-selected-rest-borderColor: var(--hpe-color-border-selected);
   --hpe-button-toolbar-selected-hover-borderColor: var(--hpe-color-border-selected);
   --hpe-menu-default-item-rest-textColor: var(--hpe-button-default-rest-textColor);
+  --hpe-menu-default-item-rest-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-menu-default-item-hover-background: var(--hpe-color-background-hover);
+  --hpe-menu-default-item-disabled-rest-textColor: var(--hpe-button-default-disabled-rest-textColor);
   --hpe-menu-default-item-disabled-rest-iconColor: var(--hpe-button-default-disabled-rest-iconColor);
   --hpe-menu-default-drop-background: var(--hpe-drop-default-background);
   --hpe-checkbox-default-control-hover-background: var(--hpe-color-background-hover);
@@ -464,82 +470,69 @@
   --hpe-formField-default-input-group-container-readOnly-rest-background: var(--hpe-formField-default-input-container-readOnly-rest-background);
   --hpe-formField-default-input-group-container-readOnly-rest-borderColor: var(--hpe-formField-default-input-container-readOnly-rest-borderColor);
   --hpe-formField-default-input-group-item-hover-background: var(--hpe-color-background-hover);
-  --hpe-formField-default-label-rest-iconColor: var(--hpe-color-icon-strong);
-  --hpe-formField-default-label-hover-iconColor: var(--hpe-color-icon-strong);
-  --hpe-formField-default-label-error-rest-iconColor: var(--hpe-color-icon-strong);
-  --hpe-formField-default-label-readOnly-rest-iconColor: var(--hpe-color-icon-strong);
-  --hpe-dataCell-default-rest-iconColor: var(--hpe-color-icon-default);
   --hpe-dataCell-default-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
+  --hpe-dataCell-default-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-disabled-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
+  --hpe-dataCell-default-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-default-selected-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
+  --hpe-dataCell-default-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-default-selected-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
+  --hpe-dataCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-default-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
+  --hpe-dataCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-default-pinned-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-hover-textColor: var(--hpe-dataCell-primary-rest-textColor);
   --hpe-dataCell-primary-hover-iconColor: var(--hpe-dataCell-primary-rest-iconColor);
+  --hpe-dataCell-primary-disabled-rest-textColor: var(--hpe-dataCell-default-disabled-rest-textColor);
   --hpe-dataCell-primary-disabled-rest-iconColor: var(--hpe-dataCell-default-disabled-rest-iconColor);
   --hpe-dataCell-primary-disabled-rest-background: var(--hpe-dataCell-default-disabled-rest-background);
   --hpe-dataCell-primary-selected-rest-textColor: var(--hpe-color-text-onSelectedPrimary);
+  --hpe-dataCell-primary-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-primary-selected-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-selected-hover-textColor: var(--hpe-color-text-onSelectedPrimary);
+  --hpe-dataCell-primary-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-primary-selected-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
+  --hpe-dataCell-primary-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-primary-pinned-rest-borderColor: var(--hpe-dataCell-default-rest-borderColor);
   --hpe-dataCell-primary-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
+  --hpe-dataCell-primary-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-primary-pinned-hover-borderColor: var(--hpe-dataCell-default-rest-borderColor);
-  --hpe-headerCell-default-rest-iconColor: var(--hpe-color-icon-strong);
   --hpe-headerCell-default-hover-textColor: var(--hpe-headerCell-default-rest-textColor);
+  --hpe-headerCell-default-hover-iconColor: var(--hpe-headerCell-default-rest-iconColor);
   --hpe-headerCell-default-hover-borderColor: var(--hpe-headerCell-default-rest-borderColor);
   --hpe-headerCell-default-hover-background: var(--hpe-color-background-hover);
   --hpe-headerCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
-  --hpe-headerCell-default-units-pinned-rest-textColor: var(--hpe-headerCell-default-units-rest-textColor);
-  --hpe-headerCell-default-units-pinned-hover-textColor: var(--hpe-headerCell-default-units-rest-textColor);
+  --hpe-headerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
+  --hpe-footerCell-default-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-hover-borderColor: var(--hpe-footerCell-default-rest-borderColor);
   --hpe-footerCell-default-pinned-rest-textColor: var(--hpe-dataCell-default-rest-textColor);
+  --hpe-footerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-pinned-hover-textColor: var(--hpe-dataCell-default-rest-textColor);
+  --hpe-footerCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-radioButton-default-control-selected-rest-background: var(--hpe-color-background-selected-primary-strong);
   --hpe-radioButton-default-control-selected-hover-background: var(--hpe-color-background-selected-primary-strong-hover);
   --hpe-anchor-default-rest-textColor: var(--hpe-color-text-anchor);
   --hpe-anchor-default-hover-textColor: var(--hpe-color-text-anchor-hover);
-  --hpe-select-default-option-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
-  --hpe-select-default-option-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
-  --hpe-button-secondary-hover-iconColor: var(--hpe-button-secondary-rest-iconColor);
-  --hpe-button-default-hover-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-button-default-selected-rest-background: var(--hpe-color-background-active);
-  --hpe-button-toolbar-hover-iconColor: var(--hpe-button-toolbar-rest-iconColor);
-  --hpe-menu-default-item-rest-iconColor: var(--hpe-button-default-rest-iconColor);
   --hpe-menu-default-item-hover-textColor: var(--hpe-button-default-hover-textColor);
-  --hpe-dataCell-default-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
-  --hpe-dataCell-default-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
+  --hpe-menu-default-item-hover-iconColor: var(--hpe-button-default-hover-iconColor);
   --hpe-dataCell-default-selected-rest-background: var(--hpe-color-background-active);
-  --hpe-dataCell-default-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
-  --hpe-dataCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
-  --hpe-dataCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-dataCell-primary-hover-borderColor: var(--hpe-dataCell-default-hover-borderColor);
   --hpe-dataCell-primary-disabled-rest-borderColor: var(--hpe-dataCell-default-disabled-rest-borderColor);
-  --hpe-dataCell-primary-selected-rest-iconColor: var(--hpe-color-icon-onSelectedPrimary);
   --hpe-dataCell-primary-selected-rest-background: var(--hpe-color-background-active);
-  --hpe-dataCell-primary-selected-hover-iconColor: var(--hpe-color-icon-onSelectedPrimary);
-  --hpe-dataCell-primary-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
-  --hpe-dataCell-primary-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
-  --hpe-headerCell-default-hover-iconColor: var(--hpe-headerCell-default-rest-iconColor);
-  --hpe-headerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-headerCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-hover-borderColor);
-  --hpe-footerCell-default-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
   --hpe-footerCell-default-hover-textColor: var(--hpe-footerCell-default-rest-textColor);
-  --hpe-footerCell-default-pinned-rest-iconColor: var(--hpe-dataCell-default-rest-iconColor);
-  --hpe-footerCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-hover-borderColor);
-  --hpe-footerCell-default-pinned-hover-iconColor: var(--hpe-dataCell-default-rest-iconColor);
-  --hpe-footerCell-default-pinned-hover-borderColor: var(--hpe-dataCell-default-hover-borderColor);
-  --hpe-menu-default-item-hover-iconColor: var(--hpe-button-default-hover-iconColor);
   --hpe-footerCell-default-hover-iconColor: var(--hpe-footerCell-default-rest-iconColor);
+  --hpe-footerCell-default-pinned-rest-borderColor: var(--hpe-dataCell-default-hover-borderColor);
+  --hpe-footerCell-default-pinned-hover-borderColor: var(--hpe-dataCell-default-hover-borderColor);
 }
 
 
