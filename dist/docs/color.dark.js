@@ -724,7 +724,7 @@ export default {
   },
   "hpe.color.background.primary.strong": {
     "$type": "color",
-    "$value": "#01a982",
+    "$value": "#05cc93",
     "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
     "$extensions": {
       "com.figma": {
@@ -740,7 +740,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.600}",
+      "$value": "{base.color.green.550}",
       "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
       "$extensions": {
         "com.figma": {
@@ -772,7 +772,7 @@ export default {
   },
   "hpe.color.background.primary.strong.hover": {
     "$type": "color",
-    "$value": "#05cc93",
+    "$value": "#00e0af",
     "$description": "Hover variant of background-primary.",
     "$extensions": {
       "com.figma": {
@@ -788,7 +788,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.550}",
+      "$value": "{base.color.green.500}",
       "$description": "Hover variant of background-primary.",
       "$extensions": {
         "com.figma": {
@@ -868,7 +868,7 @@ export default {
   },
   "hpe.color.background.selected.primary.strong": {
     "$type": "color",
-    "$value": "#01a982",
+    "$value": "#05cc93",
     "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
     "$extensions": {
       "com.figma": {
@@ -917,7 +917,7 @@ export default {
   },
   "hpe.color.background.selected.primary.strong.hover": {
     "$type": "color",
-    "$value": "#05cc93",
+    "$value": "#00e0af",
     "$description": "Selected (or checked) color. Used for ‘selected’ state. Examples include, checked checkboxes, checked radios, on toggle, active tabs.",
     "$extensions": {
       "com.figma": {
@@ -3771,7 +3771,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.green.700Updated}",
+      "$value": "{base.color.green.700}",
       "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
@@ -3817,7 +3817,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.purple.500}",
+      "$value": "{base.color.purple.900}",
       "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
@@ -3849,7 +3849,7 @@ export default {
   "hpe.color.decorative.teal": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
-    "$description": "Use for decorative purposes when color has no specific meaning.",
+    "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -3864,7 +3864,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.transparent}",
-      "$description": "Use for decorative purposes when color has no specific meaning.",
+      "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -3955,7 +3955,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.blue.900updated}",
+      "$value": "{base.color.blue.900}",
       "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
@@ -3987,7 +3987,7 @@ export default {
   "hpe.color.decorative.red": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
-    "$description": "Use for decorative purposes when color has no specific meaning.",
+    "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4002,7 +4002,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.transparent}",
-      "$description": "Use for decorative purposes when color has no specific meaning.",
+      "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4033,7 +4033,7 @@ export default {
   "hpe.color.decorative.orange": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
-    "$description": "Use for decorative purposes when color has no specific meaning.",
+    "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4048,7 +4048,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.transparent}",
-      "$description": "Use for decorative purposes when color has no specific meaning.",
+      "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4079,7 +4079,7 @@ export default {
   "hpe.color.decorative.yellow": {
     "$type": "color",
     "$value": "rgba(0, 0, 0, 0)",
-    "$description": "Use for decorative purposes when color has no specific meaning.",
+    "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4094,7 +4094,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{color.transparent}",
-      "$description": "Use for decorative purposes when color has no specific meaning.",
+      "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4216,7 +4216,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.10": {
     "$type": "color",
-    "$value": "#7372cf",
+    "$value": "#65aef9",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4231,7 +4231,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#7372cf",
+      "$value": "{base.color.blue.200}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4263,7 +4263,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.20": {
     "$type": "color",
-    "$value": "#bd9d48",
+    "$value": "#00e0af",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4278,7 +4278,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{deprecated.base.color.dataVis.gold2}",
+      "$value": "{base.color.green.400}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4310,7 +4310,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.30": {
     "$type": "color",
-    "$value": "#c0649a",
+    "$value": "#9b84fc",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4325,7 +4325,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{deprecated.base.color.dataVis.pink2}",
+      "$value": "{base.color.purple.200}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4357,7 +4357,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.40": {
     "$type": "color",
-    "$value": "#5c91e5",
+    "$value": "#0070f8",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4372,7 +4372,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{deprecated.base.color.dataVis.lightblue1}",
+      "$value": "{base.color.blue.500}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4404,7 +4404,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.50": {
     "$type": "color",
-    "$value": "#a68a74",
+    "$value": "#cc54a4",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4419,7 +4419,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#a68a74",
+      "$value": "{base.color.fuschia.300}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4451,7 +4451,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.60": {
     "$type": "color",
-    "$value": "#b889ff",
+    "$value": "#00dbe4",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4466,7 +4466,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#b889ff",
+      "$value": "{base.color.cyan.300}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4498,7 +4498,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.70": {
     "$type": "color",
-    "$value": "#4d8da8",
+    "$value": "#c98ad4",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4513,7 +4513,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "#4d8da8",
+      "$value": "{base.color.plum.100}",
       "$description": "",
       "$extensions": {
         "com.figma": {
@@ -4545,7 +4545,7 @@ export default {
   },
   "hpe.color.dataVis.categorical.80": {
     "$type": "color",
-    "$value": "#855aaa",
+    "$value": "#e5786a",
     "$description": "",
     "$extensions": {
       "com.figma": {
@@ -4560,7 +4560,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{deprecated.base.color.dataVis.purple3}",
+      "$value": "{base.color.coral.200}",
       "$description": "",
       "$extensions": {
         "com.figma": {

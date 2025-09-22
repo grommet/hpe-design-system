@@ -92,7 +92,7 @@ export default {
     ],
     "key": "{base.color.purple.200}"
   },
-  "hpe.base.color.purple.300": {
+  "hpe.base.color.purple.400": {
     "$type": "color",
     "$value": "#7764fc",
     "$description": "Purple",
@@ -121,22 +121,22 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.purple.300",
+    "name": "hpe.base.color.purple.400",
     "attributes": {
       "category": "base",
       "type": "color",
       "item": "purple",
-      "subitem": "300"
+      "subitem": "400"
     },
     "path": [
       "base",
       "color",
       "purple",
-      "300"
+      "400"
     ],
-    "key": "{base.color.purple.300}"
+    "key": "{base.color.purple.400}"
   },
-  "hpe.base.color.purple.400": {
+  "hpe.base.color.purple.700": {
     "$type": "color",
     "$value": "#5d45d6",
     "$description": "Purple 4",
@@ -165,22 +165,22 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.purple.400",
+    "name": "hpe.base.color.purple.700",
     "attributes": {
       "category": "base",
       "type": "color",
       "item": "purple",
-      "subitem": "400"
+      "subitem": "700"
     },
     "path": [
       "base",
       "color",
       "purple",
-      "400"
+      "700"
     ],
-    "key": "{base.color.purple.400}"
+    "key": "{base.color.purple.700}"
   },
-  "hpe.base.color.purple.500": {
+  "hpe.base.color.purple.900": {
     "$type": "color",
     "$value": "#3c3aa1",
     "$description": "Purple 5",
@@ -209,20 +209,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.purple.500",
+    "name": "hpe.base.color.purple.900",
     "attributes": {
       "category": "base",
       "type": "color",
       "item": "purple",
-      "subitem": "500"
+      "subitem": "900"
     },
     "path": [
       "base",
       "color",
       "purple",
-      "500"
+      "900"
     ],
-    "key": "{base.color.purple.500}"
+    "key": "{base.color.purple.900}"
   },
   "hpe.base.color.white.100": {
     "$type": "color",
@@ -1192,7 +1192,7 @@ export default {
     ],
     "key": "{base.color.fuschia.300}"
   },
-  "hpe.base.color.fuschia.400": {
+  "hpe.base.color.fuschia.700": {
     "$type": "color",
     "$value": "#ad4089",
     "$description": "",
@@ -1221,22 +1221,22 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.fuschia.400",
+    "name": "hpe.base.color.fuschia.700",
     "attributes": {
       "category": "base",
       "type": "color",
       "item": "fuschia",
-      "subitem": "400"
+      "subitem": "700"
     },
     "path": [
       "base",
       "color",
       "fuschia",
-      "400"
+      "700"
     ],
-    "key": "{base.color.fuschia.400}"
+    "key": "{base.color.fuschia.700}"
   },
-  "hpe.base.color.fuschia.500": {
+  "hpe.base.color.fuschia.900": {
     "$type": "color",
     "$value": "#7f245c",
     "$description": "",
@@ -1265,20 +1265,20 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.fuschia.500",
+    "name": "hpe.base.color.fuschia.900",
     "attributes": {
       "category": "base",
       "type": "color",
       "item": "fuschia",
-      "subitem": "500"
+      "subitem": "900"
     },
     "path": [
       "base",
       "color",
       "fuschia",
-      "500"
+      "900"
     ],
-    "key": "{base.color.fuschia.500}"
+    "key": "{base.color.fuschia.900}"
   },
   "hpe.base.color.orange.50": {
     "$type": "color",
@@ -1544,7 +1544,7 @@ export default {
     ],
     "key": "{base.color.plum.200}"
   },
-  "hpe.base.color.plum.300": {
+  "hpe.base.color.plum.600": {
     "$type": "color",
     "$value": "#873492",
     "$description": "",
@@ -1573,22 +1573,22 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.plum.300",
+    "name": "hpe.base.color.plum.600",
     "attributes": {
       "category": "base",
       "type": "color",
       "item": "plum",
-      "subitem": "300"
+      "subitem": "600"
     },
     "path": [
       "base",
       "color",
       "plum",
-      "300"
+      "600"
     ],
-    "key": "{base.color.plum.300}"
+    "key": "{base.color.plum.600}"
   },
-  "hpe.base.color.plum.400": {
+  "hpe.base.color.plum.700": {
     "$type": "color",
     "$value": "#6c2b7c",
     "$description": "",
@@ -1617,22 +1617,22 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.plum.400",
+    "name": "hpe.base.color.plum.700",
     "attributes": {
       "category": "base",
       "type": "color",
       "item": "plum",
-      "subitem": "400"
+      "subitem": "700"
     },
     "path": [
       "base",
       "color",
       "plum",
-      "400"
+      "700"
     ],
-    "key": "{base.color.plum.400}"
+    "key": "{base.color.plum.700}"
   },
-  "hpe.base.color.plum.500": {
+  "hpe.base.color.plum.900": {
     "$type": "color",
     "$value": "#5e1f68",
     "$description": "",
@@ -1661,20 +1661,240 @@ export default {
         }
       }
     },
-    "name": "hpe.base.color.plum.500",
+    "name": "hpe.base.color.plum.900",
     "attributes": {
       "category": "base",
       "type": "color",
       "item": "plum",
-      "subitem": "500"
+      "subitem": "900"
     },
     "path": [
       "base",
       "color",
       "plum",
+      "900"
+    ],
+    "key": "{base.color.plum.900}"
+  },
+  "hpe.base.color.coral.100": {
+    "$type": "color",
+    "$value": "#fc988b",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#fc988b",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.coral.100",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "coral",
+      "subitem": "100"
+    },
+    "path": [
+      "base",
+      "color",
+      "coral",
+      "100"
+    ],
+    "key": "{base.color.coral.100}"
+  },
+  "hpe.base.color.coral.200": {
+    "$type": "color",
+    "$value": "#e5786a",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#e5786a",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.coral.200",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "coral",
+      "subitem": "200"
+    },
+    "path": [
+      "base",
+      "color",
+      "coral",
+      "200"
+    ],
+    "key": "{base.color.coral.200}"
+  },
+  "hpe.base.color.coral.300": {
+    "$type": "color",
+    "$value": "#d25f4b",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#d25f4b",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.coral.300",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "coral",
+      "subitem": "300"
+    },
+    "path": [
+      "base",
+      "color",
+      "coral",
+      "300"
+    ],
+    "key": "{base.color.coral.300}"
+  },
+  "hpe.base.color.coral.400": {
+    "$type": "color",
+    "$value": "#c64f3a",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#c64f3a",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.coral.400",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "coral",
+      "subitem": "400"
+    },
+    "path": [
+      "base",
+      "color",
+      "coral",
+      "400"
+    ],
+    "key": "{base.color.coral.400}"
+  },
+  "hpe.base.color.coral.500": {
+    "$type": "color",
+    "$value": "#b4422a",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#b4422a",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.coral.500",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "coral",
+      "subitem": "500"
+    },
+    "path": [
+      "base",
+      "color",
+      "coral",
       "500"
     ],
-    "key": "{base.color.plum.500}"
+    "key": "{base.color.coral.500}"
   },
   "hpe.base.color.gold.100": {
     "$type": "color",
@@ -2512,6 +2732,50 @@ export default {
     ],
     "key": "{base.color.green.650}"
   },
+  "hpe.base.color.green.700": {
+    "$type": "color",
+    "$value": "#068667",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#068667",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.green.700",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "green",
+      "subitem": "700"
+    },
+    "path": [
+      "base",
+      "color",
+      "green",
+      "700"
+    ],
+    "key": "{base.color.green.700}"
+  },
   "hpe.base.color.green.800": {
     "$type": "color",
     "$value": "#006750",
@@ -2643,50 +2907,6 @@ export default {
       "1000"
     ],
     "key": "{base.color.green.1000}"
-  },
-  "hpe.base.color.green.700Updated": {
-    "$type": "color",
-    "$value": "#068667",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#068667",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.green.700Updated",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "green",
-      "subitem": "700Updated"
-    },
-    "path": [
-      "base",
-      "color",
-      "green",
-      "700Updated"
-    ],
-    "key": "{base.color.green.700Updated}"
   },
   "hpe.base.color.grey.50": {
     "$type": "color",
@@ -3392,6 +3612,50 @@ export default {
     ],
     "key": "{base.color.blue.700}"
   },
+  "hpe.base.color.blue.900": {
+    "$type": "color",
+    "$value": "#003cae",
+    "$description": "",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/primitive/primitives.default.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "#003cae",
+      "$description": "",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.base.color.blue.900",
+    "attributes": {
+      "category": "base",
+      "type": "color",
+      "item": "blue",
+      "subitem": "900"
+    },
+    "path": [
+      "base",
+      "color",
+      "blue",
+      "900"
+    ],
+    "key": "{base.color.blue.900}"
+  },
   "hpe.base.color.blue.1100": {
     "$type": "color",
     "$value": "#2b3547",
@@ -3435,50 +3699,6 @@ export default {
       "1100"
     ],
     "key": "{base.color.blue.1100}"
-  },
-  "hpe.base.color.blue.900updated": {
-    "$type": "color",
-    "$value": "#003cae",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#003cae",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.blue.900updated",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "blue",
-      "subitem": "900updated"
-    },
-    "path": [
-      "base",
-      "color",
-      "blue",
-      "900updated"
-    ],
-    "key": "{base.color.blue.900updated}"
   },
   "hpe.base.color.red.50": {
     "$type": "color",
@@ -3743,358 +3963,6 @@ export default {
       "1000"
     ],
     "key": "{base.color.red.1000}"
-  },
-  "hpe.base.color.dataVis.darkblue1": {
-    "$type": "color",
-    "$value": "#3c3aa1",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.purple.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.dataVis.darkblue1",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "dataVis",
-      "subitem": "darkblue1"
-    },
-    "path": [
-      "base",
-      "color",
-      "dataVis",
-      "darkblue1"
-    ],
-    "key": "{base.color.dataVis.darkblue1}"
-  },
-  "hpe.base.color.dataVis.purple1": {
-    "$type": "color",
-    "$value": "#7764fc",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.purple.300}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.dataVis.purple1",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "dataVis",
-      "subitem": "purple1"
-    },
-    "path": [
-      "base",
-      "color",
-      "dataVis",
-      "purple1"
-    ],
-    "key": "{base.color.dataVis.purple1}"
-  },
-  "hpe.base.color.dataVis.plum": {
-    "$type": "color",
-    "$value": "#6c2b7c",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.plum.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.dataVis.plum",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "dataVis",
-      "subitem": "plum"
-    },
-    "path": [
-      "base",
-      "color",
-      "dataVis",
-      "plum"
-    ],
-    "key": "{base.color.dataVis.plum}"
-  },
-  "hpe.base.color.dataVis.gold1": {
-    "$type": "color",
-    "$value": "#b0840d",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.gold.550}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.dataVis.gold1",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "dataVis",
-      "subitem": "gold1"
-    },
-    "path": [
-      "base",
-      "color",
-      "dataVis",
-      "gold1"
-    ],
-    "key": "{base.color.dataVis.gold1}"
-  },
-  "hpe.base.color.dataVis.blue1": {
-    "$type": "color",
-    "$value": "#0055da",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.blue.700}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.dataVis.blue1",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "dataVis",
-      "subitem": "blue1"
-    },
-    "path": [
-      "base",
-      "color",
-      "dataVis",
-      "blue1"
-    ],
-    "key": "{base.color.dataVis.blue1}"
-  },
-  "hpe.base.color.dataVis.cyan": {
-    "$type": "color",
-    "$value": "#04909d",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.cyan.500}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.dataVis.cyan",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "dataVis",
-      "subitem": "cyan"
-    },
-    "path": [
-      "base",
-      "color",
-      "dataVis",
-      "cyan"
-    ],
-    "key": "{base.color.dataVis.cyan}"
-  },
-  "hpe.base.color.dataVis.fuschia": {
-    "$type": "color",
-    "$value": "#ad4089",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "{base.color.fuschia.400}",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.dataVis.fuschia",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "dataVis",
-      "subitem": "fuschia"
-    },
-    "path": [
-      "base",
-      "color",
-      "dataVis",
-      "fuschia"
-    ],
-    "key": "{base.color.dataVis.fuschia}"
-  },
-  "hpe.base.color.dataVis.orange": {
-    "$type": "color",
-    "$value": "#d17243",
-    "$description": "",
-    "$extensions": {
-      "com.figma": {
-        "hiddenFromPublishing": false,
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "codeSyntax": {}
-      }
-    },
-    "filePath": "tokens/primitive/primitives.default.json",
-    "isSource": true,
-    "original": {
-      "$type": "color",
-      "$value": "#d17243",
-      "$description": "",
-      "$extensions": {
-        "com.figma": {
-          "hiddenFromPublishing": false,
-          "scopes": [
-            "ALL_SCOPES"
-          ],
-          "codeSyntax": {}
-        }
-      }
-    },
-    "name": "hpe.base.color.dataVis.orange",
-    "attributes": {
-      "category": "base",
-      "type": "color",
-      "item": "dataVis",
-      "subitem": "orange"
-    },
-    "path": [
-      "base",
-      "color",
-      "dataVis",
-      "orange"
-    ],
-    "key": "{base.color.dataVis.orange}"
   },
   "hpe.base.dimension.0": {
     "$type": "number",

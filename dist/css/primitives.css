@@ -6,9 +6,9 @@
 :root {
   --hpe-base-color-purple-100: #b7a2fc; /** Purple 3 */
   --hpe-base-color-purple-200: #9b84fc; /** Purple 2 */
-  --hpe-base-color-purple-300: #7764fc; /** Purple */
-  --hpe-base-color-purple-400: #5d45d6; /** Purple 4 */
-  --hpe-base-color-purple-500: #3c3aa1; /** Purple 5 */
+  --hpe-base-color-purple-400: #7764fc; /** Purple */
+  --hpe-base-color-purple-700: #5d45d6; /** Purple 4 */
+  --hpe-base-color-purple-900: #3c3aa1; /** Purple 5 */
   --hpe-base-color-white-100: #ffffff;
   --hpe-base-color-white-opacity6: rgba(255, 255, 255, 0.06);
   --hpe-base-color-white-opacity7: rgba(255, 255, 255, 0.07);
@@ -31,17 +31,22 @@
   --hpe-base-color-fuschia-100: #fc9ddc;
   --hpe-base-color-fuschia-200: #db72b8;
   --hpe-base-color-fuschia-300: #cc54a4;
-  --hpe-base-color-fuschia-400: #ad4089;
-  --hpe-base-color-fuschia-500: #7f245c;
+  --hpe-base-color-fuschia-700: #ad4089;
+  --hpe-base-color-fuschia-900: #7f245c;
   --hpe-base-color-orange-50: #fff3dd;
   --hpe-base-color-orange-500: #ec8c25;
   --hpe-base-color-orange-600: #d36d00;
   --hpe-base-color-orange-1000: #3c361e;
   --hpe-base-color-plum-100: #c98ad4;
   --hpe-base-color-plum-200: #a455b3;
-  --hpe-base-color-plum-300: #873492;
-  --hpe-base-color-plum-400: #6c2b7c;
-  --hpe-base-color-plum-500: #5e1f68;
+  --hpe-base-color-plum-600: #873492;
+  --hpe-base-color-plum-700: #6c2b7c;
+  --hpe-base-color-plum-900: #5e1f68;
+  --hpe-base-color-coral-100: #fc988b;
+  --hpe-base-color-coral-200: #e5786a;
+  --hpe-base-color-coral-300: #d25f4b;
+  --hpe-base-color-coral-400: #c64f3a;
+  --hpe-base-color-coral-500: #b4422a;
   --hpe-base-color-gold-100: #f9cc61;
   --hpe-base-color-gold-200: #ecbe4f;
   --hpe-base-color-gold-300: #deb146;
@@ -61,10 +66,10 @@
   --hpe-base-color-green-550: #05cc93;
   --hpe-base-color-green-600: #01a982; /** HPE Brand */
   --hpe-base-color-green-650: #009a71;
+  --hpe-base-color-green-700: #068667;
   --hpe-base-color-green-800: #006750;
   --hpe-base-color-green-900: #074738;
   --hpe-base-color-green-1000: #093d32;
-  --hpe-base-color-green-700Updated: #068667;
   --hpe-base-color-grey-50: #f7f7f7;
   --hpe-base-color-grey-200: #e6e8e9;
   --hpe-base-color-grey-400: #d4d8db;
@@ -81,15 +86,14 @@
   --hpe-base-color-blue-300: #3994f7;
   --hpe-base-color-blue-500: #0070f8;
   --hpe-base-color-blue-700: #0055da;
+  --hpe-base-color-blue-900: #003cae;
   --hpe-base-color-blue-1100: #2b3547;
-  --hpe-base-color-blue-900updated: #003cae;
   --hpe-base-color-red-50: #ffecec;
   --hpe-base-color-red-400: #ff7b7b;
   --hpe-base-color-red-500: #fc6161;
   --hpe-base-color-red-600: #ec3331;
   --hpe-base-color-red-800: #cc1f1a;
   --hpe-base-color-red-1000: #552120;
-  --hpe-base-color-dataVis-orange: #d17243;
   --hpe-base-dimension-0: 0px;
   --hpe-base-dimension-25: 1px;
   --hpe-base-dimension-50: 2px;
@@ -147,13 +151,6 @@
   --hpe-base-lineHeight-800: 3rem;
   --hpe-base-lineHeight-900: 4.5rem;
   --hpe-static-radius-full: 9999px;
-  --hpe-base-color-dataVis-darkblue1: var(--hpe-base-color-purple-500);
-  --hpe-base-color-dataVis-purple1: var(--hpe-base-color-purple-300);
-  --hpe-base-color-dataVis-plum: var(--hpe-base-color-plum-400);
-  --hpe-base-color-dataVis-gold1: var(--hpe-base-color-gold-550);
-  --hpe-base-color-dataVis-blue1: var(--hpe-base-color-blue-700);
-  --hpe-base-color-dataVis-cyan: var(--hpe-base-color-cyan-500);
-  --hpe-base-color-dataVis-fuschia: var(--hpe-base-color-fuschia-400);
   --hpe-static-spacing-none: var(--hpe-base-dimension-0);
   --hpe-static-spacing-hair: var(--hpe-base-dimension-25);
   --hpe-static-spacing-5xsmall: var(--hpe-base-dimension-75);

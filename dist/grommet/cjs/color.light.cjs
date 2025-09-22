@@ -106,14 +106,14 @@ module.exports = {
         "neutral-hover": "#606a70"
       },
       "dataVis": {
-        "categorical-10": "#3c3aa1",
-        "categorical-20": "#7764fc",
-        "categorical-30": "#b0840d",
-        "categorical-40": "#0055da",
-        "categorical-50": "#ad4089",
+        "categorical-10": "#0070f8",
+        "categorical-20": "#009a71",
+        "categorical-30": "#7764fc",
+        "categorical-40": "#003cae",
+        "categorical-50": "#cc54a4",
         "categorical-60": "#04909d",
-        "categorical-70": "#d17243",
-        "categorical-80": "#6c2b7c"
+        "categorical-70": "#6c2b7c",
+        "categorical-80": "#d25f4b"
       },
       "transparent": "rgba(0, 0, 0, 0)",
       "focus": "#292d3a",
