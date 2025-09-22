@@ -1,0 +1,55 @@
+{
+  "name": "hpe-icons",
+  "description": "HPE Icons for use with the HPE Design System.",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/grommet/hpe-design-system/packages/hpe-icons",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/hpe-icons.js",
+      "require": "./dist/hpe-icons.cjs"
+    },
+    "./grommet": {
+      "import": "./dist/grommet/hpe-icons.js",
+      "require": "./dist/grommet/hpe-icons.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "design-tokens": "*",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "@storybook/test": "^8.6.14",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "minimatch": "^10.0.3",
+    "storybook": "^8.6.14",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.39.1",
+    "vite": "^7.1.2"
+  }
+}

@@ -585,7 +585,7 @@ export const components = [
   },
   {
     name: 'Select',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Inputs',
     description:
       'Select is a flexible input field that allows users to choose from a list of options.',
@@ -1499,7 +1499,7 @@ export const components = [
   },
   {
     name: 'DataTable',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     category: 'Visualizations',
     description: 'DataTable presents data in a column and row format.',
     preview: {
@@ -1800,7 +1800,7 @@ export const components = [
   },
   {
     name: 'DataFilter',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description: 'An individual filter for a property in a data collection.',
@@ -1820,7 +1820,7 @@ export const components = [
   },
   {
     name: 'DataFilters',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description: 'A group of DataFilters for a data collection.',
@@ -1916,7 +1916,7 @@ export const components = [
   },
   {
     name: 'DataTableGroupBy',
-    accessibility: 'Failed WCAG 2.2 AA',
+    accessibility: 'Passed WCAG 2.2 AA',
     available: true,
     category: 'Data',
     description:
