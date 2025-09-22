@@ -233,7 +233,7 @@
         "strong": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.600}",
+            "$value": "{base.color.green.550}",
             "$description": "The strong variant of background-primary. Primary palette is derived from the brand color and used for high visual prominence.",
             "$extensions": {
               "com.figma": {
@@ -245,7 +245,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{base.color.green.550}",
+            "$value": "{base.color.green.500}",
             "$description": "Hover variant of background-primary.",
             "$extensions": {
               "com.figma": {
@@ -1214,7 +1214,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.green.700Updated}",
+            "$value": "{base.color.green.700}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1230,7 +1230,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.purple.500}",
+            "$value": "{base.color.purple.900}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1247,7 +1247,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.transparent}",
-            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1278,7 +1278,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.blue.900updated}",
+            "$value": "{base.color.blue.900}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1295,7 +1295,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.transparent}",
-            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1311,7 +1311,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.transparent}",
-            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1327,7 +1327,7 @@
           "REST": {
             "$type": "color",
             "$value": "{color.transparent}",
-            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1373,7 +1373,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "#7372cf",
+              "$value": "{base.color.blue.200}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1389,7 +1389,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.gold2}",
+              "$value": "{base.color.green.400}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1405,7 +1405,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.pink2}",
+              "$value": "{base.color.purple.200}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1421,7 +1421,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.lightblue1}",
+              "$value": "{base.color.blue.500}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1437,7 +1437,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "#a68a74",
+              "$value": "{base.color.fuschia.300}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1453,7 +1453,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "#b889ff",
+              "$value": "{base.color.cyan.300}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1469,7 +1469,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "#4d8da8",
+              "$value": "{base.color.plum.100}",
               "$description": "",
               "$extensions": {
                 "com.figma": {
@@ -1485,7 +1485,7 @@
           "DEFAULT": {
             "REST": {
               "$type": "color",
-              "$value": "{deprecated.base.color.dataVis.purple3}",
+              "$value": "{base.color.coral.200}",
               "$description": "",
               "$extensions": {
                 "com.figma": {

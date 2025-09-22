@@ -1247,7 +1247,7 @@
           "REST": {
             "$type": "color",
             "$value": "{deprecated.base.color.teal.200}",
-            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1295,7 +1295,7 @@
           "REST": {
             "$type": "color",
             "$value": "{deprecated.base.color.red.500}",
-            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1311,7 +1311,7 @@
           "REST": {
             "$type": "color",
             "$value": "{deprecated.base.color.orange.400}",
-            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
@@ -1327,7 +1327,7 @@
           "REST": {
             "$type": "color",
             "$value": "{deprecated.base.color.yellow.200}",
-            "$description": "Use for decorative purposes when color has no specific meaning.",
+            "$description": "[DEPRECATED] A legacy decorative color for supporting pre-tokens v2-Landmark themes. This token is not aligned with the new corporate brand identity and is scheduled for removal in a future major release. Do not use for new features. Please plan to replace existing instances with a suitable color from the new Design tokens v2-Landmark palette to ensure brand consistency. Previously used for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,

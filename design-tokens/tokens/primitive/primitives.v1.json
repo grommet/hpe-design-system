@@ -4,7 +4,7 @@
       "purple": {
         "100": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#b7a2fc",
           "$description": "Purple 3",
           "$extensions": {
             "com.figma": {
@@ -16,20 +16,8 @@
         },
         "200": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#9b84fc",
           "$description": "Purple 2",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "300": {
-          "$type": "color",
-          "$value": "#ffffff",
-          "$description": "Purple",
           "$extensions": {
             "com.figma": {
               "hiddenFromPublishing": false,
@@ -40,7 +28,19 @@
         },
         "400": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#7764fc",
+          "$description": "Purple",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "700": {
+          "$type": "color",
+          "$value": "#5d45d6",
           "$description": "Purple 4",
           "$extensions": {
             "com.figma": {
@@ -50,9 +50,9 @@
             }
           }
         },
-        "500": {
+        "900": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#3c3aa1",
           "$description": "Purple 5",
           "$extensions": {
             "com.figma": {
@@ -298,7 +298,7 @@
       "fuschia": {
         "100": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#fc9ddc",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -310,7 +310,7 @@
         },
         "200": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#db72b8",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -322,7 +322,7 @@
         },
         "300": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#cc54a4",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -332,9 +332,9 @@
             }
           }
         },
-        "400": {
+        "700": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#ad4089",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -344,9 +344,9 @@
             }
           }
         },
-        "500": {
+        "900": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#7f245c",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -360,7 +360,7 @@
       "orange": {
         "50": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#fff3dd",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -372,7 +372,7 @@
         },
         "500": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#ec8c25",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -396,7 +396,7 @@
         },
         "1000": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#3c361e",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -410,7 +410,7 @@
       "plum": {
         "100": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#c98ad4",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -422,7 +422,69 @@
         },
         "200": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#a455b3",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#873492",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "700": {
+          "$type": "color",
+          "$value": "#6c2b7c",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "900": {
+          "$type": "color",
+          "$value": "#5e1f68",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        }
+      },
+      "coral": {
+        "100": {
+          "$type": "color",
+          "$value": "#fc988b",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
+        "200": {
+          "$type": "color",
+          "$value": "#e5786a",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -434,7 +496,7 @@
         },
         "300": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#d25f4b",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -446,7 +508,7 @@
         },
         "400": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#c64f3a",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -458,7 +520,7 @@
         },
         "500": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#b4422a",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -472,7 +534,7 @@
       "gold": {
         "100": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#f9cc61",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -484,7 +546,7 @@
         },
         "200": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#ecbe4f",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -496,7 +558,7 @@
         },
         "300": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#deb146",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -508,7 +570,7 @@
         },
         "400": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#c89e3a",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -520,7 +582,7 @@
         },
         "500": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#b38a29",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -532,7 +594,7 @@
         },
         "550": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#b0840d",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -546,7 +608,7 @@
       "cyan": {
         "100": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#99f0f9",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -558,7 +620,7 @@
         },
         "200": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#62e5f6",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -570,7 +632,7 @@
         },
         "300": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#00dbe4",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -582,7 +644,7 @@
         },
         "400": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#00a4b3",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -594,7 +656,7 @@
         },
         "500": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#04909d",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -702,6 +764,18 @@
             }
           }
         },
+        "700": {
+          "$type": "color",
+          "$value": "#068667",
+          "$description": "",
+          "$extensions": {
+            "com.figma": {
+              "hiddenFromPublishing": false,
+              "scopes": ["ALL_SCOPES"],
+              "codeSyntax": {}
+            }
+          }
+        },
         "800": {
           "$type": "color",
           "$value": "#006750",
@@ -737,18 +811,6 @@
               "codeSyntax": {}
             }
           }
-        },
-        "700Updated": {
-          "$type": "color",
-          "$value": "#068667",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
         }
       },
       "grey": {
@@ -766,7 +828,7 @@
         },
         "200": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#e6e8e9",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -862,7 +924,7 @@
         },
         "1200": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#22252e",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -888,7 +950,7 @@
       "blue": {
         "50": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#e3f1ff",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -900,7 +962,7 @@
         },
         "200": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#65aef9",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -912,7 +974,7 @@
         },
         "300": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#3994f7",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -924,7 +986,7 @@
         },
         "500": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#0070f8",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -946,9 +1008,9 @@
             }
           }
         },
-        "1100": {
+        "900": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#00567a",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -958,9 +1020,9 @@
             }
           }
         },
-        "900updated": {
+        "1100": {
           "$type": "color",
-          "$value": "#00567a",
+          "$value": "#2b3547",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -974,7 +1036,7 @@
       "red": {
         "50": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#ffecec",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -986,7 +1048,7 @@
         },
         "400": {
           "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#ff7b7b",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -1034,105 +1096,7 @@
         },
         "1000": {
           "$type": "color",
-          "$value": "#ffffff",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        }
-      },
-      "dataVis": {
-        "darkblue1": {
-          "$type": "color",
-          "$value": "#00384d",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "purple1": {
-          "$type": "color",
-          "$value": "#7022ec",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "plum": {
-          "$type": "color",
-          "$value": "#a95589",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "gold1": {
-          "$type": "color",
-          "$value": "#b0840d",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "blue1": {
-          "$type": "color",
-          "$value": "#2053d9",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "cyan": {
-          "$type": "color",
-          "$value": "#38819c",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "fuschia": {
-          "$type": "color",
-          "$value": "#ffffff",
-          "$description": "",
-          "$extensions": {
-            "com.figma": {
-              "hiddenFromPublishing": false,
-              "scopes": ["ALL_SCOPES"],
-              "codeSyntax": {}
-            }
-          }
-        },
-        "orange": {
-          "$type": "color",
-          "$value": "#ffffff",
+          "$value": "#552120",
           "$description": "",
           "$extensions": {
             "com.figma": {
