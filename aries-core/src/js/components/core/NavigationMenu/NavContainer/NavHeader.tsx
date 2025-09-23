@@ -36,7 +36,7 @@ export const NavHeader = ({
       background="background-front"
       gap="medium"
       justify="between"
-      pad="small"
+      pad="xsmall"
       style={{
         position: 'sticky',
         top: 0,

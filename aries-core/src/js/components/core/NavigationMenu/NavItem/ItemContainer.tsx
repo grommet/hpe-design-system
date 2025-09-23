@@ -11,7 +11,7 @@ interface ItemContainerProps {
 export const ItemContainer = ({
   active,
   children,
-  gap = 'xsmall',
+  gap = "3xsmall",
   hover,
   ...rest
 }: ItemContainerProps) => {
@@ -28,7 +28,7 @@ export const ItemContainer = ({
         align="center"
         background={hover ? 'background-hover' : undefined}
         gap={gap}
-        pad={{ vertical: 'xsmall', left: 'xsmall', right: 'small' }}
+        pad={{ vertical: "3xsmall", left: "3xsmall", right: "xsmall" }}
         round="xsmall"
         responsive={false}
         flex
