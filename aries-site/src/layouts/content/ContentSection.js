@@ -7,8 +7,8 @@ export const ContentSection = ({ pad, ...rest }) => (
     as="section"
     pad={{
       bottom: 'medium',
-      horizontal: 'xxsmall',
-      top: 'large',
+      horizontal: '5xsmall',
+      top: 'xlarge',
       ...pad,
     }}
     {...rest}

@@ -16,7 +16,7 @@ export const Annotation = ({ id, kind, target, ...rest }) => {
       justify="center"
       round
       width={kind === 'style' ? 'fit-content' : theme.global.edgeSize.medium}
-      pad={kind === 'style' ? { horizontal: 'small' } : undefined}
+      pad={kind === 'style' ? { horizontal: 'xsmall' } : undefined}
       {...rest}
     >
       <Text size="small" weight="bold">

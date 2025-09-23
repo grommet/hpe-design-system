@@ -12,11 +12,11 @@ export const ResponsiveContainer = forwardRef(
       <Box
         background={background}
         align="center"
-        pad={screen === screens.mobile ? 'small' : undefined}
+        pad={screen === screens.mobile ? 'xsmall' : undefined}
         fill
       >
         <Box
-          height={['xsmall', 'small'].includes(size) ? 'large' : '100%'}
+          height={['xsmall', 'small'].includes(size) ? 'xlarge' : '100%'}
           {...rest}
           ref={ref}
           width={['xsmall', 'small'].includes(size) ? 'medium' : '100%'}

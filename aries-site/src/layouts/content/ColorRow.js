@@ -19,7 +19,7 @@ export const ColorRow = ({
           : undefined
       }
       background={colorSpec.type === 'border' ? 'background-back' : value}
-      pad={{ horizontal: 'medium', vertical: 'small' }}
+      pad={{ horizontal: 'medium', vertical: 'xsmall' }}
       justify="between"
     >
       <Text color={textColor} size={textSize} weight="bold">
