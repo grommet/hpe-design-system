@@ -28,7 +28,7 @@ const Selector = ({
   direction,
   description,
   round = 'xsmall',
-  pad = "xsmall",
+  pad = 'xsmall',
   ...rest
 }) => {
   const { selectedValue, handleToggle } = useContext(SelectorGroupContext);

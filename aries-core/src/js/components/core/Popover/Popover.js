@@ -26,7 +26,7 @@ export const Popover = ({
     >
       <Box
         gap="3xsmall"
-        pad={{ vertical: "xsmall", left: "xsmall", right: "3xsmall" }}
+        pad={{ vertical: 'xsmall', left: 'xsmall', right: '3xsmall' }}
         direction="row"
       >
         <Box flex gap="xsmall">

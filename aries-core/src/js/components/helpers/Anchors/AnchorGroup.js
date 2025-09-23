@@ -17,10 +17,10 @@ export const AnchorGroup = ({ items }) => {
           margin={
             index === items.length - 1 && !['xsmall', 'small'].includes(size)
               ? {
-                  vertical: "xsmall",
-                  left: "xsmall",
+                  vertical: 'xsmall',
+                  left: 'xsmall',
                 }
-              : "xsmall"
+              : 'xsmall'
           }
           {...item}
         />
