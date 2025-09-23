@@ -12,7 +12,7 @@ export const LayerPreview = ({ center }) =>
     <Box background="background-contrast" fill align="center" justify="center">
       <Box
         background="background-back"
-        width="xsmall"
+        width="3xsmall"
         pad={{ vertical: 'medium' }}
         round="xsmall"
       />

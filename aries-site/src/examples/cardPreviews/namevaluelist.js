@@ -3,7 +3,7 @@ import { Box, NameValueList, NameValuePair } from 'grommet';
 
 export const NameValueListPreview = () => (
   <Box width="medium" round="xsmall">
-    <NameValueList nameProps={{ width: 'xsmall' }}>
+    <NameValueList nameProps={{ width: '3xsmall' }}>
       <NameValuePair name="Created On">13/02/2021 at 14:23:32</NameValuePair>
       <NameValuePair name="Description">
         Privilege escalation, via set-user-ID or set-group-ID file mode, should

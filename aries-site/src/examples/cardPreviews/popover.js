@@ -10,7 +10,7 @@ export const PopoverPreview = () => {
         a11yTitle="informational help"
         tabIndex={-1}
       />
-      <Box pad="small" round="xxsmall" elevation="medium">
+      <Box pad="xsmall" round="xxsmall" elevation="medium">
         <Paragraph size="small" margin="none">
           This is a popover
         </Paragraph>
