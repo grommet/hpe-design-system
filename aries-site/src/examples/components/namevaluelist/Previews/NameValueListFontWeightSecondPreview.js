@@ -3,9 +3,9 @@ import { Box, NameValueList, NameValuePair, Text } from 'grommet';
 import { fontWeightData } from '../data';
 
 export const NameValueListFontWeightSecondPreview = () => (
-  <Box pad="small">
+  <Box pad="xsmall">
     <NameValueList
-      valueProps={{ width: 'xsmall' }}
+      valueProps={{ width: '3xsmall' }}
       pairProps={{ direction: 'column' }}
       layout="grid"
     >

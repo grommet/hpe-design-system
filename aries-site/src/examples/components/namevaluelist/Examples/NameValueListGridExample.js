@@ -6,7 +6,7 @@ export const NameValueListGridExample = () => (
   <NameValueList
     pairProps={{ direction: 'column' }}
     layout="grid"
-    valueProps={{ width: 'small' }}
+    valueProps={{ width: 'xsmall' }}
   >
     {Object.entries(gridData).map(([name, value]) => (
       <NameValuePair key={name} name={name}>
