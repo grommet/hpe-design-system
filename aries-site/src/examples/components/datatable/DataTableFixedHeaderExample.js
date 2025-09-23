@@ -174,14 +174,14 @@ const columns = [
     property: 'ipAddress',
     header: 'IP V4',
     render: datum => <Text truncate="tip">{datum.ipAddress}</Text>,
-    size: 'xsmall',
+    size: '3xsmall',
     align: 'end',
   },
   {
     property: 'hostname',
     header: 'Hostname',
     render: datum => <Text truncate="tip">{datum.hostname}</Text>,
-    size: 'xsmall',
+    size: '3xsmall',
   },
   {
     property: 'connectionType',
@@ -195,7 +195,7 @@ const columns = [
     property: 'deviceName',
     header: 'Device name',
     render: datum => <Text truncate="tip">{datum.deviceName}</Text>,
-    size: 'xsmall',
+    size: '3xsmall',
   },
   {
     property: 'status',
@@ -231,7 +231,7 @@ export const DataTableFixedHeaderExample = ({ designSystemDemo }) => (
       // https://design-system.hpe.design/components/datatable#setting-the-height-of-a-table
       height={designSystemDemo ? undefined : 'medium'}
       // restricting width to demonstrate pinned column behavior
-      width={designSystemDemo ? undefined : { width: 'large', max: '100%' }}
+      width={designSystemDemo ? undefined : { width: 'xlarge', max: '100%' }}
       overflow="auto"
     >
       <DataTable

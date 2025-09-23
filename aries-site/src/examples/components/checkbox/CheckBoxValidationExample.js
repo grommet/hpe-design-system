@@ -8,7 +8,7 @@ export const CheckBoxValidationExample = () => {
   const [toggleMessage, setToggleMessage] = useState(demoToggleError);
 
   return (
-    <Box gap="large" direction="row-responsive">
+    <Box gap="xlarge" direction="row-responsive">
       <Box width="medium" gap="medium">
         <Form>
           <FormField

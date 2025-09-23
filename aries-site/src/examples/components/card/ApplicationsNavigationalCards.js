@@ -26,7 +26,7 @@ export const ApplicationsNavigationalCards = () => {
             title={application.title}
             description={application.description}
             actions={
-              <Box align="start" gap="small">
+              <Box align="start" gap="xsmall">
                 <Button
                   label={application.actions.button.label}
                   href={application.actions.button.href}

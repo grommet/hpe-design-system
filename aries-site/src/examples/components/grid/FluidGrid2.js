@@ -14,9 +14,9 @@ const heightMap = {
   3: 'xsmall',
 };
 
-const columns = 'small';
-const rows = 'xsmall';
-const gap = 'small';
+const columns = 'xsmall';
+const rows = '3xsmall';
+const gap = 'xsmall';
 
 export const FluidGrid2 = () => (
   <Grid columns={columns} rows={rows} gap={gap} align="start">
