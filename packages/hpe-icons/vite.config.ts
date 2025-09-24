@@ -7,7 +7,6 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        'hpe-icons': 'src/js/index.ts',
         'grommet/hpe-icons': 'src/js/grommet/index.ts',
       },
       name: 'hpe-icons',
@@ -18,11 +17,10 @@ export default defineConfig({
     },
     outDir: 'dist',
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react'],
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM',
         },
       },
     },
