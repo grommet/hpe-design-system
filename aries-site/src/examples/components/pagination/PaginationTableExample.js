@@ -468,16 +468,16 @@ const columns = [
     header: 'Pinned',
     units: '%',
     render: datum => (
-      <Box gap="xsmall" direction="row">
-        <Box pad={{ vertical: 'xsmall' }}>
+      <Box gap="3xsmall" direction="row">
+        <Box pad={{ vertical: '3xsmall' }}>
           <Meter
             alignSelf="center"
             values={[
               { value: datum.pinned / datum.pinnable, color: 'graph-2' },
             ]}
             max={1}
-            thickness="small"
-            size="small"
+            thickness="xsmall"
+            size="xsmall"
           />
         </Box>
         <Text>{((datum.pinned / datum.pinnable) * 100).toFixed(0)}%</Text>
@@ -540,7 +540,7 @@ export const PaginationTableExample = () => {
           fill: 'horizontal',
           flex: false,
           justify: !['xsmall', 'small'].includes(size) ? 'end' : 'center',
-          pad: { top: 'xsmall' },
+          pad: { top: '3xsmall' },
         }}
         step={10}
         sortable

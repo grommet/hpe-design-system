@@ -2,10 +2,10 @@ import React from 'react';
 import { Box, Button, Tip, Text } from 'grommet';
 
 export const TipSizeExample = () => (
-  <Box gap="large">
+  <Box gap="xlarge">
     <Tip
       content={
-        <Box width={{ max: 'small' }} round="xsmall">
+        <Box width={{ max: 'xsmall' }} round="xsmall">
           <Text>This is a tip</Text>
         </Box>
       }
@@ -14,7 +14,7 @@ export const TipSizeExample = () => (
     </Tip>
     <Tip
       content={
-        <Box width={{ max: 'small' }} round="xsmall">
+        <Box width={{ max: 'xsmall' }} round="xsmall">
           <Text>
             This is a larger tip which displays more content upon hover or
             focus.

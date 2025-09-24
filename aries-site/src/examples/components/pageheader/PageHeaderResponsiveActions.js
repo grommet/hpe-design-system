@@ -63,7 +63,7 @@ export const Actions = ({ bestPractice = true, primaryAction = true }) => {
       direction={
         ['xsmall', 'small'].includes(breakpoint) ? 'row-reverse' : 'row'
       }
-      gap="small"
+      gap="xsmall"
     >
       {collapsedActions && <ActionMenu items={collapsedActions} />}
       {displayedActions.map((action, index) => (
