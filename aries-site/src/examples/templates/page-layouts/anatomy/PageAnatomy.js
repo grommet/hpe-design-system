@@ -21,7 +21,7 @@ export const PageAnatomy = () => {
         alignSelf="center"
         border
         flex
-        gap="small"
+        gap="xsmall"
         width="80%"
       >
         <ContentArea title="Page Header" background="purple!" flex={false} />

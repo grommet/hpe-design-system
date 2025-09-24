@@ -8,11 +8,11 @@ export const Error = ({ children, ...rest }) => (
     animation="fadeIn"
     background="validation-critical"
     margin={{ bottom: 'medium' }}
-    pad="small"
+    pad="xsmall"
     round="4px"
     width="medium"
   >
-    <Box direction="row" gap="xsmall" {...rest}>
+    <Box direction="row" gap="3xsmall" {...rest}>
       <CircleAlert size="small" />
       <Text size="xsmall">{children}</Text>
     </Box>

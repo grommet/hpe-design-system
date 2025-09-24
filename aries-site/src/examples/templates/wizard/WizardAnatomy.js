@@ -29,7 +29,7 @@ const connections = [
 export const WizardAnatomy = ({ containerRef }) => (
   <Stack interactiveChild="first">
     <Grid
-      columns={['xxsmall', 'flex', 'xxsmall']}
+      columns={['5xsmall', 'flex', '5xsmall']}
       rows={['36px', '60px', '48px', '24px', '60px', '60px', 'auto', '85px']}
       areas={[
         ['empty-1', 'annotation-1a', 'empty-2'],
@@ -170,7 +170,7 @@ const WizardExample = ({ containerRef, ...rest }) => {
             align="center"
             pad={
               !['xsmall', 'small'].includes(breakpoint)
-                ? { vertical: 'large' }
+                ? { vertical: 'xlarge' }
                 : { vertical: 'medium' }
             }
             overflow="auto"
@@ -187,7 +187,7 @@ const WizardExample = ({ containerRef, ...rest }) => {
               pad={
                 ['xsmall', 'small'].includes(breakpoint)
                   ? { horizontal: 'medium' }
-                  : 'xxsmall'
+                  : '5xsmall'
               }
             >
               <StepHeader
@@ -195,7 +195,7 @@ const WizardExample = ({ containerRef, ...rest }) => {
                 titleId="step-title"
                 descriptionId="step-description"
               />
-              <Box margin={{ top: 'small' }}>
+              <Box margin={{ top: 'xsmall' }}>
                 <Form
                   id="step-inputs"
                   messages={{

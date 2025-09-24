@@ -131,20 +131,20 @@ const PopoverContent = ({ ...rest }) => {
       elevation="medium"
       {...rest}
     >
-      <Box gap="small" direction="row">
-        <Box fill pad={{ top: 'small', left: 'small' }}>
+      <Box gap="xsmall" direction="row">
+        <Box fill pad={{ top: 'xsmall', left: 'xsmall' }}>
           <Box id="popover-title" border={{ style: 'dashed' }}>
             <Text>Title</Text>
           </Box>
-          <Box pad="small" id="first-gap" />
-          <Box id="popover-body" border={{ style: 'dashed' }} height="xxsmall">
+          <Box pad="xsmall" id="first-gap" />
+          <Box id="popover-body" border={{ style: 'dashed' }} height="5xsmall">
             Body
           </Box>
-          <Box pad="small" id="popover-gap" />
+          <Box pad="xsmall" id="popover-gap" />
           <Box id="popover-footer" border={{ style: 'dashed' }}>
             Footer
           </Box>
-          <Box pad="xsmall" />
+          <Box pad="3xsmall" />
         </Box>
         <Box
           pad={
@@ -156,7 +156,7 @@ const PopoverContent = ({ ...rest }) => {
           <Box
             border={{ style: 'dashed' }}
             alignSelf="start"
-            pad={{ right: 'xxsmall', bottom: '4px' }}
+            pad={{ right: '5xsmall', bottom: '4px' }}
             id="popover-close"
           >
             <Button
@@ -167,7 +167,7 @@ const PopoverContent = ({ ...rest }) => {
             />
           </Box>
           <Box fill />
-          <Box pad="xsmall" id="bottom-pad" />
+          <Box pad="3xsmall" id="bottom-pad" />
         </Box>
       </Box>
     </Box>
