@@ -8,7 +8,7 @@ export const ArubaIconExample = () => {
   return (
     <Box direction="row" align="center" gap="medium">
       <Aruba color="plain" />
-      <Box direction="row" gap="xsmall">
+      <Box direction="row" gap="3xsmall">
         <Text size={textSize} weight="bold">
           Aruba
         </Text>

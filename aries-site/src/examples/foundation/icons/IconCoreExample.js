@@ -32,8 +32,8 @@ const CoreIcon = ({ Icon, name, aliases, guidance }) => (
     <CardHeader
       direction="column"
       align="stretch"
-      gap="small"
-      pad={{ top: 'medium', horizontal: 'medium', bottom: 'small' }}
+      gap="xsmall"
+      pad={{ top: 'medium', horizontal: 'medium', bottom: 'xsmall' }}
     >
       <Icon />
       <Box>
@@ -41,7 +41,7 @@ const CoreIcon = ({ Icon, name, aliases, guidance }) => (
           {name}
         </Heading>
         {aliases && (
-          <Box direction="row" gap="xsmall" wrap>
+          <Box direction="row" gap="3xsmall" wrap>
             <Text>or</Text>
             {aliases.map((a, i) => (
               <>
@@ -67,7 +67,7 @@ CoreIcon.propTypes = {
 };
 
 export const IconResourceActionsExample = () => (
-  <Grid alignSelf="stretch" gap="medium" columns="small">
+  <Grid alignSelf="stretch" gap="medium" columns="xsmall">
     <CoreIcon
       Icon={Add}
       name="Add"
@@ -89,7 +89,7 @@ export const IconResourceActionsExample = () => (
 );
 
 export const IconUIActionsExample = () => (
-  <Grid alignSelf="stretch" gap="medium" columns="small">
+  <Grid alignSelf="stretch" gap="medium" columns="xsmall">
     <CoreIcon
       Icon={Close}
       name="Close"
@@ -122,7 +122,7 @@ export const IconUIActionsExample = () => (
 );
 
 export const IconControlsExample = () => (
-  <Grid alignSelf="stretch" gap="medium" columns="small">
+  <Grid alignSelf="stretch" gap="medium" columns="xsmall">
     <CoreIcon
       Icon={Add}
       name="Add"
@@ -155,7 +155,7 @@ export const IconControlsExample = () => (
 );
 
 export const IconInformationalExample = () => (
-  <Grid alignSelf="stretch" gap="medium" columns="small">
+  <Grid alignSelf="stretch" gap="medium" columns="xsmall">
     <CoreIcon
       Icon={CircleInformation}
       name="Information"
