@@ -3,13 +3,107 @@
 ---
 
 **Dimension**
-- Added new files, `dimension.v1-default` and `dimension.v1-small`.
+
+- Updated `icon.xsmall.size` from `base.dimension.350` to `base.dimension.300`.
+- Updated `icon.small.size` from `base.dimension.400` to `base.dimension.350`.
+- Updated `icon.medium.size` from `base.dimension.450` to `base.dimension.400`.
+- Updated `icon.large.size` from `base.dimension.550` to `base.dimension.450`.
+- Updated `icon.xlarge.size` from `base.dimension.600` to `base.dimension.500`.
+- Updated `icon.xxlarge.size` from `base.dimension.900` to `base.dimension.800`.
+- Updated `text.xsmall.fontSize` from `base.fontSize.90` to `base.fontSize.80`.
+- Updated `text.small.fontSize` from `base.fontSize.100` to `base.fontSize.90`.
+- Updated `text.medium.fontSize` from `base.fontSize.200` to `base.fontSize.100`.
+- Updated `text.large.fontSize` from `base.fontSize.400` to `base.fontSize.200`.
+- Updated `text.xlarge.fontSize` from `base.fontSize.500` to `base.fontSize.300`.
+- Updated `text.xxlarge.fontSize` from `base.fontSize.600` to `32`.
+- Updated `text.3xlarge.fontSize` from `base.fontSize.700` to `base.fontSize.600`.
+- Updated `text.4xlarge.fontSize` from `base.fontSize.800` to `base.fontSize.700`.
+- Updated `text.5xlarge.fontSize` from `base.fontSize.900` to `64`.
+- Updated `heading.xlarge.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
+- Updated `heading.xlarge.fontSize` from `36` to `32`.
+- Updated `heading.large.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
+- Updated `heading.large.fontSize` from `28` to `base.fontSize.500`.
+- Updated `heading.medium.fontSize` from `24` to `base.fontSize.400`.
+- Updated `heading.medium.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
+- Updated `heading.small.fontSize` from `20` to `base.fontSize.200`.
+- Updated `heading.small.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
+- Updated `heading.xsmall.fontSize` from `18` to `base.fontSize.100`.
+- Updated `heading.xxsmall.fontSize` from `16` to `base.fontSize.90`.
+- Updated `heading.xxsmall.fontWeight` from `fontWeight.semibold` to `fontWeight.medium`.
 
 **Primitives**
 
+- Deprecated `base.color.brand`.
 - Deprecated `base.fontFamily.MetricHPEXS`.
-- Added new file `primitives.v1.json`.
-- Added deprecated set of colors to support old themes (v0 and v1) `deprecated.base.color.[color-name]`.
+- Updated `base.fontFamily.primary` from `MetricHPEXS` to `HPE Graphik`.
+- Added new color tokens:
+  - Added `base.color.purple.100` with value `#b7a2fc`
+  - Added `base.color.purple.200` with value `#9b84fc`
+  - Added `base.color.purple.400` with value `#7764fc`
+  - Added `base.color.purple.700` with value `#5d45d6`
+  - Added `base.color.purple.900` with value `#3c3aa1`
+  - Added `base.color.fuschia.100` with value `#fc9ddc`
+  - Added `base.color.fuschia.200` with value `#db72b8`
+  - Added `base.color.fuschia.300` with value `#cc54a4`
+  - Added `base.color.fuschia.700` with value `#ad4089`
+  - Added `base.color.fuschia.900` with value `#7f245c`
+  - Added `base.color.orange.50` with value `#fff3dd`
+  - Added `base.color.orange.500` with value `#ec8c25`
+  - Added `base.color.orange.1000` with value `#3c361e`
+  - Added `base.color.plum.100` with value `#c98ad4`
+  - Added `base.color.plum.200` with value `#a455b3`
+  - Added `base.color.plum.600` with value `#873492`
+  - Added `base.color.plum.700` with value `#6c2b7c`
+  - Added `base.color.plum.900` with value `#5e1f68`
+  - Added `base.color.coral.100` with value `#fc988b`
+  - Added `base.color.coral.200` with value `#e5786a`
+  - Added `base.color.coral.300` with value `#d25f4b`
+  - Added `base.color.coral.400` with value `#c64f3a`
+  - Added `base.color.coral.500` with value `#b4422a`
+  - Added `base.color.gold.100` with value `#f9cc61`
+  - Added `base.color.gold.200` with value `#ecbe4f`
+  - Added `base.color.gold.300` with value `#deb146`
+  - Added `base.color.gold.400` with value `#c89e3a`
+  - Added `base.color.gold.500` with value `#b38a29`
+  - Added `base.color.gold.550` with value `#b0840d`
+  - Added `base.color.cyan.100` with value `#99f0f9`
+  - Added `base.color.cyan.200` with value `#62e5f6`
+  - Added `base.color.cyan.300` with value `#00dbe4`
+  - Added `base.color.cyan.400` with value `#00a4b3`
+  - Added `base.color.cyan.500` with value `#04909d`
+  - Added `base.color.green.450` with value `#66ebcf`
+  - Added `base.color.green.550` with value `#05cc93`
+  - Added `base.color.grey.200` with value `#e6e8e9`
+  - Added `base.color.grey.650` with value `#606a70`
+  - Added `base.color.grey.1000` with value `#292d3a`
+  - Added `base.color.grey.1300` with value `#1d1f27`
+  - Added `base.color.blue.50` with value `#e3f1ff`
+  - Added `base.color.blue.200` with value `#65aef9`
+  - Added `base.color.blue.300` with value `#3994f7`
+  - Added `base.color.blue.500` with value `#0070f8`
+  - Added `base.color.blue.700` with value `#0055da`
+  - Added `base.color.blue.900` with value `#003cae`
+  - Added `base.color.blue.1100` with value `#2b3547`
+  - Added `base.color.red.50` with value `#ffecec`
+  - Added `base.color.red.400` with value `#ff7b7b`
+  - Added `base.color.red.1000` with value `#552120`
+- Updated existing color tokens:
+  - Updated `base.color.green.400` from `#17eba0` to `#00e0af`
+  - Updated `base.color.green.450` from `#00ebb5` to `#66ebcf`
+  - Updated `base.color.green.500` from `#1ed8ae` to `#00e0af`
+  - Updated `base.color.green.700` from `#008567` to `#068667`
+  - Updated `base.color.green.900` from `#074b3b` to `#074738`
+  - Updated `base.color.green.1000` from `#093a2f` to `#093d32`
+  - Updated `base.color.grey.400` from `#cccccc` to `#d4d8db`
+  - Updated `base.color.grey.500` from `#bbbbbb` to `#b1b9be`
+  - Updated `base.color.grey.600` from `#8c8c8c` to `#7d8a92`
+  - Updated `base.color.grey.700` from `#757575` to `#535c66`
+  - Updated `base.color.grey.800` from `#555555` to `#3e4550`
+  - Updated `base.color.grey.1000` from `#2e2e2e` to `#292d3a`
+  - Updated `base.color.grey.1200` from `#222222` to `#22252e`
+  - Updated `base.color.grey.1300` from `#1c1c1c` to `#1d1f27`
+  - Removed `base.color.grey.1100`
+- All deprecated colors moved to `deprecated.base.color` namespace.
 
 **Color (light)**
 
@@ -40,7 +134,7 @@
 - Updated `color.decorative.neutral` from `base.color.grey.700` to `color.color.grey.650`.
 - Updated `color.datavis.categorical-10` from `base.color.datavis.purple2` to `base.color.blue.500`.
 - Updated `color.datavis.categorical-20` from `base.color.datavis.gold1` to `base.color.green.650`.
-Updated `color.datavis.categorical-30` from `base.color.datavis.pink1` to `base.color.purple.400`.
+  Updated `color.datavis.categorical-30` from `base.color.datavis.pink1` to `base.color.purple.400`.
 - Updated `color.datavis.categorical-40` from `base.color.datavis.blue1` to `base.color.blue.900`.
 - Updated `color.datavis.categorical-50` from `#a78972` to `base.color.fuschia.300`.
 - Updated `color.datavis.categorical-60` from `base.color.datavis.purple1` to `base.color.cyan.500`.
@@ -92,7 +186,7 @@ Updated `color.datavis.categorical-30` from `base.color.datavis.pink1` to `base.
 - Updated `color.decorative.neutral` from `base.color.grey.700` to `base.color.grey.650`.
 - Updated `color.datavis.categorical-10` from `#7372CF` to `base.color.blue.200`.
 - Updated `color.datavis.categorical-20` from `base.color.datavis.gold2` to `base.color.grenn.400`.
-Updated `color.datavis.categorical-30` from `base.color.datavis.pink2` to `base.color.purple.200`.
+  Updated `color.datavis.categorical-30` from `base.color.datavis.pink2` to `base.color.purple.200`.
 - Updated `color.datavis.categorical-40` from `base.color.datavis.lightblue1` to `base.color.blue.500`.
 - Updated `color.datavis.categorical-50` from `#A68A74` to `base.color.fuschia.300`.
 - Updated `color.datavis.categorical-60` from `#B889FF` to `base.color.cyan.300`.
@@ -123,5 +217,4 @@ Updated `color.datavis.categorical-30` from `base.color.datavis.pink2` to `base.
 - `button.secondary.rest.textColor` updated from `color.text.primary` to `color.text.strong`.
   - Referenced by `button.secondary.hover.textColor`
 - `button.secondary.rest.iconColor` updated from `color.icon.primary` to `color.icon.strong`.
-  - Referenced by `button.secondary.hover.iconColor`
-- Added a new file `component.v1.json`.
+  - Referenced by `button.secondary.hover.iconColor`.
