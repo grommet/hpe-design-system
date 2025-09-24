@@ -32,8 +32,8 @@ export const SingleFormFieldExample = () => {
         <Header
           direction="column"
           align="start"
-          gap="xxsmall"
-          pad={{ horizontal: 'xxsmall' }}
+          gap="5xsmall"
+          pad={{ horizontal: '5xsmall' }}
         >
           {/* Use semantically correct heading level and adjust size as 
         needed. In this instance, this example is presented within an 
@@ -50,7 +50,7 @@ export const SingleFormFieldExample = () => {
         </Text>
         <Box
           // Padding used to prevent focus from being cutoff
-          pad={{ horizontal: 'xxsmall' }}
+          pad={{ horizontal: '5xsmall' }}
         >
           <Form
             validate="blur"
@@ -72,7 +72,7 @@ export const SingleFormFieldExample = () => {
             <Box
               justify="end"
               gap="medium"
-              margin={{ top: 'medium', bottom: 'small' }}
+              margin={{ top: 'medium', bottom: 'xsmall' }}
               direction="row"
             >
               <Button label="Cancel" />

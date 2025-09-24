@@ -38,7 +38,7 @@ export const Filters = () => {
 
   return (
     <>
-      <Box direction="row" align="center" gap="small" flex={false}>
+      <Box direction="row" align="center" gap="xsmall" flex={false}>
         <Button
           a11yTitle="Filter"
           kind="toolbar"

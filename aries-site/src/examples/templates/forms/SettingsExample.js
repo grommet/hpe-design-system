@@ -32,8 +32,8 @@ export const SettingsExample = () => {
       <Header
         direction="column"
         align="start"
-        gap="xxsmall"
-        pad={{ horizontal: 'xxsmall' }}
+        gap="5xsmall"
+        pad={{ horizontal: '5xsmall' }}
       >
         {/* Use semantically correct heading level and adjust size as 
         needed. In this instance, this example is presented within an 
@@ -47,7 +47,7 @@ export const SettingsExample = () => {
       </Header>
       <Box
         // Padding used to prevent focus from being cutoff
-        pad={{ horizontal: 'xxsmall' }}
+        pad={{ horizontal: '5xsmall' }}
       >
         <Form
           value={formValues}
@@ -55,7 +55,7 @@ export const SettingsExample = () => {
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
           method="post"
         >
-          <Box margin={{ bottom: 'small' }}>
+          <Box margin={{ bottom: 'xsmall' }}>
             <FormField
               name="notifications"
               htmlFor="notifications"
@@ -114,7 +114,7 @@ export const SettingsExample = () => {
             </FormField>
             <Box
               align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-              margin={{ top: 'small', bottom: 'small' }}
+              margin={{ top: 'xsmall', bottom: 'xsmall' }}
             >
               <Button label="Apply settings" primary type="submit" />
             </Box>

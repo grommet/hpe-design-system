@@ -12,7 +12,7 @@ export const UpdateItem = ({ title, description }) => {
   return (
     <Box>
       <TextEmphasis>{`${title} is available.`}</TextEmphasis>
-      <Box gap="xsmall">
+      <Box gap="3xsmall">
         {description.length <= MAX_STRING_LENGTH ? (
           <Paragraph size="small" margin="none">
             {description}

@@ -30,7 +30,7 @@ export const ItemCountList = ({
       >
         <DashboardCardHeader title={title} level={3} menuItems={menuItems} />
       </CardHeader>
-      <CardBody pad={{ horizontal: body.pad, vertical: 'small' }}>
+      <CardBody pad={{ horizontal: body.pad, vertical: 'xsmall' }}>
         <Box width={{ max: 'medium' }}>
           <List data={items} defaultItemProps={defaultItemProps}>
             {datum => (

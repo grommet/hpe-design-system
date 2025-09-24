@@ -14,8 +14,8 @@ import { CostByMonth, CostByService, CostByYear, RulesAudit } from './content';
 export const ThreeColumnDashboard = () => (
   <AppContainer background="background-back">
     <ContentArea title="Global Header" />
-    <Page pad={{ bottom: 'xlarge' }}>
-      <PageContent gap="large">
+    <Page pad={{ bottom: '3xlarge' }}>
+      <PageContent gap="xlarge">
         <PageHeader title="Dashboard" />
         <Content />
       </PageContent>
@@ -62,12 +62,12 @@ const Content = () => {
     // Main is commented out for this example, but should be used in a
     // real application.
     // <Main>
+    // </Main>
     <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
       <CostByService period={period} />
       <CostByMonth period="Last Year" />
       <CostByYear period="Lifetime" />
       <RulesAudit period="Last Year" />
     </Grid>
-    // </Main>
   );
 };

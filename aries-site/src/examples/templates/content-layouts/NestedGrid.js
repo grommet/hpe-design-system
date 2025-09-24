@@ -12,7 +12,7 @@ export const NestedGrid = () => (
   <ContentArea title="Parent Grid" {...demoStyle}>
     <Grid columns={parentGrid.columns} gap={parentGrid.gap}>
       <ContentArea background="orange" {...demoStyle} />
-      <Box gap="small">
+      <Box gap="xsmall">
         <NestedGridA />
         <NestedGridB />
       </Box>
@@ -52,10 +52,10 @@ const NestedGridB = () => (
       rows={nestedGridB.rows}
       gap={nestedGridB.gap}
     >
-      <ContentArea background="orange" height="small" {...demoStyle} />
-      <Box gap="xsmall">
-        <ContentArea border background="orange" height="xxsmall" />
-        <ContentArea border background="orange" height="xsmall" />
+      <ContentArea background="orange" height="xsmall" {...demoStyle} />
+      <Box gap="3xsmall">
+        <ContentArea border background="orange" height="5xsmall" />
+        <ContentArea border background="orange" height="3xsmall" />
       </Box>
     </Grid>
   </ContentArea>
