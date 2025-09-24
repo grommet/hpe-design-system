@@ -577,7 +577,7 @@
     "xsmall": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.90}",
+        "$value": "{base.fontSize.80}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -627,7 +627,7 @@
     "small": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.100}",
+        "$value": "{base.fontSize.90}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -677,7 +677,7 @@
     "medium": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.200}",
+        "$value": "{base.fontSize.100}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -727,7 +727,7 @@
     "large": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.400}",
+        "$value": "{base.fontSize.200}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -777,7 +777,7 @@
     "xlarge": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.500}",
+        "$value": "{base.fontSize.300}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -827,7 +827,7 @@
     "xxlarge": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.600}",
+        "$value": 32,
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -877,7 +877,7 @@
     "3xlarge": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.700}",
+        "$value": "{base.fontSize.600}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -927,7 +927,7 @@
     "4xlarge": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.800}",
+        "$value": "{base.fontSize.700}",
         "$description": "",
         "$extensions": {
           "com.figma": {
@@ -977,7 +977,7 @@
     "5xlarge": {
       "fontSize": {
         "$type": "number",
-        "$value": "{base.fontSize.900}",
+        "$value": 64,
         "$description": "",
         "$extensions": {
           "com.figma": {

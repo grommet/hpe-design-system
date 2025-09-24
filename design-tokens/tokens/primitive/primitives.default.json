@@ -2453,7 +2453,7 @@
               }
             }
           },
-          "500New": {
+          "500": {
             "$type": "color",
             "$value": "#ec8c25",
             "$description": "",
