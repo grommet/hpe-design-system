@@ -25,8 +25,8 @@ export const ButtonBadSignUpCTAsPreview = () => {
       <Header
         direction="column"
         align="start"
-        gap="xxsmall"
-        pad={{ horizontal: 'xxsmall' }}
+        gap="5xsmall"
+        pad={{ horizontal: '5xsmall' }}
       >
         {/* Use semantically correct heading level and adjust size as 
         needed. In this instance, this example is presented within an 
@@ -40,7 +40,7 @@ export const ButtonBadSignUpCTAsPreview = () => {
       </Header>
       <Box
         // Padding used to prevent focus from being cutoff
-        pad={{ horizontal: 'xxsmall' }}
+        pad={{ horizontal: '5xsmall' }}
       >
         <Form
           onSubmit={({ value, touched }) => onSubmit({ value, touched })}
@@ -110,7 +110,7 @@ export const ButtonBadSignUpCTAsPreview = () => {
               }
             />
           </FormField>
-          <Box align="start" margin={{ top: 'medium', bottom: 'small' }}>
+          <Box align="start" margin={{ top: 'medium', bottom: 'xsmall' }}>
             <Button label="Sign Up" primary type="submit" />
           </Box>
         </Form>

@@ -20,7 +20,7 @@ export const EventPromotionRowCard = () => {
       pretitle={pretitle}
       subtitle={subtitle}
       media={
-        <Box width="small">
+        <Box width="xsmall">
           <Image src={src} alt={alt} fit={fit} />
         </Box>
       }

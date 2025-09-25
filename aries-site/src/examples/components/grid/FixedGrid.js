@@ -2,12 +2,12 @@ import { Grid } from 'grommet';
 import { ContentArea } from '../../templates/page-layouts/anatomy/components';
 
 // Three columns with fixed sizes
-const columns = ['xsmall', 'small', 'xxsmall'];
+const columns = ['3xsmall', 'xsmall', '5xsmall'];
 // Two rows with fixed sizes
-const rows = ['xsmall', 'small'];
+const rows = ['3xsmall', 'xsmall'];
 
 export const FixedGrid = () => (
-  <Grid columns={columns} rows={rows} gap="xsmall">
+  <Grid columns={columns} rows={rows} gap="3xsmall">
     {/* By default, Grid children fill grid cells left to right. */}
     <ContentArea title="1" background="red" border />
     <ContentArea title="2" background="purple" border />

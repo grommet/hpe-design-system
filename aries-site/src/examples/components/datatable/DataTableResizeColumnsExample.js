@@ -147,13 +147,13 @@ const columns = [
     property: 'contact',
     header: 'Contact',
     render: datum => <Text truncate="tip">{datum.contact}</Text>,
-    size: 'xsmall',
+    size: '3xsmall',
   },
   {
     property: 'title',
     header: 'Title',
     render: datum => <Text truncate="tip">{datum.title}</Text>,
-    size: 'xsmall',
+    size: '3xsmall',
   },
   {
     property: 'email',
@@ -167,7 +167,7 @@ const columns = [
     property: 'deviceName',
     header: 'Device name',
     render: datum => <Text truncate="tip">{datum.deviceName}</Text>,
-    size: 'xsmall',
+    size: '3xsmall',
   },
   {
     property: 'city',

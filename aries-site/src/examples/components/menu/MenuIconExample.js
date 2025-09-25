@@ -6,10 +6,10 @@ export const MenuIconExample = () => {
   const data = ['User 1', 'User 2', 'User 3'];
 
   return (
-    <Box width={{ max: 'large' }} fill>
+    <Box width={{ max: 'xlarge' }} fill>
       <List
         data={data}
-        pad="small"
+        pad="xsmall"
         action={() => (
           <Box direction="row" align="center" gap="medium">
             <Menu
