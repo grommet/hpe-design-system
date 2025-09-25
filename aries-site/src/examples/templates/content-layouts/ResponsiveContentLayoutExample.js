@@ -77,7 +77,6 @@ const Content = () => {
     // Main is commented out for this example, but should be used in a
     // real application.
     // <Main>
-    // </Main>
     <Grid gap={parentGrid.gap[size]} columns={parentGrid.columns[size]}>
       {/* Content Block 1 is top priority content. At narrow breakpoints, 
         place as first content element. Otherwise, place in second column. */}
