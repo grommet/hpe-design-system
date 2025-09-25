@@ -22,7 +22,7 @@ export const TextInputSuggestionsExample = () => {
   };
 
   return (
-    <Box direction="row-responsive" gap="large" align="end">
+    <Box direction="row-responsive" gap="xlarge" align="end">
       <Form>
         <FormField
           label="Static suggestions"

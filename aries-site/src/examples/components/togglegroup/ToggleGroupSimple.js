@@ -21,7 +21,7 @@ const options = [
 ];
 
 export const ToggleGroupSimple = () => (
-  <Box gap="large" pad="large">
+  <Box gap="xlarge" pad="xlarge">
     <ToggleGroup
       a11yTitle="Choose view"
       options={options}

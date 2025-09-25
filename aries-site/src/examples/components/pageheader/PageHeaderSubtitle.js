@@ -16,15 +16,15 @@ PageHeaderSubtitle.propTypes = {
 };
 
 const SubtitleBestPractice = () => (
-  <NameValueList nameProps={{ width: 'xsmall' }} gap="none">
+  <NameValueList nameProps={{ width: '3xsmall' }} gap="none">
     <NameValuePair name="Created on">05/05/2020</NameValuePair>
   </NameValueList>
 );
 
 const SubtitleBadPractice = () => (
   <NameValueList
-    nameProps={{ width: 'xsmall' }}
-    valueProps={{ width: 'xsmall' }}
+    nameProps={{ width: '3xsmall' }}
+    valueProps={{ width: '3xsmall' }}
     pairProps={{ direction: 'column' }}
     layout="grid"
   >

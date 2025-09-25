@@ -18,7 +18,7 @@ import { details, tags } from '.';
 
 const SectionDetails = ({ data }) => (
   <NameValueList
-    nameProps={{ width: ['xxsmall', 'xsmall'] }}
+    nameProps={{ width: ['5xsmall', '3xsmall'] }}
     valueProps={{ width: ['auto', 'medium'] }}
   >
     {Object.entries(data).map(([name, value]) => (
@@ -31,7 +31,7 @@ const SectionDetails = ({ data }) => (
 
 export const TagResource = () => (
   <Page kind="narrow">
-    <PageContent gap="small">
+    <PageContent gap="xsmall">
       <PageHeader
         title="Store C-3P0"
         subtitle="Aruba 530 32930F"
@@ -49,7 +49,7 @@ export const TagResource = () => (
           <Heading level={2} margin="none">
             Tags
           </Heading>
-          <Box direction="row" pad={{ vertical: 'small' }} wrap>
+          <Box direction="row" pad={{ vertical: 'xsmall' }} wrap>
             {tags.map((t, index) => {
               const [name] = Object.keys(t);
               const [value] = Object.values(t);
@@ -58,7 +58,7 @@ export const TagResource = () => (
                   key={index}
                   name={name}
                   value={value}
-                  margin={{ right: 'small', vertical: 'xsmall' }}
+                  margin={{ right: 'xsmall', vertical: '3xsmall' }}
                   onClick={() =>
                     // eslint-disable-next-line no-alert
                     alert(
