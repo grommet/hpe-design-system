@@ -10,7 +10,7 @@ export const NameValueListFormField = ({ data, name, ...rest }) => (
     name={name}
     required={data.required}
     {...rest}
-  />)
+  />
 );
 
 NameValueListFormField.propTypes = {
