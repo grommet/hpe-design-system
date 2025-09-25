@@ -62,12 +62,12 @@ const Content = () => {
     // Main is commented out for this example, but should be used in a
     // real application.
     // <Main>
-    // </Main>
     <Grid columns={parentGrid.columns[size]} gap={parentGrid.gap[size]}>
       <CostByService period={period} />
       <CostByMonth period="Last Year" />
       <CostByYear period="Lifetime" />
       <RulesAudit period="Last Year" />
     </Grid>
+    // </Main>
   );
 };
