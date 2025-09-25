@@ -115,7 +115,7 @@ export const NameValueListEditExample = () => {
                     }}
                   />
                 )}
-              </FormField>)
+              </FormField>
             ))}
             <Box
               direction="row"
