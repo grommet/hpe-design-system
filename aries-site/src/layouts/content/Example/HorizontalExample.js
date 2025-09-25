@@ -33,7 +33,7 @@ export const HorizontalExample = ({
         margin={
           plain && showResponsiveControls
             ? {
-                top: 'xsmall',
+                top: '3xsmall',
                 bottom: !['xsmall', 'small'].includes(size)
                   ? 'medium'
                   : undefined,

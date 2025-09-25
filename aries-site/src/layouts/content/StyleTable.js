@@ -25,7 +25,7 @@ export const StyleTable = ({ data }) => {
     <Card
       alignSelf="start"
       elevation="none"
-      pad={{ top: 'small', horizontal: 'medium', bottom: 'medium' }}
+      pad={{ top: 'xsmall', horizontal: 'medium', bottom: 'medium' }}
       width="medium"
     >
       {/* style tag is necessary in order for table not 
@@ -38,7 +38,7 @@ export const StyleTable = ({ data }) => {
                 border="bottom"
                 key={c.property}
                 scope="col"
-                pad={{ vertical: 'small' }}
+                pad={{ vertical: 'xsmall' }}
               >
                 <TextEmphasis>{c.render}</TextEmphasis>
               </TableCell>
@@ -49,7 +49,7 @@ export const StyleTable = ({ data }) => {
           {data.map((datum, index) => (
             <TableRow key={index}>
               {columns.map(c => (
-                <TableCell key={c.property} pad={{ vertical: 'xsmall' }}>
+                <TableCell key={c.property} pad={{ vertical: '3xsmall' }}>
                   {c.property === 'label' ? (
                     <Annotation target={datum[c.property]} kind="style" />
                   ) : (

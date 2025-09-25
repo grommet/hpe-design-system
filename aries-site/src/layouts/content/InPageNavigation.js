@@ -62,20 +62,20 @@ export const InPageNavigation = ({ headings, title }) => {
 
   return (
     <Box
-      pad={{ horizontal: 'xxsmall' }} // pad for keyboard focus
+      pad={{ horizontal: '5xsmall' }} // pad for keyboard focus
       style={{
         // determine when TOC scroll is needed
         height: `calc(100vh - ${marginTop})`,
         overflowY: 'auto',
         position: 'sticky',
         marginTop,
-        top: theme.global.edgeSize.large,
+        top: theme.global.edgeSize.xlarge,
       }}
-      width="small"
+      width="xsmall"
       flex={false}
     >
       <Box
-        pad={{ horizontal: 'small', bottom: 'small' }}
+        pad={{ horizontal: 'xsmall', bottom: 'xsmall' }}
         flex={false}
         border={{ side: 'left', color: 'transparent', size: 'small' }}
       >
@@ -118,7 +118,7 @@ export const InPageNavigation = ({ headings, title }) => {
           }
 
           return (
-            <Box pad={{ left: subsectionPad, right: 'xxsmall' }}>
+            <Box pad={{ left: subsectionPad, right: '5xsmall' }}>
               <Link
                 key={index}
                 href={`#${nameToSlug(headingTitle)}`}

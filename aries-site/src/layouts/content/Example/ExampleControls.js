@@ -51,7 +51,7 @@ export const ExampleControls = ({
       align="start"
       gap="medium"
       justify="between"
-      round={{ corner: 'bottom', size: 'small' }}
+      round={{ corner: 'bottom', size: 'medium' }}
       {...boxProps}
     >
       <Box direction="row" wrap>
