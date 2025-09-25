@@ -613,7 +613,7 @@
       },
       "maxWidth": {
         "$type": "string",
-        "$value": "30em",
+        "$value": "37em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
@@ -663,7 +663,7 @@
       },
       "maxWidth": {
         "$type": "string",
-        "$value": "30em",
+        "$value": "37em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
@@ -713,7 +713,7 @@
       },
       "maxWidth": {
         "$type": "string",
-        "$value": "30em",
+        "$value": "37em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
@@ -763,7 +763,7 @@
       },
       "maxWidth": {
         "$type": "string",
-        "$value": "30em",
+        "$value": "37em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
@@ -813,7 +813,7 @@
       },
       "maxWidth": {
         "$type": "string",
-        "$value": "30em",
+        "$value": "37em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
@@ -863,7 +863,7 @@
       },
       "maxWidth": {
         "$type": "string",
-        "$value": "30em",
+        "$value": "37em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
@@ -913,7 +913,7 @@
       },
       "maxWidth": {
         "$type": "string",
-        "$value": "30em",
+        "$value": "37em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
@@ -963,7 +963,7 @@
       },
       "maxWidth": {
         "$type": "string",
-        "$value": "30em",
+        "$value": "37em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
@@ -1013,7 +1013,7 @@
       },
       "maxWidth": {
         "$type": "string",
-        "$value": "30em",
+        "$value": "37em",
         "$description": "For use with paragraph max-width to enhance readability based on WCAG 80 character per line recommendation.",
         "$extensions": {
           "com.figma": {
