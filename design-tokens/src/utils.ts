@@ -154,7 +154,7 @@ export const getThemeFiles = (tokensDir = TOKENS_DIR) => {
     .flat();
 
   tokens.forEach(file => {
-    if (!file.includes('v1')) themes.default.push(file);
+    if (!file.includes('v1') && !file.includes('v0')) themes.default.push(file);
     else if (file.includes('v1')) themes.v1.push(file);
     else if (file.includes('v0')) themes.v0.push(file);
   });
