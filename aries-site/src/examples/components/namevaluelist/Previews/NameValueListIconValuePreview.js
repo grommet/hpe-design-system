@@ -4,8 +4,8 @@ import { StatusGoodSmall, StatusWarningSmall } from 'grommet-icons';
 import { iconValueData } from '../data';
 
 export const NameValueListIconValuePreview = () => (
-  <Box pad="small">
-    <NameValueList nameProps={{ width: 'xsmall' }}>
+  <Box pad="xsmall">
+    <NameValueList nameProps={{ width: '3xsmall' }}>
       {Object.entries(iconValueData).map(([name, value]) => {
         let icon;
         if (value === 'Ok')
@@ -22,7 +22,7 @@ export const NameValueListIconValuePreview = () => (
           );
         return (
           <NameValuePair key={name} name={name}>
-            <Box align="center" direction="row" gap="xsmall">
+            <Box align="center" direction="row" gap="3xsmall">
               {icon}
               <Text color="text-strong">{value}</Text>
             </Box>

@@ -27,7 +27,7 @@ const data = {
 };
 
 const StepThree = () => (
-  <Box gap="small" pad={{ vertical: 'medium' }}>
+  <Box gap="xsmall" pad={{ vertical: 'medium' }}>
     <NameValueList>
       {Object.entries(data).map(([name, value]) => (
         <NameValuePair key={name} name={name}>

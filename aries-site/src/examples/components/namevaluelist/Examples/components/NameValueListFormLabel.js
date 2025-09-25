@@ -9,7 +9,7 @@ import { Box, Text } from 'grommet';
 export const NameValueListFormLabel = ({ data, name }) => {
   const theme = useContext(ThemeContext);
   return (
-    <Box margin={{ top: 'small' }}>
+    <Box margin={{ top: 'xsmall' }}>
       <Text
         as="label"
         {...theme.nameValuePair.name}

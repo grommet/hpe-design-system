@@ -70,17 +70,17 @@ const LayerContent = ({ closeId, informational, ...rest }) => (
     <Box
       direction="row"
       flex={false}
-      gap="xsmall"
+      gap="3xsmall"
       /* This Box represents a header of a browser application window. 
             The selected background color provides better contrast between the 
             header and the examples being showcased. */
       background={{ color: 'border-weak' }}
       align="center"
-      pad="small"
+      pad="xsmall"
     >
-      <Box round pad="xsmall" background="red" />
-      <Box round pad="xsmall" background="yellow" />
-      <Box round pad="xsmall" background="green" />
+      <Box round pad="3xsmall" background="red" />
+      <Box round pad="3xsmall" background="yellow" />
+      <Box round pad="3xsmall" background="green" />
     </Box>
     <Page background="background-front" id="layer-container">
       <Button alignSelf="end" a11yTitle="Close" icon={<Close />} id={closeId} />
@@ -91,14 +91,14 @@ const LayerContent = ({ closeId, informational, ...rest }) => (
         <LayerHeader />
         <Box
           border={{ style: 'dashed' }}
-          height="small"
+          height="xsmall"
           align="center"
           justify="center"
         >
           Layer body content goes here.
         </Box>
         {!informational ? (
-          <Box direction="row" gap="small" flex={false}>
+          <Box direction="row" gap="xsmall" flex={false}>
             <Button label="Confirm action" primary />
             <Button label="Cancel" id="layer-actions" />
           </Box>

@@ -30,7 +30,7 @@ export const LayerCenterExample = () => {
             pad="medium"
           >
             <Box justify="between" direction="row">
-              <Box flex={false} gap="small" direction="row">
+              <Box flex={false} gap="xsmall" direction="row">
                 <Box justify="center">
                   <MailOption />
                 </Box>
@@ -59,8 +59,8 @@ export const LayerCenterExample = () => {
           >
             <Box
               direction="row"
-              gap="small"
-              pad={{ vertical: 'small', horizontal: 'medium' }}
+              gap="xsmall"
+              pad={{ vertical: 'xsmall', horizontal: 'medium' }}
               background="background-contrast"
             >
               <Alert color="status-critical" />
