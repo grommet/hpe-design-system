@@ -10,9 +10,9 @@ export const NoData = () => {
       columns={
         ['xsmall', 'small'].includes(breakpoint)
           ? ['auto']
-          : { count: 2, size: 'small' }
+          : { count: 2, size: 'xsmall' }
       }
-      gap="xlarge"
+      gap="3xlarge"
     >
       <ListingEmptyState />
       <AccessDenied />
@@ -21,7 +21,7 @@ export const NoData = () => {
         description={`Let’s get started by creating a branch 
         in this repository.`}
         actions={
-          <Box align="center" gap="small">
+          <Box align="center" gap="xsmall">
             <Button label="New branch" primary />
             <Anchor label="What is a branch?" />
           </Box>

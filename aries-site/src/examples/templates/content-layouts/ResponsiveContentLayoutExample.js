@@ -17,8 +17,8 @@ export const ResponsiveContentLayoutExample = () => {
   return (
     <AppContainer background="background-back">
       <ContentArea title="Global Header" />
-      <Page pad={{ bottom: 'large' }}>
-        <PageContent gap="large">
+      <Page pad={{ bottom: 'xlarge' }}>
+        <PageContent gap="xlarge">
           <PageHeader
             /* for dev purposes, will be replaced with dashboard content */
             title={`Dashboard @ '${size}' breakpoint`}
@@ -103,5 +103,5 @@ const Content = () => {
 };
 
 const ContentBlock = ({ ...rest }) => (
-  <ContentArea height="small" round="small" {...rest} />
+  <ContentArea height="xsmall" round="medium" {...rest} />
 );
