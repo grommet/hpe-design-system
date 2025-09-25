@@ -10,8 +10,8 @@ export const LayerHeader = ({ onClose, ...rest }: LayerHeaderProps) => {
     <Header
       pad={{
         left: 'medium',
-        right: 'xsmall',
-        vertical: 'small',
+        right: "3xsmall",
+        vertical: "xsmall",
       }}
       direction="row"
       align="center"

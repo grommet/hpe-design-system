@@ -28,7 +28,7 @@ const Selector = ({
   direction,
   description,
   round = 'xsmall',
-  pad = 'small',
+  pad = 'xsmall',
   ...rest
 }) => {
   const { selectedValue, handleToggle } = useContext(SelectorGroupContext);
@@ -50,7 +50,7 @@ const Selector = ({
         pad={pad}
         round={round}
         selected={selected}
-        gap="xsmall"
+        gap="3xsmall"
         border={{
           color: selected ? 'border-selected' : 'border',
         }}
