@@ -2,34 +2,6 @@
 'hpe-design-tokens': major
 ---
 
-**Dimension**
-
-- Updated `icon.xsmall.size` from `base.dimension.350` to `base.dimension.300`.
-- Updated `icon.small.size` from `base.dimension.400` to `base.dimension.350`.
-- Updated `icon.medium.size` from `base.dimension.450` to `base.dimension.400`.
-- Updated `icon.large.size` from `base.dimension.550` to `base.dimension.450`.
-- Updated `icon.xlarge.size` from `base.dimension.600` to `base.dimension.500`.
-- Updated `icon.xxlarge.size` from `base.dimension.900` to `base.dimension.800`.
-- Updated `text.xsmall.fontSize` from `base.fontSize.90` to `base.fontSize.80`.
-- Updated `text.small.fontSize` from `base.fontSize.100` to `base.fontSize.90`.
-- Updated `text.medium.fontSize` from `base.fontSize.200` to `base.fontSize.100`.
-- Updated `text.large.fontSize` from `base.fontSize.400` to `base.fontSize.200`.
-- Updated `text.xlarge.fontSize` from `base.fontSize.500` to `base.fontSize.300`.
-- Updated `text.xxlarge.fontSize` from `base.fontSize.600` to `32`.
-- Updated `text.3xlarge.fontSize` from `base.fontSize.700` to `base.fontSize.600`.
-- Updated `text.4xlarge.fontSize` from `base.fontSize.800` to `base.fontSize.700`.
-- Updated `text.5xlarge.fontSize` from `base.fontSize.900` to `64`.
-- Updated `heading.xlarge.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
-- Updated `heading.xlarge.fontSize` from `36` to `32`.
-- Updated `heading.large.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
-- Updated `heading.large.fontSize` from `28` to `base.fontSize.500`.
-- Updated `heading.medium.fontSize` from `24` to `base.fontSize.400`.
-- Updated `heading.medium.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
-- Updated `heading.small.fontSize` from `20` to `base.fontSize.200`.
-- Updated `heading.small.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
-- Updated `heading.xsmall.fontSize` from `18` to `base.fontSize.100`.
-- Updated `heading.xxsmall.fontSize` from `16` to `base.fontSize.90`.
-- Updated `heading.xxsmall.fontWeight` from `fontWeight.semibold` to `fontWeight.medium`.
 
 **Primitives**
 
@@ -105,11 +77,41 @@
   - Removed `base.color.grey.1100`
 - All deprecated colors moved to `deprecated.base.color` namespace.
 
+
+**Dimension**
+
+- Updated `icon.xsmall.size` from `base.dimension.350` to `base.dimension.300`.
+- Updated `icon.small.size` from `base.dimension.400` to `base.dimension.350`.
+- Updated `icon.medium.size` from `base.dimension.450` to `base.dimension.400`.
+- Updated `icon.large.size` from `base.dimension.550` to `base.dimension.450`.
+- Updated `icon.xlarge.size` from `base.dimension.600` to `base.dimension.500`.
+- Updated `icon.xxlarge.size` from `base.dimension.900` to `base.dimension.800`.
+- Updated `text.xsmall.fontSize` from `base.fontSize.90` to `base.fontSize.80`.
+- Updated `text.small.fontSize` from `base.fontSize.100` to `base.fontSize.90`.
+- Updated `text.medium.fontSize` from `base.fontSize.200` to `base.fontSize.100`.
+- Updated `text.large.fontSize` from `base.fontSize.400` to `base.fontSize.200`.
+- Updated `text.xlarge.fontSize` from `base.fontSize.500` to `base.fontSize.300`.
+- Updated `text.xxlarge.fontSize` from `base.fontSize.600` to `32`.
+- Updated `text.3xlarge.fontSize` from `base.fontSize.700` to `base.fontSize.600`.
+- Updated `text.4xlarge.fontSize` from `base.fontSize.800` to `base.fontSize.700`.
+- Updated `text.5xlarge.fontSize` from `base.fontSize.900` to `64`.
+- Updated `heading.xlarge.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
+- Updated `heading.xlarge.fontSize` from `36` to `32`.
+- Updated `heading.large.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
+- Updated `heading.large.fontSize` from `28` to `base.fontSize.500`.
+- Updated `heading.medium.fontSize` from `24` to `base.fontSize.400`.
+- Updated `heading.medium.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
+- Updated `heading.small.fontSize` from `20` to `base.fontSize.200`.
+- Updated `heading.small.fontWeight` from `fontWeight.regular` to `fontWeight.medium`.
+- Updated `heading.xsmall.fontSize` from `18` to `base.fontSize.100`.
+- Updated `heading.xxsmall.fontSize` from `16` to `base.fontSize.90`.
+- Updated `heading.xxsmall.fontWeight` from `fontWeight.semibold` to `fontWeight.medium`.
+
+
 **Color (light)**
 
 - Added `color.background.neutral.strong`.
 - Added `color.decorative.cyan`.
-- Added `color.background.neutral.xstrong`.
 - Updated `color.background.back` from `base.color.grey.50` to `base.color.white.100`.
 - Updated `color.background.front` from `base.color.white.100` to `base.color.grey.50`.
 - Updated `color.background.disabled` from `base.color.black.opacity4` to `#d4d8d8`.
@@ -144,6 +146,7 @@
 - Deprecated `color.decorative.red`.
 - Deprecated `color.decorative.orange`.
 - Deprecated `color.decorative.yellow`.
+
 
 **Color (dark)**
 
@@ -197,6 +200,7 @@
 - Deprecated `color.decorative.orange`.
 - Deprecated `color.decorative.yellow`.
 
+
 **Components**
 
 - `button.primary.rest.background` updated from `color.background.primary.strong` to `color.background.neutral.xstrong`.
@@ -213,7 +217,6 @@
 - `button.primary.selected.hover.background` updated from `color.background.primary.strong.hover` to `color.background.neutral.strong`.
 - `button.primary.selected.hover.textColor` updated from `color.text.onPrimaryStrong` to `color.text.onStrong`.
 - `button.primary.selected.hover.iconColor` updated from `color.icon.onPrimaryStrong` to `color.icon.onStrong`.
-
 - `button.secondary.rest.textColor` updated from `color.text.primary` to `color.text.strong`.
   - Referenced by `button.secondary.hover.textColor`
 - `button.secondary.rest.iconColor` updated from `color.icon.primary` to `color.icon.strong`.
