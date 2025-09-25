@@ -110,7 +110,7 @@ export const StepOne = () => {
             ? { count: 'fit', size: 'medium' }
             : '100%'
         }
-        gap={!['xsmall', 'small'].includes(size) ? 'large' : undefined}
+        gap={!['xsmall', 'small'].includes(size) ? 'xlarge' : undefined}
         margin={{ bottom: 'medium' }}
       >
         {stepOneInputs.map((input, index) => (
@@ -166,10 +166,10 @@ const data = [
 ];
 
 const StepThree = () => (
-  <Box gap="small">
-    <List data={data} pad={{ horizontal: 'none', vertical: 'small' }}>
+  <Box gap="xsmall">
+    <List data={data} pad={{ horizontal: 'none', vertical: 'xsmall' }}>
       {(datum, index) => (
-        <Box key={index} direction="row" gap="small" align="center">
+        <Box key={index} direction="row" gap="xsmall" align="center">
           <Checkmark color="text-strong" size="small" />
           <Text color="text-strong" weight={500}>
             {datum}
