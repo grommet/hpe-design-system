@@ -106,6 +106,15 @@
 - Updated `heading.xsmall.fontSize` from `18` to `base.fontSize.100`.
 - Updated `heading.xxsmall.fontSize` from `16` to `base.fontSize.90`.
 - Updated `heading.xxsmall.fontWeight` from `fontWeight.semibold` to `fontWeight.medium`.
+- Updated `text.xsmall.maxWidth` from `30em` to `38em`.
+- Updated `text.small.maxWidth` from `30em` to `38em`.
+- Updated `text.medium.maxWidth` from `30em` to `38em`.
+- Updated `text.large.maxWidth` from `30em` to `38em`.
+- Updated `text.xlarge.maxWidth` from `30em` to `38em`.
+- Updated `text.xxlarge.maxWidth` from `30em` to `38em`.
+- Updated `text.3xlarge.maxWidth` from `30em` to `38em`.
+- Updated `text.4xlarge.maxWidth` from `30em` to `38em`.
+- Updated `text.5xlarge.maxWidth` from `30em` to `38em`.
 
 
 **Color (light)**
