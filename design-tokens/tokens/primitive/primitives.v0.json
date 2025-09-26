@@ -127,7 +127,7 @@
           },
           "500": {
             "$type": "color",
-            "$value": "#ec8c25",
+            "$value": "#ffffff",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -1448,7 +1448,7 @@
         },
         "opacity10": {
           "$type": "color",
-          "$value": "#ffffff1a",
+          "$value": "#ffffff12",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2016,7 +2016,7 @@
         },
         "900": {
           "$type": "color",
-          "$value": "#074738",
+          "$value": "#074b3b",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2028,7 +2028,7 @@
         },
         "1000": {
           "$type": "color",
-          "$value": "#093d32",
+          "$value": "#093a2f",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2224,7 +2224,7 @@
         },
         "700": {
           "$type": "color",
-          "$value": "#0055da",
+          "$value": "#00739d",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2236,7 +2236,7 @@
         },
         "900": {
           "$type": "color",
-          "$value": "#003cae",
+          "$value": "#00567a",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -2349,7 +2349,7 @@
       },
       "primary": {
         "$type": "string",
-        "$value": "HPE Graphik",
+        "$value": "MetricHPEXS",
         "$description": "",
         "$extensions": {
           "com.figma": {

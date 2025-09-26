@@ -52,7 +52,7 @@
   "fontStack": {
     "primary": {
       "$type": "fontFamily",
-      "$value": "'Metric', Arial, sans-serif",
+      "$value": "'Graphik', Arial, sans-serif",
       "$description": "The main font stack for an application.",
       "$extensions": {
         "com.figma": {
