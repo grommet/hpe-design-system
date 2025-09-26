@@ -56,11 +56,11 @@ The [Grommet site](https://v2.grommet.io/) provides documentation on the props a
 Given the code snippet from the previous section and the explanation on t-shirt sizing for dimensions, if you were to implement the following code, you would have a Box with width of "384px" and height of "192px".
 
 ```
-<Box width="medium" height="small" />
+<Box width="medium" height="xsmall" />
 // width = 384px, height = 192px
 ```
 
-<Box width="large">
+<Box width="xlarge">
   <Image src="/box-sizing.png" alt="Demonstration of t-shirt sizing on Box" />
 </Box>
 
@@ -123,13 +123,13 @@ Given this code snippet, if you were to implement the following code, you would 
 
 ```
 <Box 
-    border={{ color: 'border', size: 'small' }}
+    border={{ color: 'border', size: 'xsmall' }}
     width="medium"
-    height="small" 
+    height="xsmall" 
 />
 ```
 
-<Box width="medium" margin={{bottom: 'large'}}>
+<Box width="medium" margin={{bottom: 'xlarge'}}>
   <Image
     src="/border-sizing.png"
     alt="Demonstration of t-shirt sizing for border on Box"
@@ -163,7 +163,7 @@ Because `medium` is the default size, you can simplify your code by implementing
 <Example
   docs="https://v2.grommet.io/button?theme=hpe#props"
   code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/button/ButtonSizingExample.js"
-  height={{ min: 'small' }}
+  height={{ min: 'xsmall' }}
 >
   <ButtonSizingExample />
 </Example>

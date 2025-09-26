@@ -17,7 +17,7 @@ to:
 
 At the end of this tutorial, you will have built this:
 
-<Box align="start" height="large">
+<Box align="start" height="xlarge">
   <Image
     alt="Image of a web page display product cards arranged in a grid."
     src="/learnImages/grid-fundamentals-part-1/what-we-are-building.png"
@@ -223,7 +223,7 @@ being a minimum width of the t-shirt size 'medium'.
       <Anchor href="/foundation/tshirt-sizing" label="t-shirt sizing" />.
     </Paragraph>
   }
-  width="large"
+  width="xlarge"
   margin={{ bottom: 'medium' }}
   status="learn"
 />
@@ -236,10 +236,10 @@ responsive.
 ## Polishing the layout
 
 Now that we have a responsive Grid, let's polish the layout. Let's add some space
-between the products by adding `gap="small"` to the Grid.
+between the products by adding `gap="xsmall"` to the Grid.
 
 ```js
-<Grid columns="medium" gap="small">
+<Grid columns="medium" gap="xsmall">
   ...
 </Grid>
 ```
@@ -250,10 +250,10 @@ between the products by adding `gap="small"` to the Grid.
 
 Finally, let's refine the column width to be a bit more efficient with our screen's
 real-estate. A minimum column width of `"medium"` feels too wide. Let's try setting
-the `columns` property to `"small"`.
+the `columns` property to `"xsmall"`.
 
 ```js
-<Grid columns="small" gap="small">
+<Grid columns="xsmall" gap="xsmall">
   ...
 </Grid>
 ```
@@ -272,7 +272,7 @@ const ProductsPage = () => {
   const themeContext = React.useContext(ThemeContext);
   const minColumnWidth = midSize('small', 'medium', themeContext);
   ...
-  <Grid columns={minColumnWidth} gap="small">
+  <Grid columns={minColumnWidth} gap="xsmall">
     ...
   </Grid>
 ```
