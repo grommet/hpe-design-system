@@ -19,7 +19,7 @@ export const ComingSoon = () => {
         </Text>
       </ContentSection>
       <ContentSection>
-        <Box direction="row" gap="small">
+        <Box direction="row" gap="xsmall">
           <Text size={textSize} weight="bold">
             HPE
           </Text>

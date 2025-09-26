@@ -10,7 +10,7 @@ export const ColorCompliance = ({ color, data, ...rest }) => (
         justify="center"
         background={color}
         round="xsmall"
-        pad="small"
+        pad="xsmall"
         {...rest}
       />
 
@@ -23,7 +23,7 @@ export const ColorCompliance = ({ color, data, ...rest }) => (
                   key={c.property}
                   scope={c.dataScope}
                   align={c.align}
-                  pad={{ top: 'small', right: 'small' }}
+                  pad={{ top: 'xsmall', right: 'xsmall' }}
                 >
                   <Text>{c.format ? c.format(datum) : datum[c.property]}</Text>
                 </TableCell>

@@ -25,9 +25,9 @@ export const Quote = () => {
       direction={
         !['xsmall', 'small', 'medium'].includes(size) ? 'row' : 'column'
       }
-      gap="large"
+      gap="xlarge"
       justify="center"
-      pad="large"
+      pad="xlarge"
       overflow="hidden"
     >
       <Box
@@ -39,7 +39,7 @@ export const Quote = () => {
           size: 'auto',
           position: 'top left',
         }}
-        pad={{ left: 'xlarge' }}
+        pad={{ left: '3xlarge' }}
         flex={false}
       >
         <Avatar src="/static/images/t_harms_bio_image.png" size="149px" />
@@ -52,7 +52,7 @@ export const Quote = () => {
         <Box
           border={{ size: '3px', color: 'text-weak' }}
           pad="medium"
-          margin="small"
+          margin="xsmall"
           width={{ max: '678px' }}
         >
           <Paragraph size="xxlarge" textAlign="center">
@@ -67,7 +67,7 @@ export const Quote = () => {
             alt="quote lines"
           />
         </Box>
-        <Box fill justify="between" pad={{ top: 'large', bottom: 'large' }}>
+        <Box fill justify="between" pad={{ top: 'xlarge', bottom: 'xlarge' }}>
           <Box
             background="background-back"
             width={{ max: 'fit-content' }}

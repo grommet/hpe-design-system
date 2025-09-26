@@ -10,7 +10,7 @@ const HeadingContext = createContext({});
 const Subscribe = () => {
   const { level } = useContext(HeadingContext);
   return (
-    <Box gap="small">
+    <Box gap="xsmall">
       <Contact size="large" />
       <Heading level={level} margin="none">
         Stay up-to-date
@@ -36,7 +36,7 @@ const JoinConversation = () => {
   const { level } = useContext(HeadingContext);
 
   return (
-    <Box gap="small">
+    <Box gap="xsmall">
       <ChatOption size="large" />
       <Heading level={level} margin="none">
         Join the conversation
@@ -63,7 +63,7 @@ const Contribute = () => {
   const { level } = useContext(HeadingContext);
 
   return (
-    <Box gap="small">
+    <Box gap="xsmall">
       <Github size="large" />
       <Heading level={level} margin="none">
         Contribute
@@ -92,14 +92,14 @@ export const FeedbackOptions = ({ level }) => {
 
   return (
     <HeadingContext.Provider value={contextValue}>
-      <Box flex={false} width="xlarge">
+      <Box flex={false} width="xxlarge">
         <Grid
           columns={
             !['xsmall', 'small'].includes(size)
-              ? { count: 'fit', size: 'small' }
+              ? { count: 'fit', size: 'xsmall' }
               : 'auto'
           }
-          gap="large"
+          gap="xlarge"
         >
           <JoinConversation />
           <Contribute />
@@ -127,7 +127,7 @@ export const SubmitFeedback = () => {
 
   return (
     <>
-      <Box direction="row" gap="small">
+      <Box direction="row" gap="xsmall">
         <Button label="Leave feedback" onClick={onOpen} primary />
         <Button
           alignSelf="start"
@@ -155,7 +155,7 @@ export const SubmitFeedback = () => {
             </Box>
             <Box
               flex
-              pad={{ horizontal: 'large', bottom: 'large' }}
+              pad={{ horizontal: 'xlarge', bottom: 'xlarge' }}
               overflow="auto"
             >
               <FeedbackOptions />
