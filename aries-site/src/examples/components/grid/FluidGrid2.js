@@ -8,10 +8,10 @@ const contentAreaProps = {
 };
 // used for creating some variation in the ContentArea heights
 const heightMap = {
-  0: 'xsmall',
-  1: 'xxsmall',
+  0: '3xsmall',
+  1: '5xsmall',
   2: '75%',
-  3: 'xsmall',
+  3: '3xsmall',
 };
 
 const columns = 'small';
