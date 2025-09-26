@@ -5,7 +5,7 @@
 
 :root {
   --hpe-focusIndicator-outlineOffset: 2px;
-  --hpe-fontStack-primary: 'Metric', Arial, sans-serif; /** The main font stack for an application. */
+  --hpe-fontStack-primary: 'Graphik', Arial, sans-serif; /** The main font stack for an application. */
   --hpe-breakpoint-xsmall: 576px;
   --hpe-breakpoint-small: 768px; /** The breakpoint where spacing and typography sizes shift down to accommodate smaller screen sizes. */
   --hpe-breakpoint-medium: 1080px;

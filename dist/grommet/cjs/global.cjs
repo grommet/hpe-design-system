@@ -15,7 +15,7 @@ module.exports = {
       "boxShadow": "0 0 0 2px #ffffff "
     },
     "fontStack": {
-      "primary": "'Metric', Arial, sans-serif"
+      "primary": "'Graphik', Arial, sans-serif"
     },
     "breakpoint": {
       "xsmall": "576px",

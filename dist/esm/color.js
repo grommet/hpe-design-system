@@ -17,11 +17,11 @@ export default {
         "active": "var(--hpe-color-background-active)",
         "disabled": "var(--hpe-color-background-disabled)",
         "screenOverlay": "var(--hpe-color-background-screenOverlay)",
-        "unknown": "var(--hpe-color-background-unknown)",
         "warning": "var(--hpe-color-background-warning)",
-        "info": "var(--hpe-color-background-info)",
-        "critical": "var(--hpe-color-background-critical)",
         "ok": "var(--hpe-color-background-ok)",
+        "critical": "var(--hpe-color-background-critical)",
+        "unknown": "var(--hpe-color-background-unknown)",
+        "info": "var(--hpe-color-background-info)",
         "primary-strong": "var(--hpe-color-background-primary-strong)",
         "primary-strong-hover": "var(--hpe-color-background-primary-strong-hover)",
         "primary-xstrong": "var(--hpe-color-background-primary-xstrong)",
@@ -29,7 +29,8 @@ export default {
         "selected-primary-strong-hover": "var(--hpe-color-background-selected-primary-strong-hover)",
         "selected-primary": "var(--hpe-color-background-selected-primary)",
         "selected-primary-hover": "var(--hpe-color-background-selected-primary-hover)",
-        "neutral-xstrong": "var(--hpe-color-background-neutral-xstrong)"
+        "neutral-xstrong": "var(--hpe-color-background-neutral-xstrong)",
+        "neutral-xstrong-hover": "var(--hpe-color-background-neutral-xstrong-hover)"
       },
       "border": {
         "strong": "var(--hpe-color-border-strong)",
@@ -95,11 +96,8 @@ export default {
         "brand": "var(--hpe-color-decorative-brand)",
         "green": "var(--hpe-color-decorative-green)",
         "purple": "var(--hpe-color-decorative-purple)",
-        "teal": "var(--hpe-color-decorative-teal)",
+        "cyan": "var(--hpe-color-decorative-cyan)",
         "blue": "var(--hpe-color-decorative-blue)",
-        "red": "var(--hpe-color-decorative-red)",
-        "orange": "var(--hpe-color-decorative-orange)",
-        "yellow": "var(--hpe-color-decorative-yellow)",
         "neutral": "var(--hpe-color-decorative-neutral)",
         "neutral-hover": "var(--hpe-color-decorative-neutral-hover)"
       },

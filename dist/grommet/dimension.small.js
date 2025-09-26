@@ -55,75 +55,75 @@ export default {
     },
     "icon": {
       "xsmall": {
-        "size": "14px"
+        "size": "12px"
       },
       "small": {
-        "size": "16px"
+        "size": "14px"
       },
       "medium": {
-        "size": "18px"
+        "size": "16px"
       },
       "large": {
-        "size": "22px"
+        "size": "18px"
       },
       "xlarge": {
-        "size": "24px"
+        "size": "20px"
       },
       "xxlarge": {
-        "size": "36px"
+        "size": "32px"
       }
     },
     "text": {
       "xsmall": {
-        "fontSize": "0.875rem",
+        "fontSize": "0.75rem",
         "lineHeight": "1rem",
         "fontWeight": 400,
         "maxWidth": "30em"
       },
       "small": {
-        "fontSize": "1rem",
+        "fontSize": "0.875rem",
         "lineHeight": "1.25rem",
         "fontWeight": 400,
         "maxWidth": "30em"
       },
       "medium": {
-        "fontSize": "1.125rem",
+        "fontSize": "1rem",
         "lineHeight": "1.5rem",
         "fontWeight": 400,
         "maxWidth": "30em"
       },
       "large": {
-        "fontSize": "1.375rem",
+        "fontSize": "1.125rem",
         "lineHeight": "1.75rem",
         "fontWeight": 400,
         "maxWidth": "30em"
       },
       "xlarge": {
-        "fontSize": "1.5rem",
+        "fontSize": "1.25rem",
         "lineHeight": "1.875rem",
         "fontWeight": 400,
         "maxWidth": "30em"
       },
       "xxlarge": {
-        "fontSize": "2.25rem",
+        "fontSize": "2rem",
         "lineHeight": "2.5rem",
         "fontWeight": 400,
         "maxWidth": "30em"
       },
       "3xlarge": {
-        "fontSize": "2.625rem",
+        "fontSize": "2.25rem",
         "lineHeight": "2.875rem",
         "fontWeight": 400,
         "maxWidth": "30em"
       },
       "4xlarge": {
-        "fontSize": "3rem",
+        "fontSize": "2.625rem",
         "lineHeight": "3rem",
         "fontWeight": 400,
         "maxWidth": "30em"
       },
       "5xlarge": {
-        "fontSize": "4.5rem",
+        "fontSize": "4rem",
         "lineHeight": "4.5rem",
         "fontWeight": 400,
         "maxWidth": "30em"
@@ -131,34 +131,34 @@ export default {
     },
     "heading": {
       "xlarge": {
-        "fontWeight": 400,
-        "fontSize": "1.75rem",
+        "fontWeight": 500,
+        "fontSize": "1.5rem",
         "lineHeight": "2rem"
       },
       "large": {
-        "fontWeight": 400,
-        "fontSize": "1.5rem",
+        "fontWeight": 500,
+        "fontSize": "1.375rem",
         "lineHeight": "1.75rem"
       },
       "medium": {
-        "fontSize": "1.25rem",
+        "fontSize": "1.125rem",
         "lineHeight": "1.5rem",
-        "fontWeight": 400
+        "fontWeight": 500
       },
       "small": {
-        "fontSize": "1.125rem",
+        "fontSize": "1rem",
         "lineHeight": "1.25rem",
         "fontWeight": 500
       },
       "xsmall": {
-        "fontSize": "1rem",
+        "fontSize": "0.875rem",
         "lineHeight": "1.125rem",
-        "fontWeight": 600
+        "fontWeight": 500
       },
       "xxsmall": {
         "fontSize": "1rem",
         "lineHeight": "1.125rem",
-        "fontWeight": 600
+        "fontWeight": 500
       }
     }
   }
