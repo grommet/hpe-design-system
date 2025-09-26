@@ -7,17 +7,17 @@ export const SectionCards = ({ items, headingLevel, seeAllContent }) => {
   const { buttonLabel, href } = seeAllContent;
 
   return (
-    <Box gap="large">
+    <Box gap="xlarge">
       <Grid columns="medium" rows="auto" gap="medium">
         {items.map(({ title, link, icon }) => {
           const Icon = icon;
           return (
             <LinkCard key={title} href={link}>
-              <CardBody direction="row" gap="small">
+              <CardBody direction="row" gap="xsmall">
                 <Box
-                  pad="small"
+                  pad="xsmall"
                   justify="center"
-                  round="small"
+                  round="medium"
                   background="background-back"
                   flex={false}
                 >

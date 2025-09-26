@@ -63,9 +63,9 @@ CopyCodeButton.propTypes = {
 
 export const components = {
   blockquote: props => (
-    <Box width="large">
+    <Box width="xlarge">
       <Paragraph
-        margin={{ top: 'large', bottom: 'none', left: 'large' }}
+        margin={{ top: 'xlarge', bottom: 'none', left: 'xlarge' }}
         size="xxlarge"
         {...props}
       />
@@ -73,7 +73,7 @@ export const components = {
   ),
   pre: ({ children, ...rest }) => (
     <Box
-      width="large"
+      width="xlarge"
       round="xsmall"
       overflow="auto"
       margin={{ bottom: 'medium' }}
@@ -123,7 +123,7 @@ export const components = {
       {...props}
     />
   ),
-  h1: props => <Heading margin={{ vertical: 'small' }} level={1} {...props} />,
+  h1: props => <Heading margin={{ vertical: 'xsmall' }} level={1} {...props} />,
   h2: props => <SubsectionHeader level={2} {...props} />,
   h3: props => <SubsectionHeader level={3} {...props} />,
   h4: props => <SubsectionHeader level={4} {...props} />,
@@ -140,11 +140,11 @@ export const components = {
   table: props => (
     <Box
       align="start"
-      width={{ max: 'xlarge' }}
+      width={{ max: 'xxlarge' }}
       margin={{ bottom: 'medium' }}
       overflow="auto"
     >
-      <Box background="background-front" pad="medium" round="small">
+      <Box background="background-front" pad="medium" round="medium">
         <Table {...props} />
       </Box>
     </Box>
@@ -156,14 +156,14 @@ export const components = {
       border={{ side: 'bottom', color: 'border-weak' }}
       verticalAlign="top"
       width={{ max: 'medium' }}
-      pad={{ vertical: 'small', horizontal: 'small' }}
+      pad={{ vertical: 'xsmall', horizontal: 'xsmall' }}
       {...props}
     />
   ),
   th: props => (
     <TableCell
       scope="col"
-      pad={{ horizontal: 'small', vertical: 'xsmall' }}
+      pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
       {...props}
     >
       <TextEmphasis>{props.children}</TextEmphasis>

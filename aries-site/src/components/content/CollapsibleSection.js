@@ -17,14 +17,14 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
       <Box
         background="background-contrast"
         direction="row"
-        gap="small"
+        gap="xsmall"
         onClick={() => {
           setOpen(!open);
           if (onClick) onClick();
         }}
         border={!open ? null : { side: 'bottom', color: 'border' }}
         pad="medium"
-        round={!open ? 'small' : { corner: 'top', size: 'small' }}
+        round={!open ? 'medium' : { corner: 'top', size: 'medium' }}
       >
         {!open ? <Down /> : <Up />}
         <TextEmphasis>{labelText}</TextEmphasis>
@@ -32,11 +32,11 @@ export const CollapsibleSection = ({ label, onClick, ...rest }) => {
       <Collapsible open={open}>
         <Box
           background="background-contrast"
-          height={{ max: 'large' }}
+          height={{ max: 'xlarge' }}
           gap="medium"
           overflow="auto"
           pad="medium"
-          round={{ corner: 'bottom', size: 'small' }}
+          round={{ corner: 'bottom', size: 'medium' }}
           {...rest}
         />
       </Collapsible>

@@ -14,7 +14,7 @@ export const AccessVideo = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <Box width="large" pad={{ bottom: 'large' }}>
+    <Box width="xlarge" pad={{ bottom: 'xlarge' }}>
       <video
         aria-label="Accessibility at HPE Video"
         poster="/static/images/Bill-Access-Cover.png"
@@ -33,10 +33,10 @@ export const AccessVideo = () => {
       </video>
       <Box
         background="background-front"
-        round={{ corner: 'bottom', size: 'small' }}
-        pad="small"
+        round={{ corner: 'bottom', size: 'medium' }}
+        pad="xsmall"
       >
-        <Box direction="row" gap="small">
+        <Box direction="row" gap="xsmall">
           <Button
             icon={
               expanded ? (
@@ -68,7 +68,7 @@ export const AccessVideo = () => {
             }
           />
         </Box>
-        {expanded && <Box pad="small">{desc}</Box>}
+        {expanded && <Box pad="xsmall">{desc}</Box>}
       </Box>
     </Box>
   );

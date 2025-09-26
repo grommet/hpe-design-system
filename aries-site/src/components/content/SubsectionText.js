@@ -34,7 +34,7 @@ export const SubsectionText = ({
   accessibility,
   ...rest
 }) => (
-  <StyledBox gap="xsmall" width="large" margin={{ bottom: 'medium' }}>
+  <StyledBox gap="3xsmall" width="xlarge" margin={{ bottom: 'medium' }}>
     <Paragraph size={size || TEXT_SIZE[level]} fill margin="none" {...rest}>
       <HighlightPhrase size={size || TEXT_SIZE[level]}>
         {children}

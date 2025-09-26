@@ -107,7 +107,7 @@ export const Feedback = ({
         position={
           !['xsmall', 'small'].includes(breakpoint) ? 'bottom-right' : 'center'
         }
-        margin={{ vertical: 'xlarge', horizontal: 'medium' }}
+        margin={{ vertical: '3xlarge', horizontal: 'medium' }}
         modal={false}
         onEsc={onClose}
         {...layerProps}
