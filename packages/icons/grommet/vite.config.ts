@@ -7,11 +7,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        'grommet/hpe-icons': 'src/js/grommet/index.ts',
-      },
-      name: 'hpe-icons',
-      fileName: (format, entryName) => {
-        return format === 'es' ? `${entryName}.js` : `${entryName}.${format}`;
+        'hpe-icons': 'src/js/index.ts',
       },
       formats: ['es', 'cjs'],
     },
