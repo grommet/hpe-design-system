@@ -328,20 +328,6 @@
         }
       },
       "neutral": {
-        "strong": {
-          "REST": {
-            "$type": "color",
-            "$value": "{base.color.grey.200}",
-            "$description": "Highest emphasis variant of neutral palette.",
-            "$extensions": {
-              "com.figma": {
-                "hiddenFromPublishing": false,
-                "scopes": ["ALL_SCOPES"],
-                "codeSyntax": {}
-              }
-            }
-          }
-        },
         "xstrong": {
           "REST": {
             "$type": "color",
@@ -351,6 +337,18 @@
               "com.figma": {
                 "hiddenFromPublishing": false,
                 "scopes": ["ALL_SCOPES"],
+                "codeSyntax": {}
+              }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{base.color.grey.200}",
+            "$description": "Hover variant of background-neutral-xstrong.",
+            "$extensions": {
+              "com.figma": {
+                "hiddenFromPublishing": false,
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
                 "codeSyntax": {}
               }
             }

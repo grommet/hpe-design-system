@@ -770,7 +770,7 @@
       "hover": {
         "background": {
           "$type": "color",
-          "$value": "{color.background.neutral.strong.REST}",
+          "$value": "{color.background.neutral.xstrong.hover}",
           "$description": "",
           "$extensions": {
             "com.figma": {
@@ -895,7 +895,7 @@
         "hover": {
           "background": {
             "$type": "color",
-            "$value": "{color.background.neutral.strong.REST}",
+            "$value": "{color.background.neutral.xstrong.hover}",
             "$description": "",
             "$extensions": {
               "com.figma": {
@@ -8499,7 +8499,7 @@
             "rest": {
               "background": {
                 "$type": "color",
-                "$value": "{color.background.back.DEFAULT.REST}",
+                "$value": "{color.background.contrast.DEFAULT.REST}",
                 "$description": "",
                 "$extensions": {
                   "com.figma": {

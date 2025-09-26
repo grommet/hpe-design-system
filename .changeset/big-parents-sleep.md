@@ -110,7 +110,7 @@
 
 **Color (light)**
 
-- Added `color.background.neutral.strong`.
+- Added `color.background.neutral.xstrong.hover`.
 - Added `color.decorative.cyan`.
 - Updated `color.background.back` from `base.color.grey.50` to `base.color.white.100`.
 - Updated `color.background.front` from `base.color.white.100` to `base.color.grey.50`.
@@ -150,7 +150,7 @@
 
 **Color (dark)**
 
-- Added `color.background.neutral.strong`.
+- Added `color.background.neutral.xstrong.hover`.
 - Added `color.decorative.cyan`.
 - Added `color.background.neutral.xstrong`.
 - Updated `color.background.front` from `base.color.grey.1200` to `base.color.grey.1000`.

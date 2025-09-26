@@ -328,7 +328,7 @@
         }
       },
       "neutral": {
-        "strong": {
+        "xstrong": {
           "REST": {
             "$type": "color",
             "$value": "{deprecated.base.color.grey.50}",
@@ -340,17 +340,15 @@
                 "codeSyntax": {}
               }
             }
-          }
-        },
-        "xstrong": {
-          "REST": {
+          },
+          "hover": {
             "$type": "color",
-            "$value": "{deprecated.base.color.grey.50}",
-            "$description": "Highest emphasis variant of neutral palette.",
+            "$value": "{base.color.grey.200}",
+            "$description": "Hover variant of background-neutral-xstrong.",
             "$extensions": {
               "com.figma": {
                 "hiddenFromPublishing": false,
-                "scopes": ["ALL_SCOPES"],
+                "scopes": ["FRAME_FILL", "SHAPE_FILL"],
                 "codeSyntax": {}
               }
             }
