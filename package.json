@@ -28,7 +28,6 @@
   "workspaces": [
     "aries-core",
     "aries-site",
-    "design-tokens",
     "packages/*",
     "sandbox/*",
     "design-tokens-manager",

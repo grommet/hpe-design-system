@@ -20,6 +20,7 @@ const PREFIX = 'hpe';
  * Design tokens that should only exist in Figma but not be output to hpe-design-tokens
  */
 const FIGMA_PREFIX = 'fig';
+const DEPRECATED_PREFIX = 'deprecated';
 const defaultOptions = {
   fileHeader: 'hpe-file-header',
 };
@@ -27,6 +28,10 @@ const defaultOptions = {
 await HPEStyleDictionary.hasInitialized;
 
 let extendedDictionary = HPEStyleDictionary;
+
+const filterPrimitives = token =>
+  token.filePath.includes(`${TOKENS_DIR}/primitive/`) &&
+  !token.path.includes(DEPRECATED_PREFIX);
 
 /** -----------------------------------
  * Primitive tokens
@@ -44,6 +49,7 @@ try {
           {
             destination: 'primitives.js',
             format: 'javascript/esm',
+            filter: token => filterPrimitives(token),
           },
         ],
       },
@@ -56,6 +62,7 @@ try {
           {
             destination: 'primitives.cjs',
             format: 'javascript/commonJs',
+            filter: token => filterPrimitives(token),
           },
         ],
       },
@@ -68,6 +75,7 @@ try {
           {
             destination: 'primitives.js',
             format: 'javascript/esm',
+            filter: token => filterPrimitives(token),
           },
         ],
       },
@@ -80,6 +88,7 @@ try {
           {
             destination: 'primitives.cjs',
             format: 'javascript/commonJs',
+            filter: token => filterPrimitives(token),
           },
         ],
       },
@@ -92,6 +101,7 @@ try {
           {
             destination: 'primitives.css',
             format: 'css/variables',
+            filter: token => filterPrimitives(token),
             options: {
               outputReferences: true,
             },
@@ -103,7 +113,13 @@ try {
         buildPath: DOCS_DIR,
         prefix: PREFIX,
         options: defaultOptions,
-        files: [{ destination: 'primitives.js', format: 'jsonFlat' }],
+        files: [
+          {
+            destination: 'primitives.js',
+            format: 'jsonFlat',
+            filter: token => filterPrimitives(token),
+          },
+        ],
       },
     },
   });
@@ -111,6 +127,10 @@ try {
 } catch (e) {
   console.error('🛑 Error building primitive tokens:', e);
 }
+
+const filterGlobal = token =>
+  token.filePath === `${TOKENS_DIR}/semantic/global.default.json` &&
+  !token.path.includes(FIGMA_PREFIX);
 
 /** -----------------------------------
  * Global tokens
@@ -132,8 +152,7 @@ try {
           {
             destination: 'global.js',
             format: 'esmGrommetRefs',
-            filter: token =>
-              token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
+            filter: token => filterGlobal(token),
           },
         ],
       },
@@ -146,8 +165,7 @@ try {
           {
             destination: 'global.cjs',
             format: 'commonJsGrommetRefs',
-            filter: token =>
-              token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
+            filter: token => filterGlobal(token),
           },
         ],
       },
@@ -160,8 +178,7 @@ try {
           {
             destination: 'global.js',
             format: 'javascript/esm',
-            filter: token =>
-              token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
+            filter: token => filterGlobal(token),
           },
         ],
       },
@@ -174,8 +191,7 @@ try {
           {
             destination: 'global.cjs',
             format: 'javascript/commonJs',
-            filter: token =>
-              token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
+            filter: token => filterGlobal(token),
           },
         ],
       },
@@ -188,8 +204,7 @@ try {
           {
             destination: 'global.css',
             format: 'css/variables',
-            filter: token =>
-              token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
+            filter: token => filterGlobal(token),
             options: {
               outputReferences: true,
             },
@@ -205,8 +220,7 @@ try {
           {
             destination: 'global.js',
             format: 'jsonFlat',
-            filter: token =>
-              token.filePath === `${TOKENS_DIR}/semantic/global.default.json`,
+            filter: token => filterGlobal(token),
           },
         ],
       },
@@ -224,7 +238,7 @@ try {
 const colorModeFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('color') && !file.includes('v0')
+    file.includes('color') && !file.includes('v1') && !file.includes('v0')
       ? `${TOKENS_DIR}/semantic/${file}`
       : undefined,
   )
@@ -253,6 +267,9 @@ fs.appendFileSync(
   },
 );
 
+const filterColor = (token, file) =>
+  token.filePath === file && !token.path.includes(FIGMA_PREFIX);
+
 try {
   colorModeFiles.forEach(async file => {
     const [theme, mode] = getThemeAndMode(file);
@@ -274,7 +291,7 @@ try {
                 theme ? `${theme}-${mode}` : `${mode || ''}`
               }.js`,
               format: 'javascript/esm',
-              filter: token => token.filePath === file,
+              filter: token => filterColor(token, file),
             },
           ],
         },
@@ -289,7 +306,7 @@ try {
                 theme ? `${theme}-${mode}` : `${mode || ''}`
               }.cjs`,
               format: 'javascript/commonJs',
-              filter: token => token.filePath === file,
+              filter: token => filterColor(token, file),
             },
           ],
         },
@@ -302,7 +319,7 @@ try {
             {
               destination: 'color.js',
               format: 'javascript/esm',
-              filter: token => token.filePath === file,
+              filter: token => filterColor(token, file),
             },
           ],
         },
@@ -315,7 +332,7 @@ try {
             {
               destination: 'color.cjs',
               format: 'javascript/commonJs',
-              filter: token => token.filePath === file,
+              filter: token => filterColor(token, file),
             },
           ],
         },
@@ -340,7 +357,8 @@ try {
               // component color tokens should already be filtered to just
               // color tokens, but adding this condition here for safety
               filter: token =>
-                token.filePath === file || token.$type === 'color',
+                (token.filePath === file || token.$type === 'color') &&
+                !token.path.includes(FIGMA_PREFIX),
             },
           ],
         },
@@ -354,7 +372,7 @@ try {
               destination: `color.${
                 theme ? `${theme}-${mode}` : `${mode || ''}`
               }.js`,
-              filter: token => token.filePath === file,
+              filter: token => filterColor(token, file),
               format: 'jsonFlat',
             },
           ],
@@ -373,7 +391,7 @@ try {
 const dimensionFiles = fs
   .readdirSync(`${TOKENS_DIR}/semantic`)
   .map(file =>
-    file.includes('dimension') && !file.includes('v0')
+    file.includes('dimension') && !file.includes('v1') && !file.includes('v0')
       ? `${TOKENS_DIR}/semantic/${file}`
       : undefined,
   )
@@ -402,7 +420,8 @@ try {
                 mode !== 'default' ? `${mode}.` : ''
               }js`,
               format: 'javascript/esm',
-              filter: token => token.filePath === file,
+              filter: token =>
+                token.filePath === file && !token.path.includes(FIGMA_PREFIX),
             },
           ],
         },
@@ -417,7 +436,8 @@ try {
                 mode !== 'default' ? `${mode}.` : ''
               }cjs`,
               format: 'javascript/commonJs',
-              filter: token => token.filePath === file,
+              filter: token =>
+                token.filePath === file && !token.path.includes(FIGMA_PREFIX),
             },
           ],
         },
@@ -430,7 +450,8 @@ try {
             {
               destination: 'dimension.js',
               format: 'javascript/esm',
-              filter: token => token.filePath === file,
+              filter: token =>
+                token.filePath === file && !token.path.includes(FIGMA_PREFIX),
             },
           ],
         },
@@ -443,7 +464,8 @@ try {
             {
               destination: 'dimension.cjs',
               format: 'javascript/commonJs',
-              filter: token => token.filePath === file,
+              filter: token =>
+                token.filePath === file && !token.path.includes(FIGMA_PREFIX),
             },
           ],
         },
@@ -467,7 +489,8 @@ try {
                     parsedGlobal.breakpoint[mode].$value,
                   )}`,
               },
-              filter: token => token.filePath === file,
+              filter: token =>
+                token.filePath === file && !token.path.includes(FIGMA_PREFIX),
             },
           ],
         },
@@ -481,7 +504,8 @@ try {
               destination: `dimension.${
                 mode !== 'default' ? `${mode}.` : ''
               }js`,
-              filter: token => token.filePath === file,
+              filter: token =>
+                token.filePath === file && !token.path.includes(FIGMA_PREFIX),
               format: 'jsonFlat',
             },
           ],
@@ -494,6 +518,10 @@ try {
 } catch (e) {
   console.error('🛑 Error building dimension tokens:', e);
 }
+
+const filterComponent = token =>
+  token.filePath.includes(`${TOKENS_DIR}/component/`) &&
+  !token.path.includes(FIGMA_PREFIX);
 
 /** -----------------------------------
  * Component tokens
@@ -517,9 +545,7 @@ try {
         files: [
           {
             destination: 'components.js',
-            filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
-              !token.path.includes(FIGMA_PREFIX),
+            filter: token => filterComponent(token),
             format: 'esmGrommetRefs',
           },
         ],
@@ -532,9 +558,7 @@ try {
         files: [
           {
             destination: 'components.cjs',
-            filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
-              !token.path.includes(FIGMA_PREFIX),
+            filter: token => filterComponent(token),
             format: 'commonJsGrommetRefs',
           },
         ],
@@ -547,9 +571,7 @@ try {
         files: [
           {
             destination: 'components.js',
-            filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
-              !token.path.includes(FIGMA_PREFIX),
+            filter: token => filterComponent(token),
             format: 'javascript/esm',
           },
         ],
@@ -562,9 +584,7 @@ try {
         files: [
           {
             destination: 'components.cjs',
-            filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
-              !token.path.includes(FIGMA_PREFIX),
+            filter: token => filterComponent(token),
             format: 'javascript/commonJs',
           },
         ],
@@ -579,8 +599,7 @@ try {
             destination: 'components.css',
             format: 'css/variables',
             filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
-              !token.path.includes(FIGMA_PREFIX) &&
+              filterComponent(token) &&
               // color variables are included per CSS theme mode
               // excluding here to minimize the CSS output
               token.$type !== 'color',
@@ -598,9 +617,7 @@ try {
         files: [
           {
             destination: 'components.js',
-            filter: token =>
-              token.filePath.includes(`${TOKENS_DIR}/component/`) &&
-              !token.path.includes(FIGMA_PREFIX),
+            filter: token => filterComponent(token),
             format: 'jsonFlat',
           },
         ],
