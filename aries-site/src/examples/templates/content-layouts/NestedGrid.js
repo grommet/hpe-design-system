@@ -1,10 +1,10 @@
 import { Box, Grid } from 'grommet';
 import { ContentArea } from '../page-layouts/anatomy/components';
 
-const demoStyle = { border: { style: 'dashed' }, pad: 'xsmall' };
+const demoStyle = { border: { style: 'dashed' }, pad: '3xsmall' };
 
 const parentGrid = {
-  columns: ['small', 'flex'],
+  columns: ['xsmall', 'flex'],
   gap: 'medium',
 };
 
@@ -21,9 +21,9 @@ export const NestedGrid = () => (
 );
 
 const nestedGridA = {
-  columns: ['xxsmall', 'flex'],
-  rows: 'xsmall',
-  gap: 'small',
+  columns: ['5xsmall', 'flex'],
+  rows: '3xsmall',
+  gap: 'xsmall',
 };
 
 const NestedGridA = () => (
@@ -42,7 +42,7 @@ const NestedGridA = () => (
 const nestedGridB = {
   columns: ['60%', 'flex'],
   rows: 'auto',
-  gap: 'small',
+  gap: 'xsmall',
 };
 
 const NestedGridB = () => (
