@@ -58,7 +58,9 @@ const Users = () => {
   return (
     <Box flex overflow="auto">
       <Cards
-        columns={!['xsmall', 'small'].includes(breakpoint) ? 'small' : ['auto']}
+        columns={
+          !['xsmall', 'small'].includes(breakpoint) ? 'xsmall' : ['auto']
+        }
         gap={!['xsmall', 'small'].includes(breakpoint) ? 'medium' : 'xsmall'}
       >
         {datum => (
