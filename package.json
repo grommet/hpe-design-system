@@ -37,7 +37,7 @@
     "@changesets/cli": "^2.27.9",
     "grommet": "https://github.com/grommet/grommet/tarball/stable",
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
-    "grommet-theme-hpe": "^6.0.0",
+    "grommet-theme-hpe": "^7.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "styled-components": "^6.1.17"
