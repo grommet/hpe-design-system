@@ -7,6 +7,15 @@ export const aries = deepMerge(hpe, {
   // To be stripped out once theme changes are made in grommet-theme-hpe.
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
+  tip: {
+    content: {
+      background: 'background-floating',
+      border: { color: 'border-weak' },
+      margin: '5xsmall',
+      elevation: 'small',
+      pad: { vertical: 'none', horizontal: 'xsmall' },
+    },
+  },
   pageHeader: {
     pad: {
       top: 'xlarge',
@@ -247,6 +256,15 @@ export const ariesPop = deepMerge(aries, {
       columns: [['medium', 'xlarge'], 'auto'],
       rows: ['auto', 'auto', 'auto'],
       gap: { row: '3xsmall', column: 'xlarge' },
+    },
+  },
+  tip: {
+    content: {
+      background: 'background-floating',
+      border: { color: 'border-weak' },
+      margin: '5xsmall',
+      elevation: 'small',
+      pad: { vertical: 'none', horizontal: 'xsmall' },
     },
   },
   anchor: {
