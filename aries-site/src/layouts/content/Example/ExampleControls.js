@@ -39,10 +39,10 @@ export const ExampleControls = ({
             color: 'border-weak',
           },
         ],
-        pad: { horizontal: 'medium', vertical: 'small' },
+        pad: { horizontal: 'medium', vertical: 'xsmall' },
       }
     : {
-        pad: { vertical: 'small' },
+        pad: { vertical: 'xsmall' },
       };
 
   return (

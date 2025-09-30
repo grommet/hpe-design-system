@@ -44,19 +44,19 @@ const useActiveHeadingId = (headings, options) => {
 export const InPageNavigation = ({ headings, title }) => {
   const theme = useContext(ThemeContext);
 
-  let { large, medium } = theme.global.edgeSize;
-  large = parseInt(large.replace('px', ''), 10); // 48
+  let { xlarge, medium } = theme.global.edgeSize;
+  xlarge = parseInt(xlarge.replace('px', ''), 10); // 48
   medium = parseInt(medium.replace('px', ''), 10); // 24
 
   // top and bottom margin values to calculate intersection window
-  const topMargin = large;
-  const bottomMargin = `-${2 * large}`;
+  const topMargin = xlarge;
+  const bottomMargin = `-${2 * xlarge}`;
   const activeId = useActiveHeadingId(headings, {
     rootMargin: `${topMargin}% 0% ${bottomMargin}% 0%`,
   });
 
   // align "Jump to section" with page title at start
-  const marginTop = `${large + medium}px`;
+  const marginTop = `${xlarge + medium}px`;
 
   const { pageUpdateReady, contentHistory } = useContext(ViewContext);
 
@@ -96,8 +96,8 @@ export const InPageNavigation = ({ headings, title }) => {
           const headingTitle = heading[1];
           const active = activeId === nameToSlug(headingTitle);
 
-          let subsectionPad = 'small';
-          if (level.length > 3) subsectionPad = 'large';
+          let subsectionPad = 'xsmall';
+          if (level.length > 3) subsectionPad = 'xlarge';
           else if (level.length === 3) subsectionPad = 'medium';
 
           let sectionList;
