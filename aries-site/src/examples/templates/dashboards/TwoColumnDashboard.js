@@ -38,16 +38,16 @@ const parentGrid = {
   columns: {
     xsmall: '100%',
     small: '100%',
-    medium: ['auto', ['small', 'medium']],
-    large: ['auto', ['small', 'medium']],
+    medium: ['auto', ['xsmall', 'medium']],
+    large: ['auto', ['xsmall', 'medium']],
     xlarge: ['auto', 'medium'],
   },
   gap: {
-    xsmall: 'large',
-    small: 'large',
+    xsmall: 'xlarge',
+    small: 'xlarge',
     medium: 'medium',
-    large: 'large',
-    xlarge: 'large',
+    large: 'xlarge',
+    xlarge: 'xlarge',
   },
 };
 
@@ -58,9 +58,9 @@ const firstChildGrid = {
     medium: '100%',
     large: [
       ['medium', 'auto'],
-      ['small', 'medium'],
+      ['xsmall', 'medium'],
     ],
-    xlarge: ['auto', ['small', 'medium']],
+    xlarge: ['auto', ['xsmall', 'medium']],
   },
   gap: 'medium',
 };
