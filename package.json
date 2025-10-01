@@ -30,6 +30,7 @@
     "aries-site",
     "design-tokens",
     "packages/*",
+    "packages/icons/*",
     "sandbox/*",
     "design-tokens-manager",
     "shared/*"

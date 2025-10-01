@@ -7,8 +7,9 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/hpe-icons.js",
+      "require": "./dist/hpe-icons.cjs"
     }
   },
   "files": [
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "typescript": "~5.8.3",
-    "vite": "^7.1.7"
+    "vite": "^7.1.7",
+    "vite-plugin-dts": "^4.5.4"
   }
 }
