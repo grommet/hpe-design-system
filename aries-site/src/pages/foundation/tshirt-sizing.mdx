@@ -1,155 +1,36 @@
 import { Box, Image } from 'grommet';
 import { Example } from '../../layouts';
-import { ButtonSizingExample } from '../../examples';
+import { BoxExample, ButtonSizingExample } from '../../examples';
 
-## What is t-shirt sizing?
+T-shirt sizing leverages familiar clothing sizes of "small", "medium", "large", and other ranges of sizes to drive the sizing and spacing of layouts and components. Each t-shirt size ultimately resolves to a specific pixel or rem value.
 
-T-shirt sizing is the way that Grommet leverages familiar clothing sizes of "small", "medium", "large", and other ranges of sizes to drive the sizing and spacing of components. Grommet maps these t-shirt sizes to specific pixel values. The mapping and pixel value derivation is [explained below](/foundation/tshirt-sizing#the-base-unit).
+Read about the [foundational scale](/design-tokens/layout-and-spacing#foundational-scale) for more information on how t-shirt sizes are generated.
 
-T-shirt sizing controls two aspects of a user interface: 
-- the [height and width](/foundation/tshirt-sizing#t-shirt-sizing-for-component-dimensions) of layout components
-- the [spacing](/foundation/tshirt-sizing#t-shirt-sizing-for-spacing-and-other-styles) within and around components (e.g. gap, margin, padding, border, etc.)
+T-shirt sizing controls various aspects of a user interface:
 
-When designing and developing with the HPE Design System, you should always use t-shirt sizes. If you find yourself specifying custom pixel values, this should be a warning signaling either:
-- A need to consult with your designer about why a custom value is needed. 
+- [Layout and spacing](/design-tokens/layout-and-spacing)
+- [Typography](/design-tokens/typography-system)
+- [Element and component sizing](/design-tokens/element)
+
+## Why t-shirt sizing?
+
+T-shirt sizing provides the benefits of [semantic styling](/design-tokens/overview#semantic-tokens), make designing and developing more efficient.
+
+In nearly every case, designs and development should use t-shirt sizes. If you find yourself specifying custom pixel values, this should be a warning signaling either:
+
+- A need to consult with your designer about why a custom value is needed.
 - Something in the implementation can and should be simplified.
-- Or, there could be a gap in the Design System which should be reported and addressed.
+- There could be a gap in the Design System which should be reported and addressed.
 
-In nearly every case, designs and development should be using t-shirt sizes for compatibility and maintenance.
+## Example
 
-## Why do we use t-shirt sizing?
+<Example code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/layouts/BoxExample.js">
+  <BoxExample />
+</Example>
 
-T-shirt sizing delivers a more unified experience for HPE customers by creating consistent user interfaces across pages and across applications.
+## Default component size
 
-There are also benefits of t-shirt sizing for designers and developers!
-
-T-shirt sizing creates a common language between designers and developers, as well as provides common, well-defined intervals which make designing and developing more efficient.
-Using pixel values, percentages, or other sizing methods to create layouts can result in applications that are less composable and less scalable. Instead, a container of content may just have a width of "medium", for example, and Grommet will take care of the rest.
-
-Finally, t-shirt sizes enable content to responsively scale more easily and consistently. For example, a layout's padding may be set to "large" on desktop screen and gracefully adjust to "small" on mobile devices with minimal effort.
-
-## The base unit
-
-In order to create the range of sizes and their corresponding pixel values, a base unit of `24px` is used as a scalar.
-
-Below is a snippet from Grommet's [`base.js`](https://github.com/grommet/grommet/blob/master/src/js/themes/base.js) theme file where the calculations and resulting pixel values for the t-shirt sizes driving the height/width for components such as [Box](/components/box) are defined. The `base.js` theme establishes many of the defaults leveraged across Grommet applications.
-
-```
-// base.js in Grommet
-
-xxsmall: `${baseSpacing * 2}px`, // 48px
-xsmall: `${baseSpacing * 4}px`, // 96px
-small: `${baseSpacing * 8}px`, // 192px
-medium: `${baseSpacing * 16}px`, // 384px
-large: `${baseSpacing * 32}px`, // 768px
-xlarge: `${baseSpacing * 48}px`, // 1152px
-xxlarge: `${baseSpacing * 64}px`, // 1536px
-full: '100%',
-```
-
-## T-shirt sizing for component dimensions
-
-One of the main ways t-shirt sizing is used is to control the width/height of a component. For some components, like [Box](/components/box), this can be controlled with the `width` and `height` props. For other components, like [Avatar](https://v2.grommet.io/avatar?theme=hpe), [DataTable](/components/datatable), or [Text](/foundation/typography#text), the dimensions are controlled by the `size` prop. And others, like [Grid](/components/grid), t-shirt sizes specify `row` and `column` dimensions.
-
-The [Grommet site](https://v2.grommet.io/) provides documentation on the props available to any given component. If you're unsure if a component supports `width`, `height`, or `size`, that would be the right place to check.
-
-Given the code snippet from the previous section and the explanation on t-shirt sizing for dimensions, if you were to implement the following code, you would have a Box with width of "384px" and height of "192px".
-
-```
-<Box width="medium" height="small" />
-// width = 384px, height = 192px
-```
-
-<Box width="large">
-  <Image src="/box-sizing.png" alt="Demonstration of t-shirt sizing on Box" />
-</Box>
-
-## T-shirt sizing for spacing and other styles
-
-In addition to overall component dimensions, t-shirt sizing can also be used to define spacing and other styling such as pad, gap, margin, and border.
-
-To create the pixel values for these styles, Grommet divides and/or multiplies the base unit of `24px` by various integers.
-
-Pad, gap, and margin are controlled by `edgeSize` and the corresponding pixel values also come from [`base.js`](https://github.com/grommet/grommet/blob/master/src/js/themes/base.js) in Grommet
-
-```
-// base.js in Grommet
-
-edgeSize: {
-    none: '0px',
-    hair: '1px', // for Chart
-    xxsmall: `${baseSpacing / 8}px`, // 3
-    xsmall: `${baseSpacing / 4}px`, // 6
-    small: `${baseSpacing / 2}px`, // 12
-    medium: `${baseSpacing}px`, // 24
-    large: `${baseSpacing * 2}px`, // 48
-    xlarge: `${baseSpacing * 4}px`, // 96
-
-}
-```
-
-Given this code snippet, if you were to implement the following code, you would have a Box with width of 384px, height of 192px, and pad of 48px.
-
-```
-<Box
-    width="medium"
-    height="small"
-    pad="large"
-/>
-```
-
-<Box width="medium" margin={{bottom: 'large'}}>
-  <Image
-    src="/edge-sizing.png"
-    alt="Demonstration of t-shirt sizing for pad on Box"
-  />
-</Box>
-
-Border sizing is controlled by `borderSize`.
-
-```
-// base.js in Grommet
-
-borderSize: {
-    xsmall: '1px',
-    small: '2px',
-    medium: `${baseSpacing / 6}px`, // 4
-    large: `${baseSpacing / 2}px`, // 12
-    xlarge: `${baseSpacing}px`, // 24
-}
-```
-
-Given this code snippet, if you were to implement the following code, you would have a Box with width of 384px, height of 192px, and a border with a width of 2px.
-
-```
-<Box 
-    border={{ color: 'border', size: 'small' }}
-    width="medium"
-    height="small" 
-/>
-```
-
-<Box width="medium" margin={{bottom: 'large'}}>
-  <Image
-    src="/border-sizing.png"
-    alt="Demonstration of t-shirt sizing for border on Box"
-  />
-</Box>
-
-### Composability and scaling between t-shirt sizes
-
-Sizes are intended to help give a UI a unified, harmonious experience. Therefore, there is a relationship between the pixel values that each size value maps to.
-
-A given size (e.g., medium) is one half of the next size up (e.g., large).
-
-```
-small (192px) + small (192px) = medium (384px)
-medium (384px) + medium (384px) = large (768px)
-```
-
-### Default `size` of "medium"
-
-For components that support a `size` prop, the default size is `medium`. This means that if you do not specify your own `size`, the component will render with the styling that corresponds with "medium" size.
+The default component size is `medium`. In Grommet, this means that if you do not specify `size`, the component will render with the styling that corresponds with "medium" size.
 
 Notice in this example of Button sizes how the "Default" button is the same size as the "Medium" button. In the code, you'll see:
 
@@ -167,3 +48,34 @@ Because `medium` is the default size, you can simplify your code by implementing
 >
   <ButtonSizingExample />
 </Example>
+
+## Grommet-specific theme structure
+
+In grommet-theme-hpe, t-shirt sizes are defined in the following structure:
+
+```js
+{
+  global: {
+    borderSize: {}, // supported border-width sizes
+    edgeSize: {}, // supported pad, margin, gap sizes
+    radius: {}, // suported border-radius sizes
+    size: {}, // supported width, height sizes
+    breakpoint: {
+      xsmall: {
+        borderSize: {}, // values for xsmall screens
+        edgeSize: {}, // values  for xsmall screens
+        radius: {}, // values for xsmall screens
+        size: {}, // values for xsmall screens
+      },
+      small: {
+        borderSize: {}, // values for small screens
+        edgeSize: {}, // values  for small screens
+        radius: {}, // values for small screens
+        size: {}, // values for small screens
+      }
+    }
+  },
+}
+```
+
+For Grommet, use [Grommet documentation](https://v2.grommet.io/) to determine which t-shirt size props (width, height, pad, size, etc.) are supported on each component.
