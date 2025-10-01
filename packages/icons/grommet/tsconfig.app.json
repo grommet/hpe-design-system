@@ -15,6 +15,11 @@
     "noEmit": true,
     "declaration": true,
     "jsx": "react-jsx",
+    
+    /* Mixed JS/TS handling */
+    "allowJs": true,
+    "checkJs": false,
+    "resolveJsonModule": true,
 
     /* Linting */
     "strict": true,

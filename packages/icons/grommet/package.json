@@ -5,9 +5,10 @@
   "license": "Apache-2.0",
   "repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/icons/grommet",
   "type": "module",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/hpe-icons.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/hpe-icons.d.ts",
       "import": "./dist/hpe-icons.js",
       "require": "./dist/hpe-icons.cjs"
     }
@@ -21,7 +22,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && npm run copy-types",
+    "copy-types": "cp src/js/icons/index.d.ts dist/hpe-icons.d.ts",
     "lint": "eslint .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -48,7 +50,6 @@
     "storybook": "^8.6.14",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
-    "vite": "^7.1.2",
-    "vite-plugin-dts": "^4.5.4"
+    "vite": "^7.1.2"
   }
 }

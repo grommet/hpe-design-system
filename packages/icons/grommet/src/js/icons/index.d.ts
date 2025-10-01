@@ -1,12 +1,14 @@
-import * as React from "react";
+import * as React from 'react';
 
 export interface IconProps {
   a11yTitle?: string;
   color?: string;
-  size?: "small" | "medium" | "large" | "xlarge" | string;
+  size?: 'small' | 'medium' | 'large' | 'xlarge' | string;
 }
 
-export type Icon = React.ComponentType<IconProps & JSX.IntrinsicElements['svg']>;
+export type Icon = React.ComponentType<
+  IconProps & React.SVGProps<SVGSVGElement>
+>;
 
 export declare const AIGenFill: Icon;
 export declare const AIGen: Icon;
