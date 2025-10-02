@@ -1,6 +1,0 @@
-onlyBuiltDependencies:
-  - core-js
-  - core-js-pure
-  - esbuild
-  - pre-commit
-  - spawn-sync
