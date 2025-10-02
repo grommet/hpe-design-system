@@ -7,9 +7,118 @@ export const aries = deepMerge(hpe, {
   // To be stripped out once theme changes are made in grommet-theme-hpe.
   // keeping file for use as playground for future theme adjusments that need
   // to be quickly tested
+  tip: {
+    content: {
+      background: 'background-floating',
+      border: { color: 'border-weak' },
+      margin: '5xsmall',
+      elevation: 'small',
+      pad: { vertical: 'none', horizontal: 'xsmall' },
+    },
+  },
+  pageHeader: {
+    pad: {
+      top: 'xlarge',
+      bottom: 'medium',
+    },
+    responsive: {
+      actions: {
+        // any box props
+        pad: {
+          top: 'xsmall',
+        },
+      },
+      breakpoints: ['xsmall', 'small'],
+    },
+    // title: {
+    //   size: undefined,
+    // },
+    subtitle: { size: 'large' },
+    size: {
+      small: {
+        pad: {
+          top: 'medium',
+          bottom: 'xsmall',
+        },
+        subtitle: {
+          size: 'small',
+        },
+        title: {
+          size: 'small',
+        },
+      },
+      // medium: {
+      //   // pad: undefined,
+      //   // subtitle: {},
+      //   // title: {},
+      // },
+      large: {
+        pad: {
+          top: '3xlarge',
+          bottom: 'xlarge',
+        },
+        subtitle: {
+          size: 'large',
+        },
+        title: {
+          size: 'large',
+        },
+      },
+    },
+    xsmall: {
+      areas: [
+        ['parent', 'parent'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['xsmall', 'flex'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: '3xsmall', column: 'medium' },
+    },
+    small: {
+      areas: [
+        ['parent', 'parent'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['xsmall', 'flex'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: '3xsmall', column: 'xlarge' },
+    },
+    medium: {
+      areas: [
+        ['parent', 'parent'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['medium', 'flex'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: '3xsmall', column: 'medium' },
+    },
+    large: {
+      areas: [
+        ['parent', 'parent'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['medium', 'flex'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: '3xsmall', column: 'xlarge' },
+    },
+    xlarge: {
+      areas: [
+        ['parent', 'parent'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['medium', 'xlarge'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: '3xsmall', column: 'xlarge' },
+    },
+  },
   buttonGroup: {
     // any Box props
-    gap: 'small',
+    gap: 'xsmall',
   },
   feedback: {
     closeButton: {
@@ -23,7 +132,7 @@ export const aries = deepMerge(hpe, {
       align: 'start',
       direction: 'row',
       justify: 'between',
-      gap: 'xsmall',
+      gap: '3xsmall',
     },
     heading: {
       level: 2,
@@ -37,7 +146,7 @@ export const aries = deepMerge(hpe, {
       },
       direction: 'row',
       justify: 'start',
-      gap: 'xsmall',
+      gap: '3xsmall',
     },
     success: {
       color: 'text-strong',
@@ -49,6 +158,115 @@ export const aries = deepMerge(hpe, {
 
 export const ariesPop = deepMerge(aries, {
   ...hpePop,
+  pageHeader: {
+    pad: {
+      top: 'xlarge',
+      bottom: 'medium',
+    },
+    responsive: {
+      actions: {
+        // any box props
+        pad: {
+          top: 'xsmall',
+        },
+      },
+      breakpoints: ['xsmall', 'small'],
+    },
+    // title: {
+    //   size: undefined,
+    // },
+    subtitle: { size: 'large' },
+    size: {
+      small: {
+        pad: {
+          top: 'medium',
+          bottom: 'xsmall',
+        },
+        subtitle: {
+          size: 'small',
+        },
+        title: {
+          size: 'small',
+        },
+      },
+      // medium: {
+      //   // pad: undefined,
+      //   // subtitle: {},
+      //   // title: {},
+      // },
+      large: {
+        pad: {
+          top: '3xlarge',
+          bottom: 'xlarge',
+        },
+        subtitle: {
+          size: 'large',
+        },
+        title: {
+          size: 'large',
+        },
+      },
+    },
+    xsmall: {
+      areas: [
+        ['parent', 'parent'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['xsmall', 'flex'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: '3xsmall', column: 'medium' },
+    },
+    small: {
+      areas: [
+        ['parent', 'parent'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['xsmall', 'flex'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: '3xsmall', column: 'xlarge' },
+    },
+    medium: {
+      areas: [
+        ['parent', 'parent'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['medium', 'flex'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: '3xsmall', column: 'medium' },
+    },
+    large: {
+      areas: [
+        ['parent', 'parent'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['medium', 'flex'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: '3xsmall', column: 'xlarge' },
+    },
+    xlarge: {
+      areas: [
+        ['parent', 'parent'],
+        ['title', 'actions'],
+        ['subtitle', 'actions'],
+      ],
+      columns: [['medium', 'xlarge'], 'auto'],
+      rows: ['auto', 'auto', 'auto'],
+      gap: { row: '3xsmall', column: 'xlarge' },
+    },
+  },
+  tip: {
+    content: {
+      background: 'background-floating',
+      border: { color: 'border-weak' },
+      margin: '5xsmall',
+      elevation: 'small',
+      pad: { vertical: 'none', horizontal: 'xsmall' },
+    },
+  },
   anchor: {
     // rely on base anchor styling to meet color contrast on background-back
     size: {

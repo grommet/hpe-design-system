@@ -20,10 +20,10 @@ import { ReverseAnchor } from '../../templates';
 const pageHeaderSiteTheme = {
   pageHeader: {
     medium: {
-      columns: [['small', 'flex'], 'auto'],
+      columns: [['xsmall', 'flex'], 'auto'],
     },
     large: {
-      columns: [['small', 'flex'], 'auto'],
+      columns: [['xsmall', 'flex'], 'auto'],
     },
     xlarge: {
       columns: [['medium', 'flex'], 'auto'],
