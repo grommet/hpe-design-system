@@ -3125,10 +3125,50 @@ const newColors = {
   'graph-6': 'graph-1',
 };
 
+const remapV7ToV5Sizes = {
+  edgeSize: {
+    '5xsmall': '3px',
+    '3xsmall': '6px',
+    xsmall: '12px',
+    xlarge: '48px',
+    '3xlarge': '96px',
+  },
+  radius: {
+    xsmall: '6px',
+    small: '12px',
+    medium: '12px',
+    xlarge: '24px',
+  },
+  size: {
+    '5xsmall': '48px',
+    '3xsmall': '96px',
+    xsmall: '192px',
+    xlarge: '768px',
+    '3xlarge': '1536px',
+  },
+};
 const v5 = deepMerge(hpeV5, {
   global: {
     colors: {
       ...newColors,
+    },
+    ...remapV7ToV5Sizes,
+  },
+
+  // remap v7 t-shirt sizes for specific components
+  // for v5 t-shirt sizes
+  anchor: {
+    gap: '6px',
+  },
+  notification: {
+    container: {
+      round: 'xsmall',
+      pad: { vertical: '3xsmall' },
+    },
+    message: {
+      text: {
+        margin: { right: '3xsmall' },
+      },
     },
   },
 });
