@@ -8,8 +8,8 @@ T-shirt sizing is the way that Grommet leverages familiar clothing sizes of "sma
 
 T-shirt sizing controls two aspects of a user interface:
 
-- the [height and width](/foundation/tshirt-sizing#t-shirt-sizing-for-component-dimensions) of layout components
-- the [spacing](/foundation/tshirt-sizing#t-shirt-sizing-for-spacing-and-other-styles) within and around components (e.g. gap, margin, padding, border, etc.)
+- the [height and width](/foundation/tshirt-sizing#t-shirt-sizing-for-component-dimensions) of layout components.
+- the [spacing](/foundation/tshirt-sizing#t-shirt-sizing-for-spacing-and-other-styles) within and around components (e.g. gap, margin, padding, border, etc.).
 
 When designing and developing with the HPE Design System, you should always use t-shirt sizes. If you find yourself specifying custom pixel values, this should be a warning signaling either:
 
@@ -30,41 +30,20 @@ Using pixel values, percentages, or other sizing methods to create layouts can r
 
 Finally, t-shirt sizes enable content to responsively scale more easily and consistently. For example, a layout's padding may be set to "large" on desktop screen and gracefully adjust to "small" on mobile devices with minimal effort.
 
-## The base unit
-
-In order to create the range of sizes and their corresponding pixel values, a base unit of `24px` is used as a scalar.
-
-### Original scale (hpe theme v6 and below)
-
-Below is the original sizing scale from Grommet's [`base.js`](https://github.com/grommet/grommet/blob/master/src/js/themes/base.js) theme file that was used in HPE theme v6 and earlier versions to drive the height/width for components such as [Box](https://design-system.hpe.design/components/box). The `base.js` theme establishes many of the defaults leveraged across Grommet applications.
-
-```
-// base.js in Grommet
-
-xxsmall: `${baseSpacing * 2}px`, // 48px
-xsmall: `${baseSpacing * 4}px`, // 96px
-small: `${baseSpacing * 8}px`, // 192px
-medium: `${baseSpacing * 16}px`, // 384px
-large: `${baseSpacing * 32}px`, // 768px
-xlarge: `${baseSpacing * 48}px`, // 1152px
-xxlarge: `${baseSpacing * 64}px`, // 1536px
-full: '100%',
-```
-
-### The dual doubling scale (hpe theme v7 and above)
+## The dual doubling scale (HPE theme v7 and above)
 
 With the introduction of HPE theme v7, the t-shirt sizing scale has been significantly expanded using a "Dual Doubling" approach to provide more granular sizing options. This new scale addresses gaps in the previous scale and offers greater design flexibility.
 
 **Key highlights of the Dual Doubling scale:**
 
 - **Introduces in-between steps** which address gaps in the current scale, making desired design layouts easier to execute.
-- **Has parity with existing scale** which means that all designs may be recreated with the new scale without any layout shifts
-- **New `medium` = current `medium`**; however, rest of t-shirt sizes will need to be mapped to achieve design parity
-- **Every t-shirt size may be composed** by smaller t-shirt sizes and/or divided into halves, thirds, quarters, ... 12ths, etc. (e.g. `small` + `small` = `large`, or `xsmall` + `xsmall` + `xsmall` = `large`, or even `medium` + `xsmall` = `large`)
-- **Scale consists of a primary scale** based on the doubling of a 24px base unit (same as v6) + a supplementary scale doubling a 16px base unit
+- **Has parity with existing scale** which means that all designs may be recreated with the new scale without any layout shifts except for example container `xlarge` or 1152px doesn't have an equivalent size on the new scale. We recommend using `xxlarge` or 1024px instead on the new scale.
+- **New `medium` = v6 and below `medium`**; however, rest of t-shirt sizes will need to be mapped to achieve design parity.
+- **Every t-shirt size may be composed** by smaller t-shirt sizes and/or divided into halves, thirds, quarters, ... 12ths, etc. (e.g. `small` + `small` = `large`, or `xsmall` + `xsmall` + `xsmall` = `large`, or even `medium` + `xsmall` = `large`).
+- **Scale consists of a primary scale** based on the doubling of a 24px base unit (same as v6 and below) plus a supplementary scale doubling a 16px base unit.
 
 **Results in the following pixel progression:**
-1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536, 2048
+1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536, 2048.
 
 Below are the sizing values from the [HPE theme v7](https://github.com/grommet/grommet-theme-hpe/blob/master/CHANGELOG.md#700) and above which implements this expanded scale:
 
@@ -102,23 +81,42 @@ Below are the sizing values from the [HPE theme v7](https://github.com/grommet/g
 | --               | `xxlarge` | 64px      | New intermediate size   |
 | `xlarge`         | `3xlarge` | 96px      | Renamed for consistency |
 
+## Original scale (HPE theme v6 and below)
+
+In order to create the range of sizes and their corresponding pixel values, a base unit of 24px is used as a scalar.
+
+Below is the original sizing scale from Grommet's [`base.js`](https://github.com/grommet/grommet/blob/master/src/js/themes/base.js) theme file that was used in HPE theme v6 and below versions to drive the height/width for components such as [Box](https://design-system.hpe.design/components/box). The `base.js` theme establishes many of the defaults leveraged across Grommet applications.
+
+```
+// base.js in Grommet
+
+xxsmall: `${baseSpacing * 2}px`, // 48px
+xsmall: `${baseSpacing * 4}px`, // 96px
+small: `${baseSpacing * 8}px`, // 192px
+medium: `${baseSpacing * 16}px`, // 384px
+large: `${baseSpacing * 32}px`, // 768px
+xlarge: `${baseSpacing * 48}px`, // 1152px
+xxlarge: `${baseSpacing * 64}px`, // 1536px
+full: '100%',
+```
+
 ## T-shirt sizing for component dimensions
 
 One of the main ways t-shirt sizing is used is to control the width/height of a component. For some components, like [Box](/components/box), this can be controlled with the `width` and `height` props. For other components, like [Avatar](https://v2.grommet.io/avatar?theme=hpe), [DataTable](/components/datatable), or [Text](/foundation/typography#text), the dimensions are controlled by the `size` prop. And others, like [Grid](/components/grid), t-shirt sizes specify `row` and `column` dimensions.
 
 The [Grommet site](https://v2.grommet.io/) provides documentation on the props available to any given component. If you're unsure if a component supports `width`, `height`, or `size`, that would be the right place to check.
 
-Given the code snippet from the previous section and the explanation on HPE theme v7 t-shirt sizing for dimensions, if you were to implement the following code, you would have a Box (first) with width of "384px" and height of "192px".
+Given the [Container sizes comparison](#container-sizes-comparison-width-height-size-columns-rows) table, if you were to implement the following code, you would have a first Box with width of "384px" and height of "192px", second Box with width of "384px" and height of "384px" and a third Box with width of "384px" and height of "768px"
 
 ```
 <Box width="medium" height="xsmall" />
 // width = 384px, height = 192px
 
 <Box width="medium" height="medium" />
-// width = 384px, height = 192px
+// width = 384px, height = 384px
 
 <Box width="medium" height="xlarge" />
-// width = 384px, height = 192px
+// width = 384px, height = 768px
 ```
 
 <Box width="xlarge">
@@ -238,46 +236,12 @@ The beauty of the Dual Doubling scale is its mathematical precision, allowing si
 
 As shown in the composition above:
 
-- Multiple smaller sizes can combine to create larger sizes
-- Each size maintains mathematical precision within the Dual Doubling scale
-- For example: `xsmall` (192px) + `xsmall` (192px) = `medium` (384px)
-- Or: `small` (256px) + `xxsmall` (128px) = `medium` (384px)
-- This mathematical relationship enables predictable scaling and consistent proportions
-- Designers and developers can confidently mix and match sizes knowing they will harmonize
-
-## Migrating to HPE Theme v7
-
-The transition to v7 brings expanded sizing options but requires mapping existing sizes to new equivalents. The key principle is that `medium` remains unchanged, but other sizes need to be remapped:
-
-### Size mapping reference
-
-**For spacing properties** (pad, margin, gap, thickness):
-
-- `xxsmall` → `5xsmall`
-- `xsmall` → `3xsmall`
-- `small` → `xsmall`
-- `medium` → `medium` (unchanged)
-- `large` → `xlarge`
-- `xlarge` → `3xlarge`
-
-**For container properties** (width, height, size, columns, rows):
-
-- `xxsmall` → `5xsmall`
-- `xsmall` → `3xsmall`
-- `small` → `xsmall`
-- `medium` → `medium` (unchanged)
-- `large` → `xlarge`
-- `xlarge` → `xxlarge`
-- `xxlarge` → `3xlarge`
-
-**For radius properties** (round):
-
-- `small` → `medium`
-- `medium` → `xlarge`
-- `large` → `xxlarge`
-- `xlarge` → `xxlarge`
-
-For automated migration assistance, use the [HPE Design System codemod](https://github.com/grommet/hpe-design-system/tree/master/packages/codemods) which handles the majority of migration scenarios.
+- Multiple smaller sizes can combine to create larger sizes.
+- Each size maintains mathematical precision within the Dual Doubling scale.
+- For example: `xsmall` (192px) + `xsmall` (192px) = `medium` (384px).
+- Or: `small` (256px) + `xxsmall` (128px) = `medium` (384px).
+- This mathematical relationship enables predictable scaling and consistent proportions.
+- Designers and developers can confidently mix and match sizes knowing they will harmonize.
 
 ### Default `size` of "medium"
 
