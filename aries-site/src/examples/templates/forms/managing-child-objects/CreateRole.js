@@ -121,7 +121,7 @@ export const CreateRole = () => {
           >
             <TextInput id="role-name" name="role-name" />
           </FormField>
-          <Box gap="small">
+          <Box gap="xsmall">
             <Box>
               <Heading level={3} margin="none">
                 Permissions

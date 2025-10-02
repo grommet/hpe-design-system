@@ -38,8 +38,8 @@ export const CallToActionAnatomy = () => (
   <Stack interactiveChild="first">
     <Grid
       align="center"
-      columns={['xsmall', 'medium']}
-      rows={['small', '24px', '24px', '48px', '24px', '100px', '24px', '40px']}
+      columns={['3xsmall', 'medium']}
+      rows={['xsmall', '24px', '24px', '48px', '24px', '100px', '24px', '40px']}
       areas={[
         ['cta-annotation-4', 'card-example'],
         ['cta-empty', 'card-example'],
@@ -78,11 +78,11 @@ const DashedBox = ({ ...rest }) => (
 
 const CardExample = ({ ...rest }) => (
   <Card width="medium" onClick={() => {}} {...rest}>
-    <Box id="cta-image" height="small">
+    <Box id="cta-image" height="xsmall">
       <Image alt={event.image.alt} {...event.image} />
     </Box>
     <CardBody align="start" gap="medium">
-      <Box gap="xsmall">
+      <Box gap="3xsmall">
         <DashedBox id="cta-pretitle">
           <Text size="small">{event.pretitle}</Text>
         </DashedBox>

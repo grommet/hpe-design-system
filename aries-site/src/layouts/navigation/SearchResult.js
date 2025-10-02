@@ -24,10 +24,10 @@ export const SearchResult = ({ query, result }) => {
   }
 
   return (
-    <Box gap="xsmall" pad={{ vertical: 'xxsmall' }} width="large">
+    <Box gap="3xsmall" pad={{ vertical: '5xsmall' }} width="xlarge">
       <>
         {parent && (
-          <Box align="center" direction="row" gap="xsmall">
+          <Box align="center" direction="row" gap="3xsmall">
             {parent.icon && parent.icon('8px', parent.color)}
             <Text size="small">
               {result.name === result.title ? parent.name : result.name}

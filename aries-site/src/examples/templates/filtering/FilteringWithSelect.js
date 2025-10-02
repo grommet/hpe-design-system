@@ -77,7 +77,7 @@ const Results = () => {
             key={index}
             flex={false}
           >
-            <Box direction="row" gap="small" align="center">
+            <Box direction="row" gap="xsmall" align="center">
               {!['xsmall', 'small'].includes(breakpoint) && (
                 <Text>{item.status}</Text>
               )}

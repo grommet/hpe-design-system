@@ -24,7 +24,7 @@ export const LayerTypes = () => {
   const breakpoint = useContext(ResponsiveContext);
 
   return (
-    <Grid columns={columns[breakpoint]} gap="large" pad={{ top: 'medium' }}>
+    <Grid columns={columns[breakpoint]} gap="xlarge" pad={{ top: 'medium' }}>
       <Type title="Center" href="/components/layer/center-layer">
         <Paragraph margin="none">
           Use for concise, task-flow oriented or informational content that
@@ -59,7 +59,7 @@ export const LayerTypes = () => {
 
 const Type = ({ children, href, preview, title }) => (
   <Box>
-    <Box gap="xsmall">
+    <Box gap="3xsmall">
       <Heading level={3} margin="none">
         {title}
       </Heading>
@@ -68,7 +68,7 @@ const Type = ({ children, href, preview, title }) => (
         <Button
           a11yTitle={`Read ${title.toLowerCase()} guidance.`}
           alignSelf="start"
-          margin={{ vertical: 'small' }}
+          margin={{ vertical: 'xsmall' }}
           label="Read guidance"
           icon={<LinkNext aria-hidden="true" />}
           reverse

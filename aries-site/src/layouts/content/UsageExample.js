@@ -9,16 +9,16 @@ export const UsageExample = ({
   label,
   themeMode,
   pad = {
-    horizontal: 'large',
-    vertical: 'large',
-    small: { horizontal: 'xlarge', vertical: 'xlarge' },
+    horizontal: 'xlarge',
+    vertical: 'xlarge',
+    small: { horizontal: '3xlarge', vertical: '3xlarge' },
   },
   ...rest
 }) => {
   const size = React.useContext(ResponsiveContext);
 
   return (
-    <Box gap="xsmall" margin={{ vertical: 'xsmall' }}>
+    <Box gap="3xsmall" margin={{ vertical: '3xsmall' }}>
       <Text weight={400} size="small">
         {label}
       </Text>

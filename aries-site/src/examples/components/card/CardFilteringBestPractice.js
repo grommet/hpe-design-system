@@ -20,11 +20,11 @@ import { FilterServers } from '../../templates/filtering';
 
 export const CardFilteringBestPractice = ({ bestPractice = true }) => (
   <Page>
-    <PageContent pad={bestPractice ? { bottom: 'large' } : undefined}>
+    <PageContent pad={bestPractice ? { bottom: 'xlarge' } : undefined}>
       <PageHeader title="Servers" />
       <Box gap="medium">
         <FilterBar bestPractice={bestPractice} />
-        <FilterServers height="small" />
+        <FilterServers height="xsmall" />
       </Box>
     </PageContent>
   </Page>
@@ -59,7 +59,7 @@ const statuses = [
 
 const FilterBar = ({ bestPractice }) => {
   const content = (
-    <Box direction="row" gap="small">
+    <Box direction="row" gap="xsmall">
       {statuses.map((status, index) => (
         <Box
           round="xsmall"
@@ -72,11 +72,11 @@ const FilterBar = ({ bestPractice }) => {
             <Box
               align="center"
               direction="row"
-              gap="small"
-              pad={{ horizontal: 'medium', vertical: 'small' }}
+              gap="xsmall"
+              pad={{ horizontal: 'medium', vertical: 'xsmall' }}
             >
               <Text size="3xl">{status.count}</Text>
-              <Box direction="row" align="center" gap="xsmall">
+              <Box direction="row" align="center" gap="3xsmall">
                 {status.icon}
                 <Text>{status.name}</Text>
               </Box>

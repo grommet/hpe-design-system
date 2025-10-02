@@ -27,8 +27,8 @@ export const CustomizeExample = () => {
       <Header
         direction="column"
         align="start"
-        gap="xxsmall"
-        pad={{ horizontal: 'xxsmall' }}
+        gap="5xsmall"
+        pad={{ horizontal: '5xsmall' }}
       >
         {/* Use semantically correct heading level and adjust size as 
         needed. In this instance, this example is presented within an 
@@ -42,7 +42,7 @@ export const CustomizeExample = () => {
       </Header>
       <Box
         // Padding used to prevent focus from being cutoff
-        pad={{ horizontal: 'xxsmall' }}
+        pad={{ horizontal: '5xsmall' }}
       >
         <Form
           validate="blur"
@@ -94,7 +94,7 @@ export const CustomizeExample = () => {
           </FormField>
           <Box
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-            margin={{ top: 'medium', bottom: 'small' }}
+            margin={{ top: 'medium', bottom: 'xsmall' }}
           >
             <Button label="Continue" primary type="submit" />
           </Box>

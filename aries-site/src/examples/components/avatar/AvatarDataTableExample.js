@@ -9,7 +9,7 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
   const data = users.users;
 
   return (
-    <Box height={{ max: 'large' }} overflow="auto">
+    <Box height={{ max: 'xlarge' }} overflow="auto">
       <DataTable
         data={data}
         primaryKey="name"
@@ -20,7 +20,7 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
             header: 'Name',
             render: datum =>
               bestPractice ? (
-                <Box alignContent="center" gap="small" direction="row">
+                <Box alignContent="center" gap="xsmall" direction="row">
                   <Avatar
                     a11yTitle={datum.avatar.name}
                     background="purple!"
@@ -32,7 +32,7 @@ export const AvatarDataTableExample = ({ bestPractice = true }) => {
                   <Text>{datum.name}</Text>
                 </Box>
               ) : (
-                <Box gap="small" alignContent="center" direction="row">
+                <Box gap="xsmall" alignContent="center" direction="row">
                   <Avatar src={datum.avatar.src} size="small" />
                   <Text>{datum.name}</Text>
                 </Box>

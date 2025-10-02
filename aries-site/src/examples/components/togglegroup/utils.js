@@ -93,7 +93,7 @@ export const columns = [
         );
 
       return (
-        <Box direction="row" align="center" gap="xsmall">
+        <Box direction="row" align="center" gap="3xsmall">
           {icon}
           <Text>{datum.success}</Text>
         </Box>
@@ -134,6 +134,6 @@ export const columns = [
       }
       return '--';
     },
-    size: 'small',
+    size: 'xsmall',
   },
 ];

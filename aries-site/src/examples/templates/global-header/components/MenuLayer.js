@@ -20,7 +20,7 @@ export const MenuLayer = () => {
 
   const pad = {
     horizontal: 'medium',
-    vertical: 'small',
+    vertical: 'xsmall',
   };
   return (
     <>
@@ -68,15 +68,15 @@ const SidebarHeader = () => (
   <Box
     align="start"
     border={{ color: 'border-weak', side: 'bottom' }}
-    pad={{ top: 'small', bottom: 'medium' }}
+    pad={{ top: 'xsmall', bottom: 'medium' }}
     gap="medium"
     flex={false}
   >
-    <Box gap="xsmall">
+    <Box gap="3xsmall">
       <Avatar
         background="status-unknown"
         flex={false}
-        margin={{ bottom: 'xsmall' }}
+        margin={{ bottom: '3xsmall' }}
       >
         <Text size="large">A</Text>
       </Avatar>
@@ -107,14 +107,14 @@ NavButton.propTypes = {
 };
 
 const SidebarFooter = () => (
-  <Footer pad={{ bottom: 'small' }}>
+  <Footer pad={{ bottom: 'xsmall' }}>
     <Box fill="horizontal" gap="medium">
-      <Box border={{ side: 'bottom' }} pad={{ bottom: 'xsmall' }}>
+      <Box border={{ side: 'bottom' }} pad={{ bottom: '3xsmall' }}>
         <Text size="xsmall">Last Visited</Text>
       </Box>
       <Button>
-        <Box direction="row" gap="small">
-          <Box background="orange!" pad="small" round="small">
+        <Box direction="row" gap="xsmall">
+          <Box background="orange!" pad="xsmall" round="medium">
             <Aruba color="background" />
           </Box>
           <Box>

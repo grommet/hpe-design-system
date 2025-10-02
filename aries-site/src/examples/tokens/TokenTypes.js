@@ -4,7 +4,7 @@ import { Box, Grid, Heading, Paragraph, Text } from 'grommet';
 
 const TypePreview = ({ title, description, children }) => (
   <Box gap="medium">
-    <Box gap="xsmall">
+    <Box gap="3xsmall">
       <Heading level={3} margin="none">
         {title}
       </Heading>
@@ -14,7 +14,7 @@ const TypePreview = ({ title, description, children }) => (
       background="background-front"
       align="center"
       justify="center"
-      round="medium"
+      round="xlarge"
       pad="medium"
     >
       {children}
@@ -29,7 +29,7 @@ TypePreview.propTypes = {
 };
 
 const TokenPreview = ({ children, token }) => (
-  <Box align="center" gap="small">
+  <Box align="center" gap="xsmall">
     {children}
     <Text weight={500} color="text-strong">
       {token}
@@ -44,7 +44,7 @@ TokenPreview.propTypes = {
 
 export const TokenTypes = () => {
   return (
-    <Grid columns="medium" margin={{ top: 'medium' }} gap="large">
+    <Grid columns="medium" margin={{ top: 'medium' }} gap="xlarge">
       <TypePreview
         title="Typography"
         description="Apply to typography with Typography styles"
@@ -58,10 +58,10 @@ export const TokenTypes = () => {
       <TypePreview title="Color" description="Use on fills and strokes">
         <TokenPreview token="color.background.primary.default">
           <Box
-            height="xsmall"
-            width="xsmall"
+            height="3xsmall"
+            width="3xsmall"
             flex={false}
-            round="small"
+            round="medium"
             background="brand"
           />
         </TokenPreview>
@@ -73,22 +73,22 @@ export const TokenTypes = () => {
         <TokenPreview token="spacing.medium">
           <Box direction="row">
             <Box
-              width="xsmall"
-              height="xsmall"
+              width="3xsmall"
+              height="3xsmall"
               flex={false}
-              round="small"
+              round="medium"
               border
             />
             <Box
-              pad={{ left: 'medium', vertical: 'large' }}
+              pad={{ left: 'medium', vertical: 'xlarge' }}
               flex={false}
               background={{ color: 'brand', opacity: 'medium' }}
             />
             <Box
-              height="xsmall"
-              width="xsmall"
+              height="3xsmall"
+              width="3xsmall"
               flex={false}
-              round="small"
+              round="medium"
               border
             />
           </Box>
@@ -100,9 +100,9 @@ export const TokenTypes = () => {
       >
         <TokenPreview token="size.content.xsmall">
           <Box
-            width="xsmall"
-            height="xsmall"
-            round="small"
+            width="3xsmall"
+            height="3xsmall"
+            round="medium"
             flex={false}
             background={{ color: 'brand', opacity: 'medium' }}
             border
@@ -115,9 +115,9 @@ export const TokenTypes = () => {
       >
         <TokenPreview token="radius.small">
           <Box
-            width="xsmall"
-            height="xsmall"
-            round="small"
+            width="3xsmall"
+            height="3xsmall"
+            round="medium"
             flex={false}
             border
           />
@@ -128,17 +128,17 @@ export const TokenTypes = () => {
         description="Apply to frames and shapes with Effect styles"
       >
         <TokenPreview token="elevation.medium">
-          <Box pad="large" round="small" flex={false} elevation="medium" />
+          <Box pad="xlarge" round="medium" flex={false} elevation="medium" />
         </TokenPreview>
       </TypePreview>
       <TypePreview title="Border width" description="Apply to Stroke styles">
         <TokenPreview token="borderWidth.small">
           <Box
-            height="xsmall"
-            width="xsmall"
+            height="3xsmall"
+            width="3xsmall"
             flex={false}
-            round="small"
-            border={{ width: 'small', color: 'brand' }}
+            round="medium"
+            border={{ width: 'xsmall', color: 'brand' }}
           />
         </TokenPreview>
       </TypePreview>

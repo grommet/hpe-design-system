@@ -19,7 +19,7 @@ export const EmptyState = ({
   return (
     <Box gap="medium" align={align} flex={false}>
       {icon}
-      <Box align={align} gap="xsmall">
+      <Box align={align} gap="3xsmall">
         <Heading margin="none" level={level}>
           {title}
         </Heading>
@@ -27,7 +27,6 @@ export const EmptyState = ({
           {description}
         </Paragraph>
       </Box>
-
       {actions}
     </Box>
   );

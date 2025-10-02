@@ -12,7 +12,7 @@ export const UpdateNotification = ({ name }) => {
       <Notification
         status="info"
         margin={{ bottom: 'medium' }}
-        width="large"
+        width="xlarge"
         message={
           contentHistory[name]?.changeKind === 'Update' ? (
             <Text>

@@ -6,7 +6,7 @@ import { LayerHeader } from 'aries-core';
 export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
   <Box
     background="background-floating"
-    round="small"
+    round="medium"
     elevation="large"
     pad="medium"
     gap="medium"
@@ -19,7 +19,7 @@ export const DoubleConfirmationBestPractice = ({ bestPractice = true }) => (
       }
       subtitle="Your changes will not be applied."
     />
-    <Box direction="row" gap="small" justify="end">
+    <Box direction="row" gap="xsmall" justify="end">
       <Button label="Cancel" />
       <Button label={bestPractice !== 'badLabel' ? 'Discard' : 'Yes'} primary />
     </Box>

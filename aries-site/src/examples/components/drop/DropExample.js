@@ -26,7 +26,7 @@ export const DropExample = () => {
           target={targetRef.current}
           trapFocus={false}
         >
-          <Box pad="large">Drop Contents</Box>
+          <Box pad="xlarge">Drop Contents</Box>
         </Drop>
       )}
     </>

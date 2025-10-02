@@ -12,7 +12,7 @@ export const DrillDownDataTableExample = () => (
   <NameValueList
     pairProps={{ direction: 'column' }}
     layout="grid"
-    valueProps={{ width: 'small' }}
+    valueProps={{ width: 'xsmall' }}
   >
     {Object.entries(cardData).map(([name, value]) => (
       <NameValuePair key={name} name={name}>

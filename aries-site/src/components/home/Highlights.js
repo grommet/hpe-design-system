@@ -23,14 +23,14 @@ const HighlightsLayout = () => {
   return (
     <Grid
       columns={!['xsmall', 'small'].includes(size) ? 'medium' : '100%'}
-      gap="large"
+      gap="xlarge"
     >
       {highlights.map(({ name, summary, image }) => {
         const href = nameToPath(name);
         return (
           <ContentPreviewCard key={name} href={href} pad="medium">
             <Box direction="row" align="center" gap="medium">
-              <Box width="small" round="xsmall">
+              <Box width="xsmall" round="xsmall">
                 {image && (
                   <Image
                     src={
@@ -43,7 +43,7 @@ const HighlightsLayout = () => {
                   />
                 )}
               </Box>
-              <Box gap="xsmall">
+              <Box gap="3xsmall">
                 <Heading level={3} margin="none">
                   {name}
                 </Heading>
@@ -59,12 +59,12 @@ const HighlightsLayout = () => {
 
 export const Highlights = ({ ...rest }) => (
   <PageContent background={{ fill: 'horizontal', color: 'background-front' }}>
-    <Box fill gap="medium" pad={{ vertical: 'large' }} {...rest}>
-      <Box justify="center" align="center" gap="large">
+    <Box fill gap="medium" pad={{ vertical: 'xlarge' }} {...rest}>
+      <Box justify="center" align="center" gap="xlarge">
         <Heading margin="none" level={2} size="large">
           Highlights
         </Heading>
-        <Box width="large" pad={{ bottom: 'medium' }}>
+        <Box width="xlarge" pad={{ bottom: 'medium' }}>
           <Paragraph size="xlarge" fill textAlign="center" margin="none">
             The HPE Design System team is committed to conducting thorough
             research so you don't have to think about it. Just find what you

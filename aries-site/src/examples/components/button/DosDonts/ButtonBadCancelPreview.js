@@ -3,12 +3,12 @@ import { Box, Button, Heading, Header, Paragraph } from 'grommet';
 import { ButtonGroup } from 'aries-core';
 
 export const ButtonBadCancelPreview = () => (
-  <Box width="large" gap="medium" pad="small">
+  <Box width="xlarge" gap="medium" pad="xsmall">
     <Header
       direction="column"
       align="start"
-      gap="xsmall"
-      pad={{ horizontal: 'xxsmall' }}
+      gap="3xsmall"
+      pad={{ horizontal: '5xsmall' }}
     >
       <Heading level={2} margin="none">
         Delete item?

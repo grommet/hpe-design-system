@@ -35,13 +35,15 @@ export const Container = ({
       direction="row"
       height={height}
       justify="center"
-      margin={showResponsiveControls ? { top: 'xsmall' } : undefined}
-      pad={pad || (template ? { horizontal: 'large', top: 'large' } : 'large')}
+      margin={showResponsiveControls ? { top: '3xsmall' } : undefined}
+      pad={
+        pad || (template ? { horizontal: 'xlarge', top: 'xlarge' } : 'xlarge')
+      }
       round={
         !horizontalLayout &&
         (designer || docs || figma || guidance || screenContainer || template)
-          ? { corner: 'top', size: 'small' }
-          : 'small'
+          ? { corner: 'top', size: 'medium' }
+          : 'medium'
       }
       {...rest}
     />

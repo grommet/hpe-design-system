@@ -162,7 +162,7 @@ const DecisionTree = () => {
     small: 'medium',
     medium: 'medium',
     large: 'medium',
-    xlarge: 'large',
+    xlarge: 'xlarge',
   };
 
   return (

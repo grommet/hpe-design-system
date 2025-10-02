@@ -5,7 +5,7 @@ export const RangeInputExample = () => {
   const [value, setValue] = useState(80);
 
   return (
-    <Box direction="row" gap="medium" width="large">
+    <Box direction="row" gap="medium" width="xlarge">
       <Text weight={600}>0</Text>
       <RangeInput
         max={100}

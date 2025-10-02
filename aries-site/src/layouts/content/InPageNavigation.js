@@ -44,38 +44,38 @@ const useActiveHeadingId = (headings, options) => {
 export const InPageNavigation = ({ headings, title }) => {
   const theme = useContext(ThemeContext);
 
-  let { large, medium } = theme.global.edgeSize;
-  large = parseInt(large.replace('px', ''), 10); // 48
+  let { xlarge, medium } = theme.global.edgeSize;
+  xlarge = parseInt(xlarge.replace('px', ''), 10); // 48
   medium = parseInt(medium.replace('px', ''), 10); // 24
 
   // top and bottom margin values to calculate intersection window
-  const topMargin = large;
-  const bottomMargin = `-${2 * large}`;
+  const topMargin = xlarge;
+  const bottomMargin = `-${2 * xlarge}`;
   const activeId = useActiveHeadingId(headings, {
     rootMargin: `${topMargin}% 0% ${bottomMargin}% 0%`,
   });
 
   // align "Jump to section" with page title at start
-  const marginTop = `${large + medium}px`;
+  const marginTop = `${xlarge + medium}px`;
 
   const { pageUpdateReady, contentHistory } = useContext(ViewContext);
 
   return (
     <Box
-      pad={{ horizontal: 'xxsmall' }} // pad for keyboard focus
+      pad={{ horizontal: '5xsmall' }} // pad for keyboard focus
       style={{
         // determine when TOC scroll is needed
         height: `calc(100vh - ${marginTop})`,
         overflowY: 'auto',
         position: 'sticky',
         marginTop,
-        top: theme.global.edgeSize.large,
+        top: theme.global.edgeSize.xlarge,
       }}
-      width="small"
+      width="xsmall"
       flex={false}
     >
       <Box
-        pad={{ horizontal: 'small', bottom: 'small' }}
+        pad={{ horizontal: 'xsmall', bottom: 'xsmall' }}
         flex={false}
         border={{ side: 'left', color: 'transparent', size: 'small' }}
       >
@@ -96,8 +96,8 @@ export const InPageNavigation = ({ headings, title }) => {
           const headingTitle = heading[1];
           const active = activeId === nameToSlug(headingTitle);
 
-          let subsectionPad = 'small';
-          if (level.length > 3) subsectionPad = 'large';
+          let subsectionPad = 'xsmall';
+          if (level.length > 3) subsectionPad = 'xlarge';
           else if (level.length === 3) subsectionPad = 'medium';
 
           let sectionList;
@@ -118,7 +118,7 @@ export const InPageNavigation = ({ headings, title }) => {
           }
 
           return (
-            <Box pad={{ left: subsectionPad, right: 'xxsmall' }}>
+            <Box pad={{ left: subsectionPad, right: '5xsmall' }}>
               <Link
                 key={index}
                 href={`#${nameToSlug(headingTitle)}`}

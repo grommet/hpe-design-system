@@ -13,13 +13,13 @@ export const PageExample = () => (
     as={ContentArea}
     title="Page"
     flex="grow"
-    pad={{ bottom: 'large' }}
+    pad={{ bottom: 'xlarge' }}
     {...demoStyle}
   >
     <PageContent
       as={ContentArea}
       title="PageContent"
-      gap="small"
+      gap="xsmall"
       {...demoStyle}
     >
       <ContentArea title="Page header" border background="purple!" />

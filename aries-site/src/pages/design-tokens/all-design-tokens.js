@@ -27,7 +27,7 @@ const NavSection = ({ active, collection, setActive, tokens: tokensObj }) => {
   );
 
   return (
-    <Box flex={false} gap="xxsmall">
+    <Box flex={false} gap="5xsmall">
       <Button
         icon={<Folder aria-hidden="true" />}
         a11yTitle={`${collection} token directory`}
@@ -74,8 +74,8 @@ const NavPane = ({ children, ...rest }) => {
   return (
     <Box
       background="background-contrast"
-      pad={{ left: 'small', right: 'large', vertical: 'medium' }}
-      round="medium"
+      pad={{ left: 'xsmall', right: 'xlarge', vertical: 'medium' }}
+      round="xlarge"
       {...rest}
     >
       {children}
@@ -86,7 +86,7 @@ const NavPane = ({ children, ...rest }) => {
 const NavLayer = ({ children, onClose }) => {
   return (
     <Layer onEsc={onClose} full>
-      <Box pad="medium" gap="small" overflow="auto">
+      <Box pad="medium" gap="xsmall" overflow="auto">
         <Button
           icon={<Close />}
           a11yTitle="Close design token navigation."
@@ -150,7 +150,7 @@ const AllTokens = () => {
   return (
     <DesignTokenContext.Provider value={contextValue}>
       <Page>
-        <Box direction="row" gap="large">
+        <Box direction="row" gap="xlarge">
           {['large', 'xlarge'].includes(breakpoint) ? (
             <Box
               flex="grow"
@@ -164,13 +164,13 @@ const AllTokens = () => {
             </Box>
           ) : undefined}
           <PageContent pad="none" alignSelf="start">
-            <Box pad="medium" round="medium" background="background-front">
-              <Box direction="row" align="center" gap="small">
+            <Box pad="medium" round="xlarge" background="background-front">
+              <Box direction="row" align="center" gap="xsmall">
                 {!['large', 'xlarge'].includes(breakpoint) ? (
                   <Button
                     icon={<Menu />}
                     a11yTitle="Open design tokens menu"
-                    margin={{ top: 'xsmall' }}
+                    margin={{ top: '3xsmall' }}
                     onClick={() => setOpenLayer(true)}
                   />
                 ) : undefined}
@@ -185,7 +185,7 @@ const AllTokens = () => {
                   message={`Base tokens should never be used directly. 
                 Semantic or component tokens should be used instead. 
                 These are here purely for documentation.`}
-                  margin={{ top: 'small' }}
+                  margin={{ top: 'xsmall' }}
                 />
               ) : active.includes('static') ? (
                 <Notification
@@ -194,7 +194,7 @@ const AllTokens = () => {
                     layouts; use semantic tokens instead. Static tokens may
                     be used for custom "elements" when element tokens 
                     don't suffice.`}
-                  margin={{ top: 'small' }}
+                  margin={{ top: 'xsmall' }}
                   actions={[
                     {
                       label: 'Learn about element tokens',

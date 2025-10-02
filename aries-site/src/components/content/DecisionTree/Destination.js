@@ -19,14 +19,14 @@ export const Destination = ({ children, detail, id, useCases, ...rest }) => {
 
   return (
     <Box {...rest}>
-      <Box id={id} background={{ color: 'yellow!' }} round="small">
+      <Box id={id} background={{ color: 'yellow!' }} round="medium">
         <Box pad="medium">
           <Text color="text-strong" weight={500} size={textSize}>
             {children}
           </Text>
           <Paragraph
             color="text-strong"
-            margin={{ top: 'small', bottom: 'xsmall' }}
+            margin={{ top: 'xsmall', bottom: '3xsmall' }}
             maxLines={showMore ? undefined : 3}
             size={textSize}
           >
@@ -39,12 +39,12 @@ export const Destination = ({ children, detail, id, useCases, ...rest }) => {
             {useCases && (
               <Box
                 as="ul"
-                gap="xsmall"
+                gap="3xsmall"
                 pad={{
                   left: ['xsmall', 'small'].includes(breakpoint)
                     ? 'medium'
-                    : 'small',
-                  top: 'small',
+                    : 'xsmall',
+                  top: 'xsmall',
                 }}
                 margin="none"
               >
@@ -63,13 +63,13 @@ export const Destination = ({ children, detail, id, useCases, ...rest }) => {
             )}
           </Collapsible>
         </Box>
-        <Box pad={{ horizontal: 'small', bottom: 'small' }}>
+        <Box pad={{ horizontal: 'xsmall', bottom: 'xsmall' }}>
           <Button
             alignSelf="start"
             label={showMore ? 'Show less' : 'Show all'}
             icon={showMore ? <Up /> : <Down />}
             onClick={() => setShowMore(!showMore)}
-            margin={{ left: 'xsmall' }} // align button label with text above
+            margin={{ left: '3xsmall' }} // align button label with text above
             reverse
             size="small"
           />

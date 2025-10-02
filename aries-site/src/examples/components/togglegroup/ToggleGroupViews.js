@@ -84,7 +84,7 @@ export const ToggleGroupViews = () => {
         )}
         {value === 'card' && <CardView />}
         {value === 'list' && <ListView />}
-        <Pagination summary stepOptions border="top" pad="xsmall" />
+        <Pagination summary stepOptions border="top" pad="3xsmall" />
       </Data>
     </ContentPane>
   );

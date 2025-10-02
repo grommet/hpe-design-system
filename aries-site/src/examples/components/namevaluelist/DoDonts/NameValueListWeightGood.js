@@ -4,13 +4,13 @@ import { StatusGoodSmall } from 'grommet-icons';
 import { serverData } from '../data';
 
 export const NameValueListWeightGoodExample = () => (
-  <Box pad="small">
+  <Box pad="xsmall">
     <NameValueList>
       {Object.entries(serverData).map(([name, value]) => {
         let val = value;
         if (name === 'Health') {
           val = (
-            <Box direction="row" gap="xsmall" align="center">
+            <Box direction="row" gap="3xsmall" align="center">
               <StatusGoodSmall size="small" color="status-ok" />
               {value}
             </Box>

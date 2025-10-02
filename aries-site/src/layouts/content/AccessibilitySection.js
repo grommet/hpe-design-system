@@ -103,7 +103,7 @@ export const AccessibilitySection = ({ title, version }) => {
       <Notification
         status="info"
         margin={{ bottom: 'medium' }}
-        width="large"
+        width="xlarge"
         message={`"Conditional" status indicates extra
         actions required by implementers for full compliance.`}
       />

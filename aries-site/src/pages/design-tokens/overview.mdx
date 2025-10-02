@@ -50,7 +50,7 @@ Tokens are grouped into 3 levels: [primitive](#primitive-tokens), [semantic](#se
 <Notification
   message={`When consuming design tokens, begin with the most specific token level available. Look first to see if a component token exists. If not available, use semantic tokens as a fallback.`}
   status="info"
-  width={{ max: 'large' }}
+  width={{ max: 'xlarge' }}
   margin={{ bottom: 'medium' }}
 />
 
@@ -62,9 +62,9 @@ The value of a primitive token will always be a CSS value such as a hex code, pi
 
 Primitive design tokens should not be used directly. They exist to provide the foundational options and be referenced in semantic and component design tokens.
 
-<Example height={{ min: 'xsmall' }}>
-  <Box align="center" direction="row" gap="small">
-    <Box background="brand" pad="medium" round="small" flex={false} />
+<Example height={{ min: '3xsmall' }}>
+  <Box align="center" direction="row" gap="xsmall">
+    <Box background="brand" pad="medium" round="medium" flex={false} />
     <Text size="large">hpe.base.color.green.600</Text>
   </Box>
 </Example>
@@ -77,9 +77,9 @@ The value of a semantic token can either be a reference to a primitive token or 
 
 Building with semantic tokens, creates flexibility for a single token to have multiple values dependent on context. For example, the value for the token `hpe.color.background.back` might differ for light versus dark mode. Similarly, the value for the token `hpe.spacing.large` might differ for wide versus narrow viewports.
 
-<Example height={{ min: 'xsmall' }}>
-  <Box align="center" direction="row" gap="small">
-    <Box background="brand" pad="medium" round="small" flex={false} />
+<Example height={{ min: '3xsmall' }}>
+  <Box align="center" direction="row" gap="xsmall">
+    <Box background="brand" pad="medium" round="medium" flex={false} />
     <Text size="large">hpe.background.primary.strong</Text>
   </Box>
 </Example>
@@ -90,9 +90,9 @@ Component tokens capture specific design decisions for an individual component (
 
 The value of a component token can either be a reference to a primitive token, semantic token, or another component token.
 
-<Example height={{ min: 'xsmall' }}>
-  <Box align="center" direction="row" gap="small">
-    <Box background="brand" pad="medium" round="small" flex={false} />
+<Example height={{ min: '3xsmall' }}>
+  <Box align="center" direction="row" gap="xsmall">
+    <Box background="brand" pad="medium" round="medium" flex={false} />
     <Text size="large">hpe.button.primary.rest.background</Text>
   </Box>
 </Example>
