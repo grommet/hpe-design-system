@@ -71,6 +71,7 @@ interface IconPadProps {
 export function useIconPad(props: IconPadProps): string {
   const { height, size = 'medium', width } = props;
   const theme = useContext(ThemeContext);
+  console.log('[icons-grommet - useIconPad]', theme);
   const iconDimension = parseMetricToNum(theme?.icon?.size?.[size] || size);
 
   let style = '';
