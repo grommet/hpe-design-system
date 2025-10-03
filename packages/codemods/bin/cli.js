@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable max-len */
 /**
  * Enhanced Codemod dispatcher CLI for grommet-theme-hpe
  * Usage: node bin/cli.js <transform> <path> [options]
@@ -132,17 +133,18 @@ function runJscodeshift({ files, parser, extensions, scan }) {
 
   // Create temporary file with filenames
   const os = require('os');
-  const tempFilePath = path.join(os.tmpdir(), `jscodeshift-files-${Date.now()}.txt`);
+  const tempFilePath = 
+    path.join(os.tmpdir(), `jscodeshift-files-${Date.now()}.txt`);
   
   try {
     // Write filenames to temporary file, one per line
     fs.writeFileSync(tempFilePath, files.join('\n'), 'utf8');
 
-    let cmd = `npx jscodeshift`;
+    let cmd = 'npx jscodeshift';
     if (parser) cmd += ` --parser=${parser}`;
-    if (scan) cmd += ` --scan=true`;
+    if (scan) cmd += ' --scan=true';
     if (extensions) cmd += ` --extensions=${extensions}`;
-    cmd += ` --stdin`; // Add stdin flag
+    cmd += ' --stdin'; // Add stdin flag
     cmd += ` -t "${transforms[transform]}"`;
     if (!scan) {
       if (dryFlag) cmd += ` ${dryFlag}`;
