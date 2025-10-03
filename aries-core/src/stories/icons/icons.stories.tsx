@@ -1,7 +1,7 @@
 import { Box } from 'grommet';
 import { Add, Alert, Apps, Archive } from 'grommet-icons';
 import { Accessibility } from '@hpe-design/icons-grommet';
-import { GenAI } from '../../../../packages/icons/grommet-icons-test/dist/es6';
+import { AIGen } from '@hpe-design/grommet-icons-test';
 
 export const IconsGrommet = () => {
   return (
@@ -19,10 +19,10 @@ export const IconsGrommet = () => {
       <Accessibility size="xlarge" a11yTitle="Accessibility Icon" color="icon-default" />
     </Box>
     <Box direction="row" gap="medium" align="center">
-      <GenAI color="brand" size="small" height="medium"/>
-      <GenAI size="xlarge" a11yTitle="AI Generation Icon" color="icon-warning" />
-      <GenAI size="xlarge" a11yTitle="AI Generation Icon" color="icon-strong" />
-      <GenAI size="xlarge" a11yTitle="AI Generation Icon" color="icon-default" />
+      <AIGen color="brand" size="small" height="medium"/>
+      <AIGen size="xlarge" a11yTitle="AI Generation Icon" color="icon-warning" />
+      <AIGen size="xlarge" a11yTitle="AI Generation Icon" color="icon-strong" />
+      <AIGen size="xlarge" a11yTitle="AI Generation Icon" color="icon-default" />
     </Box>
   </Box>
 );

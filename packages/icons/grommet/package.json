@@ -22,7 +22,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc -b && vite build && npm run copy-types",
+    "build": "vite build && npm run copy-types",
     "copy-types": "cp src/js/icons/index.d.ts dist/hpe-icons.d.ts",
     "lint": "eslint .",
     "storybook": "storybook dev -p 6006",
