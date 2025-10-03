@@ -130,43 +130,86 @@ let hadError = false;
 function runJscodeshift({ files, parser, extensions, scan }) {
   if (files.length === 0) return;
 
-  let cmd = `npx jscodeshift`;
-  if (parser) cmd += ` --parser=${parser}`;
-  if (scan) cmd += ` --scan=true`;
-  if (extensions) cmd += ` --extensions=${extensions}`;
-  cmd += ` -t "${transforms[transform]}"`;
-  if (!scan) {
-    if (dryFlag) cmd += ` ${dryFlag}`;
-    if (verboseFlag) cmd += ` ${verboseFlag}`;
-    if (quoteFlag) cmd += ` ${quoteFlag}`;
-  }
-  cmd += ` ${files.map(f => `"${f}"`).join(' ')}`;
+  // Create temporary file with filenames
+  const os = require('os');
+  const tempFilePath = path.join(os.tmpdir(), `jscodeshift-files-${Date.now()}.txt`);
+  
+  try {
+    // Write filenames to temporary file, one per line
+    fs.writeFileSync(tempFilePath, files.join('\n'), 'utf8');
 
-  // For verbose 2, process files individually to show which ones are changed
-  if (!scan && verboseLevel === 2) {
-    let changedFiles = 0;
-    let totalFiles = 0;
+    let cmd = `npx jscodeshift`;
+    if (parser) cmd += ` --parser=${parser}`;
+    if (scan) cmd += ` --scan=true`;
+    if (extensions) cmd += ` --extensions=${extensions}`;
+    cmd += ` --stdin`; // Add stdin flag
+    cmd += ` -t "${transforms[transform]}"`;
+    if (!scan) {
+      if (dryFlag) cmd += ` ${dryFlag}`;
+      if (verboseFlag) cmd += ` ${verboseFlag}`;
+      if (quoteFlag) cmd += ` ${quoteFlag}`;
+    }
+    
+    // Redirect temp file as stdin
+    cmd += ` < "${tempFilePath}"`;
 
-    try {
-      const output = execSync(cmd, { encoding: 'utf8' });
-      // For verbose level 2, parse output to show individual file successes
-      output.split('\n').forEach(line => {
-        const file = line.split(' ')[2];
-        if (line.includes(target)) {
-          totalFiles++;
-          if (line.includes('OK')) {
-            changedFiles++;
-            if (dry) {
-              console.log(`🔍 Would update t-shirt sizes: ${file}`);
-            } else {
-              console.log(`✅ Updated t-shirt sizes: ${file}`);
+    // For verbose 2, process files individually to show which ones are changed
+    if (!scan && verboseLevel === 2) {
+      let changedFiles = 0;
+      let totalFiles = 0;
+
+      try {
+        const output = execSync(cmd, { encoding: 'utf8', shell: true });
+        // For verbose level 2, parse output to show individual file successes
+        output.split('\n').forEach(line => {
+          const file = line.split(' ')[2];
+          if (line.includes(target)) {
+            totalFiles++;
+            if (line.includes('OK')) {
+              changedFiles++;
+              if (dry) {
+                console.log(`🔍 Would update t-shirt sizes: ${file}`);
+              } else {
+                console.log(`✅ Updated t-shirt sizes: ${file}`);
+              }
             }
           }
+        });
+      } catch (err) {
+        hadError = true;
+        console.log(err);
+        if (scan) {
+          console.error('Scan failed:', err.message);
+        } else {
+          const type = parser === 'tsx' ? 'TypeScript' : 'JS/JSX';
+          console.error(`Error processing ${type} files`);
         }
-      });
+      }
+
+      // Only show summary if there were files to process and some changes or errors occurred
+      if (totalFiles > 0 && (changedFiles > 0 || hadError)) {
+        if (dry) {
+          console.log(
+            `\n🔍 T-shirt size migration preview: ${changedFiles} files would be updated, ${
+              totalFiles - changedFiles
+            } files unchanged (${totalFiles} total files processed)`,
+          );
+        } else {
+          console.log(
+            `\n🎯 T-shirt size automated transformations complete: ${changedFiles} files updated, ${
+              totalFiles - changedFiles
+            } files unchanged (${totalFiles} total files processed)`,
+          );
+        }
+      }
+      return;
+    }
+
+    // Regular processing for other verbose levels
+    try {
+      execSync(cmd, { stdio: 'inherit', shell: true });
     } catch (err) {
       hadError = true;
-      console.log(err);
       if (scan) {
         console.error('Scan failed:', err.message);
       } else {
@@ -174,36 +217,14 @@ function runJscodeshift({ files, parser, extensions, scan }) {
         console.error(`Error processing ${type} files`);
       }
     }
-
-    // Only show summary if there were files to process and some changes or errors occurred
-    if (totalFiles > 0 && (changedFiles > 0 || hadError)) {
-      if (dry) {
-        console.log(
-          `\n🔍 T-shirt size migration preview: ${changedFiles} files would be updated, ${
-            totalFiles - changedFiles
-          } files unchanged (${totalFiles} total files processed)`,
-        );
-      } else {
-        console.log(
-          `\n🎯 T-shirt size automated transformations complete: ${changedFiles} files updated, ${
-            totalFiles - changedFiles
-          } files unchanged (${totalFiles} total files processed)`,
-        );
+  } finally {
+    // Clean up temporary file
+    try {
+      if (fs.existsSync(tempFilePath)) {
+        fs.unlinkSync(tempFilePath);
       }
-    }
-    return;
-  }
-
-  // Regular processing for other verbose levels
-  try {
-    execSync(cmd, { stdio: 'inherit', shell: true });
-  } catch (err) {
-    hadError = true;
-    if (scan) {
-      console.error('Scan failed:', err.message);
-    } else {
-      const type = parser === 'tsx' ? 'TypeScript' : 'JS/JSX';
-      console.error(`Error processing ${type} files`);
+    } catch (cleanupErr) {
+      console.warn(`Warning: Could not clean up temporary file: ${tempFilePath}`);
     }
   }
 }
