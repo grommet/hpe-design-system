@@ -7,7 +7,7 @@ export const adjustPad = (direction, context, theme) => {
     adjustedPad = {
       left: pad,
       right: pad,
-      bottom: 'xsmall',
+      bottom: '3xsmall',
       top: pad,
     };
   }

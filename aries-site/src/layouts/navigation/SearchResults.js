@@ -84,10 +84,10 @@ export const SearchResults = ({
   return (
     <Box
       background="background-front"
-      round="small"
-      pad={{ horizontal: 'medium', top: 'small', bottom: 'large' }}
-      gap="small"
-      width="large"
+      round="medium"
+      pad={{ horizontal: 'medium', top: 'xsmall', bottom: 'xlarge' }}
+      gap="xsmall"
+      width="xlarge"
       fill="vertical"
       {...rest}
     >
@@ -101,7 +101,7 @@ export const SearchResults = ({
         background="background-contrast"
         flex={false}
         round="xsmall"
-        margin={{ horizontal: 'small' }}
+        margin={{ horizontal: 'xsmall' }}
       >
         <Keyboard onEsc={onClose} onEnter={onEnter}>
           <SearchInput
@@ -113,7 +113,7 @@ export const SearchResults = ({
           />
         </Keyboard>
       </Box>
-      <Box overflow="auto" pad="xsmall">
+      <Box overflow="auto" pad="3xsmall">
         {matches.length > 0 && (
           <List
             data={matches}
@@ -126,8 +126,8 @@ export const SearchResults = ({
         {similarMatches.length > 0 && (
           <Box flex={false}>
             <Box
-              gap="xsmall"
-              pad={{ horizontal: 'medium', top: 'large', bottom: 'medium' }}
+              gap="3xsmall"
+              pad={{ horizontal: 'medium', top: 'xlarge', bottom: 'medium' }}
             >
               <TextEmphasis
                 size={!['xsmall', 'small'].includes(size) ? 'xlarge' : 'large'}

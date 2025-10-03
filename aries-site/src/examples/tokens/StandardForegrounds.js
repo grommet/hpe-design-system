@@ -19,7 +19,7 @@ export const StandardForegrounds = () => {
           'color.text.unknown',
           'color.text.heading',
         ].map(color => (
-          <Box key={color} direction="row" gap="small" pad="small">
+          <Box key={color} direction="row" gap="xsmall" pad="xsmall">
             <Text color={color.split('.').slice(1).join('-')}>Aa</Text> {color}
           </Box>
         ))}
@@ -36,7 +36,7 @@ export const StandardForegrounds = () => {
           'color.icon.info',
           'color.icon.unknown',
         ].map(color => (
-          <Box key={color} direction="row" gap="small" pad="small">
+          <Box key={color} direction="row" gap="xsmall" pad="xsmall">
             <Trigger
               color={color.split('.').slice(1).join('-')}
               height="medium"

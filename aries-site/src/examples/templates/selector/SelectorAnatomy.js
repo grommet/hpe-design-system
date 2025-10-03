@@ -38,7 +38,7 @@ export const SelectorAnatomy = () => (
   <Stack>
     <Grid
       align="start"
-      columns={['xxsmall', 'medium', 'xxsmall']}
+      columns={['5xsmall', 'medium', '5xsmall']}
       rows={['40px', '24px', '16px', '80px']}
       areas={[
         ['cta-annotation-3a', 'card-example', 'cta-annotation-2'],
@@ -70,7 +70,7 @@ export const SelectorAnatomy = () => (
         id="s-2"
         target="2"
         gridArea="cta-annotation-2"
-        margin={{ top: 'small' }}
+        margin={{ top: 'xsmall' }}
       />
       <Annotation
         style={{ justifySelf: 'center' }}
@@ -101,19 +101,19 @@ const SelectorExample = () => (
     <StyledBox
       fill
       overflow="hidden"
-      pad="small"
+      pad="xsmall"
       round="xsmall"
       selected
       border={{
         color: 'border-selected',
       }}
       id="s-container"
-      gap="xsmall"
+      gap="3xsmall"
     >
-      <Box gap="xsmall">
-        <Box direction="row" gap="xsmall" flex={false}>
+      <Box gap="3xsmall">
+        <Box direction="row" gap="3xsmall" flex={false}>
           <Box flex>
-            <Box gap="xxsmall">
+            <Box gap="5xsmall">
               <Iteration id="s-icon" height="medium" />
               <Text id="s-title" weight={500} wordBreak="break-word">
                 Aruba AP-635 Wifi 6E Access Point
@@ -123,7 +123,7 @@ const SelectorExample = () => (
           </Box>
           <Box
             border={{ color: 'transparent', size: 'xsmall' }}
-            round="small"
+            round="medium"
             height="24px"
             width="24px"
             justify="center"

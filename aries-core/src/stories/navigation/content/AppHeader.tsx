@@ -16,7 +16,7 @@ export const AppHeader = ({
   ...rest
 }: AppHeaderProps) => {
   return (
-    <Header pad="small" {...rest}>
+    <Header pad="xsmall" {...rest}>
       <Button onClick={() => setActiveItem('Home')} plain>
         <Text>
           <Text weight="bold">HPE</Text> Design System

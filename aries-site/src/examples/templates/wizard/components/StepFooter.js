@@ -24,7 +24,7 @@ export const StepFooter = ({ nextId, ...rest }) => {
         pad={
           !['xsmall', 'small'].includes(size)
             ? { vertical: 'medium' }
-            : { vertical: 'small', horizontal: 'medium' }
+            : { vertical: 'xsmall', horizontal: 'medium' }
         }
         alignSelf="center"
         width={width}

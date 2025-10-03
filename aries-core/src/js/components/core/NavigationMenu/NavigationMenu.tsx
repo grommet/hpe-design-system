@@ -50,7 +50,7 @@ export const NavigationMenu = ({
           id={navigationId}
           hidden={!open}
           a11yTitle={title ? `${title}` : 'Navigation menu'}
-          gap="xsmall"
+          gap="3xsmall"
         >
           <NavList
             items={items}

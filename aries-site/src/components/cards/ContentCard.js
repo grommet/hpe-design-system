@@ -25,7 +25,7 @@ export const ContentCard = forwardRef(
 
     return (
       <LinkCard fill pad="medium" ref={ref} {...rest}>
-        <CardBody gap="large">
+        <CardBody gap="xlarge">
           {!minimal && (
             <PreviewImageCard
               pad={preview?.pad || 'none'}
@@ -56,11 +56,11 @@ export const ContentCard = forwardRef(
                 ))}
             </PreviewImageCard>
           )}
-          <Box gap="small">
+          <Box gap="xsmall">
             <Identifier
               title={render || name}
               align="start"
-              gap="xsmall"
+              gap="3xsmall"
               level={level}
             >
               {parent && parent.icon && !minimal && (
@@ -70,7 +70,7 @@ export const ContentCard = forwardRef(
                   fill="horizontal"
                   justify="between"
                 >
-                  <Box gap="xsmall" direction="row" align="center">
+                  <Box gap="3xsmall" direction="row" align="center">
                     {parent.icon('small', parent.color)}
                     <Text>{parent.name}</Text>
                   </Box>

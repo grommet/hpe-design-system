@@ -9,14 +9,14 @@ import { contentAreaProps } from './utils';
 const columns = [
   // column 1 has a minimum width of 'small'; 'auto' specifies that width
   // should be determined by its contents.
-  ['small', 'auto'],
+  ['xsmall', 'auto'],
   // column 2 has a minimum width of medium, but 'flex' allows it to fill
   // any excess width in the grid.
   ['medium', 'flex'],
 ];
 
 export const MinMaxColumns2 = () => (
-  <Grid columns={columns} gap="xsmall">
+  <Grid columns={columns} gap="3xsmall">
     <ContentArea title="1" {...contentAreaProps} height="auto">
       <Text color="text-strong">[ 'small', 'auto' ]</Text>
       <ContentArea border fill="vertical" flex width="medium">

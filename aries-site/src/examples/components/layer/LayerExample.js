@@ -58,7 +58,7 @@ const AddApplication = ({ ...rest }) => {
         <Box flex={false}>
           <LayerForm />
         </Box>
-        <Box direction="row" gap="small" flex={false}>
+        <Box direction="row" gap="xsmall" flex={false}>
           <Button
             label="Add application"
             primary

@@ -223,16 +223,16 @@ const columns = [
     header: 'Pinned',
     units: '%',
     render: datum => (
-      <Box gap="xsmall" direction="row">
-        <Box pad={{ vertical: 'xsmall' }}>
+      <Box gap="3xsmall" direction="row">
+        <Box pad={{ vertical: '3xsmall' }}>
           <Meter
             alignSelf="center"
             values={[
               { value: datum.pinned / datum.pinnable, color: 'graph-2' },
             ]}
             max={1}
-            thickness="small"
-            size="small"
+            thickness="xsmall"
+            size="xsmall"
           />
         </Box>
         <Text>{((datum.pinned / datum.pinnable) * 10).toFixed(0)}%</Text>

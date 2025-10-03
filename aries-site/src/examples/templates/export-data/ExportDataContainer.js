@@ -41,7 +41,7 @@ export const ExportDataContainer = ({
         }}
       >
         <Box gap="medium">
-          <ModalBody gap="small">
+          <ModalBody gap="xsmall">
             <FormField
               htmlFor="exportFormat"
               name="exportFormat"

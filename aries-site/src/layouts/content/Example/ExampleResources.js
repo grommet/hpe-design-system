@@ -103,7 +103,7 @@ export const ExampleResources = ({
     );
   }
   return (
-    <Box gap="medium" margin={{ top: 'large' }}>
+    <Box gap="medium" margin={{ top: 'xlarge' }}>
       {details && (
         <CollapsibleSection
           label={{ closed: 'Show Details', open: 'Hide Details' }}
@@ -121,7 +121,7 @@ export const ExampleResources = ({
           onClick={() => setCodeOpen(!codeOpen)}
         >
           {Array.isArray(code) && (
-            <Box direction="row" gap="small" flex={false} wrap>
+            <Box direction="row" gap="xsmall" flex={false} wrap>
               {code.map((file, index) => (
                 <Button
                   active={activeCode === file}

@@ -73,7 +73,7 @@ Replace “Hello world” with the following content as children of the Box.
       />.
     </Text>
   }
-  width="large"
+  width="xlarge"
   margin={{ bottom: 'medium' }}
   status="learn"
 />
@@ -203,7 +203,7 @@ To keep the button from stretching the full width of the box, apply `alignSelf="
       for more information on what they are and their value in Grommet.
     </Text>
   }
-  width="large"
+  width="xlarge"
   margin={{ bottom: 'medium' }}
   status="learn"
 />
@@ -224,8 +224,8 @@ Now, let’s add a background color to the hero section by adding `background="b
 Remember that `pad` (equivalent to CSS padding) applies space <Text weight={500} color="text-strong" size="large">inside</Text> of a given container while `margin` applies space <Text weight={500} color="text-strong" size="large">outside</Text> of a given container.
 
 ```
-<Box direction="row" background="background-contrast" pad="large">
-  <Box width="large">
+<Box direction="row" background="background-contrast" pad="xlarge">
+  <Box width="xlarge">
     <Heading margin="none">
       New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
@@ -258,8 +258,8 @@ At this point, your project should look like this. We’re getting closer, but w
 Now, let’s add the spacing between elements. Whenever space is needed between elements, use `gap` on the parent Box of those elements. To add space between the image and the grouped content, add `gap="large"` to the outer Box.
 
 ```
-<Box direction="row" background="background-contrast" pad="large" gap="large">
-  <Box width="large">
+<Box direction="row" background="background-contrast" pad="xlarge" gap="xlarge">
+  <Box width="xlarge">
     <Heading margin="none">
       New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
@@ -287,7 +287,7 @@ Now, add space between the heading, paragraph, and button by applying `gap="medi
 
 ```
 ...
-<Box width="large" gap="medium">
+<Box width="xlarge" gap="medium">
     <Heading margin="none">
         New HPE ProLiant Servers Engineered for your Hybrid World
     </Heading>
@@ -302,7 +302,7 @@ Now, add space between the heading, paragraph, and button by applying `gap="medi
 
 Great job! You have built a hero section of a page using Box and its various properties. Your project should look like this:
 
-<Box width="large" margin={{ bottom: 'medium' }}>
+<Box width="xlarge" margin={{ bottom: 'medium' }}>
   <Image
     src="/learnImages/box-model-part-one/box-model-final.png"
     alt="Hero section with a heading, paragraph, button, and image of two IT professionals inspecting a server rack."
@@ -313,7 +313,7 @@ If you'd like to reference a completed implementation, check out this [CodeSandb
 
 export const ImageContainer = ({ ...rest }) => (
   <Box
-    width="large"
+    width="xlarge"
     round="medium"
     overflow="auto"
     pad="medium"

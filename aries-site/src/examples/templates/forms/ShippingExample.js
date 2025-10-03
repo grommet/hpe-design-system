@@ -63,8 +63,8 @@ export const ShippingExample = () => {
       <Header
         direction="column"
         align="start"
-        gap="xxsmall"
-        pad={{ horizontal: 'xxsmall' }}
+        gap="5xsmall"
+        pad={{ horizontal: '5xsmall' }}
       >
         {/* Use semantically correct heading level and adjust size as 
   needed. In this instance, this example is presented within an 
@@ -78,7 +78,7 @@ export const ShippingExample = () => {
       </Header>
       <Box
         // Padding used to prevent focus from being cutoff
-        pad={{ horizontal: 'xxsmall' }}
+        pad={{ horizontal: '5xsmall' }}
       >
         <Form
           value={formValues}
@@ -95,7 +95,7 @@ export const ShippingExample = () => {
           <ContactInformation name="shippingExample" />
           <Box
             align={!['xsmall', 'small'].includes(size) ? 'start' : undefined}
-            margin={{ top: 'small', bottom: 'small' }}
+            margin={{ top: 'xsmall', bottom: 'xsmall' }}
           >
             <Button label="Continue" primary type="submit" />
           </Box>

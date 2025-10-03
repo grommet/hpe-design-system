@@ -39,10 +39,10 @@ export const ExampleControls = ({
             color: 'border-weak',
           },
         ],
-        pad: { horizontal: 'medium', vertical: 'small' },
+        pad: { horizontal: 'medium', vertical: 'xsmall' },
       }
     : {
-        pad: { vertical: 'small' },
+        pad: { vertical: 'xsmall' },
       };
 
   return (
@@ -51,7 +51,7 @@ export const ExampleControls = ({
       align="start"
       gap="medium"
       justify="between"
-      round={{ corner: 'bottom', size: 'small' }}
+      round={{ corner: 'bottom', size: 'medium' }}
       {...boxProps}
     >
       <Box direction="row" wrap>

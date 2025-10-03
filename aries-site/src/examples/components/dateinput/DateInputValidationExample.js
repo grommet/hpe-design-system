@@ -8,7 +8,7 @@ export const DateInputValidationExample = () => {
   const [message, setMessage] = useState(defaultErrorMessage);
 
   return (
-    <Box align="center" pad="large">
+    <Box align="center" pad="xlarge">
       <Form>
         <FormField
           name="required-field"

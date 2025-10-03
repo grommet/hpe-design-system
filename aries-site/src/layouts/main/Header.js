@@ -25,7 +25,7 @@ const StyledHeader = ({ ...rest }) => {
       <Link href="/" passHref legacyBehavior>
         <AppIdentity brand="hpe" logo={false} title="Design System" />
       </Link>
-      <Box direction="row" align="center" gap="xsmall">
+      <Box direction="row" align="center" gap="3xsmall">
         {!['xsmall', 'small'].includes(size) &&
           navItems.map(item => (
             <Link

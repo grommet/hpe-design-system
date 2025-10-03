@@ -6,8 +6,8 @@ export const ContentPreviewCard = forwardRef(({ ...rest }, ref) => (
     align="start"
     fill="horizontal"
     background="background-front"
-    pad="large"
-    round="small"
+    pad="xlarge"
+    round="medium"
     ref={ref}
     {...rest}
   />

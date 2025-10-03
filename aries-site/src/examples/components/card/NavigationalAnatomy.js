@@ -32,8 +32,8 @@ const connections = [
 export const NavigationalAnatomy = () => (
   <Stack interactiveChild="first">
     <Grid
-      columns={['xsmall', 'medium']}
-      rows={['58px', '36px', '48px', 'xsmall']}
+      columns={['3xsmall', 'medium']}
+      rows={['58px', '36px', '48px', '3xsmall']}
       areas={[
         ['annotation-1b', 'card-example'],
         ['annotation-1a', 'card-example'],
@@ -51,13 +51,13 @@ export const NavigationalAnatomy = () => (
         id="1a"
         target="1a"
         gridArea="annotation-1a"
-        margin={{ top: 'small' }}
+        margin={{ top: 'xsmall' }}
       />
       <Annotation
         id={2}
         target="2"
         gridArea="annotation-2"
-        margin={{ top: 'large' }}
+        margin={{ top: 'xlarge' }}
       />
       <Annotation
         id={3}
@@ -83,9 +83,9 @@ const DashedBox = ({ ...rest }) => (
 const CardExample = ({ ...rest }) => (
   <Card width="medium" {...rest}>
     <CardBody align="start" gap="medium">
-      <Box gap="xsmall">
+      <Box gap="3xsmall">
         <>
-          <DashedBox id="icon" margin={{ bottom: 'small' }}>
+          <DashedBox id="icon" margin={{ bottom: 'xsmall' }}>
             <Notes color="blue" />
           </DashedBox>
           <DashedBox id="title">

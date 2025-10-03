@@ -65,11 +65,11 @@ export const HeaderSearchActionsExample = () => (
         gap="medium"
         // pad maintains accessible hit target
         // non-responsive maintains same dimensions for mobile
-        pad={{ vertical: 'small' }}
+        pad={{ vertical: 'xsmall' }}
         responsive={false}
       >
         <Hpe color="brand" />
-        <Box direction="row" gap="xsmall" wrap>
+        <Box direction="row" gap="3xsmall" wrap>
           <Text color="text-strong" weight="bold">
             HPE
           </Text>

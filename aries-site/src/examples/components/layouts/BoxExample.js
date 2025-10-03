@@ -6,8 +6,8 @@ export const BoxExample = () => (
       <Box
         align="center"
         border={{ color: 'green', size: 'medium' }}
-        pad="large"
-        round="small"
+        pad="xlarge"
+        round="medium"
         width="medium"
       >
         <Text>Boxes are containers that drive the layout of your content.</Text>
@@ -16,8 +16,8 @@ export const BoxExample = () => (
         align="center"
         justify="center"
         border={{ color: 'green', size: 'medium' }}
-        pad="large"
-        round="small"
+        pad="xlarge"
+        round="medium"
         width="medium"
         height="medium"
       >

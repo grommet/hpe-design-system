@@ -8,16 +8,16 @@ export const RangeSelectorExample = () => {
   };
 
   return (
-    <Box align="center" pad="large">
+    <Box align="center" pad="xlarge">
       <Stack>
         <Box direction="row" justify="between">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(value => (
             <Box
               key={value}
-              width="xxsmall"
-              height="xxsmall"
+              width="5xsmall"
+              height="5xsmall"
               align="center"
-              pad="small"
+              pad="xsmall"
               border={false}
             >
               <Text style={{ fontFamily: 'monospace' }}>{value}</Text>

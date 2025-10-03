@@ -65,7 +65,7 @@ const tokenColumns = [
       <Box direction="row">
         <Box
           background="background-contrast"
-          pad="xsmall"
+          pad="3xsmall"
           round="xsmall"
           style={{ fontFamily: 'Menlo' }}
         >
@@ -113,10 +113,10 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
           <Toolbar align="end">
             <DataSearch />
             {modeOptions?.length > 1 ? (
-              <Box width="small">
+              <Box width="xsmall">
                 <FormField
                   label="Mode"
-                  contentProps={{ margin: { bottom: 'none', top: 'xsmall' } }}
+                  contentProps={{ margin: { bottom: 'none', top: '3xsmall' } }}
                   htmlFor={`mode-select-${active}__input`}
                   name={`mode-select-${active}`}
                 >
@@ -144,7 +144,7 @@ export const DesignTokensTable = ({ active, maxHeight, toolbar }) => {
         </>
       ) : undefined}
       <Box
-        height={maxHeight !== false ? { max: 'large' } : undefined}
+        height={maxHeight !== false ? { max: 'xlarge' } : undefined}
         overflow="auto"
       >
         <DataTable

@@ -93,12 +93,12 @@ export const Community = ({ ...rest }) => {
       <Box
         fill="horizontal"
         pad={{
-          vertical: !['xsmall', 'small'].includes(size) ? 'xlarge' : 'large',
+          vertical: !['xsmall', 'small'].includes(size) ? '3xlarge' : 'xlarge',
         }}
-        gap="large"
+        gap="xlarge"
         {...rest}
       >
-        <Box width="xlarge">
+        <Box width="xxlarge">
           <Heading margin="none" level={2} size="large">
             Community
           </Heading>
@@ -111,7 +111,7 @@ export const Community = ({ ...rest }) => {
         <Grid
           columns="medium"
           rows={[['auto', 'full']]}
-          gap={{ row: 'large', column: 'small' }}
+          gap={{ row: 'xlarge', column: 'xsmall' }}
           fill
         >
           <SlackOption />

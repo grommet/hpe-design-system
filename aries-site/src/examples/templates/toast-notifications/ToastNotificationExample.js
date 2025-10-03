@@ -16,7 +16,7 @@ export const ToastNotificationExample = () => {
         </Paragraph>
         <Button label="Show the toast notification" onClick={onOpen} primary />
       </Box>
-      <Box align="center" gap="small">
+      <Box align="center" gap="xsmall">
         {visible && (
           <Notification
             toast

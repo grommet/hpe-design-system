@@ -36,11 +36,11 @@ export const ContentSpinnerExample = () => {
             gap="medium"
             // pad maintains accessible hit target
             // non-responsive maintains same dimensions for mobile
-            pad={{ vertical: 'small' }}
+            pad={{ vertical: 'xsmall' }}
             responsive={false}
           >
             <Hpe color="brand" height="medium" />
-            <Box direction="row" gap="xsmall" wrap>
+            <Box direction="row" gap="3xsmall" wrap>
               <Text color="text-strong" weight="bold">
                 HPE
               </Text>
@@ -50,7 +50,7 @@ export const ContentSpinnerExample = () => {
         </Button>
 
         {!['xsmall', 'small'].includes(size) ? (
-          <Box gap="xsmall" direction="row">
+          <Box gap="3xsmall" direction="row">
             <Button a11yTitle="Help" icon={<HelpOption />} />
             <Button a11yTitle="Notifications" icon={<Notification />} />
             <Button a11yTitle="Account" icon={<User />} />
@@ -70,7 +70,7 @@ export const ContentSpinnerExample = () => {
       <ContentPane>
         <NameValueList
           nameProps={{
-            width: ['xxsmall', 'small'],
+            width: ['5xsmall', 'xsmall'],
           }}
         >
           <NameValuePair name="Status">Active</NameValuePair>
@@ -84,13 +84,13 @@ export const ContentSpinnerExample = () => {
         </NameValueList>
       </ContentPane>
       <Tabs
-        margin={{ vertical: 'large' }}
+        margin={{ vertical: 'xlarge' }}
         activeIndex={index}
         onActive={onActive}
         justify="start"
       >
         <Tab title="Customer Details">
-          <Box align="center" justify="center" height={{ min: 'small' }}>
+          <Box align="center" justify="center" height={{ min: 'xsmall' }}>
             <Spinner
               size="medium"
               message={{
@@ -101,10 +101,10 @@ export const ContentSpinnerExample = () => {
           </Box>
         </Tab>
         <Tab title="Customization">
-          <Box margin="small">Customization Information</Box>
+          <Box margin="xsmall">Customization Information</Box>
         </Tab>
         <Tab title="Configuration">
-          <Box margin="small">Billing Information</Box>
+          <Box margin="xsmall">Billing Information</Box>
         </Tab>
       </Tabs>
     </>

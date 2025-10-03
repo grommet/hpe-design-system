@@ -10,16 +10,16 @@ export const ActionEmptyState = () => {
       columns={
         ['xsmall', 'small'].includes(breakpoint)
           ? ['auto']
-          : { count: 2, size: 'small' }
+          : { count: 2, size: 'xsmall' }
       }
-      gap="xlarge"
+      gap="3xlarge"
     >
       <EmptyState
         title="Success"
         description="Your message was successfully delivered."
         icon={<Checkmark color="green" />}
         actions={
-          <Box align="center" gap="small">
+          <Box align="center" gap="xsmall">
             <Button label="Return to dashboard" primary />
             <Anchor label="When will I hear back?" />
           </Box>

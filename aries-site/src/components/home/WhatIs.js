@@ -59,10 +59,10 @@ export const WhatIs = ({ ...rest }) => {
         pad={{
           vertical: 'medium',
         }}
-        gap="xlarge"
+        gap="3xlarge"
         {...rest}
       >
-        <Box justify="center" align="center" width="large" alignSelf="center">
+        <Box justify="center" align="center" width="xlarge" alignSelf="center">
           <Heading level={2} size="large">
             What is the HPE Design System?
           </Heading>

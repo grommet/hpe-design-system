@@ -30,10 +30,10 @@ const STATUS_MAP = {
 export const StatusIndicator = ({ status }) => {
   const { label, icon, color } = STATUS_MAP[status];
 
-  const statusIcon = React.cloneElement(icon, { color, size: 'small' });
+  const statusIcon = React.cloneElement(icon, { color, size: 'xsmall' });
 
   return (
-    <Box direction="row" align="center" gap="xxsmall">
+    <Box direction="row" align="center" gap="5xsmall">
       {statusIcon}
       <Text>{label}</Text>
     </Box>

@@ -37,10 +37,10 @@ export const ExpandedStateAnatomy = () => {
   const breakpoint = useContext(ResponsiveContext);
   const mobile = ['xsmall', 'small'].includes(breakpoint);
   const columns = [
-    'xsmall',
-    !mobile ? 'small' : 'xsmall',
-    !mobile ? 'small' : 'xsmall',
-    'xsmall',
+    '3xsmall',
+    !mobile ? 'xsmall' : '3xsmall',
+    !mobile ? 'xsmall' : '3xsmall',
+    '3xsmall',
   ];
   const rows = ['auto', 'auto', 'auto', 'auto'];
   const areas = [
@@ -67,7 +67,7 @@ export const ExpandedStateAnatomy = () => {
           gridArea={annotations.container.annotation}
           id={annotations.container.annotation}
           target="1"
-          margin={{ bottom: 'large', horizontal: 'auto' }}
+          margin={{ bottom: 'xlarge', horizontal: 'auto' }}
         />
         <Annotation
           gridArea={annotations.label.annotation}
@@ -113,9 +113,9 @@ export const ExpandedStateAnatomy = () => {
             id={annotations.body.element}
             align="center"
             border={{ style: 'dashed' }}
-            height="small"
+            height="xsmall"
             justify="center"
-            margin={{ horizontal: 'small', top: 'medium', bottom: 'small' }}
+            margin={{ horizontal: 'xsmall', top: 'medium', bottom: 'xsmall' }}
           >
             <Text>Body</Text>
           </Box>

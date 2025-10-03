@@ -7,7 +7,7 @@ interface ItemLabelProps {
 
 export const ItemLabel = ({ icon, label }: ItemLabelProps) => {
   return (
-    <Box direction="row" align="center" gap="xsmall" flex>
+    <Box direction="row" align="center" gap="3xsmall" flex>
       {icon}
       <Text color="text-strong">{label}</Text>
     </Box>

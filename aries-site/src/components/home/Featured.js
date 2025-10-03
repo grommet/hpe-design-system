@@ -8,9 +8,9 @@ import { featured } from '../../data';
 const FeaturedLayout = ({ ...rest }) => (
   <PageContent {...rest}>
     <Grid
-      columns={{ count: 'fit', size: 'small' }}
-      gap="large"
-      pad={{ bottom: 'large' }}
+      columns={{ count: 'fit', size: 'xsmall' }}
+      gap="xlarge"
+      pad={{ bottom: 'xlarge' }}
     >
       {featured.map(({ name, description, icon, url }) => (
         <ContentPreviewCard
@@ -21,7 +21,7 @@ const FeaturedLayout = ({ ...rest }) => (
           <Box width="100%" round="xsmall">
             {icon}
           </Box>
-          <Heading level={2} margin={{ top: 'small', bottom: 'none' }}>
+          <Heading level={2} margin={{ top: 'xsmall', bottom: 'none' }}>
             {name}
           </Heading>
           <Paragraph size="small">{description}</Paragraph>

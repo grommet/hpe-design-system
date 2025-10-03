@@ -10,7 +10,7 @@ export const Tile = forwardRef(({ children, heading, pad, ...rest }, ref) => {
     pad === true ? { horizontal: 'small', top: 'small', bottom: 'small' } : pad;
 
   return (
-    <Box round="small" overflow="hidden" ref={ref} {...rest}>
+    <Box round="medium" overflow="hidden" ref={ref} {...rest}>
       {heading && (
         <Header pad={tilePad}>
           <Heading level={2} size="xsmall" margin="none">

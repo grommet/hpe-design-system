@@ -10,7 +10,13 @@ export const Decision = ({ children, id, ...rest }) => {
 
   return (
     <Box {...rest}>
-      <Box id={id} background="purple!" flex={false} pad="medium" round="large">
+      <Box
+        id={id}
+        background="purple!"
+        flex={false}
+        pad="medium"
+        round="xxlarge"
+      >
         <Paragraph margin="none" color="text-strong" size={textSize}>
           {children}
         </Paragraph>

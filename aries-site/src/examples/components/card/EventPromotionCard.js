@@ -19,7 +19,7 @@ export const EventPromotionCard = () => {
       pretitle={pretitle}
       subtitle={subtitle}
       media={
-        <Box height="small">
+        <Box height="xsmall">
           <Image src={src} alt={alt} fit={fit} />
         </Box>
       }

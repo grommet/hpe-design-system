@@ -86,8 +86,8 @@ export const FiltersLayer = () => {
         </Box>
         <Footer
           justify="start"
-          gap="small"
-          pad={{ horizontal: 'medium', bottom: 'small' }}
+          gap="xsmall"
+          pad={{ horizontal: 'medium', bottom: 'xsmall' }}
         >
           <Button
             label="Apply filters"

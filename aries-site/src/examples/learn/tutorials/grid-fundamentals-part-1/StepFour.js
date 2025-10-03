@@ -10,7 +10,7 @@ const ProductsPage = () => {
   return (
     <>
       <Heading level={1}>Products</Heading>
-      <Grid columns="medium" gap="small">
+      <Grid columns="medium" gap="xsmall">
         {productList.map(product => (
           <ProductCard key={product.id} level={2} product={product} />
         ))}

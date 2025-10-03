@@ -50,7 +50,7 @@ export const fetchPayloads = async (page, view) => {
 };
 
 export const columns = [
-  { property: 'name', header: 'Name', size: 'small' },
+  { property: 'name', header: 'Name', size: 'xsmall' },
   { property: 'type', header: 'Type' },
   {
     property: 'mass_lbs',
@@ -72,7 +72,7 @@ export const columns = [
     header: 'Customers',
     render: datum =>
       datum.customers?.length ? datum.customers.join(', ') : '--',
-    size: 'xsmall',
+    size: '3xsmall',
   },
   {
     property: 'nationalities',

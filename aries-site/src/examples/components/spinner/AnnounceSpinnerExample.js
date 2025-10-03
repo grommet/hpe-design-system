@@ -5,7 +5,7 @@ export const AnnounceSpinnerExample = () => {
   // 'show=true' will trigger the announcement
   const [show, setShow] = useState(false);
   return (
-    <Box align="center" gap="small">
+    <Box align="center" gap="xsmall">
       <Paragraph textAlign="center">
         Spinner has a built-in Screen Reader functionality for more advanced
         accessibility support. The message prop is going to be the message given

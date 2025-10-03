@@ -24,17 +24,17 @@ const ValueType = PropTypes.oneOfType([
 
 const Name = ({ name }) => {
   const { icon: iconProp, label } = name;
-  const icon = iconProp ? cloneElement(iconProp, { size: 'small' }) : null;
+  const icon = iconProp ? cloneElement(iconProp, { size: 'xsmall' }) : null;
 
   return (
     <Box
       direction="row"
       align="center"
-      gap="small"
+      gap="xsmall"
       // margin is needed to keep consistent with the spacing
       // delivered by the theme when name is typeof 'string'
       // https://github.com/grommet/grommet/blob/db5be926eb7c2f791534f02dd55b0f9997e959db/src/js/themes/base.js#L1072
-      margin={{ bottom: 'xxsmall' }}
+      margin={{ bottom: '5xsmall' }}
     >
       {icon}
       <Text size={label?.size || 'small'}>

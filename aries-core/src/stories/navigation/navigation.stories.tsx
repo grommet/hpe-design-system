@@ -87,7 +87,7 @@ export const NavigationMenuExample = () => {
       >
         {mobile ? (
           <>
-            <Box justify="center" fill pad={{ horizontal: 'xsmall' }}>
+            <Box justify="center" fill pad={{ horizontal: "3xsmall" }}>
               <Button
                 a11yTitle="Open navigation menu"
                 icon={<Sidebar />}
@@ -128,7 +128,7 @@ export const NavigationMenuExample = () => {
       <Main
         gridArea="main"
         background="background-back"
-        round={{ corner: 'top-left', size: 'small' }}
+        round={{ corner: 'top-left', size: "medium" }}
       >
         <Page>
           <PageContent>

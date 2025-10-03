@@ -8,15 +8,15 @@ const contentAreaProps = {
 };
 // used for creating some variation in the ContentArea heights
 const heightMap = {
-  0: 'xsmall',
-  1: 'xxsmall',
+  0: '3xsmall',
+  1: '5xsmall',
   2: '75%',
-  3: 'xsmall',
+  3: '3xsmall',
 };
 
-const columns = 'small';
-const rows = 'xsmall';
-const gap = 'small';
+const columns = 'xsmall';
+const rows = '3xsmall';
+const gap = 'xsmall';
 
 export const FluidGrid2 = () => (
   <Grid columns={columns} rows={rows} gap={gap} align="start">

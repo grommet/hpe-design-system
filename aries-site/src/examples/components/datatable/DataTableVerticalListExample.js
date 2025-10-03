@@ -102,7 +102,7 @@ export const DataTableVerticalListExample = ({ designSystemDemo }) => {
               property: 'status.label',
               header: 'Status',
               render: datum => (
-                <Box direction="row" align="center" gap="xsmall">
+                <Box direction="row" align="center" gap="3xsmall">
                   <datum.status.icon color={datum.status.color} size="small" />
                   <Text>{datum.status.label}</Text>
                 </Box>

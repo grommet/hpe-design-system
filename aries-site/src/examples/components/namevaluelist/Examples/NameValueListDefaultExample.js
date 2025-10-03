@@ -3,8 +3,8 @@ import { Box, NameValueList, NameValuePair } from 'grommet';
 import { defaultData } from '../data';
 
 export const NameValueListDefaultExample = () => (
-  <Box pad="small">
-    <NameValueList nameProps={{ width: 'xsmall' }}>
+  <Box pad="xsmall">
+    <NameValueList nameProps={{ width: '3xsmall' }}>
       {Object.entries(defaultData).map(([name, value]) => {
         let date;
         if (name === 'Created on') {

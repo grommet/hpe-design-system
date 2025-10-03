@@ -3,12 +3,12 @@ import { Box, Button, Header } from 'grommet';
 import { ButtonGroup, TextEmphasis } from 'aries-core';
 
 export const ButtonRightAlignExample = () => (
-  <Box width="large" gap="medium" pad="small">
+  <Box width="xlarge" gap="medium" pad="xsmall">
     <Header
       direction="column"
       align="start"
-      gap="xsmall"
-      pad={{ horizontal: 'xxsmall' }}
+      gap="3xsmall"
+      pad={{ horizontal: '5xsmall' }}
     >
       <TextEmphasis alignSelf="end" size="large">
         Right-aligned buttons

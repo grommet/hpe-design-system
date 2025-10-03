@@ -9,7 +9,7 @@ export const ContentArea = ({
   border,
   children,
   icon,
-  pad = 'small',
+  pad = 'xsmall',
   round = 'xxsmall',
   title,
   ...rest
@@ -29,7 +29,7 @@ export const ContentArea = ({
       {...rest}
     >
       {icon ? (
-        <Box align="center" gap="small" direction="row">
+        <Box align="center" gap="xsmall" direction="row">
           <Hpe color="brand" />
           <TextEmphasis size="small">{title}</TextEmphasis>
         </Box>

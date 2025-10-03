@@ -19,9 +19,9 @@ export const NameValueListReadMoreExample = () => {
     .toString();
 
   return (
-    <Box pad="small">
+    <Box pad="xsmall">
       <NameValueList
-        nameProps={{ width: ['xsmall', 'small'] }}
+        nameProps={{ width: ['3xsmall', 'xsmall'] }}
         valueProps={{ width: ['auto', 'medium'] }}
       >
         <NameValuePair name="State">

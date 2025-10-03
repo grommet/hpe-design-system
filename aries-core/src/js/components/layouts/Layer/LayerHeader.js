@@ -11,7 +11,7 @@ export const LayerHeader = ({
   subtitle,
   ...rest
 }) => (
-  <Header flex={false} align="start" gap="small" justify="between" {...rest}>
+  <Header flex={false} align="start" gap="xsmall" justify="between" {...rest}>
     <Box>
       <Heading id="layer-title" level={2} margin="none">
         {title}
