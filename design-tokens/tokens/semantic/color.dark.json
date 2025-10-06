@@ -1228,7 +1228,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.purple.900}",
+            "$value": "{base.color.purple.400}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1244,7 +1244,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.cyan.500}",
+            "$value": "{base.color.cyan.400}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
@@ -1260,7 +1260,7 @@
         "DEFAULT": {
           "REST": {
             "$type": "color",
-            "$value": "{base.color.blue.900}",
+            "$value": "{base.color.blue.500}",
             "$description": "Use for decorative purposes when color has no specific meaning.",
             "$extensions": {
               "com.figma": {
