@@ -1,12 +1,11 @@
-# HPE Icons
+# HPE Icons - Grommet Integration
 
-A comprehensive icon library for the HPE Design System, providing 450+ professionally designed SVG icons optimized for use in React applications with Grommet integration.
+HPE Icons optimized for React applications with Grommet integration. This package provides professionally designed SVG icons as React components with built-in Grommet theming support.
 
 ## Features
 
 - **450+ Icons**: Comprehensive collection of business, technology, and interface icons
-- **Multiple Formats**: Available as raw SVGs and React components
-- **Grommet Integration**: Pre-styled components with Grommet theming support
+- **Grommet Integration**: Pre-styled React components with Grommet theming support
 - **TypeScript Support**: Full TypeScript definitions included
 - **Tree Shakeable**: Import only the icons you need
 - **Accessible**: Built with accessibility best practices
@@ -15,9 +14,9 @@ A comprehensive icon library for the HPE Design System, providing 450+ professio
 ## Installation
 
 ```bash
-npm install hpe-icons
+npm install @hpe-design/icons-grommet
 # or
-yarn add hpe-icons
+yarn add @hpe-design/icons-grommet
 ```
 
 ## Usage
@@ -29,15 +28,15 @@ The easiest way to use HPE icons is with the Grommet integration, which provides
 ```tsx
 import { Grommet } from 'grommet';
 import { hpe } from 'grommet-theme-hpe';
-import { Accessibility, Cloud, User } from 'hpe-icons/grommet';
+import { Accessibility, Cloud, User, StatusWarning } from '@hpe-design/icons-grommet';
 
 function App() {
   return (
-    <Grommet theme={hpe} themeMode="auto" >
+    <Grommet theme={hpe} themeMode="auto">
       <Accessibility />
       <Cloud size="xxlarge" />
-      <StatusWarning color="warning" />
-      <User size="small" color="onStrong" />
+      <StatusWarning color="status-warning" />
+      <User size="small" color="text-onDark" />
     </Grommet>
   );
 }
@@ -71,7 +70,7 @@ The library includes icons across multiple categories:
 
 ### Complete Icon List
 
-For a complete list of all 450+ available icons, explore the Storybook documentation or check the `public/img/` directory.
+For a complete list of all 450+ available icons, explore the Storybook documentation or check the `src/js/icons/` directory.
 
 ## Development
 
@@ -91,7 +90,8 @@ yarn build
 
 ### Scripts
 
-- `yarn build` - Build the library for production
+- `yarn build` - Build the library for production (uses Vite)
+- `yarn copy-types` - Copy TypeScript definitions to dist
 - `yarn lint` - Run ESLint
 - `yarn storybook` - Start Storybook for icon exploration
 - `yarn build-storybook` - Build Storybook for deployment
@@ -99,19 +99,21 @@ yarn build
 ## Package Structure
 
 ```
-hpe-icons/
+packages/icons/grommet/
 ├── dist/                    # Built library files
 │   ├── hpe-icons.js        # Main entry point (ES modules)
 │   ├── hpe-icons.cjs       # CommonJS build
-│   └── grommet/            # Grommet integration build
-├── public/img/             # Source SVG files (450+ icons)
-├── src/js/
+│   └── hpe-icons.d.ts      # TypeScript definitions
+├── src/js/                 # Source files
 │   ├── index.ts            # Main entry point
-│   └── grommet/            # Grommet integration
-│       ├── icons/          # Generated React components
-│       ├── themes/         # Default themes
-│       └── StyledIcon.jsx  # Base styled component
-└── .storybook/             # Storybook configuration
+│   ├── StyledIcon.jsx      # Base styled component
+│   ├── icons/              # Icon React components (450+ icons)
+│   ├── themes/             # Default themes
+│   └── utils.ts            # Utility functions
+├── .storybook/             # Storybook configuration
+├── package.json            # Package configuration
+├── vite.config.ts          # Vite build configuration
+└── tsconfig.json           # TypeScript configuration
 ```
 
 ## Browser Support
