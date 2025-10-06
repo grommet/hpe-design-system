@@ -121,8 +121,6 @@
 
 - Added `color.background.neutral.xstrong.hover`.
 - Added `color.decorative.cyan`.
-- Updated `color.background.back` from `base.color.grey.50` to `base.color.white.100`.
-- Updated `color.background.front` from `base.color.white.100` to `base.color.grey.50`.
 - Updated `color.background.disabled` from `base.color.black.opacity4` to `#d4d8d8`.
 - Updated `color.background.warning` from `#fff3dd` to `base.color.orange.50`.
 - Updated `color.background.ok` from `#e3fdf4` to `base.color.green.100`.
@@ -192,9 +190,9 @@
 - Updated `color.icon.onPrimaryStrong` from `base.color.white.100` to `base.color.grey.1000`.
 - Updated `color.icon.onSelectedStrong` from `base.color.white.100` to `color.icon.onStrong`.
 - Updated `color.icon.onStrong` from `base.color.grey.1200` to `base.color.grey.1000`.
-- Updated `color.decorative.green` from `base.color.green.700` to `base.color.green.700Updated`.
-- Updated `color.decorative.purple` from `base.color.purple.900` to `base.color.purple.500`.
-- Updated `color.decorative.blue` from `base.color.blue.700` to `base.color.blue.900updated`.
+- Updated `color.decorative.green` from `base.color.green.700` to `base.color.green.700`.
+- Updated `color.decorative.purple` from `base.color.purple.900` to `base.color.purple.400`.
+- Updated `color.decorative.blue` from `base.color.blue.700` to `base.color.blue.500`.
 - Updated `color.decorative.neutral` from `base.color.grey.700` to `base.color.grey.650`.
 - Updated `color.datavis.categorical-10` from `#7372CF` to `base.color.blue.200`.
 - Updated `color.datavis.categorical-20` from `base.color.datavis.gold2` to `base.color.grenn.400`.
