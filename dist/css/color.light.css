@@ -164,8 +164,8 @@
   --hpe-color-transparent: rgba(0, 0, 0, 0);
   --hpe-deprecated-base-color-brand: var(--hpe-deprecated-base-color-green-600);
   --hpe-color-background-default: var(--hpe-base-color-white-100); /** Default background color to be used on containers. */
-  --hpe-color-background-back: var(--hpe-base-color-white-100); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
-  --hpe-color-background-front: var(--hpe-base-color-grey-50); /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
+  --hpe-color-background-back: var(--hpe-base-color-grey-50); /** Elevation level 0. Used for the overall page background. It creates a  backdrop for containers to sit on. */
+  --hpe-color-background-front: var(--hpe-base-color-white-100); /** Elevation level 1. Lowest level of elevation for containers/surfaces that sit directly on top of the page. Example: a container that houses a data table. */
   --hpe-color-background-floating: var(--hpe-base-color-white-100); /** Elevation level 2. The highest level of elevation for elements that sit above everything else. Example: drop downs, layers */
   --hpe-color-background-contrast: var(--hpe-base-color-black-opacity4); /** Use to create a subtle differentiation between a component or container and the region it sits on. */
   --hpe-color-background-contrast-hover: var(--hpe-base-color-black-opacity8); /** Use to create a subtle differentiation between a component or container and the region it sits on. */

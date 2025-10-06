@@ -208,9 +208,9 @@
   --hpe-color-icon-onStrong: var(--hpe-base-color-grey-1000); /** Icon color to be used on strong backgrounds. For example, background-neutral-xstrong. */
   --hpe-color-decorative-brand: var(--hpe-base-color-green-600); /** The brand color. */
   --hpe-color-decorative-green: var(--hpe-base-color-green-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-purple: var(--hpe-base-color-purple-900); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-cyan: var(--hpe-base-color-cyan-500); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-blue: var(--hpe-base-color-blue-900); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-purple: var(--hpe-base-color-purple-400); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-cyan: var(--hpe-base-color-cyan-400); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-blue: var(--hpe-base-color-blue-500); /** Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-neutral: var(--hpe-base-color-grey-500); /** Highest emphasis variant of neutral palette. */
   --hpe-color-decorative-neutral-hover: var(--hpe-base-color-grey-400); /** Highest emphasis variant of neutral palette. */
   --hpe-color-dataVis-categorical-10: var(--hpe-base-color-blue-200);
@@ -812,9 +812,9 @@
   --hpe-color-icon-onStrong: var(--hpe-base-color-grey-1000); /** Icon color to be used on strong backgrounds. For example, background-neutral-xstrong. */
   --hpe-color-decorative-brand: var(--hpe-base-color-green-600); /** The brand color. */
   --hpe-color-decorative-green: var(--hpe-base-color-green-700); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-purple: var(--hpe-base-color-purple-900); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-cyan: var(--hpe-base-color-cyan-500); /** Use for decorative purposes when color has no specific meaning. */
-  --hpe-color-decorative-blue: var(--hpe-base-color-blue-900); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-purple: var(--hpe-base-color-purple-400); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-cyan: var(--hpe-base-color-cyan-400); /** Use for decorative purposes when color has no specific meaning. */
+  --hpe-color-decorative-blue: var(--hpe-base-color-blue-500); /** Use for decorative purposes when color has no specific meaning. */
   --hpe-color-decorative-neutral: var(--hpe-base-color-grey-500); /** Highest emphasis variant of neutral palette. */
   --hpe-color-decorative-neutral-hover: var(--hpe-base-color-grey-400); /** Highest emphasis variant of neutral palette. */
   --hpe-color-dataVis-categorical-10: var(--hpe-base-color-blue-200);

@@ -3804,7 +3804,7 @@ export default {
   },
   "hpe.color.decorative.purple": {
     "$type": "color",
-    "$value": "#3c3aa1",
+    "$value": "#7764fc",
     "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
@@ -3819,7 +3819,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.purple.900}",
+      "$value": "{base.color.purple.400}",
       "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
@@ -3850,7 +3850,7 @@ export default {
   },
   "hpe.color.decorative.cyan": {
     "$type": "color",
-    "$value": "#04909d",
+    "$value": "#00a4b3",
     "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
@@ -3865,7 +3865,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.cyan.500}",
+      "$value": "{base.color.cyan.400}",
       "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {
@@ -3896,7 +3896,7 @@ export default {
   },
   "hpe.color.decorative.blue": {
     "$type": "color",
-    "$value": "#003cae",
+    "$value": "#0070f8",
     "$description": "Use for decorative purposes when color has no specific meaning.",
     "$extensions": {
       "com.figma": {
@@ -3911,7 +3911,7 @@ export default {
     "isSource": true,
     "original": {
       "$type": "color",
-      "$value": "{base.color.blue.900}",
+      "$value": "{base.color.blue.500}",
       "$description": "Use for decorative purposes when color has no specific meaning.",
       "$extensions": {
         "com.figma": {

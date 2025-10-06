@@ -95,9 +95,9 @@ export default {
       "decorative": {
         "brand": "#01a982",
         "green": "#068667",
-        "purple": "#3c3aa1",
-        "cyan": "#04909d",
-        "blue": "#003cae",
+        "purple": "#7764fc",
+        "cyan": "#00a4b3",
+        "blue": "#0070f8",
         "neutral": "#b1b9be",
         "neutral-hover": "#d4d8db"
       },

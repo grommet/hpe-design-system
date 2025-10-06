@@ -29267,7 +29267,7 @@ export default {
   },
   "hpe.switch.default.control.handle.rest.background": {
     "$type": "color",
-    "$value": "#f7f7f7",
+    "$value": "#ffffff",
     "$description": "",
     "$extensions": {
       "com.figma": {
