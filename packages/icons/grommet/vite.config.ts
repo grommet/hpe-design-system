@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        'hpe-icons': resolve(__dirname, 'src/js/index.js'),
+        'hpe-icons': resolve(__dirname, 'src/js/index.ts'),
       },
       formats: ['es', 'cjs'],
     },
