@@ -18,7 +18,7 @@ export const DoDontContainer = ({
       background = 'green!';
       label = 'Do';
     } else if (bestPracticeProp.type === 'dont') {
-      background = 'red';
+      background = 'border-critical';
       label = "Don't";
     }
 
