@@ -15,12 +15,18 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       // Externalize deps that shouldn't be bundled
-      external: ['react', 'react-dom', 'styled-components'],
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        'styled-components',
+      ],
       output: {
         globals: {
           react: 'React',
-          'styled-components': 'styled',
+          'react-dom': 'ReactDOM',
           'react/jsx-runtime': 'jsxRuntime',
+          'styled-components': 'styled',
         },
         // Preserve module structure for better tree-shaking
         preserveModules: false,
