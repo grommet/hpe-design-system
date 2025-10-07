@@ -19,11 +19,12 @@ export default defineConfig({
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM',
           'styled-components': 'styled',
+          'react/jsx-runtime': 'jsxRuntime',
         },
         // Preserve module structure for better tree-shaking
         preserveModules: false,
+        interop: 'auto',
         // Ensure proper exports
         exports: 'named',
       },
