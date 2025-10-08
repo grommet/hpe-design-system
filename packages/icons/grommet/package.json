@@ -5,12 +5,23 @@
 	"license": "Apache-2.0",
 	"repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/icons/grommet",
 	"type": "module",
+	"sideEffects": false,
 	"types": "./dist/hpe-icons.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/hpe-icons.d.ts",
 			"import": "./dist/hpe-icons.js",
 			"require": "./dist/hpe-icons.cjs"
+		},
+		"./icons/*": {
+			"types": "./dist/icons/*.d.ts",
+			"import": "./dist/icons/*.js",
+			"require": "./dist/icons/*.cjs"
+		},
+		"./themes": {
+			"types": "./dist/themes/index.d.ts",
+			"import": "./dist/themes/index.js",
+			"require": "./dist/themes/index.cjs"
 		}
 	},
 	"files": [
