@@ -42,6 +42,14 @@ function App() {
 }
 ```
 
+### Optimized Imports
+
+Modern bundlers (Webpack 5+, Vite, Rollup, esbuild) will automatically tree-shake unused icons when importing from the main package. However, importing icons from their full path will further ensure minimization.
+
+```javascript
+import { UserAdmin } from '@hpe-design/icons-grommet/icons/UserAdmin';
+```
+
 ### Available Props
 
 All Grommet icon components support the following props:

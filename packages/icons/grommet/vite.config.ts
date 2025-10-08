@@ -15,15 +15,21 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       // Externalize deps that shouldn't be bundled
-      external: ['react', 'react-dom', 'styled-components'],
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        'styled-components',
+      ],
       output: {
         globals: {
           react: 'React',
-          'styled-components': 'styled',
+          'react-dom': 'ReactDOM',
           'react/jsx-runtime': 'jsxRuntime',
+          'styled-components': 'styled',
         },
         // Preserve module structure for better tree-shaking
-        preserveModules: false,
+        preserveModules: true,
         interop: 'auto',
         // Ensure proper exports
         exports: 'named',
@@ -31,7 +37,17 @@ export default defineConfig({
     },
     // Generate source maps for better debugging
     sourcemap: true,
-    // Don't minify to preserve styled-components template literals
-    minify: false,
+    // Enable minification but preserve template literals
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        // Don't compress template literals to preserve styled-components
+        keep_fnames: true,
+      },
+      mangle: {
+        // Don't mangle function names to preserve styled-components
+        keep_fnames: true,
+      },
+    },
   },
 });
