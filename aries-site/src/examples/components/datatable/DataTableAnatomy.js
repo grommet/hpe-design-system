@@ -29,7 +29,7 @@ export const DataTableAnatomy = () => (
       <AnatomyLabel>Table header</AnatomyLabel>
     </AnatomySection>
     <AnatomySection
-      background="orange"
+      background="background-info"
       height="xsmall"
       margin={{ bottom: '5xsmall' }}
     >

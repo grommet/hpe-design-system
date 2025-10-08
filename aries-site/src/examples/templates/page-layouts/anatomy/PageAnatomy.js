@@ -25,7 +25,12 @@ export const PageAnatomy = () => {
         width="80%"
       >
         <ContentArea title="Page Header" background="purple!" flex={false} />
-        <ContentArea title="Other Content" background="orange" border flex />
+        <ContentArea
+          title="Other Content"
+          background="background-info"
+          border
+          flex
+        />
       </ContentArea>
     </ContentArea>
   );
