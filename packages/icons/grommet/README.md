@@ -124,6 +124,10 @@ packages/icons/grommet/
 └── tsconfig.json           # TypeScript configuration
 ```
 
+## Migrating from grommet-icons
+
+Information for migrating from grommet-icons to @hpe-design/icons-grommet can be found in this [migration guide](https://github.com/grommet/hpe-design-system/wiki/Migrating-from-grommet%E2%80%90icons-to-@hpe%E2%80%90design-icons%E2%80%90grommet).
+
 ## Browser Support
 
 - Chrome (latest)
