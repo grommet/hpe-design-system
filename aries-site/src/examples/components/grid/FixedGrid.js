@@ -12,7 +12,7 @@ export const FixedGrid = () => (
     <ContentArea title="1" background="red" border />
     <ContentArea title="2" background="purple" border />
     <ContentArea title="3" background="green" border />
-    <ContentArea title="4" background="orange" border />
+    <ContentArea title="4" background="background-info" border />
     <ContentArea title="5" background="blue" border />
   </Grid>
 );

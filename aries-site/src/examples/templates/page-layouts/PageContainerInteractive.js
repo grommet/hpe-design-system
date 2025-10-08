@@ -58,7 +58,7 @@ const PageChildren = () => (
       <Main
         as={ContentArea}
         title="Other Content"
-        background="orange"
+        background="background-info"
         border
         fill={false}
       >

@@ -43,7 +43,7 @@ export const PageContainerNarrow = () => {
       <Box
         id="narrow-container"
         pad={{ horizontal: '3xsmall' }}
-        background="orange"
+        background="background-info"
       >
         <TextEmphasis>{PAGE_CONTAINER_WIDTH}</TextEmphasis>
       </Box>
@@ -83,7 +83,7 @@ export const PageContainerNarrow = () => {
               />
               <ContentArea
                 title="Other Content"
-                background="orange"
+                background="background-info"
                 border
                 height="xsmall"
               />

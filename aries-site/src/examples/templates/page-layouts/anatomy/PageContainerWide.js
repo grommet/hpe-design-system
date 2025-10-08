@@ -40,7 +40,11 @@ export const PageContainerWide = () => {
       pad={{ top: '3xlarge' }}
     >
       <LinkPrevious id="left-edge" color="text-strong" />
-      <Box id="label" pad={{ horizontal: '3xsmall' }} background="orange">
+      <Box
+        id="label"
+        pad={{ horizontal: '3xsmall' }}
+        background="background-info"
+      >
         <TextEmphasis>{PAGE_CONTAINER_WIDTH}</TextEmphasis>
       </Box>
       <LinkNext id="right-edge" color="text-strong" />
@@ -79,7 +83,7 @@ export const PageContainerWide = () => {
               />
               <ContentArea
                 title="Other Content"
-                background="orange"
+                background="background-info"
                 border
                 height="xsmall"
               />
