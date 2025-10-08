@@ -92,20 +92,6 @@ For older bundlers or to guarantee minimal bundle size, use individual imports:
 }
 ```
 
-## Migration Guide
-
-### From Previous Versions
-```javascript
-// Before
-import { Calculator } from '@hpe-design/icons-grommet';
-
-// After (for maximum optimization)  
-import { Calculator } from '@hpe-design/icons-grommet/icons/Calculator';
-
-// Or keep existing imports (tree-shaking will work with modern bundlers)
-import { Calculator } from '@hpe-design/icons-grommet';
-```
-
 ### Benefits Summary
 - 🎯 **Perfect Tree-Shaking**: Only import what you use
 - 📦 **Reduced Bundle Size**: From 650KB to 1-4KB per icon
