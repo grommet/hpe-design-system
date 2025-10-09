@@ -14,7 +14,7 @@ module.exports = {
     'plugin:grommet/recommended',
     'prettier',
   ],
-  plugins: ['react', 'jsx', 'jsx-a11y', 'react-hooks', 'prettier'],
+  plugins: ['react', 'jsx', 'jsx-a11y', 'react-hooks', 'prettier', 'import'],
   env: {
     browser: true,
     jest: true,
@@ -74,5 +74,12 @@ module.exports = {
     'import/no-dynamic-require': 0,
     quotes: [2, 'single', { avoidEscape: true }],
     'arrow-body-style': 0,
+    'import/no-unresolved': [
+      'error',
+      {
+        // currently, lint rule causes a false positive for packages that use "exports" in package.json
+        ignore: ['^@hpe-design/icons.+'],
+      },
+    ],
   },
 };
