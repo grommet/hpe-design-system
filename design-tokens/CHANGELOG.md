@@ -6,8 +6,6 @@
 
 - 1c60852: **Primitives**
 
-  - Deprecated `base.color.brand`.
-  - Deprecated `base.fontFamily.MetricHPEXS`.
   - Updated `base.fontFamily.primary` from `MetricHPEXS` to `HPE Graphik`.
   - Added new color tokens:
     - Added `base.color.purple.100` with value `#b7a2fc`
@@ -76,7 +74,10 @@
     - Updated `base.color.grey.1200` from `#222222` to `#22252e`
     - Updated `base.color.grey.1300` from `#1c1c1c` to `#1d1f27`
     - Removed `base.color.grey.1100`
-  - All deprecated colors moved to `deprecated.base.color` namespace.
+  - Deprecated colors:
+    - All deprecated colors moved to `deprecated.base.color` namespace.
+    - Deprecated `base.color.brand`.
+    - Deprecated `base.fontFamily.MetricHPEXS`.
 
   **Dimension**
 
