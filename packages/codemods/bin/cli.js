@@ -33,7 +33,8 @@ const printHelp = () => {
     'Usage: node bin/cli.js <transform> <path> [options]',
     '',
     'Transforms:',
-    '  migrate-theme-v6-to-v7   Migrate v6 theme to v7',
+    '  migrate-grommet-icons-to-hpe   Migrate grommet-icons to @hpe-design/icons-grommet',
+    '  migrate-theme-v6-to-v7         Migrate v6 theme to v7',
     '',
     'Options:',
     '  --dry      Run in dry mode (no changes)',
@@ -46,6 +47,8 @@ const printHelp = () => {
     '  --help     Show this help message',
     '',
     'Example usage:',
+    '  node bin/cli.js migrate-grommet-icons-to-hpe src/',
+    '  node bin/cli.js migrate-grommet-icons-to-hpe src/ --dry',
     '  node bin/cli.js migrate-theme-v6-to-v7 src/ --scan',
     '  node bin/cli.js migrate-theme-v6-to-v7 src/',
     '  node bin/cli.js migrate-theme-v6-to-v7 src/ --dry',
@@ -68,6 +71,10 @@ const transform = args[0];
 const target = args[1];
 
 const transforms = {
+  'migrate-grommet-icons-to-hpe': path.join(
+    __dirname,
+    '../transforms/migrate-grommet-icons-to-hpe.js',
+  ),
   'migrate-theme-v6-to-v7': path.join(
     __dirname,
     '../transforms/migrate-theme-v6-to-v7.js',
