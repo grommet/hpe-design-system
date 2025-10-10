@@ -23,7 +23,7 @@ const HighlightedText = styled(Text)`
     10% {
       color: ${({ theme }) =>
         theme.dark
-          ? theme.global.colors.purple.light
+          ? theme.global.colors['purple!']
           : theme.global.colors.blue.light};
     }
     40% {
