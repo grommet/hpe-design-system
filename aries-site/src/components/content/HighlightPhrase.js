@@ -10,7 +10,7 @@ const HighlightedText = styled(Text)`
       ? 'animation: fadeOut ease-out 4s;'
       : `color: ${
           theme.dark
-            ? theme.global.colors.yellow.light
+            ? theme.global.colors.purple.light
             : theme.global.colors.blue.dark
         };
         font-weight: bolder;`}
@@ -22,13 +22,13 @@ const HighlightedText = styled(Text)`
     10% {
       color: ${({ theme }) =>
         theme.dark
-          ? theme.global.colors['yellow!']
+          ? theme.global.colors['purple!']
           : theme.global.colors.blue.light};
     }
     40% {
       color: ${({ theme }) =>
         theme.dark
-          ? theme.global.colors.yellow.light
+          ? theme.global.colors.purple.light
           : theme.global.colors.blue.dark};
     }
     100% {
