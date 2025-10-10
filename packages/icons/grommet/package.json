@@ -6,6 +6,8 @@
 	"repository": "https://github.com/grommet/hpe-design-system/tree/master/packages/icons/grommet",
 	"type": "module",
 	"sideEffects": false,
+	"main": "./dist/hpe-icons.cjs",
+	"module": "./dist/hpe-icons.js",
 	"types": "./dist/hpe-icons.d.ts",
 	"exports": {
 		".": {
