@@ -1,8 +1,12 @@
 # Grommet Theme HPE v6 to v7 Migration Guide
 
+> **← Back to:** [README](../README.md) | [Documentation](../DOCUMENTATION.md) | [Other Migration Guides](./GROMMET_ICONS_TO_HPE.md)
+
 ## Overview
 
-This transform handles the migration of t-shirt size properties from Grommet HPE theme v6 to v7. It uses [jscodeshift](https://github.com/facebook/jscodeshift) to parse and transform JavaScript, TypeScript, JSX, and TSX files, specifically targeting the migration of t-shirt size prop values.
+This guide provides detailed information for migrating Grommet HPE theme v6 to v7 using the `migrate-theme-v6-to-v7` codemod.
+
+The transform handles the migration of t-shirt size properties, using [jscodeshift](https://github.com/facebook/jscodeshift) to parse and transform JavaScript, TypeScript, JSX, and TSX files.
 
 ## Property Categories
 
@@ -269,3 +273,11 @@ The `--scan` mode scans the entire project to look for areas that may need manua
 - [Grommet Documentation](https://v2.grommet.io/)
 - [HPE Design System](https://design-system.hpe.design/)
 - [jscodeshift Documentation](https://github.com/facebook/jscodeshift)
+
+---
+
+## Related Documentation
+
+- **[← Back to README](../README.md)** - Quick start and basic usage
+- **[← Back to Documentation](../DOCUMENTATION.md)** - Advanced features and development
+- **[Icon Migration Guide →](./GROMMET_ICONS_TO_HPE.md)** - Other available migration

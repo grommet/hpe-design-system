@@ -1,8 +1,12 @@
-# Grommet Icons to HPE Design Icons Migration Codemod
+# Grommet Icons to HPE Design Icons Migration Guide
+
+> **← Back to:** [README](../README.md) | [Documentation](../DOCUMENTATION.md) | [Other Migration Guides](./MIGRATE_THEME_V6_TO_V7.md)
 
 ## Overview
 
-This codemod automatically migrates your codebase from `grommet-icons` to `@hpe-design/icons-grommet`, handling all necessary icon name remappings and import updates.
+This guide provides detailed information for migrating from `grommet-icons` to `@hpe-design/icons-grommet` using the `migrate-grommet-icons-to-hpe` codemod.
+
+The codemod automatically migrates your codebase, handling all necessary icon name remappings and import updates.
 
 ## What it does
 
@@ -214,3 +218,20 @@ npm test
 For issues or questions about the migration:
 - Check the [HPE Design System documentation](https://design-system.hpe.design/)
 - Open an issue in the [HPE Design System repository](https://github.com/grommet/hpe-design-system)
+
+---
+
+## Related Resources
+
+- [Grommet Documentation](https://v2.grommet.io/)
+- [HPE Design System](https://design-system.hpe.design/)
+- [Icon Search](https://icons.grommet.io/)
+- [jscodeshift Documentation](https://github.com/facebook/jscodeshift)
+
+---
+
+## Related Documentation
+
+- **[← Back to README](../README.md)** - Quick start and basic usage
+- **[← Back to Documentation](../DOCUMENTATION.md)** - Advanced features and development
+- **[Theme Migration Guide →](./MIGRATE_THEME_V6_TO_V7.md)** - Other available migration

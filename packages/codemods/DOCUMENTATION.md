@@ -1,13 +1,15 @@
 # HPE Design System Codemods Documentation
 
+> **Quick Start:** See [README.md](README.md) for basic usage and examples.
+
 ## Overview
 
-`hpe-design-system-codemods` is a codemod project to assist migrations for package versions related to the HPE Design System.
+This documentation provides comprehensive information about the HPE Design System codemods, including advanced features, troubleshooting, and development guidelines.
 
-Available codemod transformations:
+Available transforms:
 
-- [grommet-icons to @hpe-design/icons-grommet](#migrate-grommet-icons-to-hpe)
-- [Grommet-theme-hpe v6 to v7](#migrate-theme-v6-to-v7)
+- [migrate-grommet-icons-to-hpe](#migrate-grommet-icons-to-hpe) - Icon library migration
+- [migrate-theme-v6-to-v7](#migrate-theme-v6-to-v7) - Theme size property migration
 
 ## Table of Contents
 
@@ -24,17 +26,21 @@ Available codemod transformations:
 
 ## Installation
 
-### Using npx (No Installation Required)
+### Using npx (Recommended)
+
+No installation required - run codemods directly:
 
 ```bash
-npx hpe-design-system-codemods <codemode transform> <path> [options]
+npx hpe-design-system-codemods <transform-name> <path> [options]
 ```
 
 ### Local Development
 
+For contributing or customizing:
+
 ```bash
-git clone <repository-url>
-cd hpe-design-system-codemods
+git clone https://github.com/grommet/hpe-design-system.git
+cd hpe-design-system/packages/codemods
 yarn install
 ```
 
@@ -94,7 +100,7 @@ import { StatusCriticalSmall, Next, BarChart } from 'grommet-icons';
 import { StatusCritical, Right, ChartBar } from '@hpe-design/icons-grommet';
 ```
 
-**📖 For detailed migration information, see:** [migration_guides/GROMMET_ICONS_TO_HPE.md](migration_guides/GROMMET_ICONS_TO_HPE.md)
+**📖 For detailed migration information, see:** [Icon Migration Guide](migration_guides/GROMMET_ICONS_TO_HPE.md)
 
 ### migrate-theme-v6-to-v7
 
@@ -117,7 +123,7 @@ Automatically migrates t-shirt size properties from Grommet HPE theme v6 to v7.
 <Box pad="xsmall" margin="xlarge" />
 ```
 
-**📖 For detailed migration information, see:** [migration_guides/MIGRATE_THEME_V6_TO_V7.md](migration_guides/MIGRATE_THEME_V6_TO_V7.md)
+**📖 For detailed migration information, see:** [Theme Migration Guide](migration_guides/MIGRATE_THEME_V6_TO_V7.md)
 
 ## CLI Options
 
@@ -414,11 +420,13 @@ This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE
 - [Grommet Documentation](https://v2.grommet.io/)
 - [jscodeshift Documentation](https://github.com/facebook/jscodeshift)
 
-## Migration Guides
+---
 
-For detailed migration information, see:
-- [Icon Migration: grommet-icons to @hpe-design/icons-grommet](migration_guides/GROMMET_ICONS_TO_HPE.md)
-- [Theme Migration: v6 to v7](migration_guides/MIGRATE_THEME_V6_TO_V7.md)
+## See Also
+
+- **[README.md](README.md)** - Quick start guide and basic usage
+- **[Icon Migration Guide](migration_guides/GROMMET_ICONS_TO_HPE.md)** - Detailed icon migration information
+- **[Theme Migration Guide](migration_guides/MIGRATE_THEME_V6_TO_V7.md)** - Detailed theme migration information
 
 ---
 
