@@ -11,7 +11,6 @@ import {
 export const data = [
   {
     cta: 'Launch',
-    background: 'yellow',
     title: 'Aruba Network Manager',
     description: `Network configuration and operations made simple. Your 
     network on a single pane of glass.`,
