@@ -30,6 +30,14 @@ npx hpe-design-system-codemods <codemod-transform> <path> [options]
 
 ## Codemod transforms
 
+### Quick Links
+
+**grommet-icons to @hpe-design/icons-grommet:**
+- [Usage](#usage-1) | [Options](#options-1) | [Examples](#example-usage-1) | [Migration Guide](migration_guides/GROMMET_ICONS_TO_HPE.md)
+
+**Grommet-theme-hpe v6 to v7:**
+- [Usage](#usage-2) | [Options](#options-2) | [Examples](#example-usage-2) | [Migration Guide](migration_guides/MIGRATE_THEME_V6_TO_V7.md)
+
 ### grommet-icons to @hpe-design/icons-grommet
 
 Automatically migrates icon imports from `grommet-icons` to `@hpe-design/icons-grommet`, handling:

@@ -117,7 +117,7 @@ Automatically migrates t-shirt size properties from Grommet HPE theme v6 to v7.
 <Box pad="xsmall" margin="xlarge" />
 ```
 
-**📖 For detailed migration information, see:** [migration_guides/migrate-theme-v6-to-v7.md](migration_guides/migrate-theme-v6-to-v7.md)
+**📖 For detailed migration information, see:** [migration_guides/MIGRATE_THEME_V6_TO_V7.md](migration_guides/MIGRATE_THEME_V6_TO_V7.md)
 
 ## CLI Options
 
@@ -272,7 +272,7 @@ hpe-design-system-codemods/
 │   └── migrate-theme-v6-to-v7.test.js       # Theme migration tests
 ├── migration_guides/
 │   ├── GROMMET_ICONS_TO_HPE.md              # Icon migration guide
-│   └── migrate-theme-v6-to-v7.md            # Theme migration guide
+│   └── MIGRATE_THEME_V6_TO_V7.md            # Theme migration guide
 ├── package.json                              # Package configuration
 ├── LICENSE                                   # Apache 2.0 license
 ├── README.md                                 # Basic usage guide
@@ -375,7 +375,7 @@ git status --porcelain
 3. **Test on a small subset** of files first
 4. **Review the migration guides** to understand expected transformations:
    - [Icon Migration Guide](migration_guides/GROMMET_ICONS_TO_HPE.md)
-   - [Theme v6-to-v7 Guide](migration_guides/migrate-theme-v6-to-v7.md)
+   - [Theme v6-to-v7 Guide](migration_guides/MIGRATE_THEME_V6_TO_V7.md)
 
 ### For migrate-grommet-icons-to-hpe
 
@@ -418,7 +418,7 @@ This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE
 
 For detailed migration information, see:
 - [Icon Migration: grommet-icons to @hpe-design/icons-grommet](migration_guides/GROMMET_ICONS_TO_HPE.md)
-- [Theme Migration: v6 to v7](migration_guides/migrate-theme-v6-to-v7.md)
+- [Theme Migration: v6 to v7](migration_guides/MIGRATE_THEME_V6_TO_V7.md)
 
 ---
 
