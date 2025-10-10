@@ -173,13 +173,13 @@ function runJscodeshift({ files, parser, extensions, scan }) {
         output.split('\n').forEach(line => {
           const file = line.split(' ')[2];
           if (line.includes(target)) {
-            totalFiles++;
+            totalFiles += 1;
             if (line.includes('OK')) {
-              changedFiles++;
+              changedFiles += 1;
               if (dry) {
-                console.log(`🔍 Would update t-shirt sizes: ${file}`);
+                console.log(`🔍 Would update: ${file}`);
               } else {
-                console.log(`✅ Updated t-shirt sizes: ${file}`);
+                console.log(`✅ Updated: ${file}`);
               }
             }
           }
@@ -199,13 +199,13 @@ function runJscodeshift({ files, parser, extensions, scan }) {
       if (totalFiles > 0 && (changedFiles > 0 || hadError)) {
         if (dry) {
           console.log(
-            `\n🔍 T-shirt size migration preview: ${changedFiles} files would be updated, ${
+            `\n🔍 Migration preview: ${changedFiles} files would be updated, ${
               totalFiles - changedFiles
             } files unchanged (${totalFiles} total files processed)`,
           );
         } else {
           console.log(
-            `\n🎯 T-shirt size automated transformations complete: ${changedFiles} files updated, ${
+            `\n🎯 Automated transformations complete: ${changedFiles} files updated, ${
               totalFiles - changedFiles
             } files unchanged (${totalFiles} total files processed)`,
           );
