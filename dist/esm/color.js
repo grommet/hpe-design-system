@@ -112,7 +112,10 @@ export default {
         "categorical-80": "var(--hpe-color-dataVis-categorical-80)"
       },
       "transparent": "var(--hpe-color-transparent)",
-      "focus": "var(--hpe-color-focus)",
+      "focus": {
+        "": "var(--hpe-color-focus)",
+        "support": "var(--hpe-color-focus-support)"
+      },
       "foreground": {
         "primary": "var(--hpe-color-foreground-primary)",
         "critical": "var(--hpe-color-foreground-critical)",

@@ -25,7 +25,7 @@ export default {
       "$type": "border",
       "$value": {
         "width": "{base.dimension.50}",
-        "color": "{color.focus}",
+        "color": "{color.focus.DEFAULT.REST}",
         "style": "solid"
       },
       "$description": "",
@@ -107,7 +107,7 @@ export default {
           "offsetY": 0,
           "blur": 0,
           "spread": "{focusIndicator.outlineOffset}",
-          "color": "{base.color.white.100}"
+          "color": "{color.focus.DEFAULT.support}"
         }
       ],
       "$description": "",

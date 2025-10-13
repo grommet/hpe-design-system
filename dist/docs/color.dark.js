@@ -4450,8 +4450,52 @@ export default {
   },
   "hpe.color.focus": {
     "$type": "color",
+    "$value": "#ffffff",
+    "$description": "The primary outer ring of the focus indicator, used to define the overall area of the focused element.",
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": [
+          "STROKE_COLOR"
+        ],
+        "codeSyntax": {}
+      }
+    },
+    "filePath": "tokens/semantic/color.dark.json",
+    "isSource": true,
+    "original": {
+      "$type": "color",
+      "$value": "{base.color.white.100}",
+      "$description": "The primary outer ring of the focus indicator, used to define the overall area of the focused element.",
+      "$extensions": {
+        "com.figma": {
+          "hiddenFromPublishing": false,
+          "scopes": [
+            "STROKE_COLOR"
+          ],
+          "codeSyntax": {}
+        }
+      }
+    },
+    "name": "hpe.color.focus",
+    "attributes": {
+      "category": "color",
+      "type": "focus",
+      "item": "DEFAULT",
+      "subitem": "REST"
+    },
+    "path": [
+      "color",
+      "focus",
+      "DEFAULT",
+      "REST"
+    ],
+    "key": "{color.focus.DEFAULT.REST}"
+  },
+  "hpe.color.focus.support": {
+    "$type": "color",
     "$value": "#292d3a",
-    "$description": "",
+    "$description": "The secondary inner ring of the focus indicator, designed to provide a high-contrast complement to color.focus against various backgrounds.",
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
@@ -4466,7 +4510,7 @@ export default {
     "original": {
       "$type": "color",
       "$value": "{base.color.grey.1000}",
-      "$description": "",
+      "$description": "The secondary inner ring of the focus indicator, designed to provide a high-contrast complement to color.focus against various backgrounds.",
       "$extensions": {
         "com.figma": {
           "hiddenFromPublishing": false,
@@ -4477,16 +4521,20 @@ export default {
         }
       }
     },
-    "name": "hpe.color.focus",
+    "name": "hpe.color.focus.support",
     "attributes": {
       "category": "color",
-      "type": "focus"
+      "type": "focus",
+      "item": "DEFAULT",
+      "subitem": "support"
     },
     "path": [
       "color",
-      "focus"
+      "focus",
+      "DEFAULT",
+      "support"
     ],
-    "key": "{color.focus}"
+    "key": "{color.focus.DEFAULT.support}"
   },
   "hpe.color.foreground.primary": {
     "$type": "color",

@@ -18,5 +18,5 @@
   --hpe-fontWeight-bold: 700; /** Bold is used sparingly because it has reduced readability especially at smaller font sizes. */
   --hpe-fontWeight-black: 900; /** Black is rarely, if at all, used. */
   --hpe-focusIndicator-outline: var(--hpe-base-dimension-50) solid var(--hpe-color-focus);
-  --hpe-focusIndicator-boxShadow: 0 0 0 var(--hpe-focusIndicator-outlineOffset) var(--hpe-base-color-white-100) ;
+  --hpe-focusIndicator-boxShadow: 0 0 0 var(--hpe-focusIndicator-outlineOffset) var(--hpe-color-focus-support) ;
 }

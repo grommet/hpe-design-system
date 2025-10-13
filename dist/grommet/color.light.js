@@ -112,7 +112,10 @@ export default {
         "categorical-80": "#d25f4b"
       },
       "transparent": "rgba(0, 0, 0, 0)",
-      "focus": "#292d3a",
+      "focus": {
+        "": "#292d3a",
+        "support": "#ffffff"
+      },
       "foreground": {
         "primary": "#006750",
         "critical": "#ec3331",
