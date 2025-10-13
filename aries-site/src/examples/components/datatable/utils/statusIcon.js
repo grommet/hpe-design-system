@@ -8,7 +8,7 @@ import {
 // Map status labels to their corresponding icon components
 export const statusIcons = {
   critical: StatusCriticalSmall,
-  normal: StatusGoodSmall,
+  ok: StatusGoodSmall,
   unknown: StatusUnknownSmall,
   warning: StatusWarningSmall,
 };
