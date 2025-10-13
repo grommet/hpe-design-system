@@ -12,6 +12,8 @@ import {
   DataTableResizeColumnsExample,
   DataTableSingleSelectExample,
   DataTableSortable,
+  DataTableStatusStateExample,
+  DataTableStatusOnlyExample,
   DataTableSummaryExample,
   DataTableVerticalListExample,
 } from '../../examples';
@@ -211,7 +213,6 @@ For empty cells, add an `a11yTitle="No value"` to the Text component that would 
   <DataTableEmptyCellExample />
 </Example>
 
-
 ### Status and state
 
 Statuses within a DataTable should always have these accompanying elements:
@@ -238,12 +239,13 @@ When status and state are distinct and independent from each other, display them
 - Allows columns to be sorted independently from each other.
 - Clearly visually separates and labels status and state to avoid false associations.
 
-<Box width="xlarge">
-  <Image
-    src="/static/images/datatable-separate-columns-status-state.svg"
-    alt="Example of a data table showing separate columns for status and state"
-  />
-</Box>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableStatusStateExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+>
+  <DataTableStatusStateExample />
+</Example>
 
 #### 2. Status only column
 
@@ -251,12 +253,13 @@ When status and state are distinct and independent from each other, display them
 - Used in situations where horizontal screen real-estate is an issue.
 - If displaying state is required, provide the user the ability to view the record's detail. State may be displayed once the user selects the row for more information.
 
-<Box width="xlarge">
-  <Image
-    src="/static/images/datatable-only-status-column.svg"
-    alt="Example showing a status column in the data table pointing to the state within the details"
-  />
-</Box>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableStatusOnlyExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+>
+  <DataTableStatusOnlyExample />
+</Example>
 
 #### 3. Combined column
 
@@ -267,12 +270,13 @@ When the status and state are coupled, they may be displayed as a single element
 - Status and State are sorted together rather than individually.
 - **_Note: A single column is rarely used. Ensure false associations are not created when status and state are not coupled._**
 
-<Box width="xlarge">
-  <Image
-    src="/static/images/datatable-combined-column-status-state.svg"
-    alt="Example of a data table showing combined column for status and state"
-  />
-</Box>
+<Example
+  code="https://raw.githubusercontent.com/grommet/hpe-design-system/master/aries-site/src/examples/components/datatable/DataTableStatusOnlyExample.js"
+  docs="https://v2.grommet.io/datatable?theme=hpe#props"
+  showResponsiveControls={['laptop', 'mobile']}
+>
+  <DataTableStatusOnlyExample clickable={false} />
+</Example>
 
 ## DataTable behaviors & actions
 
@@ -433,6 +437,7 @@ When a column has multi-line data, it may improve readability to align the data 
 </Example>
 
 ## Accessibility
+
 To ensure screen readers are able to associate a page heading with a given DataTable, apply an `id` to the Heading and `aria-describedBy` to the DataTable, where the same string value is applied to both attributes. When a screen reader reaches the data table, it will announce the Heading content which provides the user with better context about the table data and purpose.
 
 For example, if on the Heading you apply `id="storage-pools-heading"`, on the DataTable you would apply `aria-describedBy="storage-pools-heading"`. In this example, the screen reader would properly associate "Storage Pools" as the description for the DataTable.
@@ -441,10 +446,12 @@ For example, if on the Heading you apply `id="storage-pools-heading"`, on the Da
 <Heading id="storage-pools-heading">Storage pools</Heading>
 <DataTable aria-describedBy="storage-pools-heading" />
 ```
+
 ### WCAG compliance
-  <AccessibilitySection title='datatable' />
 
+{' '}
 
+<AccessibilitySection title="datatable" />
 
 {/* To be added. Placeholders for future content. */}
 
