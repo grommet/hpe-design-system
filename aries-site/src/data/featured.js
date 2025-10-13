@@ -1,4 +1,4 @@
-import { Brush, Code, Star } from 'grommet-icons';
+import { Brush, Code, StarFill } from '@hpe-design/icons-grommet';
 
 export const featured = [
   {
@@ -17,7 +17,7 @@ export const featured = [
     name: "What's new",
     description: `Track announcements, new template patterns,
       guidance, and released components.`,
-    icon: <Star size="large" color="text-strong" />,
+    icon: <StarFill size="large" color="text-strong" />,
     url: '/whats-new',
   },
 ];

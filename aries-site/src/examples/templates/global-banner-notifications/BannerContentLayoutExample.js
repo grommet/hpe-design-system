@@ -12,7 +12,7 @@ import {
   Text,
   ResponsiveContext,
 } from 'grommet';
-import { HelpOption, HomeRounded } from 'grommet-icons';
+import { Help, Home } from '@hpe-design/icons-grommet';
 import { AppContainer } from '../page-layouts/components';
 import { ContentArea } from '../page-layouts/anatomy/components';
 
@@ -29,8 +29,8 @@ export const BannerContentLayoutExample = () => (
       >
         <Box align="center" direction="row" gap="xsmall">
           <>
-            <Button icon={<HelpOption />} a11yTitle="Help" title="Help" />
-            <Button icon={<HomeRounded />} a11yTitle="Home" title="Home" />
+            <Button icon={<Help />} a11yTitle="Help" title="Help" />
+            <Button icon={<Home />} a11yTitle="Home" title="Home" />
           </>
           <Avatar background="purple!" flex={false}>
             <Text size="small" color="text-strong">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button } from 'grommet';
-import { Notification } from 'grommet-icons';
+import { Notification } from '@hpe-design/icons-grommet';
 
 export const ButtonBadgeExample = () => (
   <Box direction="row" gap="medium">

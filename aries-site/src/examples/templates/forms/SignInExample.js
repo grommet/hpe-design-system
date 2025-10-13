@@ -14,7 +14,7 @@ import {
   Text,
   TextInput,
 } from 'grommet';
-import { Close, Next, CircleAlert } from 'grommet-icons';
+import { Close, Right, Alert } from '@hpe-design/icons-grommet';
 import { emailValidation } from './utils/FormValidation';
 import { ContentPane } from '../../../layouts';
 
@@ -185,7 +185,7 @@ export const SignInExample = () => {
               pad="xsmall"
               round="4px"
             >
-              <CircleAlert size="small" />
+              <Alert size="small" />
               <Text size="xsmall">Invalid credentials.</Text>
             </Box>
           )}
@@ -195,7 +195,7 @@ export const SignInExample = () => {
           >
             <Button
               label="Sign In"
-              icon={<Next />}
+              icon={<Right />}
               reverse
               primary
               type="submit"

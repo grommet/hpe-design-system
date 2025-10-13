@@ -1,5 +1,5 @@
 import React from 'react';
-import { CircleInformation } from 'grommet-icons';
+import { Info } from '@hpe-design/icons-grommet';
 import {
   Box,
   Button,

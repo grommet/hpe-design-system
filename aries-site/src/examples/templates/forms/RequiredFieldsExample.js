@@ -14,7 +14,7 @@ import {
   TextInput,
   TextArea,
 } from 'grommet';
-import { CircleAlert } from 'grommet-icons';
+import { Alert } from '@hpe-design/icons-grommet';
 import { ContentPane } from '../../../layouts';
 
 const superPower = ['Flying', 'Sky Runner', 'Invisibility'];
@@ -154,7 +154,7 @@ export const RequiredFieldsExample = () => {
               direction="row"
               gap="3xsmall"
             >
-              <CircleAlert size="small" />
+              <Alert size="small" />
               <Text size="xsmall">
                 The name of the superhero is already being used. Provide a
                 unique name.

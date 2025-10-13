@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { TextInput } from 'grommet';
-import { Search as SearchIcon } from 'grommet-icons';
+import { Search as SearchIcon } from '@hpe-design/icons-grommet';
 
 // Using Search icon as the arialabelledby for the text input. Documentation
 // on why this is a valid replacement for using label here:

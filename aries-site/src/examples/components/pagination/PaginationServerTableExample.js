@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, DataTable, Heading, Pagination, Text, Tip } from 'grommet';
-import { StatusCritical } from 'grommet-icons';
+import { StatusCritical } from '@grommet-design/icons-grommet';
 import { ContentPane } from '../../../layouts';
 
 const columns = [

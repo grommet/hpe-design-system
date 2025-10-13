@@ -14,7 +14,7 @@ import {
   TextInput,
   ResponsiveContext,
 } from 'grommet';
-import { FormCheckmark } from 'grommet-icons';
+import { Checkmark } from '@hpe-design/icons-grommet';
 import {
   emailMask,
   emailValidation,
@@ -129,7 +129,7 @@ export const SignUpExample = () => {
                     <Box direction="row" gap="3xsmall">
                       {formValues.password && rule.valid && (
                         <Box alignSelf="center">
-                          <FormCheckmark size="small" />
+                          <Checkmark size="small" />
                         </Box>
                       )}
                       <Text size="xsmall">{rule.message}</Text>

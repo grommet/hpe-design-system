@@ -1,7 +1,7 @@
 import React from 'react';
 import { EmptyState } from 'aries-core';
 import { Button } from 'grommet';
-import { CircleInformation } from 'grommet-icons';
+import { Info } from '@hpe-design/icons-grommet';
 
 export const EmptyStateExample = () => {
   return (
@@ -9,7 +9,7 @@ export const EmptyStateExample = () => {
       title="No items exist"
       description={`Once an item is created, 
         it will be displayed here.`}
-      icon={<CircleInformation />}
+      icon={<Info />}
       actions={<Button label="New item" primary />}
       level={2}
     />

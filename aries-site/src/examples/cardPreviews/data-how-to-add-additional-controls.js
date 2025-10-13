@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, TextInput } from 'grommet';
-import { Filter, Search, Descend, Columns } from 'grommet-icons';
+import { Filter, Search, Descend, Columns } from '@hpe-design/icons-grommet';
 
 export const DataHowToAddAdditionalControls = () => (
   <Box direction="row" align="center" gap="xsmall">

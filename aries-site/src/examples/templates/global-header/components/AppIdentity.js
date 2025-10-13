@@ -5,6 +5,7 @@ import { Aruba, Hpe } from 'grommet-icons';
 import { UserContext, MenuLayer } from '.';
 
 const brands = {
+  // todo replace with logo
   hpe: {
     name: 'HPE',
     logo: <Hpe color="brand" />,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput } from 'grommet';
-import { Search as SearchIcon } from 'grommet-icons';
+import { Search as SearchIcon } from '@grommet-design/icons-grommet';
 
 export const SearchExample = ({ ...props }) => {
   const [value, setValue] = React.useState();

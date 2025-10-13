@@ -1,6 +1,6 @@
 import React from 'react';
 import { Anchor, Box, Button, Diagram, Grid, Stack, Paragraph } from 'grommet';
-import { FormClose, StatusWarningSmall } from 'grommet-icons';
+import { Close, StatusWarning } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 import { Annotation } from '../../../layouts';
 import { connection } from '../../../utils';
@@ -27,7 +27,7 @@ const NotificationContent = ({ ...rest }) => (
       gap="3xsmall"
       pad={{ horizontal: 'xsmall', vertical: '3xsmall' }}
     >
-      <StatusWarningSmall
+      <StatusWarning
         gridArea="icon"
         id="icon"
         color="status-warning"
@@ -50,7 +50,7 @@ const NotificationContent = ({ ...rest }) => (
         alignSelf="start"
         hoverIndicator
         plain
-        icon={<FormClose color="text-strong" />}
+        icon={<Close color="text-strong" />}
       />
     </Box>
   </Box>

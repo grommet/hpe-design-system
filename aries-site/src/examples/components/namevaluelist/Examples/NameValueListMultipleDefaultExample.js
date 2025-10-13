@@ -8,7 +8,7 @@ import {
   Tab,
   Tabs,
 } from 'grommet';
-import { StatusGoodSmall } from 'grommet-icons';
+import { StatusGood } from '@grommet-design/icons-grommet';
 import { ContentPane } from '../../../../layouts';
 import { kubernetesData, serverData, tagsData } from '../data';
 
@@ -30,7 +30,7 @@ export const NameValueListMultipleDefaultExample = () => {
                   <NameValuePair key={name} name={name}>
                     {name === 'Health' ? (
                       <Box align="center" gap="3xsmall" direction="row">
-                        <StatusGoodSmall size="small" color="status-ok" />
+                        <StatusGood size="small" color="status-ok" />
                         {value}
                       </Box>
                     ) : (
