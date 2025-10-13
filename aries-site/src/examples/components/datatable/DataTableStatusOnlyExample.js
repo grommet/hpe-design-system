@@ -55,7 +55,6 @@ export const DataTableStatusOnlyExample = ({
 }) => {
   const size = React.useContext(ResponsiveContext);
   const [pageDetails, setPageDetails] = React.useState({});
-  console.log(pageDetails);
   const { name, id, ...adjustedPageDetails } = pageDetails;
 
   return !pageDetails.id ? (
