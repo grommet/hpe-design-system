@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, NameValueList, NameValuePair } from 'grommet';
-import { StatusGood, InProgress } from '@grommet-design/icons-grommet';
+import { StatusGood, InProgress } from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 import { iconNameData } from '../data';
 

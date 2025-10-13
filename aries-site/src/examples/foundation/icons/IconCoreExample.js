@@ -24,7 +24,7 @@ import {
   Search,
   Subtract,
   Trash,
-} from '@grommet-design/icons-grommet';
+} from '@hpe-design/icons-grommet';
 import { TextEmphasis } from 'aries-core';
 
 const CoreIcon = ({ Icon, name, aliases, guidance }) => (
